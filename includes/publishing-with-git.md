@@ -1,0 +1,282 @@
+# Publicando a partir do controle do código-fonte nos Sites do Windows Azure
+
+Os Sites do Windows Azure oferecem suporte à implantação contínua a partir do controle do código-fonte e ferramentas de repositório, como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu site e enviar as alterações de forma rápida e fácil ao seu site quando desejar.
+
+Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em um Site do Windows Azure (no Windows Azure, esse método de publicação é chamado de **Git local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Windows Azure por meio do Team Foundation Service].
+
+<div class="dev-callout">
+<strong>Observação</strong>
+<p>Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um Site usando as <a href="/pt-br/develop/nodejs/how-to-guides/command-line-tools/">ferramentas de linha de comando do Windows Azure para Mac e Linux</a>.</p>
+</div>
+
+A tarefa inclui as seguintes etapas:
+
+* [Instalar o Git.](#Step1)
+* [Criar um repositório local](#Step2)
+* [Adicionar uma página da web](#Step3)
+* [Habilitar o repositório de site](#Step4)
+* [Implantar o seu projeto](#Step5)
+	* [Copiar arquivos locais para o Windows Azure (Git Local)](#Step6)
+	* [Implantar arquivos de um site de repositório como BitBucket, CodePlex, recados, GitHub ou Mercurial](#Step7)
+* [Solucionar problemas](#Step8)
+
+<h2><a id="Step2"></a>Instalando o Git</h2>
+
+As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
+
+<div class="dev-callout">
+<strong>Observação</strong>
+<p>Em alguns sistemas operacionais, uma versão de linha de comando e outra com GUI do Git serão disponibilizados. As instruções fornecidas neste artigo usam a versão de linha de comando.</p>
+</div>
+
+<h2><a id="Step2"></a>Criar um repositório local</h2>
+
+Execute as seguintes tarefas para criar um novo repositório do Git.
+
+1. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
+
+2. Na linha de comando, altere para o diretório no qual você irá criar o seu site. Por exemplo, `cd needsmoregit`.
+
+3. Use o seguinte comando para inicializar um novo repositório do Git:
+
+		git init
+
+	Isso deve retornar uma mensagem como **Inicializou vazio no repositório do Git em [path]**.
+
+<h2><a id="Step3"></a>Adicionar uma página da web</h2>
+
+Os Sites do Windows Azure oferecem suporte a aplicativos criados em uma variedade de linguagens de programação. Para este exemplo, você usará um arquivo .html estático. Para obter informações sobre a publicação de sites em outras linguagens de programação no Windows Azure, consulte o [Windows Azure Developer Center]
+
+1. Usando um editor de texto, crie um novo arquivo chamado **index.html** na raiz do repositório do Git. Adicione 'Olá, Git!' como conteúdo e, em seguida, salve o arquivo.
+
+2. Na linha de comando, certifique-se de estar no diretório no qual você criou o repositório e use o seguinte comando para adicionar o arquivo **index.html** no repositório:
+
+		git add index.html 
+
+3. Em seguida, confirme as alterações no repositório usando o comando a seguir:
+
+		git commit -m "Adding index.html to the repository"
+
+	Você deverá ver uma saída semelhante ao seguinte:
+
+		[master (root-commit) 369a79c] Adicionando index.html ao repositório
+		 1 arquivo alterado, 1 inserção(+)
+		 create mode 100644 index.html
+
+<h2><a id="Step4"></a>Habilitar o repositório de site</h2>
+
+Execute as seguintes etapas para ativar um repositório do Git em seu site usando o portal do Windows Azure:
+
+1. Faça logon no [portal do Windows Azure].
+
+2. No lado esquerdo da página, selecione **Sites da Web**e, em seguida, selecione o site no qual você deseja ativar um repositório.
+
+	![Uma imagem exibindo um site selecionado][portal-select-website]
+
+3. Na seção **Visão Rápida**, selecione **Configurar a implantação a partir do controle de origem**.  Uma caixa de diálogo **Configurar implantação** é exibida com a seguinte mensagem: **Onde está o código-fonte?**.
+
+	![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
+
+4. Escolha **Git local** e, em seguida, clique na seta **Avançar**.
+
+	
+5. Após um pequeno intervalo, deverá aparecer uma mensagem informando que o seu repositório está pronto. 
+	![git-instructions][git-instructions]
+
+<h2><a id="Step5"></a>Implantar o seu projeto</h2>
+
+<h3><a id="Step6"></a>Copiar arquivos locais para o Windows Azure (Git Local)</h3>
+
+Como você já inicializou um repositório local e adicionou arquivos a ele, ignore as etapas 1 e 2 das instruções exibidas no portal. Usando a linha de comando, altere os diretórios para o diretório do seu site e use os comandos listados na etapa 3 das instruções apresentadas pelo portal. Por exemplo:
+
+		git remote add azure http://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
+
+
+O comando **remote** adiciona uma referência nomeada a um repositório remoto. Neste caso, ele cria uma referência denominada 'azure' para o repositório do seu site do Windows Azure.
+
+<h4>Publicar e publicar novamente o site da web</h4>
+
+1. Use o seguinte da linha de comando para transferir o conteúdo do repositório atual do repositório local para o "azure" remoto:
+
+		git push azure master
+
+	Será solicitada senha que você criou anteriormente ao configurar o seu repositório. Digite a senha (o Gitbash não ecoa asteriscos no console à medida que você digita a senha) e você deverá ver uma saída semelhante à seguinte:
+
+		Contagem de objetos: 6, concluído.
+		Compactar objetos: 100% (2/2), concluído.
+		Gravar objetos: 100% (6 6), 486 bytes, concluído.
+		Total 6 (delta 0), reutilizado 0 (delta 0)
+		remote: nova implantação recebida.
+		remote: atualizando a ramificação 'master'.
+		remoto: preparando a implantação para a id de confirmação '369a79c929'.
+		remote: preparação de arquivos para implantação.
+		remote: implantação bem-sucedida.
+		Para http://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
+		* [nova ramificação]		master -> master
+
+	<div class="dev-callout">
+	<strong>Observação</strong>
+	<p>O repositório criado para o seu site do Windows Azure espera solicitações de envio para o destino da ramificação <strong>mestre</strong> do repositório, que será usada como o conteúdo do site da web.</p>
+	</div>
+
+2. No portal, clique no link **NAVEGAR** na parte inferior do portal para verificar se o **index. html** foi implantado. Será exibida uma página contendo 'Hello Git!'.
+
+	![Uma página da Web contendo 'Hello Git!'][hello-git]
+
+3. Usando um editor de texto, altere o arquivo **index.html** de modo que ele contenha 'Sim!' e, em seguida, salve o arquivo.
+
+4. Use os seguintes comandos na linha de comando para **add** (adicionar) e **commit** (confirmar) as alterações e, em seguida, **push** (envie) as alterações para o repositório remoto:
+
+		git add index.html
+		git commit -m "Celebration"
+		git push azure master
+
+	Uma vez que o **push** foi concluído, atualize o navegador (você terá que pressionar Ctrl + F5 para o navegador para atualizar corretamente) e observe que o conteúdo da página agora reflete as últimas mudanças de confirmação.
+
+	![Uma página da Web contendo 'Sim'!][yay]
+
+<h3><a id="Step7"></a>Implantar arquivos de um site de repositório como BitBucket, CodePlex, recados, GitHub ou Mercurial</h3>
+
+Copiar arquivos locais do Windows Azure usando Git local permite que você envie atualizações manualmente de um projeto local para o Site do Windows Azure ao implantar do BitBucket, CodePlex, recados, GitHub ou Mercurial. Isso resulta em um processo de implantação contínua no qual o Windows Azure irá receber as atualizações mais recentes do seu projeto.
+
+Enquanto ambos os métodos resultam na implantação do seu projeto em um Site do Windows Azure, a implantação contínua é útil quando você tem várias pessoas trabalhando em um projeto e deseja ter certeza de que a versão mais recente é sempre publicada, independentemente de quem fez a atualização mais recente. A implantação contínua também é útil se você estiver usando uma das ferramentas mencionadas acima como o repositório central do seu aplicativo.
+
+A implantação de arquivos do GitHub, CodePlex ou BitBucket requer que você tenha publicado seu projeto local em um desses serviços. Para obter mais informações sobre a publicação de seu projeto nesses serviços, consulte [Criar um Repo (GitHub)], [Usando Git com CodePlex], [Criar um Repo (BitBucket)], [Usando o Dropbox para compartilhar repositórios do Git], ou [Início rápido: Mercurial].
+
+1. Após o site projeto ter sido enviado a um site de repositório, no seção **Visão Rápida** do Portal do Windows Azure, selecione **Configurar a implantação a partir do controle de origem**.  A caixa de diálogo **Configurar implantação** é exibida com a seguinte mensagem: **Onde está o código-fonte?**. 
+
+2. Escolha o método de controle do código-fonte que você está usando.
+	
+3. Quando solicitado, insira suas credenciais para o serviço selecionado.
+
+4. Após autorizar o Windows Azure a acessar sua conta, será apresentada uma lista de repositórios. 
+
+	![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
+  
+5. Selecione o repositório com o qual você deseja associar seu site do Windows Azure. Clique na marca de seleção para continuar.
+
+	<div class="dev-callout">
+	<strong>Observação</strong>
+	<p>Ao habilitar a implantação contínua com GitHub ou BitBucket, os projetos públicos e privados serão exibidos.</p>
+</div>
+
+6. O Windows Azure criará uma associação com o repositório selecionado e extrairá os arquivos a partir da ramificação mestre. Depois que esse processo for concluído, o **histórico de implantação** da página **Implantações** exibirá uma mensagem da **Implantação Ativa** da seguinte maneira:
+
+	![git-githubdeployed][git-githubdeployed]
+
+7. Nesse ponto, seu projeto foi implantado do seu repositório de escolha no site do Windows Azure. Para verificar se o site está ativo, clique no link **Navegar** na parte inferior do portal. O navegador deve acessar o site.
+
+8. Para verificar se a implantação contínua está ocorrendo, faça uma alteração ao seu projeto e envie a atualização para o repositório que você associou com este site. Seu seu site deve ser atualizado para refletir as alterações logo após a conclusão do envio para o repositório. Você pode verificar se ele recebeu a atualização na página **Implantações** do seu Site.
+
+	![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
+
+
+<h4>Como funciona a implantação contínua</h4>
+A implantação contínua funciona fornecendo a **URL DO GATILHO DA IMPLANTAÇÃO** encontrada na seção **implantações** da guia **Configurar** do seu site.
+
+![git-DeploymentTrigger][git-DeploymentTrigger]
+
+Quando as atualizações são feitas ao seu repositório, é enviada uma solicitação POST para esta URL, que notifica o Site do Windows Azure de que o repositório foi atualizado. Nesse ponto, ele recuperará a atualização e a implantará ao seu site.
+
+<h4>Especificando a ramificação a ser usada</h4>
+
+Quando você habilitar a implantação contínua, o padrão será a ramificação **mestre** do repositório. Se quiser usar uma ramificação diferente, execute as seguintes etapas:
+
+1. No portal, selecione seu site e, em seguida, selecione **CONFIGURAR**.
+
+2. Na seção **implantações** da página, insira a ramificação que você deseja usar no campo **RAMIFICAÇÃO PARA IMPLANTAR** e pressione enter. Por fim, clique em **SALVAR**.
+
+	O Windows Azure deve começar imediatamente a atualização com base nas alterações para a nova ramificação.
+
+<h4>Desabilitar a implantação contínua</h4>
+
+A implantação contínua pode ser desabilitada do **Painel** do Windows Azure. Na seção **visão rápida**, escolha a opção de desconectar do repositório que você está usando:
+
+![git-DisconnectFromGitHub][git-DisconnectFromGitHub]	
+
+Depois de responder a **Sim** na mensagem de confirmação, você poderá retornar à **visão rápida** e clicar em **Configurar a implantação a partir do controle de origem** se você deseja configurar a publicação de outra fonte.
+
+<h2><a id="Step8"></a>Solucionar problemas</h2>
+
+Estes são erros ou problemas comumente encontrados ao usar o Git para publicar em um site do Windows Azure:
+
+****
+
+**Sintoma**: não foi possível resolver o nome de host 'host'
+
+**Causa**: este erro pode ocorrer se as informações de endereço inseridas ao criar o azure remoto estiverem incorretas.
+
+**Resolução**: usar o comando 'git remote - v' para listar todos os comandos remote, juntamente com a URL associada. Verifique se a URL do remote do 'azure' está correta. Se necessário, remova e recrie esse remote usando a URL correta.
+
+****
+
+**Sintoma**: não há referências em comum e nenhum especificado; fazendo nada. Talvez você deva especificar uma ramificação como 'mestre'.
+
+**Causa**: este erro pode ocorrer se você não especificar uma ramificação ao executar uma operação de envio de git e não tiver definido o valor de push.default usado pelo Git.
+
+**Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo:
+
+	git push azure master
+
+****
+
+**Sintoma**: src refspec [branchname] não corresponde a nada.
+
+**Causa**: este erro pode ocorrer se você tentar enviar para uma ramificação que não seja a mestre no remote 'azure'.
+
+**Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo:
+
+	git push azure master
+
+****
+
+**Sintoma**: erro - alterações confirmadas para o repositório remoto mas o site não atualizado.
+
+**Causa**: este erro pode ocorrer se você estiver implantando um aplicativo do Node. js que contém um arquivo package.json que especifica módulos adicionais necessários.
+
+**Resolução**: mensagens adicionais contendo 'npm ERR!' devem ser registradas antes deste erro e podem fornecer contexto adicional sobre a falha. A seguir estão as causas conhecidas desse erro e a mensagem 'npm ERR!' correspondente:
+
+* **Arquivo malformado package.json**: npm ERR! Não foi possível ler as dependências.
+
+* **Um módulo nativo que não tenha uma distribuição binária para o Windows**:
+
+	* npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+
+		OU
+
+	* npm ERR! [modulename@version] preinstall: \`make || gmake\`
+
+
+## Recursos adicionais
+
+* [Como usar o PowerShell para o Windows Azure]
+* [Como usar as ferramentas de linha de comando do Windows Azure para Mac e Linux]
+* [Documentação de Git]
+
+[Windows Azure Developer Center (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/overview/
+[Portal do Windows Azure]: http://manage.windowsazure.com
+[Site do Git]: http://git-scm.com
+[Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Como usar o PowerShell para Windows Azure]: http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Como usar as ferramentas de linha de comando do Windows Azure para Mac e Linux]: /pt-br/develop/nodejs/how-to-guides/command-line-tools/
+[Documentação do Git]: http://git-scm.com/documentation
+
+[portal-select-website]: ./media/publishing-with-git/git-select-website.png
+[git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
+[git-instructions]: ./media/publishing-with-git/git-instructions.png
+[portal-deployment-credentials]: ./media/publishing-with-git/git-deployment-credentials.png
+
+[git-ChooseARepositoryToDeploy]: ./media/publishing-with-git/git-ChooseARepositoryToDeploy.png
+[hello-git]: ./media/publishing-with-git/git-hello-git.png
+[yay]: ./media/publishing-with-git/git-yay.png
+[git-githubdeployed]: ./media/publishing-with-git/git-GitHubDeployed.png
+[git-GitHubDeployed-Updated]: ./media/publishing-with-git/git-GitHubDeployed-Updated.png
+[git-DisconnectFromGitHub]: ./media/publishing-with-git/git-DisconnectFromGitHub.png
+[git-DeploymentTrigger]: ./media/publishing-with-git/git-DeploymentTrigger.png
+[Criar um Repo (GitHub)]: https://help.github.com/articles/create-a-repo
+[Usando Git com CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
+[Criar um Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[Início Rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
+[Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
+[Fornecimento contínuo para o Windows Azure usando o Team Foundation Service]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/publishing-with-tfs/
+
