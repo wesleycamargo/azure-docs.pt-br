@@ -477,7 +477,7 @@ O método readCustomer() acessará o Azure hospedado do cluster e exibirá o tre
 	   con.shutdown();
 	} 
 
-Modify  casdemo.js to add the above function and call it after commenting the previously called createKeyspace() method as shown below:
+Modifique casdemo.js para adicionar a função acima e chamá-la depois de comentar o método createKeyspace() chamado anteriormente, conforme mostrado abaixo:
 
 	casdemo.js: 
 	var pooledCon = require('cassandra-client').PooledConnection;
