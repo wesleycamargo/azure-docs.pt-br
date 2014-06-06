@@ -1,6 +1,6 @@
-Você pode se inscrever em um banco de dados MongoDB hospedado pelo Azure, totalmente gerenciado na Windows Azure Store. Para fazer isso, siga estas etapas:
+Você pode se inscrever em um banco de dados MongoDB hospedado pelo Azure, totalmente gerenciado na Azure Store. Para fazer isso, siga estas etapas:
 
-1. Faça logon no Portal de Gerenciamento do Windows Azure.
+1. Faça logon no Portal de Gerenciamento do Azure.
 1. Clique em **Novo**.  
 ![Novo][button-new]
 1. Selecione **Armazenamento**.  
@@ -23,7 +23,7 @@ Você pode se inscrever em um banco de dados MongoDB hospedado pelo Azure, total
 Quando o provisionamento for concluído, será exibida uma mensagem de sucesso.  
 ![SuccessMessage][message-success]
 
-Parabéns! O MongoLab forneceu apenas um banco de dados MongoDB na região do Windows Azure que você selecionou. Agora você tem acesso à nossa interface de usuário de gerenciamento e ao suporte 24/7.
+Parabéns! O MongoLab forneceu apenas um banco de dados MongoDB na região do Azure que você selecionou. Agora você tem acesso à nossa interface de usuário de gerenciamento e ao suporte 24/7.
 
 [button-new]: ./media/howto-provision-mongolab/button-new.png
 [button-store]: ./media/howto-provision-mongolab/button-store.png

@@ -1,9 +1,9 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
-**Importante**: se você deseja que uma máquina virtual use uma rede virtual, você deve especificar a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Windows Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063)
+**Importante**: se você deseja que uma máquina virtual use uma rede virtual, você deve especificar a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063)
 
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure][AzurePreviewPortal] usando sua conta do Windows Azure.
+1. Faça logon no [Portal de Gerenciamento do Azure][AzurePreviewPortal] usando sua conta do Azure.
 
 2. No Portal de Gerenciamento, na parte inferior esquerda da página da Web, clique em **+Novo**, clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
 
@@ -31,7 +31,7 @@
 	
 6. Na página **Opções da Máquina Virtual**, selecione **(nenhum)** na caixa **Conjunto de Disponibilidade**. Clique na marca de seleção para continuar.
 	
-7. Aguarde enquanto o Windows Azure prepara sua máquina virtual.
+7. Aguarde enquanto o Azure prepara sua máquina virtual.
 
 ##Configurar pontos de extremidade
 Uma vez que a máquina virtual é criada, você deveconfigure pontos de extremidade para se conectar remotamente.

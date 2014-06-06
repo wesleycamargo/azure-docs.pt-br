@@ -1,7 +1,7 @@
 
-# Gerenciando o Banco de Dados SQL do Windows Azure usando o SQL Server Management Studio 
+# Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio 
 
-Você pode usar o Portal de gerenciamento de banco de dados do Windows Azure SQL ou o aplicativo de cliente do SQL Server Management Studio (SSMS) para administrar suas assinaturas de banco de dados SQL e criar e gerenciar servidores lógicos e bancos de dados está associada. O guia a seguir descreve como usar o Management Studio para gerenciar bancos de dados e servidores lógicos do banco de dados SQL. Para obter informações sobre como usar conexões de banco de dados SQL no código do aplicativo, consulte [como usar o banco de dados do Windows Azure SQL][]
+Você pode usar o Portal de gerenciamento de banco de dados do Azure SQL ou o aplicativo de cliente do SQL Server Management Studio (SSMS) para administrar suas assinaturas de banco de dados SQL e criar e gerenciar servidores lógicos e bancos de dados está associada. O guia a seguir descreve como usar o Management Studio para gerenciar bancos de dados e servidores lógicos do banco de dados SQL. Para obter informações sobre como usar conexões de banco de dados SQL no código do aplicativo, consulte [como usar o banco de dados do Azure SQL][]
 
 <div class="dev-callout-new-collapsed">
 <strong>Nota <span>clique para recolher</span></strong>
@@ -20,7 +20,7 @@ Esta tarefa inclui as seguintes etapas:
 
 <h2><a id="Step1" name="Step1"> </a>Etapa 1: Obter o Management Studio</h2>
 
-O Management Studio é um ambiente integrado para gerenciar bancos de dados SQL. Ao gerenciar bancos de dados no Windows Azure, você pode usar o aplicativo do Management Studio instalado com o SQL Server ou baixar a versão gratuita do SQL Server 2012 Management Studio Express (SSMSE). As etapas a seguir descrevem como instalar SSMSE.
+O Management Studio é um ambiente integrado para gerenciar bancos de dados SQL. Ao gerenciar bancos de dados no Azure, você pode usar o aplicativo do Management Studio instalado com o SQL Server ou baixar a versão gratuita do SQL Server 2012 Management Studio Express (SSMSE). As etapas a seguir descrevem como instalar SSMSE.
 
 1.  Sobre o [Microsoft SQL Server 2012 Express][] página, selecione o x86 versão do Management Studio se você estiver executando um sistema operacional de 32 bits ou x64, se você estiver executando um sistema operacional de 64 bits. Clique em **Download**, e quando solicitado, execute a instalação.
 
@@ -41,9 +41,9 @@ O Management Studio é um ambiente integrado para gerenciar bancos de dados SQL.
 
 <h2><a id="Step2" name="Step2"> </a>Etapa 2: Conectar-se ao banco de dados SQL</h2>
 
-Conectando ao banco de dados SQL requer que você saiba o nome do servidor no Windows Azure. Talvez seja necessário entrar no portal para obter essa informação.
+Conectando ao banco de dados SQL requer que você saiba o nome do servidor no Azure. Talvez seja necessário entrar no portal para obter essa informação.
 
-1.  Entre no [Portal de Gerenciamento do Windows Azure][].
+1.  Entre no [Portal de Gerenciamento do Azure][].
 
 2.  No painel esquerdo de navegação, clique em **Bancos de Dados SQL**.
 
@@ -70,7 +70,7 @@ Conectando ao banco de dados SQL requer que você saiba o nome do servidor no Wi
 1.  Na barra de tarefas, clique em **iniciar**, aponte para **todos os programas**, aponte para
     **Microsoft SQL Server 2012**e, em seguida, clique em **SQL Server Management Studio**
 
-2.  Em **Conectar-se ao servidor**, especifique o nome do servidor totalmente qualificado como *serverName*. database.windows.net. No Windows Azure, o nome do servidor é uma sequência de gerado automaticamente composta por caracteres alfanuméricos.
+2.  Em **Conectar-se ao servidor**, especifique o nome do servidor totalmente qualificado como *serverName*. database.windows.net. No Azure, o nome do servidor é uma sequência de gerado automaticamente composta por caracteres alfanuméricos.
 
 3.  Selecione **Autenticação do SQL Server**.
 
@@ -81,11 +81,11 @@ Conectando ao banco de dados SQL requer que você saiba o nome do servidor no Wi
 
 8.  Clique em **Conectar** para estabelecer a conexão.
 
-No Windows Azure, cada servidor lógico do banco de dados SQL é uma abstração que define um agrupamento de bancos de dados. O local físico de cada banco de dados pode estar em qualquer computador no data center. 
+No Azure, cada servidor lógico do banco de dados SQL é uma abstração que define um agrupamento de bancos de dados. O local físico de cada banco de dados pode estar em qualquer computador no data center. 
 
 Nas versões anteriores, você precisava se conectar diretamente ao **mestre** ao configurar a conexão no Management Studio. Essa etapa não é necessária. Conexões agora funcionará com base no nome do servidor, tipo de autenticação e as credenciais de administrador.
 
-Muitos dos assistentes SSMS que você pode usar para tarefas como criar e modificar logons e bancos de dados em um banco de dados do SQL Server não estão disponíveis para bancos de dados SQL no Windows Azure, portanto você precisará utilizar instruções Transact-SQL para executar essas tarefas. As etapas a seguir fornecem exemplos dessas instruções. Para obter mais informações sobre como usar o Transact-SQL com o banco de dados SQL, incluindo detalhes sobre quais comandos são suportados, consulte [referência Transact-SQL (SQL Database)][]
+Muitos dos assistentes SSMS que você pode usar para tarefas como criar e modificar logons e bancos de dados em um banco de dados do SQL Server não estão disponíveis para bancos de dados SQL no Azure, portanto você precisará utilizar instruções Transact-SQL para executar essas tarefas. As etapas a seguir fornecem exemplos dessas instruções. Para obter mais informações sobre como usar o Transact-SQL com o banco de dados SQL, incluindo detalhes sobre quais comandos são suportados, consulte [referência Transact-SQL (SQL Database)][]
 
 <h2><a id="Step3" name="Step3"> </a>Etapa 3: Criar e gerenciar os bancos de dados</h2>
 
@@ -135,14 +135,14 @@ O banco de dados mestre controla logons e quais logons tem permissão para criar
 **CREATE LOGIN**, **ALTER LOGIN**, ou **DROP LOGIN** instruções para executar consultas no banco de dados mestre que gerenciarão logons em todo o servidor. Para obter mais informações, consulte [gerenciamento de bancos de dados e logons no banco de dados SQL][] 
 
 
-- Use a declaração **CREATE LOGIN** para criar um novo login em nível de servidor. Para obter mais informações, consulte [CREATE LOGIN (Banco de Dados SQL)][]. A instrução a seguir cria um novo logon chamado **login1** Substituir **password1** com a senha de sua escolha.
+-   Use a declaração **CREATE LOGIN** para criar um novo login em nível de servidor. Para obter mais informações, consulte [CREATE LOGIN (Banco de Dados SQL)][]. A instrução a seguir cria um novo logon chamado **login1** Substituir **password1** com a senha de sua escolha.
 
         CREATE LOGIN login1 WITH password='password1';
 
--Use o **CREATE USER** banco de dados-nível de instrução para conceder permissões. Todos os logons devem ser criados no **mestre** de banco de dados, mas para um logon para se conectar a um banco de dados diferente, você deve conceder a ele nível banco de dados permissões usando o **CREATE USER**
+-   Use o **CREATE USER** banco de dados-nível de instrução para conceder permissões. Todos os logons devem ser criados no **mestre** de banco de dados, mas para um logon para se conectar a um banco de dados diferente, você deve conceder a ele nível banco de dados permissões usando o **CREATE USER**
     instrução nesse banco de dados. Para obter mais informações, consulte [CREATE USER (Banco de Dados SQL)][]. 
 
--Para dar login1
+-   Para dar login1
     permissões para um banco de dados chamado **myTestDB**, execute as seguintes etapas:
 
     1.  Atualizar o Gerenciador de objeto para exibir o **myTestDB** banco de dados que você acabou de criar. Ela deve aparecer abaixo do **bancos de dados do sistema** pasta contém **mestre**  
@@ -228,9 +228,9 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
 * [Monitorando o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico][]   
 * [Modelo de provisionamento de Banco de Dados SQL][]   
 * [Adicionar usuários ao seu Banco de Dados SQL][]   
-* [Referência Transact-SQL (Banco de Dados SQL)][]
+* [referência Transact-SQL (SQL Database)][]
 
-  [Como usar o Banco de Dados SQL do Windows Azure]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/sql-azure/
+  [como usar o banco de dados do Azure SQL]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/sql-azure/
   [Etapa 1: Obter o SQL Server Management Studio]: #Step1
   [Etapa 2: Conectar-se ao Banco de Dados SQL]: #Step2
   [Etapa 3: Criar e gerenciar os bancos de dados]: #Step3
@@ -241,11 +241,11 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
   [Instalador do SSMS - selecione o tipo de instalação]: /media/installer_installation_type.png
   [Instalador do SSMS - selecione os recursos]: /media/installer_feature_selection.png
   [Instalador do SSMS - instalação completa]: /media/installer_completed.png
-  [Portal de Gerenciamento do Windows Azure]: http://manage.windowsazure.com/
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
   [Obter o nome do servidor de Banco de Dados SQL do Portal de gerenciamento]: /media/portal_get_database_name.png
   [Connect-se ao SSMS]: /media/ssms_connect.png
   [Conecte-se ao SSMS -- propriedades]: /media/ssms_connect_properties.png
-  [Referência Transact-SQL (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336281.aspx
+  [referência Transact-SQL (SQL Database)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336281.aspx
   [CREATE DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336274.aspx
   [ALTER DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff394109.aspx
   [DROP DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336259.aspx

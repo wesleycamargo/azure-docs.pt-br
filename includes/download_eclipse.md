@@ -1,4 +1,4 @@
-##Plug-in do Windows Azure para Eclipse com Java (pela Microsoft Open Technologies)
+##Plug-in do Azure para Eclipse com Java (pela Microsoft Open Technologies)
 
 Pré-requisitos:
 
@@ -11,6 +11,6 @@ Etapas de instalação:
 2. Digite o local do site <http://dl.msopentech.com/eclipse> e pressione **Enter**.
 3. Selecione os itens a serem instalados e clique em **Concluir**.
 
-Este plug-in usa a versão mais recente do SDK do Windows Azure. Isso pode ser baixado usando o Web Platform Installer (WebPI) em <http://go.microsoft.com/fwlink/?LinkID=252838>. No entanto, se você não tiver instalado, quando você criar o seu primeiro projeto de implantação do Windows Azure, o plug-in do Windows Azure para Eclipse com Java (pela Microsoft Open Technologies) instalará automaticamente a versão apropriada do SDK do Windows Azure. 
+Este plug-in usa a versão mais recente do SDK do Azure. Isso pode ser baixado usando o Web Platform Installer (WebPI) em <http://go.microsoft.com/fwlink/?LinkID=252838>. No entanto, se você não tiver instalado, quando você criar o seu primeiro projeto de implantação do Azure, o plug-in do Azure para Eclipse com Java (pela Microsoft Open Technologies) instalará automaticamente a versão apropriada do SDK do Azure. 
 
 

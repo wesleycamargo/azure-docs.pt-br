@@ -1,18 +1,18 @@
-#Guia de segurança do Windows Azure
+#Guia de segurança do Azure
 
 ##Resumo
 
-Ao desenvolver aplicativos para o Windows Azure, identidade e acesso são as principais preocupações sobre segurança que você precisa ter em mente.
+Ao desenvolver aplicativos para o Azure, identidade e acesso são as principais preocupações sobre segurança que você precisa ter em mente.
 Este tópico explica as questões de segurança relacionadas a identidades e acesso na nuvem e como você pode proteger melhor seus aplicativos em nuvem.
 
 ##Visão geral
 
 A segurança do aplicativo é uma função de sua superfície. Quanto mais superfície o aplicativo expõe, maiores as preocupações com a segurança. Por exemplo, um aplicativo que é executado como um processo em lote autônomo expõe menos, de uma perspectiva de segurança, do que um site disponível publicamente.
 
-Quando você vai para a nuvem, você ganha uma determinada tranquilidade sobre a infraestrutura e a rede, já que esses itens são gerenciados em datacenters com práticas de segurança de classe mundial, ferramentas e tecnologia. Por outro lado, a nuvem intrinsecamente expõe mais área de superfície para o seu aplicativo, que pode ser potencialmente explorado por usuários mal-intencionados. Isso ocorre porque muitas tecnologias em nuvem e os serviços são expostos como pontos de extremidade versus componentes de memória. O armazenamento do Windows Azure, Service Bus, Banco de Dados SQL (anteriormente o SQL Azure) e muitos outros serviços podem ser acessados por meio de seus pontos de extremidade durante a transmissão.
+Quando você vai para a nuvem, você ganha uma determinada tranquilidade sobre a infraestrutura e a rede, já que esses itens são gerenciados em datacenters com práticas de segurança de classe mundial, ferramentas e tecnologia. Por outro lado, a nuvem intrinsecamente expõe mais área de superfície para o seu aplicativo, que pode ser potencialmente explorado por usuários mal-intencionados. Isso ocorre porque muitas tecnologias em nuvem e os serviços são expostos como pontos de extremidade versus componentes de memória. O armazenamento do Azure, Service Bus, Banco de Dados SQL (anteriormente o SQL Azure) e muitos outros serviços podem ser acessados por meio de seus pontos de extremidade durante a transmissão.
 
 Em aplicativos de nuvem existe mais responsabilidade sobre os ombros dos desenvolvedores de aplicativos para criar, desenvolver e manter seus aplicativos em nuvem de acordo com padrões de alta segurança para manter os atacantes afastados.
-Considere o diagrama a seguir (de J.D. Do Meier [PDF de notas de segurança do Windows Azure (pode estar em inglês)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)): observe como a parte de infraestrutura está sendo abordada pelo provedor de nuvem (em nosso caso, o Windows Azure), deixando mais trabalho de segurança para os desenvolvedores de aplicativos:
+Considere o diagrama a seguir (de J.D. Do Meier [PDF de notas de segurança do Azure (pode estar em inglês)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)): observe como a parte de infraestrutura está sendo abordada pelo provedor de nuvem (em nosso caso, o Azure), deixando mais trabalho de segurança para os desenvolvedores de aplicativos:
 
 ![Protegendo o aplicativo][01]
 
@@ -25,7 +25,7 @@ A boa notícia é que todas as práticas de desenvolvimento de segurança, princ
 
 Para obter uma lista completa de ameaças, ataques, vulnerabilidades contramedidas, consulte em patterns & practices: [folha de cola: quadro de segurança de aplicativo da Web](http://msdn.microsoft.com/pt-br/library/ff649461.aspx) e [Guia de Segurança para Índice de Aplicativos (as páginas podem estar em português)](http://msdn.microsoft.com/pt-br/library/ff650760.aspx)
 
-Na nuvem, autenticação e mecanismos de controle de acesso são muito diferentes daqueles disponíveis para aplicativos locais. Há muitos mais opções de autenticação e acesso oferecidas para aplicativos em nuvem que podem levar a uma confusão e, consequentemente, a implementações defeituosas. Acontece mais confusão quando se define o que é um aplicativo em nuvem. Por exemplo, o aplicativo pode ser implantado na nuvem e seu mecanismo de autenticação pode ser fornecido pelo Active Directory. Por outro lado, o aplicativo pode ser implantado no local, mas com mecanismos de autenticação na nuvem (por exemplo, pelo Access Control do Active Directory do Windows Azure (anteriormente conhecido como Serviço do Access Control ou ACS)).
+Na nuvem, autenticação e mecanismos de controle de acesso são muito diferentes daqueles disponíveis para aplicativos locais. Há muitos mais opções de autenticação e acesso oferecidas para aplicativos em nuvem que podem levar a uma confusão e, consequentemente, a implementações defeituosas. Acontece mais confusão quando se define o que é um aplicativo em nuvem. Por exemplo, o aplicativo pode ser implantado na nuvem e seu mecanismo de autenticação pode ser fornecido pelo Active Directory. Por outro lado, o aplicativo pode ser implantado no local, mas com mecanismos de autenticação na nuvem (por exemplo, pelo Access Control do Active Directory do Azure (anteriormente conhecido como Serviço do Access Control ou ACS)).
 
 ##Ameaças, vulnerabilidades e ataques
 
@@ -42,8 +42,8 @@ Uma ameaça é um resultado potencial incorreto que você deseja evitar, como a 
 Vulnerabilidades são bugs que nós, como desenvolvedores, inserimos no código, fazendo com que um aplicativo possa ser explorado por invasores. Por exemplo, enviar dados confidenciais em formato de texto não criptografado possibilita uma ameaça de divulgação de informações por um ataque de detecção de tráfego.
 
 Os ataques são a exploração dessas vulnerabilidades de causar danos a um aplicativo. Por exemplo, um script entre sites, ou XSS, é um ataque que explora saída não corrigida. Outro exemplo é espionagem de rede para capturar as credenciais enviadas em formato de texto não criptografado. Esses ataques podem levar à realização de uma ameaça de falsificação de identidade. Para simplificar, considere ameaças, vulnerabilidades e ataques como coisas ruins.
-Considere os diagramas a seguir como um modo de exibição geral das coisas ruins relacionadas a uma aplicação Web implantada em Windows Azure (de J.D.
-Do Meier [PDF de observações de segurança do Windows Azure (a página pode estar em inglês)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
+Considere os diagramas a seguir como um modo de exibição geral das coisas ruins relacionadas a uma aplicação Web implantada em Azure (de J.D.
+Do Meier [PDF de observações de segurança do Azure (a página pode estar em inglês)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
 
 ![Ameaças, vulnerabilidades e ataques][02]
 
@@ -51,13 +51,13 @@ Você, como desenvolvedor, tem controle sobre as vulnerabilidades. Quanto menos 
 
 Vulnerabilidades relacionadas a acesso e identidade o tornam suscetível a todas as ameaças do modelo STRIDE. Por exemplo, um mecanismo de autenticação implementado de forma imprópria pode levar a uma falsificação da identidade e, como consequência, divulgação de informações, violação de dados, operações de privilégios elevados ou até mesmo encerrar completamente o serviço. Considere as seguintes questões que podem apontar para possíveis vulnerabilidades na identidade do seu aplicativo em nuvem e na implementação do acesso:
 
-- Você está enviando credenciais em formato de texto não criptografado durante a transmissão para os serviços do Windows Azure?
-- Você armazena credenciais de serviços do Windows Azure em formato de texto não criptografado?
-- Suas credenciais de serviços do Windows Azure seguem as diretivas de senha forte?
-- Você utiliza o Windows Azure para verificar credenciais versus
+- Você está enviando credenciais em formato de texto não criptografado durante a transmissão para os serviços do Azure?
+- Você armazena credenciais de serviços do Azure em formato de texto não criptografado?
+- Suas credenciais de serviços do Azure seguem as diretivas de senha forte?
+- Você utiliza o Azure para verificar credenciais versus
     uso de mecanismos de verificação personalizada?
-- Você limita a vida útil dos tokens ou as sessões autenticação de serviços do Windows Azure em um período de tempo razoável?
-- Você verifica as permissões de cada ponto de entrada do Windows Azure do seu aplicativo em nuvem distribuído?
+- Você limita a vida útil dos tokens ou as sessões autenticação de serviços do Azure em um período de tempo razoável?
+- Você verifica as permissões de cada ponto de entrada do Azure do seu aplicativo em nuvem distribuído?
 - Seus mecanismos de autorização falham com segurança sem expor informações confidenciais ou sem permitir acesso ilimitado?
 
 ##Contramedidas
@@ -71,7 +71,7 @@ A melhor contramedida contra um ataque é usar os mecanismos de acesso e identid
 -   [Tempo de execução do Windows Identity Foundation (.Net 3.5/4.0)](http://www.microsoft.com/pt-br/download/details.aspx?id=17331) no MSDN.
 -   [Exemplos do Windows Identity Foundation 3.5/4.0 e modelos do Visual Studio 2008/2010](http://www.microsoft.com/pt-br/download/details.aspx?displaylang=en&id=4451) no MSDN.
 
-**Access Control do AD do Windows Azure (anteriormente conhecido como ACS)**. O Access Control do AD do Windows Azure é um serviço em nuvem que oferece serviço STS (Security Token) e permite a federação com diferentes provedores de identidade (IdPs) como uma empresa do Active Directory ou IdPs de Internet, como o Windows Live ID/Conta da Microsoft, Facebook, Google, Yahoo! e provedores de identidade Open ID 2.0. Os recursos a seguir fornecem informações detalhadas sobre o Access Control do AD do Windows Azure:
+**Access Control do AD do Azure (anteriormente conhecido como ACS)**. O Access Control do AD do Azure é um serviço em nuvem que oferece serviço STS (Security Token) e permite a federação com diferentes provedores de identidade (IdPs) como uma empresa do Active Directory ou IdPs de Internet, como o Windows Live ID/Conta da Microsoft, Facebook, Google, Yahoo! e provedores de identidade Open ID 2.0. Os recursos a seguir fornecem informações detalhadas sobre o Access Control do AD do Azure:
 
 -   [Access Control Service 2.0](http://msdn.microsoft.com/library/gg429786.aspx) 
 -   [Cenários e soluções usando o ACS](http://msdn.microsoft.com/pt-br/library/gg185920.aspx)
@@ -86,7 +86,7 @@ A melhor contramedida contra um ataque é usar os mecanismos de acesso e identid
 -   [Design de SSO Web][Web SSO Design]
 -   [Design de SSO Web federado][Federated Web SSO Design]
 
-**Assinaturas de Acesso Compartilhado do Windows Azure.** Assinaturas de Acesso Compartilhado permitem ajustar o acesso a um recurso de contêiner ou blob. Os recursos a seguir fornecem informações detalhadas sobre as Assinaturas do Access Control.
+**Assinaturas de Acesso Compartilhado do Azure.** Assinaturas de Acesso Compartilhado permitem ajustar o acesso a um recurso de contêiner ou blob. Os recursos a seguir fornecem informações detalhadas sobre as Assinaturas do Access Control.
 
 -   [Gerenciando acesso a blobs e contêineres](http://msdn.microsoft.com/pt-br/library/ee393343.aspx)
 -   [Novo recurso de armazenamento: Assinaturas de Acesso Compartilhado (a página pode estar em inglês)](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
@@ -98,30 +98,30 @@ Esta seção descreve brevemente os principais cenários abordados neste tópico
 Use-o como um mapa para determinar a solução de identidade certa para o aplicativo.
 
 -   **Aplicativo Web Form do ASP.NET com Autenticação Federada.** Neste cenário você controla o acesso ao seu aplicativo ASP.NET Web Forms usando uma das identidades de Internet como o Live ID/Conta da Microsoft ou identidade corporativa gerenciada no Active Directory do Windows Server.
--   **Serviço do WCF (SOAP) com Autenticação Federada.**Neste cenário você controla o acesso ao serviço WCF (SOAP) usando o Serviço de Identidades gerenciadas pelo Access Control do AD do Windows Azure.
+-   **Serviço do WCF (SOAP) com Autenticação Federada.**Neste cenário você controla o acesso ao serviço WCF (SOAP) usando o Serviço de Identidades gerenciadas pelo Access Control do AD do Azure.
 -   **Serviço do WCF (SOAP) com Autenticação Federada, Identidades no Active Directory.** Neste cenário você controla o acesso ao serviço da web WCF (SOAP) usando identidades gerenciadas pelo Active Directory corporativo do Windows Server.
--   **Serviço do WCF (REST) com Autenticação Federada.**Neste cenário você controla o acesso ao serviço WCF (REST) usando o Serviço de Identidades gerenciadas pelo Access Control do AD do Windows Azure.
+-   **Serviço do WCF (REST) com Autenticação Federada.**Neste cenário você controla o acesso ao serviço WCF (REST) usando o Serviço de Identidades gerenciadas pelo Access Control do AD do Azure.
 -   **Serviço do WCF (REST) com Live ID/Conta da Microsoft, Facebook, Google, Yahoo!, Open ID.** Neste cenário você controla o acesso ao serviço WCF (REST) usando identidade da Internet, como o Live ID/Conta da Microsoft.
 -   **Aplicativo Web ASP.NET para Serviço REST com WCF usando Token SWT Compartilhado.** Nesse cenário, você tem um aplicativo distribuído com um aplicativo Web ASP.NET front-end e serviço REST downstream e você deseja o fluxo do contexto do usuário final por meio de níveis físicos.
 -   **Autorização de controle de acesso baseado em função (RBAC) em serviços e aplicativos com reconhecimento de declaração.** Nesse cenário, você deseja implementar a lógica de autorização em seu aplicativo com base em funções.
 -   **Autorização Baseada em Declaração em Serviços e Aplicativos com Reconhecimento de Declaração.** Nesse cenário, você deseja implementar a lógica de autorização em seu aplicativo com base em funções de autorização complexas.
--   **Identidade de serviço de armazenamento do Windows Azure e cenários de acesso.**Nesse cenário, você precisa compartilhar o acesso com segurança aos blobs e contêineres de armazenamento do Windows Azure.
--   **Identidade do Banco de Dados SQL do Windows Azure.**O Banco de Dados SQL oferece suporte apenas a Autenticação do SQL Server. Não há suporte para a autenticação do Windows (segurança integrada). Os usuários devem fornecer credenciais (login e senha) toda vez que se conectarem ao Banco de Dados SQL.
--   **Cenários de Acesso e identidade do Service Bus do Windows Azure.**Nesse cenário, você precisa acessar com segurança filas do Service Bus do Windows Azure.
+-   **Identidade de serviço de armazenamento do Azure e cenários de acesso.**Nesse cenário, você precisa compartilhar o acesso com segurança aos blobs e contêineres de armazenamento do Azure.
+-   **Identidade do Banco de Dados SQL do Azure.**O Banco de Dados SQL oferece suporte apenas a Autenticação do SQL Server. Não há suporte para a autenticação do Windows (segurança integrada). Os usuários devem fornecer credenciais (login e senha) toda vez que se conectarem ao Banco de Dados SQL.
+-   **Cenários de Acesso e identidade do Service Bus do Azure.**Nesse cenário, você precisa acessar com segurança filas do Service Bus do Azure.
 -   **Cenários de acesso e identidade de Cache em memória.**Nesse cenário, você precisa acessar com segurança os dados gerenciados pelo cache em memória.
--   **Cenários de Acesso e identidade de Marketplace do Windows Azure.**Nesse cenário, você precisa acessar com segurança conjuntos de dados do Marketplace.
+-   **Cenários de Acesso e identidade de Marketplace do Azure.**Nesse cenário, você precisa acessar com segurança conjuntos de dados do Marketplace.
 
-##Cenários de acesso e identidade do Windows Azure
+##Cenários de acesso e identidade do Azure
 
 Esta seção descreve os cenários comuns de acesso e identidade para arquiteturas de aplicativos diferentes. Use o Mapa de Cenários para uma rápida orientação.
 
 ###Aplicativo Web Form do ASP.NET com Autenticação Federada
 
-Nesse cenário de arquitetura de aplicativo seu aplicativo Web pode ser implantado para Windows Azure ou no local. O aplicativo requer que os usuários sejam autenticados ou pelo Active Directory corporativo ou pelos provedores de identidade da Internet.
+Nesse cenário de arquitetura de aplicativo seu aplicativo Web pode ser implantado para Azure ou no local. O aplicativo requer que os usuários sejam autenticados ou pelo Active Directory corporativo ou pelos provedores de identidade da Internet.
 
-Para resolver esse cenários, use o Access Control do AD do Windows Azure e o Windows Identity Foundation.
+Para resolver esse cenários, use o Access Control do AD do Azure e o Windows Identity Foundation.
 
-![Access Control do Active Directory do Windows Azure][03]
+![Access Control do Active Directory do Azure][03]
 
 Consulte os recursos a seguir para implementar este cenário:
 
@@ -134,10 +134,10 @@ Consulte os recursos a seguir para implementar este cenário:
 
 ###Serviço do WCF (SOAP) com identidade do serviço
 
-Nesse cenário de arquitetura de aplicativo seu serviço WCF (SOAP) pode ser implantado para Windows Azure ou no local. O serviço está sendo acessado como um serviço downstream por uma aplicação web ou até mesmo por outro serviço web. Você precisa controlar o acesso a ele usando a identidade específica do aplicativo. Pense em termos de tipo de conta de pool de aplicativo que você usou no IIS: embora a tecnologia seja diferente, as abordagens são semelhantes no fato de que o serviço é acessado por meio de uma conta de escopo do aplicativo ou conta de usuário final.
+Nesse cenário de arquitetura de aplicativo seu serviço WCF (SOAP) pode ser implantado para Azure ou no local. O serviço está sendo acessado como um serviço downstream por uma aplicação web ou até mesmo por outro serviço web. Você precisa controlar o acesso a ele usando a identidade específica do aplicativo. Pense em termos de tipo de conta de pool de aplicativo que você usou no IIS: embora a tecnologia seja diferente, as abordagens são semelhantes no fato de que o serviço é acessado por meio de uma conta de escopo do aplicativo ou conta de usuário final.
 
-Use o recurso de Identidade do Serviço no Access Control do AD do Windows Azure.
-Isso é semelhante à conta do pool de aplicativos IIS que você estava usando ao implantar seus aplicativos para o Windows Server e o IIS. Configure o Access Control do AD do Windows Azure para emitir tokens SAML que serão manipulados pelo WIF no serviço WCF (SOAP).
+Use o recurso de Identidade do Serviço no Access Control do AD do Azure.
+Isso é semelhante à conta do pool de aplicativos IIS que você estava usando ao implantar seus aplicativos para o Windows Server e o IIS. Configure o Access Control do AD do Azure para emitir tokens SAML que serão manipulados pelo WIF no serviço WCF (SOAP).
 
 ![Serviço WCF (SOAP)][04]
 
@@ -152,9 +152,9 @@ Consulte os recursos a seguir para implementar este cenário:
 
 ###Serviço do WCF (SOAP) com Autenticação Federada, Identidades no Active Directory.
 
-Nesse cenário de arquitetura de aplicativo seu serviço WCF (SOAP) pode ser implantado para Windows Azure ou no local. Você precisa controlar o acesso a ele usando uma identidade que é gerenciada por Active Directory (AD) do Windows Server corporativo.
+Nesse cenário de arquitetura de aplicativo seu serviço WCF (SOAP) pode ser implantado para Azure ou no local. Você precisa controlar o acesso a ele usando uma identidade que é gerenciada por Active Directory (AD) do Windows Server corporativo.
 
-Use o Access Control do AD do Windows Azure configurado para federação com o AD FS do Windows Server. Nesse caso não é necessário configurar a Identidade do Serviço com o Access Control do AD do Windows Azure. O agente que precisa acessar o serviço WCF (SOAP) fornece credenciais para AD FS e após a autenticação bem-sucedida o token é emitido pelo AD FS. O token é enviado ao Access Control do AD do Windows Azure AD e emitido novamente de volta para o agente. O agente usa o token para enviar solicitação para o serviço WCF (SOAP).
+Use o Access Control do AD do Azure configurado para federação com o AD FS do Windows Server. Nesse caso não é necessário configurar a Identidade do Serviço com o Access Control do AD do Azure. O agente que precisa acessar o serviço WCF (SOAP) fornece credenciais para AD FS e após a autenticação bem-sucedida o token é emitido pelo AD FS. O token é enviado ao Access Control do AD do Azure AD e emitido novamente de volta para o agente. O agente usa o token para enviar solicitação para o serviço WCF (SOAP).
 
 ![Serviço WCF (SOAP) com AD][05]
 
@@ -168,10 +168,10 @@ Consulte os recursos a seguir para implementar este cenário:
 
 ###Serviço do WCF (REST) com Identidades do Serviço
 
-Nesse cenário de arquitetura de aplicativo seu serviço WCF (REST) pode ser implantado para Windows Azure ou no local. O serviço é acessado como um serviço downstream por uma aplicação web ou até mesmo por outro serviço web. Você precisa controlar o acesso a ele usando uma identidade específica para aplicativos. Pense em termos de tipo de conta de pool de aplicativo que você usou no IIS: embora a tecnologia seja diferente, as abordagens são semelhantes no fato de que o serviço é acessado por meio de uma conta de escopo do aplicativo ou conta de usuário final.
+Nesse cenário de arquitetura de aplicativo seu serviço WCF (REST) pode ser implantado para Azure ou no local. O serviço é acessado como um serviço downstream por uma aplicação web ou até mesmo por outro serviço web. Você precisa controlar o acesso a ele usando uma identidade específica para aplicativos. Pense em termos de tipo de conta de pool de aplicativo que você usou no IIS: embora a tecnologia seja diferente, as abordagens são semelhantes no fato de que o serviço é acessado por meio de uma conta de escopo do aplicativo ou conta de usuário final.
 
-Use o recurso de Identidade do Serviço no Access Control do AD do Windows Azure.
-Configure o Access Control do AD do Windows Azure para emitir tokens de Simple Web Token (SWT). Para lidar com o token SWT no lado do serviço REST, você pode implementar um manipulador de token personalizado e conectá-lo ao pipeline WIF ou analisá-lo "manualmente", sem usar a infraestrutura WIF.
+Use o recurso de Identidade do Serviço no Access Control do AD do Azure.
+Configure o Access Control do AD do Azure para emitir tokens de Simple Web Token (SWT). Para lidar com o token SWT no lado do serviço REST, você pode implementar um manipulador de token personalizado e conectá-lo ao pipeline WIF ou analisá-lo "manualmente", sem usar a infraestrutura WIF.
 
 Considere o diagrama a seguir (o WIF é opcional):
 
@@ -180,16 +180,16 @@ Considere o diagrama a seguir (o WIF é opcional):
 Consulte os recursos a seguir para implementar este cenário:
 
 -   [Como: configurar a confiança entre o ACS e o serviço WCF usando chaves simétricas](http://msdn.microsoft.com/pt-br/library/gg185958.aspx)
--   [Como: autenticar para um Serviço REST WCF implantado no Windows Azure usando o ACS](http://msdn.microsoft.com/pt-br/library/hh289317.aspx)
+-   [Como: autenticar para um Serviço REST WCF implantado no Azure usando o ACS](http://msdn.microsoft.com/pt-br/library/hh289317.aspx)
 -   [Código de exemplo: ASP.NET Web Service](http://msdn.microsoft.com/pt-br/library/gg983271.aspx)
 -   [Código de exemplo: aplicativo do Windows Phone 7](http://msdn.microsoft.com/pt-br/library/gg983271.aspx)
--   [WCF REST com Token SWT emitido pelo Access Control do Windows Azure (ACS) (a página pode estar em inglês)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
+-   [WCF REST com Token SWT emitido pelo Access Control do Azure (ACS) (a página pode estar em inglês)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
 
 ###Serviço do WCF (REST) com Live ID/Conta da Microsoft, Facebook, Google, Yahoo!, Open ID
 
-Nesse cenário, seu serviço WCF (REST) pode ser implantado para Windows Azure ou no local. Você precisa controlar o acesso a ele usando uma identidade pública da Internet, como o Live ID/Conta da Microsoft ou Facebook.
+Nesse cenário, seu serviço WCF (REST) pode ser implantado para Azure ou no local. Você precisa controlar o acesso a ele usando uma identidade pública da Internet, como o Live ID/Conta da Microsoft ou Facebook.
 
-Uso do Access Control do AD do Windows Azure para emitir tokens SWT Para lidar com o token SWT no lado do serviço REST, você pode implementar um manipulador de token personalizado e conectá-lo a um pipeline WIF ou analisá-lo "manualmente", sem usar a infraestrutura WIF.
+Uso do Access Control do AD do Azure para emitir tokens SWT Para lidar com o token SWT no lado do serviço REST, você pode implementar um manipulador de token personalizado e conectá-lo a um pipeline WIF ou analisá-lo "manualmente", sem usar a infraestrutura WIF.
 
 É importante observar que, para implementar este cenário, o aplicativo precisa usar o controle de navegador da web para coletar credenciais de usuário final. Isso torna-o inadequado para cenários nos quais o serviço REST é acessado a partir de um aplicativo da web ASP.NET. Ele só é adequado para cenários nos quais o serviço REST está sendo acessado pelo aplicativo cliente do usuário, como um aplicativo do Windows Phone 7 ou um cliente avançado da área de trabalho. O motivo principal para exibir o controle de navegador da web é que as identidades de Internet não oferecem suporte nativo a cenários de perfil ativo (cenário de serviços web). As identidades de Internet oferecem suporte principalmente a cenários de perfil passivo (aplicativos web) que dependem de redirecionamentos do navegador: onde o controle de navegador da web é útil.
 
@@ -199,19 +199,19 @@ Considere o diagrama a seguir (o WIF é opcional, por isso não foi exibido):
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: autenticar para um Serviço REST WCF implantado no Windows Azure usando o ACS](http://msdn.microsoft.com/pt-br/library/hh289317.aspx)
+-   [Como: autenticar para um Serviço REST WCF implantado no Azure usando o ACS](http://msdn.microsoft.com/pt-br/library/hh289317.aspx)
 -   [Como: configurar o Google como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185976.aspx)
 -   [Como: configurar o Facebook como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185919.aspx)
 -   [Como: configurar o Yahoo! como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185977.aspx)
 -  [ Código de exemplo: aplicativo do Windows Phone 7](http://msdn.microsoft.com/pt-br/library/gg983271.aspx)
--   [WCF REST com Token SWT emitido pelo Access Control do Windows Azure (ACS) (a página pode estar em inglês)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
+-   [WCF REST com Token SWT emitido pelo Access Control do Azure (ACS) (a página pode estar em inglês)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
 
 
 ###Aplicativo Web ASP.NET para Serviço REST com WCF usando Token SWT Compartilhado
 
 Neste cenário, você tem um aplicativo distribuído com um aplicativo Web ASP.NET front-end e serviço REST downstream e você deseja manter o contexto do usuário final por meio de níveis físicos. Isso às vezes é necessário ao implementar lógica de autorização ou o registro com base na identidade do usuário final no serviço REST downstream.
 
-Configuração do Access Control do AD do Windows Azure para emitir token SWT. O token SWT é emitido para o aplicativo web ASP.NET front-end e, em seguida, compartilhado com o serviço REST downstream. Nesse caso, existe apenas uma parte dependente configurada no Access Control do AD do Windows Azure. No entanto, existem várias advertências:
+Configuração do Access Control do AD do Azure para emitir token SWT. O token SWT é emitido para o aplicativo web ASP.NET front-end e, em seguida, compartilhado com o serviço REST downstream. Nesse caso, existe apenas uma parte dependente configurada no Access Control do AD do Azure. No entanto, existem várias advertências:
 
 - Como o WIF não fornece um identificador de token SWT pronto para o uso, você precisa implementar um manipulador de token personalizado para ser usado com o aplicativo web ASP.NET. Você deve contar com o trabalho mais pesado que o WIF faz para oferecer suporte ao protocolo de WS-Federation que depende de redirecionamentos do navegador versus implementá-lo por conta própria.
 - Ao implementar um manipulador de token SWT personalizado, verifique se que o token de inicialização está sendo abordado para certificar-se de que ele foi mantido.
@@ -231,12 +231,12 @@ Consulte os recursos a seguir para implementar este cenário:
 
 Nesse cenário, você precisa implementar a autorização em seu aplicativo web ou serviço com base nas funções do usuário: usuário com as funções exigidas obtêm acesso e aqueles que não possuem as funções exigidas obtêm acesso negado. Em outras palavras, o aplicativo precisa responder à pergunta simples: o usuário está na função X?
 
-Há várias maneiras de se resolver essa situação. Você pode usar o Access Control do AD do Windows Azure, Gerenciador de Autenticação de Declarações WIF, o mapeamento de samlSecurityTokenRequirement ou o Gerenciador de Funções do Cliente.
+Há várias maneiras de se resolver essa situação. Você pode usar o Access Control do AD do Azure, Gerenciador de Autenticação de Declarações WIF, o mapeamento de samlSecurityTokenRequirement ou o Gerenciador de Funções do Cliente.
 
 O WIF é usado em todos os casos. O WIF oferece suporte ao método IPrincipal.IsInRole("MyRole"). Na maioria dos casos a chave é certificar-se de que há declaração de tipo de função com URI de
 http://schemas.microsoft.com/ws/2008/06/identity/claims/role no token para que esse WIF possa verificar com êxito a participação em funções quando o método IsInRole é chamado.
 
-**Access Control do AD do Windows Azure**. Nesta implementação, o mecanismo de regra de transformação de declarações do Access Control do AD do Windows Azure é usado. Usando as regras do mecanismo de regra de transformação de declarações você pode transformar qualquer declaração de entrada em uma declaração de tipo de função para que quando o token chegue ao aplicativo ou a um serviço o WIF possa analisar essa declaração de função para certificar-se de que a chamada do método IsInRole foi bem-sucedida.
+**Access Control do AD do Azure**. Nesta implementação, o mecanismo de regra de transformação de declarações do Access Control do AD do Azure é usado. Usando as regras do mecanismo de regra de transformação de declarações você pode transformar qualquer declaração de entrada em uma declaração de tipo de função para que quando o token chegue ao aplicativo ou a um serviço o WIF possa analisar essa declaração de função para certificar-se de que a chamada do método IsInRole foi bem-sucedida.
 
 ![][09]
 
@@ -275,11 +275,11 @@ Consulte os recursos a seguir para implementar este cenário:
 -   Código de exemplo: autorização com base em declarações no [SDK do Windows Identity Foundation (a página pode estar em inglês)](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
 
-##Identidade do serviço de armazenamento do Windows Azure e cenários de acesso
+##Identidade do serviço de armazenamento do Azure e cenários de acesso
 
-Nesse cenário, você precisa compartilhar o acesso com segurança aos blobs e contêineres de armazenamento do Windows Azure.
+Nesse cenário, você precisa compartilhar o acesso com segurança aos blobs e contêineres de armazenamento do Azure.
 
-Uso de Assinaturas de Acesso Compartilhado Para acessar sua conta de serviço de armazenamento de seu próprio aplicativo, use o hash compartilhado disponível por meio do portal do Windows Azure ao configurar e gerenciar suas contas de serviço de armazenamento. Quando você deseja conceder a alguém mais acesso os blobs e contêineres da sua conta de serviço de armazenamento, use as URLs de Assinaturas de Acesso Compartilhado.
+Uso de Assinaturas de Acesso Compartilhado Para acessar sua conta de serviço de armazenamento de seu próprio aplicativo, use o hash compartilhado disponível por meio do portal do Azure ao configurar e gerenciar suas contas de serviço de armazenamento. Quando você deseja conceder a alguém mais acesso os blobs e contêineres da sua conta de serviço de armazenamento, use as URLs de Assinaturas de Acesso Compartilhado.
 
 Preste atenção especial para o gerenciamento seguro de informações para evitar a exposição. Além disso, preste especial atenção à vida útil das Assinaturas de Acesso Compartilhado.
 
@@ -292,7 +292,7 @@ Consulte os recursos a seguir para resolver este cenário
 -   [Assinaturas de Acesso Compartilhado são fáceis hoje em dia (a página pode estar em inglês)](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Cenários de acesso e identidade do Banco de Dados SQL do Windows Azure
+##Cenários de acesso e identidade do Banco de Dados SQL do Azure
 
 O Banco de dados SQL só oferece suporte a autenticação do SQL Server. Não há suporte para a autenticação do Windows (segurança integrada). Os usuários devem fornecer credenciais (login e senha) toda vez que se conectarem a um Banco de Dados SQL. Preste atenção especial ao gerenciar seu nome de usuário e senha para evitar a divulgação de informações.
 
@@ -300,18 +300,18 @@ O Banco de dados SQL só oferece suporte a autenticação do SQL Server. Não h�
 
 Consulte os recursos a seguir para resolver este cenário:
 
--   [Diretrizes e limitações de segurança (Banco de dados SQL do Windows Azure)](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394108.aspx#authentication)
--   [Como conectar-se ao Banco de Dados SQL do Windows Azure usando o sqlcmd](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336280.aspx)
--   [Como conectar-se ao Banco de Dados SQL do Windows Azure usando o ADO.NET](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336243.aspx)
--   [Como conectar-se ao Banco de dados SQL do Windows Azure através do ASP.NET](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621781.aspx)
--   [Como conectar-se ao Banco de dados SQL do Windows Azure através do WCF Data Services](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621789.aspx)
--  [ Como conectar-se ao Banco de Dados SQL do Windows Azure usando o PHP](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394110.aspx)
--   [Como conectar-se ao Banco de dados SQL do Windows Azure usando o JDBC](http://msdn.microsoft.com/pt-br/library/windowsazure/gg715284.aspx)
--   [Como conectar-se ao Banco de dados SQL do Windows Azure usando o ADO.NET Entity Framework](http://msdn.microsoft.com/pt-br/library/windowsazure/ff951633.aspx)
+-   [Diretrizes e limitações de segurança (Banco de dados SQL do Azure)](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394108.aspx#authentication)
+-   [Como conectar-se ao Banco de Dados SQL do Azure usando o sqlcmd](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336280.aspx)
+-   [Como conectar-se ao Banco de Dados SQL do Azure usando o ADO.NET](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336243.aspx)
+-   [Como conectar-se ao Banco de dados SQL do Azure através do ASP.NET](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621781.aspx)
+-   [Como conectar-se ao Banco de dados SQL do Azure através do WCF Data Services](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621789.aspx)
+-  [ Como conectar-se ao Banco de Dados SQL do Azure usando o PHP](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394110.aspx)
+-   [Como conectar-se ao Banco de dados SQL do Azure usando o JDBC](http://msdn.microsoft.com/pt-br/library/windowsazure/gg715284.aspx)
+-   [Como conectar-se ao Banco de dados SQL do Azure usando o ADO.NET Entity Framework](http://msdn.microsoft.com/pt-br/library/windowsazure/ff951633.aspx)
 
-##Identidade do Serviço de Barramento do Windows Azure e cenários de acesso
+##Identidade do Serviço de Barramento do Azure e cenários de acesso
 
-O Service Bus e o Access Control do AD do Windows Azure possuem uma relação especial em que cada namespace do Service Bus é associado a um namespace de serviço do Access Control correspondente de mesmo nome, com o sufixo "-sb". A razão para esta relação especial está na maneira como o Service Bus do Access Control gerencia sua relação de confiança mútua e os segredos de criptografia associados. Consulte os recursos listados abaixo para obter mais detalhes.
+O Service Bus e o Access Control do AD do Azure possuem uma relação especial em que cada namespace do Service Bus é associado a um namespace de serviço do Access Control correspondente de mesmo nome, com o sufixo "-sb". A razão para esta relação especial está na maneira como o Service Bus do Access Control gerencia sua relação de confiança mútua e os segredos de criptografia associados. Consulte os recursos listados abaixo para obter mais detalhes.
 
 ![][16]
 
@@ -323,25 +323,25 @@ Consulte os recursos a seguir para resolver este cenário:
 
 ##Cenários de acesso e identidade do Cache em memória
 
-O cache em memória (anteriormente conhecido como Caching do Windows Azure) depende do controle de acesso do Access Control do AD do Windows Azure para autenticação. Ele usa chaves compartilhadas disponíveis por meio do portal de gerenciamento. Use as teclas em seus arquivos de código ou de configuração ao acessar o cache. Certifique-se de armazenar as chaves de segurança para evitar a divulgação de informações.
+O cache em memória (anteriormente conhecido como Caching do Azure) depende do controle de acesso do Access Control do AD do Azure para autenticação. Ele usa chaves compartilhadas disponíveis por meio do portal de gerenciamento. Use as teclas em seus arquivos de código ou de configuração ao acessar o cache. Certifique-se de armazenar as chaves de segurança para evitar a divulgação de informações.
 
 ![][17]
 
 
 Consulte os recursos a seguir para resolver este cenário:
 
--   [Como configurar um cliente de cache por programação para o Caching do Windows Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg618003.aspx)
--   [Como configurar um cliente de cache usando o arquivo de configuração de aplicativo do Caching do Windows Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg278346.aspx)
--   [Exemplos de Caching e Service Bus do Windows Azure](http://msdn.microsoft.com/pt-br/library/ee706741.aspx) (seção de exemplos de Caching)
+-   [Como configurar um cliente de cache por programação para o Caching do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg618003.aspx)
+-   [Como configurar um cliente de cache usando o arquivo de configuração de aplicativo do Caching do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg278346.aspx)
+-   [Exemplos de Caching e Service Bus do Azure](http://msdn.microsoft.com/pt-br/library/ee706741.aspx) (seção de exemplos de Caching)
 
-##Cenários de acesso e identidade do Windows Azure Marketplace
+##Cenários de acesso e identidade do Azure Marketplace
 
-Cada acesso a um conjunto de dados do Windows Azure Marketplace, seja gratuito ou pago, deve autenticar o usuário antes de obter acesso. Quando você cria um aplicativo, o processo de autenticação deve ser incluído em seu código. Considere os seguintes cenários comuns:
+Cada acesso a um conjunto de dados do Azure Marketplace, seja gratuito ou pago, deve autenticar o usuário antes de obter acesso. Quando você cria um aplicativo, o processo de autenticação deve ser incluído em seu código. Considere os seguintes cenários comuns:
 
 ###Eu acesso o meu conjunto de dados
 
 Nesse cenário, você está criando um aplicativo que consome os conjuntos de dados na sua assinatura do Marketplace. Você é o usuário do aplicativo.
-O aplicativo pode ser implantado no Windows Azure, local ou no Marketplace.
+O aplicativo pode ser implantado no Azure, local ou no Marketplace.
 
 Use a chave compartilhada que está disponível através de sua assinatura do Marketplace. Obtenha a chave compartilhada usando o portal do Marketplace.
 
@@ -353,7 +353,7 @@ Consulte os recursos a seguir para resolver este cenário:
 
 ###Os usuários acessam os meus conjuntos de dados
 
-Nesse cenário, você está criando um aplicativo que permite que os usuários acessem o seu conjunto de dados. O aplicativo pode ser implantado no Windows Azure, local ou no Marketplace.
+Nesse cenário, você está criando um aplicativo que permite que os usuários acessem o seu conjunto de dados. O aplicativo pode ser implantado no Azure, local ou no Marketplace.
 
 Para resolver esse cenário, use delegação OAuth. Os usuários serão solicitados a fornecer seu Live ID/credenciais da conta da Microsoft e, em seguida, serão colocados no processo de consentimento.
 
@@ -366,7 +366,7 @@ Consulte os recursos a seguir para resolver este cenário:
 
 ###API do Marketplace de acesso do aplicativo
 
-Nesse cenário, você está criando um aplicativo que acessa a API do Marketplace. A API do mercado exige autenticação para realizar com êxito a chamadas para ele. O aplicativo está implantado no Marketplace do Windows Azure.
+Nesse cenário, você está criando um aplicativo que acessa a API do Marketplace. A API do mercado exige autenticação para realizar com êxito a chamadas para ele. O aplicativo está implantado no Marketplace do Azure.
 
 ![][20]
 
@@ -375,11 +375,11 @@ Consulte o mercado kit de publicação no Marketplace para obter detalhes sobre 
 Consulte os recursos a seguir para resolver este cenário:
 
 -   [Baixar o Kit de publicação de aplicativo](http://go.microsoft.com/fwlink/?LinkId=221323)
--   [Introdução ao Windows Azure Marketplace para aplicativos](https://datamarket.azure.com/)
+-   [Introdução ao Azure Marketplace para aplicativos](https://datamarket.azure.com/)
 
 ##Botões de segurança
 
-Esta seção descreve os botões de segurança do Windows Identity Foundation e do Access Control do AD do Windows Azure. Use-a como uma lista de verificação de segurança básica para essas tecnologias ao projetar e implantar seu aplicativo.
+Esta seção descreve os botões de segurança do Windows Identity Foundation e do Access Control do AD do Azure. Use-a como uma lista de verificação de segurança básica para essas tecnologias ao projetar e implantar seu aplicativo.
 
 ###Windows Identity Foundation
 
@@ -393,32 +393,32 @@ A seguir estão os principais botões de segurança de WIF. As informações a s
 -   **requestValidation** e **httpRuntime requestValidationType**.
     Ativa/desativa o recurso de validação do ASP.NET. Consulte orientações conforme descrito em [Windows Identity Foundation (WIF): um valor Request.Form potencialmente perigoso foi detectado no cliente (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
 
-###Access Control do AD do Windows Azure
+###Access Control do AD do Azure
 
-Considere os seguintes botões de segurança na implantação do Access Control do AD do Windows Azure. As informações a seguir são um resumo de [Diretrizes de segurança do ACS](http://msdn.microsoft.com/pt-br/library/gg185962.aspx) e [Diretrizes de gerenciamento de certificados e chaves](http://msdn.microsoft.com/pt-br/library/hh204521.aspx)
+Considere os seguintes botões de segurança na implantação do Access Control do AD do Azure. As informações a seguir são um resumo de [Diretrizes de segurança do ACS](http://msdn.microsoft.com/pt-br/library/gg185962.aspx) e [Diretrizes de gerenciamento de certificados e chaves](http://msdn.microsoft.com/pt-br/library/hh204521.aspx)
 
--   **Expiração de tokens do STS**. Use o portal de gerenciamento do Access Control do AD do Windows Azure para definir expiração agressiva do token agressiva.
--   **Validação de dados ao usar o recurso URL de Erro**. O recurso de URL de Erro do Access Control do AD do Windows Azure requer acesso anônimo à página do aplicativo em que ele envia as mensagens de erro. Suponha que todos os dados que chegam a esta página são perigosos e de fonte não confiável.
+-   **Expiração de tokens do STS**. Use o portal de gerenciamento do Access Control do AD do Azure para definir expiração agressiva do token agressiva.
+-   **Validação de dados ao usar o recurso URL de Erro**. O recurso de URL de Erro do Access Control do AD do Azure requer acesso anônimo à página do aplicativo em que ele envia as mensagens de erro. Suponha que todos os dados que chegam a esta página são perigosos e de fonte não confiável.
 -   **Criptografia de tokens para cenários altamente confidenciais**. Para atenuar a ameaça de divulgação de informações disponíveis no token, recomenda-se criptografar os tokens.
--   **Criptografia de cookies usando RSA ao implantar o Windows Azure**.
-    O WIF criptografa cookies usando DPAPI por padrão. Ele cria a afinidade do servidor e pode resultar em exceções quando implantado em web farms e ambientes do Windows Azure. Use RSA em cenários do Windows Azure e web farm.
--   **Certificado de assinatura de tokens** Renove certificados de assinatura de tokens periodicamente para evitar a negação de serviço. O Access Control do AD do Windows Azure assina todos os tokens de segurança que ele emite. Os certificados X.509 são usados para autenticação quando você cria um aplicativo que consome tokens SAML emitidos pelo ACS. Quando os certificados de assinatura expirarem, você receberá erros ao tentar solicitar um token.
--   **Chaves de assinatura de tokens**. Renove as chaves de assinatura de tokens periodicamente para evitar a negação de serviço. O Access Control do AD do Windows Azure assina todos os tokens de segurança que ele emite. As chaves simétricas de assinatura de 256 bits são usados quando você cria um aplicativo que consome tokens SWT emitidos pelo ACS. Quando as chaves de assinatura expirarem, você receberá erros ao tentar solicitar um token.
+-   **Criptografia de cookies usando RSA ao implantar o Azure**.
+    O WIF criptografa cookies usando DPAPI por padrão. Ele cria a afinidade do servidor e pode resultar em exceções quando implantado em web farms e ambientes do Azure. Use RSA em cenários do Azure e web farm.
+-   **Certificado de assinatura de tokens** Renove certificados de assinatura de tokens periodicamente para evitar a negação de serviço. O Access Control do AD do Azure assina todos os tokens de segurança que ele emite. Os certificados X.509 são usados para autenticação quando você cria um aplicativo que consome tokens SAML emitidos pelo ACS. Quando os certificados de assinatura expirarem, você receberá erros ao tentar solicitar um token.
+-   **Chaves de assinatura de tokens**. Renove as chaves de assinatura de tokens periodicamente para evitar a negação de serviço. O Access Control do AD do Azure assina todos os tokens de segurança que ele emite. As chaves simétricas de assinatura de 256 bits são usados quando você cria um aplicativo que consome tokens SWT emitidos pelo ACS. Quando as chaves de assinatura expirarem, você receberá erros ao tentar solicitar um token.
 -   **Certificado de criptografia de tokens**. Renove certificados de criptografia de tokens periodicamente para evitar a negação de serviço. A criptografia do token é necessária se um aplicativo de terceiros confiável é um serviço web usando tokens de prova de posse através do protocolo WS-Trust. Nos outros casos, a criptografia do token é opcional. Quando os certificados de criptografia expirarem, você receberá erros ao tentar solicitar um token.
--   **Certificados de descriptografia de tokens**. Renove certificados de descriptografia de tokens periodicamente para evitar a negação de serviço. O Access Control do AD do Windows Azure AD pode aceitar tokens criptografados de provedores de identidade de WS-Federation (por exemplo, AD FS 2.0). Um certificado X.509 hospedado no Access Control do AD do Windows Azure é usado na descriptografia.
+-   **Certificados de descriptografia de tokens**. Renove certificados de descriptografia de tokens periodicamente para evitar a negação de serviço. O Access Control do AD do Azure AD pode aceitar tokens criptografados de provedores de identidade de WS-Federation (por exemplo, AD FS 2.0). Um certificado X.509 hospedado no Access Control do AD do Azure é usado na descriptografia.
     Quando os certificados de descriptografia expirarem, você receberá erros ao tentar solicitar um token.
--   **Credenciais de identidade do serviço**. Renove as credenciais de Identidade do Serviço periodicamente para evitar a negação de serviço. As identidades de serviço usam credenciais configurados globalmente para o seu namespace do Access Control do AD do Windows Azure que permitem que aplicativos ou clientes autentiquem diretamente com o Access Control do AD do Windows Azure e recebam um token. Existem três tipos de credenciais com as quais a identidade do serviço do Access Control do AD do Windows Azure pode ser associada: chave simétrica, senha e certificado X.509. Você começará a receber exceção quando as credenciais estiverem expiradas.
--   **Credenciais da conta do Serviço de Gerenciamento do Access Control do AD do Windows Azure**. Renove as credenciais do serviço de Gerenciamento periodicamente para evitar a negação de serviço. O Serviço de Gerenciamento do Access Control do AD do Windows Azure é um componente-chave que permite gerenciar e configurar as definições do seu namespace do Access Control do AD do Windows Azure por meio de programação. Existem três tipos de credenciais com as quais a conta do serviço de Gerenciamento pode ser associada. São chave simétrica, senha e certificado x. 509. Você começará a receber exceção quando as credenciais estiverem expiradas.
+-   **Credenciais de identidade do serviço**. Renove as credenciais de Identidade do Serviço periodicamente para evitar a negação de serviço. As identidades de serviço usam credenciais configurados globalmente para o seu namespace do Access Control do AD do Azure que permitem que aplicativos ou clientes autentiquem diretamente com o Access Control do AD do Azure e recebam um token. Existem três tipos de credenciais com as quais a identidade do serviço do Access Control do AD do Azure pode ser associada: chave simétrica, senha e certificado X.509. Você começará a receber exceção quando as credenciais estiverem expiradas.
+-   **Credenciais da conta do Serviço de Gerenciamento do Access Control do AD do Azure**. Renove as credenciais do serviço de Gerenciamento periodicamente para evitar a negação de serviço. O Serviço de Gerenciamento do Access Control do AD do Azure é um componente-chave que permite gerenciar e configurar as definições do seu namespace do Access Control do AD do Azure por meio de programação. Existem três tipos de credenciais com as quais a conta do serviço de Gerenciamento pode ser associada. São chave simétrica, senha e certificado x. 509. Você começará a receber exceção quando as credenciais estiverem expiradas.
 -   **Assinatura de provedor de identidade do WS-Federation e certificados de criptografia**. Consulte a validade do certificado do provedor de identidade do WS-Federation evitar a negação de serviço. O Certificado do provedor de identidade do WS-Federation é disponibilizado por meio de seus metadados.
-    Ao configurar o provedor de identidade do WS-Federation, como o AD FS, o certificado de assinatura do WS-Federation é configurado por meio de metadados do WS-Federation disponíveis via URL ou como um arquivo. Depois de configurar o provedor de identidade do WS-Federation, use o serviço de gerenciamento do Access Control do AD do Windows Azure para consultá-lo e verificar a validade dos seus certificados. Quando os certificados expirarem, você começará a receber exceções.
+    Ao configurar o provedor de identidade do WS-Federation, como o AD FS, o certificado de assinatura do WS-Federation é configurado por meio de metadados do WS-Federation disponíveis via URL ou como um arquivo. Depois de configurar o provedor de identidade do WS-Federation, use o serviço de gerenciamento do Access Control do AD do Azure para consultá-lo e verificar a validade dos seus certificados. Quando os certificados expirarem, você começará a receber exceções.
 
-##Hospedagem compartilhada usando Sites do Windows Azure
+##Hospedagem compartilhada usando Sites do Azure
 
-Todos os cenários e as soluções descritos neste tópico são válidos quando o aplicativo é hospedado nos Sites do Windows Azure.
+Todos os cenários e as soluções descritos neste tópico são válidos quando o aplicativo é hospedado nos Sites do Azure.
 
-##Máquinas Virtuais do Windows Azure
+##Máquinas Virtuais do Azure
 
-Todos os cenários e as soluções descritos neste tópico são válidos quando o aplicativo é hospedado nas Máquinas Virtuais do Windows Azure.
+Todos os cenários e as soluções descritos neste tópico são válidos quando o aplicativo é hospedado nas Máquinas Virtuais do Azure.
 
 ##Recursos
 
@@ -427,8 +427,8 @@ Todos os cenários e as soluções descritos neste tópico são válidos quando 
 -   [Um guia para Identidade baseada em declarações e Access Control (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=214562)
 -   [Access Control Service](http://msdn.microsoft.com/pt-br/library/windowsazure/gg429786.aspx)
 -   [Como do ACS](http://msdn.microsoft.com/pt-br/library/windowsazure/gg185939.aspx)
--   [Proteção de aplicativo web ASP.NET com função web do Windows Azure usando o Access Control Service v2.0 (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)
--   [Academy Videos do Access Control Service (ACS) do AD do Windows Azure (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)
+-   [Proteção de aplicativo web ASP.NET com função web do Azure usando o Access Control Service v2.0 (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)
+-   [Academy Videos do Access Control Service (ACS) do AD do Azure (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)
 -   [Ciclo de vida de desenvolvimento de segurança da Microsoft](http://www.microsoft.com/security/sdl/default.aspx)
 -   [Ferramenta de modelagem de ameaças do SDL 3.1.8 (a página pode estar em inglês)](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2955)
 -   [Blogs sobre segurança e privacidade](http://www.microsoft.com/about/twc/en/us/blogs.aspx)
@@ -459,6 +459,6 @@ Todos os cenários e as soluções descritos neste tópico são válidos quando 
 [19]:./media/SecurityRX/19_UsersAccessMyDatasets.gif
 [20]:./media/SecurityRX/20_ApplicationAccessMarketplaceAPI.gif
 
-[Web Design SSO]: http://technet.microsoft.com/pt-br/library/dd807033(WS.10).aspx
-[Design de SSO da Web (a página pode estar em inglês)]: http://technet.microsoft.com/pt-br/library/dd807050(WS.10).aspx
+[Web SSO Design]: http://technet.microsoft.com/pt-br/library/dd807033(WS.10).aspx
+[Federated Web SSO Design]: http://technet.microsoft.com/pt-br/library/dd807050(WS.10).aspx
 

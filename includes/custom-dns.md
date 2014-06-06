@@ -1,9 +1,9 @@
-# Configurando um nome de domínio personalizado para um serviço em nuvem do Windows Azure
+# Configurando um nome de domínio personalizado para um serviço em nuvem do Azure
 
-Quando você cria um site, o Windows Azure fornece um subdomínio amigável no domínio azurewebsites.net para que os usuários possam acessar o seu site usando uma URL como http://&lt;*myapp*>.cloudapp.net. No entanto, você também pode expor seu aplicativo em seu próprio nome de domínio, por exemplo, contoso.com.
+Quando você cria um site, o Azure fornece um subdomínio amigável no domínio azurewebsites.net para que os usuários possam acessar o seu site usando uma URL como http://&lt;*myapp*>.cloudapp.net. No entanto, você também pode expor seu aplicativo em seu próprio nome de domínio, por exemplo, contoso.com.
 
 > [WACOM.NOTE] 
-> Os procedimentos nesta tarefa se aplicam aos serviços de nuvem do Windows Azure. Para contas de armazenamento, consulte [Configurar um nome de domínio personalizado para um serviço de nuvem ou conta de armazenamento do Windows Azure](../storage-custom-domain-name/). Para obter sites, consulte [Configurando um nome de domínio personalizado para um site do Windows Azure](../web-sites-custom-domain-name/).
+> Os procedimentos nesta tarefa se aplicam aos serviços de nuvem do Azure. Para contas de armazenamento, consulte [Configurar um nome de domínio personalizado para um serviço de nuvem ou conta de armazenamento do Azure](../storage-custom-domain-name/). Para obter sites, consulte [Configurando um nome de domínio personalizado para um site do Azure](../web-sites-custom-domain-name/).
 
 Neste artigo:
 
@@ -13,21 +13,21 @@ Neste artigo:
 
 <h2><a name="access-app"></a>Entenda os registros CNAME e A</h2>
 
-Os registros CNAME (ou registros de alias) e A permitem que você associe um nome de domínio a um servidor específico (ou serviço neste caso), de qualquer forma, cada um deles funciona de modo diferente. Há também algumas considerações específicas ao usar registros com serviços de nuvem do Windows Azure que você deve considerar antes de decidir qual deles usar.
+Os registros CNAME (ou registros de alias) e A permitem que você associe um nome de domínio a um servidor específico (ou serviço neste caso), de qualquer forma, cada um deles funciona de modo diferente. Há também algumas considerações específicas ao usar registros com serviços de nuvem do Azure que você deve considerar antes de decidir qual deles usar.
 
 ###Registro CNAME ou de alias
 
-Um registro CNAME mapeia um *domínio* específico, como **contoso.com** ou **www.contoso.com**, para um nome de domínio canônico. Nesse caso, o nome de domínio canônico é o **&lt;myapp>.cloudapp.net** o nome de domínio da aplicação hospedada do Windows Azure. Uma vez criado, o CNAME cria um alias para o **&lt;myapp>.cloudapp.net**. A entrada CNAME resolverá o endereço IP do seu **&lt;myapp>.cloudapp.net** serviço automaticamente, portanto, se o endereço IP do serviço em nuvem for alterado, você não precisa realizar qualquer ação.
+Um registro CNAME mapeia um *domínio* específico, como **contoso.com** ou **www.contoso.com**, para um nome de domínio canônico. Nesse caso, o nome de domínio canônico é o **&lt;myapp>.cloudapp.net** o nome de domínio da aplicação hospedada do Azure. Uma vez criado, o CNAME cria um alias para o **&lt;myapp>.cloudapp.net**. A entrada CNAME resolverá o endereço IP do seu **&lt;myapp>.cloudapp.net** serviço automaticamente, portanto, se o endereço IP do serviço em nuvem for alterado, você não precisa realizar qualquer ação.
 
 > [WACOM.NOTE] 
 > Alguns registradores de domínio só permitem que você mapeie subdomínios ao usar um registro CNAME, como www.contoso.com, e não os nomes raiz, por exemplo, contoso.com. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida pelo seu registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia sobre o registro CNAME</a>, ou do documento de implementação e especificação <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names</a>.
 
 ###Registro A
 
-Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga* como **\*.contoso.com**, para um endereço IP. No caso de um serviço em nuvem do Windows Azure, o IP virtual do serviço. Portanto, a principal vantagem de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um caractere curinga, como ***.contoso.com**, que pode identificar solicitações de vários subdomínios como **mail.contoso.com**, **login.contoso.com**, ou **www.contso.com**.
+Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga* como **\*.contoso.com**, para um endereço IP. No caso de um serviço em nuvem do Azure, o IP virtual do serviço. Portanto, a principal vantagem de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um caractere curinga, como ***.contoso.com**, que pode identificar solicitações de vários subdomínios como **mail.contoso.com**, **login.contoso.com**, ou **www.contso.com**.
 
 > [WACOM.NOTE]
->Uma vez que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações ao endereço IP do seu serviço em nuvem. O endereço IP usado pelo seu serviço de nuvem é alocado na primeira vez que você implantar em um slot vazio (produção ou preparo.) Se você excluir a implantação do slot, o endereço IP é liberado pelo Windows Azure e as futuras implantações no slot podem receber um novo endereço IP.
+>Uma vez que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações ao endereço IP do seu serviço em nuvem. O endereço IP usado pelo seu serviço de nuvem é alocado na primeira vez que você implantar em um slot vazio (produção ou preparo.) Se você excluir a implantação do slot, o endereço IP é liberado pelo Azure e as futuras implantações no slot podem receber um novo endereço IP.
 > 
 > Convenientemente, o endereço IP de um slot de determinada implantação (produção ou preparação) é mantido durante a troca entre preparo e implantações de produção ou realizar uma atualização in-loco de uma implantação existente. Para obter mais informações sobre a permuta dos VIPs, consulte [Como gerenciar Serviços de Nuvem (a página pode estar em inglês)](../cloud-services-how-to-manage/).
 
@@ -38,11 +38,11 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
 
 1. Use um dos seguintes métodos para localizar o **.cloudapp.net** nome de domínio atribuído ao serviço em nuvem.
 
-  * Logon para o [Portal de gerenciamento do Windows Azure], selecione o seu serviço em nuvem, selecione **Painel**e localize a entrada da **URL do site** na seção **Visão rápida**.
+  * Logon para o [Portal de gerenciamento do Azure], selecione o seu serviço em nuvem, selecione **Painel**e localize a entrada da **URL do site** na seção **Visão rápida**.
 
   		  ![seção rapidamente mostrando a URL do site][csurl]
 
-  * Instale e configure o [Windows Azure Powershell](../install-configure-powershell/), em seguida, use o seguinte comando:
+  * Instale e configure o [Azure Powershell](../install-configure-powershell/), em seguida, use o seguinte comando:
 
     Get-AzureDeployment -ServiceName yourservicename | Select Url
 
@@ -83,11 +83,11 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
 
 1. Use um dos seguintes métodos para obter o endereço IP do seu serviço de nuvem.
 
-  * Logon para o [Portal de gerenciamento do Windows Azure], selecione o seu serviço em nuvem, selecione **Painel**e localize a entrada do **endereço IP Público Virtual (VIP)** na seção **Visão rápida**.
+  * Logon para o [Portal de gerenciamento do Azure], selecione o seu serviço em nuvem, selecione **Painel**e localize a entrada do **endereço IP Público Virtual (VIP)** na seção **Visão rápida**.
 
    		 ![seção rapidamente mostrando a VIP][vip]
 
-  * Instale e configure o [Windows Azure Powershell](../install-configure-powershell/), em seguida, use o seguinte comando:
+  * Instale e configure o [Azure Powershell](../install-configure-powershell/), em seguida, use o seguinte comando:
 
       get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
 
@@ -130,9 +130,9 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
   [Expor seus dados em um domínio personalizado]: #access-data
   [Trocas de VIP]: http://msdn.microsoft.com/pt-BR/library/ee517253.aspx
    [Criar um registro CNAME que associe o subdomínio à conta de armazenamento]: #create-cname
-  [Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com
+  [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Caixa de diálogo Validar Domínio Personalizado]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
-  [Como mapear o conteúdo da CDN para um domínio personalizado]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg680307.aspx
+  [Como mapear o conteúdo CDN para um domínio personalizado]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
   [csurl]: ./media/custom-dns/csurl.png
 

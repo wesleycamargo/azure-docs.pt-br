@@ -1,28 +1,26 @@
 
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure], clique em **Serviços Móveis** e, em seguida, clique no seu aplicativo.
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique no seu aplicativo.
 
-	![][0]
+	![](./media/mobile-services-create-custom-api/mobile-services-selection.png)
 
 2. Clique na guia **API** e, em seguida, clique em **Criar uma API personalizada**.
 
-	![][1]
+	![](./media/mobile-services-create-custom-api/mobile-custom-api-create.png)
 
 	Isso exibe a caixa de diálogo **Criar uma nova API personalizada**.
 
 3. Digite _completeall_ in **Nome da API** e, em seguida, clique no botão de seleção.
 
-	![][2]
+	![](./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png)
 
 	Isso cria a nova API.
 
-
-	> [WACOM.NOTE]
-	> Permissões padrão são definidas, o que significa que qualquer usuário do aplicativo pode chamar a API personalizada. No entanto, a chave de aplicativo não é distribuída ou armazenada de forma segura e não pode ser considerada uma credencial segura. Por isso, você deve restringir o acesso somente para usuários autenticados em operações que modificam dados ou afetam o serviço móvel.
+	> [WACOM.NOTE] Permissões padrão são definidas, o que significa que qualquer usuário do aplicativo pode chamar a API personalizada. No entanto, a chave de aplicativo não é distribuída ou armazenada de forma segura e não pode ser considerada uma credencial segura. Por isso, você deve restringir o acesso somente para usuários autenticados em operações que modificam dados ou afetam o serviço móvel.
 
 4. Clique na nova entrada **completeall** na tabela de API.
 
-	![][3]
+	![](./media/mobile-services-create-custom-api/mobile-custom-api-select2.png)
 
 5. Clique na guia **Script**, substitua o código existente pelo código a seguir e clique em **Salvar**.
 
@@ -49,12 +47,8 @@ Em seguida, você modificará o aplicativo quickstart para adicionar um novo bot
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-create-custom-api/mobile-services-selection.png
-[1]: ./media/mobile-services-create-custom-api/mobile-custom-api-create.png
-[2]: ./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png
-[3]: ./media/mobile-services-create-custom-api/mobile-custom-api-select2.png
 
 <!-- URLs. -->
-[Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto mssql]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554212.aspx
 

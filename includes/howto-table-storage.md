@@ -1,6 +1,6 @@
 ## <a name="what-is"> </a>O que é o serviço Tabela?
 
-O serviço de armazenamento de tabela do Windows Azure armazena grandes quantidades de dados estruturados. O serviço é um armazenamento de dados NoSQL que aceita chamadas autenticadas dentro e fora da nuvem do Windows Azure. As tabelas do Windows Azure são ideais para armazenar dados estruturados e não relacionais. Os usos comuns do serviço de tabela incluem:
+O serviço de armazenamento de tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um armazenamento de dados NoSQL que aceita chamadas autenticadas dentro e fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados e não relacionais. Os usos comuns do serviço de tabela incluem:
 
 -   Armazenamento de TBs de dados estruturados capazes de fornecer o dimensionamento de aplicativos Web
 -   Armazenamento de conjuntos de dados que não exigem relações complexas, chaves estrangeiras ou procedimentos armazenados e podem ser desnormalizados para acesso rápido
@@ -16,11 +16,11 @@ O serviço Tabela contém os seguintes componentes:
 ![Tabela1][Table1]
 
 -   **Formato de URL:** o código aborda tabelas em uma conta usando esse formato de endereço:   
-    http://'<storage account>'.table.core.windows.net/'<table>' 
+    http://`<storage account>`.table.core.windows.net/`<table>` 
 
     Você pode lidar com tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para obter mais informações, consulte [OData.org][]
 
--   **Conta de Armazenamento:** todo o acesso ao Armazenamento do Windows Azure é feito através de uma conta de armazenamento. Consulte [Metas de Desempenho e de Escalabilidade de Armazenamento do Windows Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+-   **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Metas de Desempenho e de Escalabilidade de Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 -   **Tabela**: uma tabela é uma coleção de entidades. Tabelas não impõem um esquema em entidades, o que significa que uma única tabela pode conter entidades que possuem diferentes conjuntos de propriedades. O número de tabelas que uma 
 	conta de armazenamento pode conter é limitado apenas pelo limite de capacidade da conta de armazenamento.

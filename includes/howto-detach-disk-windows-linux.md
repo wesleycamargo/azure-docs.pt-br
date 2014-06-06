@@ -16,7 +16,7 @@
 
 
 
-Uma máquina virtual no Windows Azure usa diferentes tipos de discos, como um disco do sistema operacional, um local temporário de disco e discos de dados opcional. Você também pode anexar um disco de dados a uma máquina virtual para armazenar dados de aplicativo. Um disco de dados é um disco rígido virtual (VHD) que pode ser criado localmente com seu computador ou na nuvem com o Windows Azure.
+Uma máquina virtual no Azure usa diferentes tipos de discos, como um disco do sistema operacional, um local temporário de disco e discos de dados opcional. Você também pode anexar um disco de dados a uma máquina virtual para armazenar dados de aplicativo. Um disco de dados é um disco rígido virtual (VHD) que pode ser criado localmente com seu computador ou na nuvem com o Azure.
 
 Você pode anexar e desanexar discos de dados sempre que desejar, mas você está limitado o número de discos que você pode se conectar a uma máquina virtual com base no tamanho da máquina.
 
@@ -38,7 +38,7 @@ Você pode encontrar os discos que estão conectados a uma máquina virtual usan
 
 
 
-1. Se você ainda não tiver feito isso, entre no [Portal de Gerenciamento do Windows Azure](http://manage.windowsazure.com).
+1. Se você ainda não tiver feito isso, entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 
 
@@ -60,7 +60,7 @@ Você pode encontrar os discos que estão conectados a uma máquina virtual usan
 
 
 
-1. Se você ainda não tiver feito isso, entre no [Portal de Gerenciamento do Windows Azure](http://manage.windowsazure.com).
+1. Se você ainda não tiver feito isso, entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 
 
@@ -68,7 +68,7 @@ Você pode encontrar os discos que estão conectados a uma máquina virtual usan
 
 
 
-	**Observação:** quando você conecta um novo disco de dados para uma máquina virtual, você pode atribuir um nome para o arquivo. vhd que é usado para o disco, mas Windows Azure atribui o nome do disco. O nome consiste no nome do serviço de nuvem, o nome de máquina virtual e um identificador numérico.
+	**Observação:** quando você conecta um novo disco de dados para uma máquina virtual, você pode atribuir um nome para o arquivo. vhd que é usado para o disco, mas Azure atribui o nome do disco. O nome consiste no nome do serviço de nuvem, o nome de máquina virtual e um identificador numérico.
 
 
 
@@ -78,7 +78,7 @@ Depois de localizar o nome do disco que você deseja desanexar, você pode concl
 
 
 
-1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Windows Azure.
+1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Azure.
 
 
 

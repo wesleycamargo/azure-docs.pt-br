@@ -1,10 +1,10 @@
-A galeria disponibiliza uma ampla gama de aplicativos populares da Web desenvolvidos pela Microsoft, outras empresas e iniciativas de software de código aberto. Os aplicativos da Web criados a partir da galeria não exigem a instalação de qualquer software que não seja o navegador usado para se conectar ao Portal de Gerenciamento do Windows Azure. 
+A galeria disponibiliza uma ampla gama de aplicativos populares da Web desenvolvidos pela Microsoft, outras empresas e iniciativas de software de código aberto. Os aplicativos da Web criados a partir da galeria não exigem a instalação de qualquer software que não seja o navegador usado para se conectar ao Portal de Gerenciamento do Azure. 
 
 Neste tutorial, você aprenderá:
 
 - Como criar um novo site por meio da galeria.
 
-- Como implantar o site por meio do Portal do Windows Azure.
+- Como implantar o site por meio do Portal do Azure.
  
 Você criará um blog do WordPress que usa um modelo padrão. A ilustração a seguir mostra o aplicativo concluído:
 
@@ -12,13 +12,13 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 ![Blog do WordPress][13]
 
 <div class="dev-callout"><strong>Observação</strong>
-<p>Para concluir este tutorial, você precisa de uma conta do Windows Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Criar uma conta do Windows Azure</a>.</p>
+<p>Para concluir este tutorial, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Criar uma conta do Azure</a>.</p>
 </div>
 <br />
 
 ## Criar um site no portal
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure](http://manage.windowsazure.com).
+1. Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 2. Clique no ícone **Novo** na parte inferior esquerda do painel.
 	
@@ -46,7 +46,7 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 	
 	![criar banco de dados ][9]
 
-Depois que você clicar em **Concluído**, o Windows Azure iniciará as operações construir e implantar. Enquanto o site estiver sendo criado e implantado, o status dessas operações será exibido na parte inferior da página de Sites. Depois que todas as operações forem realizadas, será exibida uma mensagem de status final, quando o site for implantado com êxito.
+Depois que você clicar em **Concluído**, o Azure iniciará as operações construir e implantar. Enquanto o site estiver sendo criado e implantado, o status dessas operações será exibido na parte inferior da página de Sites. Depois que todas as operações forem realizadas, será exibida uma mensagem de status final, quando o site for implantado com êxito.
 
 ## Inicie e gerencie seu site do WordPress
 

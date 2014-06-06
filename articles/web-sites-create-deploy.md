@@ -1,10 +1,10 @@
-<properties linkid="manage-services-how-to-create-websites" urlDisplayName="Como criar" pageTitle="Como criar sites da Web - gerenciamento de serviço do Windows Azure" metaKeywords="Criando site no Azure, excluindo site no Azure" description="Saiba como criar um site usando o Portal de Gerenciamento do Windows Azure." metaCanonical="" services="web-sites" documentationCenter="" title="Como criar e implantar um Site" authors=""  solutions="" writer="timamm" manager="" editor=""  />
+<properties linkid="manage-services-how-to-create-websites" urlDisplayName="Como criar" pageTitle="Como criar sites da Web - gerenciamento de serviço do Azure" metaKeywords="Criando site no Azure, excluindo site no Azure" description="Saiba como criar um site usando o Portal de Gerenciamento do Azure." metaCanonical="" services="web-sites" documentationCenter="" title="Como criar e implantar um Site" authors=""  solutions="" writer="timamm" manager="" editor=""  />
 
 #Como criar um site
 
 Este tópico mostra como criar um site na galeria ou usando o portal de gerenciamento.
 
-Para obter informações sobre como implantar o conteúdo em um Site no Windows Azure Web que você criou, consulte a seção **Implantar** em [Sites do Windows Azure](/pt-br/documentation/services/web-sites/)
+Para obter informações sobre como implantar o conteúdo em um Site no Azure Web que você criou, consulte a seção **Implantar** em [Sites do Azure](/pt-br/documentation/services/web-sites/)
 
 ## Sumário ##
 
@@ -15,9 +15,9 @@ Para obter informações sobre como implantar o conteúdo em um Site no Windows 
 
 ##<a name="createawebsiteportal"></a>Como criar um site usando o Portal de Gerenciamento
 
-Siga estas etapas para criar um site no Windows Azure.
+Siga estas etapas para criar um site no Azure.
 	
-1. Faça logon no [Portal de Gerenciamento do Windows Azure](http://manage.windowsazure.com/).
+1. Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/).
 
 2. Clique no ícone **Criar Novo** na parte inferior esquerda do Portal de Gerenciamento.
 
@@ -60,9 +60,9 @@ Siga estas etapas para criar um site no Windows Azure.
 [WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="deleteawebsite"></a>Como excluir um site
-Os sites são excluídos usando o ícone **Excluir** no Portal de Gerenciamento do Windows Azure. O ícone **Excluir** está disponível no Portal do Windows Azure, quando você clica em **Sites da Web** para listar todos os seus sites e, na parte inferior de cada uma das páginas de gerenciamento de site.
+Os sites são excluídos usando o ícone **Excluir** no Portal de Gerenciamento do Azure. O ícone **Excluir** está disponível no Portal do Azure, quando você clica em **Sites da Web** para listar todos os seus sites e, na parte inferior de cada uma das páginas de gerenciamento de site.
 
 ##<a name="nextsteps"></a>Próximas etapas
 
-Para obter mais informações, consulte [Sites do Windows Azure](/pt-br/documentation/services/web-sites/).
+Para obter mais informações, consulte [Sites do Azure](/pt-br/documentation/services/web-sites/).
 

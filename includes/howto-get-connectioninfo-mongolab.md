@@ -1,8 +1,8 @@
-Quando você configurar um banco de dados de MongoLab, o MongoLab transmite uma conexão URI para Windows Azure no formato de cadeia de conexão padrão do MongoDB. Esse valor é usado para iniciar uma conexão por meio de sua escolha em MongoDB do MongoDB driver. Para obter mais informações sobre cadeias de conexão, consulte [conexões de](http://www.mongodb.org/display/DOCS/Connections) em mongodb.org.
+Quando você configurar um banco de dados de MongoLab, o MongoLab transmite uma conexão URI para Azure no formato de cadeia de conexão padrão do MongoDB. Esse valor é usado para iniciar uma conexão por meio de sua escolha em MongoDB do MongoDB driver. Para obter mais informações sobre cadeias de conexão, consulte [conexões de](http://www.mongodb.org/display/DOCS/Connections) em mongodb.org.
 
 **Esse URI contém seu nome de usuário do banco de dados e senha.  Tratá-lo como informações confidenciais e não a compartilhe.**
 
-Você pode recuperar esse URI no Portal do Windows Azure usando as seguintes etapas:
+Você pode recuperar esse URI no Portal do Azure usando as seguintes etapas:
 
 1. Selecionar **Complementos**.  
 ![AddonsButton][button-addons]

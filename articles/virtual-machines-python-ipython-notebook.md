@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Tutorial do Azure" metaKeywords="" description="Um tutorial que mostra como implantar o IPython Notebook no Azure, usando o Linux ou as máquinas virtuais (VMs) do Windows." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook no Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Tutorial do Azure" metaKeywords="" description="Um tutorial que mostra como implantar o IPython Notebook no Azure, usando o Linux ou as máquinas virtuais (VMs) do Windows." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook no Azure" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -22,9 +22,9 @@ SciPy e matplotlib, para analisar a estrutura de uma gravação de som:
 ![Captura de tela](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
 
 Este documento mostrará a você como implantar o IPython Notebook no
-Windows Azure, usando o Linux ou as Máquinas Virtuais (VMs) do Windows.  Ao usar o IPython
-Notebook no Azure, você pode fornecer facilmente uma interface acessível pela Web
-para recursos computacionais escalonáveis com toda a tecnologia
+Azure, usando o Linux ou as Máquinas Virtuais (VMs) do Windows.  Usando o IPython
+Notebook no Azure, é possível fornecer uma interface acessível pela Web
+facilmente para recursos computacionais escaláveis com toda a tecnologia
 da Python e de suas bibliotecas.  Como toda a instalação é feita na nuvem, os usuários podem acessar
 esses recursos sem precisar de qualquer configuração além de um navegador
 moderno.
@@ -33,28 +33,28 @@ moderno.
 
 ## Criar e configurar uma VM no Azure
 
-A primeira etapa é criar uma Máquina Virtual (VM) que seja executada no Azure.
+A primeira etapa é criar uma Máquina Virtual (VM) que execute no Azure.
 Esta VM é um sistema operacional completo na nuvem e será usada para
-executar o IPython Notebook. O Azure pode executar máquinas virtuais
-tanto do Windows quanto do Linux, e irá abranger a configuração do IPython em ambas as VMs.
+executar o IPython Notebook. O Azure é capaz de executar máquinas virtuais
+tanto do Windows como do Linux, e cobrirá a configuração do IPython em ambas as VMs.
 
 ### VM do Linux
 
-Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição do *OpenSUSE* ou *Ubuntu*. Este tutorial usa o OpenSUSE 12.3 e o Ubuntu Server 13.04. Consideraremos o nome padrão do usuário como *usuárioazure*.
+Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição do *OpenSUSE* ou do *Ubuntu*. Este tutorial usa OpenSUSE 12.3 e Ubuntu Server 13.04. Vamos pressupor que o nome de usuário padrão é *azureuser*.
 
 ### VM do Windows
 
-Siga as instruções fornecidas [aqui][portal-vm-windows] para criar uma máquina virtual da distribuição do *Windows Server 2012 Datacenter*. Neste tutorial, vamos pressupor que o nome de usuário é *usuárioazure*.
+Siga as instruções fornecidas [aqui][portal-vm-windows] para criar uma máquina virtual da distribuição do *Windows Server 2012 Datacenter*. Neste tutorial, vamos pressupor que o nome de usuário é *azureuser*.
 
 ## Criar um ponto de extremidade para o IPython Notebook
 
 Esta etapa se aplica à VM do Linux e do Windows. Mais adiante, configuraremos o IPython para executar seu servidor
-de notebook na porta 9999. Para tornar essa porta disponível publicamente, 
-devemos criar um ponto de extremidade no Portal de Gerenciamento do Azure. Esse
+de notebook na porta 9999. Para tornar essa porta disponível publicamente,
+criemos um ponto de extremidade no Portal de Gerenciamento do Azure. Esse
 ponto de extremidade abre uma porta no firewall do Azure e mapeia a porta
 pública (HTTPS, 443) para a porta privada na VM (9999).
 
-Para criar um ponto de extremidade, vá para o painel da VM, clique em "Pontos de Extremidade" , clique em "Adicionar
+Para criar um ponto de extremidade, vá para o painel da VM, clique em "Pontos de Extremidade", clique em "Adicionar
 Ponto de Extremidade" e crie um novo ponto (chamado `ipython_nb` neste exemplo). Escolha
 TCP para o protocolo, 443 para a porta pública e 9999 para a porta privada:
 
@@ -74,7 +74,7 @@ suas dependências.
 Para instalar o IPython e suas dependências, use o SSH na VM do Linux e siga 
 as etapas abaixo.
 
-Instale [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e as outras dependências do IPython, fazendo o seguinte:
+Instale o [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e as outras dependências do IPython fazendo o seguinte:
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
@@ -85,7 +85,7 @@ Instale [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e as outras
 Para instalar o IPython e suas dependências, use o SSH na VM do Linux e siga 
 as etapas abaixo.
 
-Instale [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e as outras dependências do IPython, fazendo o seguinte:
+Instale o [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e as outras dependências do IPython fazendo o seguinte:
 
     sudo apt-get install python-matplotlib
     sudo apt-get install python-tornado
@@ -100,33 +100,30 @@ usando o PowerShell do Windows para executar todas as ações da linha de comand
 **Observação**: Para baixar qualquer coisa usando o Internet Explorer, será necessário alterar algumas configurações de segurança.  No **Gerenciador de Servidores**, clique em **Servidor Local**, clique em **Configuração de Segurança Aprimorada do IE** e desative-a para administradores.  Você poderá habilitá-la novamente depois que a instalação do IPython for concluída.
 
 1.  Instale o Python 2.7.5 (32 bits) de [python.org](http://www.python.org/download). 
-    Você também precisará adicionar `C:\Python27` e `C:\Python27\Scripts` à sua 
-     variável de ambiente `PATH`.
+    Também será necessário adicionar `C:\Python27` e `C:\Python27\Scripts` ao seu ambiente `PATH` 
+    disponível.
 
-1.  Instale a distribuição, baixando o arquivo **distribute_setup.py**
-    de [python-distribute.org](http://python-distribute.org/) e depois execute o
+1.  Instale o Distribute baixando o arquivo **distribute_setup.py**
+    de [python-distribute.org](http://python-distribute.org/) e executando o
     comando:
 
         python distribute_setup.py
 
-1.  Instale [Tornado][tornado] e [PyZMQ][pyzmq] executando os comandos:
+1.  Instale o [Tornado][tornado] e o [PyZMQ][pyzmq] executando os comandos:
 
         easy_install tornado
         easy_install pyzmq
 
-1.  Baixe e instale [NumPy][numpy] usando o
-    instalador binário `.exe` disponível no site.  No momento em que este documento está sendo escrito, a versão mais recente é **numpy-1.7.1-win32-superpack-python2.7.exe**.
+1.  Baixe e instale o [NumPy][numpy] usando o 
+    instalador binário `.exe` disponível no site deles.  Até o fechamento deste tutorial, a versão mais recente é **numpy-1.7.1-win32-superpack-python2.7.exe**.
 
-1.  Baixe e instale [Matplotlib][matplotlib] usando o
-    instalador binário `.exe` disponível no site.  No momento em que este documento está sendo escrito, a versão mais recente é **matplotlib-1.2.1.win32-py2.7.exe**.
+1.  Baixe e instale o [Matplotlib][matplotlib] usando o 
+    instalador binário `.exe` disponível no site deles.  Até o fechamento deste tutorial, a versão mais recente é **matplotlib-1.2.1.win32-py2.7.exe**.
 
-1.  Baixe e instale o OpenSSL. Você pode encontrar as versões do Windows do OpenSSL em [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
-
-	* Se você instalar uma versão **Light**, será necessário instalar também o **Visual C++ 2008 Redistributable** (também disponível nesta página.)
-
-	* Você também precisará adicionar `C:\OpenSSL-Win32\bin` à sua variável de ambiente `PATH`.
-
-	> [WACOM.NOTE] Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
+1.  Baixe e instale o OpenSSL. Será necessário instalar o 
+    **Win32 OpenSSL v1.0.1e Light** e o **Visual C++ 2008  Redistributable** de
+    [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html). Você também deverá adicionar
+    `C:\OpenSSL-Win32\bin` à variável do ambiente `PATH`.
 
 1.  Instale o IPython usando o comando:
 
@@ -134,13 +131,13 @@ usando o PowerShell do Windows para executar todas as ações da linha de comand
 
 1.  Abra uma porta no Windows Firewall.  No Windows Server 2012, o firewall bloqueará as conexões de entrada por padrão.  Para abrir a porta 9999, siga estas etapas:
 
-    - Inicie o **Windows Firewall com Segurança Avançada** da tela Iniciar.
+    - Inicie o **Firewall do Windows com Segurança Avançada** da tela Iniciar.
 
     - Clique em **Regras de Entrada** no painel esquerdo.
 
 	- Clique em **Nova Regra...** no painel Ações.
 
-	- No Assistente para Nova Regra de Entrada, selecione  **Porta**.
+	- No Assistente para Nova Regra de Entrada, selecione **Porta**.
 
 	- Na próxima tela, selecione **TCP** e digite **9999** em **Portas locais específicas**.
 
@@ -153,8 +150,8 @@ de configuração personalizada do IPython para encapsular as informações de c
 
     ipython profile create nbserver
 
-Em seguida, digite `cd` para o diretório do perfil a fim de criar nosso certificado SSL e editar
-o arquivo de configuração de perfis.
+Em seguida, `cd` para o diretório do perfil para criar nosso certificado SSL e editar
+o arquivo de configuração dos perfis.
 
 No Linux (OpenSUSE):
 
@@ -193,7 +190,7 @@ senha conforme a seguir:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
     
 Em seguida, editaremos o arquivo de configuração do perfil, que é o
-arquivo `ipython_notebook_config.py` no diretório do perfil onde você está. Esse
+arquivo `ipython_notebook_config.py` no diretório do perfil onde você está.  Esse
 arquivo tem diversos campos, todos comentados por padrão.  Você pode abrir
 esse arquivo de qualquer editor de texto da sua preferência e deve garantir que ele
 tem pelo menos o conteúdo a seguir:
@@ -233,7 +230,7 @@ o servidor do IPython Notebook:
     ipython notebook --profile=nbserver
 
 Agora, você deve poder acessar o seu IPython Notebook no endereço
-`https://[Seu nome escolhido aqui].cloudapp.net`.
+`https://[Seu Nome Escolhido Aqui].cloudapp.net`.
 
 Quando você acessar seu notebook pela primeira vez, a página de logon pedirá a senha:
 
@@ -252,14 +249,14 @@ a seguir:
 
 A área marcada com um prompt `In []:` é a área de entrada, e nela você poderá
 digitar qualquer código de Python válido e ele será executado quando você pressionar `Shift-Enter` ou
-clicar no ícone "Reproduzir" (o triângulo que aponta para a direita na barra de ferramentas).
+clicar no ícone "Reproduzir" (o triângulo apontando para a direita na barra de ferramentas).
 
-Como já configuramos o notebook para iniciar com o suporte de NumPy e 
-matplotlib automaticamente, você pode até produzir figuras, por exemplo:
+Como já configuramos o notebook para iniciar com o suporte de NumPy e matplotlib
+automaticamente, você pode até produzir figuras, por exemplo:
 
 ![Captura de tela](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
 
-## Um paradigma avançado: documentos computacionais dinâmicos com mídia sofisticada
+## Um paradigma avançado: documentos computacionais dinâmicos com mídia rica
 
 O notebook deve funcionar naturalmente para todos que já usaram o Python e
 um processador de texto, porque ele é, de certa forma, uma mistura de ambos: você pode executar
@@ -298,21 +295,21 @@ pode ser usado:
   formatos de cópia impressa (HTML, PDF),
 
 * para distribuir e apresentar materiais de ensino ao vivo relacionados à computação,
-  de forma que os alunos possam experimentar imediatamente o código real, modificá-lo e
+  para que os alunos possam imediatamente experimentar o código real, modificá-lo e
   executá-lo novamente de forma interativa,
 
-* para fornecer "papers executáveis" que apresentam os resultados de pesquisa de uma forma
-  que possam ser prontamente reproduzidas, validadas e ampliadas por outras pessoas,
+* para fornecer "trabalhos executáveis" que apresentam os resultados de pesquisa de uma forma
+  que possa ser prontamente reproduzida, validade e estendida por outras pessoas,
 
 * como uma plataforma para computação colaborativa: vários usuários podem entrar no
-  mesmo servidor de notebook a fim de compartilhar uma sessão computacional ao vivo,
+  mesmo servidor de notebook para compartilhar uma sessão computacional ao vivo,
 
 * e mais...
 
-Se acessar o repositório de código-fonte do IPython, você encontrará um diretório
+Se você acessar o repositório de código-fonte do IPython, você encontrará um diretório
 completo com [exemplos
 de notebooks](https://github.com/ipython/ipython/tree/master/examples/notebooks)
-que poderá baixar e experimentar na sua própria VM do IPython do Azure.
+que você pode baixar e experimentar na sua própria VM do IPython do Azure.
 Basta baixar os arquivos `.ipynb` do site e carregá-los no
 painel da VM do Azure no seu notebook (ou baixá-los diretamente na VM).
 

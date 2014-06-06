@@ -4,24 +4,24 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
 1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves** 
 
-  	![][0]
+  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
 
 2. Anote o **Nome da Conta de Armazenamento** e a **Chave de Acesso**.
 
-   	![][1]
+   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
 3. No seu serviço móvel, clique na guia **Configurar**, role para baixo até **Configurações do aplicativo** e digite um par de **Nome** e **Valor** para cada uma das opções a seguir que você adquiriu da conta de armazenamento e clique em **Salvar**.
 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
 
-	![][10]
+	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
 	A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
 
 4. Clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**. 
 
-   	![][3]
+   	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
 
 5.  Em **todoitem**, clique na guia **Script** e selecione **Inserir**. Substitua a função de inserção pelo código a seguir e clique em **Salvar**:
 
@@ -78,9 +78,9 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 		    }
 		}
 
- 	![][4]
+ 	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
 
-   	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade 'sasQueryString' do item devolvido. A propriedade 'imageUri' também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a vinculação na interface do cliente.
+   	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade `sasQueryString` do item devolvido. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a vinculação na interface do cliente.
 
 	>[WACOM.NOTE] Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando o mesmo SAS, você poderá chamar o <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature método</a> com um nome de recurso de blob vazio, assim: 
 	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
@@ -90,17 +90,6 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
 [Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account

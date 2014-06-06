@@ -1,7 +1,7 @@
-Enquanto é possível colar um URI MongoLab no seu código, é recomendável configurá-lo no ambiente para facilidade de gerenciamento. Dessa forma, se o URI é alterado, você pode atualizá-lo por meio do Portal do Windows Azure sem precisar ir até o código.
+Enquanto é possível colar um URI MongoLab no seu código, é recomendável configurá-lo no ambiente para facilidade de gerenciamento. Dessa forma, se o URI é alterado, você pode atualizá-lo por meio do Portal do Azure sem precisar ir até o código.
 
 
-1. No Portal do Windows Azure, selecione **Sites**
+1. No Portal do Azure, selecione **Sites**
 1. Na guia Sites, clique no nome do seu site na lista do site.  
 ![WebSiteEntry][entry-website]  
 Exibe o painel de controle do Site da Web.
@@ -18,7 +18,7 @@ Exibe o painel de controle do Site da Web.
 1. Clique em **salvar** na barra de ferramentas.  
 ![SaveWebSite][button-website-save]
 
-**Observação:** O Windows Azure adiciona o **CUSTOMCONNSTR\_** prefixo a esta variável, que é a razão dos códigos de referência acima **CUSTOMCONNSTR\_MONGOLAB_URI.**
+**Observação:** O Azure adiciona o **CUSTOMCONNSTR\_** prefixo a esta variável, que é a razão dos códigos de referência acima **CUSTOMCONNSTR\_MONGOLAB_URI.**
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png

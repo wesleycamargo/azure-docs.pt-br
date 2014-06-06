@@ -30,19 +30,19 @@
 
 ###Instalar manualmente
 
-Para baixar e instalar as Bibliotecas de Clientes do PHP para Windows Azure manualmente, siga estas etapas:
+Para baixar e instalar as Bibliotecas de Clientes do PHP para Azure manualmente, siga estas etapas:
 
 1. Fazer o download de um arquivo. zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para sua máquina local. (A última opção requer uma conta do GitHub e ter o Git instalado localmente).
 
 	<div class="dev-callout"> 
 	<b>Observação</b> 
-	<p>As Bibliotecas de Clientes do PHP para Windows Azure têm uma dependência dos pacotes PEAR <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a> e <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a>. A maneira recomendada para resolver essas dependências é instalar esses pacotes usando o <a href="http://pear.php.net/manual/en/installation.php">Gerenciador de pacotes PEAR</a>.</p> 
+	<p>As Bibliotecas de Clientes do PHP para Azure têm uma dependência dos pacotes PEAR <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a> e <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a>. A maneira recomendada para resolver essas dependências é instalar esses pacotes usando o <a href="http://pear.php.net/manual/en/installation.php">Gerenciador de pacotes PEAR</a>.</p> 
 	</div>
 
 
-2. Copie o diretório do 'WindowsAzure' do arquivo baixado para a estrutura de diretórios de aplicativo.
+2. Copie o diretório do `WindowsAzure` do arquivo baixado para a estrutura de diretórios de aplicativo.
 
-Para obter mais informações sobre como instalar as Bibliotecas de Clientes PHP para Windows Azure (incluindo informações sobre instalar como um pacote PEAR), consulte [Baixar o SDK do Windows Azure para PHP][download-SDK-PHP].
+Para obter mais informações sobre como instalar as Bibliotecas de Clientes PHP para Azure (incluindo informações sobre instalar como um pacote PEAR), consulte [Baixar o SDK do Azure para PHP][download-SDK-PHP].
 
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719

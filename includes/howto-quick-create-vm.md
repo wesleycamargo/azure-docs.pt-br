@@ -4,9 +4,9 @@
 
 Você usa o método **Criação Rápida** para criar rapidamente uma máquina virtual no Portal de Gerenciamento. Ao criar essa máquina, use uma caixa de diálogo para fornecer os detalhes de configuração.
 
-**Observação**: este artigo cria uma máquina virtual que não está conectada a uma rede virtual. Se você quiser que sua máquina virtual use uma rede virtual, use o método **Da Galeria** e especifique a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Windows Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063)
+**Observação**: este artigo cria uma máquina virtual que não está conectada a uma rede virtual. Se você quiser que sua máquina virtual use uma rede virtual, use o método **Da Galeria** e especifique a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063)
 
-1. Entre no [Portal de Gerenciamento do Windows Azure](http://manage.windowsazure.com).
+1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 2. Na barra de comandos, clique em **Novo**.
 

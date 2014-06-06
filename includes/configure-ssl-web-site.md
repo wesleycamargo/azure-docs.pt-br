@@ -1,18 +1,18 @@
-#Habilitar HTTPS para Sites do Windows Azure
+#Habilitar HTTPS para Sites do Azure
 
-Quando alguém visita o seu site usando HTTPS, a comunicação entre o navegador e o site é protegida usando a criptografia Secure Socket Layer (SSL). Esse é o método de proteção de dados enviados pela internet usado com maior frequência e garante aos visitantes que as transações com o seu site são seguras. Este artigo descreve como habilitar HTTPS para Sites do Windows Azure. 
+Quando alguém visita o seu site usando HTTPS, a comunicação entre o navegador e o site é protegida usando a criptografia Secure Socket Layer (SSL). Esse é o método de proteção de dados enviados pela internet usado com maior frequência e garante aos visitantes que as transações com o seu site são seguras. Este artigo descreve como habilitar HTTPS para Sites do Azure. 
 
 > [WACOM.NOTE] Para habilitar HTTPS para nomes de domínio personalizados, você deve configurar seus sites em modo padrão. Isso pode resultar em custos adicionais se você estiver usando modo gratuito ou compartilhado. Para obter mais informações sobre os preços do modo compartilhado e padrão, consulte [Detalhes de preços][pricing].
 
 <a href="bkmk_azurewebsites"></a><h2>O domínio \*.azurewebsites.net</h2>
 
-Se você não estiver planejando usar um nome de domínio personalizado, e sim o domínio \*.azurewebsites.net atribuído ao seu site pelo Windows Azure (por exemplo, contoso.azurewebsites.net), seu site já estará protegido por um certificado fornecido pela Microsoft. Você pode usar **https://mywebsite.azurewebsites.net** para acessar seu site de maneira segura.
+Se você não estiver planejando usar um nome de domínio personalizado, e sim o domínio \*.azurewebsites.net atribuído ao seu site pelo Azure (por exemplo, contoso.azurewebsites.net), seu site já estará protegido por um certificado fornecido pela Microsoft. Você pode usar **https://mywebsite.azurewebsites.net** para acessar seu site de maneira segura.
 
 O restante deste documento fornece detalhes sobre a habilitação HTTPS para nomes de domínio personalizados, tais como **contoso.com**, **www.contoso.com** ou **\*.contoso.com**
 
 <a href="bkmk_domainname"></a><h2>Nomes de domínio personalizados</h2>
 
-Para habilitar HTTPS para um nome de domínio personalizado, como **contoso.com**, você deve registrar um nome de domínio personalizado em um registro de nomes de domínio. Para obter mais informações sobre como configurar o nome de domínio de Sites do Windows Azure, consulte [Configurando um nome de domínio personalizado para Sites do Windows Azure](/pt-br/develop/net/common-tasks/custom-dns-web-site/). Depois de registrar o nome de domínio personalizado e configurar seu site para responder ao nome personalizado, você deve solicitar um certificado SSL para o domínio. 
+Para habilitar HTTPS para um nome de domínio personalizado, como **contoso.com**, você deve registrar um nome de domínio personalizado em um registro de nomes de domínio. Para obter mais informações sobre como configurar o nome de domínio de Sites do Azure, consulte [Configurando um nome de domínio personalizado para Sites do Azure](/pt-br/develop/net/common-tasks/custom-dns-web-site/). Depois de registrar o nome de domínio personalizado e configurar seu site para responder ao nome personalizado, você deve solicitar um certificado SSL para o domínio. 
 
 Registrar um nome de domínio também permite que você crie subdomínios como **www.contoso.com** ou **mail.contoso.com** Antes de solicitar um certificado SSL, você deve primeiro determinar quais nomes de domínio serão protegidos pelo certificado. Isso determinará o tipo de certificado que você precisa ter. Se você precisar proteger um único nome de domínio como **contoso.com** ou **www.contoso.com**, um certificado básico provavelmente será suficiente. Se você precisar proteger vários nomes de domínio, como **contoso.com**, **www.contoso.com** e **mail.contoso.com**, um certificado curinga ou um certificado com o nome alternativo da entidade (subjectAltName, SAN) será necessário.
 
@@ -30,9 +30,9 @@ Um certificado curinga é o que a Microsoft fornece para o nome de domínio \*. 
 
 <a href="bkmk_getcert"></a><h2>Obter um certificado</h2>
 
-Certificados SSL usados com os Sites do Windows Azure devem ser assinados por uma autoridade de certificação (CA), um terceiro confiável que emite certificados para essa finalidade. Se ainda não tiver um, precisará obter junto a uma empresa que venda certificados SSL. Para obter uma lista das Autoridades de Certificação, consulte [Programa de certificação raiz SSL do Windows e Windows Phone 8 (membros CAs) (em inglês)][cas] no Microsoft TechNet Wiki.
+Certificados SSL usados com os Sites do Azure devem ser assinados por uma autoridade de certificação (CA), um terceiro confiável que emite certificados para essa finalidade. Se ainda não tiver um, precisará obter junto a uma empresa que venda certificados SSL. Para obter uma lista das Autoridades de Certificação, consulte [Programa de certificação raiz SSL do Windows e Windows Phone 8 (membros CAs) (em inglês)][cas] no Microsoft TechNet Wiki.
 
-O certificado deve atender aos seguintes requisitos para certificados SSL no Windows Azure:
+O certificado deve atender aos seguintes requisitos para certificados SSL no Azure:
 
 * O certificado deve conter uma chave privada.
 
@@ -40,23 +40,23 @@ O certificado deve atender aos seguintes requisitos para certificados SSL no Win
 
 * O nome da entidade do certificado deve corresponder ao domínio usado para acessar site. Se for necessário atender a vários domínios com esse certificado, você precisará usar um valor curinga ou especificar valores subjectAltName conforme discutido anteriormente.
 
-	* Para obter informações sobre a configuração de um nome de domínio personalizado para Sites do Windows Azure, consulte [Configurando um nome de domínio personalizado para Sites do Windows Azure (a página pode estar em inglês)][customdomain].
+	* Para obter informações sobre a configuração de um nome de domínio personalizado para Sites do Azure, consulte [Configurando um nome de domínio personalizado para Sites do Azure (a página pode estar em inglês)][customdomain].
 	
 	> [WACOM.NOTE] Não tente obter ou gerar um certificado para o domínio azurewebsites.net.
 
 * O certificado deve usar, no mínimo, uma criptografia de 2.048 bits.
 
-> [WACOM.NOTE] Certificados emitidos por servidores de autoridade de certificação privadas não são suportados pelos Sites do Windows Azure.
+> [WACOM.NOTE] Certificados emitidos por servidores de autoridade de certificação privadas não são suportados pelos Sites do Azure.
 
 Para obter um certificado SSL de uma autoridade de certificação, é necessário gerar uma Solicitação de Assinatura de Certificado (CSR), que é enviada para a autoridade de certificação. A autoridade de certificação enviará um certificado que é usado para complementar o CSR. Duas maneiras de gerar um CSR são usando o certmgr.exe ou aplicativos [OpenSSL][openssl]. Certmgr.exe só está disponível para Windows, enquanto que o OpenSSL está disponível para a maioria das plataformas. A seguir estão as etapas para usar esses recursos.
 
-Talvez você também precise obter **certificados intermediários** (também conhecidos como certificados de cadeia), caso eles sejam usados pela autoridade de certificação. O uso de certificados intermediários é considerado mais seguro do que 'certificados sem cadeia, por isso é comum uma autoridade de certificação usá-los. Certificados intermediários geralmente são fornecidos como um download separado do site das autoridades de certificação. As etapas neste artigo mostram como garantir que todos os certificados intermediários sejam mesclados com o certificado carregado para os Sites do Windows Azure. 
+Talvez você também precise obter **certificados intermediários** (também conhecidos como certificados de cadeia), caso eles sejam usados pela autoridade de certificação. O uso de certificados intermediários é considerado mais seguro do que 'certificados sem cadeia, por isso é comum uma autoridade de certificação usá-los. Certificados intermediários geralmente são fornecidos como um download separado do site das autoridades de certificação. As etapas neste artigo mostram como garantir que todos os certificados intermediários sejam mesclados com o certificado carregado para os Sites do Azure. 
 
 > [WACOM.NOTE] Ao seguir uma série de etapas, você será solicitado a inserir um **nome comum** Se você obter um certificado curinga para uso em vários domínios (www.contoso.com, sales.contoso.com), esse valor deverá ser \*.nomedodomínio (por exemplo, \*.contoso.com). Se você obter certificado para um único nome de domínio, o valor deverá ser o valor exato que os usuários digitarão no navegador para visitar seu site. Por exemplo, www.contoso.com.
 >
 > Se você precisar oferecer suporte tanto para um nome curinga como \*.contoso.com quanto para um nome de domínio raiz como contoso.com, é necessário usar um certificado curinga de nome alternativo da entidade (SAN). Para ver exemplos de criação de uma solicitação de certificado que usa as extensões SubjectAltName, consulte [Certificado SubjectAltName](#bkmk_subjectaltname).
 > 
-> Para obter mais informações sobre como configurar o nome de domínio de Sites do Windows Azure, consulte <a href="/pt-br/develop/net/common-tasks/custom-dns-web-site/">Configurando um nome de domínio personalizado para Sites do Windows Azure (a página pode estar em inglês)</a>.
+> Para obter mais informações sobre como configurar o nome de domínio de Sites do Azure, consulte <a href="/pt-br/develop/net/common-tasks/custom-dns-web-site/">Configurando um nome de domínio personalizado para Sites do Azure (a página pode estar em inglês)</a>.
 
 ###Obtenha um certificado usando o certreq.exe (somente Windows)
 
@@ -128,7 +128,7 @@ Se você desejar usar o Gerenciador do IIS para criar uma solicitação de certi
 
 	![forneça um caminho do arquivo][certwiz4]
 
-Agora você pode carregar o arquivo PFX exportado no Site do Windows Azure.
+Agora você pode carregar o arquivo PFX exportado no Site do Azure.
 
 ###Obtenha um certificado usando OpenSSL
 
@@ -142,7 +142,7 @@ Agora você pode carregar o arquivo PFX exportado no Site do Windows Azure.
         Estado ou província (nome completo) []: Washington
         Nome da localidade (por exemplo, cidade) []: Redmond
         Nome da organização (por exemplo, a empresa) []: Microsoft
-        Nome da unidade organizacional (por exemplo, seção) []: Windows Azure
+        Nome da unidade organizacional (por exemplo, seção) []: Azure
         Nome comum (por exemplo, SEU nome) []: www.microsoft.com
         Endereço de e-mail []:
 
@@ -178,7 +178,7 @@ Agora você pode carregar o arquivo PFX exportado no Site do Windows Azure.
 
 	Salve o arquivo.
 
-5. Na sessão de linha de comando, Bash ou terminal, use o seguinte comando para converter o **myserver.key** e **myserver.crt** em **myserver.pfx**, que é o formato exigido pelos Sites do Windows Azure:
+5. Na sessão de linha de comando, Bash ou terminal, use o seguinte comando para converter o **myserver.key** e **myserver.crt** em **myserver.pfx**, que é o formato exigido pelos Sites do Azure:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
@@ -193,11 +193,11 @@ Agora você pode carregar o arquivo PFX exportado no Site do Windows Azure.
 	</code></pre>
 	</div>
 
-	Depois de executar este comando, você deve ter um arquivo **myserver.pfx** apropriado para uso nos Sites do Windows Azure.
+	Depois de executar este comando, você deve ter um arquivo **myserver.pfx** apropriado para uso nos Sites do Azure.
 
 <a href="bkmk_standardmode"></a><h2>Configure o modo padrão</h2>
 
-A habilitação HTTPS para um domínio personalizado só está disponível para o modo padrão nos Sites do Windows Azure. Use as etapas a seguir para alternar para o modo padrão.
+A habilitação HTTPS para um domínio personalizado só está disponível para o modo padrão nos Sites do Azure. Use as etapas a seguir para alternar para o modo padrão.
 
 > [WACOM.NOTE] Antes alternar um site do modo gratuito para o modo padrão, remova os limites de despesas em vigor na assinatura do site, caso contrário seu site pode ficar indisponível se o limite for alcançado antes do fim do período de cobrança. Para obter mais informações sobre os preços do modo compartilhado e padrão, consulte [Detalhes de preços][pricing].
 
@@ -217,13 +217,13 @@ A habilitação HTTPS para um domínio personalizado só está disponível para 
 
 5. Clique em **Salvar**. Quando solicitado, clique em **Sim**.
 
-	> [WACOM.NOTE] Se você receber um erro "Falha na configuração da escala para o site '&lt;site name&gt;'", use o botão Detalhes para obter mais informações. Você pode receber um erro "Não servidores de instância padrão disponíveis para atender a esta solicitação". Se você receber esse erro, entre em contato com o [suporte do Windows Azure](http://www.windowsazure.com/pt-br/support/options/)
+	> [WACOM.NOTE] Se você receber um erro "Falha na configuração da escala para o site '&lt;site name&gt;'", use o botão Detalhes para obter mais informações. Você pode receber um erro "Não servidores de instância padrão disponíveis para atender a esta solicitação". Se você receber esse erro, entre em contato com o [suporte do Azure](http://www.windowsazure.com/pt-br/support/options/)
 
 <a href="bkmk_configuressl"></a><h2>Configurar SSL</h2>
 
-Antes de executar as etapas nesta seção, você deve ter associado um nome de domínio personalizado aos Sites do Windows Azure. Para obter mais informações, consulte [Configurando um nome de domínio personalizado para Sites do Windows Azure][customdomain].
+Antes de executar as etapas nesta seção, você deve ter associado um nome de domínio personalizado aos Sites do Azure. Para obter mais informações, consulte [Configurando um nome de domínio personalizado para Sites do Azure][customdomain].
 
-1. No navegador, abra o [Portal de Gerenciamento do Windows Azure][portal].
+1. No navegador, abra o [Portal de Gerenciamento do Azure][portal].
 
 2. Na guia **Sites**, clique no nome de seu site e, em seguida, selecione a guia **CONFIGURAR**.
 
@@ -309,7 +309,7 @@ OpenSSL pode ser usado para criar uma solicitação de certificado que usa a ext
  		Nome do país (código de 2 letras) []: US
         Nome do estado ou província (nome completo) []: Washington
         Nome da localidade (por exemplo, cidade) []: Redmond
-        Nome da unidade organizacional (por exemplo, seção) []: Windows Azure
+        Nome da unidade organizacional (por exemplo, seção) []: Azure
         Seu nome comum (por exemplo, nome de domínio) []: www.microsoft.com
  
 
@@ -341,7 +341,7 @@ OpenSSL pode ser usado para criar uma solicitação de certificado que usa a ext
 
 	Salve o arquivo.
 
-5. Na sessão de linha de comando, Bash ou terminal, use o seguinte comando para converter o **myserver.key** e **myserver.crt** em **myserver.pfx**, que é o formato exigido pelos Sites do Windows Azure:
+5. Na sessão de linha de comando, Bash ou terminal, use o seguinte comando para converter o **myserver.key** e **myserver.crt** em **myserver.pfx**, que é o formato exigido pelos Sites do Azure:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
@@ -356,11 +356,11 @@ OpenSSL pode ser usado para criar uma solicitação de certificado que usa a ext
 	</code></pre>
 	</div>
 
-	Depois de executar este comando, você deve ter um arquivo **myserver.pfx** apropriado para uso nos Sites do Windows Azure.
+	Depois de executar este comando, você deve ter um arquivo **myserver.pfx** apropriado para uso nos Sites do Azure.
 
 ##<a name="bkmk_iismgr"></a>Obtenha um certificado usando o Gerenciador do IIS (opcional)
 
-Se estiver familiarizado com o Gerenciador do IIS, você pode usá-lo para gerar um certificado que pode ser usado com os Sites do Windows Azure.
+Se estiver familiarizado com o Gerenciador do IIS, você pode usá-lo para gerar um certificado que pode ser usado com os Sites do Azure.
 
 1. Gere uma Solicitação de Assinatura de Certificado (CSR) com o Gerenciador do IIS para enviar à Autoridade de Certificação. Para obter mais informações sobre como gerar um CSR, consulte [Solicitar um certificado de servidor para a Internet (IIS 7)][iiscsr].
 
@@ -372,7 +372,7 @@ Se estiver familiarizado com o Gerenciador do IIS, você pode usá-lo para gerar
 
 	Depois que você tiver baixado o certificado, clique com botão direito no explorer e selecione **Instalar certificado**. Use os valores padrão no **o Assistente de importação de certificados**e continue selecionando **Próximo** até que a importação seja concluída.
 
-4. Exportar o certificado do Gerenciador do IIS Para obter mais informações sobre como exportar o certificado, consulte [Exportar um certificado do servidor (IIS 7)][exportcertiis]. O arquivo exportado será usado nas etapas posteriores quando for carregado no Windows Azure para uso nos Sites do Windows Azure.
+4. Exportar o certificado do Gerenciador do IIS Para obter mais informações sobre como exportar o certificado, consulte [Exportar um certificado do servidor (IIS 7)][exportcertiis]. O arquivo exportado será usado nas etapas posteriores quando for carregado no Azure para uso nos Sites do Azure.
 
 	<div class="dev-callout"> 
 	<b>Observação</b>
@@ -449,7 +449,7 @@ Você pode criar um certificado de teste em um sistema do Windows com Visual Stu
          keyUsage=nonRepudiation, digitalSignature, keyEncipherment
          extendedKeyUsage = serverAuth
 
-	Isso especifica as definições de configuração necessárias para produzir um certificado SSL que pode ser usado pelos Sites do Windows Azure.
+	Isso especifica as definições de configuração necessárias para produzir um certificado SSL que pode ser usado pelos Sites do Azure.
 
 2. Gere um novo certificado autoassinado usando uma das opções de uma sessão de linha de comando, bash ou terminal:
 
@@ -457,13 +457,13 @@ Você pode criar um certificado de teste em um sistema do Windows com Visual Stu
 
 	Isso cria um novo certificado usando as configurações especificadas no arquivo **serverauth.cnf**.
 
-3. Para exportar o certificado para um arquivo .PFX que pode ser carregado em Sites do Windows Azure, use o seguinte comando:
+3. Para exportar o certificado para um arquivo .PFX que pode ser carregado em Sites do Azure, use o seguinte comando:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Quando solicitado, digite uma senha para proteger o arquivo.pfx.
 
-	O **myserver.pfx** produzido por este comando pode ser usado para proteger seu Site do Windows Azure para fins de teste.
+	O **myserver.pfx** produzido por este comando pode ser usado para proteger seu Site do Azure para fins de teste.
 
 [customdomain]: /pt-br/develop/net/common-tasks/custom-dns-web-site/
 [iiscsr]: http://technet.microsoft.com/pt-br/library/cc732906(WS.10).aspx

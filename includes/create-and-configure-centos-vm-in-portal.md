@@ -1,8 +1,8 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
-**Observação**: este artigo cria uma máquina virtual que não está conectada a uma rede virtual. Se você quiser que sua máquina virtual use uma rede virtual para que possa se conectar às suas máquinas virtuais diretamente pelo nome do host ou estabelecer conexões entre locais, use o método **Da Galeria** e especifique a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da Rede Virtual do Windows Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063)
+**Observação**: este artigo cria uma máquina virtual que não está conectada a uma rede virtual. Se você quiser que sua máquina virtual use uma rede virtual para que possa se conectar às suas máquinas virtuais diretamente pelo nome do host ou estabelecer conexões entre locais, use o método **Da Galeria** e especifique a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da Rede Virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063)
 
-1. Entre no Portal de Gerenciamento do Windows Azure usando sua conta do Windows Azure.
+1. Entre no Portal de Gerenciamento do Azure usando sua conta do Azure.
 2. No Portal de Gerenciamento, na parte inferior esquerda da página da Web, clique em **+Novo**, clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
 
 	![Criar uma Nova Máquina Virtual][Image1]
@@ -30,7 +30,7 @@
 
 	Clique na marca de seleção para continuar.
 	
-7. Aguarde enquanto o Windows Azure prepara sua máquina virtual.
+7. Aguarde enquanto o Azure prepara sua máquina virtual.
 
 ##Configurar pontos de extremidade
 Depois que a máquina virtual é criada, configure pontos de extremidade para se conectar remotamente.

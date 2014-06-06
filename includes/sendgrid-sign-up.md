@@ -1,8 +1,8 @@
-Os clientes do Windows Azure podem desbloquear 25.000 emails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a todas as APIs (Web, SMTP, Evento, Análise, Subsistema de usuário). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
+Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a todas as APIs (Web, SMTP, Evento, Análise, Subsistema de usuário). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
 
 ### Para se inscrever em uma conta do SendGrid
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure][].
+1. Faça logon no [Portal de Gerenciamento do Azure][].
 
 2. No painel inferior do portal de gerenciamento, clique em **Novo**.
 
@@ -16,7 +16,7 @@ Os clientes do Windows Azure podem desbloquear 25.000 emails livres por mês. Es
 
 5. Na caixa de diálogo **Personalizar Complemento**, selecione o plano do **SendGrid** no qual você deseja se inscrever.
 
-6. Digite um nome para identificar o serviço do **SendGrid** nas suas configurações do Windows Azure ou use o valor padrão de **SendGrid**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na lista de itens inscritos da Windows Azure Store.
+6. Digite um nome para identificar o serviço do **SendGrid** nas suas configurações do Azure ou use o valor padrão de **SendGrid**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na lista de itens inscritos da Azure Store.
 
 	![store-screen-2][store-screen-2]
 
@@ -71,7 +71,7 @@ Os clientes do Windows Azure podem desbloquear 25.000 emails livres por mês. Es
 <!--Links-->
 
 [Recursos do SendGrid]: http://sendgrid.com/features
-[Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
 [Começar com o SendGrid]: http://docs.sendgrid.com/documentation/get-started/
 
 

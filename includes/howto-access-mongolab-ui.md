@@ -1,4 +1,4 @@
-A qualquer momento após a configuração de um banco de dados de MongoLab, você pode acessar a web MongoLab da interface do usuário para o gerenciamento de banco de dados. Oferecemos single-sign-on (SSO) acesso conveniente por meio do Portal de gerenciamento do Windows Azure.
+A qualquer momento após a configuração de um banco de dados de MongoLab, você pode acessar a web MongoLab da interface do usuário para o gerenciamento de banco de dados. Oferecemos single-sign-on (SSO) acesso conveniente por meio do Portal de gerenciamento do Azure.
 
 Você pode usar o MongoLab UI para executar a maioria das tarefas de banco de dados, como inserção e consultar documentos, obter estatísticas de banco de dados e executando comandos úteis de banco de dados. Para saber mais sobre a MongoLab UI, visite nosso [página de suporte](http://support.mongolab.com) e [blog](http://blog.mongolab.com)
 

@@ -29,7 +29,7 @@
 
    	![][4] 
 
-8. Na página Serviços, clique em **Site de Serviços do Live** em **Serviços Móveis do Windows Azure**.
+8. Na página Serviços, clique em **Site de Serviços do Live** em **Serviços Móveis do Azure**.
 
 	![][5]
 
@@ -39,7 +39,7 @@
 
     >[WACOM.NOTE]O segredo do cliente e o SID do pacote são credenciais de segurança importantes. Não compartilhe esses segredos com ninguém nem os distribua com o seu aplicativo.
 
-10. Faça logon no [Portal de Gerenciamento do Windows Azure], clique em **Serviços Móveis** e, em seguida, clique no seu aplicativo.
+10. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique no seu aplicativo.
 
    	![][7]
 
@@ -61,7 +61,7 @@
 [8]: ./media/mobile-services-register-windows-store-app/mobile-push-tab.png
 
 <!-- URLs. -->
-[Começar com os Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
 [Enviar uma página de aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 

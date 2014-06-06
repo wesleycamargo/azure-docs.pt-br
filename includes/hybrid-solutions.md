@@ -1,6 +1,6 @@
-#Service Bus do Windows Azure
+#Service Bus do Azure
 
-Se o software for executado na nuvem ou no local, ele geralmente precisa interagir com outro software. Para fornecer uma maneira amplamente úteis para fazer isso, o Windows Azure oferece o Service Bus. Este artigo dá uma olhada essa tecnologia, que descreve o que é e por que você desejaria usá-lo.
+Se o software for executado na nuvem ou no local, ele geralmente precisa interagir com outro software. Para fornecer uma maneira amplamente úteis para fazer isso, o Azure oferece o Service Bus. Este artigo dá uma olhada essa tecnologia, que descreve o que é e por que você desejaria usá-lo.
 
 ##Sumário      
 - [Noções básicas do Service Bus](#fundamentals)
@@ -9,11 +9,12 @@ Se o software for executado na nuvem ou no local, ele geralmente precisa interag
 - [Retransmissão](#relays)
 
 
-## <a name="fundamentals"></a>Conceitos básicos do serviço barramento diferentes situações pedem diferentes estilos de comunicação. Às vezes, permitindo que aplicativos de enviar e receber mensagens por meio de uma fila simple é a melhor solução. Em outras situações, uma fila comum não é suficiente; uma fila com um mecanismo de publicação e assinatura é melhor. E em alguns casos, tudo que realmente é preciso é uma conexão entre filas de aplicativos não são necessárias. O Service Bus fornece todas as três opções, permitindo que os aplicativos interagir de várias maneiras diferentes.
+## <a name="fundamentals"></a>Conceitos básicos do serviço barramento
+Diferentes situações pedem diferentes estilos de comunicação. Às vezes, permitindo que aplicativos de enviar e receber mensagens por meio de uma fila simple é a melhor solução. Em outras situações, uma fila comum não é suficiente; uma fila com um mecanismo de publicação e assinatura é melhor. E em alguns casos, tudo que realmente é preciso é uma conexão entre filas de aplicativos não são necessárias. O Service Bus fornece todas as três opções, permitindo que os aplicativos interagir de várias maneiras diferentes.
 
 O Service Bus é um serviço de nuvem de diversos clientes, o que significa que o serviço é compartilhado por vários usuários. Cada usuário, como um desenvolvedor de aplicativos, cria um *namespace*, em seguida, define os mecanismos de comunicação necessárias dentro desse namespace. [Figura 1](#Fig1) mostra isso.
 
-<a name="Fig1"></a>![Diagrama do Service Bus do Windows Azure][svc-bus]
+<a name="Fig1"></a>![Diagrama do Service Bus do Azure][svc-bus]
  
 **Figura 1: O Service Bus fornece um serviço de multilocação para conexão de aplicativos por meio da nuvem.**
 
@@ -27,7 +28,7 @@ Quando você criar uma fila, o tópico ou a retransmissão, você atribuir um no
 
 Para usar qualquer um desses objetos, aplicativos do Windows podem usar o Windows Communication Foundation (WCF). Para filas e tópicos, aplicativos do Windows também podem usar uma API de mensagens definidas pelo Service Bus. Filas e tópicos acessados na HTTP também e para torná-las mais fáceis de usar de aplicativos não Windows, a Microsoft fornece SDKs para outras linguagens, Java e Node. js.
 
-É importante compreender que, embora o serviço de barramento em si é executado na nuvem (ou seja, nos data centers de Windows Azure da Microsoft), aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Windows Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Windows Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos para um aplicativo central ou a qualquer outra. O Service Bus é um mecanismo de comunicação genérico na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você usar depende de que seus aplicativos precisam fazer.
+É importante compreender que, embora o serviço de barramento em si é executado na nuvem (ou seja, nos data centers de Azure da Microsoft), aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos para um aplicativo central ou a qualquer outra. O Service Bus é um mecanismo de comunicação genérico na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você usar depende de que seus aplicativos precisam fazer.
 
 
 ## <a name="queues"></a>Filas

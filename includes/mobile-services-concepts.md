@@ -1,6 +1,6 @@
 ## <a name="what-is"></a>O que são Serviços Móveis?
 
-Os Serviços Móveis são uma oferta de serviço do Windows Azure desenvolvida para facilitar a criação de aplicativos móveis altamente funcionais usando o Windows Azure. Os Serviços Móveis reúnem um conjunto de serviços do Windows Azure que habilitam recursos de back-end para seus aplicativos. Os Serviços Móveis fornecem os seguintes recursos de back-end no Windows Azure para oferecer suporte a seus aplicativos: 
+Os Serviços Móveis são uma oferta de serviço do Azure desenvolvida para facilitar a criação de aplicativos móveis altamente funcionais usando o Azure. Os Serviços Móveis reúnem um conjunto de serviços do Azure que habilitam recursos de back-end para seus aplicativos. Os Serviços Móveis fornecem os seguintes recursos de back-end no Azure para oferecer suporte a seus aplicativos: 
 
 + Provisionamento e gerenciamento simples de tabelas para armazenar dados de aplicativo. 
 + Integração com os serviços de notificação para enviar notificações por push para seu aplicativo.

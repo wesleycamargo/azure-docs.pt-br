@@ -7,14 +7,14 @@
 
 Quando você cria uma máquina virtual, um serviço de nuvem é criado automaticamente para conter a máquina. Você pode criar várias máquinas virtuais no mesmo serviço de nuvem para ativar as máquinas virtuais para se comunicar uns com os outros, para balanceamento de carga entre máquinas virtuais e para manter a alta disponibilidade das máquinas. 
 
-Para obter mais informações sobre balanceamento de carga de máquinas virtuais, consulte [Máquinas virtuais de balanceamento de carga] [Load balancing virtual machines]. Para obter mais informações sobre o gerenciamento da disponibilidade do seu aplicativo, consulte [Gerenciar a disponibilidade de máquinas virtuais] [Manage the availability of virtual machines]. 
+Para obter mais informações sobre balanceamento de carga de máquinas virtuais, consulte [Máquinas virtuais de balanceamento de carga](../load-balancing-vms/). Para obter mais informações sobre o gerenciamento da disponibilidade do seu aplicativo, consulte [Gerenciar a disponibilidade de máquinas virtuais](../manage-vm-availability/). 
 
 
 Primeiro, você precisará criar uma máquina virtual com um novo serviço de nuvem e, em seguida, você poderá conectar mais máquinas virtuais à primeira máquina virtual no mesmo serviço de nuvem. 
 
 
 
-1. Criar uma máquina virtual usando as etapas em [Como criar uma máquina virtual personalizada] [How to create a custom virtual machine].
+1. Criar uma máquina virtual usando as etapas em [Como criar uma máquina virtual personalizada](../howto-custom-create-vm/).
 
 
 2. Depois de criar a primeira máquina virtual personalizada, na [barra de comando do](http://manage.windowsazure.com) Portal de gerenciamento, clique em **Novo**.
@@ -51,19 +51,11 @@ Primeiro, você precisará criar uma máquina virtual com um novo serviço de nu
 
 10. Em **Serviço de Nuvem**, selecione o serviço de nuvem que conterá a nova máquina virtual.
 
-11. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região que você deseja que contenha a máquina virtual.
-
-12. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para armazenar o arquivo. vhd ou deixe o campo definido como padrão para criar a conta de armazenamento automaticamente. Apenas uma conta de armazenamento será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nesta conta de armazenamento. Você está limitado a 20 contas de armazenamento.
+11. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para armazenar o arquivo. vhd ou deixe o campo definido como padrão para criar a conta de armazenamento automaticamente. Apenas uma conta de armazenamento será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nesta conta de armazenamento. Você está limitado a 20 contas de armazenamento.
 
 
-13. Para usar um conjunto de disponibilidade, selecione aquela que foi criada quando você criou a primeira máquina virtual.
+12. Para usar um conjunto de disponibilidade, selecione aquela que foi criada quando você criou a primeira máquina virtual.
 
-14. Revise a configuração de ponto de extremidade padrão e modifique se necessário. 
+13. Revise a configuração de ponto de extremidade padrão e modifique se necessário. 
 
-15. Clique na marca de seleção para criar a máquina virtual conectada.
-
-
-[How to create a custom virtual machine]: http://windowsazure.com/pt-br/documentation/articles/virtual-machines-create-custom/
-[Load balancing virtual machines]: http://windowsazure.com/pt-br/documentation/articles/load-balance-virtual-machines/
-[Manage the availability of virtual machines]: http://windowsazure.com/pt-br/documentation/articles/virtual-machines-manage-availability/
-
+14. Clique na marca de seleção para criar a máquina virtual conectada.

@@ -1,10 +1,10 @@
-#Como criar um banco de dados MongoDB no Windows Azure
+#Como criar um banco de dados MongoDB no Azure
 
-Este artigo mostra como usar o [MongoLab] para criar um banco de dados MongoDB na [Windows Azure Store] [MongoLab] é um provedor do MongoDB como serviço que permite que você execute e gerencie bancos de dados MongoDB em datacenters do Windows Azure e conecte-os de qualquer aplicativo.  
+Este artigo mostra como usar o [MongoLab] para criar um banco de dados MongoDB na [Azure Store] [MongoLab] é um provedor do MongoDB como serviço que permite que você execute e gerencie bancos de dados MongoDB em datacenters do Azure e conecte-os de qualquer aplicativo.  
 
-Para criar um banco de dados MongoDB na [Windows Azure Store], faça o seguinte:
+Para criar um banco de dados MongoDB na [Azure Store], faça o seguinte:
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure][portal].
+1. Faça logon no [Portal de Gerenciamento do Azure][portal].
 2. Clique em **+NOVO** na parte inferior da página e selecione **STORE**
 
 	![Selecione o complemento na store](./media/create-mongolab-mongodb/select-store.png)
@@ -23,7 +23,7 @@ Para criar um banco de dados MongoDB na [Windows Azure Store], faça o seguinte:
 
 6. Depois que o banco de dados tiver sido criado, você pode gerenciá-lo na guia **COMPLEMENTOS** no portal de gerenciamento.
 
-	![Gerencie o banco de dados MongoLab no portal do Windows Azure](./media/create-mongolab-mongodb/manage-mongolab-add-on.png)
+	![Gerencie o banco de dados MongoLab no portal do Azure](./media/create-mongolab-mongodb/manage-mongolab-add-on.png)
 
 7. Você pode obter as informações de conexão do banco de dados clicando em **INFORMAÇÕES DE CONEXÃO** na parte inferior da página (mostrada acima).
 
@@ -31,6 +31,6 @@ Para criar um banco de dados MongoDB na [Windows Azure Store], faça o seguinte:
 
 [MongoLab]: https://mongolab.com/home
 [waws]: /pt-br/manage/services/web-sites/
-[Windows Azure Store]: /pt-br/store/overview/
+[Azure Store]: /pt-br/store/overview/
 [portal]: http://windows.azure.com/
 

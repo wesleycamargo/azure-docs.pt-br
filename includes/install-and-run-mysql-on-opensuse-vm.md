@@ -41,7 +41,7 @@
 
 	Observe que o ponto e vírgula (;) no final das linhas são cruciais para encerrar os comandos.
 
-8. Para criar um banco de dados e conceder as permissões de usuário 'mysqluser', execute os seguintes comandos:
+8. Para criar um banco de dados e conceder as permissões de usuário `mysqluser`, execute os seguintes comandos:
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -52,13 +52,13 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	onde 'ip-address' é o endereço IP do computador do qual você se conectará ao MySQL.
+	onde `ip-address` é o endereço IP do computador do qual você se conectará ao MySQL.
 	
 10. Para sair do utilitário de administração de banco de dados MySQL, emita o seguinte comando:
 
 		quit
 
-11. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Windows Azure][AzurePreviewPortal]. No Portal do Windows Azure, clique em **Máquinas Virtuais** e, em seguida, clique no nome da sua nova máquina virtual e clique em **Pontos de extremidade**.
+11. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][AzurePreviewPortal]. No Portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique no nome da sua nova máquina virtual e clique em **Pontos de extremidade**.
 
 	![Pontos de extremidade][Image7]
 
@@ -68,7 +68,7 @@
 13. Adicione um ponto de extremidade com o nome "MySQL", protocolo **TCP** e portas **públicas** e **particulares**  definidas como "3306". Isso permitirá que o MySQL seja acessado remotamente.
 	![Pontos de extremidade][Image9]
 
-14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Windows Azure, execute o seguinte comando no computador local:
+14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Azure, execute o seguinte comando no computador local:
 
 		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 

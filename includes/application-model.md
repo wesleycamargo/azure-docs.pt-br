@@ -1,10 +1,10 @@
 # Computação
 
-O Windows Azure permite implantar e monitorar seu código de aplicativo em execução dentro de um data center da Microsoft. Quando você cria um aplicativo e o executa no Windows Azure, seu código e a configuração, em conjunto, são chamados serviço hospedado do Windows Azure. Os serviços hospedados são fáceis de gerenciar, expandir e reduzir, reconfigurar e atualizar com novas versões do código de seu aplicativo. Este artigo aborda o modelo de aplicativo de serviço hospedado do Windows Azure.<a id="compare" name="compare"></a>
+O Azure permite implantar e monitorar seu código de aplicativo em execução dentro de um data center da Microsoft. Quando você cria um aplicativo e o executa no Azure, seu código e a configuração, em conjunto, são chamados serviço hospedado do Azure. Os serviços hospedados são fáceis de gerenciar, expandir e reduzir, reconfigurar e atualizar com novas versões do código de seu aplicativo. Este artigo aborda o modelo de aplicativo de serviço hospedado do Azure.<a id="compare" name="compare"></a>
 
 ## Sumário<a id="_GoBack" name="_GoBack"></a>
 
--   [Benefícios do modelo de aplicativo do Windows Azure][]
+-   [Benefícios do modelo de aplicativo do Azure][]
 -   [Conceitos fundamentais do serviço hospedado][]
 -   [Considerações de design de serviço hospedado][]
 -   [Criando seu aplicativo para escala][]
@@ -14,25 +14,25 @@ O Windows Azure permite implantar e monitorar seu código de aplicativo em execu
 -   [Criando e implantando um serviço hospedado][]
 -   [Referências][]
 
-## <a id="benefits"> </a>Benefícios do modelo de aplicativo do Windows Azure
+## <a id="benefits"> </a>Benefícios do modelo de aplicativo do Azure
 
-Quando você implanta seu aplicativo como um serviço hospedado, o Windows Azure cria uma ou mais VMs (máquinas virtuais) que contêm o código do seu aplicativo e inicializa as VMs em máquinas físicas que residem em um dos data centers do Windows Azure. À medida que as solicitações de clientes para o aplicativo hospedado entram no data center, um balanceador de carga distribui essas solicitações igualmente para as VMs. Enquanto está hospedado no Windows Azure, o aplicativo obtém três benefícios importantes:
+Quando você implanta seu aplicativo como um serviço hospedado, o Azure cria uma ou mais VMs (máquinas virtuais) que contêm o código do seu aplicativo e inicializa as VMs em máquinas físicas que residem em um dos data centers do Azure. À medida que as solicitações de clientes para o aplicativo hospedado entram no data center, um balanceador de carga distribui essas solicitações igualmente para as VMs. Enquanto está hospedado no Azure, o aplicativo obtém três benefícios importantes:
 
--   **Alta disponibilidade.** Alta disponibilidade significa que o Windows Azure garante que seu aplicativo seja executado tanto quanto possível e possa responder às solicitações de clientes. Se seu aplicativo terminar (devido a uma exceção não tratada, por exemplo), o Windows Azure detectará isso e reiniciará seu aplicativo automaticamente. Se a máquina na qual seu aplicativo está executando experimentar algum tipo de falha de hardware, o Windows Azure também detectará isso e criará automaticamente uma nova VM em outra máquina física em funcionamento e executará seu código nela. Observação: para que aplicativo obtenha o Contrato de Nível de Serviço da Microsoft de 99,95% disponível, você deve ter pelo menos duas VMs executando o código do seu aplicativo. Isso permite que uma VM processe solicitações de clientes enquanto o Windows Azure move seu código de uma VM com falha para uma VM nova VM funcional.
+-   **Alta disponibilidade.** Alta disponibilidade significa que o Azure garante que seu aplicativo seja executado tanto quanto possível e possa responder às solicitações de clientes. Se seu aplicativo terminar (devido a uma exceção não tratada, por exemplo), o Azure detectará isso e reiniciará seu aplicativo automaticamente. Se a máquina na qual seu aplicativo está executando experimentar algum tipo de falha de hardware, o Azure também detectará isso e criará automaticamente uma nova VM em outra máquina física em funcionamento e executará seu código nela. Observação: para que aplicativo obtenha o Contrato de Nível de Serviço da Microsoft de 99,95% disponível, você deve ter pelo menos duas VMs executando o código do seu aplicativo. Isso permite que uma VM processe solicitações de clientes enquanto o Azure move seu código de uma VM com falha para uma VM nova VM funcional.
 
--   **Escalabilidade.** O Windows Azure permite que você altere de maneira fácil e dinâmica o número de VMs que executam o código do seu aplicativo para tratar da carga real que está sendo colocada no aplicativo. Isso permite que você ajuste seu aplicativo para a carga de trabalho que seus clientes estão colocando nele pagando somente pelas VMs necessárias quando precisarem deles. Quando você quiser alterar o número de VMs, o Windows Azure responderá em minutos, possibilitando a alteração dinâmica do número de VMs em execução com a frequência desejada.
+-   **Escalabilidade.** O Azure permite que você altere de maneira fácil e dinâmica o número de VMs que executam o código do seu aplicativo para tratar da carga real que está sendo colocada no aplicativo. Isso permite que você ajuste seu aplicativo para a carga de trabalho que seus clientes estão colocando nele pagando somente pelas VMs necessárias quando precisarem deles. Quando você quiser alterar o número de VMs, o Azure responderá em minutos, possibilitando a alteração dinâmica do número de VMs em execução com a frequência desejada.
 
--   **Capacidade de gerenciamento.** Como o Windows Azure é uma oferta de PaaS (plataforma como um serviço), ele gerencia a infraestrutura (o próprio hardware, a eletricidade e a rede) necessária para manter essas máquinas em execução. O Windows Azure também gerencia a plataforma, garantindo um sistema operacional atualizado com todos os patches e atualizações de segurança corretos, bem como atualizações de componentes, como o .NET Framework e o Internet Information Server. Como todas as VMs estão executando o Windows Server 2008, o Windows Azure fornece recursos adicionais, como monitoramento de diagnóstico, suporte a área de trabalho remota, firewalls e configuração do repositório de certificados. Todos esses recursos são fornecidos sem nenhum custo extra. Na verdade, quando você executa o aplicativo no Windows Azure, a licença do SO (sistema operacional) Windows Server 2008 está incluída. Como todas as VMs estão executando o Windows Server 2008, qualquer código que seja executado no Windows Server 2008 funciona muito bem ao ser executado no Windows Azure.
+-   **Capacidade de gerenciamento.** Como o Azure é uma oferta de PaaS (plataforma como um serviço), ele gerencia a infraestrutura (o próprio hardware, a eletricidade e a rede) necessária para manter essas máquinas em execução. O Azure também gerencia a plataforma, garantindo um sistema operacional atualizado com todos os patches e atualizações de segurança corretos, bem como atualizações de componentes, como o .NET Framework e o Internet Information Server. Como todas as VMs estão executando o Windows Server 2008, o Azure fornece recursos adicionais, como monitoramento de diagnóstico, suporte a área de trabalho remota, firewalls e configuração do repositório de certificados. Todos esses recursos são fornecidos sem nenhum custo extra. Na verdade, quando você executa o aplicativo no Azure, a licença do SO (sistema operacional) Windows Server 2008 está incluída. Como todas as VMs estão executando o Windows Server 2008, qualquer código que seja executado no Windows Server 2008 funciona muito bem ao ser executado no Azure.
 
 ## <a id="concepts"> </a>Conceitos fundamentais do serviço hospedado
 
-Quando seu aplicativo for implantado como um serviço hospedado no Windows Azure, ele é executado como uma ou mais *funções*. A *função* simplesmente se refere aos arquivos e à configuração do aplicativo. Você pode definir uma ou mais funções para o aplicativo, cada uma com seu próprio conjunto de arquivos de aplicativo e configuração. Para cada função em seu aplicativo, você pode especificar o número de VMs ou *instâncias de função* a serem executadas. A figura a seguir mostra dois exemplos simples de um aplicativo modelado como um serviço hospedado usando funções e instâncias de função.
+Quando seu aplicativo for implantado como um serviço hospedado no Azure, ele é executado como uma ou mais *funções*. A *função* simplesmente se refere aos arquivos e à configuração do aplicativo. Você pode definir uma ou mais funções para o aplicativo, cada uma com seu próprio conjunto de arquivos de aplicativo e configuração. Para cada função em seu aplicativo, você pode especificar o número de VMs ou *instâncias de função* a serem executadas. A figura a seguir mostra dois exemplos simples de um aplicativo modelado como um serviço hospedado usando funções e instâncias de função.
 
-##### Figura 1: Uma única função com três instâncias (VMs) em execução em um data center do Windows Azure
+##### Figura 1: Uma única função com três instâncias (VMs) em execução em um data center do Azure
 
 ![image][0]
 
-##### Figura 2: Duas funções, cada uma com duas instâncias (VMs) em execução em um data center do Windows Azure
+##### Figura 2: Duas funções, cada uma com duas instâncias (VMs) em execução em um data center do Azure
 
 ![image][1]
 
@@ -40,14 +40,14 @@ Instâncias de função geralmente processam solicitações de clientes da inter
 
 ![image][2]
 
-Quando você cria um serviço hospedado no Windows Azure, ele recebe um endereço IP publicamente endereçável que os clientes podem usar para acessá-lo. Ao criar o serviço hospedado, você também deve selecionar um prefixo de URL que é mapeado para aquele endereço IP. Esse prefixo deve ser exclusivo uma vez que você está essencialmente reservando a URL *prefix*.cloudapp.net para que ninguém possa tê-la. Os clientes se comunicam com as instâncias de função usando a URL. Normalmente, você não irá distribuir ou publicar a
-URL *prefix*.cloudapp.net do Windows Azure. Em vez disso, você compra um nome DNS do registrador DNS de sua escolha e configura seu nome DNS para redirecionar solicitações do cliente para a URL do Windows Azure. Para obter mais detalhes, consulte [Configurando um nome de domínio personalizado no Windows Azure][].
+Quando você cria um serviço hospedado no Azure, ele recebe um endereço IP publicamente endereçável que os clientes podem usar para acessá-lo. Ao criar o serviço hospedado, você também deve selecionar um prefixo de URL que é mapeado para aquele endereço IP. Esse prefixo deve ser exclusivo uma vez que você está essencialmente reservando a URL *prefix*.cloudapp.net para que ninguém possa tê-la. Os clientes se comunicam com as instâncias de função usando a URL. Normalmente, você não irá distribuir ou publicar a
+URL *prefix*.cloudapp.net do Azure. Em vez disso, você compra um nome DNS do registrador DNS de sua escolha e configura seu nome DNS para redirecionar solicitações do cliente para a URL do Azure. Para obter mais detalhes, consulte [Configurando um nome de domínio personalizado no Azure (a página pode estar em inglês)][].
 
 ## <a id="considerations"> </a>Considerações de design de serviço hospedado
 
 Ao criar um aplicativo para execução em um ambiente de nuvem, há várias considerações a serem feitas, como latência, alta disponibilidade e escalabilidade.
 
-Decidir onde localizar o código do aplicativo é uma consideração importante ao executar um serviço hospedado no Windows Azure. É comum implantar seu aplicativo em data centers que estão mais próximos de seus clientes para reduzir a latência e obter o melhor desempenho possível.
+Decidir onde localizar o código do aplicativo é uma consideração importante ao executar um serviço hospedado no Azure. É comum implantar seu aplicativo em data centers que estão mais próximos de seus clientes para reduzir a latência e obter o melhor desempenho possível.
 No entanto, você pode escolher um data center mais perto de sua empresa ou mais perto de seus dados, se você tiver alguma preocupação legal ou jurídica sobre seus dados e onde eles residem. Há seis data centers em todo o mundo que podem hospedar o código de seu aplicativo. A tabela abaixo mostra os locais disponíveis:
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
@@ -96,7 +96,7 @@ Sudeste e Leste
 </table>
 Ao criar um serviço hospedado, você seleciona uma sub-região indicando o local em que deseja que seu código seja executado.
 
-Para obter alta disponibilidade e escalabilidade, é extremamente importante que os dados de seu aplicativo sejam mantidos em um repositório central acessível a várias instâncias de função. Para ajudar com isso, o Windows Azure oferece várias opções de armazenamento, como blobs, tabelas e o banco de dados SQL. Consulte o artigo [Ofertas de armazenamento de dados no Windows Azure][] para obter mais informações sobre essas tecnologias de armazenamento. A figura a seguir mostra como o balanceador de carga dentro do data center do Windows Azure distribui solicitações de clientes para instâncias de função diferentes, todas as quais têm acesso ao mesmo armazenamento de dados.
+Para obter alta disponibilidade e escalabilidade, é extremamente importante que os dados de seu aplicativo sejam mantidos em um repositório central acessível a várias instâncias de função. Para ajudar com isso, o Azure oferece várias opções de armazenamento, como blobs, tabelas e o banco de dados SQL. Consulte o artigo [Ofertas de armazenamento de dados no Azure (a página pode estar em inglês)][] para obter mais informações sobre essas tecnologias de armazenamento. A figura a seguir mostra como o balanceador de carga dentro do data center do Azure distribui solicitações de clientes para instâncias de função diferentes, todas as quais têm acesso ao mesmo armazenamento de dados.
 
 ![image][3]
 
@@ -104,21 +104,21 @@ Normalmente, você deseja localizar o código de seu aplicativo e seus dados no 
 
 ## <a id="scale"> </a>Criando seu aplicativo para escala
 
-Às vezes, você pode desejar utilizar um único aplicativo (como um site) e hospedá-lo no Windows Azure. Mas, com frequência, seu aplicativo pode consistir em várias funções que trabalham juntas. Por exemplo, na figura abaixo, existem duas instâncias da função de Site, três instâncias da função de Processamento de Pedidos e uma instância da função de Gerador de Relatórios. Essas funções estão todas trabalhando juntas e o código de todas elas pode ser empacotado e implantado como uma única unidade para o Windows Azure.
+Às vezes, você pode desejar utilizar um único aplicativo (como um site) e hospedá-lo no Azure. Mas, com frequência, seu aplicativo pode consistir em várias funções que trabalham juntas. Por exemplo, na figura abaixo, existem duas instâncias da função de Site, três instâncias da função de Processamento de Pedidos e uma instância da função de Gerador de Relatórios. Essas funções estão todas trabalhando juntas e o código de todas elas pode ser empacotado e implantado como uma única unidade para o Azure.
 
 ![image][4]
 
-O principal motivo para dividir um aplicativo em diferentes funções, cada uma executando em seu próprio conjunto de instâncias de função (isto é, VMs) é dimensionar as funções de maneira independente. Por exemplo, durante o período de férias, muitos clientes podem adquirir produtos da sua empresa, portanto, você pode querer aumentar o número de instâncias de função que executam sua função de Site, bem como o número de instâncias de função que executam sua função de Processamento de Pedidos. Depois do período de férias, você poderá receber a devolução de muitos produtos, portanto, talvez ainda sejam necessárias muitas instâncias de Site, mas menos instâncias de Processamento de Pedidos. Durante o resto do ano, talvez sejam necessárias apenas algumas instâncias de Site e de Processamento de Pedidos. Durante tudo isso, talvez você precise apenas de uma instância do Gerador de Relatórios. A flexibilidade das implantações baseadas em função no Windows Azure permite adaptar facilmente seu aplicativo às necessidades dos negócios.
+O principal motivo para dividir um aplicativo em diferentes funções, cada uma executando em seu próprio conjunto de instâncias de função (isto é, VMs) é dimensionar as funções de maneira independente. Por exemplo, durante o período de férias, muitos clientes podem adquirir produtos da sua empresa, portanto, você pode querer aumentar o número de instâncias de função que executam sua função de Site, bem como o número de instâncias de função que executam sua função de Processamento de Pedidos. Depois do período de férias, você poderá receber a devolução de muitos produtos, portanto, talvez ainda sejam necessárias muitas instâncias de Site, mas menos instâncias de Processamento de Pedidos. Durante o resto do ano, talvez sejam necessárias apenas algumas instâncias de Site e de Processamento de Pedidos. Durante tudo isso, talvez você precise apenas de uma instância do Gerador de Relatórios. A flexibilidade das implantações baseadas em função no Azure permite adaptar facilmente seu aplicativo às necessidades dos negócios.
 
-É comum fazer com que as instâncias de função no serviço hospedado se comuniquem umas com as outras. Por exemplo, a função de site aceita o pedido de um cliente, mas, em seguida, descarrega o processamento do pedido para as instâncias da função Processamento de Pedidos. A melhor maneira de passar trabalho de um conjunto de instâncias de função para outro conjunto de instâncias é usar a tecnologia de enfileiramento fornecida pelo Windows Azure, o Serviço de Fila ou as Filas do Service Bus. O uso de uma fila é uma parte essencial deste cenário. A fila permite que o serviço hospedado dimensione suas funções de maneira independente, permitindo que você equilibre a carga de trabalho com o custo. Se o número de mensagens na fila aumentar com o tempo, você poderá dimensionar o número de instâncias de função Processamento de Pedidos. Se o número de mensagens na fila for reduzido com o tempo, você poderá dimensionar o número de instâncias da função Processamento de Pedidos. Dessa maneira, você estará pagando somente pelas instâncias necessárias para tratar da carga de trabalho real.
+É comum fazer com que as instâncias de função no serviço hospedado se comuniquem umas com as outras. Por exemplo, a função de site aceita o pedido de um cliente, mas, em seguida, descarrega o processamento do pedido para as instâncias da função Processamento de Pedidos. A melhor maneira de passar trabalho de um conjunto de instâncias de função para outro conjunto de instâncias é usar a tecnologia de enfileiramento fornecida pelo Azure, o Serviço de Fila ou as Filas do Service Bus. O uso de uma fila é uma parte essencial deste cenário. A fila permite que o serviço hospedado dimensione suas funções de maneira independente, permitindo que você equilibre a carga de trabalho com o custo. Se o número de mensagens na fila aumentar com o tempo, você poderá dimensionar o número de instâncias de função Processamento de Pedidos. Se o número de mensagens na fila for reduzido com o tempo, você poderá dimensionar o número de instâncias da função Processamento de Pedidos. Dessa maneira, você estará pagando somente pelas instâncias necessárias para tratar da carga de trabalho real.
 
-A fila também fornece confiabilidade. Ao reduzir o número de instâncias da função Processamento de Pedidos, o Windows Azure decide quais instâncias terminar. Ele pode decidir terminar uma instância que está no meio do processamento de uma mensagem da fila. No entanto, como o processamento da mensagem não é concluído com êxito, a mensagem fica visível novamente para outra instância da função Processamento de Pedidos que a coleta e processa. Devido à visibilidade das mensagens na fila, é garantido que as mensagens serão processadas no final. A fila também atua como um balanceador de carga distribuindo suas mensagens efetivamente para instâncias de toda e qualquer função que solicite mensagens.
+A fila também fornece confiabilidade. Ao reduzir o número de instâncias da função Processamento de Pedidos, o Azure decide quais instâncias terminar. Ele pode decidir terminar uma instância que está no meio do processamento de uma mensagem da fila. No entanto, como o processamento da mensagem não é concluído com êxito, a mensagem fica visível novamente para outra instância da função Processamento de Pedidos que a coleta e processa. Devido à visibilidade das mensagens na fila, é garantido que as mensagens serão processadas no final. A fila também atua como um balanceador de carga distribuindo suas mensagens efetivamente para instâncias de toda e qualquer função que solicite mensagens.
 
 Para as instâncias da função Site, você pode monitorar o tráfego de entrada e decidir aumentar ou reduzir o seu número. A fila permite que você dimensione o número de instâncias da função Site independentemente das instâncias da função Processamento de Pedidos. Isso é muito eficiente e oferece muita flexibilidade. Naturalmente, se seu aplicativo consistir em funções adicionais, você poderá adicionar mais filas como o canal de comunicação entre elas para utilizar a mesma escala e benefícios de custo.
 
 ## <a id="defandcfg"> </a>Definição e configuração de serviço hospedado
 
-A implantação de um serviço hospedado no Windows Azure requer que você também tenha um arquivo de definição do serviço e um arquivo de configuração do serviço. Esses dois são arquivos XML e permitem que você especifique declarativamente as opções de implantação de seu serviço hospedado. O arquivo de definição do serviço descreve todas as funções que compõem o serviço hospedado e como elas se comunicam. O arquivo de configuração do serviço descreve o número de instâncias de cada função e as configurações usadas para configurar cada instância de função.
+A implantação de um serviço hospedado no Azure requer que você também tenha um arquivo de definição do serviço e um arquivo de configuração do serviço. Esses dois são arquivos XML e permitem que você especifique declarativamente as opções de implantação de seu serviço hospedado. O arquivo de definição do serviço descreve todas as funções que compõem o serviço hospedado e como elas se comunicam. O arquivo de configuração do serviço descreve o número de instâncias de cada função e as configurações usadas para configurar cada instância de função.
 
 ## <a id="def"> </a>Arquivo de definição do serviço
 
@@ -267,21 +267,21 @@ da rede**
 </tr>
 </tbody>
 </table>
-Você é cobrado por hora para cada VM que usa como uma instância de função e também por quaisquer dados que as instâncias de função enviam para fora do data center. Você não é cobrado por dados que entram no data center. Para obter mais informações, consulte [Preços do Windows Azure][]. Em geral, é aconselhável usar muitas instâncias de função pequenas em vez de algumas instâncias grandes para que seu aplicativo seja mais resiliente a falhas. No final, quanto menos instâncias de função você tiver, mais desastrosa será uma falha em uma delas para seu aplicativo geral. Além disso, conforme mencionado anteriormente, você deve implantar pelo menos duas instâncias para cada função para obter o contrato de nível de serviço de 99,95% que a Microsoft fornece.
+Você é cobrado por hora para cada VM que usa como uma instância de função e também por quaisquer dados que as instâncias de função enviam para fora do data center. Você não é cobrado por dados que entram no data center. Para obter mais informações, consulte [Preços do Azure (a página pode estar em inglês)][]. Em geral, é aconselhável usar muitas instâncias de função pequenas em vez de algumas instâncias grandes para que seu aplicativo seja mais resiliente a falhas. No final, quanto menos instâncias de função você tiver, mais desastrosa será uma falha em uma delas para seu aplicativo geral. Além disso, conforme mencionado anteriormente, você deve implantar pelo menos duas instâncias para cada função para obter o contrato de nível de serviço de 99,95% que a Microsoft fornece.
 
 O arquivo de definição do serviço (CSDEF) também é onde você especifica muitos atributos sobre cada função de seu aplicativo. Estes são alguns dos itens mais úteis disponíveis para você:
 
--   **Certificados**. Você usa certificados para criptografar dados ou se seu serviço da Web oferecer suporte a SSL. Todos os certificados precisam ser carregadas no Windows Azure. Para obter mais informações, consulte [Gerenciando certificados no Windows Azure][]. Essa configuração XML instala certificados carregados anteriormente no repositório de certificados da instância da função para que possam ser usados pelo código de seu aplicativo.
+-   **Certificados**. Você usa certificados para criptografar dados ou se seu serviço da Web oferecer suporte a SSL. Todos os certificados precisam ser carregadas no Azure. Para obter mais informações, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)][]. Essa configuração XML instala certificados carregados anteriormente no repositório de certificados da instância da função para que possam ser usados pelo código de seu aplicativo.
 
 -   **Nomes dos parâmetros de configuração**. Os valores que você deseja que seus aplicativos leiam durante a execução em uma instância de função. O valor real dos parâmetros de configuração é definido no arquivo de configuração do serviço (CSCFG) que pode ser atualizado a qualquer momento sem necessidade de reimplantar o código. Na verdade, você pode codificar seus aplicativos de maneira a detectarem os valores alterados na configuração sem incorrer em nenhum tempo de inatividade.
 
--   **Pontos de extremidade de entrada**. Aqui você pode especificar qualquer ponto de extremidade HTTP, HTTPS ou TCP (com as portas) que você deseja expor para o mundo exterior por meio de sua URL *prefix*.cloadapp.net. Quando o Windows Azure implanta sua função, ele configura o firewall na instância da função automaticamente.
+-   **Pontos de extremidade de entrada**. Aqui você pode especificar qualquer ponto de extremidade HTTP, HTTPS ou TCP (com as portas) que você deseja expor para o mundo exterior por meio de sua URL *prefix*.cloadapp.net. Quando o Azure implanta sua função, ele configura o firewall na instância da função automaticamente.
 
 -   **Pontos de extremidade internos**. Aqui você pode especificar qualquer ponto de extremidade HTTP ou TCP que você queira expor para outras instâncias de função que são implantadas como parte de seu aplicativo. O pontos de extremidade internos permitem que todas as instâncias de função dentro de seu aplicativo falem entre si, mas não sejam acessíveis para quaisquer instâncias de função que estejam fora de seu aplicativo.
 
--   **Módulos de importação**. Opcionalmente, esse módulos instalam componentes úteis em suas instâncias de função. Existem componentes de monitoramento diagnóstico, área de trabalho remota e o Connect do Windows Azure (que permite que a instância de função acesse recursos locais através de um canal seguro).
+-   **Módulos de importação**. Opcionalmente, esse módulos instalam componentes úteis em suas instâncias de função. Existem componentes de monitoramento diagnóstico, área de trabalho remota e o Connect do Azure (que permite que a instância de função acesse recursos locais através de um canal seguro).
 
--   **Armazenamento local**. Esse armazenamento local aloca um subdiretório na instância de função para uso de seu aplicativo. É descrito em mais detalhes no artigo [Ofertas de armazenamento de dados no Windows Azure][].
+-   **Armazenamento local**. Esse armazenamento local aloca um subdiretório na instância de função para uso de seu aplicativo. É descrito em mais detalhes no artigo [Ofertas de armazenamento de dados no Azure (a página pode estar em inglês)][].
 
 -   **Tarefas de inicialização**. A tarefas de inicialização fornecem uma maneira para instalar componentes de pré-requisito em uma instância de função quando ela é inicializada. As tarefas podem ser executadas com privilégios elevados como um administrador se necessário.
 
@@ -290,32 +290,32 @@ O arquivo de definição do serviço (CSDEF) também é onde você especifica mu
 O arquivo de configuração do serviço (CSCFG) é um arquivo XML que descreve as configurações que podem ser alteradas sem reimplantar o aplicativo. O esquema completo do arquivo XML pode ser encontrado aqui: [http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx][].
 O arquivo CSCFG contém um elemento Role para cada função de seu aplicativo. Estes são alguns dos itens que você pode especificar no arquivo CSCFG:
 
--   **Versão do Sistema Operacional**. Este atributo permite que você selecione a versão do SO (sistema operacional) que você deseja que seja usada em todas as instâncias de função que estão executando o código de seu aplicativo. Esse sistema operacional é conhecido como o *SO convidado*, e cada nova versão inclui os patches de segurança e as atualizações mais recentes disponíveis no momento em que o SO convidado é liberado. Se você definir o valor do atributo osVersion como "\*", o Windows Azure atualizará automaticamente o SO convidado em cada uma de suas instâncias de função à medida que novas versões do SO convidado se tornarem disponíveis. No entanto, você pode recusar as atualizações automáticas, selecionando uma versão específica do SO convidado. Por exemplo, a definição do atributo osVersion como um valor de "WA-GUEST-OS-2.8\_201109-01" faz com que todas as instâncias de função obtenham o que é descrito nesta página da Web: [http://msdn.microsoft.com/pt-br/library/hh560567.aspx][]. Para obter mais informações sobre as versões de SO convidado, [Gerenciando as atualizações em Sistemas operacionais convidados no Windows Azure].
+-   **Versão do Sistema Operacional**. Este atributo permite que você selecione a versão do SO (sistema operacional) que você deseja que seja usada em todas as instâncias de função que estão executando o código de seu aplicativo. Esse sistema operacional é conhecido como o *SO convidado*, e cada nova versão inclui os patches de segurança e as atualizações mais recentes disponíveis no momento em que o SO convidado é liberado. Se você definir o valor do atributo osVersion como "\*", o Azure atualizará automaticamente o SO convidado em cada uma de suas instâncias de função à medida que novas versões do SO convidado se tornarem disponíveis. No entanto, você pode recusar as atualizações automáticas, selecionando uma versão específica do SO convidado. Por exemplo, a definição do atributo osVersion como um valor de "WA-GUEST-OS-2.8\_201109-01" faz com que todas as instâncias de função obtenham o que é descrito nesta página da Web: [http://msdn.microsoft.com/pt-br/library/hh560567.aspx][]. Para obter mais informações sobre as versões de SO convidado, [Gerenciando as atualizações em Sistemas operacionais convidados no Azure].
 
--   **Instâncias**. O valor desse elemento indica o número de instâncias de função que você deseja que sejam provisionadas para a execução do código de uma função específica. Como você pode carregar um novo arquivo CSCFG no Windows Azure (sem reimplantar o aplicativo), é muito simples alterar o valor desse elemento e carregar um novo arquivo CSCFG para aumentar ou diminuir dinamicamente o número de instâncias de função que executam o código do seu aplicativo. Isso permite que você expanda ou reduza facilmente seu aplicativo para atender às demandas reais da carga de trabalho enquanto também controla o quanto você será cobrado para executar as instâncias de função.
+-   **Instâncias**. O valor desse elemento indica o número de instâncias de função que você deseja que sejam provisionadas para a execução do código de uma função específica. Como você pode carregar um novo arquivo CSCFG no Azure (sem reimplantar o aplicativo), é muito simples alterar o valor desse elemento e carregar um novo arquivo CSCFG para aumentar ou diminuir dinamicamente o número de instâncias de função que executam o código do seu aplicativo. Isso permite que você expanda ou reduza facilmente seu aplicativo para atender às demandas reais da carga de trabalho enquanto também controla o quanto você será cobrado para executar as instâncias de função.
 
--   **Valores dos parâmetros de configuração**. Esse elemento indica valores para as configurações (conforme definido no arquivo CSDEF). Sua função pode ler esses valores enquanto está em execução. Esses valores de configurações normalmente são usados para cadeias de conexão ao banco de dados SQL ou ao armazenamento do Windows Azure, mas podem ser usados para qualquer finalidade desejada.
+-   **Valores dos parâmetros de configuração**. Esse elemento indica valores para as configurações (conforme definido no arquivo CSDEF). Sua função pode ler esses valores enquanto está em execução. Esses valores de configurações normalmente são usados para cadeias de conexão ao banco de dados SQL ou ao armazenamento do Azure, mas podem ser usados para qualquer finalidade desejada.
 
 ## <a id="hostedservices"> </a>Criando e implantando um serviço hospedado
 
-Criar um serviço hospedado requer que você primeiro vá para o [Portal de Gerenciamento do Azure] e provisione um serviço hospedado, especificando um prefixo DNS e o data center onde você realmente deseja que o código seja executado. No ambiente de desenvolvimento, você cria seu arquivo de definição de serviço (CSDEF), cria o código de seu aplicativo e empacota (zip) todos esses arquivos em um arquivo de pacote de serviço (CSPKG). Você também deve preparar o arquivo de configuração do serviço (CSCFG). Para implantar a sua função, você carrega os arquivos CSPKG e CSCFG com a API de Gerenciamento de Serviços do Windows Azure. Uma vez implantado, o Windows Azure provisionará as instâncias de função no data center (com base nos dados de configuração), extrairá o código de seu aplicativo do pacote, o copiará nas instâncias de função e inicializará as instâncias. Agora, seu código está em execução.
+Criar um serviço hospedado requer que você primeiro vá para o [Portal de Gerenciamento do Azure] e provisione um serviço hospedado, especificando um prefixo DNS e o data center onde você realmente deseja que o código seja executado. No ambiente de desenvolvimento, você cria seu arquivo de definição de serviço (CSDEF), cria o código de seu aplicativo e empacota (zip) todos esses arquivos em um arquivo de pacote de serviço (CSPKG). Você também deve preparar o arquivo de configuração do serviço (CSCFG). Para implantar a sua função, você carrega os arquivos CSPKG e CSCFG com a API de Gerenciamento de Serviços do Azure. Uma vez implantado, o Azure provisionará as instâncias de função no data center (com base nos dados de configuração), extrairá o código de seu aplicativo do pacote, o copiará nas instâncias de função e inicializará as instâncias. Agora, seu código está em execução.
 
-A figura abaixo mostra os arquivos CSPKG e CSCFG que você cria em seu computador de desenvolvimento. O arquivo CSPKG contém o arquivo CSDEF e o código das duas funções. Após carregar os arquivos CSPKG e CSCFG com a API de Gerenciamento de Serviços do Windows Azure, o Windows Azure cria as instâncias de função no data center. Neste exemplo, o arquivo CSCFG indicou que o Windows Azure deve criar três instâncias da função \#1 e duas instâncias da função \#2.
+A figura abaixo mostra os arquivos CSPKG e CSCFG que você cria em seu computador de desenvolvimento. O arquivo CSPKG contém o arquivo CSDEF e o código das duas funções. Após carregar os arquivos CSPKG e CSCFG com a API de Gerenciamento de Serviços do Azure, o Azure cria as instâncias de função no data center. Neste exemplo, o arquivo CSCFG indicou que o Azure deve criar três instâncias da função \#1 e duas instâncias da função \#2.
 
 ![image][5]
 
-Para obter mais informações sobre como implantar, atualizar e reconfigurar suas funções, consulte [Implantando e atualizando aplicativos do Windows Azure][]
+Para obter mais informações sobre como implantar, atualizar e reconfigurar suas funções, consulte [Implantando e atualizando aplicativos do Azure (a página pode estar em inglês)][]
 article.<a id="Ref" name="Ref"></a>
 
 ## <a id="references"> </a>References
 
--   [Criando um serviço hospedado para o Windows Azure][]
+-   [Criando um serviço hospedado para o Azure (a página pode estar em inglês)][]
 
--   [Gerenciando serviços hospedados no Windows Azure][]
+-   [Gerenciando serviços hospedados no Azure (a página pode estar em inglês)][]
 
--   [Migrando aplicativos para o Windows Azure][]
+-   [Migrando aplicativos para o Azure (a página pode estar em inglês)][]
 
--   [Configurando um aplicativo do Windows Azure][]
+-   [Configurando um aplicativo do Azure (a página pode estar em inglês)][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
 
@@ -323,7 +323,7 @@ article.<a id="Ref" name="Ref"></a>
 
 </div>
 
-  [Benefícios do modelo de aplicativo do Windows Azure]: #benefits
+  [Benefícios do modelo de aplicativo do Azure]: #benefits
   [Conceitos fundamentais do serviço hospedado]: #concepts
   [Considerações de design de serviço hospedado]: #considerations
   [Criando seu aplicativo para escala]: #scale
@@ -335,22 +335,22 @@ article.<a id="Ref" name="Ref"></a>
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Configurando um nome de domínio personalizado no Windows Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/custom-dns/
-  [Ofertas de armazenamento de dados no Windows Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/net/fundamentals/cloud-storage/
+  [Configurando um nome de domínio personalizado no Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/custom-dns/
+  [Ofertas de armazenamento de dados no Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   
-  [Preços do Windows Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/pricing/calculator/
-  [Gerenciando certificados no Windows Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg981929.aspx
+  [Preços do Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/pricing/calculator/
+  [Gerenciando certificados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg981929.aspx
   [http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
   [http://msdn.microsoft.com/pt-br/library/hh560567.aspx]: http://msdn.microsoft.com/pt-br/library/hh560567.aspx
-  [Gerenciando atualizações para o SO convidado do Windows Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/ee924680.aspx
-  [Portal de Gerenciamento do Windows Azure]: http://manage.windowsazure.com/
+  [Gerenciando atualizações para o SO convidado do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/ee924680.aspx
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Implantando e atualizando aplicativos do Windows Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/net/fundamentals/deploying-applications/
-  [Criando um serviço hospedado para o Windows Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg432967.aspx
-  [Gerenciando serviços hospedados no Windows Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg433038.aspx
-  [Migrando aplicativos para o Windows Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg186051.aspx
-  [Configurando um aplicativo do Windows Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405486.aspx
+  [Implantando e atualizando aplicativos do Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/develop/net/fundamentals/deploying-applications/
+  [Criando um serviço hospedado para o Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg432967.aspx
+  [Gerenciando serviços hospedados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg433038.aspx
+  [Migrando aplicativos para o Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg186051.aspx
+  [Configurando um aplicativo do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405486.aspx
 
 

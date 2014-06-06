@@ -1,5 +1,5 @@
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure], clique em **Serviços Móveis** e, em seguida, clique no seu aplicativo.
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique no seu aplicativo.
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
@@ -18,5 +18,5 @@
 Em seguida, você modificará o seu aplicativo para ativar as notificações de push.
 
 <!-- URLs -->
-[Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 

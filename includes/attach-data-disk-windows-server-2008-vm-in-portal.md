@@ -1,7 +1,7 @@
 
 Siga estas etapas para anexar um disco de dados:
 
-1. No [Portal de Gerenciamento do Windows Azure)][AzurePreviewPortal], clique em **Máquinas Virtuais** e, em seguida, selecione a máquina virtual que você acabou de criar (**testwinvm**).
+1. No [Portal de Gerenciamento do Azure)][AzurePreviewPortal], clique em **Máquinas Virtuais** e, em seguida, selecione a máquina virtual que você acabou de criar (**testwinvm**).
 
 2. Na barra de comandos, clique em **Anexar** e, em seguida, clique em **Anexar Disco Vazio**.
 	
@@ -12,7 +12,7 @@ Siga estas etapas para anexar um disco de dados:
 
 	![Anexar Disco Vazio][Image2]
 
-	**Observação:** todos os discos são criados a partir de um arquivo VHD no armazenamento do Windows Azure. Você pode fornecer um nome para o arquivo VHD que você adiciona ao armazenamento, mas o Windows Azure gera o nome do disco automaticamente.
+	**Observação:** todos os discos são criados a partir de um arquivo VHD no armazenamento do Azure. Você pode fornecer um nome para o arquivo VHD que você adiciona ao armazenamento, mas o Azure gera o nome do disco automaticamente.
 
 4. Clique na marca de seleção para anexar o disco de dados à máquina virtual.
 

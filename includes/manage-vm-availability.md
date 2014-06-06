@@ -6,13 +6,13 @@ Para ajudar a garantir a disponibilidade do seu aplicativo, é altamente recomen
 
 Essa abordagem pode ajudar a garantir que seu aplicativo esteja disponível durante falhas da rede local, falhas de hardware de disco local e tempo de inatividade planejado que talvez a plataforma exija.
 
-Você gerencia a disponibilidade de um aplicativo que usa várias máquinas virtuais adicionando as máquinas virtuais a um conjunto de disponibilidade. Os conjuntos de disponibilidade estão diretamente relacionados aos domínios de falha e aos domínios de atualização. Um domínio de falha no Windows Azure é definido por evitar pontos únicos de falha, como a unidade de switch ou alimentação de rede de um rack de servidores. Na verdade, um domínio de falha é diretamente equivalente a um rack de servidores físicos. Quando várias máquinas virtuais estão conectadas em um serviço em nuvem, um conjunto de disponibilidade coloca as máquinas virtuais em domínios de falha diferentes. O diagrama a seguir mostra dois conjuntos de disponibilidade com duas máquinas virtuais em cada conjunto.
+Você gerencia a disponibilidade de um aplicativo que usa várias máquinas virtuais adicionando as máquinas virtuais a um conjunto de disponibilidade. Os conjuntos de disponibilidade estão diretamente relacionados aos domínios de falha e aos domínios de atualização. Um domínio de falha no Azure é definido por evitar pontos únicos de falha, como a unidade de switch ou alimentação de rede de um rack de servidores. Na verdade, um domínio de falha é diretamente equivalente a um rack de servidores físicos. Quando várias máquinas virtuais estão conectadas em um serviço em nuvem, um conjunto de disponibilidade coloca as máquinas virtuais em domínios de falha diferentes. O diagrama a seguir mostra dois conjuntos de disponibilidade com duas máquinas virtuais em cada conjunto.
 
 ![Domínios de atualização](./media/manage-vm-availability/UpdateDomains.png)
 
-O Windows Azure periodicamente atualiza o sistema operacional que hospeda as instâncias de um aplicativo. Uma máquina virtual será desligada quando uma atualização for aplicada. Um domínio de atualização é usado para garantir que nem todas as instâncias de máquina virtual sejam atualizadas ao mesmo tempo. Ao atribuir várias máquinas virtuais para um conjunto de disponibilidade, o Windows Azure garante que as máquinas são atribuídas a domínios de atualização diferentes. O diagrama anterior mostra duas máquinas virtuais executando o Serviço de Informações da Internet (IIS) em domínios de atualização separados e duas máquinas virtuais executando o SQL Server também em domínios de atualização separados.
+O Azure periodicamente atualiza o sistema operacional que hospeda as instâncias de um aplicativo. Uma máquina virtual será desligada quando uma atualização for aplicada. Um domínio de atualização é usado para garantir que nem todas as instâncias de máquina virtual sejam atualizadas ao mesmo tempo. Ao atribuir várias máquinas virtuais para um conjunto de disponibilidade, o Azure garante que as máquinas são atribuídas a domínios de atualização diferentes. O diagrama anterior mostra duas máquinas virtuais executando o Serviço de Informações da Internet (IIS) em domínios de atualização separados e duas máquinas virtuais executando o SQL Server também em domínios de atualização separados.
 
-Você deve usar uma combinação de conjuntos de disponibilidade e pontos de extremidade de balanceamento de carga para ajudar a garantir que seu aplicativo esteja sempre disponível e sendo executado com eficiência. Para obter mais informações sobre balanceamento de carga de máquinas virtuais, consulte [Realizando o balanceamento de carga de máquinas virtuais (a página pode estar em inglês)] [].
+Você deve usar uma combinação de conjuntos de disponibilidade e pontos de extremidade de balanceamento de carga para ajudar a garantir que seu aplicativo esteja sempre disponível e sendo executado com eficiência. Para obter mais informações sobre balanceamento de carga de máquinas virtuais, consulte [Realizando o balanceamento de carga de máquinas virtuais] [].
 
 Esta tarefa inclui as seguintes etapas:
 
@@ -27,7 +27,7 @@ Para criar um conjunto de disponibilidade que contenha as máquinas virtuais voc
 
 **Para criar uma máquina virtual e um conjunto de disponibilidade**
 
-1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Windows Azure.
+1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Azure.
 
 2. Na barra de comandos, clique em **Novo**.
 
@@ -60,7 +60,7 @@ Para criar um conjunto de disponibilidade que contenha as máquinas virtuais voc
 
 12.	Em **Conta de Armazenamento**, selecione uma conta de armazenamento para armazenar o arquivo. vhd ou escolha criar a conta de armazenamento automaticamente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nessa conta de armazenamento. Você está limitado a 20 contas de armazenamento.
 
-13.	Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual (a página pode estar em inglês)] [].
+13.	Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual] [].
 
 14. Clique na seta para continuar.
 
@@ -80,7 +80,7 @@ A etapa anterior mostrou como criar uma máquina virtual e um conjunto de dispon
 
 **Para conectar a uma nova máquina virtual e adicioná-lo ao conjunto de disponibilidade**
 
-1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Windows Azure.
+1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Azure.
 
 2. Na barra de comandos, clique em **Novo**.
 
@@ -134,7 +134,7 @@ Você pode criar um conjunto de disponibilidade e adicionar uma máquina virtual
 
 **Para criar um novo conjunto de disponibilidade**
 
-1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Windows Azure.
+1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Azure.
 
 2. Clique em **Máquinas Virtuais**e, em seguida, selecione a máquina virtual que você deseja configurar.
 
@@ -149,11 +149,11 @@ Você pode criar um conjunto de disponibilidade e adicionar uma máquina virtual
 
 ## <a id="existingset"> </a>Etapa 4 (opcional): adicionar uma máquina virtual criada anteriormente a um conjunto de disponibilidade ##
 
-Você pode facilmente adicionar uma máquina virtual existente a um conjunto de disponibilidade que já foi criado anteriormente. Para adicionar uma máquina virtual a um conjunto de disponibilidade, ele deve ser conectado ao serviço em nuvem como as outras máquinas virtuais do conjunto. Para obter mais informações sobre como conectar máquinas virtuais, consulte [Como conectar máquinas virtuais em um serviço de nuvem (a página pode estar em inglês)] [].
+Você pode facilmente adicionar uma máquina virtual existente a um conjunto de disponibilidade que já foi criado anteriormente. Para adicionar uma máquina virtual a um conjunto de disponibilidade, ele deve ser conectado ao serviço em nuvem como as outras máquinas virtuais do conjunto. Para obter mais informações sobre como conectar máquinas virtuais, consulte [Como conectar máquinas virtuais em um serviço de nuvem] [].
 
 **Para adicionar uma máquina virtual existente a um conjunto de disponibilidade**
 
-1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Windows Azure.
+1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Azure.
 
 2. Clique em **Máquinas Virtuais** e, em seguida, selecione a máquina virtual que você deseja adicionar ao conjunto de disponibilidade.
 
@@ -174,6 +174,6 @@ Você pode facilmente adicionar uma máquina virtual existente a um conjunto de 
 
 <!-- LINKS -->
 [Realizando o balanceamento de carga de máquinas virtuais]: ../load-balance-virtual-machines
-[Sobre Grupos de Afinidade para Rede Virtual]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
-[Como conectar máquinas virtuais em um serviço em nuvem]: ../virtual-machines-connect-cloud-service
+[Sobre grupos de afinidade da rede virtual]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
+[Como conectar máquinas virtuais em um serviço de nuvem]: ../virtual-machines-connect-cloud-service
 

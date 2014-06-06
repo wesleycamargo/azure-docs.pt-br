@@ -1,6 +1,6 @@
 
 
-As etapas a seguir criam um novo serviço móvel no Windows Azure e adicionam o código ao seu projeto que permite o acesso a esse novo serviço. Antes de criar o serviço móvel, você deve importar o arquivo publishsettings da sua assinatura do Windows Azure no Visual Studio. Isso permite que o Visual Studio se conecte ao Windows Azure em seu nome. Ao criar um novo serviço móvel, você deve especificar um Banco de Dados SQL do Windows Azure que será usado pelo serviço móvel para armazenar dados do aplicativo. 
+As etapas a seguir criam um novo serviço móvel no Azure e adicionam o código ao seu projeto que permite o acesso a esse novo serviço. Antes de criar o serviço móvel, você deve importar o arquivo publishsettings da sua assinatura do Azure no Visual Studio. Isso permite que o Visual Studio se conecte ao Azure em seu nome. Ao criar um novo serviço móvel, você deve especificar um Banco de Dados SQL do Azure que será usado pelo serviço móvel para armazenar dados do aplicativo. 
 
 
 1. No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito no projeto, clique em **Adicionar** e, em seguida, em **Serviço Conectado**. 
@@ -11,17 +11,17 @@ As etapas a seguir criam um novo serviço móvel no Windows Azure e adicionam o 
 
 	![criar um novo serviço móvel do VS 2013](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png)
 
-3. Em Importar Assinaturas do Windows Azure, clique em **Baixar arquivo de assinatura**, efetue login em sua conta do Windows Azure (se necessário), clique em **Salvar** quando o navegador solicitar para salvar o arquivo.
+3. Em Importar Assinaturas do Azure, clique em **Baixar arquivo de assinatura**, efetue login em sua conta do Azure (se necessário), clique em **Salvar** quando o navegador solicitar para salvar o arquivo.
 
 	![baixe o arquivo de inscrição no VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription.png)
 
-	<div class="dev-callout"><strong>Nota</strong> <p>a janela de login é exibida no navegador, o que pode estar por trás da janela do Visual Studio. Lembre-se de anotar onde salvou o arquivo. publishsettings baixado. Você pode ignorar esta etapa se o projeto já estiver conectado à sua assinatura do Windows Azure.</p></div> 
+	<div class="dev-callout"><strong>Nota</strong> <p>a janela de login é exibida no navegador, o que pode estar por trás da janela do Visual Studio. Lembre-se de anotar onde salvou o arquivo. publishsettings baixado. Você pode ignorar esta etapa se o projeto já estiver conectado à sua assinatura do Azure.</p></div> 
 
 4. Clique em **Procurar**, navegue para o local em que salvou o arquivo .publishetings, selecione o arquivo, clique em **Abrir** e então em **Importar**. 
 
 	![importar assinatura no VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription-2.png)
 
-	O Visual Studio importa os dados necessários para conectar-se a sua assinatura do Windows Azure. Quando sua assinatura já tem um ou mais serviços móveis existentes, são exibidos os nomes de serviço. 
+	O Visual Studio importa os dados necessários para conectar-se a sua assinatura do Azure. Quando sua assinatura já tem um ou mais serviços móveis existentes, são exibidos os nomes de serviço. 
 
 	<div class="dev-callout"><strong>Nota de segurança</strong> <p>depois de importar as configurações de publicação, considere a possibilidade de excluir o arquivo. publishsettings baixado devido ao fato de ele conter informações que podem ser usadas por outras pessoas para acessar sua conta. Proteja o arquivo se você pretende mantê-la para uso em outros projetos de aplicativo conectado.</p></div>
 

@@ -2,7 +2,7 @@ Primeiro, use o assistente Adicionar Notificação por Push no Visual Studio 201
 
 0. Se ainda não o fez, siga as etapas em [Importar o arquivo publishsettings no Visual Studio 2013] para importar seu arquivo publisher.settings para o Visual Studio. 
 
-	Não é necessário fazer isso se você já tiver usado o Visual Studio para criar ou gerenciar serviços móveis na sua assinatura do Windows Azure.
+	Não é necessário fazer isso se você já tiver usado o Visual Studio para criar ou gerenciar serviços móveis na sua assinatura do Azure.
 
 1. No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito do projeto, clique em **Adicionar** e, em seguida, em **Notificação por push**. 
 
@@ -32,5 +32,5 @@ Primeiro, use o assistente Adicionar Notificação por Push no Visual Studio 201
 <!-- URLs. -->
 [Começar com os Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
 [Começar com os dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Importe o arquivo publishsettings no Visual Studio 2013]: /pt-br/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+[Importar o arquivo publishsettings no Visual Studio 2013]: /pt-br/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
 

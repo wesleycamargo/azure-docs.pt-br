@@ -1,7 +1,7 @@
 
 ### Para inscrever-se em uma conta Blitline
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure](https://manage.windowsazure.com/).
+1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
 
 2. No painel inferior do portal de gerenciamento, clique em **Novo**.
 
@@ -15,7 +15,7 @@
 
 5. Na caixa de diálogo **Personalizar Complemento**, selecione o plano do **Blitline** no qual você deseja se inscrever.
 
-6. Digite um nome para identificar o serviço do **Blitline** nas suas configurações do Windows Azure ou use o valor padrão de **Blitline**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado.. O nome deve ser exclusivo na lista de itens inscritos da Windows Azure Store.
+6. Digite um nome para identificar o serviço do **Blitline** nas suas configurações do Azure ou use o valor padrão de **Blitline**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado.. O nome deve ser exclusivo na lista de itens inscritos da Azure Store.
 
 	![store-screen-1][store-screen-1]
 

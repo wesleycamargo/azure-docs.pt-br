@@ -1,21 +1,21 @@
-#Como criar um banco de dados MySQL no Windows Azure
+#Como criar um banco de dados MySQL no Azure
 
-Este guia mostrará como usar o [ClearDB] para criar um banco de dados MySQL na [Windows Azure Store] e como criar um banco de dados MySQL como um recurso vinculado, quando você cria um [Site do Windows Azure][waws]  O [ClearDB] é um provedor de banco de dados como serviço tolerante a falhas que permite que você execute e gerencie bancos de dados MySQL em datacenters do Windows Azure e conecte-os de qualquer aplicativo.  
+Este guia mostrará como usar o [ClearDB] para criar um banco de dados MySQL na [Azure Store] e como criar um banco de dados MySQL como um recurso vinculado, quando você cria um [Site do Azure][waws]  O [ClearDB] é um provedor de banco de dados como serviço tolerante a falhas que permite que você execute e gerencie bancos de dados MySQL em datacenters do Azure e conecte-os de qualquer aplicativo.  
 
 ##Sumário
-* [Como criar um banco de dados MySQL na Windows Azure Store](#CreateFromStore)
-* [Como criar um banco de dados MySQL como um recurso vinculado para o Site do Windows Azure](#CreateForWebSite)
+* [Como criar um banco de dados MySQL na Azure Store](#CreateFromStore)
+* [Como criar um banco de dados MySQL como um recurso vinculado para o Site do Azure](#CreateForWebSite)
 
 <div class="dev-callout"> 
 <b>Nota</b> 
-<p>quando você cria um banco de dados MySQL como parte do processo de criação de Sites, você só pode criar um banco de dados gratuito. Criar um banco de dados MySQL na Windows Azure Store permite que você crie um banco de dados gratuito ou escolha uma das opções pagas.</p> 
+<p>quando você cria um banco de dados MySQL como parte do processo de criação de Sites, você só pode criar um banco de dados gratuito. Criar um banco de dados MySQL na Azure Store permite que você crie um banco de dados gratuito ou escolha uma das opções pagas.</p> 
 </div>
 
-<h2><a id="CreateFromStore"></a>Como criar um banco de dados MySQL na Windows Azure Store</h2>
+<h2><a id="CreateFromStore"></a>Como criar um banco de dados MySQL na Azure Store</h2>
 
-Para criar um banco de dados MySQL na [Windows Azure Store], faça o seguinte:
+Para criar um banco de dados MySQL na [Azure Store], faça o seguinte:
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure][portal].
+1. Faça logon no [Portal de Gerenciamento do Azure][portal].
 2. Clique em **+NOVO** na parte inferior da página e selecione **STORE**
 
 	![Selecione o complemento na store](./media/create-mysql-db/select-store.png)
@@ -34,18 +34,18 @@ Para criar um banco de dados MySQL na [Windows Azure Store], faça o seguinte:
 
 6. Depois que o banco de dados tiver sido criado, você pode gerenciá-lo na guia **COMPLEMENTOS** no portal de gerenciamento.
 
-	![Gerencie o banco de dados MySQL no portal do Windows Azure](./media/create-mysql-db/manage-mysql-add-on.png)
+	![Gerencie o banco de dados MySQL no portal do Azure](./media/create-mysql-db/manage-mysql-add-on.png)
 
 7. Você pode obter as informações de conexão do banco de dados clicando em **INFORMAÇÕES DE CONEXÃO** na parte inferior da página (mostrada acima).
 
 	![Informações de conexão do MySql](./media/create-mysql-db/mysql-conn-info.png) 
 
 
-<h2><a id="CreateForWebSite"></a>Como criar um banco de dados MySQL como um recurso vinculado para o Site do Windows Azure</h2>
+<h2><a id="CreateForWebSite"></a>Como criar um banco de dados MySQL como um recurso vinculado para o Site do Azure</h2>
 
-Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site do Windows Azure][waws], faça o seguinte:
+Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site do Azure][waws], faça o seguinte:
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure][portal].
+1. Faça logon no [Portal de Gerenciamento do Azure][portal].
 2. Clique em **+NOVO** na parte inferior da página, selecione **COMPUTAÇÃO**, **SITE** e **CRIAR COM BANCO DE DADOS**
 
 	![Criar site com banco de dados](./media/create-mysql-db/custom_create.png)
@@ -81,6 +81,6 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /pt-br/manage/services/web-sites/
-[Windows Azure Store]: /pt-br/store/overview/
+[Azure Store]: /pt-br/store/overview/
 [portal]: http://manage.windowsazure.com
 

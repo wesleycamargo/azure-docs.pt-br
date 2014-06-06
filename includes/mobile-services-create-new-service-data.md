@@ -2,7 +2,7 @@
 
 Em seguida, você criará um novo serviço móvel para substituir a lista na memória pelo armazenamento de dados. Siga estas etapas para criar um novo serviço móvel.
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure](https://manage.windowsazure.com/). 
+1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/). 
 2.	Na parte inferior do painel de navegação, clique em **+NOVO**.
 
 	![plus-new](./media/mobile-services-create-new-service-data/plus-new.png)

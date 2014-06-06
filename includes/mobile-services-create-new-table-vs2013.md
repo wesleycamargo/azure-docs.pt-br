@@ -1,9 +1,9 @@
 
 
-Antes de armazenar dados em seu novo serviço móvel, você deve criar uma nova tabela de armazenamento no serviço. Essas etapas mostram como usar o Visual Studio 2013 para criar uma nova tabela no serviço móvel. Em seguida, atualize o aplicativo para usar os Serviços Móveis para armazenar itens no Windows Azure em vez de na coleção local.
+Antes de armazenar dados em seu novo serviço móvel, você deve criar uma nova tabela de armazenamento no serviço. Essas etapas mostram como usar o Visual Studio 2013 para criar uma nova tabela no serviço móvel. Em seguida, atualize o aplicativo para usar os Serviços Móveis para armazenar itens no Azure em vez de na coleção local.
 
 
-1. Em Gerenciador de Servidores, expanda **Serviços Móveis do Windows Azure**, clique duas vezes no serviço móvel, clique em **Criar Tabela** e, em seguida, digite 'TodoItem' no **Nome da Tabela**.
+1. Em Gerenciador de Servidores, expanda **Serviços Móveis do Azure**, clique duas vezes no serviço móvel, clique em **Criar Tabela** e, em seguida, digite `TodoItem` no **Nome da Tabela**.
 
 	![criar tabela no VS 2013](./media/mobile-services-create-new-table-vs2013/mobile-create-table-vs2013.png)
 

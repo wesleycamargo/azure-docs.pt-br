@@ -2,7 +2,7 @@ A primeira etapa é criar uma nova conta a ser usada para o tutorial. Você pode
 
 ### Para inscrever-se em uma conta de Pusher
 
-1. Faça logon no [Portal de Gerenciamento do Windows Azure][].
+1. Faça logon no [Portal de Gerenciamento do Azure][].
 
 2. No painel inferior do portal de gerenciamento, clique em **Novo**.
 
@@ -16,7 +16,7 @@ A primeira etapa é criar uma nova conta a ser usada para o tutorial. Você pode
 
 5. Na caixa de diálogo **Personalizar complemento**, selecione o plano **Pusher** no qual você deseja se inscrever.
 
-6. Digite um nome para identificar o serviço de **Pusher** nas suas configurações do Windows Azure ou use o valor padrão de **Pusher**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na lista de itens inscritos da Windows Azure Store.
+6. Digite um nome para identificar o serviço de **Pusher** nas suas configurações do Azure ou use o valor padrão de **Pusher**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na lista de itens inscritos da Azure Store.
 
 	![store-screen-1][store-screen-1]
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre como começar com o Pusher, consulte [Noçõ
 
 <!--Links-->
 
-[Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
 [Noções básicas sobre Pusher]: http://pusher.com/docs
 
 

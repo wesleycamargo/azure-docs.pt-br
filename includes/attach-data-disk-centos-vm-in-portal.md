@@ -1,15 +1,15 @@
-1. No [Portal de Gerenciamento do Windows Azure (visualização)][AzurePreviewPortal], clique em **Máquinas Virtuais** e, em seguida, selecione a máquina virtual que você acabou de criar (**testlinuxvm**).
+1. No [Portal de Gerenciamento do Azure (visualização)][AzurePreviewPortal], clique em **Máquinas Virtuais** e selecione a máquina virtual que você acabou de criar (**testlinuxvm**).
 
 2. Na barra de comandos, clique em **Anexar** e, em seguida, clique em **Anexar Disco Vazio**.
 
 	A caixa de diálogo **Anexar Disco Vazio** é exibida.
 
 
-3. O **Nome da Máquina Virtual**, **Local de Armazenamento** e **Nome do Arquivo** já estão definidos para você. Tudo o que você precisa fazer é digitar o tamanho desejado para o disco. Digite **5** no campo **Tamanho**.
+3. O **Nome da Máquina Virtual**, o **Local de Armazenamento** e o **Nome do Arquivo** já estão definidos para você. Tudo o que você precisa fazer é digitar o tamanho desejado para o disco. Digite **5** no campo **Tamanho**.
 
 	![Anexar Disco Vazio][Image2]
 
-	**Observação:** todos os discos são criados a partir de um arquivo VHD no armazenamento do Windows Azure. Você pode fornecer um nome para o arquivo VHD que é adicionado ao armazenamento, mas o Windows Azure gera o nome do disco automaticamente.
+	**Observação:** todos os discos são criados a partir de um arquivo VHD no armazenamento do Azure. Você pode fornecer um nome para o arquivo VHD que é adicionado ao armazenamento, mas o Azure gera o nome do disco automaticamente.
 
 4. Clique na marca de seleção para anexar o disco de dados à máquina virtual.
 
@@ -21,12 +21,13 @@
 
 	Depois de anexar os dados do disco à máquina virtual, o disco estará offline e não inicializado. Você precisa fazer logon na máquina virtual e inicializar o disco para poder usá-lo para armazenar dados.
 
-## Conecte-se à Máquina Virtual usando SSH ou PuTTY e conclua a instalação.
-O disco de dados que você acabou de anexar à máquina virtual está offline e não inicializado depois de adicionado. Você deve fazer logon no computador e inicializar o disco para usá-lo para armazenar dados.
+##Conectar-se à máquina virtual usando o SSH ou o PuTTY e concluir a instalação
+O disco de dados que acabou de anexar à máquina virtual estará offline e não será inicializado depois de anexá-lo. Você deve fazer logon no computador e inicializar o disco para usá-lo para armazenar dados.
 
 1. Depois que a máquina virtual estiver provisionada, conecte-se usando SSH ou PuTTY e faça logon como **newuser** (conforme descrito nas etapas acima).	
 
-2. Na janela SSH ou PuTTY digite o comando a seguir e, em seguida, digite a senha da conta:
+
+2. Na janela SSH ou PuTTY, digite o comando a seguir e, em seguida, digite a senha da conta:
 
 	`$ sudo grep SCSI /var/log/messages`
 
@@ -34,51 +35,82 @@ O disco de dados que você acabou de anexar à máquina virtual está offline e 
 
 	![GREP][Image4]
 
+
 3. Na janela SSH ou PuTTY, digite o comando a seguir para particionar o disco **/dev/sdc**:
 
 	`$ sudo fdisk /dev/sdc`
+
 
 4. Digite **n** para criar uma nova partição.
 
 	![FDISK][Image5]
 
-5. Digite **p** para tornar a partição primária, digite **1** para torná-la a primeira partição e clique enter para aceitar o valor padrão (1) para o cilindro.
+
+5. Digite **p** para definir a partição como primária, digite **1** para torná-la a primeira partição e clique enter para aceitar o valor padrão (1) para o cilindro.
 
 	![FDISK][Image6]
 
-6. Digite **p** para ver os detalhes do disco que está sendo particionado.
+
+6. Digite **p** para ver os detalhes sobre o disco que está sendo particionado.
 
 	![FDISK][Image7]
+
 
 7. Digite **w** para gravar as configurações do disco.
 
 	![FDISK][Image8]
 
-8. Formate o novo disco usando o comando **mkfs.ext3**:
 
-	`$ sudo mkfs.ext3 /dev/sdc1`
+8. Formate o novo disco usando o comando **mkfs**:
 
-	![Format Disk][Image9]
+	`$ sudo mkfs -t ext4 /dev/sdc1`
 
-9. Crie um diretório para fazer um ponto de montagem para a unidade:
-
-	`$ sudo mkdir /mnt/datadrive`
-
-10. Monte a unidade:
-
-	`$ sudo mount /dev/sdc1 /mnt/datadrive`
-
-11. Abra o arquivo **/etc/fstab** e acrescente a seguinte linha:
-
-	`/dev/sdc1        /mnt/datadrive      ext3    defaults   1 2`
-
-12. Salve e feche o arquivo **/etc/fstab**.
-
-13. Rotule a partição usando e2label:
-
-	`$ sudo e2label /dev/sdc1 /mnt/datadrive`
+	![Criar sistema de arquivos](./media/howto-attach-disk-window-linux/DiskFileSystem.png)
 
 
+9. Em seguida, você deve ter um diretório disponível para montar o novo sistema de arquivos. Como exemplo, digite o seguinte comando para criar um novo diretório para montar a unidade e, em seguida, digite a senha da conta:
+
+	`sudo mkdir /datadrive`
+
+
+10. Digite o seguinte comando para montar a unidade:
+
+	`sudo mount /dev/sdc1 /datadrive`
+
+	Agora o disco de dados está pronto para ser usado como **/datadrive**.
+
+
+11. Adicione a nova unidade ao /etc/fstab:
+
+	Para garantir que a unidade seja novamente montada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo (por exemplo, /dev/sdc1). Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
+	
+		`sudo -i blkid`
+
+	Uma saída será semelhante ao seguinte:
+
+		`/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
+		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
+		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
+
+	>[WACOM.NOTE] o blkid pode não exigir acesso sudo em todos os casos, no entanto, pode ser mais fácil executar com `sudo -i` em algumas distribuições se /sbin ou/usr/sbin não é `$PATH`.
+
+	**Cuidado:** Edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
+
+	Usando um editor de texto, insira as informações sobre o novo sistema de arquivo no final do arquivo /etc/fstab.  Neste exemplo, usaremos o valor UUID para o novo dispositivo **/dev/sdc1** criado nas etapas anteriores e no ponto de montagem de **/datadrive**:
+
+		`UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
+
+	Se as partições ou unidades de dados adicionais forem criadas será necessário inseri-las separadamente em/etc/fstab também.
+
+	Agora você pode testar se o sistema de arquivo é montado corretamente ao simplesmente desmontar e, em seguida, montar novamente o sistema de arquivo, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores: 
+
+		`sudo umount /datadrive`
+		`sudo mount /datadrive`
+
+	Se o segundo comando produzir um erro, verifique o arquivo /etc/fstab para obter a sintaxe correta.
+
+
+	>[WACOM.NOTE] Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta é uma ocorrência comum, então a maioria das distribuições fornecem tanto as opções `nofail` e/ou `nobootwait` fstab que permitirá que o sistema inicialize o mesmo se o disco não estiver presente. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 
 [Image2]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png
@@ -89,6 +121,5 @@ O disco de dados que você acabou de anexar à máquina virtual está offline e 
 [Image7]: ./media/attach-data-disk-centos-vm-in-portal/fdisk3.png
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
-
 
 
