@@ -66,7 +66,8 @@ Este tópico mostra como executar o exemplo, apresenta o código Java do program
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
-		$containerName = "<ContainerName>"
+		$containerName = "<ContainerName>
+      "
 
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName

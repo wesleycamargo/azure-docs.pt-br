@@ -270,7 +270,7 @@ Para excluir um item da tabela, simplesmente passe o item para o método de excl
 		//handle errors or any additional logic as needed
 	}];
 
-You can also just delete a record using its id directly, as in the following example:
+Você também pode simplesmente excluir um registro usando o seu ID diretamente, como no exemplo a seguir:
 
 	[table deleteWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(id itemId, NSError *error) {
 		//handle errors or any additional logic as needed

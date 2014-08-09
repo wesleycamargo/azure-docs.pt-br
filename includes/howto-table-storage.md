@@ -13,7 +13,7 @@ Você pode usar o serviço de tabela para armazenar e consultar grandes conjunto
 
 O serviço Tabela contém os seguintes componentes:
 
-![Tabela1][Table1]
+![Table1][Table1]
 
 -   **Formato de URL:** o código aborda tabelas em uma conta usando esse formato de endereço:   
     http://`<storage account>`.table.core.windows.net/`<table>` 
@@ -31,6 +31,6 @@ O serviço Tabela contém os seguintes componentes:
 
 
   
-  [Tabela1]: ./media/storage-java-how-to-use-table-storage/table1.png
+  [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
 

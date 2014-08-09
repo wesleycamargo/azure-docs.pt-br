@@ -47,9 +47,9 @@ Um receptor pode ler uma mensagem de uma fila do Service Bus de duas maneiras di
 
 A segunda opção, PeekLock, é destinada a ajudar com esse problema. Como ReceiveAndDelete, uma leitura PeekLock remove uma mensagem da fila. Ela não exclui a mensagem, no entanto. Em vez disso, ele bloqueia a mensagem, tornando-a invisível para outros destinatários, e espera que um dos três eventos:
 
--Se o receptor processa a mensagem com êxito, ele chama concluída e a fila exclui a mensagem. 
--Se o receptor decide se não for possível processar a mensagem com êxito, ele chama Abandon. A fila remove o bloqueio da mensagem e o torna disponível para outros destinatários.
--Se o receptor chama nenhuma delas dentro de um período de tempo configurável (por padrão, 60 segundos), a fila supõe que o receptor falhou. Nesse caso, ele se comporta como se o receptor tivesse chamado abandonar, disponibilizando a mensagem a outros destinatários.
+- Se o receptor processa a mensagem com êxito, ele chama concluída e a fila exclui a mensagem. 
+- Se o receptor decide se não for possível processar a mensagem com êxito, ele chama Abandon. A fila remove o bloqueio da mensagem e o torna disponível para outros destinatários.
+- Se o receptor chama nenhuma delas dentro de um período de tempo configurável (por padrão, 60 segundos), a fila supõe que o receptor falhou. Nesse caso, ele se comporta como se o receptor tivesse chamado abandonar, disponibilizando a mensagem a outros destinatários.
 
 Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes, talvez para dois destinatários diferentes. Aplicativos usando filas do Service Bus devem estar preparados para isso. Para facilitar a detecção de duplicidades, que cada mensagem tem uma propriedade MessageID exclusiva que, por padrão, permanece o mesmo, não importa como muitas vezes a mensagem é lida de uma fila. 
 

@@ -151,8 +151,8 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. Finally, in your App.xaml.cs file, make sure to update your call to the 
-Notifications singleton in the *OnLaunched* method:
+4. Finalmente, em seu arquivo App.xaml.cs, 
+certifique-se de atualizar a sua chamada para o singleton Notificações no método *OnLaunched*:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 

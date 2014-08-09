@@ -455,8 +455,8 @@ Execute o aplicativo para verificar se ele funciona.
 
     2.  Semelhante à etapa na seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 
-Pesquise por
     3. Pesquise por "WindowsAzure.ServiceBus" e selecione o item **Brramento de Serviço do Azure**. Conclua a instalação e feche a caixa de diálogo.
+
 
     4.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProductsPortal**, clique em **Adicionar** e em **Item Existente**.
 
@@ -464,8 +464,7 @@ Pesquise por
 
         ![][24]
 
-    6.  Agora, abra o arquivo **HomeController.cs** no editor do Visual Studio e substitua a definição do namespace pelo código a seguir: Certifique-se de substituir *yourServiceNamespace* pelo nome do namespace do serviço e *yourIssuerSecret* pela chave.
-        Isso permitirá que o cliente chame o serviço local, retornando o resultado da chamada.
+    6.  Agora, abra o arquivo **HomeController.cs** no editor do Visual Studio e substitua a definição do namespace pelo código a seguir: Certifique-se de substituir *yourServiceNamespace* pelo nome do namespace do serviço e *yourIssuerSecret* pela chave. Isso permitirá que o cliente chame o serviço local, retornando o resultado da chamada.
 
             namespace ProductsWeb.Controllers
             {

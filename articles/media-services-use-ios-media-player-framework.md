@@ -78,10 +78,10 @@ Agendado um clipe de conteúdo de 0 a 80 segundos:
 
 No código de exemplo anterior:
 
-O objeto * **MediaTime** controla o clipe de vídeo que você deseja agendar como o conteúdo principal. No exemplo anterior, o clipe de vídeo será agendado para ter uma duração de 80 segundos (de 0 a 80 segundos);
+* O objeto **MediaTime** controla o clipe de vídeo que você deseja agendar como o conteúdo principal. No exemplo anterior, o clipe de vídeo será agendado para ter uma duração de 80 segundos (de 0 a 80 segundos);
 * **clipBeginMediaTime** representa a hora de início da reprodução de um vídeo. Por exemplo, se **clipBeginMediaTime** = 5, então o clipe de vídeo será iniciado em 5 segundos do clipe de vídeo.
 * **clipEndMediaTime** representa a hora de término da reprodução de um vídeo. Se **clipEndMediaTime**= 100, a reprodução do vídeo termina no 100º segundo do clipe de vídeo.
-*Em seguida, agendamos o **MediaTime** solicitando que a estrutura execute **appendContentClip**. No exemplo anterior, a URL do conteúdo principal é fornecida em `[NSURL URLWithString:url]`, e o agendamento dessa mídia é definido usando **withMedia**.
+* Em seguida, agendamos o **MediaTime** solicitando que a estrutura execute **appendContentClip**. No exemplo anterior, a URL do conteúdo principal é fornecida em `[NSURL URLWithString:url]`, e o agendamento dessa mídia é definido usando **withMedia**:
  `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])`.
 
 **Observação:** sempre agende o conteúdo principal antes de agendar qualquer anúncio (incluindo anúncio de pre-roll). 

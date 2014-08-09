@@ -3,11 +3,11 @@
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
-> [AZURE.SELECTOR-LIST(Plataforma | Back-end )]
-- [(C# da Windows Store | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md)
-- [(C# da Windows Store | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
-- [(JavaScript da Windows Store | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
-- [(JavaScript da Windows Store | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend )]
+- [(Windows Store C# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md)
+- [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
+- [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
+- [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
 - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data)
 - [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data)
 - [(iOS | JavaScript)](mobile-services-ios-add-paging-data)

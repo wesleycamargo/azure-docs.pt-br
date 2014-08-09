@@ -8,7 +8,7 @@
 
 # Como usar o Bloco de Aplicativos de Dimensionamento Automático
 
-Este guia irá demonstrar como executar cenários comuns usando o Bloco de Aplicativos de Dimensionamento Automático [Pacote de integração do Microsoft Enterprise Library 50 para Azure][]. As amostras são escritas em C\# e usam a API .NET. Os cenários abordados incluem **hospedagem do bloco**, **uso de regras de restrição** e **uso de regras reativas**, Para obter mais informações sobre o Bloco de Aplicativos de Dimensionamento Automático, consulte a seção [Próximas etapas][].
+Este guia irá demonstrar como executar cenários comuns usando o Bloco de Aplicativos de Dimensionamento Automático [Pacote de integração do Microsoft Enterprise Library 5.0 para Azure][]. As amostras são escritas em C\# e usam a API .NET. Os cenários abordados incluem **hospedagem do bloco**, **uso de regras de restrição** e **uso de regras reativas**, Para obter mais informações sobre o Bloco de Aplicativos de Dimensionamento Automático, consulte a seção [Próximas etapas][].
 
 ## Sumário
 

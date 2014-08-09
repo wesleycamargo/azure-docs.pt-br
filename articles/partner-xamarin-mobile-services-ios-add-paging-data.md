@@ -51,7 +51,7 @@ Este tutorial baseia-se nas etapas e no aplicativo de exemplo do tutorial anteri
     <p>Este tutorial usa um cenário simplificado, definindo valores de paginação embutidos em código para as propriedades <strong>Take</strong> e <strong>Skip</strong>. Em um aplicativo do mundo real, você pode usar consultas semelhantes às mencionadas acima com um controle de paginação ou interface do usuário comparável para permitir que os usuários naveguem para páginas anteriores e posteriores. Você também pode chamar o método <strong>IncludeTotalCount</strong> para obter a contagem total de todos os itens disponíveis no servidor, junto com os dados paginados.</p>
     </div>
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"> </a>Próximas Etapas
 
 Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Se desejar obter mais informações sobre o seguinte tópico de Serviços Móveis:
 

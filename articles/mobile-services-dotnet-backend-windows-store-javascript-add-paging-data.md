@@ -1,13 +1,13 @@
-<properties pageTitle="Adicionar paginação aos dados (JavaScript) | Serviços Móveis do Azure" metaKeywords="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornada a seu aplicativo JavaScript da Windows Store dos Serviços Móveis" metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet/" services="" documentationCenter="Mobile" title="Refinar as consultas dos Serviços Móveis com paginação" authors="" solutions="" manager="" editor="" />
+<properties pageTitle="Adicionar paginação aos dados (JavaScript) - Serviços Móveis do Azure" metaKeywords="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornada a seu aplicativo JavaScript da Windows Store dos Serviços Móveis" metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet/" services="" documentationCenter="Mobile" title="Refinar as consultas dos Serviços Móveis com paginação" authors="" solutions="" manager="" editor="" />
 
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
-> [AZURE.SELECTOR-LIST(Plataforma | Back-end )]
+> [AZURE.SELECTOR-LIST (Platform | Backend )]
 - [(Windows Store C# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md)
 - [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
-- [(JavaScript da Windows Store | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
-- [(JavaScript da Windows Store | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
+- [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
+- [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
 - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data)
 - [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data)
 - [(iOS | JavaScript)](mobile-services-ios-add-paging-data)

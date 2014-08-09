@@ -1,7 +1,7 @@
 <properties pageTitle="Usar os Serviços Móveis para carregar imagens para o armazenamento de blob (Windows Phone) | Serviços Móveis" metaKeywords="" description="Saiba como usar os Serviços Móveis para carregar imagens para o Armazenamento de Blob do Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Carregar imagens no Armazenamento do Azure usando os Serviços Móveis" authors="glenga" writer="glenga" />
 
-# Carregar imagens no Armazenamento do Azure usando Serviços Móveis
-> [AZURE.SELECTOR-LIST(Plataforma | Back-end )]
+# Upload images to Azure Storage by using Mobile Services
+> [AZURE.SELECTOR-LIST (Platform | Backend )]
 - [(Windows Store C# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)
 - [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-upload-data-blob-storage.md)
 - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage.md)

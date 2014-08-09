@@ -57,7 +57,7 @@ Na página Escala, você pode aumentar ou diminuir manualmente o número de inst
 
 Na página Escala, você pode configurar seu Serviço de Nuvem para aumentar ou diminuir automaticamente o número de instâncias ou de máquinas virtuais usadas por seu aplicativo. Você pode configurar o dimensionamento com base nos seguintes parâmetros:
 
-[Uso médio de CPU](#averagecpu) – se o percentual de uso médio de CPU estiver acima ou abaixo dos limites especificados, as instâncias de função serão criadas ou excluídas, ou as máquinas virtuais serão ativadas ou desativadas em um conjunto de disponibilidade.
+- [Uso médio de CPU](#averagecpu) – se o percentual de uso médio de CPU estiver acima ou abaixo dos limites especificados, as instâncias de função serão criadas ou excluídas, ou as máquinas virtuais serão ativadas ou desativadas em um conjunto de disponibilidade.
 - [Mensagens da fila](#queuemessages) – se o número de mensagens em uma fila estiver acima ou abaixo de um limite especificado, as instâncias de função serão criadas ou excluídas, ou as máquinas virtuais serão ativadas ou desativadas em um conjunto de disponibilidade.
 
 <h3><a id="averagecpu"></a>Uso médio da CPU</h3>

@@ -52,7 +52,7 @@ Este tutorial baseia-se nas etapas e no aplicativo de exemplo do tutorial anteri
 
    	Observe que o método `Skip(3)` foi convertido na opção de consulta `$skip=3` no URI da consulta.
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"> </a>Próximas Etapas
 
 Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
 

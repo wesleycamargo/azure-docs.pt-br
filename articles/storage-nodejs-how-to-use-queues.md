@@ -38,7 +38,7 @@ O serviço Fila do Azure é um serviço de armazenamento de um grande número de
 
 O serviço Fila contém os seguintes componentes:
 
-![Fila1][Queue1]
+![Queue1][Queue1]
 
 -   **Formato de URL:** As filas são acessadas usando o seguinte formato de URL:   
     
@@ -65,11 +65,11 @@ pode criar uma conta de armazenamento [usando a API REST][].)
 
 2.  Na parte inferior do painel de navegação, clique em **+NOVO**.
 
-	![+novo][plus-new]
+	![+new][plus-new]
 
 3.  Clique em **Conta de Armazenamento** e depois em **Criação Rápida**.
 
-	![Caixa de diálogo Criação rápida][quick-create-storage]
+	![Quick create dialog][quick-create-storage]
 
 4.  Na URL, digite um nome de subdomínio para usar na URI para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse valor se torna o nome do host no URI que é usado para lidar com os recursos Blob, Fila ou Tabela da assinatura.
 
@@ -306,9 +306,9 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Serviço de Nuvem do Node.js com armazenamento]: /pt-br/develop/nodejs/tutorials/web-app-with-storage/
   [Aplicativo da web do Node.js com armazenamento]: /pt-br/develop/nodejs/tutorials/web-site-with-storage/
   
-  [Fila1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
-  [além do novo]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
-  [armazenamento de criação rápida]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
+  [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
+  [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
+  [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
   
   
   
