@@ -59,7 +59,7 @@ A versão 2.0 da Storage Client Library (SCL) 2.0 não tem tudo o que é necess�
 
 A função de trabalho A cria as linhas `SendEmail` na tabela `Message` e a função de trabalho B lê essas linhas para obter as informações necessárias para o envio de email. A imagem a seguir mostra um subconjunto de propriedades para duas linhas de `Message` e três linhas de `SendEmail` na tabela `Message`.
 
-	![tabela de mensagem com sendmail][mtas-sendMailTbl]
+	![message table with sendmail][mtas-sendMailTbl]
 
 As linhas da tabela `Message` servem para vários propósitos:
 
