@@ -146,7 +146,7 @@ No Visual Studio, você deve garantir que o arquivo de modelo de serviço seja c
       </subscriptions>
     </serviceModel>
 
-Você deve substituir os valores entre colchetes com valores específicos ao seu ambiente e ao aplicativo de destino. Para localizar muitos desses valores, você precisará efetuar logon no [Portal de Gerenciamento Azure][].
+Você deve substituir os valores entre colchetes com valores específicos ao seu ambiente e ao aplicativo de destino. Para localizar muitos desses valores, você precisará efetuar logon no [Portal de Gerenciamento Azure][]
 
 Entre no Portal de Gerenciamento.
 
@@ -378,7 +378,7 @@ Agora que você aprendeu os conceitos de Como usar o Bloco de Aplicativos de Dim
 -   [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático][]
 -   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure][]
 
-  [Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure]:
+  [Pacote de integração do Microsoft Enterprise Library 5.0 para Azure]:
     http://go.microsoft.com/fwlink/?LinkID=235134
   [Próximas etapas]: #NextSteps
   [O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs

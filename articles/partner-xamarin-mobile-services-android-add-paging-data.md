@@ -64,7 +64,7 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 
 <!-- Anchors. -->
 
-[Próximas Etapas]:#próximas etapas
+[Próximas Etapas]:#Próximas etapas
 
 <!-- Images. -->
 
