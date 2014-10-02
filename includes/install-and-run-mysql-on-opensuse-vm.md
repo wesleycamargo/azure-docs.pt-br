@@ -1,86 +1,86 @@
+1.  Para escalonar privilégios, execute:
 
-1. Para escalonar privilégios, execute:
+        sudo -s
 
-		sudo -s
-	
-	Digite sua senha.
+    Digite sua senha.
 
-2. Execute o seguinte comando para instalar o MySQL Community Server edition:
+2.  Execute o seguinte comando para instalar o MySQL Community Server edition:
 
-		# zypper install mysql-community-server
+        # zypper install mysql-community-server
 
-	Aguarde enquanto o MySQL é baixado e instalado.
-3. Para definir o MySQL para iniciar quando o sistema for inicializado, execute o seguinte comando:
+    Aguarde enquanto o MySQL é baixado e instalado.
 
-		# insserv mysql
-4. Agora você pode iniciar manualmente o daemon do MySQL (mysqld) com o seguinte comando:
+3.  Para definir o MySQL para iniciar quando o sistema for inicializado, execute o seguinte comando:
 
-		# rcmysql start
+        # insserv mysql
 
-	Para verificar o status do daemon do MySQL, execute:
+4.  Agora você pode iniciar manualmente o daemon do MySQL (mysqld) com o seguinte comando:
 
-		# rcmysql status
+        # rcmysql start
 
-	Se você deseja parar o daemon do MySQL, execute:
+    Para verificar o status do daemon do MySQL, execute:
 
-		# rcmysql stop
+        # rcmysql status
 
-5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão.  É recomendável executar o **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. Ao executar o **mysql\_secure\_installation**, você será solicitado a alterar a senha raiz do MySQL, remover as contas anônimas de usuários, desabilitar os logins de raiz remota, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
+    Se você deseja parar o daemon do MySQL, execute:
 
-		$ mysql_secure_installation
+        # rcmysql stop
 
-6. Após a execução, você poderá fazer logon no MySQL:
+5.  Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. Ao executar o **mysql\_secure\_installation**, você será solicitado a alterar a senha raiz do MySQL, remover as contas anônimas de usuários, desabilitar os logins de raiz remota, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
 
-		$ mysql -u root -p
+        $ mysql_secure_installation
 
-	Digite a senha raiz de MySQL (que você alterou na etapa anterior) e será exibido um prompt onde você poderá executar instruções SQL para interagir com o banco de dados.
+6.  Após a execução, você poderá fazer logon no MySQL:
 
-7. Para criar um novo usuário do MySQL, execute o seguinte no prompt **mysql>**:
+        $ mysql -u root -p
 
-		mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
+    Digite a senha raiz de MySQL (que você alterou na etapa anterior) e será exibido um prompt onde você poderá executar instruções SQL para interagir com o banco de dados.
 
-	Observe que o ponto e vírgula (;) no final das linhas são cruciais para encerrar os comandos.
+7.  Para criar um novo usuário do MySQL, execute o seguinte no prompt **mysql\>**:
 
-8. Para criar um banco de dados e conceder as permissões de usuário `mysqluser`, execute os seguintes comandos:
+        mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-		mysql> CREATE DATABASE testdatabase;
-		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
+    Observe que o ponto e vírgula (;) no final das linhas são cruciais para encerrar os comandos.
 
-	Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados.  Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
+8.  Para criar um banco de dados e conceder as permissões de usuário `mysqluser`, execute os seguintes comandos:
 
-9. Para fazer logon em outro computador, execute o seguinte:
+        mysql> CREATE DATABASE testdatabase;
+        mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
+    Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados. Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
 
-	onde `ip-address` é o endereço IP do computador do qual você se conectará ao MySQL.
-	
+9.  Para fazer logon em outro computador, execute o seguinte:
+
+        mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
+
+    em que `ip-address` é o endereço IP do computador do qual você se conectará ao MySQL.
+
 10. Para sair do utilitário de administração de banco de dados MySQL, emita o seguinte comando:
 
-		quit
+        quit
 
-11. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][AzurePreviewPortal]. No Portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique no nome da sua nova máquina virtual e clique em **Pontos de extremidade**.
+11. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][]. No Portal do Azure, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e depois em **Pontos de Extremidade**.
 
-	![Pontos de extremidade][Image7]
+    ![Pontos de extremidade][]
 
-12. Clique em **Adicionar ponto de extremidade** na parte inferior da página.
-	![Pontos de extremidade][Image8]
+12. Clique em **Adicionar Ponto de Extremidade** na parte inferior da página.
+    ![Pontos de Extremidade][]
 
-13. Adicione um ponto de extremidade com o nome "MySQL", protocolo **TCP** e portas **públicas** e **particulares**  definidas como "3306". Isso permitirá que o MySQL seja acessado remotamente.
-	![Pontos de extremidade][Image9]
+13. Adicione um ponto de extremidade com o nome "MySQL", protocolo **TCP** e portas **públicas** e **particulares** definidas como "3306". Isso permitirá que o MySQL seja acessado remotamente.
+    ![Pontos de Extremidade][1]
 
 14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Azure, execute o seguinte comando no computador local:
 
-		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
+        mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-	Por exemplo, usando a máquina virtual criada neste tutorial, o comando seria:
+    Por exemplo, usando a máquina virtual criada neste tutorial, o comando seria:
 
-		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
+        mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário.  Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].	
+15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][].
 
-[MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePreviewPortal]: http://manage.windowsazure.com
-[Image7]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png
-[Image8]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint2.png
-[Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [Pontos de extremidade]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png
+  [Pontos de Extremidade]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint2.png
+  [1]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
+  [Documentação do MySQL]: http://dev.mysql.com/doc/
