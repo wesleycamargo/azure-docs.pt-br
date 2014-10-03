@@ -1,25 +1,35 @@
-Para usar as operações de armazenamento, você precisa de uma conta de armazenamento do Azure. Você pode criar uma conta de armazenamento seguindo essas etapas. (Você também pode criar uma conta de armazenamento [usando a API REST].)
+Você precisa de uma conta de armazenamento para usar o armazenamento do Azure. Você
+pode criar uma conta de armazenamento seguindo as etapas a seguir. (Você também pode
+criar uma conta de armazenamento [usando a API REST][].)
 
-1.  Faça logon no [Portal de Gerenciamento do Azure].
+1.  Faça logon no [Portal de Gerenciamento do Azure][].
 
 2.  Na parte inferior do painel de navegação, clique em **NOVO**:
 
-	![+novo][plus-new]
+    ![+novo][]
 
 3.  Clique em **SERVIÇOS DE DADOS**, **ARMAZENAMENTO** e em **CRIAÇÃO RÁPIDA**.
 
-	![Caixa de diálogo Criação rápida][quick-create-storage]
+    ![Caixa de diálogo Criação rápida][]
 
-4.  No URL, digite um nome de subdomínio para usar no URI para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse valor se torna o nome do host no URI que é usado para lidar com os recursos Blob, Fila ou Tabela da assinatura.
+4.  Na URL, digite um nome de subdomínio a ser usado no URI para a
+    conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas
+    e números. Esse valor se torna o nome do host no URI que é
+    usado para lidar com os recursos Blob, Fila ou Tabela para a
+    assinatura.
 
-5.  Escolha uma Região/Grupo de Afinidade no qual deseja localizar o armazenamento. Se usar o armazenamento de seu aplicativo do Azure, selecione a mesma região onde você implantará seu aplicativo.
+5.  Escolha uma Região/Grupo de Afinidade no qual localizar o
+    armazenamento. Se você estiver usando o armazenamento de seu aplicativo do Azure,
+    selecione a mesma região na qual você implantará seu
+    aplicativo.
 
-6. Opcionalmente, você pode habilitar a replicação geográfica.
+6.  Você também pode selecionar o tipo de replicação que deseja para sua conta. A replicação com redundância geográfica é o padrão e oferece a máxima durabilidade. Para obter mais detalhes sobre as opções de replicação, consulte [Opções de Redundância de Armazenamento do Azure][] e o [Blog da equipe de Armazenamento do Azure][].
 
-6.  Clique em **CRIAR CONTA DE ARMAZENAMENTO**.
+7.  Clique em **CRIAR CONTA DE ARMAZENAMENTO**.
 
-[usando a API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-
+  [usando a API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [+novo]: ./media/create-storage-account/plus-new.png
+  [Caixa de diálogo Criação rápida]: ./media/create-storage-account/quick-storage-2.png
+  [Opções de Redundância de Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/azure/dn727290.aspx
+  [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,4 +1,5 @@
-A configuração de um nome de domínio personalizado em um site somente será disponível para os modos Compartilhado, Básico e Padrão para sites do Azure. Antes de mudar um modo de site Grátis para Compartilhado, Básico ou Padrão, você deve remover seus limites de gasto utilizados para sua assinatura de site. 
+A configuração de um nome de domínio personalizado em um site está disponível somente para os modos Compartilhado, Básico e Padrão para Sites do Azure. Antes de mudar um site do modo de site Grátis para Compartilhado, Básico ou Padrão, primeiro remova seus limites de gasto em vigor na assinatura do site.
 
-Para obter mais informações sobre os modos de site, inclusive como alterar o modo do site, consulte [Como escalar sites](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-scale/)
+Para obter mais informações sobre os modos de site, inclusive sobre como alterar o modo do site, consulte [Como dimensionar sites][].
 
+  [Como dimensionar sites]: /en-us/documentation/articles/web-sites-scale/
