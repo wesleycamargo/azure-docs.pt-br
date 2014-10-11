@@ -1,8 +1,10 @@
-<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="Exemplos do HDInsight" pageTitle="Exemplo de estimador de Pi do HDInsight | Azure" metaKeywords="hdinsight, exemplo do hdinsight, mapreduce" description="Saiba como executar um exemplo simples de MapReduce no HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Exemplo de estimador de Pi do HDInsight" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Learn how to run an Hadoop MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The Pi estimator Hadoop sample in HDInsight" authors="bradsev" />
 
-# Exemplo de estimador de Pi do HDInsight
- 
-Este tópico mostra como executar um programa MapReduce simples que estima o valor da constante matemática Pi com o Azure HDinsight usando o Powershell do Azure. 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+
+# Exemplo do Hadoop Vistoriador de Pi no HDInsight
+
+Este tópico mostra como executar um programa MapReduce Hadoop que estima o valor da constante matemática Pi usando o PowerShell do Azure para executar o programa no HDinsight. Ele fornece também o código Java usado no programa MapReduce, usado para estimar o calor de Pi.
 
 O programa usa um método estatístico (quasi-Monte Carlo) para estimar o valor de Pi. Pontos colocados aleatoriamente em um quadrado de unidade também caem dentro de um círculo inscrito nesse quadrado com uma probabilidade igual à área do círculo, Pi/4. O valor de Pi pode ser estimado a partir do valor de 4R onde R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
 
@@ -12,436 +14,452 @@ O script fornecido para este exemplo envia um trabalho JAR do Hadoop e está con
 
 O arquivo .jar que contém os arquivos necessários para o Hadoop no Azure para implantação do aplicativo é um arquivo .zip e está disponível para download. Você pode descompactá-lo com vários utilitários de compactação e explorar os arquivos conforme sua conveniência.
 
-Os exemplos que estão disponíveis para ajudar a obter velocidade usando o HDInsight para executar trabalhos MapReduce estão listados em [Executando os exemplos do HDInsight][run-samples] junto com os links para obter instruções sobre como executá-los.
+Os exemplos que estão disponíveis para ajudar a obter velocidade usando o HDInsight para executar trabalhos MapReduce estão listados em [Executando os exemplos do HDInsight][] junto com os links para obter instruções sobre como executá-los.
 
-**Você irá aprender:**
-		
-* Como usar o PowerShell do Azure para executar um programa Estimador de Pi MapReduce no Azure HDInsight.	
-* Qual é aparência de um programa MapReduce escrito em Java.
+**Você aprenderá a:**
 
-**Pré-requisitos**:	
+-   Como usar o PowerShell do Azure para executar um programa Estimador de Pi MapReduce no Azure HDInsight.
+-   Ver qual a aparência de um programa MapReduce escrito em Java.
 
-- Você deve ter uma conta do Azure. Para obter as opções de como inscrever-se em uma conta, consulte a página [Testar o Azure gratuitamente (a página pode estar em inglês)](http://www.windowsazure.com/pt-br/pricing/free-trial/).
+**Pré-requisitos**:
 
-- Você deve ter provisionado um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Provisionar clusters HDInsight](/pt-br/manage/services/hdinsight/provision-hdinsight-clusters/).
+-   Você deve ter uma conta do Azure. Para obter as opções de como inscrever-se em uma conta, consulte a página [Testar o Azure gratuitamente (a página pode estar em inglês)][].
 
-- Você deve ter instalado o PowerShell do Azure e tê-lo configurado para uso com sua conta. Para obter instruções sobre como fazer isso, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+-   Você deve ter provisionado um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Provisionar clusters HDInsight][].
 
-##Neste artigo	
-Neste artigo
-Este tópico mostra como executar o exemplo, apresenta o código Java do programa Estimador de Pi MapReduce, resume o que você aprendeu e descreve algumas das próximas etapas. Contém as seguintes seções.
-	
-1. [Executar o exemplo com o PowerShell do Azure](#run-sample)	
-2. [Código Java do Programa estimador de Pi MapReduce](#java-code)
-3. [Resumo](#summary)	
-4. [Próximas etapas](#next-steps)	
+-   Você deve ter instalado o PowerShell do Azure e o configurado para uso com sua conta. Para obter instruções sobre como fazer isso, consulte [Instalar e configurar o PowerShell do Azure][].
 
-<h2><a id="run-sample"></a>Executar o exemplo com o PowerShell do Azure</h2>
+## Neste artigo
+
+Neste artigoEste tópico mostra como executar o exemplo, apresenta o código Java do programa Estimador de Pi MapReduce, resume o que você aprendeu e descreve algumas das próximas etapas. Contém as seguintes seções.
+
+1.  [Executar o exemplo com o PowerShell do Azure][]
+2.  [Código Java do programa estimador de Pi MapReduce][]
+3.  [Resumo][]
+4.  [Próximas etapas][]
+
+## <span id="run-sample"></span></a>Executar o exemplo com o PowerShell do Azure
 
 **Para enviar o trabalho MapReduce**
 
-1. Abra o PowerShell do Azure. Para obter instruções sobre como abrir a janela do console do PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
-2. Defina as duas variáveis nos comandos a seguir e execute-as:
-	
-		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
-		$clusterName = "<ClusterName>"             # HDInsight cluster name
+1.  Abra o PowerShell do Azure. Para obter instruções sobre como abrir a janela do console do PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure][].
+2.  Defina as duas variáveis nos comandos a seguir e execute-as:
 
-4. Execute o comando a seguir para criar uma definição de MapReduce:	
+        $subscriptionName = "<SubscriptionName>"   # Azure subscription name
+        $clusterName = "<ClusterName>"             # HDInsight cluster name
 
-		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
+3.  Execute o comando a seguir para criar uma definição de MapReduce:
 
-	> [WACOM.NOTE] *hadoop-examples.jar* é fornecido com os clusters HDInsight versão 2.1. O arquivo foi renomeado para *hadoop-mapreduce.jar* em clusters HDInsight versão 3.0.
-	
-	O primeiro argumento indica quantos mapas criar (o padrão é 16). O segundo argumento indica quantas amostras são geradas por mapa (10 milhões por padrão). Portanto, esse programa usa 10*10 milhões = 160 milhões de pontos aleatórios para realizar sua estimativa de Pi. 
+        $piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
 
-5. Execute os seguintes comandos para enviar o trabalho MapReduce e aguarde a conclusão do trabalho:
+    > [WACOM.NOTE] O *hadoop-examples.jar* é fornecido com clusters HDInsight versão 2.1. O arquivo foi renomeado para *hadoop-mapreduce.jar* em clusters HDInsight versão 3.0.
 
-		# Run the Pi Estimator MapReduce job.
-		Select-AzureSubscription $subscriptionName
-		$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
-	
-		# Wait for the job to complete.  
-		$piJob | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
+    O primeiro argumento indica quantos mapas criar (o padrão é 16). O segundo argumento indica quantas amostras são geradas por mapa (10 milhões por padrão). Portanto, esse programa usa 10\*10 milhões = 160 milhões de pontos aleatórios para realizar sua estimativa de Pi.
 
-6. Execute o comando a seguir para recuperar a saída padrão do trabalho MapReduce:
+4.  Execute os seguintes comandos para enviar o trabalho MapReduce e aguarde a conclusão do trabalho:
 
-		# Print output and standard error file of the MapReduce job
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
+        # Run the Pi Estimator MapReduce job.
+        Select-AzureSubscription $subscriptionName
+        $piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
 
-	Para comparação, as 10 primeiras casas decimais de Pi são 3,1415926535
+        # Wait for the job to complete.  
+        $piJob | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
 
+5.  Execute o comando a seguir para recuperar a saída padrão do trabalho MapReduce:
 
-<h2><a id="java-code"></a>Código Java do programa estimador de Pi MapReduce </h2>
+        # Print output and standard error file of the MapReduce job
+        Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
 
+    Para comparação, as 10 primeiras casas decimais de Pi são 3,1415926535
 
+## <span id="java-code"></span></a>Código Java do programa estimador de Pi MapReduce
 
- 	/**	
- 	* Licensed to the Apache Software Foundation (ASF) under one	
- 	* or more contributor license agreements. See the NOTICE file	
- 	* distributed with this work for additional information	
- 	* regarding copyright ownership. The ASF licenses this file	
- 	* to you under the Apache License, Version 2.0 (the	
- 	* "License"); you may not use this file except in compliance	
- 	* with the License. You may obtain a copy of the License at	
- 	*	
-	* http://www.apache.org/licenses/LICENSE-2.0	
- 	*	
- 	* Unless required by applicable law or agreed to in writing, software	
- 	* distributed under the License is distributed on an "AS IS" BASIS,	
- 	* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 	implied.
- 	* See the License for the specific language governing permissions and	
- 	* limitations under the License.		
- 	*/	
+    /** 
+    * Licensed to the Apache Software Foundation (ASF) under one    
+    * or more contributor license agreements. See the NOTICE file   
+    * distributed with this work for additional information 
+    * regarding copyright ownership. The ASF licenses this file 
+    * to you under the Apache License, Version 2.0 (the 
+    * "License"); you may not use this file except in compliance    
+    * with the License. You may obtain a copy of the License at 
+    *   
+    * http://www.apache.org/licenses/LICENSE-2.0    
+    *   
+    * Unless required by applicable law or agreed to in writing, software   
+    * distributed under the License is distributed on an "AS IS" BASIS, 
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or   implied.
+    * See the License for the specific language governing permissions and   
+    * limitations under the License.        
+    */  
 
- 	package org.apache.hadoop.examples;
+    package org.apache.hadoop.examples;
 
- 	import java.io.IOException;
- 	import java.math.BigDecimal;
- 	import java.util.Iterator;
+    import java.io.IOException;
+    import java.math.BigDecimal;
+    import java.util.Iterator;
 
- 	import org.apache.hadoop.conf.Configured;
- 	import org.apache.hadoop.fs.FileSystem;
- 	import org.apache.hadoop.fs.Path;
- 	import org.apache.hadoop.io.BooleanWritable;
- 	import org.apache.hadoop.io.LongWritable;
- 	import org.apache.hadoop.io.SequenceFile;
- 	import org.apache.hadoop.io.Writable;
- 	import org.apache.hadoop.io.WritableComparable;
- 	import org.apache.hadoop.io.SequenceFile.CompressionType;
- 	import org.apache.hadoop.mapred.FileInputFormat;
- 	import org.apache.hadoop.mapred.FileOutputFormat;
- 	import org.apache.hadoop.mapred.JobClient;
- 	import org.apache.hadoop.mapred.JobConf;
- 	import org.apache.hadoop.mapred.MapReduceBase;
- 	import org.apache.hadoop.mapred.Mapper;
- 	import org.apache.hadoop.mapred.OutputCollector;
- 	import org.apache.hadoop.mapred.Reducer;
- 	import org.apache.hadoop.mapred.Reporter;
- 	import org.apache.hadoop.mapred.SequenceFileInputFormat;
- 	import org.apache.hadoop.mapred.SequenceFileOutputFormat;
- 	import org.apache.hadoop.util.Tool;
- 	import org.apache.hadoop.util.ToolRunner;
+    import org.apache.hadoop.conf.Configured;
+    import org.apache.hadoop.fs.FileSystem;
+    import org.apache.hadoop.fs.Path;
+    import org.apache.hadoop.io.BooleanWritable;
+    import org.apache.hadoop.io.LongWritable;
+    import org.apache.hadoop.io.SequenceFile;
+    import org.apache.hadoop.io.Writable;
+    import org.apache.hadoop.io.WritableComparable;
+    import org.apache.hadoop.io.SequenceFile.CompressionType;
+    import org.apache.hadoop.mapred.FileInputFormat;
+    import org.apache.hadoop.mapred.FileOutputFormat;
+    import org.apache.hadoop.mapred.JobClient;
+    import org.apache.hadoop.mapred.JobConf;
+    import org.apache.hadoop.mapred.MapReduceBase;
+    import org.apache.hadoop.mapred.Mapper;
+    import org.apache.hadoop.mapred.OutputCollector;
+    import org.apache.hadoop.mapred.Reducer;
+    import org.apache.hadoop.mapred.Reporter;
+    import org.apache.hadoop.mapred.SequenceFileInputFormat;
+    import org.apache.hadoop.mapred.SequenceFileOutputFormat;
+    import org.apache.hadoop.util.Tool;
+    import org.apache.hadoop.util.ToolRunner;
 
 
-	//A Map-reduce program to estimate the value of Pi	
-	//using quasi-Monte Carlo method.	
-	//	
-	//Mapper:	
-	//Generate points in a unit square	
-	//and then count points inside/outside of the inscribed circle of the square.	
-	//	
-	//Reducer:	
-	//Accumulate points inside/outside results from the mappers.	
-	//Let numTotal = numInside + numOutside.	
-	//The fraction numInside/numTotal is a rational approximation of	
-	//the value (Area of the circle)/(Area of the square),	
-	//where the area of the inscribed circle is Pi/4	
-	//and the area of unit square is 1.	
-	//Then, Pi is estimated value to be 4(numInside/numTotal). 	
-	//	
+    //A Map-reduce program to estimate the value of Pi  
+    //using quasi-Monte Carlo method.   
+    //  
+    //Mapper:   
+    //Generate points in a unit square  
+    //and then count points inside/outside of the inscribed circle of the square.   
+    //  
+    //Reducer:  
+    //Accumulate points inside/outside results from the mappers.    
+    //Let numTotal = numInside + numOutside.    
+    //The fraction numInside/numTotal is a rational approximation of    
+    //the value (Area of the circle)/(Area of the square),  
+    //where the area of the inscribed circle is Pi/4    
+    //and the area of unit square is 1. 
+    //Then, Pi is estimated value to be 4(numInside/numTotal).  
+    //  
 
- 	public class PiEstimator extends Configured implements Tool {	
-	//tmp directory for input/output	
- 	static private final Path TMP_DIR = new Path(	
- 	PiEstimator.class.getSimpleName() + "_TMP_3_141592654");	
+    public class PiEstimator extends Configured implements Tool {   
+    //tmp directory for input/output    
+    static private final Path TMP_DIR = new Path(   
+    PiEstimator.class.getSimpleName() + "_TMP_3_141592654");    
 
-	//2-dimensional Halton sequence {H(i)},		
-	//where H(i) is a 2-dimensional point and i >= 1 is the index.		
-	//Halton sequence is used to generate sample points for Pi estimation.	 
- 	private static class HaltonSequence {	
-	// Bases	
- 	static final int[] P = {2, 3}; 	
-	//Maximum number of digits allowed	
- 	static final int[] K = {63, 40}; 	
+    //2-dimensional Halton sequence {H(i)},     
+    //where H(i) is a 2-dimensional point and i >= 1 is the index.      
+    //Halton sequence is used to generate sample points for Pi estimation.   
+    private static class HaltonSequence {   
+    // Bases    
+    static final int[] P = {2, 3};  
+    //Maximum number of digits allowed  
+    static final int[] K = {63, 40};    
 
- 	private long index;	
- 	private double[] x;	
- 	private double[][] q;	
- 	private int[][] d;	
+    private long index; 
+    private double[] x; 
+    private double[][] q;   
+    private int[][] d;  
 
-	//Initialize to H(startindex),	
-	//so the sequence begins with H(startindex+1).	
- 	HaltonSequence(long startindex) {	
- 	index = startindex;	
- 	x = new double[K.length];	
- 	q = new double[K.length][];	
- 	d = new int[K.length][];	
- 	for(int i = 0; i < K.length; i++) {	
- 	q[i] = new double[K[i]];	
- 	d[i] = new int[K[i]];	
- 	}
+    //Initialize to H(startindex),  
+    //so the sequence begins with H(startindex+1).  
+    HaltonSequence(long startindex) {   
+    index = startindex; 
+    x = new double[K.length];   
+    q = new double[K.length][]; 
+    d = new int[K.length][];    
+    for(int i = 0; i < K.length; i++) { 
+    q[i] = new double[K[i]];    
+    d[i] = new int[K[i]];   
+    }
 
- 	for(int i = 0; i < K.length; i++) {
- 	long k = index;
- 	x[i] = 0;
-	
- 	for(int j = 0; j < K[i]; j++) {	
- 	q[i][j] = (j == 0? 1.0: q[i][j-1])/P[i];	
- 	d[i][j] = (int)(k % P[i]);	
- 	k = (k - d[i][j])/P[i];	
- 	x[i] += d[i][j] * q[i][j];	
- 	}	
- 	}
- 	}
+    for(int i = 0; i < K.length; i++) {
+    long k = index;
+    x[i] = 0;
 
-	//Compute next point.	
-	//Assume the current point is H(index).	
-	//Compute H(index+1).	
-	//@return a 2-dimensional point with coordinates in [0,1)^2		
- 	double[] nextPoint() {		
- 	index++;	
- 	for(int i = 0; i < K.length; i++) {	
- 	for(int j = 0; j < K[i]; j++) {	
- 	d[i][j]++;	
- 	x[i] += q[i][j];	
- 	if (d[i][j] < P[i]) {	
- 	break;		
- 	}	
- 	d[i][j] = 0;	
- 	x[i] -= (j == 0? 1.0: q[i][j-1]);	
- 	}	
- 	}	
- 	return x;	
- 	}	
- 	}	
+    for(int j = 0; j < K[i]; j++) { 
+    q[i][j] = (j == 0? 1.0: q[i][j-1])/P[i];    
+    d[i][j] = (int)(k % P[i]);  
+    k = (k - d[i][j])/P[i]; 
+    x[i] += d[i][j] * q[i][j];  
+    }   
+    }
+    }
 
-	//Mapper class for Pi estimation.	
-	//Generate points in a unit square and then		
-	//count points inside/outside of the inscribed circle of the square.	
- 	public static class PiMapper extends MapReduceBase
- 	implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
+    //Compute next point.   
+    //Assume the current point is H(index). 
+    //Compute H(index+1).   
+    //@return a 2-dimensional point with coordinates in [0,1)^2     
+    double[] nextPoint() {      
+    index++;    
+    for(int i = 0; i < K.length; i++) { 
+    for(int j = 0; j < K[i]; j++) { 
+    d[i][j]++;  
+    x[i] += q[i][j];    
+    if (d[i][j] < P[i]) {   
+    break;      
+    }   
+    d[i][j] = 0;    
+    x[i] -= (j == 0? 1.0: q[i][j-1]);   
+    }   
+    }   
+    return x;   
+    }   
+    }   
 
-	//Map method.	
-	//@param offset samples starting from the (offset+1)th sample.	
-	//@param size the number of samples for this map	
-	//@param out output {ture->numInside, false->numOutside}	
-	//@param reporter	
- 	public void map(LongWritable offset,
- 	LongWritable size,
- 	OutputCollector<BooleanWritable, LongWritable> out,
- 	Reporter reporter) throws IOException {
+    //Mapper class for Pi estimation.   
+    //Generate points in a unit square and then     
+    //count points inside/outside of the inscribed circle of the square.    
+    public static class PiMapper extends MapReduceBase
+    implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
 
- 	final HaltonSequence haltonsequence = new HaltonSequence(offset.get());		
- 	long numInside = 0L;	
- 	long numOutside = 0L;	
+    //Map method.   
+    //@param offset samples starting from the (offset+1)th sample.  
+    //@param size the number of samples for this map    
+    //@param out output {ture->numInside, false->numOutside}    
+    //@param reporter   
+    public void map(LongWritable offset,
+    LongWritable size,
+    OutputCollector<BooleanWritable, LongWritable> out,
+    Reporter reporter) throws IOException {
 
- 	for(long i = 0; i < size.get(); ) {
- 	//generate points in a unit square
- 	final double[] point = haltonsequence.nextPoint();
+    final HaltonSequence haltonsequence = new HaltonSequence(offset.get());     
+    long numInside = 0L;    
+    long numOutside = 0L;   
 
- 	//count points inside/outside of the inscribed circle of the square
- 	final double x = point[0] - 0.5;
- 	final double y = point[1] - 0.5;
- 	if (x*x + y*y > 0.25) {
- 	numOutside++;
- 	} else {
- 	numInside++;
- 	}
+    for(long i = 0; i < size.get(); ) {
+    //generate points in a unit square
+    final double[] point = haltonsequence.nextPoint();
 
- 	//report status
- 	i++;
- 	if (i % 1000 == 0) {
- 	reporter.setStatus("Generated " + i + " samples.");
- 	}
- 	}
+    //count points inside/outside of the inscribed circle of the square
+    final double x = point[0] - 0.5;
+    final double y = point[1] - 0.5;
+    if (x*x + y*y > 0.25) {
+    numOutside++;
+    } else {
+    numInside++;
+    }
 
- 	//output map results
- 	out.collect(new BooleanWritable(true), new LongWritable(numInside));
- 	out.collect(new BooleanWritable(false), new LongWritable(numOutside));
- 	}
- 	}
+    //report status
+    i++;
+    if (i % 1000 == 0) {
+    reporter.setStatus("Generated " + i + " samples.");
+    }
+    }
 
-
-	//Reducer class for Pi estimation.		
-	//Accumulate points inside/outside results from the mappers.		
- 	public static class PiReducer extends MapReduceBase
- 	implements Reducer<BooleanWritable, LongWritable, WritableComparable<?>, Writable> {
-
- 	private long numInside = 0;
- 	private long numOutside = 0;
- 	private JobConf conf; //configuration for accessing the file system
-
-	//Store job configuration.	
- 	@Override	
- 	public void configure(JobConf job) {
- 	conf = job;
- 	}
+    //output map results
+    out.collect(new BooleanWritable(true), new LongWritable(numInside));
+    out.collect(new BooleanWritable(false), new LongWritable(numOutside));
+    }
+    }
 
 
-	// Accumulate number of points inside/outside results from the mappers.		
-	// @param isInside Is the points inside? 	
-	// @param values An iterator to a list of point counts	
-	// @param output dummy, not used here.	
-	// @param reporter	
+    //Reducer class for Pi estimation.      
+    //Accumulate points inside/outside results from the mappers.        
+    public static class PiReducer extends MapReduceBase
+    implements Reducer<BooleanWritable, LongWritable, WritableComparable<?>, Writable> {
 
- 	public void reduce(BooleanWritable isInside,
- 	Iterator<LongWritable> values,
- 	OutputCollector<WritableComparable<?>, Writable> output,
- 	Reporter reporter) throws IOException {
- 	if (isInside.get()) {
- 	for(; values.hasNext(); numInside += values.next().get());
- 	} else {
- 	for(; values.hasNext(); numOutside += values.next().get());
- 	}
- 	}
-	
- 	//Reduce task done, write output to a file.	
- 	@Override	
- 	public void close() throws IOException {
- 	//write output to a file
- 	Path outDir = new Path(TMP_DIR, "out");
- 	Path outFile = new Path(outDir, "reduce-out");
- 	FileSystem fileSys = FileSystem.get(conf);
- 	SequenceFile.Writer writer = SequenceFile.createWriter(fileSys, conf,
- 	outFile, LongWritable.class, LongWritable.class, 
- 	CompressionType.NONE);
- 	writer.append(new LongWritable(numInside), new LongWritable(numOutside));
- 	writer.close();
- 	}
- 	}
-	
-	//Run a map/reduce job for estimating Pi.	
-	//@return the estimated value of Pi.		
- 	public static BigDecimal estimate(int numMaps, long numPoints, JobConf jobConf
- 	) 	
- 	throws IOException {
- 	//setup job conf
- 	jobConf.setJobName(PiEstimator.class.getSimpleName());
-	
- 	jobConf.setInputFormat(SequenceFileInputFormat.class);
-	
- 	jobConf.setOutputKeyClass(BooleanWritable.class);
- 	jobConf.setOutputValueClass(LongWritable.class);
- 	jobConf.setOutputFormat(SequenceFileOutputFormat.class);
-	
- 	jobConf.setMapperClass(PiMapper.class);
- 	jobConf.setNumMapTasks(numMaps);
-	
- 	jobConf.setReducerClass(PiReducer.class);
- 	jobConf.setNumReduceTasks(1);
-	
- 	// turn off speculative execution, because DFS doesn't handle		
- 	// multiple writers to the same file.		
- 	jobConf.setSpeculativeExecution(false);
-	
- 	//setup input/output directories	
- 	final Path inDir = new Path(TMP_DIR, "in");	
- 	final Path outDir = new Path(TMP_DIR, "out");	
- 	FileInputFormat.setInputPaths(jobConf, inDir);	
- 	FileOutputFormat.setOutputPath(jobConf, outDir);	
-	
- 	final FileSystem fs = FileSystem.get(jobConf);		
- 	if (fs.exists(TMP_DIR)) {	
-	 throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
-	 + " already exists. Please remove it first.");	
-	 }	
-	 if (!fs.mkdirs(inDir)) {	
-	 throw new IOException("Cannot create input directory " + inDir);	
-	 }	
+    private long numInside = 0;
+    private long numOutside = 0;
+    private JobConf conf; //configuration for accessing the file system
 
-	 //generate an input file for each map task		
-	 try {
-	 for(int i=0; i < numMaps; ++i) {
-	 final Path file = new Path(inDir, "part"+i);	
-	 final LongWritable offset = new LongWritable(i * numPoints);	
-	 final LongWritable size = new LongWritable(numPoints);	
-	 final SequenceFile.Writer writer = SequenceFile.createWriter(
-	 fs, jobConf, file,
-	 LongWritable.class, LongWritable.class, CompressionType.NONE);
-	 try {
-	 writer.append(offset, size);
-	 } finally {
-	 writer.close();	
-	 }
-	 System.out.println("Wrote input for Map #"+i);
-	 }
-	
-	 //start a map/reduce job		
-	 System.out.println("Starting Job");
-	 final long startTime = System.currentTimeMillis();
-	 JobClient.runJob(jobConf);
-	 final double duration = (System.currentTimeMillis() - startTime)/1000.0;
-	 System.out.println("Job Finished in " + duration + " seconds");
-	
-	 //read outputs		
-	 Path inFile = new Path(outDir, "reduce-out");
-	 LongWritable numInside = new LongWritable();
-	 LongWritable numOutside = new LongWritable();
-	 SequenceFile.Reader reader = new SequenceFile.Reader(fs, inFile, jobConf);
-	 try {
-	 reader.next(numInside, numOutside);
-	 } finally {
-	 reader.close();
-	 }
-	
-	 //compute estimated value
-	 return BigDecimal.valueOf(4).setScale(20)
-	 .multiply(BigDecimal.valueOf(numInside.get()))
-	 .divide(BigDecimal.valueOf(numMaps))
-	 .divide(BigDecimal.valueOf(numPoints));
-	 } finally {
-	 fs.delete(TMP_DIR, true);
-	 }
-	 }
-	
-	//Parse arguments and then runs a map/reduce job.	
-	//Print output in standard out.		
-	//@return a non-zero if there is an error. Otherwise, return 0. 	
-	 public int run(String[] args) throws Exception {
-	 if (args.length != 2) {
-	 System.err.println("Usage: "+getClass().getName()+" <nMaps> <nSamples>");
-	 ToolRunner.printGenericCommandUsage(System.err);
-	 return -1;
-	 }
+    //Store job configuration.  
+    @Override   
+    public void configure(JobConf job) {
+    conf = job;
+    }
 
-	 final int nMaps = Integer.parseInt(args[0]);
-	 final long nSamples = Long.parseLong(args[1]);
-	
-	 System.out.println("Number of Maps = " + nMaps);
-	 System.out.println("Samples per Map = " + nSamples);
-	
-	 final JobConf jobConf = new JobConf(getConf(), getClass());
-	 System.out.println("Estimated value of Pi is "
-	 + estimate(nMaps, nSamples, jobConf));
-	 return 0;
-	 }
-	
-	 //main method for running it as a stand alone command. 		
-	 public static void main(String[] argv) throws Exception {
-	 System.exit(ToolRunner.run(null, new PiEstimator(), argv));
-	 }
-	 }
-  
 
-<h2><a id="summary"></a>Resumo</h2>
+    // Accumulate number of points inside/outside results from the mappers.     
+    // @param isInside Is the points inside?    
+    // @param values An iterator to a list of point counts  
+    // @param output dummy, not used here.  
+    // @param reporter  
+
+    public void reduce(BooleanWritable isInside,
+    Iterator<LongWritable> values,
+    OutputCollector<WritableComparable<?>, Writable> output,
+    Reporter reporter) throws IOException {
+    if (isInside.get()) {
+    for(; values.hasNext(); numInside += values.next().get());
+    } else {
+    for(; values.hasNext(); numOutside += values.next().get());
+    }
+    }
+
+    //Reduce task done, write output to a file. 
+    @Override   
+    public void close() throws IOException {
+    //write output to a file
+    Path outDir = new Path(TMP_DIR, "out");
+    Path outFile = new Path(outDir, "reduce-out");
+    FileSystem fileSys = FileSystem.get(conf);
+    SequenceFile.Writer writer = SequenceFile.createWriter(fileSys, conf,
+    outFile, LongWritable.class, LongWritable.class, 
+    CompressionType.NONE);
+    writer.append(new LongWritable(numInside), new LongWritable(numOutside));
+    writer.close();
+    }
+    }
+
+    //Run a map/reduce job for estimating Pi.   
+    //@return the estimated value of Pi.        
+    public static BigDecimal estimate(int numMaps, long numPoints, JobConf jobConf
+    )   
+    throws IOException {
+    //setup job conf
+    jobConf.setJobName(PiEstimator.class.getSimpleName());
+
+    jobConf.setInputFormat(SequenceFileInputFormat.class);
+
+    jobConf.setOutputKeyClass(BooleanWritable.class);
+    jobConf.setOutputValueClass(LongWritable.class);
+    jobConf.setOutputFormat(SequenceFileOutputFormat.class);
+
+    jobConf.setMapperClass(PiMapper.class);
+    jobConf.setNumMapTasks(numMaps);
+
+    jobConf.setReducerClass(PiReducer.class);
+    jobConf.setNumReduceTasks(1);
+
+    // turn off speculative execution, because DFS doesn't handle       
+    // multiple writers to the same file.       
+    jobConf.setSpeculativeExecution(false);
+
+    //setup input/output directories    
+    final Path inDir = new Path(TMP_DIR, "in"); 
+    final Path outDir = new Path(TMP_DIR, "out");   
+    FileInputFormat.setInputPaths(jobConf, inDir);  
+    FileOutputFormat.setOutputPath(jobConf, outDir);    
+
+    final FileSystem fs = FileSystem.get(jobConf);      
+    if (fs.exists(TMP_DIR)) {   
+     throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
+     + " already exists. Please remove it first."); 
+     }  
+     if (!fs.mkdirs(inDir)) {   
+     throw new IOException("Cannot create input directory " + inDir);   
+     }  
+
+     //generate an input file for each map task     
+     try {
+     for(int i=0; i < numMaps; ++i) {
+     final Path file = new Path(inDir, "part"+i);   
+     final LongWritable offset = new LongWritable(i * numPoints);   
+     final LongWritable size = new LongWritable(numPoints); 
+     final SequenceFile.Writer writer = SequenceFile.createWriter(
+     fs, jobConf, file,
+     LongWritable.class, LongWritable.class, CompressionType.NONE);
+     try {
+     writer.append(offset, size);
+     } finally {
+     writer.close();    
+     }
+     System.out.println("Wrote input for Map #"+i);
+     }
+
+     //start a map/reduce job       
+     System.out.println("Starting Job");
+     final long startTime = System.currentTimeMillis();
+     JobClient.runJob(jobConf);
+     final double duration = (System.currentTimeMillis() - startTime)/1000.0;
+     System.out.println("Job Finished in " + duration + " seconds");
+
+     //read outputs     
+     Path inFile = new Path(outDir, "reduce-out");
+     LongWritable numInside = new LongWritable();
+     LongWritable numOutside = new LongWritable();
+     SequenceFile.Reader reader = new SequenceFile.Reader(fs, inFile, jobConf);
+     try {
+     reader.next(numInside, numOutside);
+     } finally {
+     reader.close();
+     }
+
+     //compute estimated value
+     return BigDecimal.valueOf(4).setScale(20)
+     .multiply(BigDecimal.valueOf(numInside.get()))
+     .divide(BigDecimal.valueOf(numMaps))
+     .divide(BigDecimal.valueOf(numPoints));
+     } finally {
+     fs.delete(TMP_DIR, true);
+     }
+     }
+
+    //Parse arguments and then runs a map/reduce job.   
+    //Print output in standard out.     
+    //@return a non-zero if there is an error. Otherwise, return 0.     
+     public int run(String[] args) throws Exception {
+     if (args.length != 2) {
+     System.err.println("Usage: "+getClass().getName()+" <nMaps> <nSamples>");
+     ToolRunner.printGenericCommandUsage(System.err);
+     return -1;
+     }
+
+     final int nMaps = Integer.parseInt(args[0]);
+     final long nSamples = Long.parseLong(args[1]);
+
+     System.out.println("Number of Maps = " + nMaps);
+     System.out.println("Samples per Map = " + nSamples);
+
+     final JobConf jobConf = new JobConf(getConf(), getClass());
+     System.out.println("Estimated value of Pi is "
+     + estimate(nMaps, nSamples, jobConf));
+     return 0;
+     }
+
+     //main method for running it as a stand alone command.         
+     public static void main(String[] argv) throws Exception {
+     System.exit(ToolRunner.run(null, new PiEstimator(), argv));
+     }
+     }
+
+## <span id="summary"></span></a>Resumo
 
 Neste tutorial, você viu como executar um trabalho MapReduce no HDInsight e como usar métodos Monte Carlo que exigem e geram grandes conjuntos de dados que podem ser gerenciados por esse serviço.
 
-<h2><a id="next-steps"></a>Próximas etapas</h2>
+Este é o script completo usado para executar esta amostra em um cluster HDInsight 2.1 padrão. (Somente o nome do arquivo .jar precisa ser alterado para executar a amostra em um cluster HDInsight 3.0: hadoop-examples.jar se torna hadoop-mapreduce-examples.jar.)
+
+    ### Provide the Windows Azure subscription name and the HDInsight cluster name. 
+    $subscriptionName = "<SubscriptionName>" 
+    $clusterName = "<ClusterName>"  
+
+    ###Select the Azure subscription to use.
+    Select-AzureSubscription $subscriptionName 
+
+    ### Create a MapReduce job definition. 
+    $piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-examples.jar"
+
+    ### Run the MapReduce job. 
+    $piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
+
+    ### Wait for the job to complete.  
+    $piJob | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600
+
+    ### Print the standard error file of the MapReduce job.
+    Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
+
+## <span id="next-steps"></span></a>Próximas etapas
 
 Para obter tutoriais que executam outros exemplos e fornecem instruções sobre como usar trabalhos Pig, Hive e MapReduce no Azure HDInsight com o PowerShell do Azure, consulte os seguintes tópicos:
 
-* [Introdução ao Azure HDInsight][getting-started]
-* [Exemplo: GraySort de 10 GB][10gb-graysort]
-* [Exemplo: Wordcount][wordcount]
-* [Exemplo: Streaming no C#][cs-streaming]
-* [Use o Pig com o HDInsight][pig]
-* [Use o hive com o HDInsight][hive]
-* [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation]
+-   [Introdução ao Azure HDInsight][]
+-   [Amostra: GraySort de 10 GB][]
+-   [Amostra: Wordcount][]
+-   [Amostra: Streaming no C#][]
+-   [Use o Pig com o HDInsight][]
+-   [Use o hive com o HDInsight][]
+-   [Documentação do SDK do Azure HDInsight][]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/pt-br/library/dn479185.aspx
-
-[Powershell-install-configure]: /pt-br/documentation/articles/install-configure-powershell/
-
-[run-samples]: /pt-br/manage/services/hdinsight/howto-run-samples
-[getting-started]: /pt-br/manage/services/hdinsight/get-started-hdinsight/
-[10gb-graysort]: /pt-br/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
-[wordcount]: /pt-br/manage/services/hdinsight/howto-run-samples/sample-wordcount/
-[cs-streaming]: /pt-br/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
-
-
-[hive]: /pt-br/manage/services/hdinsight/using-hive-with-hdinsight/
-[pig]: /pt-br/manage/services/hdinsight/using-pig-with-hdinsight/
- 
-
-
+  [Executando os exemplos do HDInsight]: ../hdinsight-run-samples/
+  [Testar o Azure gratuitamente (a página pode estar em inglês)]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Provisionar clusters HDInsight]: ../hdinsight-provision-clusters/
+  [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell/
+  [Executar o exemplo com o PowerShell do Azure]: #run-sample
+  [Código Java do programa estimador de Pi MapReduce]: #java-code
+  [Resumo]: #summary
+  [Próximas etapas]: #next-steps
+  [Introdução ao Azure HDInsight]: ../hdinsight-get-started/
+  [Amostra: GraySort de 10 GB]: ../hdinsight-sample-10gb-graysort/
+  [Amostra: Wordcount]: ../hdinsight-sample-wordcount/
+  [Amostra: Streaming no C#]: ../hdinsight-sample-csharp-streaming/
+  [Use o Pig com o HDInsight]: ../hdinsight-use-pig/
+  [Use o hive com o HDInsight]: ../hdinsight-use-hive/
+  [Documentação do SDK do Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

@@ -1,51 +1,52 @@
-<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="Como monitorar" pageTitle="Monitorar uma conta de Serviços de Mídia - Azure" metaKeywords="" description="Descreve como configurar o monitoramento de sua conta de Serviços de Mídia no Azure." metaCanonical="" services="media-services" documentationCenter="" title="Como monitorar uma conta de Serviços de Mídia" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
 
+# <span id="monitormediaservicesaccount"></span></a>Como monitorar uma conta de Serviços de Mídia
 
-
-
-<h1><a id="monitormediaservicesaccount"></a>Como monitorar uma conta de Serviços de Mídia</h1>
 O painel Serviços de Mídia do Azure apresenta métricas de uso e informações sobre a conta que você pode usar para gerenciar sua conta de Serviços de Mídia.
 
 Você pode monitorar o número de trabalhos de codificação na fila, as tarefas de codificação com falha, os trabalhos de codificação ativos representados pelos dados de entrada e saída do codificador, bem como o uso do armazenamento de blob associado à conta dos Serviços de Mídia. Além disso, se estiver transmitindo conteúdo a clientes, você também pode recuperar várias métricas de streaming. Você pode optar por monitorar os dados das últimas 6 horas, 24 horas ou 7 dias.
- 
-**Observação**   Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-<h2><a id="configuremonitoring"></a>Como monitorar uma conta dos Serviços de Mídia</h2>
+**Observação** Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança][].
 
-1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e clique no nome da conta dos Serviços de Mídia para abrir o painel. 
+## <span id="configuremonitoring"></span></a>Como: Monitorar uma conta dos Serviços de Mídia
 
-	![MediaServices_Dashboard][dashboard]
+1.  No [Portal de Gerenciamento][], clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel.
 
-2. Para monitorar seus trabalhos ou dados de codificação, basta começar a enviar trabalhos de codificação aos Serviços de Mídia ou iniciar a transmissão de conteúdo aos clientes usando o Streaming por Demanda de Mídia do Azure. Você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
+    ![MediaServices\_Dashboard][]
 
-<h2><a id="configuringstorage"></a>Como monitorar o uso do seu armazenamento de blob (opcional)</h2>
-1. Clique no nome da **CONTA DE ARMAZENAMENTO** na seção **visão rápida**.
-2. Na página da conta de armazenamento, clique no link **configurar página** e role para baixo até as configurações de **monitoramento** dos serviços de Blob, Tabela e Fila, mostrados a seguir.
+2.  Para monitorar seus trabalhos ou dados de codificação, basta começar a enviar trabalhos de codificação aos Serviços de Mídia ou iniciar a transmissão de conteúdo aos clientes usando o Streaming de Mídia por Demanda do Azure. Você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
 
-	**Observação** Os Blobs são o único tipo de armazenamento com suporte nos Serviços de Mídia.
+## <span id="configuringstorage"></span></a>Como: Monitorando o uso do seu armazenamento de blob (opcional)
 
-	![StorageOptions][storage_options_scoped]
+1.  Clique no nome da **CONTA DE ARMAZENAMENTO** na seção **Visão Rápida**.
+2.  Na página da conta de armazenamento, clique no link **configurar página** e role para baixo até as configurações de **monitoramento** dos serviços de Blob, Tabela e Fila, mostrados a seguir.
 
-3. Em **monitoramento**, defina o nível de monitoramento e a política de retenção de dados para Blobs:
+    **Observação** Os Blobs são o único tipo de armazenamento com suporte nos Serviços de Mídia.
 
--  Para definir o nível de monitoramento, selecione uma das seguintes opções:
+    ![StorageOptions][]
 
-      **Mínimo** - Coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos, que são agregadas aos serviços de Blob, Tabela e Fila.
+3.  Em **monitoramento**, defina o nível de monitoramento e a política de retenção de dados para Blobs:
 
-      **Detalhado** - Além das métricas mínimas, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do Serviço de Armazenamento do Azure. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo. 
+-   Para definir o nível de monitoramento, selecione uma das seguintes opções:
 
-      **Desativar** - Desativa o monitoramento. Os dados de monitoramento existentes são mantidos até o final do período de retenção.
+    **Mínimo** - Coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos, que são agregadas aos serviços de Blob, Tabela e Fila.
 
-- Para definir a política de retenção de dados, em **Retenção (em dias)**, digite o número de dias de dados a serem retidos, de 1 a 365 dias. Se não desejar definir uma política de retenção, digite zero. Se não houver nenhuma política de retenção, cabe a você excluir os dados de monitoramento. É recomendável configurar uma política de retenção com base em quanto tempo você deseja manter os dados de análise do armazenamento de sua conta para que os dados de análise antigos e não usados possam ser excluídos pelo sistema sem custo adicional.
+    **Detalhado** - Além das métricas mínimas, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do Serviço de Armazenamento do Azure. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo.
 
-4. Ao concluir a configuração do monitoramento, clique em **Salvar**.
-Se maneira semelhante às métricas dos Serviços de Mídia, você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
-As métricas são armazenadas na conta de armazenamento em quatro tabelas chamadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Métricas da análise de armazenamento](http://go.microsoft.com/fwlink/?LinkId=256668).
+    **Desativar** - Desativa o monitoramento. Os dados de monitoramento existentes são mantidos até o final do período de retenção.
 
+-   Para definir a política de retenção de dados, em **Retenção (em dias)**, digite o número de dias que os dados devem ser retidos, de 1 a 365 dias. Se não desejar definir uma política de retenção, digite zero. Se não houver nenhuma política de retenção, cabe a você excluir os dados de monitoramento. É recomendável configurar uma política de retenção com base em quanto tempo você deseja manter os dados de análise do armazenamento de sua conta para que os dados de análise antigos e não usados possam ser excluídos pelo sistema sem custo adicional.
+
+1.  Ao concluir a configuração do monitoramento, clique em **Salvar**.
+    De maneira semelhante às métricas dos Serviços de Mídia, você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
+    As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Métricas da análise de armazenamento][].
 
 <!-- Images -->
-[dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
-[storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
-
+  [Análise de armazenamento e cobrança]: http://go.microsoft.com/fwlink/?LinkId=256667
+  [Portal de Gerenciamento]: http://go.microsoft.com/fwlink/?LinkID=256666
+  [MediaServices\_Dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
+  [StorageOptions]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
+  [Métricas da análise de armazenamento]: http://go.microsoft.com/fwlink/?LinkId=256668

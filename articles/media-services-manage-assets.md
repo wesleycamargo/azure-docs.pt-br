@@ -1,17 +1,16 @@
-<properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Gerenciar ativos nos Serviços de Mídia" pageTitle="Como gerenciar ativos nos Serviços de Mídia - Azure" metaKeywords="" description="Saiba como gerenciar ativos nos Serviços de Mídia. Você também pode gerenciar trabalhos, tarefas, políticas de acesso, localizadores e muito mais. Os exemplos de código são escritos em C# e usam o SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Como gerenciar ativos no armazenamento" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="migree" solutions="" manager="" editor="" />
 
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
 
+# Como: Gerenciar ativos no armazenamento
 
-
-<h1>Como gerenciar ativos no armazenamento</h1>
-
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior foi [Como proteger um ativo](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Proteger um ativo][].
 
 Depois que você cria ativos de mídia e os carrega nos Serviços de Mídia, você pode acessar e gerenciar os ativos no servidor. Você também pode gerenciar outros objetos no servidor que fazem parte dos Serviços de Mídia, incluindo trabalhos, tarefas, políticas de acesso, localizadores e muito mais.
 
-O exemplo a seguir mostra como consultar um ativo por assetId. 
-<pre><code>
-static IAsset GetAsset(string assetId)
+O exemplo a seguir mostra como consultar um ativo por assetId.
+
+<pre><code>static IAsset GetAsset(string assetId)
 {
     // Use a LINQ Select query to get an asset.
     var assetInstance =
@@ -23,11 +22,10 @@ static IAsset GetAsset(string assetId)
 
     return asset;
 }
-</code></pre> 
+</code></pre>
 
 Para listar todos os recursos disponíveis no servidor, você pode usar o método a seguir que itera pela coleção de ativos e exibe detalhes sobre cada ativo.
-<pre><code> 
-static void ListAssets()
+<pre><code> static void ListAssets()
 {
     string waitMessage = "Building the list. This may take a few "
         + "seconds to a few minutes depending on how many assets "
@@ -64,19 +62,23 @@ static void ListAssets()
 }
 </code></pre>
 O trecho de código a seguir exclui todos os ativos da conta de Serviços de Mídia.
-<pre><code>
-foreach (IAsset asset in _context.Assets)
+
+<pre><code>foreach (IAsset asset in _context.Assets)
 {
     asset.Delete();
 }
 </code></pre>
 
 Para obter mais informações sobre como gerenciar ativos, consulte:
-<ul>
-<li><a href="http://msdn.microsoft.com/pt-br/library/jj129589.aspx">Gerenciar ativos com o SDK dos Serviços de Mídia para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/pt-br/library/jj129583.aspx">Gerenciar ativos com a API REST dos Serviços de Mídia</a></li></ul>
 
+-   [Gerenciar ativos com o SDK dos Serviços de Mídia para .NET][]
+-   [Gerenciar ativos com a API REST dos Serviços de Mídia][]
 
-<h2>Próximas etapas</h2>
-Agora que você sabe como gerenciar ativos, visite o tópico [Como entregar um ativo por download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409).
+## Próximas etapas
 
+Agora que você sabe como gerenciar ativos, visite o tópico [Como entregar um ativo por download][].
+
+  [Como: Proteger um ativo]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409
+  [Gerenciar ativos com o SDK dos Serviços de Mídia para .NET]: http://msdn.microsoft.com/en-us/library/jj129589.aspx
+  [Gerenciar ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/en-us/library/jj129583.aspx
+  [Como entregar um ativo por download]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409
