@@ -77,7 +77,7 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [Criar aplicativos universais do Windows voltados para Windows e Windows Phone]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
   [Início rápido: Adicionar um serviço móvel (back-end JavaScript)]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx
-  [Introdução aos dados para Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
+  [Introdução aos dados para Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data
   [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
@@ -85,7 +85,7 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-  [Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-  [Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+  [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+  [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel]: /pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

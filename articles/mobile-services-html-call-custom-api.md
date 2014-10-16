@@ -4,7 +4,7 @@
 
 # Chamar uma API personalizada a partir de um aplicativo HTML
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/pt-br/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/pt-br/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/pt-br/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/pt-br/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
 
 Este tópico mostra como chamar uma API personalizada a partir de um aplicativo HTML. Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
@@ -72,14 +72,14 @@ Agora que você criou uma API personalizada e a chamou a partir de seu aplicativ
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
-  [Windows Store JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-get-started
-  [Introdução a dados]: /en-us/documentation/articles/mobile-services-html-get-started-data
+  [Windows Store C\#]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
+  [Windows Store JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
+  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /pt-br/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /pt-br/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /pt-br/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-get-started
+  [Introdução a dados]: /pt-br/documentation/articles/mobile-services-html-get-started-data
   [Definir a API personalizada]: #define-custom-api
   [Atualizar o aplicativo para chamar a API personalizada]: #update-app
   [Testar o aplicativo]: #test-app

@@ -5,8 +5,8 @@
 # Tratamento de conflitos com sincronização de dados offline nos Serviços Móveis
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="C# da Windows Store">C# da Windows Store</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="C# da Windows Store">C# da Windows Store</a>
+<a href="/pt-br/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 Este tópico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Serviços Móveis do Azure. Neste tutorial, você baixará um aplicativo que oferece suporte a dados offline e online, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir e atualizar o banco de dados ao executar o aplicativo.
@@ -192,9 +192,9 @@ Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedE
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs -->
 
-  [C# da Windows Store]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "C# da Windows Store"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [Introdução aos dados offline]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "C# da Windows Store"
+  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [Introdução aos dados offline]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Baixar o projeto do Windows Phone]: #download-app
   [Adicionar uma coluna de data de conclusão para o banco de dados]: #add-column
   [Atualizando o banco de dados para serviços móveis de back-end do .NET]: #dotnet-backend
@@ -205,7 +205,7 @@ Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedE
   [Exemplo de código para tratamento de conflitos]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Como usar as Migrações Code First para atualizar o modelo de dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Como usar as Migrações Code First para atualizar o modelo de dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

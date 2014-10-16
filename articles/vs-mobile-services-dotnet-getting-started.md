@@ -67,4 +67,4 @@ Excluir uma linha no banco de dados. O item do parâmetro é o objeto TodoItem a
 
     await todoTable.DeleteAsync(item);
 
-  [Introdução à autenticação]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+  [Introdução à autenticação]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/

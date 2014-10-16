@@ -78,7 +78,7 @@ Nesta seção você criará um novo aplicativo iOS que está conectado ao seu se
 
 [WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-Isso mostra como executar seu novo aplicativo cliente no serviço móvel em execução no Azure. Antes de testar o aplicativo iOS com o serviço móvel em execução em um computador local, você deve configurar o servidor Web e o firewall para permitir acesso a partir de seu computador de desenvolvimento do iOS. Para obter mais informações, consulte [Configurar o servidor web local para permitir conexões a um serviço móvel local](/ en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
+Isso mostra como executar seu novo aplicativo cliente no serviço móvel em execução no Azure. Antes de testar o aplicativo iOS com o serviço móvel em execução em um computador local, você deve configurar o servidor Web e o firewall para permitir acesso a partir de seu computador de desenvolvimento do iOS. Para obter mais informações, consulte [Configurar o servidor web local para permitir conexões a um serviço móvel local](/ pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
 <!--
 

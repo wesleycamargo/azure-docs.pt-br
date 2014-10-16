@@ -536,7 +536,7 @@ para saber como realizar tarefas de armazenamento mais complexas.
   [Referência à Biblioteca de Cliente de Armazenamento para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Referência da API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Introdução ao SDK de WebJobs do Azure]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Armazenamento de Blob]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Armazenamento de Fila]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
-  [Banco de Dados SQL]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [Introdução ao SDK de WebJobs do Azure]: /pt-br/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Armazenamento de Blob]: /pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [Armazenamento de Fila]: /pt-br/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Banco de Dados SQL]: /pt-br/documentation/articles/sql-database-dotnet-how-to-use/

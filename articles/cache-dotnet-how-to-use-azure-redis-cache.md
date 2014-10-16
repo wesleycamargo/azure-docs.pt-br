@@ -300,7 +300,7 @@ siga os links para saber como realizar tarefas de cache mais complexas.
   [Configurar o cache]: #enable-caching
   [Novo cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
   [1]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
-  [Usando os grupos de recursos para gerenciar seus recursos do Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
+  [Usando os grupos de recursos para gerenciar seus recursos do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups/
   [Cache criado]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
   [Lâmina de navegador]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
   [Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png

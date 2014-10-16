@@ -121,7 +121,7 @@ Os Serviços de Nuvem são ideais para dar suporte a expansão maciça quando vo
 
 #### Escolhendo um Modelo de Computação
 
-A comparação entre a página Sites do Azure, Serviços de Nuvem e Máquinas Virtuais (<http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/>) fornece informações mais detalhadas sobre como escolher um modelo de Computação.
+A comparação entre a página Sites do Azure, Serviços de Nuvem e Máquinas Virtuais (<http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/>) fornece informações mais detalhadas sobre como escolher um modelo de Computação.
 
 ## <span id="data"></span></a>Gerenciamento de Dados
 
@@ -563,7 +563,7 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
   [Mídia]: #media
   [Comércio]: #commerce
   [Introdução]: #start
-  [Infográfico O que é o Windows Azure]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "Infográfico do pôster O que é o Microsoft Azure?"
+  [Infográfico O que é o Windows Azure]: http://azure.microsoft.com/pt-br/documentation/infographics/azure/ "Infográfico do pôster O que é o Microsoft Azure?"
   [Componentes do Azure]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Máquinas Virtuais do Azure]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Sites do Azure]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
@@ -592,7 +592,7 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
   [CDN do Azure]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Serviços de Mídia do Azure]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [pôster Serviços de Mídia do Azure]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [pôster Serviços de Mídia do Azure]: http://azure.microsoft.com/pt-br/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
   [Azure Store]: /en-us/store/overview/
   [Comércio do Azure]: ./media/intro-to-azure/CommerceIntroNew.png

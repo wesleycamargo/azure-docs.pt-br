@@ -2,4 +2,4 @@ A configuração de um nome de domínio personalizado em um site está disponív
 
 Para obter mais informações sobre os modos de site, inclusive sobre como alterar o modo do site, consulte [Como dimensionar sites][].
 
-  [Como dimensionar sites]: /en-us/documentation/articles/web-sites-scale/
+  [Como dimensionar sites]: /pt-br/documentation/articles/web-sites-scale/

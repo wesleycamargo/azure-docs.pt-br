@@ -437,10 +437,10 @@ para saber como realizar tarefas de armazenamento mais complexas.
   [Como: Trabalhar com assinaturas de acesso compartilhado]: #sas
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Criar e implantar um aplicativo Node.js em um site do Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Serviço de Nuvem do Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Site com o WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Aplicativo Node.js na Web com armazenamento]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Site com o WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Aplicativo Node.js na Web com armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Noções básicas sobre o modelo de dados do serviço Tabela]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

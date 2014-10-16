@@ -198,7 +198,7 @@ Neste tutorial, você aprendeu a provisionar um cluster HBase, criar tabelas e e
   [Opções de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
   [Ofertas para membros]: http://azure.microsoft.com/en-us/pricing/member-offers/
   [Avaliação gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [Como criar uma conta de armazenamento]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+  [Como criar uma conta de armazenamento]: http://azure.microsoft.com/pt-br/documentation/articles/storage-create-storage-account/
   [Provisionar um cluster HBase no portal do Azure]: #create-hbase-cluster
   [Criar uma tabela de amostra HBase a partir do shell HBase]: #create-sample-table
   [Usar o Hive para consultar uma tabela HBase]: #hive-query

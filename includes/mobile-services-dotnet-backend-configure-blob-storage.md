@@ -136,7 +136,7 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 <!-- URLs. -->
 
   []: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [Como usar as Migrações Code First para atualizar o modelo de dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Como usar as Migrações Code First para atualizar o modelo de dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Como criar uma conta de armazenamento]: /en-us/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png

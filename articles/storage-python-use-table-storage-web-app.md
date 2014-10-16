@@ -175,9 +175,9 @@ Agora que você aprendeu os conceitos básicos do serviço de armazenamento Tabe
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure (a página pode estar em inglês)]
 -   Visite o Blog da Equipe de Armazenamento do Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Aplicativo Web Django Hello World]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [Aplicativo Web Django Hello World]: http://windowsazure.com/pt-br/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Armazenando e acessando dados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
-  [Guia de instalação do Python]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [Guia de instalação do Python]: http://windowsazure.com/pt-br/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

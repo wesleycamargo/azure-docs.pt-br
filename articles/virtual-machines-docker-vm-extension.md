@@ -4,7 +4,7 @@
 
 # Como usar a extensão de máquina virtual Docker para Linux no Azure
 
-O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker do [Agente Linux do Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure.
+O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker do [Agente Linux do Azure](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-agent-user-guide/) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure.
 
 Este tópico segue este [anúncio do blog MS Open Tech](http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/) e descreve:
 
@@ -41,7 +41,7 @@ O processo completo para usar o Docker no Azure é simples:
 -   Use os comandos do Docker do azure-cli para criar um host do Docker da MV no Azure
 -   Use os comandos do Docker local para gerenciar os contêineres do seu Docker na sua VM do Docker no Azure.
 
-> [WACOM.NOTE] O azure-cli (interface de linha de comando) é, atualmente, a única forma de criar uma VM controlada pelo Docker no Azure para hospedar contêineres do Docker. O documento de instalação geral está [aqui](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install); as seções abaixo oferecem algumas sugestões extras para instalar de maneira simples em diversos sistemas operacionais.
+> [WACOM.NOTE] O azure-cli (interface de linha de comando) é, atualmente, a única forma de criar uma VM controlada pelo Docker no Azure para hospedar contêineres do Docker. O documento de instalação geral está [aqui](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/#install); as seções abaixo oferecem algumas sugestões extras para instalar de maneira simples em diversos sistemas operacionais.
 
 ### Instalar o azure-cli no Linux
 
@@ -61,7 +61,7 @@ Em um Mac, a maneira mais fácil de instalar o azure-cli também é usar o npm c
 
 ### Conectar o azure-cli à sua conta do Azure
 
-Antes de poder usar o azure-cli, você deve associar as credenciais de sua conta do Azure com o azure-cli em sua plataforma. A seção [Como se conectar à assinatura do Azure](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explica como baixar e importar o arquivo **.publishsettings** ou associar a linha de comando do azure-cli com uma ID organizacional. As etapas dos dois métodos de autenticação estão descritas no documento acima.
+Antes de poder usar o azure-cli, você deve associar as credenciais de sua conta do Azure com o azure-cli em sua plataforma. A seção [Como se conectar à assinatura do Azure](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/#configure) explica como baixar e importar o arquivo **.publishsettings** ou associar a linha de comando do azure-cli com uma ID organizacional. As etapas dos dois métodos de autenticação estão descritas no documento acima.
 
 > [WACOM.NOTE] Há algumas diferenças de comportamento ao usar cada um dos dois métodos de autorização, então, certifique-se de ler o documento acima para compreender as diferentes funcionalidades.
 
@@ -69,11 +69,11 @@ Antes de poder usar o azure-cli, você deve associar as credenciais de sua conta
 
 Agora, você tem um computador (ou uma máquina virtual nesse computador) com o azure-cli instalado e conectado à sua conta do Azure. Siga as [Instruções de instalação do Docker](https://docs.docker.com/installation/#installation) para instalar o Docker localmente em seu computador. Para a maioria dos sistemas operacionais e distribuições, isso significa digitar `apt-get install docker.io`. Confirme que a versão do Docker é 1.0 ou superior.
 
-Você instalou o prompt do azure-cli em seu computador, o conectou à sua conta do Azure e instalou o Docker. Criar uma nova VM host do Docker no Azure requer uma imagem de VM Linux que tenha o [Agente de VM Linux do Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) instalado. Atualmente, as únicas imagens que o têm instalado são
+Você instalou o prompt do azure-cli em seu computador, o conectou à sua conta do Azure e instalou o Docker. Criar uma nova VM host do Docker no Azure requer uma imagem de VM Linux que tenha o [Agente de VM Linux do Azure](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-agent-user-guide/) instalado. Atualmente, as únicas imagens que o têm instalado são
 
 -   uma imagem do Ubuntu da galeria de imagens ou
 
--   uma imagem Linux personalizada que você criou com o Agente de VM Linux do Azure instalado e configurado; consulte [Agente de VM Linux do Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) para obter mais informações sobre como criar sua própria VM Linux com o Agente de VM do Azure.
+-   uma imagem Linux personalizada que você criou com o Agente de VM Linux do Azure instalado e configurado; consulte [Agente de VM Linux do Azure](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-agent-user-guide/) para obter mais informações sobre como criar sua própria VM Linux com o Agente de VM do Azure.
 
 Com o prompt de comando do azure-cli, localize a imagem do Ubuntu mais recente na galeria de VMs a serem usadas digitando
 
@@ -126,7 +126,7 @@ Agora, você está pronto para emitir comandos do Docker [Guia do usuário do Do
 
 ## Extensões de Máquina Virtual para Linux e Windows
 
-A extensão de VM do Docker para Azure é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [Extensão do Agente de VM Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) permitem que você modifique e gerencie a imagem, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess para imagens do Windows permite que você redefina ou modifique as configurações de Acesso à Área de trabalho remota e redefina a senha do administrador.
+A extensão de VM do Docker para Azure é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [Extensão do Agente de VM Linux](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-agent-user-guide/) permitem que você modifique e gerencie a imagem, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess para imagens do Windows permite que você redefina ou modifique as configurações de Acesso à Área de trabalho remota e redefina a senha do administrador.
 
 Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
 
@@ -134,7 +134,7 @@ Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.
 
   [Docker]: https://www.docker.com/
   [contêineres Linux]: http://en.wikipedia.org/wiki/LXC
-  [Agente Linux do Azure]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/
+  [Agente Linux do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-agent-user-guide/
   [anúncio do blog MS Open Tech]: http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/
   [Contêineres Docker e Linux]: #Docker-and-Linux-Containers
   [Como usar a Extensão de VM Docker com o Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -149,11 +149,11 @@ Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.
   [AppArmor]: http://wiki.apparmor.net/index.php/Main_Page
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
-  [aqui]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install
+  [aqui]: http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/#install
   [gerente de pacote de nós (npm)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [instalador do Mac]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
-  [Como se conectar à assinatura do Azure]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure
+  [Como se conectar à assinatura do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/#configure
   [Instruções de instalação do Docker]: https://docs.docker.com/installation/#installation
   [!@\#$%^&+=]: mailto:!@#$%^&+=
   []: ./media/virtual-machines-docker/dockercreateresults.png

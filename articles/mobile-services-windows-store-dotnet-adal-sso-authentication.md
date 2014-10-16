@@ -5,9 +5,9 @@
 # Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="C# da Windows Store" class="current">C# da Windows Store</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="C# da Windows Store" class="current">C# da Windows Store</a>
+<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
+<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
 </div>
 
 Neste tutorial, adicione a autenticação ao projeto de início rápido usando uma Biblioteca de autenticação do diretório ativo.
@@ -181,16 +181,16 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 <!-- Images -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "C# da Windows Store"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
-  [Xamarin.iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
-  [Introdução aos serviços móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "C# da Windows Store"
+  [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
+  [Xamarin.iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
+  [Introdução aos serviços móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Registrar o seu serviço móvel com o Active Directory do Azure]: #register-mobile-service-aad
   [Registrar o seu aplicativo com o Azure Active Directory]: #register-app-aad
   [Configurar o serviço móvel para requerer autenticação]: #require-authentication
   [Adicionar o código de autenticação ao aplicativo do cliente]: #add-authentication-code
   [Testar o cliente usando autenticação]: #test-client
-  [Introdução aos Dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+  [Introdução aos Dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
   []: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-associate-app.png
   [1]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-reserve-store-appname.png
@@ -208,6 +208,6 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
   [11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
   [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [mobile-services-dotnet-adal-install-nuget]: ../includes/mobile-services-dotnet-adal-install-nuget.md
-  [Como registrar-se com o Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Como registrar-se com o Azure Active Directory]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
   [13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png

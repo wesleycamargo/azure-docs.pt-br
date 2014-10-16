@@ -775,5 +775,5 @@ Para obter mais informações sobre o Brramento de Serviço, consulte os seguint
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Service Bus do Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [Como é o Barramento de Serviço]: /en-us/documentation/services/service-bus/
+  [Como é o Barramento de Serviço]: /pt-br/documentation/services/service-bus/
   [Como usar as filas do Service Bus]: /en-us/develop/net/how-to-guides/service-bus-queues/

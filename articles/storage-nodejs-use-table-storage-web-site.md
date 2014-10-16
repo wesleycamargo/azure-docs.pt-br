@@ -636,9 +636,9 @@ Embora as etapas neste artigo descrevam como usar o Serviço de Tabela para arma
 
 ## Recursos adicionais
 
-[Ferramenta de linha de comando do Azure para Mac e Linux](/en-us/documentation/articles/xplat-cl)
-[Criar e implantar um aplicativo Node.js em sites do Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Publicando sites do Azure com o Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+[Ferramenta de linha de comando do Azure para Mac e Linux](/pt-br/documentation/articles/xplat-cl)
+[Criar e implantar um aplicativo Node.js em sites do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publicando sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
 [Centro de Desenvolvedores do Azure]: /en-us/develop/nodejs/
 
   [nó]: http://nodejs.org
@@ -655,14 +655,14 @@ Embora as etapas neste artigo descrevam como usar o Serviço de Tabela para arma
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [Uma imagem do novo item na lista de tarefas]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
-  [Criar e implantar um aplicativo Node.js em um site do Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [antares-iaas-signup]: ../includes/antares-iaas-signup.md
-  [Instalar e configurar a interface de linha de comando entre plataformas do Azure]: /en-us/documentation/articles/xplat-cli/
+  [Instalar e configurar a interface de linha de comando entre plataformas do Azure]: /pt-br/documentation/articles/xplat-cli/
   [A página de download]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git remoto]: http://git-scm.com/docs/git-remote
   [Abrir o painel do site]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [configurar link]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [configurações do aplicativo]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [salvar as configurações do aplicativo]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [Aplicativo da web Node.js com o MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Publicando sites do Azure com o Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+  [Aplicativo da web Node.js com o MongoDB]: /pt-br/documentation/articles/web-sites-nodejs-store-data-mongodb/
+  [Publicando sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/

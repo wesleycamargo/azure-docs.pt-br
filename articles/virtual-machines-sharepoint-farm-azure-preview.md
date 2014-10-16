@@ -73,4 +73,4 @@ O Farmo do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts
   
   [Configurar o SharePoint 2013]: http://technet.microsoft.com/library/ee836142.aspx
   [Portal de visualização do Microsoft Azure]: https://portal.azure.com/
-  [Usando o Windows PowerShell com o Gerenciador de Recursos]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [Usando o Windows PowerShell com o Gerenciador de Recursos]: http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/

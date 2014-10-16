@@ -795,7 +795,7 @@ Para obter mais informações, consulte os recursos a seguir:
 -   [Como usar o Armazenamento de Blob no .NET][]
 -   [Como usar o Armazenamento de Fila no .NET][]
 
-  [serviço de nuvem do Azure]: /en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [serviço de nuvem do Azure]: /pt-br/documentation/articles/fundamentals-application-models/#CloudServices
   [Banco de Dados SQL do Azure]: http://msdn.microsoft.com/library/azure/ee336279
   [serviço Blob do Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [serviço Fila do Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
@@ -803,9 +803,9 @@ Para obter mais informações, consulte os recursos a seguir:
   [Lista de anúncios]: ./media/cloud-services-dotnet-get-started/list.png
   [site do Azure]: /en-us/services/web-sites/
   [WebJobs]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [Introdução ao SDK WebJobs do Azure]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Comparação de Sites, Serviços de Nuvem do Azure e Máquinas Virtuais do Azure]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
-  [conceitos básicos sobre os serviços de nuvem do Azure]: http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [Introdução ao SDK WebJobs do Azure]: /pt-br/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Comparação de Sites, Serviços de Nuvem do Azure e Máquinas Virtuais do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/
+  [conceitos básicos sobre os serviços de nuvem do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/fundamentals-application-models/#CloudServices
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [Web Forms]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
   [ativar os benefícios de assinante MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668
@@ -828,7 +828,7 @@ Para obter mais informações, consulte os recursos a seguir:
   [Novo serviço de nuvem]: ./media/cloud-services-dotnet-get-started/newcs.png
   [Novo banco de dados SQL]: ./media/cloud-services-dotnet-get-started/newdb.png
   [Como criar um grupo de afinidade no Azure]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
-  [Como gerenciar contas de armazenamento]: /en-us/documentation/articles/storage-manage-storage-account/
+  [Como gerenciar contas de armazenamento]: /pt-br/documentation/articles/storage-manage-storage-account/
   [Nova conta de armazenamento]: ./media/cloud-services-dotnet-get-started/newstorage.png
   [transformação de Web.config]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations
   [Não armazene dados confidenciais em repositórios de código-fonte público]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets
@@ -862,12 +862,12 @@ Para obter mais informações, consulte os recursos a seguir:
   [Resiliência de Conexão de EF]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
   [PhluffyFotos]: http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31
   [Aplicativo multicamada de serviço de nuvem do Azure com tabelas, filas e blobs]: http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36
-  [série de tutoriais passo a passo]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
+  [série de tutoriais passo a passo]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
   [Noções Básicas sobre Serviço de Nuvem no Windows Azure]: http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649
   [Criando aplicativos de nuvem do mundo real no Windows Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
   [Armazenamento do Microsoft Azure – O que há de novo, melhores práticas e padrões]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Sobre os serviços de nuvem do Azure Parte 1: Introdução]: http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/
-  [Serviços de nuvem do Azure]: /en-us/documentation/services/cloud-services/
-  [Armazenamento do Azure]: /en-us/documentation/services/storage/
-  [Como usar o Armazenamento de Blob no .NET]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Como usar o Armazenamento de Fila no .NET]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Serviços de nuvem do Azure]: /pt-br/documentation/services/cloud-services/
+  [Armazenamento do Azure]: /pt-br/documentation/services/storage/
+  [Como usar o Armazenamento de Blob no .NET]: /pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [Como usar o Armazenamento de Fila no .NET]: /pt-br/documentation/articles/storage-dotnet-how-to-use-queues/

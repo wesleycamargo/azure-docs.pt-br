@@ -710,7 +710,7 @@ Este tutorial foi baseado no tutorial MVC [Implantar um aplicativo ASP.NET MVC 5
 
 Deixe comentários sobre o que você gostou e o que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Você também pode solicitar e votar em novos tópicos em [Mostre-me como com código][].
 
-  [Implantar um aplicativo ASP.NET MVC 5 seguro com Associação, OAuth e Banco de Dados SQL em um site do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [Implantar um aplicativo ASP.NET MVC 5 seguro com Associação, OAuth e Banco de Dados SQL em um site do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Contatos - Editar página]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
   [ativar os benefícios de assinante MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [inscrever-se para uma avaliação gratuita]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
@@ -784,7 +784,7 @@ Deixe comentários sobre o que você gostou e o que você gostaria de ver melhor
   [Dados de AspNetUserRoles]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png
   [12]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png
   [Saiba sobre os Web Forms ASP.NET]: http://www.asp.net/web-forms
-  [Guias e tutoriais do Microsoft Azure]: http://azure.microsoft.com/en-us/documentation/services/web-sites/#net
+  [Guias e tutoriais do Microsoft Azure]: http://azure.microsoft.com/pt-br/documentation/services/web-sites/#net
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Mostre-me como com código]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

@@ -54,5 +54,5 @@ Você pode encontrar o endereço IP, bem como os nomes **awverify** e **.azurewe
   [IETF Domain Names]: http://tools.ietf.org/html/rfc1035
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [Como dimensionar sites]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [Como dimensionar sites]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

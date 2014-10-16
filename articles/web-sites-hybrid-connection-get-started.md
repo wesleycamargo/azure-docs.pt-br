@@ -201,9 +201,9 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
   [Instalando]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
   [Clique em Fechar]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
   [Status Conectado]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
-  [Conectar-se a um SQL Server local a partir de um serviço móvel do Azure utilizando Conexões Híbridas]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [Conectar-se a um SQL Server local a partir de um serviço móvel do Azure utilizando Conexões Híbridas]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [Josh Twist apresenta conexões híbridas (vídeo no canal 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [Site de Conexões Híbridas]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida]: http://azure.microsoft.com/pt-br/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [Criando uma nuvem híbrida no mundo real com portabilidade perfeita com aplicativo (vídeo no canal 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
   [Conectar-se a um SQL Server local a partir de serviços móveis do Azure utilizando Conexões Híbridas (vídeo no canal 9)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections

@@ -6,7 +6,7 @@
 
 # Introdução ao Armazenamento do Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blobs" class="current">Blobs</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="Filas">Filas</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="Tabelas">Tabelas</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blobs" class="current">Blobs</a><a href="/pt-br/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="Filas">Filas</a><a href="/pt-br/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="Tabelas">Tabelas</a></div>
 
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos.
 
@@ -31,8 +31,8 @@ Antes de poder realizar qualquer coisa com um blob, será necessário obter a ca
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include][vs-storage-getting-started-blobs-include]]
 
   [vs-storage-cloud-services-getting-started-intro]: ../includes/vs-storage-cloud-services-getting-started-intro.md
-  [Blobs]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blobs"
-  [Filas]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues "Filas"
-  [Tabelas]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables "Tabelas"
-  [Como usar o Armazenamento de Blob do .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/ "Como usar o Armazenamento de Blob do .NET"
+  [Blobs]: /pt-br/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blobs"
+  [Filas]: /pt-br/documentation/articles/vs-storage-cloud-services-getting-started-queues "Filas"
+  [Tabelas]: /pt-br/documentation/articles/vs-storage-cloud-services-getting-started-tables "Tabelas"
+  [Como usar o Armazenamento de Blob do .NET]: http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/ "Como usar o Armazenamento de Blob do .NET"
   [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md

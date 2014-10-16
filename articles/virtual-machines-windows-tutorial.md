@@ -4,7 +4,7 @@
 
 # Criar uma máquina virtual executando o Windows Server
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Portal do Azure" class="current">Portal do Azure</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Portal de visualiza&ccedil;&atilde;o do Azure">Portal de visualiza&ccedil;&atilde;o do Azure</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial/" title="Portal do Azure" class="current">Portal do Azure</a><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Portal de visualiza&ccedil;&atilde;o do Azure">Portal de visualiza&ccedil;&atilde;o do Azure</a></div>
 
 Este tutorial mostra como é fácil criar uma máquina virtual (VM) no Azure executando o Windows Server, usando a Galeria de imagem no Portal de Gerenciamento do Azure. A Galeria de imagem oferece uma variedade de imagens, inclusive os sistema operacionais Windows, os sistemas operacionais baseados em Linux e as imagens do aplicativo.
 
@@ -102,8 +102,8 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 
 [Gerenciar a disponibilidade de máquinas virtuais][]
 
-  [Portal do Azure]: /en-us/documentation/articles/virtual-machines-windows-tutorial/ "Portal do Azure"
-  [Portal de visualização do Azure]: /en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Portal de visualização do Azure"
+  [Portal do Azure]: /pt-br/documentation/articles/virtual-machines-windows-tutorial/ "Portal do Azure"
+  [Portal de visualização do Azure]: /pt-br/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Portal de visualização do Azure"
   [Criar uma conta do Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
   [Como criar a máquina virtual]: #createvirtualmachine
   [Como fazer o logon na máquina virtual após você criá-la]: #logon
@@ -112,7 +112,7 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
   [1]: https://portal.azure.com
   [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [virtual-machines-log-on-win-server]: ../includes/virtual-machines-log-on-win-server.md
-  [Tutorial Anexar um disco de dados]: http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/
+  [Tutorial Anexar um disco de dados]: http://www.windowsazure.com/pt-br/documentation/articles/storage-windows-attach-disk/
   [Portal de Gerenciamento]: http://manage.windowsazure.com
   [Selecione MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Selecione Painel]: ./media/virtual-machines-windows-tutorial/dashboard.png
@@ -125,6 +125,6 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
   [Continuar a inicialização]: ./media/virtual-machines-windows-tutorial/yesinitialize.png
   [Criar o volume]: ./media/virtual-machines-windows-tutorial/initializediskvolume.png
   [3]: ./media/virtual-machines-windows-tutorial/newvolumecreated.png
-  [Como conectar máquinas virtuais em um serviço de nuvem]: http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/
-  [Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server]: http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [Gerenciar a disponibilidade de máquinas virtuais]: http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/
+  [Como conectar máquinas virtuais em um serviço de nuvem]: http://www.windowsazure.com/pt-br/documentation/articles/cloud-services-connect-virtual-machine/
+  [Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server]: http://www.windowsazure.com/pt-br/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
+  [Gerenciar a disponibilidade de máquinas virtuais]: http://www.windowsazure.com/pt-br/documentation/articles/manage-availability-virtual-machines/

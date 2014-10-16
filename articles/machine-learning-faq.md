@@ -22,7 +22,7 @@ Um modelo preditivo pode ser colocado em preparação dentro de seu espaço de t
 
 **4. Como fazer para acessar o Aprendizado de Máquina do Microsoft Azure?**
 
-Para uma introdução ao Aprendizado de Máquina do Azure, visite a [página de introdução](http://go.microsoft.com/fwlink/?LinkId=404226). Visite o [Centro de Aprendizado de Máquina do Azure](http://azure.microsoft.com/en-us/documentation/services/machine-learning/) para obter atualizações do serviço, ler o que há de mais recente no blog da equipe do AM, participar de nossa comunidade Aprendizado de Máquina por meio de fóruns, acessar a ajuda do produto, exibir a galeria de modelos e fornecer feedback sobre o serviço para nos ajudar a dar forma ao roteiro do produto.
+Para uma introdução ao Aprendizado de Máquina do Azure, visite a [página de introdução](http://go.microsoft.com/fwlink/?LinkId=404226). Visite o [Centro de Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/services/machine-learning/) para obter atualizações do serviço, ler o que há de mais recente no blog da equipe do AM, participar de nossa comunidade Aprendizado de Máquina por meio de fóruns, acessar a ajuda do produto, exibir a galeria de modelos e fornecer feedback sobre o serviço para nos ajudar a dar forma ao roteiro do produto.
 
 ### COBRANÇA
 
@@ -101,7 +101,7 @@ Uma vez que um modelo preditivo tiver sido colocado em produção, é possível 
 
 **17. Onde posso obter treinamento para o AM do Azure?**
 
-O [Cenntro de Aprendizado de Máquina do Azure](http://azure.microsoft.com/en-us/documentation/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias de instruções passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
+O [Cenntro de Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias de instruções passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
 
 Os tutoriais de vídeo fornecem um tour visual do Estúdio AM e serviço de API do AM. Os tutoriais de vídeo demonstram a amplitude do serviço, o ingresso de dados mais usado, limpeza e processamento de módulos; criação de um modelo preditivo e implantação de modelos preditivos. Eles também abragem tarefas, como provisionamento de espaço de trabalho e implantação de modelos pré-configurados para produção.
 

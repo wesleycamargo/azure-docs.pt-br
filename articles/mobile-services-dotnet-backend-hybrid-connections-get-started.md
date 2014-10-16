@@ -178,8 +178,8 @@ As mudanças geradas em seu aplicativo foram extraídas do seu serviço móvel p
   [Modificar um Serviço Móvel para usar a conexão]: #CreateService
   [Downloads do Visual Studio]: http://www.visualstudio.com/downloads/download-visual-studio-vs
   [página do Banco de dados da plataforma da web da Microsoft]: http://www.microsoft.com/web/platform/database.aspx
-  [1]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
-  [Criar um banco de dados SQL Server local]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
+  [1]: /pt-br/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
+  [Criar um banco de dados SQL Server local]: /pt-br/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
   [Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409
   [Criar Serviço BizTalk]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/1.png
   [Configure o novo Serviço BizTalk]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/2.png
@@ -190,11 +190,11 @@ As mudanças geradas em seu aplicativo foram extraídas do seu serviço móvel p
   [Instalar o Hybrid Connection Manager]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/6.png
   [Configuração do Gerenciador de Conexão Híbrida]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/7.png
   [Conexão Híbrida conectada]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
-  [Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Associar Conexão Híbrida]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
   [Escolher Conexão Híbrida associada]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
   [Configuração de aplicativo para cadeia de conexão]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
   [SQL Management Studio]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
   [Site de Conexões Híbridas]: http://azure.microsoft.com/en-us/services/biztalk-services/
   [Visão geral de Conexões Híbridas]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida]: http://azure.microsoft.com/pt-br/documentation/articles/biztalk-dashboard-monitor-scale-tabs/

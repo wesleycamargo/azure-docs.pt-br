@@ -4,9 +4,9 @@
 
 # Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="C# da Windows Store" class="current">C# da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="C# da Windows Store" class="current">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Back-end do .NET" class="current">Back-end do .NET</a> |  <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Back-end do .NET" class="current">Back-end do .NET</a> |  <a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
 
 Este tópico mostra como usar os Serviços Móveis do Azure para habilitar seu aplicativo para carregar e armazenar as imagens geradas pelo usuário no Armazenamento do Azure. Os Serviços Móveis usam um banco de dados SQL para armazenar dados. No entanto, os dados de BLOB (objeto binário grande) são armazenados com mais eficiência no serviço de armazenamento de Blob do Azure.
 
@@ -53,18 +53,18 @@ Em seguida, você atualizará o aplicativo quickstart para capturar e carregar i
 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "C# da Windows Store"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Back-end do .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Back-end do .NET"
-  [Back-end do JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Back-end do JavaScript"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "C# da Windows Store"
+  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
+  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Back-end do .NET"
+  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Back-end do JavaScript"
   [Instalar a biblioteca do Cliente de Armazenamento]: #install-storage-client
   [Atualizar o aplicativo cliente para capturar imagens]: #add-select-images
   [Instalar o cliente de armazenamento no projeto de serviço móvel]: #storage-client-server
   [Atualizar a definição de TodoItem no modelo de dados]: #update-data-model
   [Atualizar o controlador de tabela para gerar uma SAS]: #update-scripts
   [Carregar imagens para testar o aplicativo]: #test
-  [Conta de Armazenamento do Azure]: /en-us/documentation/articles/storage-create-storage-account/
-  [Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
+  [Conta de Armazenamento do Azure]: /pt-br/documentation/articles/storage-create-storage-account/
+  [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started
   [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md

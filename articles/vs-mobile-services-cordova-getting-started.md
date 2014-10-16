@@ -82,6 +82,6 @@ Excluir uma linha em uma tabela de dados usando o método del. Chame o método [
         items.splice(items.indexOf(todoItem), 1);
     });
 
-  [Introdução à autenticação]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/
+  [Introdução à autenticação]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-html-get-started-users/
   [done]: 
   [consulta]: (http://msdn.microsoft.com/library/azure/jj613353.aspx)

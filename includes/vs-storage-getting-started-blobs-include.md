@@ -90,5 +90,5 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
     // Delete the blob.
     blockBlob.Delete();
 
-  [Como usar o Armazenamento de Blob do .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
-  [1]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs
+  [Como usar o Armazenamento de Blob do .NET]: http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
+  [1]: http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs

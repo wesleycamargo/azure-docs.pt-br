@@ -58,7 +58,7 @@ Os aplicativos podem ser executados sobre o HBase utilizando-o como um armazenam
 [Bigtable: Um Sistema de Armazenamento Distribuído para Dados Estruturados][]
 
   [Provisionar clusters do HDInsight na Rede Virtual do Azure]: ../hdinsight-hbase-provision-vnet/
-  [Introdução ao HBase com o Hadoop no HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Introdução ao HBase com o Hadoop no HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hbase-get-started/
   [Phoenix]: http://phoenix.apache.org/
   [Analisar dados de sentimento no Twitter com o HBase no HDInsight]: ../hdinsight-hbase-analyze-twitter-sentiment/
   [Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)]: ../hdinsight-hbase-build-java-maven/

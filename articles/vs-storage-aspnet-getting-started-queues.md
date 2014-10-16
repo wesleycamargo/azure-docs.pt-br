@@ -6,7 +6,7 @@
 
 ### Introdução ao Armazenamento do Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blobs" class="current">Blobs</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-queues" title="Filas">Filas</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-tables" title="Tabelas">Tabelas</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blobs" class="current">Blobs</a><a href="/pt-br/documentation/articles/vs-storage-aspnet-getting-started-queues" title="Filas">Filas</a><a href="/pt-br/documentation/articles/vs-storage-aspnet-getting-started-tables" title="Tabelas">Tabelas</a></div>
 
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte [Como usar o Armazenamento de Filas do .NET][Como usar o Armazenamento de Filas do .NET] para obter mais informações.
 
@@ -29,8 +29,8 @@ Antes de poder realizar qualquer coisa com a fila, será necessário obter a cad
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [Blobs]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blobs"
-  [Filas]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-queues "Filas"
-  [Tabelas]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-tables "Tabelas"
-  [Como usar o Armazenamento de Filas do .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Blobs]: /pt-br/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blobs"
+  [Filas]: /pt-br/documentation/articles/vs-storage-aspnet-getting-started-queues "Filas"
+  [Tabelas]: /pt-br/documentation/articles/vs-storage-aspnet-getting-started-tables "Tabelas"
+  [Como usar o Armazenamento de Filas do .NET]: http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/
   [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md

@@ -389,9 +389,9 @@ para saber como executar tarefas de armazenamento mais complexas.
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Serviço de Nuvem do Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Site com o WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Aplicativo Node.js na Web com armazenamento]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Site com o WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Aplicativo Node.js na Web com armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Noções básicas sobre blobs de bloco e blobs de página]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

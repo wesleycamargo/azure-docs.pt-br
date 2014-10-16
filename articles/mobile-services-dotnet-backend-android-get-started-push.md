@@ -4,11 +4,11 @@
 
 # Introdução às notificações por push nos Serviços Móveis
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="C# da Windows Store">C# da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android" class="current">Android</a>
-<!---<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>-->
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="C# da Windows Store">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android" class="current">Android</a>
+<!---<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>-->
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
 
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push a um aplicativo Android. Neste tutorial você adiciona notificações por push usando o serviço de Mensagens de Nuvem do Google (GCM) para o projeto quickstart. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
@@ -164,21 +164,21 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "C# da Windows Store"
-  [JavaScript da Windows Store]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "JavaScript da Windows Store"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [Back-end do .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Back-end do .NET"
-  [Back-end do JavaScript]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "Back-end do JavaScript"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "C# da Windows Store"
+  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "JavaScript da Windows Store"
+  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
+  [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
+  [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
+  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Back-end do .NET"
+  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "Back-end do JavaScript"
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
   [Configurar o serviço móvel para enviar solicitações por push]: #configure
   [Atualizar o servidor para enviar notificações por push]: #update-server
   [Adicionar notificações de push para seu aplicativo]: #update
   [Habilitar notificações por push para teste local]: #local-testing
   [Testar o aplicativo no serviço móvel publicado]: #test-app
-  [Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started
-  [Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+  [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started
+  [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
@@ -194,6 +194,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [3]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png
   [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [4]: ./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png
-  [Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-  [O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-  [Como usar a biblioteca de cliente Android para os Serviços Móveis]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+  [Como usar a biblioteca de cliente Android para os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-how-to-use-client-library

@@ -78,7 +78,7 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
   []: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-  [Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
-  [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+  [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+  [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel]: /pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

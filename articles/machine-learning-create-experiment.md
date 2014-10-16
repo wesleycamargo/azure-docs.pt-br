@@ -192,4 +192,4 @@ Para obter um acompanhamento mais extenso e detalhado da criação, treinamento,
   [Módulo de Modelo de Pontuação]: ./media/machine-learning-create-experiment/screen8a.png
   [Resultados de avaliação]: ./media/machine-learning-create-experiment/screen9.png
   [Experimento completo]: ./media/machine-learning-create-experiment/screen10.png
-  [Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

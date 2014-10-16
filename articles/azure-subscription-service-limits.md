@@ -34,12 +34,12 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
 <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-<td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Contas de armazenamento</a> por assinatura</p></td>
+<td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/storage-whatis-account/">Contas de armazenamento</a> por assinatura</p></td>
 <td valign="middle"><p>20</p></td>
 <td valign="middle"><p>50</p></td>
 </tr>
 <tr class="even">
-<td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Serviços de nuvem</a> por assinatura</p></td>
+<td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-what-is/">Serviços de nuvem</a> por assinatura</p></td>
 <td valign="middle"><p>20</p></td>
 <td valign="middle"><p>200</p></td>
 </tr>
@@ -88,7 +88,7 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
 <th align="left" valign="middle">Limite máximo</th>
 </tr>
 <tr>
-<td valign="middle""><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Funções de trabalho/Web por implantação<sup>1</sup></a></p></td>
+<td valign="middle""><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-what-is/">Funções de trabalho/Web por implantação<sup>1</sup></a></p></td>
 <td valign="middle"><p>25</p></td>
 <td valign="middle"><p>25</p></td>
 </tr>
@@ -120,7 +120,7 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
 <th align="left" valign="middle">Limite máximo</th>
 </tr>
 <tr>
-<td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">Máquinas virtuais</a> por serviço de nuvem<sup>1</sup></p></td>
+<td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/services/virtual-machines/">Máquinas virtuais</a> por serviço de nuvem<sup>1</sup></p></td>
 <td valign="middle"><p>50</p></td>
 <td valign="middle"><p>50</p></td>
 </tr>
@@ -244,15 +244,15 @@ Para obter os limites de banco de dados SQL, consulte os seguintes tópicos:
   [suporte ao cliente]: http://azure.microsoft.com/en-us/support/faq/
   [assinatura]: http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
   [Coadministradores]: http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx
-  [Contas de armazenamento]: http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/
-  [Serviços de nuvem]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/
+  [Contas de armazenamento]: http://azure.microsoft.com/pt-br/documentation/articles/storage-whatis-account/
+  [Serviços de nuvem]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-what-is/
   [Redes virtuais]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [Redes locais]: http://msdn.microsoft.com/en-us/library/jj157100.aspx
   [Grupos de afinidade]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
   [Pontos de extremidade de entrada de instância]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint
   [Pontos de extremidade de entrada]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint
   [Pontos de extremidade internos]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint
-  [Máquinas virtuais]: http://azure.microsoft.com/en-us/documentation/services/virtual-machines/
+  [Máquinas virtuais]: http://azure.microsoft.com/pt-br/documentation/services/virtual-machines/
   [gateway de rede virtual]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx
   [Metas de desempenho e de escalabilidade de armazenamento do Azure]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Faixas de serviço de banco de dados SQL do Azure (edições)]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx

@@ -254,5 +254,5 @@ Em algumas situações, convém executar o aplicativo em um Serviço de Nuvem do
   [Solucionando problemas de Sites do Azure no Visual Studio (a página pode estar em inglês)]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e Banco de Dados SQL a um Site do Azure (a página pode estar em inglês)]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Modelos de execução do Azure]: /en-us/develop/net/fundamentals/compute/
-  [Comparação de Máquinas Virtuais do Azure]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Comparação de Máquinas Virtuais do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/
   [Aplicativo .NET de várias camadas usando tabelas de armazenamento, filas e blobs (a página pode estar em inglês)]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

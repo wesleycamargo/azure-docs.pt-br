@@ -192,7 +192,7 @@ Agora que o seu serviço do RemoteApp foi criado, é necessário adicionar os us
 
   [atualizações necessárias]: http://support.microsoft.com/kb/2977219
   [visualização do RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [PowerShell do Azure]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [PowerShell do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Configurar um VPN site a site no Portal de Gerenciamento]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [Roteiro de sincronização do diretório]: http://msdn.microsoft.com//library/azure/hh967642.aspx

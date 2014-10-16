@@ -542,7 +542,7 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 -   [Enviar trabalhos Hadoop de forma programática][]
 -   [Documentação do SDK do Azure HDInsight][]
 
-  [Provision HBase cluster in HDInsight (Provisionar um cluster HBase no HDInsight)]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Provision HBase cluster in HDInsight (Provisionar um cluster HBase no HDInsight)]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hbase-get-started/
   [Qual a diferença entre Hadoop e HBase?]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [Introdução ao Hadoop no HDInsight]: ../hdinsight-introduction/
