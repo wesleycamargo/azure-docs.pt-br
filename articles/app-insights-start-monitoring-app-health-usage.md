@@ -14,24 +14,24 @@ O Application Insights permite que você monitore seu aplicativo ao vivo para:
 
 A configuração é muito fácil, e você verá os resultados em minutos. Atualmente, suportamos aplicativos de web ASP.NET (em seus próprios servidores ou no Azure).
 
-Você precisará de uma conta no [Microsoft Azure][Microsoft Azure] (existe um período de teste gratuito).
+Você precisará de uma conta no [Microsoft Azure](http://azure.com) (existe um período de teste gratuito).
 
 Existem duas maneiras de começar com o Application Insights:
 
--   (Recomendado) [Adicione o Application Insights ao seu projeto no Visual Studio][Adicione o Application Insights ao seu projeto no Visual Studio] para monitorar o desempenho e uso do aplicativo.
--   [Instale um agente no seu servidor sem a reimplantação][Instale um agente no seu servidor sem a reimplantação] - Monitore um site da web ao vivo sem reimplantá-lo ou tocar no seu código-fonte. Isso lhe dá monitoramento de desempenho e exceção. É possível adicionar monitoramento de uso depois.
+-   (Recomendado) [Adicione o Application Insights ao seu projeto no Visual Studio](#add) para monitorar o desempenho e uso do aplicativo.
+-   [Instale um agente no seu servidor sem a reimplantação][redfield] - Monitore um site da web ao vivo sem reimplantá-lo ou tocar no seu código-fonte. Isso lhe dá monitoramento de desempenho e exceção. É possível adicionar monitoramento de uso depois.
 
-> [WACOM.NOTE] Existe uma [versão mais antiga do Application Insights][versão mais antiga do Application Insights] no Visual Studio Online, que suporta um intervalo mais amplo dos tipos de aplicativos. Estamos recriando-o a partir do zero como parte do Microsoft Azure, e é a nova versão que você está lendo aqui.
+> [WACOM.NOTE] Existe uma [versão mais antiga do Application Insights](http://msdn.microsoft.com/pt-br/library/dn481095.aspx) no Visual Studio Online, que suporta um intervalo mais amplo dos tipos de aplicativos. Estamos recriando-o a partir do zero como parte do Microsoft Azure, e é a nova versão que você está lendo aqui.
 
 ## <a name="add"></a>Adicione o Application Insights ao seu projeto
 
-Você precisa do [Visual Studio 2013 Atualização 3][Visual Studio 2013 Atualização 3] (ou posterior).
+Você precisa do [Visual Studio 2013 Atualização 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (ou posterior).
 
 ### Se é um novo projeto...
 
 Quando criar um novo projeto no Visual Studio 2013, certifique-se de que o Application Insights está selecionado.
 
-![Criar um projeto ASP.NET][Criar um projeto ASP.NET]
+![Criar um projeto ASP.NET](./media/appinsights/appinsights-01-vsnewp1.png)
 
 Se esta é sua primeira vez, você será solicitado a fazer logon ou se inscrever na visualização do Microsoft Azure. (é separada de sua conta do Visual Studio Online)
 
@@ -43,7 +43,7 @@ Use **Configurar definições** se você quer o recurso do Azure tenha um nome d
 
 Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, e selecione Adicionar Application Insights.
 
-![Escolher Adicionar Application Insights][Escolher Adicionar Application Insights]
+![Escolher Adicionar Application Insights](./media/appinsights/appinsights-03-addExisting.png)
 
 *Há mais uma etapa, se quiser configurar a análise de uso da web, mas vamos ver alguns dados primeiro...*
 
@@ -53,19 +53,19 @@ Execute seu aplicativo com F5 e experimente - abra páginas diferentes.
 
 No Visual Studio, você verá uma contagem de eventos que foram recebidas.
 
-![][]
+![](./media/appinsights/appinsights-09eventcount.png)
 
 ### <a name="monitor"></a>3. Veja os dados de monitoramento
 
 Abrir Application Insights do seu projeto.
 
-![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.][Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.]
+![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.](./media/appinsights/appinsights-04-openPortal.png)
 
 Procure pelos dados nos mosaicos da **integridade do aplicativo**. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
 
-![Clique por mais dados][Clique por mais dados]
+![Clique por mais dados](./media/appinsights/appinsights-41firstHealth.png)
 
-Clique em qualquer mosaico para ver mais detalhes. Você pode alterar o que você vê nos relatórios. [Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.][Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.]
+Clique em qualquer mosaico para ver mais detalhes. Você pode alterar o que você vê nos relatórios. [Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.][perf]
 
 ### <a name="webclient"></a>4. Configuração das análises de uso da web
 
@@ -73,23 +73,23 @@ Se você adicionou o Application Insights para um projeto de web *existente*, vo
 
 No Application Insights, escolha Início Rápido, instrumente seu site da web.
 
-![No seu projeto no Application Insights, clique em Início Rápido, instrumente seu site da web e copie o código][No seu projeto no Application Insights, clique em Início Rápido, instrumente seu site da web e copie o código]
+![No seu projeto no Application Insights, clique em Início Rápido, instrumente seu site da web e copie o código](./media/appinsights/appinsights-06webcode.png)
 
 Copie o código JavaScript nas páginas da web que você quer monitorar, logo após a etiqueta \</head\> fechada. No projeto ASP.NET, uma boa forma de monitorar todas as páginas é colocar o código na página mestre, geralmente chamada de `_SiteLayout` ou `Views\Shared\_Layout`. Observe que o código contém a chave do Application Insights do seu aplicativo.
 
 Execute seu aplicativo novamente e você verá os dados na **Análise de Uso**.
 
-![Clique por mais dados][1]
+![Clique por mais dados](./media/appinsights/appinsights-05-usageTiles.png)
 
-[Clique por gráficos para ver mais detalhes.][Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.]
+[Clique por gráficos para ver mais detalhes.][perf]
 
 ### <a name="deploy"></a>5. Implantar seu aplicativo
 
 Implante seu aplicativo e assiata a acumulação de dados.
 
-Uma vez que você tem um aplicativo ao vivo, [configure os testes de web][configure os testes de web] para se certificar de mentê-lo ao vivo.
+Uma vez que você tem um aplicativo ao vivo, [configure os testes de web][availability] para se certificar de mentê-lo ao vivo.
 
-![Exemplo de monitoramento do aplicativo no Application Insights][Exemplo de monitoramento do aplicativo no Application Insights]
+![Exemplo de monitoramento do aplicativo no Application Insights](./media/appinsights/appinsights-00-appblade.png)
 
 ### Deseja alterar o nome do seu aplicativo no portal?
 
@@ -113,42 +113,32 @@ Em seguida, volte para o portal e exclua o recurso antigo.
 
 ## <a name="next"></a>Próximas etapas
 
-[Acompanhar uso do seu aplicativo web][Acompanhar uso do seu aplicativo web]
+[Acompanhar uso do seu aplicativo web][usage]
 
-[Monitore o desempenho dos aplicativos web][Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.]
+[Monitore o desempenho dos aplicativos web][perf]
 
-[Capturar e pesquisar por logs de diagnóstico][Capturar e pesquisar por logs de diagnóstico]
+[Capturar e pesquisar por logs de diagnóstico][diagnostic]
 
-[Solucionar problemas][Solucionar problemas]
+[Solucionar problemas][qna]
 
 ## Saiba mais
 
--   [Application Insights - introdução][Application Insights - introdução]
--   [Monitore um servidor de web ao vivo agora][Instale um agente no seu servidor sem a reimplantação]
--   [Monitore o desempenho dos aplicativos web][Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.]
--   [Pesquise por logs de diagnóstico][Capturar e pesquisar por logs de diagnóstico]
--   [Disponibilidade de acompanhamento com os testes web][configure os testes de web]
--   [Acompanhar uso][Acompanhar uso do seu aplicativo web]
--   [Perguntas e respostas e solução de problemas][Solucionar problemas]
+-   [Application Insights - introdução][start]
+-   [Monitore um servidor de web ao vivo agora][redfield]
+-   [Monitore o desempenho dos aplicativos web][perf]
+-   [Pesquise por logs de diagnóstico][diagnostic]
+-   [Disponibilidade de acompanhamento com os testes web][availability]
+-   [Acompanhar uso][usage]
+-   [Perguntas e respostas e solução de problemas][qna]
 
 <!--Link references-->
 
-  [Microsoft Azure]: http://azure.com
-  [Adicione o Application Insights ao seu projeto no Visual Studio]: #add
-  [Instale um agente no seu servidor sem a reimplantação]: ../app-insights-monitor-performance-live-website-now/
-  [versão mais antiga do Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
-  [Visual Studio 2013 Atualização 3]: http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409
-  [Criar um projeto ASP.NET]: ./media/appinsights/appinsights-01-vsnewp1.png
-  [Escolher Adicionar Application Insights]: ./media/appinsights/appinsights-03-addExisting.png
-  []: ./media/appinsights/appinsights-09eventcount.png
-  [Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.]: ./media/appinsights/appinsights-04-openPortal.png
-  [Clique por mais dados]: ./media/appinsights/appinsights-41firstHealth.png
-  [Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.]: ../app-insights-web-monitor-performance/
-  [No seu projeto no Application Insights, clique em Início Rápido, instrumente seu site da web e copie o código]: ./media/appinsights/appinsights-06webcode.png
-  [1]: ./media/appinsights/appinsights-05-usageTiles.png
-  [configure os testes de web]: ../app-insights-monitor-web-app-availability/
-  [Exemplo de monitoramento do aplicativo no Application Insights]: ./media/appinsights/appinsights-00-appblade.png
-  [Acompanhar uso do seu aplicativo web]: ../app-insights-web-track-usage/
-  [Capturar e pesquisar por logs de diagnóstico]: ../app-insights-search-diagnostic-logs/
-  [Solucionar problemas]: ../app-insights-troubleshoot-faq/
-  [Application Insights - introdução]: ../app-insights-start-monitoring-app-health-usage/
+
+[start]: ../app-insights-start-monitoring-app-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[perf]: ../app-insights-web-monitor-performance/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-web-track-usage/
+[qna]: ../app-insights-troubleshoot-faq/
+

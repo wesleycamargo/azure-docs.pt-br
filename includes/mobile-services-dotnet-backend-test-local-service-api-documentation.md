@@ -35,5 +35,5 @@
   [página inicial do serviço móvel]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png
   []: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png
-  [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: ./en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
+  [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: ./pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png

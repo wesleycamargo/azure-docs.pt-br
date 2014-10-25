@@ -5,25 +5,25 @@
 
 # Controle de acesso com base em função no portal de visualização do Azure
 
-Adicionamos suporte para o controle de acesso com base em função (RBAC) no portal de visualização do Azure para ajudar as organizações a atender seus requisitos de gerenciamento de acesso de forma simples e precisa. A [postagem no blog][postagem no blog] fornecerá a você uma introdução rápida do recurso e ajudará você a começar. Este tópico descreve os conceitos em detalhes e abrange casos de uso adicionais.
+Adicionamos suporte para o controle de acesso com base em função (RBAC) no portal de visualização do Azure para ajudar as organizações a atender seus requisitos de gerenciamento de acesso de forma simples e precisa. A <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">postagem no blog</a> fornecerá a você uma introdução rápida do recurso e ajudará você a começar. Este tópico descreve os conceitos em detalhes e abrange casos de uso adicionais.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 ## Sumário
 
--   [RBAC no Azure][RBAC no Azure]
--   [Coexistência do RBAC com os coadministradores de assinatura][Coexistência do RBAC com os coadministradores de assinatura]
--   [Autorização para o gerenciamento versus operações de dados][Autorização para o gerenciamento versus operações de dados]
--   [Como adicionar e remover acesso][Como adicionar e remover acesso]
--   [Problemas conhecidos ao usar o controle de acesso com base em função][Problemas conhecidos ao usar o controle de acesso com base em função]
--   [Como fornecer comentários][Como fornecer comentários]
--   [Próximas etapas][Próximas etapas]
+-   [RBAC no Azure](#whatisrbac) 
+-   [Coexistência do RBAC com os coadministradores de assinatura](#coexist)
+-   [Autorização para o gerenciamento versus operações de dados](#authmgmt)
+-   [Como adicionar e remover acesso](#addremoveaccess)
+-   [Problemas conhecidos ao usar o controle de acesso com base em função](#knownissues)
+-   [Como fornecer comentários](#feedback)
+-   [Próximas etapas](#next)
 
 ## <span id="whatisrbac"></span></a>RBAC no Azure
 
 Cada assinatura do Azure está associada com um Azure Active Directory. Os usuários e serviços que acessam os recursos da assinatura usando o portal de Gerenciamento do Azure ou a API do Gerenciador de Recursos do Azure primeiro precisam se autenticar com aquele Azure Active Directory.
 
-![][]
+![][1] 
 
 O controle de acesso com base em função permite que você conceda acesso apropriado aos usuários, grupos e serviços do Azure AD, atribuindo funções para eles em uma assinatura ou grupo de recursos ou nível de recurso individual. A função atribuída define o nível de acesso que os usuários, grupos ou serviços tem no recurso do Azure.
 
@@ -111,14 +111,14 @@ As funções podem ser atribuídas para os seguintes tipos de entidades de segur
 
 -   **Usuários**: as funções podem ser atribuídas aos usuários organizacionais que estão no Azure AD com os quais a assinatura do Azure está associada. As funções também podem ser atribuídas aos usuários da conta da Microsoft externa (como <joe@outlook.com>) usando a ação de Convite para atribuir ao usuário um função no portal de visualização do Azure. Ao atribuir uma função a um usuário de conta da Microsoft externa faz com que uma conta de convidado seja criada no Azure AD para ele. Se essa conta de convidado está desabilitada no diretório, o usuário externo não poderá acessar nenhum recurso do Azure para o qual o usuário tem concedido acesso.
 -   **Grupos**: as funções podem ser atribuídas para os grupos de segurança do Azure AD. Um usuário é concedido acesso automaticamente a um recurso se ele se tornar um membro de um grupo que tem acesso. O usuário também perde o acesso automaticamente ao recurso após ser removido do grupo. Gerenciar o acesso através de grupos ao atribuir funções aos grupos e adicionar usuários a esses grupos é a prática recomendada, em vez de atribuir funções diretamente aos usuários. O Azure RBAC não permite a atribuição de funções às listas de distribuição.
-    A capacidade de atribuir funções aos grupos permite que uma organização estenda seu modelo de controle de acesso existente de seu diretório local para a nuvem, para que os grupos de segurança que já estão estabelecidos para controlarem o acesso local possam ser reutilizados no portal de visualização do Azure. Para obter mais informações sobre as diferentes opções para sincronizar usuários e grupos de um diretório local, consulte [Integração de diretórios][Integração de diretórios]. O Azure AD Premium também oferece um [recurso de gerenciamento de grupos delegados][recurso de gerenciamento de grupos delegados] com o qual a capacidade de criar e gerenciar grupos pode ser delegada aos usuários não administradores do Azure AD.
+    A capacidade de atribuir funções aos grupos permite que uma organização estenda seu modelo de controle de acesso existente de seu diretório local para a nuvem, para que os grupos de segurança que já estão estabelecidos para controlarem o acesso local possam ser reutilizados no portal de visualização do Azure. Para obter mais informações sobre as diferentes opções para sincronizar usuários e grupos de um diretório local, consulte [Integração de diretórios](http://technet.microsoft.com/library/jj573653.aspx). O Azure AD Premium também oferece um [recurso de gerenciamento de grupos delegados](http://msdn.microsoft.com/library/azure/dn641267.aspx) com o qual a capacidade de criar e gerenciar grupos pode ser delegada aos usuários não administradores do Azure AD.
 -   **Entidades de serviço**: as identidades de serviço são representadas como entidades de serviço no diretório. Elas se autenticam com o Azure AD e se comunicam com segurança umas com as outras. Os serviços podem ser concedidos acesso aos recursos do Azure ao atribuir funções através do módulo do Azure para o Windows PowerShell à entidade de serviço do Azure AD representando aquele serviço.
 
 #### Escopo do recurso
 
 O acesso não precisa ser concedido para toda a assinatura. As funções podem ser atribuídas para grupos de recursos bem como para recursos individuais. No Azure RBAC, um recurso herda atribuições de função de seus recursos pai. Então se um usuário, grupo ou serviço é concedido acesso somente a um grupo de recursos dentro da assinatura, eles poderão somente acessar aquele grupo de recursos e os recursos dentro dele, e não outros grupos de recursos dentro da assinatura. Como outro exemplo, um grupo de segurança pode ser adicionado à função de Leitor para um grupo de recursos, mas ser adicionado a uma função de Colaborador para um banco de dados dentro daquele grupo de recursos.
 
-![][1]
+![][2]
 
 ## <span id="coexist"></span></a>Coexistência do RBAC com os coadministradores de assinatura
 
@@ -136,9 +136,9 @@ O controle de acesso com base em função tem suporte somente para as operaçõe
 
 Vamos olhar um exemplo de como o proprietário do recurso em uma organização pode gerenciar o acesso. Nesse cenário, você tem várias pessoas trabalhando em uma variedade de testes e projetos de produção que são desenvolvidos usando os recursos do Azure. Você deseja seguir as práticas recomendadas para conceder acesso. Os usuários devem ter acesso a todos os recursos que eles precisam, porém não acesso adicional. Você deseja reutilizar todos os investimentos que você fez nos processos e ferramentas para usar grupos de segurança que são controlados em um Active Directory local. Estas seções cobrem como configurar o acesso para estes recursos:
 
--   [Adicionar acesso][Adicionar acesso]
--   [Remover acesso][Remover acesso]
--   [Adicionar ou remover o acesso para o usuário externo][Adicionar ou remover o acesso para o usuário externo]
+-   [Adicionar acesso](#add)
+-   [Remover acesso](#remove)
+-   [Adicionar ou remover o acesso para o usuário externo](#addremoveext)
 
 ### 
 
@@ -156,25 +156,25 @@ Aqui está um resumo dos requisitos de acesso e como eles são configurados no A
 
 Primeiro, vamos adicionar o acesso à Leitura para todos os recursos da assinatura. Clique em **Procurar \> Todos \> Assinaturas**.
 
-![][2]
+![][3] 
 
 Clique no *nome de sua assinatura* \*\* \> Leitor \> Adicionar\*\*. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
 
-![][3]
+![][4]
 
 Depois adicione a mesma equipe à função de colaborador do grupo de recursos Test. Clique no grupo de recursos para abrir sua lâmina de propriedade. Em **Funções**, clique em **Colaborador \> Adicionar** e digite o nome da equipe.
 
-![][4]
+![][5]
 
 Para adicionar Brock à função de Colaborador do grupo de recursos Prod, clique no grupo de recursos, clique em **Colaborador \> Adicionar** e digite o nome do Brock.
 
-![][5]
+![][6]
 
 As atribuições de função podem também ser gerenciadas usando o módulo Microsoft Azure para o Windows PowerShell. Aqui está um exemplo de como adicionar a conta de Brock usando o cmdlet New-AzureRoleAssignment em vez do portal:
 
     PS C:PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDBgt; New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell][Gerenciar o controle de acesso com base em função com o Windows PowerShell].
+Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-powershell/).
 
 ### 
 
@@ -184,7 +184,7 @@ Para obter mais informações sobre como usar o Windows PowerShell para adiciona
 </p>
 Você também pode remover atribuições facilmente. Digamos que você deseja remover um usuário chamado de Brad Adams da função de Leitor para um grupo de recursos chamado TestDB. Abra a lâmina do grupo de recursos, clique em **Leitor \> Brad Adams \> Remover**.
 
-![][6]
+![][7]
 
 Aqui está um exemplo de como remover Brad Adams usando o cmdlet New-AzureRoleAssignment:
 
@@ -199,7 +199,7 @@ Aqui está um exemplo de como remover Brad Adams usando o cmdlet New-AzureRoleAs
 A guia **Configurar** do diretório inclui opções para controlar o acesso para usuários externos. Essas opções podem ser alteradas somente na interface do usuário (não há método de API ou Windows PowerShell) no portal completo do Azure por um administrador global do diretório.
 Para abrir a guia **Configurar** no portal completo do Azure, clique em **Active Directory** e, em seguida, clique no nome do diretório.
 
-![][7]
+![][10]
 
 Então você pode editar as opções para controlar o acesso para os usuários externos.
 
@@ -223,54 +223,32 @@ Você pode também remover um convidado de qualquer função, simplesmente como 
 
 ## <span id="knownissues"></span></a>Problemas conhecidos ao usar o controle de acesso com base em função
 
-Se você encontrar um problema ao usar o recurso do controle de acesso com base em função enquanto estiver na visualização, consulte [Solucionar problemas do controle de acesso com base em função][Solucionar problemas do controle de acesso com base em função] para qualquer problema conhecido que possa estar relacionado ao problema.
+Se você encontrar um problema ao usar o recurso do controle de acesso com base em função enquanto estiver na visualização, consulte [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/) para qualquer problema conhecido que possa estar relacionado ao problema.
 
 ## <span id="feedback"></span></a>Como fornecer comentários
 
-Tente o Azure RBAC e nos envie [comentários][comentários].
+Tente o Azure RBAC e nos envie [comentários](http://aka.ms/azurerbacfeedback).
 
 ## <span id="next"></span></a>Próximas etapas
 
 Veja alguns recursos adicionais para ajudar você a usar o controle de acesso com base em função:
 
--   [Gerenciar o controle de acesso com base em função com o Windows PowerShell][Gerenciar o controle de acesso com base em função com o Windows PowerShell]
--   [Gerenciar o controle de acesso com base em função com o XPLAT CLI][Gerenciar o controle de acesso com base em função com o XPLAT CLI]
--   [Solucionar problemas do controle de acesso com base em função][Solucionar problemas do controle de acesso com base em função]
--   [Azure Active Directory][Azure Active Directory]
--   [Azure Active Directory Premium e Basic][Azure Active Directory Premium e Basic]
--   [Como as assinaturas do Azure estão associadas ao Azure AD][Como as assinaturas do Azure estão associadas ao Azure AD]
--   Para uma introdução para o gerenciamento de grupo de autoatendimento para os grupos de segurança, consulte o [Blog da equipe do Active Directory][Blog da equipe do Active Directory]
+-   [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-powershell/)
+-   [Gerenciar o controle de acesso com base em função com o XPLAT CLI](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-xplat-cli/)
+-   [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/)
+-   [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
+-   [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/pt-br/library/azure/dn532272.aspx)
+-   [Como as assinaturas do Azure estão associadas ao Azure AD](http://msdn.microsoft.com/pt-br/library/azure/dn629581.aspx)
+-   Para uma introdução para o gerenciamento de grupo de autoatendimento para os grupos de segurança, consulte o [Blog da equipe do Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 <!--Image references-->
-
-  [postagem no blog]: http://go.microsoft.com/fwlink/?LinkId=511576
-  [RBAC no Azure]: #whatisrbac
-  [Coexistência do RBAC com os coadministradores de assinatura]: #coexist
-  [Autorização para o gerenciamento versus operações de dados]: #authmgmt
-  [Como adicionar e remover acesso]: #addremoveaccess
-  [Problemas conhecidos ao usar o controle de acesso com base em função]: #knownissues
-  [Como fornecer comentários]: #feedback
-  [Próximas etapas]: #next
-  []: ./media/role-based-access-control-configure/RBACSubAuthDir.png
-  [Integração de diretórios]: http://technet.microsoft.com/library/jj573653.aspx
-  [recurso de gerenciamento de grupos delegados]: http://msdn.microsoft.com/library/azure/dn641267.aspx
-  [1]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
-  [Adicionar acesso]: #add
-  [Remover acesso]: #remove
-  [Adicionar ou remover o acesso para o usuário externo]: #addremoveext
-  [2]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
-  [3]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
-  [4]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
-  [5]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
-  [Gerenciar o controle de acesso com base em função com o Windows PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/
-  [6]: ./media/role-based-access-control-configure/RBACRemoveRole.png
-  [7]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
-  [8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
-  [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
-  [Solucionar problemas do controle de acesso com base em função]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/
-  [comentários]: http://aka.ms/azurerbacfeedback
-  [Gerenciar o controle de acesso com base em função com o XPLAT CLI]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/
-  [Azure Active Directory]: http://msdn.microsoft.com/library/azure/jj673460.aspx
-  [Azure Active Directory Premium e Basic]: http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx
-  [Como as assinaturas do Azure estão associadas ao Azure AD]: http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx
-  [Blog da equipe do Active Directory]: http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx
+[1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
+[2]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
+[3]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
+[4]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
+[5]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
+[6]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
+[7]: ./media/role-based-access-control-configure/RBACRemoveRole.png
+[8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
+[9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
+[10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png

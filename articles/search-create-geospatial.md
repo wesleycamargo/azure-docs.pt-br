@@ -4,40 +4,40 @@
 
 # Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure
 
--   [Pré-requisitos][Pré-requisitos]
--   [Bing Mapas][Bing Mapas]
--   [Endereços de Geocodificação no C# usando a API do Bing Mapas DataFlow][Endereços de Geocodificação no C# usando a API do Bing Mapas DataFlow]
--   [Adicionar o mapeamento para um aplicativo MVC4 usando a Pesquisa do Azure e o Bing Mapas][Adicionar o mapeamento para um aplicativo MVC4 usando a Pesquisa do Azure e o Bing Mapas]
--   [Explorar o AdventureWorksWebGeo][Explorar o AdventureWorksWebGeo]
--   [Próximas etapas][Próximas etapas]
+-   [Pré-requisitos](#sub-1)
+-   [Bing Mapas](#sub-2)
+-   [Endereços de Geocodificação no C# usando a API do Bing Mapas DataFlow](#sub-3)
+-   [Adicionar o mapeamento para um aplicativo MVC4 usando a Pesquisa do Azure e o Bing Mapas](#sub-4)
+-   [Explorar o AdventureWorksWebGeo](#sub-5)
+-   [Próximas etapas](#next-steps)
 
 ## Visão geral
 
 Este tutorial demonstra como adicionar a pesquisa geoespacial aos aplicativos Web usando a Pesquisa do Azure e o Bing Mapas. Ao usar a pesquisa geográfica, você pode encontrar destinos de pesquisa dentro de uma distância determinada de um ponto (como encontrar todos os restaurantes a uma distância de 5 Km do meu local atual). A capacidade geoespacial na Pesquisa do Azure fornece suporte comumente usado nas técnicas de mapeamento. Por exemplo, se você deseja usar formas de polígono em um aplicativo imobiliário mostrando casas para venda dentro do limite do polígono, você pode facilmente fazer isso usando a sintaxe de pesquisa simples ou OData.
 
-Para uma visão mais geral, assista a este vídeo no Canal 9 sobre [Pesquisa do Azure e Dados Geoespaciais][Pesquisa do Azure e Dados Geoespaciais]
+Para uma visão mais geral, assista a este vídeo no Canal 9 sobre [Pesquisa do Azure e Dados Geoespaciais](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
 
-![][]
+![][7]
 
 Para criar o aplicativo, utilizaremos o serviço de mapeamento do Bing para geocodificar endereços carregados de um arquivo CSV e armazenar os dados resultantes em um índice de Pesquisa.
 
-Este tutorial é baseado na [Pesquisa do Azure – Demonstração do Adventure Works][Pesquisa do Azure – Demonstração do Adventure Works]. Se você ainda não percorreu aquela demonstração, comece lá para obter alguma experiência em criar um índice e chamar a API de Pesquisa do Azure de um aplicativo da Web.
+Este tutorial é baseado na [Pesquisa do Azure – Demonstração do Adventure Works](http://azuresearchadventureworksdemo.codeplex.com). Se você ainda não percorreu aquela demonstração, comece lá para obter alguma experiência em criar um índice e chamar a API de Pesquisa do Azure de um aplicativo da Web.
 
 ## Pré-requisitos
 
--   Visual Studio 2012 ou posterior com o ASP.NET MVC 4 e SQL Server instalados. Você pode obter o Visual Studio 2013 Express da Web no [Centro de Download][Centro de Download].
--   Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Configurar a Pesquisa no Portal de Visualização do Azure][Configurar a Pesquisa no Portal de Visualização do Azure] para obter detalhes.
+-   Visual Studio 2012 ou posterior com o ASP.NET MVC 4 e SQL Server instalados. Você pode obter o Visual Studio 2013 Express da Web no [Centro de Download](http://www.microsoft.com/pt-br/download/details.aspx?id=40747).
+-   Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Configurar a Pesquisa no Portal de Visualização do Azure](../search-configure/)  para obter detalhes.
 -   Um serviço de mapa do Bing e uma chave para acessá-lo. As instruções são fornecidas na próxima seção
--   [Exemplo de GeoSearch da Pesquisa do Azure no CodePlex][Exemplo de GeoSearch da Pesquisa do Azure no CodePlex]. Na guia Fonte, clique em **Download** para obter um arquivo zip da solução.
+-   [Exemplo de GeoSearch da Pesquisa do Azure no CodePlex](https://azuresearchgeospatial.codeplex.com/). Na guia Fonte, clique em **Download** para obter um arquivo zip da solução.
 
-    ![][1]
+    ![][12]
 
 Essa solução contém dois projetos:
 
 -   O **StoreIndexer** cria um índice de Pesquisa do Azure e carrega dados.
 -   O **AdventureWorksWebGeo** é um aplicativo baseado em MVC4 que consulta o índice de Pesquisa do Azure e mostra locais e armazenamento em um mapa do Bing.
 
-[WACOM.INCLUDE [Você precisa de uma conta do Azure para concluir este tutorial:][Você precisa de uma conta do Azure para concluir este tutorial:]]
+[WACOM.INCLUDE [Você precisa de uma conta do Azure para concluir este tutorial:](../includes/free-trial-note.md)]
 
 ## Bing Mapas
 
@@ -49,7 +49,7 @@ Vamos usar a API do Bing Mapas para duas coisas.
 
 ### Criar uma conta para o Bing Mapas
 
-1.  Vá até o [Portal do Bing Mapas][Portal do Bing Mapas] e crie uma nova conta. Insira os detalhes para criar a conta.
+1.  Vá até o [Portal do Bing Mapas](https://www.bingmapsportal.com/) e crie uma nova conta. Insira os detalhes para criar a conta.
 
 2.  Depois que a conta for criada, escolha **Criar ou exibir as chaves** e insira os detalhes para criar uma chave. Para essa demonstração, você pode escolher **Chave de Avaliação**.
 
@@ -63,7 +63,7 @@ Esses dados vêm de um arquivo CSV chamado store\_locations.csv localizado na fo
 
 Vamos explorar o código que explica como isso funciona.
 
-1.  Abra a solução AdventureWorksGeo no Visual Studio, expanda o projeto **StoreIndexer** no Gerenciador de Soluções e abra o Program.cs. Visto que já cobrimos a criação do índice na [Pesquisa do Azure – Demonstração do Adventure Works][2], pularemos a discussão sobre como isso funciona no Program.cs.
+1.  Abra a solução AdventureWorksGeo no Visual Studio, expanda o projeto **StoreIndexer** no Gerenciador de Soluções e abra o Program.cs. Visto que já cobrimos a criação do índice na [Pesquisa do Azure – Demonstração do Adventure Works](http://azuresearchadventureworksdemo.codeplex.com/), pularemos a discussão sobre como isso funciona no Program.cs.
 
 2.  Vá até a função **Principal** e observe que ela chama o **ApplyStoreData**. Mova para essa função e explore o código.
 
@@ -97,7 +97,7 @@ Nessa etapa, criaremos e executaremos o aplicativo de pesquisa em um navegador d
 
 4.  Salve o Web.config.
 
-5.  Pressione **F5** para iniciar o projeto. Siga essas etapas de [Solução de problemas][Solução de problemas] se você receber um erro de compilação.
+5.  Pressione **F5** para iniciar o projeto. Siga essas etapas de [Solução de problemas](#err-mvc) se você receber um erro de compilação.
 
 Observe como que as lojas são sobrepostas como pontos no mapa. Clique em uma das lojas e você verá um pop-up que descreve os detalhes da loja. Todas estas informações estão vindo do índice de Pesquisa do Azure chamado "stores" que foi criado nas etapas anteriores.
 
@@ -141,20 +141,15 @@ Para um estudo individual adicional, considere adicionar mais capacidade ao apli
 -   Áreas de seleção desenhadas pelo usuário que permitem aos usuários selecionarem regiões específicas para serem pesquisadas ao desenhar uma área no mapa. A área é então filtrada pela Pesquisa do Azure usando a API geo-intersect e traçada no mapa.
 
 
-  [Pré-requisitos]: #sub-1
-  [Bing Mapas]: #sub-2
-  [Endereços de Geocodificação no C# usando a API do Bing Mapas DataFlow]: #sub-3
-  [Adicionar o mapeamento para um aplicativo MVC4 usando a Pesquisa do Azure e o Bing Mapas]: #sub-4
-  [Explorar o AdventureWorksWebGeo]: #sub-5
-  [Próximas etapas]: #next-steps
-  [Pesquisa do Azure e Dados Geoespaciais]: http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data
-  []: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
-  [Pesquisa do Azure – Demonstração do Adventure Works]: http://azuresearchadventureworksdemo.codeplex.com
-  [Centro de Download]: http://www.microsoft.com/en-us/download/details.aspx?id=40747
-  [Configurar a Pesquisa no Portal de Visualização do Azure]: ../search-configure/
-  [Exemplo de GeoSearch da Pesquisa do Azure no CodePlex]: https://azuresearchgeospatial.codeplex.com/
-  [1]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
-  [Você precisa de uma conta do Azure para concluir este tutorial:]: ../includes/free-trial-note.md
-  [Portal do Bing Mapas]: https://www.bingmapsportal.com/
-  [2]: http://azuresearchadventureworksdemo.codeplex.com/
-  [Solução de problemas]: #err-mvc
+<!--Anchors-->
+[Prerequisites]: #sub-1
+[Bing Maps]: #sub-2
+[Geocode Addresses in C# using Bing Maps DataFlow API]: #sub-3
+[Add Mapping to an MVC4 Application using Azure Search and Bing Maps]: #sub-4
+[Explore AdventureWorksWebGeo]: #sub-5
+[Next steps]: #next-steps
+
+
+<!--Image references-->
+[7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
+[12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG

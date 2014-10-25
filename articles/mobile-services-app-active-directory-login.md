@@ -1,39 +1,36 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-waad-authentication" urlDisplayName="Registrar-se para autenticação do Active Directory do Azure" pageTitle="Registrar-se para autenticação do Active Directory do Azure - Serviços Móveis" metaKeywords="aplicativo de registro do Azure, autenticação do Active Directory do Azure, aplicativo de autenticação, autenticação dos serviços móveis" description="Saiba como registrar-se para autenticação do Active Directory do Azure em seu aplicativo de Serviços Móveis do Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Registrar seus aplicativos para usarem um logon de Conta do Active Directory do Azure" authors="" />
+<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-waad-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use an Azure Active Directory Account login" authors="dwrede" manager="dwrede" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede"></tags>
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
 
-Este tópico mostra como registrar seus aplicativos para poderem usar o Active Directory do Azure como um provedor de autenticação para os Serviços Móveis do Azure. 
+Este tópico mostra como registrar seus aplicativos para poderem usar o Active Directory do Azure como um provedor de autenticação para os Serviços Móveis do Azure.
 
-<div class="dev-callout"><b>Observação</b>
-<p>Quando você também planeja fornecer autenticação controlada por cliente para SSO (logon único) ou enviar notificações por push de um aplicativo da Windows Store, considere também registrar seu aplicativo na Windows Store. Para obter mais informações, consulte <a href="/pt-br/develop/mobile/how-to-guides/register-for-single-sign-on">Registrar seus aplicativos da Windows Store para autenticação do Windows Live Connect</a>.</p>
+<div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
+<p>Quando voc&ecirc; tamb&eacute;m planeja fornecer autentica&ccedil;&atilde;o controlada por cliente para SSO (logon &uacute;nico) ou enviar notifica&ccedil;&otilde;es por push de um aplicativo da Windows Store, considere tamb&eacute;m registrar seu aplicativo na Windows Store. Para obter mais informa&ccedil;&otilde;es, consulte <a href="/pt-br/develop/mobile/how-to-guides/register-for-single-sign-on">Registrar seus aplicativos da Windows Store para autentica&ccedil;&atilde;o do Windows Live Connect</a>.</p>
 </div>
 
-1.  Faça logon no [Portal de Gerenciamento do Azure]. 
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
-2. Navegue para **Active Directory** no Portal de Gerenciamento e clique em seu diretório.
+2.  Navegue para **Active Directory** no Portal de Gerenciamento e clique em seu diretório.
 
-   ![][1] 
+	![][]
 
-3. Clique na guia **Aplicativos** e, em seguida, clique em **Adicionar um Aplicativo**. 
+1.  Clique na guia **Aplicativos** e, em seguida, clique em **Adicionar um Aplicativo**.
 
-   ![][2]
+	![][1]
 
+1.  Siga as instruções do assistente de novo aplicativo escolhendo **Aplicativo Web e/ou API Web** para o XXX. Habilite o Logon Único. Quando a**URL do Aplicativo** for solicitada, cole a URL do aplicativo de serviços móveis.
 
-4. Siga as instruções do assistente de novo aplicativo escolhendo **Aplicativo Web e/ou API Web** para o XXX. Habilite o Logon Único Quando a**URL do Aplicativo** for solicitada, cole a URL do aplicativo de serviços móveis.
-
-
-5. *** MAIS A SER INCLUÍDO ***
-
+2.  ** MAIS A SER INCLUÍDO **
 
 Agora você está pronto para usar um Active Directory do Azure para autenticação em seu aplicativo fornecendo os valores de ID do cliente e de segredo do cliente aos Serviços Móveis.
 
-<!-- Anchors. -->
-
-<!-- Images. -->
-[1]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
-[2]: ./media/mobile-services-app-active-directory-login/mobile-live-connect-app-api-settings.png
-
+<!-- Anchors. --> 
+<!-- Images. --> 
 <!-- URLs. -->
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
+  [Registrar seus aplicativos da Windows Store para autenticação do Windows Live Connect]: /pt-br/develop/mobile/how-to-guides/register-for-single-sign-on
+  [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+  []: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
+  [1]: ./media/mobile-services-app-active-directory-login/mobile-live-connect-app-api-settings.png

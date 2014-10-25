@@ -1,46 +1,47 @@
-<properties pageTitle="Registre-se na autenticação da Microsoft - Serviços Móveis" metaKeywords="Azure registrando aplicativo, autenticação do Microsoft Azure, aplicativo autenticar, autenticar serviços móveis" description="Saiba como registrar-se para autenticação da Microsoft em seu aplicativo de Serviços Móveis do Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Registrar seus aplicativos para usarem um logon de Conta da Microsoft" authors="" />
+<properties pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" authors="glenga" services="mobile-services" documentationCenter="Mobile" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
 # Registrar seus aplicativos para usar um logon de Conta da Microsoft
 
-Este tópico mostra como registrar seus aplicativos para poderem usar o Live Connect como um provedor de autenticação para os Serviços Móveis do Azure. 
+Este tópico mostra como registrar seu aplicativo para poder usar o Live Connect como um provedor de autenticação para os Serviços Móveis do Azure.
 
->[WACOM.NOTE]Quando você também planeja fornecer autenticação controlada por cliente para SSO (logon único) ou enviar notificações por push de um aplicativo da Windows Store, considere também registrar seu aplicativo na Windows Store. Para obter mais informações, consulte <a href="/pt-br/develop/mobile/how-to-guides/register-for-single-sign-on">Registrar seus aplicativos da Windows Store para autenticação do Windows Live Connect</a>.
+> [WACOM.NOTE]Para configurar a autenticação da conta da Microsoft para um aplicativo do Windows 8.1 ou Windows Phone 8.1, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft][Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft].
 
+1.  Navegue até a página [Meus Aplicativos][Meus Aplicativos] na Central de Desenvolvedores do Live Connect e faça logon com sua conta da Microsoft, se necessário.
 
-1. Navegue até a página <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Meus Aplicativos</a> na Central de Desenvolvedores do Live Connect e faça logon com sua conta da Microsoft, se necessário. 
+2.  Clique em **Criar aplicativo**, digite um **Nome de aplicativo** e clique em **Aceito**.
 
-2. Clique em **Criar aplicativo**, digite um **Nome de aplicativo** e clique em **Aceito**.
+    ![][]
 
-   	![][1] 
+    Isso registra o aplicativo no Live Connect.
 
-   	Isso registra o aplicativo no Live Connect.
+3.  Clique em **Configurações de API**, forneça um valor de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` em **URL de redirecionamento** e clique em **Salvar**.
 
-10. Clique na **página Configurações do aplicativo**, em seguida, em **Configurações da API** e anote os valores da **ID do Cliente** e **Segredo do Cliente**. 
+    > [WACOM.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescentada ao caminho *signin-microsoft* e o seu serviço móvel é um serviço .NET, por exemplo, . `https://todolist.azure-mobile.net/signin-microsoft`.
 
-   	![][2]
+    ![][1]
 
-    <div class="dev-callout"><b>Observação de Segurança</b>
-	<p>O segredo do cliente é uma credencial de segurança importante. Não compartilhe o segredo do cliente com ninguém nem o distribua com seu aplicativo.</p>
-    </div>
+    Isto habilita a autenticação de conta da Microsoft do seu aplicativo.
 
-11. Em **Domínio de redirecionamento**, digite a URL do seu serviço móvel e clique em **Salvar**.
+    > [WACOM.NOTE]Para um registro do aplicativo Live Connect existente, você talvez tenha que primeiro habilitar a **Segurança de redirecionamento reforçada**.
+
+4.  Clique em **Configurações da API** e anote os valores da **ID do cliente** e **Segredo do cliente**.
+
+    ![][2]
+
+    <div class="dev-callout"><b>Observa&ccedil;&atilde;o de Seguran&ccedil;a</b>
+<p>O segredo do cliente &eacute; uma credencial de seguran&ccedil;a importante. N&atilde;o compartilhe o segredo do cliente com ningu&eacute;m nem o distribua com seu aplicativo.</p>
+</div>
 
 Agora você está pronto para usar uma Conta da Microsoft para autenticação em seu aplicativo, fornecendo os valores da ID do cliente e do segredo do cliente aos Serviços Móveis.
 
-<!-- Anchors. -->
-
-<!-- Images. -->
-[1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
-[2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-live-connect-app-api-settings.png
+<!-- Anchors. --> 
+<!-- Images. --> 
 <!-- URLs. -->
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/how-to-guides/register-for-single-sign-on/
-[Enviar uma página de aplicativo:]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Meus aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
+  [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+  [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+  []: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
+  [1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png
+  [2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png

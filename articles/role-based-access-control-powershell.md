@@ -4,7 +4,7 @@
 
 # Gerenciar o controle de acesso com base em função com o Windows PowerShell
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-rbac.md" title="CLI entre plataformas">CLI entre plataformas</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/pt-br/documentation/articles/xplat-cli-rbac.md" title="CLI entre plataformas">CLI entre plataformas</a></div>
 
 O controle de acesso com base em função (RBAC) no portal de visualização do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -148,24 +148,24 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 -   [Configurar o controle de acesso com base em função usando o XPLAT CLI][Configurar o controle de acesso com base em função usando o XPLAT CLI]
 -   [Solucionar problemas de controle de acesso com base em função][Solucionar problemas de controle de acesso com base em função]
 
-  [Windows PowerShell]: /en-us/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [CLI entre plataformas]: /en-us/documentation/articles/xplat-cli-rbac.md "CLI entre plataformas"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
-  [Como instalar e configurar o PowerShell do Windows Azure (a página pode estar em inglês)]: http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/
-  [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)]: http://technet.microsoft.com/en-us/library/hh857337.aspx
-  [Como instalar e configurar o PowerShell do Azure]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
-  [Usando o Windows PowerShell com o Gerenciador de Recursos]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [Windows PowerShell]: /pt-br/documentation/articles/powershell-rbac.md "Windows PowerShell"
+  [CLI entre plataformas]: /pt-br/documentation/articles/xplat-cli-rbac.md "CLI entre plataformas"
+  [Windows Management Framework 3.0]: http://www.microsoft.com/pt-br/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/pt-br/download/details.aspx?id=40855
+  [Como instalar e configurar o PowerShell do Windows Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/
+  [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)]: http://technet.microsoft.com/pt-br/library/hh857337.aspx
+  [Como instalar e configurar o PowerShell do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
+  [Usando o Windows PowerShell com o Gerenciador de Recursos]: http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/
   [Conecte-se as suas assinaturas]: #connect
   [Verifique as atribuições de função existentes]: #check
   [Crie uma atribuição de função]: #create
   [Verifique as permissões]: #verify
   [Próximas etapas]: #next
-  [Controle de acesso com base em função do Windows Azure]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/
+  [Controle de acesso com base em função do Windows Azure]: http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/
   [Cmdlets do Gerenciador de Recursos do Azure]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
-  [Usando grupos de recursos para gerenciar os recursos do Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups
+  [Usando grupos de recursos para gerenciar os recursos do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups
   [Blog do Azure]: http://blogs.msdn.com/windowsazure
   [Blog do Windows PowerShell]: http://blogs.msdn.com/powershell
   [Blog "Hey, Scripting Guy!" Blog]: http://blogs.technet.com/b/heyscriptingguy/
-  [Configurar o controle de acesso com base em função usando o XPLAT CLI]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/
-  [Solucionar problemas de controle de acesso com base em função]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/
+  [Configurar o controle de acesso com base em função usando o XPLAT CLI]: http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-xplat-cli/
+  [Solucionar problemas de controle de acesso com base em função]: http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/

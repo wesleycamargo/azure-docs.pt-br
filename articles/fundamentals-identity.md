@@ -1,10 +1,7 @@
-<properties linkid="dev-net-fundamentals-identity" urlDisplayName="Identidade" pageTitle="Identidade do Azure" metaKeywords="identidade do Azure, Azure Active Directory, AD do Azure, anúncio de identidade na nuvem, active directory na nuvem" description="Saiba como usar o Active Directory no Azure." metaCanonical="" services="active-directory" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-net-fundamentals-identity" urlDisplayName="Identity" pageTitle="Azure Identity" metaKeywords="Azure identity, Azure Active Directory, Azure AD, cloud identity ad, cloud active directory" description="Learn about using Active Directory in Azure." metaCanonical="" services="active-directory" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
 
+[WACOM.INCLUDE [identity][identity]]
 
-
-
-
-
-[WACOM.INCLUDE [identity](../includes/identity.md)]
-
+  [identity]: ../includes/identity.md

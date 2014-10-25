@@ -2,70 +2,68 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
 
 <div class="dev-callout">
 <b>Aviso</b>
-<p>Os recursos de segurança do MongoDB, como autenticação e vinculação com o endereço IP, não estão habilitados por padrão. Os recursos de segurança devem ser ativados antes de implantar o MongoDB em um ambiente de produção.  Consulte <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Segurança e autenticação</a> para obter mais informações.</p>
+<p>Os recursos de seguran&ccedil;a do MongoDB, como autentica&ccedil;&atilde;o e associa&ccedil;&atilde;o com o endere&ccedil;o IP, n&atilde;o s&atilde;o habilitados por padr&atilde;o. Os recursos de seguran&ccedil;a devem ser ativados antes de implantar o MongoDB em um ambiente de produ&ccedil;&atilde;o.  Consulte <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Seguran&ccedil;a e autentica&ccedil;&atilde;o</a> para obter mais informa&ccedil;&otilde;es.</p>
 </div>
 
-1. Configure o Sistema de Gerenciamento de Pacote (YUM) para que você possa instalar o MongoDB. Crie um */etc/yum.repos.d/10gen.repo* arquivo para armazenar informações sobre o repositório e adicione o seguinte:
+1.  Configure o Sistema de Gerenciamento de Pacote (YUM) para que você possa instalar o MongoDB. Crie um */etc/yum.repos.d/10gen.repo* arquivo para armazenar informações sobre o repositório e adicione o seguinte:
 
-		[10gen]
-		name=10gen Repository
-		baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
-		gpgcheck=0
-		enabled=1
+        [10gen]
+        name=10gen Repository
+        baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
+        gpgcheck=0
+        enabled=1
 
-2. Salve o arquivo repo e, em seguida, execute o seguinte comando para atualizar o banco de dados do pacote local:
+2.  Salve o arquivo repo e, em seguida, execute o seguinte comando para atualizar o banco de dados do pacote local:
 
-		$ sudo yum update
-3. Para instalar o pacote, execute o comando a seguir para instalar a última versão estável do MongoDB e as ferramentas associadas:
+        $ sudo yum update
 
-		$ sudo yum install mongo-10gen mongo-10gen-server
+3.  Para instalar o pacote, execute o comando a seguir para instalar a última versão estável do MongoDB e as ferramentas associadas:
 
-	Aguarde enquanto o MongoDB é baixado e instalado.
+        $ sudo yum install mongo-10gen mongo-10gen-server
 
-4. Crie um diretório de dados. Por padrão, o MongoDB armazena dados no diretório */data/db*, mas você deve criar esse diretório. Para criá-lo, execute:
+    Aguarde enquanto o MongoDB é baixado e instalado.
 
-		$ sudo mkdir -p /mnt/datadrive/data
-		$ sudo chown `id -u` /mnt/datadrive/data
+4.  Crie um diretório de dados. Por padrão, o MongoDB armazena dados no diretório */data/db*, mas você deve criar esse diretório. Para criá-lo, execute:
 
-	Para obter mais informações sobre como instalar o MongoDB no Linux, consulte [Quickstart Unix][QuickstartUnix].
+        $ sudo mkdir -p /srv/datadrive/data
+        $ sudo chown `id -u` /srv/datadrive/data
 
-5. Para iniciar o banco de dados, execute:
+    Para obter mais informações sobre como instalar o MongoDB no Linux, consulte [Quickstart Unix][].
 
-		$ mongod --dbpath /mnt/datadrive/data --logpath /mnt/datadrive/data/mongod.log
+5.  Para iniciar o banco de dados, execute:
 
-	Todas as mensagens de log serão direcionadas para o arquivo */mnt/datadrive/data/mongod.log*, quando o servidor MongoDB for iniciado e pré-alocar arquivos de diário. Isso pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a escutar conexões.
+        $ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
 
-6. Para iniciar o shell administrativo do MongoDB, abra uma janela separada do SSH ou PuTTY e execute:
+    Todas as mensagens de log serão direcionadas para o arquivo */srv/datadrive/data/mongod.log*, quando o servidor MongoDB for iniciado e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
 
-		$ mongo
-		> db.foo.save ( { a:1 } )
-		> db.foo.find()
-		{ _id : ..., a : 1 }
-		> show dbs  
-		...
-		> show collections  
-		...  
-		> help  
+6.  Para iniciar o shell administrativo do MongoDB, abra uma janela separada do SSH ou PuTTY e execute:
 
-	O banco de dados é criado pelo menu Inserir.
+        $ mongo
+        > db.foo.save ( { a:1 } )
+        > db.foo.find()
+        { _id : ..., a : 1 }
+        > show dbs  
+        ...
+        > show collections  
+        ...  
+        > help  
 
-7. Depois que o MongoDB for instalado, você deverá configurar um ponto de extremidade para que o MongoDB possa ser acessado remotamente. No Portal de Gerenciamento, clique em **Máquinas Virtuais** e, em seguida, clique no nome da sua nova máquina virtual e clique em **Pontos de extremidade**
-	
-	![Pontos de extremidade][Image7]
+    O banco de dados é criado pelo comando insert.
 
-8. Clique em **Adicionar ponto de extremidade** na parte inferior da página.
-	
-	![Pontos de extremidade][Image8]
+7.  Depois que o MongoDB for instalado, você deverá configurar um ponto de extremidade para que o MongoDB possa ser acessado remotamente. No Portal de Gerenciamento, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e depois clique em **Pontos de extremidade**.
 
-9. Adicionar um ponto de extremidade com o nome "Mongo", protocolo **TCP** e portas **públicas** e **particulares**  definidas como "27017". Isso permitirá que o MongoDB seja acessado remotamente.
-	
-	![Pontos de extremidade][Image9]
+    ![Pontos de extremidade][]
 
+8.  Clique em **Adicionar Ponto de Extremidade** na parte inferior da página.
 
-[QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+    ![Pontos de extremidade][1]
 
+9.  Adicione um ponto de extremidade com o nome "Mongo", protocolo **TCP** e defina as portas **Pública** e **Privada** como "27017". Isso permitirá que o MongoDB seja acessado remotamente.
 
-[Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
-[Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
-[Image9]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png
+    ![Pontos de extremidade][2]
 
+  [Segurança e autenticação]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
+  [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+  [Pontos de extremidade]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
+  [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
+  [2]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png

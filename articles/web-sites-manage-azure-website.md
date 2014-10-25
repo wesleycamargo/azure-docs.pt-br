@@ -83,27 +83,27 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
   [Antes de você implantar seu site para produção]: #before-you-deploy-your-site-to-production
   [Enquanto seu site está executando]: #while-your-website-is-running
   [Quando você atualiza seu site]: #when-you-update-your-website
-  [Gerenciar sites por meio do Portal de Gerenciamento do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage/
-  [Detalhes dos preços]: http://azure.microsoft.com/en-us/pricing/details/websites/
-  [Planos de Hospedagem na Web]: http://azure.microsoft.com/en-us/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
-  [alternar as faixas]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/
+  [Gerenciar sites por meio do Portal de Gerenciamento do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-manage/
+  [Detalhes dos preços]: http://azure.microsoft.com/pt-br/pricing/details/websites/
+  [Planos de Hospedagem na Web]: http://azure.microsoft.com/pt-br/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
+  [alternar as faixas]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-scale/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [Como configurar sites]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/
+  [Como configurar sites]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
-  [socket.io]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-chat-app-socketio/
-  [Habilitar HTTPS para um site do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/
-  [Configurar um nome de domínio personalizado]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/
-  [Como configurar o PHP nos sites do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-configure/
-  [Configurar o Python com os Sites do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-configure/
-  [adicionar métricas de desempenho]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor
-  [Gerenciamento de desempenho do aplicativo New Relic nos sites do Azure]: http://azure.microsoft.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
-  [backups automáticos]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/
-  [neste vídeo]: http://azure.microsoft.com/en-us/documentation/videos/azure-websites-automatic-and-easy-backup/
-  [recuperação de banco de dados]: http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx
-  [solucionar no Visual Studio]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
-  [Habilitar o log de diagnóstico para os Sites do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-enable-diagnostic-log/
-  [Como depurar um aplicativo Node.js nos Sites do Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-debug/
-  [Restaurar]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/
-  [implantação em estágios]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/
-  [Usando o Controle de Versão do Team Foundation (TFVC)]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/
-  [Usando a grade]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso-git/
+  [socket.io]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-nodejs-chat-app-socketio/
+  [Habilitar HTTPS para um site do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/
+  [Configurar um nome de domínio personalizado]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-custom-domain-name/
+  [Como configurar o PHP nos sites do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-php-configure/
+  [Configurar o Python com os Sites do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-python-configure/
+  [adicionar métricas de desempenho]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-monitor
+  [Gerenciamento de desempenho do aplicativo New Relic nos sites do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
+  [backups automáticos]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-backup/
+  [neste vídeo]: http://azure.microsoft.com/pt-br/documentation/videos/azure-websites-automatic-and-easy-backup/
+  [recuperação de banco de dados]: http://msdn.microsoft.com/pt-br/library/azure/hh852669.aspx
+  [solucionar no Visual Studio]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
+  [Habilitar o log de diagnóstico para os Sites do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-enable-diagnostic-log/
+  [Como depurar um aplicativo Node.js nos Sites do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-nodejs-debug/
+  [Restaurar]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-restore/
+  [implantação em estágios]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-staged-publishing/
+  [Usando o Controle de Versão do Team Foundation (TFVC)]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-continuous-delivery-use-vso/
+  [Usando a grade]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-continuous-delivery-use-vso-git/

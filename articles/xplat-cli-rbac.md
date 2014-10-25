@@ -4,7 +4,7 @@
 
 # Gerenciar o controle de acesso com base em função com interface de linha de plataforma cruzada
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-rbac.md" title="CLI entre plataformas">CLI entre plataformas</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/pt-br/documentation/articles/xplat-cli-rbac.md" title="CLI entre plataformas">CLI entre plataformas</a></div>
 
 O controle de acesso com base em função (RBAC) no portal de visualização do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura em um nível detalhado. Com este recurso, você pode conceder acesso aos principais usuários, grupos ou serviços do active directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -130,14 +130,14 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 -   [Usando grupos de recursos para gerenciar os recursos do Azure][Usando grupos de recursos para gerenciar os recursos do Azure]: Saiba como criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 -   [Blog do Azure][Blog do Azure]: Saiba sobre os novos recursos do Azure.
 
-  [Windows PowerShell]: /en-us/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [CLI entre plataformas]: /en-us/documentation/articles/xplat-cli-rbac.md "CLI entre plataformas"
-  [Instalar e configurar a interface de linha de comando da plataforma cruzada do Azure]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
-  [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
+  [Windows PowerShell]: /pt-br/documentation/articles/powershell-rbac.md "Windows PowerShell"
+  [CLI entre plataformas]: /pt-br/documentation/articles/xplat-cli-rbac.md "CLI entre plataformas"
+  [Instalar e configurar a interface de linha de comando da plataforma cruzada do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/
+  [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos]: http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli-azure-resource-manager/
   [Conecte-se as suas assinaturas]: #connect
   [Verifique as atribuições de função existentes]: #check
   [Crie uma atribuição de função]: #create
   [Verifique as permissões]: #verify
   [Próximas etapas]: #next
-  [Usando grupos de recursos para gerenciar os recursos do Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups
+  [Usando grupos de recursos para gerenciar os recursos do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups
   [Blog do Azure]: http://blogs.msdn.com/windowsazure

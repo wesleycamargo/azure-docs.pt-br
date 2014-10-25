@@ -4,7 +4,7 @@
 
 # Introdução às notificações por push nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push][mobile-services-selector-get-started-push]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do JavaScript para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure em um projeto do aplicativo Windows universal. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do JavaScript para todos os aplicativos do Windows Store e Windows Phone Store sempre que um registro é inserido na tabela TodoList. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
@@ -23,7 +23,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <span id="register"></span></a>Registrar seu aplicativo para notificações por push
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Navegue para a pasta do projeto `\services\mobileServices\scripts`, copie o arquivo de script \<*your\_service\_name*\>.push.register.js gerado na pasta `\js` compartilhada e, em seguida, exclua este arquivos dos projetos Windows individual e aplicativo WindowsPhone.
 
@@ -45,11 +45,11 @@ Agora que as notificações por push estão ativadas no aplicativo, você deve a
 
 As etapas a seguir mostram a atualização do script de inserção registrado para a tabela TodoItem. Você pode implementar código semelhante em qualquer script de servidor ou em qualquer lugar nos seus serviços de back-end.
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs][mobile-services-javascript-update-script-notification-hubs]]
+[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ## <span id="test"></span></a>Testar notificações de push no seu aplicativo
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push][mobile-services-javascript-backend-windows-universal-test-push]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -72,7 +72,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
-  [esta versão]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
+  [esta versão]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
   [Registrar seu aplicativo para notificações por push]: #register
   [Atualizar o serviço para enviar notificações por push]: #update-service
   [Testar notificações por push no seu aplicativo]: #test
@@ -81,8 +81,8 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
   [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
-  [Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
-  [Introdução aos dados]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
-  [Introdução à autenticação]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-users
-  [O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-  [Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+  [Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
+  [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
+  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-users
+  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+  [Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library

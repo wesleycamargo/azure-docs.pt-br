@@ -4,7 +4,7 @@
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][mobile-services-selector-get-started-data]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para utilizar dados em um aplicativo Windows universal. Soluções de aplicativos universais do Windows incluem projetos para a Windows Store 8.1 e a Loja do Windows Phone 8.1, e um projeto compartilhado comum. Para obter mais informações, consulte [Criar aplicativos universais do Windows voltados para Windows e Windows Phone][Criar aplicativos universais do Windows voltados para Windows e Windows Phone].
 
@@ -30,11 +30,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="download-app"></a>Baixar o projeto GetStartedWithData
 
-[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-download-project][mobile-services-windows-universal-dotnet-download-project]]
+[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
 
 ## <a name="create-service"></a>Criar um novo serviço móvel a partir do Visual Studio
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013][mobile-services-create-new-service-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 1.  No Solution Explorer, abra o arquivo de código App.xaml.cs na pasta de projeto GetStartedWithData.Shared e avise sobre o novo campo estático que foi adicionado à classe **Aplicativo** dentro do bloco de compilação condicional do aplicativo Windows Store, que parece com o exemplo a seguir:
 
@@ -54,19 +54,19 @@ Neste momento, ambos os aplicativos do Windows Store e Windows Phone Store são 
 
 ## <a name="add-table"></a>Adicionar uma nova tabela ao serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013][mobile-services-create-new-table-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 > [WACOM.NOTE]Novas tabelas são criadas com colunas Id, \_\_createdAt, \_\_updatedAt, and \_\_version. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico][Esquema dinâmico].
 
 # <a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app][mobile-services-windows-dotnet-update-data-app]]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
 ## <a name="test-azure-hosted"></a>Testar o serviço móvel hospedado no Azure
 
 Agora podemos testar ambos os serviços do aplicativo Windows universal em relação ao serviço móvel hospedado no Azure.
 
-[WACOM.INCLUDE [mobile-services-windows-universal-test-app][mobile-services-windows-universal-test-app]]
+[WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
 1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
@@ -103,28 +103,28 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-  [Criar aplicativos universais do Windows voltados para Windows e Windows Phone]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
-  [Introdução aos dados para Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
-  [esta versão]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+  [Criar aplicativos universais do Windows voltados para Windows e Windows Phone]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn609832.aspx
+  [Introdução aos dados para Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data
+  [esta versão]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [Baixar o projeto de aplicativo da Windows Store]: #download-app
   [Criar o serviço móvel no Visual Studio]: #create-service
   [Adicionar uma tabela de dados para armazenamento]: #add-table
   [Atualizar o aplicativo para usar o serviço móvel]: #update-app
   [Testar o aplicativo com os Serviços Móveis]: #test-app
   [Exibir os dados carregados no Portal de Gerenciamento do Azure]: #view-data
-  [Avaliação gratuita do Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
+  [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
   [Visual Studio Express 2013 para Windows]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-windows-universal-dotnet-download-project]: ../includes/mobile-services-windows-universal-dotnet-download-project.md
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [Esquema dinâmico]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx
+  [Esquema dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj193175.aspx
   [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md
   [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   []: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
-  [Validar e modificar dados com scripts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
-  [Refinar consultas com paginação]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
-  [Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-  [Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
-  [Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+  [Validar e modificar dados com scripts]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
+  [Refinar consultas com paginação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
+  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+  [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
+  [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

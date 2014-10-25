@@ -6,25 +6,25 @@
 
 ## Sumário
 
--   [Como: Exibir, copiar e regenerar as chaves de acesso do DocumentDB][Como: Exibir, copiar e regenerar as chaves de acesso do DocumentDB]
--   [Como: Gerenciar as configurações de consistência do DocumentDB][Como: Gerenciar as configurações de consistência do DocumentDB]
--   [Como: Gerenciar as configurações de capacidade do DocumentDB][Como: Gerenciar as configurações de capacidade do DocumentDB]
--   [Como: Excluir uma conta DocumentDB][Como: Excluir uma conta DocumentDB]
--   [Próximas etapas][Próximas etapas]
+-   [Como: Exibir, copiar e regenerar as chaves de acesso do DocumentDB](#keys)
+-   [Como: Gerenciar as configurações de consistência do DocumentDB](#consistency)
+-   [Como: Gerenciar as configurações de capacidade do DocumentDB](#capacity)
+-   [Como: Excluir uma conta DocumentDB](#delete)
+-   [Próximas etapas](#next)
 
 ## <span id="keys"></span></a>Como: Exibir, copiar e regenerar chaves de acesso
 
 Ao criar uma conta DocumentDB, duas chaves de acesso mestre são geradas, o que pode ser usado para autenticação quando a conta DocumentDB é acessada. Ao fornecer as duas chaves de acesso, o DocumentDB permite que você regenere as chaves sem interrupção para a sua conta
 DocumentDB.
 
-No portal de [visualização de gerenciamento do Azure][visualização de gerenciamento do Azure][visualização de gerenciamento do Azure][visualização de gerenciamento do Azure], acesse a parte das **Chaves** a partir da folha de sua conta DocumentDB para exibir,copiar e regenerar as chaves de acesso que são usadas para acessar sua
+No portal de [visualização de gerenciamento do Azure](https://portal.azure.com/)[](http://manage.windowsazure.com), acesse a parte das **Chaves** a partir da folha de sua conta DocumentDB para exibir,copiar e regenerar as chaves de acesso que são usadas para acessar sua
 Conta DocumentDB.
 
-![][]
+![](./media/documentdb-manage-account/image002.jpg)
 
 ### Exibir e copiar uma chave de acesso
 
-1.      No portal de [visualização de gerenciamento do Azure][visualização de gerenciamento do Azure], acesse a Conta DocumentDB. 
+1.      No portal de [visualização de gerenciamento do Azure](https://portal.azure.com/), acesse a Conta DocumentDB. 
 
 2.      Nas lentes de Resumo, clique em **Chaves**.
 
@@ -32,7 +32,7 @@ Conta DocumentDB.
 
 4.      Pressione Ctrl+C para copiar a chave.
 
-  ![][1]
+  ![](./media/documentdb-manage-account/image004.jpg)
 
 ### Regenerar chaves de acesso
 
@@ -46,7 +46,7 @@ Se tiver aplicativos ou serviços de nuvem usando a conta DocumentDB, você perd
 
 1.      Atualize as chaves de acesso no código do aplicativo para fazer referência à chave de acesso secundária da conta DocumentDB.
 
-2.      Regenere a chave de acesso primária para sua conta DocumentDB. No [portal de visualização de gerenciamento do Azure][visualização de gerenciamento do Azure], acesse a Conta DocumentDB.
+2.      Regenere a chave de acesso primária para sua conta DocumentDB. No [portal de visualização de gerenciamento do Azure](https://portal.azure.com/), acesse a Conta DocumentDB.
 
 3.      Nas lentes de Resumo, clique em **Chaves**.
 
@@ -70,11 +70,11 @@ O DocumentDB suporta quatro níveis de consistência de dados configuráveis pel
 
 ·         A consistência**eventual** garante que as operações de leitura sempre leiam um subconjunto de gravações válido e, eventualmente, convergirá.
 
-*Observe que, por padrão, as contas DocumentDB são provisionadas com a consistência do nível de Sessão. Para informações adicionais nas configurações de consistência DocumentDB, consulte a seção de [Nível de Consistência][Nível de Consistência].*
+*Observe que, por padrão, as contas DocumentDB são provisionadas com a consistência do nível de Sessão. Para informações adicionais nas configurações de consistência DocumentDB, consulte a seção de [Nível de Consistência](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
 
 ### Para especificar a consistência padrão para uma Conta DocumentDB
 
-1.      No portal de [visualização de gerenciamento do Azure][visualização de gerenciamento do Azure], acesse a Conta DocumentDB. 
+1.      No portal de [visualização de gerenciamento do Azure](https://portal.azure.com/), acesse a Conta DocumentDB. 
 
 2.      Nas lentes de Configuração, clique em **Consistência**.
 
@@ -84,9 +84,9 @@ O DocumentDB suporta quatro níveis de consistência de dados configuráveis pel
 
 5.      O progresso da operação pode ser monitorado através do Hub de notificações do portal de visualização de gerenciamento do Azure.
 
-![][2]
+ ![](./media/documentdb-manage-account/image005.png)
 
-![][3]
+ ![](./media/documentdb-manage-account/image006.png)
 
 *Observe que levará alguns minutos antes da mudança para as configurações de consistência padrão terem efeito em toda a sua conta DocumentDB.*
 
@@ -98,7 +98,7 @@ Ao criar uma Conta de banco de dados, ela é provisionada com o armazenamento do
 
 ### Para adicionar ou remover as unidades de capacidade
 
-1.      No portal de [visualização de gerenciamento do Azure][visualização de gerenciamento do Azure], acesse a Conta DocumentDB. 
+1.      No portal de [visualização de gerenciamento do Azure](https://portal.azure.com/), acesse a Conta DocumentDB. 
 
 2.      Nas lentes de Uso, clique em **Escala**.
 
@@ -108,7 +108,7 @@ Ao criar uma Conta de banco de dados, ela é provisionada com o armazenamento do
 
 *Observe que a Visualização do DocumentDB suporte uma capacidade máxima de 5 unidades por Conta DocumentDB.*
 
-![][4]
+![](./media/documentdb-manage-account/image007.png)
 
  
 
@@ -120,9 +120,9 @@ Para remover uma conta DocumentDB que você não esteja mais usando, use o coman
 
 *Na versão de visualização, não existe forma de restaurar o conteúdo de uma conta DocumentDB excluída. Excluindo uma conta DocumentDB excluirá todos os recursos da conta, incluindo bancos de dados, coletas, documentos e anexos.*
 
-![][5]
+![](./media/documentdb-manage-account/image009.png)
 
-1.      No portal de [visualização de gerenciamento do Azure][visualização de gerenciamento do Azure], acesse a Conta DocumentDB que você quer excluir. 
+1.      No portal de [visualização de gerenciamento do Azure](https://portal.azure.com/), acesse a Conta DocumentDB que você quer excluir. 
 
 2.      Na folha da conta, clique no comando **Excluir**.
 
@@ -132,10 +132,10 @@ Para remover uma conta DocumentDB que você não esteja mais usando, use o coman
 
 ## <span id="next"></span></a>Próximas etapas
 
--   Saiba como [começar com sua conta DocumentDB][começar com sua conta DocumentDB].
+-   Saiba como [começar com sua conta DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 -   Para aprender mais sobre DocumentDB, consulte a documentação do Azure DocumentDB
      em
-    [azure.com][azure.com]
+    [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
 
  
 

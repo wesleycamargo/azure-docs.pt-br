@@ -6,7 +6,7 @@
 
 ## Introdução
 
-O [Controle da acesso baseado em função][Controle da acesso baseado em função] é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode se sentir confiante ao conceder a uma pessoa específica o direito ao qual exatamente elas precisam. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
+O [Controle da acesso baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode se sentir confiante ao conceder a uma pessoa específica o direito ao qual exatamente elas precisam. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
 
 Este documento informará você o que esperar ao usar algumas destas novas funções no portal de visualização. Há três funções predefinidas que estão incluídas nesta versão:
 
@@ -14,7 +14,7 @@ Este documento informará você o que esperar ao usar algumas destas novas funç
 -   Colaborador
 -   Leitor
 
-Os proprietários e colaboradores terão acesso completo a experiência de gerenciamento, sendo que a diferença é que um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. [Consulte este artigo][Controle da acesso baseado em função] para obter detalhes sobre como exatamente conceder acesso.
+Os proprietários e colaboradores terão acesso completo a experiência de gerenciamento, sendo que a diferença é que um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. [Consulte este artigo](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/) para obter detalhes sobre como exatamente conceder acesso.
 
 ## Cargas de trabalho do site
 
@@ -39,7 +39,7 @@ Se você não consegue acessar nenhuma destas partes, precisará ter acesso de C
 
 Os sites são complicados pela presença de alguns recursos diferentes que interagem. Aqui encontra-se um grupo de recursos típico com alguns sites:
 
-![Grupo de recursos do site][Grupo de recursos do site]
+![Grupo de recursos do site](./media/role-based-access-control-troubleshooting/Website-resource-model.png)
 
 Como resultado, se você concede acesso a alguém para somente o site, muitas das funcionalidades na lâmina site serão completamente desabilitadas.
 
@@ -77,5 +77,3 @@ As máquinas virtuais têm estes recursos relacionados:
 
 Se você não conseguir acessar nenhuma destas partes, você precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
 
-  [Controle da acesso baseado em função]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/
-  [Grupo de recursos do site]: ./media/role-based-access-control-troubleshooting/Website-resource-model.png

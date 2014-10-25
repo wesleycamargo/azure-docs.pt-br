@@ -81,7 +81,7 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 -   **a camada** do serviço que está sendo restaurada **deve combinar** com a camada do serviço de backup sendo restaurada.
 -   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto restauram a operação que está em andamento **podem ser substituídas**.
 
-  [Autenticando as solicitações do Gerenciador de Recursos do Azure]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
+  [Autenticando as solicitações do Gerenciador de Recursos do Azure]: http://msdn.microsoft.com/pt-br/library/dn790557.aspx
   [Fazer backup de um serviço de Gerenciamento de API]: #step1
   [Restaurar um serviço de Gerenciamento de API]: #step2
-  [API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+  [API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn781421.aspx

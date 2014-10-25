@@ -4,7 +4,7 @@
 
 # Introdução às notificações por push nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push][mobile-services-selector-get-started-push]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do .NET para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure em um projeto do aplicativo Windows universal. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do .NET para todos os aplicativos do Windows Store e Windows Phone Store sempre que um registro é inserido na tabela TodoList. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
@@ -27,7 +27,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <span id="register"></span></a>Registrar seu aplicativo para notificações por push
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Navegue na pasta de projeto `\Services\MobileServices\your_service_name`, abra o arquivo de código push.register.cs gerado e inspecione o método **UploadChannel** que registra a URL do canal do dispositivo com o hub de notificação.
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
     Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
 
-    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Voc&ecirc; tamb&eacute;m pode simplificar o c&oacute;digo gerado ao unificar as defini&ccedil;&otilde;es ajustadas do <code data-inline="1">#if...#endif</code> <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> em uma &uacute;nica defini&ccedil;&atilde;o n&atilde;o ajustada usada por ambas as vers&otilde;es do aplicativo.</p></div>
+    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Voc&ecirc; tamb&eacute;m pode simplificar o c&oacute;digo gerado ao unificar as defini&ccedil;&otilde;es ajustadas do <code data-inline="1">#if...#endif</code> <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> em uma &uacute;nica defini&ccedil;&atilde;o n&atilde;o ajustada usada por ambas as vers&otilde;es do aplicativo.</p></div>
 
 Agora que as notificações por push estão ativadas no aplicativo, você deve atualizar o serviço móvel para enviar notificações por push.
 
@@ -47,11 +47,11 @@ Agora que as notificações por push estão ativadas no aplicativo, você deve a
 
 As seguintes etapas atualizam a classe TodoItemController existente para enviar uma notificação por push para todos os dispositivos registrados quando um novo item é inserido. Você pode implementar código semelhante em [ApiController], [TableController] ou em qualquer lugar nos seus serviços de back-end.
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push][mobile-services-dotnet-backend-update-server-push]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
 ## <span id="local-testing"></span></a> Habilitar notificações por push para teste local
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013][mobile-services-dotnet-backend-configure-local-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
 As etapas restantes nesta seção são opcionais. Elas permitem que você teste seu aplicativo em relação ao seu serviço móvel em execução em um computador local. Se você planeja testar as notificações por push usando o serviço móvel em execução no Azure, você pode apenas pular para a última seção. Isso ocorre porque o assistente Adicionar Notificação por Push já configurou seu aplicativo para se conectar ao seu serviço em execução no Azure.
 
@@ -71,7 +71,7 @@ As etapas restantes nesta seção são opcionais. Elas permitem que você teste 
 
 ## <span id="test"></span></a>Testar notificações de push no seu aplicativo
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push][mobile-services-dotnet-backend-windows-universal-test-push]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -94,8 +94,8 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
-  [Introdução à autenticação dos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
-  [esta versão]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
+  [Introdução à autenticação dos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
+  [esta versão]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [Registrar seu aplicativo para notificações por push]: #register
   [Atualizar o serviço para enviar notificações por push]: #update-service
   [Habilitar notificações por push para teste local]: #local-testing
@@ -103,12 +103,12 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [conta ativa da Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [MobileServiceClient]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
+  [MobileServiceClient]: http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
   [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
   [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
-  [Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-  [Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
-  [Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users
-  [O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-  [Como usar um cliente .NET para os Serviços Móveis do Azure]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+  [Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+  [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
+  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users
+  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+  [Como usar um cliente .NET para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

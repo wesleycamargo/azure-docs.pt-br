@@ -22,7 +22,7 @@ Você tem a opção de se conectar a uma rede virtual nova ou existente. Se voc�
 
 Se seu site não estiver na faixa Padrão então a interface de usuário o informa e lhe fornece acesso as faixas de preço caso você clique nela.
 
-![][]
+![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png)
 
 ## Como o sistema funciona
 
@@ -30,7 +30,7 @@ De modo oculto este recurso utiliza a tecnologia VPV Ponto a site para se conect
 
 O trabalho exigido para proteger suas redes para somente os sites que precisam de acesso impedem de ser capaz de criar conexões SMB. Enquanto você pode acessar recursos remotos, isto não inclui ser capaz de montar uma unidade remota.
 
-![][1]
+![](./media/web-sites-integrate-with-vnet/how-it-works.png)
 
 Se você ainda não configurou um servidor DNS com sua rede virtual será necessário usar endereços IP. Certifique-se de expor suas portas para seus pontos de extremidade desejados através do seu firewall. Quando se trata de testar sua conexão o único método atualmente disponível é usar um site ou trabalho web que faz uma chamada para seu ponto de extremidade desejado. Ferramentas como ping ou nslookup não funcionam através do console Kudu. Esta é uma área que será aperfeiçoada no futuro próximo.
 
@@ -38,7 +38,7 @@ Se você ainda não configurou um servidor DNS com sua rede virtual será necess
 
 Para se conectar um site a uma Rede Virtual vá para a lâmina do site, clique no bloco da Máquina virtual na seção Sistemas de rede e selecione umas das redes pré-existentes.
 
-![][2]
+![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
 
 O sistema então criará um certificado para autenticar com sua VNET se for o primeiro site na sua assinatura a estabelecer uma conexão àquela rede. Para ver o certificado vá para o portal atual, navegue para as Redes virtuais, selecione a rede e selecione a guia Certificados.
 
@@ -48,17 +48,17 @@ Na imagem acima você pode ver uma rede chamada cantConnectVnet que está esmaec
 
 Além de se conectar a uma VNET, você pode também criar uma VNET nova a partir da interface do usuário do site e se conectar automaticamente a ela. Para fazer isto siga o mesmo caminho para atingir a interface de usuário da Rede Virtual e selecione Criar nova rede virtual. A interface de usuário que abre permite que você nomeie a rede, especifique o espaço de endereço e defina os endereços para os servidores DNS para serem usados pela rede virtual.
 
-![][3]
+![](./media/web-sites-integrate-with-vnet/create-new-vnet.png)
 
 A criação da nova rede virtual com gateways configurados podem levar até 30 minutos para concluir. Durante este período a interface de usuário informará a você que ainda está trabalhando nisto e exibirá a seguinte mensagem.
 
-![][4]
+![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
 Assim que a rede tiver sido vinculada ao site, o site terá acesso aos recursos naquela VNET sobre o TCP ou UDP. Se você deseja acessar recursos no seu sistema local que estão disponíveis por meio da VPN site a site para sua VNET então será necessário adicionar rotas para sua própria rede corporativa para permitir que o tráfego vá de sua rede para os endereços ponto a site configurados na sua VNET.
 
 Depois de concluir com êxito a integração, o portal exibirá informações básicas sobre a conexão, fornecerá uma maneira de desconectar o site da rede e também fornecerá a você uma maneira de sincronizar os certificados usados para autenticar a conexão. A sincronização pode ser necessária se um certificado expirou ou foi revogado.
 
-![][5]
+![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 Gerenciar a conexão da rede virtual
 Você pode ver um lista de todas as redes virtuais atualmente associadas aos sites em um plano de hospedagem na Web visitando a lâmina do plano de hospedagem na Web. Você pode ter no máximo 5 redes associadas a um plano de hospedagem na Web padrão.
@@ -71,19 +71,19 @@ Neste momento não é possível no Azure pegar uma máquina virtual existente e 
 
 Ao trabalhar com uma VNET que foi configurada com a VPN site a site há uma etapa adicional necessária para fornecer acesso aos seus recursos locais a partir do site do Azure. Será necessário adicionar rotas para sua rede local para permitir que o tráfego vá de sua rede para os endereços ponto a site configurados na sua VNET. Para ver o intervalo IP para sua conectividade ponto a site vá para a para a área de Redes no portal atual como exibido aqui.
 
-![][6]
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
 
 ## Certificados
 
 Para estabelecer uma conexão segura com sua VNET, há uma troca de certificados. Você pode ver a impressão digital para o certificado público que os sites do Azure geram do portal de Redes atual conforme exibido abaixo.
 
-![][7]
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png)
 
 Se os certificados saem fora de sincronização por algum motivo, como exclusão acidental do portal de Redes, então a conectividade será interrompida. Para corrigir as coisas há uma ação de conexão síncrona na interface de usuário de rede virtual dos sites que reestabelecerá a conexão.
 
 Esta ação deve ser usado se você adicionar um DNS à sua rede virtual ou se você adicionar a VNP site a site à sua rede.
 
-![][8]
+![](./media/web-sites-integrate-with-vnet/vnet-sync-connection.png)
 
 ## Comparar e contrastar com as Conexões Híbridas
 

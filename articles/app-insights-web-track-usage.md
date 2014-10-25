@@ -6,13 +6,13 @@
 
 ## <a name="webclient"></a>Configuração das análises de uso da web
 
-Se você ainda não fez isso, [adicione o Application Insights ao seu projeto web][adicione o Application Insights ao seu projeto web].
+Se você ainda não fez isso, [adicione o Application Insights ao seu projeto web][start].
 
 ## <a name="usage"></a>Análise de uso
 
 Na folha de visão geral do aplicativo, você verá estes blocos de uso:
 
-![][]
+![](./media/appinsights/appinsights-47usage.png)
 
 ### Sessões por navegador
 
@@ -26,13 +26,13 @@ Mostra a contagem total nas últimas 24 horas.
 
 Clique no bloco de exibições da página para obter um histórico mais detalhado.
 
-![][1]
+![](./media/appinsights/appinsights-49usage.png)
 
 Clique em Intervalo de Tempo para ver um histórico maior do que sete dias.
 
 Clique em um gráfico para ver outras medidas além daquelas que você pode exibir.
 
-![][2]
+![](./media/appinsights/appinsights-63usermetrics.png)
 
 ## Contagens da página personalizada
 
@@ -50,13 +50,13 @@ Normalmente a telemetria de exibição da página é analisada pelo Application 
 
 Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
 
-![][3]
+![](./media/appinsights/appinsights-51searchpageviews.png)
 
 Selecione qualquer evento para ver mais detalhes.
 
-> [WACOM.NOTE] Se você usar [Pesquisar][Pesquisar], observe que você tem que coincidir palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr\*" sim. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "\*obr” não corresponde a "Sobre”.
+> [WACOM.NOTE] Se você usar [Pesquisar][diagnostic], observe que você tem que coincidir palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr\*" sim. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "\*obr” não corresponde a "Sobre”.
 
-> [Saiba mais sobre pesquisa de diagnóstico][Pesquisar]
+> [Saiba mais sobre pesquisa de diagnóstico][diagnostic]
 
 ## Acompanhamento de uso
 
@@ -64,24 +64,24 @@ Selecione qualquer evento para ver mais detalhes.
 
 ## Saiba mais
 
--   [Application Insights - introdução][adicione o Application Insights ao seu projeto web]
--   [Monitore um servidor de web ao vivo agora][Monitore um servidor de web ao vivo agora]
--   [Monitore o desempenho dos aplicativos web][Monitore o desempenho dos aplicativos web]
--   [Pesquise por logs de diagnóstico][Pesquisar]
--   [Disponibilidade de acompanhamento com os testes web][Disponibilidade de acompanhamento com os testes web]
--   [Acompanhar uso][Acompanhar uso]
--   [Perguntas e respostas e solução de problemas][Perguntas e respostas e solução de problemas]
+-   [Application Insights - introdução][start]
+-   [Monitore um servidor de web ao vivo agora][redfield]
+-   [Monitore o desempenho dos aplicativos web][perf]
+-   [Pesquise por logs de diagnóstico][diagnostic]
+-   [Disponibilidade de acompanhamento com os testes web][availability]
+-   [Acompanhar uso][usage]
+-   [Perguntas e respostas e solução de problemas][qna]
 
 <!--Link references-->
 
-  [adicione o Application Insights ao seu projeto web]: ../app-insights-start-monitoring-app-health-usage/
+  [start]: ../app-insights-start-monitoring-app-health-usage/
   []: ./media/appinsights/appinsights-47usage.png
   [1]: ./media/appinsights/appinsights-49usage.png
   [2]: ./media/appinsights/appinsights-63usermetrics.png
   [3]: ./media/appinsights/appinsights-51searchpageviews.png
-  [Pesquisar]: ../app-insights-search-diagnostic-logs/
-  [Monitore um servidor de web ao vivo agora]: ../app-insights-monitor-performance-live-website-now/
-  [Monitore o desempenho dos aplicativos web]: ../app-insights-web-monitor-performance/
-  [Disponibilidade de acompanhamento com os testes web]: ../app-insights-monitor-web-app-availability/
-  [Acompanhar uso]: ../app-insights-web-track-usage/
-  [Perguntas e respostas e solução de problemas]: ../app-insights-troubleshoot-faq/
+  [diagnostic]: ../app-insights-search-diagnostic-logs/
+  [redfield]: ../app-insights-monitor-performance-live-website-now/
+  [perf]: ../app-insights-web-monitor-performance/
+  [availability]: ../app-insights-monitor-web-app-availability/
+  [usage]: ../app-insights-web-track-usage/
+  [qna]: ../app-insights-troubleshoot-faq/

@@ -20,7 +20,7 @@ O RemoteApp do Azure usa uma imagem do modelo do Windows Server 2012 R2 para hos
 
 É necessário fazer o seguinte antes de criar o serviço:
 
--   Inscreva-se para a visualização do RemoteApp. É possível fazer isso em [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>.
+-   Inscreva-se para a visualização do RemoteApp. É possível fazer isso em [][]<http://azure.microsoft.com/pt-br/services/remoteapp/></a>.
 -   Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 -   Reúna as informações sobre a sua rede local: As informações de endereço IP e detalhes do dispositivo VPN.
 -   Instale o módulo [PowerShell do Azure][PowerShell do Azure].
@@ -107,7 +107,7 @@ Agora que você tem sua imagem de modelo personalizada, você precisará atualiz
 -   [Como criar uma implantação híbrida do RemoteApp][Como criar uma implantação híbrida do RemoteApp]
 -   [Como criar uma implantação de nuvem do RemoteApp][Como criar uma implantação de nuvem do RemoteApp]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
-  [PowerShell do Azure]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
-  [Como criar uma implantação híbrida do RemoteApp]: http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/
-  [Como criar uma implantação de nuvem do RemoteApp]: http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/
+  []: http://azure.microsoft.com/pt-br/services/remoteapp/
+  [PowerShell do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
+  [Como criar uma implantação híbrida do RemoteApp]: http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-hybrid-deployment/
+  [Como criar uma implantação de nuvem do RemoteApp]: http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-cloud-deployment/

@@ -11,13 +11,13 @@
 -   [(Android | .NET)][(Android | .NET)]
 -   [(Android | Javascript)][(Android | Javascript)]
 
-  [(iOS | .NET)]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
-  [(iOS | JavaScript)]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [(Windows Store C# | .NET)]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [(Windows Store C# | Javascript)]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
-  [(JavaScript da Windows Store | .NET)]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
-  [(Windows Store JavaScript | Javascript)]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
-  [(Windows Phone | .NET)]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-  [(Windows Phone | JavaScript)]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
-  [(Android | .NET)]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-  [(Android | Javascript)]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+  [(iOS | .NET)]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
+  [(iOS | JavaScript)]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+  [(Windows Store C# | .NET)]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [(Windows Store C# | Javascript)]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
+  [(JavaScript da Windows Store | .NET)]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
+  [(Windows Store JavaScript | Javascript)]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
+  [(Windows Phone | .NET)]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+  [(Windows Phone | JavaScript)]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
+  [(Android | .NET)]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+  [(Android | Javascript)]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/

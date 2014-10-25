@@ -1,7 +1,7 @@
-<properties linkid="manage-windows-howto-connect-to-cloud-service" urlDisplayName="Conectar-se a uma máquina virtual" pageTitle="Conectar máquinas virtuais em um serviço de nuvem do Azure" metaKeywords="Azure conectando vm para nuvem" description="Saiba como conectar uma máquina virtual a um serviço de nuvem do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-windows-howto-connect-to-cloud-service" urlDisplayName="Connect to a virtual machine" pageTitle="Connect virtual machines in an Azure cloud service" metaKeywords="Azure connecting vm to cloud" description="Learn how to connect a virtual machine to an Azure cloud service." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
 
+[WACOM.INCLUDE [howto-connect-vm-cloud-service][]]
 
-
-[WACOM.INCLUDE [howto-connect-vm-cloud-service](../includes/howto-connect-vm-cloud-service.md)]
-
+  [howto-connect-vm-cloud-service]: ../includes/howto-connect-vm-cloud-service.md

@@ -1,3 +1,3 @@
 > [WACOM.NOTE] As etapas neste artigo criam um cluster HDInsight usando definições de configuração básica. Para obter informações de outras definições de configuração do cluster, como usar a Rede Virtual do Azure ou um metastore para Hive e Oozie, consulte [Provisionar um cluster HDInsight][Provisionar um cluster HDInsight].
 
-  [Provisionar um cluster HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/
+  [Provisionar um cluster HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-provision-clusters/

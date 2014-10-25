@@ -1,81 +1,65 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-ios" urlDisplayName="Introdução à autenticação (iOS)" pageTitle="Introdução à autenticação (iOS) | Mobile Dev Center" metaKeywords="aplicativo de registro do Azure, autenticação do Azure, autenticação do aplicativo, autenticar os serviços móveis, Mobile Services iOS" description="Saiba como usar os Serviços Móveis para autenticar os usuários do seu aplicativo iOS por meio de vários provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Introdução à autenticação nos Serviços Móveis" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-users-ios" urlDisplayName="Get Started with Authentication (iOS)" pageTitle="Get started with authentication (iOS) | Mobile Dev Center" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services iOS" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/23/2014" ms.author="krisragh"></tags>
 
 # Introdução à autenticação dos Serviços Móveis
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users" title="Windows Store C#">Windows Store C#</a><a href="/pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/pt-br/documentation/articles/mobile-services-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/mobile-services-ios-get-started-users" title="iOS" class="current">iOS</a><a href="/pt-br/documentation/articles/mobile-services-android-get-started-users" title="Android">Android</a><a href="/pt-br/documentation/articles/mobile-services-html-get-started-users" title="HTML">HTML</a><a href="/pt-br/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a><a href="/pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/" title="Back-end do .NET">Back-end do .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-ios-get-started-users/"  title="Back-end do JavaScript" class="current">Back-end do JavaScript</a></div>
 
-Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure do seu aplicativo iOS.  Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.  
+[WACOM.INCLUDE [mobile-services-selector-get-started-users][mobile-services-selector-get-started-users]]
 
-Este tutorial o orientará por estas etapas básicas para habilitar a autenticação no seu aplicativo:
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure do seu aplicativo iOS. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
-1. [Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]
-2. [Restringir as permissões de tabela aos usuários autenticados]
-3. [Adicionar autenticação ao aplicativo]
+Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
-Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+1.  [Registrar seu aplicativo para a autenticação e configure os Serviços Móveis][Registrar seu aplicativo para a autenticação e configure os Serviços Móveis]
+2.  [Restringir permissões de tabela para usuários autenticados][Restringir permissões de tabela para usuários autenticados]
+3.  [Adicionar autenticação ao aplicativo][Adicionar autenticação ao aplicativo]
+4.  [Armazenando tokens de autenticação no seu aplicativo][Armazenando tokens de autenticação no seu aplicativo]
 
-Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões posteriores. 
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
-##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços Móveis
+Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões posteriores.
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-##<a name="permissions"></a> Restringir as permissões aos usuários autenticados
+[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+## <a name="permissions"></a>Restringir as permissões aos usuários autenticados
 
-<ol start="3">
-<li><p>No Xcode, abra o projeto criado quando você concluiu o tutorial <a href="/pt-br/documentation/articles/mobile-services-ios-get-started">Introdução aos Serviços Móveis</a>.</p></li> 
-<li><p>Pressione o botão <strong>Executar</strong> para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.<p> 
-   
-   	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
-</ol>
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+
+1.  No Xcode, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis][1].
+
+2.  Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.
+
+    Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-[WACOM.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
+[WACOM.INCLUDE [mobile-services-ios-authenticate-app][mobile-services-ios-authenticate-app]]
+
+## <a name="store-authentication"></a>Armazenando tokens de autenticação no seu aplicativo
+
+[WACOM.INCLUDE [mobile-services-ios-authenticate-app-with-token][mobile-services-ios-authenticate-app-with-token]]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo tutorial, [Autorização do lado do servidor dos usuários dos Serviços Móveis][Authorize users with scripts], você usará o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis. 
+No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Autorização do lado do serviço dos usuários dos Serviços Móveis], você usará o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis.
 
-<!-- Anchors. -->
-[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
-[Restringir as permissões de tabela aos usuários autenticados]: #permissions
-[Adicionar autenticação ao aplicativo]: #add-authentication
-[Próximas etapas]:#next-steps
-
-<!-- Images. -->
-
-
-
-
-[4]: ./media/mobile-services-ios-get-started-users/mobile-services-selection.png
-[5]: ./media/mobile-services-ios-get-started-users/mobile-service-uri.png
-
-
-
-
-
-
-
-[13]: ./media/mobile-services-ios-get-started-users/mobile-identity-tab.png
-[14]: ./media/mobile-services-ios-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
-
-
+<!-- Anchors. --> 
+<!-- Images. --> 
 <!-- URLs. -->
-[Enviar página de aplicativo:]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
-[Começar com os dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios
-[Authorize users with scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
+  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+  [Registrar seu aplicativo para a autenticação e configure os Serviços Móveis]: #register
+  [Restringir permissões de tabela para usuários autenticados]: #permissions
+  [Adicionar autenticação ao aplicativo]: #add-authentication
+  [Armazenando tokens de autenticação no seu aplicativo]: #store-authentication
+  [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
+  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
+  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
+  [1]: /pt-br/documentation/articles/mobile-services-ios-get-started
+  [mobile-services-ios-authenticate-app]: ../includes/mobile-services-ios-authenticate-app.md
+  [mobile-services-ios-authenticate-app-with-token]: ../includes/mobile-services-ios-authenticate-app-with-token.md
+  [Autorização do lado do serviço dos usuários dos Serviços Móveis]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-ios

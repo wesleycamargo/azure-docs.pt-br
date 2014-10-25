@@ -1,8 +1,7 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Como usar o CDN - Guia de recursos do Azure" metaKeywords="CDN do Azure, Azure CDN, blobs do Azure, cache do Azure, complementos do Azure" description="Saiba como usar a Rede de Fornecimento de Conteúdo (CDN) do Azure para oferecer conteúdo de banda larga ao armazenar em cache o conteúdo estático e blobs." metaCanonical="" services="" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to use CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." metaCanonical="" services="" documentationCenter=".NET" title="" authors="akucer" solutions="" manager="dwrede" editor="" />
 
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="akucer"></tags>
 
+[WACOM.INCLUDE [cdn][cdn]]
 
-
-
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
-
+  [cdn]: ../includes/cdn.md
