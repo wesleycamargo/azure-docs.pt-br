@@ -11,31 +11,31 @@ Este tutorial tem o objetivo de ajudá-lo a compreender melhor como tratar dos c
 
 Neste tutorial, você adicionará funcionalidade ao aplicativo de início rápido para tratar de contenções que ocorrem ao atualizar o banco de dados TodoItem. Este tutorial apresenta e explica as seguintes etapas básicas:
 
-1.  [Atualizar o aplicativo para permitir atualizações][Atualizar o aplicativo para permitir atualizações]
-2.  [Habilitar a detecção de conflitos em seu aplicativo][Habilitar a detecção de conflitos em seu aplicativo]
-3.  [Testar conflitos de gravação do banco de dados no aplicativo][Testar conflitos de gravação do banco de dados no aplicativo]
-4.  [Tratanado automaticamente a resolução de conflitos em scripts de servidor][Tratanado automaticamente a resolução de conflitos em scripts de servidor]
+1.  [Atualizar o aplicativo para permitir atualizações]
+2.  [Habilitar a detecção de conflitos em seu aplicativo]
+3.  [Testar conflitos de gravação do banco de dados no aplicativo]
+4.  [Tratanado automaticamente a resolução de conflitos em scripts de servidor]
 
 Este tutorial requer o seguinte:
 
 -   Microsoft Visual Studio 2012 Express para Windows ou posterior.
--   Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
--   [Conta do Azure][Conta do Azure]
+-   Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]
+-   [Conta do Azure]
 -   Pacote NuGet 1.1.0 ou posterior dos Serviços Móveis do Azure. Para obter a versão mais recente, siga as etapas abaixo:
 
     1.  No Visual Studio, abra o projeto e clique com o botão direito do mouse no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**.
 
-        ![][]
+        ![][19]
 
     2.  Expanda **Online** e clique em **Microsoft e .NET**. Na caixa de texto Pesquisar, digite **Serviços Móveis do Azure**. Clique em **Instalar** no Pacote NuGet dos **Serviços Móveis do Azure**.
 
-        ![][1]
+        ![][20]
 
 ## <a name="uiupdate"></a><span class="short-header">Atualizar a Interface do Usuários</span>Atualizar o aplicativo para permitir atualizações
 
 Nesta seção, você atualizará a interface do usuário do TodoList para permitir a atualização do texto de cada item em um controle ListBox. O ListBox conterá uma CheckBox e uma TextBox para cada item da tabela de banco de dados. Você poderá atualizar o campo de texto do TodoItem. O aplicativo manipulará o evento `LostFocus` a partir da TextBox para atualizar o item no banco de dados.
 
-1.  No Visual Studio, abra o projeto TodoList que você baixou no tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
+1.  No Visual Studio, abra o projeto TodoList que você baixou no tutorial [Introdução aos Serviços Móveis].
 2.  No Gerenciador de Soluções do Visual Studio, abra MainPage.xaml e substitua a definição `ListView` pelo `ListView` mostrado abaixo e salve a alteração.
 
         <ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
@@ -91,9 +91,9 @@ Agora o aplicativo grava as alterações de texto em cada item do banco de dados
 
 ## <a name="enableOC"></a><span class="short-header">Habilitar a simultaneidade otimista</span>Habilitar a detecção de conflitos em seu aplicativo
 
-Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O [Controle de Simultaneidade Otimista][Controle de Simultaneidade Otimista] pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida. Os Serviços Móveis do Azure oferecem suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema `__version` que é adicionada a cada tabela. Nesta seção, habilitaremos o aplicativo para detectar esses conflitos de gravação através da propriedade do sistema `__version`. O aplicativo será notificado por uma `MobileServicePreconditionFailedException` durante uma tentativa de atualização, se o registro tiver sido alterado desde a última consulta. Em seguida, ele poderá optar por confirmar a alteração no banco de dados ou deixar a última alteração no banco de dados intacta. Para obter mais informações sobre as propriedades do sistema para Serviços Móveis, consulte [Propriedades do sistema][Propriedades do sistema].
+Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O [Controle de Simultaneidade Otimista] pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida. Os Serviços Móveis do Azure oferecem suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema `__version` que é adicionada a cada tabela. Nesta seção, habilitaremos o aplicativo para detectar esses conflitos de gravação através da propriedade do sistema `__version`. O aplicativo será notificado por uma `MobileServicePreconditionFailedException` durante uma tentativa de atualização, se o registro tiver sido alterado desde a última consulta. Em seguida, ele poderá optar por confirmar a alteração no banco de dados ou deixar a última alteração no banco de dados intacta. Para obter mais informações sobre as propriedades do sistema para Serviços Móveis, consulte [Propriedades do sistema].
 
-1.  No MainPage.xaml.cs, atualize a definição da classe **TodoItem** com o código a seguir para incluir a classe a propriedade do sistema \*\*\_\_version\*\* ativando o suporte para a detecção de conflitos de gravação.
+1.  No MainPage.xaml.cs, atualize a definição da classe **TodoItem** com o código a seguir para incluir a classe a propriedade do sistema **__version** ativando o suporte para a detecção de conflitos de gravação.
 
         public class TodoItem
         {
@@ -181,63 +181,63 @@ Nesta seção você criará um pacote de aplicativos da Windows Store para insta
 
 1.  Crie um pacote de aplicativos da Windows Store para instalação na segunda máquina ou na máquina virtual. Para fazer isso, clique em **Projeto**-\>**Repositório**-\>**Criar Pacotes de Aplicativos** no Visual Studio.
 
-    ![][2]
+    ![][0]
 
 2.  Na tela Criar seus Pacotes, clique em **Não**, uma vez que esse pacote não será carregado na Windows Store. Em seguida, clique em **Próximo**.
 
-    ![][3]
+    ![][1]
 
 3.  Na tela Selecionar e Configurar Pacotes, aceite os padrões e clique em **Criar**.
 
-    ![][4]
+    ![][10]
 
 4.  Na tela Criação de Pacote Concluída, clique no link **Local de saída** para abrir o local do pacote.
 
-    ![][5]
+    ![][11]
 
 5.  Copie a pasta do pacote "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test" na segunda máquina. Nessa máquina, abra a pasta do pacote e clique com o botão direito do mouse no script do PowerShell **Add-AppDevPackage.ps1** e clique em **Executar com o PowerShell** conforme mostrado abaixo. Siga os prompts para instalar o aplicativo.
 
-    ![][6]
+    ![][12]
 
 6.  Execute a instância 1 do aplicativo no Visual Studio clicando em **Depurar**-\>**Iniciar Depuração**. Na tela Iniciar da segunda máquina, clique na seta para baixo para ver "Aplicativos por nome". Em seguida, clique no aplicativo **todolist** para executar a instância 2 do aplicativo.
 
     Instância 1 do aplicativo
 
-    ![][7]
+    ![][2]
 
     Instância 2 do aplicativo
 
-    ![][7]
+    ![][2]
 
 7.  Na instância 1 do aplicativo, atualize o texto do último item para **Test Write 1**, clique em outra caixa de texto para que o manipulador de eventos`LostFocus` atualize o banco de dados. A captura de tela abaixo mostra um exemplo.
 
     Instância 1 do aplicativo
 
-    ![][8]
+    ![][3]
 
     Instância 2 do aplicativo
 
-    ![][7]
+    ![][2]
 
 8.  Neste ponto, o item correspondente na instância 2 do aplicativo tem uma versão antiga do item. Nessa instância do aplicativo, digite **Test Write 2** para a propriedade `text`. Em seguida, clique em outra caixa de texto para que o manipulador de eventos `LostFocus` tente atualizar o banco de dados com a propriedade `_version` antiga.
 
     Instância 1 do aplicativo
 
-    ![][9]
+    ![][4]
 
     Instância 2 do aplicativo
 
-    ![][10]
+    ![][5]
 
 9.  Como o valor `__version` usado com a tentativa de atualização não corresponde ao valor `__version` do servidor, o SDK dos Serviços Móveis gera uma `MobileServicePreconditionFailedException` permitindo que o aplicativo resolva esse conflito. Para resolver o conflito, você pode clicar em **Confirmar Texto Local** para confirmar os valores da instância 2.Como alternativa, clique em **Deixar texto de servidor** para descartar os valores na instância 2, deixando os valores da instância 1 do aplicativo confirmados.
 
     Instância 1 do aplicativo
 
-    ![][9]
+    ![][4]
 
     Instância 2 do aplicativo
 
-    ![][11]
+    ![][6]
 
 ## <a name="scriptsexample"></a><span class="short-header">Tratando conflitos com scripts</span>Tratando a resolução de conflitos automaticamente em scripts de servidor
 
@@ -248,17 +248,17 @@ Você pode detectar e resolver conflitos de gravação em scripts de servidor. E
 
 As etapas a seguir mostram como adicionar o script de atualização do servidor e testá-lo.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
+1.  Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][12]
+    ![][7]
 
 2.  Clique na guia **Dados** e clique na tabela **TodoItem**.
 
-    ![][13]
+    ![][8]
 
 3.  Clique em **Script** e selecione a operação **Atualizar**.
 
-    ![][14]
+    ![][9]
 
 4.  Substitua o script existente pela função a seguir e clique em **Salvar**.
 
@@ -282,13 +282,23 @@ As etapas a seguir mostram como adicionar o script de atualização do servidor 
 
     Instância 1 do aplicativo
 
-    ![][9]
+    ![][4]
 
     Instância 2 do aplicativo
 
-    ![][10]
+    ![][5]
 
 6.  Na instância 1 do aplicativo, insira um valor diferente para a propriedade do último texto. Em seguida, clique em outra caixa de texto para que o manipulador de eventos `LostFocus` tente atualizar o banco de dados com uma propriedade `__version` incorreta.
+
+    Instância 1 do aplicativo
+
+    ![][13]
+
+    Instância 2 do aplicativo
+
+    ![][14]
+
+7.  Observe que nenhuma exceção foi encontrada no aplicativo porque o script do servidor resolveu o conflito permitindo a atualização pois o item não está marcado como concluído. Para ver se a atualização foi realmente bem-sucedida, clique em **Atualizar** na instância 2 para consultar o banco de dados novamente.
 
     Instância 1 do aplicativo
 
@@ -296,55 +306,45 @@ As etapas a seguir mostram como adicionar o script de atualização do servidor 
 
     Instância 2 do aplicativo
 
-    ![][16]
-
-7.  Observe que nenhuma exceção foi encontrada no aplicativo porque o script do servidor resolveu o conflito permitindo a atualização pois o item não está marcado como concluído. Para ver se a atualização foi realmente bem-sucedida, clique em **Atualizar** na instância 2 para consultar o banco de dados novamente.
-
-    Instância 1 do aplicativo
-
-    ![][17]
-
-    Instância 2 do aplicativo
-
-    ![][17]
+    ![][15]
 
 8.  Na instância 1, clique na caixa de seleção para concluir o último item de tarefas pendentes.
 
     Instância 1 do aplicativo
 
-    ![][18]
+    ![][16]
 
     Instância 2 do aplicativo
 
-    ![][17]
+    ![][15]
 
 9.  Na instância 2, tente atualizar o texto do TodoItem e disparar o evento`LostFocus`. Em resposta ao conflito, o script o resolveu recusando a atualização porque o item já estava concluído.
 
     Instância 1 do aplicativo
 
-    ![][19]
+    ![][17]
 
     Instância 2 do aplicativo
 
-    ![][20]
+    ![][18]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
 Este tutorial demonstrou como habilitar um aplicativo da Windows Store para tratar de conflitos de gravação ao trabalhar com dados nos Serviços Móveis. Em seguida, considere concluir um dos seguintes tutoriais da nossa série de dados:
 
--   [Validar e modificar dados com scripts][Validar e modificar dados com scripts]<br/>
-    Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
+-   [Validar e modificar dados com scripts]
+   <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
 
--   [Refinar consultas com paginação][Refinar consultas com paginação]<br/>
-    Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
+-   [Refinar consultas com paginação]
+   <br/>Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
 
 Depois de ter concluído a série de dados, você também pode tentar um dos seguintes tutoriais da Windows Store:
 
--   [Introdução à autenticação][Introdução à autenticação]<br/>
-    Saiba como autenticar usuários de seu aplicativo.
+-   [Introdução à autenticação]
+   <br/>Saiba como autenticar usuários de seu aplicativo.
 
--   [Introdução às notificações por push][Introdução às notificações por push]<br/>
-    Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
+-   [Introdução às notificações por push]
+   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
 
 
@@ -357,31 +357,35 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
   [Tratanado automaticamente a resolução de conflitos em scripts de servidor]: #scriptsexample
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
   [Conta do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
-  [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
+
   [Controle de Simultaneidade Otimista]: http://go.microsoft.com/fwlink/?LinkId=330935
   [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
-  [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
-  [3]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
-  [4]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package3.png
-  [5]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package4.png
-  [6]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-install-app-package.png
-  [7]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png
-  [8]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write1.png
-  [9]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write2.png
-  [10]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2.png
-  [11]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png
+
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [12]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-services-selection.png
-  [13]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-portal-data-tables.png
-  [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-insert-script-users.png
-  [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write3.png
-  [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
-  [17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
-  [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-  [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
-  [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
+
   [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
   [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
   [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
+[1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
+[2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 
+[3]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write1.png
+[4]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write2.png
+[5]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2.png
+[6]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png
+[7]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-services-selection.png
+[8]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-portal-data-tables.png
+[9]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-insert-script-users.png
+[10]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package3.png
+[11]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package4.png
+[12]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-install-app-package.png
+[13]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write3.png
+[14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
+[15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
+[16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
+[18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
+[19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+[20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png

@@ -4,26 +4,26 @@
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo universal do Windows usando os Serviços Móveis do Azure. Soluções de aplicativos universais do Windows incluem projetos para a Windows Store 8.1 e a Loja do Windows Phone 8.1, e um projeto compartilhado comum. Para obter mais informações, consulte [Criar aplicativos universais do Windows voltados para Windows e Windows Phone][Criar aplicativos universais do Windows voltados para Windows e Windows Phone].
+Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo universal do Windows usando os Serviços Móveis do Azure. Soluções de aplicativos universais do Windows incluem projetos para a Windows Store 8.1 e a Loja do Windows Phone 8.1, e um projeto compartilhado comum. Para obter mais informações, consulte [Criar aplicativos universais do Windows voltados para Windows e Windows Phone](http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn609832.aspx).
 
 Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *To do list* que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte Versão de back-end do JavaScript neste tópico.
 
-> [WACOM.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel e aplicativo universal do Windows usando o Portal de Gerenciamento do Azure. Usando o Visual Studio 2013 Update 3, você também pode adicionar um novo projeto de serviço móvel em uma solução existente do Visual Studio. Para saber mais, confira [Início rápido: Adicionar um serviço móvel (back-end do .NET)][Início rápido: Adicionar um serviço móvel (back-end do .NET)].
+> [WACOM.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel e aplicativo universal do Windows usando o Portal de Gerenciamento do Azure. Usando o Visual Studio 2013 Update 3, você também pode adicionar um novo projeto de serviço móvel em uma solução existente do Visual Studio. Para saber mais, confira [Início rápido: Adicionar um serviço móvel (back-end do .NET)](http://msdn.microsoft.com/pt-br/library/windows/apps/dn629482.aspx).
 
-> Para adicionar um serviço móvel a um projeto de aplicativo para Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consulte [Introdução aos dados para Windows Phone][Introdução aos dados para Windows Phone].
+> Para adicionar um serviço móvel a um projeto de aplicativo para Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consulte [Introdução aos dados para Windows Phone](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data).
 
-[WACOM.INCLUDE [mobile-services-windows-universal-get-started][mobile-services-windows-universal-get-started]]
+[WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 Para concluir este tutorial, você precisará do seguinte:
 
--   Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
--   [Visual Studio Professional 2013][Visual Studio Professional 2013]. Uma versão de avaliação gratuita está disponível.
+-   Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+-   <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
 
 ## Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Criar um novo aplicativo universal do Windows
 
@@ -35,13 +35,13 @@ Nesta seção, você criará um novo aplicativo universal do Windows conectado a
 
 2.  Na guia de início rápido, clique em **Windows** em **Escolher plataforma** e expanda **Criar um novo aplicativo da Windows Store**.
 
-    ![][]
+    ![][6]
 
     Isso exibe as três etapas fáceis para criar um aplicativo da Windows Store conectado ao seu serviço móvel.
 
-    ![][1]
+    ![][7]
 
-3.  Se ainda não o fez, baixe e instale o [Visual Studio Professional 2013][Visual Studio Professional 2013] no computador local ou na máquina virtual.
+3.  Se ainda não o fez, baixe e instale o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> no computador local ou na máquina virtual.
 
 4.  Em **Baixar e executar seu aplicativo e serviço localmente**, selecione um idioma para seu aplicativo da Windows Store e clique em **Baixar**.
 
@@ -49,48 +49,50 @@ Nesta seção, você criará um novo aplicativo universal do Windows conectado a
 
 ## Testar o aplicativo no serviço móvel local
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet][mobile-services-dotnet-backend-test-local-service-dotnet]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet](../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md)]
 
 > [WACOM.NOTE]Você pode revisar o código que acessa seu serviço móvel para consultar e inserir dados, ele é encontrado no arquivo MainPage.xaml.cs.
 
 ## Publicar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1.  No projeto do código compartilhado, abra o arquivo App.xaml.cs, localize o código que cria uma instância de [MobileServiceClient][MobileServiceClient], comente o código que cria esse cliente usando *localhost* e remova o comentário do código que cria o cliente usando a URL de serviço móvel remoto, de maneira semelhante à seguinte:
+<ol start="1">
+<li><p>No projeto do código compartilhado, abra o arquivo App.xaml.cs, localize o código que cria uma instância de <a href="http://msdn.microsoft.com/pt-br/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx" target="_blank">MobileServiceClient</a>, comente o código que cria esse cliente usando <em>localhost</em> e remova o comentário do código que cria o cliente usando a URL de serviço móvel remoto, de maneira semelhante à seguinte:</p>
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-                    "https://todolist.azure-mobile.net/",
-                    "XXXX-APPLICATION-KEY-XXXXX");
+        <pre><code>public static MobileServiceClient MobileService = new MobileServiceClient(
+            "https://todolist.azure-mobile.net/",
+            "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-    Agora, o cliente acessará o serviço móvel publicado no Azure.
+	<p>Agora, o cliente acessará o serviço móvel publicado no Azure.</p></li>
+</ol>
 
 ## Testar o aplicativo no serviço móvel hospedado no Azure
 
 Agora que o serviço móvel está publicado e o cliente está conectado a um serviço móvel hospedado no Azure, podemos executar o aplicativo usando o Azure para armazenar itens.
 
-[WACOM.INCLUDE [mobile-services-windows-universal-test-app][mobile-services-windows-universal-test-app]]
+[WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md])
 
 ## Próximas etapas
 
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
--   [Começar a trabalhar com dados][Começar a trabalhar com dados]
-    Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
+-   [Começar a trabalhar com dados]
+    <br/>Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
 
--   [Introdução à sincronização de dados offline][Introdução à sincronização de dados offline]
-    Saiba como usar a sincronização de dados offline para tornar o seu aplicativo responsivo e robusto.
+-   [Introdução à sincronização de dados offline]
+    <br/>Saiba como usar a sincronização de dados offline para tornar o seu aplicativo responsivo e robusto.
 
--   [Introdução à autenticação][Introdução à autenticação]
-    Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+-   [Introdução à autenticação]
+    <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
--   [Introdução às notificações por push][Introdução às notificações por push]
-    Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+-   [Introdução às notificações por push]
+    <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
--   [Solucionar problemas de back-end do .NET dos Serviços Móveis][Solucionar problemas de back-end do .NET dos Serviços Móveis]
-     Saiba como diagnosticar e corrigir problemas que podem surgir com o back-end do .NET dos Serviços Móveis.
+-   [Solucionar problemas de back-end do .NET dos Serviços Móveis]
+    <br/> Saiba como diagnosticar e corrigir problemas que podem surgir com o back-end do .NET dos Serviços Móveis.
 
-Para obter mais informações sobre os aplicativos universais do Windows, consulte [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel][Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel].
+Para obter mais informações sobre os aplicativos universais do Windows, consulte [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel](/pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
 <!-- Anchors. --> 
 <!-- Images. --> 
@@ -104,8 +106,8 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
-  [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
+  [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
+  [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
   [mobile-services-dotnet-backend-test-local-service-dotnet]: ../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md
   [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [MobileServiceClient]: http://msdn.microsoft.com/pt-br/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx

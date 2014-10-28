@@ -18,9 +18,9 @@ Você expandirá o exemplo Olá, [Mundo do Django][Django Hello World] utilizand
 
 Os arquivos de projeto deste tutorial serão armazenados em **C:\\django\\helloworld** e o aplicativo completo será semelhante a:
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Configurando uma máquina virtual para hospedar o MySQL e o Django
 
@@ -72,15 +72,15 @@ Os arquivos de projeto deste tutorial serão armazenados em **C:\\django\\hellow
 
 	Você deverá ver uma resposta semelhante à seguinte:
 
-	![][1]
+  ![][2]
 
-1.  Antes que você possa começar a desenvolver o aplicativo do Django, será necessário instalar o Python+Django na máquina virtual. Isso pode ser feito através do [Web Platform Installer][Web Platform Installer]. Depois de instalar o PI da Web, use-o para pesquisar "Django" e instale o produto Django (Python).
+1.  Antes que você possa começar a desenvolver o aplicativo do Django, será necessário instalar o Python+Django na máquina virtual. Isso pode ser feito através do [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). Depois de instalar o PI da Web, use-o para pesquisar "Django" e instale o produto Django (Python).
 
 	**Observação:** basta apenas instalar o produto *Django* do WebPI para ativar este tutorial. **Não** é necessário instalar o *Python Tools for Visual Studio* ou o Azure Python SDK para a nossa finalidade.
 
 1.  Instale o pacote de cliente do MySQL Python. Você pode instalá-lo diretamente [deste link][deste link]. Depois de concluído, execute o comando a seguir para verificar a sua instalação:
 
-	![][2]
+  ![][1]
 
 ## Expanda o aplicativo Django Hello World
 
@@ -220,9 +220,9 @@ Observação: Veja a seguir como executar o Django em um ambiente de teste. Para
         Development server is running at http://123.34.56.78:80
         Quit the server with CTRL-BREAK.
 
-2.  No seu navegador da Web local, abra \*\*<http://*yourVmName>\*.cloudapp.net\*\* (onde *yourVmName* é qualquer nome que você usou na etapa de criação da máquina virtual). Você deve ver o "Hello ... !" conforme mostrado na captura de tela abaixo. Isso indica que o Django está em execução na máquina virtual e funcionando corretamente.
+2.  No seu navegador da Web local, abra **http://*yourVmName*.cloudapp.net** (onde *yourVmName* é qualquer nome que você usou na etapa de criação da máquina virtual). Você deve ver o "Hello ... !" conforme mostrado na captura de tela abaixo. Isso indica que o Django está em execução na máquina virtual e funcionando corretamente.
 
-    ![][]
+    ![][5]
 
 	Atualize o navegador da Web algumas vezes para ver a alteração da mensagem de *"Hello **\<country abc\>**"* para *"Hello **\<some other country\>**"*.
 
@@ -235,13 +235,13 @@ Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtu
   [Django Hello World]: http://windowsazure.com/pt-br/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [site do MySQL]: http://dev.mysql.com/doc/
   [driver do MySQL]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-  []: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [aqui]: /pt-br/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/
   [banco de dados "mundo"]: http://dev.mysql.com/doc/index-other.html
   [este]: http://downloads.mysql.com/docs/world.sql.zip
-  [1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
-  [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [deste link]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
-  [2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
+
+[0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
+[1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
+[2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
+[5]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png

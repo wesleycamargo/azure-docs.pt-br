@@ -12,34 +12,34 @@ Você irá criar e provisionar um banco de dados de exemplo na plataforma do Azu
 
 ## Sumário
 
--   [Etapa 1: Criar uma conta do Microsoft Azure][Etapa 1: Criar uma conta do Microsoft Azure]
--   [Etapa 2: Conectar-se ao Azure e criar um banco de dados][Etapa 1: Criar uma conta do Microsoft Azure]
--   [Etapa 3: Configurar o firewall][Etapa 3: Configurar o firewall]
--   [Etapa 4: Adicionar dados e um esquema usando um script Transact-SQL][Etapa 4: Adicionar dados e um esquema usando um script Transact-SQL]
--   [Etapa 5: Criar o esquema][Etapa 5: Criar o esquema]
--   [Etapa 6: Inserir dados][Etapa 6: Inserir dados]
--   [Etapa 7: Exemplo de consulta e dados do sistema no Portal de Gerenciamento do Banco de Dados SQL][Etapa 7: Exemplo de consulta e dados do sistema no Portal de Gerenciamento do Banco de Dados SQL]
--   [Etapa 8: Criar um logon de banco de dados e atribuir permissões][Etapa 8: Criar um logon de banco de dados e atribuir permissões]
--   [Etapa 9: Conectar-se de outros aplicativos][Etapa 9: Conectar-se de outros aplicativos]
+-   [Etapa 1: Criar uma conta do Microsoft Azure](#Subscribe)
+-   [Etapa 2: Conectar-se ao Azure e criar um banco de dados](#Subscribe)
+-   [Etapa 3: Configurar o firewall](#ConfigFirewall)
+-   [Etapa 4: Adicionar dados e um esquema usando um script Transact-SQL](#AddData)
+-   [Etapa 5: Criar o esquema](#createschema)
+-   [Etapa 6: Inserir dados](#insertData)
+-   [Etapa 7: Exemplo de consulta e dados do sistema no Portal de Gerenciamento do Banco de Dados SQL](#QueryDBSysData)
+-   [Etapa 8: Criar um logon de banco de dados e atribuir permissões](#DBLogin)
+-   [Etapa 9: Conectar-se de outros aplicativos](#ClientConnection)
 
 ## Etapa 1: Criar uma conta do Microsoft Azure
 
-1.  Abra um navegador da web e navegue para [][]<http://azure.microsoft.com></a>.
+1.  Abra um navegador da web e navegue para [http://azure.microsoft.com](http://azure.microsoft.com).
     Para começar com uma conta gratuita, clique em avaliação gratuita no canto superior direito e siga as etapas.
 
 2.  Sua conta agora está criada. Você está pronto para começar.
 
 ## Etapa 2: Conectar-se ao Azure e criar um banco de dados
 
-1.  Entre no [Portal de Gerenciamento][Portal de Gerenciamento]. Você deve ver um painel de navegação semelhante a este.
+1.  Entre no [Portal de Gerenciamento](http://manage.windowsazure.com). Você deve ver um painel de navegação semelhante a este.
 
-    ![Painel de navegação][Painel de navegação]
+    ![Painel de navegação][Image1]
 
 2.  Clique em **Novo** na parte inferior da página. Quando você clica em **Novo**, uma lista rola a tela para cima mostrando coisas que você pode criar.
 
 3.  Clique em **Banco de Dados SQL** e, em seguida, clique em **Criação Personalizada**.
 
-    ![Painel de navegação][1]
+    ![Painel de navegação][Image2]
 
 A escolha dessa opção permite que você crie um novo servidor e banco de dados SQL ao mesmo tempo, com você como o administrador. Como o administrador do sistema, você pode executar mais tarefas, incluindo a conexão ao Portal de Gerenciamento do Banco de Dados SQL, o que você irá fazer mais tarde neste tutorial.
 
@@ -47,7 +47,7 @@ A escolha dessa opção permite que você crie um novo servidor e banco de dados
 
     Preencha a página Configurações do Banco de Dados da seguinte maneira:
 
-    ![Painel de navegação][2]
+    ![Painel de navegação][Image3]
 
 -   Insira **Escola** como o nome do banco de dados.
 
@@ -59,7 +59,7 @@ A escolha dessa opção permite que você crie um novo servidor e banco de dados
 
 1.  Preencha as Configurações do Servidor da seguinte maneira:
 
-    ![Painel de navegação][3]
+    ![Painel de navegação][Image4]
 
 -   Digite um nome de administrador como uma palavra sem espaços. O Banco de Dados SQL usa a Autenticação do SQL através de uma conexão criptografada para validar a identidade do usuário. Será criado um novo logon de autenticação do SQL Server que tem permissões de administrador usando o nome que você fornecer. O nome do administrador não pode ser um usuário do Windows e também não deve ser uma ID do nome do usuário do Windows Live. A Autenticação do Windows não é suportada no Banco de Dados SQL.
 
@@ -81,7 +81,7 @@ Na próxima etapa, você irá configurar o firewall para que as conexões de apl
 
 Para configurar o firewall para que as conexões sejam permitidas através dele, você digitará informações na página do servidor.
 
-<strong>Observação:</strong> O serviço de Banco de Dados SQL só está disponível com a porta TCP 1433 usada pelo protocolo TDS, portanto certifique-se de que o firewall no seu computador local e na sua rede permita a comunicação de saída TCP na porta 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL (a página pode estar em inglês)][Firewall do Banco de Dados SQL (a página pode estar em inglês)].
+<strong>Observação:</strong> O serviço de Banco de Dados SQL só está disponível com a porta TCP 1433 usada pelo protocolo TDS, portanto certifique-se de que o firewall no seu computador local e na sua rede permita a comunicação de saída TCP na porta 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-pt-br.aspx).
 
 1.  No painel de navegação à esquerda, clique em **Bancos de Dados SQL**.
 
@@ -97,7 +97,7 @@ Para configurar o firewall para que as conexões sejam permitidas através dele,
 
 7.  Depois que você salvar a regra, sua página terá aparência semelhante à seguinte captura de tela.
 
-    ![Painel de navegação][4]
+    ![Painel de navegação][Image7]
 
 Agora você tem um servidor de Banco de Dados SQL no Azure, uma regra de firewall que permite o acesso ao servidor, um objeto de banco de dados e um logon de administrador. Mas você ainda não tem um banco de dados de trabalho que você possa consultar. Para fazer isso, seu banco de dados deve ter um esquema e dados reais.
 
@@ -109,11 +109,11 @@ Conforme suas habilidades aumentarem, você desejará explorar maneiras adiciona
 
 Nesta etapa, você executa dois scripts. O primeiro cria um esquema que define tabelas, colunas e relações. O segundo script adiciona os dados. Cada etapa é executada independentemente em uma conexão separada. Se você tiver criado bancos de dados no SQL Server anteriormente, uma das diferenças que você observará no Banco de Dados SQL é que os comandos CREATE e INSERT devem ser executados em lotes separados. O Banco de Dados SQL impõe esse requisito para minimizar ataques contra os dados enquanto estiverem em trânsito.
 
-<strong>Observação:</strong>Os valores de esquema e de dados são obtidos deste [MSDN][MSDN] e foram modificados para funcionar com o Banco de Dados SQL.
+<strong>Observação:</strong>Os valores de esquema e de dados são obtidos deste [MSDN](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621790.aspx "artigo do ") e foram modificados para funcionar com o Banco de Dados SQL.
 
-1.  Acesse a página inicial. No [Portal de Gerenciamento][Portal de Gerenciamento], o Banco de Dados **Escola** aparece na lista de itens na página inicial.
+1.  Acesse a página inicial. No [Portal de Gerenciamento](http://manage.windowsazure.com), o Banco de Dados **Escola** aparece na lista de itens na página inicial.
 
-    ![Painel de navegação][5]
+    ![Painel de navegação][Image8]
 
 2.  Clique em **Escola** para selecioná-la e, em seguida, clique em**Gerenciar** na parte inferior da página. Isso abrirá o Portal de Gerenciamento do Banco de Dados SQL. Esse Portal é separado do Portal de Gerenciamento do Azure. Você usará esse portal para executar comandos e consultas Transact-SQL.
 
@@ -123,7 +123,7 @@ Nesta etapa, você executa dois scripts. O primeiro cria um esquema que define t
 
 ## Etapa 5: Criar o esquema
 
-Nesta etapa, você criará o esquema usando o seguinte script. O script primeiro verifica se há uma tabela existente de mesmo nome para garantir que não haverá uma colisão de nomes e cria a tabela usando a instrução [CREATE TABLE][CREATE TABLE]. Além disso, esse script usa a instrução [ALTER TABLE][ALTER TABLE] para especificar as relações de chave primária e de tabela.
+Nesta etapa, você criará o esquema usando o seguinte script. O script primeiro verifica se há uma tabela existente de mesmo nome para garantir que não haverá uma colisão de nomes e cria a tabela usando a instrução [CREATE TABLE](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336258.aspx). Além disso, esse script usa a instrução [ALTER TABLE](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336286.aspx) para especificar as relações de chave primária e de tabela.
 
 Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte superior da janela para executar o script.
 
@@ -367,7 +367,7 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 
 ## Etapa 6: Inserir dados
 
-Abra uma nova janela de consulta e, em seguida, cole-a no script a seguir. Execute o script para inserir dados. Esse script usa a instrução [INSERT][INSERT] para adicionar valores a cada coluna.
+Abra uma nova janela de consulta e, em seguida, cole-a no script a seguir. Execute o script para inserir dados. Esse script usa a instrução [INSERT](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336284.aspx) para adicionar valores a cada coluna.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
     Inserir dados na tabela de Person.
@@ -493,7 +493,7 @@ Para criar um logon, você deve primeiro conectar-se ao banco de dados **mestre*
 
 #### Criar um logon de autenticação do SQL Server
 
-1.  No [Portal de Gerenciamento][Portal de Gerenciamento], selecione **Bancos de Dados SQL**, clique em **Servidores**, escolha o servidor e, em seguida, clique na seta branca para abrir a
+1.  No [Portal de Gerenciamento](http://manage.windowsazure.com), selecione **Bancos de Dados SQL**, clique em **Servidores**, escolha o servidor e, em seguida, clique na seta branca para abrir a
     página do servidor.
 
 2.  Na página Início Rápido, clique em **Gerenciar Servidor** para abrir uma nova conexão com o Portal de Gerenciamento do Banco de Dados SQL.
@@ -504,7 +504,7 @@ Para criar um logon, você deve primeiro conectar-se ao banco de dados **mestre*
 
 5.  Se você vir um erro na página semelhante ao seguinte, ignore-o. Clique em **Nova Consulta** para abrir uma janela de consulta que permite executar comandos Transact-SQL no banco de dados **mestre**.
 
-    ![Painel de navegação][6]
+    ![Painel de navegação][Image15]
 
 6.  Copie e cole o seguinte comando na janela de consulta.
 
@@ -520,7 +520,7 @@ Depois de criar um logon de autenticação do SQL Server, a próxima etapa é at
 
     Na página do Portal de Gerenciamento do Banco de Dados SQL, o nome do banco de dados **Escola** está visível no canto superior esquerdo.
 
-    ![Painel de navegação][7]
+    ![Painel de navegação][Image12]
 
 2.  Clique em **Nova Consulta** para abrir uma nova janela de consulta e copiar na instrução a seguir.
 
@@ -548,64 +548,55 @@ Se o Microsoft Excel estiver instalado em seu computador, você poderá usar as 
 
 2.  No assistente para Conexão de Dados, digite o nome de domínio totalmente qualificado do seu Servidor de Banco de Dados SQL, seguido de um logon de Autenticação do SQL Server que tem permissão para acessar o banco de dados.
 
-	O nome do servidor pode ser localizado no Portal de Gerenciamento do Azure, no Banco de Dados SQL, na página Servidor, no Painel, em **Gerenciar URL**. O nome do servidor consiste em uma série de letras e números, seguidos de '.database.windows.net'. Especifique esse nome no assistente de Conexão do Banco de Dados. Não inclua o prefixo <http://> ou <https://> ao especificar o nome.
+	O nome do servidor pode ser localizado no Portal de Gerenciamento do Azure, no Banco de Dados SQL, na página Servidor, no Painel, em **Gerenciar URL**. O nome do servidor consiste em uma série de letras e números, seguidos de '.database.windows.net'. Especifique esse nome no assistente de Conexão do Banco de Dados. Não inclua o prefixo http:// ou https:// ao especificar o nome.
 
 	Insira um logon de autenticação do SQL Server. Para fins de teste, você pode usar o logon de administrador que criou quando configurou o servidor. Para acesso normal a dados, use um logon de usuário de banco de dados semelhante ao que você acabou de criar.
 
-	![Painel de navegação][8]
+![Painel de navegação][Image16]
 
 1.  Na próxima página, escolha o banco de dados **Escola** e, em seguida, escolha **Pessoa**. Clique em **Concluir**. Se você solicitou por detalhes de logon, digite-os e, em seguida, clique em **OK**.
 
 2.  A caixa de diálogo Importar Dados é exibida solicitando que você selecione como e onde importar seus dados. Com as opções padrão selecionadas, clique em **OK**.
 
-    ![Painel de navegação][9]
+    ![Painel de navegação][Image19]
 
 3.  Na planilha, você deve ver uma tabela com um conjunto de resultados que inclui 34 linhas da tabela pessoal, incluindo PersonID, LastName, FirstName, HireDate e EnrollmentDate, assim como os resultados de consulta da Etapa 7.
 
-Usando somente o Excel, você pode importar apenas uma tabela por vez. Uma abordagem melhor é usar o suplemento PowerPivot para Excel, que permite que você importe e trabalhe com várias tabelas como um único conjunto de dados. Trabalhar com o PowerPivot está além do escopo deste tutorial, mas você pode obter mais informações sobre isso em [PowerPivot para Excel][PowerPivot para Excel].
+Usando somente o Excel, você pode importar apenas uma tabela por vez. Uma abordagem melhor é usar o suplemento PowerPivot para Excel, que permite que você importe e trabalhe com várias tabelas como um único conjunto de dados. Trabalhar com o PowerPivot está além do escopo deste tutorial, mas você pode obter mais informações sobre isso em [PowerPivot para Excel](http://go.microsoft.com/fwlink/?LinkId=396969).
 
 ## Próximas etapas
 
 Agora que você está familiarizado com o Banco de Dados SQL e os Portais de Gerenciamento, você pode experimentar outras ferramentas e técnicas usadas pelos administradores de Banco de Dados do SQL Server.
 
-Para gerenciar ativamente o seu novo banco de dados, considere a possibilidade de instalar e usar o SQL Server Management Studio. O Management Studio é a ferramenta de administração de banco de dados primário para o gerenciamento de bancos de dados do SQL Server, inclusive aqueles em execução no Azure. Usando o Management Studio, você pode salvar consultas para uso futuro, adicionar novas tabelas e procedimentos armazenados e aprimorar suas habilidades no Transact-SQL em um ambiente de script sofisticado que inclui um verificador de sintaxe, intellisense e modelos. Para começar, siga as instruções em [Gerenciando o Banco de Dados do SQL Server usando o SQL Server Management Studio (a página pode estar em inglês)][Gerenciando o Banco de Dados do SQL Server usando o SQL Server Management Studio (a página pode estar em inglês)].
+Para gerenciar ativamente o seu novo banco de dados, considere a possibilidade de instalar e usar o SQL Server Management Studio. O Management Studio é a ferramenta de administração de banco de dados primário para o gerenciamento de bancos de dados do SQL Server, inclusive aqueles em execução no Azure. Usando o Management Studio, você pode salvar consultas para uso futuro, adicionar novas tabelas e procedimentos armazenados e aprimorar suas habilidades no Transact-SQL em um ambiente de script sofisticado que inclui um verificador de sintaxe, intellisense e modelos. Para começar, siga as instruções em [Gerenciando o Banco de Dados do SQL Server usando o SQL Server Management Studio (a página pode estar em inglês)](http://www.azure.microsoft.com/pt-br/documentation/articles/sql-database-manage-azure-ssms/).
 
-Ter fluência na consulta Transact SQL e na linguagem de definição de dados é essencial para os administradores de Banco de Dados. Se você for novo no Transact-SQL, comece com o [Tutorial: Escrevendo instruções Transact-SQL][Tutorial: Escrevendo instruções Transact-SQL] para aprender algumas técnicas básicas.
+Ter fluência na consulta Transact SQL e na linguagem de definição de dados é essencial para os administradores de Banco de Dados. Se você for novo no Transact-SQL, comece com o [Tutorial: Escrevendo instruções Transact-SQL](http://msdn.microsoft.com/pt-br/library/ms365303.aspx)para aprender algumas técnicas básicas.
 
 Existem outros métodos para mover um banco de dados local para o Banco de Dados SQL. Se você tiver bancos de dados existentes, ou fez o download de exemplos de bancos de dados para praticar, tente as seguintes abordagens alternativas:
 
--   [Migrando bancos de dados para o Banco de Dados SQL][Migrando bancos de dados para o Banco de Dados SQL]
--   [Copiando bancos de dados no Banco de Dados SQL][Copiando bancos de dados no Banco de Dados SQL]
--   [Implantar um Banco de dados do SQL Server em uma máquina virtual do Azure][Implantar um Banco de dados do SQL Server em uma máquina virtual do Azure]
+-   [Migrando bancos de dados para o Banco de Dados SQL](http://msdn.microsoft.com/pt-br/library/windowsazure/ee730904.aspx)
+-   [Copiando bancos de dados no Banco de Dados SQL](http://msdn.microsoft.com/pt-br/library/windowsazure/ff951624.aspx)
+-   [Implantar um Banco de dados do SQL Server em uma máquina virtual do Azure](http://msdn.microsoft.com/pt-br/library/dn195938(v=sql.120).aspx)
 
-  [Etapa 1: Criar uma conta do Microsoft Azure]: #Subscribe
-  [Etapa 3: Configurar o firewall]: #ConfigFirewall
-  [Etapa 4: Adicionar dados e um esquema usando um script Transact-SQL]: #AddData
-  [Etapa 5: Criar o esquema]: #createschema
-  [Etapa 6: Inserir dados]: #insertData
-  [Etapa 7: Exemplo de consulta e dados do sistema no Portal de Gerenciamento do Banco de Dados SQL]: #QueryDBSysData
-  [Etapa 8: Criar um logon de banco de dados e atribuir permissões]: #DBLogin
-  [Etapa 9: Conectar-se de outros aplicativos]: #ClientConnection
-  []: http://azure.microsoft.com
-  [Portal de Gerenciamento]: http://manage.windowsazure.com
-  [Painel de navegação]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
-  [1]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
-  [2]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
-  [3]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
-  [Firewall do Banco de Dados SQL (a página pode estar em inglês)]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-pt-br.aspx
-  [4]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-  [MSDN]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee621790.aspx "artigo do "
-  [5]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
-  [CREATE TABLE]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336258.aspx
-  [ALTER TABLE]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336286.aspx
-  [INSERT]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336284.aspx
-  [6]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-  [7]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
-  [8]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
-  [9]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
-  [PowerPivot para Excel]: http://go.microsoft.com/fwlink/?LinkId=396969
-  [Gerenciando o Banco de Dados do SQL Server usando o SQL Server Management Studio (a página pode estar em inglês)]: http://www.azure.microsoft.com/pt-br/documentation/articles/sql-database-manage-azure-ssms/
-  [Tutorial: Escrevendo instruções Transact-SQL]: http://msdn.microsoft.com/pt-br/library/ms365303.aspx
-  [Migrando bancos de dados para o Banco de Dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee730904.aspx
-  [Copiando bancos de dados no Banco de Dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff951624.aspx
-  [Implantar um Banco de dados do SQL Server em uma máquina virtual do Azure]: http://msdn.microsoft.com/pt-br/library/dn195938(v=sql.120).aspx
+
+
+[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
+[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
+[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
+[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.PNG
+[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
+[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.PNG
+[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.PNG
+[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
+[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
+[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG
+[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
+[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.PNG
+[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.PNG
+[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
+[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
