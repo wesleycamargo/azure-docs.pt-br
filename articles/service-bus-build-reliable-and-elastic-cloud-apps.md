@@ -34,14 +34,14 @@ A demanda dinâmica é uma realidade para os aplicativos de hoje. De uma demanda
 
   [Criar um aplicativo .NET multicamada usando filas do Service Bus]: /pt-br/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
   [Barramento de Serviço do Microsoft Azure - David Chappell]: http://azure.microsoft.com/pt-br/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-  [Padrão de nivelamento de carga baseado em fila]: http://msdn.microsoft.com/en-us/library/dn589783.aspx
-  [Consumidores concorrentes]: http://msdn.microsoft.com/en-us/library/dn568101.aspx
+  [Padrão de nivelamento de carga baseado em fila]: http://msdn.microsoft.com/pt-br/library/dn589783.aspx
+  [Consumidores concorrentes]: http://msdn.microsoft.com/pt-br/library/dn568101.aspx
   [Provedor de solução de transportes realiza a triagem de veículos comerciais - Xerox]: http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945
   [Como usar filas do Barramento de Serviço]: http://azure.microsoft.com/pt-br/documentation/articles/service-bus-dotnet-how-to-use-queues/
   [Mensagens mortas no Sistema de Mensagens Agenciado do Barramento de Serviço (postagem no blog de 21 de outubro de 2011)]: http://geekswithblogs.net/asmith/articles/147398.aspx
-  [Práticas recomendadas para isolar aplicativos do Barramento de Serviço contra indisponibilidades e desastres do Barramento de Serviço]: http://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/jj554355.aspx
+  [Práticas recomendadas para isolar aplicativos do Barramento de Serviço contra indisponibilidades e desastres do Barramento de Serviço]: http://sandboxmsdnstage.redmond.corp.microsoft.com/pt-br/library/azure/jj554355.aspx
   [Sistema de Mensagens Agenciado: Resposta da Solicitação]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
   [Aplicativo multicamadas com o Barramento de Serviço do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças]: http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx
-  [Referência da API REST do Barramento de Serviço]: http://msdn.microsoft.com/en-us/library/azure/hh780717.aspx
+  [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças]: http://msdn.microsoft.com/pt-br/library/azure/hh767287.aspx
+  [Referência da API REST do Barramento de Serviço]: http://msdn.microsoft.com/pt-br/library/azure/hh780717.aspx
   [Serviços de Nuvem]: http://azure.microsoft.com/pt-br/documentation/services/cloud-services/

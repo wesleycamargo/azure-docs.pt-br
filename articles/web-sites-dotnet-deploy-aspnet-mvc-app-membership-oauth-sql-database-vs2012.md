@@ -27,34 +27,34 @@ Você aprenderá a:
 
 Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET MVC 4 e que usa o ADO.NET Entity Framework para acesso ao banco de dados. A seguinte ilustração mostra a página de logon do aplicativo concluído:
 
-![página de logon][]
+![página de logon][página de logon]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
 
 Neste tutorial:
 
--   [Configurar o ambiente de desenvolvimento][]
--   [Configurar o ambiente do Azure][]
--   [Criar um aplicativo ASP.NET MVC 4][]
--   [Implantar o aplicativo no Azure][]
--   [Adicionar um banco de dados ao aplicativo][]
--   [Adicionar um provedor de OAuth][]
--   [Adicionar funções ao banco de dados de associação][]
--   [Criar um Script de implantação de dados][]
+-   [Configurar o ambiente de desenvolvimento][Configurar o ambiente de desenvolvimento]
+-   [Configurar o ambiente do Azure][Configurar o ambiente do Azure]
+-   [Criar um aplicativo ASP.NET MVC 4][Criar um aplicativo ASP.NET MVC 4]
+-   [Implantar o aplicativo no Azure][Implantar o aplicativo no Azure]
+-   [Adicionar um banco de dados ao aplicativo][Adicionar um banco de dados ao aplicativo]
+-   [Adicionar um provedor de OAuth][Adicionar um provedor de OAuth]
+-   [Adicionar funções ao banco de dados de associação][Adicionar funções ao banco de dados de associação]
+-   [Criar um Script de implantação de dados][Criar um Script de implantação de dados]
 -   [Implantar o aplicativo no Azure][1]
--   [Atualizar o banco de dados de associação][]
--   [Próximas etapas][]
+-   [Atualizar o banco de dados de associação][Atualizar o banco de dados de associação]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="bkmk_setupdevenv"></a>Configurar o ambiente de desenvolvimento
 
 Para começar, defina o ambiente de desenvolvimento instalando o SDK do Azure para o .NET Framework.
 
 1.  Para instalar o SDK do Azure para .NET, clique no link abaixo. Se você ainda não tiver o Visual Studio 2012 instalado, ele será instalado pelo link. Este tutorial exige o Visual Studio 2012.
-    [SDK do Azure para o Visual Studio 2012][]
+    [SDK do Azure para o Visual Studio 2012][SDK do Azure para o Visual Studio 2012]
 2.  Quando for solicitado que você execute ou salve o executável da instalação, clique em **Executar**.
 3.  Na janela do Web Platform Installer, clique em **Instalar** e prossiga com a instalação.
 
-![Web Platform Installer - SDK do Azure para .NET][]
+![Web Platform Installer - SDK do Azure para .NET][Web Platform Installer - SDK do Azure para .NET]
 
 Quando a instalação for concluída, você terá todo o necessário para iniciar o desenvolvimento.
 
@@ -68,11 +68,11 @@ O seu site do Azure será executado em um ambiente de hospedagem compartilhado, 
 
 O Banco de dados SQL no Azure é um serviço de banco de dados relacional baseado em que é fundamentado em tecnologias do SQL Server. As ferramentas e os aplicativos que funcionam com o SQL Server também funcionam com o Banco de dados SQL.
 
-1.  No [Portal de Gerenciamento do Azure][], clique em **Sites** na guia esquerda, em seguida, clique em **Novo**.
-![Novo botão no Portal de Gerenciamento][]
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Sites** na guia esquerda, em seguida, clique em **Novo**.
+![Novo botão no Portal de Gerenciamento][Novo botão no Portal de Gerenciamento]
 
 2.  Clique em **CRIAÇÃO PERSONALIZADA**.
-    ![Criar com link de banco de dados no Portal de Gerenciamento][]
+    ![Criar com link de banco de dados no Portal de Gerenciamento][Criar com link de banco de dados no Portal de Gerenciamento]
 O assitente **Novo site - Criação personalizada** é aberta.
 3.  Na etapa **Criar Site** do assistente, insira uma sequência de caracteres na caixa **URL** a ser usada como a URL exclusiva de seu aplicativo. A URL completa consistirá no que você digitar aqui mais o sufixo que você vê ao lado da caixa de texto. A ilustração mostra "contactmgr22", mas essa URL provavelmente já é utilizada e, portanto, você precisará escolher outra.
 
@@ -94,10 +94,10 @@ O assitente **Novo site - Criação personalizada** é aberta.
 
 8.  Clique na marca de seleção na parte inferior da caixa para indicar que você concluiu.
 
-    ![Etapa Configurações do banco de dados do Novo site - Criar com o assistente de banco de dados][]
+    ![Etapa Configurações do banco de dados do Novo site - Criar com o assistente de banco de dados][Etapa Configurações do banco de dados do Novo site - Criar com o assistente de banco de dados]
 
     A imagem a seguir mostra o uso de um SQL Server e logon existentes.
-    ![Etapa Configurações do Banco de Dados de um novo site - Assistente Criar com Banco de Dados][]
+    ![Etapa Configurações do Banco de Dados de um novo site - Assistente Criar com Banco de Dados][Etapa Configurações do Banco de Dados de um novo site - Assistente Criar com Banco de Dados]
 
     O Portal de Gerenciamento do Azure retorna para a página Sites e a coluna **Status** mostra que o site está sendo criado. Depois de um tempo (normalmente menos de um minuto), a coluna **Status** mostra que o site foi criado com êxito. Na barra de navegação à esquerda, o número de sites presentes na sua conta é exibido próximo ao ícone **Sites**, enquanto o número de bancos de dados aparece ao lado do ícone **Bancos de Dados SQL**.
 
@@ -111,17 +111,17 @@ Você criou um Site do Azure, mas ainda não há conteúdo nele. A próxima etap
 2.  No menu **Arquivo**, clique em **Novo Projeto**.
 3.  Na caixa de diálogo **Novo Projeto**, expanda **C\#**, selecione **Web** em **Modelos instalados** e, em seguida, selecione **Aplicativo Web ASP.NET MVC 4**. Mantenha o padrão **.NET Framework 4.5**. Nomeie o aplicativo **ContactManager** e clique em **OK**.
 
-    ![Caixa de diálogo Novo Projeto][]
+    ![Caixa de diálogo Novo Projeto][Caixa de diálogo Novo Projeto]
 
 4.  Na caixa de diálogo **Novo Projeto ASP.NET MVC 4**, selecione o modelo **Aplicativo de Internet**. Mantenha o **Mecanismo de Exibição** do Razor padrão e clique em **OK**.
 
-    ![Caixa de diálogo Novo Projeto ASP.NET MVC 4][]
+    ![Caixa de diálogo Novo Projeto ASP.NET MVC 4][Caixa de diálogo Novo Projeto ASP.NET MVC 4]
 
 ### Configurar o cabeçalho e o rodapé da página
 
 1.  No **Gerenciador de Soluções**, expanda a pasta Views\\Shared e abra o arquivo \*\_Layout.cshtml\*.
 
-    ![\_Layout.cshtml no Gerenciador de Soluções][]
+    ![\_Layout.cshtml no Gerenciador de Soluções][\_Layout.cshtml no Gerenciador de Soluções]
 
 2.  Substitua cada ocorrência do "Meu Aplicativo ASP.NET MVC" por "Gerenciador de Contatos".
 3.  Substitua o "seu logotipo aqui" por "Demonstração de CM".
@@ -129,39 +129,39 @@ Você criou um Site do Azure, mas ainda não há conteúdo nele. A próxima etap
 ### Executar o aplicativo localmente
 
 1.  Pressione CTRL+F5 para executar o aplicativo. A página inicial do aplicativo aparece no navegador padrão.
-    ![To Do List home page][]
+    ![To Do List home page][To Do List home page]
 
 Isso é tudo o que você precisa fazer por enquanto para criar o aplicativo que você implantará no Azure. Posteriormente, você adicionará a funcionalidade do banco de dados.
 
 ## <a name="bkmk_deploytowindowsazure1"></a> Implantar o aplicativo no Azure
 
-1.  Em seu navegador, abra o [de Gerenciamento do Azure][].
+1.  Em seu navegador, abra o [de Gerenciamento do Azure][de Gerenciamento do Azure].
 
 2.  Na guia **Sites**, clique no nome do site criado anteriormente.
 
-    ![Entre em contato com o aplicativo de gerenciamento na guia Sites do Portal de Gerenciamento][]
+    ![Entre em contato com o aplicativo de gerenciamento na guia Sites do Portal de Gerenciamento][Entre em contato com o aplicativo de gerenciamento na guia Sites do Portal de Gerenciamento]
 
 3.  No lado direito da janela, clique em **Baixar perfil de publicação**.
 
-    ![Guia de início rápido e o botão Baixar perfil de publicação][]
+    ![Guia de início rápido e o botão Baixar perfil de publicação][Guia de início rápido e o botão Baixar perfil de publicação]
 
     Esta etapa baixa um arquivo que contém todas as configurações necessárias para implantar um aplicativo em seu site. Você importará esse arquivo para o Visual Studio de forma que não precise inserir essas informações manualmente.
 
 4.  Salve o arquivo .*publishsettings* em uma pasta passiva de acesso pelo Visual Studio.
 
-    ![salvando o arquivo .publishsettings][]
+    ![salvando o arquivo .publishsettings][salvando o arquivo .publishsettings]
 
-    [WACOM.INCLUDE [publishsettingsfilewarningchunk][]]
+    [WACOM.INCLUDE [publishsettingsfilewarningchunk][publishsettingsfilewarningchunk]]
 
 5.  No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione **Publicar** no menu de contexto.
 
-    ![Publicar no menu de contexto do projeto][]
+    ![Publicar no menu de contexto do projeto][Publicar no menu de contexto do projeto]
 
     O assistente de **Publicar Web** é aberto.
 
 6.  Na guia **Perfil** do assistente de **Publicar Web**, clique em **Importar**.
 
-    ![Importar configurações de publicação][]
+    ![Importar configurações de publicação][Importar configurações de publicação]
 
     A caixa de diálogo **Importar Perfil de Publicação** é aberta.
 
@@ -169,34 +169,34 @@ Isso é tudo o que você precisa fazer por enquanto para criar o aplicativo que 
 
     a. Na caixa de diálogo **Perfil de Publicação de Importação**, clique em **Adicionar Assinatura do Azure**.
 
-    ![adicionar ass do win az][]
+    ![adicionar ass do win az][adicionar ass do win az]
 
     b. Na caixa de diálogo **Importar Assinaturas do Azure**, clique em **Baixar arquivo de assinatura**.
 
-    ![baixar sub][]
+    ![baixar sub][baixar sub]
 
     c. Na janela do navegador, salve o arquivo *.publishsettings*.
 
-    ![baixar o arquivo pub][]
+    ![baixar o arquivo pub][baixar o arquivo pub]
 
     > [WACOM.NOTE]
     > O arquivo .publishsettings contém suas credenciais (sem codificação) que são usadas para administrar suas assinaturas e serviços do Azure. A melhor prática de segurança para este arquivo é armazená-lo temporariamente fora dos diretórios de origem (por exemplo, na pasta Libraries\\Documents) e, em seguida, excluí-la após a conclusão da importação. Um usuário mal-intencionado que obtenha acesso ao arquivo .publishsettings pode editar, criar e excluir os serviços do Azure.
 
     d. Na caixa de diálogo **Importar Assinaturas do Azure**, clique na guia **Procurar** e navegue para o arquivo *.publishsettings*.
 
-    ![baixar sub][]
+    ![baixar sub][baixar sub]
 
     e. Clique em **Importar**.
 
-    ![import][]
+    ![import][import]
 
 8.  Na caixa de diálogo **Importar o perfil de publicação**, selecione **Importar de um site do Azure**, selecione seu site na lista suspensa e, em seguida, clique em **OK**.
 
-    ![Importar Perfil de Publicação][]
+    ![Importar Perfil de Publicação][Importar Perfil de Publicação]
 
     O aplicativo que você criou agora está em execução na nuvem. Na próxima vez que você implantar o aplicativo, somente os arquivos alterados (ou novos) serão implantados.
 
-    ![A home page da lista de tarefas pendentes em execução no Azure][]
+    ![A home page da lista de tarefas pendentes em execução no Azure][A home page da lista de tarefas pendentes em execução no Azure]
 
 ## <a name="bkmk_addadatabase"></a>Adicionar um banco de dados ao aplicativo
 
@@ -207,10 +207,10 @@ Em seguida, você atualizará o aplicativo MVC para adicionar a habilidade de ex
 Você começa criando um modelo de dados simples no código.
 
 1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta Modelos, clique em **Adicionar**e, em seguida, em **Classe**.
-![Adicionar Classe no menu de contexto da pasta Modelos][]
+![Adicionar Classe no menu de contexto da pasta Modelos][Adicionar Classe no menu de contexto da pasta Modelos]
 
 2.  Na caixa de diálogo **Adicionar Novo Item**, nomeie o novo arquivo de classe *Contact.cs* e clique em **Adicionar**.
-![Caixa de diálogo Adicionar Novo Item][]
+![Caixa de diálogo Adicionar Novo Item][Caixa de diálogo Adicionar Novo Item]
 
 3.  Substitua o conteúdo do arquivo Contacts.cs pelo código a seguir.
 
@@ -243,39 +243,39 @@ O recurso scaffolding do ASP.NET MVC pode gerar automaticamente o código que ex
 
 2.  No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta Controladores e clique em **Adicionar** e, em seguida, em **Controlador**.
 
-    ![Adicionar Controlador no menu de contexto da pasta Controladores][]
+    ![Adicionar Controlador no menu de contexto da pasta Controladores][Adicionar Controlador no menu de contexto da pasta Controladores]
 
 3.  Na caixa de diálogo **Adicionar Controlador**, digite "HomeController" como o nome do seu controlador.
 4.  Defina o modelo **Opções de Scaffolding** para o**Controlador MVC com ações e visualizações de leitura/gravação, usando o Entity Framework**.
 
 5.  Selecione **Contato** como sua classe de modelo e **\<Novo contexto de dados... \>** como sua classe de contexto de dados.
 
-    ![Caixa de diálogo Adicionar Controlador][]
+    ![Caixa de diálogo Adicionar Controlador][Caixa de diálogo Adicionar Controlador]
 
 6.  Na caixa de diálogo **Novo contexto de dados**, aceite o valor padrão *ContactManager.Models.ContactManagerContext*.
-    ![\*][]
+    ![\*][\*]
 
 7.  Clique em **OK** e, em seguida, clique em **Adicionar** na caixa de diálogo **Adicionar Controlador**.
 8.  Na caixa de diálogo de substituição **Adicionar Controlador**, verifique se todas as opções estão marcadas e clique em **OK**.
 
-    ![Adicionar a caixa de mensagem do controlador][]
+    ![Adicionar a caixa de mensagem do controlador][Adicionar a caixa de mensagem do controlador]
 
 O Visual Studio cria métodos do controlador e modos de exibição para as operações CRUD do banco de dados para objetos **Contact**.
 
 ## Habilitar migrações, criar o banco de dados, adicionar dados de exemplo e um inicializador de dados
 
-A próxima tarefa é habilitar o recurso [Codificar primeiras migrações (a página pode estar em inglês)][] para criar o banco de dados com base no modelo de dados criado.
+A próxima tarefa é habilitar o recurso [Codificar primeiras migrações (a página pode estar em inglês)][Codificar primeiras migrações (a página pode estar em inglês)] para criar o banco de dados com base no modelo de dados criado.
 
 1.  No menu **Ferramentas**, selecione **Gerenciador de Pacotes da Biblioteca** e **Console do Gerenciador de Pacotes**.
 
-    ![Console do Gerenciador de Pacotes no menu Ferramentas][]
+    ![Console do Gerenciador de Pacotes no menu Ferramentas][Console do Gerenciador de Pacotes no menu Ferramentas]
 
 2.  Na janela **Console do Gerenciador de Pacotes**, digite o seguinte comando:
 
         enable-migrations -ContextTypeName ContactManagerContext
 
-    ![enable-migrations][]
-    Deve-se especificar o nome do tipo de contexto (**ContactManagerContext**), pois o projeto contém duas classes[DbContext][] derivadas, a **ContactManagerContext** recém adicionada e a **UsersContext**, que é usada para o banco de dados de associação. A classe **ContactManagerContext** foi adicionada pelo Assistente de scaffolding do Visual Studio.
+    ![enable-migrations][enable-migrations]
+    Deve-se especificar o nome do tipo de contexto (**ContactManagerContext**), pois o projeto contém duas classes[DbContext][DbContext] derivadas, a **ContactManagerContext** recém adicionada e a **UsersContext**, que é usada para o banco de dados de associação. A classe **ContactManagerContext** foi adicionada pelo Assistente de scaffolding do Visual Studio.
 
     O comando **enable-migrations** cria a pasta *Migrations* e coloca nessa pasta um arquivo *Configuration.cs* que pode ser editado para configurar Migrações.
 
@@ -345,13 +345,13 @@ A próxima tarefa é habilitar o recurso [Codificar primeiras migrações (a pá
                 );
         }
 
-    O código acima inicializa o banco de dados com as informações de contato. Para obter mais informações sobre a propagação do banco de dados, consulte [Propagando e depurando BDs do Entity Framework (EF) (a página pode estar em inglês)][].
+    O código acima inicializa o banco de dados com as informações de contato. Para obter mais informações sobre a propagação do banco de dados, consulte [Propagando e depurando BDs do Entity Framework (EF) (a página pode estar em inglês)][Propagando e depurando BDs do Entity Framework (EF) (a página pode estar em inglês)].
 
 7.  No **Console do Gerenciador de Pacotes**, digite o comando:
 
         update-database
 
-    ![Comandos do Console do Gerenciador de Pacotes][]
+    ![Comandos do Console do Gerenciador de Pacotes][Comandos do Console do Gerenciador de Pacotes]
 
     O **update-database** executa a primeira migração que cria o banco de dados. Por padrão, o banco de dados é criado como um banco de dados LocalDB do SQL Server Express. (A menos que você tenha o SQL Server Express instalado, em cujo caso, o banco de dados é criado usando a instância do SQL Server Express.)
 
@@ -359,11 +359,11 @@ A próxima tarefa é habilitar o recurso [Codificar primeiras migrações (a pá
 
 O aplicativo mostra os dados de propagação e fornece links de edição, detalhes e exclusão.
 
-![Exibição do MVC de dados][]
+![Exibição do MVC de dados][Exibição do MVC de dados]
 
 ## <a name="addOauth"></a><span class="short-header">OAuth</span>Adicionar um provedor de OAuth
 
-[OAuth][] é um protocolo aberto que permite autorização segura em um método simples e padrão da web, aplicativos móveis e de área de trabalho. O modelo de internet do ASP.NET MVC usa OAuth para expor o Facebook, Twitter, Google, Yahoo e a Microsoft como provedores de autenticação. Embora este tutorial use apenas o Facebook, Google e Yahoo como o provedores de autenticação, você pode facilmente modificar o código para usar qualquer um dos provedores. As etapas para implementar outros provedores são muito semelhantes às etapas que você verá neste tutorial.
+[OAuth][OAuth] é um protocolo aberto que permite autorização segura em um método simples e padrão da web, aplicativos móveis e de área de trabalho. O modelo de internet do ASP.NET MVC usa OAuth para expor o Facebook, Twitter, Google, Yahoo e a Microsoft como provedores de autenticação. Embora este tutorial use apenas o Facebook, Google e Yahoo como o provedores de autenticação, você pode facilmente modificar o código para usar qualquer um dos provedores. As etapas para implementar outros provedores são muito semelhantes às etapas que você verá neste tutorial.
 
 Além da autenticação, o tutorial também usará funções para implementar a autorização. Somente os usuários que você adicionar à função canEdit serão capazes de criar, editar e excluir contatos.
 
@@ -373,24 +373,24 @@ Para autenticar os usuários com credenciais de alguns provedores externos, deve
 
 Este tutorial não mostra todas as etapas que você deve executar para registrar esses provedores. As etapas normalmente não são difíceis. Para registrar o seu site com êxito, siga as instruções fornecidas nesses sites. Para começar a registrar o site, consulte o site do desenvolvedor para:
 
--   [Facebook][]
--   [Microsoft][]
--   [Twitter][]
+-   [Facebook][Facebook]
+-   [Microsoft][Microsoft]
+-   [Twitter][Twitter]
 
 Navegue até a página [][]<https://developers.facebook.com/apps></a> e efetue logon, se necessário. Clique no botão **Registrar-se como um desenvolvedor** e conclua o processo de registro. Depois que você concluir o registro, clique em **Criar novo aplicativo**. Insira um nome para o aplicativo. Você não precisa inserir um espaço para nome do aplicativo.
 
-![Criar novo aplicativo do FB][]
+![Criar novo aplicativo do FB][Criar novo aplicativo do FB]
 
 Digite localhost para o **Domínio de aplicativo** e <http://localhost/> para a **URL do Site**. Clique em **Habilitado** para o **Modo Sandbox**, em seguida clique em **Salvar alterações**.
 
 Será necessário o **ID do aplicativo** e o **Segredo do aplicativo** para a implementação do OAuth neste aplicativo.
- ![Novo aplicativo FB][]
+ ![Novo aplicativo FB][Novo aplicativo FB]
 
 ## Criando os usuários de teste
 
 No painel esquerdo em **Configurações**, clique em **Funções de desenvolvedor**. Clique no link **Criar** na linha **Usuários de teste** (não na linha de **Testadores**).
 
-![Testadores do FB][]
+![Testadores do FB][Testadores do FB]
 
 Clique no link **Modificar** para obter o e-mail dos usuários de teste (que você usará para fazer logon no aplicativo). Clique no link **Ver mais**, depois clique em **Editar** para definir a senha de usuários de teste.
 
@@ -428,28 +428,28 @@ Nesta seção você irá adicionar a função *canEdit* ao banco de dados de ass
 
 3.  Clique com o botão direito do mouse em **UserProfile** e clique em **Mostrar dados da tabela**.
 
-    ![Mostrar dados da tabela][]
+    ![Mostrar dados da tabela][Mostrar dados da tabela]
 
 4.  Registre o **UserId** para o usuário que terá a função canEdit. Na imagem abaixo, o usuário *ricka* com **UserId** 2 terá a função canEdit para o site.
 
-    ![IDs de usuário][]
+    ![IDs de usuário][IDs de usuário]
 
 5.  Clique com o botão direito do mouse em **webpages\_Roles** e clique em **Mostrar dados da tabela**.
 6.  Digite **canEdit** na célula **RoleName**. O **RoleId** será 1 se esta for a primeira vez que você adicionou uma função. Registro do RoleID. Certifique-se de que não haja um caractere de espaço sobrando, "canEdit" na tabela de função não corresponderá a "canEdit" no código do controlador.
 
-    ![roleID][]
+    ![roleID][roleID]
 
 7.  Clique com o botão direito do mouse em **webpages UsersInRoles** e clique em **Mostrar dados da tabela**. Digite o **UserId** para o usuário que você deseja conceder o acesso *canEdit* e o **RoleId**.
 
-    ![usr role ID tbl][]
+    ![usr role ID tbl][usr role ID tbl]
 
 A tabela **webpages\_OAuthMembership** contém o provedor OAuth, o UserID do provedor e o UserID para cada usuário OAuth registrado. <!-- Don't replace "-" with "_" or it won't validate -->A tabela **webpages-Membership** contém a tabela de associação ASP.NET. Você pode adicionar usuários a esta tabela usando o link de registro. É uma boa ideia adicionar um usuário com a função *canEdit* que não está associado com o Facebook ou outro provedor de autorização de terceiros para que você possa ter sempre o acesso *canEdit*, mesmo quando o provedor de autorização de terceiros não estiver disponível. Posteriormente no tutorial, desativaremos o registro de associação do ASP.NET.
 
 ## Proteger o aplicativo com o atributo Authorize
 
-Nesta seção o atributo [Authorize][] será aplicado para restringir o acesso aos métodos de ação. Os usuários anônimos poderão visualizar a home page apenas. Os usuários registrados poderão ver detalhes do contato, a cerca de e as páginas de contatos. Somente usuários na função *canEdit* poderão acessar os métodos de ação que alteram dados.
+Nesta seção o atributo [Authorize][Authorize] será aplicado para restringir o acesso aos métodos de ação. Os usuários anônimos poderão visualizar a home page apenas. Os usuários registrados poderão ver detalhes do contato, a cerca de e as páginas de contatos. Somente usuários na função *canEdit* poderão acessar os métodos de ação que alteram dados.
 
-1.  Adicionar os filtros [Authorize][] e [RequireHttps][] ao aplicativo. Uma abordagem alternativa é adicionar os atributos [Authorize][] e [RequireHttps][] a cada controlador, mas aplicá-los a todo o aplicativo é considerado uma melhor prática de segurança. Adicionando-os globalmente, cada novo controlador e método de ação que você adicionar será automaticamente protegido, você não precisará se lembrar de aplicá-los. Para obter mais informações, consulte [Protegendo seu aplicativo ASP.NET MVC 4 e o novo atributo AllowAnonymous][]. Abra o arquivo *App\_Start\\FilterConfig.cs* e substitua o método *RegisterGlobalFilters* por este:
+1.  Adicionar os filtros [Authorize][Authorize] e [RequireHttps][RequireHttps] ao aplicativo. Uma abordagem alternativa é adicionar os atributos [Authorize][Authorize] e [RequireHttps][RequireHttps] a cada controlador, mas aplicá-los a todo o aplicativo é considerado uma melhor prática de segurança. Adicionando-os globalmente, cada novo controlador e método de ação que você adicionar será automaticamente protegido, você não precisará se lembrar de aplicá-los. Para obter mais informações, consulte [Protegendo seu aplicativo ASP.NET MVC 4 e o novo atributo AllowAnonymous][Protegendo seu aplicativo ASP.NET MVC 4 e o novo atributo AllowAnonymous]. Abra o arquivo *App\_Start\\FilterConfig.cs* e substitua o método *RegisterGlobalFilters* por este:
 
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -491,12 +491,12 @@ Nesta seção o atributo [Authorize][] será aplicado para restringir o acesso a
             // Methods moved and omitted for clarity.
         }
 
-5.  Remova o registro de associação do ASP.NET. O registro de associação ao ASP.NET atual no projeto não oferece suporte para a redefinição de senha e não verifica se o registro é de uma pessoa (por exemplo, com uma [CAPTCHA][]). Quando um usuário é autenticado usando um dos provedores de terceiros, ele pode se registrar. No AccountController, remova *[AllowAnonymous]* de GET e POST dos métodos *Registrar*. Isso evitará que bots e usuários anônimos se registrem.
+5.  Remova o registro de associação do ASP.NET. O registro de associação ao ASP.NET atual no projeto não oferece suporte para a redefinição de senha e não verifica se o registro é de uma pessoa (por exemplo, com uma [CAPTCHA][CAPTCHA]). Quando um usuário é autenticado usando um dos provedores de terceiros, ele pode se registrar. No AccountController, remova *[AllowAnonymous]* de GET e POST dos métodos *Registrar*. Isso evitará que bots e usuários anônimos se registrem.
 6.  Em *Views\\Shared\_LoginPartial.cshtml*, remova o link de ação Registrar.
 
 7.  Habilite o SSL. No Gerenciador de Soluções, clique no projeto **ContactManager** e clique em F4 para exibir a caixa de diálogo propriedades. Altere **SSL habilitado** para true. Copie a **URL do SSL**.
 
-    ![habilitar SSL][]
+    ![habilitar SSL][habilitar SSL]
 
 8.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **Gerenciador de Contatos** e clique em **Propriedades**.
 9.  Na guia à esquerda, clique em **Web**.
@@ -509,7 +509,7 @@ Nesta seção o atributo [Authorize][] será aplicado para restringir o acesso a
 
 12. Pressione CTRL+F5 para executar o aplicativo. O navegador exibirá um aviso de certificado. Em nosso aplicativo, você pode clicar com segurança no link **Continuar neste site**. Verifique se apenas os usuários na função *canEdit* podem alterar os dados. Verifique se os usuários anônimos só podem exibir a home page.
 
-    ![av. de cert.][]
+    ![av. de cert.][av. de cert.]
 
     ![av. de cert.][4]
 
@@ -518,14 +518,14 @@ Os sites do Azure incluem um certificado de segurança válido, portanto, você 
 ## <a name="ppd"></a><span class="short-header">Preparar o DB</span>Crie um script de implantação de dados
 
 </p>
-O banco de dados de associação não é gerenciado pelo Entity Framework Code First, assim você não pode usar as migrações para implantá-lo. Usaremos o provedor [dbDacFx][] para implantar o esquema de banco de dados, e configuraremos o perfil de publicação para executar um script que irá inserir dados da associação inicial em tabelas de associação.
+O banco de dados de associação não é gerenciado pelo Entity Framework Code First, assim você não pode usar as migrações para implantá-lo. Usaremos o provedor [dbDacFx][dbDacFx] para implantar o esquema de banco de dados, e configuraremos o perfil de publicação para executar um script que irá inserir dados da associação inicial em tabelas de associação.
 
 Este tutorial usará o SQL Server Management Studio (SSMS) para criar scripts de implantação de dados.
 
-Instale o SSMS do [Centro de Download do Microsoft SQL Server 2012 Express][]:
+Instale o SSMS do [Centro de Download do Microsoft SQL Server 2012 Express][Centro de Download do Microsoft SQL Server 2012 Express]:
 
--   [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe][] para sistemas de 64 bits.
--   [ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe][] para sistemas de 32 bits.
+-   [ENU\x64\SQLManagementStudio\_x64\_ENU.exe][ENU\x64\SQLManagementStudio\_x64\_ENU.exe] para sistemas de 64 bits.
+-   [ENU\x86\SQLManagementStudio\_x86\_ENU.exe][ENU\x86\SQLManagementStudio\_x86\_ENU.exe] para sistemas de 32 bits.
 
 Se você escolher o caminho errado para seu sistema, ele não conseguirá instalar e você pode tentar o outro.
 
@@ -533,7 +533,7 @@ Se você escolher o caminho errado para seu sistema, ele não conseguirá instal
 
 Na primeira página do Centro de instalação do SQL Server, clique em **Instalação autônoma do novo SQL Server ou adicione recursos a uma instalação existente** e siga as instruções, aceitando as opções padrão. A imagem a seguir mostra a etapa que instala o SSMS.
 
-![Instalar o SQL][]
+![Instalar o SQL][Instalar o SQL]
 
 ### Crie o script do banco de dados de desenvolvimento
 
@@ -541,18 +541,18 @@ Na primeira página do Centro de instalação do SQL Server, clique em **Instala
 
 2.  Na caixa de diálogo **Conectar-se ao servidor**, digite *\*(localdb)\\v11.0* como nome do Servidor, deixe a **Autenticação** configurada como **Autenticação do Windows** e, em seguida, clique em **Conectar**. Se você tiver instalado o SQL Express, digite **.\\SQLEXPRESS**.
 
-    ![con to srvr dlg][]
+    ![con to srvr dlg][con to srvr dlg]
 
 3.  Na janela **Gerenciados do objeto**, expanda **Bancos de dados**, clique com o botão direito do mouse em **aspnet-ContactManager**, clique em **Tarefas** e, em seguida, clique em **Gerar scripts**.
 
-    ![Ger. scripts][]
+    ![Ger. scripts][Ger. scripts]
 
 4.  Na caixa de diálogo **Gerar e publicar scripts**, clique em **Configurar as opções de script**.
     É possível ignorar a etapa **Escolher objetos**, pois o padrão é o banco de dados de script inteiro e todos os objetos do banco de dados, que é o que você deseja.
 
 5.  Clique em **Avançado**.
 
-    ![Configurar as opções de script][]
+    ![Configurar as opções de script][Configurar as opções de script]
 
 6.  Na caixa de diálogo **Opções de script avançadas**, role para baixo até **Tipos de dados para o script** e clique na opção **Somente dados** na lista suspensa. (Consulte a imagem abaixo da próxima etapa.)
 
@@ -565,14 +565,14 @@ Na primeira página do Centro de instalação do SQL Server, clique em **Instala
 
 10. Clique em **Avançar** para ir para a guia **Resumo** e, em seguida, clique em **Avançar** novamente para criar o script.
 
-    ![Salvar ou publicar][]
+    ![Salvar ou publicar][Salvar ou publicar]
 
 11. Clique em **Concluir**.
 
 ## <a name="bkmk_deploytowindowsazure11"></a>Implantar o aplicativo no Azure
 
 1.  Abra o arquivo da raiz do aplicativo *Web.config*. Encontre a marcação *DefaultConnection* e, em seguida, copie e cole-a na linha de marcação *DefaultConnection*. Renomeie o elemento copiado *DefaultConnectionDeploy*. Esta cadeia de conexão é necessária para implantar os dados do usuário no banco de dados de associação.
-    ![3 cons str][]
+    ![3 cons str][3 cons str]
 
 2.  Crie o aplicativo.
 3.  No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione **Publicar** no menu de contexto.
@@ -583,7 +583,7 @@ O assistente de **Publicar Web** é aberto.
 
 1.  Clique na guia **Configurações**. Clique no ícone **v** para selecionar a **Cadeia de conexão remota** para o **ContactManagerContext** e **DefaultConnectionDeploy**. Os três bancos de dados listados irão usar a mesma sequência de conexão. O banco de dados **ContactManagerContext** armazena os contatos, o **DefaultConnectionDeploy** é usado somente para implantar os dados da conta do usuário no banco de dados de associação e o banco de dados **UsersContext** é o banco de dados de associação.
 
-    ![configurações][]
+    ![configurações][configurações]
 
 2.  Em **ContactManagerContext**, verifique **Executar as migrações iniciais de código**.
 
@@ -593,7 +593,7 @@ O assistente de **Publicar Web** é aberto.
 
 4.  Clique no link **Adicionar o script SQL** e navegue para o arquivo *aspnet-data-membership.sql*. Você só precisa fazer isso uma vez. A próxima implantação você pode desmarcar a **Atualização do banco de dados**, pois você não precisa adicionar os dados do usuário nas tabelas de associação.
 
-    ![adicionar sql][]
+    ![adicionar sql][adicionar sql]
 
 5.  Clique em **Publicar**.
 
@@ -612,7 +612,7 @@ Depois que o site for implantado no Azure e você tiver mais usuários registrad
 ![configurações][7]
 
 1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
-    ![Publicar][]
+    ![Publicar][Publicar]
 
 2.  Clique na guia **Configurações**.
 3.  Copie a cadeia de conexão. Por exemplo, a cadeia de conexão usada neste exemplo é:
@@ -647,23 +647,23 @@ Depois que o site for implantado no Azure e você tiver mais usuários registrad
 11. Digite o nome do banco de dados (ContactDB, ou a sequência após "Initial Catalog=" no banco de dados, se você não o nomeou ContactDB.) Se você receber uma caixa de diálogo de erro, consulte a próxima seção.
 
 12. Clique em **Testar conexão**. Se você receber uma caixa de diálogo de erro, consulte a próxima seção.
-    ![add con dlg][]
+    ![add con dlg][add con dlg]
 
 ## Erro de logon - Não é possível abrir servidor
 
 Se você receber uma caixa de diálogo de erro informando que "Não é possível abrir o servidor", será necessário adicionar o endereço IP para o IPs permitidos.
 
-![erro do firewall][]
+![erro do firewall][erro do firewall]
 
 1.  No Portal do Azure, selecione **Bancos de dados SQL** na guia esquerda.
 
-    ![Selecionar SQL][]
+    ![Selecionar SQL][Selecionar SQL]
 
 2.  Selecione o banco de dados que você deseja abrir.
 
 3.  Clique no link **Configurar regras de firewall do Azure para esse endereço IP**.
 
-    ![regras de firewall][]
+    ![regras de firewall][regras de firewall]
 
 4.  Quando você receber o prompt "O endereço IP atual xxx.xxx.xxx.xxx não está incluído nas regras de firewall existentes. Deseja atualizar as regras de firewall?", clique em **Sim**. Normalmente não é suficiente adicionar esse endereço, você precisará adicionar um intervalo de endereços IP.
 
@@ -673,51 +673,51 @@ Se você receber uma caixa de diálogo de erro informando que "Não é possível
 
 2.  Clique no **Servidor** que hospeda seu banco de dados.
 
-    ![servidor do bd][]
+    ![servidor do bd][servidor do bd]
 
 3.  Clique em **Configurar** na parte superior da página.
 4.  Adicione um nome de regra e endereços IP iniciais e finais
-    ![ip range][]
+    ![ip range][ip range]
 
 5.  Na parte inferior da página, clique em **Salvar**.
 6.  Agora é possível editar o banco de dados de associação usando as etapas mostradas anteriormente.
 
 ## <a name="nextsteps"></a><span class="short-header">Próximas etapas</span>Próximas etapas
 
-Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson][] (Twitter [@RickAndMSFT][]) com a assistência de Tom Dykstra, Tom FitzMacken e Barry Dorrans (Twitter [@blowdart][]).
+Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson][Rick Anderson] (Twitter [@RickAndMSFT][@RickAndMSFT]) com a assistência de Tom Dykstra, Tom FitzMacken e Barry Dorrans (Twitter [@blowdart][@blowdart]).
 
 Deixe comentários sobre o que você gostou ou do que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quanto há de interesse em mais automação para o processo de configuração e implantação de banco de dados de associação.
 
-Para obter os botões de registro do Facebook, Google e Yahoo coloridos, consulte a postagem no blog [Personalizar botões de Login externos no ASP.NET MVC 4][]. Para obter informações sobre como usar a autenticação do Windows, consulte o seguinte:
+Para obter os botões de registro do Facebook, Google e Yahoo coloridos, consulte a postagem no blog [Personalizar botões de Login externos no ASP.NET MVC 4][Personalizar botões de Login externos no ASP.NET MVC 4]. Para obter informações sobre como usar a autenticação do Windows, consulte o seguinte:
 
--   [Autenticação do Azure][]
--   [Como criar um Site da Intranet usando ASP.NET MVC][]
+-   [Autenticação do Azure][Autenticação do Azure]
+-   [Como criar um Site da Intranet usando ASP.NET MVC][Como criar um Site da Intranet usando ASP.NET MVC]
 
 Outra maneira de armazenar dados em um aplicativo do Azure é usar o Armazenamento do Azure, que fornece armazenamento de dados não relacionais na forma de blobs e tabelas. Os links a seguir fornecem mais informações sobre a ASP.NET MVC e o Windows Azure.
 
--   [Aplicativo de várias camadas .NET usando Tabelas de armazenamento, Filas e Blobs][].
--   [Introdução ao ASP.NET MVC 4][]
--   [Introdução ao Entity Framework usando MVC][]
--   [OAuth 2.0 e registro único][]
+-   [Aplicativo de várias camadas .NET usando Tabelas de armazenamento, Filas e Blobs][Aplicativo de várias camadas .NET usando Tabelas de armazenamento, Filas e Blobs].
+-   [Introdução ao ASP.NET MVC 4][Introdução ao ASP.NET MVC 4]
+-   [Introdução ao Entity Framework usando MVC][Introdução ao Entity Framework usando MVC]
+-   [OAuth 2.0 e registro único][OAuth 2.0 e registro único]
 
-Você viu como implantar um aplicativo Web em um site do Azure. Para saber mais sobre como configurar, gerenciar e reduzir os sites do Azure, consulte os tópicos de instruções na página [Tarefas comuns][].
+Você viu como implantar um aplicativo Web em um site do Azure. Para saber mais sobre como configurar, gerenciar e reduzir os sites do Azure, consulte os tópicos de instruções na página [Tarefas comuns][Tarefas comuns].
 
-Para saber como depurar os sites do Azure, consulte [Solução de problemas dos sites do Azure no Visual Studio][].
+Para saber como depurar os sites do Azure, consulte [Solução de problemas dos sites do Azure no Visual Studio][Solução de problemas dos sites do Azure no Visual Studio].
 
-Para saber como implantar um aplicativo em um Serviço de Nuvem do Azure, consulte [A versão do Serviço de Nuvem deste tutorial][] e [Desenvolvendo aplicativos web com o Azure][]. Entre algumas razões para optar por executar um aplicativo Web ASP.NET em um Serviço de Nuvem do Azure e não um site do Azure, estão as seguintes:
+Para saber como implantar um aplicativo em um Serviço de Nuvem do Azure, consulte [A versão do Serviço de Nuvem deste tutorial][A versão do Serviço de Nuvem deste tutorial] e [Desenvolvendo aplicativos web com o Azure][Desenvolvendo aplicativos web com o Azure]. Entre algumas razões para optar por executar um aplicativo Web ASP.NET em um Serviço de Nuvem do Azure e não um site do Azure, estão as seguintes:
 
 -   Você deseja permissões de administrador no servidor Web em que o aplicativo é executado.
 -   Você deseja usar a Conexão de Área de Trabalho Remota para acessar o servidor Web em que o aplicativo é executado.
 -   O aplicativo é multicamada e você deseja distribuir o trabalho entre vários servidores virtuais (web e trabalhadores).
 
-Para obter mais informações sobre o Banco de dados SQL e Armazenamento do Azure, consulte [Opções de Armazenamento de Dados no Azure][].
+Para obter mais informações sobre o Banco de dados SQL e Armazenamento do Azure, consulte [Opções de Armazenamento de Dados no Azure][Opções de Armazenamento de Dados no Azure].
 
-Para saber mais sobre como usar o banco de dados SQL, consulte [Trabalhando com o banco de dados do SQL Azure do mapa de conteúdo de acesso de dados ASP.NET][].
+Para saber mais sobre como usar o banco de dados SQL, consulte [Trabalhando com o banco de dados do SQL Azure do mapa de conteúdo de acesso de dados ASP.NET][Trabalhando com o banco de dados do SQL Azure do mapa de conteúdo de acesso de dados ASP.NET].
 
 Para saber mais sobre o Entity Framework e Codificar Migrações Iniciais, consulte os seguintes recursos:
 
--   [Introdução ao Entity Framework usando MVC][]
--   [Codificar Migrações Iniciais][]
+-   [Introdução ao Entity Framework usando MVC][Introdução ao Entity Framework usando MVC]
+-   [Codificar Migrações Iniciais][Codificar Migrações Iniciais]
 
 <!-- bookmarks --> <!-- links --> <!-- links from Tom's hopefully no collisions --> <!-- images-->
 

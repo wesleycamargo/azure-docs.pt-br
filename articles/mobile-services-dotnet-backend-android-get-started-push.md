@@ -14,44 +14,42 @@ Este tópico mostra como usar os Serviços Móveis do Azure para enviar notifica
 
 Este tutorial apresenta e explica estas etapas:
 
-1.  [Habilitar o sistema de mensagens em nuvem do Google][]
-2.  [Configurar o serviço móvel para enviar solicitações por push][]
-3.  [Atualizar o servidor para enviar notificações por push][]
-4.  [Adicionar notificações de push para seu aplicativo][]
-5.  [Habilitar notificações por push para teste local][]
-6.  [Testar o aplicativo no serviço móvel publicado][]
+1.  [Habilitar o sistema de mensagens em nuvem do Google][Habilitar o sistema de mensagens em nuvem do Google]
+2.  [Configurar o serviço móvel para enviar solicitações por push][Configurar o serviço móvel para enviar solicitações por push]
+3.  [Atualizar o servidor para enviar notificações por push][Atualizar o servidor para enviar notificações por push]
+4.  [Adicionar notificações de push para seu aplicativo][Adicionar notificações de push para seu aplicativo]
+5.  [Habilitar notificações por push para teste local][Habilitar notificações por push para teste local]
+6.  [Testar o aplicativo no serviço móvel publicado][Testar o aplicativo no serviço móvel publicado]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][] ou a [Introdução aos dados][] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013.
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou a [Introdução aos dados][Introdução aos dados] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013.
 
-> [WACOM.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
+> [WACOM.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
 
 ## <span id="register"></span></a>Habilitar o sistema de mensagens em nuvem do Google
 
-[WACOM.INCLUDE [Habilitar GCM][]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <span id="configure"></span></a>Configurar Serviços Móveis para enviar solicitações de push
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][], clique em **Serviços Móveis** e clique em seu aplicativo.
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Push** e insira o valor **API Key** obtido do GCM no procedimento anterior e clique em **Salvar**.
 
     ![][1]
 
-    <div class="dev-callout"><b>Importante</b>
-<p>Quando voc&ecirc; define suas credenciais do GCM para notifica&ccedil;&otilde;es por push aprimoradas na guia Enviar por Push no portal, elas s&atilde;o compartilhadas com os Hubs de Notifica&ccedil;&atilde;o para configurar o hub de notifica&ccedil;&atilde;o com seu aplicativo.</p>
-</div>
+    <div class="dev-callout"><b>Importante</b><p>Quando você define suas credenciais do GCM para notificações por push aprimoradas na guia Enviar por Push no portal, elas são compartilhadas com os Hubs de Notificação para configurar o hub de notificação com seu aplicativo.</p></div>
 
 Seu serviço móvel agora está configurado para trabalhar com o GCM e Hubs de Notificação.
 
 ## <a name="download-the-service"></a><span class="short-header">Baixar o serviço</span>Baixar o serviço em seu computador local
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">Testar o serviço</span>Testar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a>Atualizar o servidor para enviar notificações por push
 
@@ -88,13 +86,13 @@ Seu serviço móvel agora está configurado para trabalhar com o GCM e Hubs de N
 
 ## <a name="publish-the-service"></a><span class="short-header">Publicar o serviço</span>Publicar o serviço móvel no Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="update-app"></a>Adicionar notificações de push para seu aplicativo
 
 ### Verificar Versão de SDK do Android
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
 
@@ -102,11 +100,11 @@ Se você for testar com um dispositivo mais antigo, consulte [Configurar o SDK d
 
 ### Inclua o Google Play Services no projeto
 
-[WACOM.INCLUDE [Incluir Serviços de Reprodução][]]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incluir código
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <a name="test-app"></a><span class="short-header">Testar o aplicativo</span>Testar o aplicativo no serviço móvel publicado
 
@@ -128,7 +126,7 @@ Assegure-se de usar um Dispositivo Virtual Android (AVD) que suporte APIs do Goo
 
 ### <span id="local-testing"></span></a> Habilitar notificações por push para teste local
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ### Executando o teste
 
@@ -148,16 +146,16 @@ Este tutorial foi concluído com êxito.
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 
--   [Introdução aos dados][]
+-   [Introdução aos dados][Introdução aos dados]
     Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
     Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
--   [O que são Hubs de Notificação?][]
+-   [O que são Hubs de Notificação?][O que são Hubs de Notificação?]
     Saiba mais sobre como os Hubs de Notificação funcionam para entregar notificações aos seus aplicativos entre todas as diversas principais plataformas de cliente.
 
--   [Como usar a biblioteca de cliente Android para os Serviços Móveis][]
+-   [Como usar a biblioteca de cliente Android para os Serviços Móveis][Como usar a biblioteca de cliente Android para os Serviços Móveis]
     Saiba mais sobre como usar os Serviços Móveis com o Android.
 
 <!-- Anchors. -->
@@ -179,10 +177,10 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [Testar o aplicativo no serviço móvel publicado]: #test-app
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

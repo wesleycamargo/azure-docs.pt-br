@@ -16,7 +16,7 @@ O projeto típico de Aprendizado de Máquina do Microsoft Azure (Azure AM) envol
 
 As etapas 1 a 3 geralmente são realizadas por um cientista de dados por meio de várias iterações, no final das quais um modelo AM é manipulado para uso das equipes de engenharia e operações para então ser integrado aos sistemas de produção, de forma que o modelo AM possa ser usado na produção.
 
-O processo tradicional de integração e implantação do modelo AM em um sistema de produção pode levar semanas ou mesmo meses, dependendo do código usado para compilar os modelos, como R, Python, C\# ou Java, a integração da plataforma, as considerações de infraestrutura e o planejamento de implantação.
+O processo tradicional de integração e implantação do modelo AM em um sistema de produção pode levar semanas ou mesmo meses, dependendo do código usado para compilar os modelos, como R, Python, C# ou Java, a integração da plataforma, as considerações de infraestrutura e o planejamento de implantação.
 
 O Azure ML simplifica e agiliza esse processo, primeiro facilitando a criação de modelo e tornando a avaliação uma experiência intuitiva, depois fornecendo um processo simples para implantar o teste como um serviço Web no Azure, reduzindo assim o tempo total desde o teste do modelo até sua execução na produção como um serviço Web.
 
@@ -153,7 +153,7 @@ Figura 10: Notificação de implantação e opção para implantar em produção
 
 #### RRS
 
-O serviço Web RRS é um ponto de extremidade REST e pode ser chamado por meio de aplicativos clientes usando várias linguagens de programação. A página de ajuda de API fornece um link para o código de amostra para chamar um novo serviço Web que fornece amostras em C\#, R e Python.
+O serviço Web RRS é um ponto de extremidade REST e pode ser chamado por meio de aplicativos clientes usando várias linguagens de programação. A página de ajuda de API fornece um link para o código de amostra para chamar um novo serviço Web que fornece amostras em C#, R e Python.
 
 ![][10]
 

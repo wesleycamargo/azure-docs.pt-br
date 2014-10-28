@@ -22,9 +22,9 @@ Aplicativos modernos criam uma quantidade imensa de informações enquanto estã
 -   [Armazenamento][Armazenamento]
 -   [HDInsight][HDInsight]
 
-  [Hubs de Evento]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Detalhes dos Preços de Hubs de Evento]: http://azure.microsoft.com/en-us/pricing/details/event-hubs/
-  [Padrão de Fornecimento do Evento]: http://msdn.microsoft.com/en-us/library/dn589792.aspx
+  [Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/dn789973.aspx
+  [Detalhes dos Preços de Hubs de Evento]: http://azure.microsoft.com/pt-br/pricing/details/event-hubs/
+  [Padrão de Fornecimento do Evento]: http://msdn.microsoft.com/pt-br/library/dn589792.aspx
   [Referência da API REST do Hub de Eventos]: http://go.microsoft.com/fwlink/?LinkId=403977
   [Exemplos de Código do Hub de Eventos]: http://go.microsoft.com/fwlink/?LinkID=402449
   [Armazenamento]: http://azure.microsoft.com/pt-br/documentation/services/storage/

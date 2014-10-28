@@ -4,7 +4,7 @@
 
 # Introdução à conta do Banco de Dados de Documentos
 
-Este guia mostra como começar a usar o **Banco de Dados de Documentos do Azure (visualização)**. Os exemplos são escritos em código C\# e utilizam o SDK .NET do Banco de Dados de Documentos. Os cenários abordados incluem a criação e configuração de uma conta do Banco de Dados de Documentos, a criação de bancos de dados, a criação de coleções e o armazenamento de documentos JSON na conta. Para obter mais informações sobre o uso do Banco de Dados de Documentos do Azure, consulte a seção Próximas etapas.
+Este guia mostra como começar a usar o **Banco de Dados de Documentos do Azure (visualização)**. Os exemplos são escritos em código C# e utilizam o SDK .NET do Banco de Dados de Documentos. Os cenários abordados incluem a criação e configuração de uma conta do Banco de Dados de Documentos, a criação de bancos de dados, a criação de coleções e o armazenamento de documentos JSON na conta. Para obter mais informações sobre o uso do Banco de Dados de Documentos do Azure, consulte a seção Próximas etapas.
 
 Para usar este guia de introdução, você precisa ter uma conta do Banco de Dados de Documentos e a chave de acesso (primária ou secundária) da conta. Para obter mais informações, consulte:
 
@@ -21,9 +21,9 @@ Para usar este guia de introdução, você precisa ter uma conta do Banco de Dad
 
 ## <span id="Connect"></span></a>Conectar-se a uma conta do Banco de Dados de Documentos
 
-Há diversos SDKs e APIs disponíveis para trabalhar de forma programática com o Banco de Dados de Documentos. Os exemplos abaixo são escritos em código C\# e utilizam o SDK .NET do Banco de Dados de Documentos.
+Há diversos SDKs e APIs disponíveis para trabalhar de forma programática com o Banco de Dados de Documentos. Os exemplos abaixo são escritos em código C# e utilizam o SDK .NET do Banco de Dados de Documentos.
 
-Começaremos criando um DocumentClient para estabelecer uma conexão com nossa conta do Banco de Dados de Documentos. Nós precisaremos das seguintes referências no aplicativo C\#:
+Começaremos criando um DocumentClient para estabelecer uma conexão com nossa conta do Banco de Dados de Documentos. Nós precisaremos das seguintes referências no aplicativo C#:
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;

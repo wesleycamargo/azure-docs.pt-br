@@ -737,11 +737,11 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
   [Primeiro código EF]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
   [manipule conflitos de gravação do banco de dados]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-  [propriedade de navegação]: http://msdn.microsoft.com/en-us/data/jj713564.aspx
+  [propriedade de navegação]: http://msdn.microsoft.com/pt-br/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
   [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
   [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
-  [REST API]: http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx
+  [REST API]: http://msdn.microsoft.com/pt-br/library/azure/jj710104.aspx
   [Mapeamento entre tipos de banco de dados e tipos de clientes no back-end .NET usando o AutoMapper]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
   [Roteamento de atributo na API Web]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
   [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
@@ -752,7 +752,7 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
   [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
   [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
   [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
-  [Saiba mais sobre os Serviços Móveis do Azure]: /en-us/develop/mobile/resources/
+  [Saiba mais sobre os Serviços Móveis do Azure]: /pt-br/develop/mobile/resources/
   [Lidar com conflitos de gravação do banco de dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [Adicionar notificações por push]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet

@@ -5,22 +5,22 @@
 # Como usar serviço de email SendGrid do PHP
 
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas em PHP.
-Os cenários abordados incluem **email em construção**, **enviar email** e **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas][].
+Os cenários abordados incluem **email em construção**, **enviar email** e **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o Serviço de E-mail SendGrid][]
--   [Criar uma conta do SendGrid][]
--   [Usando SendGrid de seu aplicativo PHP][]
--   [Como: Enviar um email][]
--   [Como: Adicionar um anexo][]
--   [Como: Usar filtros para habilitar rodapés, rastreamento e análise][]
--   [Próximas etapas][]
+-   [O que é o Serviço de E-mail SendGrid][O que é o Serviço de E-mail SendGrid]
+-   [Criar uma conta do SendGrid][Criar uma conta do SendGrid]
+-   [Usando SendGrid de seu aplicativo PHP][Usando SendGrid de seu aplicativo PHP]
+-   [Como: Enviar um email][Como: Enviar um email]
+-   [Como: Adicionar um anexo][Como: Adicionar um anexo]
+-   [Como: Usar filtros para habilitar rodapés, rastreamento e análise][Como: Usar filtros para habilitar rodapés, rastreamento e análise]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>O que é o serviço de email SendGrid?
 
-O SendGrid é um [serviço de email baseado em nuvem][] que oferece
-[entrega de email transacional][], escalabilidade e análise em tempo real confiáveis com APIs flexíveis
+O SendGrid é um [serviço de email baseado em nuvem][serviço de email baseado em nuvem] que oferece
+[entrega de email transacional][entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis
 que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid
 incluem:
 
@@ -37,7 +37,7 @@ Para obter mais informações, consulte [][]<http://sendgrid.com></a>.
 
 ## <a name="bkmk_CreateSendGrid"> </a>Criar uma conta do SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Usando o SendGrid de seu aplicativo PHP
 
@@ -128,7 +128,7 @@ propriedades adequadas e a chamada do método do
 
 ### API Web
 
-Use a [função de rotação][] do PHP para enviar email usando a API Web do SendGrid.
+Use a [função de rotação][função de rotação] do PHP para enviar email usando a API Web do SendGrid.
 
     <?php
 

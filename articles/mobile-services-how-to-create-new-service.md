@@ -16,5 +16,5 @@ Este tópico mostra como usar o [Portal de Gerenciamento do Azure][Portal de Ger
 
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFpt-br%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

@@ -19,7 +19,7 @@ Você aprenderá a:
 -   Usar a Retransmissão do Barramento de Serviço para compartilhar dados entre
     um aplicativo do Azure e um serviço Web hospedado em outro lugar.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note][create-account-note]]
 
 ### COMO A RETRANSMISSÃO DO BARRAMENTO DE SERVIÇO AJUDA COM SOLUÇÕES HÍBRIDAS
 
@@ -75,7 +75,7 @@ obter as ferramentas e configurar seu ambiente de desenvolvimento.
 
 1.  Para instalar o SDK do Azure para .Net, clique no botão abaixo:
 
-    [Obter as ferramentas e o SDK][]
+    [Obter as ferramentas e o SDK][Obter as ferramentas e o SDK]
 
 2.  Clique em **Instalar o SDK**.
 
@@ -104,11 +104,11 @@ Para começar a usar os recursos de Barramento de Serviço no Azure, você deve 
 criar um namespace de serviço. Um namespace de serviço fornece um
 contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo.
 
-Você pode gerenciar namespaces e entidades de mensagens do Brramento de Serviço usando o [Portal de Gerenciamento do Azure][] ou o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces de dentro do portal.
+Você pode gerenciar namespaces e entidades de mensagens do Brramento de Serviço usando o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] ou o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces de dentro do portal.
 
 ### Criar um namespace de serviço usando o portal:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em
     **Service Bus**.
@@ -158,7 +158,7 @@ namespace.
 
 ### Gerencie um namespace de serviço com o Gerenciador de Servidores do Visual Studio:
 
-Para gerenciar um namespace e obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui][], na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Brramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
+Para gerenciar um namespace e obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui][aqui], na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Brramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
 
 ![][10]
 
@@ -178,7 +178,7 @@ facilita a instalação e a atualização de bibliotecas e ferramentas no Visual
 e no Visual Studio Express. O pacote NuGet de Barramento de Serviço é a maneira mais fácil
 de obter a API de Barramento de Serviço e configurar seu aplicativo com
 todas as dependências de Barramento de Serviço. Para obter mais detalhes sobre como usar o NuGet e
-o pacote de Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barramento de Serviço][].
+o pacote de Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barramento de Serviço][Utilizando o pacote NuGet de Barramento de Serviço].
 
 ### CRIAR O PROJETO
 
@@ -207,7 +207,7 @@ o pacote de Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barra
 
     ![][13]
 
-7.  Se você já tiver instalado o Gerenciador de Pacotes NuGet para Visual Studio, vá para a próxima etapa. Caso contrário, visite [NuGet][] e clique em [Instalar o NuGet (a página pode estar em inglês)][]. Siga os prompts para instalar o Gerenciador de Pacotes NuGet e, em seguida, reinicie o Visual Studio.
+7.  Se você já tiver instalado o Gerenciador de Pacotes NuGet para Visual Studio, vá para a próxima etapa. Caso contrário, visite [NuGet][NuGet] e clique em [Instalar o NuGet (a página pode estar em inglês)][Instalar o NuGet (a página pode estar em inglês)]. Siga os prompts para instalar o Gerenciador de Pacotes NuGet e, em seguida, reinicie o Visual Studio.
 
 8.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e, em seguida, clique em
     **Gerenciar Pacotes NuGet**...
@@ -494,7 +494,7 @@ Execute o aplicativo para verificar se ele funciona.
 
     ## <span class="short-header"></span>TORNE SEU APLICATIVO PARA IMPLANTAR NO AZURE
 
-    É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure][]. Esta seção contém etapas detalhadas para implantar o aplicativo em um Serviço de Nuvem do Azure.
+    É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][Modelos de execução do Azure]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure][Implantando um aplicativo Web ASP.NET em um site do Azure]. Esta seção contém etapas detalhadas para implantar o aplicativo em um Serviço de Nuvem do Azure.
 
     Para implantar seu aplicativo em um serviço de nuvem, você adicionará um projeto de implantação de projeto de serviço de nuvem à solução.
     O projeto de implantação contém as informações
@@ -695,7 +695,7 @@ Execute o aplicativo para verificar se ele funciona.
 
         ![][33]
 
-Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][].
+Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][Modelos de execução do Azure].
 
 ## <span class="short-header"></span>PARAR E EXCLUIR O APLICATIVO
 
@@ -712,7 +712,7 @@ de servidor de máquina virtual para hospedagem dessas instâncias de função d
 As etapas a seguir mostram como parar e excluir o
 aplicativo.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][],
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure],
      clique em Serviços de Nuvem e, em seguida, clique no nome do serviço.
 
 2.  Clique na guia **Painel** e, em seguida, clique em **Parar** para suspender temporariamente o aplicativo. Você poderá
@@ -725,9 +725,9 @@ aplicativo.
 
 Para obter mais informações sobre o Brramento de Serviço, consulte os seguintes recursos:
 
--   [Service Bus do Azure][]
--   [Como é o Barramento de Serviço][]
--   [Como usar as filas do Service Bus][]
+-   [Service Bus do Azure][Service Bus do Azure]
+-   [Como é o Barramento de Serviço][Como é o Barramento de Serviço]
+-   [Como usar as filas do Service Bus][Como usar as filas do Service Bus]
 
   [create-account-note]: ../includes/create-account-note.md
  

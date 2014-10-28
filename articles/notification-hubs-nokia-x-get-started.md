@@ -16,7 +16,7 @@ O tutorial explica as seguintes etapas básicas para habilitar as notificações
 -   [Como enviar uma notificação para seu aplicativo][Como enviar uma notificação para seu aplicativo]
 -   [Testando seu aplicativo][Testando seu aplicativo]
 
-<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa ter uma conta ativa do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
+<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa ter uma conta ativa do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
 
 Este tutorial exige o seguinte:
 
@@ -298,7 +298,7 @@ Este tutorial exige o seguinte:
 
 Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a [interface REST][interface REST]. Neste tutorial, mostramos isso usando um aplicativo de console do .NET.
 
-1.  Crie um novo aplicativo de console do Visual C\#:
+1.  Crie um novo aplicativo de console do Visual C#:
 
     ![][14]
 
@@ -359,7 +359,7 @@ Se o aplicativo Android conseguir se registrar com &ecirc;xito no Hub de Notific
   [Conectando seu aplicativo ao Hub de Notificação]: #connect-hub
   [Como enviar uma notificação para seu aplicativo]: #send
   [Testando seu aplicativo]: #test-app
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [aqui]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
@@ -378,6 +378,6 @@ Se o aplicativo Android conseguir se registrar com &ecirc;xito no Hub de Notific
   [11]: ./media/notification-hubs-nokia-x-get-started/NewAndroidApp.png
   [12]: ./media/notification-hubs-nokia-x-get-started/AndroidBuildTarget.png
   [13]: ./media/notification-hubs-nokia-x-get-started/NewJavaClass.png
-  [interface REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [interface REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
   [14]: ./media/notification-hubs-nokia-x-get-started/ConsoleProject.png
   [pacote NuGet do WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/

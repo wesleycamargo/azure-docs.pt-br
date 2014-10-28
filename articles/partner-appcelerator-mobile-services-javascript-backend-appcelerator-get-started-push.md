@@ -446,7 +446,7 @@ Isso registra um novo script de inserção, o qual usa o [objeto de push dos Ser
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript da Windows Store"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
   [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-push "iOS"

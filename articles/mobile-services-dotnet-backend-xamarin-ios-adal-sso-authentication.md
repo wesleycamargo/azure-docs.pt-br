@@ -125,7 +125,7 @@ Este tutorial exige o seguinte:
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "C# da Windows Store"
   [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
   [Xamarin.iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
   [Introdução aos serviços móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/

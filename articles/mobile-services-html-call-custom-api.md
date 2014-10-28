@@ -10,17 +10,17 @@ Este tópico mostra como chamar uma API personalizada a partir de um aplicativo 
 
 A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador como `true` para todos os itens de tarefas pendentes na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis][] ou [Introdução a dados][]. Para fazer isso, você executará as seguintes etapas:
+Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução a dados][Introdução a dados]. Para fazer isso, você executará as seguintes etapas:
 
-1.  [Definir a API personalizada][]
-2.  [Atualizar o aplicativo para chamar a API personalizada][]
-3.  [Testar o aplicativo][]
+1.  [Definir a API personalizada][Definir a API personalizada]
+2.  [Atualizar o aplicativo para chamar a API personalizada][Atualizar o aplicativo para chamar a API personalizada]
+3.  [Testar o aplicativo][Testar o aplicativo]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução aos Serviços Móveis][] ou [Introdução aos dados][Introdução a dados].
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução aos dados][Introdução a dados].
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
 
 ## <a name="update-app"></a><span class="short-header">Atualizar o aplicativo </span>Atualizar o aplicativo para chamar a API personalizada
 
@@ -66,7 +66,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 Agora que você criou uma API personalizada e a chamou a partir de seu aplicativo HTML, saiba mais sobre os tópicos de Serviços Móveis a seguir:
 
--   [Referência de script de servidor de Serviços Móveis][]
+-   [Referência de script de servidor de Serviços Móveis][Referência de script de servidor de Serviços Móveis]
     Saiba mais sobre como criar APIs personalizadas.
 
 <!-- Anchors. -->

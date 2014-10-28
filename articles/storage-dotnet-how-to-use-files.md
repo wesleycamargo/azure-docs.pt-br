@@ -158,7 +158,7 @@ Para mostrar como usar a API por meio de um aplicativo local, criaremos um aplic
 
 Para criar um novo aplicativo de console no Visual Studio e instalar o pacote NuGet no Armazenamento do Azure:
 
-1.  No Visual Studio, escolha **Arquivo** -\> **Novo Projeto** e **Windows** -\> **Aplicativo de Console** na lista de modelos C\# do Visual.
+1.  No Visual Studio, escolha **Arquivo** -\> **Novo Projeto** e **Windows** -\> **Aplicativo de Console** na lista de modelos C# do Visual.
 2.  Forneça um nome para o aplicativo de console e clique em **OK**.
 3.  Após o projeto ser criado, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
@@ -259,16 +259,16 @@ para obter informações mais detalhadas.
   [Criar um aplicativo local para acessar o armazenamento de arquivos]: #create-console-app
   [Próximas etapas]: #next-steps
   [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-  [Escalabilidade e Metas de Desempenho do Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-  [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados]: http://msdn.microsoft.com/en-us/library/azure/dn167011.aspx
-  [página de visualização do Microsoft Azure]: /en-us/services/preview/
+  [Escalabilidade e Metas de Desempenho do Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/dn249410.aspx
+  [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados]: http://msdn.microsoft.com/pt-br/library/azure/dn167011.aspx
+  [página de visualização do Microsoft Azure]: /pt-br/services/preview/
   [create-storage-account]: ../includes/create-storage-account.md
   [Como instalar e configurar o PowerShell do Azure]: /pt-br/documentation/articles/install-configure-powershell/
   [Criar uma máquina virtual executando o Windows Server]: /pt-br/documentation/articles/virtual-machines-windows-tutorial/
   [Como fazer logon em uma máquina virtual executando o Windows Server]: /pt-br/documentation/articles/virtual-machines-log-on-windows-server/
-  [namespaces do System.IO]: http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx
+  [namespaces do System.IO]: http://msdn.microsoft.com/pt-br/library/gg145019(v=vs.110).aspx
   [Biblioteca de Cliente de Armazenamento para .NET do Azure]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referência à API REST do serviço de arquivos]: http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx
+  [Referência à API REST do serviço de arquivos]: http://msdn.microsoft.com/pt-br/library/azure/dn167006.aspx
   [Apresentando o serviço de arquivos do Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [Persistindo conexões para arquivos do Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
   [Armazenamento de Blob]: /pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/

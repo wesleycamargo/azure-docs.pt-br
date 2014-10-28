@@ -72,7 +72,7 @@ Em vez disso, você pode colocar um código similar em um script do servidor *le
 
 Modifique o código do cliente para chamar o método **invokeApi** no objeto **MobileServiceClient**. A sintaxe do código exato é específica para seu dispositivo cliente e é explicada nos seguintes tópicos:
 
--   [C\# da Windows Store][C\# da Windows Store]
+-   [C# da Windows Store][C# da Windows Store]
 -   [JavaScript da Windows Store][JavaScript da Windows Store]
 -   [Windows Phone][Windows Phone]
 -   [iOS][iOS]
@@ -151,9 +151,9 @@ Você também pode usar o portal do Azure para gerenciar e criar novos procedime
   [Chamar um procedimento armazenado com parâmetros]: #parameters
   [Saiba mais]: #more
   [Como o back-end do .NET dos Serviços Móveis do Azure funciona]: http://curah.microsoft.com/64518/how-the-azure-mobile-services-net-backend-works
-  [objeto mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [API personalizada]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-  [C\# da Windows Store]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
+  [objeto mssql]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554212.aspx
+  [API personalizada]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn280974.aspx
+  [C# da Windows Store]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [JavaScript da Windows Store]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/
   [Windows Phone]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-phone-call-custom-api/
   [iOS]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-call-custom-api/

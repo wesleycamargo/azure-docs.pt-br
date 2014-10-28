@@ -12,7 +12,7 @@
     <a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="partner-xamarin-mobile-services-android-get-started-push/"  title="Back-end do JavaScript" >Back-end do JavaScript</a>
 </div>
 
-  [Windows Store C\#]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows Store C#"
+  [Windows Store C#]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows Store C#"
   [Windows Store JavaScript]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows Store JavaScript"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone"
   [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"

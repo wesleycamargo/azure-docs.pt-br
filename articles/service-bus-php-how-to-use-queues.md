@@ -107,7 +107,7 @@ O exemplo a seguir mostra como criar uma instância de um **ServiceBusRestProxy*
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -141,7 +141,7 @@ Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo ch
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -201,7 +201,7 @@ O exemplo a seguir demonstra como uma mensagem pode ser recebida e processada us
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -255,4 +255,4 @@ MSDN [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter m
   [extensão OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   [require\_once]: http://php.net/require_once
-  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

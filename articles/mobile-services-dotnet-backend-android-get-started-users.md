@@ -66,7 +66,7 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "JavaScript da Windows Store"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
   [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS"

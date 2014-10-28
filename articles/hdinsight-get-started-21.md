@@ -195,7 +195,7 @@ Neste tutorial, você aprendeu a provisionar um cluster com o HDInsight, executa
 -   [Use o hive com o HDInsight][Use o hive com o HDInsight]
 -   [Use o Pig com o HDInsight][Use o Pig com o HDInsight]
 -   [Usar o Oozie com o HDInsight][Usar o Oozie com o HDInsight]
--   [Desenvolver programas de streaming do Hadoop em C\# para o HDInsight][Desenvolver programas de streaming do Hadoop em C\# para o HDInsight]
+-   [Desenvolver programas de streaming do Hadoop em C# para o HDInsight][Desenvolver programas de streaming do Hadoop em C# para o HDInsight]
 -   [Desenvolver programas Java MapReduce para HDInsight][Desenvolver programas Java MapReduce para HDInsight]
 
   [Hadoop 2.2]: ../hdinsight-get-started "Introdução ao uso do Hadoop 2.2 no HDInsight"
@@ -205,9 +205,9 @@ Neste tutorial, você aprendeu a provisionar um cluster com o HDInsight, executa
   [O que há de novo nas versões de cluster fornecidas pelo HDInsight?]: ../hdinsight-component-versioning/
   [img-hdi-getstarted-video]: ./media/hdinsight-get-started/HDI.GetStarted.Video.png
   [Introdução ao emulador de HDInsight]: ../hdinsight-get-started-emulator/
-  [Opções de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para membros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Avaliação gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opções de compra]: http://azure.microsoft.com/pt-br/pricing/purchase-options/
+  [Ofertas para membros]: http://azure.microsoft.com/pt-br/pricing/member-offers/
+  [Avaliação gratuita]: http://azure.microsoft.com/pt-br/pricing/free-trial/
   [Provisione um cluster HDInsight]: #provision
   [Executar um trabalho em Hive]: #sample
   [Conectar-se as ferramentas do Microsoft Business Intelligence]: #powerquery
@@ -222,7 +222,7 @@ Neste tutorial, você aprendeu a provisionar um cluster com o HDInsight, executa
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-  [Centro de Download da Microsoft]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [Centro de Download da Microsoft]: http://www.microsoft.com/pt-br/download/details.aspx?id=39379
   [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [Administrar o HDInsight usando o PowerShell]: ../hdinsight-administer-use-powershell/
@@ -231,5 +231,5 @@ Neste tutorial, você aprendeu a provisionar um cluster com o HDInsight, executa
   [Use o hive com o HDInsight]: ../hdinsight-use-hive/
   [Use o Pig com o HDInsight]: ../hdinsight-use-pig/
   [Usar o Oozie com o HDInsight]: ../hdinsight-use-oozie/
-  [Desenvolver programas de streaming do Hadoop em C\# para o HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Desenvolver programas de streaming do Hadoop em C# para o HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Desenvolver programas Java MapReduce para HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

@@ -4,7 +4,7 @@
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis e ao Sencha Touch
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -22,15 +22,15 @@ Uma captura de tela do aplicativo completo é mostrada abaixo:
 
 ## Requisitos
 
--   Baixe e instale o [Sencha Touch][].
+-   Baixe e instale o [Sencha Touch][Sencha Touch].
 
--   Baixe e instale a ferramenta [Sencha Cmd][].
+-   Baixe e instale a ferramenta [Sencha Cmd][Sencha Cmd].
 
 -   Java Runtime Environment (JRE) ou Java Development Kit (se você estiver criando aplicativos para o Android)
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
 
 ## Criar uma tabela TodoItems
 
@@ -41,7 +41,7 @@ tabela do banco de dados para usar em seu serviço móvel.
 
 2.  Na guia de início rápido, clique em **HTML** em **Escolher plataforma** e expanda **Criar um novo aplicativo HTML**.
 
-    ![Início rápido móvel de HTML][]
+    ![Início rápido móvel de HTML][Início rápido móvel de HTML]
 
     Isso exibirá as três etapas fáceis para a criação e a hospedagem de um aplicativo HTML conectado ao seu serviço móvel.
 
@@ -55,11 +55,11 @@ tabela do banco de dados para usar em seu serviço móvel.
 
 4.  Anote o **appKey** e o **appUrl** no Portal de Gerenciamento. Você irá usá-los em outras seções deste tutorial.
 
-    ![chave do aplicativo][]
+    ![chave do aplicativo][chave do aplicativo]
 
 5.  Na guia **Configurar**, verifique se `localhost` já está relacionado na lista **Permitir solicitações de nomes de host** em **Compartilhamento de Recursos entre Origens (CORS)**. Se ele não estiver, digite `localhost` no campo **Nome do host** e clique em **Salvar**.
 
-    ![Instalar CORS no host local][]
+    ![Instalar CORS no host local][Instalar CORS no host local]
 
 ## Gerar o seu aplicativo do Touch
 
@@ -81,7 +81,7 @@ Na maioria dos aplicativos do Touch, caso deseje adicionar uma biblioteca extern
 
 Você pode adicionar manualmente as extensões do Azure ao aplicativo, usando as seguintes etapas:
 
-1.  Baixe o pacote de extensões do Azure [aqui][]. (Você pode usar sua ID dos Fóruns do Sencha para acessar esta área).
+1.  Baixe o pacote de extensões do Azure [aqui][aqui]. (Você pode usar sua ID dos Fóruns do Sencha para acessar esta área).
 
 2.  Copie o pacote de extensões do Azure do diretório de download para o local em que você desejaria que ele resida e descompacte-o:
 
@@ -99,7 +99,7 @@ Você pode adicionar manualmente as extensões do Azure ao aplicativo, usando as
 
 Todos os aplicativos gerados pelo Sencha Cmd têm uma pasta de "pacotes" na raiz. O local dessa pasta pode ser configurado, mas independentemente de sua localização, a função da pasta "pacotes" é servir como o armazenamento de todos os pacotes usados pelo aplicativo (ou pelos aplicativos, caso tenha criado um Espaço de Trabalho do Sencha).
 
-Como Ext.Azure é um "pacote" do Sencha Cmd, o código-fonte pode ser facilmente instalado e incluído em seu aplicativo usando o Sencha Cmd. (Consulte [Pacotes do Sencha Cmd][] para obter mais informações).
+Como Ext.Azure é um "pacote" do Sencha Cmd, o código-fonte pode ser facilmente instalado e incluído em seu aplicativo usando o Sencha Cmd. (Consulte [Pacotes do Sencha Cmd][Pacotes do Sencha Cmd] para obter mais informações).
 
 Para baixar e instalar o pacote de extensões do Azure do repositório de Pacotes do Sencha, você precisará adicionar o nome do pacote ao arquivo **app.json** e criar seu aplicativo:
 
@@ -152,7 +152,7 @@ Agora que a extensão do Azure foi baixada e instalada no diretório de aplicati
 
     Enquanto você pode transmite o objeto de configuração diretamente ao método de inicialização, sugerimos a criação de uma propriedade de configuração do aplicativo do Sencha chamada **azure** e a inclusão de todas as informações adequadas nesse local. Em seguida, você pode transmitir esse valor de propriedade para o método Ext.Azure.init.
 
-    Ao criar um serviço móvel no Azure (consulte [Introdução ao Azure][]), uma chave do aplicativo e uma URL são atribuídas a esse serviço. Essas informações devem ser fornecidas ao pacote do Azure para que ele possa se conectar ao serviço.
+    Ao criar um serviço móvel no Azure (consulte [Introdução ao Azure][Introdução ao Azure]), uma chave do aplicativo e uma URL são atribuídas a esse serviço. Essas informações devem ser fornecidas ao pacote do Azure para que ele possa se conectar ao serviço.
 
     Este exemplo mostra uma configuração e inicialização muito simples do Azure, por meio do fornecimento de apenas a chave do aplicativo e URL:
 
@@ -649,47 +649,47 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
     -   *sencha web start*: Este comando iniciará um servidor Web local para testar o aplicativo.
 
-    ![sencha web start][]
+    ![sencha web start][sencha web start]
 
 3.  Abra a URL listada no seu terminal em um navegador da Web para iniciar o aplicativo (por ex., <http://localhost:1841>).
 
 4.  No aplicativo, digite um texto significativo, como “Concluir o tutorial” e clique em **Adicionar**.
 
-    ![new todo item][]
+    ![new todo item][new todo item]
 
     Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem.
 
 5.  No Portal de Gerenciamento, clique na guia **Dados** e, em seguida, clique na tabela TodoItems.
 
-    ![Todo Items table][]
+    ![Todo Items table][Todo Items table]
 
     Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
-    ![browse todo table][]
+    ![browse todo table][browse todo table]
 
 ## Próximas etapas
 
 Agora que você concluiu o Guia de Introdução, saiba como realizar tarefas adicionais importantes nos Serviços Móveis com o Sencha.
 
-[Baixe][] uma amostra do aplicativo completo com estilos e recursos adicionais para ver o que mais o Sencha Touch pode fazer!
+[Baixe][Baixe] uma amostra do aplicativo completo com estilos e recursos adicionais para ver o que mais o Sencha Touch pode fazer!
 
 Em seguida, obtenha mais informações sobre as Extensões do Sencha Touch para o Azure:
 
--   Exemplo do aplicativo [walkthrough][]
--   Obtenha ajuda nos [Fóruns do Sencha][]
--   Leia a [Documentação do Sencha][]
--   Usando o Sencha com os Serviços Móveis do Azure: [(Vídeo)][]
+-   Exemplo do aplicativo [walkthrough][walkthrough]
+-   Obtenha ajuda nos [Fóruns do Sencha][Fóruns do Sencha]
+-   Leia a [Documentação do Sencha][Documentação do Sencha]
+-   Usando o Sencha com os Serviços Móveis do Azure: [(Vídeo)][(Vídeo)]
 
 ## Recursos adicionais
 
--   [Baixe o Sencha Touch][]
+-   [Baixe o Sencha Touch][Baixe o Sencha Touch]
 -   [Extensões do Sencha Touch para o Azure][aqui]
 
 ## Resumo
 
 O exemplo descrito aqui é fornecido na Extensão do Sencha Touch para o pacote do Azure e está localizado no diretório de exemplos, como o exemplo de Dados Básicos. Existem alguns outros exemplos que são fornecidos, que demonstraram outras funcionalidades desta extensão juntamente com explicações e comentários detalhados.
 
-Para obter mais informações sobre como começar a usar o Sencha Touch, acesse o conjunto completo de [guias][]
+Para obter mais informações sobre como começar a usar o Sencha Touch, acesse o conjunto completo de [guias][guias]
 
 <!-- images -->
 

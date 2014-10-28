@@ -19,7 +19,7 @@ Você aprenderá a:
 
 A ilustração a seguir mostra o aplicativo concluído:
 
-![Home page do site][]
+![Home page do site][Home page do site]
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
@@ -32,20 +32,20 @@ A ilustração a seguir mostra o aplicativo concluído:
 
 ### Segmentos do tutorial
 
--   [Configurar o ambiente de desenvolvimento][]
--   [Criar um aplicativo Web ASP.NET no Visual Studio][]
--   [Implantar o aplicativo no Azure][]
--   [Fazer uma alteração e reimplantar][]
--   [Monitore e gerencie o site no Portal de Gerenciamento][]
--   [Próximas etapas][]
+-   [Configurar o ambiente de desenvolvimento][Configurar o ambiente de desenvolvimento]
+-   [Criar um aplicativo Web ASP.NET no Visual Studio][Criar um aplicativo Web ASP.NET no Visual Studio]
+-   [Implantar o aplicativo no Azure][Implantar o aplicativo no Azure]
+-   [Fazer uma alteração e reimplantar][Fazer uma alteração e reimplantar]
+-   [Monitore e gerencie o site no Portal de Gerenciamento][Monitore e gerencie o site no Portal de Gerenciamento]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [install-sdk-2013-only][]]
+[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
 
 ## Criar um aplicativo Web ASP.NET
 
 A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará automaticamente o Site do Azure que implantará o seu projeto para mais tarde. O diagrama a seguir ilustra o que está acontecendo nessas duas etapas.
 
-![Diagrama mostrando a criação do projeto e etapas de implantação][]
+![Diagrama mostrando a criação do projeto e etapas de implantação][Diagrama mostrando a criação do projeto e etapas de implantação]
 
 1.  Abra o Visual Studio 2013 ou o Visual Studio 2013 Express for Web.
 
@@ -57,21 +57,21 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 5.  Nomeie o aplicativo **MyExample** e clique em **OK**.
 
-    ![Caixa de diálogo Novo Projeto][]
+    ![Caixa de diálogo Novo Projeto][Caixa de diálogo Novo Projeto]
 
 6.  Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo **MVC**. Se prefere trabalhar com Web Forms ASP.NET, você pode selecionar o modelo **Web Forms**.
 
-    [MVC e Web Forms][] são estruturas do ASP.NET para criar sites. Para este tutorial, você pode escolher qualquer uma das duas opções; porém, se você escolher Web Forms, você precisará editar *Default.aspx* posteriormente nos pontos em que o tutorial instruir você a editar *Index.cshtml*.
+    [MVC e Web Forms][MVC e Web Forms] são estruturas do ASP.NET para criar sites. Para este tutorial, você pode escolher qualquer uma das duas opções; porém, se você escolher Web Forms, você precisará editar *Default.aspx* posteriormente nos pontos em que o tutorial instruir você a editar *Index.cshtml*.
 
 7.  Clique em **Alterar Autenticação**.
 
-    ![Caixa de diálogo Novo Projeto ASP .NET][]
+    ![Caixa de diálogo Novo Projeto ASP .NET][Caixa de diálogo Novo Projeto ASP .NET]
 
 8.  Na caixa de diálogo **Alterar Autenticação**, clique em **Sem Autenticação** e clique em **OK**.
 
-    ![Sem Autenticação][]
+    ![Sem Autenticação][Sem Autenticação]
 
-    O aplicativo função Web que você está criando não permite que os usuários façam logon. A seção [Próximas etapas][] vincula a um tutorial que implementa autenticação e autorização.
+    O aplicativo função Web que você está criando não permite que os usuários façam logon. A seção [Próximas etapas][Próximas etapas] vincula a um tutorial que implementa autenticação e autorização.
 
 9.  Na caixa de diálogo **Novo Projeto ASP.NET**, deixe as configurações sob **Azure** inalteradas e, por último, clique em **OK**.
 
@@ -83,13 +83,13 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 10. Se você ainda não tiver entrado no Azure, o Visual Studio solicitará a você que o faça. Clique em **Entrar**.
 
-    ![Entrar no Azure][]
+    ![Entrar no Azure][Entrar no Azure]
 
 11. Na caixa de diálogo **Entrar no Azure**, insira a ID e a senha da conta que você usa para gerenciar sua assinatura do Azure.
 
     Quando estiver conectado, a caixa de diálogo **Configurar Definições de Site do Azure** perguntará quais recursos você deseja criar.
 
-    ![Conectado no Azure][]
+    ![Conectado no Azure][Conectado no Azure]
 
 12. O Visual Studio fornece um **Nome de site** padrão, que o Azure usará como o prefixo de URL do aplicativo. Se preferir, digite um nome de site diferente.
 
@@ -97,11 +97,11 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 13. Na lista suspensa **Região**, escolha o local mais próximo de você.
 
-    Essa configuração especifica em qual datacenter do Azure o seu site será executado. Para este tutorial, você pode selecionar qualquer região e isso não resultará em nenhuma diferença perceptível, mas para um site de produção, é melhor que seu servidor Web esteja tão próximo quanto possível dos navegadores acessando seu site, para reduzir a [latência][].
+    Essa configuração especifica em qual datacenter do Azure o seu site será executado. Para este tutorial, você pode selecionar qualquer região e isso não resultará em nenhuma diferença perceptível, mas para um site de produção, é melhor que seu servidor Web esteja tão próximo quanto possível dos navegadores acessando seu site, para reduzir a [latência][latência].
 
 14. Deixe os campos de banco de dados inalterados.
 
-    Para este tutorial, você não está usando um banco de dados. A seção [Próximas etapas][] no final do tutorial vincula a um tutorial que mostra como usar um banco de dados.
+    Para este tutorial, você não está usando um banco de dados. A seção [Próximas etapas][Próximas etapas] no final do tutorial vincula a um tutorial que mostra como usar um banco de dados.
 
 15. Clique em **OK**.
 
@@ -109,11 +109,11 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
     A janela **Gerenciador de Soluções** mostra os arquivos e as pastas no novo projeto.
 
-    ![Gerenciador de Soluções][]
+    ![Gerenciador de Soluções][Gerenciador de Soluções]
 
     A **Atividade de Publicação da Web** mostra que o site foi criado.
 
-    ![Site criado][]
+    ![Site criado][Site criado]
 
     E você pode ver o site no Gerenciador de Servidores.
 
@@ -131,21 +131,21 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 2.  Na guia **Conexão** do assistente **Publicar na Web**, clique em **Validar Conexão** para certificar-se de que o Visual Studio pode se conectar ao Azure para implantar o projeto Web.
 
-    ![Validar a conexão][]
+    ![Validar a conexão][Validar a conexão]
 
     Quando a conexão tiver sido validada, uma marca de seleção verde será mostrada ao lado do botão **Validar Conexão**.
 
 3.  Clique em **Próximo**.
 
-    ![Conexão validada com êxito][]
+    ![Conexão validada com êxito][Conexão validada com êxito]
 
 4.  Na guia **Configurações**, clique em **Avançar**.
 
-    ![Guia Configurações][]
+    ![Guia Configurações][Guia Configurações]
 
     Você pode aceitar os valores padrão para **Configuração** e **Opções de Publicação de Arquivos**.
 
-    O menu suspenso **Configuração** permite que você implante uma compilação de Depuração para depuração remota. A seção [Próximas etapas][] vincula a um tutorial que mostra como executar o Visual Studio no modo de depuração remotamente.
+    O menu suspenso **Configuração** permite que você implante uma compilação de Depuração para depuração remota. A seção [Próximas etapas][Próximas etapas] vincula a um tutorial que mostra como executar o Visual Studio no modo de depuração remotamente.
 
     Se você expandir **Opções de Publicação de Arquivos**, verá diversas configurações que permitem a você gererenciar cenários que não se aplicam a este tutorial:
 
@@ -163,24 +163,24 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 5.  Na guia **visualização**, clique em **Iniciar Visualização**.
 
-    ![Botão StartPreview na guia Visualização][]
+    ![Botão StartPreview na guia Visualização][Botão StartPreview na guia Visualização]
 
     A guia exibe uma lista dos arquivos que serão copiados no servidor. A exibição da visualização não é obrigatória para publicar o aplicativo, mas é uma função reconhecidamente útil.
 
 6.  Clique em **Publicar**.
 
-    ![Saída do arquivo StartPreview][]
+    ![Saída do arquivo StartPreview][Saída do arquivo StartPreview]
 
     O Visual Studio inicia o processo de cópia dos arquivos no servidor do Azure.
 
     As janelas **Saída** e **Atividade de Publicação da Web** mostram as ações de implantação que foram executadas e relata a conclusão bem-sucedida da implantação.
 
-    ![Relatório de implantação bem-sucedida na janela de saída][]
+    ![Relatório de implantação bem-sucedida na janela de saída][Relatório de implantação bem-sucedida na janela de saída]
 
     Após a implantação bem-sucedida, o navegador padrão abre automaticamente a URL do site implantado e
     o aplicativo que você criou agora está em execução na nuvem. A URL na barra de endereços do navegador mostra que o site está sendo carregado da Internet.
 
-    ![Site em execução no Azure][]
+    ![Site em execução no Azure][Site em execução no Azure]
 
 7.  Feche o navegador.
 
@@ -190,13 +190,13 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 
 1.  Abra os arquivos *Views/Home/Index.cshtml* ou *.vbhtml* no **Gerenciador de Soluções**, altere o título **h1** de "ASP.NET" para "ASP.NET e Azure" e salve o arquivo.
 
-    ![index.cshtml de MVC][]
+    ![index.cshtml de MVC][index.cshtml de MVC]
 
-    ![Alteração de h1 no MVC][]
+    ![Alteração de h1 no MVC][Alteração de h1 no MVC]
 
 2.  Pressione CTRL + F5 para ver o título atualizado executando o site no seu computador local.
 
-    ![Site em execução localmente][]
+    ![Site em execução localmente][Site em execução localmente]
 
     A URL `http://localhost` mostra que ele está sendo executado no computador local. Por padrão, ele é executado no IIS Express, que é uma versão simples do IIS desenvolvida para uso durante o desenvolvimento de aplicativos Web.
 
@@ -204,13 +204,13 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 
 4.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e escolha **Publicar**.
 
-    ![Selecionar Publicar][]
+    ![Selecionar Publicar][Selecionar Publicar]
 
     A guia Visualizar do assistente **Publicar Web** é exibida. Se for necessário alterar quaisquer configurações de publicação, você poderá escolher uma guia diferente, mas agora tudo o que você deseja fazer é reimplantar com as mesmas configurações.
 
 5.  No assistente **Publicar na Web**, clique em **Publicar**.
 
-    ![Clicar em Publicar][]
+    ![Clicar em Publicar][Clicar em Publicar]
 
     O Visual Studio implanta o projeto no Azure e abre o site no navegador padrão.
 
@@ -218,11 +218,11 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 
 **Dica:** Você pode habilitar a barra de ferramentas **Publicação Web Com Um Clique** para implantação mais rápida. Clique em **Visualizar** \> **Barras de ferramentas** e, em seguida, selecione **Publicação Web Com Um Clique**. A barra de ferramentas permite a você selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**.
 
-![Barra de ferramentas Publicação Web com Um Clique][]
+![Barra de ferramentas Publicação Web com Um Clique][Barra de ferramentas Publicação Web com Um Clique]
 
 ## Monitore e gerencie o site no Portal de Gerenciamento
 
-O [Portal de Gerenciamento do Azure][] é uma interface da Web que permite a você gerenciar e monitorar seus serviços do Azure, como o site que você acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
+O [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] é uma interface da Web que permite a você gerenciar e monitorar seus serviços do Azure, como o site que você acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
 
 1.  Em seu navegador, vá até [][]<http://manage.windowsazure.com></a> e entre com suas credenciais do Azure.
 
@@ -230,33 +230,33 @@ O [Portal de Gerenciamento do Azure][] é uma interface da Web que permite a voc
 
 2.  Clique no nome do seu site.
 
-    ![Portal home page com novo site web chamado][]
+    ![Portal home page com novo site web chamado][Portal home page com novo site web chamado]
 
 3.  Clique na guia **Painel**.
 
     A guia **Painel** exibe uma visão geral das estatísticas de utilização e link para uma série de funções de gerenciamento de site comumente utilizadas. Em **Visão Rápida**, você também encontrará um link para a home page de seu aplicativo.
 
-    ![Guia de painel do site do portal][]
+    ![Guia de painel do site do portal][Guia de painel do site do portal]
 
     Nesse período, seu site não teve muito tráfego e talvez não exiba nada no gráfico. Se você navegar até seu aplicativo, atualize a página algumas vezes, então atualize o portal da página **Painel**; você verá algumas estatísticas serem exibidas. Você pode clicar na guia **Monitorar** para obter mais detalhes.
 
 4.  Clique na guia **Configurar**.
 
-    A guia [Configurar][] permite que você controle a versão do .NET utilizada no site, habilita recursos como [WebSockets][] e [registro em log de diagnóstico][], definir [valores de cadeia de conexão][] e mais.
+    A guia [Configurar][Configurar] permite que você controle a versão do .NET utilizada no site, habilita recursos como [WebSockets][WebSockets] e [registro em log de diagnóstico][registro em log de diagnóstico], definir [valores de cadeia de conexão][valores de cadeia de conexão] e mais.
 
-    ![Guia Configurar site do portal][]
+    ![Guia Configurar site do portal][Guia Configurar site do portal]
 
 5.  Clique na guia **Escala**.
 
-    Para as camadas pagas do serviço de Sites, a guia [Escala][] permite que você controle o tamanho e número das máquinas que atendem seu aplicativo Web para gerenciar variações no tráfego.
+    Para as camadas pagas do serviço de Sites, a guia [Escala][Escala] permite que você controle o tamanho e número das máquinas que atendem seu aplicativo Web para gerenciar variações no tráfego.
 
     Você pode dimensionar manualmente, ou então configurar critérios ou agendamentos para dimensionamento automático.
 
-    ![Guia Escala de site do portal][]
+    ![Guia Escala de site do portal][Guia Escala de site do portal]
 
 Esses são apenas alguns dos recursos do Portal de Gerenciamento. Você também pode criar novos sites, excluir sites existentes, parar e reiniciar sites e gerenciar outros tipos de serviços do Azure, como bancos de dados e máquinas virtuais.
 
-**Dica:** Há um novo Portal de Gerenciamento na visualização que eventualmente substituirá aquele que você esteve utilizando. Para obter mais informações, consulte [Portal de Visualização do Azure][].
+**Dica:** Há um novo Portal de Gerenciamento na visualização que eventualmente substituirá aquele que você esteve utilizando. Para obter mais informações, consulte [Portal de Visualização do Azure][Portal de Visualização do Azure].
 
 ## Próximas etapas
 
@@ -264,39 +264,39 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 -   Outras maneiras de implantar um projeto Web
 
-    Neste tutorial, você viu a maneira mais rápida de criar um site e implantá-lo em uma única operação. Para uma visão geral de outras maneiras de implantar, usando o Visual Studio ou por [implantação automática][] de um [sistema de controle do código-fonte][], consulte [Como implantar um Site do Azure][].
+    Neste tutorial, você viu a maneira mais rápida de criar um site e implantá-lo em uma única operação. Para uma visão geral de outras maneiras de implantar, usando o Visual Studio ou por [implantação automática][implantação automática] de um [sistema de controle do código-fonte][sistema de controle do código-fonte], consulte [Como implantar um Site do Azure][Como implantar um Site do Azure].
 
-    O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure)][].
+    O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure)][Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure)].
 
 -   Como gerenciar um site no Visual Studio
 
-    Para obter informações sobre o que você pode fazer no **Gerenciador de Servidores**, consulte [Solucionando problemas de Sites do Azure no Visual Studio][].
+    Para obter informações sobre o que você pode fazer no **Gerenciador de Servidores**, consulte [Solucionando problemas de Sites do Azure no Visual Studio][Solucionando problemas de Sites do Azure no Visual Studio].
 
 -   Como solucionar problemas de um site
 
-    O Visual Studio fornece ferramentas que facilitam a exibição dos logs do Azure à medida que são gerados em tempo real. Você também pode executar em modo de depuração remotamente no Azure. Para obter mais informações, consulte [Solucionando problemas de Sites do Azure no Visual Studio][].
+    O Visual Studio fornece ferramentas que facilitam a exibição dos logs do Azure à medida que são gerados em tempo real. Você também pode executar em modo de depuração remotamente no Azure. Para obter mais informações, consulte [Solucionando problemas de Sites do Azure no Visual Studio][Solucionando problemas de Sites do Azure no Visual Studio].
 
 -   Como adicionar funcionalidade de banco de dados e autorização
 
-    Para um tutorial que mostra como acessar um banco de dados e restringe algumas funções do site para usuários autorizados, consulte [implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e banco de dados SQL em um site do Azure][].
+    Para um tutorial que mostra como acessar um banco de dados e restringe algumas funções do site para usuários autorizados, consulte [implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e banco de dados SQL em um site do Azure][implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e banco de dados SQL em um site do Azure].
 
 -   Como adicionar um nome de domínio personalizado e SSL
 
     Para obter informações sobre como utilizar SSL e seu próprio domínio (por exemplo www.contoso.com, em vez de contoso.azurewebsites.net), consulte os recursos a seguir:
 
-    -   [Configurando um nome de domínio personalizado para um Site do Azure][].
-    -   [Habilitar HTTPS para um site do Azure][]
+    -   [Configurando um nome de domínio personalizado para um Site do Azure][Configurando um nome de domínio personalizado para um Site do Azure].
+    -   [Habilitar HTTPS para um site do Azure][Habilitar HTTPS para um site do Azure]
 -   Como evitar tempo de espera para voltar ao funcionamento após intervalos em ociosidade
 
-    Por padrão, os sites serão descarregados se estiverem ociosos durante um determinado período de tempo. A primeira solicitação após isso acontecer precisa aguardar que o site seja carregado novamente. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar sites][].
+    Por padrão, os sites serão descarregados se estiverem ociosos durante um determinado período de tempo. A primeira solicitação após isso acontecer precisa aguardar que o site seja carregado novamente. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar sites][Como configurar sites].
 
 -   Como adicionar recursos em tempo real como chat
 
-    Se o seu site for incluir recursos em tempo real (como um serviço de chat, um jogo, um indicador de ações, entre outros), você poderá obter o melhor desempenho utilizando o [ASP.NET SignalR][] com o método de transporte [WebSockets][]. Para obter mais informações, consulte [Usando SignalR com sites do Windows Azure][].
+    Se o seu site for incluir recursos em tempo real (como um serviço de chat, um jogo, um indicador de ações, entre outros), você poderá obter o melhor desempenho utilizando o [ASP.NET SignalR][ASP.NET SignalR] com o método de transporte [WebSockets][WebSockets]. Para obter mais informações, consulte [Usando SignalR com sites do Windows Azure][Usando SignalR com sites do Windows Azure].
 
 -   Como escolher entre Sites, Serviços de nuvem e VMs do Azure para aplicativos Web
 
-    No Azure você pode executar aplicativos Web nos Sites, conforme mostrado neste tutorial ou em serviços de nuvem ou máquinas virtuais. Para obter mais informações, consulte [Modelos de execução do Azure][] e [Sites, Serviços de Nuvem e VMs do Azure: Quando usar qual opção?][].
+    No Azure você pode executar aplicativos Web nos Sites, conforme mostrado neste tutorial ou em serviços de nuvem ou máquinas virtuais. Para obter mais informações, consulte [Modelos de execução do Azure][Modelos de execução do Azure] e [Sites, Serviços de Nuvem e VMs do Azure: Quando usar qual opção?][Sites, Serviços de Nuvem e VMs do Azure: Quando usar qual opção?].
 
   [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
   [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"

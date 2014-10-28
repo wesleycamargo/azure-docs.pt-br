@@ -161,7 +161,7 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
 <!-- Images -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "C# da Windows Store"
   [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ "Back-end do .NET"
   [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "Back-end do JavaScript"
   [Biblioteca de cliente gráfico]: http://go.microsoft.com/fwlink/?LinkId=510536

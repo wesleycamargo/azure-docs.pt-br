@@ -19,7 +19,7 @@
 
 Este tópico mostra como usar os Serviços Móveis do Azure como uma fonte de dados de back-end para um aplicativo Android. Neste tutorial, você criará um novo serviço móvel, baixará um projeto do Eclipse Android para um aplicativo que armazena dados na memória, integrará o serviço móvel ao aplicativo e exibirá as alterações de dados feitas durante a execução do aplicativo.
 
-O serviço móvel que você criará neste tutorial oferecerá suporte ao tempo de execução do .NET no Serviço Móvel. Isso permitirá que você use linguagens .NET e o Visual Studio para a lógica dos negócios do lado do servidor no serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript][] neste tópico.
+O serviço móvel que você criará neste tutorial oferecerá suporte ao tempo de execução do .NET no Serviço Móvel. Isso permitirá que você use linguagens .NET e o Visual Studio para a lógica dos negócios do lado do servidor no serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript][Versão de back-end do JavaScript] neste tópico.
 
 <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
 <p>Este tutorial requer o Visual Studio 2013.</p>
@@ -27,31 +27,31 @@ O serviço móvel que você criará neste tutorial oferecerá suporte ao tempo d
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
-1.  [Criar um novo serviço móvel][]
-2.  [Baixar o serviço localmente][]
-3.  [Testar o serviço móvel][]
-4.  [Publicar o serviço móvel no Azure][]
-5.  [Baixar o projeto GetStartedWithData][]
-6.  [Atualizar o aplicativo para usar o serviço móvel para acesso a dados][]
-7.  [Testar o aplicativo no serviço móvel publicado][]
+1.  [Criar um novo serviço móvel][Criar um novo serviço móvel]
+2.  [Baixar o serviço localmente][Baixar o serviço localmente]
+3.  [Testar o serviço móvel][Testar o serviço móvel]
+4.  [Publicar o serviço móvel no Azure][Publicar o serviço móvel no Azure]
+5.  [Baixar o projeto GetStartedWithData][Baixar o projeto GetStartedWithData]
+6.  [Atualizar o aplicativo para usar o serviço móvel para acesso a dados][Atualizar o aplicativo para usar o serviço móvel para acesso a dados]
+7.  [Testar o aplicativo no serviço móvel publicado][Testar o aplicativo no serviço móvel publicado]
 
 <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa de uma conta do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
 
 ## <a name="create-service"></a><span class="short-header">Criar um novo serviço móvel</span>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
 
 ## <a name="download-the-service"></a><span class="short-header">Baixar o serviço</span>Baixar o serviço em seu computador local
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally][mobile-services-download-service-locally]]
 
 ## <a name="test-the-service"></a><span class="short-header">Testar o serviço</span>Testar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
 
 ## <a name="publish-the-service"></a><span class="short-header">Publicar o serviço</span>Publicar o serviço móvel no Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
 
 ## <a name="download-app"></a><span class="short-header">Baixar o projeto</span>Baixe o projeto GetStartedWithData
 
@@ -61,15 +61,15 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 ### Verificar Versão de SDK do Android
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][mobile-services-verify-android-sdk-version]]
 
 ### Inspecionar e executar o código de amostra
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code][]]
+[WACOM.INCLUDE [mobile-services-android-run-sample-code][mobile-services-android-run-sample-code]]
 
 ## <a name="update-app"></a><span class="short-header">Atualizar o aplicativo</span>Atualizar o aplicativo para usar o serviço móvel para acesso a dados
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][mobile-services-android-getting-started-with-data]]
 
 ## <a name="test-app"></a><span class="short-header">Testar o aplicativo</span>Testar o aplicativo no serviço móvel publicado
 
@@ -105,13 +105,13 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo A
 
 Tente um destes outros tutoriais:
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
     Saiba como autenticar usuários de seu aplicativo.
 
--   [Introdução às notificações por push][]
+-   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
--   [Referência conceitual do tutorial do .NET de Serviços Móveis][]
+-   [Referência conceitual do tutorial do .NET de Serviços Móveis][Referência conceitual do tutorial do .NET de Serviços Móveis]
     Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
 <!-- Anchors. -->

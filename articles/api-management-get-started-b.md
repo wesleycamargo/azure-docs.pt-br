@@ -144,7 +144,7 @@ Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada
 -   Personalizar o portal do desenvolvedor
 -   Rastrear chamadas usando o inspetor de API
 
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [Nova instância do Gerenciamento de API]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [Novo serviço de Gerenciamento de API]: ./media/api-management-get-started/api-management-create-instance-step1.png

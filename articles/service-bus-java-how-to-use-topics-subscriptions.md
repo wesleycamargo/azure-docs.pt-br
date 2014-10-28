@@ -325,7 +325,7 @@ com o tópico. As assinaturas também podem ser excluídas de forma independente
 Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, consulte o tópico do
 MSDN [Filas, tópicos e assinaturas do Barramento de Serviço][Filas, tópicos e assinaturas do Barramento de Serviço] para obter mais informações.
 
-  [SDK do Azure para Java]: http://www.windowsazure.com/en-us/develop/java/
+  [SDK do Azure para Java]: http://www.windowsazure.com/pt-br/develop/java/
   [O que são os tópicos e as assinaturas do Service Bus?]: #what-are-service-bus-topics
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials

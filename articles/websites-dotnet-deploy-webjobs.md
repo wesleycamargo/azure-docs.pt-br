@@ -213,7 +213,7 @@ Para obter mais informações sobre Trabalhos Web do Azure e o SDK de Trabalhos 
   [Entrada de menu de Novo Projeto de Trabalho Web do Azure]: ./media/websites-dotnet-deploy-webjobs/nawj.png
   [Caixa de diálogo Novo Projeto mostrando o modelo de Trabalho Web]: ./media/websites-dotnet-deploy-webjobs/np.png
   [Caixa de diálogo Adicionar Trabalho Web do Azure]: ./media/websites-dotnet-deploy-webjobs/aaw2.png
-  [Agendador do Azure]: /en-us/services/scheduler/
+  [Agendador do Azure]: /pt-br/services/scheduler/
   []: http://schemastore.org/schemas/json/webjob-publish-settings.json
   [1]: http://schemastore.org/schemas/json/webjobs-list.json
   [Como implantar um Site do Azure]: /pt-br/documentation/articles/websites-dotnet-deploy/

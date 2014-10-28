@@ -115,7 +115,7 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
   [Página do site publicada]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
   [Documentação do Umbraco]: http://our.umbraco.org/documentation
   [Tutoriais em vídeo do Umbraco]: https://umbraco.com/help-and-support/video-tutorials.aspx
-  [Visão geral do Portal de Visualização do Microsoft Azure]: http://azure.microsoft.com/en-us/overview/preview-portal/
+  [Visão geral do Portal de Visualização do Microsoft Azure]: http://azure.microsoft.com/pt-br/overview/preview-portal/
   [Documentação do Portal de Visualização do Microsoft Azure]: http://azure.microsoft.com/pt-br/documentation/preview-portal/
   [Portal de Visualização do Azure (Channel 9)]: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal
   [Documentação dos Sites do Microsoft Azure]: http://azure.microsoft.com/pt-br/documentation/services/web-sites/

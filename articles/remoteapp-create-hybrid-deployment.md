@@ -23,11 +23,11 @@ Este tutorial explica o processo de criação de uma implantação híbrida. Há
 
 É necessário fazer o seguinte antes de criar o serviço:
 
--   Instalar as [atualizações necessárias][] para melhorar o desempenho do RemoteApp do Azure.
--   Increva-se para a [visualização do RemoteApp][].
+-   Instalar as [atualizações necessárias][atualizações necessárias] para melhorar o desempenho do RemoteApp do Azure.
+-   Increva-se para a [visualização do RemoteApp][visualização do RemoteApp].
 -   Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 -   Reúna as informações sobre a sua rede local: As informações de endereço IP e detalhes do dispositivo VPN.
--   Instale o módulo [PowerShell do Azure][].
+-   Instale o módulo [PowerShell do Azure][PowerShell do Azure].
 -   Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Pode ser informações da conta da Microsoft ou da conta organizacional do Active Directory para usuários e grupos.
 
 ## **Etapa 1: Criar uma imagem do modelo**
@@ -121,7 +121,7 @@ As etapas detalhadas para a criação de uma nova imagem são:
 
 ## **Etapa 2: Crie um serviço RemoteApp**
 
-1.  No [Portal de Gerenciamento do Azure][], vá para a página do RemoteApp.
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], vá para a página do RemoteApp.
 2.  Clique em **Novo \> Criar com VPN**.
 3.  Digite um nome para o seu serviço e clique em **Criar o serviço RemoteApp**.
 
@@ -141,7 +141,7 @@ Uma rede virtual permite que os seus usuários acessem os dados da sua rede loca
     -   Endereço IP do servidor DNS
     -   Endereço IP do VPN
 
-    Consulte [Configurar um VPN site a site no Portal de Gerenciamento][] para obter mais informações.
+    Consulte [Configurar um VPN site a site no Portal de Gerenciamento][Configurar um VPN site a site no Portal de Gerenciamento] para obter mais informações.
 
 4.  Em seguida, de volta à página de Início Rápido, clique em **obter script** para baixar um script para a configuração do seu dispositivo VPN para conectar-se à rede virtual recém-criada. As informações sobre o dispositivo VPN a seguir serão necessárias:
 
@@ -165,7 +165,7 @@ Se estiver conectando-se a uma imagem do modelo existente, especifique o nome da
 
 ## **Etapa 5: Configurar a sincronização de diretório do Active Directory**
 
-O RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte o [Roteiro de sincronização do diretório][] para as informações de planejamento e etapas detalhadas.
+O RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte o [Roteiro de sincronização do diretório][Roteiro de sincronização do diretório] para as informações de planejamento e etapas detalhadas.
 
 ## **Etapa 6: Publicar os programas do RemoteApp**
 
@@ -191,7 +191,7 @@ Agora que o seu serviço do RemoteApp foi criado, é necessário adicionar os us
 É isso - a sua implantação híbrida do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, faça com que os usuários façam logon no Azure e acessem os programas do RemoteApp publicados.
 
   [atualizações necessárias]: http://support.microsoft.com/kb/2977219
-  [visualização do RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
+  [visualização do RemoteApp]: http://azure.microsoft.com/pt-br/services/remoteapp/
   [PowerShell do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Configurar um VPN site a site no Portal de Gerenciamento]: http://msdn.microsoft.com/library/azure/dn133795.aspx

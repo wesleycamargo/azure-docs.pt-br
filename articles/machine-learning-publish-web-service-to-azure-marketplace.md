@@ -24,14 +24,14 @@ A seguir estão as etapas para publicar um serviço Web AM do Azure para o Azure
 1.  Criar e publicar um serviço Web RRS (Serviço de solicitação-resposta) ou BES (Serviço de execução em lote) AM do Azure.
 2.  No Portal de Gerenciamento do Azure, implante o serviço na produção.
 3.  Use a URL do serviço Web publicado para publicar no Azure Marketplace.
-4.  Visão geral do processo de publicação: <http://msdn.microsoft.com/en-us/library/azure/hh580725.aspx>
+4.  Visão geral do processo de publicação: <http://msdn.microsoft.com/pt-br/library/azure/hh580725.aspx>
 5.  Depois de enviada, sua oferta é revisada e precisa ser aprovada antes que os clientes possam iniciar a compra dela. O processo de publicação pode levar alguns dias úteis. Estamos trabalhando para reduzir o máximo possível esse tempo e logo forneceremos uma atualização nas comunicações.
 
 ## Diretrizes para publicar no Azure Marketplace
 
-1.  Será necessário registrar-se como um editor. Para obter mais informações, consulte: <http://msdn.microsoft.com/en-us/library/azure/hh563872.aspx>
-2.  Será necessário fornecer informações sobre sua oferta, inclusive um plano de preços. Decida se você oferecerá um serviço gratuito ou pago. Para obter mais informações, consulte: <http://msdn.microsoft.com/en-us/library/azure/hh563873.aspx>
-3.  Para ser pago, será necessário fornecer informações de pagamento como banco e impostos. Para obter mais informações, consulte: <http://msdn.microsoft.com/en-us/library/azure/hh563873.aspx>
+1.  Será necessário registrar-se como um editor. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563872.aspx>
+2.  Será necessário fornecer informações sobre sua oferta, inclusive um plano de preços. Decida se você oferecerá um serviço gratuito ou pago. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563873.aspx>
+3.  Para ser pago, será necessário fornecer informações de pagamento como banco e impostos. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563873.aspx>
 
 ## Opções específicas de Aprendizado de Máquina
 

@@ -1,69 +1,102 @@
-<properties title="Saiba como configurar um site do Azure para usar um nome de domínio registrado junto a Register.com" pageTitle="Configurar um nome de domínio de Register.com para um site do Azure" metaKeywords="Azure, sites do Azure, nome do domínio" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+<properties title="Learn how to configure an Azure website to use a domain name registered with Register.com" pageTitle="Configure a Register.com domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-#Configurando um nome de domínio personalizado para um site do Azure (Register.com)
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name" title="Domínio personalizado">Domínio personalizado</a><a href="/pt-br/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Soluções de rede">Soluções de rede</a><a href="/pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/pt-br/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/pt-br/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/pt-br/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/pt-br/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/pt-br/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name/" title="Sites" class="current">Site</a> | <a href="/pt-br/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/" title="Site usando o Gerenciador de Tráfego">Site usando o Gerenciador de Tráfego</a></div>
+# Configurando um nome de domínio personalizado para um Site do Azure (Register.com)
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-BR/documentation/articles/web-sites-custom-domain-name" title="Dom&iacute;nio personalizado">Dom&iacute;nio personalizado</a><a href="/pt-BR/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/pt-BR/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Solu&ccedil;&otilde;es de rede">Solu&ccedil;&otilde;es de rede</a><a href="/pt-BR/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/pt-BR/documentation/articles/web-sites-enom-custom-domain-name" title="Enom" class="current">Enom</a><a href="/pt-BR/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/pt-BR/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/pt-BR/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/pt-BR/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
 
-Este artigo fornece instruções sobre como usar o nome de domínio personalizado comprado junto a [Register.com](https://register.com) com sites do Azure.
+<div class="dev-center-tutorial-subselector"><a href="/pt-BR/documentation/articles/web-sites-registerdotcom-custom-domain-name/" title="Sites" class="current">Sites</a> | <a href="/pt-BR/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/" title="Site usando o Gerenciador de Tr&aacute;fego">Site usando o Gerenciador de Tr&aacute;fego</a></div>
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+
+[WACOM.INCLUDE [intro][intro]]
+
+Este artigo fornece instruções sobre como usar um nome de domínio personalizado adquirido do [Register.com][1] com os Sites do Azure.
+
+[WACOM.INCLUDE [introfooter][introfooter]]
 
 Neste artigo:
 
--   [Compreendendo os registros DNS](#understanding-records)
--   [Configurar seus sites para modo básico, compartilhado ou padrão](#bkmk_configsharedmode)
--   [Adicionar um registro DNS a seu domínio personalizado](#bkmk_configurecname)
--   [Habilitar o domínio no site](#enabledomain)
+-   [Compreendendo os registros DNS][Compreendendo os registros DNS]
+-   [Configurar seus sites para modo básico, compartilhado ou padrão][Configurar seus sites para modo básico, compartilhado ou padrão]
+-   [Adicionar um registro DNS a seu domínio personalizado][Adicionar um registro DNS a seu domínio personalizado]
+-   [Habilitar o domínio no site][Habilitar o domínio no site]
 
-<h2><a name="understanding-records"></a>Compreendendo os registros DNS</h2>
+## <a name="understanding-records"></a>Compreendendo os registros DNS
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[WACOM.INCLUDE [understandingdns][understandingdns]]
 
-<h2><a name="bkmk_configsharedmode"></a>Configurar seus sites para modo básico, compartilhado ou padrão</h2>
+## <a name="bkmk_configsharedmode"></a>Configurar seus sites para modo básico, compartilhado ou padrão
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[WACOM.INCLUDE [modes][modes]]
 
-<a name="bkmk_configurecname"></a><h2>Adicionar um registro DNS a seu domínio personalizado</h2>
+<a name="bkmk_configurecname"></a>
 
-Para associar o domínio personalizado a um site do Azure, você deve adicionar uma nova entrada na tabela DNS para o domínio personalizado usando as ferramentas fornecidas por Register.com. Use as seguintes etapas para localizar e usar as ferramentas DNS.
+## Adicionar um registro DNS a seu domínio personalizado
 
-1. Faça logon na conta em register.com e selecione **Sua Conta** no canto superior direito para exibir seus domínios e selecione seu nome de domínio personalizado.
+Para associar seu domínio personalizado a um Site do Azure, você deve adicionar uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo Register.com. Use as seguintes etapas para localizar e usar as ferramentas DNS.
 
-	![a página minha conta](./media/web-sites-custom-domain-name/rdotcom-myaccount.png)
+1.  Faça logon na conta em register.com e selecione **Sua Conta** no canto superior direito para exibir seus domínios e selecione seu nome de domínio personalizado.
 
-3. Role a página até ver **Configurações Técnicas Avançadas**. Os links nesta seção permitem gerenciar os registros do domínio.
+    ![a página minha conta][a página minha conta]
 
-	* Para registros A, use o link **Editar Registros de Endereço IP**.
-	* Para registros CNAME, use o link **Editar Registros de Aliases de Domínio**.
+2.  Role a página até ver **Configurações Técnicas Avançadas**. Os links nesta seção permitem gerenciar os registros do domínio.
 
-	![Configurações técnicas avançadas](./media/web-sites-custom-domain-name/rdotcom-advancedsettings.png)
+    -   Para registros A, use o link **Editar Registros de Endereço IP**.
+    -   Para registros CNAME, use o link **Editar Registros de Aliases de Domínio**.
 
-5. Ao clicar no botão **Editar**, você verá um formulário que pode usar para modificar registros existentes ou adicionar novos. O formulário é semelhante para registros CNAME e A.
+    ![Configurações técnicas avançadas][Configurações técnicas avançadas]
 
-	* Ao adicionar um registro CNAME, você deve definir o campo **.mydomainname.com** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve selecionar o valor **aponta para** como o nome do domínio **.azurewebsites.net** do site do Azure. Por exemplo, **contoso.azurwebsites.net**. Deixe o **Refere-se ao Nome do Host** como **Selecionar**, pois esse campo não é obrigatório durante a criação de um registro CNAME a ser usado com sites do Azure.
-	
-		![formulário cname](./media/web-sites-custom-domain-name/rdotcom-editcnamerecord.png)
+3.  Ao clicar no botão **Editar**, você verá um formulário que pode usar para modificar registros existentes ou adicionar novos. O formulário é semelhante para registros CNAME e A.
 
-		> [WACOM.NOTE] Se estiver usando um registro A, você também deverá adicionar um registro CNAME com uma das seguintes configurações:
-		> 
-		> * Um valor de **Alias** de **www** com um valor de **Outro host** de **&lt;yourwebsitename&gt;.azurewebsites.net**.
-		> 
-		> OU
-		> 
-		> * Um valor de **Alias** de **awverify.www** com um valor de **Outro host** de **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
-		> 
-		> Esse registro CNAME é usado pelo Azure para validar que você possui o domínio descrito pelo registro A.
+    -   Ao adicionar um registro CNAME, você deve definir o campo **.mydomainname.com** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve selecionar o valor **aponta para** como o nome do domínio **.azurewebsites.net** do site do Azure. Por exemplo, **contoso.azurwebsites.net**. Deixe o **Refere-se ao Nome do Host** como **Selecionar**, pois esse campo não é obrigatório durante a criação de um registro CNAME a ser usado com sites do Azure.
 
-	* Ao adicionar um registro A, você deve definir o campo **.mydomainname.com** como o subdomínio que deseja usar (por exemplo, **www**). Deixe o campo em branco para definir o domínio raiz ou use **\** para criar um mapeamento de caractere curinga. Você deve definir o campo **Aponta para** como o endereço IP do seu Site do Azure.
+        ![formulário cname][formulário cname]
 
-		![formulário de registro a](./media/web-sites-custom-domain-name/rdotcom-editarecord.png)
+        > [WACOM.NOTE] Se estiver usando um registro A, você também deverá adicionar um registro CNAME com uma das seguintes configurações:
+        >
+        > -   Um valor **Alias** de **www** com um valor **Outro host** de **\<yourwebsitename\>.azurewebsites.net**.
+        >
+        > OU
+        >
+        > -   Um valor **Alias** de **awverify.www** com um valor **Outro host** de **awverify.\<yourwebsitename\>.azurewebsites.net**.
+        >
+        > Esse registro CNAME é usado pelo Azure para validar que você possui o domínio descrito pelo registro A.
 
-5. Ao concluir a adição ou a modificação dos registros, clique em **Continuar** para revisar as alterações. Selecione **Continuar** novamente para salvar as alterações.
+    -   Ao adicionar um registro A, você deve definir o campo **.mydomainname.com** como o subdomínio que deseja usar (por exemplo, **www**). Deixe o campo em branco para definir o domínio raiz ou use **\*\*para criar um mapeamento de caractere curinga. Você deve definir o campo** Aponta para\*\* como o endereço IP do seu Site do Azure.
 
-<h2><a name="enabledomain"></a>Habilitar o nome do domínio no seu site</h2>
+        ![formulário de registro a][formulário de registro a]
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+4.  Ao concluir a adição ou a modificação dos registros, clique em **Continuar** para revisar as alterações. Selecione **Continuar** novamente para salvar as alterações.
 
+## <a name="enabledomain"></a>Habilitar o nome do domínio no seu site
+
+[WACOM.INCLUDE [modes][2]]
+
+  [Domínio personalizado]: /pt-BR/documentation/articles/web-sites-custom-domain-name "Domínio personalizado"
+  [GoDaddy]: /pt-BR/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Soluções de rede]: /pt-BR/documentation/articles/web-sites-network-solutions-custom-domain-name "Soluções de rede"
+  [Register.com]: /pt-BR/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /pt-BR/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /pt-BR/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /pt-BR/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /pt-BR/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /pt-BR/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Sites]: /pt-BR/documentation/articles/web-sites-registerdotcom-custom-domain-name/ "Sites"
+  [Site usando o Gerenciador de Tráfego]: /pt-BR/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/ "Site usando o Gerenciador de Tráfego"
+  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [intro]: ../includes/custom-dns-web-site-intro.md
+  [1]: https://www.register.com
+  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
+  [Compreendendo os registros DNS]: #understanding-records
+  [Configurar seus sites para modo básico, compartilhado ou padrão]: #bkmk_configsharedmode
+  [Adicionar um registro DNS a seu domínio personalizado]: #bkmk_configurecname
+  [Habilitar o domínio no site]: #enabledomain
+  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
+  [modes]: ../includes/custom-dns-web-site-modes.md
+  [a página minha conta]: ./media/web-sites-custom-domain-name/rdotcom-myaccount.png
+  [Configurações técnicas avançadas]: ./media/web-sites-custom-domain-name/rdotcom-advancedsettings.png
+  [formulário cname]: ./media/web-sites-custom-domain-name/rdotcom-editcnamerecord.png
+  [formulário de registro a]: ./media/web-sites-custom-domain-name/rdotcom-editarecord.png
+  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

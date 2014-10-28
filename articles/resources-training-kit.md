@@ -1,8 +1,7 @@
-<properties linkid="dev-net-training-kit" urlDisplayName="Kit de treinamento" pageTitle="Kit de treinamento do Azure - Recursos do Azure" metaKeywords="kit de treinamento do Azure, Azure trainingkit, download de treinamento do Azure" description="Baixar e instalar o kit de treinamento do Azure que fornece um conjunto abrangente de conteúdo técnico para ajudá-lo a aprender sobre o Azure." metaCanonical="" services="" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-net-training-kit" urlDisplayName="Training Kit" pageTitle="Azure Readiness - Azure resources" metaKeywords="Azure training kit, Azure trainingkit, Azure training download, Azure Readiness, azurereadiness" description="The Azure Readiness Content provides a set of presentations and demos designed to help learn the latest Microsoft Azure features and services." metaCanonical="" services="" documentationCenter=".NET" title="" authors="cfowler" solutions="" manager="carolz" editor="mollybos" />
 
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="site-section-home-page" ms.date="01/01/1900" ms.author="cfowler"></tags>
 
+[WACOM.INCLUDE [training-kit][training-kit]]
 
-
-
-[WACOM.INCLUDE [training-kit](../includes/training-kit.md)]
-
+  [training-kit]: ../includes/training-kit.md

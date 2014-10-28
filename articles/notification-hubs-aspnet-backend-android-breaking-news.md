@@ -300,7 +300,7 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
   [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
   [iOS]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
   [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
-  [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
   [Adicionar a seleção de categorias ao aplicativo]: #adding-categories
   [Registrar-se para receber notificações]: #register
   [Enviar notificações de seu back-end]: #send
@@ -308,5 +308,5 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
   [Introdução aos Hubs de Notificação]: /pt-br/documentation/articles/notification-hubs-android-get-started/
   []: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/
-  [Notificar usuários com Hubs de Notificação]: /en-us/manage/services/notification-hubs/notify-users
+  [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /pt-br/manage/services/notification-hubs/breaking-news-localized-dotnet/
+  [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users

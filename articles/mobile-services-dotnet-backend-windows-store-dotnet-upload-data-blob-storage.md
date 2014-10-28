@@ -14,22 +14,22 @@ Você não pode distribuir as credenciais necessárias de maneira segura usando 
 
 Neste tutorial, você adicionará funcionalidade ao aplicativo quickstart de Serviços Móveis para tirar fotos e carregar as imagens no Azure usando uma SAS gerada pelos Serviços Móveis. Este tutorial o orientará através das etapas básicas a seguir para atualizar o quickstart de Serviços Móveis para carregar imagens para o serviço de Armazenamento de Blob:
 
-1.  [Instalar a biblioteca do Cliente de Armazenamento][]
-2.  [Atualizar o aplicativo cliente para capturar imagens][]
-3.  [Instalar o cliente de armazenamento no projeto de serviço móvel][]
-4.  [Atualizar a definição de TodoItem no modelo de dados][]
-5.  [Atualizar o controlador de tabela para gerar uma SAS][]
-6.  [Carregar imagens para testar o aplicativo][]
+1.  [Instalar a biblioteca do Cliente de Armazenamento][Instalar a biblioteca do Cliente de Armazenamento]
+2.  [Atualizar o aplicativo cliente para capturar imagens][Atualizar o aplicativo cliente para capturar imagens]
+3.  [Instalar o cliente de armazenamento no projeto de serviço móvel][Instalar o cliente de armazenamento no projeto de serviço móvel]
+4.  [Atualizar a definição de TodoItem no modelo de dados][Atualizar a definição de TodoItem no modelo de dados]
+5.  [Atualizar o controlador de tabela para gerar uma SAS][Atualizar o controlador de tabela para gerar uma SAS]
+6.  [Carregar imagens para testar o aplicativo][Carregar imagens para testar o aplicativo]
 
 Este tutorial exige o seguinte:
 
 -   Microsoft Visual Studio 2013 ou uma versão posterior.
 -   Gerenciador de Pacotes Nuget instalado para o Microsoft Visual Studio.
--   [Conta de Armazenamento do Azure][]
+-   [Conta de Armazenamento do Azure][Conta de Armazenamento do Azure]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][].
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
 
 ## <a name="install-storage-client"></a>Instalar o cliente de Armazenamento para aplicativos da Windows Store
 
@@ -45,7 +45,7 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
 
 Em seguida, você atualizará o aplicativo quickstart para capturar e carregar imagens.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
 
 <!-- Anchors. --> 
 

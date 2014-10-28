@@ -471,49 +471,49 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
   [Diagnósticos avançados]: #AdvancedDiagnosing
   [Criando índices]: #CreatingIndexes
   [Portal de Serviços Móveis – Configurar Índice]: ./media/mobile-services-sql-scale-guidance/set-index-portal-ui.png
-  [Anotações de índice no Entity Framework]: http://msdn.microsoft.com/en-us/data/jj591583.aspx#Index
+  [Anotações de índice no Entity Framework]: http://msdn.microsoft.com/pt-br/data/jj591583.aspx#Index
   [Indexação avançada]: #AdvancedIndexing
-  [objeto de tabela]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx
-  [objeto mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+  [objeto de tabela]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554210.aspx
+  [objeto mssql]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554212.aspx
   [Juntar tabelas relacionais]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-how-to-use-server-scripts/#joins
   [Windows Store]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging
   [iOS]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging
   [Android]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-android-how-to-use-client-library/#paging
   [HTML/JavaScript]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-html-how-to-use-client-library/#paging
   [Xamarin]: http://azure.microsoft.com/pt-br/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging
-  [objeto de consulta]: http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-  [método Take]: http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx
+  [objeto de consulta]: http://msdn.microsoft.com/pt-br/library/azure/jj613353.aspx
+  [método Take]: http://msdn.microsoft.com/pt-br/library/vstudio/bb503062(v=vs.110).aspx
   [Design de consulta avançada]: #AdvancedQuery
   [Usar Hubs de Notificação para enviar notícias de última hora]: http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/
-  [Cache do Azure]: http://azure.microsoft.com/en-us/services/cache/
+  [Cache do Azure]: http://azure.microsoft.com/pt-br/services/cache/
   [Criar uma máquina virtual executando o Windows Server]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-windows-tutorial/
-  [Edições do SQL Server – Express]: http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx
+  [Edições do SQL Server – Express]: http://www.microsoft.com/pt-br/server-cloud/products/sql-server-editions/sql-server-express.aspx
   [SQL Server Management Studio]: ./media/mobile-services-sql-scale-guidance/1.png
   [Portal de Gerenciamento do Azure – Banco de Dados SQL]: ./media/mobile-services-sql-scale-guidance/2.png
   [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
   [SQL Server Management Studio – exibições de gerenciamento dinâmicas]: ./media/mobile-services-sql-scale-guidance/8.png
   [Portal de Gerenciamento do Banco de Dados SQL – nova consulta]: ./media/mobile-services-sql-scale-guidance/9.png
   [Portal de Gerenciamento do Banco de Dados SQL – executar consulta]: ./media/mobile-services-sql-scale-guidance/10.png
-  [sys.resource\_stats]: http://msdn.microsoft.com/en-us/library/dn269979.aspx
-  [sys.event\_log]: http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx
+  [sys.resource\_stats]: http://msdn.microsoft.com/pt-br/library/dn269979.aspx
+  [sys.event\_log]: http://msdn.microsoft.com/pt-br/library/azure/jj819229.aspx
   [orientações de design de índice clusterizado]: #ClusteredIndexes
-  [chave composta]: http://msdn.microsoft.com/en-us/library/ms179610(v=sql.120).aspx
-  [Criando e modificando restrições de CHAVE PRIMÁRIA]: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
-  [Criar índices não clusterizados]: http://technet.microsoft.com/en-us/library/ms189280.aspx
-  [Criar índices clusterizados]: http://technet.microsoft.com/en-us/library/ms186342(v=sql.120).aspx
-  [Criar índices exclusivos]: http://technet.microsoft.com/en-us/library/ms187019.aspx
+  [chave composta]: http://msdn.microsoft.com/pt-br/library/ms179610(v=sql.120).aspx
+  [Criando e modificando restrições de CHAVE PRIMÁRIA]: http://technet.microsoft.com/pt-br/library/ms181043(v=sql.105).aspx
+  [Criar índices não clusterizados]: http://technet.microsoft.com/pt-br/library/ms189280.aspx
+  [Criar índices clusterizados]: http://technet.microsoft.com/pt-br/library/ms186342(v=sql.120).aspx
+  [Criar índices exclusivos]: http://technet.microsoft.com/pt-br/library/ms187019.aspx
   [Exibições de gerenciamento dinâmico de índice ausente]: sys-missing-index-stats
   [Portal de Gerenciamento do Banco de Dados SQL – desempenho da consulta]: ./media/mobile-services-sql-scale-guidance/11.png
   [SQL Server Management Studio – plano de consulta]: ./media/mobile-services-sql-scale-guidance/12.png
   [Portal de Gerenciamento do Banco de Dados SQL – plano de consulta]: ./media/mobile-services-sql-scale-guidance/13.png
   [Documentação do Banco de dados SQL do Azure]: http://azure.microsoft.com/pt-br/documentation/services/sql-database/
   [Desempenho e escalonamento do Banco de Dados SQL do Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
-  [Solucionando problemas do Banco de Dados SQL do Azure]: http://msdn.microsoft.com/en-us/library/azure/ee730906.aspx
-  [Fundamentos de índice]: http://technet.microsoft.com/en-us/library/ms190457(v=sql.105).aspx
-  [Orientações de design de índices gerais]: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx
-  [Orientações de design de índices exclusivos]: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
-  [Orientações de design de índices clusterizados]: http://technet.microsoft.com/en-us/library/ms190639(v=sql.105).aspx
+  [Solucionando problemas do Banco de Dados SQL do Azure]: http://msdn.microsoft.com/pt-br/library/azure/ee730906.aspx
+  [Fundamentos de índice]: http://technet.microsoft.com/pt-br/library/ms190457(v=sql.105).aspx
+  [Orientações de design de índices gerais]: http://technet.microsoft.com/pt-br/library/ms191195(v=sql.105).aspx
+  [Orientações de design de índices exclusivos]: http://technet.microsoft.com/pt-br/library/ms187019(v=sql.105).aspx
+  [Orientações de design de índices clusterizados]: http://technet.microsoft.com/pt-br/library/ms190639(v=sql.105).aspx
   [Quanto essa chave custa?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
-  [Considerações de desempenho do Entity Framework 5]: http://msdn.microsoft.com/en-us/data/hh949853
-  [Anotações de dados do primeiro código]: http://msdn.microsoft.com/en-us/data/jj591583.aspx
+  [Considerações de desempenho do Entity Framework 5]: http://msdn.microsoft.com/pt-br/data/hh949853
+  [Anotações de dados do primeiro código]: http://msdn.microsoft.com/pt-br/data/jj591583.aspx

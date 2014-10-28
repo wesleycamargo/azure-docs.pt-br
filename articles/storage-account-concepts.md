@@ -6,7 +6,7 @@
 
 ## Opções de replicação de conta de armazenamento
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Pontos de extremidade da conta de armazenamento
 
@@ -28,13 +28,13 @@ Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso
 
 Recomendamos que você evite compartilhar suas chaves de acesso a contas de armazenamento com outras pessoas. Se você achar que sua conta foi comprometida, pode gerar suas chaves de acesso novamente de dentro do portal. Selecione sua conta de armazenamento e escolha **Gerenciar Chaves de Acesso**.
 
-Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte o [Tutorial de assinatura de acesso compartilhado][] para obter mais informações.
+Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte o [Tutorial de assinatura de acesso compartilhado][Tutorial de assinatura de acesso compartilhado] para obter mais informações.
 
 ## Métricas e registro em log da conta de armazenamento
 
--   **métricas mínimas x detalhadas** Você pode configurar métricas mínimas ou detalhadas nas configurações de monitoramento de sua conta de armazenamento. *As métricas mínimas* coletam as métricas dos dados, como ingresso/egresso, disponibilidade, latência e porcentagens de êxitos, agregadas para os serviços Blob, Tabela e Fila. *As métricas detalhadas* coletam o detalhe no nível da operação além dos agregados do nível de serviço para as mesmas métricas. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo. Para obter uma lista completa das métricas disponíveis, consulte [o esquema da tabela de métricas da análise do armazenamento][] Para obter mais informações sobre o monitoramento de armazenamento, consulte [sobre métricas de análise de armazenamento][].
+-   **métricas mínimas x detalhadas** Você pode configurar métricas mínimas ou detalhadas nas configurações de monitoramento de sua conta de armazenamento. *As métricas mínimas* coletam as métricas dos dados, como ingresso/egresso, disponibilidade, latência e porcentagens de êxitos, agregadas para os serviços Blob, Tabela e Fila. *As métricas detalhadas* coletam o detalhe no nível da operação além dos agregados do nível de serviço para as mesmas métricas. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo. Para obter uma lista completa das métricas disponíveis, consulte [o esquema da tabela de métricas da análise do armazenamento][o esquema da tabela de métricas da análise do armazenamento] Para obter mais informações sobre o monitoramento de armazenamento, consulte [sobre métricas de análise de armazenamento][sobre métricas de análise de armazenamento].
 
--   **log** O log é um recurso configurável de contas de armazenamento que habilita o log das solicitações para ler, gravar e excluir blobs, tabelas e filas. Você configura o log no Portal de Gerenciamento do Azure, mas não pode exibir os logs no Portal de Gerenciamento. Os logs são armazenados e acessados na conta de armazenamento, no recipiente $logs. Para obter mais informações, consulte [Visão geral da análise de armazenamento (a página pode estar em inglês)][].
+-   **log** O log é um recurso configurável de contas de armazenamento que habilita o log das solicitações para ler, gravar e excluir blobs, tabelas e filas. Você configura o log no Portal de Gerenciamento do Azure, mas não pode exibir os logs no Portal de Gerenciamento. Os logs são armazenados e acessados na conta de armazenamento, no recipiente $logs. Para obter mais informações, consulte [Visão geral da análise de armazenamento (a página pode estar em inglês)][Visão geral da análise de armazenamento (a página pode estar em inglês)].
 
 ## Grupos de afinidade para colocalização de Armazenamento do Azure e outros serviços
 
@@ -42,6 +42,6 @@ Um *grupo de afinidades* é um agrupamento geográfico de seus serviços Azure e
 
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Tutorial de assinatura de acesso compartilhado]: ../storage-dotnet-shared-access-signature-part-1/
-  [o esquema da tabela de métricas da análise do armazenamento]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343264.aspx
-  [sobre métricas de análise de armazenamento]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Visão geral da análise de armazenamento (a página pode estar em inglês)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343268.aspx
+  [o esquema da tabela de métricas da análise do armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343264.aspx
+  [sobre métricas de análise de armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343258.aspx
+  [Visão geral da análise de armazenamento (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343268.aspx

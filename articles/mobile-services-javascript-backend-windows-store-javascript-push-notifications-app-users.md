@@ -83,7 +83,7 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users "JavaScript da Windows Store"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users "iOS"

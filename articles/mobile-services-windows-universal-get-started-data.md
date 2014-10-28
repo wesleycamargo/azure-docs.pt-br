@@ -25,7 +25,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo GetStartedWithMobileServices], que é um projeto de aplicativo da Windows Store no Visual Studio 2013. A interface do usuário deste aplicativo é idêntica ao aplicativo gerado pelo quickstart dos Serviços Móveis, exceto pelo fato de que os itens adicionados são armazenados localmente na memória.
 
-1.  Baixe a versão C\# do aplicativo de exemplo GetStartedWithMobileServices do [site de exemplos de código do desenvolvedor][aplicativo GetStartedWithMobileServices].
+1.  Baixe a versão C# do aplicativo de exemplo GetStartedWithMobileServices do [site de exemplos de código do desenvolvedor][aplicativo GetStartedWithMobileServices].
 
     ![][]
 
@@ -93,7 +93,7 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo
 
     Esse código insere um novo item na tabela.
 
-    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong><p>Novas tabelas s&atilde;o criadas com as colunas Id, __createdAt, __updatedAt e __version. Quando o esquema din&acirc;mico est&aacute; habilitado, os Servi&ccedil;os M&oacute;veis geram automaticamente novas colunas com base em um objeto JSON na solicita&ccedil;&atilde;o de inser&ccedil;&atilde;o ou atualiza&ccedil;&atilde;o. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Esquema din&acirc;mico</a>.</p></div>
+    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong><p>Novas tabelas s&atilde;o criadas com as colunas Id, __createdAt, __updatedAt e __version. Quando o esquema din&acirc;mico est&aacute; habilitado, os Servi&ccedil;os M&oacute;veis geram automaticamente novas colunas com base em um objeto JSON na solicita&ccedil;&atilde;o de inser&ccedil;&atilde;o ou atualiza&ccedil;&atilde;o. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj193175.aspx">Esquema din&acirc;mico</a>.</p></div>
 
 5.  No método **RefreshTodoItems**, adicione o modificador **async** ao método e, em seguida, remova o comentário da linha de código a seguir:
 
@@ -172,7 +172,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "JavaScript da Windows Store"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/ "Windows Phone"
   [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/ "iOS"
@@ -184,18 +184,18 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [Criar o serviço móvel no Visual Studio]: #create-service
   [Adicionar uma tabela de dados para armazenamento e atualização do aplicativo]: #add-table
   [Testar o aplicativo com os Serviços Móveis]: #test-app
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28
   [aplicativo GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [Esquema dinâmico]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx
+  [Esquema dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj193175.aspx
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
-  [Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
+  [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
   [Introdução às notificações por push]: ../mobile-services-windows-store-dotnet-get-started-push/
-  [Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library

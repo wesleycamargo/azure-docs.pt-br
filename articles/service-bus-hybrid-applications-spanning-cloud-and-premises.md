@@ -34,14 +34,14 @@ Aplicativos híbridos na nuvem/locais são uma realidade dos ambientes de TI mod
 
   [Criar um aplicativo .NET híbrido no local/na nuvem usando a retransmissão do Service Bus]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/
   [Retransmissão do Service Bus]: http://azure.microsoft.com/pt-br/documentation/articles/service-bus-dotnet-how-to-use-relay/
-  [Sistema de Mensagens de Retransmissão e Agenciamento]: http://msdn.microsoft.com/en-us/library/azure/hh367519.aspx
+  [Sistema de Mensagens de Retransmissão e Agenciamento]: http://msdn.microsoft.com/pt-br/library/azure/hh367519.aspx
   [Como usar a Retransmissão do Barramento de Serviço (vídeo e exemplo de código)]: http://appfabricdemos.codeplex.com/releases/view/67597
   [Como integrar um site do Microsoft Azure a um aplicativo LOB por meio da Retransmissão do Barramento de Serviço]: http://code.msdn.microsoft.com/windowsazure/How-to-integrate-a-Windows-f1fedff8
   [Replicação geográfica com Mensagens de Retransmissão do Barramento de Serviço]: http://code.msdn.microsoft.com/windowsazure/Geo-replication-with-16dbfecd
   [Como integrar um Serviço Móvel a um Serviço de Retransmissão do Barramento de Serviço de REST]: http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx
   [Perguntas Frequentes sobre Preços do Barramento de Serviço]: http://msdn.microsoft.com/library/windowsazure/Hh667438.aspx
   [Referência da API REST do Barramento de Serviço]: http://msdn.microsoft.com/library/windowsazure/hh780717.aspx
-  [Inscreva-se para obter uma avaliação gratuita do Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A85619ABF
-  [Serviços do BizTalk]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [Serviços Móveis]: http://azure.microsoft.com/en-us/services/mobile-services/
-  [Serviços de Nuvem]: http://azure.microsoft.com/en-us/services/cloud-services/
+  [Inscreva-se para obter uma avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A85619ABF
+  [Serviços do BizTalk]: http://azure.microsoft.com/pt-br/services/biztalk-services/
+  [Serviços Móveis]: http://azure.microsoft.com/pt-br/services/mobile-services/
+  [Serviços de Nuvem]: http://azure.microsoft.com/pt-br/services/cloud-services/

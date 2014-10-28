@@ -41,7 +41,7 @@
     ![Configurar Agente de VM e os pontos de extremidade da máquina virtual][Configurar Agente de VM e os pontos de extremidade da máquina virtual]
 
   [Portal de Gerenciamento]: http://manage.windowsazure.com
-  [Avaliação Gratuita]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [Avaliação Gratuita]: http://www.windowsazure.com/pt-br/pricing/free-trial/
   [Navegar até Da Galeria na barra de comandos]: ./media/virtual-machines-create-WindowsVM/fromgallery.png
   [Escolher uma imagem]: ./media/virtual-machines-create-WindowsVM/chooseimage.png
   [Tamanhos de máquinas virtuais e serviço de nuvem do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=466520

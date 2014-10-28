@@ -1,78 +1,86 @@
-<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Site de galeria de" pageTitle="criar um site de web do CMS pomar da galeria no Azure" metaKeywords="Azure criar site, gerenciamento de site do Azure" description="um tutorial que ensina a criar um novo site no Azure. Também aprenderá como iniciar e gerenciar seu site usando o Portal de Gerenciamento." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Criar um site de web do CMS pomar da galeria no Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Website from Gallery" pageTitle="Create an Orchard CMS website from the gallery in Azure" metaKeywords="Azure build website, manage website Azure" description="A tutorial that teaches you how to create a new website in Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-# Criar um site do Pomar da galeria no Azure
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-A galeria disponibiliza uma ampla gama de aplicativos populares da Web desenvolvidos pela Microsoft, outras empresas e iniciativas de software de código aberto. Os aplicativos da Web criados a partir da galeria não exigem a instalação de qualquer software que não seja o navegador usado para se conectar ao [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Para obter mais informações sobre os aplicativos da web na galeria, consulte [Windows Web App galeria](http://www.microsoft.com/web/gallery/categories.aspx)
+# Criar um site do Pomar CMS da galeria no Azure
+
+A galeria disponibiliza uma ampla gama de aplicativos populares da Web desenvolvidos pela Microsoft, outras empresas e iniciativas de software de código aberto. Os aplicativos da Web criados a partir da galeria não exigem a instalação de qualquer software que não seja o navegador usado para se conectar ao [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure]. Para obter mais informações sobre os aplicativos da web na galeria, consulte [Windows Web App galeria][Windows Web App galeria]
 
 Neste tutorial, você aprenderá:
 
-- Como criar um novo site da galeria
+-   Como criar um novo site da galeria
 
-- Como iniciar e gerenciar seu site do Portal de Gerenciamento
- 
-Você criará site Pomar CMS que usa um modelo padrão. [Pomar](http://www.orchardproject.net/) é um gratuito, de código aberto.Aplicativo baseado em NET do CMS que permite que você crie sites personalizados e orientados por conteúdo. Pomar CMS inclui uma estrutura de extensibilidade por meio da qual você pode [fazer o download de outros módulos e temas](http://gallery.orchardproject.net/) para personalizar seu site. A ilustração a seguir mostra o site pomar CMS que você criará.
+-   Como iniciar e gerenciar seu site do Portal de Gerenciamento
 
-![Blog do pomar][13]
+Você criará site Pomar CMS que usa um modelo padrão. [Pomar][Pomar] é um gratuito, de código aberto.Aplicativo baseado em NET do CMS que permite que você crie sites personalizados e orientados por conteúdo. Pomar CMS inclui uma estrutura de extensibilidade por meio da qual você pode [fazer o download de outros módulos e temas][fazer o download de outros módulos e temas] para personalizar seu site. A ilustração a seguir mostra o site pomar CMS que você criará.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+![Blog do pomar][Blog do pomar]
 
-<h2>Criar um site do Pomar da galeria</h2>
+[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
 
-1. Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
+## Criar um site do Pomar da galeria
 
-2. Clique no ícone **Novo** na parte inferior esquerda do portal.
-	
-	![Criar Novo][1]
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
-3. Clique no ícone **Web Site** e clique em **Da Galeria**.
-	
-	![Criar Da Galeria][2]
+2.  Clique no ícone **Novo** na parte inferior esquerda do portal.
 
-4. Localize e clique no **pomar CMS** ícone na lista e, em seguida, clique na seta para continuar.
-	
-	![Pomar da lista][3]
+    ![Criar Novo][Criar Novo]
 
-5. Na página **Configurar seu aplicativo**, insira ou selecione valores para todos os campos:
-	
-- Insira um nome de URL de sua escolha.	
-- Selecione a região mais próxima de seus usuários. (Isso lhe dará o melhor desempenho).
+3.  Clique no ícone **Site**, então clique em **Da Galeria**.
 
-	![configurar o aplicativo][4]
+    ![Criar Da Galeria][Criar Da Galeria]
 
-6. Clique na marca de seleção no canto inferior direito da caixa para iniciar a implantação do novo site CMS pomar.
+4.  Localize e clique no **pomar CMS** ícone na lista e, em seguida, clique na seta para continuar.
 
-Azure iniciam construir e implantar as operações. Enquanto o site estiver sendo criado e implantado, o status dessas operações será exibido na parte inferior da página de Sites do Portal de Gerenciamento. Depois que todas as operações forem realizadas, será exibida uma mensagem que indicará que seu site foi criado.
+    ![Pomar da lista][Pomar da lista]
 
-<h2>Inicie e gerencie seu site do Pomar</h2>
+5.  Na página **Configurar seu aplicativo**, insira ou selecione valores para todos os campos:
 
-1. Clique no nome do seu novo site sobre o **Sites da Web** página e, em seguida, clique em **procurar** na parte inferior do portal para abrir a página de boas-vindas do site.
+-   Insira um nome de URL de sua escolha
+-   Selecione a região mais próxima de seus usuários. (Isso lhe dará o melhor desempenho).
 
-	![iniciar painel][5]
+    ![configurar o aplicativo][configurar o aplicativo]
 
-	![botão Procurar][12]
+1.  Clique na marca de seleção no canto inferior direito da caixa para iniciar a implantação do novo site CMS pomar.
 
-2. Insira as informações de configuração apropriadas exigidas pelo Pomar e clique em **Concluir Configuração** para finalizar a configuração e abrir a página de logon do site.
+Azure iniciam construir e implantar as operações. Enquanto o site estiver sendo criado e implantado, o status dessas operações será exibido na parte inferior do Portal de Gerenciamento de Sites. Depois que todas as operações forem realizadas, será exibida uma mensagem que indicará que seu site foi criado.
 
-	![login do pomar][7]
+## Inicie e gerencie seu site do Pomar
 
-	Você terá um novo site do Pomar, parecido com a captura de tela a seguir.  
+1.  Clique no nome do seu novo site sobre o **Sites da Web** página e, em seguida, clique em **procurar** na parte inferior do portal para abrir a página de boas-vindas do site.
 
-	![o site do pomar][13]
+    ![iniciar painel][iniciar painel]
 
-3. Siga os detalhes no [pomar documentação](http://docs.orchardproject.net/) para saber mais sobre pomar e configurar o novo site.
+    ![botão Procurar][botão Procurar]
 
-<h2><span class="short-header">Próximas etapas</span>Próxima etapa</h2>
-* [Desenvolver e implantar um site da web com o Microsoft WebMatrix](/pt-br/develop/net/tutorials/website-with-webmatrix/) – Saiba como editar um site Azure no WebMatrix. 
-* [Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e Banco de Dados SQL para um Site do Azure](/pt-br/develop/net/tutorials/web-site-with-sql-database/)– Saiba como criar um novo site da web do Visual Studio.
+2.  Insira as informações de configuração apropriadas exigidas pelo Pomar e clique em **Concluir Configuração** para finalizar a configuração e abrir a página de logon do site.
 
-[1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
-[2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
-[3]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png
-[4]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-04.png
-[5]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-05.png
-[7]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png
-[12]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png
-[13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
+    ![login do pomar][login do pomar]
 
+    Você terá um novo site do Pomar, parecido com a captura de tela a seguir.
 
+    ![o site do pomar][Blog do pomar]
 
+3.  Siga os detalhes no [pomar documentação][pomar documentação] para saber mais sobre pomar e configurar o novo site.
+
+## <span class="short-header">Próximas etapas</span>Próxima etapa
+
+-   [Desenvolver e implantar um site da web com o Microsoft WebMatrix][Desenvolver e implantar um site da web com o Microsoft WebMatrix]– Saiba como editar um site Azure no WebMatrix.
+-   [Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e Banco de Dados SQL para um Site do Azure][Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e Banco de Dados SQL para um Site do Azure]– Saiba como criar um novo site da web do Visual Studio.
+
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [Windows Web App galeria]: http://www.microsoft.com/web/gallery/categories.aspx
+  [Pomar]: http://www.orchardproject.net/
+  [fazer o download de outros módulos e temas]: http://gallery.orchardproject.net/
+  [Blog do pomar]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
+  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [Criar Novo]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
+  [Criar Da Galeria]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
+  [Pomar da lista]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png
+  [configurar o aplicativo]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-04.png
+  [iniciar painel]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-05.png
+  [botão Procurar]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png
+  [login do pomar]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png
+  [pomar documentação]: http://docs.orchardproject.net/
+  [Desenvolver e implantar um site da web com o Microsoft WebMatrix]: /pt-br/develop/net/tutorials/website-with-webmatrix/
+  [Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e Banco de Dados SQL para um Site do Azure]: /pt-br/develop/net/tutorials/web-site-with-sql-database/

@@ -8,10 +8,10 @@ Este guia mostra como modificar a aparência do portal do desenvolvedor no Geren
 
 ## Neste tópico
 
--   [Alterar o texto/logotipo nos cabeçalhos da página][]
--   [Alterar o estilo dos cabeçalhos][]
--   [Editar o conteúdo de uma página][]
--   [Próximas etapas][]
+-   [Alterar o texto/logotipo nos cabeçalhos da página][Alterar o texto/logotipo nos cabeçalhos da página]
+-   [Alterar o estilo dos cabeçalhos][Alterar o estilo dos cabeçalhos]
+-   [Editar o conteúdo de uma página][Editar o conteúdo de uma página]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="change-page-headers"> </a>Alterar o texto/logotipo no cabeçalho da página
 
@@ -19,11 +19,11 @@ Um dos principais aspectos da personalização do portal é a substituição do 
 
 O conteúdo no portal do desenvolvedor é modificado através do Portal do Publicador, que á acessado no Portal de Gerenciamento do Azure. Para acessar o console de Gerenciamento de API, clique em **Console de Gerenciamento** no Portal do Azure para acessar o serviço de Gerenciamento de API.
 
-![Console de gerenciamento][]
+![Console de gerenciamento][Console de gerenciamento]
 
 O portal do desenvolvedor é baseado em CMS (Sistema de Gerenciamento de Conteúdo). O cabeçalho que aparece em cada página é um tipo especial de conteúdo conhecido como widget. Para editar o conteúdo do widget, clique em **Widgets** no menu **Portal do desenvolvedor** do lado esquerdo e depois selecione o widget **Cabeçalho** na lista.
 
-![Cabeçalho de widget][]
+![Cabeçalho de widget][Cabeçalho de widget]
 
 O conteúdo do cabeçalho é editável no campo **Corpo**. Altere o texto para "Fabrikam Developer Portal" e clique em **Salvar** na parte inferior da página.
 
@@ -37,7 +37,7 @@ As cores, fontes, tamanhos, espaços e outros elementos relacionados ao estilo d
 
 Seu navegador alternará para uma página oculta no portal do desenvolvedor que contém exemplos de conteúdo, com exemplos para todas as regras de estilo usadas em qualquer parte do site. Para abrir o editor de estilo, mova o cursor sobre a linha cinza vertical fina na parte extrema esquerda da página. A barra de ferramentas do editor será exibida.
 
-![Barra de ferramentas de personalização][]
+![Barra de ferramentas de personalização][Barra de ferramentas de personalização]
 
 Existem dois modos principais para editar as regras de estilo - **Editar todas as regras** exibe uma lista de todas as regras de estilo usadas em todo lugar; enquanto **Separar elemento** permite selecionar um elemento na página em que você está e exibir os estilos somente para esse elemento.
 
@@ -45,7 +45,7 @@ Nesta seção gostaríamos de alterar o estilo somente dos cabeçalhos. Clique n
 
 Cada regra representa uma propriedade de estilo do elemento selecionado. Por exemplo, para o texto do cabeçalho selecionado acima, o tamanho do texto está em @font-size-h1, enquanto que o nome da fonte com alternativas está em in @headings-font-family.
 
-> Se estiver familiarizado com [bootstrap][], essas regras são, na verdade, [variáveis LESS][] no tema do bootstrap usadas pelo portal do desenvolvedor.
+> Se estiver familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][variáveis LESS] no tema do bootstrap usadas pelo portal do desenvolvedor.
 
 <p>
 Vamos alterar a cor do texto do cabeçalho. Selecione a entrada em
@@ -63,11 +63,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 \* e digite \#000000. Este é o código hexadecimal da cor preta. À medida que fizer isso verá um indicador de cor quadrado exibido no final da caixa de texto. Se você clicar nesse indicador, um seletor de cor permitirá que você escolha uma cor.
 
 </p>
-![Seletor de cor][]
+![Seletor de cor][Seletor de cor]
 
 Ao finalizar as alterações nos estilos do elemento selecionado, clique em **Visualizar alterações** para ver os resultados na tela. Desta vez, elas serão visíveis somente para os Administradores. Para tornar essas alterações visíveis para qualquer um, clique no botão **Publicar** no editor de estilos e confirme as alterações.
 
-![Menu Publicar][]
+![Menu Publicar][Menu Publicar]
 
 > Para alterar as regras de estilo que se aplicam a qualquer outro elemento na página, siga o mesmo procedimento do cabeçalho - clique em **Separar elemento** no editor de estilo, selecione o elemento desejado e comece a modificar os valores das regras de estilo exibidas na tela.
 
@@ -77,7 +77,7 @@ O portal do desenvolvedor consiste em páginas geradas automaticamente, como API
 
 Para ver uma lista de todas as páginas de conteúdo existentes, clique em **Conteúdo** no menu **Portal do desenvolvedor** no Console de gerenciamento.
 
-![Gerenciar conteúdo][]
+![Gerenciar conteúdo][Gerenciar conteúdo]
 
 Clique na página “Bem-vindo" para editar o que é exibido na página inicial do portal do desenvolvedor. Faça as alterações desejadas, visualize-as se necessário e depois clique em **Publicar agora** para torná-las visíveis para todos.
 
@@ -85,7 +85,7 @@ Clique na página “Bem-vindo" para editar o que é exibido na página inicial 
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--   Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
+-   Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][Introdução à configuração avançada de API].
 
   [Alterar o texto/logotipo nos cabeçalhos da página]: #change-page-headers
   [Alterar o estilo dos cabeçalhos]: #change-headers-styling

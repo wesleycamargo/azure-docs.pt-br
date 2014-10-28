@@ -107,7 +107,7 @@ O Gerenciador de Recursos é uma nova estrutura para implantação e gerenciamen
 -   [Compilação 2014: Modelo de grupo de recursos do Azure: Gerenciamento moderno para nuvem moderna (vídeo)][Compilação 2014: Modelo de grupo de recursos do Azure: Gerenciamento moderno para nuvem moderna (vídeo)]
 
   [Visual Studio 2013 Atualização 2 RC]: http://aka.ms/vs2013update2rc
-  [SDK do Azure 2.3]: http://www.windowsazure.com/en-us/downloads/
+  [SDK do Azure 2.3]: http://www.windowsazure.com/pt-br/downloads/
   [PowerShell do Azure]: http://go.microsoft.com/?linkid=9811175
   [Interface de linha de comando da plataforma cruzada do Azure]: http://go.microsoft.com/?linkid=9828653
   [Notas de versão do SDK do Azure para .NET 2.3]: http://go.microsoft.com/fwlink/p/?LinkId=393548
@@ -121,25 +121,25 @@ O Gerenciador de Recursos é uma nova estrutura para implantação e gerenciamen
   [Biblioteca de cliente de armazenamento 3.0 e novo emulador do Storage]: #storage
   [Gerenciador de recursos]: #arm
   [Introdução ao Azure e ASP.NET]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-dotnet-get-started/
-  [Introdução às Ferramentas do Azure para Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx
+  [Introdução às Ferramentas do Azure para Visual Studio]: http://msdn.microsoft.com/pt-br/library/azure/ff687127.aspx
   [Criando um projeto Web ASP.NET no Visual Studio 2013]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
   [Compilação 2014: O que há de novo no ASP.NET e Web no Visual Studio 2013 Atualização 2 e posteriores (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-602
-  [Depuração de um serviço de nuvem ou máquina virtual no Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/ff683670.aspx
-  [Utilizando o Emulator Express para executar e depurar Serviços em Nuvem]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx
+  [Depuração de um serviço de nuvem ou máquina virtual no Visual Studio]: http://msdn.microsoft.com/pt-br/library/azure/ff683670.aspx
+  [Utilizando o Emulator Express para executar e depurar Serviços em Nuvem]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn339018.aspx
   [Solucionando problemas de sites do Azure no Visual Studio]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
-  [Criar uma máquina virtual por meio do Gerenciador de Servidores]: http://msdn.microsoft.com/en-us/library/windowsazure/dn569263.aspx
-  [Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores]: http://msdn.microsoft.com/en-us/library/windowsazure/jj131259.aspx
-  [Navegando por recursos de Barramento de Serviço com o Gerenciador de Servidores do Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/jj149828.aspx
-  [Procurando recursos de armazenamento com o Gerenciador de Servidores]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx
+  [Criar uma máquina virtual por meio do Gerenciador de Servidores]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn569263.aspx
+  [Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj131259.aspx
+  [Navegando por recursos de Barramento de Serviço com o Gerenciador de Servidores do Visual Studio]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj149828.aspx
+  [Procurando recursos de armazenamento com o Gerenciador de Servidores]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff683677.aspx
   [Como instalar e configurar o PowerShell do Azure]: http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/
-  [Documentação do PowerShell do Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
+  [Documentação do PowerShell do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156055.aspx
   [Compilação 2014: Automation Everywhere com novos SDKs, Ferramentas e Serviços no Azure (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-621
-  [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste]: http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx
+  [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn642480.aspx
   [Cobertura em Nuvem: O Back-end do .NET dos Serviços Móveis do Azure (vídeo)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
-  [Centro de desenvolvimento móvel do Azure]: /en-us/develop/mobile/
-  [Início rápido: Adicionando um serviço móvel]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn629482.aspx
-  [Como enviar notificações por push para um aplicativo em execução com o Visual Studio]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614131.aspx
-  [Como criar APIs personalizadas e trabalhos agendados em um serviço móvel]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614130.aspx
+  [Centro de desenvolvimento móvel do Azure]: /pt-br/develop/mobile/
+  [Início rápido: Adicionando um serviço móvel]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn629482.aspx
+  [Como enviar notificações por push para um aplicativo em execução com o Visual Studio]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn614131.aspx
+  [Como criar APIs personalizadas e trabalhos agendados em um serviço móvel]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn614130.aspx
   [Azure Storage Client Library 3.0]: http://go.microsoft.com/fwlink/?LinkId=394927
   [Introdução ao Armazenamento do Azure]: /pt-br/documentation/articles/storage-introduction/
   [Compilação 2014: Microsoft Azure Storage – O que há de novo, melhores práticas e padrões (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-628

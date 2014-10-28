@@ -8,10 +8,10 @@ O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mai
 
 Este tópico segue este [anúncio do blog MS Open Tech](http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/) e descreve:
 
--   [Contêineres Docker e Linux][]
--   [Como usar a Extensão de VM Docker com o Azure][]
--   [Extensões de Máquina Virtual para Linux e Windows][]
--   [Recursos de contêiner e gerenciamento de contêineres para o Azure][]
+-   [Contêineres Docker e Linux][Contêineres Docker e Linux]
+-   [Como usar a Extensão de VM Docker com o Azure][Como usar a Extensão de VM Docker com o Azure]
+-   [Extensões de Máquina Virtual para Linux e Windows][Extensões de Máquina Virtual para Linux e Windows]
+-   [Recursos de contêiner e gerenciamento de contêineres para o Azure][Recursos de contêiner e gerenciamento de contêineres para o Azure]
 
 ## Contêineres Docker e Linux
 
@@ -81,7 +81,7 @@ Com o prompt de comando do azure-cli, localize a imagem do Ubuntu mais recente n
 
 e copie o nome de uma das imagens mais recentes listadas. No prompt de comando, digite
 
-    azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-en-us-30GB" <username> <password>
+    azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-pt-br-30GB" <username> <password>
 
 onde:
 
@@ -128,7 +128,7 @@ Agora, você está pronto para emitir comandos do Docker [Guia do usuário do Do
 
 A extensão de VM do Docker para Azure é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [Extensão do Agente de VM Linux](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-agent-user-guide/) permitem que você modifique e gerencie a imagem, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess para imagens do Windows permite que você redefina ou modifique as configurações de Acesso à Área de trabalho remota e redefina a senha do administrador.
 
-Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
+Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn606311.aspx).
 
 <!--Anchors-->
 
@@ -159,4 +159,4 @@ Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.
   []: ./media/virtual-machines-docker/dockercreateresults.png
   [2]: ./media/virtual-machines-docker/connectingtodockerhost.png
   [Guia do usuário do Docker]: https://docs.docker.com/userguide/
-  [Extensões de VM do Azure]: http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx
+  [Extensões de VM do Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn606311.aspx

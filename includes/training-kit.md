@@ -1,7 +1,7 @@
 <div>
-<h1>Kit de Treinamento do Azure</h1>
-<p>O Kit de Treinamento do Azure inclui um conjunto completo de conteúdo técnico projetado para ajudá-lo a aprender a usar o Azure. O kit inclui laboratórios práticos, apresentações, demonstrações e exemplos de código para todos os aspectos do desenvolvimento de aplicativos para o Azure. Você pode usar os recursos do kit de treinamento para você mesmo aprender ou treinar outras pessoas.</p>
+<h1>Conte&uacute;do de prepara&ccedil;&atilde;o do Azure</h1>
+<p>O Conte&uacute;do de prepara&ccedil;&atilde;o do Azure fornece um conjunto de apresenta&ccedil;&otilde;es e demonstra&ccedil;&otilde;es projetadas para assistir no aprendizado dos &uacute;ltimos recursos e servi&ccedil;os do Microsoft Azure.</p>
 <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=331133" class="solution-cta-link light-font arrowbtn green">baixar</a></p>
-<p>Você também pode explorar o kit de treinamento no GitHub em <a href="http://windowsazure-trainingkit.github.io/">http://windowsazure-trainingkit.github.io/</a>.</p>
 </div>
 
+  [baixar]: http://go.microsoft.com/fwlink/p/?LinkId=331133

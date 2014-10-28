@@ -86,7 +86,7 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 <!--Link references-->
 
   [inscreva-se na visualização]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Azure Trust Center]: http://azure.microsoft.com/en-us/support/trust-center/compliance/
+  [Azure Trust Center]: http://azure.microsoft.com/pt-br/support/trust-center/compliance/
   [Fundamentos da Auditoria do Banco de Dados SQL do Azure]: #subheading-1
   [Configure a auditoria para seu banco de dados]: #subheading-2
   [Analise os logs e relatórios de auditoria]: #subheading-3
@@ -100,6 +100,6 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
   [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
   [Gerenciador de Armazenamento do Azure]: http://azurestorageexplorer.codeplex.com/
   [planilha do Excel para download]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [aqui]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [aqui]: http://www.microsoft.com/pt-br/download/details.aspx?id=39379
   [Instruções (download do .doc)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

@@ -1,7 +1,7 @@
-<properties linkid="develop-java-how-to-guides-service-bus-amqp-overview" urlDisplayName="Visão geral do AMQP de Service Bus" pageTitle="Visão geral do AMPQ de Service Bus (Java) - Azure " metaKeywords="" description="Saiba como usar o protocolo AMQP 1.0 no Azure." metaCanonical="http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-amqp-overview/" services="service-bus" documentationCenter="Java" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-java-how-to-guides-service-bus-amqp-overview" urlDisplayName="Service Bus AMQP Overview" pageTitle="Service Bus AMQP overview (Java) - Azure " metaKeywords="" description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." metaCanonical="http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-amqp-overview/" services="service-bus" documentationCenter="Java" title="" authors="sethm" solutions="" manager="timlt" editor="" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
 
+[WACOM.INCLUDE [service-bus-amqp-overview][service-bus-amqp-overview]]
 
-
-[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
-
+  [service-bus-amqp-overview]: ../includes/service-bus-amqp-overview.md

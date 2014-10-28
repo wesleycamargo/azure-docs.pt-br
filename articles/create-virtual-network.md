@@ -1,118 +1,112 @@
-<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Criar uma rede virtual" pageTitle="Criar uma rede virtual - Gerenciamento de serviço do Azure" metaKeywords="" description="Aprender a criar uma Rede Virtual do Azure." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Criar uma Rede Virtual no Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
 
+# Tutorial: Criar uma rede virtual somente de nuvem no Azure
 
+Este tutorial explica as etapas no Portal de Gerenciamento do Azure para criar uma rede virtual somente de nuvem de exemplo que contenha dois sub-redes. A rede de virtual resultante terá a aparência a seguir:
 
+![createvnet][createvnet]
 
-<h1 id="vnettut1">Criar uma Rede Virtual no Azure</h1>
+Por exemplo, o FrontEndSubnet poderia ser usado para servidores web e o BackendSubnet poderia ser usado para SQL servers ou controladores de domínio.
 
-Este tutorial explica as etapas para criar uma Rede Virtual do Azure básica usando o Portal de Gerenciamento do Azure. Para obter mais informações sobre Redes Virtuais do Azure, consulte [Visão geral da rede virtual do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156007.aspx). 
-
-Este tutorial pressupõe que você não tem experiência anterior com o Azure. O objetivo é ajudá-lo a familiarizar-se com as etapas necessárias para criar uma rede virtual. Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156007.aspx).
-
-Depois que concluir o tutorial, você terá uma rede virtual na qual poderá implantar seus serviços do Azure e máquinas virtuais. 
+Este tutorial pressupõe que você não tem experiência anterior com o Azure. O objetivo é ajudar a familiarizar-se com as etapas requeridas para criar sua própria rede virtual, o orientando por uma configuração de exemplo. Se você quiser criar uma rede virtual somente de nuvem que funcione para sua configuração específica, consulte [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento][Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento]. Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Windows Azure][Visão geral de Rede Virtual do Windows Azure].
 
 <div class="dev-callout"> 
-<b>Observação</b> 
-<p>Este tutorial não explicará a criação da configuração entre locais. Para um tutorial passo a passo sobre como criar uma rede virtual com conectividade entre locais (isto é, conectar ao Active Directory ou SharePoint localizado em sua empresa), consulte <a href="/pt-br/manage/services/networking/cross-premises-connectivity/">Criar uma rede virtual para conectividade entre locais</a>.</p> 
+<b>Observa&ccedil;&atilde;o</b> 
+<p>Este tutorial n&atilde;o lhe orienta para criar uma configura&ccedil;&atilde;o entre locais, na qual a rede virtual &eacute; conectada &agrave; sua rede organizacional. Para um tutorial que lhe oriente para criar uma rede virtual com conectividade entre locais e a conex&atilde;o VPO site-a-site (por exemplo, conectar-se ao Active Directory ou SharePoint localizado na sua companhia), consulte o <a href="/pt-br/manage/services/networking/cross-premises-connectivity/">Tutorial: Criar uma rede virtual para conectividade site a site entre instala&ccedil;&otilde;es</a>.</p> 
 </div>
 
-Para obter procedimentos e definições da configuração Rede Virtual adicionais, consulte [Tarefas de configuração de Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=296652).
+## Objetivos
 
-Para obter as diretrizes sobre a instalação do AD DS em Máquinas Virtuais do Azure, consulte [Diretrizes para implantação do Active Directory do Windows Server em máquinas virtuais do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090.aspx).
+Neste tutorial você aprenderá como configurar uma rede virtual básica somente de nuvem do Azure com duas sub-redes.
 
-##  Objetivos
+## Pré-requisitos
 
-Neste tutorial, você irá aprender:
+-   Uma conta do Microsoft com pelo menos uma assinatura do Azure válida e ativa. Se você ainda não tiver uma conta do Azure, pode se inscrever para uma conta de avaliação gratuita em [Teste o Azure][Teste o Azure]. Se você tiver uma assinatura do MSDN, consulte [Preço especial do Microsoft Azure: Benefícios do MSDN, MPN, e Bizspark][Preço especial do Microsoft Azure: Benefícios do MSDN, MPN, e Bizspark].
 
-*  Como configurar rede virtual básica do Azure à qual você pode adicionar serviços de nuvem e máquinas virtuais do Azure.
+## Criar a rede virtual para este tutorial
 
-##  Pré-requisitos
+Para criar esta rede virtual somente de nuvem de exemplo, faça o seguinte
 
-* Conta do Windows Live com pelo menos uma assinatura válida e ativa.
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
-## Criar uma rede virtual
+2.  Na esquina inferior esquerda da tela, clique em **Novo** \> **Serviços de Rede** \> **Rede Virtual** e, em seguida, clique em **Criação Personalizada** para começar o assistente de configuração.
 
-**Para criar uma rede virtual somente de nuvem:**
+    ![][]
 
-1.	Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/).
+3.  Na página **Detalhes da rede virtual**, insira as seguintes informações:
 
-2. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Redes** e, em seguida, em **Máquina Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
+-   **Nome -** digite **YourVirtualNetwork**.
 
-	![][Image1]
+-   **Região -** A rede virtual será criada em um datacenter localizado na região especificada. Para obter o melhor desempenho, seleciona a região à qual você pertence da lista suspensa.
 
-3. Na página **Detalhes da Rede Virtual**, insira as informações a seguir e, em seguida, clique na seta de avanço na parte inferior direita. Para obter mais informações sobre as configurações na página de detalhes, consulte a seção da página **Detalhes da Rede Virtual** em <a href="http://go.microsoft.com/fwlink/?LinkID=248092">Sobre como configurar uma rede virtual usando o Portal de Gerenciamento</a>.
+    ![][1]
 
-- **Nome -** Nome da sua rede virtual. Digite *YourVirtualNetwork*.
+1.  Clique na seta de avanço na parte inferior direita. Para obter mais informações sobre as configurações nesta página, consulte a seção da página Detalhes da Rede Virtual em [Sobre como configurar uma rede virtual usando o Portal de Gerenciamento][Sobre como configurar uma rede virtual usando o Portal de Gerenciamento].
 
--  **Grupo de Afinidade:** Na lista suspensa, selecione **Criar um novo grupo de afinidade**. Grupos de afinidade são uma forma de agrupar fisicamente os serviços do Azure no mesmo data center, para aumentar o desempenho. Somente uma rede virtual pode ser atribuída a um grupo de afinidade.
+2.  Na página **Servidores DNS e Conectividade VPN**, clique na seta do avanço na parte inferior direita. O Azure atribuirá um Servidor DNS do Azure baseado na Internet a novas máquinas virtuais que sejam adicionadas a esta rede virtual, o que permitirá que elas acessem a recursos da Internet. Para obter mais informações sobre as configurações nessa página, consulte a página de Servidores DNS e Conectividade VPN em [Sobre como configurar uma rede virtual no Portal de Gerenciamento][Sobre como configurar uma rede virtual usando o Portal de Gerenciamento].
 
-- **Região:** Na lista suspensa, selecione a opção desejada. Sua rede virtual será criada em um datacenter localizado na região especificada.
+3.  Igual que uma rede real, a rede virtual precisa um intervalo de endereços IP (conhecido como espaço de endereço) para atribuir máquinas virtuais que você coloque nele. A rede virtual também oferece suporte a sub-redes, que precisam seus próprios espaços de endereço, derivado do espaço de endereço da rede virtual. Para este tutorial, criaremos o BackEndSubnet e FrontEndSubnet. Na página **Espaços de endereço da rede virtual**, configure o seguinte:
 
-- **Nome do Grupo de Afinidade -** Nome do novo grupo de afinidade. Digite *YourAffinityGroup*.
+    -   Para Espaço de Endereço, selecione **/16 (65535)** no **CIDR (CONTAGEM DE ENDEREÇOS)**.
 
-	![][Image2]
+    -   Para sub-redes, na primeira fila, digite **BackEndSubnet** sobre o nome existente e **10.0.1.0** para o IP inicial, em seguida, selecione **/24 (256)** em **CIDR (CONTAGEM DE ENDEREÇOS)**. Clique em **adicionar sub-rede** e, em seguida, digite **FrontEndSubnet** para o nome e **10.0.2.0** para o IP inicial.
 
-4. Na página **Conectividade entre Servidores DNS e VPN**, insira as informações a seguir e clique na seta avançar na parte inferior direita. Para obter mais informações sobre as configurações nessa página, consulte a página **Conectividade entre Servidores DNS e VPN** em <a href="http://go.microsoft.com/fwlink/?LinkID=248092">Sobre como configurar uma rede virtual no Portal de Gerenciamento</a>.
+    ![][2]
 
-	- **Servidores DNS opcionais -** Digite o nome do servidor DNS e o endereço IP que você deseja usar. Essa configuração não cria um servidor DNS, ela se refere a um servidor DNS já existente.
+Ao retornar a nosso diagrama da rede virtual, você configurou os seguintes espaços de endereço:
 
-		<div class="dev-callout"> 
-		<b>Observação</b> 
-		<p>Se você deseja usar um serviço DNS público, é possível inserir essa informação nesta tela. Caso contrário, a resolução de nomes será padrão para o serviço do Azure. Para obter mais informações, consulte <a href="http://go.microsoft.com/fwlink/?linkid=248097">Visão geral da resolução de nomes do Azure</a></p> 
-		</div>
+    ![][Image7] 
 
-	- **Não marcar a caixa de seleção para conectividade de site para site ou ponto para site**. A rede virtual que estamos criando neste tutorial não foi projetada para conectividade entre locais.
+Observe que o espaço de endereço para uma rede virtual deve ser dos espaços de endereço privados de 10.0.0.0/8, 172.16.0.0/12, ou 192.168.0.0/16 e especificados na notação de Roteamento entre domínios sem classificação (CIDR) (também conhecida como notação de prefixo de rede). Para obter mais informações sobre as configurações nesta página, consulte a seção da página Espaços de Endereço da Rede Virtual em [Sobre como configurar uma rede virtual usando o Portal de Gerenciamento][Sobre como configurar uma rede virtual usando o Portal de Gerenciamento].
 
-	![][Image3]
+1.  Clique na marca de seleção na parte inferior esquerda da página e sua rede virtual começará a ser criada. Quando sua rede virtual tiver sido criada, você verá a denominação **Criada** listada sob Status na página **Rede** no Portal de Gerenciamento do Azure.
 
-5.	Na página **Espaços de Endereço de Rede Virtual**, insira as seguintes informações e clique na marca de seleção na parte inferior direita para configurar sua rede. O espaço de endereço deve ser um intervalo de endereço privado, especificado em notação CIDR 10.0.0.0/8, 172.16.0.0/12 ou 192.168.0.0/16 (conforme especificado pela RFC 1918). Para obter mais informações sobre as configurações nessa página, consulte a página **Espaços de Endereço da Rede Virtual** em <a href="http://go.microsoft.com/fwlink/?LinkID=248092">Sobre como configurar uma rede virtual no Portal de Gerenciamento</a>.
+    ![][3]
 
-	- **Espaço de endereço:** clique em CIDR no canto superior direito e, em seguida, digite o seguinte:
+Você pode continuar aprendendo sobre os serviços da infraestrutura do Azure com o seguinte:
 
-		- **IP Inicial:** 10.4.0.0
+-   [Como criar uma máquina virtual personalizada][Como criar uma máquina virtual personalizada] Use este tópico para instalar uma máquina virtual na sua rede virtual. Para obter mais informações sobre máquinas virtuais e opções de instalação, consulte [Máquinas Virtuais do Azure][Máquinas Virtuais do Azure].
 
-		- **CIDR:** /16
+-   [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure][Instalar uma nova floresta do Active Directory em uma rede virtual do Azure] - Use este tópico para instalar uma nova floresta do Active Directory (AD) do Windows Server sem conectividade com qualquer outra rede. O tutorial explicará as etapas específicas necessárias para criar uma máquina virtual (VM) para uma nova instalação de floresta. Se você planeja usar este tutorial, não crie qualquer VMs usando o Portal de Gerenciamento. Para obter mais informações, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure][Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure].
 
-	- **Adicionar subrede:** insira o seguinte:
+Para remover esta rede virtual, selecione-a, clique em **Excluir** e, em seguida, clique em **Sim**.
 
-		- **Renomeie a subrede-1** para *FrontEndSubnet* com o IP Inicial *10.4.2.0/24* e, em seguida, clique em **Adicionar subrede**.
+Quanto você estiver pronto para criar uma rede virtual somente de nuvem que funcione para sua configuração específica, consulte [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento][Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento].
 
-		- **Criar uma subrede** chamada *BackEndSubnet* com o IP inicial *10.4.3.0/24*.
+Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Windows Azure][Visão geral de Rede Virtual do Windows Azure].
 
-		- Verifique se agora você tem duas subredes e clique na marca de seleção na parte inferior direita para criar sua rede virtual.
-
-	![][Image4]
-
-6. Depois de clicar na marca de seleção, a rede virtual começará a ser criada. Quando sua rede virtual tiver sido criada, você verá a denominação **Criada** listada sob **Status** na página Rede no Portal de Gerenciamento. 
-
-	![][Image5]
-
-7.	Quando sua rede virtual tiver sido criado, você pode continuar com os seguintes tutoriais:
-
-	- <a href="/pt-br/manage/services/networking/add-a-vm-to-a-virtual-network/">Adicionar uma máquina virtual com uma rede Virtual</a> - Use este tutorial básico para instalar uma máquina virtual à rede virtual.
-
-	- Para obter mais informações sobre opções de instalação e de máquinas virtuais, consulte <a href="/pt-br/manage/windows/how-to-guides/custom-create-a-vm/">Como criar uma máquina virtual personalizada</a> e <a href="/pt-br/manage/windows/">Máquinas virtuais do Azure</a>.
-
-	- <a href="/pt-br/manage/services/networking/active-directory-forest/">Instalar uma nova floresta do Active Directory no Azure</a> - Usar o tutorial para instalar uma nova floresta do Active Directory sem conectividade com qualquer outra rede. O tutorial explicará as etapas específicas necessárias para criar uma máquina virtual (VM) para uma nova instalação de floresta. Se você planeja usar este tutorial, não crie qualquer VMs usando o Portal de Gerenciamento.
+Para obter procedimentos e definições da configuração Rede Virtual adicionais, consulte [Tarefas de configuração de Rede Virtual do Azure][Tarefas de configuração de Rede Virtual do Azure].
 
 ## Consulte também
 
--  [Visão geral da rede virtual do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156007.aspx)
+-   [Perguntas Frequentes sobre a Rede virtual do Azure][Perguntas Frequentes sobre a Rede virtual do Azure]
 
--  [Perguntas frequentes da rede virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=296650)
+-   [Tarefas de configuração da rede virtual do Azure][Tarefas de configuração da rede virtual do Azure]
 
--  [Tarefas de configuração da rede virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=296652)
+-   [Configurar uma Rede Virtual usando arquivos de configuração de rede][Configurar uma Rede Virtual usando arquivos de configuração de rede]
 
--  [Configurando uma rede virtual usando arquivos de configuração de rede](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156097.aspx)
+-   [Resolução de nomes do Azure][Resolução de nomes do Azure]
 
--  [Resolução de nomes do Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
-
-
-[Image1]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
-[Image2]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
-[Image3]: ./media/create-virtual-network/createVNet_03_DNSServersandVPNConnectivity.png
-[Image4]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
-[Image5]: ./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png
-
-
+  [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
+  [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento]: http://msdn.microsoft.com/library/azure/dn631643.aspx
+  [Visão geral de Rede Virtual do Windows Azure]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
+  [Tutorial: Criar uma rede virtual para conectividade site a site entre instalações]: /pt-br/manage/services/networking/cross-premises-connectivity/
+  [Teste o Azure]: http://www.windowsazure.com/pricing/free-trial/
+  [Preço especial do Microsoft Azure: Benefícios do MSDN, MPN, e Bizspark]: http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
+  []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+  [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
+  [Sobre como configurar uma rede virtual usando o Portal de Gerenciamento]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
+  [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
+  [3]: ./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png
+  [Como criar uma máquina virtual personalizada]: http://www.windowsazure.com/pt-br/manage/windows/how-to-guides/custom-create-a-vm/
+  [Máquinas Virtuais do Azure]: http://www.windowsazure.com/pt-br/manage/windows/
+  [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure]: http://www.windowsazure.com/pt-br/manage/services/networking/active-directory-forest/
+  [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090.aspx
+  [Tarefas de configuração de Rede Virtual do Azure]: http://go.microsoft.com/fwlink/?linkid=296652&clcid=0x409
+  [Perguntas Frequentes sobre a Rede virtual do Azure]: http://go.microsoft.com/fwlink/?LinkId=296650
+  [Tarefas de configuração da rede virtual do Azure]: http://go.microsoft.com/fwlink/?LinkId=296652
+  [Configurar uma Rede Virtual usando arquivos de configuração de rede]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156097.aspx
+  [Resolução de nomes do Azure]: http://go.microsoft.com/fwlink/?LinkId=248097

@@ -140,7 +140,7 @@ Para obter informações sobre como registrar em log informações de Sites do A
   [Próximas etapas]: #next
   [nome de domínio personalizado]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-custom-domain-name/
   [Habilitar protocolo HTTPS para um Site do Azure]: /pt-br/documentation/articles/web-sites-configure-ssl-certificate/
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/pt-br/library/system.web.mvc.requirehttpsattribute.aspx
   [Implantar um aplicativo MVC 5 do ASP.NET em um Site do Azure]: /pt-br/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [exemplo]: #example
   [Carregando/baixando arquivos via protocolo FTP e coletando logs de diagnóstico]: http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx
@@ -148,6 +148,6 @@ Para obter informações sobre como registrar em log informações de Sites do A
   [Configurando Sites]: /pt-br/documentation/articles/web-sites-configure/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Protocolo FTPS]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
-  [Central de Confiabilidade do Microsoft Azure]: /en-us/support/trust-center/security/
+  [Central de Confiabilidade do Microsoft Azure]: /pt-br/support/trust-center/security/
   [Opções de configuração desbloqueadas nos Sites do Azure]: http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/
   [Habilitar registro em log de diagnóstico]: /pt-br/documentation/articles/web-sites-enable-diagnostic-log/

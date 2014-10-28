@@ -20,13 +20,13 @@ Este tutorial explica o processo de criação de uma implantação de nuvem. Há
 
 É necessário fazer o seguinte antes de criar o serviço:
 
--   Increva-se para a visualização do RemoteApp. É possível fazer isso em [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>.
+-   Increva-se para a visualização do RemoteApp. É possível fazer isso em [][]<http://azure.microsoft.com/pt-br/services/remoteapp/></a>.
 -   Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Pode ser informações da conta da Microsoft ou da conta organizacional do Active Directory para usuários e grupos.
 -   Este procedimento pressupõe que você irá usar a imagem do modelo fornecida como parte da sua assinatura ou que já tenha feito o upload da imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente.
 
 ## **Etapa 1: Crie um serviço RemoteApp**
 
-1.  No [Portal de Gerenciamento do Microsoft Azure][], vá para a página do RemoteApp.
+1.  No [Portal de Gerenciamento do Microsoft Azure][Portal de Gerenciamento do Microsoft Azure], vá para a página do RemoteApp.
 2.  Clique em **Novo \> Criação Rápida**.
 
 3.  Digite um nome para o seu serviço e selecione a sua região.
@@ -43,7 +43,7 @@ Após a criação do serviço RemoteApp, vá para a página **Início Rápido** 
 
 ## **Etapa 2: Configurar a sincronização de diretório do Active Directory (Opcional)**
 
-Se desejar usar o Active Directory, o RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte o [Roteiro de sincronização do diretório][] para as informações de planejamento e etapas detalhadas.
+Se desejar usar o Active Directory, o RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte o [Roteiro de sincronização do diretório][Roteiro de sincronização do diretório] para as informações de planejamento e etapas detalhadas.
 
 ## **Etapa 3: Publicar os programas do RemoteApp**
 
@@ -68,6 +68,6 @@ Agora que o seu serviço do RemoteApp foi criado, é necessário adicionar os us
 
 É isso - a sua implantação de nuvem do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, faça com que os usuários façam logon no Azure e acessem os programas do RemoteApp publicados.
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/pt-br/services/remoteapp/
   [Portal de Gerenciamento do Microsoft Azure]: http://manage.windowsazure.com
-  [Roteiro de sincronização do diretório]: http://msdn.microsoft.com/en-us/library/azure/hh967642.aspx
+  [Roteiro de sincronização do diretório]: http://msdn.microsoft.com/pt-br/library/azure/hh967642.aspx

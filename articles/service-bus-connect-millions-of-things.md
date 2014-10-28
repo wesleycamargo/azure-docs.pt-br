@@ -28,13 +28,13 @@
 -   [Azure Active Directory][Azure Active Directory]
 -   [Serviços de Nuvem][Serviços de Nuvem]
 
-  [Hubs de Evento]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Padrão de Fragmentação]: http://msdn.microsoft.com/en-us/library/dn589797.aspx
-  [Barramento de Serviço e AMQP 1.0]: http://msdn.microsoft.com/en-us/library/azure/jj841071.aspx
+  [Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/dn789973.aspx
+  [Padrão de Fragmentação]: http://msdn.microsoft.com/pt-br/library/dn589797.aspx
+  [Barramento de Serviço e AMQP 1.0]: http://msdn.microsoft.com/pt-br/library/azure/jj841071.aspx
   [Introdução ao Barramento de Serviço]: http://azure.microsoft.com/pt-br/documentation/services/service-bus/
-  [Entidades do Sistema de Mensagens de Particionamento]: http://msdn.microsoft.com/en-us/library/azure/dn520246.aspx
+  [Entidades do Sistema de Mensagens de Particionamento]: http://msdn.microsoft.com/pt-br/library/azure/dn520246.aspx
   [Tópicos do Service Bus]: http://azure.microsoft.com/pt-br/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Utilizando o Apache Qpid Proton C com o Barramento de Serviço do Azure no Linux e no Windows]: http://msdn.microsoft.com/en-us/library/azure/dn235560.aspx
+  [Utilizando o Apache Qpid Proton C com o Barramento de Serviço do Azure no Linux e no Windows]: http://msdn.microsoft.com/pt-br/library/azure/dn235560.aspx
   [Comunicação Assistida de Serviços para Dispositivos Conectados]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
   [Azure Active Directory]: http://azure.microsoft.com/pt-br/documentation/services/active-directory/
   [Serviços de Nuvem]: http://azure.microsoft.com/pt-br/documentation/services/cloud-services/

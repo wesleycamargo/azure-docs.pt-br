@@ -160,14 +160,14 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 <!-- Images -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# da Windows Store"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
   [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
   [Xamarin.iOS]: /pt-br/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
   [Xamarin.Android]: /pt-br/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Introdução aos Dados]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28
   [Atualizar o aplicativo para dar suporte aos recursos offline]: #enable-offline-app
   [Testar o aplicativo conectado ao Serviço Móvel]: #test-online-app
   [extensão Xamarin]: http://xamarin.com/visual-studio

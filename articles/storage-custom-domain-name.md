@@ -8,7 +8,7 @@ Você pode configurar um domínio personalizado para acessar os dados de blob em
 
 <div class="dev-callout"> 
 <b>Observa&ccedil;&atilde;o</b> 
-    <p>Os procedimentos nesta tarefa se aplicam a contas de armazenamento do Azure. Para os servi&ccedil;os de nuvem, consulte <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configurando um nome de dom&iacute;nio personalizado para um servi&ccedil;o em nuvem do Azure</a>; para os Sites, consulte <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configurando um nome de dom&iacute;nio personalizado para um Site do Azure</a>.</p> 
+    <p>Os procedimentos nesta tarefa se aplicam a contas de armazenamento do Azure. Para os servi&ccedil;os de nuvem, consulte <a href = "/pt-br/develop/net/common-tasks/custom-dns/">Configurando um nome de dom&iacute;nio personalizado para um servi&ccedil;o em nuvem do Azure</a>; para os Sites, consulte <a href="/pt-br/develop/net/common-tasks/custom-dns-web-site/">Configurando um nome de dom&iacute;nio personalizado para um Site do Azure</a>.</p> 
 </div>
 
 Existem duas maneiras de apontar seu domínio personalizado para o ponto de extremidade do blob de sua conta de armazenamento. A maneira mais simples é criar um Registro CNAME que mapeia seu domínio e subdomínio personalizados ao ponto de extremidade do blob. Um Registro CNAME é um recurso do DNS que mapeia um domínio de origem a um domínio de destino. Nesse caso, o domínio de origem é o seu domínio e subdomínio personalizados – observe que o subdomínio é sempre necessário. O domínio de destino é o ponto de extremidade do serviço de blobs.
@@ -33,8 +33,8 @@ A tabela a seguir mostra exemplos de URLs para acessar os dados do blob em uma c
 
 Esta tarefa mostrará como:
 
--   [Registrar um domínio personalizado para sua conta de armazenamento][]
--   [Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio asverify intermediário][]
+-   [Registrar um domínio personalizado para sua conta de armazenamento][Registrar um domínio personalizado para sua conta de armazenamento]
+-   [Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio asverify intermediário][Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio asverify intermediário]
 -   <a name="#verify-subdomain">Verificar se o subdomínio personalizado faz referência ao ponto de extremidade do serviço de blobs</a>
 
 ## <a name="register-domain"></a>Registrar um domínio personalizado para sua conta de armazenamento
@@ -128,10 +128,10 @@ Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web p
 
 ## Recursos adicionais
 
--   [Como mapear o conteúdo CDN para um domínio personalizado][]
+-   [Como mapear o conteúdo CDN para um domínio personalizado][Como mapear o conteúdo CDN para um domínio personalizado]
 
-  [Configurando um nome de domínio personalizado para um serviço em nuvem do Azure]: /en-us/develop/net/common-tasks/custom-dns/
-  [Configurando um nome de domínio personalizado para um Site do Azure]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [Configurando um nome de domínio personalizado para um serviço em nuvem do Azure]: /pt-br/develop/net/common-tasks/custom-dns/
+  [Configurando um nome de domínio personalizado para um Site do Azure]: /pt-br/develop/net/common-tasks/custom-dns-web-site/
   [Registrar um domínio personalizado para sua conta de armazenamento]: #register-domain
   [Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio asverify intermediário]: #register-asverify
-  [Como mapear o conteúdo CDN para um domínio personalizado]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [Como mapear o conteúdo CDN para um domínio personalizado]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg680307.aspx

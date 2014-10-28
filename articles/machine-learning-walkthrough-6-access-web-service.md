@@ -22,7 +22,7 @@ Para ser útil como um serviço Web, os usuários precisam poder enviar dados pa
 
 Na guia **PAINEL** para o serviço Web, há dois links para informações que ajudarão um desenvolvedor a escrever código para acessar esse serviço. Clique no link **Página de ajuda de API** na linha de **SOLICITAR/RESPONDER** e uma página será aberta contendo exemplo de código para usar o protocolo de solicitar/responder do serviço. Do mesmo modo, o link na linha **EXECUÇÃO EM LOTE** fornece um exemplo de código para fazer uma solicitação em lote para o serviço.
 
-A página de ajuda de API inclui exemplos de linguagens de programação R, C\# e Python. Por exemplo, aqui o código R que você pode usar para acessar o serviço Web que publicamos (a URL do Serviço real seria exibida no código de exemplo):
+A página de ajuda de API inclui exemplos de linguagens de programação R, C# e Python. Por exemplo, aqui o código R que você pode usar para acessar o serviço Web que publicamos (a URL do Serviço real seria exibida no código de exemplo):
 
     library("RCurl")
     library("RJSONIO")

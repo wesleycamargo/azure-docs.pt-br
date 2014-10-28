@@ -130,7 +130,7 @@ Um grupo de conexões completo inclui uma conexão de cada nó na camada de orig
 
 #### Grupos filtrados
 
-Uma especificação grupo de conexões filtrado inclui um predicado, expresso sintaticamente de modo muito similar a uma expressão lambda em C\#. O exemplo a seguir define dois grupos filtrados:
+Uma especificação grupo de conexões filtrado inclui um predicado, expresso sintaticamente de modo muito similar a uma expressão lambda em C#. O exemplo a seguir define dois grupos filtrados:
 
     input Pixels [10, 20];
     hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];

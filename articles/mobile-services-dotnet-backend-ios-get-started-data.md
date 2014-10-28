@@ -6,7 +6,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="C# da Windows Store">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS" class="current">iOS</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="/pt-br/develop/mobile/tutorials/get-started-with-data-ios/"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
 
 Este tópico mostra como usar os Serviços Móveis do Azure para aproveitar dados em um aplicativo iOS. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e visualizará as alterações aos dados feitas ao executar o aplicativo.
 
@@ -17,7 +17,7 @@ O serviço móvel que você criará neste tutorial oferecerá suporte ao tempo d
 </div>
 
 <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
-<p>O objetivo deste tutorial &eacute; ajudar voc&ecirc; a compreender melhor como os Servi&ccedil;os M&oacute;veis permitem usar o Azure para armazenar e recuperar dados de um aplicativo iOS. Desse modo, este t&oacute;pico explica muitas das etapas que s&atilde;o conclu&iacute;das para voc&ecirc; no Guia de in&iacute;cio r&aacute;pido dos Servi&ccedil;os M&oacute;veis. Se esta for sua primeira experi&ecirc;ncia com os Servi&ccedil;os M&oacute;veis, primeiro conclua o tutorial <a href="/en-us/develop/mobile/tutorials/get-started-ios">Introdu&ccedil;&atilde;o aos Servi&ccedil;os M&oacute;veis</a>.</p>
+<p>O objetivo deste tutorial &eacute; ajudar voc&ecirc; a compreender melhor como os Servi&ccedil;os M&oacute;veis permitem usar o Azure para armazenar e recuperar dados de um aplicativo iOS. Desse modo, este t&oacute;pico explica muitas das etapas que s&atilde;o conclu&iacute;das para voc&ecirc; no Guia de in&iacute;cio r&aacute;pido dos Servi&ccedil;os M&oacute;veis. Se esta for sua primeira experi&ecirc;ncia com os Servi&ccedil;os M&oacute;veis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-ios">Introdu&ccedil;&atilde;o aos Servi&ccedil;os M&oacute;veis</a>.</p>
 </div>
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
@@ -124,15 +124,15 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C\# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# da Windows Store"
+  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "JavaScript da Windows Store"
   [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
   [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
   [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
   [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "Back-end do .NET"
-  [Back-end do JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-ios/ "Back-end do JavaScript"
-  [Versão de back-end do JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-  [Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-ios
+  [Back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios/ "Back-end do JavaScript"
+  [Versão de back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
+  [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
   [Baixar o projeto do aplicativo iOS]: #download-app
   [Criar o serviço móvel]: #create-service
   [Baixar o serviço localmente]: #download-the-service-locally
@@ -143,7 +143,7 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
   [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Visual Studio Express for Web]: http://go.microsoft.com/p/?linkid=9832232
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   []: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
@@ -154,7 +154,7 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-ios-get-started-data/manage-sql-azure-database.png
   [2]: ./media/mobile-services-dotnet-backend-ios-get-started-data/sql-azure-query.png
-  [Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
-  [Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-  [Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+  [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-ios
+  [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
+  [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios

@@ -6,7 +6,7 @@
 
 Um certificado de gerenciamento é necessário quando você deseja usar a API do Gerenciamento de Serviços para interagir com a plataforma de imagem do Azure.
 
-Já existe documentação sobre como criar e gerenciar esses certificados em [][]<http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx></a>. Você também pode usar o OpenSSL para criar o certificado de gerenciamento. Para obter mais informações, consulte [OpenSSL][OpenSSL]. No entanto, essa documentação é focalizada principalmente no uso do portal do Silverlight que pode não estar acessível a todos os usuários do Linux. Descreve como você pode obter acesso a esses certificados e integrá-los com nossas diferentes ferramentas e parceiros e usá-los por conta própria até que essa funcionalidade seja adicionada ao Portal de Gerenciamento do Azure.
+Já existe documentação sobre como criar e gerenciar esses certificados em [][]<http://msdn.microsoft.com/pt-br/library/azure/gg981929.aspx></a>. Você também pode usar o OpenSSL para criar o certificado de gerenciamento. Para obter mais informações, consulte [OpenSSL][OpenSSL]. No entanto, essa documentação é focalizada principalmente no uso do portal do Silverlight que pode não estar acessível a todos os usuários do Linux. Descreve como você pode obter acesso a esses certificados e integrá-los com nossas diferentes ferramentas e parceiros e usá-los por conta própria até que essa funcionalidade seja adicionada ao Portal de Gerenciamento do Azure.
 
 ## Sumário
 
@@ -134,7 +134,7 @@ Em seguida, será necessário mesclar sua ID de assinatura e o pfx codificado em
 Em que xxxxx é o conteúdo do [arquivo codificado] que você usará para dar os detalhes para as ferramentas de linha de comando do Linux Azure com os comandos:
 importação de conta do Azure (Arquivo)
 
-  []: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  []: http://msdn.microsoft.com/pt-br/library/azure/gg981929.aspx
   [OpenSSL]: http://openssl.org/
   [Obter um certificado de gerenciamento do arquivo publishsettings]: #createcert
   [Instalar um certificado de gerenciamento usando o Portal de Gerenciamento do Azure]: #management
