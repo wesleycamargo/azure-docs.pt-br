@@ -34,7 +34,7 @@ Este tutorial baseia-se no início rápido dos Serviços Móveis e no tutorial a
 
 5.  (Opcional) Se tiver contas de logon adicionais, você poderá verificar se os usuários podem ver apenas seus próprios dados fechando o aplicativo e, em seguida, executando-o novamente. Quando a caixa de diálogo de credenciais de logon for exibida, insira um logon diferente e, em seguida, verifique se os itens inseridos na conta anterior não são exibidos.
 
-<!--## Next steps  This concludes the tutorials that demonstrate the basics of working with authentication. Consider finding out more about the following Mobile Services topics:  * [Get started with data]   <br/>Learn more about storing and querying data using Mobile Services.  * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app.    * [Mobile Services .NET How-to Conceptual Reference]   <br/>Learn more about how to use Mobile Services with .NET. --> 
+<!--## Próximas etapas  Isto conclui os tutoriais que demonstram os fundamentos do trabalho com a autenticação. Considere descobrir mais sobre os seguintes tópicos de Serviços Móveis:  * [Introdução aos dados]   <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.  * [Introdução as notificações de push]    <br/>Saiba mais sobre como enviar uma notificação de push muito básica para o seu aplicativo.    * [Referência conceitual de tutorial do .NET para Serviços Móveis]   <br/>Saiba mais sobre como usar os Serviços Móveis com .NET --> 
 
 <!-- Anchors. --> 
 <!-- Images. --> 
