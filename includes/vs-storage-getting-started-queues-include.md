@@ -1,25 +1,21 @@
-###### Criar uma fila
+##### Criar uma fila
 
 Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos neste tópico usam uma cadeia de conexão de armazenamento armazenada na configuração dos serviços do aplicativo do Azure. Também existem outras maneiras de criar um objeto **CloudStorageAccount**. Consulte a documentação [CloudStorageAccount][CloudStorageAccount] para obter mais detalhes.
-
-    // Get the storage account from its connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Use o objeto **queueClient** para obter uma referência à fila que deseja usar. Você poderá criar a fila se ela não existir.
+Use o objeto **queueClient** para obter uma referência à fila que deseja usar. O código tenta fazer referência a uma fila denominada “myqueue”. Se não localizar uma fila com esse nome, ele criará uma.
 
     // Get a reference to a queue named “myqueue”.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // If the queue isn’t already there, then create it.
-    queue.CreateIfNotExist();
+    queue.CreateIfNotExists();
 
 **OBSERVAÇÃO:** Use este bloco de código antes do código na seções a seguir.
 
-###### Inserir uma mensagem em uma fila
+##### Inserir uma mensagem em uma fila
 
 Para inserir uma mensagem em uma fila existente, crie primeiramente um novo objeto **CloudQueueMessage**. Em seguida, chame o método AddMessage(). Um objeto **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World'.
 
@@ -27,7 +23,7 @@ Para inserir uma mensagem em uma fila existente, crie primeiramente um novo obje
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-###### Espiar a próxima mensagem
+##### Espiar a próxima mensagem
 
 Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chamando o método PeekMessage().
 
@@ -37,7 +33,7 @@ Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chama
     // Display the message.
     Console.WriteLine(peekedMessage.AsString);
 
-###### Remover a próxima mensagem
+##### Remover a próxima mensagem
 
 Seu código pode remover uma mensagem de uma fila em duas etapas.
 
@@ -52,4 +48,9 @@ Este processo de duas etapas de remover uma mensagem garante que quando o códig
     // Process the message in less than 30 seconds, and then delete the message.
     queue.DeleteMessage(retrievedMessage);
 
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+[Saiba mais sobre o armazenamento do Azure][Saiba mais sobre o armazenamento do Azure]
+Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores][Procurando recursos de armazenamento no Gerenciador de servidores].
+
+  [CloudStorageAccount]: http://msdn.microsoft.com/pt-BR/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+  [Saiba mais sobre o armazenamento do Azure]: http://azure.microsoft.com/documentation/services/storage/
+  [Procurando recursos de armazenamento no Gerenciador de servidores]: http://msdn.microsoft.com/pt-BR/library/azure/ff683677.aspx
