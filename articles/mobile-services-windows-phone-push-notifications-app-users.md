@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Enviar notificações por push aos usuários usando os Serviços Móveis
 
@@ -8,22 +8,22 @@
     <a href="/pt-br/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/pt-br/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/pt-br/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
-Este tópico estende o [tutorial anterior de notificação por push][], adicionando uma nova tabela para armazenar URIs de canal do MPNS (Serviço de Notificação por Push da Microsoft). Em seguida, esses tokens poderão ser usados para enviar notificações por push aos usuários do aplicativo do Windows Phone 8.
+Este tópico estende o [tutorial anterior de notificação por push][tutorial anterior de notificação por push], adicionando uma nova tabela para armazenar URIs de canal do MPNS (Serviço de Notificação por Push da Microsoft). Em seguida, esses tokens poderão ser usados para enviar notificações por push aos usuários do aplicativo do Windows Phone 8.
 
 Este tutorial explica as etapas para atualizar notificações por push em seu aplicativo:
 
-1.  [Criar a tabela Channel][]
-2.  [Atualizar o aplicativo][]
-3.  [Atualizar scripts de servidor][]
-4.  [Verificar o comportamento de notificação por push][]
+1.  [Criar a tabela Channel][Criar a tabela Channel]
+2.  [Atualizar o aplicativo][Atualizar o aplicativo]
+3.  [Atualizar scripts de servidor][Atualizar scripts de servidor]
+4.  [Verificar o comportamento de notificação por push][Verificar o comportamento de notificação por push]
 
 Esse tutorial se baseia no início rápido dos Serviços Móveis e se baseia no tutorial anterior [Introdução às notificações por push][tutorial anterior de notificação por push]. Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução às notificações por push][tutorial anterior de notificação por push].
 
 ## <a name="create-table"></a>Criar uma nova tabela
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][], clique em **Serviços Móveis** e clique no seu aplicativo.
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Dados** e **Criar**.
 
@@ -184,15 +184,15 @@ Em seguida, você modificará o aplicativo de notificações por push para armaz
 
 Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar com notificações por push. Considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
 
--   [Começar a trabalhar com dados][]
+-   [Começar a trabalhar com dados][Começar a trabalhar com dados]
 
     Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
 
     Saiba como autenticar usuários de seu aplicativo com uma conta do Windows.
 
--   [Referência de script de servidor dos Serviços Móveis][]
+-   [Referência de script de servidor dos Serviços Móveis][Referência de script de servidor dos Serviços Móveis]
 
     Saiba mais sobre como registrar e usar scripts de servidor.
 
@@ -200,16 +200,13 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [tutorial anterior de notificação por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8
   [Criar a tabela Channel]: #create-table
   [Atualizar o aplicativo]: #update-app
   [Atualizar scripts de servidor]: #update-scripts
   [Verificar o comportamento de notificação por push]: #test-app
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-channel-table.png
   [3]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-portal-data-tables-channel.png

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Habilitando o Diagnostics nos Serviços de nuvem do Azure e Máquinas virtuais
 
@@ -762,12 +762,5 @@ A tabela seguinte compara os recursos suportados pelo Azure Diagnostics versões
   [.NET EventSource Class]: http://msdn.microsoft.com/pt-br/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [Teste Gratuito]: http://azure.microsoft.com/pt-br/pricing/free-trial/
   [Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Esquema de Configuração do Azure Diagnostics 1.2]: http://msdn.microsoft.com/pt-br/library/azure/dn782207.aspx
-  [decodificá-los]: http://www.bing.com/search?q=base64+decoder
-  [Coletar dados do log usando o Diagnóstico do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433048.aspx
   [Depurando um aplicativo do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405479.aspx
-  [Configurando o Diagnóstico do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn186185.aspx

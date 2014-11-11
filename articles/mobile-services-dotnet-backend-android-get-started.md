@@ -1,16 +1,16 @@
 <properties pageTitle="Get Started with Azure Mobile Services for Android apps" metaKeywords="Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo Android usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *To do list* que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript][Versão de back-end do JavaScript] neste tópico.
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
-![][]
+![][0]
 
 Concluir este tutorial exige as [Ferramentas para desenvolvedores do Android][Ferramentas para desenvolvedores do Android], que inclui o ambiente de desenvolvimento integrado (IDE) Eclipse, o plug-in Android Developer Tools (ADT) e a mais recente plataforma Android. Android 4.2 ou uma versão posterior é necessária.
 
@@ -20,7 +20,7 @@ O projeto quickstart baixado contém o SDK dos Serviços Móveis para Android. E
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Baixar o serviço móvel para o computador local
 
@@ -40,11 +40,11 @@ Agora que você criou o serviço móvel, baixe o projeto de serviço móvel pers
 
 ## Testar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## Publicar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Criar novo aplicativo Android
 
@@ -122,9 +122,8 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [Versão de back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-android-get-started/
-  []: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+  [0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
   [Ferramentas para desenvolvedores do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs.png
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934

@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Aplicativo da web Django Hello World (mac-linux)
 
@@ -19,7 +19,7 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 ![Uma janela do navegador exibindo a página de boas-vindas no Azure.][Uma janela do navegador exibindo a página de boas-vindas no Azure.]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Crie e configure uma máquina virtual do Azure para hospedar o Django
 
@@ -112,8 +112,6 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
-  [Windows]: /pt-br/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /pt-br/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux"
   [Uma janela do navegador exibindo a página de boas-vindas no Azure.]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [aqui]: /pt-br/manage/linux/tutorials/virtual-machine-from-gallery/

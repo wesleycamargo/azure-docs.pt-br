@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como usar o Gerenciamento de Serviços do PHP
 
@@ -554,8 +554,6 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
   [API de Gerenciamento de Serviços do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460799.aspx
   [get-client-libraries]: ../includes/get-client-libraries.md
   [OpenSSL]: http://www.openssl.org/
-  [baixar para o Windows (a página pode estar em inglês)]: http://www.openssl.org/related/binaries.html
-  [Visão geral dos certificados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg981935.aspx
   []: http://www.openssl.org/docs/apps/openssl.html
   [Ferramentas de linha de comando do Azure]: ../command-line-tools/
   [serviço de nuvem]: ../cloud-services-what-is/
@@ -564,7 +562,6 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
   [pacote de serviço]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg433093
   [cmdlets do PowerShell do Azure]: ../install-configure-powershell/
   [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg432988.aspx
-  [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee758710.aspx
   [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh386336.aspx
   [serviço de armazenamento]: ../storage-whatis-account/
   [Blobs]: ../storage-php-how-to-use-blobs/

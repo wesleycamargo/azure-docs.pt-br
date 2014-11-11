@@ -1,6 +1,6 @@
 <properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin" />
 
 # Gerenciando seu namespace de ACS (a página pode estar em inglês)
 
@@ -74,7 +74,7 @@ Você pode gerenciar certificados de autenticação de tokens por meio da seçã
 
 3.  Depois que você tiver entrado com seu Windows Live ID, você será redirecionado para a página do Portal de Gerenciamento. No canto esquerdo inferior dessa página, clique em **Barramento de Serviço e Controle de Acesso**.
 
-    ![][]
+    ![][0]
 
 4.  Para iniciar o Portal de Gerenciamento do ACS, clique em **Controle de Acesso** na árvore à esquerda, selecione o namespace do serviço ACS que deseja configurar e clique no botão **Serviço de Controle de Acesso** na barra de ferramentas na parte superior da página.
 
@@ -124,7 +124,7 @@ Você pode gerenciar chaves de autenticação de tokens por meio da seção Cert
 
 3.  Depois que você tiver entrado com seu Windows Live ID, você será redirecionado para a página do Portal de Gerenciamento. No canto esquerdo inferior dessa página, clique em **Barramento de Serviço e Controle de Acesso**.
 
-    ![][]
+    ![][0]
 
 4.  Para iniciar o Portal de Gerenciamento do ACS, clique em **Controle de Acesso** na árvore à esquerda, selecione o namespace do serviço ACS que deseja configurar e clique no botão **Serviço de Controle de Acesso** na barra de ferramentas na parte superior da página.
 
@@ -174,7 +174,7 @@ Você pode gerenciar certificados de criptografia de tokens por meio da seção 
 
 3.  Depois que você tiver entrado com seu Windows Live ID, você será redirecionado para a página do Portal de Gerenciamento. No canto esquerdo inferior dessa página, clique em **Barramento de Serviço e Controle de Acesso**.
 
-    ![][]
+    ![][0]
 
 4.  Para iniciar o Portal de Gerenciamento do ACS, clique em **Controle de Acesso** na árvore à esquerda, selecione o namespace do serviço ACS que deseja configurar e clique no botão **Serviço de Controle de Acesso** na barra de ferramentas na parte superior da página.
 
@@ -218,7 +218,7 @@ Você pode gerenciar certificados de descriptografia de tokens por meio da seç�
 
 3.  Depois que você tiver entrado com seu Windows Live ID, você será redirecionado para a página do Portal de Gerenciamento. No canto esquerdo inferior dessa página, clique em **Barramento de Serviço e Controle de Acesso**.
 
-    ![][]
+    ![][0]
 
 4.  Para iniciar o Portal de Gerenciamento do ACS, clique em **Controle de Acesso** na árvore à esquerda, selecione o namespace do serviço ACS que deseja configurar e clique no botão **Serviço de Controle de Acesso** na barra de ferramentas na parte superior da página.
 
@@ -269,7 +269,7 @@ Você pode gerenciar as credenciais de identidade de serviço por meio da págin
 
 3.  Depois que você tiver entrado com seu Windows Live ID, você será redirecionado para a página do Portal de Gerenciamento. No canto esquerdo inferior dessa página, clique em **Barramento de Serviço e Controle de Acesso**.
 
-    ![][]
+    ![][0]
 
 4.  Para iniciar o Portal de Gerenciamento do ACS, clique em **Controle de Acesso** na árvore à esquerda, selecione o namespace do serviço ACS que deseja configurar e clique no botão **Serviço de Controle de Acesso** na barra de ferramentas na parte superior da página.
 
@@ -342,7 +342,7 @@ Você pode gerenciar as credenciais do serviço de gerenciamento por meio da pá
 
 3.  Depois que você tiver entrado com seu Windows Live ID, você será redirecionado para a página do Portal de Gerenciamento. No canto esquerdo inferior dessa página, clique em **Barramento de Serviço e Controle de Acesso**.
 
-    ![][]
+    ![][0]
 
 4.  Para iniciar o Portal de Gerenciamento do ACS, clique em **Controle de Acesso** na árvore à esquerda, selecione o namespace do serviço ACS que deseja configurar e clique no botão **Serviço de Controle de Acesso** na barra de ferramentas na parte superior da página.
 
@@ -420,8 +420,8 @@ A seguir estão as exceções que o ACS emitirá se o certificado estiver expira
   [IdentityProviderKey]: http://msdn.microsoft.com/pt-br/library/hh124084.aspx
   [Códigos de erro do ACS]: http://msdn.microsoft.com/pt-br/library/gg185949.aspx
   [Amostra do código: Serviço de gerenciamento]: http://msdn.microsoft.com/pt-br/library/gg185970.aspx
-  []: http://go.microsoft.com/fwlink/?LinkID=129428
-  []: ./media/manage-acs-namespace/ACS1.png
+  [0]: http://go.microsoft.com/fwlink/?LinkID=129428
+  [0]: ./media/manage-acs-namespace/ACS1.png
   [1]: ./media/manage-acs-namespace/ACS2.png
   [2]: ./media/manage-acs-namespace/ACS3.png
   [3]: ./media/manage-acs-namespace/ACS4.png

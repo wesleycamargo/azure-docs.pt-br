@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Como usar o serviço de armazenamento de filas do Ruby
 
@@ -9,37 +9,38 @@ Azure. Os exemplos são escritos usando a API Ruby Azure.
 Os cenários abordados incluem **inserir**, **espiar**, **obter**
 e **excluir** mensagens da fila, além de **criar e
 excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas
-etapas][].
+etapas][Próximas
+etapas].
 
 ## Sumário
 
--   [O que é armazenamento de fila?][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo Ruby][]
--   [Configurar seu aplicativo para acessar o armazenamento][]
--   [Configurar uma conexão de armazenamento do Azure][]
--   [Como: Criar uma fila][]
--   [Como: Inserir uma mensagem em uma fila][]
--   [Como: Exibir na próxima mensagem][]
--   [Como: Remover a próxima mensagem da fila][]
--   [Como: Mudar o conteúdo de uma mensagem enfileirada][]
--   [Como: Opções adicionais para remover mensagens da fila][]
--   [Como: Obter o tamanho da fila][]
--   [Como: Excluir uma fila][]
+-   [O que é armazenamento de fila?][O que é armazenamento de fila?]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo Ruby][Criar um aplicativo Ruby]
+-   [Configurar seu aplicativo para acessar o armazenamento][Configurar seu aplicativo para acessar o armazenamento]
+-   [Configurar uma conexão de armazenamento do Azure][Configurar uma conexão de armazenamento do Azure]
+-   [Como: Criar uma fila][Como: Criar uma fila]
+-   [Como: Inserir uma mensagem em uma fila][Como: Inserir uma mensagem em uma fila]
+-   [Como: Exibir na próxima mensagem][Como: Exibir na próxima mensagem]
+-   [Como: Remover a próxima mensagem da fila][Como: Remover a próxima mensagem da fila]
+-   [Como: Mudar o conteúdo de uma mensagem enfileirada][Como: Mudar o conteúdo de uma mensagem enfileirada]
+-   [Como: Opções adicionais para remover mensagens da fila][Como: Opções adicionais para remover mensagens da fila]
+-   [Como: Obter o tamanho da fila][Como: Obter o tamanho da fila]
+-   [Como: Excluir uma fila][Como: Excluir uma fila]
 -   [Próximas etapas][Próximas
     etapas]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Criar um aplicativo Ruby
 
 Crie um aplicativo Ruby. Para obter instruções,
-consulte [Criar um aplicativo Ruby no Azure][].
+consulte [Criar um aplicativo Ruby no Azure][Criar um aplicativo Ruby no Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configurar seu aplicativo para acessar o armazenamento
 
@@ -68,7 +69,7 @@ especifique as informações da conta antes de usar **Azure::QueueService** com 
 
 Para obter esses valores:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Navegue até a conta de armazenamento que você deseja usar
 3.  Clique em **GERENCIAR CHAVES** na parte inferior do painel de navegação.
 4.  Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para obter a chave de acesso, você pode selecionar tanto a chave primária quanto a chave secundária.
@@ -156,14 +157,13 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber como fazer tarefas mais complexas de armazenamento.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
--   Visite o [Blog da Equipe de Armazenamento do Azure][]
--   Visite o repositório [SDK do Azure para Ruby][] no GitHub
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
+-   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
+-   Visite o repositório [SDK do Azure para Ruby][SDK do Azure para Ruby] no GitHub
 
-Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus][], consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças][]
+Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus][Como usar as filas de Service Bus], consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças][Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças]
 
   [Próximas etapas]: #next-steps
-  [O que é armazenamento de fila?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #CreateAccount
   [Criar um aplicativo Ruby]: #create-a-ruby-application
@@ -179,10 +179,10 @@ Para fazer uma comparação entre o serviço Fila do Azure discutido neste artig
   [Como: Excluir uma fila]: #how-to-delete-a-queue
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Criar um aplicativo Ruby no Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Criar um aplicativo Ruby no Azure]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK do Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
-  [Como usar as filas de Service Bus]: /en-us/develop/ruby/how-to-guides/service-bus-queues/
-  [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [Como usar as filas de Service Bus]: /pt-br/develop/ruby/how-to-guides/service-bus-queues/
+  [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx

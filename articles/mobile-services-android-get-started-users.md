@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-android" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/23/2014" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/23/2014" ms.author="ricksal" />
 
 # Introdução à autenticação dos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users][mobile-services-selector-get-started-users]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -30,11 +30,11 @@ Para concluir este tutorial, é necessário ter o Eclipse e o Android 4.2 ou uma
 
 ## <a name="register"></a><span class="short-header">Registrar seu aplicativo</span>Registrar seu aplicativo para autenticação e configurar os Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 ## <a name="permissions"></a><span class="short-header">Restringir permissões</span>Restringir permissões para usuários autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  No Eclipse, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
@@ -46,15 +46,15 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ## <a name="add-authentication"></a><span class="short-header">Adicionar autenticação</span>Adicionar autenticação ao aplicativo
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app][mobile-services-android-authenticate-app]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Armazenar tokens de autenticação em cache no cliente
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token][mobile-services-android-authenticate-app-with-token]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>Atualizar o token armazenado em cache
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token][mobile-services-android-authenticate-app-refresh-token]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -65,7 +65,6 @@ No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com 
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
-  [assista ao tutorial]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services
   [Registrar seu aplicativo para a autenticação e configure os Serviços Móveis]: #register
   [Restringir permissões de tabela para usuários autenticados]: #permissions
   [Adicionar autenticação ao aplicativo]: #add-authentication

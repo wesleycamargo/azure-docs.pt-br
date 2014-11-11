@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -17,7 +17,7 @@
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
-![][]
+![][0]
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Serviços Móveis para aplicativos HTML.
 
@@ -37,7 +37,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -134,16 +134,13 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [assista ao tutorial]: http://go.microsoft.com/fwlink/?LinkId=287040
-  []: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
+  [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
   [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [versão mais recente do Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
-  [Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png

@@ -1,10 +1,10 @@
 <properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Usando o Armazenamento do Azure com uma solução de Integração Contínua Jenkins
 
-*Por [Microsoft Open Technologies Inc.][]*
+*Por [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 As informações a seguir mostram como usar o serviço Blob do Azure como um repositório de artefatos de compilação criado por uma solução de CI (Integração Contínua) Jenkins, ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo. Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
 
@@ -12,21 +12,21 @@ Neste tutorial, você usará o Plug-in do Armazenamento do Azure para a Jenkins 
 
 ## Sumário
 
--   [Visão geral da Jenkins][]
--   [Benefícios do uso do serviço Blob][]
--   [Pré-requisitos][]
--   [Como usar o serviço de blobs com a Jenkins CI][]
--   [Como instalar o plug-in Armazenamento do Azure][]
--   [Como configurar o plug-in Armazenamento do Azure para usar sua conta de armazenamento][]
--   [Como criar uma ação de pós-compilação que carrega os artefatos de compilação para a sua conta de armazenamento][]
--   [Como criar uma etapa de compilação baixada do armazenamento de blob do Azure][]
--   [Componentes usados pelo serviço Blob][]
+-   [Visão geral da Jenkins][Visão geral da Jenkins]
+-   [Benefícios do uso do serviço Blob][Benefícios do uso do serviço Blob]
+-   [Pré-requisitos][Pré-requisitos]
+-   [Como usar o serviço de blobs com a Jenkins CI][Como usar o serviço de blobs com a Jenkins CI]
+-   [Como instalar o plug-in Armazenamento do Azure][Como instalar o plug-in Armazenamento do Azure]
+-   [Como configurar o plug-in Armazenamento do Azure para usar sua conta de armazenamento][Como configurar o plug-in Armazenamento do Azure para usar sua conta de armazenamento]
+-   [Como criar uma ação de pós-compilação que carrega os artefatos de compilação para a sua conta de armazenamento][Como criar uma ação de pós-compilação que carrega os artefatos de compilação para a sua conta de armazenamento]
+-   [Como criar uma etapa de compilação baixada do armazenamento de blob do Azure][Como criar uma etapa de compilação baixada do armazenamento de blob do Azure]
+-   [Componentes usados pelo serviço Blob][Componentes usados pelo serviço Blob]
 
 ## <a name="overview"></a><span class="short header">Visão geral</span>Visão geral do Jenkins
 
 A Jenkins permite a integração contínua de um projeto de software, permitindo que os desenvolvedores integrem de forma fácil as alterações de código e fazendo com que as compilações sejam produzidas automaticamente e com frequência, aumentando, assim, a produtividade dos desenvolvedores. As compilações têm uma versão e os artefatos de compilação podem ser carregados em vários repositórios. Este tópico mostra como usar o armazenamento de blobs do Azure como o repositório dos artefatos de compilação. Ele também mostra como baixar dependências no armazenamento de blob do Azure.
 
-Mais informações sobre a Jenkins pode ser encontrada em [Conheça a Jenkins][].
+Mais informações sobre a Jenkins pode ser encontrada em [Conheça a Jenkins][Conheça a Jenkins].
 
 ## <a name="benefits"></a><span class="short header">Benefícios</span>Benefícios de uso do serviço Blob
 
@@ -56,7 +56,7 @@ Será necessário o seguinte para usar o serviço de blobs com a solução CI Je
 
 -   Uma conta do Azure. Você pode criar uma conta do Azure em <http://www.windowsazure.com>.
 
--   Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Como criar uma conta de armazenamento (a página pode estar em inglês)][].
+-   Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Como criar uma conta de armazenamento (a página pode estar em inglês)][Como criar uma conta de armazenamento (a página pode estar em inglês)].
 
 -   Estar familiarizado com a solução de CI Jenkins é recomendável, mas não obrigatório, já que o conteúdo a seguir usará um exemplo básico para mostrar as etapas necessárias ao usar o serviço Blob como um repositório para os artefatos de compilação de CI Jenkins.
 
@@ -108,7 +108,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 
     Abaixo da seção **Comando** em que você inseriu um script para **Executar comando em lote do Windows**, existe um link para as variáveis de ambiente reconhecidas pelo Jenkins. Clique nesse link para obter os nomes de variáveis de ambiente e as descrições. Observe que as variáveis de ambiente que contêm caracteres especiais, como a variável de ambiente **BUILD\_URL**, não são permitidas como um nome de contêiner ou um caminho virtual comum.
 
-8.  Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste tópico. Você pode saber mais sobre assinaturas de acesso compartilhado em [Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)][].
+8.  Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste tópico. Você pode saber mais sobre assinaturas de acesso compartilhado em [Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)][Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)].
 9.  [Opcional] Clique em **Limpar contêiner antes de carregar** se quiser que o contêiner seja limpo de conteúdo antes que os artefatos de compilação sejam carregados (deixe a opção desmarcada se não quiser limpar o conteúdo do contêiner).
 10. Em **Lista de Artefatos a serem carregados**, insira \*\*text/\*.txt\*\*.
 11. Em **Caminho virtual comum para artefatos carregados**, para as finalidades deste tutorial, insira **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -144,7 +144,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 -   **Conta de Armazenamento**: Todo o acesso ao Armazenamento do Azure é feito por meio de uma conta de armazenamento. Este é o nível mais alto do namespace para o acesso de blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total esteja abaixo de 100 TB.
 -   **Contêiner**: Um contêiner fornece um agrupamento de um conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
--   **Blob**: Um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de bloco pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)][].
+-   **Blob**: Um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de bloco pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)][Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)].
 -   **Formato de URL**: Os blobs são endereçáveis usando o seguinte formato de URL:
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -166,6 +166,3 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [Como criar uma etapa de compilação baixada do armazenamento de blob do Azure]: #howtocreatebuildstep
   [Componentes usados pelo serviço Blob]: #components
   [Conheça a Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
-  [Como criar uma conta de armazenamento (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279889
-  [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como usar os tópicos e as assinaturas do Service Bus
 
@@ -24,7 +24,7 @@ de mensagens para um tópico**, o **recebimento de mensagens de uma assinatura**
 -   [Como: Excluir tópicos e assinaturas][Como: Excluir tópicos e assinaturas]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="bkmk_ConfigYourApp"> </a>Configurar seu aplicativo para usar o Barramento de Serviço
 
@@ -326,7 +326,6 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 MSDN [Filas, tópicos e assinaturas do Barramento de Serviço][Filas, tópicos e assinaturas do Barramento de Serviço] para obter mais informações.
 
   [SDK do Azure para Java]: http://www.windowsazure.com/pt-br/develop/java/
-  [O que são os tópicos e as assinaturas do Service Bus?]: #what-are-service-bus-topics
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Configurar seu aplicativo para usar o Barramento de Serviço]: #bkmk_ConfigYourApp

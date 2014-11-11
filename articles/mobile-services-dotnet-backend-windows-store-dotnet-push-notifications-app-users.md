@@ -1,6 +1,6 @@
 <properties linkid="/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Enviar notificações por push para usuários autenticados
 
@@ -38,27 +38,20 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 ## <a name="register"></a>Atualizar o serviço para solicitar autenticação para registro
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users][mobile-services-dotnet-backend-push-notifications-app-users]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
 ## <a name="update-app"></a>Atualizar o aplicativo para fazer logon antes do registro
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users][mobile-services-windows-store-dotnet-push-notifications-app-users]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
 
 ## <a name="test"></a>Testar o aplicativo
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users][mobile-services-windows-test-push-users]]
+[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)]
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users "Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/ "Back-end do JavaScript"
   [notificação por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
   [Atualizar o serviço para solicitar autenticação para registro]: #register
   [Atualizar o aplicativo para fazer logon antes do registro]: #update-app

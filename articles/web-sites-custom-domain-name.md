@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
 
 # Configurando um nome de domínio personalizado para um Site do Azure
 
@@ -8,7 +8,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name/" title="Sites" class="current">Site</a> | <a href="/pt-br/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Site usando o Gerenciador de Tr&aacute;fego">Site usando o Gerenciador de Tr&aacute;fego</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Quando você cria um site, o Azure fornece um subdomínio em azurewebsites.net. Por exemplo, se o seu site tem o nome**contoso**, a URL será **contoso.azurewebsites.net**. O Azure também fornece um endereço IP virtual.
 
@@ -16,7 +16,7 @@ Quando você cria um site, o Azure fornece um subdomínio em azurewebsites.net. 
 
 Para um site de produção, é bem provável que você queira que os usuários vejam um nome de domínio personalizado. Este artigo explica como configurar um nome de domínio personalizado com o Sites do Azure. (Este artigo fornece instruções genéricas para qualquer registrador de domínio. As guias na parte superior do artigo fornecem links para artigos sobre determinados registradores.
 
-[WACOM.INCLUDE [introfooter][introfooter]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Neste artigo:
 
@@ -41,7 +41,7 @@ Dentro dessa estrutura de tópicos básica, existem casos específicos a se cons
 -   Mapeando um subdomínio. Por exemplo, **blogs.contoso.com**. É possível mapear diferentes subdomínios em diferentes sites.
 -   Mapeando um curinga. Por exemplo, \***.contoso.com**. Uma entrada curinga se aplica a todos os subdomínios do seu domínio.
 
-[WACOM.INCLUDE [modos][modos]]
+[WACOM.INCLUDE [modos](../includes/custom-dns-web-site-modes.md)]
 
 ## Tipos de registro DNS
 
@@ -62,7 +62,7 @@ Ignore este passo se você estiver criando um registro CNAME. Para criar um regi
 2.  Na guia **Sites**, clique no nome do seu site e selecione **Painel**.
 3.  Selecione **Gerenciar Domínios** na inferior da página. (Se essa opção estiver desabilitada, verifique se você não está usando o modo Compartilhado, Básico ou Padrão. Para obter mais informações, consulte [Como dimensionar sites][Como dimensionar sites].)
 
-    ![][]
+    ![][0]
 
 4.  O endereço IP está listado na direção da parte inferior da caixa de diálogo.
 
@@ -120,17 +120,6 @@ Os visitantes do seu site não enxergarão o subdomínio awverify; ele serve ape
 <!-- Anchors. --> 
 <!-- Images -->
 
-  [Domínio personalizado]: /pt-br/documentation/articles/web-sites-custom-domain-name "Domínio personalizado"
-  [GoDaddy]: /pt-br/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Soluções de rede]: /pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name "Soluções de rede"
-  [Register.com]: /pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /pt-br/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /pt-br/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /pt-br/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /pt-br/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /pt-br/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site]: /pt-br/documentation/articles/web-sites-custom-domain-name/ "Sites"
-  [Site usando o Gerenciador de Tráfego]: /pt-br/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "Site usando o Gerenciador de Tráfego"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [subdomínio contoso.azurewebsites.net]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
   [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
@@ -138,11 +127,10 @@ Os visitantes do seu site não enxergarão o subdomínio awverify; ele serve ape
   [Tipos de registro DNS]: #dns-record-types
   [Localizar o endereço IP virtual]: #find-the-virtual-ip-address
   [Criar os registros DNS]: #create-the-dns-records
-  [Criar um registro “awverify” (somente registros A)]: #awverify
   [Habilitar o nome do domínio no seu site]: #enable-the-domain-name-on-your-website
   [modos]: ../includes/custom-dns-web-site-modes.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Como dimensionar sites]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-scale/
-  []: media/web-sites-custom-domain-name/dncmntask-cname-6.png
+  [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
   [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

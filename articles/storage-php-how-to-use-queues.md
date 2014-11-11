@@ -1,34 +1,34 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Como usar o serviço Fila do PHP
 
-Este guia mostra como executar cenários comuns usando o serviço Fila do Azure. Os exemplos são gravados usando classes do SDK do Windows para PHP. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+Este guia mostra como executar cenários comuns usando o serviço Fila do Azure. Os exemplos são gravados usando classes do SDK do Windows para PHP. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é Armazenamento de Filas][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo PHP][]
--   [Configurar seu aplicativo para o service de fila][]
--   [Configurar uma conexão de armazenamento do Azure][]
--   [Como: Criar uma fila][]
--   [Como: Adicionar uma mensagem a uma fila][]
--   [Como: Espiar a próxima mensagem][]
--   [Como: Remover a próxima mensagem da fila][]
--   [Como: Alterar o conteúdo de uma mensagem na fila][]
--   [Opções adicionais para remover mensagens da fila][]
--   [Como: Obter o tamanho da fila][]
--   [Como: Excluir uma fila][]
+-   [O que é Armazenamento de Filas][O que é Armazenamento de Filas]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo PHP][Criar um aplicativo PHP]
+-   [Configurar seu aplicativo para o service de fila][Configurar seu aplicativo para o service de fila]
+-   [Configurar uma conexão de armazenamento do Azure][Configurar uma conexão de armazenamento do Azure]
+-   [Como: Criar uma fila][Como: Criar uma fila]
+-   [Como: Adicionar uma mensagem a uma fila][Como: Adicionar uma mensagem a uma fila]
+-   [Como: Espiar a próxima mensagem][Como: Espiar a próxima mensagem]
+-   [Como: Remover a próxima mensagem da fila][Como: Remover a próxima mensagem da fila]
+-   [Como: Alterar o conteúdo de uma mensagem na fila][Como: Alterar o conteúdo de uma mensagem na fila]
+-   [Opções adicionais para remover mensagens da fila][Opções adicionais para remover mensagens da fila]
+-   [Como: Obter o tamanho da fila][Como: Obter o tamanho da fila]
+-   [Como: Excluir uma fila][Como: Excluir uma fila]
 -   [Próximas etapas][1]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="create-account"></span></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-app"></span></a>Criar um aplicativo PHP
 
@@ -38,13 +38,13 @@ Neste guia, você usará os recursos do serviço Fila que podem ser chamados den
 
 ## <span id="GetClientLibrary"></span></a>Obter as bibliotecas de cliente do Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="configure-app"></span></a>Configurar o aplicativo para acessar o serviço Fila
 
 Para usar as APIs do serviço Fila do Azure, você precisa:
 
-1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][] e
+1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][require\_once] e
 2.  Consultar qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
@@ -109,7 +109,7 @@ O objeto **QueueRestProxy** permite que você crie uma fila com o método **crea
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -139,7 +139,7 @@ Para adicionar uma mensagem para uma fila, use **QueueRestProxy-\>createMessage*
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -168,7 +168,7 @@ Você pode exibir uma mensagem (ou mensagens) na frente de uma fila sem removê-
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -222,7 +222,7 @@ Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você cham
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -264,7 +264,7 @@ Você pode alterar o conteúdo de uma mensagem no local na fila chamando **Queue
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -311,7 +311,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -337,7 +337,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -364,7 +364,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **Queu
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -374,7 +374,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **Queu
 
 Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga estes links para saber como executar tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
 -   Visite o Blog da Equipe de Armazenamento do Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Próximas etapas]: #NextSteps
@@ -396,5 +396,4 @@ Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga e
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://www.php.net/manual/en/function.require-once.php
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx

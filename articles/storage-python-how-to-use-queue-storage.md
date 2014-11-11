@@ -1,6 +1,6 @@
 <properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Como usar o Serviço de Armazenamento de Fila no Python
 
@@ -8,30 +8,30 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 Azure. Os exemplos foram escritos usando a
 API do Python. Os cenários abordados incluem a **inserção**, **inspeção**,
 **obtenção**, e **exclusão** de mensagens da fila, além de **criação e
-exclusão de filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+exclusão de filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
-[O que é armazenamento de fila?][]  
- [Conceitos][]  
- [Criar uma conta de armazenamento do Azure][]  
- [Como: Criar uma fila][]  
-[Como: Inserir uma mensagem em uma fila][]  
- [Como: Espiar a próxima mensagem][]  
-[Como: Remover a próxima mensagem da fila][]  
-[Como: Alterar o conteúdo de uma mensagem em fila][]  
- [Como: Adicionar opções para remover mensagens da fila][]  
- [Como: Obter o comprimento da fila][]  
-[Como: Excluir uma fila][]  
- [Próximas etapas][]  
+[O que é armazenamento de fila?][O que é armazenamento de fila?]  
+ [Conceitos][Conceitos]  
+ [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]  
+ [Como: Criar uma fila][Como: Criar uma fila]  
+[Como: Inserir uma mensagem em uma fila][Como: Inserir uma mensagem em uma fila]  
+ [Como: Espiar a próxima mensagem][Como: Espiar a próxima mensagem]  
+[Como: Remover a próxima mensagem da fila][Como: Remover a próxima mensagem da fila]  
+[Como: Alterar o conteúdo de uma mensagem em fila][Como: Alterar o conteúdo de uma mensagem em fila]  
+ [Como: Adicionar opções para remover mensagens da fila][Como: Adicionar opções para remover mensagens da fila]  
+ [Como: Obter o comprimento da fila][Como: Obter o comprimento da fila]  
+[Como: Excluir uma fila][Como: Excluir uma fila]  
+ [Próximas etapas][Próximas etapas]  
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a> Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Observação:** Se for necessário instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python][].
+**Observação:** Se for necessário instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python][Guia de instalação do Python].
 
 ## <a name="create-queue"> </a>Como: Criar uma fila
 
@@ -129,11 +129,10 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para aprender
 como executar tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
--   Visite o [Blog da Equipe de Armazenamento do Azure][]
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
+-   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
 
   [Próximas etapas]: #next-steps
-  [O que é armazenamento de fila?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
   [Como: Criar uma fila]: #create-queue
@@ -147,5 +146,5 @@ como executar tarefas de armazenamento mais complexas.
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Guia de instalação do Python]: ../python-how-to-install/
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/

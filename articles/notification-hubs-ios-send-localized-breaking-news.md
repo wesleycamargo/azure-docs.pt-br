@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Usar Hubs de Notificação para enviar últimas notícias localizadas para dispositivos iOS
 
@@ -61,7 +61,7 @@ Agora vamos modificar o aplicativo Breaking News que você criou no tópico [Usa
 
 No seu MainStoryboard\_iPhone.storyboard, adicione um controle segmentado com três idiomas para os quais oferecemos suporte: inglês, francês e mandarim.
 
-![][]
+![][0]
 
 Em seguida, adicione um IBOutlet em seu ViewController.h, conforme mostrado abaixo:
 
@@ -156,7 +156,7 @@ Para adaptar seus aplicativos cliente para receber mensagens localizadas, você 
 
 ## <a name="send"></a><span class="short-header">Enviar notificações localizadas</span>Enviar notificações localizadas de seu back-end
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][notification-hubs-localized-back-end]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## Próximas etapas
 
@@ -168,18 +168,15 @@ Para obter mais informações sobre o uso de modelos, consulte .
 
 Uma referência à linguagem de expressão do modelo por ser encontrada em [Instruções sobre Hubs de Notificação para iOS][Instruções sobre os Hubs de Notificação do Barramento de Serviço (aplicativos iOS)].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows Store C#"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
+
   [Usar Hubs de Notificação para enviar últimas notícias]: /pt-br/manage/services/notification-hubs/breaking-news-ios
   [Conceitos de modelo]: #concepts
   [A interface do usuário do aplicativo]: #ui
   [Criando o aplicativo iOS]: #building-client
   [Enviar notificações de seu back-end]: #send
   [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
-  [Instruções sobre os Hubs de Notificação do Barramento de Serviço (aplicativos iOS)]: http://msdn.microsoft.com/pt-br/library/jj927168.aspx
-  []: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
+  [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
   [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notificar usuários com Hubs de Notificação: ASP.NET]: /pt-br/manage/services/notification-hubs/notify-users-aspnet

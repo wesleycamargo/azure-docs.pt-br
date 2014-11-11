@@ -1,6 +1,6 @@
 <properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="Mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Enviar notificações por push para usuários autenticados
 
@@ -38,26 +38,19 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 ## <a name="register"></a>Atualizar o serviço para solicitar autenticação para registro
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users][mobile-services-dotnet-backend-push-notifications-app-users]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
 ## <a name="update-app"></a>Atualizar o aplicativo para fazer logon antes do registro
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login][mobile-services-ios-push-notifications-app-users-login]]
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
 ## <a name="test"></a>Testar o aplicativo
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app][mobile-services-ios-push-notifications-app-users-test-app]]
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users "Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/ "Back-end do JavaScript"
   [notificação por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
   [Atualizar o serviço para solicitar autenticação para registro]: #register
   [Atualizar o aplicativo para fazer logon antes do registro]: #update-app

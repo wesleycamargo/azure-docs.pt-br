@@ -1,6 +1,6 @@
 <properties title="Manage an Azure Machine Learning workspace" pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure
 
@@ -14,7 +14,7 @@ Na guia **SERVIÇOS WEB**, você pode Adicionar, Atualizar ou Excluir um serviç
 2.  No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 3.  Na lista **aprendizado de máquina**, clique em um espaço de trabalho.
 
-![][]
+![][0]
 
 ## Como conceder ou suspender acesso para usuários
 
@@ -27,4 +27,4 @@ Para aprender como implantar serviços web de produção, consulte o link.
 <!--Anchors-->
 <!--Image references-->
 
-  []: ./media/machine-learning-manage-workspace/mw1.png
+  [0]: ./media/machine-learning-manage-workspace/mw1.png

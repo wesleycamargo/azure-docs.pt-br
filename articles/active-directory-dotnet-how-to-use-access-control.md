@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
 
 # Como autenticar usuários da Web com o Access Control do Active Directory do Azure
 
@@ -8,17 +8,17 @@ Este guia mostra como usar o Access Control do Active Directory do Azure (també
 
 ## <span class="short-header">Índice</span>índice
 
--   [O que é ACS?][]
--   [Conceitos][]
--   [Pré-requisitos][]
--   [Criar um espaço reservado do Access Control][]
--   [Criar um aplicativo ASP.NET MVC][]
--   [Integrar seu aplicativo Web com o ACS][]
--   [Testar a integração com o ACS][]
--   [Exibir declarações enviadas pelo ACS][]
--   [Exibir o aplicativo no Portal de Gerenciamento do ACS][]
--   [Adicionar um provedor de identidade][]
--   [E agora?][]
+-   [O que é ACS?][O que é ACS?]
+-   [Conceitos][Conceitos]
+-   [Pré-requisitos][Pré-requisitos]
+-   [Criar um espaço reservado do Access Control][Criar um espaço reservado do Access Control]
+-   [Criar um aplicativo ASP.NET MVC][Criar um aplicativo ASP.NET MVC]
+-   [Integrar seu aplicativo Web com o ACS][Integrar seu aplicativo Web com o ACS]
+-   [Testar a integração com o ACS][Testar a integração com o ACS]
+-   [Exibir declarações enviadas pelo ACS][Exibir declarações enviadas pelo ACS]
+-   [Exibir o aplicativo no Portal de Gerenciamento do ACS][Exibir o aplicativo no Portal de Gerenciamento do ACS]
+-   [Adicionar um provedor de identidade][Adicionar um provedor de identidade]
+-   [E agora?][E agora?]
 
 ## <span class="short-header">O que é ACS?</span>o que é ACS?
 
@@ -34,7 +34,7 @@ Os seguintes recursos estão disponíveis no ACS:
 -   Um Portal de Gerenciamento que permite o acesso administrativo para as
     configurações do ACS.
 
-Para obter mais informações sobre o ACS, consulte [Access Control Service 2.0][].
+Para obter mais informações sobre o ACS, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
 ## <span class="short-header">Conceitos</span>Conceitos
 
@@ -58,7 +58,7 @@ Para concluir as tarefas deste guia, você deve entender os seguintes termos e c
 
 A figura a seguir mostra como a autenticação do ACS funciona com um aplicativo da Web:
 
-![][]
+![][0]
 
 1.  O cliente (neste caso, um navegador) solicita uma página do RP.
 2.  Como a solicitação ainda não foi autenticada, o RP redireciona o
@@ -82,14 +82,14 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 
 -   Assinatura do Azure
 -   Microsoft Visual Studio 2012
--   Identidade e ferramenta de acesso para o Visual Studio 2012 (para baixar, consulte [Identidade e ferramenta de acesso][]
+-   Identidade e ferramenta de acesso para o Visual Studio 2012 (para baixar, consulte [Identidade e ferramenta de acesso][Identidade e ferramenta de acesso]
 
 ## <span class="short-header">Criar um Namespace do Access Control</span>Criar um Namespace do Access Control
 
 Para começar a usar o Active Directory Access Control no Azure, crie um namespace do Access Control. O namespace fornece um escopo exclusivo para
 endereçar recursos do ACS a partir do aplicativo.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][](<https://manage.WindowsAzure.com>).
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure](<https://manage.WindowsAzure.com>).
 
 2.  Clique em **Active Directory**.
 
@@ -285,7 +285,7 @@ Nesta seção, vamos modificar o aplicativo para exibir as declarações enviada
 
 ![][15]
 
-Para obter mais informações sobre o uso de declarações em seu aplicativo, consulte [Biblioteca Windows Identity Foundation][].
+Para obter mais informações sobre o uso de declarações em seu aplicativo, consulte [Biblioteca Windows Identity Foundation][Biblioteca Windows Identity Foundation].
 
 ## <a name="bkmk_VP"></a>Exibir o aplicativo no Portal de Gerenciamento do ACS
 
@@ -357,9 +357,8 @@ Por exemplo, você pode adicionar mais provedores de identidade para essa RP ou 
 
 Você também pode adicionar regras para seu namespace que determinam quais declarações são enviadas para um aplicativo para processamento na lógica de negócios do aplicativo.
 
-Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, consulte [Access Control Service 2.0][].
+Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
-  [O que é ACS?]: #what-is
   [Conceitos]: #concepts
   [Pré-requisitos]: #pre
   [Criar um espaço reservado do Access Control]: #create-namespace
@@ -369,9 +368,8 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [Exibir declarações enviadas pelo ACS]: #bkmk_viewClaims
   [Exibir o aplicativo no Portal de Gerenciamento do ACS]: #bkmk_VP
   [Adicionar um provedor de identidade]: #add-IP
-  [E agora?]: #whats-next
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  []: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
+  [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [Identidade e ferramenta de acesso]: http://go.microsoft.com/fwlink/?LinkID=245849
   [Portal de Gerenciamento do Azure]: http://manage.WindowsAzure.com
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png

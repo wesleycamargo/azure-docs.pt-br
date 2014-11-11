@@ -1,22 +1,22 @@
 <properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="managestorageaccounts"></span></a>Como gerenciar contas de armazenamento
 
 ## Sumário
 
--   [Como: Gerenciar a replicação de uma conta de armazenamento][]
--   [Como: Exibir, copiar e regenerar chaves de acesso de armazenamento][]
--   [Como: Excluir uma conta de armazenamento][]
+-   [Como: Gerenciar a replicação de uma conta de armazenamento][Como: Gerenciar a replicação de uma conta de armazenamento]
+-   [Como: Exibir, copiar e regenerar chaves de acesso de armazenamento][Como: Exibir, copiar e regenerar chaves de acesso de armazenamento]
+-   [Como: Excluir uma conta de armazenamento][Como: Excluir uma conta de armazenamento]
 
 ## <span id="georeplication"></span></a>Como: Replicar os dados de sua conta de armazenamento para durabilidade e alta disponibilidade
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### Para especificar as configurações de replicação para uma conta de armazenamento
 
-1.  No [Portal de Gerenciamento do Azure][], clique em **Armazenamento** e no nome de sua conta de armazenamento para exibir o painel.
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Armazenamento** e no nome de sua conta de armazenamento para exibir o painel.
 
 2.  Clique em **Configurar**.
 
@@ -28,19 +28,19 @@
 
 Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
 
-No [Portal de Gerenciamento][], use **Gerenciar Chaves** no painel ou a página **Armazenamento** para exibir, copiar e regenerar as chaves de acesso do armazenamento que são usadas para acessar os serviços de Fila, Blob e Tabela.
+No [Portal de Gerenciamento][Portal de Gerenciamento], use **Gerenciar Chaves** no painel ou a página **Armazenamento** para exibir, copiar e regenerar as chaves de acesso do armazenamento que são usadas para acessar os serviços de Fila, Blob e Tabela.
 
 ### Copiar uma chave de acesso de armazenamento
 
-Você pode usar **Gerenciar Chaves** para copiar uma chave de acesso de armazenamento para uso em uma cadeia de conexão. A cadeia de conexão requer o nome da conta de armazenamento e uma chave a ser usada na autenticação. Para obter informações sobre como configurar cadeias de conexão para acessar os serviços de armazenamento do Azure, consulte [Configurando cadeias de conexão][].
+Você pode usar **Gerenciar Chaves** para copiar uma chave de acesso de armazenamento para uso em uma cadeia de conexão. A cadeia de conexão requer o nome da conta de armazenamento e uma chave a ser usada na autenticação. Para obter informações sobre como configurar cadeias de conexão para acessar os serviços de armazenamento do Azure, consulte [Configurando cadeias de conexão][Configurando cadeias de conexão].
 
-1.  No [Portal de Gerenciamento][], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2.  Clique em **Gerenciar Chaves**.
 
     **Gerenciar Chaves de Acesso** é aberta.
 
-    ![Managekeys][]
+    ![Managekeys][Managekeys]
 
 3.  Para copiar uma chave de acesso de armazenamento, selecione o texto da chave. Em seguida, clique com o botão direito do mouse e clique em **Copiar**.
 
@@ -62,7 +62,7 @@ Você deve alterar as chaves de acesso de sua conta de armazenamento periodicame
 
 1.  Atualize as cadeias de conexão no código do aplicativo para fazer referência à chave de acesso secundária da conta de armazenamento.
 
-2.  Regenere a chave de acesso primária de sua conta de armazenamento. No [Portal de Gerenciamento][], no painel ou na página **Configurar**, clique em **Gerenciar Chave**. Clique em **Regenerar** sob a chave de acesso primária e, em seguida, clique em **Sim** para confirmar que você deseja gerar uma nova chave.
+2.  Regenere a chave de acesso primária de sua conta de armazenamento. No [Portal de Gerenciamento][Portal de Gerenciamento], no painel ou na página **Configurar**, clique em **Gerenciar Chave**. Clique em **Regenerar** sob a chave de acesso primária e, em seguida, clique em **Sim** para confirmar que você deseja gerar uma nova chave.
 
 3.  Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
 
@@ -84,7 +84,7 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
     </p>
 </div>
 
-1.  No [Portal de Gerenciamento][], clique em **Armazenamento**.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Armazenamento**.
 
 2.  Clique em qualquer lugar na entrada da conta de armazenamento, exceto no nome, e em **Excluir**.
 
@@ -100,5 +100,5 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Portal de Gerenciamento]: http://manage.windowsazure.com
-  [Configurando cadeias de conexão]: http://msdn.microsoft.com/en-us/library/ee758697.aspx
+  [Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/ee758697.aspx
   [Managekeys]: ./media/storage-manage-storage-account/Storage_ManageKeys.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-ftp" urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP website with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Criar um Site do Azure PHP-MySQL e implantar usando FTP
 
@@ -15,7 +15,7 @@ Seguindo este tutorial, você irá criar um aplicativo da web de registro simple
 
 ![Site PHP do Azure][Site PHP do Azure]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Criar um site do Azure e configurar a publicação FTP
 
@@ -259,4 +259,3 @@ Após carregar o `index.php` e `createtable.php`, navegue para **http://[site na
   [1]: http://localhost/tasklist/index.php
   [Obter informações da conexão do banco de dados]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
   [Baixar perfil de publicação]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
-  [http://[site]: http://[site

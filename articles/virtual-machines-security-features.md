@@ -1,6 +1,6 @@
 <properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Opções de segurança para Máquinas Virtuais do Azure
 
@@ -25,4 +25,3 @@ As ACLs de rede possibilitam permitir ou negar seletivamente tráfego de entrada
   [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404206
   [Implantando soluções de anti-malware em Máquinas Virtuais do Azure]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
-  [Sobre ACLs (listas de controle de acesso)]: http://go.microsoft.com/fwlink/?LinkId=506655

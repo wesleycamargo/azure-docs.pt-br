@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa="" Bhojawala" />
 
 # Usando grupos de recursos para gerenciar os recursos do Azure
 
@@ -16,7 +16,7 @@ Aqui está uma visão geral concisa de como usar grupos de recursos no Portal de
 
 Sempre que um recurso é criado no portal de visualização, ele sempre é criado dentro de um grupo de recursos. Você pode optar por criar um novo grupo de recursos ou usar um grupo de recursos existente no fluxo de criação.
 
-![][]
+![][0]
 
 Quando você cria um aplicativo que consiste em alguns recursos que funcinam em conjunto (por exemplo, site + banco de dados) ele sempre é criado no seu próprio grupo de recursos, para que você possa gerenciar o ciclo de vida de todos os ativos relacionados ao grupo de recursos. Você pode adicionar ou remover mais recursos do grupo de recursos à medida que seu aplicativo evolui.
 
@@ -51,7 +51,7 @@ Como os grupos de recursos permitem que você gerencie o ciclo de vida de todos 
 
 ![][6]
 
-  []: http://i.imgur.com/USKkQdW.png
+  [0]: http://i.imgur.com/USKkQdW.png
   [1]: http://i.imgur.com/Me0jbio.png
   [2]: http://i.imgur.com/PhJeLZQ.png
   [3]: http://i.imgur.com/5Wqv2XR.png

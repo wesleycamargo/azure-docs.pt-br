@@ -1,10 +1,10 @@
 <properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
 # Instala MySQL na máquina virtual executando o Windows Server 2008 R2 no Azure
 
-[MySQL][] é um banco de dados SQL fonte aberto popular. Usando o [Portal de Gerenciamento Azure][], você pode criar uma máquina virtual que execute o Windows Server 2008 R2 da galeria de imagens. Em seguida, você pode instalar e configurar um banco de dados MySQL na máquina virtual.
+[MySQL][MySQL] é um banco de dados SQL fonte aberto popular. Usando o [Portal de Gerenciamento Azure][Portal de Gerenciamento Azure], você pode criar uma máquina virtual que execute o Windows Server 2008 R2 da galeria de imagens. Em seguida, você pode instalar e configurar um banco de dados MySQL na máquina virtual.
 
 Neste tutorial, você aprenderá a:
 
@@ -14,11 +14,11 @@ Neste tutorial, você aprenderá a:
 
 ## Criar uma máquina virtual que executa Windows Server 2008 R2
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][]]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
 
 ## Anexar um disco de dados
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][]]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
 ## Instalar e executar MySQL Community Server na máquina virtual
 
@@ -26,9 +26,9 @@ Execute o seguinte comando para instalar, configurar e executar o MySQL Communit
 
 1.  Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, abra o **Internet Explorer** a partir do menu **Iniciar**.
 
-2.  Selecione o botão **Ferramentas** no canto superior direito. Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione *<http://>\*.mysql.com* à lista de sites confiáveis.
+2.  Selecione o botão **Ferramentas** no canto superior direito. Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione *http://\*.mysql.com* à lista de sites confiáveis.
 
-3.  Vá para [Download MySQL Community Server][].
+3.  Vá para [Download MySQL Community Server][Download MySQL Community Server].
 
 4.  Selecione **Microsoft Windows** no **plataforma** lista suspensa menu e clique **selecione**.
 
@@ -40,7 +40,7 @@ Execute o seguinte comando para instalar, configurar e executar o MySQL Communit
 
 8.  Clique em **Próximo**.
 
-    ![O programa de instalação do MySQL][]
+    ![O programa de instalação do MySQL][O programa de instalação do MySQL]
 
 9.  Aceite os termos de licença e clique em **Avançar**.
 
@@ -56,7 +56,7 @@ Execute o seguinte comando para instalar, configurar e executar o MySQL Communit
 
 12. Inicie o Assistente de configuração do MySQL e clique em **próximo**.
 
-    ![Configurar MySQL][]
+    ![Configurar MySQL][Configurar MySQL]
 
 13. Selecione **configuração detalhada** e clique em Avançar.
 
@@ -131,7 +131,7 @@ Execute o seguinte comando para instalar, configurar e executar o MySQL Communit
 
 30. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento Azure]. No Portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique no nome da sua nova máquina virtual e clique em **Pontos de extremidade**, e em seguida em **Adicionar Pontos de extremidade**.
 
-    ![Pontos de extremidade][]
+    ![Pontos de extremidade][Pontos de extremidade]
 
 31. Selecione **Adicionar ponto final** e clique na seta para continuar.
 
@@ -151,12 +151,10 @@ Execute o seguinte comando para instalar, configurar e executar o MySQL Communit
 
 ## Resumo
 
-Neste tutorial, você aprendeu como criar uma máquina virtual de Windows 2008 R2 e conectar-se remotamente a ele. Você também aprendeu como instalar e configurar o MySQL na máquina virtual, criar um banco de dados e um novo usuário do MySQL. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][].
+Neste tutorial, você aprendeu como criar uma máquina virtual de Windows 2008 R2 e conectar-se remotamente a ele. Você também aprendeu como instalar e configurar o MySQL na máquina virtual, criar um banco de dados e um novo usuário do MySQL. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][Documentação do MySQL].
 
   [MySQL]: http://www.mysql.com
   [Portal de Gerenciamento Azure]: http://manage.windowsazure.com
-  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
-  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
   [Download MySQL Community Server]: http://www.mysql.com/downloads/mysql/
   [O programa de instalação do MySQL]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
   [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png

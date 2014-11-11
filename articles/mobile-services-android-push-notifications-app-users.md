@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-push-notifications-to-users-android" urlDisplayName="" pageTitle="Push notifications to users (Android ) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Enviar notificações por push aos usuários usando os Serviços Móveis
 
@@ -25,7 +25,7 @@ Esse tutorial se baseia no início rápido dos Serviços Móveis e se baseia no 
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Dados** e **Criar**.
 
@@ -240,16 +240,13 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [tutorial anterior de notificação por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
   [Criar a tabela Registration]: #create-table
   [Atualizar seu aplicativo]: #update-app
   [Atualizar scripts de servidor]: #update-scripts
   [Verificar o comportamento de notificação por push]: #test-app
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-table.png
   [3]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-class.png

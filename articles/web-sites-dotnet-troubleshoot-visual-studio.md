@@ -1,6 +1,6 @@
 <properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Troubleshooting Azure Websites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Solucionando problemas de Sites do Azure no Visual Studio.
 
@@ -746,8 +746,6 @@ Se você quiser depurar um serviço de nuvem do Azure, em vez de um site, consul
   [5]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png
   [Arquivo baixado]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png
   [6]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png
-  [Analisador de log (a página pode estar em inglês)]: http://www.microsoft.com/pt-br/download/details.aspx?displaylang=en&id=24659
-  [Opções de armazenamento de dados (Compilando aplicativos de nuvem do mundo real com o Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
   [Criar uma conta de armazenamento]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png
   [Digitar uma URL]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png
   [7]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png
@@ -757,7 +755,6 @@ Se você quiser depurar um serviço de nuvem do Azure, em vez de um site, consul
   [Logs de armazenamento]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png
   [Tabela de rastreamento no Gerenciador de Servidores]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png
   [Logs de armazenamento na exibição de tabela]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png
-  [Procurando recursos de armazenamento com o Gerenciador de Servidores (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff683677.aspx
   [8]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png
   [Habilitar o rastreamento de solicitações com falha]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png
   [Redefinir o link de credenciais FTP no Painel]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png
@@ -781,18 +778,14 @@ Se você quiser depurar um serviço de nuvem do Azure, em vez de um site, consul
   [Introdução à depuração remota em Sites do Azure parte 2 - Por dentro da depuração remota]: /blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/
   [Introdução à depuração remota em Sites do Azure parte 3 - Ambiente de várias instâncias e GIT]: /blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/
   [Depurando Back-end do .NET no Visual Studio]: http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx
-  [Monitoramento e telemetria (Compilando aplicativos de nuvem do mundo real com o Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
   [Rastreamento do ASP.NET]: http://msdn.microsoft.com/pt-br/library/ms972204.aspx
   [Ouvintes de rastreamento]: http://msdn.microsoft.com/pt-br/library/4y5y10s7.aspx
   [WebPageTraceListener]: http://msdn.microsoft.com/pt-br/library/system.web.webpagetracelistener.aspx
   [Passo a passo: Integrando o rastreamento do ASP.NET ao Rastreamento do System.Diagnostics]: http://msdn.microsoft.com/pt-br/library/b0ectfxd.aspx
   [Rastreamento em exibições do Razor no ASP.NET MVC]: http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx
   [Concluir exemplo para manipuladores de erro]: http://msdn.microsoft.com/pt-br/library/bb397417.aspx
-  [Log de rastreamento do diagnóstico de streaming na linha de comando do Azure (mais Glimpse!) (a página pode estar em inglês)]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
-  [Glimpse (a página pode estar em inglês)]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
   [Usando o registro em log de site do Azure e diagnóstico com David Ebbo]: http://www.windowsazure.com/pt-br/documentation/videos/azure-web-site-logging-and-diagnostics/
   [Logs de streaming de sites do Azure com David Ebbo]: http://www.windowsazure.com/pt-br/documentation/videos/log-streaming-with-azure-web-sites/
-  [ELMAH (a página pode estar em inglês)]: http://nuget.org/packages/elmah/
   [postagens no blog de Scott Hanselman sobre o ELMAH]: http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx
   [LogParser]: http://www.microsoft.com/pt-br/download/details.aspx?id=24659
   [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser]: http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser

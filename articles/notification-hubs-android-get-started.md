@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Introdução aos Hubs de Notificação
 
@@ -30,7 +30,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ## <span id="register"></span></a>Habilitar o sistema de mensagens em nuvem do Google
 
-[WACOM.INCLUDE [Habilitar GCM][Habilitar GCM]]
+[WACOM.INCLUDE [Habilitar GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Em seguida, você usará este valor de chave da API para ativar seu hub de notificação, fazer a autenticação com o GCM e enviar notificações por push em nome de seu aplicativo.
 
@@ -40,7 +40,7 @@ Em seguida, você usará este valor de chave da API para ativar seu hub de notif
 
 2.  Clique em **Serviços de Aplicativo**, em **Service Bus**, em **Hub de Notificação** e, em seguida, **Criação Rápida**.
 
-    ![][]
+    ![][0]
 
 3.  Digite um nome para o hub de notificação, selecione a região desejada e clique em **Criar um novo Hub de Notificação**.
 
@@ -76,7 +76,7 @@ Seu hub de notificação agora está configurado para funcionar com o GCM e voc�
 
 ### Inclua o Google Play Services no projeto
 
-[WACOM.INCLUDE [Incluir Serviços de Reprodução][Incluir Serviços de Reprodução]]
+[WACOM.INCLUDE [Incluir Serviços de Reprodução](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incluir código
 
@@ -289,13 +289,6 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 
 <!-- Images. --> <!-- URLs. -->
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /pt-br/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
   [Configurar seu Hub de Notificação]: #configure-hub
   [Conectando seu aplicativo ao Hub de Notificação]: #connecting-app
@@ -303,10 +296,9 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
   [Testando seu aplicativo]: #run-app
   [aqui]: http://go.microsoft.com/fwlink/?LinkId=389797
   [SDK de Serviços Móveis do Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
   [2]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
   [3]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png

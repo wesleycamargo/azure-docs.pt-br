@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Gerenciar clusters Hadoop no HDInsight Usando a interface de linha de comando da plataforma cruzada
 
@@ -8,23 +8,23 @@ Neste artigo, você aprenderá como usar a interface de linha de comando da plat
 
 A ferramenta de linha de comando é software livre. O código fonte é gerenciado no GitHub em <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
-Este artigo aborda apenas o uso da interface de linha de comando do Windows. Para obter um guia geral de como usar a interface de linha de comando, consulte [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][]. Para obter documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][].
+Este artigo aborda apenas o uso da interface de linha de comando do Windows. Para obter um guia geral de como usar a interface de linha de comando, consulte [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]. Para obter documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][Ferramenta de Linha de Comando do Azure para Mac e Linux].
 
 **Pré-requisitos:**
 
 Antes de começar este artigo, você deve ter o seguinte:
 
--   **Assinatura do Azure**. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra][], [Ofertas para membros][] ou [Avaliação gratuita][].
+-   **Assinatura do Azure**. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra][Opções de compra], [Ofertas para membros][Ofertas para membros] ou [Avaliação gratuita][Avaliação gratuita].
 
 ## Neste artigo
 
--   [Instalação][]
--   [Baixar e importar as publishsettings da conta do Azure][]
--   [Provisionar um cluster][]
--   [Provisionar um cluster usando um arquivo de configuração][]
--   [Listar e mostrar clusters][]
--   [Excluir um cluster][]
--   [Próximas etapas][]
+-   [Instalação][Instalação]
+-   [Baixar e importar as publishsettings da conta do Azure][Baixar e importar as publishsettings da conta do Azure]
+-   [Provisionar um cluster][Provisionar um cluster]
+-   [Provisionar um cluster usando um arquivo de configuração][Provisionar um cluster usando um arquivo de configuração]
+-   [Listar e mostrar clusters][Listar e mostrar clusters]
+-   [Excluir um cluster][Excluir um cluster]
+-   [Próximas etapas][Próximas etapas]
 
 ## <span id="installation"></span></a> Instalação
 
@@ -54,7 +54,7 @@ A interface de linha de comando pode ser instalada usando o *NPM (Gerenciador de
 
 **Para instalar a interface de linha de comando usando o Windows Installer**
 
-1.  Navegue até **<http://azure.microsoft.com/en-us/downloads/>**.
+1.  Navegue até **<http://azure.microsoft.com/pt-br/downloads/>**.
 2.  Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando entre Plataformas** e siga o assistente do Web Platform Installer.
 
 ## <span id="importsettings"></span></a> Baixar e importar as publishsettings da conta do Azure
@@ -70,7 +70,7 @@ Antes de usar a interface de linha de comando, você deve configurar a conectivi
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     O comando mostra as instruções para baixar o arquivo, incluindo uma URL.
 
@@ -98,7 +98,7 @@ Depois de importar o arquivo publishsettings, você pode usar o seguinte comando
 > -   Leste dos EUA
 > -   Oeste dos EUA
 
-Para obter informações sobre como criar uma conta de Armazenamento do Azure usando o Portal de Gerenciamento do Azure, consulte [Como criar uma conta de armazenamento][].
+Para obter informações sobre como criar uma conta de Armazenamento do Azure usando o Portal de Gerenciamento do Azure, consulte [Como criar uma conta de armazenamento][Como criar uma conta de armazenamento].
 
 Se já tiver uma conta de armazenamento, mas não souber o nome e a chave da conta, você poderá usar os seguintes comandos para recuperar as informações:
 
@@ -109,7 +109,7 @@ Se já tiver uma conta de armazenamento, mas não souber o nome e a chave da con
     -- Lists the keys for a storage account
     azure account storage keys list <StorageAccountName>
 
-Para obter detalhes de como obter informações usando o portal de gerenciamento, consulte *Como: Exibir, copiar e regenerar chaves de acesso de armazenamento* em [Como gerenciar contas de armazenamento][].
+Para obter detalhes de como obter informações usando o portal de gerenciamento, consulte *Como: Exibir, copiar e regenerar chaves de acesso de armazenamento* em [Como gerenciar contas de armazenamento][Como gerenciar contas de armazenamento].
 
 O comando *azure hdinsight cluster create* cria o contêiner caso ela não exista. Se você optar por criar o contêiner com antecedência, poderá usar o seguinte comando:
 
@@ -120,7 +120,7 @@ Depois de preparar a conta de armazenamento e o contêiner de blob, você estar�
 
     azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-![HDI.CLIClusterCreation][]
+![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 ## <span id="provisionconfigfile"></span></a> Provisionar um cluster HDInsight usando um arquivo de configuração
 
@@ -142,7 +142,7 @@ Normalmente, você provisiona um cluster HDInsight, executa trabalhos nele e, em
     azure hdinsight cluster create --config <file>
          
 
-![HDI.CLIClusterCreationConfig][]
+![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 ## <span id="listshow"></span></a> Listar e mostrar detalhes do cluster
 
@@ -151,7 +151,7 @@ Use os seguintes comandos para listar e mostrar os detalhes do cluster:
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 
-![HDI.CLIListCluster][]
+![HDI.CLIListCluster][HDI.CLIListCluster]
 
 ## <span id="delete"></span></a> Excluir um cluster
 
@@ -163,17 +163,17 @@ Use o seguinte comando para excluir um cluster:
 
 Neste artigo, você aprendeu a executar diferentes tarefas administrativas de cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
--   [Administrar o HDInsight usando o Portal de Gerenciamento][]
--   [Administrar o HDInsight usando o PowerShell][]
--   [Introdução ao Azure HDInsight][]
--   [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][]
+-   [Administrar o HDInsight usando o Portal de Gerenciamento][Administrar o HDInsight usando o Portal de Gerenciamento]
+-   [Administrar o HDInsight usando o PowerShell][Administrar o HDInsight usando o PowerShell]
+-   [Introdução ao Azure HDInsight][Introdução ao Azure HDInsight]
+-   [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]
 -   [Ferramenta de linha de comando do Azure para Mac e Linux][Ferramenta de Linha de Comando do Azure para Mac e Linux]
 
   [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: ../xplat-cli/
   [Ferramenta de Linha de Comando do Azure para Mac e Linux]: ../command-line-tools/
-  [Opções de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para membros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Avaliação gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opções de compra]: http://azure.microsoft.com/pt-br/pricing/purchase-options/
+  [Ofertas para membros]: http://azure.microsoft.com/pt-br/pricing/member-offers/
+  [Avaliação gratuita]: http://azure.microsoft.com/pt-br/pricing/free-trial/
   [Instalação]: #installation
   [Baixar e importar as publishsettings da conta do Azure]: #importsettings
   [Provisionar um cluster]: #provision

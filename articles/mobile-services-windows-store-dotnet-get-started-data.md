@@ -1,10 +1,10 @@
 <properties linkid="mobile-services-windows-store-dotnet-get-started-data" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][mobile-services-selector-get-started-data-legacy]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-center-tutorial-subselector">
     <a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Back-end do .NET">Back-end do .NET</a> | 
@@ -42,7 +42,7 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo
 
 4.  No aplicativo, digite um texto em **Inserir um TodoItem** e, em seguida, clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
     Observe que o texto salvo é exibido na segunda coluna em **Consultar e atualizar dados**.
 
@@ -63,13 +63,13 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo
 
 ## <a name="add-table"></a>Adicionar uma nova tabela para armazenamento de dados
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013][mobile-services-create-new-table-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 > [WACOM.NOTE]Novas tabelas são criadas com colunas Id, \_\_createdAt, \_\_updatedAt e \_\_version. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico][Esquema dinâmico].
 
 # <a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app][mobile-services-windows-dotnet-update-data-app]]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
 ## <a name="test-app"></a>Testar o aplicativo com seu novo serviço móvel
 
@@ -133,8 +133,6 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Back-end do JavaScript"
   [versão do aplicativo universal do Windows]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Baixar o projeto de aplicativo da Windows Store]: #download-app
   [Criar o serviço móvel no Visual Studio]: #create-service
@@ -143,9 +141,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [Testar o aplicativo com os Serviços Móveis]: #test-app
   [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F
   [aplicativo GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
-  [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [Esquema dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj193175.aspx
   [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md

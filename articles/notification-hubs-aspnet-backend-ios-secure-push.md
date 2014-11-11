@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Push Seguro dos Hubs de Notificação do Azure
 
@@ -31,7 +31,7 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 
 > [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)][Introdução aos Hubs de Notificação (iOS)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][notification-hubs-aspnet-backend-securepush]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificar o projeto iOS
 
@@ -98,7 +98,7 @@ Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back
 
 4.  Então, clique na guia **Recursos** na parte superior do painel central e marque a caixa de seleção **Notificações Remotas**.
 
-    ![][]
+    ![][0]
 
 5.  Em **AppDelegate.m**, adicione o método a seguir para manipular notificações por push:
 
@@ -137,9 +137,5 @@ Para executar o aplicativo, faça o seguinte:
 
 4.  Na interface do usuário do aplicativo iOS, clique em **Logon**. Em seguida, clique em **Enviar push**. Você deve ver a notificação segura sendo exibida no centro de notificações.
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [Introdução aos Hubs de Notificação (iOS)]: http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
-  []: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+  [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

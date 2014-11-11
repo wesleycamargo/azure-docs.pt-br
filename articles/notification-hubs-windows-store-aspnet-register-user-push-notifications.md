@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" description="Learn how to request push notification registration in a Windows Store app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Registrar o usuário atual para notificações por push usando o ASP.NET
 
@@ -20,7 +20,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 4.  No painel esquerdo, selecione a categoria **Online**, pesquise `json.net`, clique em **Instalar** no pacote **Json.NET** e aceite o contrato de licença.
 
-    ![][]
+    ![][0]
 
     Isso adiciona o assembly Newtonsoft.Json.dll de terceiros ao seu projeto.
 
@@ -171,10 +171,8 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação][Notificar usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /pt-br/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows Store C#"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
+
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-  []: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png
+  [0]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png
   [1]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-create-aspnet-class.png

@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Como usar a biblioteca de cliente Componente Xamarim para os Serviços Móveis do Azure
 
@@ -32,7 +32,7 @@ Este guia mostra como executar cenários comuns usando um cliente Componente Xam
 -   [Como: Projetar testes da unidade][Como: Projetar testes da unidade]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">Configuração</span>Configuração e pré-requisitos
 
@@ -436,10 +436,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /pt-br/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
   [Xamarin]: /pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-xamarin-ios/
   [Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-xamarin-android/

@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with authentication (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # Introdução à autenticação dos Serviços Móveis
 
@@ -30,11 +30,11 @@ Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1
 
 ## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 ## <a name="permissions"></a>Restringir as permissões aos usuários autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  No Appcelerator Titanium Studio, abra o projeto que você criou ao concluir o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
@@ -100,15 +100,6 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-users "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-android-get-started-users "Android"
-  [HTML]: /pt-br/documentation/articles/mobile-services-html-get-started-users "HTML"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android"
-  [Appcelerator]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users "Appcelerator"
   [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
   [Restringir permissões de tabela para usuários autenticados]: #permissions
   [Adicionar autenticação ao aplicativo]: #add-authentication

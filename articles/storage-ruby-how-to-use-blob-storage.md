@@ -1,39 +1,39 @@
 <properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Como usar o serviço Blob do Ruby
 
 Este guia mostra como executar cenários comuns usando o
 serviço Blob do Azure. Os exemplos são escritos usando a API do Ruby.
 Os cenários cobertos incluem **carregamento, listagem, download** e **exclusão de** blobs.
-Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
+Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o serviço Blob?][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo Ruby][]
--   [Configurar seu aplicativo para acessar o armazenamento][]
--   [Configurar uma conexão de armazenamento do Azure][]
--   [Como: Criar um contêiner][]
--   [Como: Carregar um blob em um contêiner][]
--   [Como: Listagem dos blobs em um contêiner][]
--   [Como: Baixar blobs][]
--   [Como: Excluir um blob][]
+-   [O que é o serviço Blob?][O que é o serviço Blob?]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo Ruby][Criar um aplicativo Ruby]
+-   [Configurar seu aplicativo para acessar o armazenamento][Configurar seu aplicativo para acessar o armazenamento]
+-   [Configurar uma conexão de armazenamento do Azure][Configurar uma conexão de armazenamento do Azure]
+-   [Como: Criar um contêiner][Como: Criar um contêiner]
+-   [Como: Carregar um blob em um contêiner][Como: Carregar um blob em um contêiner]
+-   [Como: Listagem dos blobs em um contêiner][Como: Listagem dos blobs em um contêiner]
+-   [Como: Baixar blobs][Como: Baixar blobs]
+-   [Como: Excluir um blob][Como: Excluir um blob]
 -   [Próximas etapas][1]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="CreateRubyApp"></span></a>Criar um aplicativo Ruby
 
 Crie um aplicativo Ruby. Para obter instruções,
-consulte [Criar um aplicativo Ruby no Azure][].
+consulte [Criar um aplicativo Ruby no Azure][Criar um aplicativo Ruby no Azure].
 
 ## <span id="ConfigAccessStorage"></span></a>Configurar seu aplicativo para acessar o armazenamento
 
@@ -61,7 +61,7 @@ para obter as informações necessárias para se conectar à sua conta de armaze
 
 Para obter esses valores:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Navegue até a conta de armazenamento que você deseja usar
 3.  Clique em **GERENCIAR CHAVES** na parte inferior do painel de navegação.
 4.  Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
@@ -143,12 +143,11 @@ Finalmente, para excluir um blob, use o método **delete\_blob()**. O exemplo a 
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
--   Visite o [Blog da Equipe de Armazenamento do Azure][]
--   Visite o repositório [SDK do Azure para Ruby][] no GitHub
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
+-   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
+-   Visite o repositório [SDK do Azure para Ruby][SDK do Azure para Ruby] no GitHub
 
   [Próximas etapas]: #next-steps
-  [O que é o serviço Blob?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #CreateAccount
   [Criar um aplicativo Ruby]: #CreateRubyApp
@@ -162,8 +161,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
   [1]: #NextSteps
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Criar um aplicativo Ruby no Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Criar um aplicativo Ruby no Azure]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK do Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

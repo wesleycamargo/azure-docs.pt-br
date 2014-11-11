@@ -1,6 +1,6 @@
 <properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como executar um servidor de aplicativos Java em uma máquina virtual
 
@@ -16,13 +16,13 @@ Você aprenderá a:
 
 Para os objetivos deste tutorial, um servidor de aplicativos Apache Tomcat será instalado em uma máquina virtual. A instalação concluída irá resultar em uma instalação do Tomcat, como a seguinte.
 
-![Máquina virtual executando o Apache Tomcat][]
+![Máquina virtual executando o Apache Tomcat][Máquina virtual executando o Apache Tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para criar uma máquina virtual
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3.  Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012** .
     Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
@@ -100,11 +100,11 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 4.  Clique em **Sistema e Segurança**, clique em **Firewall do Windows** e, em seguida, clique em **Configurações Avançadas**.
 5.  Clique em **Regras de Entrada** e, em seguida, clique em **Nova Regra**.
 
-![Nova regra de entrada][]
+![Nova regra de entrada][Nova regra de entrada]
 
 1.  Para a nova regra, selecione **Porta** para o **Tipo de Regra** e, em seguida, clique em **Avançar**.
 
-![Nova porta de regra de entrada][]
+![Nova porta de regra de entrada][Nova porta de regra de entrada]
 
 1.  Selecione **TCP** para o protocolo e especifique **8080** para a porta e clique em **Avançar**.
 
@@ -112,24 +112,24 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 
 1.  Escolha **Permitir a conexão** e, em seguida, clique em **Avançar**.
 
-![Nova ação de regra de entrada][]
+![Nova ação de regra de entrada][Nova ação de regra de entrada]
 
 1.  Verifique se **Domínio**, **Particular** e **Público** estão selecionados para o perfil e clique em **Avançar**.
 
-![Novo perfil de regra de entrada][]
+![Novo perfil de regra de entrada][Novo perfil de regra de entrada]
 
 1.  Especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.
 
-![Nome da nova regra de entrada][]
+![Nome da nova regra de entrada][Nome da nova regra de entrada]
 
-Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando uma URL no formato **[http://\*your\\\_DNS\\\_name][]*.cloudapp.net**, em que*** your\_DNS\_name**\* é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando uma URL no formato **http://_your\_DNS\_name_.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
 
 -   Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
 -   Por padrão, quando o serviço Tomcat é instalado, ele será definido para iniciar manualmente. Você pode mudá-lo para iniciar automaticamente, usando o snap-in Serviços. Inicie o snap-in Serviços clicando em **Iniciar do Windows**, **Ferramentas Administrativas** e em **Serviços**. Para definir o Tomcat para iniciar automaticamente, clique duas vezes no serviço **Apache Tomcat** no snap-in Serviços e defina **Tipo de Inicialização** como **Automática**, conforme mostrado a seguir.
 
-    ![Configurando um serviço para iniciar automaticamente][]
+    ![Configurando um serviço para iniciar automaticamente][Configurando um serviço para iniciar automaticamente]
 
     O benefício de fazer o Tomcat ser iniciado automaticamente é que ele será iniciado novamente se a máquina virtual for reinicializada (por exemplo, depois que atualizações de software que exijam uma reinicialização forem instaladas).
 
@@ -146,5 +146,4 @@ Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando u
   [Nova ação de regra de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
   [Novo perfil de regra de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
   [Nome da nova regra de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-  [http://\*your\\\_DNS\\\_name]: http://*your\_DNS\_name
   [Configurando um serviço para iniciar automaticamente]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png

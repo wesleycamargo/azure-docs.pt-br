@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Como usar as filas do Service Bus
 
@@ -25,7 +25,7 @@ etapas].
 -   [Próximas etapas][Próximas
     etapas]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-app"> </a>Criar um aplicativo do Node.js
 
@@ -250,9 +250,6 @@ links para saber mais.
 -   Consulte a referência de MSDN: [Filas, tópicos e assinaturas.][Filas, tópicos e assinaturas.]
 -   Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
 
-  [Próximas
-  etapas]: #next-steps
-  [O que são as filas do Service Bus?]: #what-are-service-bus-queues
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Criar um aplicativo Node.js]: #create-app

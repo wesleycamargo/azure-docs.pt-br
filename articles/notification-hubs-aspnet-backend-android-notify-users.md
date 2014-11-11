@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="elioda" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Notificação de Usuários nos Hubs de Notificação do Azure
 
@@ -13,7 +13,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 
 > [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Android)][Introdução aos Hubs de Notificação (Android)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Criar o Projeto Android
 
@@ -70,7 +70,7 @@ A próxima etapa é criar o aplicativo Android.
 
     O layout gráfico do main\_activity.xml deve ter esta aparência:
 
-    ![][]
+    ![][0]
 
 4.  Agora, crie uma classe **RegisterClient** no mesmo pacote que a classe **MainActivity**. Certifique-se de ter substituído `{backend endpoint}` pelo ponto de extremidade de back-end obtido na seção anterior.
 
@@ -276,10 +276,6 @@ Para executar o aplicativo, faça o seguinte:
 
 4.  Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Registrando-se a partir do back-end do aplicativo]: http://msdn.microsoft.com/pt-br/library/dn743807.aspx
-  [Introdução aos Hubs de Notificação (Android)]: /pt-br/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
+  [0]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG

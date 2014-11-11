@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Como usar o Armazenamento de Blob no .NET
 
@@ -8,33 +8,33 @@ Este guia demonstra como executar cenários comuns usando o
 Serviço de armazenamento de blobs do Azure. Os exemplos são escritos em C# e
 usam a biblioteca do cliente de armazenamento do Azure para .NET. Os cenários cobertos incluem
 **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para
-obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
+obter mais informações sobre blobs, consulte a seção [Próximas etapas][Próximas etapas].
 
-> [WACOM.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet][] ou como parte do [SDK do Azure para .NET][]. Consulte [Como: Acessar programaticamente o armazenamento de blobs][] abaixo para mais detalhes sobre como obter a biblioteca do cliente de armazenamento.
+> [WACOM.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet][NuGet] ou como parte do [SDK do Azure para .NET][SDK do Azure para .NET]. Consulte [Como: Acessar programaticamente o armazenamento de blobs][Como: Acessar programaticamente o armazenamento de blobs] abaixo para mais detalhes sobre como obter a biblioteca do cliente de armazenamento.
 
 ## Sumário
 
--   [O que é Blob Storage][]
--   [Conceitos][]
--   [Criar uma conta de Armazenamento do Azure][]
--   [Configurar uma cadeia de conexão de armazenamento][]
--   [Como: Acessar programaticamente o armazenamento de blobs][]
--   [Como: Criar um contêiner][]
--   [Como: Carregar um blob em um contêiner][]
--   [Como: Listar os blobs em um contêiner][]
--   [Como: Baixar blobs][]
--   [Como: Excluir blobs][]
--   [Próximas etapas][]
+-   [O que é Blob Storage][O que é Blob Storage]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de Armazenamento do Azure][Criar uma conta de Armazenamento do Azure]
+-   [Configurar uma cadeia de conexão de armazenamento][Configurar uma cadeia de conexão de armazenamento]
+-   [Como: Acessar programaticamente o armazenamento de blobs][Como: Acessar programaticamente o armazenamento de blobs]
+-   [Como: Criar um contêiner][Como: Criar um contêiner]
+-   [Como: Carregar um blob em um contêiner][Como: Carregar um blob em um contêiner]
+-   [Como: Listar os blobs em um contêiner][Como: Listar os blobs em um contêiner]
+-   [Como: Baixar blobs][Como: Baixar blobs]
+-   [Como: Excluir blobs][Como: Excluir blobs]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a><span class="short-header">Criar uma conta</span>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configurar uma cadeia de conexão</span>Configurar uma cadeia de conexão de armazenamento
 
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Acessar programaticamente</span>Como: Acessar programaticamente o armazenamento de blobs
 
@@ -42,7 +42,7 @@ obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
 
 Você pode usar NuGet para obter o assembly `Microsoft.WindowsAzure.Storage.dll`. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
-`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na [Central de desenvolvedores do .NET][]. O assembly está instalado no diretório `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
+`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na [Central de desenvolvedores do .NET][Central de desenvolvedores do .NET]. O assembly está instalado no diretório `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Declarações de namespace
 
@@ -84,7 +84,7 @@ que recuperamos acima:
 
 ### Dependências do ODataLib
 
-As dependências do ODataLib na Biblioteca de Cliente de Armazenamento para .NET são resolvidas por meio de pacotes do ODataLib (versão 5.0.2) disponíveis por meio do NuGet e não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos são [OData][], [Edm][] e [Spatial][].
+As dependências do ODataLib na Biblioteca de Cliente de Armazenamento para .NET são resolvidas por meio de pacotes do ODataLib (versão 5.0.2) disponíveis por meio do NuGet e não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos são [OData][OData], [Edm][Edm] e [Spatial][Spatial].
 
 ## <a name="create-container"> </a><span class="short-header">Criar um contêiner</span>Como: Criar um contêiner
 
@@ -235,7 +235,7 @@ e estes seriam os resultados:
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][].
+Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a>Baixar blobs<span class="short-header"></span>Como: Baixar blobs
 
@@ -311,20 +311,20 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 para saber como executar tarefas de armazenamento mais complexas.
 
 -   Consulte a documentação de referência do serviço Blob para obter detalhes completos sobre as APIs disponíveis:
-    -   [Referência à Biblioteca de Cliente de Armazenamento para .NET][]
-    -   [Referência da API REST][]
--   Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure][].
--   Aprenda a trabalhar com o Armazenamento do Azure em processos de back-end para sites do Azure em [Introdução ao SDK de WebJobs do Azure][].
+    -   [Referência à Biblioteca de Cliente de Armazenamento para .NET][Referência à Biblioteca de Cliente de Armazenamento para .NET]
+    -   [Referência da API REST][Referência da API REST]
+-   Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure].
+-   Aprenda a trabalhar com o Armazenamento do Azure em processos de back-end para sites do Azure em [Introdução ao SDK de WebJobs do Azure][Introdução ao SDK de WebJobs do Azure].
 -   Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-    -   Usar o [Armazenamento de Tabela][] para armazenar dados estruturados.
-    -   Usar o [Armazenamento de blobs][] para armazenar dados não estruturados.
-    -   Usar o [Banco de Dados SQL][] para armazenar dados relacionais.
+    -   Usar o [Armazenamento de Tabela][Armazenamento de Tabela] para armazenar dados estruturados.
+    -   Usar o [Armazenamento de blobs][Armazenamento de blobs] para armazenar dados não estruturados.
+    -   Usar o [Banco de Dados SQL][Banco de Dados SQL] para armazenar dados relacionais.
 
 </p>
 
   [Próximas etapas]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [SDK do Azure para .NET]: /en-us/downloads/
+  [SDK do Azure para .NET]: /pt-br/downloads/
   [Como: Acessar programaticamente o armazenamento de blobs]: #configure-access
   [O que é Blob Storage]: #what-is
   [Conceitos]: #concepts
@@ -338,13 +338,13 @@ para saber como executar tarefas de armazenamento mais complexas.
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Central de desenvolvedores do .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Central de desenvolvedores do .NET]: http://www.windowsazure.com/pt-br/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [Referência à Biblioteca de Cliente de Armazenamento para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referência da API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Referência da API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179355
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Introdução ao SDK de WebJobs do Azure]: /pt-br/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Armazenamento de Tabela]: /pt-br/documentation/articles/storage-dotnet-how-to-use-tables/
   [Armazenamento de blobs]: /pt-br/documentation/articles/storage-dotnet-how-to-use-queues/

@@ -1,40 +1,40 @@
 <properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Como usar o Armazenamento de Blob no Java
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Blob do Microsoft Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][]. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Blob do Microsoft Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java]. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][Próximas etapas].
 
-Observação: Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][].
+Observação: Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][SDK de Armazenamento do Azure para Android].
 
 ## <a name="Contents"> </a> Sumário
 
--   [O que é Blob Storage][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo do Java][]
--   [Configurar seu aplicativo para acessar o Armazenamento de blobs][]
--   [Configurar uma cadeia de conexão de armazenamento do Azure][]
--   [Como: Criar um contêiner][]
--   [Como: Carregar um blob em um contêiner][]
--   [Como: Listar os blobs em um contêiner][]
--   [Como: Baixar um blob][]
--   [Como: Excluir um blob][]
--   [Como: Excluir um contêiner de blob][]
--   [Próximas etapas][]
+-   [O que é Blob Storage][O que é Blob Storage]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo do Java][Criar um aplicativo do Java]
+-   [Configurar seu aplicativo para acessar o Armazenamento de blobs][Configurar seu aplicativo para acessar o Armazenamento de blobs]
+-   [Configurar uma cadeia de conexão de armazenamento do Azure][Configurar uma cadeia de conexão de armazenamento do Azure]
+-   [Como: Criar um contêiner][Como: Criar um contêiner]
+-   [Como: Carregar um blob em um contêiner][Como: Carregar um blob em um contêiner]
+-   [Como: Listar os blobs em um contêiner][Como: Listar os blobs em um contêiner]
+-   [Como: Baixar um blob][Como: Baixar um blob]
+-   [Como: Excluir um blob][Como: Excluir um blob]
+-   [Como: Excluir um contêiner de blob][Como: Excluir um contêiner de blob]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Criar um aplicativo Java
 
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
-Para isso, você vai precisar instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+Para isso, você vai precisar instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
 ## <a name="ConfigureStorage"> </a>Configurar seu aplicativo para acessar o Armazenamento de Blob
 
@@ -65,7 +65,7 @@ Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter
 
 ## <a name="CreateContainer"> </a>Como: Criar um contêiner
 
-Um objeto CloudBlobClient permite que você obtenha os objetos de referência para os contêineres e blobs. O código a seguir cria um objeto **CloudBlobClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure][])
+Um objeto CloudBlobClient permite que você obtenha os objetos de referência para os contêineres e blobs. O código a seguir cria um objeto **CloudBlobClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure])
 
 Todos os blobs residem em um contêiner. Use o objeto **CloudBlobClient** para obter uma referência ao contêiner que deseja usar. Se o contêiner não existir, será possível criá-lo com o método **createIfNotExists**; caso contrário, ele retornará o contêiner existente. Por padrão, o novo contêiner é particular; portanto, você deve especificar suachave de acesso de armazenamento (como anteriormente) para baixar blobs dessecontêiner.
 
@@ -165,7 +165,7 @@ Por exemplo, você pode ter um contêiner denominado “photos”, no qual poder
 Como alternativa, você pode transmitir parâmetros para o método **listBlobs** com o
 parâmetro **useFlatBlobListing** definido como true. Isso resultará no retorno
 de cada blob, independentemente do diretório. Para obter mais
-informações, consulte **CloudBlobContainer.listBlobs** na [Referência de SDK do cliente de armazenamento do Azure][].
+informações, consulte **CloudBlobContainer.listBlobs** na [Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure].
 
 ## <a name="DownloadBlob"> </a>Como: Baixar um blob
 
@@ -254,10 +254,10 @@ chame **deleteIfExists**.
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber como executar tarefas de armazenamento mais complexas.
 
--   [SDK de Armazenamento do Azure para Java][]
+-   [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java]
 -   [Referência de SDK do Cliente de Armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure]
--   [API REST de Armazenamento do Azure][]
--   [Blog da equipe do Armazenamento do Azure][]
+-   [API REST de Armazenamento do Azure][API REST de Armazenamento do Azure]
+-   [Blog da equipe do Armazenamento do Azure][Blog da equipe do Armazenamento do Azure]
 
   [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
   [Próximas etapas]: #NextSteps
@@ -277,5 +277,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/azure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/

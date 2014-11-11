@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-js" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure Javascript SSO" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autenticar seu aplicativo da Windows Store com o logon único do Live Connect
 
@@ -31,11 +31,11 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 Para poder autenticar usuários, você deve enviar seu aplicativo para a Windows Store. Você deve registrar o segredo do cliente para integrar o Live Connect com os Serviços Móveis.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 ## <a name="permissions"></a>Restringir as permissões aos usuários autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  No Visual Studio 2012 Express para Windows 8, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis][1].
 
@@ -51,7 +51,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 2.  No menu **Projeto** do Visual Studio, clique em **Adicionar Referência**, em seguida, expanda **Windows**, clique em **Extensões**, selecione **Live SDK**e, em seguida, clique em **OK**.
 
-    ![][]
+    ![][0]
 
     Isso adiciona uma referência ao Live SDK ao projeto.
 
@@ -143,9 +143,6 @@ No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "C# da Windows Store#"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/single-sign-on-wp8 "Windows Phone"
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
   [Registrar seu aplicativo para a autenticação e configure os Serviços Móveis]: #register
   [Restringir permissões de tabela para usuários autenticados]: #permissions
@@ -155,7 +152,7 @@ No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com 
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /pt-br/documentation/articles/mobile-services-windows-store-get-started
-  []: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
+  [0]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
   [2]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users/#tokens
   [Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-js
   [3]: /pt-br/develop/mobile/tutorials/get-started-with-users-js

@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Assinaturas de acesso compartilhado, Parte 2: Criar e usar um SAS com o Serviço Blob
 
-A [Parte 1][] deste tutorial explorou as assinaturas de acesso compartilhado (SAS) e explicou as práticas recomendadas para sua utilização. A Parte 2 mostra como gerar e usar assinaturas de acesso compartilhado com o serviço Blob do Azure. Os exemplos são escritos em C# e usam a Biblioteca de Cliente do Armazenamento do Azure para .NET. Os cenários abordados incluem esses aspectos de trabalho com assinaturas de acesso compartilhado:
+A [Parte 1][Parte 1] deste tutorial explorou as assinaturas de acesso compartilhado (SAS) e explicou as práticas recomendadas para sua utilização. A Parte 2 mostra como gerar e usar assinaturas de acesso compartilhado com o serviço Blob do Azure. Os exemplos são escritos em C# e usam a Biblioteca de Cliente do Armazenamento do Azure para .NET. Os cenários abordados incluem esses aspectos de trabalho com assinaturas de acesso compartilhado:
 
 -   Gerando uma assinatura de acesso compartilhado em um contêiner
 -   Gerando uma assinatura de acesso compartilhado em um blob
@@ -17,11 +17,11 @@ Neste tutorial, vamos nos concentrar em criar assinaturas de acesso compartilhad
 
 # Parte 1: Criar um aplicativo de console para gerar assinaturas de acesso compartilhado
 
-Primeiro, verifique se você tem a Biblioteca de Cliente do Armazenamento do Azure para .NET instalada. Você pode instalar o [pacote NuGet][] contendo a maioria dos assemblies mais atuais para a biblioteca de cliente; esse é o método recomendado para garantir que você tenha os consertos (fixes) mais recentes. Você também pode baixar a biblioteca de cliente como parte da versão mais recente do [SDK do Azure para .NET][].
+Primeiro, verifique se você tem a Biblioteca de Cliente do Armazenamento do Azure para .NET instalada. Você pode instalar o [pacote NuGet][pacote NuGet] contendo a maioria dos assemblies mais atuais para a biblioteca de cliente; esse é o método recomendado para garantir que você tenha os consertos (fixes) mais recentes. Você também pode baixar a biblioteca de cliente como parte da versão mais recente do [SDK do Azure para .NET][SDK do Azure para .NET].
 
 No Visual Studio, crie um novo aplicativo de console do Windows e dê a ele o nome **GenerateSharedAccessSignatures**. Adicione referências a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll** usando uma das seguintes abordagens:
 
--   Se você quiser instalar o pacote NuGet, primeiro instale a [Extensão do Gerenciador de Pacotes NuGet para Visual Studio][]. No Visual Studio, selecione **Projeto | Gerenciar Pacotes NuGet**, pesquise online por **Armazenamento do Azure** e siga as instruções de instalação.
+-   Se você quiser instalar o pacote NuGet, primeiro instale a [Extensão do Gerenciador de Pacotes NuGet para Visual Studio][Extensão do Gerenciador de Pacotes NuGet para Visual Studio]. No Visual Studio, selecione **Projeto | Gerenciar Pacotes NuGet**, pesquise online por **Armazenamento do Azure** e siga as instruções de instalação.
 -   Como alternativa, localize os assemblies na sua instalação do SDK do Azure e adicione referências a eles.
 
 Na parte superior do arquivo Program.cs, adicione a seguinte instrução **using**:
@@ -273,7 +273,7 @@ Agora, o método **Main()** deverá ser semelhante a este em sua totalidade. Exe
 
 Ao executar o aplicativo de console GenerateSharedAccessSignatures, você verá uma saída semelhante à seguinte na janela do console. Essas são as assinaturas de acesso compartilhado que você usará na Parte 2 do tutorial.
 
-![sas-console-output-1][]
+![sas-console-output-1][sas-console-output-1]
 
 # Parte 2: Criar um aplicativo de console para testar as assinaturas de acesso compartilhado
 
@@ -508,24 +508,23 @@ Atualize o método **Main()** para chamar **UseBlobSAS()** com as duas assinatur
 
 Execute o aplicativo de console e observe a saída para ver quais operações são permitidas para quais assinaturas. A saída na janela de console será semelhante a esta:
 
-![sas-console-output-2][]
+![sas-console-output-2][sas-console-output-2]
 
 # Próximas etapas
 
 [Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS][Parte 1]
 
-[Gerenciar o acesso aos recursos de Armazenamento do Azure][]
+[Gerenciar o acesso aos recursos de Armazenamento do Azure][Gerenciar o acesso aos recursos de Armazenamento do Azure]
 
-[Delegando acesso com uma assinatura de acesso compartilhado (API REST)][]
+[Delegando acesso com uma assinatura de acesso compartilhado (API REST)][Delegando acesso com uma assinatura de acesso compartilhado (API REST)]
 
-[Introdução à Tabela e à Fila SAS][]
+[Introdução à Tabela e à Fila SAS][Introdução à Tabela e à Fila SAS]
 
   [Parte 1]: ../storage-dotnet-shared-access-signature-part-1/
   [pacote NuGet]: http://nuget.org/packages/WindowsAzure.Storage/ "pacote NuGet"
-  [SDK do Azure para .NET]: http://www.windowsazure.com/en-us/downloads/
+  [SDK do Azure para .NET]: http://www.windowsazure.com/pt-br/downloads/
   [Extensão do Gerenciador de Pacotes NuGet para Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
-  [Gerenciar o acesso aos recursos de Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Delegando acesso com uma assinatura de acesso compartilhado (API REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Gerenciar o acesso aos recursos de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee393343.aspx
   [Introdução à Tabela e à Fila SAS]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

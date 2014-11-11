@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/pt-br/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Instalar e configurar a interface de linha de comando entre plataformas do Azure
 
@@ -384,8 +384,6 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 
 -   Para obter mais informações sobre o Azure, consulte [][2][http://azure.microsoft.com][http://azure.microsoft.com]</a>.
 
-  [PowerShell]: /pt-br/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [CLI entre plataformas]: /pt-br/manage/install-and-configure-cli/ "CLI entre plataformas"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [Como instalar a interface de linha de comando entre plataformas do Azure]: #install
   [Como se conectar à assinatura do Azure]: #configure
@@ -406,6 +404,6 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
   [Referência de A a Z de linha de comando]: http://technet.microsoft.com/pt-br/library/bb490890.aspx
   [jsawk]: https://github.com/micha/jsawk
   [jq]: http://stedolan.github.io/jq/
-  [fóruns do Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home
+  [fóruns do Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/pt-br/home
   [2]: http://azure.microsoft.com
   [http://azure.microsoft.com]: http://azure.microsoft.com/

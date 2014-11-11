@@ -1,16 +1,16 @@
 <properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started with the HDInsight Emulator | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Learn how to use HDInsight Emulator for Azure." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Get started with the HDInsight Emulator" author="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Introdução ao emulador do HDInsight
 
-Este tutorial apresenta o uso de clusters Hadoop para o Emulador do Microsoft HDInsight para Azure (anteriormente Visualização do Desenvolvedor do HDInsight Server). O Emulador do HDInsight é fornecido com os mesmos componentes do ecossistema do Hadoop como Azure HDInsight. Para obter detalhes, incluindo informações sobre as versões implantadas, consulte [Qual versão do Hadoop está no Azure HDInsight?][].
+Este tutorial apresenta o uso de clusters Hadoop para o Emulador do Microsoft HDInsight para Azure (anteriormente Visualização do Desenvolvedor do HDInsight Server). O Emulador do HDInsight é fornecido com os mesmos componentes do ecossistema do Hadoop como Azure HDInsight. Para obter detalhes, incluindo informações sobre as versões implantadas, consulte [Qual versão do Hadoop está no Azure HDInsight?][Qual versão do Hadoop está no Azure HDInsight?].
 
 O Emulador do HDInsight fornece um ambiente de desenvolvimento local para o Azure HDInsight. Se estiver familiarizado com o Hadoop, você poderá começar a usar o Emulador com o HDFS. No entanto, no HDInsight, o sistema de arquivos padrão é o armazenamento de Blob do Azure (WASB, também conhecido como o Armazenamento do Azure – Blobs), portanto, em algum momento você desejará desenvolver seus trabalhos usando o WASB. Você pode começar a desenvolver no WASB usando o Emulador de Armazenamento do Azure – provavelmente desejará apenas usar um pequeno subconjunto dos dados (nenhuma alteração de configuração é necessária no Emulador do HDInsight, apenas um nome de conta de armazenamento diferente). Em seguida, você testará seus trabalhos localmente no Armazenamento do Windows Azure - novamente, usando apenas um subconjunto dos dados (requer uma alteração de configuração no Emulador do HDInsight). Finalmente, você estará pronto para mover a parte de computação do seu trabalho para o HDInsight e executar um trabalho em relação aos dados de produção.
 
 > [WACOM.NOTE] O Emulador do HDInsight pode usar somente uma implantação de nó único.
 
-Para obter um tutorial sobre como usar o HDInsight, consulte [Introdução ao uso do Azure HDInsight][].
+Para obter um tutorial sobre como usar o HDInsight, consulte [Introdução ao uso do Azure HDInsight][Introdução ao uso do Azure HDInsight].
 
 **Pré-requisitos**
 Antes de começar este tutorial, você deve ter o seguinte:
@@ -21,16 +21,16 @@ Antes de começar este tutorial, você deve ter o seguinte:
     -   Windows Server 2008 R2 Service Pack 1
     -   Windows 8
     -   Windows Server 2012.
--   Instalar e configurar o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][].
+-   Instalar e configurar o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][Instalar e configurar o PowerShell do Azure].
 
 ## Neste tutorial
 
--   [Instale o Emulador do HDInsight][]
--   [Execute a amostra de contagem de palavras][]
--   [Execute as amostras de introdução][]
--   [Conectar-se ao armazenamento de Blob do Azure][]
--   [Execute o PowerShell do HDInsight][]
--   [Próximas etapas][]
+-   [Instale o Emulador do HDInsight][Instale o Emulador do HDInsight]
+-   [Execute a amostra de contagem de palavras][Execute a amostra de contagem de palavras]
+-   [Execute as amostras de introdução][Execute as amostras de introdução]
+-   [Conectar-se ao armazenamento de Blob do Azure][Conectar-se ao armazenamento de Blob do Azure]
+-   [Execute o PowerShell do HDInsight][Execute o PowerShell do HDInsight]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="install"></a>Instale o Emulador do HDInsight
 
@@ -47,7 +47,7 @@ O Emulador do Microsoft HDInsight é instalável através do Microsoft Web Platf
 
 **Para instalar o Emulador do HDInsight**
 
-1.  Abra o Internet Explorer e navegue até a [página de instalação do Emulador do Microsoft HDInsight para Azure][].
+1.  Abra o Internet Explorer e navegue até a [página de instalação do Emulador do Microsoft HDInsight para Azure][página de instalação do Emulador do Microsoft HDInsight para Azure].
 2.  Clique em **Instalar Agora**.
 3.  Clique em **Executar** quando for solicitada a instalação do HDINSIGHT.exe na parte inferior da página.
 4.  Clique no botão **Sim** na janela **Controle de Conta de Usuário** exibida para concluir a instalação. A janela do Web Platform Installer 4.6 será exibida.
@@ -66,9 +66,9 @@ O Emulador do Microsoft HDInsight é instalável através do Microsoft Web Platf
 
     A instalação também deve ter instalado vários serviços locais. Esta é uma captura de tela da janela Serviços:
 
-    ![HDI.Emulator.Services][]
+    ![HDI.Emulator.Services][HDI.Emulator.Services]
 
-    Para obter informações sobre problemas conhecidos relacionados à instalação e à execução do HDInsight Server, consulte as [notas de versão do Emulador do HDInsight][]. O log de instalação está localizado em **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
+    Para obter informações sobre problemas conhecidos relacionados à instalação e à execução do HDInsight Server, consulte as [notas de versão do Emulador do HDInsight][notas de versão do Emulador do HDInsight]. O log de instalação está localizado em **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
 
 ## <a name="runwordcount"></a>Executar um trabalho do MapReduce de contagem de palavras
 
@@ -80,7 +80,7 @@ A sintaxe do comando jar é:
 
     hadoop jar <jar> [mainClass] args...
 
-Você também usará alguns comandos fs. Para obter mais informações sobre comandos do Hadoop, consulte o [Manual de comandos do Hadoop][].
+Você também usará alguns comandos fs. Para obter mais informações sobre comandos do Hadoop, consulte o [Manual de comandos do Hadoop][Manual de comandos do Hadoop].
 
 O trabalho do MapReduce de contagem de palavra usa dois argumentos: uma pasta de entrada e uma pasta de saída. Você usará *hdfs://localhost/user/HDIUser* como a pasta de entrada e *hdfs://localhost/user/HDIUser/WordCount\_Output* como o diretório de saída. A pasta de saída não poderá ser uma pasta existente, caso contrário o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
 
@@ -139,16 +139,16 @@ O trabalho do MapReduce de contagem de palavra usa dois argumentos: uma pasta de
 
 A instalação do Emulador do HDInsight fornece algumas amostras para que os novos usuários comecem a aprender rapidamente os serviços no Windows com base no Apache Hadoop. Essas amostras abordam algumas tarefas que geralmente são necessárias no processamento de um grande conjunto de dados. Examine as amostras para se familiarizar com os conceitos associados ao modelo de programação do MapReduce e ao seu ecossistema.
 
-As amostras são organizadas com base no processamento dos cenários de dados de log do IIS W3C. Uma ferramenta de geração de dados é fornecida para criar e importar os conjuntos de dados de vários tamanhos para o HDFS ou WASB (armazenamento de Blob do Azure). Consulte [Usar o armazenamento de Blob do Azure para HDInsight][] para obter mais informações). Em seguida, os trabalhos do MapReduce, do Pig ou do Hive poderão ser executados nas páginas de dados gerados pelo script de PowerShell. Observe que os scripts do Pig e do Hive usados são compilados para os programas MapReduce. Os usuários podem executar uma série de trabalhos para observar, por eles mesmos, os efeitos de uso dessas tecnologias diferentes e os efeitos do tamanho dos dados na execução das tarefas de processamento.
+As amostras são organizadas com base no processamento dos cenários de dados de log do IIS W3C. Uma ferramenta de geração de dados é fornecida para criar e importar os conjuntos de dados de vários tamanhos para o HDFS ou WASB (armazenamento de Blob do Azure). Consulte [Usar o armazenamento de Blob do Azure para HDInsight][Usar o armazenamento de Blob do Azure para HDInsight] para obter mais informações). Em seguida, os trabalhos do MapReduce, do Pig ou do Hive poderão ser executados nas páginas de dados gerados pelo script de PowerShell. Observe que os scripts do Pig e do Hive usados são compilados para os programas MapReduce. Os usuários podem executar uma série de trabalhos para observar, por eles mesmos, os efeitos de uso dessas tecnologias diferentes e os efeitos do tamanho dos dados na execução das tarefas de processamento.
 
 ### Nesta seção
 
--   [Os cenários de dados de log do IIS w3c][]
--   [Carregar dados de log do w3c de amostra][]
--   [Executar trabalhos do Java MapReduce][]
--   [Executar trabalhos do Hive][]
--   [Executar trabalhos do Pig][]
--   [Recompilar as amostras][]
+-   [Os cenários de dados de log do IIS w3c][Os cenários de dados de log do IIS w3c]
+-   [Carregar dados de log do w3c de amostra][Carregar dados de log do w3c de amostra]
+-   [Executar trabalhos do Java MapReduce][Executar trabalhos do Java MapReduce]
+-   [Executar trabalhos do Hive][Executar trabalhos do Hive]
+-   [Executar trabalhos do Pig][Executar trabalhos do Pig]
+-   [Recompilar as amostras][Recompilar as amostras]
 
 ### <a name="scenarios"></a>Os cenários de dados de log do IIS w3c
 
@@ -175,7 +175,7 @@ A geração e a importação dos dados para o HDFS é feita usando o importdata.
 
         powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted 
 
-    Em vez disso, se você quiser carregar dados para o WASB, consulte [Conectar-se ao armazenamento de Blob do Azure][].
+    Em vez disso, se você quiser carregar dados para o WASB, consulte [Conectar-se ao armazenamento de Blob do Azure][Conectar-se ao armazenamento de Blob do Azure].
 
 4.  Execute o comando a seguir a partir da linha de comando do Hadoop para listar os arquivos importados no HDFS:
 
@@ -496,7 +496,7 @@ O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivo
 
 ### Conectar-se ao emulador de armazenamento
 
-O Emulador de Armazenamento do Azure é fornecido com o [SDK do Azure para .NET][]. O emulador de armazenamento não é iniciado automaticamente. Você deve iniciá-lo manualmente. O nome do aplicativo é *Emulador de Armazenamento do Azure*. Para iniciar/parar os emuladores, clique com botão direito do mouse no ícone azul do Azure na bandeja de sistema do Windows e, em seguida, clique em Mostrar Interface do Usuário do Emulador de Armazenamento.
+O Emulador de Armazenamento do Azure é fornecido com o [SDK do Azure para .NET][SDK do Azure para .NET]. O emulador de armazenamento não é iniciado automaticamente. Você deve iniciá-lo manualmente. O nome do aplicativo é *Emulador de Armazenamento do Azure*. Para iniciar/parar os emuladores, clique com botão direito do mouse no ícone azul do Azure na bandeja de sistema do Windows e, em seguida, clique em Mostrar Interface do Usuário do Emulador de Armazenamento.
 
 > [WACOM.NOTE] A mensagem de erro a seguir poderá ser exibida ao iniciar o emulador de armazenamento:
 
@@ -524,11 +524,11 @@ Por exemplo:
 
 ### Conectar-se ao armazenamento de Blob do Azure
 
-Para obter instruções sobre como criar uma conta de armazenamento, consulte [Como criar uma conta de armazenamento][].
+Para obter instruções sobre como criar uma conta de armazenamento, consulte [Como criar uma conta de armazenamento][Como criar uma conta de armazenamento].
 
 **Para criar um contêiner**
 
-1.  Entre no [Portal de Gerenciamento][].
+1.  Entre no [Portal de Gerenciamento][Portal de Gerenciamento].
 2.  Clique em **ARMAZENAMENTO** à esquerda. Você verá uma lista de contas de armazenamento sob a sua assinatura.
 3.  Clique na conta de armazenamento onde deseja criar o contêiner da lista.
 4.  Clique em **CONTÊINERES** na parte superior da página.
@@ -640,19 +640,18 @@ Esta é uma amostra para o envio de um trabalho do Hadoop:
 
 Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como o nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster é sempre **<http://localhost:50111>**.
 
-Para obter mais informações para o envio de trabalhos do Hadoop, consulte [Enviar trabalhos do Hadoop de forma programática][]. Para obter mais informações sobre os cmdlets do PowerShell do HDInsight, consulte [Referência a cmdlets do HDInsight][].
+Para obter mais informações para o envio de trabalhos do Hadoop, consulte [Enviar trabalhos do Hadoop de forma programática][Enviar trabalhos do Hadoop de forma programática]. Para obter mais informações sobre os cmdlets do PowerShell do HDInsight, consulte [Referência a cmdlets do HDInsight][Referência a cmdlets do HDInsight].
 
 ## <a name="nextsteps"></a>Próximas etapas
 
 Neste tutorial, você instalará um Emulador do HDInsight e executará alguns trabalhos do Hadoop. Para saber mais, consulte os seguintes artigos:
 
--   [Introdução ao uso do Azure HDInsight][]
--   [Desenvolver programas Java MapReduce para HDInsight][]
--   [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight][]
+-   [Introdução ao uso do Azure HDInsight][Introdução ao uso do Azure HDInsight]
+-   [Desenvolver programas Java MapReduce para HDInsight][Desenvolver programas Java MapReduce para HDInsight]
+-   [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight][Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight]
 -   [Notas de versão do emulador do HDInsight][notas de versão do Emulador do HDInsight]
--   [Fórum do MSDN para discussão do HDInsight][]
+-   [Fórum do MSDN para discussão do HDInsight][Fórum do MSDN para discussão do HDInsight]
 
-  [Qual versão do Hadoop está no Azure HDInsight?]: ../hdinsight-component-versioning/
   [Introdução ao uso do Azure HDInsight]: ../hdinsight-get-started/
   [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell/
   [Instale o Emulador do HDInsight]: #install
@@ -672,11 +671,11 @@ Neste tutorial, você instalará um Emulador do HDInsight e executará alguns tr
   [Executar trabalhos do Hive]: #hive
   [Executar trabalhos do Pig]: #pig
   [Recompilar as amostras]: #rebuild
-  [SDK do Azure para .NET]: http://azure.microsoft.com/en-us/downloads/
+  [SDK do Azure para .NET]: http://azure.microsoft.com/pt-br/downloads/
   [Como criar uma conta de armazenamento]: ../storage-create-storage-account/
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [Enviar trabalhos do Hadoop de forma programática]: ../hdinsight-submit-hadoop-jobs-programmatically/
-  [Referência a cmdlets do HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+  [Referência a cmdlets do HDInsight]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn479228.aspx
   [Desenvolver programas Java MapReduce para HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
   [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-  [Fórum do MSDN para discussão do HDInsight]: http://social.msdn.microsoft.com/Forums/en-US/hdinsight
+  [Fórum do MSDN para discussão do HDInsight]: http://social.msdn.microsoft.com/Forums/pt-br/hdinsight

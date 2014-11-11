@@ -1,14 +1,14 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Como usar as filas do Service Bus
 
 <span>Este guia mostra como usar as filas do Barramento de Serviço. Os exemplos são escritos em C# eutilizam a API .NET. Os cenários abrangidos incluem **criar filas, enviar e receber mensagens** e **excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][Próximas etapas]. </span>
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span class="short-header">Configurar o aplicativo</span>Configurar o aplicativo para usar o Barramento de Serviço
 
@@ -24,7 +24,7 @@ Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
     **Gerenciar Pacotes NuGet**.
 2.  Pesquise por WindowsAzure" e selecione o item **Barramento de Serviço do Azure**. Clique em **Instalar** para concluir a instalação e, em seguida, feche essa caixa de diálogo.
 
-    ![][]
+    ![][0]
 
 Agora você está pronto para escrever código no Barramento de Serviço.
 
@@ -214,6 +214,6 @@ links para saber mais.
   [Próximas etapas]: #next-steps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  []: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
   [Tutorial do Barramento de Serviço orientado a mensagens do.NET]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367512.aspx

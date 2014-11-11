@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Como usar o Bloco de Aplicativos de Dimensionamento Automático
 
@@ -514,10 +514,7 @@ dimensionamento automático mais complexos.
 -   [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático][Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]
 -   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure][Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]
 
-  [Pacote de integração
-  do Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
   [Próximas etapas]: #NextSteps
-  [O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs
   [Conceitos]: #Concepts
   [Coletar dados do contador de desempenho do seu aplicativo do Azure de destino]: #PerfCounter
   [Configurar um aplicativo host para o Bloco de Aplicativos de Dimensionamento Automático]: #CreateHost

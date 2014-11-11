@@ -1,6 +1,6 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Como criar uma conta do Banco de Dados de Documentos
 
@@ -15,7 +15,7 @@ Para usar o Banco de Dados de Documentos, você deve criar uma conta do Banco de
 
 1.  Entre no [Portal de visualização do Gerenciamento do Azure][Portal de visualização do Gerenciamento do Azure]
 2.  Clique em Novo -\> Conta do Banco de Dados de Documentos.
-    ![][]
+    ![][0]
 
     Você pode, como alternativa, navegar pela Galeria do Azure, selecionar a categoria “Dados, armazenamento, + backup”, selecionar **Banco de Dados de Documentos** e clicar em **Criar**.
 
@@ -73,7 +73,7 @@ Para usar o Banco de Dados de Documentos, você deve criar uma conta do Banco de
   [Como: Criar uma conta do Banco de Dados de Documentos]: #Howto
   [Próximas etapas]: #NextSteps
   [Portal de visualização do Gerenciamento do Azure]: https://portal.azure.com/
-  []: ./media/documentdb-create-account/ca1.png
+  [0]: ./media/documentdb-create-account/ca1.png
   [1]: ./media/documentdb-create-account/ca2.png
   [2]: ./media/documentdb-create-account/ca3.png
   [Detalhes dos preços do Banco de Dados de Documentos]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409

@@ -1,22 +1,22 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Como definir as configurações do Traffic Manager
 
 O Traffic Manager do Azure permite que você controle a distribuição de tráfego de usuário dos serviços hospedados do Azure.
 
-O Traffic Manager funciona aplicando um mecanismo de políticas inteligente às consultas DNS em seu principal nome de domínio da empresa. Atualize os registros de recursos DNS que sua empresa possui para apontar para os domínios do Traffic Manager. As políticas do Traffic Manager que estão anexadas a esses domínios resolvem as consultas DNS em seu nome de domínio de empresa principal para os endereços IP de determinados serviços hospedados do Azure contidos nas políticas do Traffic Manager. Para obter mais informações, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][].
+O Traffic Manager funciona aplicando um mecanismo de políticas inteligente às consultas DNS em seu principal nome de domínio da empresa. Atualize os registros de recursos DNS que sua empresa possui para apontar para os domínios do Traffic Manager. As políticas do Traffic Manager que estão anexadas a esses domínios resolvem as consultas DNS em seu nome de domínio de empresa principal para os endereços IP de determinados serviços hospedados do Azure contidos nas políticas do Traffic Manager. Para obter mais informações, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][Visão geral do Traffic Manager do Azure (a página pode estar em inglês)].
 
 ## Sumário
 
--   [Como: Apontar um domínio de Internet da empresa para um domínio do Traffic Manager][]
--   [Como: Testar uma política][]
--   [Como: Desabilitar temporariamente políticas e serviços hospedados][]
--   [Como: Editar uma política][]
--   [Como: Balancear a carga de tráfego igualmente em um conjunto de serviços hospedados][]
--   [Como: Criar uma política de failover][]
--   [Como: Direcionar o tráfego de entrada para os serviços hospedados com base no desempenho da rede][]
+-   [Como: Apontar um domínio de Internet da empresa para um domínio do Traffic Manager][Como: Apontar um domínio de Internet da empresa para um domínio do Traffic Manager]
+-   [Como: Testar uma política][Como: Testar uma política]
+-   [Como: Desabilitar temporariamente políticas e serviços hospedados][Como: Desabilitar temporariamente políticas e serviços hospedados]
+-   [Como: Editar uma política][Como: Editar uma política]
+-   [Como: Balancear a carga de tráfego igualmente em um conjunto de serviços hospedados][Como: Balancear a carga de tráfego igualmente em um conjunto de serviços hospedados]
+-   [Como: Criar uma política de failover][Como: Criar uma política de failover]
+-   [Como: Direcionar o tráfego de entrada para os serviços hospedados com base no desempenho da rede][Como: Direcionar o tráfego de entrada para os serviços hospedados com base no desempenho da rede]
 
 ## <span id="howto_point_company"></span></a>Como: Apontar um domínio de Internet da empresa para um domínio do Traffic Manager
 
@@ -35,7 +35,7 @@ A melhor maneira de testar sua política é configurar vários clientes e, em se
 
 -   **Saiba os endereços IP dos serviços hospedados do Azure** que estão na política que você está testando. Você pode obter essas informações no Portal de Gerenciamento do Azure. Clique na implantação em produção de seu serviço. No painel de propriedades à direita, a última entrada será o VIP, que é o endereço IP virtual desse serviço hospedado.
 
-    ![Local do IP do serviço hospedado][]
+    ![Local do IP do serviço hospedado][Local do IP do serviço hospedado]
 
     **Figura 1** - Local do IP do serviço hospedado
 
@@ -59,7 +59,7 @@ A melhor maneira de testar sua política é configurar vários clientes e, em se
 > > -   O nome de domínio do Traffic Manager digitado na linha de comando após "nslookup" e o endereço IP que é resolvido pelo domínio do Traffic Manager.
 > >     O segundo endereço IP é o importante para a verificação. Ele deve corresponder a um VIP de um dos serviços hospedados na política do Traffic Manager que está sendo testado.
 
-> > ![exemplo de comando nslookup][]
+> > ![exemplo de comando nslookup][exemplo de comando nslookup]
 
 > > **Figura 2** - Exemplo de comando nslookup
 
@@ -160,15 +160,15 @@ Para alterar uma política para um tipo diferente, use as seguintes etapas:
 
 Um padrão comum de balanceamento de carga é fornecer um conjunto de serviços hospedados idênticos e enviar tráfego para cada um deles em um estilo round-robin. Este artigo descreve as etapas para configurar um domínio e uma política do Traffic Manager para executar esse tipo de balanceamento de carga.
 
-Para obter mais informações sobre os diferentes métodos de balanceamento de carga fornecidos pelo Traffic Manager, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][] e role até a seção sobre métodos de balanceamento de carga no Traffic Manager do Azure.
+Para obter mais informações sobre os diferentes métodos de balanceamento de carga fornecidos pelo Traffic Manager, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][Visão geral do Traffic Manager do Azure (a página pode estar em inglês)] e role até a seção sobre métodos de balanceamento de carga no Traffic Manager do Azure.
 
-1.  **Implante seus serviços hospedados** no ambiente de produção. Para obter informações sobre desenvolvimento e implantação de serviços hospedados, consulte [serviços hospedados do Azure][].
+1.  **Implante seus serviços hospedados** no ambiente de produção. Para obter informações sobre desenvolvimento e implantação de serviços hospedados, consulte [serviços hospedados do Azure][serviços hospedados do Azure].
 
 2.  **Faça logon na área do Traffic Manager no Portal de Gerenciamento** em [][]<http://manage.windowsazure.com></a>. Clique em **Rede Virtual** no canto inferior esquerdo das páginas do portal e, em seguida, escolha **Traffic Manager** nas opções do painel esquerdo.
 
 3.  **Escolha Políticas e clique em Criar.** Escolha a pasta **Políticas** na árvore de navegação à esquerda para ativar a opção **Criar** na barra de ferramentas superior. Escolha **Criar**. A caixa de diálogo **Criar política do Traffic Manager** será exibida.
 
-    ![Botão Criar para políticas][]
+    ![Botão Criar para políticas][Botão Criar para políticas]
 
     **Figura 1** - Botão Criar para políticas
 
@@ -186,7 +186,7 @@ Para obter mais informações sobre os diferentes métodos de balanceamento de c
 
     A caixa de diálogo **Criar política do Traffic Manager** deve ser semelhante ao exemplo a seguir.
 
-    ![Caixa de diálogo do método round robin de balanceamento de carga][]
+    ![Caixa de diálogo do método round robin de balanceamento de carga][Caixa de diálogo do método round robin de balanceamento de carga]
 
     **Figura 2** - Caixa de diálogo do método round robin de balanceamento de carga
 
@@ -201,15 +201,15 @@ Para obter mais informações sobre os diferentes métodos de balanceamento de c
 
 Geralmente, uma organização deseja fornecer confiabilidade para seus serviços. Ela faz isso fornecendo serviços de backup no caso de seu serviço principal falhar. Um padrão comum de failover de serviço é fornecer um conjunto de serviços hospedados idênticos e enviar tráfego para um serviço primário, com uma lista de um ou mais backups. Este artigo descreve as etapas para configurar uma política do Traffic Manager para executar esse tipo de backup de failover.
 
-Para obter mais informações sobre os diferentes métodos de balanceamento de carga fornecidos pelo Traffic Manager, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][] e role até a seção sobre métodos de balanceamento de carga no Traffic Manager do Azure.
+Para obter mais informações sobre os diferentes métodos de balanceamento de carga fornecidos pelo Traffic Manager, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][Visão geral do Traffic Manager do Azure (a página pode estar em inglês)] e role até a seção sobre métodos de balanceamento de carga no Traffic Manager do Azure.
 
-1.  **Implante seus serviços hospedados** no ambiente de produção. Para obter informações sobre desenvolvimento e implantação de serviços hospedados, consulte [serviços hospedados do Azure][].
+1.  **Implante seus serviços hospedados** no ambiente de produção. Para obter informações sobre desenvolvimento e implantação de serviços hospedados, consulte [serviços hospedados do Azure][serviços hospedados do Azure].
 
 2.  **Faça logon na área do Traffic Manager no Portal de Gerenciamento** em [][]<http://manage.windowsazure.com></a>. Clique em **Rede Virtual** no canto inferior esquerdo das páginas do portal e, em seguida, escolha **Traffic Manager** nas opções do painel esquerdo.
 
 3.  **Escolha Políticas e clique em Criar.** Escolha a pasta **Políticas** na árvore de navegação à esquerda para ativar a opção **Criar** na barra de ferramentas superior. Escolha **Criar**. A caixa de diálogo **Criar política do Traffic Manager** será exibida.
 
-    ![Botão Criar para políticas][]
+    ![Botão Criar para políticas][Botão Criar para políticas]
 
     **Figura 1** - Botão Criar para políticas
 
@@ -227,7 +227,7 @@ Para obter mais informações sobre os diferentes métodos de balanceamento de c
 
     A caixa de diálogo **Criar política do Traffic Manager** deve ser semelhante ao exemplo a seguir.
 
-    ![Caixa de diálogo do método Failover de balanceamento de carga][]
+    ![Caixa de diálogo do método Failover de balanceamento de carga][Caixa de diálogo do método Failover de balanceamento de carga]
 
     **Figura 2** - Caixa de diálogo do método Failover de balanceamento de carga
 
@@ -240,18 +240,18 @@ Para obter mais informações sobre os diferentes métodos de balanceamento de c
 
 ## <span id="howto_direct"></span></a>Como: Direcionar o tráfego de entrada para os serviços hospedados com base no desempenho da rede
 
-Para balancear a carga do serviço hospedado localizado em diferentes datacenters em todo o mundo, você pode direcionar o tráfego de entrada para o serviço hospedado mais próximo. Embora "mais próximo" possa corresponder diretamente a uma grande distância geográfica, ele também pode corresponder ao local com a menor latência para atender à solicitação. O método de balanceamento de carga Desempenho permite que você faça a distribuição com base no local e na latência, mas não consegue levar em consideração as alterações em tempo real feitas na carga ou na configuração da rede. Para obter mais informações sobre os diferentes métodos de balanceamento de carga fornecidos pelo Traffic Manager, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][] e role até a seção sobre métodos de balanceamento de carga no Traffic Manager do Azure.
+Para balancear a carga do serviço hospedado localizado em diferentes datacenters em todo o mundo, você pode direcionar o tráfego de entrada para o serviço hospedado mais próximo. Embora "mais próximo" possa corresponder diretamente a uma grande distância geográfica, ele também pode corresponder ao local com a menor latência para atender à solicitação. O método de balanceamento de carga Desempenho permite que você faça a distribuição com base no local e na latência, mas não consegue levar em consideração as alterações em tempo real feitas na carga ou na configuração da rede. Para obter mais informações sobre os diferentes métodos de balanceamento de carga fornecidos pelo Traffic Manager, consulte [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)][Visão geral do Traffic Manager do Azure (a página pode estar em inglês)] e role até a seção sobre métodos de balanceamento de carga no Traffic Manager do Azure.
 
 As etapas a seguir irão orientá-lo pelo processo:
 
-1.  **Implante seus serviços hospedados** no ambiente de produção. Para obter mais informações, consulte [Criando um serviço hospedado para o Azure][].
+1.  **Implante seus serviços hospedados** no ambiente de produção. Para obter mais informações, consulte [Criando um serviço hospedado para o Azure][Criando um serviço hospedado para o Azure].
     Consulte também as práticas recomendadas para serviços hospedados e políticas na [Visão Geral do Traffic Manager do Azure][1].
 
 2.  **Faça logon na área do Traffic Manager no Portal de Gerenciamento** em [][]<http://manage.windowsazure.com></a>. Clique em **Rede Virtual** no canto inferior esquerdo das páginas do portal e, em seguida, escolha **Traffic Manager** nas opções do painel esquerdo.
 
 3.  **Escolha Políticas e clique em Criar.** Escolha a pasta **Políticas** na árvore de navegação à esquerda para ativar a opção **Criar** na barra de ferramentas superior. Escolha **Criar**. A caixa de diálogo **Criar política do Traffic Manager** será exibida.
 
-    ![Botão Criar para políticas][]
+    ![Botão Criar para políticas][Botão Criar para políticas]
 
     **Figura 1** - Botão Criar para políticas
 
@@ -269,7 +269,7 @@ As etapas a seguir irão orientá-lo pelo processo:
 
     A caixa de diálogo **Criar política do Traffic Manager** deve ser semelhante ao exemplo a seguir.
 
-    ![Caixa de diálogo do método de balanceamento de carga Desempenho][]
+    ![Caixa de diálogo do método de balanceamento de carga Desempenho][Caixa de diálogo do método de balanceamento de carga Desempenho]
 
     **Figura 2** - Caixa de diálogo do método de balanceamento de carga Desempenho
 
@@ -280,7 +280,6 @@ As etapas a seguir irão orientá-lo pelo processo:
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
     Para obter mais informações, consulte [Como: Apontar um domínio de Internet da empresa para um Domínio do Traffic Manager do Azure][Como: Apontar um domínio de Internet da empresa para um domínio do Traffic Manager].
 
-  [Visão geral do Traffic Manager do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx
   [Como: Apontar um domínio de Internet da empresa para um domínio do Traffic Manager]: #howto_point_company
   [Como: Testar uma política]: #howto_test
   [Como: Desabilitar temporariamente políticas e serviços hospedados]: #howto_temp_disable
@@ -290,11 +289,11 @@ As etapas a seguir irão orientá-lo pelo processo:
   [Como: Direcionar o tráfego de entrada para os serviços hospedados com base no desempenho da rede]: #howto_direct
   [Local do IP do serviço hospedado]: ./media/traffic-manager-configure-settings/hosted_service_IP_location.png
   [exemplo de comando nslookup]: ./media/traffic-manager-configure-settings/nslookup_command_example.png
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
+  [1]: http://msdn.microsoft.com/pt-br/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
   []: http://manage.windowsazure.com
   [serviços hospedados do Azure]: http://msdn.microsoft.com/library/gg432967.aspx
   [Botão Criar para políticas]: ./media/traffic-manager-configure-settings/Create_button_for_policies.png
   [Caixa de diálogo do método round robin de balanceamento de carga]: ./media/traffic-manager-configure-settings/Dialog_box_for_Round_Robin_load_balancing_method.png
   [Caixa de diálogo do método Failover de balanceamento de carga]: ./media/traffic-manager-configure-settings/Dialog_box_for_Failover_load_balancing_method.png
-  [Criando um serviço hospedado para o Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx
+  [Criando um serviço hospedado para o Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg432967.aspx
   [Caixa de diálogo do método de balanceamento de carga Desempenho]: ./media/traffic-manager-configure-settings/Dialog_box_for_Performance_load_balancing_method.png

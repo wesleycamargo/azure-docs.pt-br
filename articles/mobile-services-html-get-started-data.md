@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][mobile-services-selector-get-started-data]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para aproveitar os dados de um aplicativo HTML. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
@@ -60,13 +60,13 @@ Este tutorial é baseado no [aplicativo GetStartedWithData][aplicativo GetStarte
 
 5.  No aplicativo, digite um texto significativo, como *Concluir o tutorial*, em **Inserir nova tarefa** e clique em **Adicionar**.
 
-    ![][]
+    ![][0]
 
     Observe que o texto salvo é adicionado à matriz **staticItems** e a página é atualizada para exibir o novo item.
 
 ## <a name="create-service"></a><span class="short-header">Criar um novo serviço móvel</span>Crie um novo serviço móvel no Portal de Gerenciamento
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Adicionar uma nova tabela</span>Adicione uma nova tabela para o serviço móvel
 
@@ -270,14 +270,12 @@ Após concluir a série de dados, saiba como autenticar os usuários do seu apli
   [Adicionar uma tabela de dados para armazenamento]: #add-table
   [Atualizar o aplicativo para usar Serviços Móveis]: #update-app
   [Testar o aplicativo com os Serviços Móveis]: #test-app
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
-  []: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
+  [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
-  [Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started-data/mobile-dashboard-tab.png
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [5]: ./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png

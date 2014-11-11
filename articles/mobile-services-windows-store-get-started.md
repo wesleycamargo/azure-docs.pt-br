@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
@@ -36,7 +36,7 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *T
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
-![][]
+![][0]
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Serviços Móveis para aplicativos da Windows Store.
 
@@ -46,7 +46,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ## Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Criar um novo aplicativo da Windows Store
 
@@ -113,20 +113,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-get-started "Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-android-get-started "Android"
-  [HTML]: /pt-br/documentation/articles/mobile-services-html-get-started "HTML"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android"
-  [Sencha]: /pt-br/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha"
-  [PhoneGap]: /pt-br/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap"
-  [Appcelerator]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started "Appcelerator"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/ "Back-end do JavaScript"
-  [assista ao tutorial]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
+  [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Introdução aos dados em Serviços Móveis usando o Visual Studio 2012]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

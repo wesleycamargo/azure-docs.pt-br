@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Entrega contínua no Azure usando o Visual Studio Online e o Git
 
@@ -29,7 +29,7 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 1.  Se ainda não tiver uma conta do Visual Studio Online, siga as instruções disponíveis [aqui][1]. Quando criar seu projeto da equipe, escolha o Git como seu sistema de controle do código-fonte. Siga as instruções para conectar o Visual Studio ao projeto da equipe.
 
 2.  No Team Explorer, escolha o link **Clonar este repositório**.
-    ![][]
+    ![][0]
 
 3.  Especifique o local da cópia local e clique no botão **Clonar**.
 
@@ -220,11 +220,10 @@ Para obter mais informações, consulte [Visual Studio Online (a página pode es
   [Etapa 2: Criar um projeto e enviá-lo por push ao repositório Git.]: #step2
   [Etapa 3: Conectar o projeto ao Azure.]: #step3
   [Etapa 4: Fazer alterações e disparar uma recompilação e uma reimplantação.]: #step4
-  [Etapa 5: Reimplantar uma compilação anterior (opcional)]: #step5
   [Etapa 6: Alterar a implantação em produção]: #step6
   [Etapa 7: Implantar por meio de uma ramificação em andamento]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=397665
-  []: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
+  [0]: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
   [2]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateNewSolutionInClonedRepo.PNG
   [Introdução ao Azure e ao ASP.NET]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-get-started/
   [3]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.PNG
@@ -259,6 +258,5 @@ Para obter mais informações, consulte [Visual Studio Online (a página pode es
   [31]: ./media/cloud-services-continuous-delivery-use-vso-git/PublishBranch.PNG
   [32]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
   [33]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
-  [Visual Studio Online (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=253861
   [Compartilhar seu código no Git]: http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx
   [Publicando do controle do código-fonte em sites do Azure]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-publish-source-control

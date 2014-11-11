@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-ios" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh" />
 
 # Introdução aos Hubs de Notificação
 
@@ -32,13 +32,13 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa ter uma conta ativa do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
 
-[WACOM.INCLUDE [Habilitar Notificação por Push da Apple][Habilitar Notificação por Push da Apple]]
+[WACOM.INCLUDE [Habilitar Notificação por Push da Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-hub"></a>Configurar seu Hub de Notificação
 
 1.  Em Acesso do Conjunto de Chaves, clique com botão direito do mouse no novo certificado do aplicativo de inicio rápido **Mis certificados**. Clique em **Exportar**, nomeie o arquivo como **.p12** e clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
 Anote o nome do arquivo e o local do certificado exportado.
 
@@ -171,15 +171,8 @@ Você encontrará todas as cargas possíveis no [Guia de Programação Local e d
 
 Neste simples exemplo, você envia notificações para todos os seus dispositivos iOS. Para selecionar usuários de destinos específicos, consulte o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários][Usar Hubs de Notificação para enviar notificações por push aos usuários]. Se desejar segmentar os usuários por grupos de interesse, você poderá consultar [Usar Hubs de Notificação para enviar notícias de última hora][Usar Hubs de Notificação para enviar notícias de última hora]. Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Notificação][Diretrizes dos Hubs de Notificação].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /pt-br/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+
   [Gerar a solicitação de assinatura de certificado]: #certificates
   [Registrar seu aplicativo e habilitar as notificações por push]: #register
   [Criar um perfil de provisionamento para o aplicativo]: #profile
@@ -188,9 +181,8 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
   [Enviar notificações de seu back-end]: #send
   [SDK do iOS dos Serviços Móveis]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Habilitar Notificação por Push da Apple]: ../includes/enable-apple-push-notifications.md
-  []: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
+  [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal2.png

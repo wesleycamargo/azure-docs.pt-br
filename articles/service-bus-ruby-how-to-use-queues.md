@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Como usar as filas do Service Bus
 
@@ -23,7 +23,7 @@ abrangidos incluem **criar filas, enviar e receber mensagens** e
 -   [Como tratar falhas do aplicativo e mensagens ilegíveis][Como tratar falhas do aplicativo e mensagens ilegíveis]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Criar um aplicativo Ruby
 
@@ -117,7 +117,6 @@ Agora que você já sabe as noções básicas das filas de Service Bus, siga est
 Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure][Como usar o serviço Fila do Azure], consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças][Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças]
 
   [Próximas etapas]: #next-steps
-  [O que são as filas do Service Bus?]: #what-are-service-bus-queues
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Criar um aplicativo Ruby]: #create-a-ruby-application
@@ -128,7 +127,6 @@ Para fazer uma comparação entre as filas de Service Bus do Azure discutidas ne
   [Como receber mensagens de uma fila]: #how-to-receive-messages-from-a-queue
   [Como tratar falhas do aplicativo e mensagens ilegíveis]: #how-to-handle-application-crashes-and-unreadable-messages
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
   [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-ruby
   [Como usar o serviço Fila do Azure]: /pt-br/develop/ruby/how-to-guides/queue-service/

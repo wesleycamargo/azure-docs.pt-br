@@ -1,13 +1,13 @@
 <properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Como usar o serviço de Retransmissão de Service Bus
 
 Este guia mostra como usar o serviço de Retransmissão de Service Bus. As amostras são escritas em C# e usam a API do Windows Communication Foundation com extensões contidas no assemby do Service Bus que faz parte das bibliotecas do .NET para Windows Azure. Para obter mais informações sobre a Retransmissão de Barramento de Serviço, consulte a seção [Próximas etapas][Próximas etapas]
 .
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span class="short-header">O que é a Retransmissão de Service Bus</span>O que é a Retransmissão de Service Bus
 
@@ -31,7 +31,7 @@ Para criar um namespace de serviço:
 
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.
 
-    ![][]
+    ![][0]
 
 4.  No diálogo **Adicionar um novo namespace**, insira um nome de namespace. O sistema imediatamente verifica se o nome está disponível.
 
@@ -52,7 +52,7 @@ Para criar um namespace de serviço:
 Para executar operações de gerenciamento, como a criação de uma conexão de retransmissão, no novo namespace, você deve obter as credenciais de gerenciamento para o namespace.
 
 1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis:
-    ![][]
+    ![][0]
 
 2.  Selecione o namespace que você acabou de criar na lista abaixo:
     ![][3]
@@ -252,7 +252,7 @@ siga estes links para obter mais informações.
   [create-account-note]: ../includes/create-account-note.md
   [Conceitos de retransmissão]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
   [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
   [2]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
   [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png

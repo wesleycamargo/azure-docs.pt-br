@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Azure feature guide" metaKeywords="" description="Learn how to develop and use Access Control with Java in Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 
@@ -126,7 +126,7 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 -   Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 -   Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
 -   uma assinatura de Azure, que pode ser adquirida em [Uma assinatura do Azure, que pode ser adquirida em][Uma assinatura do Azure, que pode ser adquirida em].
--   O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)][Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)].
+-   O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês))][Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês))].
 -   Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
 -   Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)][Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)].
 
@@ -353,7 +353,6 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 <!-- Eclipse-specific -->
 
   [Próximas etapas]: #next_steps
-  [O que é ACS?]: #what-is
   [Conceitos]: #concepts
   [Pré-requisitos]: #pre
   [Criar um namespace do ACS]: #create-namespace
@@ -369,8 +368,6 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Diagrama de fluxo do ACS]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
   [Uma assinatura do Azure, que pode ser adquirida em]: http://www.microsoft.com/windowsazure/offers/
-  [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh690946.aspx
-  [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh690944.aspx
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Realm de terceira parte confiável para uso no emulador de computação]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyRealmEmulator.png
   [URL de retorno da terceira parte confiável para uso na produção]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyReturnURLEmulator.png

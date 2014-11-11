@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Introdução às notificações por push nos Serviços Móveis
 
@@ -37,19 +37,19 @@ Este tutorial exige o seguinte:
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
-[WACOM.INCLUDE [Habilitar Notificações por Push para Apple][Habilitar Notificações por Push para Apple]]
+[WACOM.INCLUDE [Habilitar Notificações por Push para Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Configurar Serviços Móveis para enviar solicitações de push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## <a name="download-the-service"></a><span class="short-header">Baixar o serviço</span>Baixar o serviço em seu computador local
 
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally][mobile-services-ios-download-service-locally]]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">Testar o serviço</span>Testar o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a>Atualizar o servidor para enviar notificações por push
 
@@ -82,7 +82,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="publish-the-service"></a><span class="short-header">Publicar o serviço</span>Publicar o serviço móvel no Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Adicionar notificações de push para seu aplicativo
 
@@ -153,13 +153,13 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
 ## <span id="local-testing"></span></a> Habilitar notificações por push para teste local
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][mobile-services-dotnet-backend-configure-local-push]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## Testar notificações por push no seu aplicativo
 
 1.  Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
@@ -198,13 +198,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/ "Back-end do JavaScript"
   [Gerar a solicitação de assinatura de certificado]: #certificates
   [Registrar seu aplicativo e habilitar as notificações por push]: #register
   [Criar um perfil de provisionamento para o aplicativo]: #profile
@@ -225,11 +218,10 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
   [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
   [Enviar notificações por push a usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/

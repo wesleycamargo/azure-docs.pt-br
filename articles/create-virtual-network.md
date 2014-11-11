@@ -1,6 +1,6 @@
 <properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 # Tutorial: Criar uma rede virtual somente de nuvem no Azure
 
@@ -33,7 +33,7 @@ Para criar esta rede virtual somente de nuvem de exemplo, faça o seguinte
 
 2.  Na esquina inferior esquerda da tela, clique em **Novo** \> **Serviços de Rede** \> **Rede Virtual** e, em seguida, clique em **Criação Personalizada** para começar o assistente de configuração.
 
-    ![][]
+    ![][0]
 
 3.  Na página **Detalhes da rede virtual**, insira as seguintes informações:
 
@@ -92,11 +92,10 @@ Para obter procedimentos e definições da configuração Rede Virtual adicionai
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [Visão geral de Rede Virtual do Windows Azure]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [Tutorial: Criar uma rede virtual para conectividade site a site entre instalações]: /pt-br/manage/services/networking/cross-premises-connectivity/
   [Teste o Azure]: http://www.windowsazure.com/pricing/free-trial/
   [Preço especial do Microsoft Azure: Benefícios do MSDN, MPN, e Bizspark]: http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
-  []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
   [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [Sobre como configurar uma rede virtual usando o Portal de Gerenciamento]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
   [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png

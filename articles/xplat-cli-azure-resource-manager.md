@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/pt-br/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos
 
@@ -162,7 +162,5 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 -   Para obter mais informações sobre como usar a interface de linha de comando da plataforma cruzada do Azure, consulte [Instalar e configurar a interface de linha de comando da plataforma cruzada do Microsoft Azure][Instalar e configurar a interface de linha de comando da plataforma cruzada do Microsoft Azure].
 -   Para obter informações sobre como trabalhar com o Gerenciador de Recursos usando o Windows Azure PowerShell, consulte [Guia de introdução usando o Windows PowerShell com o Gerenciador de Recursos][Guia de introdução usando o Windows PowerShell com o Gerenciador de Recursos]
 
-  [Windows PowerShell]: /pt-br/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [CLI entre plataformas]: /pt-br/documentation/articles/xplat-cli-azure-resource-manager.md "CLI entre plataformas"
   [Instalar e configurar a interface de linha de comando da plataforma cruzada do Microsoft Azure]: /pt-br/documentation/articles/xplat-cli/
   [Guia de introdução usando o Windows PowerShell com o Gerenciador de Recursos]: http://go.microsoft.com/fwlink/?LinkId=394760

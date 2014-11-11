@@ -1,6 +1,6 @@
 <properties title="Planned maintenance for Azure virtual machines" pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 # Manutenção planejada para máquinas virtuais do Azure
 
@@ -33,7 +33,7 @@ Depois que a máquina virtual for restaurada, aqui está um exemplo do que o Vis
 
 <!--Image reference-->
 
-![][]
+![][0]
 
 ## Atualização de instância única
 
@@ -58,5 +58,5 @@ Apenas para máquinas virtuais de configuração de instância única, o Azure e
   [Gerenciar a disponibilidade das máquinas virtuais]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-manage-availability/
   [Contratos de Nível de Serviço]: ../../support/legal/sla/
   [Configurar várias máquinas virtuais em um conjunto de disponibilidade para redundância]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-  []: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
+  [0]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
   [1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png

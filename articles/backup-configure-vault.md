@@ -1,6 +1,6 @@
 <properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # <span id="configure-a-backup-vault-tutorial"></span></a>Configurar o Backup do Azure para fazer backup rápido e fácil do Windows Server
 
@@ -90,7 +90,6 @@ Depois que o agente está instalado, você pode usar a interface de gerenciament
 
 -   Visite o [Fórum de backup do Azure][Fórum de backup do Azure].
 
-  [Avaliação gratuita do Azure]: /pt-br/pricing/free-trial/
   [Portal de Gerenciamento]: https://manage.windowsazure.com
   [Novo cofre de backup]: http://i.imgur.com/506c7ch.png
   [criação de cofre backup]: http://i.imgur.com/grtLcKM.png

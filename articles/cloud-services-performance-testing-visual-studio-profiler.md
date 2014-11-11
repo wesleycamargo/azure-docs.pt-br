@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
 
@@ -35,7 +35,7 @@ Este artigo aborda o método de Amostragem de CPU de criação de perfil, que po
 
 Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**. Você também pode fazer referência a <http://referencesource.microsoft.com/symbols>, que pode ter arquivos de símbolos adicionais.
 
-![][]
+![][0]
 
 Se desejar, você pode simplificar os relatórios que o criador de perfis gera definindo Apenas Meu Código. Com a opção Apenas Meu Código habilitada, as pilhas de chamadas de função são simplificadas de maneira que as chamadas inteiramente internas às bibliotecas e ao .Net Framework sejam ocultados dos relatórios. No menu **Ferramentas**, escolha **Opções**. Em seguida, expanda o nó **Ferramentas de Desempenho** e escolha **Geral**. Marque a caixa de seleção **Habilitar Apenas Meu Código para relatórios do criador de perfis**.
 
@@ -183,7 +183,7 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
   [Etapa 4: Fazer alterações e comparar o desempenho]: #step4
   [Solucionar problemas]: #troubleshooting
   [Próximas etapas]: #nextSteps
-  []: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+  [0]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
   [1]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
   [2]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
   [3]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

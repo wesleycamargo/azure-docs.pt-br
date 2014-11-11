@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Scripts de servidor de armazenamento no controle do código-fonte
 
@@ -19,7 +19,7 @@ Para concluir este tutorial, você já deverá ter criado um serviço móvel, co
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Painel** e, em seguida, em **Visão rápida**, clique em **Configurar controle de origem** e em **Sim** para confirmar.
 
@@ -176,7 +176,7 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
   [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
+  [0]: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
   [1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
   [2]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-credentials.png
   [3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png

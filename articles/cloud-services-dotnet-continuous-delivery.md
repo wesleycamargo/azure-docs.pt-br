@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Fornecimento contínuo de serviços de nuvem no Azure
 
@@ -76,7 +76,7 @@ Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapa
 
 1.  No Visual Studio, no computador de desenvolvimento, no menu Exibir, escolha **Team Explorer** ou Ctrl+\\\\, Ctrl+M. Najanela Team Explorer, expanda o nó **Compilação**, clique com o botão direito em **Todas as Definições de Compilação** e, em seguida, clique em **Nova Definição de Compilação**:
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Processo**. Na guia Processo, escolha o modelo padrão, em Itens a Compilar, escolha o projeto e expanda a seção **Avançado** na grade.
 
@@ -162,7 +162,7 @@ Esta seção descreve como criar um script do Windows PowerShell que publicará 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     Você também pode exportar o arquivo de certificado PFX com a chave privada e carregar certificados para cada serviço de nuvem de destino usando o Portal de Gerenciamento do Azure. Leia o seguinte artigo para saber mais:
-    [<http://msdn.microsoft.com/pt-br/library/windowsazure/gg443832.aspx>][].
+    [<http://msdn.microsoft.com/pt-br/library/windowsazure/gg443832.aspx>][<http://msdn.microsoft.com/pt-br/library/windowsazure/gg443832.aspx>].
 
     **Atualizar implantação vs. Excluir implantação -\> Nova implantação**
 
@@ -575,9 +575,7 @@ Para habilitar a depuração remota ao usar entrega contínua, consulte [estas i
   [Fornecimento contínuo para o Azure usando o Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Etapa 1: Configurar o servidor de compilação]: #step1
   [Etapa 2: Criar um pacote usando comandos MSBuild]: #step2
-  [Etapa 3: Criar um pacote usando o TFS Team Build (opcional)]: #step3
   [Etapa 4: Publicar um pacote usando um Script do PowerShell]: #step4
-  [Etapa 5: Publicar um pacote usando o TFS Team Build (opcional)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -587,7 +585,7 @@ Para habilitar a depuração remota ao usar entrega contínua, consulte [estas i
   [Referência da linha de comando do MSBuild]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Noções básicas sobre o Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configurar uma máquina de compilação]: http://go.microsoft.com/fwlink/?LinkId=238799
-  []: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [1]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [cmdlets do PowerShell do Azure]: http://go.microsoft.com/fwlink/?LinkId=256262
   [final deste artigo]: #script

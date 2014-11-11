@@ -1,6 +1,6 @@
 <properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 # O que é um plano de hospedagem na Web?
 
@@ -34,7 +34,7 @@ Durante a criação de um novo site, o portal perguntará a qual plano de hosped
 
 É possível ver todos os planos de hospedagem na Web em todas as assinaturas usando-se o botão **Procurar** na barra de menus à esquerda e, em seguida, clique em **Tudo** na parte superior direita do painel de atividade exibido na tela.
 
-![][]
+![][0]
 ![][1]
 
 Também é possível ver a qual plano de hospedagem na Web cada site está associado observando-se a representação gráfica do grupo de recursos exibido na parte superior do blade do site.
@@ -53,7 +53,7 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 
   [Acesse aqui]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Saiba mais sobre como gerenciar planos de hospedagem na Web]: http://go.microsoft.com/fwlink/?LinkID=394411
-  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [0]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
   [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
   [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
   [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png

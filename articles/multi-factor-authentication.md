@@ -1,6 +1,6 @@
 <properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath"></tags>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath" />
 
 # O que é a Autenticação Multifator do Azure?
 
@@ -13,11 +13,11 @@ A autenticação multifator ou dois fatores é um método de autenticação que 
 A segurança da autenticação multifator baseia-se na sua abordagem em camadas. O comprometimento de vários fatores de autenticação apresenta um desafio significativo para os invasores. Mesmo que um invasor consiga saber a senha do usuário, isso será inútil se ele também não tiver posse do dispositivo confiável. Por outro lado, se o usuário perder o dispositivo, quem encontrar esse dispositivo não conseguirá usá-lo, a menos que ele ou ela também saiba a senha do usuário.
 A Autenticação Multifator do Azure é o serviço de autenticação multifator que exige que os usuários também verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela está disponível para uso com o Azure Active Directory, para proteger os recursos locais com o Servidor de Autenticação Multifator do Azure e com aplicativos personalizados e diretórios que usam o SDK.
 
-![Autenticação Multifator do Azure][]
+![Autenticação Multifator do Azure][Autenticação Multifator do Azure]
 
 ### Protegendo o Azure Active Directory na nuvem
 
-Habilite a Autenticação Multifator para as identidades do Azure AD, e os usuários receberão uma solicitação para configurar a verificação adicional na próxima vez que entrarem. Use a Autenticação Multifator para proteger o acesso ao Azure, ao Microsoft Online Services, como o Office 365, e ao Dynamics CRM Online, bem como aos serviços de nuvem de terceiros que integram o Azure AD sem nenhuma configuração adicional. A autenticação multifator pode ser habilitada rapidamente para grandes números de usuários e aplicativos globais. [Saiba mais][]
+Habilite a Autenticação Multifator para as identidades do Azure AD, e os usuários receberão uma solicitação para configurar a verificação adicional na próxima vez que entrarem. Use a Autenticação Multifator para proteger o acesso ao Azure, ao Microsoft Online Services, como o Office 365, e ao Dynamics CRM Online, bem como aos serviços de nuvem de terceiros que integram o Azure AD sem nenhuma configuração adicional. A autenticação multifator pode ser habilitada rapidamente para grandes números de usuários e aplicativos globais. [Saiba mais][Saiba mais]
 
 ### Protegendo os recursos locais e o Active Directory
 
@@ -40,13 +40,13 @@ O mesmo subconjunto de recursos da Autenticação Multifator para Office 365 est
 
 A seguir são apresentadas as versões de autenticação multifator que estão disponíveis e um breve resumo dos recursos que elas oferecem. Você pode usar isso para determinar qual versão de autenticação multifator é mais adequada. [Saiba mais][4]
 
-![Comparação dos recursos da Autenticação Multifator do Azure][]
+![Comparação dos recursos da Autenticação Multifator do Azure][Comparação dos recursos da Autenticação Multifator do Azure]
 
 **Recursos adicionais**
 
--   [Inscrever-se no Azure como uma organização][]
--   [Identidade do Azure][]
--   [Biblioteca de Autenticação Multifator do Azure][]
+-   [Inscrever-se no Azure como uma organização][Inscrever-se no Azure como uma organização]
+-   [Identidade do Azure][Identidade do Azure]
+-   [Biblioteca de Autenticação Multifator do Azure][Biblioteca de Autenticação Multifator do Azure]
 
   [Autenticação Multifator do Azure]: ./media/multi-factor-authentication/WAMFA1.png
   [Saiba mais]: http://msdn.microsoft.com/pt-br/library/dn249466.aspx

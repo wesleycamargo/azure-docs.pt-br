@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Criando a função de trabalho A (agendador de email) para o aplicativo de Serviço de Email do Azure - 4 de 5.
 
@@ -551,7 +551,6 @@ Para obter links para recursos adicionais a fim de trabalhar com tabelas, filas 
   [segundo tutorial]: /pt-br/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [ServicePointManager.DefaultConnectionLimit]: http://msdn.microsoft.com/pt-br/library/system.net.servicepointmanager.defaultconnectionlimit.aspx
   [ServicePointManager]: http://msdn.microsoft.com/pt-br/library/system.net.servicepointmanager.aspx
-  [A instância da função é reinicializada devido as atualizações do sistema operacional (a página pode estar em inglês)]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
   [UnhandledException]: http://msdn.microsoft.com/pt-br/library/system.appdomain.unhandledexception.aspx
   [Nova mensagem no status pendente]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-pending.png
   [Nova mensagem no status processando]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-processing.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Práticas recomendadas para o desempenho nos aplicativos do Azure
 
@@ -139,7 +139,7 @@ Depois de decidir em quais tabelas federar, outro problema é o local de tabelas
 
 Há uma série de exemplos que mostram maneiras de particionar dados. Se decidir não usar Federações para particionar sua instância de Banco de Dados SQL, você deverá escolher um método de particionamento que seja apropriado para seu aplicativo. Estes são alguns exemplos:
 
--   Uma conta abrangente escrita antes do lançamento das Federações é [Como fragmentar com Banco de Dados SQL (a página pode estar em inglês][Como fragmentar com Banco de Dados SQL (a página pode estar em inglês].
+-   Uma conta abrangente escrita antes do lançamento das Federações é [Como fragmentar com Banco de Dados SQL (a página pode estar em inglês)][Como fragmentar com Banco de Dados SQL (a página pode estar em inglês)].
 -   [SQL Server e a biblioteca de fragmentações do Banco de Dados SQL (a página pode estar em inglês)][SQL Server e a biblioteca de fragmentações do Banco de Dados SQL (a página pode estar em inglês)]
 
 ##### Particionando outros recursos
@@ -166,7 +166,7 @@ As Filas de Armazenamento do Azure fornecem recursos, como tamanho de fila grand
 
 Para obter uma comparação mais completa e detalhada sobre as duas tecnologias, consulte [Filas do Azure e Filas do Service Bus do Azure - semelhanças e diferenças ( a página pode estar em inglês)][Filas do Azure e Filas do Service Bus do Azure - semelhanças e diferenças ( a página pode estar em inglês)].
 
-Para obter uma discussão sobre o desempenho do Service Bus, consulte [Práticas recomendadas para melhorias no desempenho usando o sistema de mensagens agenciado do Service Bus (a página pode estar em inglês][Práticas recomendadas para melhorias no desempenho usando o sistema de mensagens agenciado do Service Bus (a página pode estar em inglês].
+Para obter uma discussão sobre o desempenho do Service Bus, consulte [Práticas recomendadas para melhorias no desempenho usando o sistema de mensagens agenciado do Service Bus (a página pode estar em inglês)][Práticas recomendadas para melhorias no desempenho usando o sistema de mensagens agenciado do Service Bus (a página pode estar em inglês)].
 
 #### Cenário: aplicativos de "Big Data"
 
@@ -331,49 +331,21 @@ Outros recursos
 -   [Barramento de Serviço][Barramento de Serviço]
 -   [Planejamento do Azure - Guia pós-decisão para integrar o Azure em seu ambiente (a página pode estar em inglês)][Planejamento do Azure - Guia pós-decisão para integrar o Azure em seu ambiente (a página pode estar em inglês)]
 
-  ["a quantidade de trabalho útil realizado em comparação com o tempo e os recursos utilizados" (a página pode estar em inglês).]: http://go.microsoft.com/fwlink/?LinkId=252650
-  [Visual Studio dos testes de carga do Visual Studio no Azure (a página pode estar em inglês)]: http://www.visualstudio.com/get-started/load-test-your-app-vs
-  [Conceitos básicos de design e modelagem de banco de dados (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252675
-  [Etapas do design de banco de dados (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252676
-  [Design de banco de dados (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252677
   [Armazenamento de Tabela do Azure e Banco de Dados SQL do Azure - semelhanças e diferenças]: http://msdn.microsoft.com/pt-BR/library/jj553018.aspx
-  [Considerações sobre desempenho do Armazenamento de Tabela do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252663
-  [Banco de Dados SQL e o Armazenamento de Tabela do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252664
-  [Melhorando o desempenho com o envio em lotes de inserções do Armazenamento de Tabela do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkID=252665
-  [Guia de desempenho e elasticidade do Banco de Dados SQL (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=221876
-  [Federações no Banco de Dados SQL (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252668
-  [Abordagem de escala em primeiro lugar para o design de banco de dados com federações: parte 1 - Separando federações e separando a chave de federação (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252671
-  [Abordagem de escala em primeiro lugar para o design de banco de dados com federações: parte 2 - Anotando e implantando esquema para federações (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252672
   [Parte 2]: http://go.microsoft.com/fwlink/?LinkId=252673
-  [Como fragmentar com Banco de Dados SQL (a página pode estar em inglês]: http://go.microsoft.com/fwlink/?LinkId=252678
-  [SQL Server e a biblioteca de fragmentações do Banco de Dados SQL (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252679
-  [Introdução ao Serviço de Caching do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252680
-  [Considerações sobre o desempenho do Caching do Windows \#Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252681
-  [Filas do Azure e Filas do Service Bus do Azure - semelhanças e diferenças ( a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252682
-  [Práticas recomendadas para melhorias no desempenho usando o sistema de mensagens agenciado do Service Bus (a página pode estar em inglês]: http://go.microsoft.com/fwlink/?LinkID=252683
   [Big Data]: /pt-BR/solutions/big-data/
   [Serviço do Azure HDInsight]: /pt-BR/documentation/services/hdinsight/
   [Introdução ao Serviço do Azure HDInsight]: /pt-BR/documentation/articles/hdinsight-get-started/
   [Familiarizando-se com o NoSQL no Azure]: http://go.microsoft.com/fwlink/?LinkId=252729
   [AggregateOrientedDatabase]: http://go.microsoft.com/fwlink/?LinkID=252731
   [PolyglotPersistence]: http://go.microsoft.com/fwlink/?LinkId=252732
-  [Diretrizes de desempenho do ACS (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252747
-  [Aplicativos Web do Azure e serialização (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252749
   []: http://go.microsoft.com/fwlink/?LinkId=252775
   [1]: http://go.microsoft.com/fwlink/?LinkId=252776
   [2]: http://go.microsoft.com/fwlink/?LinkID=252666
-  [Transient Fault Handling Application Block (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkID=236901
-  [Autoscaling Application Block (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252873
   [Planejamento da capacidade para Filas e Tópicos do Service Bus]: http://go.microsoft.com/fwlink/?LinkId=252875
-  [Práticas recomendadas para a solução de problemas de desenvolvimento de aplicativos do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkID=252876
-  [Obtendo visão do desempenho no Banco de Dados SQL (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252877
-  [Banco de Dados SQL e o SQL Server no local (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252878
   [Monitorando o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico]: http://go.microsoft.com/fwlink/?LinkId=236195
-  [DMVs úteis do Banco de Dados SQL para analisar se o SQL Profiler está fazendo falta (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252879
   [Cerebrata]: http://go.microsoft.com/fwlink/?LinkId=252880
-  [Testes do SQL Server e do Banco de Dados SQL: Enzo SQL Baseline (a página pode estar em inglês)]: http://enzosqlbaseline.codeplex.com/
   [Banco de dados SQL]: http://go.microsoft.com/fwlink/?LinkId=246930
   [Armazenamento]: http://go.microsoft.com/fwlink/?LinkId=246933
   [Rede]: http://go.microsoft.com/fwlink/?LinkId=252882
   [Barramento de Serviço]: http://go.microsoft.com/fwlink/?LinkId=246934
-  [Planejamento do Azure - Guia pós-decisão para integrar o Azure em seu ambiente (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=252884

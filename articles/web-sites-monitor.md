@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # <a name="howtomonitor"></a>Como monitorar Sites
 
@@ -311,14 +311,7 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
   [Como Receber notificações de alerta e Gerenciar regras de alerta no Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Tamanhos de máquina virtual e serviço de nuvem para o Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
-  [Como gerenciar contas de armazenamento (a página pode estar em inglês)]: https://www.windowsazure.com/pt-br/manage/services/storage/how-to-manage-a-storage-account/
-  [Como usar o PowerShell do Azure]: http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [Habilitar o registro em log de diagnóstico para Sites do Azure]: /pt-br/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [Como depurar um aplicativo Node.js nos Sites do Azure]: /pt-br/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [Introdução aos cmdlets do PowerShell do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554332.aspx
-  [Como usar as ferramentas de linha de comando do Azure]: http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/command-line-tools/
   [formato de log estendido do W3C]: http://go.microsoft.com/fwlink/?LinkID=90561
   []: http://contoso.cloudapp.net
   [Scott Guthrie apresenta os Sites do Azure e configura o Monitoramento do Ponto de Extremidade]: http://www.windowsazure.com/pt-br/documentation/videos/websites-and-endpoint-monitoring-scottgu/
-  [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow (a página pode estar em inglês)]: http://www.windowsazure.com/pt-br/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/

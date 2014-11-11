@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 # Como executar uma tarefa que exija muita computação no .NET em uma máquina virtual Azure
 
@@ -20,17 +20,17 @@ Você aprenderá a:
 
 Este tutorial usará o problema do Caixeiro Viajante para a tarefa de computação intensiva. Este é um exemplo do aplicativo do .NET que executa a tarefa que exige muita computação:
 
-![Solucionador de problemas do Caixeiro Viajante][]
+![Solucionador de problemas do Caixeiro Viajante][Solucionador de problemas do Caixeiro Viajante]
 
 Este é um exemplo do aplicativo do .NET que monitora a tarefa que exige muita computação:
 
-![Cliente de problemas do Caixeiro Viajante][]
+![Cliente de problemas do Caixeiro Viajante][Cliente de problemas do Caixeiro Viajante]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para criar uma máquina virtual
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Clique em **Novo**.
 3.  Clique em **Máquina virtual**.
 4.  Clique em **Criação rápida**.
@@ -57,15 +57,15 @@ contêiner de controle para endereçamento dos recursos do Barramento de Serviç
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em**Service Bus**.
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.
 
-    ![Criar novo barramento de serviço][]
+    ![Criar novo barramento de serviço][Criar novo barramento de serviço]
 
 4.  Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema verifica imediatamente se o nome está disponível, porque ele precisa ser um nome exclusivo.
 
-    ![Criar uma caixa de diálogo de namespace][]
+    ![Criar uma caixa de diálogo de namespace][Criar uma caixa de diálogo de namespace]
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha a região em que o namespace deve ser hospedado (não se esqueça de usar a mesma região em que a máquina virtual está hospedada).
     <div class="dev-callout"><br /><strong>Importante</strong><br /><p>Escolha a <strong>mesma regi&atilde;o</strong> que voc&ecirc; usa ou pretende usar na m&aacute;quina virtual. Isso lhe dar&aacute; o melhor desempenho.</p><br /></div>
@@ -73,7 +73,7 @@ Para criar um namespace de serviço:
 6.  Se você tiver mais de uma assinatura do Azure para a conta com a qual você fez logon, selecione a assinatura a ser usada no namespace. (Se tiver somente uma assinatura para a conta com a qual fez logon, você não verá uma lista suspensa contendo suas assinaturas.)
 7.  Clique na marca de seleção. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
-    ![Clique em criar captura de tela][]
+    ![Clique em criar captura de tela][Clique em criar captura de tela]
 
 O namespace que você criou aparece no Portal de Gerenciamento e demora algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
@@ -85,16 +85,16 @@ namespace.
 
 1.  No painel de navegação à esquerda, clique no nó **Service Bus**, para
     exibir a lista de namespaces disponíveis:
-    ![Captura de tela de namespaces disponíveis][]
+    ![Captura de tela de namespaces disponíveis][Captura de tela de namespaces disponíveis]
 2.  Selecione o namespace que você acabou de criar na lista abaixo:
-    ![Captura de tela da lista de namespaces][]
+    ![Captura de tela da lista de namespaces][Captura de tela da lista de namespaces]
 3.  Clique em **Chave de Acesso**.
-    ![Botão da chave de acesso][]
+    ![Botão da chave de acesso][Botão da chave de acesso]
 4.  Na caixa de diálogo, localize as entradas **Emissor Padrão** e **Chave Padrão**. Tome nota desses valores, pois você usará essas informações abaixo para executar operações com o namespace.
 
 ## Como criar um aplicativo do .NET que execute uma tarefa que exija muita computação
 
-1.  Na máquina de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET][].
+1.  Na máquina de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET][SDK do Azure para .NET].
 2.  Crie um aplicativo de console do .NET com o projeto chamado **TSPSolver**. Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
 3.  Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPSolver**, clique em **Adicionar Referência**, na guia **Pesquisar**, vá até **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** e selecione **Microsoft.ServiceBus.dll** como uma referência.
 4.  Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPSolver**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
@@ -546,7 +546,7 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 
 ## Alternativa à criação e à exclusão da fila com TSPSolver
 
-Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou excluir a fila usando o [Portal de Gerenciamento do Azure][] Visite a seção de barramento de serviço do Portal de Gerenciamento a fim de acessar as interfaces de usuário para criar ou excluir uma fila, bem como para recuperar a cadeia de conexão, o emissor e a chave de acesso. Também é possível exibir um painel de seus filas do barramento de serviço, permitindo exibir métricas para as mensagens de entrada e de saída.
+Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou excluir a fila usando o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] Visite a seção de barramento de serviço do Portal de Gerenciamento a fim de acessar as interfaces de usuário para criar ou excluir uma fila, bem como para recuperar a cadeia de conexão, o emissor e a chave de acesso. Também é possível exibir um painel de seus filas do barramento de serviço, permitindo exibir métricas para as mensagens de entrada e de saída.
 
   [Solucionador de problemas do Caixeiro Viajante]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
   [Cliente de problemas do Caixeiro Viajante]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png

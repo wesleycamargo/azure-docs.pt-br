@@ -4,22 +4,22 @@
 
 # Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
 
-Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure em uma máquina virtual (VM) em uma [rede virtual do Azure][]. Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
+Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure em uma máquina virtual (VM) em uma [rede virtual do Azure][rede virtual do Azure]. Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
 
 Você também pode estar interessado nestes tópicos relacionados:
 
--   Você também pode [configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento][] e instalar uma nova floresta ou estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure][].
--   Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure][].
--   Para obter orientações passo a passo para criar um ambiente de laboratório de teste no Azure que inclua o AD DS, consulte [Guia do laboratório de teste: Configuração base do Windows Server 2012 R2 no Azure][].
+-   Você também pode [configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento][configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento] e instalar uma nova floresta ou estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure][Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure].
+-   Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure][Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure].
+-   Para obter orientações passo a passo para criar um ambiente de laboratório de teste no Azure que inclua o AD DS, consulte [Guia do laboratório de teste: Configuração base do Windows Server 2012 R2 no Azure][Guia do laboratório de teste: Configuração base do Windows Server 2012 R2 no Azure].
 
 ## Sumário
 
--   [Como isso difere do local?][]
--   [Etapa 1: Criar uma rede virtual do Azure][]
--   [Etapa 2: Criar uma VM para executar as funções de controlador de domínio e servidor DNS][]
--   [Etapa 3: Instalar o Windows Server Active Directory][]
--   [Etapa 4: Configurar o servidor DNS da rede virtual do Azure][]
--   [Etapa 5: Criar VMs para membros de domínio e ingressar no domínio][]
+-   [Como isso difere do local?][Como isso difere do local?]
+-   [Etapa 1: Criar uma rede virtual do Azure][Etapa 1: Criar uma rede virtual do Azure]
+-   [Etapa 2: Criar uma VM para executar as funções de controlador de domínio e servidor DNS][Etapa 2: Criar uma VM para executar as funções de controlador de domínio e servidor DNS]
+-   [Etapa 3: Instalar o Windows Server Active Directory][Etapa 3: Instalar o Windows Server Active Directory]
+-   [Etapa 4: Configurar o servidor DNS da rede virtual do Azure][Etapa 4: Configurar o servidor DNS da rede virtual do Azure]
+-   [Etapa 5: Criar VMs para membros de domínio e ingressar no domínio][Etapa 5: Criar VMs para membros de domínio e ingressar no domínio]
 
 ## <span id="differ"></span></a>Como isso difere do local?
 
@@ -33,7 +33,7 @@ Não há muita diferença entre instalar um controlador de domínio no Azure em 
 
 ## <span id="createvnet"></span></a>Etapa 1: Crie uma rede virtual do Azure
 
-1.  Entre no [Portal de Gerenciamento do Azure][].
+1.  Entre no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Crie uma rede virtual. Clique em **Redes** \> **Criar uma rede virtual**. Use os valores da tabela a seguir para concluir o assistente.
 
     <table>
@@ -122,20 +122,20 @@ Não há muita diferença entre instalar um controlador de domínio no Azure em 
     </tbody>
     </table>
 
-3.  O endereço IP dinâmico atribuído à VM por padrão é válido durante o serviço de nuvem. Mas ele mudará se a VM for desligada. Você pode atribuir um endereço IP estático [executando o cmdlet do PowerShell do Azure Set-AzureStaticVNetIP][] de forma que o endereço IP será mantido se você precisar desligar a VM alguma vez.
+3.  O endereço IP dinâmico atribuído à VM por padrão é válido durante o serviço de nuvem. Mas ele mudará se a VM for desligada. Você pode atribuir um endereço IP estático [executando o cmdlet do PowerShell do Azure Set-AzureStaticVNetIP][executando o cmdlet do PowerShell do Azure Set-AzureStaticVNetIP] de forma que o endereço IP será mantido se você precisar desligar a VM alguma vez.
 4.  Conecte um disco adicional à VM para armazenar o banco de dados, os logs e o SYSVOL do Active Directory.
-5.  Clique na **VM** \> **Anexar** \> **Anexar disco vazio**.
-6.  Especifique um tamanho (por exemplo, 10 GB) e aceite todos os outros valores padrão.
+  5.  Clique na **VM** \> **Anexar** \> **Anexar disco vazio**.
+  6.  Especifique um tamanho (por exemplo, 10 GB) e aceite todos os outros valores padrão.
 7.  Faça logon na VM e formate o disco adicional.
-8.  Clique em **Conectar** para fazer logon na VM, em **Abrir** para criar uma sessão RDP e em **Conectar** novamente.
-9.  Altere as credenciais para o novo nome de usuário e a senha que você especificou.
-10. No Gerenciador de Servidores, clique em **Ferramentas** \> **Gerenciamento do Computador**.
-11. Clique em **Gerenciamento de Disco** e em **Ok** para inicializar o novo disco.
-12. Clique com o botão direito do mouse no nome do disco e clique em **Novo Volume Simples**. Conclua o assistente para formatar a nova unidade.
+  8.  Clique em **Conectar** para fazer logon na VM, em **Abrir** para criar uma sessão RDP e em **Conectar** novamente.
+  9.  Altere as credenciais para o novo nome de usuário e a senha que você especificou.
+  10. No Gerenciador de Servidores, clique em **Ferramentas** \> **Gerenciamento do Computador**.
+  11. Clique em **Gerenciamento de Disco** e em **Ok** para inicializar o novo disco.
+  12. Clique com o botão direito do mouse no nome do disco e clique em **Novo Volume Simples**. Conclua o assistente para formatar a nova unidade.
 
 ## <span id="installad"></span></a>Etapa 3: Instale o Windows Server Active Directory
 
-[Instale o AD DS][] usando a mesma rotina que você usa no local (ou seja, você pode usar a interface do usuário, um arquivo de resposta ou o Windows PowerShell). Você precisa fornecer credenciais de administrador para instalar uma nova floresta. Para especificar o local do banco de dados, dos logs e do SYSVOL do Active Directory, altere o local de armazenamento padrão da unidade do sistema operacional pra o disco de dados adicional que você conectou à VM.
+[Instale o AD DS][Instale o AD DS] usando a mesma rotina que você usa no local (ou seja, você pode usar a interface do usuário, um arquivo de resposta ou o Windows PowerShell). Você precisa fornecer credenciais de administrador para instalar uma nova floresta. Para especificar o local do banco de dados, dos logs e do SYSVOL do Active Directory, altere o local de armazenamento padrão da unidade do sistema operacional pra o disco de dados adicional que você conectou à VM.
 
 Após a instalação do DC, conecte-se novamente à VM e faça logon no DC. Não se esqueça de especificar credenciais de domínio.
 
@@ -188,31 +188,31 @@ Se reexecutar o script, você precisará fornecer um valor exclusivo para $servi
 
 -   [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure][1]
 
--   [Configure uma rede virtual somente em nuvem no Portal de Gerenciamento][]
+-   [Configure uma rede virtual somente em nuvem no Portal de Gerenciamento][Configure uma rede virtual somente em nuvem no Portal de Gerenciamento]
 
--   [Configure um VPN site a site no Portal de Gerenciamento][]
+-   [Configure um VPN site a site no Portal de Gerenciamento][Configure um VPN site a site no Portal de Gerenciamento]
 
 -   [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure][2]
 
--   [Windows Azure IaaS para profissionais de TI: (01) Conceitos básicos sobre máquina virtual][]
+-   [Windows Azure IaaS para profissionais de TI: (01) Conceitos básicos sobre máquina virtual][Windows Azure IaaS para profissionais de TI: (01) Conceitos básicos sobre máquina virtual]
 
--   [Windows Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações][]
+-   [Windows Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações][Windows Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações]
 
 -   [Rede Virtual do Azure][rede virtual do Azure]
 
--   [Como instalar e configurar o PowerShell do Azure][]
+-   [Como instalar e configurar o PowerShell do Azure][Como instalar e configurar o PowerShell do Azure]
 
--   [PowerShell do Azure][]
+-   [PowerShell do Azure][PowerShell do Azure]
 
--   [Cmdlets gerenciamento do Azure][]
+-   [Cmdlets gerenciamento do Azure][Cmdlets gerenciamento do Azure]
 
--   [Definir o endereço IP estático da VM do Azure][]
+-   [Definir o endereço IP estático da VM do Azure][Definir o endereço IP estático da VM do Azure]
 
--   [Como atribuir um IP estático para uma VM do Azure][]
+-   [Como atribuir um IP estático para uma VM do Azure][Como atribuir um IP estático para uma VM do Azure]
 
 -   [Instalar uma nova floresta do Active Directory][Instale o AD DS]
 
--   [Introdução à virtualização de Serviços de Domínio Ative Directory (AD DS) (nível 100)][]
+-   [Introdução à virtualização de Serviços de Domínio Ative Directory (AD DS) (nível 100)][Introdução à virtualização de Serviços de Domínio Ative Directory (AD DS) (nível 100)]
 
 -   [Guia de Laboratório de Teste: Configuração base do Windows Server 2012 R2 no Azure][Guia do laboratório de teste: Configuração base do Windows Server 2012 R2 no Azure]
 

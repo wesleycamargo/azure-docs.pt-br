@@ -1,18 +1,18 @@
 <properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
 # Implantar um aplicativo Web Móvel do ASP.NET MVC 5 em Sites do Azure
 
 Este tutorial ensinará você o básico sobre como criar um aplicativo Web do ASP.NET MVC 5 com opção para dispositivos móveis e implantá-lo no Windows Azure. Para este Tutorial, você precisará do [Visual Studio Express 2013 para Web][Visual Studio Express 2013 para Web] ou do Visual Studio Professional Edition, se já o possuir.
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### O que você vai construir
 
 Neste tutorial, você adicionará recursos móveis ao aplicativo de listagem de conferência simples que é fornecido no [projeto inicial][projeto inicial]. A captura de tela a seguir mostra as sessões do ASP.NET no aplicativo concluído, como visto no emulador do navegador nas ferramentas de desenvolvedor do Internet Explorer 11 F12.
 
-![][]
+![][0]
 
 Você pode usar as ferramentas de desenvolvedor do Internet Explorer 11 F12 e a [ferramenta Fiddler][ferramenta Fiddler] para ajudar a depurar o seu aplicativo. 
 
@@ -464,7 +464,7 @@ O código faz 3 coisas:
 
 Você também pode tocar no link de um título para ir à respectiva sessão. A imagem abaixo reflete as alterações de código.
 
-![][]
+![][0]
 
 O sistema de grades do Bootstrap organiza as sessões verticalmente, de maneira automática, no navegador móvel. Perceba, também, que as marcas não são exibidas. Alterne para o navegador de desktop.
 
@@ -482,7 +482,7 @@ No navegador móvel, toque o botão **Marca**, depois insira `asp` na caixa de p
 
 Toque o link **ASP.NET**. As sessões para a marca ASP.NET são exibidas.
 
-![][]
+![][0]
 
 Escolha o link **Construindo um aplicativo de página única com o ASP.NET e o link AngularJS**.
 
@@ -566,7 +566,7 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
   [Visual Studio Express 2013 para Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [projeto inicial]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
-  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
+  [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [ferramenta Fiddler]: http://www.fiddler2.com/fiddler2/
   [SDK do Azure para o Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Web Platform Installer - SDK do Azure para .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
@@ -623,4 +623,3 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
   [Tutorial do Twitter Bootstrap do Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
   [The Bootstrap Playground]: http://www.bootply.com/
   [Práticas recomendadas pela W3C para aplicativos móveis para a Web]: http://www.w3.org/TR/mwabp/
-  [Recomendação Candidata (CR) do W3C para consultas de mídia]: http://www.w3.org/TR/css3-mediaqueries/

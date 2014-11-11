@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Validar e modificar dados em Serviços Móveis usando scripts de servidor
 
@@ -21,7 +21,7 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Dados** e clique na tabela **TodoItem**.
 
@@ -124,19 +124,11 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-android-validate-modify-data-server-scripts "Android"
-  [HTML]: /pt-br/documentation/articles/mobile-services-html-validate-modify-data-server-scripts "HTML"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts "Xamarin.Android"
   [Adicionar validação de comprimento de cadeia de caracteres]: #string-length-validation
   [Atualizar o cliente para oferecer suporte à validação]: #update-client-validation
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png

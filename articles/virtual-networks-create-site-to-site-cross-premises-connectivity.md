@@ -1,6 +1,6 @@
 <properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
 
 # Tutorial: Criar uma rede virtual entre instalações para conectividade site a site
 
@@ -65,7 +65,7 @@ Para criar um exemplo de rede virtual que se conecte à rede da empresa:
 
 2.  No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Redes** e, em seguida, em **Máquina Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
-    ![][]
+    ![][0]
 
 3.  Na página **Detalhes da Rede Virtual**, insira as informações a seguir e, em seguida, clique na seta de avanço na parte inferior direita. Para obter mais informações sobre as configurações na página de detalhes, consulte a seção **Detalhes da Rede Virtual** em [Sobre como configurar uma rede virtual no Portal de Gerenciamento][Sobre como configurar uma rede virtual no Portal de Gerenciamento].
 
@@ -256,7 +256,7 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
   [Iniciar o gateway e reunir informações para o administrador de rede]: #StartGateway
   [Configurar o dispositivo de VPN]: #ConfigVPN
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
-  []: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
   [Sobre como configurar uma rede virtual no Portal de Gerenciamento]: http://go.microsoft.com/fwlink/?LinkID=248092
   [1]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png
   [2]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156075.aspx

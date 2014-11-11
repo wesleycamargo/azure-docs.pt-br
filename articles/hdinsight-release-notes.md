@@ -1,6 +1,6 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Notas de versão do Microsoft HDInsight
 
@@ -45,7 +45,7 @@ Essa versão contém diversos novos aprimoramentos para o serviço HDInsight:
 -   **Disponibilidade do HDP 2.1**: O HDInsight 3.1, que contém o HDP 2.1, agora está disponível de modo geral e é a versão padrão para novos clusters.
 -   **HBase – Melhorias no Portal de Gerenciamento do Azure**: Estamos tornando os clusters HBase disponíveis na visualização. Agora você pode criar clusters HBase por meio do portal com três cliques.
 
-![][]
+![][0]
 
 Com o HBase, você pode criar uma variedade de cargas de trabalho em tempo real no HDInsight, por meio de sites interativos que funcionem com conjuntos de dados grandes para dados para o sensor de armazenamento de serviços e dados de telemetria de milhões de pontos de extremidade. A próxima etapa seria analisar os dados nessas cargas de trabalho com trabalhos do Hadoop e isso é possível de imediato no HDInsight, por meio das experiências fornecidas como o painel de cluster do Hive e do PowerShell.
 
@@ -429,7 +429,7 @@ As notas de versão para os HDPs que são usados pelas versões do cluster HDIns
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/pt-br/library/dn593744.aspx
   [SDK do HDInsight]: http://msdn.microsoft.com/pt-br/library/azure/dn469975.aspx
   [Controle de versão do componente HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/
-  []: http://i.imgur.com/cmOl5fM.png
+  [0]: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/
   [Exemplo Breiman]: https://mahout.apache.org/users/classification/breiman-example.html
   [Medindo o desempenho do Hive 13 Apache para Hadoop Enterprise]: http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/

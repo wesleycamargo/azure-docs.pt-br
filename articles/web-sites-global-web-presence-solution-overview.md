@@ -1,6 +1,6 @@
 <properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/pt-br/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Crie uma presença Global na Web em Sites Azure
 
@@ -207,10 +207,7 @@ Para criar o site da sua organização (.COM), as tarefas padrão incluem monito
   [Sites do Azure]: /pt-br/documentation/services/web-sites/
   [serviços de nuvem do Azure]: /pt-br/documentation/services/cloud-services/
   [Máquinas virtuais do Azure]: /pt-br/documentation/services/virtual-machines/
-  [Sites do Azure, serviços de nuvem e MVs: Quando usar qual opção?]: /pt-br/manage/services/web-sites/choose-web-app-service
 
-  [Campanhas de Marketing Digital]: http://www.windowsazure.com/pt-br/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [Aplicativos de negócios]: http://www.windowsazure.com/pt-br/manage/services/web-sites/business-application-solution-overview
   [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
   [Introdução aos sites e ASP.NET do Azure]: /pt-br/documentation/articles/web-sites-dotnet-get-started
   [WebMatrix]: http://www.microsoft.com/web/webmatrix/
@@ -234,5 +231,4 @@ Para criar o site da sua organização (.COM), as tarefas padrão incluem monito
   [GlobalWebMonitor3]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor3.png
   [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
   [Campanha de Marketing Digital]: /pt-br/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [Como monitorar sites]: /pt-br/manage/services/web-sites/how-to-monitor-websites
 

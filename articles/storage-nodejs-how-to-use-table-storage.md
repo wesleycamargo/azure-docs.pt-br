@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Como usar o serviço Tabela no Node.js
 
@@ -8,36 +8,36 @@ Este guia mostra como executar cenários comuns usando o
 serviço Tabela do Microsoft Azure. Os exemplos são escritos usando a
 API do Node.js. Os cenários abrangidos incluem **criar e excluir uma
 tabela, inserir e consultar entidades em uma tabela**. Para obter mais
-informações sobre tabelas, consulte a seção [Próximas etapas][].
+informações sobre tabelas, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o serviço Tabela?][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo Node.js][]
--   [Configurar seu aplicativo para acessar o armazenamento][]
--   [Configurar uma conexão de armazenamento do Azure][]
--   [Como: Criar uma tabela][]
--   [Como: Adicionar uma entidade a uma tabela][]
--   [Como: Atualizar uma entidade][]
--   [Como: Trabalhar com grupos de entidades][]
--   [Como: Recuperar uma entidade][]
--   [Como: Consultar um conjunto de entidades][]
--   [Como: Excluir uma entidade][]
--   [Como: Excluir uma tabela][]
--   [Como: Trabalhar com assinaturas de acesso compartilhado][]
--   [Próximas etapas][]
+-   [O que é o serviço Tabela?][O que é o serviço Tabela?]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo Node.js][Criar um aplicativo Node.js]
+-   [Configurar seu aplicativo para acessar o armazenamento][Configurar seu aplicativo para acessar o armazenamento]
+-   [Configurar uma conexão de armazenamento do Azure][Configurar uma conexão de armazenamento do Azure]
+-   [Como: Criar uma tabela][Como: Criar uma tabela]
+-   [Como: Adicionar uma entidade a uma tabela][Como: Adicionar uma entidade a uma tabela]
+-   [Como: Atualizar uma entidade][Como: Atualizar uma entidade]
+-   [Como: Trabalhar com grupos de entidades][Como: Trabalhar com grupos de entidades]
+-   [Como: Recuperar uma entidade][Como: Recuperar uma entidade]
+-   [Como: Consultar um conjunto de entidades][Como: Consultar um conjunto de entidades]
+-   [Como: Excluir uma entidade][Como: Excluir uma entidade]
+-   [Como: Excluir uma tabela][Como: Excluir uma tabela]
+-   [Como: Trabalhar com assinaturas de acesso compartilhado][Como: Trabalhar com assinaturas de acesso compartilhado]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"></a>Criar uma conta de Armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Criar um aplicativo Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][], [Serviço de Nuvem do Node.js][] (usando o Windows PowerShell) ou [Site com o WebMatrix][].
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure], [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] (usando o Windows PowerShell) ou [Site com o WebMatrix][Site com o WebMatrix].
 
 ## <a name="configure-access"> </a>Configurar seu aplicativo para acessar o armazenamento
 
@@ -76,7 +76,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][].
+Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][Aplicativo Node.js na Web com armazenamento].
 
 ## <a name="create-table"> </a>Como criar uma tabela
 
@@ -122,7 +122,7 @@ propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e
 
 -   **RowKey** – Identifica exclusivamente a entidade dentro da partição.
 
-Ambos **PartitionKey** e **RowKey** devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][].
+Ambos **PartitionKey** e **RowKey** devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][Noções básicas sobre o modelo de dados do serviço Tabela].
 
 A seguir, um exemplo de definição de uma entidade. Observe que **dueDate** é definido com um tipo de **Edm.DateTime**. A especificação do tipo é opcional, e os tipos serão inferidos se não especificados.
 
@@ -154,7 +154,7 @@ o método **insertEntity**.
         }
     });
 
-Se a operação for bem-sucedida, `result` conterá a [ETag][] do registro inserido e `response` conterá informações sobre a operação.
+Se a operação for bem-sucedida, `result` conterá a [ETag][ETag] do registro inserido e `response` conterá informações sobre a operação.
 
 > [WACOM.NOTE] Por padrão, **insertEntity** não retorna a entidade inserida como parte da informação de `response`. Se você planeja executar outras operações neste entidade ou se desejar armazenar as informações em cache, pode ser útil retorná-las como parte de `result`. Você pode fazer isso habilitando **echoContent** da seguinte maneira:
 >
@@ -313,7 +313,7 @@ passado para o método **deleteEntity**.
       }
     });
 
-> [WACOM.NOTE] Você deve considerar o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Consulte [Como: Atualizar uma entidade][] para obter informações sobre o uso de ETags.
+> [WACOM.NOTE] Você deve considerar o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Consulte [Como: Atualizar uma entidade][Como: Atualizar uma entidade] para obter informações sobre o uso de ETags.
 
 ## <a name="delete-table"> </a>Como excluir uma tabela
 
@@ -415,12 +415,11 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga estes links
 para saber como realizar tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][].
--   [Visite o Blog da equipe do Armazenamento do Azure][].
--   Visite o repositório [SDK de armazenamento do Azure para nó][] no GitHub.
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure].
+-   [Visite o Blog da equipe do Armazenamento do Azure][Visite o Blog da equipe do Armazenamento do Azure].
+-   Visite o repositório [SDK de armazenamento do Azure para nó][SDK de armazenamento do Azure para nó] no GitHub.
 
   [Próximas etapas]: #next-steps
-  [O que é o serviço Tabela?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
   [Criar um aplicativo Node.js]: #create-app
@@ -443,6 +442,6 @@ para saber como realizar tarefas de armazenamento mais complexas.
   [Aplicativo Node.js na Web com armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Noções básicas sobre o modelo de dados do serviço Tabela]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Visite o Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node

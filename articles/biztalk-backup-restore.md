@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Serviços do BizTalk: Backup e restauração
 
@@ -58,7 +58,7 @@ Quando o backup for concluído, um contêiner com o nome do backup inserido ser�
 2.  Defina o **Status de Backup** para **Automático**.
 3.  Selecione a **Conta de Armazenamento** para armazenar o backup, insira a **Frequência** para criar o backup, e quanto tempo manter os backups (**Dias de retenção**):
 
-    ![][]
+    ![][0]
 
     **Observações**
 
@@ -244,17 +244,15 @@ Para criar Serviços do BizTalk do Azure no Portal de Gerenciamento do Azure, co
   [Serviços do BizTalk: Tabela de edições]: http://azure.microsoft.com/pt-BR/documentation/articles/biztalk-editions-feature-chart/
   [Backup sob demanda]: #backupnow
   [Agendar um backup]: #backupschedule
-  []: ./media/biztalk-backup-restore/AutomaticBU.png
+  [0]: ./media/biztalk-backup-restore/AutomaticBU.png
   [Último status do backup agendado]: ./media/biztalk-backup-restore/status-last-backup.png
   [Serviços do BizTalk: Solução de problemas usando os logs de operação]: http://go.microsoft.com/fwlink/?LinkId=391211
   [Restaurar API REST do Serviço do BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=325582
   [1]: ./media/biztalk-backup-restore/restore-ui.png
   [2]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
   [Serviços do BizTalk: provisionamento usando o Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
-  [Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=235197
   [Serviços do BizTalk: tabela de edições Developer, Basic, Standard e Premium]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [Serviços do BizTalk: Gráfico de status do provisionamento]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Serviços do BizTalk: guias Painel, Monitoramento e Escala]: http://go.microsoft.com/fwlink/p/?LinkID=302281
   [Serviços do BizTalk: limitação]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Serviços do BizTalk: nome e chave do emissor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=302335

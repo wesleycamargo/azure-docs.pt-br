@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Registrar o usuário atual para notificações por push usando o ASP.NET
 
@@ -22,7 +22,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
     Neste ponto, o storyboard é semelhante ao seguinte:
 
-    ![][]
+    ![][0]
 
 2.  No editor do assistente, crie saídas para todos os controles comutados e chame-os, conecte os campos de texto com o Controlador de Exibição (delegado) e crie uma **Ação** para o botão de **logon**.
 
@@ -207,12 +207,10 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação][Notificar usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /pt-br/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows Store C#"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
+
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-  []: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
+  [0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
   [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios
   [2]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/

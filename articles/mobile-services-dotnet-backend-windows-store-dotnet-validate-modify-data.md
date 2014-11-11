@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-dotnet" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Validar e modificar dados nos Serviços Móveis usando o back-end do .Net.
 
@@ -33,7 +33,7 @@ Este tutorial se baseia nas etapas e no código de exemplo do tutorial anterior 
 
 ## <a name="string-length-validation"></a>Adicionar validação
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation][mobile-services-dotnet-backend-add-validation]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 ## <a name="update-client-validation"></a>Atualizar o cliente
 
@@ -80,7 +80,7 @@ Agora que o serviço móvel está configurado para validar os dados e enviar res
 
 2.  Digite o texto para um novo item de tarefa pendente com um tamanho maior que 10 caracteres e, em seguida, clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
 3.  Será exibida uma caixa de diálogo de mensagem semelhante à seguinte em resposta ao texto inválido.
 
@@ -88,7 +88,7 @@ Agora que o serviço móvel está configurado para validar os dados e enviar res
 
 ## <a name="add-timestamp"></a>Adicionar um campo de carimbo de data/hora para CompleteDate
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate][mobile-services-dotnet-backend-add-completedate]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 ## <a name="update-client-timestamp"></a>Atualizar o cliente para exibir a CompleteDate
 
@@ -176,16 +176,6 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/ "Back-end do JavaScript"
   [Adicionar validação de comprimento de cadeia de caracteres]: #string-length-validation
   [Atualizar o cliente para oferecer suporte à validação]: #update-client-validation
   [Validação da duração do teste]: #test-length-validation
@@ -194,7 +184,7 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
   [Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [mobile-services-dotnet-backend-add-validation]: ../includes/mobile-services-dotnet-backend-add-validation.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
   [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
   [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-rebuild-solution.png

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-worker-app-with-socketio" urlDisplayName="App Using Socket.IO" pageTitle="Node.js application using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js application hosted on Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Constrói um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
 
@@ -152,12 +152,8 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedad
   [Ícone PowerShell do Azure]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
   [install-dev-tools]: ../includes/install-dev-tools.md
   [Saída de new-azureservice e add-azurenodeworkerrolecmdlets]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png
-  [repositório Socket.IO
-  GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
   [Uma janela do navegador exibindo https://github.com/LearnBoost/socket.io/tree/master/examples/chat, com o ícone de download ZIP realçado]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
   [Explorer, exibindo o conteúdo do diretório examples\\chat extraído do arquivo morto]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
   [A saída do comando npm install]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [Duas janelas de navegador exibindo mensagens de chat do Usuário1 e do Usuário2]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png
-  [Criar e implantar um aplicativo do Node.js em um Serviço de Nuvem do Azure (a página pode estar em inglês)]: https://www.windowsazure.com/pt-BR/develop/nodejs/tutorials/getting-started/
-  [SDK do Azure para o repositório Node.js GitHub]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Criar um aplicativo de chat do Node.js com Socket.IO em um Site do Azure]: /pt-BR/develop/nodejs/tutorials/website-using-socketio/

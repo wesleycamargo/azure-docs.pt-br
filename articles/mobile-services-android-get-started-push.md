@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Introdução às notificações por push nos Serviços Móveis (envio herdado)
 
@@ -39,7 +39,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <span id="register"></span></a>Habilitar o sistema de mensagens em nuvem do Google
 
-[WACOM.INCLUDE [Habilitar GCM][Habilitar GCM]]
+[WACOM.INCLUDE [Habilitar GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Em seguida, você usará esse valor de chave de API para ativar os Serviços Móveis para autenticar com o GCM e enviar notificações de push em nome do seu aplicativo.
 
@@ -47,7 +47,7 @@ Em seguida, você usará esse valor de chave de API para ativar os Serviços Mó
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Push**, insira o valore **Chave do API** obtida do GCM no procedimento anterior e clique em **Salvar**.
 
@@ -59,7 +59,7 @@ Seu serviço móvel agora está configurado para funcionar com o GCM para enviar
 
 ### Inclua o Google Play Services no projeto
 
-[WACOM.INCLUDE [Incluir Serviços de Reprodução][Incluir Serviços de Reprodução]]
+[WACOM.INCLUDE [Incluir Serviços de Reprodução](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incluir código
 
@@ -250,14 +250,6 @@ Neste exemplo simples, um usuário recebe uma notificação por push com os dado
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-push-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Appcelerator]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-android-get-started-push/ "Back-end do JavaScript"
   [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
   [Configurar os Serviços Móveis]: #configure
@@ -268,7 +260,7 @@ Neste exemplo simples, um usuário recebe uma notificação por push com os dado
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-android
   [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Incluir Serviços de Reprodução]: ../includes/mobile-services-add-Google-play-services.md
   [Definir o SDK Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801

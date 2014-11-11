@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-js" urlDisplayName="Get Started with Data" pageTitle="Get started with data (JavaScript) - Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="https://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introdução aos dados nos Serviços Móveis usando o Visual Studio 2012
 
@@ -30,7 +30,7 @@ Este tutorial é baseado no [aplicativo GetStartedWithData][aplicativo GetStarte
 
 1.  Baixe a versão do JavaScript do aplicativo de exemplo GetStartedWithData do [site de exemplos de código do desenvolvedor][aplicativo GetStartedWithData].
 
-    ![][]
+    ![][0]
 
 2.  No Visual Studio 2012 Express para Windows 8, abra o projeto baixado, expanda a pasta **js** e analise o arquivo default.js.
 
@@ -46,11 +46,11 @@ Este tutorial é baseado no [aplicativo GetStartedWithData][aplicativo GetStarte
 
 ## <a name="create-service"></a><span class="short-header">Criar um novo serviço móvel</span>Crie um novo serviço móvel no Portal de Gerenciamento
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Adicionar uma nova tabela</span>Adicione uma nova tabela para o serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][mobile-services-create-new-service-data-2]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">Atualizar o aplicativo</span>Atualizar o aplicativo para usar o serviço móvel para acesso a dados
 
@@ -186,23 +186,13 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-data-js-vs2012 "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /pt-br/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [Introdução aos dados nos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-with-data-js/
   [Baixar o projeto de aplicativo da Windows Store]: #download-app
   [Criar o serviço móvel]: #create-service
   [Adicionar uma tabela de dados para armazenamento]: #add-table
   [Atualizar o aplicativo para usar Serviços Móveis]: #update-app
   [Testar o aplicativo com os Serviços Móveis]: #test-app
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
-  []: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-data-sample-download-js.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-data-sample-download-js.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-quickstart-startup.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md

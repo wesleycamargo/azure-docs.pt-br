@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-xamarin-ios" urlDisplayName="" pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="" authors="donnam" solutions="" manager="dwrede" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
@@ -14,7 +14,7 @@ Este tópico mostra como usar a paginação para gerenciar a quantidade de dados
 <p>Para evitar estouro de dados em clientes de dispositivos m&oacute;veis, os Servi&ccedil;os M&oacute;veis implementam um limite autom&aacute;tico de p&aacute;gina que tem como padr&atilde;o um m&aacute;ximo de 50 itens em uma resposta. Ao especificar o tamanho da p&aacute;gina, voc&ecirc; poder&aacute; explicitamente solicitar at&eacute; 1.000 itens na resposta.</p>
 </div>
 
-Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução a dados][]. Antes de iniciar este tutorial, você deve concluir ao menos o primeiro tutorial na série sobre como trabalhar com dados [Introdução aos dados][Introdução a dados].
+Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução a dados][Introdução a dados]. Antes de iniciar este tutorial, você deve concluir ao menos o primeiro tutorial na série sobre como trabalhar com dados [Introdução aos dados][Introdução a dados].
 
 1.  No Xamarin Studio, abra o projeto que você modificou quando concluiu o tutorial [Introdução aos dados][Introdução a dados].
 
@@ -55,7 +55,7 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
 Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Se desejar obter mais informações sobre o seguinte tópico de Serviços Móveis:
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
     Saiba como autenticar usuários de seu aplicativo com uma conta do Windows.
 
 <!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. -->
@@ -64,13 +64,5 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/add-paging-to-data-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [iOS C#]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-ios

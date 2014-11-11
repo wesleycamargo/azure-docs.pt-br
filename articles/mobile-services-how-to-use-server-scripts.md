@@ -1,6 +1,6 @@
 <properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Trabalhar com um serviço móvel de back-end do JavaScript
 
@@ -892,8 +892,6 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 
 <!-- URLs. -->
 
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-how-to-use-server-scripts/ "Back-end do JavaScript"
   [Introdução]: #intro
   [Operações de tabela]: #table-scripts
   [Como: Registrar-se para operações de tabela]: #register-table-scripts
@@ -971,6 +969,5 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
   [Como: Executar uma consulta estática]: #static-query
   [Como: Executar uma consulta dinâmica]: #dynamic-query
   [Como: Associar tabelas relacionais]: #joins
-  [Como: Executar uma consulta que retorna *resultados* brutos]: #raw
   [Como: Obter acesso a uma conexão de banco de dados]: #connection
   [objeto console]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554209.aspx

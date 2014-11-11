@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introdução às notificações por push nos Serviços Móveis usando o Visual Studio 2012
 
@@ -34,13 +34,13 @@ Este tutorial baseia-se no tutorial [Introdução aos dados][Introdução aos da
 
 Para poder enviar notificações por push para aplicativos da Windows Store dos Serviços Móveis, você deve enviar seu aplicativo para a Windows Store. Em seguida, você deve configurar seu serviço móvel para se integrar com o WNS.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 O serviço móvel e seu aplicativo agora estão configurados para trabalhar com o WNS. Em seguida, você criará uma nova tabela para armazenar registros.
 
 ## <a name="create-table"></a>Criar uma nova tabela
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][mobile-services-create-new-push-table]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">Adicionar notificações por push</span>Adicionar notificações por push a seus aplicativos
 
@@ -67,13 +67,13 @@ O serviço móvel e seu aplicativo agora estão configurados para trabalhar com 
 
 3.  Abra o arquivo Package.appxmanifest e verifique se, na guia **Interface do Usuário do aplicativo**, **Compatível com toast** está definido como **Sim**.
 
-    ![][]
+    ![][0]
 
     Isso garante que seu aplicativo possa gerar notificações de toast.
 
 ## <a name="update-scripts"></a><span class="short-header">Atualizar o script de inserção</span>Atualizar o script de inserção registrado no Portal de Gerenciamento
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][mobile-services-update-registrations-script]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  Clique em **TodoItem**, clique em **Script** e selecione **Inserir**.
 
@@ -155,14 +155,6 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store C#]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Windows Store C#"
-  [Windows Store JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Windows Store JavaScript"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-js
   [Registrar seu aplicativo para notificações por push e configurar os Serviços Móveis]: #register
   [Criar a tabela de registros]: #create-table
   [Adicionar notificações por push ao aplicativo]: #add-push
@@ -171,7 +163,7 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
   [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-js
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png

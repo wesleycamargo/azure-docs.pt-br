@@ -1,6 +1,10 @@
 <properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP website with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
+
+
+
 
 # Criar e implantar um Site do Azure PHP-MySQL usando o WebMatrix
 
@@ -20,7 +24,7 @@ Seguindo este tutorial, você criará um simples aplicativo Lista de Tarefas em 
 
 ![Site PHP do Azure][Site PHP do Azure]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Pré-requisitos
 
@@ -146,9 +150,9 @@ Antes de publicar seu aplicativo nos Sites do Azure, as informações para conex
 
     ![WebMatrix - publicar][WebMatrix - publicar]
 
-3.  Navegue para [http://[nome do][http://[nome do] seu site].azurewebsites.net/createtable.php para criar a tabela `items`.
+3.  Navegue para http://[nome do seu site].azurewebsites.net/createtable.php para criar a tabela `items`.
 
-4.  Por fim, navegue para [http://[nome do][http://[nome do] seu site].azurewebsites.net/index.php para usar o aplicativo.
+4.  Por fim, navegue para http://[nome do seu site].azurewebsites.net/index.php para usar o aplicativo.
 
 ## Modificar e republicar seu aplicativo
 
@@ -194,7 +198,6 @@ Você viu como criar e implantar um site a partir do WebMatrix para o Azure. Par
   [WebMatrix - iniciar o createtable.php no navegador]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
   [Criar Site do Azure e Banco de dados MySQL]: #CreateWebsite
   [WebMatrix - publicar]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
-  [http://[nome do]: http://[your
   [WebMatrix - abrir exibição remota]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
   [WebMatrix - abrir índice de arquivo]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
   [WebMatrix - iniciar o site em modo remoto]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png

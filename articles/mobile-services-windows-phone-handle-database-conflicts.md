@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-wp8" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Tratando conflitos de gravação do banco de dados
 
@@ -29,7 +29,7 @@ Este tutorial requer o seguinte:
 
     1.  No Visual Studio, abra o projeto e clique com o botão direito do mouse no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**.
 
-        ![][]
+        ![][0]
 
     2.  Expanda **Online** e clique em **Microsoft e .NET**. Na caixa de texto Pesquisar, digite **Serviços Móveis do Azure**. Clique em **Instalar** no Pacote NuGet dos **Serviços Móveis do Azure**.
 
@@ -296,9 +296,6 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Atualizar o aplicativo para permitir atualizações]: #uiupdate
   [Habilitar a detecção de conflitos em seu aplicativo]: #enableOC
   [Testar conflitos de gravação do banco de dados no aplicativo]: #test-app
@@ -306,7 +303,7 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
   [SDK do Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
   [Conta do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-wp8
-  []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+  [0]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [Controle de Simultaneidade Otimista]: http://go.microsoft.com/fwlink/?LinkId=330935
   [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143

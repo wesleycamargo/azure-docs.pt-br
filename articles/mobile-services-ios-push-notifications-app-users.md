@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Enviar notificações por push aos usuários usando os Serviços Móveis
 
@@ -220,9 +220,6 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [tutorial anterior sobre notificação por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios
   [Criar a tabela de dispositivos]: #create-table
   [Atualizar o aplicativo]: #update-app

@@ -1,6 +1,6 @@
 <properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Azure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover, and recover Hyper-V virtual machine data between VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to Azure Protection" editor="jimbe" manager="cfreeman" authors="" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Introdução à Recuperação de Site do Azure: Proteção no local para o Azure
 
@@ -187,7 +187,7 @@ Verifique a barra de status para confirmar se o cofre foi criado com sucesso. O 
 
     ![Gerenciar Certificado][1]
 
-<a name="download"></a>
+
 
 ## Etapa 4: Instale o Provedor de Recuperação de Site do Azure
 
@@ -209,7 +209,6 @@ Verifique a barra de status para confirmar se o cofre foi criado com sucesso. O 
     -   Selecione o cofre no qual você deseja registrar o servidor.
     -   Especifique a chave do cofre. Essa é a chave do cofre gerada por você anteriormente. Recorte e cole o valor da chave por meio da página Início rápido.
 
-    </p>
     ![Registro de certificado][Registro de certificado]
 
 6.  Na página Criptografia de Dados, você especifica se deseja ou não permitir criptografia de dados durante a replicação para uma nuvem específica. Se você selecionar essa opção, um certificado SSL será gerado automaticamente. Ao executar um failover, você precisará selecionar este certificado. Após habilitar essa configuração, você pode habilitar ou desabilitar a criptografia de dados para uma nuvem no Portal de Recuperação de Site do Azure. Para esse tutorial, deixe a configuração como o padrão e clique em **Avançar**.
@@ -353,29 +352,9 @@ Para obter mais informações sobre a interação com trabalhos e sobre o Painel
 -   Para planejar e implantar a Recuperação de Site do Azure em um ambiente de produção completo, consulte [Guia de planejamento para Recuperação de Site do Azure][Plano para implantação da Recuperação de Site do Azure] e [Guia de Implantação para Recuperação de Site do Azure][Guia de Implantação para Recuperação de Site do Azure].
 -   Caso tenha perguntas, visite o [Fórum de Serviços de Recuperação do Azure][Fórum de Serviços de Recuperação do Azure].
 
-  [Introdução à Recuperação de Site do Azure: Proteção do local para o próprio local]: http://go.microsoft.com/fwlink/?LinkId=398765
   [Plano para implantação da Recuperação de Site do Azure]: http://go.microsoft.com/fwlink/?LinkId=321294
-  [Implantar a Recuperação de Site do Azure: Proteção no local para o Azure]: http://go.microsoft.com/fwlink/?LinkId=402679
-  [Administrar e monitorar a Recuperação de Site do Azure]: http://go.microsoft.com/fwlink/?LinkId=378272
-  [Recuperação de Site do Azure: Cenários comuns de erro e soluções]: http://go.microsoft.com/fwlink/?LinkId=389879
   [Fórum de Serviços de Recuperação do Azure]: http://go.microsoft.com/fwlink/?LinkId=313628
-  [Avaliação gratuita do Azure]: http://aka.ms/try-azure
-  [Detalhes dos Preços do Gerenciador de Recuperação de Site do Azure]: http://go.microsoft.com/fwlink/?LinkId=378268
-  [Introdução ao Armazenamento do Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=398704
   [Pré-requisitos e suporte]: http://go.microsoft.com/fwlink/?LinkId=402602
-  [Etapa 1: Obter e configurar certificados]: #createcert
-  [Etapa 2: Criar um cofre]: #vault
-  [Etapa 3: Configure o cofre]: #upload
-  [Etapa 4: Instalar o aplicativo Provedor]: #download
-  [Etapa 5: Instalar o aplicativo do Agente]: #agent
-  [Etapa 6: Configurar a proteção de nuvem]: #clouds
-  [Etapa 7: Configurar o mapeamento de rede]: #NetworkMapping
-  [Etapa 8: Habilitar a proteção para máquinas virtuais]: #virtualmachines
-  [Etapa 9: Configurar e executar planos de recuperação]: #recovery%20plans
-  [Obter um certificado autoassinado para a explicação passo a passo]: #obtaincert
-  [Exportar o certificado em formato .pfx]: #exportcert
-  [Importar o certificado .pfx para o servidor VMM]: #importcert
-  [Windows SDK]: http://go.microsoft.com/fwlink/?LinkId=378269
   [Portal de Gerenciamento]: https://manage.windowsazure.com
   [Novo cofre]: ./media/hyper-v-recovery-manager-configure-vault/SR_HvVault.png
   [Ícone de Inicialização Rápida]: ./media/hyper-v-recovery-manager-configure-vault/SR_QuickStartIcon.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="" editor=""   />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # <a name="getting-started-with-push"> </a>Introdução às notificações por push nos Serviços Móveis
 
@@ -28,7 +28,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 > [WACOM.NOTE]Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Habilitar GCM][Habilitar GCM]]
+[WACOM.INCLUDE [Habilitar GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Em seguida, você usará esse valor de chave de API para ativar os Serviços Móveis para autenticar com o GCM e enviar notificações de push em nome do seu aplicativo.
 
@@ -36,7 +36,7 @@ Em seguida, você usará esse valor de chave de API para ativar os Serviços Mó
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Push**, insira o valore **Chave do API** obtida do GCM no procedimento anterior e clique em **Salvar**.
 
@@ -54,7 +54,7 @@ O serviço móvel e seu aplicativo agora estão configurados para trabalhar com 
 
 ### Verificar Versão de SDK do Android
 
-[WACOM.INCLUDE [Verificar SDK][Verificar SDK]]
+[WACOM.INCLUDE [Verificar SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
 
@@ -62,11 +62,11 @@ Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK d
 
 ### Inclua o Google Play Services no projeto
 
-[WACOM.INCLUDE [Incluir Serviços de Reprodução][Incluir Serviços de Reprodução]]
+[WACOM.INCLUDE [Incluir Serviços de Reprodução](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incluir código
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][mobile-services-android-getting-started-with-push]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <span id="update-scripts"></span></a>Atualizar o script de inserção registrados no Portal de Gerenciamento
 
@@ -176,14 +176,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "Back-end do JavaScript"
-  [Introdução às notificações por push (herdado)]: /pt-br/documentation/articles/mobile-services-android-get-started-push/
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
   [Configurar os Serviços Móveis]: #configure
   [Adicionar notificações de push para seu aplicativo]: #add-push
@@ -194,7 +186,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [esta orientação]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Verificar SDK]: ../includes/mobile-services-verify-android-sdk-version.md
@@ -209,6 +201,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [6]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png
   [7]: ./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-android-get-started-users
-  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
   [Como usar a biblioteca de cliente Android para os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-how-to-use-client-library
   [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293

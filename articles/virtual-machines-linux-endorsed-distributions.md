@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Linux em distribuições endossadas pelo Azure
 
@@ -185,8 +185,3 @@ Pacote: No repositório <a href="https://build.opensuse.org/project/show/Cloud:T
   [aqui]: http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409
   [Github]: https://github.com/azure/walinuxagent
   [patch de compatibilidade do kernel Linux]: http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409
-  [Necessário apenas para 12.04 ou 12.04.01]: http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409
-  [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=250998
-  [Necessário apenas para 6.3]: http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409
-  [repositório de pacotes do Open,]: http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/
-  [Nuvem:Ferramentas]: https://build.opensuse.org/project/show/Cloud:Tools

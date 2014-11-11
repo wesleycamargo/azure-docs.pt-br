@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Como usar o serviço Fila do Node.js
 
@@ -8,36 +8,36 @@ Este guia mostra como executar cenários comuns usando o
 serviço Fila do Microsoft Azure. Os exemplos são escritos usando a
 API do Node.js. Os cenários abordados incluem a **inserção**, **inspeção**,
 **obtenção**, e **exclusão** de mensagens da fila, além de **criação e
-exclusão de filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+exclusão de filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o serviço Fila?][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo Node.js][]
--   [Configurar seu aplicativo para acessar o armazenamento][]
--   [Configurar uma cadeia de conexão de armazenamento do Azure][]
--   [Como: Criar uma fila][]
--   [Como: Inserir uma mensagem em uma fila][]
--   [Como: Espiar a próxima mensagem][]
--   [Como: Remover a próxima mensagem da fila][]
--   [Como: Alterar o conteúdo de uma mensagem na fila][]
--   [Como: Opções adicionais para remover mensagens da fila][]
--   [Como: Obter o tamanho da fila][]
--   [Como: Excluir uma fila][]
--   [Como: Trabalhando com assinaturas de acesso compartilhado][]
--   [Próximas etapas][]
+-   [O que é o serviço Fila?][O que é o serviço Fila?]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo Node.js][Criar um aplicativo Node.js]
+-   [Configurar seu aplicativo para acessar o armazenamento][Configurar seu aplicativo para acessar o armazenamento]
+-   [Configurar uma cadeia de conexão de armazenamento do Azure][Configurar uma cadeia de conexão de armazenamento do Azure]
+-   [Como: Criar uma fila][Como: Criar uma fila]
+-   [Como: Inserir uma mensagem em uma fila][Como: Inserir uma mensagem em uma fila]
+-   [Como: Espiar a próxima mensagem][Como: Espiar a próxima mensagem]
+-   [Como: Remover a próxima mensagem da fila][Como: Remover a próxima mensagem da fila]
+-   [Como: Alterar o conteúdo de uma mensagem na fila][Como: Alterar o conteúdo de uma mensagem na fila]
+-   [Como: Opções adicionais para remover mensagens da fila][Como: Opções adicionais para remover mensagens da fila]
+-   [Como: Obter o tamanho da fila][Como: Obter o tamanho da fila]
+-   [Como: Excluir uma fila][Como: Excluir uma fila]
+-   [Como: Trabalhando com assinaturas de acesso compartilhado][Como: Trabalhando com assinaturas de acesso compartilhado]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"></a>Criar uma conta de Armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Criar um aplicativo Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][], [Serviço de Nuvem do Node.js][] (usando o Windows PowerShell) ou [Site com o WebMatrix][].
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure], [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] (usando o Windows PowerShell) ou [Site com o WebMatrix][Site com o WebMatrix].
 
 ## <a name="configure-access"> </a>Configurar seu aplicativo para acessar o armazenamento
 
@@ -77,7 +77,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][].
+Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][Aplicativo Node.js na Web com armazenamento].
 
 ## <a name="create-queue"> </a>Como: Criar uma fila
 
@@ -330,12 +330,11 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links
 para saber como executar tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][].
--   Visite o [Blog da equipe do Armazenamento do Azure][].
--   Visite o repositório [SDK de armazenamento do Azure para nó][] no GitHub.
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure].
+-   Visite o [Blog da equipe do Armazenamento do Azure][Blog da equipe do Armazenamento do Azure].
+-   Visite o repositório [SDK de armazenamento do Azure para nó][SDK de armazenamento do Azure para nó] no GitHub.
 
   [Próximas etapas]: #next-steps
-  [O que é o serviço Fila?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
   [Criar um aplicativo Node.js]: #create-app
@@ -356,6 +355,6 @@ para saber como executar tarefas de armazenamento mais complexas.
   [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site com o WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Aplicativo Node.js na Web com armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node

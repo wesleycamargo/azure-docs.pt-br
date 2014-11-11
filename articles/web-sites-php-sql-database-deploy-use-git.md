@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Criar um Site do PHP com um Banco de Dados SQL e implantar usando o Git
 
@@ -18,7 +18,7 @@ Seguindo este tutorial, você irá criar um aplicativo da web de registro simple
 
 ![Site PHP do Azure][Site PHP do Azure]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Criar um site do Azure e configurar a publicação Git
 
@@ -283,7 +283,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
   [Criar um novo site do Azure]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Criação personalizada de um novo site]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [Preencha os detalhes do site]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB ou BUSINESS)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee621788.aspx
   [Preencher as configurações do banco de dados SQL]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [Criar um novo servidor de banco de dados SQL]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [Abrir o painel do site]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
@@ -294,4 +293,3 @@ Para publicar alterações no aplicativo, siga estas etapas:
   [Recursos Vinculados]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
   [Cadeia de conexão]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
   [extensão PDO para SQL Server]: http://php.net/pdo_sqlsrv
-  [http://[site]: http://[site

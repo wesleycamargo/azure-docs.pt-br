@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Como monitorar uma conta de armazenamento
 
@@ -10,25 +10,25 @@ Até que você configure o monitoramento para uma conta de armazenamento, nenhum
 
 <div class="dev-callout"> 
 <b>Observa&ccedil;&atilde;o</b> 
-<p>Lembre-se de que h&aacute; custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">An&aacute;lise de armazenamento e cobran&ccedil;a</a>.</p> 
+<p>Lembre-se de que h&aacute; custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">An&aacute;lise de armazenamento e cobran&ccedil;a</a>.</p> 
 </div>
 
 ## Sumário
 
--   [Como: Configurar o monitoramento para uma conta de armazenamento][]
--   [Como: Personalizar o painel para o monitoramento][]
--   [Como: Personalizar a página de Monitoramento][]
--   [Como: adicionar métricas à tabela de métricas][]
--   [Como: Personalizar o gráfico de métricas na página de Monitoramento][]
--   [Como: Configurar o registro em log][]
+-   [Como: Configurar o monitoramento para uma conta de armazenamento][Como: Configurar o monitoramento para uma conta de armazenamento]
+-   [Como: Personalizar o painel para o monitoramento][Como: Personalizar o painel para o monitoramento]
+-   [Como: Personalizar a página de Monitoramento][Como: Personalizar a página de Monitoramento]
+-   [Como: adicionar métricas à tabela de métricas][Como: adicionar métricas à tabela de métricas]
+-   [Como: Personalizar o gráfico de métricas na página de Monitoramento][Como: Personalizar o gráfico de métricas na página de Monitoramento]
+-   [Como: Configurar o registro em log][Como: Configurar o registro em log]
 
 ## <span id="configurestoragemonitoring"></span></a>Como: Configurar o monitoramento para uma conta de armazenamento
 
-1.  No [Portal de Gerenciamento][], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2.  Clique em **Configurar** e role para baixo até as configurações de **monitoramento** dos serviços de Blob, Tabela e Fila, mostrados a seguir.
 
-    ![Opções de monitoramento][]
+    ![Opções de monitoramento][Opções de monitoramento]
 
 3.  Em **monitoramento**, defina o nível de monitoramento e a política de retenção de dados para cada serviço:
 
@@ -46,7 +46,7 @@ Até que você configure o monitoramento para uma conta de armazenamento, nenhum
 
 Você deve começar a visualizar o monitoramento de dados no painel e a página de **Monitoramento** após cerca de uma hora.
 
-As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento][].
+As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento][Sobre as Métricas de Analítica de Armazenamento].
 
 Depois de definir os níveis de monitoramento e as políticas de retenção, você pode escolher quais das métricas disponíveis serão monitoradas no Portal de Gerenciamento e quais métricas serão traçadas nos gráficos de métricas. Um conjunto de métricas padrão é exibido em cada nível de monitoramento. Você pode usar **Adicionar métricas** para adicionar ou remover métricas da lista de métricas.
 
@@ -54,7 +54,7 @@ Depois de definir os níveis de monitoramento e as políticas de retenção, voc
 
 No painel, você pode escolher até seis métricas para serem traçadas no gráfico de métricas de nove métricas disponíveis. Para cada serviço (Blob, Tabela e Fila), as métricas de Disponibilidade, Porcentagem de Êxitos e Total de Solicitações estão disponíveis. As métricas disponíveis no painel são as mesmas para o monitoramento mínimo ou detalhado.
 
-1.  No [Portal de Gerenciamento][], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2.  Para alterar as métricas que são traçadas no gráfico, realize uma das seguintes ações:
 
@@ -62,7 +62,7 @@ No painel, você pode escolher até seis métricas para serem traçadas no gráf
 
 -   Para ocultar uma métrica que seja traçada no gráfico, desmarque a caixa de seleção próxima ao cabeçalho da métrica.
 
-    ![Monitoring\_nmore][]
+    ![Monitoring\_nmore][Monitoring\_nmore]
 
 1.  Por padrão, o gráfico mostra tendências, exibindo apenas o valor atual de cada métrica (a opção **Relativo** na parte superior do gráfico). Para exibir um eixo Y para que você possa visualizar os valores absolutos, selecione **Absoluto**.
 
@@ -80,40 +80,40 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 ## <span id="addmonitoringmetrics"></span></a>Como: adicionar métricas à tabela de métricas
 
-1.  No [Portal de Gerenciamento][], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2.  Clique em **Monitoramento**.
 
     A página de **Monitoramento** é exibida. Por padrão, a tabela de métricas exibe um subconjunto de métricas que estão disponíveis para o monitoramento. A ilustração mostra a exibição de Monitoramento padrão para uma conta de armazenamento com a configuração de monitoramento detalhado para os três serviços. Use **Adicionar métricas** para selecionar as métricas que você deseja monitorar de todas as métricas disponíveis.
 
-    ![Monitoring\_VerboseDisplay][]
+    ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
 
     <div class="dev-callout"> 
 <b>Observa&ccedil;&atilde;o</b> 
-<p>Considere os custos ao selecionar as m&eacute;tricas. Existem transa&ccedil;&otilde;es e custos de sa&iacute;da associados &agrave; atualiza&ccedil;&atilde;o das exibi&ccedil;&otilde;es do monitoramento. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">An&aacute;lise de armazenamento e cobran&ccedil;a</a>.</p> 
+<p>Considere os custos ao selecionar as m&eacute;tricas. Existem transa&ccedil;&otilde;es e custos de sa&iacute;da associados &agrave; atualiza&ccedil;&atilde;o das exibi&ccedil;&otilde;es do monitoramento. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">An&aacute;lise de armazenamento e cobran&ccedil;a</a>.</p> 
 </div>
 
 3.  Clique em **Adicionar Métricas**.
 
     As métricas agregadas que estão disponíveis no monitoramento mínimo estão localizadas na parte superior da lista. Se a caixa de seleção estiver selecionada, a métrica é exibida na lista de métricas.
 
-    ![AddMetricsInitialDisplay][]
+    ![AddMetricsInitialDisplay][AddMetricsInitialDisplay]
 
 4.  Passe o mouse sobre lado direito da caixa de diálogo para exibir uma barra de rolagem que você pode arrastar para rolar e exibir métricas adicionais.
 
-    ![AddMetricsScrollbar][]
+    ![AddMetricsScrollbar][AddMetricsScrollbar]
 
 5.  Clique na seta para baixo próxima a uma métrica para expandir uma lista das operações na qual a métrica é delimitada para incluir. Selecione cada uma das operações que você deseja exibir na tabela de métricas no Portal de Gerenciamento.
 
     Na ilustração a seguir, a métrica de PORCENTAGEM DE ERRO DE AUTORIZAÇÃO foi expandida.
 
-    ![ExpandCollapse][]
+    ![ExpandCollapse][ExpandCollapse]
 
 6.  Depois que você selecionar métricas para todos os serviços, clique em OK (marca de seleção) para atualizar a configuração de monitoramento. As métricas selecionadas são adicionadas à tabela de métricas.
 
 7.  Para excluir uma métrica da tabela, clique na métrica para selecioná-la e clique em **Excluir Métrica**, conforme demonstrado abaixo.
 
-    ![DeleteMetric][]
+    ![DeleteMetric][DeleteMetric]
 
 ## <span id="customizemetricschart"></span></a>Como: Personalizar o gráfico de métricas na página de Monitoramento
 
@@ -127,11 +127,11 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 Para cada um dos serviços de armazenamento disponíveis com sua conta de armazenamento (Blob, Tabela e Fila), é possível salvar logs de diagnóstico para as Solicitações de Leitura, Solicitações de Gravação e/ou Solicitações de Exclusão e definir a política de retenção de dados para cada um dos serviços.
 
-1.  No [Portal de Gerenciamento][], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2.  Clique em **Configurar** e use a seta para baixo no teclado para rolar para baixo até **Registro em log** (mostrado abaixo).
 
-    ![Storagelogging][]
+    ![Storagelogging][Storagelogging]
 
 3.  Para cada um dos serviços (Blob, Tabela e Fila), configure o seguinte:
 
@@ -141,9 +141,8 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 4.  Clique em **Salvar**.
 
-Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento][]
+Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento][Sobre o Log de Analítica do Armazenamento]
 
-  [Análise de armazenamento e cobrança]: http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx
   [Como: Configurar o monitoramento para uma conta de armazenamento]: #configurestoragemonitoring
   [Como: Personalizar o painel para o monitoramento]: #customizestoragemonitoring
   [Como: Personalizar a página de Monitoramento]: #customizemonitorpage
@@ -152,12 +151,10 @@ Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em
   [Como: Configurar o registro em log]: #configurelogging
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [Opções de monitoramento]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
-  [Sobre as Métricas de Analítica de Armazenamento]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
-  [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
+  [Sobre as Métricas de Analítica de Armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343258.aspx
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
   [ExpandCollapse]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png
   [DeleteMetric]: ./media/storage-monitor-storage-account/Storage_DeleteMetric.png
   [Storagelogging]: ./media/storage-monitor-storage-account/Storage_LoggingOptions.png
-  [Sobre o Log de Analítica do Armazenamento]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx
+  [Sobre o Log de Analítica do Armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343262.aspx

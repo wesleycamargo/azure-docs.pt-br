@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Usar Hubs de Notificação para enviar últimas notícias localizadas
 
@@ -152,16 +152,14 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
 
 ## <a name="send"></a><span class="short-header">Enviar notificações localizadas</span>Enviar notificações localizadas de seu back-end
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][notification-hubs-localized-back-end]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## Próximas etapas
 
 Para obter mais informações sobre como usar modelos, consulte [Notificar usuários com Hubs de Notificação: ASP.NET][Notificar usuários com Hubs de Notificação: ASP.NET], [Notificar usuários com Hubs de Notificação: Serviços Móveis][Notificar usuários com Hubs de Notificação: Serviços Móveis] e também [Diretrizes de Hubs de Notificação][Diretrizes dos Hubs de Notificação]. Uma referência à linguagem de expressão do modelo é [Instruções dos Hubs de Notificação para a Windows Store][Instruções dos Hubs de Notificação para a Windows Store].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows Store C#"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
+
   [Usar Hubs de Notificação para enviar últimas notícias]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
   [Conceitos de modelo]: #concepts
   [A interface do usuário do aplicativo]: #ui

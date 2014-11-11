@@ -1,6 +1,6 @@
 <properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Serviços do BizTalk: Solução de problemas usando os logs de operação.
 
@@ -23,22 +23,68 @@ Os Logs de Operação são um recurso dos Serviços de Gerenciamento disponível
 
 A tabela a seguir lista as operações que são acompanhadas usando os Serviços de Gerenciamento do Azure.
 
-|-----------------------------|---------------------------------------------------------------------------------------|
-| CreateBizTalkService        | Operação para criar um novo Serviço BizTalk                                           |
-| DeleteBizTalkService        | Operação para excluir um novo Serviço BizTalk                                         |
-| RestartBizTalkService       | Operação para reiniciar um Serviço BizTalk                                            |
-| StartBizTalkService         | Operação para iniciar um Serviço BizTalk                                              |
-| StopBizTalkService          | Operação para parar um Serviço BizTalk                                                |
-| DisableBizTalkService       | Operação para desabilitar um Serviço BizTalk                                          |
-| EnableBizTalkService        | Operação para habilitar um Serviço BizTalk                                            |
-| BackupBizTalkService        | Operação para fazer backup de um Serviço BizTalk                                      |
-| RestoreBizTalkService       | Operação para restaurar um Serviço BizTalk de um backup especificado                  |
-| SuspendBizTalkService       | Operação para suspender um Serviço BizTalk                                            |
-| ResumeBizTalkService        | Operação para continuar um Serviço BizTalk                                            |
-| ScaleBizTalkService         | Operação para ampliar ou reduzir um Serviço BizTalk                                   |
-| ConfigUpdateBizTalkService  | Operação para atualizar a configuração de um Serviço BizTalk                          |
-| ServiceUpdateBizTalkService | Operação para fazer upgrade ou downgrade um Serviço BizTalk Service para outra versão |
-| PurgeBackupBizTalkService   | Operação para limpar backups do Serviço BizTalk fora do período de retenção           |
+<table border="1" cellpadding="5">
+<tr>
+<td>CreateBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para criar um novo Servi&ccedil;o BizTalk</td> 
+</tr> 
+<tr>
+<td>DeleteBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para excluir um novo Servi&ccedil;o BizTalk</td>  
+</tr> 
+<tr>
+<td>RestartBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para reiniciar um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>StartBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para iniciar um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>StopBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para parar um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>DisableBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para desabilitar um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>EnableBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para habilitar um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>BackupBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para fazer backup de um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>RestoreBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para restaurar um Servi&ccedil;o BizTalk de um backup especificado</td> 
+</tr>
+<tr>
+<td>SuspendBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para suspender um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>ResumeBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para continuar um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>ScaleBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para ampliar ou reduzir um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>ConfigUpdateBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para atualizar a configura&ccedil;&atilde;o de um Servi&ccedil;o BizTalk</td> 
+</tr>
+<tr>
+<td>ServiceUpdateBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para fazer upgrade ou downgrade um Servi&ccedil;o BizTalk Service para outra vers&atilde;o</td> 
+</tr>
+<tr>
+<td>PurgeBackupBizTalkService</td> 
+<td align="left">Opera&ccedil;&atilde;o para limpar backups do Servi&ccedil;o BizTalk fora do per&iacute;odo de reten&ccedil;&atilde;o</td> 
+</tr>
+</table>
 
 ## Consulte também
 
@@ -52,9 +98,6 @@ A tabela a seguir lista as operações que são acompanhadas usando os Serviços
 -   [Serviços do BizTalk: nome e chave do emissor][Serviços do BizTalk: nome e chave do emissor]
 -   [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)][Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]
 
-  [APIs REST do Serviço BizTalk]: http://msdn.microsoft.com/pt-BR/library/windowsazure/dn232347.aspx
-  [Operações acompanhadas usando os Serviços de Gerenciamento do Azure]: #bizops
-  [Acompanhando mensagens]: http://msdn.microsoft.com/library/windowsazure/hh949805.aspx
   [Ver logs de operação]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
   [Fazer o backup do Serviço BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=325584
   [Restaurar o Serviço BizTalk do backup]: http://go.microsoft.com/fwlink/p/?LinkID=325582

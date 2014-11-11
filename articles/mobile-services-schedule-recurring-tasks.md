@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Agendar trabalhos recorrentes nos Serviços Móveis
 
@@ -25,7 +25,7 @@ Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Port
 
 ## <a name="get-oauth-credentials"></a>Registrar-se para acesso às APIs do Twitter v1.1 e armazenar as credenciais
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 ## <a name="create-table"></a>Criar a nova tabela Updates
 
@@ -33,7 +33,7 @@ Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 
 1.  No Portal de Gerenciamento, clique na guia **Dados** de seu serviço móvel e clique em **+Criar**.
 
-    ![][]
+    ![][0]
 
     Isso exibe a caixa de diálogo **Criar uma nova tabela**.
 
@@ -170,13 +170,11 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-schedule-recurring-tasks/ "Back-end do JavaScript"
   [Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
   [Criar a nova tabela Updates]: #create-table
   [Criar um novo trabalho agendado]: #add-job
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-html" urlDisplayName="Add paging to data (HTML5)" pageTitle="Add paging to data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your HTML app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
@@ -14,7 +14,7 @@ Este tópico mostra como usar a paginação para gerenciar a quantidade de dados
 <p>Para evitar estouro de dados em clientes de dispositivos m&oacute;veis, os Servi&ccedil;os M&oacute;veis implementam um limite autom&aacute;tico de p&aacute;gina que tem como padr&atilde;o um m&aacute;ximo de 50 itens em uma resposta. Ao especificar o tamanho da p&aacute;gina, voc&ecirc; poder&aacute; explicitamente solicitar at&eacute; 1.000 itens na resposta.</p>
 </div>
 
-Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução a dados][]. Antes de iniciar este tutorial, você deve concluir ao menos o primeiro tutorial na série sobre como trabalhar com dados [Introdução aos dados][Introdução a dados].
+Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução a dados][Introdução a dados]. Antes de iniciar este tutorial, você deve concluir ao menos o primeiro tutorial na série sobre como trabalhar com dados [Introdução aos dados][Introdução a dados].
 
 1.  Execute um dos seguintes arquivos de comando da subpasta **server** do projeto que você modificou quando concluiu o tutorial sobre [Introdução aos dados][Introdução a dados].
 
@@ -28,7 +28,7 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
     Isso iniciará um servidor web no computador local para hospedar o aplicativo.
 
-2.  Em um navegador da web, navegue até [http://localhost:8000 /][], digite texto em **Adicionar nova tarefa** e clique em **Adicionar**.
+2.  Em um navegador da web, navegue até [http://localhost:8000 /][http://localhost:8000 /], digite texto em **Adicionar nova tarefa** e clique em **Adicionar**.
 
 3.  Repita a etapa anterior, pelo menos três vezes, para que você tenha mais de três itens armazenados na tabela TodoItem.
 
@@ -64,20 +64,12 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Em seguida, saiba como autenticar os usuários de seu aplicativo em [Introdução à autenticação][]. Saiba mais sobre como usar os Serviços Móveis com HTML/JavaScript em [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis][]
+Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Em seguida, saiba como autenticar os usuários de seu aplicativo em [Introdução à autenticação][Introdução à autenticação]. Saiba mais sobre como usar os Serviços Móveis com HTML/JavaScript em [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis][Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/add-paging-to-data-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-html
   [http://localhost:8000 /]: http://localhost:8000/
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html

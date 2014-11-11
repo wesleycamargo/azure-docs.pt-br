@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How To Configure Cloud Services" metaKeywords="Azure cloud services, cloud service, configure cloud service" description="Learn how to configure Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Sign up for Azure as an organization" authors="terrylan" manager="terrylan" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Inscrever-se no Azure como uma organização
 
@@ -27,7 +27,7 @@ Como esse é diretório de nuvem da sua organização, você decide quem são os
 Se sua organização já usa o Active Directory no local, você poderá usar os recursos de integração do diretório do AD do Azure, como a sincronização do diretório e o logon único, para estender ainda mais o alcance de suas identidades existentes no local para a nuvem para oferecer uma experiência aprimorada para o administrador e o usuário final. [Saiba mais][3]
 
   [disclaimer]: ../includes/disclaimer.md
-  [Saiba mais]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
+  [Saiba mais]: http://windows.microsoft.com/pt-br/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/pt-BR/library/jj573650
   [2]: http://technet.microsoft.com/pt-BR/library/hh967619
   [3]: http://technet.microsoft.com/pt-BR/library/jj573653

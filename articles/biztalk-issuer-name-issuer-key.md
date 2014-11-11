@@ -1,16 +1,29 @@
 <properties linkid="manage-services-biztalk-services-issuer-name-issuer-key" urlDisplayName="Issuer name and issuer key" pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Serviços do BizTalk: Nome e chave do emissor
 
 Os Serviços BizTalk do Azure usam o nome e a chave do emissor do Barramento de Serviço e o nome e a chave do emissor do Controle de Acesso. Especificamente:
 
-|----------------------------------------------------------------------------------------|-----------------------------------------------|
-| **Tarefa**                                                                             | **Qual nome e chave do emissor**              |
-| Implantando seu aplicativo do Visual Studio                                            | Nome e chave do emissor do Controle de Acesso |
-| Configurando o Portal dos Serviços BizTalk do Azure                                    | Nome e chave do emissor do Controle de Acesso |
-| Criando retransmissões de LOB com os Serviços do Adaptador do BizTalk no Visual Studio | Nome e chave do emissor do Service Bus        |
+<table border="1">
+<tr bgcolor="FAF9F9">
+<td><strong>Tarefa</strong></td>
+<td><strong>Qual nome e chave do emissor</strong></td>
+</tr>
+<tr>
+<td>Implantando seu aplicativo do Visual Studio</td>
+<td>Nome e chave do emissor do Controle de Acesso</td>
+</tr>
+<tr>
+<td>Configurando o Portal dos Servi&ccedil;os BizTalk do Azure</td>
+<td>Nome e chave do emissor do Controle de Acesso</td>
+</tr>
+<tr>
+<td>Criando retransmiss&otilde;es de LOB com os Servi&ccedil;os do Adaptador do BizTalk no Visual Studio</td>
+<td>Nome e chave do emissor do Service Bus</td>
+</tr>
+</table>
 
 Este tópico lista as etapas para recuperar o nome e a chave do emissor.
 
@@ -87,7 +100,6 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
   [Como: Use o Serviço de Gerenciamento do ACS para configurar as Identidades de Serviço]: http://go.microsoft.com/fwlink/p/?LinkID=303942
   [Instalando o SDK dos Serviços BizTalk do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=241589
   [Tutoriais: Serviços do BizTalk do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=236944
-  [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=302335
   [Serviços BizTalk do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=303664
   [Serviços do BizTalk: tabela de edições Developer, Basic, Standard e Premium]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [Serviços do BizTalk: provisionamento usando o Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280

@@ -1,43 +1,43 @@
 <properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Como usar o Armazenamento de Fila no Java
 
-Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][]. Os cenários abrangidos incluem **inserir**, **espiar**, **obter** e **excluir** mensagens da fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java]. Os cenários abrangidos incluem **inserir**, **espiar**, **obter** e **excluir** mensagens da fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][Próximas etapas].
 
-Observação: Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][].
+Observação: Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][SDK de Armazenamento do Azure para Android].
 
 ## <a name="Contents"> </a> Sumário
 
--   [O que é Armazenamento de Filas][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo do Java][]
--   [Configurar seu aplicativo para acessar o armazenamento de filas][]
--   [Configurar uma cadeia de conexão de armazenamento do Azure][]
--   [Como: Criar uma fila][]
--   [Como: Adicionar uma mensagem a uma fila][]
--   [Como: Espiar a próxima mensagem][]
--   [Como: Alterar o conteúdo de uma mensagem na fila][]
--   [Como: Obter o tamanho da fila][]
--   [Como: Remover a próxima mensagem da fila][]
--   [Opções adicionais para remover mensagens da fila][]
--   [Como: Listar filas][]
--   [Como: Excluir uma fila][]
--   [Próximas etapas][]
+-   [O que é Armazenamento de Filas][O que é Armazenamento de Filas]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo do Java][Criar um aplicativo do Java]
+-   [Configurar seu aplicativo para acessar o armazenamento de filas][Configurar seu aplicativo para acessar o armazenamento de filas]
+-   [Configurar uma cadeia de conexão de armazenamento do Azure][Configurar uma cadeia de conexão de armazenamento do Azure]
+-   [Como: Criar uma fila][Como: Criar uma fila]
+-   [Como: Adicionar uma mensagem a uma fila][Como: Adicionar uma mensagem a uma fila]
+-   [Como: Espiar a próxima mensagem][Como: Espiar a próxima mensagem]
+-   [Como: Alterar o conteúdo de uma mensagem na fila][Como: Alterar o conteúdo de uma mensagem na fila]
+-   [Como: Obter o tamanho da fila][Como: Obter o tamanho da fila]
+-   [Como: Remover a próxima mensagem da fila][Como: Remover a próxima mensagem da fila]
+-   [Opções adicionais para remover mensagens da fila][Opções adicionais para remover mensagens da fila]
+-   [Como: Listar filas][Como: Listar filas]
+-   [Como: Excluir uma fila][Como: Excluir uma fila]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Criar um aplicativo Java
 
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
-Para isso, você vai precisar instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+Para isso, você vai precisar instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
 ## <a name="ConfigureStorage"> </a>Configurar seu aplicativo para acessar o armazenamento de filas
 
@@ -67,7 +67,7 @@ Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter
 
 ## <a name="create-queue"> </a>Como: Criar uma fila
 
-Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure][])
+Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure])
 
 Use o objeto **CloudQueueClient** para obter uma referência à fila que deseja usar. Você poderá criar a fila se ela não existir.
 
@@ -381,10 +381,10 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber como fazer tarefas mais complexas de armazenamento.
 
--   [SDK de Armazenamento do Azure para Java][]
+-   [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java]
 -   [Referência de SDK do Cliente de Armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure]
--   [API REST de Armazenamento do Azure][]
--   [Blog da equipe do Armazenamento do Azure][]
+-   [API REST de Armazenamento do Azure][API REST de Armazenamento do Azure]
+-   [Blog da equipe do Armazenamento do Azure][Blog da equipe do Armazenamento do Azure]
 
   [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
   [Próximas etapas]: #NextSteps
@@ -407,5 +407,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/azure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,6 +1,6 @@
 <properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # Introdução à auditoria do banco de dados SQL
 
@@ -49,7 +49,7 @@ Cadeia de conexão segura: \<*nome do servidor*\>.database.**secure**.windows.ne
 3.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure] em <https://portal.azure.com>.
 4.  Clique no banco de dados que deseja auditar e depois clique em **Visualização da Auditoria** para ativar a visualização da auditoria e iniciar a folha de configuração de auditoria.
 
-    ![][]
+    ![][0]
 
 5.  Na folha de configuração de auditoria, selecione a conta de armazenamento do Azure onde os logs serão salvos. **Dica:** Use a mesma conta de armazenamento para todos os bancos de dados auditados para obter o máximo dos modelos de relatórios pré-configurados.
 
@@ -90,10 +90,9 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
   [Fundamentos da Auditoria do Banco de Dados SQL do Azure]: #subheading-1
   [Configure a auditoria para seu banco de dados]: #subheading-2
   [Analise os logs e relatórios de auditoria]: #subheading-3
-  [Referência de Formato de Log de Auditoria (download do arquivo .doc)]: http://go.microsoft.com/fwlink/?LinkId=506733
   [registrar-se para a visualização de Novas Camadas de Serviço]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
   [Portal de Visualização do Azure]: https://portal.azure.com
-  []: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
+  [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
   [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
   [2]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
   [3]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
@@ -101,5 +100,4 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
   [Gerenciador de Armazenamento do Azure]: http://azurestorageexplorer.codeplex.com/
   [planilha do Excel para download]: http://go.microsoft.com/fwlink/?LinkId=403540
   [aqui]: http://www.microsoft.com/pt-br/download/details.aspx?id=39379
-  [Instruções (download do .doc)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

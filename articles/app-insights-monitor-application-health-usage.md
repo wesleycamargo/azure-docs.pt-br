@@ -1,6 +1,6 @@
 <properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 # Monitorar a integridade e o uso do seu aplicativo
 
@@ -44,7 +44,7 @@ Execute seu aplicativo com o F5 e teste-o abrindo páginas diferentes.
 
 No Visual Studio, você verá o número de eventos que foram recebidos.
 
-![][]
+![][0]
 
 ## <a name="monitor"></a>3. Ver dados de monitoramento
 
@@ -97,7 +97,7 @@ Implante o aplicativo e veja os dados se acumularem.
   [instalar um agente no servidor]: ../app-insights-monitor-performance-live-website-now/
   [Crie um projeto ASP.NET]: ./media/appinsights/appinsights-01-vsnewp1.png
   [Escolha Adicionar Application Insights]: ./media/appinsights/appinsights-03-addExisting.png
-  []: ./media/appinsights/appinsights-09eventcount.png
+  [0]: ./media/appinsights/appinsights-09eventcount.png
   [Clique com o botão direito do mouse no projeto e abra o portal do Azure]: ./media/appinsights/appinsights-04-openPortal.png
   [Continue clicando para ver mais dados]: ./media/appinsights/appinsights-05-usageTiles.png
   [Saiba mais sobre os blocos e os relatórios.]: ../app-insights-explore-metrics/

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Azure" metaKeywords="" description="Learn how to use AppDynamics for Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How To Use AppDynamics for Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Como usar o AppDynamics para Azure
 
@@ -153,7 +153,6 @@ Consulte sua página inicial da conta AppDynamics para obter os links para docum
 
 [][1][As atualizações mais recentes deste documento estão na versão do wiki em][1]</a>http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure.
 
-  [O que é AppDynamics?]: #what
   [Pré-requisitos]: #prereq
   [Registrar-se para uma conta do AppDynamics]: #register
   [Baixar o agente .NET do AppDynamics]: #download

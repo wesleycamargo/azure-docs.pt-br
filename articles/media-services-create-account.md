@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # Como criar uma conta de Serviços de Mídia
 
@@ -10,8 +10,8 @@ Este tópico explica como usar o método de Criação Rápida para criar uma nov
 
 ## Sumário
 
--   [Conceitos][]
--   [Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida][]
+-   [Conceitos][Conceitos]
+-   [Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida][Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida]
 
 ## <span id="concepts"></span></a>Conceitos
 
@@ -23,9 +23,9 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 ## <span id="quick"></span></a>Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida
 
-1.  No [Portal de Gerenciamento][], clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
 
-    ![Criação Rápida dos Serviços de Mídia][]
+    ![Criação Rápida dos Serviços de Mídia][Criação Rápida dos Serviços de Mídia]
 
 2.  Em **NOME**, insira o nome da nova conta. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3-24 caracteres de comprimento.
 
@@ -41,7 +41,7 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
     A página **serviços de mídia** é aberta com a nova conta exibida. O status alterado para Ativa significa que a conta foi criada com êxito.
 
-    ![Página Serviços de Mídia][]
+    ![Página Serviços de Mídia][Página Serviços de Mídia]
 
     Quando você clica duas vezes no nome da conta, a página Início Rápido é exibida por padrão. Esta página permite que você execute algumas tarefas de gerenciamento que também estão disponíveis em outras páginas do portal. Por exemplo, você pode carregar um arquivo de vídeo nesta página ou na página CONTEÚDO.
 

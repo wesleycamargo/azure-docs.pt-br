@@ -1,6 +1,6 @@
 <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 # Aplicativo multicamada .NET usando filas do Barramento de Serviço
 
@@ -15,13 +15,13 @@ Você aprenderá a:
     funções web e de trabalho.
 -   Comunicar-se entre camadas usando filas do Barramento de Serviço.
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 Neste tutorial você irá compilar e executar o aplicativo multicamadas em um serviço de nuvem do Azure. O front-end será uma função web MVC do ASP.NET e o back-end será uma função de trabalho. Você poderia criar o mesmo aplicativo multicamadas com o front-end como um projeto Web que deveria ser implantado em um site do Azure, em vez de um serviço de nuvem. Para obter instruções sobre o que fazer de forma diferente no front-end de um site do Azure, consulte a seção [Próximas etapas][Próximas etapas].
 
 A seguir está uma captura de tela do aplicativo concluído:
 
-![][]
+![][0]
 
 **Observação** O Azure também oferece a funcionalidade da fila de armazenamento. Para obter mais informações sobre filas de armazenamento do Azure e o Barramento de Serviço, consulte [Filas do Azure e filas do Barramento de Serviço do Azure - comparadas e contrastadas][Filas do Azure e filas do Barramento de Serviço do Azure - comparadas e contrastadas].
 
@@ -501,7 +501,7 @@ Para saber como implantar o front-end em um site do Azure, consulte [Implantando
 
   [create-account-note]: ../includes/create-account-note.md
   [Próximas etapas]: #nextsteps
-  []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Filas do Azure e filas do Barramento de Serviço do Azure - comparadas e contrastadas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png

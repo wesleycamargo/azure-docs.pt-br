@@ -1,15 +1,15 @@
 <properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Aplicativo Web Python com armazenamento de tabela
 
-Neste tutorial, você aprenderá como criar um aplicativo que usa o armazenamento de tabela com as bibliotecas de cliente do Azure para Python. Se este for o seu primeiro aplicativo Python do Azure, talvez você queira dar uma olhada em [Aplicativo Web Django Hello World][] primeiro.
+Neste tutorial, você aprenderá como criar um aplicativo que usa o armazenamento de tabela com as bibliotecas de cliente do Azure para Python. Se este for o seu primeiro aplicativo Python do Azure, talvez você queira dar uma olhada em [Aplicativo Web Django Hello World][Aplicativo Web Django Hello World] primeiro.
 
 Neste guia, você criará um aplicativo de lista de tarefas com base na Web que pode ser implantado no Azure. A lista de tarefas permite que um usuário recupere tarefas, adicione novas tarefas e marque tarefas como concluídas. Nós usaremos o Django como a estrutura da Web.
 
 Os itens da tarefa são armazenados no Armazenamento do Azure. O Armazenamento do Azure fornece um armazenamento de dados não estruturado altamente disponível e tolerante a falhas. O Armazenamento do Azure inclui diversas estruturas de dados, onde você pode armazenar e acessar dados, além de poder utilizar os serviços de armazenamento das APIs incluídos no SDK do Azure para Python ou
-por meio de APIs REST. Para obter mais informações, consulte [Armazenando e acessando dados no Azure (a página pode estar em inglês)][].
+por meio de APIs REST. Para obter mais informações, consulte [Armazenando e acessando dados no Azure (a página pode estar em inglês)][Armazenando e acessando dados no Azure (a página pode estar em inglês)].
 
 Você aprenderá a:
 
@@ -17,19 +17,19 @@ Você aprenderá a:
 
 Uma captura de tela do aplicativo concluído será semelhante ao mostrado a seguir (os itens de tarefas adicionadas serão diferentes):
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>Configurando o ambiente de desenvolvimento
 
-**Observação:** Se for necessário instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python][].
+**Observação:** Se for necessário instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python][Guia de instalação do Python].
 
 *Observação para Windows*: se usou o instalador WebPI do Windows, você já tem o Django e as bibliotecas de cliente instalados.
 
 ## Criar uma conta de armazenamento no Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## Criar um projeto do Django
 
@@ -166,7 +166,7 @@ Agora, você pode clicar em **Adicionar Tarefa** para criar uma tarefa e, em seg
 
 ## Executando o aplicativo no emulador de computação, publicando e parando/excluindo o aplicativo
 
-Agora que executou o aplicativo com êxito no servidor Django interno, você pode testá-lo ainda mais implantando-o no emulador do Azure (somente no Windows) e, em seguida, publicá-lo no Azure. Para obter instruções gerais sobre como fazer isso, consulte o artigo [Aplicativo Web Django Hello World][], que aborda essas etapas em detalhes.
+Agora que executou o aplicativo com êxito no servidor Django interno, você pode testá-lo ainda mais implantando-o no emulador do Azure (somente no Windows) e, em seguida, publicá-lo no Azure. Para obter instruções gerais sobre como fazer isso, consulte o artigo [Aplicativo Web Django Hello World][Aplicativo Web Django Hello World], que aborda essas etapas em detalhes.
 
 ## <span id="NextSteps"></span></a>Próximas etapas
 
@@ -176,8 +176,7 @@ Agora que você aprendeu os conceitos básicos do serviço de armazenamento Tabe
 -   Visite o Blog da Equipe de Armazenamento do Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Aplicativo Web Django Hello World]: http://windowsazure.com/pt-br/documentation/articles/virtual-machines-python-django-web-app-windows-server
-  [Armazenando e acessando dados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
+  [0]: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
   [Guia de instalação do Python]: http://windowsazure.com/pt-br/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

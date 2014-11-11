@@ -1,6 +1,6 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Azure feature guide" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como usar o Banco de Dados SQL do Azure em Java
 
@@ -45,7 +45,7 @@ A seguir estão os pré-requisitos se você pretende usar o Banco de Dados SQL c
 
 -   Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 -   Uma assinatura de Azure, que pode ser adquirida em [Uma assinatura do Azure, que pode ser adquirida em][Uma assinatura do Azure, que pode ser adquirida em].
--   Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)][Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)].
+-   Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês))][Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês))].
 -   Se não estiver usando o Eclipse, você precisará do Microsoft JDBC Driver 4.0 para SQL Server, que pode ser baixado em [http://www.microsoft.com/pt-br/download/details.aspx?id=11774][http://www.microsoft.com/pt-br/download/details.aspx?id=11774].
 
 ## <span id="create_db"></span></a>Criando um Banco de Dados SQL do Azure
@@ -86,14 +86,14 @@ Antes de usar o Banco de Dados SQL do Azure no código Java, você deverá criar
 6.  Clique com o botão direito do mouse no conteúdo realçado da cadeia de conexão **JDBC** e clique em **Copiar**.
 7.  Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua *your\_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua *your\_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.)
 
-    Cadeia connectionString =
-     "jdbc:sqlserver://*your\_server*.database.windows.net:1433" + ";" +
-     "database=gettingstarted" + ";" +
-     ["user=MySQLAdmin@\*your\_server\*]["user=MySQLAdmin@\*your\_server\*]" + ";" +
-     "password=*your\_password*" + ";" +
-     "encrypt=true" + ";" +
-     "hostNameInCertificate=\*.int.mscds.com" + ";" +
-     "loginTimeout=30";
+        Cadeia connectionString =
+        "jdbc:sqlserver://*your\_server*.database.windows.net:1433" + ";" +
+        "database=gettingstarted" + ";" +
+        ["user=MySQLAdmin@\*your\_server\*]" + ";" +
+        "password=*your\_password*" + ";" +
+        "encrypt=true" + ";" +
+        "hostNameInCertificate=\*.int.mscds.com" + ";" +
+        "loginTimeout=30";
 
 Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por enquanto, você deve conhecer as etapas para determinar a cadeia de conexão. Além disso, dependendo das necessidades de seu aplicativo, você talvez não precise usar as configurações **encrypt** e **hostNameInCertificate** e talvez precise modificar a configuração **loginTimeout**.
 
@@ -724,18 +724,12 @@ Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão 
   [Para remover uma tabela]: #to_drop_table
   [Usando o Banco de Dados SQL em Java em uma implantação do Azure]: #using_in_azure
   [Próximas etapas]: #nextsteps
-  [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff394102.aspx
   [Uma assinatura do Azure, que pode ser adquirida em]: http://www.microsoft.com/windowsazure/offers/
-  [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh690946.aspx
-  [http://www.microsoft.com/pt-br/download/details.aspx?id=11774]: http://www.microsoft.com/pt-br/download/details.aspx?id=11774
   [1]: https://manage.windowsazure.com
   [Criar novo banco de dados SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
   [Criar Banco de Dados SQL personalizado]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
   [Configurações do Banco de Dados SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
   [Configurações do SQL Server]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
   [Determinar a cadeia de conexão JDBC]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
-  ["user=MySQLAdmin@\*your\_server\*]: mailto:"user=MySQLAdmin@*your_server*
   [Caixa de diálogo Endereços IP permitidos]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-  [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies) (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx
   [Visão geral do JDBC Driver]: http://msdn.microsoft.com/pt-br/library/ms378749.aspx
-  [Visão geral do Banco de Dados SQL (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336241.aspx

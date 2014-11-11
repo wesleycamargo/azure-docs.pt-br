@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Como usar as filas do Service Bus
 
@@ -20,7 +20,7 @@ abrangidos incluem **criar filas, enviar e receber mensagens** e
 -   [Como: Tratar falhas do aplicativo e mensagens ilegíveis][Como: Tratar falhas do aplicativo e mensagens ilegíveis]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 **Observação:** se você precisar instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python (a página pode estar em inglês)][Guia de instalação do Python (a página pode estar em inglês)].
 
@@ -144,7 +144,6 @@ links para saber mais.
 -   Consulte a referência de MSDN: [Filas, tópicos e assinaturas.][Filas, tópicos e assinaturas.]
 
   [Próximas etapas]: #next-steps
-  [O que são as filas do Service Bus?]: #what-are-service-bus-queues
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Como: Criar uma fila]: #create-queue
@@ -152,5 +151,4 @@ links para saber mais.
   [Como: Receber mensagens de uma fila]: #receive-messages
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #handle-crashes
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  [Guia de instalação do Python (a página pode estar em inglês)]: ../python-how-to-install/
   [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

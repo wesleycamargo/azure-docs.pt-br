@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Como usar os tópicos e as assinaturas do Service Bus
 
@@ -22,7 +22,7 @@ Este guia mostrará como usar os tópicos e as assinaturas do Service Bus dos ap
 -   [Como excluir tópicos e assinaturas][Como excluir tópicos e assinaturas]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Criar um aplicativo Ruby
 
@@ -196,7 +196,6 @@ Agora que você já sabe os princípios dos tópicos do Service Bus, acesse este
   [Como tratar falhas do aplicativo e mensagens ilegíveis]: #how-to-handle-application-crashes-and-unreadable-messages
   [Como excluir tópicos e assinaturas]: #how-to-delete-topics-and-subscriptions
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/pt-br/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

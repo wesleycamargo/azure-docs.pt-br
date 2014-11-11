@@ -577,7 +577,7 @@ Nesta seção, você criará um aplicativo da web ASP.NET MVC para ler os dados 
 
 5.  Dentro da classe **HBaseReader**, mude os valores constantes:
 
-    -   **NOME DO CLUSTER**: Nome do cluster HBase. Por exemplo, *<https://><hbaseclustername>.azurehdinsight.net/*.
+    -   **NOME DO CLUSTER**: Nome do cluster HBase. Por exemplo, *https://<hbaseclustername>.azurehdinsight.net/*.
     -   **NOME DE USUÁRIO HADOOP**: Nome do usuário do Hadoop do cluster HBase. O nome padrão é *admin*.
     -   **SENHA DO USUÁRIO HADOOP**: Senha do usuário do Hadoop do cluster HBase.
     -   **HBASETABLENAME** = "tweets\_by\_words";
@@ -624,28 +624,28 @@ Nesta seção, você criará um aplicativo da web ASP.NET MVC para ler os dados 
 4.  Copie e cole o seguinte código no arquivo. O código foi escrito por Alaistair Aitchison. Para obter mais informações, consulte [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
 
         /*******************************************************************************
-        * Author: Alastair Aitchison
-        * Website: http://alastaira.wordpress.com
-        * Date: 15th April 2011
-        * 
-        * Description: 
-        * This JavaScript file provides an algorithm that can be used to add a heatmap
-        * overlay on a Bing Maps v7 control. The intensity and temperature palette
-        * of the heatmap are designed to be easily customisable.
+		* Author: Alastair Aitchison
+		* Website: http://alastaira.wordpress.com
+		* Date: 15th April 2011
+		* 
+		* Description: 
+		* This JavaScript file provides an algorithm that can be used to add a heatmap
+		* overlay on a Bing Maps v7 control. The intensity and temperature palette
+		* of the heatmap are designed to be easily customisable.
         *
-        * Requirements:
-        * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
-        * this element. It has been tested on IE9, Firefox 3.6/4 and 
-        * Chrome 10 browsers. If you can confirm whether it works on other browsers or
-        * not, I'd love to hear from you!
+		* Requirements:
+		* The heatmap layer itself is created dynamically on the client-side using
+		* the HTML5 <canvas> element, and therefore requires a browser that supports
+		* this element. It has been tested on IE9, Firefox 3.6/4 and 
+		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
+		* not, I'd love to hear from you!
 
-        * Usage:
-        * The HeatMapLayer constructor requires:
-        * - A reference to a map object
-        * - An array or Microsoft.Maps.Location items
-        * - Optional parameters to customise the appearance of the layer
-        *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
+		* Usage:
+		* The HeatMapLayer constructor requires:
+		* - A reference to a map object
+		* - An array or Microsoft.Maps.Location items
+		* - Optional parameters to customise the appearance of the layer
+		*  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
         *
         */
 
@@ -1213,7 +1213,7 @@ Neste tutoria, aprendemos como obter tweets, analisar o sentimento dos tweets, s
   [img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
   [hdinsight.hbase.twitter.sentiment.bing.map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
   [img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
-  []: https://github.com/maxluk/tweet-sentiment
+  [0]: https://github.com/maxluk/tweet-sentiment
 
   [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/
   [Instalação do Visual Studio]: http://msdn.microsoft.com/pt-br/library/e2h7fzkw.aspx

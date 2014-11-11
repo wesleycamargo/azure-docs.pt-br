@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store JavaScript app (legacy push)." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introdução às notificações por push nos Serviços Móveis (envio herdado)
 
@@ -32,7 +32,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="register"></a><span class="short-header">Registrar seu aplicativo</span>Adicionar e configurar as notificações por push no aplicativo
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Abra o arquivo de código gerado push.register.js e inspecione o código que obtém a ID de instalação e o canal para o dispositivo e insere esses dados na nova tabela de **canais**.
 
@@ -54,7 +54,7 @@ Enquanto o código gerado facilita a demonstração de uma notificação quando 
 
 ## <a name="update-scripts"></a><span class="short-header">Atualizar o código</span>Atualizar o código de notificação por push gerado
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2][mobile-services-create-new-push-vs2013-2]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 ## <a name="test"></a><span class="short-header">Testar o aplicativo</span>Testar notificações por push em seu aplicativo
 
@@ -62,7 +62,7 @@ Enquanto o código gerado facilita a demonstração de uma notificação quando 
 
 2.  No aplicativo, digite um texto em **Inserir um TodoItem** e, em seguida, clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
     Observe que, após a inserção, o aplicativo receberá uma notificação por push do WNS.
 
@@ -102,14 +102,6 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-push/ "Back-end do JavaScript"
   [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
   [Registrar seu aplicativo para notificações por push e configurar os Serviços Móveis]: #register
   [Atualizar o código de notificação por push gerado]: #update-scripts
@@ -117,9 +109,8 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
   [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-js/
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [Trabalhar com scripts de servidor em Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=287178
   [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet/
   [Enviar notificações para assinantes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet/

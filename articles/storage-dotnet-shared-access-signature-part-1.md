@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS
 
-O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. A [Parte 2][] do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
+O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. A [Parte 2][Parte 2] do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
 
 ## O que é uma assinatura de acesso compartilhado?
 
@@ -18,11 +18,11 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 1. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, a criação de um serviço que possa ser dimensionado de acordo com a demanda pode ser difícil ou dispendiosa.
 
-![sas-storage-fe-proxy-service][]
+![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
 2. Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
 
-![sas-storage-provider-service][]
+![sas-storage-provider-service][sas-storage-provider-service]
 
 Vários serviços reais podem usar uma mistura híbrida dessas duas abordagens, dependendo do cenário envolvido, com alguns dados processados e validados por meio do proxy front-end, enquanto outros dados são salvos e/ou lidos diretamente com a SAS.
 
@@ -118,7 +118,7 @@ As recomendações a seguir para uso de assinaturas de acesso compartilhado ajud
 7.  **É importante que você entenda que a sua conta será cobrada por qualquer uso, incluindo o realizado com a SAS.** Se você fornecer acesso de gravação a um blob, um usuário poderá optar por carregar um blob de 200 GB. Se você também tiver concedido a ele acesso de leitura, é possível que ele decida baixá-lo 10 vezes, incorrendo em 2 TB de custos de egresso para você. Mais uma vez, forneça permissões limitadas, para ajudar a reduzir a possibilidade de usuários mal-intencionados. Use SAS de curta duração para reduzir essa ameaça (mas, tenha cuidado com a defasagem horária na hora de término).
 8.  **Valide os dados gravados com a SAS.** Quando um aplicativo cliente gravar dados na sua conta de armazenamento, tenha em mente de que poderá haver problemas com esses dados. Se o seu aplicativo necessitar de que esses dados sejam validados ou autorizados antes que estejam prontos para uso, você deverá realizar essa validação depois que os dados forem gravados e antes que eles sejam usados pelo seu aplicativo. Essa prática também protegerá contra dados corrompidos ou mal-intencionados que estiverem sendo gravados na sua conta por um usuário que adquiriu a SAS de forma adequada ou por um usuário que estiver explorando uma SAS vazada.
 9.  **Não use sempre SAS.** Às vezes, os riscos associados a uma determinada operação em relação à sua conta de armazenamento superam os benefícios da SAS. Para essas operações, crie um serviço de camada intermediária que grave na sua conta de armazenamento após a validação, a autenticação e a auditoria da regra de negócio. Além disso, algumas vezes é mais simples de gerenciar o acesso de outras maneiras. Por exemplo, se quiser tornar todos os blobs de um contêiner publicamente legíveis, você poderá tornar o contêiner Público, em vez de fornecer uma SAS para o acesso de cada cliente.
-10. **Use a Análise de Armazenamento para monitorar seu aplicativo.** Você pode usar log e métricas para observar qualquer pico nas falhas de autenticação devido a uma interrupção no seu serviço de provedor de SAS ou à remoção acidental de uma política de acesso armazenada. Consulte o [Blog da Equipe de Armazenamento do Azure][] para obter informações adicionais.
+10. **Use a Análise de Armazenamento para monitorar seu aplicativo.** Você pode usar log e métricas para observar qualquer pico nas falhas de autenticação devido a uma interrupção no seu serviço de provedor de SAS ou à remoção acidental de uma política de acesso armazenada. Consulte o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure] para obter informações adicionais.
 
 ## Conclusão
 
@@ -128,16 +128,15 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
 [Assinaturas de acesso compartilhado, Parte 2: Criar e usar um SAS com o Serviço Blob][Parte 2]
 
-[Gerenciar o acesso aos recursos de Armazenamento do Azure][]
+[Gerenciar o acesso aos recursos de Armazenamento do Azure][Gerenciar o acesso aos recursos de Armazenamento do Azure]
 
-[Delegando acesso com uma assinatura de acesso compartilhado (API REST)][]
+[Delegando acesso com uma assinatura de acesso compartilhado (API REST)][Delegando acesso com uma assinatura de acesso compartilhado (API REST)]
 
-[Introdução à Tabela e à Fila SAS][]
+[Introdução à Tabela e à Fila SAS][Introdução à Tabela e à Fila SAS]
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
   [Parte 2]: ../storage-dotnet-shared-access-signature-part-2/
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
-  [Gerenciar o acesso aos recursos de Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Delegando acesso com uma assinatura de acesso compartilhado (API REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Gerenciar o acesso aos recursos de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee393343.aspx
   [Introdução à Tabela e à Fila SAS]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

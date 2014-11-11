@@ -1,6 +1,6 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/pt-BR/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Criar um Serviço do BizTalk usando o portal de gerenciamento do Azure
 
@@ -276,29 +276,24 @@ Agora que o Serviço do BizTalk é criado, familiarize-se com os diferentes [Ser
   [Etapas pós-provisionamento]: #PostProv
   [Requisitos explicados]: #Requirements
   [Conexões híbridas - Novo!]: #HC
-  [Avaliação gratuita do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Selecione o botão Novo]: ./media/biztalk-provision-services/WABS_New.png
   [Selecione o Serviço do BizTalk e selecione Criação Personalizada]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
   [Serviços do BizTalk: Gráfico de edições]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [O ícone de progresso é mostrado ao concluir]: ./media/biztalk-provision-services/WABS_ProgressComplete.png
   [guias Painel, Monitor e Escala.]: http://go.microsoft.com/fwlink/p/?LinkID=302281
-  [Gráfico de estado do serviço BizTalk (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Instalar o certificado em um computador local]: #InstallCert
   [Adicionar um certificado pronto para produção]: #AddCert
   [Obter o namespace do Controle de Acesso]: #ACS
   [Modificar o certificado SSL]: ./media/biztalk-provision-services/WABS_QuickGlance.png
   [Selecione a informação de conexão]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [Identidades de Serviço do ACS no Portal de Gerenciamento de Controle de Acesso]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
-  [Gerenciando o namespace de seu ACS (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [Assinaturas do Azure]: https://account.windowsazure.com/Subscriptions
   [Gerenciar assinaturas e Contas de Armazenamento no Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=267577
   [Contas e faturamento no banco de dados SQL do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=234930
   [Armazenamento]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [Guia de Conexões Híbridas]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [Conexões híbridas]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=235197
   [Serviços do BizTalk: Backup e restauração]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [Serviços do BizTalk: limitação]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Serviços do BizTalk: nome e chave do emissor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=302335

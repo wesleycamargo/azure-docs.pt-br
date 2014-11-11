@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" urlDisplayName="Get started with notification hubs" pageTitle="Get started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Introdução aos Hubs de Notificação
 
@@ -34,7 +34,7 @@ Para enviar notificações por push para aplicativos da Windows Store dos Servi�
 
 1.  Se você não tiver registrado seu aplicativo, navegue até [Enviar uma página de aplicativo][Enviar uma página de aplicativo] no Centro de Desenvolvimento para aplicativos da Windows Store, faça logon com sua conta da Microsoft e, em seguida, clique em **Nome do aplicativo**.
 
-    ![][]
+    ![][0]
 
 2.  Digite um nome para o seu aplicativo em **Nome do aplicativo**, clique em **Reservar nome do aplicativo** e, em seguida, clique em **Salvar**.
 
@@ -232,13 +232,7 @@ Neste exemplo simples você envia notificações para todos os seus dispositivos
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
   [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /pt-br/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [1]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/
   [Registrar seu aplicativo para notificações por push]: #register
   [Configurar seu Hub de Notificação]: #configure-hub
@@ -246,7 +240,7 @@ Neste exemplo simples você envia notificações para todos os seus dispositivos
   [Enviar notificações de seu back-end]: #send
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Enviar uma página de aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png
+  [0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png
   [2]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-name.png
   [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png
   [4]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png

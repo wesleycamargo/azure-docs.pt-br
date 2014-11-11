@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Windows Azure
 
@@ -26,7 +26,7 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
 
     ![Ícone PowerShell do Azure][Ícone PowerShell do Azure]
 
-    [WACOM.INCLUDE [install-dev-tools][install-dev-tools]]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  Crie um novo diretório **node** de diretório na unidade C e altere para o diretório c:\\node:
 
@@ -187,11 +187,9 @@ como excluir uma conta de armazenamento, consulte <a href="http://msdn.microsoft
 </div>
 
   [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/
-  [usar um Site do Azure leve.]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Uma janela do navegador exibindo a página de boas-vindas. A URL indica que a página está hospedada no Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Ícone PowerShell do Azure]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [install-dev-tools]: ../includes/install-dev-tools.md
-  [Um prompt de comando exibindo os comandos 'mkdir c:\node' e 'cd node'.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
   [O resultado do comando New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Visão geral da criação de um serviços hospedado para o Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj155995.aspx
   [A saída do comando Add-AzureNodeWebRole.]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
@@ -202,4 +200,3 @@ como excluir uma conta de armazenamento, consulte <a href="http://msdn.microsoft
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [O status do comando Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [O status do comando Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [Como excluir uma conta de armazenamento de uma assinatura do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh531562.aspx

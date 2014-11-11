@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][mobile-services-selector-get-started-data-legacy]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure como uma fonte de dados de back-end para um aplicativo do Windows Phone (Silverlight). Neste tutorial, você baixará um projeto do Visual Studio para um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e exibirá as alterações de dados feitas durante a execução do aplicativo.
 
@@ -33,7 +33,7 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo
 
 1.  Baixe a versão C# do aplicativo de exemplo GetStartedWithMobileServices do [site de exemplos de código do desenvolvedor][aplicativo GetStartedWithMobileServices].
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE]Para criar um aplicativo do Windows Phone Silverlight 8.1, simplesmente altere o SO de destino no projeto do aplicativo do Windows Phone Silverlight 8 baixado para o Windows Phone 8.1. Para criar um aplicativo do Windows Phone Store, baixe a [versão do aplicativo do Windows Phone Store][versão do aplicativo do Windows Phone Store] do projeto do aplicativo de exemplo GetStartedWithData.
 
@@ -57,7 +57,7 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo
 
 ## <a name="create-service"></a><span class="short-header">Criar um novo serviço móvel</span>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a><span class="short-header">Baixar o serviço localmente</span>Baixar o projeto do serviço móvel e adicioná-lo à solução
 
@@ -186,7 +186,7 @@ Nesta seção você usará o Visual Studio para testar o aplicativo e o serviço
 
 #### Configurar o IIS Express para permitir conexões remotas
 
-[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express][mobile-services-how-to-configure-iis-express]]
+[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
 #### Testar o aplicativo no serviço móvel no IIS Express
 
@@ -222,7 +222,7 @@ Nesta seção você usará o Visual Studio para testar o aplicativo e o serviço
 
 ## <a name="publish-mobile-service"></a>Publicar o serviço móvel no Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>Testar o serviço móvel publicado no Azure
 
@@ -297,7 +297,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [SDK do Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [aplicativo GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?linkid=271146
-  []: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
   [versão do aplicativo do Windows Phone Store]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/app-view.png

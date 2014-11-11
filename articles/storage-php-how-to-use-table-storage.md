@@ -1,35 +1,35 @@
 <properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Como usar o serviço Tabela do PHP
 
-Este guia mostrará como executar cenários comuns usando o serviço Tabela do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][]. Os cenários abrangidos incluem **criar e excluir uma tabela, e inserir, excluir e consultar entidades em uma tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a seção [Próximas etapas][].
+Este guia mostrará como executar cenários comuns usando o serviço Tabela do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][SDK do Azure para PHP]. Os cenários abrangidos incluem **criar e excluir uma tabela, e inserir, excluir e consultar entidades em uma tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o serviço Tabela][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Criar um aplicativo PHP][]
--   [Configurar seu aplicativo para acessar o serviço Tabela][]
--   [Configurar uma conexão de armazenamento do Azure][]
--   [Como: Criar uma tabela][]
--   [Como: Adicionar uma entidade a uma tabela][]
--   [Como: Recuperar uma única entidade][]
--   [Como: Recuperar todas as entidades em uma partição][]
--   [Como: Recuperar um subconjunto de entidades em uma partição][]
--   [Como: Recuperar um subconjunto de propriedades da entidade][]
--   [Como: Atualizar uma entidade][]
--   [Como: Operações de tabela em lote][]
--   [Como: Excluir uma tabela][]
--   [Próximas etapas][]
+-   [O que é o serviço Tabela][O que é o serviço Tabela]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Criar um aplicativo PHP][Criar um aplicativo PHP]
+-   [Configurar seu aplicativo para acessar o serviço Tabela][Configurar seu aplicativo para acessar o serviço Tabela]
+-   [Configurar uma conexão de armazenamento do Azure][Configurar uma conexão de armazenamento do Azure]
+-   [Como: Criar uma tabela][Como: Criar uma tabela]
+-   [Como: Adicionar uma entidade a uma tabela][Como: Adicionar uma entidade a uma tabela]
+-   [Como: Recuperar uma única entidade][Como: Recuperar uma única entidade]
+-   [Como: Recuperar todas as entidades em uma partição][Como: Recuperar todas as entidades em uma partição]
+-   [Como: Recuperar um subconjunto de entidades em uma partição][Como: Recuperar um subconjunto de entidades em uma partição]
+-   [Como: Recuperar um subconjunto de propriedades da entidade][Como: Recuperar um subconjunto de propriedades da entidade]
+-   [Como: Atualizar uma entidade][Como: Atualizar uma entidade]
+-   [Como: Operações de tabela em lote][Como: Operações de tabela em lote]
+-   [Como: Excluir uma tabela][Como: Excluir uma tabela]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="CreateApplication"></span></a>Criar um aplicativo PHP
 
@@ -39,13 +39,13 @@ Neste guia, você usará os recursos de serviço Tabela que podem ser chamados d
 
 ## <span id="GetClientLibrary"></span></a>Obter as bibliotecas de cliente do Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureStorage"></span></a>Configurar seu aplicativo para acessar o serviço Tabela
 
 Para usar as APIs do serviço Tabela do Azure, você precisa:
 
-1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][] e
+1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][require\_once] e
 2.  Consultar qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
@@ -87,7 +87,7 @@ Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
 ## <span id="CreateTable"></span></a>Como: criar uma tabela
 
-O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo de limite do serviço Tabela, consulte [Tempos limite de configuração para as operações do serviço Tabela][].)
+O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo de limite do serviço Tabela, consulte [Tempos limite de configuração para as operações do serviço Tabela][Tempos limite de configuração para as operações do serviço Tabela].)
 
     require_once 'vendor\autoload.php';
 
@@ -106,10 +106,10 @@ O objeto **TableRestProxy** permite que você crie uma tabela com o método **cr
         $error_message = $e->getMessage();
         // Handle exception based on error codes and messages.
         // Error codes and messages can be found here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
     }
 
-Para obter informações sobre restrições em nomes de tabelas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][].
+Para obter informações sobre restrições em nomes de tabelas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][Noções básicas sobre o modelo de dados do serviço Tabela].
 
 ## <span id="AddEntity"></span></a>Como: Adicionar uma entidade a uma tabela
 
@@ -140,12 +140,12 @@ Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e pas
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
     }
 
-Para obter informações sobre tipos e propriedades de tabelas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][].
+Para obter informações sobre tipos e propriedades de tabelas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][Noções básicas sobre o modelo de dados do serviço Tabela].
 
 A classe **TableRestProxy** oferece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para usar esses métodos, crie uma nova **Entidade** e passe-a como um parâmetro para qualquer método. Cada método irá inserir a entidade se ela não existir. Se a entidade já existe, **insertOrMergeEntity** irá atualizar valores de propriedade, se as propriedades já existem e adicionar novas propriedades se elas não existirem, enquanto **insertOrReplaceEntity** substitui completamente uma entidade existente. O exemplo a seguir mostra como usar o **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, ela será inserida. No entanto, se ela tiver sido inserida anteriormente (conforme mostrado no exemplo acima), a propriedade `DueDate` será atualizada e a propriedade `Status` será adicionada. As propriedades `Description` e `Location` também são atualizadas, mas com valores que efetivamente as deixam inalteradas. Se essas duas últimas propriedades não foram adicionadas conforme mostrado no exemplo, mas existia na entidade de destino, seus valores existentes permaneceriam inalterados.
 
@@ -181,7 +181,7 @@ A classe **TableRestProxy** oferece dois métodos alternativos para inserir enti
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -206,7 +206,7 @@ O método **TableRestProxy-\>getEntity** permite que você recupere uma única e
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -218,7 +218,7 @@ O método **TableRestProxy-\>getEntity** permite que você recupere uma única e
 
 ## <span id="RetEntitiesInPartition"></span></a>Como: Recuperar todas as entidades em uma partição
 
-As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome\_da\_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities**.
+As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][Consultar tabelas e entidades]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome\_da\_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities**.
 
     require_once 'vendor\autoload.php';
 
@@ -236,7 +236,7 @@ As consultas de entidades são construídas usando filtros (para obter mais info
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -268,7 +268,7 @@ O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -302,7 +302,7 @@ Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa té
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -348,7 +348,7 @@ Uma entidade existente pode ser atualizada usando os métodos **Entidade-\>setPr
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -373,7 +373,7 @@ Para excluir uma entidade, passe o nome da tabela e a `PartitionKey` e `RowKey` 
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -429,13 +429,13 @@ O exemplo a seguir mostra como executar as operações **insertEntity** e **dele
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Para obter mais informações sobre operações de tabela em lotes, consulte [Executando transações do grupo de entidade][].
+Para obter mais informações sobre operações de tabela em lotes, consulte [Executando transações do grupo de entidade][Executando transações do grupo de entidade].
 
 ## <span id="DeleteTable"></span></a>Como: Excluir uma tabela
 
@@ -456,7 +456,7 @@ Finalmente, para excluir uma tabela, passe o nome da tabela para o método **Tab
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -466,7 +466,7 @@ Finalmente, para excluir uma tabela, passe o nome da tabela para o método **Tab
 
 Agora que você aprendeu os conceitos básicos do Serviço de Tabela do Azure, siga estes links para saber como executar tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
+-   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
 -   Visite o Blog da Equipe de Armazenamento do Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [SDK do Azure para PHP]: http://go.microsoft.com/fwlink/?LinkID=252473
@@ -489,9 +489,8 @@ Agora que você aprendeu os conceitos básicos do Serviço de Tabela do Azure, s
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
-  [Tempos limite de configuração para as operações do serviço Tabela]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx
-  [Noções básicas sobre o modelo de dados do serviço Tabela]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
-  [Consultar tabelas e entidades]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
-  [Executando transações do grupo de entidade]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Tempos limite de configuração para as operações do serviço Tabela]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894042.aspx
+  [Noções básicas sobre o modelo de dados do serviço Tabela]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179338.aspx
+  [Consultar tabelas e entidades]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894031.aspx
+  [Executando transações do grupo de entidade]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894038.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx

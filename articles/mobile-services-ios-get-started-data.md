@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][mobile-services-selector-get-started-data]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para utilizar dados em um aplicativo iOS. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
@@ -41,21 +41,21 @@ Este tutorial é baseado no [aplicativo GetStartedWithData][aplicativo GetStarte
 
 4.  No aplicativo, digite algum texto na caixa de texto e clique no botão **+**.
 
-    ![][]
+    ![][0]
 
     Observe que o texto salvo é exibido na lista abaixo.
 
 ## <a name="create-service"></a>Criar um novo serviço móvel no Portal de Gerenciamento
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a>Adicionar uma nova tabela ao serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][mobile-services-create-new-service-data-2]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel para acesso a dados
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access][mobile-services-ios-enable-mobile-service-access]]
+[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
 ## <a name="test-app"></a>Testar o aplicativo com seu novo serviço móvel
 
@@ -106,7 +106,6 @@ Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para valida
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-  [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
   [Baixar o projeto do aplicativo iOS]: #download-app
   [Criar o serviço móvel]: #create-service
   [Adicionar uma tabela de dados para armazenamento]: #add-table
@@ -116,7 +115,7 @@ Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para valida
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
-  []: ./media/mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
+  [0]: ./media/mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md

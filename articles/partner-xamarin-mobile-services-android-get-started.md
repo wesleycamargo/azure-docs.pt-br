@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="donnam" />
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,7 +16,7 @@
 
 </div>
 
-![][]
+![][0]
 
 A conclusão deste tutorial requer o [Xamarin.Android][Xamarin.Android], que instala o Xamarin Studio e um plug-in do Visual Studio (no Windows), bem como a mais recente plataforma Android. SDK do Android 4.2 ou uma versão posterior é necessária.
 
@@ -26,7 +26,7 @@ O projeto quickstart baixado contém o componente dos Serviços Móveis do Azure
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -107,10 +107,8 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [assista ao tutorial]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services
-  []: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
+  [0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Xamarin.Android]: http://xamarin.com/download
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png

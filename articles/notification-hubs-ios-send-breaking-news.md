@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-ios-send-breaking-news" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Usar Hubs de Notificação para enviar notícias de última hora
 
@@ -35,7 +35,7 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
 
     O storyboard deve ter a seguinte aparência:
 
-    ![][]
+    ![][0]
 
 2.  No editor do assistente, crie saídas para todos os comutadores e chame-os de "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 
@@ -201,7 +201,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 
 ## <a name="send"></a><span class="short-header">Enviar notificações</span>Enviar notificações de seu back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][notification-hubs-back-end]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Executar o aplicativo e gerar notificações
 
@@ -235,19 +235,15 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 
     Saiba como enviar notificações por push a usuários autenticados específicos. É uma boa solução enviar notificações somente a usuários específicos.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
+
   [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
   [Adicionar a seleção de categorias ao aplicativo]: #adding-categories
   [Registrar-se para receber notificações]: #register
   [Enviar notificações de seu back-end]: #send
   [Executar o aplicativo e gerar notificações]: #test-app
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/
-  []: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
+  [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png

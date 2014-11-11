@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Tutorial do Serviço de Nuvem do Azure: Função Web do ASP.NET, Função de Trabalho e Tabelas de Armazenamento do Azure, Filas e Blobs - 1 de 5
 
@@ -1103,8 +1103,6 @@ Para obter links para recursos adicionais a fim de trabalhar com tabelas, filas 
   [Introdução ao SDK de Trabalhos Web do Azure]: /pt-br/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Configurando e implantando o aplicativo de serviço de email do Azure]: /pt-br/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [Compilando a função web para o aplicativo de serviço de email do Azure]: /pt-br/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [Compilando a função de trabalho A (agendador de email) para o aplicativo de serviço de email do Azure]: /pt-br/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [Compilando a função de trabalho B (remetente de email) para o aplicativo de serviço de email do Azure]: /pt-br/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [Pré-requisitos]: #prerequisites
   [Visão geral do front-end]: #frontend
   [Visão geral do back-end]: #backend
@@ -1129,13 +1127,11 @@ Para obter links para recursos adicionais a fim de trabalhar com tabelas, filas 
   [Impedindo emails duplicados]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-processing.png
   [Processamento de mensagens da fila de assinatura]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-diagram.png
   [Banco de Dados SQL do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336279.aspx
-  [Mundo Real: Criando uma Estratégia de Particionamento Escalonável para Armazenamento de Tabela do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh508997.aspx
   [Diagrama de dados do aplicativo de serviço de email do Azure]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-datadiagram.png
   [Visão geral da arquitetura do aplicativo]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png
   [Arquitetura do aplicativo alternativa]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png
   [Calculadora de preços do Azure]: http://www.windowsazure.com/pt-br/pricing/calculator/
   [SendGrid Azure]: http://sendgrid.com/windowsazure.html
-  [(Contrato de Nível de Serviço) em 99,95% do serviço de nuvem do Azure]: https://www.windowsazure.com/pt-br/support/legal/sla/ "SLA"
   [Reinicialização da instância da função devido às atualizações do SO]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
   [CloudFx]: http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"
   [Exemplo WorkerRole.cs]: http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169

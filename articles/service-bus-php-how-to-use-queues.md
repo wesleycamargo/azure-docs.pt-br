@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Como usar as filas do Service Bus
 
@@ -23,7 +23,7 @@ mensagens** e **excluir filas**.
 -   [Como: Tratar falhas do aplicativo e mensagens ilegíveis][Como: Tratar falhas do aplicativo e mensagens ilegíveis]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="CreateApplication"></span></a>Criar um aplicativo PHP
 
@@ -36,7 +36,7 @@ Neste guia, você usará os recursos do serviço que podem ser chamados dentro d
 
 ## <span id="GetClientLibrary"></span></a>Obter as bibliotecas de cliente do Azure
 
-[WACOM.INCLUDE [get-client-libraries][get-client-libraries]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Configurar seu aplicativo para usar o Barramento de Serviço
 
@@ -240,7 +240,6 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 MSDN [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter mais informações.
 
   [SDK do Azure para PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
-  [O que são as filas do Barramento de Serviço?]: #what-are-service-bus-queues
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Criar um aplicativo PHP]: #CreateApplication
@@ -254,5 +253,4 @@ MSDN [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter m
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [extensão OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

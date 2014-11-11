@@ -1,33 +1,33 @@
 <properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # <span id="configurecloudservice"></span></a>Como configurar serviços de nuvem
 
-[WACOM.INCLUDE [isenção de responsabilidade][]]
+[WACOM.INCLUDE [isenção de responsabilidade](../includes/disclaimer.md)]
 
 Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no Portal de Gerenciamento do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
 
 Você também pode habilitar uma conexão de área de trabalho remota para uma ou todas as funções em execução no Serviço de Nuvem. A área de trabalho remota permite que você acesse área de trabalho do seu aplicativo durante a execução e solucione e diagnostique problemas. Você pode habilitar uma conexão de área de trabalho remota para sua função mesmo sem ter configurado um arquivo de definição de serviço (.csdef) para a área de trabalho remota durante o desenvolvimento do aplicativo. Não é necessário reimplantar seu aplicativo para habilitar uma conexão de área de trabalho remota.
 
-O Azure poderá garantir apenas 99,95 por cento de disponibilidade de serviço durante as atualizações da configuração se você tiver pelo menos duas instâncias de função (máquinas virtuais) para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço][].
+O Azure poderá garantir apenas 99,95 por cento de disponibilidade de serviço durante as atualizações da configuração se você tiver pelo menos duas instâncias de função (máquinas virtuais) para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço][Contratos de Nível de Serviço].
 
 ## Sumário
 
--   [Como: atualizar o arquivo de configuração do serviço de nuvem][]
--   [Como: Configurar o acesso remoto para instâncias de função][]
+-   [Como: atualizar o arquivo de configuração do serviço de nuvem][Como: atualizar o arquivo de configuração do serviço de nuvem]
+-   [Como: Configurar o acesso remoto para instâncias de função][Como: Configurar o acesso remoto para instâncias de função]
 
 ## <span id="update"></span></a>Como: Atualizar o arquivo de configuração do serviço de nuvem
 
-1.  No [Portal de Gerenciamento do Azure][], clique em **Serviços de Nuvem**. Em seguida, clique no nome do Serviço de Nuvem para abrir o painel.
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços de Nuvem**. Em seguida, clique no nome do Serviço de Nuvem para abrir o painel.
 
 2.  Clique em **Configurar**.
 
     Na página **Configurar**, é possível configurar o monitoramento, atualizar as configurações da função e escolher o sistema operacional convidado e a família para instâncias de função (máquinas virtuais).
 
-    ![Página de configuração][]
+    ![Página de configuração][Página de configuração]
 
-3.  Em configurações do monitoramento, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado. Para obter instruções, consulte [Como monitorar serviços de nuvem][].
+3.  Em configurações do monitoramento, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado. Para obter instruções, consulte [Como monitorar serviços de nuvem][Como monitorar serviços de nuvem].
 
 4.  Para as funções de serviço (agrupadas por função), você pode atualizar as seguintes configurações:
 
@@ -43,7 +43,7 @@ O Azure poderá garantir apenas 99,95 por cento de disponibilidade de serviço d
 
     Se você resolver todos os problemas da compatibilidade de seus aplicativos com a versão mais recente do sistema operacional, poderá continuar as atualizações automáticas do sistema operacional definindo a versão do sistema operacional como **Automático**.
 
-    ![Definições do sistema operacional][]
+    ![Definições do sistema operacional][Definições do sistema operacional]
 
 6.  Para salvar as configurações e enviá-las por push para as instâncias de função, clique em **Salvar**. (Clique em **Descartar** para cancelar as alterações.) **Salvar** e **Descartar** são adicionados à barra de comandos após a alteração de uma configuração.
 
@@ -57,7 +57,7 @@ O Azure poderá garantir apenas 99,95 por cento de disponibilidade de serviço d
 
     **Carregar um Novo Arquivo de Configuração** é exibido.
 
-    ![Carregamento da configuração][]
+    ![Carregamento da configuração][Carregamento da configuração]
 
     b. Em **Arquivo de configuração**, use **Procurar** para selecionar o arquivo .cscfg atualizado.
 
@@ -80,7 +80,7 @@ Na página **Configurar** do seu Serviço de Nuvem, você pode habilitar a área
 
 ### Para configurar o acesso remoto no novo arquivo de definição de serviço
 
-Adicione os elementos de **Importação** ao arquivo de definição de serviço (.csdef) para importar os módulos RemoteAccess e RemoteForwarder no modelo de serviço. Quando esses módulos estão presentes, o Azure adiciona as configurações da área de trabalho remota ao arquivo de configuração de serviço. Para concluir a configuração da área de trabalho remota, você precisará importar um certificado no Azure e especificar o certificado no arquivo de configuração de serviço. Para obter mais informações, consulte [Configuração de uma conexão de área de trabalho remota para uma função no Azure][].
+Adicione os elementos de **Importação** ao arquivo de definição de serviço (.csdef) para importar os módulos RemoteAccess e RemoteForwarder no modelo de serviço. Quando esses módulos estão presentes, o Azure adiciona as configurações da área de trabalho remota ao arquivo de configuração de serviço. Para concluir a configuração da área de trabalho remota, você precisará importar um certificado no Azure e especificar o certificado no arquivo de configuração de serviço. Para obter mais informações, consulte [Configuração de uma conexão de área de trabalho remota para uma função no Azure][Configuração de uma conexão de área de trabalho remota para uma função no Azure].
 
 ### Para habilitar ou modificar o acesso remoto para instâncias de função no Portal de Gerenciamento
 
@@ -90,12 +90,12 @@ Adicione os elementos de **Importação** ao arquivo de definição de serviço 
 
     **Configurar Área de Trabalho Remota** exibe as configurações (se houver) adicionadas ao arquivo de configuração de serviço quando o Serviço de Nuvem foi implantado, conforme mostrado abaixo.
 
-    ![Serviços de nuvem remotos][]
+    ![Serviços de nuvem remotos][Serviços de nuvem remotos]
 
 > [WACOM.NOTE]
-> **Aviso:** Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função. Se não houver nenhum certificado instalado, você verá esta opção: ![CloudServices\_CreateNewCertDropDown][]
+> **Aviso:** Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função. Se não houver nenhum certificado instalado, você verá esta opção: ![CloudServices\_CreateNewCertDropDown][CloudServices\_CreateNewCertDropDown]
 
-    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
+    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][Using Remote Desktop with Azure Roles] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 1.  Em **Funções**, selecione a função do serviço que você deseja atualizar ou selecione **Tudo** para todas as funções.
 
@@ -147,4 +147,3 @@ Adicione os elementos de **Importação** ao arquivo de definição de serviço 
   [1]: http://www.windowsazure.com/pt-br/support/legal/sla/
   [Configuração de uma conexão de área de trabalho remota para uma função no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh124107.aspx
   [Serviços de nuvem remotos]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
-  [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png

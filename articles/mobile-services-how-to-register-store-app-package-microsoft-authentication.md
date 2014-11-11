@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Shared Access Signature Part 1" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft
 
@@ -12,7 +12,7 @@ A autenticação gerenciada pelo cliente pode ser usada para fornecer uma experi
 
 > [WACOM.NOTE]A autenticação gerenciada pelo cliente usando o Live Connect ainda não tem suporte em um serviço móvel de back-end do .NET.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 Depois de registrar seu pacote de aplicativos, lembre-se de fornecer um valor de **true** para o *useSingleSignOn* quando você chamar o método [LoginAsync][LoginAsync]. Isso fornece aos usuários uma experiência de logon aprimorada ao usar uma Conta da Microsoft.
 

@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for iOS apps" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -20,7 +20,7 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *T
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
-![][]
+![][0]
 
 Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões posteriores.
 
@@ -28,7 +28,7 @@ Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões 
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Criar um novo aplicativo</span>Criar um novo aplicativo iOS
 
@@ -56,7 +56,7 @@ Nesta seção você criará um novo aplicativo iOS que está conectado ao seu se
 
 ## Executar seu novo aplicativo iOS
 
-[WACOM.INCLUDE [mobile-services-ios-run-app][mobile-services-ios-run-app]]
+[WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
 1.  
 
@@ -97,10 +97,8 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [assista ao tutorial]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart
   [Versão de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-  []: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F
+  [0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
   [2]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autenticar seu aplicativo do Windows Phone 8 com o logon único do Live Connect
 
@@ -33,7 +33,7 @@ Para poder autenticar usuários, você deve registrar seu aplicativo no Centro d
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Painel** e anote o valor da **URL do Site**.
 
@@ -168,9 +168,6 @@ No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "C# da Windows Store#"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-wp8/
   [Registrar seu aplicativo para a autenticação e configure os Serviços Móveis]: #register
   [Restringir permissões de tabela para usuários autenticados]: #permissions
@@ -178,7 +175,7 @@ No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com 
   [Live SDK para Windows e Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-wp8
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
   [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
   [2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
@@ -187,6 +184,5 @@ No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com 
   [5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
   [6]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
   [7]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
-  [aplicativo da Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-wp8
   [8]: /pt-br/develop/mobile/tutorials/get-started-with-users-wp8

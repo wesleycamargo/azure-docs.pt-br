@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Como usar Hubs de Notificação
 
@@ -188,7 +188,6 @@ links para saber mais.
 -   Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
 
   [Próximas etapas]: #next
-  [O que são Hubs de Notificação?]: #hub
   [Criar um aplicativo Node.js]: #create
   [Configurar o aplicativo para usar o Hub de notificação]: #config
   [Como: Enviar notificações]: #send
@@ -196,8 +195,4 @@ links para saber mais.
   [Criar e implantar um aplicativo Node.js para um Site do Azure]: /pt-br/develop/nodejs/tutorials/create-a-website-(mac)/
   [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site com o WebMatrix]: /pt-br/develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Implementando o servidor GCM (a página pode estar em inglês)]: http://developer.android.com/google/gcm/server.html#payload
-  [Guia de Programação de Notificações Locais e por Push (a página pode estar em inglês)]: http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html
-  [Notificações por push de um servidor (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/hh221551.aspx
-  [Solicitação de serviço e cabeçalhos de resposta do serviço de notificação por push (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windows/apps/hh465435.aspx
   [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-node

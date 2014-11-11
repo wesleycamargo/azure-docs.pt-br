@@ -1,6 +1,6 @@
 <properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Com usar o Serviço de Cache gerenciado do Azure
 
@@ -431,8 +431,6 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado,siga os links
 <!-- LINKS -->
 
   [Próximas Etapas]: #next-steps
-  [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/pt-br/library/azure/dn766201.aspx
-  [O que é o Serviço de Cache gerenciado do Azure?]: #what-is
   [Introdução ao Serviço de Cache Gerenciado]: #getting-started-cache-service
   [Criar o cache]: #create-cache
   [Configurar o cache]: #enable-caching

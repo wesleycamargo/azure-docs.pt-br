@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure
 
@@ -33,7 +33,7 @@ Este guia mostra como executar cenários comuns usando um cliente HTML/JavaScrip
 -   [Como: Usar compartilhamento de recursos entre origens][Como: Usar compartilhamento de recursos entre origens]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="create-client"></a>Como: Criar o cliente de Serviços Móveis
 
@@ -591,11 +591,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 
 <!-- URLs. -->
 
-  [.NET Framework]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /pt-br/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Início rápido do JavaScript da Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started
   [Início rápido do HTML]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-html
   [O que são Serviços Móveis]: #what-is
@@ -625,12 +620,9 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
   [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [CLI para gerenciar tabelas de Serviços Móveis]: http://www.windowsazure.com/pt-br/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [ListView]: http://msdn.microsoft.com/pt-br/library/windows/apps/br211837.aspx
-  [Associação de dados (aplicativos da Windows Store usando JavaScript e HTML)]: http://msdn.microsoft.com/pt-br/library/windows/apps/hh758311.aspx
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html
   [Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-users-js
   [login]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554236.aspx
-  [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=322050
   [Autenticar seu aplicativo com logon único]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [sessionStorage]: http://msdn.microsoft.com/pt-br/library/cc197062(v=vs.85).aspx
   [done]: http://msdn.microsoft.com/pt-br/library/windows/apps/hh701079.aspx

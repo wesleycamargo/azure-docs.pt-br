@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # Introdução às notificações por push nos Serviços Móveis (push herdado)
 
@@ -40,13 +40,13 @@ Este tutorial exige o seguinte:
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
-[WACOM.INCLUDE [Habilitar Notificações por Push para Apple][Habilitar Notificações por Push para Apple]]
+[WACOM.INCLUDE [Habilitar Notificações por Push para Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Habilitar o sistema de mensagens em nuvem do Google
 
 > [WACOM.NOTE]Para concluir este procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Habilitar GCM][Habilitar GCM]]
+[WACOM.INCLUDE [Habilitar GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <a name="gcm-module"></a>Criar o módulo do GCM para Titanium
 
@@ -62,7 +62,7 @@ Você precisará instalar o NDK do Android. Baixe o arquivo .zip adequado em [][
 
 2.  Clique em Arquivo -\> Novo -\> Projeto de Módulo Móvel.
 
-    ![][]
+    ![][0]
 
 3.  Na janela seguinte, insira os dados das configurações do projeto:
 
@@ -213,7 +213,7 @@ Você pode então escolher implantar o módulo para todos os projetos ou para um
 
 ## <a name="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 1.  Insira o valor da Chave de API obtido do GCM no procedimento anterior e clique em Salvar.
 
@@ -446,12 +446,6 @@ Isso registra um novo script de inserção, o qual usa o [objeto de push dos Ser
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [Gerar a solicitação de assinatura de certificado]: #certificates
   [Registrar seu aplicativo e habilitar as notificações por push]: #register
   [Criar um perfil de provisionamento para o aplicativo]: #profile
@@ -466,8 +460,8 @@ Isso registra um novo script de inserção, o qual usa o [objeto de push dos Ser
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Instalando as ferramentas de desenvolvimento de Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
-  []: http://developer.android.com/sdk/ndk/index.html
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
+  [0]: http://developer.android.com/sdk/ndk/index.html
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png

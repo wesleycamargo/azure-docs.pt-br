@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-create-pull-notifications-js" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Definir uma API personalizada que dá suporte a notificações periódicas
 
@@ -22,7 +22,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **API** e, em seguida, clique em **Criar uma API personalizada**.
 
@@ -128,8 +128,6 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/create-pull-notifications-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/create-pull-notifications-js "JavaScript da Windows Store"
   [Notificações periódicas]: http://msdn.microsoft.com/pt-br/library/windows/apps/jj150587.aspx
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/started-with-data-js
@@ -137,13 +135,10 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
   [Atualizar o aplicativo para ativar notificações periódicas]: #update-app
   [Testar o aplicativo]: #test-app
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png
   [2]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png
   [3]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png
-  [módulo wns]: http://go.microsoft.com/fwlink/p/?LinkId=306750
-  [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-  [objeto push]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554217.aspx
   [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
   [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-js
   [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293

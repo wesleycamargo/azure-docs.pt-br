@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-dotnet" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Tratando conflitos de gravação do banco de dados
 
@@ -348,9 +348,6 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 
 
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Atualizar o aplicativo para permitir atualizações]: #uiupdate
   [Habilitar a detecção de conflitos em seu aplicativo]: #enableOC
   [Testar conflitos de gravação do banco de dados no aplicativo]: #test-app

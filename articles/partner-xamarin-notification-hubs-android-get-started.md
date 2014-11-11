@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-getting-started-xamarin-android" urlDisplayName="" pageTitle="Get started with Notification Hubs for Xamarin.Android apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application." metaCanonical="" authors="donnam" solutions="" manager="dwrede" editor="" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Introdução aos Hubs de Notificação
 
@@ -36,7 +36,7 @@ Completar este tutorial é um pré-requisito para todos os outros tutoriais de h
 
 1.  Navegue até o site [Apis do Google][Apis do Google], entre com as credenciais de sua conta do Google e clique em **Criar projeto...**.
 
-    ![][]
+    ![][0]
 
     <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
 <p>Quando voc&ecirc; j&aacute; tiver um projeto existente, voc&ecirc; ser&aacute; direcionado para a p&aacute;gina do <strong>Painel</strong> ap&oacute;s o login. Para criar um novo projeto no Painel, expanda <strong>Projeto da API</strong>, clique em <strong>Criar...</strong>, sob <strong>Outros projetos</strong>, insira um nome de projeto e clique em <strong>Criar projeto</strong>.</p>
@@ -400,14 +400,8 @@ Para enviar uma notificação usando um Serviço Móvel, consulte a [Introduçã
 
 Neste simples exemplo, você envia notificações para todos os seus dispositivos Android. Para selecionar usuários de destinos específicos, consulte o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários][Usar Hubs de Notificação para enviar notificações por push aos usuários]. Se desejar segmentar os usuários por grupos de interesse, você poderá consultar [Usar Hubs de Notificação para enviar notícias de última hora][Usar Hubs de Notificação para enviar notícias de última hora]. Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Notificação][Diretrizes dos Hubs de Notificação] e em [Instruções sobre Hubs de Notificação para Android][Instruções sobre Hubs de Notificação para Android].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /pt-br/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+
   [Xamarin.Android]: /pt-br/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [aplicativo NotificationHubs]: http://go.microsoft.com/fwlink/p/?LinkId=331329
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
@@ -418,10 +412,8 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
   [1]: http://xamarin.com/download/
   [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
   [Componente de mensagens de nuvem do Google]: http://components.xamarin.com/view/GCMClient/
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F
-  [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Apis do Google]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-  []: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
+  [0]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
   [2]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server.png
   [3]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server2.png
   [4]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server3.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-microsoft-waad-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use an Azure Active Directory Account login" authors="dwrede" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede" />
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
 
@@ -14,7 +14,7 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 2.  Navegue para **Active Directory** no Portal de Gerenciamento e clique em seu diretório.
 
-	![][]
+	![][0]
 
 1.  Clique na guia **Aplicativos** e, em seguida, clique em **Adicionar um Aplicativo**.
 
@@ -30,7 +30,6 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Registrar seus aplicativos da Windows Store para autenticação do Windows Live Connect]: /pt-br/develop/mobile/how-to-guides/register-for-single-sign-on
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
+  [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
   [1]: ./media/mobile-services-app-active-directory-login/mobile-live-connect-app-api-settings.png

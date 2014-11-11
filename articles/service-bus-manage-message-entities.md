@@ -1,6 +1,6 @@
 <properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Como gerenciar entidades de mensagens do Barramento de Serviço
 
@@ -34,7 +34,7 @@ A Criação Rápida permite criar uma fila, um tópico ou um namespace do servi�
 
     a. Se não tiver nenhum namespace nessa região ou nessa assinatura do Azure, um novo namespace será criado automaticamente para você. Nesse caso, você receberá duas mensagens de êxito: uma para a criação do namespace e outra para a criação da entidade.
 
-    ![][]
+    ![][0]
 
 Clique no ícone de **Barramento de Serviço** na barra de navegação à esquerda para obter uma lista de namespaces. Você localizará o novo namespace que acabou de criar. Clique no namespace na lista. Você verá a entidade que acabou de criar nesse namespace.
 
@@ -107,7 +107,7 @@ Você pode usar o portal para alterar o status de uma entidade do Barramento de 
   [Como: excluir uma entidade do Barramento de Serviço]: #delete
   [Como: desabilitar ou habilitar uma entidade do Barramento de Serviço]: #disableenable
   [Recursos adicionais]: #seealso
-  []: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
+  [0]: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
   [Documentação do Barramento de Serviço]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-relay/
   [1]: ./media/service-bus-manage-message-entities/AddQueue1.png
   [2]: ./media/service-bus-manage-message-entities/ConfigureQueue.png

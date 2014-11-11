@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="How to Make a phone call from Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Como fazer uma chamada telefônica usando a Twilio em um aplicativo Java no Azure
 
@@ -189,9 +189,7 @@ Para obter informações adicionais sobre a Twilio, consulte [][11]<https://www.
   [4]: http://github.com/twilio/twilio-java
   [5]: http://api.twilio.com
   [Adicionando um certificado ao repositório de certificados da CA do Java]: ../java-add-certificate-ca-store
-  [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com o Java (da Microsoft Open Technologies)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx
   [Resposta de chamada do Azure usando a Twilio e o Java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
-  [your\_hosted\_name]: http://*your_hosted_name
   [Como usar o serviço de armazenamento de blob do Java]: http://www.windowsazure.com/pt-br/develop/java/how-to-guides/blob-storage/
   [Usando o Banco de Dados SQL no Java]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh749029.aspx
   [Usando a Biblioteca de Tempo de Execução de Serviço do Azure no JSP]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh690948.aspx

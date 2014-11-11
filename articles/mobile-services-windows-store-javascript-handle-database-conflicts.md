@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-javascript" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" writer="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Tratando conflitos de gravação do banco de dados
 
@@ -30,7 +30,7 @@ Este tutorial requer o seguinte:
 
     2.  Expanda **Online** e clique em **Microsoft e .NET**. Na caixa de texto Pesquisar, digite **WindowsAzure.MobileServices.WinJS**. Clique em **Instalar** no Pacote NuGet dos **Serviços Móveis do Windows Azure para WinJS**.
 
-        ![][]
+        ![][0]
 
 ## <a name="uiupdate"></a><span class="short-header">Atualizar a Interface do Usuários</span>Atualizar o aplicativo para permitir atualizações
 
@@ -283,7 +283,7 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
   [Tratanado automaticamente a resolução de conflitos em scripts de servidor]: #scriptsexample
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
   [Conta do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
+  [0]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
   [1]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
   [2]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package2.png

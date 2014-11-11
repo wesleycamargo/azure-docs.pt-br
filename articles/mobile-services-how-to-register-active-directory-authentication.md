@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-active-directory-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
 
@@ -10,7 +10,7 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Identidade** de seu serviço móvel.
 
@@ -62,7 +62,7 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 
   [Autenticar o seu aplicativo com Logon Único com a biblioteca de autenticação do Active Directory]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-identity-tab.png
   [2]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png
   [3]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-select-ad-waad-auth.png

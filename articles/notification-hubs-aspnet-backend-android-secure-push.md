@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Push Seguro dos Hubs de Notificação do Azure
 
@@ -31,7 +31,7 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 
 > [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Android)][Introdução aos Hubs de Notificação (Android)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][notification-hubs-aspnet-backend-securepush]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificar o projeto Android
 
@@ -118,8 +118,4 @@ Para executar o aplicativo, faça o seguinte:
 
 4.  Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [Introdução aos Hubs de Notificação (Android)]: http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md

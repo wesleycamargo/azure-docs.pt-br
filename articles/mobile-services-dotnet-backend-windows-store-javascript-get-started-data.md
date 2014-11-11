@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-javascript-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][mobile-services-selector-get-started-data-legacy]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-center-tutorial-subselector">
     <a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Back-end do .NET" class="current">Back-end do .NET</a> | 
@@ -48,13 +48,13 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo
 
 5.  No aplicativo, digite um texto na caixa abaixo de **Inserir um TodoItem** e clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
     Observe que o texto salvo é exibido na segunda coluna em **Consultar e atualizar dados**.
 
 ## <a name="create-service"></a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a>Baixar o projeto do serviço móvel e adicioná-lo à solução.
 
@@ -176,11 +176,11 @@ Nesta seção, você irá atualizar o aplicativo da Windows Store para usar o se
 
 ## <a name="test-locally-hosted"></a>Testar o aplicativo da Windows Store no serviço hospedado localmente
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data][mobile-services-dotnet-backend-test-local-service-data]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
 ## <a name="publish-mobile-service"></a>Publicar o serviço móvel no Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>Testar o serviço móvel publicado no Azure
 
@@ -242,8 +242,6 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "Back-end do JavaScript"
   [versão do aplicativo universal do Windows]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
   [Baixar o projeto de aplicativo da Windows Store]: #download-app
   [Criar um novo serviço móvel]: #create-service
@@ -255,7 +253,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [aplicativo GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/app-view.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/app-view.png
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/mobile-service-overview-page.png

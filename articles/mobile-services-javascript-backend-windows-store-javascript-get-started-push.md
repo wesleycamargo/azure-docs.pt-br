@@ -1,10 +1,10 @@
 <properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
 # Introdução às notificações por push nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy][mobile-services-selector-get-started-push-legacy]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações de push para um aplicativo da Windows Store.
 Neste tutorial você habilita as notificações de push utilizando os Hubs de Notificação do Azure ao projeto de inicialização rápida. Ao concluir, seu serviço móvel enviará uma notificação por push usando Hubs de Notificação sempre que um registro for inserido. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
@@ -22,7 +22,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <span id="register"></span></a> Registrar seu aplicativo com os WNS e configurar os Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app][mobile-services-notification-hubs-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 O serviço móvel e seu aplicativo agora estão configurados para trabalhar com os WNS e os Hubs de Notificação. Em seguida, você irá atualizar o aplicativo da Windows Store para registrar-se para notificações.
 
@@ -47,17 +47,17 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 3.  Abra o arquivo Package.appxmanifest e verifique se, na guia **Interface do Usuário do aplicativo**, **Compatível com toast** está definido como **Sim**.
 
-    ![][]
+    ![][0]
 
     Isso garante que seu aplicativo possa gerar notificações de toast.
 
 ## <span id="update-scripts"></span></a> Atualizar scripts de servidor para enviar notificações por push
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs][mobile-services-javascript-update-script-notification-hubs]]
+[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ## <span id="test"></span></a>Testar notificações de push no seu aplicativo
 
-[WACOM.INCLUDE [mobile-services-windows-store-test-push][mobile-services-windows-store-test-push]]
+[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -100,11 +100,10 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data
   [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
   [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
   [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Enviar notificações em push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
   [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
   [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293

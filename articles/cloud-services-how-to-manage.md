@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Como gerenciar serviços de nuvem
 
-[WACOM.INCLUDE [isenção de responsabilidade][isenção de responsabilidade]]
+[WACOM.INCLUDE [isenção de responsabilidade](../includes/disclaimer.md)]
 
 Na área **Serviços de Nuvem** do Portal de Gerenciamento do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
@@ -148,7 +148,6 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [UpdateDeployment]: ./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png
   [Permutação dos Serviços de Nuvem]: ./media/cloud-services-how-to-manage/CloudServices_Swap.png
-  [Como dimensionar um Serviço de Nuvem e os recursos vinculados (a página pode estar em inglês)]: ../cloud-services-how-to-scale/
   [Portal de Gerenciamento]: http://manage.windowsazure.com/
   [LinkedResourcesPage]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png
   [Vincular Página1]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png

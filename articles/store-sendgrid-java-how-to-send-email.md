@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como enviar emails usando o SendGrid com Java
 
@@ -9,25 +9,25 @@ email SendGrid no Windows Azure. As amostras são gravadas em
 Java. Os cenários abordados incluem a **construção de emails**, o**envio de
 emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de
 propriedades**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte
-a seção [Próximas etapas][].
+a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o serviço de email SendGrid?][]
--   [Criar uma conta do SendGrid][]
--   [Como: Use as bibliotecas javax.mail][]
--   [Como: Criar um email][]
--   [Como: Enviar um email][]
--   [Como: Adicionar um anexo][]
--   [Como: Usar filtros para habilitar rodapés, rastreamento e análise][]
--   [Como: Atualizar as propriedades do email][]
--   [Como: Usar serviços adicionais do SendGrid][]
--   [Próximas etapas][]
+-   [O que é o serviço de email SendGrid?][O que é o serviço de email SendGrid?]
+-   [Criar uma conta do SendGrid][Criar uma conta do SendGrid]
+-   [Como: Use as bibliotecas javax.mail][Como: Use as bibliotecas javax.mail]
+-   [Como: Criar um email][Como: Criar um email]
+-   [Como: Enviar um email][Como: Enviar um email]
+-   [Como: Adicionar um anexo][Como: Adicionar um anexo]
+-   [Como: Usar filtros para habilitar rodapés, rastreamento e análise][Como: Usar filtros para habilitar rodapés, rastreamento e análise]
+-   [Como: Atualizar as propriedades do email][Como: Atualizar as propriedades do email]
+-   [Como: Usar serviços adicionais do SendGrid][Como: Usar serviços adicionais do SendGrid]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>O que é o serviço de email SendGrid?
 
-O SendGrid é um [serviço de email baseado em nuvem][] que oferece
-[entrega de email transacional][], escalabilidade e análise em tempo real confiáveis com APIs flexíveis
+O SendGrid é um [serviço de email baseado em nuvem][serviço de email baseado em nuvem] que oferece
+[entrega de email transacional][entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis
 que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid
 incluem:
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte <http://sendgrid.com>.
 
 ## <a name="bkmk_CreateSendGridAcct"> </a> Criar uma conta de SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>Como: Use as bibliotecas javax.mail
 
@@ -93,10 +93,10 @@ para enviar emails usando SMTP é para fazer o seguinte:
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Criar sua mensagem e atribuir os valores de **Para**, **De**, **Assunto** e
-    conteúdo. Isso é mostrado na seção [Como: Criar um email][].
+    conteúdo. Isso é mostrado na seção [Como: Criar um email][Como: Criar um email].
 5.  Enviar a mensagem por meio de um objeto
     <span class="auto-style1">javax.mail.Transport</span>. Isso é
-    mostrado na seção [Como: Enviar um email][]
+    mostrado na seção [Como: Enviar um email][Como: Enviar um email]
     .
 
 ## <a name="bkmk_HowToCreateEmail"> </a>Como: Criar um email
@@ -155,7 +155,7 @@ O SendGrid fornece a funcionalidade adicional de email por meio do uso de
 *filtros*. Essas são as configurações que podem ser adicionadas a uma mensagem de email para
 habilitar uma funcionalidade específica, como habilitar rastreamento de clique, Google
 analytics, rastreamento de assinatura e assim por diante. Para obter uma lista completa de filtros,
-consulte[Configurações de filtro][].
+consulte[Configurações de filtro][Configurações de filtro].
 
 -   O código a seguir mostra como inserir um filtro de rodapés que faça com que o texto
     HTML exibido na parte inferior do email seja enviado.
@@ -208,20 +208,19 @@ Para adicionar um destinatário a **Cc**, use o seguinte:
 
 O SendGrid oferece APIs baseadas na Web que podem ser usadas para aproveitar a
 funcionalidade adicional do SendGrid do aplicativo do Azure. Para obter
-detalhes completos, consulte a [documentação da API do SendGrid][].
+detalhes completos, consulte a [documentação da API do SendGrid][documentação da API do SendGrid].
 
 ## <a name="bkmk_NextSteps"> </a>Próximas etapas
 
 Agora que você já conhece os princípios do serviço de email do SendGrid, acesse
 estes links para saber mais.
 
--   Exemplo que demonstra o uso do SendGrid em uma implantação do Azure: [Como enviar email usando o SendGrid do Java em uma implantação do Azure][]
+-   Exemplo que demonstra o uso do SendGrid em uma implantação do Azure: [Como enviar email usando o SendGrid do Java em uma implantação do Azure][Como enviar email usando o SendGrid do Java em uma implantação do Azure]
 -   Informações de Java do SendGrid: <http://sendgrid.com/docs/Code_Examples/java.html>
 -   Documentação da API do SendGrid: <http://sendgrid.com/docs/API_Reference/index.html>
 -   Oferta especial do SendGrid para clientes do Azure: <http://sendgrid.com/azure.html>
 
   [Próximas etapas]: #bkmk_NextSteps
-  [O que é o serviço de email SendGrid?]: #bkmk_WhatIsSendGrid
   [Criar uma conta do SendGrid]: #bkmk_CreateSendGridAcct
   [Como: Use as bibliotecas javax.mail]: #bkmk_HowToUseJavax
   [Como: Criar um email]: #bkmk_HowToCreateEmail

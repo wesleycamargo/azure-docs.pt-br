@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como usar as filas do Service Bus
 
@@ -22,7 +22,7 @@ mensagens**, e **excluir filas**.
 -   [Como: Tratar falhas do aplicativo e mensagens ilegíveis][Como: Tratar falhas do aplicativo e mensagens ilegíveis]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="bkmk_ConfigApp"> </a>Configurar seu aplicativo para usar o Service Bus
 
@@ -249,7 +249,6 @@ Agora que você aprendeu as noções básicas sobre Filas do Service Bus, consul
 tópico do MSDN [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter mais informações.
 
   [SDK do Azure para Java]: http://azure.microsoft.com/pt-br/develop/java/
-  [O que são as filas do Service Bus?]: #what-are-service-bus-queues
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Configurar seu aplicativo para usar o Service Bus]: #bkmk_ConfigApp

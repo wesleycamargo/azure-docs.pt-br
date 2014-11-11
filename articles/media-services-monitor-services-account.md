@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # <span id="monitormediaservicesaccount"></span></a>Como monitorar uma conta de Serviços de Mídia
 
@@ -8,13 +8,13 @@ O painel Serviços de Mídia do Azure apresenta métricas de uso e informações
 
 Você pode monitorar o número de trabalhos de codificação na fila, as tarefas de codificação com falha, os trabalhos de codificação ativos representados pelos dados de entrada e saída do codificador, bem como o uso do armazenamento de blob associado à conta dos Serviços de Mídia. Além disso, se estiver transmitindo conteúdo a clientes, você também pode recuperar várias métricas de streaming. Você pode optar por monitorar os dados das últimas 6 horas, 24 horas ou 7 dias.
 
-**Observação** Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança][].
+**Observação** Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança][Análise de armazenamento e cobrança].
 
 ## <span id="configuremonitoring"></span></a>Como: Monitorar uma conta dos Serviços de Mídia
 
-1.  No [Portal de Gerenciamento][], clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel.
+1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel.
 
-    ![MediaServices\_Dashboard][]
+    ![MediaServices\_Dashboard][MediaServices\_Dashboard]
 
 2.  Para monitorar seus trabalhos ou dados de codificação, basta começar a enviar trabalhos de codificação aos Serviços de Mídia ou iniciar a transmissão de conteúdo aos clientes usando o Streaming de Mídia por Demanda do Azure. Você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
 
@@ -25,7 +25,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
     **Observação** Os Blobs são o único tipo de armazenamento com suporte nos Serviços de Mídia.
 
-    ![StorageOptions][]
+    ![StorageOptions][StorageOptions]
 
 3.  Em **monitoramento**, defina o nível de monitoramento e a política de retenção de dados para Blobs:
 
@@ -41,12 +41,11 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 1.  Ao concluir a configuração do monitoramento, clique em **Salvar**.
     De maneira semelhante às métricas dos Serviços de Mídia, você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
-    As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Métricas da análise de armazenamento][].
+    As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Métricas da análise de armazenamento][Métricas da análise de armazenamento].
 
 <!-- Images -->
 
   [Análise de armazenamento e cobrança]: http://go.microsoft.com/fwlink/?LinkId=256667
   [Portal de Gerenciamento]: http://go.microsoft.com/fwlink/?LinkID=256666
-  [MediaServices\_Dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
   [StorageOptions]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
   [Métricas da análise de armazenamento]: http://go.microsoft.com/fwlink/?LinkId=256668

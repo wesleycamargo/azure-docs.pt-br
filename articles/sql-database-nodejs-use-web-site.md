@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="nodejs" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Aplicativo Web do Node.js usando o Banco de Dados SQL do Azure
 
@@ -472,7 +472,6 @@ Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo da 
   [Criar um novo site do Azure]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Criação personalizada de um novo site]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [Preencha os detalhes do site]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB ou BUSINESS)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee621788.aspx
   [Preencher as configurações do banco de dados SQL]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Criar um novo servidor de banco de dados SQL]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Abrir o painel do site]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -493,7 +492,6 @@ Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo da 
   [1]: http://getbootstrap.com/
   [2]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
   [Uma imagem do novo item na lista de tarefas]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.png
-  [http://[site]: http://[site
   [configurar link]: ./media/sql-database-nodejs-use-web-site/sql-task-configure.png
   [configurações do aplicativo]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [salvar as configurações do aplicativo]: ./media/sql-database-nodejs-use-web-site/savebutton.png

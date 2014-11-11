@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Usar Hubs de Notificação para enviar notícias de última hora
 
@@ -88,7 +88,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 
     O layout gráfico do main\_activity.xml deve ter esta aparência:
 
-    ![][]
+    ![][0]
 
 3.  Agora, crie uma classe **Notificações** no mesmo pacote que a classe **MainActivity**.
 
@@ -260,7 +260,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 
 ## <a name="send"></a><span class="short-header">Enviar notificações</span>Enviar notificações por meio de seu back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][notification-hubs-back-end]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Executar o aplicativo e gerar notificações
 
@@ -296,17 +296,13 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 <!-- Images. -->
 <!-- URLs.-->
 
-  [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
   [Adicionar a seleção de categorias ao aplicativo]: #adding-categories
   [Registrar-se para receber notificações]: #register
   [Enviar notificações de seu back-end]: #send
   [Executar o aplicativo e gerar notificações]: #test-app
   [Introdução aos Hubs de Notificação]: /pt-br/documentation/articles/notification-hubs-android-get-started/
-  []: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
+  [0]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /pt-br/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users

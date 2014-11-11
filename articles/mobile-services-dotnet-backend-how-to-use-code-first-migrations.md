@@ -1,6 +1,6 @@
 <properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="mobile" writer="glenga" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET
 
@@ -80,7 +80,7 @@ As etapas a seguir ativam as Migrações e aplicam as alterações no modelo de 
 
 11. (Opcional) No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], selecione o serviço móvel, clique na guia **Configurar** e, em seguida, clique no link **Banco de Dados SQL**.
 
-    ![][]
+    ![][0]
 
     Isso navega para a página Banco de Dados SQL do banco de dados do serviço móvel.
 
@@ -129,7 +129,7 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate][AddOrUpdate] pa
   [DbContext]: http://msdn.microsoft.com/pt-br/library/system.data.entity.dbcontext(v=vs.113).aspx
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Propagando dados em migrações]: #seeding
-  []: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
+  [0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
   [1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
   [Seed]: http://msdn.microsoft.com/pt-br/library/hh829453(v=vs.113).aspx
   [AddOrUpdate]: http://msdn.microsoft.com/pt-br/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

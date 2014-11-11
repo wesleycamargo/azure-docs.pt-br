@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-javascript-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Introdução aos dados nos Serviços Móveis
 
@@ -35,23 +35,25 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
-1.  No Gerenciador de Soluções, navegue para a subpasta **services\\mobileService\\scripts**, abra o arquivo de script service.js e observe a nova variável global, que se parece com o exemplo a seguir:
+<ol start="8"><li><p>No Gerenciador de Soluções, navegue para a subpasta <b>services\\mobileService\\scripts</b>, abra o arquivo de script service.js e observe a nova variável global, que se parece com o exemplo a seguir:</p>
 
-        var todolistClient = new WindowsAzure.MobileServiceClient(
-                        "https://todolist.azure-mobile.net/",
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
+                "https://todolist.azure-mobile.net/",
+		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</code></pre>
 
-    Esse código fornece acesso ao novo serviço móvel em seu aplicativo usando uma variável global. O cliente é criado ao fornecer a URI e a chave de aplicativo do novo serviço móvel. Como uma referência a esse script foi adicionada ao arquivo default.html, esta variável está disponível para todos os arquivos de script que também fazem referência desta página.
+    <p>Esse código fornece acesso ao novo serviço móvel em seu aplicativo usando uma variável global. O cliente é criado ao fornecer a URI e a chave de aplicativo do novo serviço móvel. Como uma referência a esse script foi adicionada ao arquivo default.html, esta variável está disponível para todos os arquivos de script que também fazem referência desta página.</p>
+</li>
 
-2.  Abra o arquivo do projeto default.html, localize a referência para o novo arquivo de script service.kd e certifique-se de que o caminho em referência é como o seguinte:
+<li><p>Abra o arquivo do projeto default.html, localize a referência para o novo arquivo de script service.kd e certifique-se de que o caminho em referência é como o seguinte:</p>
 
-        <script src="/services/mobileServices/scripts/todolist.js">
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 
-    Existe atualmente um bug no Visual Studio que gera um nome incorreto de pasta no caminho.
+    <p>Existe atualmente um bug no Visual Studio que gera um nome incorreto de pasta no caminho.</p></li>
 
-3.  Clique com o botão direito do mouse no projeto do aplicativo Windows Phone, clique em **Adicionar**, clique em **Serviço Conectado...**, selecione o serviço móvel que você acabou de criar e, em seguida, clique em **OK**.
+<li><p>Clique com o botão direito do mouse no projeto do aplicativo Windows Phone, clique em <b>Adicionar</b>, clique em <b>Serviço Conectado...</b>, selecione o serviço móvel que você acabou de criar e, em seguida, clique em <b>OK</b>.</p>
 
-    O mesmo arquivo com o novo código é adicionado ao projeto do aplicativo Windows Phone Store. Certifique-se de corrigir também o caminho de referência adicionado ao arquivo default.html.
+    <p>O mesmo arquivo com o novo código é adicionado ao projeto do aplicativo Windows Phone Store. Certifique-se de corrigir também o caminho de referência adicionado ao arquivo default.html.</p></li>
+</ol>
 
 Neste momento, ambos os aplicativos do Windows Store e Windows Phone Store são conectados ao novo serviço móvel. A próxima etapa consiste em tesar o novo projeto do serviço móvel.
 

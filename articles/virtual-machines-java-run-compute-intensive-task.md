@@ -1,6 +1,6 @@
 <properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 
@@ -20,17 +20,17 @@ Você aprenderá a:
 
 Este tutorial usará o problema do Caixeiro Viajante para a tarefa de computação intensiva. Este é um exemplo do aplicativo Java que executa a tarefa de computação intensiva:
 
-![Solucionador de problemas do Caixeiro Viajante][]
+![Solucionador de problemas do Caixeiro Viajante][Solucionador de problemas do Caixeiro Viajante]
 
 Este é um exemplo do aplicativo Java que monitora a tarefa de computação intensiva:
 
-![Cliente de problemas do Caixeiro Viajante][]
+![Cliente de problemas do Caixeiro Viajante][Cliente de problemas do Caixeiro Viajante]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para criar uma máquina virtual
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3.  Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012** .
     Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
@@ -65,7 +65,7 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 4.  Clique em **Conectar**.
 5.  Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
 
-Observe que a funcionalidade do Service Bus do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no JRE usado por este tutorial. Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionar um certificado no armazenamento de certificados de autoridade de certificação Java][] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
+Observe que a funcionalidade do Service Bus do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no JRE usado por este tutorial. Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionar um certificado no armazenamento de certificados de autoridade de certificação Java][Adicionar um certificado no armazenamento de certificados de autoridade de certificação Java] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
 
 ## Como criar um namespace do barramento de serviço
 
@@ -75,15 +75,15 @@ contêiner de controle para endereçamento dos recursos do Barramento de Serviç
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  No painel de navegação esquerdo inferior do Portal de Gerenciamento, clique em **Service Bus, Caching e Access Control**.
 3.  No painel superior esquerdo do Portal de Gerenciamento, clique no nó do **Service
     Bus** e, em seguida, clique no botão **Novo**.
-    ![Service Bus Node screenshot][]
+    ![Service Bus Node screenshot][Service Bus Node screenshot]
 4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um
     **Namespace** e, em seguida, para certificar-se de que ele é exclusivo, clique no botão
     **Verificar disponibilidade**.
-    ![Criar uma captura de tela do novo Namespace][]
+    ![Criar uma captura de tela do novo Namespace][Criar uma captura de tela do novo Namespace]
 5.  Depois de verificar se o nome do namespace está disponível, escolha o
     país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar o Namespace**.
 
@@ -98,22 +98,22 @@ namespace.
 
 1.  No painel de navegação à esquerda, clique no nó **Service Bus**, para
     exibir a lista de namespaces disponíveis:
-    ![Captura de tela de namespaces disponíveis][]
+    ![Captura de tela de namespaces disponíveis][Captura de tela de namespaces disponíveis]
 2.  Selecione o namespace que você acabou de criar na lista abaixo:
-    ![Captura de tela da lista de namespaces][]
+    ![Captura de tela da lista de namespaces][Captura de tela da lista de namespaces]
 3.  O painel direito **Propriedades** listará as propriedades para o
     novo namespace:
-    ![Captura de tela do painel Propriedades][]
+    ![Captura de tela do painel Propriedades][Captura de tela do painel Propriedades]
 4.  A **Chave padrão** está oculta. Clique no botão **Exibição** para exibir
     as credenciais de segurança:
-    ![Captura de tela da chave padrão][]
+    ![Captura de tela da chave padrão][Captura de tela da chave padrão]
 5.  Anote o **Emissor padrão** e a **Chave padrão**, pois você usará
     essas informações abaixo para executar operações com o
     namespace.
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
-1.  Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java][].
+1.  Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java][Azure SDK para Java].
 2.  Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 3.  Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
 

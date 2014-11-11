@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for Android apps" metaKeywords="Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,9 +16,9 @@
 
 </div>
 
-![][]
+![][0]
 
-Concluir este tutorial exige as [Ferramentas para desenvolvedores do Android][], que inclui o ambiente de desenvolvimento integrado (IDE) Eclipse, o plug-in Android Developer Tools (ADT) e a mais recente plataforma Android. Android 4.2 ou uma versão posterior é necessária.
+Concluir este tutorial exige as [Ferramentas para desenvolvedores do Android][Ferramentas para desenvolvedores do Android], que inclui o ambiente de desenvolvimento integrado (IDE) Eclipse, o plug-in Android Developer Tools (ADT) e a mais recente plataforma Android. Android 4.2 ou uma versão posterior é necessária.
 
 O projeto quickstart baixado contém o SDK dos Serviços Móveis para Android. Enquanto este projeto requer Android 4.2 ou uma versão posterior, o SDK dos Serviços Móveis exige apenas Android 2.2 ou uma versão posterior.
 
@@ -26,7 +26,7 @@ O projeto quickstart baixado contém o SDK dos Serviços Móveis para Android. E
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -99,13 +99,13 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
--   [Começar a trabalhar com dados][]
+-   [Começar a trabalhar com dados][Começar a trabalhar com dados]
     Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
     Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
--   [Introdução às notificações por push][]
+-   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
 <!-- Anchors. -->
@@ -113,10 +113,8 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [assista ao tutorial]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
+  [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Ferramentas para desenvolvedores do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
   [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png

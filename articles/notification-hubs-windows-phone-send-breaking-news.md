@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-windows-phone-send-breaking-news" pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Usar Hubs de Notificação para enviar notícias de última hora
 
@@ -183,13 +183,13 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 
 ## <a name="send"></a><span class="short-header">Enviar notificações</span>Enviar notificações de seu back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][notification-hubs-back-end]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Executar o aplicativo e gerar notificações
 
 1.  No Visual Studio, pressione F5 para compilar e iniciar o aplicativo.
 
-    ![][]
+    ![][0]
 
     Observe que a interface do usuário do aplicativo fornece um conjunto de alternâncias que permite escolher as categorias nas quais você poderá assinar.
 
@@ -214,9 +214,6 @@ Você concluiu este tópico.
 <!--## <a name="next-steps"> </a>Next steps  In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:  + [Use Notification Hubs to broadcast localized breaking news]      Learn how to expand the breaking news app to enable sending localized notifications.   + [Notify users with Notification Hubs]      Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users. --> <!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
 
   [Windows Universal]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [1]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
   [Adicionar a seleção de categorias ao aplicativo]: #adding-categories
@@ -225,6 +222,6 @@ Você concluiu este tópico.
   [Executar o aplicativo e gerar notificações]: #test-app
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-wp8/
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
+  [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

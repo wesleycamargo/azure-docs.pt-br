@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Como usar os tópicos e as assinaturas do Service Bus
 
@@ -24,7 +24,7 @@ e assinaturas, consulte a seção [Próximas etapas][Próximas etapas].
 -   [Como: excluir tópicos e assinaturas][Como: excluir tópicos e assinaturas]
 -   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 **Observação:** se você precisar instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python (a página pode estar em inglês)][Guia de instalação do Python (a página pode estar em inglês)].
 
@@ -241,7 +241,6 @@ links para saber mais.
 -   Referência da API para [SqlFilter][SqlFilter].
 
   [Próximas etapas]: #Next_Steps
-  [O que são os tópicos e as assinaturas do Service Bus?]: #what-are-service-bus-topics
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Como: Criar um tópico]: #How_to_Create_a_Topic
@@ -251,6 +250,5 @@ links para saber mais.
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [Como: excluir tópicos e assinaturas]: #How_to_Delete_Topics_and_Subscriptions
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  [Guia de instalação do Python (a página pode estar em inglês)]: ../python-how-to-install/
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/pt-br/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

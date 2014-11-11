@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Como usar os tópicos e as assinaturas do Service Bus
 
@@ -26,7 +26,7 @@ e assinaturas, consulte a seção [Próximas etapas][Próximas etapas].
 -   [Como: excluir tópicos e assinaturas][Como: excluir tópicos e assinaturas]
 -   [Próximas etapas][1]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-app"></a>Criar um aplicativo do Node.js
 
@@ -418,7 +418,6 @@ links para saber mais.
 -   Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
 
   [Próximas etapas]: #nextsteps
-  [O que são os tópicos e as assinaturas do Service Bus?]: #what-are-service-bus-topics
   [Criar um namespace de serviço]: #create-a-service-namespace
   [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
   [Criar um aplicativo Node.js]: #create-app

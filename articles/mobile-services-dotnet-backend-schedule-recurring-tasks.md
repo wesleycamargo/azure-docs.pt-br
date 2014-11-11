@@ -1,6 +1,6 @@
 <properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Agendar trabalhos recorrentes nos Serviços Móveis
 
@@ -27,7 +27,7 @@ Este tutorial explica as etapas de como usar o agendador de trabalhos para criar
 
 ## <a name="get-oauth-credentials"></a>Registrar-se para acesso às APIs do Twitter v1.1 e armazenar as credenciais
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 1.  No Gerenciador de Soluções do Visual Studio, abra o arquivo web config do projeto do serviço móvel, localize as configurações dos aplicativos **MS\_TwitterConsumerKey** e **MS\_TwitterConsumerSecret** e substitua os valores dessas chaves pelos valores da chave de consumidor do segredo do consumidor do Twitter que você definiu no portal.
 
@@ -44,7 +44,7 @@ Este tutorial explica as etapas de como usar o agendador de trabalhos para criar
 
 2.  No painel esquerdo, selecione a categoria **Online**, pesquise `linq2twitter`, clique em **Instalar** no pacote **linqtotwitter** e leia e aceite os contratos de licença.
 
-    ![][]
+    ![][0]
 
     Isso adiciona o Linq para a biblioteca do Twitter a seu projeto de serviço móvel.
 
@@ -275,8 +275,6 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-schedule-recurring-tasks/ "Back-end do JavaScript"
   [Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
   [Baixar e instalar o LINQ para a biblioteca do Twitter]: #install-linq2twitter
   [Criar a nova tabela Updates]: #create-table
@@ -285,7 +283,7 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
   [Publicar o serviço e registrar o trabalho]: #register-job
   [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+  [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Como usar as Migrações Code First para atualizar o modelo de dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations
   [2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png

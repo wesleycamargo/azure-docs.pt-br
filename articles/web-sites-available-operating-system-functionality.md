@@ -1,6 +1,6 @@
 <properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Operating System Functionality Available to Applications on Azure Websites" description="Learn about the OS functionality available to web applications on Azure Websites" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Funcionalidade do sistema operacional disponível para aplicativos em Sites do Azure
 
@@ -122,7 +122,6 @@ O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave d
   [Estruturas de desenvolvimento]: #developmentframeworks
   [Acesso a arquivos]: #FileAccess
   [Unidades locais]: #LocalDrives
-  [Unidades de rede (também conhecidas como compartilhamentos UNC)]: #NetworkDrives
   [Arquivo em várias instâncias]: #multipleinstances
   [Tipos de acesso a arquivos concedido a um aplicativo Web]: #TypesOfFileAccess
   [Acesso à rede]: #NetworkAccess

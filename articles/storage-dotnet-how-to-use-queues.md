@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Como usar o Armazenamento de Fila no .NET
 
@@ -9,42 +9,42 @@ serviço de armazenamento de Fila do Azure. Os exemplos são escritos em C#
 e usam o Cliente de Armazenamento do Azure para .NET. Os cenários abrangidos incluem **inserir**,
 **exibir**, **obter** e **excluir** mensagens da fila, bem como
 **criar e excluir filas**. Para obter mais informações sobre filas, consulte
-a seção [Próximas etapas][].
+a seção [Próximas etapas][Próximas etapas].
 
-> [WACOM.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet][] ou como parte do [SDK do Azure para .NET][]. Consulte [Como: Acessar programaticamente o armazenamento de fila][] abaixo para mais detalhes sobre como obter a Biblioteca do Cliente de Armazenamento.
+> [WACOM.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet][NuGet] ou como parte do [SDK do Azure para .NET][SDK do Azure para .NET]. Consulte [Como: Acessar programaticamente o armazenamento de fila][Como: Acessar programaticamente o armazenamento de fila] abaixo para mais detalhes sobre como obter a Biblioteca do Cliente de Armazenamento.
 
 ## Sumário
 
--   [O que é Armazenamento de Filas][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Configurar uma cadeia de conexão de armazenamento do Azure][]
--   [Como: Acessar programaticamente o armazenamento de fila][]
--   [Como: Criar uma fila][]
--   [Como: Inserir uma mensagem em uma fila][]
--   [Como: Espiar a próxima mensagem][]
--   [Como: Alterar o conteúdo de uma mensagem na fila][]
--   [Como: Remover a próxima mensagem da fila][]
--   [Como: Como aproveitar opções adicionais para remover mensagens da fila][]
--   [Como: Obter o tamanho da fila][]
--   [Como: Excluir uma fila][]
--   [Próximas etapas][]
+-   [O que é Armazenamento de Filas][O que é Armazenamento de Filas]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Configurar uma cadeia de conexão de armazenamento do Azure][Configurar uma cadeia de conexão de armazenamento do Azure]
+-   [Como: Acessar programaticamente o armazenamento de fila][Como: Acessar programaticamente o armazenamento de fila]
+-   [Como: Criar uma fila][Como: Criar uma fila]
+-   [Como: Inserir uma mensagem em uma fila][Como: Inserir uma mensagem em uma fila]
+-   [Como: Espiar a próxima mensagem][Como: Espiar a próxima mensagem]
+-   [Como: Alterar o conteúdo de uma mensagem na fila][Como: Alterar o conteúdo de uma mensagem na fila]
+-   [Como: Remover a próxima mensagem da fila][Como: Remover a próxima mensagem da fila]
+-   [Como: Como aproveitar opções adicionais para remover mensagens da fila][Como: Como aproveitar opções adicionais para remover mensagens da fila]
+-   [Como: Obter o tamanho da fila][Como: Obter o tamanho da fila]
+-   [Como: Excluir uma fila][Como: Excluir uma fila]
+-   [Próximas etapas][Próximas etapas]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">Criar uma conta</span>Criar uma conta de armazenamento do Azure
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configurar uma cadeia de conexão</span>Configurar uma cadeia de conexão de armazenamento do Azure
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Acessar programaticamente</span>Como: Acessar programaticamente o armazenamento de fila
 
@@ -52,7 +52,7 @@ a seção [Próximas etapas][].
 
 Você pode usar NuGet para obter o assembly `Microsoft.WindowsAzure.Storage.dll`. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
-`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na [Central de desenvolvedores do .NET][]. O assembly está instalado no diretório `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na [Central de desenvolvedores do .NET][Central de desenvolvedores do .NET]. O assembly está instalado no diretório `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\<sdk-version>\ref\`.
 
 ### Declarações de namespace
 
@@ -87,7 +87,7 @@ Se estiver criando um aplicativo sem nenhuma referência ao Microsoft.WindowsAzu
 
 ### Dependências do ODataLib
 
-As dependências do ODataLib na Biblioteca de Cliente de Armazenamento para .NET são resolvidas por meio de pacotes do ODataLib (versão 5.0.2) disponíveis por meio do NuGet e não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos são [OData][], [Edm][] e [Spatial][].
+As dependências do ODataLib na Biblioteca de Cliente de Armazenamento para .NET são resolvidas por meio de pacotes do ODataLib (versão 5.0.2) disponíveis por meio do NuGet e não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos são [OData][OData], [Edm][Edm] e [Spatial][Spatial].
 
 ## <a name="create-queue"></a><span class="short-header">Criar uma fila</span>Como: Criar uma fila
 
@@ -95,7 +95,7 @@ Um objeto **CloudQueueClient** permite que você obtenha objetos de referência 
 O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos
 neste guia usam uma cadeia de conexão de armazenamento
 armazenada na configuração dos serviços do aplicativo do Azure. Há também outras maneiras de criar
-um objeto **CloudStorageAccount**. Consulte a [CloudStorageAccount][]
+um objeto **CloudStorageAccount**. Consulte a [CloudStorageAccount][CloudStorageAccount]
 documentação para ver detalhes.
 
     // Retrieve storage account from connection string
@@ -301,18 +301,18 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
 para saber como executar tarefas de armazenamento mais complexas.
 
 -   Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
-    -   [Referência à Biblioteca de Cliente de Armazenamento para .NET][]
-    -   [Referência da API REST][]
--   Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure][].
--   Aprenda a trabalhar com o Armazenamento do Azure em processos de back-end para sites do Azure em [Introdução ao SDK de WebJobs do Azure][].
+    -   [Referência à Biblioteca de Cliente de Armazenamento para .NET][Referência à Biblioteca de Cliente de Armazenamento para .NET]
+    -   [Referência da API REST][Referência da API REST]
+-   Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure].
+-   Aprenda a trabalhar com o Armazenamento do Azure em processos de back-end para sites do Azure em [Introdução ao SDK de WebJobs do Azure][Introdução ao SDK de WebJobs do Azure].
 -   Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-    -   Usar o [Armazenamento de Tabela][] para armazenar dados estruturados.
-    -   Usar o [Armazenamento de Blob][] para armazenar dados não estruturados.
-    -   Usar o [Banco de Dados SQL][] para armazenar dados relacionais.
+    -   Usar o [Armazenamento de Tabela][Armazenamento de Tabela] para armazenar dados estruturados.
+    -   Usar o [Armazenamento de Blob][Armazenamento de Blob] para armazenar dados não estruturados.
+    -   Usar o [Banco de Dados SQL][Banco de Dados SQL] para armazenar dados relacionais.
 
   [Próximas etapas]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [SDK do Azure para .NET]: /en-us/downloads/
+  [SDK do Azure para .NET]: /pt-br/downloads/
   [Como: Acessar programaticamente o armazenamento de fila]: #configure-access
   [O que é Armazenamento de Filas]: #what-is
   [Conceitos]: #concepts
@@ -329,14 +329,14 @@ para saber como executar tarefas de armazenamento mais complexas.
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Central de desenvolvedores do .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Central de desenvolvedores do .NET]: http://www.windowsazure.com/pt-br/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+  [CloudStorageAccount]: http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Referência à Biblioteca de Cliente de Armazenamento para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referência da API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Referência da API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179355
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Introdução ao SDK de WebJobs do Azure]: /pt-br/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Armazenamento de Tabela]: /pt-br/documentation/articles/storage-dotnet-how-to-use-tables/
   [Armazenamento de Blob]: /pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/

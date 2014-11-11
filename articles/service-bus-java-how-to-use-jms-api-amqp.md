@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metaKeywords="ava Messsage AMQP, Service Bus AMQP, download AMQP JMS library" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0" authors="sethm"  solutions="" writer="sethm" manager="timlt" editor="mattshel"  />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Como usar a API do Serviço de Mensagem Java (JMS) com Service Bus e AMQP 1.0
 
@@ -52,9 +52,16 @@ A entrada usada para definir um **ConnectionFactory** no Provedor JNDI de arquiv
 
 Onde [jndi\_name] e [ConnectionURL] têm os seguintes significados:
 
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| [jndi\_name]    | O nome lógico do ConnectionFactory. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI. |
-| [ConnectionURL] | Uma URL que fornece à biblioteca JMS as informações necessárias para o agenciador do AMQP.                                              |
+<table>
+  <tr>
+    <td>[jndi_name]</td>
+    <td>O nome l&oacute;gico do ConnectionFactory. Este &eacute; o nome que ser&aacute; resolvido no aplicativo Java usando o m&eacute;todo IntialContext.lookup() do JNDI.</td>
+  </tr>
+  <tr>
+    <td>[ConnectionURL]</td>
+    <td>Uma URL que fornece &agrave; biblioteca JMS as informa&ccedil;&otilde;es necess&aacute;rias para o agenciador do AMQP.</td>
+  </tr>
+</table>
 
 O formato de **ConnectionURL** é o seguinte:
 
@@ -62,19 +69,39 @@ O formato de **ConnectionURL** é o seguinte:
 
 Onde [namespace], [nome de usuário] e [senha] têm os seguintes significados:
 
-|-------------------|------------------------------------------------------------------------------------------------------------|
-| [namespace]       | O namespace do Service Bus é obtido no Portal de Gerenciamento do Azure.                                   |
-| [Nome de Usuário] | O nome do emissor do Service Bus é obtido no Portal de Gerenciamento do Azure.                             |
-| [Senha]           | A forma codificada da URL da chave do emissor do Service Bus é obtida no Portal de Gerenciamento do Azure. |
+<table>
+  <tr>
+    <td>[namespace]</td>
+    <td>O namespace do Service Bus &eacute; obtido no Portal de Gerenciamento do Azure.</td>
+  </tr>
+  <tr>
+    <td>[Nome de Usu&aacute;rio]</td>
+    <td>O nome do emissor do Service Bus &eacute; obtido no Portal de Gerenciamento do Azure.</td>
+  </tr>
+  <tr>
+    <td>[Senha]</td>
+    <td>A forma codificada da URL da chave do emissor do Service Bus &eacute; obtida no Portal de Gerenciamento do Azure.</td>
+  </tr>
+</table>
 
 **Observação**: você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [][1]<http://www.w3schools.com/tags/ref_urlencode.asp></a>.
 
 Por exemplo, se as informações obtidas no Portal de Gerenciamento do Azure forem as seguintes:
 
-|-------------------|----------------------------------------------|
-| Namespace:        | foo.servicebus.windows.net                   |
-| Nome do emissor:  | proprietário                                 |
-| Chave do emissor: | j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM= |
+<table>
+  <tr>
+    <td>Namespace:</td>
+    <td>foo.servicebus.windows.net</td>
+  </tr>
+  <tr>
+    <td>Nome do emissor:</td>
+    <td>propriet&aacute;rio</td>
+  </tr>
+  <tr>
+    <td>Chave do emissor:</td>
+    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
+  </tr>
+</table>
 
 Então, para definir um **ConnectionFactory** chamado "SBCF", a cadeia de configuração é exibida da seguinte maneira:
 
@@ -92,9 +119,16 @@ ou
 
 Onde [jndi\_name] e [physical\_name] têm os seguintes significados:
 
-|------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| [jndi\_name]     | O nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI. |
-| [physical\_name] | O nome da entidade do Service Bus para a qual o aplicativo envia ou recebe mensagens.                                         |
+<table>
+  <tr>
+    <td>[jndi_name]</td>
+    <td>O nome l&oacute;gico do destino. Este &eacute; o nome que ser&aacute; resolvido no aplicativo Java usando o m&eacute;todo IntialContext.lookup() do JNDI.</td>
+  </tr>
+  <tr>
+    <td>[physical_name]</td>
+    <td>O nome da entidade do Service Bus para a qual o aplicativo envia ou recebe mensagens.</td>
+  </tr>
+</table>
 
 **Observação**: ao receber de uma assinatura de tópico do Service Bus, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do Desenvolvedor do Service Bus do AMQP 1.0][Guia do Desenvolvedor do Service Bus do AMQP 1.0] fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Service Bus a partir do JMS.
 

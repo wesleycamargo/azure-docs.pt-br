@@ -1,14 +1,14 @@
 <properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Como usar os tópicos e as assinaturas do Service Bus
 
 <span>Este guia mostrará como usar os tópicos e as assinaturas do Barramento de Serviço. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas][Próximas etapas]. </span>
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span class="short-header">Configurar o aplicativo</span>Configurar o aplicativo para usar o Barramento de Serviço
 
@@ -24,7 +24,7 @@ Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
     **Gerenciar Pacotes NuGet**.
 2.  Pesquise por WindowsAzure" e selecione o item **Barramento de Serviço do Azure**. Clique em **Instalar** para concluir a instalação e, em seguida, feche essa caixa de diálogo.
 
-    ![][]
+    ![][0]
 
 Agora você está pronto para escrever código no Barramento de Serviço.
 
@@ -277,7 +277,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Próximas etapas]: #nextsteps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/pt-br/library/microsoft.servicebus.messaging.sqlfilter.aspx
   [Tutorial do Barramento de Serviço orientado a mensagens do.NET]: http://msdn.microsoft.com/pt-br/library/hh367512.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Entrega contínua no Azure usando o Visual Studio Online
 
@@ -40,7 +40,7 @@ Siga as instruções contidas [aqui][1] para criar seu projeto de equipe e vincu
 
 2.  Abra o menu de contexto da solução e selecione **Adicionar solução ao controle do código-fonte**.
 
-    ![][]
+    ![][0]
 
 3.  Aceite ou altere os padrões e escolha o botão **OK**. Quando o processo estiver concluído, os ícones do controle do código-fonte aparecerão no Gerenciador de Soluções.
 
@@ -333,18 +333,14 @@ Para obter mais informações, consulte [Visual Studio Online (a página pode es
   [Entrega contínua de serviços de nuvem no Azure]: ../cloud-services-dotnet-continuous-delivery
   [www.visualstudio.com]: http://www.visualstudio.com
   [aqui]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [abrir uma conta no Visual Studio Online gratuitamente]: http://go.microsoft.com/fwlink/p/?LinkId=512979
   [Etapa 1: Crie um projeto em equipe.]: #step1
   [Etapa 2: Fazer check-in em um projeto para o controle do código-fonte.]: #step2
   [Etapa 3: Conectar o projeto no Azure.]: #step3
   [Etapa 4: Fazer alterações e disparar uma recompilação e uma reimplantação.]: #step4
-  [Etapa 5: Reimplantar uma compilação anterior (opcional)]: #step5
-  [Etapa 6: Alterar a implantação da produção (somente serviços de nuvem)]: #step6
-  [Etapa 7: Executar testes de unidade (opcional)]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=512980
   [a versão do Git neste passo a passo]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Introdução ao Azure e ao ASP.NET]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-get-started/
-  []: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+  [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
   [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
   [3]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
   [4]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png
@@ -390,6 +386,5 @@ Para obter mais informações, consulte [Visual Studio Online (a página pode es
   [43]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
   [44]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
   [Executar testes de unidade em sua compilação]: http://go.microsoft.com/fwlink/p/?LinkId=510474
-  [Visual Studio Online (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=253861
   [Compartilhar seu código no Git]: http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx
   [Publicando no controle do código-fonte para sites do Azure]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-publish-source-control

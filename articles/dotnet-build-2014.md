@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Spring 2014 release highlights - .NET Dev Center" metaKeywords="azure .net sdk 2.3" description="Learn about the new tools and features available for Azure .NET developers." documentationCenter=".NET" title="Azure Spring 2014 release highlights" authors="mollybos" solutions="" manager="carolz" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos" />
 
 # Lançamentos do primeiro semestre de 2014 para o Azure em destaque
 
@@ -123,7 +123,6 @@ O Gerenciador de Recursos é uma nova estrutura para implantação e gerenciamen
   [Introdução ao Azure e ASP.NET]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-dotnet-get-started/
   [Introdução às Ferramentas do Azure para Visual Studio]: http://msdn.microsoft.com/pt-br/library/azure/ff687127.aspx
   [Criando um projeto Web ASP.NET no Visual Studio 2013]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
-  [Compilação 2014: O que há de novo no ASP.NET e Web no Visual Studio 2013 Atualização 2 e posteriores (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-602
   [Depuração de um serviço de nuvem ou máquina virtual no Visual Studio]: http://msdn.microsoft.com/pt-br/library/azure/ff683670.aspx
   [Utilizando o Emulator Express para executar e depurar Serviços em Nuvem]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn339018.aspx
   [Solucionando problemas de sites do Azure no Visual Studio]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
@@ -133,17 +132,13 @@ O Gerenciador de Recursos é uma nova estrutura para implantação e gerenciamen
   [Procurando recursos de armazenamento com o Gerenciador de Servidores]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff683677.aspx
   [Como instalar e configurar o PowerShell do Azure]: http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/
   [Documentação do PowerShell do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156055.aspx
-  [Compilação 2014: Automation Everywhere com novos SDKs, Ferramentas e Serviços no Azure (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-621
   [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn642480.aspx
-  [Cobertura em Nuvem: O Back-end do .NET dos Serviços Móveis do Azure (vídeo)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
   [Centro de desenvolvimento móvel do Azure]: /pt-br/develop/mobile/
   [Início rápido: Adicionando um serviço móvel]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn629482.aspx
   [Como enviar notificações por push para um aplicativo em execução com o Visual Studio]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn614131.aspx
   [Como criar APIs personalizadas e trabalhos agendados em um serviço móvel]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn614130.aspx
   [Azure Storage Client Library 3.0]: http://go.microsoft.com/fwlink/?LinkId=394927
   [Introdução ao Armazenamento do Azure]: /pt-br/documentation/articles/storage-introduction/
-  [Compilação 2014: Microsoft Azure Storage – O que há de novo, melhores práticas e padrões (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Microsoft Azure Storage @ COMPILAÇÃO 2014]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/08/microsoft-azure-storage-build-2014.aspx
   [Usando o PowerShell do Azure com o Gerenciador de Recursos]: http://go.microsoft.com/fwlink/?LinkID=394767
   [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos]: /pt-br/documentation/articles/xplat-cli-azure-resource-manager/
-  [Compilação 2014: Modelo de grupo de recursos do Azure: Gerenciamento moderno para nuvem moderna (vídeo)]: http://channel9.msdn.com/Events/Build/2014/2-607

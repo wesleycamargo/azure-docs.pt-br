@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Aplicativo Web Ruby on Rails Web em uma VM do Azure
 
@@ -18,33 +18,33 @@ Você saberá como:
 
 Esta é uma captura de tela do aplicativo concluído:
 
-![um navegador que exibe postagens de listagem][]
+![um navegador que exibe postagens de listagem][um navegador que exibe postagens de listagem]
 
 ## Neste artigo
 
--   [Configurar seu ambiente de desenvolvimento][]
+-   [Configurar seu ambiente de desenvolvimento][Configurar seu ambiente de desenvolvimento]
 
--   [Criar um aplicativo Rails][]
+-   [Criar um aplicativo Rails][Criar um aplicativo Rails]
 
--   [Testar o aplicativo][]
+-   [Testar o aplicativo][Testar o aplicativo]
 
--   [Criar uma máquina virtual do Azure][]
+-   [Criar uma máquina virtual do Azure][Criar uma máquina virtual do Azure]
 
--   [Copiar o aplicativo para a VM][]
+-   [Copiar o aplicativo para a VM][Copiar o aplicativo para a VM]
 
--   [Instalar gemas e iniciar o aplicativo][]
+-   [Instalar gemas e iniciar o aplicativo][Instalar gemas e iniciar o aplicativo]
 
--   [Próximas etapas][]
+-   [Próximas etapas][Próximas etapas]
 
 ## <span id="setup"></span></a>Configurar seu ambiente de desenvolvimento
 
 1.  Instale o Ruby em seu ambiente de desenvolvimento. Dependendo do sistema operacional, as etapas podem ser diferentes.
 
-    -   **Apple OS X** - há várias distribuições do Ruby para o OS X. Este tutorial foi validado no OS X com o [Homebrew][] para instalar **rbenv** e **ruby-build**. As informações da instalação podem ser encontradas em [][]<https://github.com/sstephenson/rbenv/></a>.
+    -   **Apple OS X** - há várias distribuições do Ruby para o OS X. Este tutorial foi validado no OS X com o [Homebrew][Homebrew] para instalar **rbenv** e **ruby-build**. As informações da instalação podem ser encontradas em [][]<https://github.com/sstephenson/rbenv/></a>.
 
     -   **Linux** - use o sistema de gerenciamento de pacotes de distribuições. Este tutorial foi validado no Ubuntu 12.10 usando os pacotes ruby1.9.1 e ruby1.9.1-dev.
 
-    -   **Windows** - existem várias distribuições do Ruby para o Windows. Este tutorial foi validado usando o [RailsInstaller][] 1.9.3-p392.
+    -   **Windows** - existem várias distribuições do Ruby para o Windows. Este tutorial foi validado usando o [RailsInstaller][RailsInstaller] 1.9.3-p392.
 
 2.  Abra uma nova linha de comando ou uma sessão de terminal e insira o seguinte comando para instalar o Ruby on Rails:
 
@@ -64,7 +64,7 @@ Esta é uma captura de tela do aplicativo concluído:
 
 3.  Também deve-se instalar um intérprete do JavaScript, que será usado pelo Rails para compilar os ativos CoffeeScript usados pelo aplicativo Rails. Uma lista de intérpretes com suporte está disponível em [][1]<https://github.com/sstephenson/execjs#readme></a>.
 
-    [Node.js][] foi usado durante a validação deste tutorial, pois ele está disponível para os sistemas operacionais OS X, Linux e Windows.
+    [Node.js][Node.js] foi usado durante a validação deste tutorial, pois ele está disponível para os sistemas operacionais OS X, Linux e Windows.
 
 ## <span id="create"></span></a>Criar um aplicativo Rails
 
@@ -89,7 +89,7 @@ Esta é uma captura de tela do aplicativo concluído:
 
         rake db:migrate
 
-    Ele usa o provedor do banco de dados padrão do Rails, que é o [Banco de Dados SQLite3][]. Embora seja possível usar um banco de dados diferente para um aplicativo de produção, o SQLite é suficiente para a finalidade deste tutorial.
+    Ele usa o provedor do banco de dados padrão do Rails, que é o [Banco de Dados SQLite3][Banco de Dados SQLite3]. Embora seja possível usar um banco de dados diferente para um aplicativo de produção, o SQLite é suficiente para a finalidade deste tutorial.
 
 ## <span id="test"></span></a>Testar o aplicativo
 
@@ -111,17 +111,17 @@ Execute as seguintes etapas para iniciar o servidor do Rails em seu ambiente de 
 
 2.  Abra o navegador e acesse <http://localhost:3000/>. Você verá uma página semelhante à seguinte:
 
-    ![página padrão de rails][]
+    ![página padrão de rails][página padrão de rails]
 
     Esta é uma página de boas-vindas estática. Para consultar os formulários gerados pelo comando scaffolding, navegue até <http://localhost:3000/posts>. Você verá uma página semelhante à seguinte:
 
-    ![uma página que lista postagens][]
+    ![uma página que lista postagens][uma página que lista postagens]
 
     Para interromper o processo do servidor, digite CTRL+C na linha de comando
 
 ## <span id="createvm"></span></a>Criar uma máquina virtual do Azure
 
-Siga as instruções fornecidas [aqui][] para criar uma máquina virtual do Azure que hospede o Linux.
+Siga as instruções fornecidas [aqui][aqui] para criar uma máquina virtual do Azure que hospede o Linux.
 
 <div class="dev-callout">
 <strong>Observa&ccedil;&atilde;o</strong>
@@ -224,13 +224,13 @@ A lista de arquivos retornados deve corresponder aos arquivos contidos no diret�
         [2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-4.  No navegador, acesse o [Portal de Gerenciamento do Azure][] e selecione sua máquina virtual.
+4.  No navegador, acesse o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] e selecione sua máquina virtual.
 
-    ![lista da máquina virtual][]
+    ![lista da máquina virtual][lista da máquina virtual]
 
 5.  Selecione **PONTOS DE EXTREMIDADE** na parte superior da página e clique em **+ ADICIONAR PONTO DE EXTREMIDADE** na parte inferior da página.
 
-    ![página de pontos de extremidade][]
+    ![página de pontos de extremidade][página de pontos de extremidade]
 
 6.  Na caixa de diálogo **ADICIONAR PONTO DE EXTREMIDADE**, clique na seta na parte inferior esquerda para continuar na segunda página e digite as seguintes informações no formulário:
 
@@ -244,7 +244,7 @@ A lista de arquivos retornados deve corresponder aos arquivos contidos no diret�
 
     Isso criará uma porta pública de 80 que roteará o tráfego para a porta privada de 3000, na qual o servidor Rails está escutando.
 
-    ![caixa de diálogo do novo ponde de extremidade][]
+    ![caixa de diálogo do novo ponde de extremidade][caixa de diálogo do novo ponde de extremidade]
 
 7.  Clique na marca de seleção para salvar o ponto de extremidade.
 
@@ -260,17 +260,17 @@ A lista de arquivos retornados deve corresponder aos arquivos contidos no diret�
 
 Neste artigo, você aprendeu a criar e publicar um aplicativo Rails básico baseado em formulários em Máquinas Virtuais do Azure. A maioria das ações que executamos foram manuais e, em um ambiente de produção, o desejável seria automatizar. Além disso, a maioria dos ambientes de produção hospeda o aplicativo Rails em conjunto com outro processo do servidor como Apache ou NginX, que trata o roteamento da solicitação para várias instâncias do aplicativo Rails e atende recursos estáticos.
 
-Para obter informações sobre automatizar a implantação do aplicativo Rails, bem como usar o servidor Web Unicorn e o NginX, consulte [Unicorn+NginX+Capistrano com Máquina Virtuais do Azure(a página pode estar em inglês)][].
+Para obter informações sobre automatizar a implantação do aplicativo Rails, bem como usar o servidor Web Unicorn e o NginX, consulte [Unicorn+NginX+Capistrano com Máquina Virtuais do Azure(a página pode estar em inglês)][Unicorn+NginX+Capistrano com Máquina Virtuais do Azure(a página pode estar em inglês)].
 
-Para saber mais sobre o Ruby on Rails, visite os [Guias do Ruby on Rails][].
+Para saber mais sobre o Ruby on Rails, visite os [Guias do Ruby on Rails][Guias do Ruby on Rails].
 
 Para saber como usar o Azure SDK do Ruby para acessar os serviços do Azure de seu aplicativo Ruby, consulte:
 
--   [Armazenar dados desestruturados usando blobs][]
+-   [Armazenar dados desestruturados usando blobs][Armazenar dados desestruturados usando blobs]
 
--   [Armazenar pares de chave/valor usando tabelas][]
+-   [Armazenar pares de chave/valor usando tabelas][Armazenar pares de chave/valor usando tabelas]
 
--   [Atender o conteúdo alto da largura de banda com a rede de fornecimento de conteúdo][]
+-   [Atender o conteúdo alto da largura de banda com a rede de fornecimento de conteúdo][Atender o conteúdo alto da largura de banda com a rede de fornecimento de conteúdo]
 
 <!-- WA.com links -->
 <!-- External Links -->
@@ -293,13 +293,11 @@ Para saber como usar o Azure SDK do Ruby para acessar os serviços do Azure de s
   [página padrão de rails]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [uma página que lista postagens]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [aqui]: /pt-br/documentation/articles/virtual-machines-linux-tutorial
-  [PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [lista da máquina virtual]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [página de pontos de extremidade]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [caixa de diálogo do novo ponde de extremidade]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
   [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
-  [Unicorn+NginX+Capistrano com Máquina Virtuais do Azure(a página pode estar em inglês)]: /pt-br/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [Guias do Ruby on Rails]: http://guides.rubyonrails.org/
   [Armazenar dados desestruturados usando blobs]: /pt-br/documentation/articles/storage-ruby-how-to-use-blob-storage
   [Armazenar pares de chave/valor usando tabelas]: /pt-br/develop/ruby/how-to-guides/table-service/

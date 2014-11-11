@@ -1,6 +1,6 @@
 <properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Introdução ao Armazenamento do Microsoft Azure
 
@@ -35,17 +35,17 @@ Os serviços de Armazenamento do Azure são Armazenamento de Blob, Armazenamento
 -   **O Armazenamento de Fila** fornece sistema de mensagens confiável para processamento de fluxo de trabalho e para comunicação entre componentes dos serviços de nuvem.
 -   **O Armazenamento de Arquivo** oferece armazenamento compartilhado para aplicativos herdados usando o protocolo padrão SMB 2.1. As máquinas virtuais do Azure e os serviços de nuvem podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API REST do serviço de Arquivo.
 
-Os armazenamentos de Blob, Tabela e Fila são incluídos em cada conta de armazenamento, enquanto o armazenamento de Arquivo está disponível mediante solicitação por meio da [Página de Exibição do Azure][].
+Os armazenamentos de Blob, Tabela e Fila são incluídos em cada conta de armazenamento, enquanto o armazenamento de Arquivo está disponível mediante solicitação por meio da [Página de Exibição do Azure][Página de Exibição do Azure].
 
-A conta de armazenamento é um namespace exclusivo que fornece acesso ao Armazenamento do Azure. Cada conta de armazenamento pode conter até 500 TB de dados de blob, tabela, fila e arquivo combinados. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure][] para obter detalhes sobre a capacidade da conta de armazenamento do Azure.
+A conta de armazenamento é um namespace exclusivo que fornece acesso ao Armazenamento do Azure. Cada conta de armazenamento pode conter até 500 TB de dados de blob, tabela, fila e arquivo combinados. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure][Escalabilidade e Metas de Desempenho do Armazenamento do Azure] para obter detalhes sobre a capacidade da conta de armazenamento do Azure.
 
 A imagem abaixo mostra as relações entre os recursos de armazenamento do Azure:
 
-![Recursos de Armazenamento do Azure][]
+![Recursos de Armazenamento do Azure][Recursos de Armazenamento do Azure]
 
 Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. Você pode criar até 20 contas de armazenamento nomeadas exclusivamente com uma única assinatura.
 
-Você pode começar com o Azure com uma [avaliação gratuita][]. Quando decidir comprar um plano, você poderá escolher entre uma variedade de [opções de compra][]. Se for um [assinante do MSDN][], você obterá créditos mensais gratuitos que podem se usados com os serviços do Azure, incluindo o Armazenamento do Azure.
+Você pode começar com o Azure com uma [avaliação gratuita][avaliação gratuita]. Quando decidir comprar um plano, você poderá escolher entre uma variedade de [opções de compra][opções de compra]. Se for um [assinante do MSDN][assinante do MSDN], você obterá créditos mensais gratuitos que podem se usados com os serviços do Azure, incluindo o Armazenamento do Azure.
 
 ## Armazenamento de Blob
 
@@ -62,7 +62,7 @@ Cada blob é organizado em um contêiner. Os contêineres também fornecem uma m
 
 O armazenamento de blob oferece dois tipos de blobs, blobs de bloco e blobs de página (discos). Os blobs de bloco são otimizados para streaming e armazenamento de objetos de nuvem e são uma boa opção para armazenar documentos, arquivos de mídia, backups etc. Um blob de bloco pode ter até 200 GB de tamanho. Os blobs de página são otimizados para representar discos de IaaS e gravações aleatórias de suporte e podem ter até 1 TB de tamanho. Um disco de IaaS anexado a uma rede de máquinas virtuais do Azure é um VHD armazenado como um blob de página.
 
-Para conjuntos de dados muito grandes onde as restrições de rede impossibilitam o carregamento e o download de dados por transferência eletrônica, você pode enviar uma unidade de disco rígido para a Microsoft para importar ou exportar dados diretamente do data center usando o [Serviço de importação/exportação do Azure][] Você também pode copiar dados de blob em sua conta de armazenamento ou entre contas de armazenamento.
+Para conjuntos de dados muito grandes onde as restrições de rede impossibilitam o carregamento e o download de dados por transferência eletrônica, você pode enviar uma unidade de disco rígido para a Microsoft para importar ou exportar dados diretamente do data center usando o [Serviço de importação/exportação do Azure][Serviço de importação/exportação do Azure] Você também pode copiar dados de blob em sua conta de armazenamento ou entre contas de armazenamento.
 
 ## Armazenamento de tabela
 
@@ -100,13 +100,13 @@ Por padrão, somente o proprietário da conta de armazenamento pode acessar recu
 
 Sua conta de armazenamento recebe duas chaves de acesso privadas na criação, que são usadas para autenticação. Ter duas chaves garante que seu aplicativo permaneça disponível quando você regenerar regularmente as chaves como uma prática comum de gerenciamento de chaves de segurança.
 
-Se você precisar permitir acesso controlado aos usuários a seus recursos de armazenamento, poderá criar uma [assinatura de acesso compartilhado][]. Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um contêiner, blob, tabela ou fila. Qualquer pessoa que possua o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da validade. Observe que atualmente o armazenamento de arquivo do Azure não oferece suporte para assinaturas de acesso compartilhado.
+Se você precisar permitir acesso controlado aos usuários a seus recursos de armazenamento, poderá criar uma [assinatura de acesso compartilhado][assinatura de acesso compartilhado]. Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um contêiner, blob, tabela ou fila. Qualquer pessoa que possua o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da validade. Observe que atualmente o armazenamento de arquivo do Azure não oferece suporte para assinaturas de acesso compartilhado.
 
 Finalmente, você pode especificar que um contêiner e seus blobs ou um blob específico estão disponíveis para acesso público. Quando você indica que um contêiner ou blob é público, qualquer pessoa pode lê-lo anonimamente. Nenhuma autenticação é necessária. Os contêineres e blobs públicos são úteis para expor recursos, como mídia e documentos, que são hospedados em sites. Para reduzir a latência de rede para um público global, você pode armazenar em cache os dados de blob usados por sites com a CDN do Azure.
 
 ## Replicação para durabilidade e alta disponibilidade
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Preços
 
@@ -114,84 +114,84 @@ Os clientes são cobrados pelo Armazenamento do Azure com base em quatro fatores
 
 A capacidade do armazenamento refere-se a quanto de sua alocação de conta de armazenamento você está usando para armazenar dados. O custo de simplesmente armazenar seus dados é determinado pela quantidade de dados que você está armazenando e como eles são replicados. Cada operação de leitura e gravação no Armazenamento do Azure faz uma solicitação no serviço. A saída de dados refere-se aos dados transferidos para fora de uma região do Windows Azure. Quando os dados de sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, quer esse aplicativo seja um serviço de nuvem ou algum outro tipo de aplicativo, você é cobrado pela saída de dados. (Para os serviços do Windows Azure, você pode tomar medidas para agrupar seus dados e serviços nos mesmos data centers para reduzir ou eliminar encargos de processamento e de saída de dados.)
 
-A página [Detalhes de preços de armazenamento][] fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados][] fornece informações detalhadas de preços para saída de dados. Você pode usar a [Calculadora de preços do Armazenamento do Azure][] para ajudar a estimar os custos.
+A página [Detalhes de preços de armazenamento][Detalhes de preços de armazenamento] fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados][Detalhes de preços de transferências de dados] fornece informações detalhadas de preços para saída de dados. Você pode usar a [Calculadora de preços do Armazenamento do Azure][Calculadora de preços do Armazenamento do Azure] para ajudar a estimar os custos.
 
 ## Desenvolvendo no armazenamento
 
-O Armazenamento do Azure expõe os recursos de armazenamento por meio de uma [API REST][] que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Armazenamento do Azure oferece bibliotecas de programação para várias linguagens populares. Essas bibliotecas simplificam muitos aspectos do trabalho com o Armazenamento do Azure manipulando detalhes, como invocação síncrona e assíncrona, processamento em lotes de operações, gerenciamento de exceções, novas tentativas automáticas, comportamento operacional e assim por diante. Atualmente, as bibliotecas estão disponíveis para as seguintes linguagens e plataformas, com outras no pipeline:
+O Armazenamento do Azure expõe os recursos de armazenamento por meio de uma [API REST][API REST] que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Armazenamento do Azure oferece bibliotecas de programação para várias linguagens populares. Essas bibliotecas simplificam muitos aspectos do trabalho com o Armazenamento do Azure manipulando detalhes, como invocação síncrona e assíncrona, processamento em lotes de operações, gerenciamento de exceções, novas tentativas automáticas, comportamento operacional e assim por diante. Atualmente, as bibliotecas estão disponíveis para as seguintes linguagens e plataformas, com outras no pipeline:
 
--   [.NET][]
--   [Código nativo][]
--   [Java/Android][]
--   [Node.js][]
--   [PHP][]
--   [Ruby][]
--   [Python][]
--   [PowerShell][]
+-   [.NET][.NET]
+-   [Código nativo][Código nativo]
+-   [Java/Android][Java/Android]
+-   [Node.js][Node.js]
+-   [PHP][PHP]
+-   [Ruby][Ruby]
+-   [Python][Python]
+-   [PowerShell][PowerShell]
 
 ## Próximas etapas
 
 Para começar com o Armazenamento do Azure, explore estes recursos:
 
--   [Documentação do Armazenamento do Azure][]
+-   [Documentação do Armazenamento do Azure][Documentação do Armazenamento do Azure]
 -   [Metas de desempenho e escalabilidade do Armazenamento do Azure][Escalabilidade e Metas de Desempenho do Armazenamento do Azure]
 
 ### Para desenvolvedores do .NET
 
--   [Como usar o Armazenamento de Blob no .NET][]
--   [Como usar o Armazenamento de Tabela no .NET][]
--   [Como usar o Armazenamento de Fila no .NET][]
+-   [Como usar o Armazenamento de Blob no .NET][Como usar o Armazenamento de Blob no .NET]
+-   [Como usar o Armazenamento de Tabela no .NET][Como usar o Armazenamento de Tabela no .NET]
+-   [Como usar o Armazenamento de Fila no .NET][Como usar o Armazenamento de Fila no .NET]
 
 ### Para desenvolvedores de Java/Android
 
--   [Como usar o Armazenamento de Blob no Java/Android][]
--   [Como usar o Armazenamento de Tabela no Java/Android][]
--   [Como usar o Armazenamento de Fila no Java/Android][]
+-   [Como usar o Armazenamento de Blob no Java/Android][Como usar o Armazenamento de Blob no Java/Android]
+-   [Como usar o Armazenamento de Tabela no Java/Android][Como usar o Armazenamento de Tabela no Java/Android]
+-   [Como usar o Armazenamento de Fila no Java/Android][Como usar o Armazenamento de Fila no Java/Android]
 
 ### Para desenvolvedores do Node.js
 
--   [Como usar o Armazenamento de Blob no Node.js][]
--   [Como usar o Armazenamento de Tabela no Node.js][]
--   [Como usar o Armazenamento de Fila no Node.js][]
+-   [Como usar o Armazenamento de Blob no Node.js][Como usar o Armazenamento de Blob no Node.js]
+-   [Como usar o Armazenamento de Tabela no Node.js][Como usar o Armazenamento de Tabela no Node.js]
+-   [Como usar o Armazenamento de Fila no Node.js][Como usar o Armazenamento de Fila no Node.js]
 
 ### Para desenvolvedores do PHP
 
--   [Como usar o Armazenamento de Blob no PHP][]
--   [Como usar o Armazenamento de Tabela no PHP][]
--   [Como usar o Armazenamento de Fila no PHP][]
+-   [Como usar o Armazenamento de Blob no PHP][Como usar o Armazenamento de Blob no PHP]
+-   [Como usar o Armazenamento de Tabela no PHP][Como usar o Armazenamento de Tabela no PHP]
+-   [Como usar o Armazenamento de Fila no PHP][Como usar o Armazenamento de Fila no PHP]
 
 ### Para desenvolvedores do Ruby
 
--   [Como usar o Armazenamento de Blob no Ruby][]
--   [Como usar o Armazenamento de Tabela no Ruby][]
--   [Como usar o Armazenamento de Fila no Ruby][]
+-   [Como usar o Armazenamento de Blob no Ruby][Como usar o Armazenamento de Blob no Ruby]
+-   [Como usar o Armazenamento de Tabela no Ruby][Como usar o Armazenamento de Tabela no Ruby]
+-   [Como usar o Armazenamento de Fila no Ruby][Como usar o Armazenamento de Fila no Ruby]
 
 ### Para desenvolvedores do Python
 
--   [Como usar o Armazenamento de Blob no Python][]
--   [Como usar o Armazenamento de Tabela no Python][]
--   [Como usar o Armazenamento de Fila no Python][]
+-   [Como usar o Armazenamento de Blob no Python][Como usar o Armazenamento de Blob no Python]
+-   [Como usar o Armazenamento de Tabela no Python][Como usar o Armazenamento de Tabela no Python]
+-   [Como usar o Armazenamento de Fila no Python][Como usar o Armazenamento de Fila no Python]
 
-  [Página de Exibição do Azure]: /en-us/services/preview/
+  [Página de Exibição do Azure]: /pt-br/services/preview/
   [Escalabilidade e Metas de Desempenho do Armazenamento do Azure]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Recursos de Armazenamento do Azure]: ./media/storage-introduction/storage-concepts.png
-  [avaliação gratuita]: /en-us/pricing/free-trial/
-  [opções de compra]: /en-us/pricing/purchase-options/
-  [assinante do MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/
+  [avaliação gratuita]: /pt-br/pricing/free-trial/
+  [opções de compra]: /pt-br/pricing/purchase-options/
+  [assinante do MSDN]: /pt-br/pricing/member-offers/msdn-benefits-details/
   [Serviço de importação/exportação do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/storage-import-export-service/
   [assinatura de acesso compartilhado]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
-  [Detalhes de preços de armazenamento]: /en-us/pricing/details/storage/
-  [Detalhes de preços de transferências de dados]: /en-us/pricing/details/data-transfers/
-  [Calculadora de preços do Armazenamento do Azure]: /en-us/pricing/calculator/?scenario=data-management
+  [Detalhes de preços de armazenamento]: /pt-br/pricing/details/storage/
+  [Detalhes de preços de transferências de dados]: /pt-br/pricing/details/data-transfers/
+  [Calculadora de preços do Armazenamento do Azure]: /pt-br/pricing/calculator/?scenario=data-management
   [API REST]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
   [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
   [Código nativo]: http://msdn.microsoft.com/library/dn495438.aspx
-  [Java/Android]: /en-us/develop/java/
-  [Node.js]: /en-us/develop/nodejs/
-  [PHP]: /en-us/develop/php/
-  [Ruby]: /en-us/develop/ruby/
-  [Python]: /en-us/develop/python/
+  [Java/Android]: /pt-br/develop/java/
+  [Node.js]: /pt-br/develop/nodejs/
+  [PHP]: /pt-br/develop/php/
+  [Ruby]: /pt-br/develop/ruby/
+  [Python]: /pt-br/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
   [Documentação do Armazenamento do Azure]: /pt-br/documentation/services/storage/
   [Como usar o Armazenamento de Blob no .NET]: ../storage-dotnet-how-to-use-blobs/

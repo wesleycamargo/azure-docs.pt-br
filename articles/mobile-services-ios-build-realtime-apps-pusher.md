@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Crie aplicativos em tempo real com os Serviços Móveis e o Pusher
 
@@ -25,7 +25,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="sign-up"></a>Criar uma nova conta no Pusher
 
-[WACOM.INCLUDE [pusher-sign-up][pusher-sign-up]]
+[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Atualizar seu aplicativo
 
@@ -43,7 +43,7 @@ A biblioteca [libPusher][libPusher] permite acessar o Pusher no iOS.
 
 4.  Selecione **Copiar itens na pasta do grupo de destino** e, em seguida, clique em **Concluir**.
 
-    ![][]
+    ![][0]
 
 	Isso copiará os arquivos do libPusher em seu projeto.
 
@@ -381,9 +381,8 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [iOS]:  "iOS"
   [Enviar notificações por push a usuários]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios
-  []: http://pusher.com
+  [0]: http://pusher.com
   [Criar uma conta no Pusher]: #sign-up
   [Atualizar seu aplicativo]: #update-app
   [Instalar scripts de servidor]: #install-scripts
@@ -392,7 +391,7 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [aqui]: http://go.microsoft.com/fwlink/p/?LinkId=276998
-  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
   [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
   [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

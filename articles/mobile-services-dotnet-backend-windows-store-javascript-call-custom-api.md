@@ -1,6 +1,6 @@
 <properties pageTitle="Call a custom API from a Windows Store client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Chamar uma API personalizada do cliente
 
@@ -23,11 +23,11 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api][mobile-services-dotnet-backend-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
 ## <a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api][mobile-services-windows-store-javascript-call-custom-api]]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api](../includes/mobile-services-windows-store-javascript-call-custom-api.md)]
 
 ## Próximas etapas
 
@@ -49,13 +49,6 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo da Wind
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api "Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Back-end do JavaScript"
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
   [Introdução a dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
   [Definir a API personalizada]: #define-custom-api

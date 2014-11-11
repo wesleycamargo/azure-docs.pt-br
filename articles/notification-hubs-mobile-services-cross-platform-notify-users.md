@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-mobile-services" urlDisplayName="notify users xplat mobile services" pageTitle="Send cross-platform notifications to users with Notification Hubs (Mobile Services)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Enviar notificações entre plataformas a usuários com Hubs de Notificação
 
@@ -19,7 +19,7 @@ Conclua as etapas a seguir para enviar notificações entre plataformas usando m
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **API**, em seguida, clique na entrada **register\_notifications** na tabela de API.
 
@@ -110,14 +110,12 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 -   **[Instruções sobre Hub de Notificação para a Windows Store][Instruções sobre Hub de Notificação para a Windows Store]**
     Inclui uma referência de linguagem de expressão do modelo.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Serviços Móveis]: /pt-br/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "Serviços Móveis"
-  [ASP.NET]: /pt-br/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/ "ASP.NET"
+
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users
   [Visão geral de Hubs de Notificação do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=317339
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
+  [0]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
   [1]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-custom-api-select.png
   [2]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-portal-data-tables.png
   [3]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-insert-script-push2.png

@@ -1,6 +1,6 @@
 <properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to install MongoDB on an Azure VM running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Instalar o MongoDB em uma máquina virtual na qual o Windows Server está em execução
 
@@ -21,19 +21,19 @@ Seguindo as instruções gerais, você pode modificá-las criando um ponto de ex
 -   Usar **TCP** como protocolo
 -   Defina as portas públicas e privadas como **27017**.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## Anexar um disco de dados
 
 Para fornecer um armazenamento para a máquina virtual, anexe um disco de dados e inicialize-o de forma que o Windows possa usá-lo. É possível anexar um disco existente caso você já tenha dados que deseja usar ou anexar um disco vazio.
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux][howto-attach-disk-windows-linux]]
+[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 Para obter instruções sobre como inicializar o disco, consulte “Como: Inicializar um novo disco de dados no Windows Server" em [Como anexar um disco de dados a uma Máquina Virtual do Windows][Como anexar um disco de dados a uma Máquina Virtual do Windows].
 
 ## Instalar e executar o MongoDB na máquina virtual
 
-[WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm][install-and-run-mongo-on-win2k8-vm]]
+[WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ## Resumo
 

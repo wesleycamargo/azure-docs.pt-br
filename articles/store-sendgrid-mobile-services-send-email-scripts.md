@@ -1,32 +1,32 @@
 <properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # Enviar email dos Serviços Móveis com SendGrid
 
 Este tópico mostra como adicionar a funcionalidade de e-mail ao seu serviço móvel. Nste tópico, você adicionará scripts do lado do servidor para enviar e-mails usando o SendGrid. Ao concluir, seu serviço móvel enviará um e-mail sempre que um registro for inserido.
 
-O SendGrid é um [serviço de e-mail baseado em nuvem][] que oferece [entrega de e-mail transacional][], escalabilidade e análise em tempo real confiáveis com APIsflexíveis que facilitam a integração personalizada. Para obter mais informações, consulte <http://sendgrid.com>.
+O SendGrid é um [serviço de e-mail baseado em nuvem][serviço de e-mail baseado em nuvem] que oferece [entrega de e-mail transacional][entrega de e-mail transacional], escalabilidade e análise em tempo real confiáveis com APIsflexíveis que facilitam a integração personalizada. Para obter mais informações, consulte <http://sendgrid.com>.
 
 Este tutorial explica as etapas básicas para habilitar a funcionalidade de e-mail:
 
-1.  [Criar uma conta do SendGrid][]
-2.  [Adicionar um script para enviar e-mails][]
-3.  [Inserir dados para receber e-mails][]
+1.  [Criar uma conta do SendGrid][Criar uma conta do SendGrid]
+2.  [Adicionar um script para enviar e-mails][Adicionar um script para enviar e-mails]
+3.  [Inserir dados para receber e-mails][Inserir dados para receber e-mails]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][].
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
 ## <a name="sign-up"></a><span class="short-header">Criar uma nova conta do SendGrid</span>Criar uma nova conta do SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="add-script"></a><span class="short-header">Registrar um script</span>Registrar um novo script que envia e-mails
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
 2.  No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
 
-    ![][]
+    ![][0]
 
 3.  Em **todoitem**, clique na guia **Script** e selecione **Inserir**.
 
@@ -116,7 +116,7 @@ estes links para saber mais sobre o SendGrid.
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
+  [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png
   [2]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-quickstart-push1.png
   [3]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png

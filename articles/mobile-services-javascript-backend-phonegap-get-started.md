@@ -1,8 +1,8 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
@@ -10,7 +10,7 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a u
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
-![][]
+![][0]
 
 ### <a name="additional-requirements"></a>Requisitos adicionais
 
@@ -25,7 +25,7 @@ O PhoneGap oferece suporte ao desenvolvimento para várias plataformas. Além da
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Criar um novo aplicativo</span>Criar um novo aplicativo PhoneGap
 
@@ -73,7 +73,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
     2.  Pressione o botão **Executar** para criar o projeto e iniciar o aplicativo no emulador do iPhone, que é o padrão para este projeto.
 
-        ![][]
+        ![][0]
 
     -   **Android**
 
@@ -150,7 +150,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  []: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Android Developer Tools]: https://go.microsoft.com/fwLink/p/?LinkID=280125

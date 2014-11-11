@@ -1,6 +1,6 @@
 <properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Criando aplicativos Django com o Python Tools for Visual Studio 1.5
 
@@ -26,9 +26,9 @@ máquina virtual (VM) dedicada.
 
 A seguinte é uma captura de tela do aplicativo concluído:
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>Configurar o ambiente de desenvolvimento
 
@@ -154,11 +154,11 @@ Agora, você precisará aguardar o aplicativo ser configurado e implantado.
 
 Depois que tudo estiver configurado, você poderá clicar no link sob Nome DNS para ver seu site em execução na nuvem:
 
-![Seu aplicativo Django na nuvem]((./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png))
+![Seu aplicativo Django na nuvem](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)
 
   [vídeo do Youtube]: http://www.youtube.com/watch?v=UsLti4KlgAY
   [tutorial mais recente e amplo]: ../web-sites-python-create-deploy-django-app/
-  []: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
+  [0]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
   [create-account-note]: ../includes/create-account-note.md
   [Como instalar o Python]: ../python-how-to-install/
   [Novos modelos de projeto do Python]: ./media/python-django-app-tools-visual-studio/ptvs-dj-NewProject.png

@@ -1,6 +1,6 @@
 <properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Introdução à conta do Banco de Dados de Documentos
 
@@ -33,7 +33,7 @@ Uma instância do DocumentClient pode ser criada usando o ponto de extremidade d
 
 O ponto de extremidade e as chaves do Banco de Dados de Documentos podem ser obtidos da lâmina do portal de visualização de gerenciamento do Azure para sua instância do Banco de Dados de Documentos.
 
-![][]
+![][0]
 
 > Observe que as chaves de acesso do Banco de Dados de Documentos disponíveis na lâmina Chaves concedem acesso administrativo à sua conta do Banco de Dados de Documentos e aos recursos contidos nela. O Banco de Dados de Documentos tem suporte também para o uso de chaves de recursos que permitem aos clientes ler, gravar e excluir recursos da conta do Banco de Dados de Documentos, de acordo com as permissões que você tiver concedido, sem a necessidade de uma chave de conta.
 
@@ -196,7 +196,7 @@ O Banco de Dados de Documentos tem suporte para consultas avançadas de document
   [Criar documentos]: #CreateDoc
   [Consultar recursos do Banco de Dados de Documentos]: #Query
   [Próximas etapas]: #NextSteps
-  []: ./media/documentdb-get-started/gs1.png
+  [0]: ./media/documentdb-get-started/gs1.png
   [Sites do Microsoft Azure na Web: Como as cadeias de caracteres de aplicativo e a cadeia de caracteres de conexão trabalha]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [monitorar uma conta do Banco de Dados de Documentos]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [página de documentação do Banco de Dados de Documentos]: http://go.microsoft.com/fwlink/p/?LinkID=402319
