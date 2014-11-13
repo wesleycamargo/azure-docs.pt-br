@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Blob Service" pageTitle="Como usar o armazenamento de blob do .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Saiba como usar o armazenamento de blob do Microsoft Azure para carregar, baixar, listar e excluir conte&uacute;do de blob. As amostras s&atilde;o escritas em C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Como usar o armazenamento de blob do Microsoft Azure no .NET" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -7,7 +7,9 @@
 Este guia demonstra como executar cenários comuns usando o
 Serviço de armazenamento de blobs do Azure. Os exemplos são escritos em C# e
 usam a biblioteca do cliente de armazenamento do Azure para .NET. Os cenários cobertos incluem
-**carregamento**, **listagem**, **download** e **exclusão** de blobs. Para
+**carregamento**,
+**listagem**, **download** e
+**exclusão** de blobs. Para
 obter mais informações sobre blobs, consulte a seção [Próximas etapas][Próximas etapas].
 
 > [WACOM.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet][NuGet] ou como parte do [SDK do Azure para .NET][SDK do Azure para .NET]. Consulte [Como: Acessar programaticamente o armazenamento de blobs][Como: Acessar programaticamente o armazenamento de blobs] abaixo para mais detalhes sobre como obter a biblioteca do cliente de armazenamento.
@@ -24,23 +26,24 @@ obter mais informações sobre blobs, consulte a seção [Próximas etapas][Pró
 -   [Como: Listar os blobs em um contêiner][Como: Listar os blobs em um contêiner]
 -   [Como: Baixar blobs][Como: Baixar blobs]
 -   [Como: Excluir blobs][Como: Excluir blobs]
+-   [Como: Listar blobs em páginas de maneira assíncrona][Como: Listar blobs em páginas de maneira assíncrona]
 -   [Próximas etapas][Próximas etapas]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <a name="create-account"></a><span class="short-header">Criar uma conta</span>Criar uma conta de armazenamento do Azure
+## <a name="create-account"></a><span class="short-header">Criar uma conta de Armazenamento do Azure</span>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="setup-connection-string"></a><span class="short-header">Configurar uma cadeia de conexão</span>Configurar uma cadeia de conexão de armazenamento
+## <a name="setup-connection-string"></a><span class="short-header">Configurar uma cadeia de conexão de armazenamento</span>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <a name="configure-access"> </a><span class="short-header">Acessar programaticamente</span>Como: Acessar programaticamente o armazenamento de blobs
+## <a name="configure-access"> </a><span class="short-header">Como: Acessar programaticamente o armazenamento de blobs</span>
 
 ### Obtendo o assembly
 
-Você pode usar NuGet para obter o assembly `Microsoft.WindowsAzure.Storage.dll`. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
+Recomendamos que você use o NuGet para obter o assembly `Microsoft.WindowsAzure.Storage.dll`. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
 `Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na [Central de desenvolvedores do .NET][Central de desenvolvedores do .NET]. O assembly está instalado no diretório `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
@@ -86,11 +89,9 @@ que recuperamos acima:
 
 As dependências do ODataLib na Biblioteca de Cliente de Armazenamento para .NET são resolvidas por meio de pacotes do ODataLib (versão 5.0.2) disponíveis por meio do NuGet e não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos são [OData][OData], [Edm][Edm] e [Spatial][Spatial].
 
-## <a name="create-container"> </a><span class="short-header">Criar um contêiner</span>Como: Criar um contêiner
+## <a name="create-container"> </a><span class="short-header">Como: Criar um contêiner</span>
 
-Todos os blobs de armazenamento residem em um contêiner. Você pode usar um objeto
-**CloudBlobClient** para obter uma referência ao contêiner que deseja
-usar. Você pode criar o contêiner se ele não existir:
+Todos os blobs no armazenamento do Azure devem residir em um contêiner. Este exemplo mostra como criar um contêiner se ele ainda não existir:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -118,7 +119,7 @@ código:
 Qualquer pessoa na internet pode ver blobs em um contêiner público, mas você só pode
 modificar ou excluí-los se tiver a chave de acesso apropriada.
 
-## <a name="upload-blob"> </a><span class="short-header">Carregar um contêiner</span>Como: Carregar um blob em um contêiner
+## <a name="upload-blob"> </a><span class="short-header">Como: Carregar um blob em um contêiner</span>
 
 O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a ser usado.
 
@@ -146,7 +147,7 @@ ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar 
         blockBlob.UploadFromStream(fileStream);
     } 
 
-## <a name="list-blob"> </a><span class="short-header">Listar blobs em um contêiner</span>Como: Listar os blobs em um contêiner
+## <a name="list-blob"> </a><span class="short-header">Como: Listar os blobs em um contêiner</span>
 
 Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você
 pode usar o método **ListBlobs** do contêiner para recuperar os blobs e/ou diretórios
@@ -237,7 +238,7 @@ e estes seriam os resultados:
 
 Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
-## <a name="download-blobs"> </a>Baixar blobs<span class="short-header"></span>Como: Baixar blobs
+## <a name="download-blobs"> </a><span class="short-header">Como: Baixar blobs</span>
 
 Para baixar blobs, primeiro recupere uma referência a um blob e, em seguida, chame o método **DownloadToStream**. O exemplo a
 seguir usa o método **DownloadToStream** para transferir o conteúdo
@@ -284,7 +285,7 @@ Você também pode usar o método **DownloadToStream** para baixar o conteúdo d
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
 
-## <a name="delete-blobs"> </a><span class="short-header">Excluir blobs</span>Como: Excluir blobs
+## <a name="delete-blobs"> </a><span class="short-header">Como: Excluir blobs</span>
 
 Para excluir um blob, primeiro obtenha uma referência de blob e, em seguida, chame o método
 **Delete**.
@@ -305,7 +306,67 @@ Para excluir um blob, primeiro obtenha uma referência de blob e, em seguida, ch
     // Delete the blob.
     blockBlob.Delete(); 
 
-## <a name="next-steps"></a> <span class="short-header">Próximas etapas</span>Próximas etapas
+## <a name="list-blobs-async"> </a><span class="short-header">Como: Listar blobs em páginas de maneira assíncrona</span>
+
+Se você está listando uma grande quantidade de blobs ou se deseja controlar o número de resultados retornados em uma operação de listagem, pode listar os blobs em páginas de resultados. Este exemplo mostra como retornar resultados em páginas de forma assíncrona, para que a execução não fique bloqueada enquanto espera para retornar um grande conjunto de resultados.
+
+Este exemplo mostra uma listagem de blob simples, mas você também pode realizar uma listagem hierárquica, configurando o parâmetro `useFlatBlobListing` do método **ListBlobsSegmentedAsync** como `false`.
+
+Como o método de amostra chama um método assíncrono, ele deve ser precedido pela palavra-chave `async` e deve retornar um objeto **Task**. A palavra-chave await especificada para o método **ListBlobsSegmentedAsync** suspende a execução do método de amostra até que a tarefa de listagem seja concluída.
+
+    async public static Task ListBlobsSegmentedInFlatListing()
+    {
+        // Retrieve storage account from connection string.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create the blob client.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Retrieve reference to a previously created container.
+        CloudBlobContainer container = blobClient.GetContainerReference("myblobs");
+
+        //List blobs in pages.
+        Console.WriteLine("List blobs in pages:");
+
+        //List blobs with a paging size of 10, for the purposes of the example. 
+        //The first call does not include the continuation token.
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(
+                "", true, BlobListingDetails.All, 10, null, null, null);
+
+        //Enumerate the result segment returned.
+        int i = 0;
+        if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+        foreach (var blobItem in resultSegment.Results)
+        {
+            Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+        }
+        Console.WriteLine();
+
+        //Get the continuation token, if there are additional pages of results.
+        BlobContinuationToken continuationToken = resultSegment.ContinuationToken;
+
+        //Check whether there are more results and list them in pages of 10 while a continuation token is returned.
+        while (continuationToken != null)
+        {
+            //This overload allows control of the page size. 
+            //You can return all remaining results by passing null for the maxResults parameter, 
+            //or by calling a different overload.
+            resultSegment = await container.ListBlobsSegmentedAsync(
+                    "", true, BlobListingDetails.All, 10, continuationToken, null, null);
+            if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+            foreach (var blobItem in resultSegment.Results)
+            {
+                Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+            }
+            Console.WriteLine();
+
+            //Get the next continuation token.
+            continuationToken = resultSegment.ContinuationToken;
+        }
+    }
+
+## <a name="next-steps"></a><span class="short-header">Próximas etapas</span>
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links
 para saber como executar tarefas de armazenamento mais complexas.
@@ -313,6 +374,7 @@ para saber como executar tarefas de armazenamento mais complexas.
 -   Consulte a documentação de referência do serviço Blob para obter detalhes completos sobre as APIs disponíveis:
     -   [Referência à Biblioteca de Cliente de Armazenamento para .NET][Referência à Biblioteca de Cliente de Armazenamento para .NET]
     -   [Referência da API REST][Referência da API REST]
+
 -   Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure].
 -   Aprenda a trabalhar com o Armazenamento do Azure em processos de back-end para sites do Azure em [Introdução ao SDK de WebJobs do Azure][Introdução ao SDK de WebJobs do Azure].
 -   Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
@@ -335,9 +397,7 @@ para saber como executar tarefas de armazenamento mais complexas.
   [Como: Listar os blobs em um contêiner]: #list-blob
   [Como: Baixar blobs]: #download-blobs
   [Como: Excluir blobs]: #delete-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
+  [Como: Listar blobs em páginas de maneira assíncrona]: #list-blobs-async
   [Central de desenvolvedores do .NET]: http://www.windowsazure.com/pt-br/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

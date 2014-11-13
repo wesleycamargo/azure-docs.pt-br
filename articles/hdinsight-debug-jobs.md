@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Depurar Hadoop no HDInsight: Mensagens de erro | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Saiba quais s&atilde;o as mensagens de erro que voc&ecirc; pode receber ao administrar o HDInsight usando o PowerShell, e as etapas que podem ser executadas para recupera&ccedil;&atilde;o." services="hdinsight" title="Depurar Hadoop no HDInsight: Mensagens de erro" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -134,7 +134,7 @@ Os erros que um usuário pode encontrar no PowerShell do Azure ou no Portal do A
 
 ### <span id="DuplicateClusterInHostedService"></span></a>DuplicateClusterInHostedService
 
--   **Descrição**: O serviço hospedado *nameOfYourHostedService* já contém um cluster. Um serviço hospedado não pode conter vários clusters
+-   **Descrição**: O serviço hospedado *nameOfYourHostedService\** já contém um cluster. Um serviço hospedado não pode conter vários clusters
 -   **Redução**: Hospede o cluster em outro serviço hospedado.
 
 ### <span id="FailureToUpdateDeploymentStatus"></span></a>FailureToUpdateDeploymentStatus

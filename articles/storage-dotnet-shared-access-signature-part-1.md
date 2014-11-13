@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="Assinaturas de acesso compartilhado: No&ccedil;&otilde;es b&aacute;sicas sobre o modelo SAS | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Saiba como delegar acesso a recursos de blob, fila e tabela com assinaturas de acesso compartilhado" metaCanonical="" services="storage" documentationCenter="" title="Parte 1: No&ccedil;&otilde;es b&aacute;sicas sobre o modelo SAS" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -18,11 +18,11 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 1. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, a criação de um serviço que possa ser dimensionado de acordo com a demanda pode ser difícil ou dispendiosa.
 
-![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
+[sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
 2. Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
 
-![sas-storage-provider-service][sas-storage-provider-service]
+[sas-storage-provider-service][sas-storage-provider-service]
 
 Vários serviços reais podem usar uma mistura híbrida dessas duas abordagens, dependendo do cenário envolvido, com alguns dados processados e validados por meio do proxy front-end, enquanto outros dados são salvos e/ou lidos diretamente com a SAS.
 
@@ -39,7 +39,7 @@ Uma assinatura de acesso compartilhado tem as seguintes restrições que a defin
 
 Este é um exemplo de um URI SAS que fornece permissões de leitura e gravação para um blob. A tabela divide cada parte do URI para explicar como ele também contribui para a SAS:
 
-<https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D>
+https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
 <table>
 <colgroup>
@@ -139,4 +139,5 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
   [Parte 2]: ../storage-dotnet-shared-access-signature-part-2/
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
   [Gerenciar o acesso aos recursos de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee393343.aspx
+  [Delegando acesso com uma assinatura de acesso compartilhado (API REST)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee395415.aspx
   [Introdução à Tabela e à Fila SAS]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

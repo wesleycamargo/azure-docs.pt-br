@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
+<properties umbracoNaviHide="0" pageTitle="Modelo do aplicativo" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Aprenda sobre o modelo de aplicativo de servi&ccedil;o hospedado no Azure. Compreenda os principais conceitos, as considera&ccedil;&otilde;es sobre o design, a defini&ccedil;&atilde;o e a configura&ccedil;&atilde;o de seu aplicativo e o dimensionamento." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Modelo do aplicativo" authors="robb" manager="johndaw" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
@@ -67,7 +67,7 @@ As Máquinas Virtuais do Azure podem ser usadas de várias maneiras. Os principa
 -   **VMs para desenvolvimento e teste.** Os grupos de desenvolvimento normalmente precisam de VMs com configurações específicas para a criação de aplicativos. As Máquinas Virtuais do Azure fornecem uma maneira direta e econômica de criar essas VMs, usá-las e removê-las quando elas não forem mais necessárias.
 -   **Aplicativos em execução na nuvem.** Para alguns aplicativos, a execução na nuvem pública faz sentido economicamente. Pense, por exemplo, em um aplicativo com grandes picos na demanda. Sempre é possível comprar máquinas suficientes para seu próprio datacenter para executar esse aplicativo, mas muitas dessas máquinas provavelmente não serão usadas a maior parte do tempo. Executar esse aplicativo no Azure permite que você pague por VMs extras somente quando forem necessárias, desligando-as quando o pico de uma demanda tiver sido encerrado. Ou suponha que você seja um iniciante que precisa de recursos de computação sob demanda rapidamente e sem comprometimento. Mais uma vez, o Azure pode ser a escolha certa.
 -   **Extensão do seu próprio datacenter para a nuvem pública.** Com a Rede Virtual do Azure, sua organização pode criar uma rede virtual (VNET) que faça um grupo de VMs do Azure parecer parte da sua própria rede local. Isso permite executar aplicativos como o SharePoint e outros no Azure, uma abordagem que pode ser mais fácil de implantar e/ou menos onerosa do que executá-los no seu próprio datacenter.
--   **Recuperação de desastre.** Em vez de pagar continuamente por um datacenter de backup que raramente é usado, a recuperação de desastres com base na IaaS permite que você pague pelos recursos de computação necessários somente quando realmente precisar deles. Por exemplo, se seu datacenter primário falhar, você poderá criar VMs em execução no Azure para executar aplicativos essenciais e desligá-las quando não precisar mais delas.
+-   **Recuperação de desastre.**Em vez de pagar continuamente por um datacenter de backup que raramente é usado, a recuperação de desastres com base na IaaS permite que você pague pelos recursos de computação necessários somente quando realmente precisar deles. Por exemplo, se seu datacenter primário falhar, você poderá criar VMs em execução no Azure para executar aplicativos essenciais e desligá-las quando não precisar mais delas.
 
 Essas não são as únicas possibilidades, mas são bons exemplos de como é possível usar as Máquinas Virtuais do Azure.
 
@@ -184,12 +184,20 @@ O Azure fornece diferentes modelos de execução porque as plataformas em nuvem 
   [Máquinas Virtuais]: #VMachine
   [Sites]: #WebSites
   [Serviços de Nuvem]: #CloudServices
+  [Qual devo usar? Fazendo uma escolha]: #WhatShouldIUse
   [Figura 1]: #Fig1
+  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [na biblioteca do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn197896.aspx
   [Figura 2]: #Fig2
+  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [Figura 3]: #Fig3
+  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [Figura 4]: #Fig4
+  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
+  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
   [Figura 5]: #Fig5
   [Figura 6]: #Fig6
+  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [Figura 7]: #Fig7
+  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

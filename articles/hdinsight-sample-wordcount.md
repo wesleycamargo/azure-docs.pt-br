@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Amostra de WordCount Hadoop no HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Saiba como executar uma amostra de MapReduce simples no HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Exemplo de WordCount Hadoop no HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -191,6 +191,7 @@ Para obter tutoriais que executam outros exemplos e fornecem instruções sobre 
 -   [Use o hive com o HDInsight][Use o hive com o HDInsight]
 -   [Documentação do SDK do Azure HDInsight][Documentação do SDK do Azure HDInsight]
 
+  [Testar o Azure gratuitamente (a página pode estar em inglês)]: http://azure.microsoft.com/pt-br/pricing/free-trial/
   [Introdução ao Azure HDInsight]: ../hdinsight-get-started/
   [Provisionar clusters HDInsight]: ../hdinsight-provision-clusters/
   [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell/

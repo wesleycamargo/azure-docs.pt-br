@@ -1,6 +1,6 @@
-<properties linkid="hdinsight-use-hadoop-oozie-in-hdinsight" urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Use Hadoop Oozie in HDInsight | Azure" metaKeywords="" description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Usar o Oozie do Hadoop no HDInsight | Azure" metaKeywords="" description="Usar o Oozie do Hadoop no HDInsight, uma solu&ccedil;&atilde;o de big data. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie." metaCanonical="" services="hdinsight" documentationCenter="" title="Usar o Oozie do Hadop no HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Usar o Oozie com o Hadoop no HDInsight
 
@@ -63,12 +63,15 @@ Antes de começar este tutorial, você deve ter o seguinte:
     <col width="25%" />
     <col width="25%" />
     </colgroup>
+    <thead>
     <tr class="header">
     <th align="left">Propriedade do cluster</th>
     <th align="left">Nome de variável do PowerShell</th>
     <th align="left">Valor</th>
     <th align="left">Descrição</th>
     </tr>
+    </thead>
+    <tbody>
     <tr class="odd">
     <td align="left">Nome do cluster HDInsight</td>
     <td align="left">$clusterName</td>
@@ -99,6 +102,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     <td align="left"></td>
     <td align="left">Para este exemplo, utilize o contêiner de armazenamento de blob do Azure usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td>
     </tr>
+    </tbody>
     </table>
 
 -   **Um Banco de Dados SQL Azure**. Você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso a partir de sua estação de trabalho. Para obter instruções sobre como criar um Banco de Dados SQL e configurar o firewall, consulte [Introdução ao uso do Banco de Dados SQL do Azure][Introdução ao uso do Banco de Dados SQL do Azure]. Este artigo fornece um script do PowerShell para criar a tabela do Banco de Dados SQL necessária para este tutorial.
@@ -110,12 +114,15 @@ Antes de começar este tutorial, você deve ter o seguinte:
     <col width="25%" />
     <col width="25%" />
     </colgroup>
+    <thead>
     <tr class="header">
     <th align="left">Propriedade de banco de dados SQL</th>
     <th align="left">Nome de variável do PowerShell</th>
     <th align="left">Valor</th>
     <th align="left">Descrição</th>
     </tr>
+    </thead>
+    <tbody>
     <tr class="odd">
     <td align="left">Nome do servidor de banco de dados SQL</td>
     <td align="left">$sqlDatabaseServer</td>
@@ -140,6 +147,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     <td align="left"></td>
     <td align="left">O Banco de Dados SQL do Azure para o qual o Sqoop exportará dados.</td>
     </tr>
+    </tbody>
     </table>
 
     > [WACOM.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal de Gerenciamento do Azure. Para obter instruções sobre como criar um Banco de Dados SQL e configurar regras de firewall, consulte [Criar e configurar o Banco de Dados SQL][Criar e configurar o Banco de Dados SQL].
@@ -239,26 +247,23 @@ Há um erro conhecido do caminho do Hive. Você encontrará esse problema ao env
 
     O RunHiveScript possui várias variáveis. Você irá passar os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o PowerShell do Azure.
 
-	<table border="1">
-    <tr><th> Variáveis de fluxo de trabalho </th><th> Descrição </th></tr>
-    <tr><td> ${jobTracker}                  </td><td> Especifique a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost:9010</strong> no cluster HDInsight versão 2.0 e 3.0. </td></tr>
-    <tr><td> ${nameNode}                    </td><td> Especifique a URL do namenode do Hadoop. Use o endereço WASB do sistema de arquivos padrão. Por exemplo, <i>wasb://&lt;NomeContêiner&gt;@&lt;NomeContaArmazenamento&gt;.blob.core.windows.net</i>. </td></tr>
-    <tr><td> ${queueName}                   </td><td> Especifica o queuename ao qual o trabalho será enviado. Use <strong>padrão</strong>. </td></tr>
-	</table>
+    | Variáveis de fluxo de trabalho | Descrição                                                                                                                                                                             |
+    |--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ${jobTracker}                  | Especifique a URL do controlador do trabalho do Hadoop. Use **jobtrackerhost:9010** no cluster HDInsight versão 2.0 e 3.0.                                                            |
+    | ${nameNode}                    | Especifique a URL do namenode do Hadoop. Use o endereço WASB do sistema de arquivos padrão. Por exemplo, *wasb://\<NomeContêiner\>@\<NomeContaArmazenamento\>.blob.core.windows.net*. |
+    | ${queueName}                   | Especifica o queuename ao qual o trabalho será enviado. Use **padrão**.                                                                                                               |
 
-	<table border="1">
-    <tr><th> Variável de ação do Hive </th><th> Descrição </th></tr>
-    <tr><td> ${hiveDataFolder}        </td><td> O diretório de origem do comando Hive Create Table.                   </td></tr>
-    <tr><td> ${hiveOutputFolder}      </td><td> A pasta de saída da instrução INSERT OVERWRITE.                       </td></tr>
-    <tr><td> ${hiveTableName}         </td><td> O nome da tabela Hive que faz referência aos arquivos de dados log4j. </td></tr>
-	</table>
+    | Variável de ação do Hive | Descrição                                                             |
+    |--------------------------|-----------------------------------------------------------------------|
+    | ${hiveDataFolder}        | O diretório de origem do comando Hive Create Table.                   |
+    | ${hiveOutputFolder}      | A pasta de saída da instrução INSERT OVERWRITE.                       |
+    | ${hiveTableName}         | O nome da tabela Hive que faz referência aos arquivos de dados log4j. |
 
-	<table border="1">
-    <tr><th> Variável de ação do Sqoop      </th><th> Descrição </th></tr>
-    <tr><td> ${sqlDatabaseConnectionString} </td><td> Cadeia de conexão do Banco de Dados SQL.                                                                              </td></tr>
-    <tr><td> ${sqlDatabaseTableName}        </td><td> A tabela do Banco de Dados SQL para onde os dados serão exportados.                                                   </td></tr>
-    <tr><td> ${hiveOutputFolder}            </td><td> A pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para export-dir de Exportação do Sqoop. </td></tr>
-	</table>
+    | Variável de ação do Sqoop      | Descrição                                                                                                             |
+    |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+    | ${sqlDatabaseConnectionString} | Cadeia de conexão do Banco de Dados SQL.                                                                              |
+    | ${sqlDatabaseTableName}        | A tabela do Banco de Dados SQL para onde os dados serão exportados.                                                   |
+    | ${hiveOutputFolder}            | A pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para export-dir de Exportação do Sqoop. |
 
     Para obter mais informações sobre o fluxo de trabalho do Oozie e como usar ações de fluxo de trabalho, consulte a [Documentação do Apache Oozie 4.0][Documentação do Apache Oozie 4.0] (para a versão 3.0 do cluster HDInsight) ou a [Documentação do Oozie Apache 3.3.2][Documentação do Oozie Apache 3.3.2] (para a versão 2.1 do cluster HDInsight).
 
@@ -564,7 +569,7 @@ Invoke-RestMethod PowerShell para invocar os serviços Web do Oozie. A API de Se
 
         Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
-7.  Se o seu cluster HDInsight for a versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/“ por “https://$clusterName.azurehdinsight.net:443/oozie/v1/“. A versão 2.1 do cluster HDInsight não oferece suporte à versão 2 dos serviços web.
+7.  Se o cluster HDinsight for da versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/" por "https://$clusterName.azurehdinsight.net:443/oozie/v1/". A versão 2.1 do cluster HDInsight não oferece suporte à versão 2 dos serviços web.
 
 8.  Clique em **Executar Script** ou pressione **F5** para executar o script. A saída será semelhante a:
 

@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Saiba como usar o servi&ccedil;o de armazenamento de tabela no Azure. As amostras de c&oacute;digo est&atilde;o escritas em c&oacute;digo Java." metaCanonical="" services="storage" documentationCenter="Java" title="Como usar o servi&ccedil;o de armazenamento de tabela no Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Como usar o Armazenamento de Tabela no Java
 
@@ -562,6 +562,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
   [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
   [Próximas etapas]: #NextSteps
   [SDK de Armazenamento do Azure para Android]: https://github.com/azure/azure-storage-android
+  [O que é um Armazenamento de tabelas?]: #what-is
   [Conceitos]: #Concepts
   [Criar uma conta de armazenamento do Azure]: #CreateAccount
   [Criar um aplicativo do Java]: #CreateApplication
@@ -579,8 +580,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
   [Como: Inserir ou substituir uma entidade]: #InsertOrReplace
   [Como: Excluir uma entidade]: #DeleteEntity
   [Como: Excluir uma tabela]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
   [postagem de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/azure/gg433040.aspx

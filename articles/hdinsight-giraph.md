@@ -1,4 +1,4 @@
-<properties title="How to use Giraph with HDInsight" pageTitle="How to use Apache Giraph with Azure HDInsight" description="Learn how to use Apache Giraph to perform graph processing with Azure HDInsight" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
+<properties title="Como usar o Giraph com o HDInsight" pageTitle="Como usar o Apache Giraph com o Azure HDInsight" description="Saiba como usar o Apache Giraph para realizar o processamento de gr&aacute;ficos com o Azure HDInsight" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
 
@@ -56,7 +56,7 @@ O Giraph não é fornecido como parte do cluster HDInsight, portanto, precisa se
 
 5.  Compile o Giraph para a sua versão de cluster HDInsight, usando um dos comandos a seguir.
 
-    -   Para **HDInsight 3.0** (Hadoop 2.2)
+    -   Para **HDInsight 3,0** (Hadoop 2,2)
 
             mvn package -Phadoop_0.20.203 - DskipTests
 
@@ -153,7 +153,7 @@ Visualizando isso, você pode verificar os resultados percorrendo os caminhos ma
 
 ![Desenho dos objetos como círculos com os percursos mais curtos entre][Desenho dos objetos como círculos com os percursos mais curtos entre]
 
-## <span id="tshoot"></span></a>Solução de problemas
+## <span id="tshoot"></span></a> Solucionar problemas
 
 ### Diretório de saída já existe
 
@@ -211,6 +211,7 @@ Agora que você aprendeu como usar o Giraph com o HDInsight, tente fazer [Pig][P
   [Pregel]: http://people.apache.org/~edwardyoon/documents/pregel.pdf
   [ramificação versão-1.1]: https://github.com/apache/giraph/tree/release-1.1
   [tabela direcionada]: http://en.wikipedia.org/wiki/Directed_graph
+  [tiny\_graph.txt Desenhado como círculos com linhas de distância variável entre]: .\media\hdinsight-giraph\giraph-graph.png
   [Desenho dos objetos como círculos com os percursos mais curtos entre]: .\media\hdinsight-giraph\giraph-graph-out.png
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Novidades em versões de cluster HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/

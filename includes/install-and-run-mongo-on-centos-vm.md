@@ -28,7 +28,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    Para obter mais informações sobre como instalar o MongoDB no Linux, consulte [Quickstart Unix][].
+    Para obter mais informações sobre como instalar o MongoDB no Linux, consulte [Quickstart Unix][Quickstart Unix].
 
 5.  Para iniciar o banco de dados, execute:
 
@@ -52,7 +52,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
 
 7.  Depois que o MongoDB for instalado, você deverá configurar um ponto de extremidade para que o MongoDB possa ser acessado remotamente. No Portal de Gerenciamento, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e depois clique em **Pontos de extremidade**.
 
-    ![Pontos de extremidade][]
+    ![Pontos de extremidade][Pontos de extremidade]
 
 8.  Clique em **Adicionar Ponto de Extremidade** na parte inferior da página.
 
@@ -62,7 +62,6 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
 
     ![Pontos de extremidade][2]
 
-  [Segurança e autenticação]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [Pontos de extremidade]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

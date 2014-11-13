@@ -1,11 +1,11 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Saiba como usar o servi&ccedil;o de armazenamento de tabela no Azure. As amostras de c&oacute;digo s&atilde;o escritas usando a API do Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Como usar o servi&ccedil;o Tabela no Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Como usar o serviço Tabela no Node.js
 
 Este guia mostra como executar cenários comuns usando o
-serviço Tabela do Microsoft Azure. Os exemplos são escritos usando a
+serviço Tabela do Windows Azure. Os exemplos são escritos usando a
 API do Node.js. Os cenários abrangidos incluem **criar e excluir uma
 tabela, inserir e consultar entidades em uma tabela**. Para obter mais
 informações sobre tabelas, consulte a seção [Próximas etapas][Próximas etapas].
@@ -19,7 +19,7 @@ informações sobre tabelas, consulte a seção [Próximas etapas][Próximas eta
 -   [Configurar seu aplicativo para acessar o armazenamento][Configurar seu aplicativo para acessar o armazenamento]
 -   [Configurar uma conexão de armazenamento do Azure][Configurar uma conexão de armazenamento do Azure]
 -   [Como: Criar uma tabela][Como: Criar uma tabela]
--   [Como: Adicionar uma entidade a uma tabela][Como: Adicionar uma entidade a uma tabela]
+-   [Como: Adicionar uma entidade à tabela][Como: Adicionar uma entidade à tabela]
 -   [Como: Atualizar uma entidade][Como: Atualizar uma entidade]
 -   [Como: Trabalhar com grupos de entidades][Como: Trabalhar com grupos de entidades]
 -   [Como: Recuperar uma entidade][Como: Recuperar uma entidade]
@@ -35,7 +35,7 @@ informações sobre tabelas, consulte a seção [Próximas etapas][Próximas eta
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="create-app"> </a>Criar um aplicativo Node.js
+## <a name="create-app"> </a>Criar um aplicativo do Node.js
 
 Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure], [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] (usando o Windows PowerShell) ou [Site com o WebMatrix][Site com o WebMatrix].
 
@@ -44,9 +44,9 @@ Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar 
 Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que se
 comunicam com os serviços REST do armazenamento.
 
-### Use o NPM (Node Package Manager) para obter o pacote
+### Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 
-1.  Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix), e navegue até a pasta onde você criou o aplicativo de exemplo.
+1.  Use uma interface de linha de comando, como **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix), e vá até a pasta onde você criou a amostra do aplicativo.
 
 2.  Digite **npm install azure-storage** na janela de comando, que deve resultar na seguinte saída:
 
@@ -60,8 +60,8 @@ comunicam com os serviços REST do armazenamento.
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta
-    **node\_modules** foi criada. Dentro dessa pasta, você
+3.  Você pode executar o comando **ls** manualmente para verificar se uma
+    pasta **node\_modules** foi criada. Dentro dessa pasta, você
     encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para
     acessar o armazenamento.
 
@@ -76,7 +76,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][Aplicativo Node.js na Web com armazenamento].
+Para obter um exemplo de como definir as variáveis de ambiente no portal de gerenciamento para um Site do Azure, consulte [Aplicativo da Web do Node.js com Armazenamento][Aplicativo da Web do Node.js com Armazenamento].
 
 ## <a name="create-table"> </a>Como criar uma tabela
 
@@ -420,13 +420,14 @@ para saber como realizar tarefas de armazenamento mais complexas.
 -   Visite o repositório [SDK de armazenamento do Azure para nó][SDK de armazenamento do Azure para nó] no GitHub.
 
   [Próximas etapas]: #next-steps
+  [O que é o serviço Tabela?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
   [Criar um aplicativo Node.js]: #create-app
   [Configurar seu aplicativo para acessar o armazenamento]: #configure-access
   [Configurar uma conexão de armazenamento do Azure]: #setup-connection-string
   [Como: Criar uma tabela]: #create-table
-  [Como: Adicionar uma entidade a uma tabela]: #add-entity
+  [Como: Adicionar uma entidade à tabela]: #add-entity
   [Como: Atualizar uma entidade]: #update-entity
   [Como: Trabalhar com grupos de entidades]: #change-entities
   [Como: Recuperar uma entidade]: #query-for-entity
@@ -434,12 +435,10 @@ para saber como realizar tarefas de armazenamento mais complexas.
   [Como: Excluir uma entidade]: #delete-entity
   [Como: Excluir uma tabela]: #delete-table
   [Como: Trabalhar com assinaturas de acesso compartilhado]: #sas
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site com o WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Aplicativo Node.js na Web com armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Aplicativo da Web do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Noções básicas sobre o modelo de dados do serviço Tabela]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx

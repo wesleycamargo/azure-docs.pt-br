@@ -1,6 +1,6 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+<properties title="Usando conjuntos de carga balanceada para clusterizar MySQL em Linux" pageTitle="Usando conjuntos de carga balanceada para clusterizar MySQL em Linux" description="Um artigo que ilustra padr&otilde;es para configurar um cluster Linux de alta disponibilidade e carga balanceada no Azure, utilizando o MySQL como exemplo" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel" />
 
 # Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
 
@@ -32,9 +32,9 @@ Você precisará de uma conta do Microsoft Azure com uma assinatura válida para
 ### Ambiente testado
 
 -   Ubuntu 13.10
-	-   DRBD
-	-   MySQL Server
-	-   Corosync e Pacemaker
+-   DRBD
+-   MySQL Server
+-   Corosync e Pacemaker
 
 ### Grupo de afinidade
 

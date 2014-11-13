@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to install MongoDB on an Azure VM running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Install MongoDB" pageTitle="Instalar o MongoDB em uma m&aacute;quina virtual que conta com o Windows Server" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Saiba como instalar o MongoDB em uma m&aacute;quina virtual do Azure que executa o Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Instalar o MongoDB em uma m&aacute;quina virtual que executa o Windows Server no Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
@@ -41,8 +41,5 @@ Neste tutorial você aprendeu a criar uma Máquina Virtual do Windows Server e a
 
   [O MongoDB]: http://www.mongodb.org/
   [Portal de Gerenciamento Azure]: http://manage.windowsazure.com
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
-  [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [Como anexar um disco de dados a uma Máquina Virtual do Windows]: http://azure.microsoft.com/pt-br/documentation/articles/storage-windows-attach-disk/
-  [install-and-run-mongo-on-win2k8-vm]: ../includes/install-and-run-mongo-on-win2k8-vm.md
   [Documentação do MongoDB]: http://www.mongodb.org/display/DOCS/Home

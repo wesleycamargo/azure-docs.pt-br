@@ -1,6 +1,6 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management" pageTitle="Como usar a API de gerenciamento de servi&ccedil;os (Python) - guia de recursos" metaKeywords="" description="Saiba como executar tarefas de gerenciamento de servi&ccedil;os comuns de forma program&aacute;tica no Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Como usar o Gerenciamento de Servi&ccedil;os no Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Como usar o Gerenciamento de Serviços no Python
 
@@ -39,7 +39,7 @@ Para usar a API de Gerenciamento de Serviços, será necessário [criar uma cont
 
 O SDK do Azure para Python encapsula a [API de Gerenciamento de Serviços do Azure][API de Gerenciamento de Serviços do Azure], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. O serviço de gerenciamento pode ser acessado em um serviço em execução no Azure ou diretamente pela Internet em qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta HTTPS.
 
-## <a name="Connect"> </a>Como: Conectar-se ao gerenciamento de serviço
+## <a name="Connect"> </a>Como: Conectar-se ao gerenciamento de serviços
 
 Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [portal de gerenciamento][portal de gerenciamento].
 
@@ -77,7 +77,7 @@ Para criar o certificado `.cer`, execute:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)][Gerenciando certificados no Azure (a página pode estar em inglês)]. Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)][Gerenciando certificados no Azure (a página pode estar em inglês)]. Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em <http://www.openssl.org/docs/apps/openssl.html>.
 
 Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][portal de gerenciamento], e anotar o local onde você salvou o arquivo `.pem`.
 
@@ -117,7 +117,7 @@ Quando cria um serviço de nuvem, um serviço de armazenamento ou um grupo de af
 -   Oeste dos EUA
 -   Leste dos EUA
 
-## <a name="CreateCloudService"> </a>Como: Criar um serviço de nuvem
+## <a name="CreateCloudService"> </a>Como: Criar um Serviço de Nuvem
 
 Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem][serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\\hosted\\service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e um local. Você pode especificar um grupo de afinidade em vez de um local para o serviço.
 
@@ -163,7 +163,7 @@ Você pode excluir um serviço de nuvem passando o nome do serviço para o méto
 
     sms.delete_hosted_service('myhostedservice')
 
-Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Consulte [Como excluir uma implantação][Como: Excluir a implantação] para obter detalhes.)
+Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Veja [Como: Excluir uma implantação][Como: Excluir a implantação] para obter mais detalhes.)
 
 ## <a name="CreateDeployment"> </a>Como: Criar uma implantação
 
@@ -260,7 +260,7 @@ O exemplo a seguir mostra como usar o método **swap\_deployment** para permutar
 
     result = sms.swap_deployment('myhostedservice', 'v1', 'v2')
 
-## <a name="DeleteDeployment"> </a>Como: Excluir uma implantação
+## <a name="DeleteDeployment"> </a>Como: Excluir a implantação
 
 Para excluir uma implantação, use o método **delete\_deployment**. O exemplo a seguir mostra como excluir uma implantação chamada `v1`.
 
@@ -273,7 +273,7 @@ Para excluir uma implantação, use o método **delete\_deployment**. O exemplo 
 
 ## <a name="CreateStorageService"> </a>Como: Criar um serviço de armazenamento
 
-Um [serviço de armazenamento][serviço de armazenamento] fornece acesso a [Blobs][Blobs], [Tabelas][Tabelas] e [Filas][Filas] do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), uma descrição, um rótulo (até 100 caracteres, automaticamente codificado em base64) e um local ou um grupo de afinidade. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se desejar usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como criar um grupo de afinidade][Como: Criar um grupo de afinidade]) e defini-lo com o parâmetro **affinity\_group**.
+Um [serviço de armazenamento][serviço de armazenamento] fornece acesso a [Blobs][Blobs], [Tabelas][Tabelas] e [Filas][Filas] do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), uma descrição, um rótulo (até 100 caracteres, automaticamente codificado em base64) e um local ou um grupo de afinidade. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se quiser usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como: Criar um grupo de afinidade][Como: Criar um grupo de afinidade]) e defini-lo com o parâmetro **affinity\_group**.
 
     from azure import *
     from azure.servicemanagement import *
@@ -452,7 +452,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
         location=location)
 
     # Name of an os image as returned by list_os_images
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-pt-BR-30GB.vhd'
+    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-pt-br-30GB.vhd'
 
     # Destination storage account container/blob where the VM disk
     # will be created
@@ -473,7 +473,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
         os_virtual_hard_disk=os_hd,
         role_size='Small')
 
-## <a name="DeleteVM"> </a>Como: Exclui uma máquina virtual
+## <a name="DeleteVM"> </a>Como: Excluir uma máquina virtual
 
 Para excluir uma máquina virtual, primeiro você exclui a implantação usando o método **delete\_deployment**:
 
@@ -496,7 +496,7 @@ Agora que você já conhece os conceitos básicos do gerenciamento de serviços,
 -   Consulte a referência de MSDN: [Serviços de Nuvem][pacote de serviço]
 -   Consulte a referência de MSDN: [Máquinas Virtuais][Máquinas Virtuais]
 
-  [SDK do Azure para Python]: https://www.windowsazure.com/pt-BR/develop/python/common-tasks/install-python/
+  [SDK do Azure para Python]: https://www.windowsazure.com/pt-br/develop/python/common-tasks/install-python/
   [portal de gerenciamento]: https://manage.windowsazure.com/
   [O que é o Gerenciamento de Serviços]: #WhatIs
   [Conceitos]: #Concepts
@@ -518,20 +518,19 @@ Agora que você já conhece os conceitos básicos do gerenciamento de serviços,
   [Como: Criar uma máquina virtual]: #CreateVM
   [Como: Exclui uma máquina virtual]: #DeleteVM
   [Próximas etapas]: #NextSteps
-  [criar uma conta do Azure]: http://www.windowsazure.com/pt-BR/pricing/free-trial/
-  [API de Gerenciamento de Serviços do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460799.aspx
-  [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg551722.aspx
+  [criar uma conta do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/
+  [API de Gerenciamento de Serviços do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee460799.aspx
+  [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
-  [Gerenciando certificados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg981929.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
-  [serviço de nuvem]: http://windowsazure.com/pt-BR/documentation/articles/cloud-services-what-is
-  [pacote de serviço]: http://msdn.microsoft.com/pt-BR/library/windowsazure/jj155995.aspx
-  [cmdlets do PowerShell do Azure]: https://www.windowsazure.com/pt-BR/develop/php/how-to-guides/powershell-cmdlets/
-  [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg432988.aspx
-  [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee758710.aspx
-  [Implantando um Serviço do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg433027.aspx
-  [serviço de armazenamento]: https://www.windowsazure.com/pt-BR/manage/services/storage/what-is-a-storage-account/
-  [Blobs]: https://www.windowsazure.com/pt-BR/develop/python/how-to-guides/blob-service/
-  [Tabelas]: https://www.windowsazure.com/pt-BR/develop/python/how-to-guides/table-service/
-  [Filas]: https://www.windowsazure.com/pt-BR/develop/python/how-to-guides/queue-service/
-  [Máquinas Virtuais]: http://msdn.microsoft.com/pt-BR/library/windowsazure/jj156003.aspx
+  [Gerenciando certificados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg981929.aspx
+  [serviço de nuvem]: http://windowsazure.com/pt-br/documentation/articles/cloud-services-what-is
+  [pacote de serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj155995.aspx
+  [cmdlets do PowerShell do Azure]: https://www.windowsazure.com/pt-br/develop/php/how-to-guides/powershell-cmdlets/
+  [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg432988.aspx
+  [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
+  [Implantando um Serviço do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433027.aspx
+  [serviço de armazenamento]: https://www.windowsazure.com/pt-br/manage/services/storage/what-is-a-storage-account/
+  [Blobs]: https://www.windowsazure.com/pt-br/develop/python/how-to-guides/blob-service/
+  [Tabelas]: https://www.windowsazure.com/pt-br/develop/python/how-to-guides/table-service/
+  [Filas]: https://www.windowsazure.com/pt-br/develop/python/how-to-guides/queue-service/
+  [Máquinas Virtuais]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156003.aspx

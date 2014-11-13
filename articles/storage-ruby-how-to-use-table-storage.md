@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Saiba como usar o servi&ccedil;o de armazenamento de tabela no Azure. Os exemplos de c&oacute;digo s&atilde;o escritos com a API do Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Como usar o servi&ccedil;o Tabela do Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
@@ -47,7 +47,7 @@ que inclui um conjunto de bibliotecas convenientes que se comunicam com os servi
 
 ### Usar RubyGems para obter o pacote
 
-1.  Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1.  Use uma interface da linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
 
 2.  Digite **gem install azure** na janela de comandos para instalar a gema e as dependências.
 
@@ -159,15 +159,16 @@ Para excluir uma tabela, use o método **delete\_table()** e passe o nome da tab
 
         azure_table_service.delete_table("testtable")
 
-## <span id="next-steps"></span></a> Próximas etapas
+## <span id="next-steps"></span></a>Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
--   Visite o repositório [SDK do Azure para Ruby][SDK do Azure para Ruby] no GitHub
+-   Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
 
   [Próximas etapas]: #next-steps
+  [O que é o serviço Tabela?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-a-windows-azure-storage-account
   [Criar um aplicativo Ruby]: #create-a-ruby-application
@@ -182,10 +183,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
   [Como: Consultar um subconjunto de propriedades da entidade]: #how-to-query-a-subset-of-entity-properties
   [Como: Excluir uma entidade]: #how-to-delete-an-entity
   [Como: Excluir uma tabela]: #how-to-delete-a-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Criar um aplicativo Ruby no Azure]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [SDK do Azure para Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby
+  [SDK do Azure para o nó]: http://github.com/WindowsAzure/azure-sdk-for-ruby

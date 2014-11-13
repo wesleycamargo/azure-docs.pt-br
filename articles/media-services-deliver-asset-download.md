@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Delivering Media Assets" pageTitle="Como fornecer ativos de m&iacute;dia - Azure" metaKeywords="" description="Saiba quais s&atilde;o as op&ccedil;&otilde;es para entregar ativos de m&iacute;dia que foram carregados nos Servi&ccedil;os de M&iacute;dia no Azure. Os exemplos de c&oacute;digo s&atilde;o escritos em C# e usam a SDK dos Servi&ccedil;os de M&iacute;dia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Como: Fornecer um ativo por download" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Como: Fornecer um ativo por download
 
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Gerenciar ativos][].
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Gerenciar ativos][Como: Gerenciar ativos].
 
 Este tópico descreve as opções para a entrega de ativos de mídia carregados nos Serviços de Mídia. Você pode entregar conteúdo dos Serviços de Mídia em vários cenários de aplicativos. Você pode baixar ativos de mídia ou acessá-los usando um localizador. Você pode enviar conteúdo de mídia para outro aplicativo ou para outro provedor de conteúdo. Para obter melhor desempenho e escalabilidade, você também pode entregar conteúdo usando uma CDN (Rede de Distribuição de Conteúdo), como a CDN do Azure.
 
@@ -62,15 +62,15 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia. O cód
 
 Para obter mais informações sobre entrega de ativos, consulte:
 
--   [Fornecer ativos com os Serviços de Mídia para .NET][]
--   [Fornecer ativos com a API REST dos Serviços de Mídia][]
+-   [Fornecer ativos com os Serviços de Mídia para .NET][Fornecer ativos com os Serviços de Mídia para .NET]
+-   [Fornecer ativos com a API REST dos Serviços de Mídia][Fornecer ativos com a API REST dos Serviços de Mídia]
 
 </p>
 ## Próximas etapas
 
-Este tópico explicou como baixar um ativo do Armazenamento do Azure. Para obter informações sobre outras maneiras de entregar ativos, vá para o tópico [Como entregar conteúdo de streaming][].
+Este tópico explicou como baixar um ativo do Armazenamento do Azure. Para obter informações sobre outras maneiras de entregar ativos, vá para o tópico [Como entregar conteúdo de streaming][Como entregar conteúdo de streaming].
 
-  [Como: Gerenciar ativos]: http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409
-  [Fornecer ativos com os Serviços de Mídia para .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Fornecer ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [Como entregar conteúdo de streaming]: http://go.microsoft.com/fwlink/?LinkID=301942
+  [Como: Gerenciar ativos]: ../media-services-manage-assets/
+  [Fornecer ativos com os Serviços de Mídia para .NET]: http://msdn.microsoft.com/pt-br/library/jj129575.aspx
+  [Fornecer ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/pt-br/library/jj129578.aspx
+  [Como entregar conteúdo de streaming]: ../media-services-deliver-streaming-content/

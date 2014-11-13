@@ -1,6 +1,6 @@
-<properties title="How To Change the Drive Letter of the Windows Temporary Disk" pageTitle="How To Change the Drive Letter of the Windows Temporary Disk" description="Describes how to remap the temporary disk on a Windows VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="Como alterar a letra da unidade do disco tempor&aacute;rio do Windows" pageTitle="Como alterar a letra da unidade do disco tempor&aacute;rio do Windows" description="Descreve como remapear o disco tempor&aacute;rio em uma VM do Windows no Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav"  manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="07/09/2014" ms.author="kathydav" />
 
 # Como alterar a letra da unidade do disco temporário do Windows
 
@@ -44,3 +44,4 @@ Antes de começar, verifique se você tem o seguinte:
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Como fazer logon em uma máquina virtual executando o Windows Server]: ../virtual-machines-log-on-windows-server/
   [Como desanexar um disco de dados de uma máquina virtual]: ../storage-windows-detach-disk/
+  [O que é uma conta de armazenamento?]: ../storage-whatis-account/

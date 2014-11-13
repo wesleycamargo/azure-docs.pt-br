@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Como usar o armazenamento de blob (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Saiba como usar o servi&ccedil;o Blob do Azure para carregar, baixar, listar e excluir o conte&uacute;do de blob. Amostras escritas em Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Como usar o servi&ccedil;o Blob do Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Como usar o serviço Blob do Node.js
 
@@ -42,9 +42,9 @@ Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar 
 Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que se
 comunicam com os serviços REST do armazenamento.
 
-### Use o NPM (Node Package Manager) para obter o pacote
+### Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 
-1.  Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix), e navegue até a pasta onde você criou o aplicativo de exemplo.
+1.  Use uma interface de linha de comando, como **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix), e vá até a pasta onde você criou a amostra do aplicativo.
 
 2.  Digite **npm install azure-storage** na janela de comando, que deve
     resultar na seguinte saída:
@@ -59,8 +59,8 @@ comunicam com os serviços REST do armazenamento.
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta
-    **node\_modules** foi criada. Dentro dessa pasta, encontre o pacote
+3.  Você pode executar o comando **ls** manualmente para verificar se uma
+    pasta **node\_modules** foi criada. Dentro dessa pasta, encontre o pacote
     **azure-storage** que contém as bibliotecas necessárias para
     acessar o armazenamento.
 
@@ -75,7 +75,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createBlobService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][Aplicativo Node.js na Web com armazenamento].
+Para obter um exemplo de como definir as variáveis de ambiente no portal de gerenciamento para um Site do Azure, consulte [Aplicativo da Web do Node.js com Armazenamento][Aplicativo da Web do Node.js com Armazenamento].
 
 ## <a name="create-container"> </a>Como: Criar um contêiner
 
@@ -174,7 +174,7 @@ Para carregar dados para um blob de página, use o seguinte:
 
 -   **createPageBlob** – cria um novo blob de página de um comprimento específico.
 
--   **createPageBlobFromFile** – cria um novo blob de página e carrega o conteúdo de um arquivo.
+-   **createPageBlobFromLocalFile** – cria um novo blob de página e carrega o conteúdo de um arquivo.
 
 -   **createPageBlobFromStream** – cria um novo blob de página e carrega o conteúdo de um fluxo.
 
@@ -184,7 +184,7 @@ Para carregar dados para um blob de página, use o seguinte:
 
 O exemplo a seguir carrega o conteúdo do arquivo **test.txt** em **mypageblob**.
 
-    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+    blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
       if(!error){
         // file uploaded
       }
@@ -363,7 +363,7 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 
     blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
-## <a name="next-steps"> </a> Próximas etapas
+## <a name="next-steps"> </a>Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links
 para saber como executar tarefas de armazenamento mais complexas.
@@ -373,6 +373,7 @@ para saber como executar tarefas de armazenamento mais complexas.
 -   Visite o repositório [SDK de armazenamento do Azure para nó][SDK de armazenamento do Azure para nó] no GitHub.
 
   [Próximas etapas]: #next-steps
+  [O que é o serviço Blob?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
   [Criar um aplicativo Node.js]: #create-app
@@ -385,12 +386,10 @@ para saber como executar tarefas de armazenamento mais complexas.
   [Como: Excluir um blob]: #delete-blobs
   [Como: Acesso simultâneo]: #concurrent-access
   [Como: Trabalhar com assinaturas de acesso compartilhado]: #sas
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/develop/nodejs/tutorials/create-a-website-(mac)/
   [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site com o WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Aplicativo Node.js na Web com armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Aplicativo da Web do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Noções básicas sobre blobs de bloco e blobs de página]: http://msdn.microsoft.com/pt-br/library/azure/ee691964.aspx
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx

@@ -1,6 +1,6 @@
-<properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="Op&ccedil;&otilde;es de seguran&ccedil;a para M&aacute;quinas Virtuais do Azure" pageTitle="Op&ccedil;&otilde;es de seguran&ccedil;a para M&aacute;quinas Virtuais do Azure" description="R&aacute;pida vis&atilde;o geral dos principais recursos de seguran&ccedil;a para m&aacute;quinas virtuais do Azure e links para detalhes" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
 # Opções de segurança para Máquinas Virtuais do Azure
 
@@ -22,6 +22,12 @@ O Azure oferece diversas opções para soluções de antivírus/anti-malware, ma
 
 As ACLs de rede possibilitam permitir ou negar seletivamente tráfego de entrada em um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Para obter detalhes sobre como isso funciona e links para instruções, consulte [Sobre ACLs (listas de controle de acesso)][Sobre ACLs (listas de controle de acesso)].
 
+## Recursos adicionais
+
+[Recursos][Recursos] no Microsoft Azure Trust Center
+
   [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404206
   [Implantando soluções de anti-malware em Máquinas Virtuais do Azure]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
+  [Sobre ACLs (listas de controle de acesso)]: http://go.microsoft.com/fwlink/?LinkId=506655
+  [Recursos]: http://azure.microsoft.com/pt-br/support/trust-center/resources/

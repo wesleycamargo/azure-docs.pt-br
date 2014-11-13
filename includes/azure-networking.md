@@ -4,8 +4,8 @@ A maneira mais fácil de se conectar aos aplicativos e dados do Azure é por mei
 
 ## Sumário
 
--   [Rede Virtual do Azure][]
--   [Gerenciador de Tráfego do Azure][]
+-   [Rede Virtual do Azure][Rede Virtual do Azure]
+-   [Gerenciador de Tráfego do Azure][Gerenciador de Tráfego do Azure]
 
 <a name="Vnet"></a>
 
@@ -13,18 +13,18 @@ A maneira mais fácil de se conectar aos aplicativos e dados do Azure é por mei
 
 O Azure permite criar VMs (máquinas virtuais) que são executadas nos datacenters da Microsoft. Suponha que sua organização queira usar essas VMs para executar aplicativos empresariais ou outros softwares que serão usados pelos funcionários da empresa. Talvez você queira criar um farm do SharePoint na nuvem, por exemplo, ou executar um aplicativo de gerenciamento de estoque. Para facilitar a vida dos seus usuários ao máximo, você deseja que esses aplicativos possam ser acessados como se estivessem sendo executados no seu próprio datacenter.
 
-Há uma solução padrão para este tipo de problema: criar uma rede virtual privada (VPN). As organizações de todos os tamanhos de hoje fazem isso, digamos que, para vincular computadores das filiais ao principal datacenter do empresa. Essa mesma abordagem pode funcionar com as VMs do Azure, como mostrado na Figura 1.
+Há uma solução padrão para este tipo de problema: criar uma rede virtual privada (VPN). Organizações de todos os tamanhos fazem isso atualmente, para vincular (ou filiar) computadores das filiais ao datacenter da central. Essa mesma abordagem pode funcionar com as VMs do Azure, como mostrado na Figura 1.
 
 <a name="Fig1"></a>
 
-![01\_Networking][]
+![01\_Networking][01\_Networking]
 
-**Figura 1: a Rede Virtual do Azure permite criar uma rede virtual na nuvem que é conectada ao seu datacenter local.**
+**Figura 1: A Rede Virtual do Azure permite criar uma rede virtual na nuvem que é conectada ao seu datacenter local.**
 
 Como mostra a figura, a Rede Virtual do Azure permite criar um limite lógico em torno de um grupo de VMs, chamado *rede virtual ou VNET*, em um datacenter do Azure. Ela permite estabelecer uma conexão IPsec entre essa VNET e sua rede local. As VMs em uma VNET podem ser criadas usando as Máquinas Virtuais do Azure, os Serviços de Nuvem do Azure, ou ambos. Em outras palavras, elas podem ser VMs criadas usando a tecnologia IaaS (Infraestrutura como Serviço) do Azure ou sua tecnologia PaaS (Plataforma como Serviço).
 Seja qual for sua escolha, a criação da conexão IPsec exige um dispositivo de gateway VPN, um hardware especializado que é anexado à sua rede local, além de exigir os serviços do administrador da rede. Assim que essa conexão for estabelecida, as VMs do Azure em execução na sua VNET parecerão outra parte da rede da sua organização.
 
-Como sugerido pela [Figura 1][], você aloca endereços IP para as VMs do Azure a partir do mesmo espaço de endereço IP usado na sua própria rede. No cenário mostrado aqui, que usa endereços IP privados, as VMs na nuvem são apenas outra sub-rede do IP. O software em execução na sua rede local verá essas VMs como se elas fossem locais, assim como fazem com as VPNs tradicionais. É importante observar que como essa conexão acontece no nível de IP, as máquinas virtuais e físicas em ambos os lados podem ser executadas em qualquer sistema operacional. As VMs do Azure em execução no Windows Server ou Linux podem interagir com as máquinas locais que executam sistemas Windows, Linux ou algum outro. Também é possível usar ferramentas de gerenciamento básicas, incluindo System Center, entre outras, para gerenciar as VMs na nuvem e os aplicativos que elas contêm.
+Como sugerido pela [Figura 1][Figura 1], você aloca endereços IP para as VMs do Azure a partir do mesmo espaço de endereço IP usado na sua própria rede. No cenário mostrado aqui, que usa endereços IP privados, as VMs na nuvem são apenas outra sub-rede do IP. O software em execução na sua rede local verá essas VMs como se elas fossem locais, assim como fazem com as VPNs tradicionais. É importante observar que como essa conexão acontece no nível de IP, as máquinas virtuais e físicas em ambos os lados podem ser executadas em qualquer sistema operacional. As VMs do Azure em execução no Windows Server ou Linux podem interagir com as máquinas locais que executam sistemas Windows, Linux ou algum outro. Também é possível usar ferramentas de gerenciamento básicas, incluindo System Center, entre outras, para gerenciar as VMs na nuvem e os aplicativos que elas contêm.
 
 Usar a Rede Virtual do Azure faz sentido em muitas situações. Como já foi mencionado, essa abordagem permite que os usuários empresariais acessem aplicativos na nuvem com mais facilidade. Um importante aspecto dessa facilidade de uso é a capacidade de tornar as VMs do Azure parte um domínio Active Directory local existente para fornecer aos usuários logon único aos aplicativos que eles executam. Se preferir, também é possível criar um domínio do Active Directory na nuvem e, em seguida, conectar esse domínio à sua rede local.
 
@@ -42,9 +42,9 @@ O Gerenciador de Tráfego do Azure foi desenvolvido para resolver esse problema.
 
 <a name="Fig3"></a>
 
-![03\_TrafficManager][]
+![03\_TrafficManager][03\_TrafficManager]
 
-**Figura 2: o Gerenciador de Tráfego do Azure direciona de modo inteligente as solicitações dos usuários pelas instâncias de um aplicativo que é executado em diferentes datacenters do Azure.**
+**Figura 2: O Gerenciador de Tráfego do Azure direciona de modo inteligente as solicitações dos usuários pelas instâncias de um aplicativo que é executado em diferentes datacenters do Azure.**
 
 Neste exemplo, o aplicativo é executado em VMs distribuídas em quatro datacenters: dois nos EUA, um na Europa e um na Ásia. Suponha que um usuário em Berlim deseja acessar o aplicativo. Se você estiver usando o Gerenciador de Tráfego, veja o que acontece.
 
@@ -52,7 +52,7 @@ Como sempre, o sistema do usuário procura o nome DNS do aplicativo (Etapa 1). E
 
 -   **Desempenho:** todas as solicitações são enviadas para o datacenter com a menor latência do sistema do usuário.
 -   **Failover:** todas as solicitações são enviadas ao datacenter especificado pelo criador dessa política, a menos que o datacenter esteja indisponível. Nesse caso, as solicitações são direcionadas para outros datacenters na ordem de prioridade definida pelo criador da política.
--   **Round Robin:** todas as solicitações são distribuídas igualmente entre todos os datacenters nos quais o aplicativo é executado.
+-   **Round Robin:** todas as solicitações serão distribuídas igualmente entre todos os datacenters nos quais o aplicativo for executado.
 
 Com a política certa, o Gerenciador de Tráfego calcula para qual datacenter essa solicitação deve ser encaminhada com base em qual das três opções foi especificada (Etapa 3). Ele então retorna o local do datacenter escolhido ao usuário (Etapa 4), que acessa essa instância do aplicativo (Etapa 5).
 

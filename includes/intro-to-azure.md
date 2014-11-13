@@ -1,58 +1,56 @@
-# Apresentando o Azure
+# Apresentando o Microsoft Azure
 
-O Azure é a plataforma de aplicativos da Microsoft para a nuvem pública. Você pode usar essa plataforma de diferentes maneiras.
-
--   Você pode usar o Azure para criar um aplicativo Web que é executado e armazena seus dados em datacenters do Azure.
--   Você pode usar o Azure apenas para armazenar dados, com os aplicativos que usam esses dados em execução local (isto é, fora da nuvem pública).
--   É possível usar o Azure para criar máquinas virtuais para desenvolvimento e teste ou para executar o SharePoint e outros aplicativos.
--   Ele também pode ser usado para criar aplicativos altamente escalonáveis com muitos e muitos usuários.
-
-Como a plataforma oferece uma ampla variedade de serviços, é possível fazer tudo isso e muito mais. Porém, para realizar qualquer uma das tarefas acima, é preciso entender os conceitos básicos. Mesmo que você não saiba nada sobre computação em nuvem, este artigo o guiará pelos princípios do Azure. O objetivo é fornecer uma base para compreender e usar essa plataforma na nuvem.
+O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública. A finalidade deste artigo é mostrar os princípios básicos do Azure, mesmo que você não saiba nada sobre computação em nuvem.
 
 **Como ler este artigo**
 
-Há muitos serviços no Azure e ele está aumentando o tempo todo, portanto, é fácil ficar sobrecarregado. Os serviços básicos são listados anteriormente no documento. Comece apenas com estes. Então, passe para os serviços adicionais. Isso não significa que você não pode utilizar os serviços adicionais por conta própria, mas os serviços básicos compõem o núcleo de um aplicativo sendo executado pelo Azure.
+O Azure está aumentando o tempo todo, portanto, é fácil ficar sobrecarregado. Os serviços básicos são listados anteriormente no documento. Comece por eles e, então, passe para os serviços adicionais. Isso não significa que você não pode utilizar os serviços adicionais por conta própria, mas os serviços básicos compõem o núcleo de um aplicativo sendo executado pelo Azure.
 
 **Ofereça feedback**
 
-Este artigo deve oferecer a você uma visão geral eficaz do Azure. Se isso não acontecer, mencione para nós na seção de comentários da parte inferior da página. Ofereça alguns detalhes sobre o que você esperava ver e como melhorar. Seu feedback é importante.
+Seu feedback é importante. Este artigo deve oferecer a você uma visão geral eficaz do Azure. Se isso não acontecer, mencione para nós na seção de comentários da parte inferior da página. Ofereça alguns detalhes sobre o que você esperava ver e como melhorar este artigo.
 
 ## Sumário
 
-Serviços Básicos
+**Serviços Básicos**
 
--   [Os componentes do Azure][]
--   [Portal de Gerenciamento][]
--   [Computação][]
--   [Gerenciamento de Dados][]
--   [Rede][]
--   [Serviços para Desenvolvedores][]
+-   [Os componentes do Azure][Os componentes do Azure]
+-   [Portal de Gerenciamento][Portal de Gerenciamento]
+-   [Computação][Computação]
+-   [Gerenciamento de Dados][Gerenciamento de Dados]
+-   [Rede][Rede]
+-   [Serviços para Desenvolvedores][Serviços para Desenvolvedores]
 
-Serviços Adicionais
+**Serviços Adicionais**
 
--   [Identidade e Acesso][]
--   [Serviço Móvel][]
--   [Serviço de Backup][]
--   [Mensagem e integração][]
--   [Assistência de Computação][]
--   [Desempenho][]
--   [Dados e Computação de Grande Porte][]
--   [Mídia][]
--   [Comércio][]
--   [Introdução][]
+-   [Identidade e Acesso][Identidade e Acesso]
+-   [Serviço Móvel][Serviço Móvel]
+-   [Backup][Backup]
+-   [Mensagens e integração][Mensagens e integração]
+-   [Assistência de Computação][Assistência de Computação]
+-   [Desempenho][Desempenho]
+-   [Dados e Computação de Grande Porte][Dados e Computação de Grande Porte]
+-   [Mídia][Mídia]
+-   [Comércio][Comércio]
+
+[Introdução][Introdução]
 
 ## <span id="components"></span></a>Os componentes do Azure
 
-O Azure agrupa os serviços em categorias no Portal de Gerenciamento e em seus diversos auxílios visuais, como o [Infográfico O que é o Windows Azure][]. O Portal de Gerenciamento é o que você utiliza para gerenciar a maior parte (mas não todos) os serviços no Azure. Este documento utilizará uma **organização diferente** para tratar de serviços baseados em uma função similar e para chamar subsserviços que são parte de serviços maiores.
+O Azure agrupa os serviços em categorias no Portal de Gerenciamento e em seus diversos auxílios visuais, como o [Infográfico O que é o Windows Azure][Infográfico O que é o Windows Azure]. O Portal de Gerenciamento é o que você utiliza para gerenciar a maior parte (mas não todos) os serviços no Azure.
 
-![Componentes do Azure][]   
- **Figura 1: O Azure fornece serviços de aplicativos acessíveis pela Internet, sendo executados em datacenters do Azure.**
+Este documento utilizará uma **organização diferente** para tratar de serviços baseados em uma função similar e para chamar sub-serviços que são parte de serviços maiores.
+
+![Componentes do Azure][Componentes do Azure]
+ **Figura: O Azure fornece serviços de aplicativos acessíveis pela Internet, sendo executados em datacenters do Azure.**
 
 ## <span id="portal"></span></a>Portal de Gerenciamento
 
-O Azure conta com uma interface web chamada Portal de Gerenciamento, que permite que os administradores acessem e administrem a maioria dos recursos do Azure (mas não todos). A Microsoft normalmente libera o novo portal de interface de usuário em versão beta, antes de descontinuar o antigo. A versão nova é chamada de "Portal de Visualização”. Normalmente, há alguma sobreposição entre os dois portais.
+O Azure conta com uma interface web chamada [Portal de Gerenciamento][1], que permite que os administradores acessem e administrem a maioria dos recursos do Azure (mas não todos). A Microsoft normalmente libera o novo portal de interface de usuário em versão beta, antes de descontinuar o antigo. A versão nova é chamada de ["Portal de Visualização do Azure"]["Portal de Visualização do Azure"].
 
-## <span id="compute"></span></a> Computação
+Geralmente, há uma grande sobreposição quando ambos os portais estão ativos. Embora os serviços essenciais apareçam nos dois portais, nem todas as funcionalidades estão presentes em ambos. Os serviços mais recentes podem aparecer primeiro no portal mais novo, enquanto os serviços mais antigos podem estar presentes apenas no portal mais antigo. Ou seja, se você não encontrar algo no portal mais antigo, verifique o portal mais novo e vice-versa.
+
+## <span id="compute"></span></a>Computação
 
 Uma das tarefas mais básicas da plataforma na nuvem é executar aplicativos. O Azure oferece essas opções:
 
@@ -66,12 +64,12 @@ Essas tecnologias podem ser usadas separadamente ou combinadas, conforme a neces
 
 ### Máquinas Virtuais do Azure
 
-![Máquinas Virtuais do Azure][]  
-**Figura 2: As Máquinas Virtuais do Azure oferecem a você controle total sobre instâncias da máquina virtual presentes na nuvem.**
+![Máquinas Virtuais do Azure][Máquinas Virtuais do Azure]
+**Figura: As Máquinas Virtuais do Azure oferecem a você controle total sobre instâncias da máquina virtual presentes na nuvem.**
 
 A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço (IaaS), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma Máquina Virtual (VM) é executada e criada a partir de um VHD.
 
-Para criar uma VM, você especifica qual VHD usar e o tamanho da VM. Você então paga por cada momento em que a VM estiver em execução. Você paga por minuto e somente enquanto estiver em funcionamento, apesar de existir uma cobrança mínima de armazenamento para manter o VHD disponível. O Azure oferece uma galeria de VHDs em estoque (chamados “imagens”) que contêm um sistema operacional inicializável do qual se pode começar. Estas incluem opções da Microsoft e de parceiros, como o Windows Server e Linux, SQL Server, Oracle e muitos outros. Você fica livre para criar VHDs e imagens e então carregá-los, por conta própria. Você pode até mesmo carregar VHDs que contém somente dados e acessá-los a partir de suas VMs em execução.
+Para criar uma VM, você especifica qual VHD usar e o tamanho da VM. Você então paga por cada momento em que a VM estiver em execução. Você paga por minuto e somente enquanto estiver em funcionamento, apesar de existir uma cobrança mínima de armazenamento para manter o VHD disponível. O Azure oferece uma galeria de VHDs em estoque (chamados "imagens") que contêm um sistema operacional inicializável do qual se pode começar. Estas incluem opções da Microsoft e de parceiros, como o Windows Server e Linux, SQL Server, Oracle e muitos outros. Você fica livre para criar VHDs e imagens e então carregá-los, por conta própria. Você pode até mesmo carregar VHDs que contém somente dados e acessá-los a partir de suas VMs em execução.
 
 Seja qual for a origem do VHD, você pode armazenar persistentemente todas as alterações feitas enquanto uma VM estiver em execução. Na próxima vez que uma VM for criada desse VHD, tudo é obtido de onde você parou. Os VHDs que dão suporte às Máquinas Virtuais são armazenados nos blobs de armazenamento do Azure, sobre os quais falaremos depois. Isso significa que você obtém redundância para garantir que suas VMs não desaparecerão devido a falhas de hardware e de disco. Também é possível copiar o VHD alterado fora do Azure e executá-lo localmente.
 
@@ -87,14 +85,14 @@ Essa abordagem geral para computação em nuvem pode ser usada para solucionar m
 
 ### Sites
 
-![Sites do Azure][]   
- **Os sites do Azure executam um aplicativo de site na nuvem, sem precisar gerenciar o servidor Web subjacente.**
+![Sites do Azure][Sites do Azure]
+ **Figura: Os sites do Azure executam um aplicativo de site da Web na nuvem, sem precisar gerenciar o servidor Web subjacente.**
 
 Uma das tarefas mais comuns que as pessoas fazem em nuvem é executar sites e aplicativos web. As Máquinas Virtuais do Azure permitem isso, porém, ainda deixam você com a responsabilidade de administrar uma ou mais VMs e os sistemas operacionais subjacentes. As funções web dos serviços de nuvem podem fazer isso, mas implantá-las e mantê-las ainda exige trabalho administrativo. E se você apenas quisesse um site no qual alguma outra pessoa cuidasse do trabalho administrativo para você?
 
 Isso é exatamente o que os Sites do Azure oferecem. Esse modelo de computação oferece um ambiente de web gerenciado usando o Portal de Gerenciamento do Azure, bem como as APIs. Você pode mover um aplicativo de site existente para os Sites da Web do Azure não alterados ou pode criar um novo diretamente na nuvem. Assim que um site estiver em execução, será possível adicionar ou remover instâncias dinamicamente, dependendo dos Sites da Web do Azure para balancear a carga de solicitações entre elas. Os Sites do Azure oferecem uma opção compartilhada, onde o site é executado em uma máquina virtual com outros sites, e uma opção padrão que permite que um site seja executado em sua própria VM. A opção padrão também permite que você aumente o tamanho (computação energia) das ocorrências, se necessário.
 
-Para desenvolvimento, os sites oferecem suporte ao .NET, PHP e Node.js e Python, juntamente com o Banco de Dados SQL e o MySQL (da ClearDB, uma parceira da Microsoft) para armazenamento relacional. Eles também fornecem suporte interno para vários aplicativos conhecidos, incluindo WordPress, Joomla e Drupal. O objetivo é fornecer uma plataforma amplamente útil, de baixo custo e escalonável para criação de sites e aplicativos web na nuvem pública.
+Para desenvolvimento, os sites da Web oferecem suporte ao .NET, PHP, Node.js, Java e Python, juntamente com o Banco de Dados SQL e o MySQL (da ClearDB, uma parceira da Microsoft) para armazenamento relacional. Eles também fornecem suporte interno para vários aplicativos conhecidos, incluindo WordPress, Joomla e Drupal. O objetivo é fornecer uma plataforma amplamente útil, de baixo custo e escalonável para criação de sites e aplicativos web na nuvem pública.
 
 **Cenários dos sites**
 
@@ -102,16 +100,16 @@ Os sites são destinados a ser úteis para empresas, desenvolvedores e agências
 
 ### Serviços de Nuvem
 
-![Serviço de Nuvem do Azure][]   
-**Os Serviços de Nuvem do Azure fornecem um local para executar código personalizado altamente dimensionável em um ambiente de plataforma como serviço (PaaS)**
+![Serviço de Nuvem do Azure][Serviço de Nuvem do Azure]
+**Figura: Os Serviços de Nuvem do Azure fornecem um local para executar código personalizado altamente dimensionável em um ambiente de plataforma como serviço (PaaS)**
 
 Suponha que você queira criar um aplicativo em nuvem que possa oferecer suporte a vários usuários simultaneamente, não exija muito esforço administrativo e nunca falhe. Você pode ser um fornecedor de software estabelecido, por exemplo, que está decidido a adotar o SaaS (Software como Serviço) criando uma versão de um dos seus aplicativos na nuvem. Ou você pode ser um iniciante criando um aplicativo de consumidor com grandes expectativas de que ele cresça rapidamente. Se estiver desenvolvendo com o Azure, que modelo de execução você deve usar?
 
 Os Sites do Azure permitem a criação desse tipo de aplicativo Web, mas há algumas restrições. Por exemplo, se você não tiver acesso administrativo, significa que não poderá instalar softwares arbitrários. As Máquinas Virtuais do Azure proporcionam muita flexibilidade, incluindo acesso administrativo, e você certamente pode usá-las para criar um aplicativo bastante escalonável, mas ainda terá que lidar com muitos aspectos de confiabilidade e administração. O que você deseja é uma opção que proporcione o controle necessário, mas que também manipule a maior parte do trabalho exigido pela confiabilidade e administração.
 
-Isso é exatamente o que é fornecido pelos Serviços de Nuvem do Azure. Essa tecnologia foi desenvolvida explicitamente para oferecer suporte a aplicativos escalonáveis, confiáveis e que exigem baixa administração. Esse é um exemplo do que normalmente chamamos de PaaS (Plataforma como Serviço). Para usá-la, você pode criar um aplicativo usando a tecnologia de sua preferência, como C\#, Java, PHP, Python, Node.js, etc. Seu código é executado em máquinas virtuais (conhecidas como instâncias) que executam uma versão do Windows Server.
+Isso é exatamente o que é fornecido pelos Serviços de Nuvem do Azure. Essa tecnologia foi desenvolvida explicitamente para oferecer suporte a aplicativos escalonáveis, confiáveis e que exigem baixa administração. Esse é um exemplo do que normalmente chamamos de PaaS (Plataforma como Serviço). Para usá-la, você pode criar um aplicativo usando a tecnologia de sua preferência, como C#, Java, PHP, Python, Node.js, etc. Seu código é executado em máquinas virtuais (conhecidas como instâncias) que executam uma versão do Windows Server.
 
-Mas essas VMs são diferentes daquelas que você cria com as Máquinas Virtuais do Azure. Em primeiro lugar, o Azure em si as gerencia, realizando tarefas como instalar patches do sistema operacional e implantar automaticamente novas imagens com patches. Isso indica que seu aplicativo não deve manter o estado nas instâncias da função Web ou de trabalho; ele deve ser mantido em uma das opções de gerenciamento de dados do Azure descritas na próxima seção. O Azure também monitora essas VMs, reiniciando todas que falharem. Você pode definir os serviços de nuvem para criarem automaticamente mais ou menos instâncias em resposta à demanda. Isso permite que você gerencie uma maior utilização e então faça o dimensionamento de volta, de modo que não haja tanto custo quando há menos uso.
+Mas essas VMs são diferentes daquelas que você cria com as Máquinas Virtuais do Azure. Em primeiro lugar, o Azure em si as gerencia, realizando tarefas como instalar patches do sistema operacional e implantar automaticamente novas imagens com patches. Isso indica que seu aplicativo não deve manter o estado nas instâncias da função Web ou de trabalho; ele deve ser mantido em uma das opções de gerenciamento de dados do Azure descritas na próxima seção. O Azure também monitora essas VMs, reiniciando todas que falharem. Você pode definir os serviços de nuvem para criarem automaticamente mais ou menos instâncias em resposta à demanda. Isso permite que você gerencie uma maior utilização e, então, faça o dimensionamento de volta, de modo que não haja tanto custo quando há menos uso.
 
 Existem duas funções a serem escolhidas quando você cria uma instância, ambas baseadas no Windows Server. A principal diferença entre as duas é que a instância de uma função Web é executada no IIS, enquanto a instância de uma função de trabalho, não. No entanto, ambas são gerenciadas da mesma forma, e é comum que um aplicativo use ambas. Por exemplo, uma instância da função Web pode aceitar solicitações de usuários e passá-las a uma instância da função de trabalho para processamento. Para dimensionar o aplicativo vertical ou horizontalmente, é possível solicitar que o Azure crie mais instâncias da função ou desligue as instâncias existentes. E assim como as Máquinas Virtuais do Azure, você será cobrado apenas pelo tempo durante o qual cada instância da função de trabalho ou Web é executada.
 
@@ -121,7 +119,7 @@ Os Serviços de Nuvem são ideais para dar suporte a expansão maciça quando vo
 
 #### Escolhendo um Modelo de Computação
 
-A comparação entre a página Sites do Azure, Serviços de Nuvem e Máquinas Virtuais (<http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/>) fornece informações mais detalhadas sobre como escolher um modelo de Computação.
+A comparação na página Azure Websites, Cloud Services and Virtual Machines (http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/ ) fornece informações mais detalhadas sobre como escolher um modelo de computação.
 
 ## <span id="data"></span></a>Gerenciamento de Dados
 
@@ -135,8 +133,8 @@ Outra vez, o estado da Máquina Virtual e quaisquer discos de dados adicionais q
 
 ### Banco de Dados SQL Azure
 
-![Banco de Dados SQL do Armazenamento do Azure][]   
-**O Banco de Dados SQL Azure oferece um banco de dados relacional gerenciado em nuvem.**
+![Banco de Dados SQL do Armazenamento do Azure][Banco de Dados SQL do Armazenamento do Azure]
+**Figura: O Banco de Dados SQL Azure oferece um banco de dados relacional gerenciado em nuvem.**
 
 Para armazenamento relacional, o Azure oferece o recurso de Banco de Dados SQL. Não deixe o nome lhe enganar. Ele é diferente de um Banco de Dados SQL comum, fornecido pelo SQL Server e sendo executado sobre o Windows Server.
 
@@ -152,8 +150,8 @@ Se você cria um aplicativo do Azure (utilizando qualquer um dos modelos de comp
 
 ### Tabelas
 
-![Tabelas de Armazenamento do Azure][]   
-**As Tabelas do Azure oferecem um modo simples de NoSQL para armazenar dados.**
+![Tabelas de armazenamento do Azure][Tabelas de armazenamento do Azure]
+**Figura: As Tabelas do Azure oferecem um modo simples de NoSQL para armazenar dados.**
 
 Esse recurso às vezes é chamado por nomes diferentes, já que é parte de um recurso mais amplo chamado “Armazenamento do Azure". Se você consultar “tabelas", “Tabelas do Azure" ou “tabelas de armazenamento", verá que os três equivalem à mesma coisa.
 
@@ -165,7 +163,7 @@ Suponha que você queira criar um aplicativo do Azure que precise de acesso ráp
 
 ### Blobs
 
-![Blobs de Armazenamento do Azure][]   
+![Blobs de Armazenamento do Azure][Blobs de Armazenamento do Azure]
 **Figura: Os Blobs do Azure fornecem dados binários não estruturados.**
 
 Os Blobs do Azure (ou “Armazenamento de Blob" e apenas “Blobs de Armazenamento" são a mesma coisa) são projetados para armazenar dados binários não estruturados. Assim como as Tabelas, os Blobs fornecem armazenamento barato; além disso, um único blob pode ter tamanho de até 1 TB (um terabyte). Os aplicativos do Azure também podem usar unidades do Azure, que permitem aos blobs fornecer armazenamento persistente para um sistema de arquivos do Windows montado em uma instância do Azure. O aplicativo enxerga os arquivos comuns do Windows, mas o conteúdo é armazenado em um blob.
@@ -178,23 +176,24 @@ Um aplicativo que armazena vídeos, arquivos massivos ou outras informações bi
 
 ### Importar/Exportar
 
-![Serviço Importar/Exportar do Azure][]   
-**Figura: Importar/Exportar do Azure oferece a capacidade de enviar um disco rígido físico para ou do Azure, para importação ou exportação de dados em massa.**
+![Serviço Importar/Exportar do Azure][Serviço Importar/Exportar do Azure]
+
+**Figura: O serviço Importar/Exportar do Azure oferece a capacidade de enviar um disco rígido físico para ou do Azure, para importação ou exportação de dados em massa.**
 
 Em alguns casos, você deseja mover um grande volume dados para o Azure. Isso levaria muito tempo, talvez dias, além de usar muita largura de banda. Nesses casos você pode usar a Importação/Exportação do Azure, que permite que você envie discos rígidos SATA de 3,5” criptografados pelo Bitlocker diretamente para os datacenters do Azure, onde a Microsoft irá transferir os dados para armazenamento blob para você. Após o carregamento ter sido concluído, a Microsoft envia as unidades de volta para você. Você também pode solicitar que grandes volumes de dados do Armazenamento de Blob sejam exportados para discos rígidos e enviados de volta a você, por email.
 
 **Cenários para Importar/Exportar**
 
--   **Migração de Grandes Volumes de Dados** - toda vez que você tiver grandes volumes de dados (Terabytes) que deseje carregar para o Azure, o serviço de Importação/Exportação é, frequentemente, muito mais rápido e talvez barato que transferir esses dados pela Internet. Uma vez que os dados estejam em blobs, você pode processá-los em outros formatos como armazenamento em Tabela ou um Banco de Dados SQL.
+-   **Migração de Grandes Volumes de Dados** - toda vez que você tiver grandes volumes de dados (Terabytes) que deseje carregar para o Azure, o serviço de Importação/Exportação é, frequentemente, muito mais rápido e, talvez, mais barato que transferir esses dados pela Internet. Uma vez que os dados estejam em blobs, você pode processá-los em outros formatos como armazenamento em Tabela ou um Banco de Dados SQL.
 
--   **Recuperação de Dados Arquivados** - você pode utilizar a função Importação/Exportação, para fazer com que a Microsoft transfira grandes volumes de dados armazenados no Armazenamento de Blob do Azure para um dispositivo de armazenamento que você envia, e depois recebe esse mesmo dispositivo de volta em um local que você quiser. Já que isso levará algum tempo, essa não é uma boa opção para recuperação de desastres. Ela é uma opção melhor para dados arquivados, para os quais você não precisa de acesso rápido.
+-   **Recuperação de Dados Arquivados** - você pode utilizar a função Importação/Exportação para fazer com que a Microsoft transfira grandes volumes de dados armazenados no Armazenamento de Blob do Azure para um dispositivo de armazenamento que você envia, e depois recebe esse mesmo dispositivo de volta em um local que você quiser. Já que isso levará algum tempo, essa não é uma boa opção para recuperação de desastres. Ela é uma opção melhor para dados arquivados, para os quais você não precisa de acesso rápido.
 
 ### Serviço de Arquivos do Azure
 
-![Serviço de Arquivos do Azure][]   
+![Serviço de Arquivos do Azure][Serviço de Arquivos do Azure]
 **Figura: O Serviço de Arquivos do Azure fornece caminhos SMB \\\\server\\share para aplicativos executados em nuvem.**
 
-No próprio local, é comum utilizar grandes volumes de armazenamento de arquivos acessíveis pelo protocolo SMB utilizando um formato \\\\Server\\share. O Azure agora conta com um serviço que permite que você utilize esse protocolo em nuvem. Os aplicativos sendo exexutados no Azure podem utilizar esse serviço para compartilhar arquivos entre VMs utilizando APIs com um sistema de arquivos familiar, como ReadFile e WriteFile. Além disso, os arquivos também podem ser acessados simultaneamente via uma interface REST, que permite que você acesse os compartilhamentos diretamente do local quando você também configurar uma rede virtual. Os Arquivos do Azure são criados sobre o serviço Blob, de modo que herdam a mesma disponibilidade, durabilidade, escalabilidade e redundância geográfica existentes no Armazenamento do Azure.
+No próprio local, é comum utilizar grandes volumes de armazenamento de arquivos acessíveis pelo protocolo SMB utilizando um formato \\\\Server\\share. O Azure agora conta com um serviço que permite que você utilize esse protocolo em nuvem. Os aplicativos sendo executados no Azure podem utilizar esse serviço para compartilhar arquivos entre VMs utilizando APIs com um sistema de arquivos familiar, como ReadFile e WriteFile. Além disso, os arquivos também podem ser acessados simultaneamente via uma interface REST, que permite que você acesse os compartilhamentos diretamente do local quando você também configurar uma rede virtual. Os Arquivos do Azure são criados sobre o serviço Blob, de modo que herdam a mesma disponibilidade, durabilidade, escalabilidade e redundância geográfica existentes no Armazenamento do Azure.
 
 **Cenários para Arquivos do Azure**
 
@@ -212,8 +211,9 @@ O Azure é executado hoje em muitos datacenters espalhados pelo mundo. Ao execut
 
 ### Rede Virtual
 
-![VirtualNetwork][]   
- **Figura: Redes Virtuais fornecem uma rede privada na nuvem, de modo que serviços diferentes podem comunicar-se entre si ou com recursos locais, se você configurar uma conexão VPN entre locais.**
+![VirtualNetwork][VirtualNetwork]
+
+**Figura: Redes Virtuais fornecem uma rede privada na nuvem, de modo que serviços diferentes podem se comunicar entre si ou com recursos locais, se você configurar uma conexão VPN entre locais.**
 
 Uma maneira útil de usar uma nuvem pública é tratá-la como uma extensão do seu próprio datacenter.
 
@@ -221,22 +221,22 @@ Como é possível criar VMs sob demanda e depois removê-las (e parar de pagar) 
 
 Mas para que isso seja realmente útil, convém que os usuários tratem esses aplicativos como se eles estivessem em execução no seu próprio datacenter. Isso é exatamente o que a Rede Virtual do Azure permite. Usando um dispositivo de gateway VPN, um administrador pode configurar uma rede privada virtual (VPN) entre sua rede local e suas VMs que são implantadas em uma rede virtual no Azure. Como você atribui seus próprios endereços IPv4 às VMs na nuvem, elas parecem estar na sua própria rede. Os usuários na sua organização podem acessar os aplicativos que essas VMs contêm como se estivessem sendo executados localmente.
 
-Para obter mais informações sobre planejamento e criação de uma rede virtual que funciona para você, consulte [Rede Virtual][].
+Para obter mais informações sobre planejamento e criação de uma rede virtual que funciona para você, consulte [Rede Virtual][Rede Virtual].
 
 ### Rota Expressa
 
-![Rota Expressa][]   
+![Rota Expressa][Rota Expressa]
  **Figura: O Rota Expressa utiliza uma Rede Virtual do Azure, mas roteia conexões por linhas dedicadas mais rápidas, da Internet pública.**
 
 Se você precisa de mais largura de banda ou segurança do que a oferecida por uma conexão de Rede Virtual do Azure, considere o Rota Expressa. Em alguns casos, o Rota Expressa também pode economizar o seu dinheiro. Você ainda precisará de uma rede virtual no Azure, mas a conexão entre o Azure e seu site utiliza uma conexão dedicada que não passa pela Internet pública. Para utilizar esse serviço, você precisará de um contrato com um provedor de serviços de rede, ou então um provedor de troca.
 
 Configurar uma conexão Rota Expressa exige mais tempo e planejamento, portanto, talvez seja melhor você começar utilizando um VPN site a site, para então migrar para uma conexão Rota Expressa.
 
-Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Técnica do Rota Expressa][].
+Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Técnica do Rota Expressa][Visão Geral Técnica do Rota Expressa].
 
 ### Gerenciador de Tráfego
 
-![TrafficManager][]   
+![TrafficManager][TrafficManager]
  **Figura: O Gerenciador de Tráfego do Azure permite a você rotear o tráfego global, com base em regras inteligentes.**
 
 Se seu aplicativo do Azure estiver sendo executado em vários datacenters, você poderá usar o Gerenciador de Tráfego do Azure para rotear solicitações de usuários de maneira inteligente entre as instâncias do aplicativo. Você também pode rotear o tráfego para serviços que não estejam sendo executados no Azure, desde que possam ser acessados pela Internet.
@@ -245,17 +245,19 @@ Um aplicativo do Azure com usuários em apenas uma única parte do mundo pode se
 
 O proprietário de um aplicativo define regras que especificam como as solicitações dos usuários devem ser direcionadas para os datacenters e conta com o Gerenciador de Tráfego para aplicar essas regras. Normalmente, os usuários podem ser direcionados para o datacenter do Azure mais próximo, por exemplo, mas são enviados para outro quando o tempo de resposta do datacenter padrão excede o tempo de resposta de outros datacenters. Para aplicativos com muitos usuários distribuídos globalmente, é útil ter um serviço interno para lidar com problemas como esse.
 
+O Gerenciador de Tráfego usa o DNS (Serviço de Nomes de Diretório) para direcionar os usuários aos pontos de extremidade do serviço, mas o tráfego não passa pelo gerenciador após o estabelecimento da conexão. Isso impede que o Gerenciador de Tráfego atue como um gargalo que tornará suas comunicações de serviço lentas.
+
 ## <span id="DevService"></span></a>Serviços para Desenvolvedores
 
 O Azure oferece uma série de ferramentas para auxiliar os desenvolvedores e profissionais de TI a manter os aplicativos na nuvem.
 
-### SDK do Azure e Ferramentas do Azure para Visual Studio
+### SDK do Azure
 
 Em 2008, a primeira versão de pré-lançamento do Azure oferecia suporte apenas para desenvolvimento .NET. Hoje, no entanto, você pode criar aplicativos do Azure em praticamente qualquer linguagem. Atualmente, a Microsoft fornece SDKs específicos a cada linguagem para .NET, Java, PHP, Node. js, Ruby e Python. Também há um SDK geral do Azure que fornece suporte básico para qualquer linguagem, como C++.
 
-Estes SDKs vão ajudá-lo a desenvolver, implantar e gerenciar aplicativos do Azure. Eles estão disponíveis em www.windowsazure.com ou no GitHub e podem ser usados com o Visual Studio e o Eclipse. O Azure também oferece ferramentas de linha de comando que os desenvolvedores podem usar qualquer editor ou ambiente de desenvolvimento, incluindo ferramentas para implantar aplicativos no Azure em sistemas Linux e Macintosh.
+Estes SDKs vão ajudá-lo a desenvolver, implantar e gerenciar aplicativos do Azure. Eles estão disponíveis em [www.microsoftazure.com][www.microsoftazure.com] ou no GitHub, e podem ser usados com o Visual Studio e o Eclipse. O Azure também oferece ferramentas de linha de comando que os desenvolvedores podem usar qualquer editor ou ambiente de desenvolvimento, incluindo ferramentas para implantar aplicativos no Azure em sistemas Linux e Macintosh.
 
-Além de ajudar a desenvolver aplicativos, estes SDKs também oferecem bibliotecas de cliente que ajudam você criar software executando fora da nuvem que use os serviços do Azure. Por exemplo, você pode criar um aplicativo em execução em um hoster que dependa de blobs do Azure ou criar uma ferramenta que implante aplicativos do Azure por meio da interface de gerenciamento do Azure.
+Além de ajudar a desenvolver aplicativos Azure, estes SDKs também oferecem bibliotecas de cliente que ajudam você a criar software que use os serviços do Azure. Por exemplo, você pode criar um aplicativo que leia e grave blobs do Azure ou criar uma ferramenta que implante aplicativos do Azure por meio da interface de gerenciamento do Azure.
 
 ### Visual Studio Online
 
@@ -281,7 +283,7 @@ Porém, organizações que já têm um sistema local podem testar novos projetos
 
 Ninguém gosta de desperdiçar tempo realizando os mesmos processos manuais repetidamente. A Automação do Azure oferece um modo para você criar, monitorar, gerenciar e implantar recursos em seu ambiente Azure.
 
-A automação utiliza "runbooks", que por sua vez utilizam fluxos de trabalho do Windows PowerShell (em vez de utilizar apenas o PowerShell comum) de modo oculto. Os runbooks são destinados à execução sem interação com o usuário. Os fluxos de trabalho do PowerShell permitem que o estado de um script seja salvo em pontos de verificação durante todo o percurso. Então, se uma falha ocorrer, você não precisa começar um script do zero. Você pode recomeçar desde o últmo ponto de verificação. Isso poupa você de muito trabalho, ao tentar fazer com que o script dê conta de toda falha possível.
+A automação utiliza "runbooks", que por sua vez utilizam fluxos de trabalho do Windows PowerShell (em vez de utilizar apenas o PowerShell comum) de modo oculto. Os runbooks são destinados à execução sem interação com o usuário. Os fluxos de trabalho do PowerShell permitem que o estado de um script seja salvo em pontos de verificação durante todo o percurso. Então, se uma falha ocorrer, você não precisa começar um script do zero. Você pode recomeçar desde o último ponto de verificação. Isso poupa você de muito trabalho, ao tentar fazer com que o script dê conta de toda falha possível.
 
 **Cenários de Automação**
 
@@ -293,8 +295,9 @@ Criar e publicar Interfaces Programadoras de Aplicativo (APIs) na Internet é um
 
 O Gerenciamento da API do Azure torna fácil para as organizações publicar APIs para parceiros, funcionários e desenvolvedores terceirizados, de modo seguro e dimensionado. Ele oferece um ponto de extremidade de API diferente e age como um proxy para chamar o ponto de extremidade real enquanto fornece serviços como caching, transformação, limitação, controle de acesso e agregação de análise.
 
-**Cenários de Gerenciamento da API**
-Digamos que sua empresa tenha um conjunto de dispositivos que, todos, precisam chamar de volta um serviço central para obter dados -- por exemplo, uma empresa de transporte que tem dispositivos em cada caminhão presente nas estradas. Com certeza, a empresa desejará configurar um sistema para acompanhar seus próprios caminhões de modo que possa, confiavelmente, predizer e atualizar os horários de entrega. Ela poderá saber quantos caminhões tem e planejar tudo adequadamente. Cada caminhão precisará de um dispositivo que liga de volta para um local central, informando seus dados de localização e velocidade, podendo informar também outros.
+**Cenários de gerenciamento da API**
+
+Digamos que sua empresa tenha um conjunto de dispositivos que todos precisam chamar de volta um serviço central para obter dados -- por exemplo, uma empresa de transporte que tem dispositivos em cada caminhão presente nas estradas. Com certeza, a empresa desejará configurar um sistema para acompanhar seus próprios caminhões de modo que possa, confiavelmente, predizer e atualizar os horários de entrega. Ela poderá saber quantos caminhões tem e planejar tudo adequadamente. Cada caminhão precisará de um dispositivo que liga de volta para um local central, informando seus dados de localização e velocidade, podendo informar também outros.
 
 Um cliente da empresa de transporte provavelmente também se beneficiaria de receber esses dados de localização. O cliente poderia utilizá-los para saber até que distância os produtos precisam ser levados, onde esses produtos ficam presos e quanto se gasta pelo tráfego por determinadas rotas (se combinado com o valor-base pago pelo transporte). Se a empresa de transporte já agrega esses dados, muitos clientes podem pagar por eles. Mas se esse é o caso, a empresa de transporte precisa fornecer um meio para fornecer os dados aos clientes. Após oferecerem acesso aos clientes, eles podem não ter controle sobre a frequência com que os dados são consultados. Eles precisarão estabelecer regras sobre quem pode acessar quais dados. Todas essas regras precisariam ser criadas em sua API externa. É aqui que o Gerenciamento da API pode ajudar.
 
@@ -316,9 +319,10 @@ Os serviços de diretório são um suporte importante de uma computação local.
 
 ### Multi-Factor Authentication
 
-![Autenticação Multifator do Azure][]   
-**Figura:**
-A segurança é sempre importante. A Multi-Factor Authentication (MFA) ajuda a garantir que somente os próprios usuários acessem suas contas. A MFA (também conhecida como Autenticação Multifator ou “2FA”) exige que os usuários forneçam dois desses três métodos de verificação de identidade, para logons e transações realizados por clientes.
+![Azure Multi-Factor Authentication][Azure Multi-Factor Authentication]
+**Figura: A Multi-Factor Authentication permite que seu aplicativo verifique mais de uma forma de autenticação**
+
+A segurança é sempre importante. A Multi-Factor Authentication (MFA) ajuda a garantir que somente os próprios usuários acessem suas contas. A MFA (também conhecida como autenticação em dois fatores ou "2FA") exige que os usuários forneçam dois desses três métodos de verificação de identidade, para logons e transações realizados por clientes.
 
 -   Algo que você sabe (normalmente, uma senha)
 -   Algo que você tem (um dispositivo confiável que não pode ser facilmente clonado, como um telefone)
@@ -326,8 +330,9 @@ A segurança é sempre importante. A Multi-Factor Authentication (MFA) ajuda a g
 
 Desse modo, quando um usuário realiza seu logon, você pode solicitar que ele também verifique sua identidade com um aplicativo móvel, uma ligação telefônica ou uma mensagem de texto em combinação com sua senha. Por padrão, o Active Directory do Azure dá suporte ao uso de senhas como seu único método de autenticação para logon de usuário. Você pode utilizar a Autenticação Multifator juntamente com o Active Directory do Azure ou com diretórios e aplicativos personalizados, pelo uso do SDK de Autenticação Multifator. Você também pode utilizá-lo em conjunto com aplicativos locais, por meio do uso do servidor Multi-Factor Authentication.
 
-**Cenários de Autenticação Multifator**
-A proteção para logon em contas sensíveis, como logons bancários e acesso a código-fonte, nos quais uma entrada não autorizada poderiam ter um elevado custo financeiro ou de propriedade intelectual.
+**Cenários de MFA**
+
+A proteção para logon em contas confidenciais, como logons bancários e acesso a código-fonte, nos quais uma entrada não autorizada poderia ter um elevado custo financeiro ou de propriedade intelectual.
 
 ## <span id="Mobile"></span></a>Serviço Móvel
 
@@ -337,10 +342,10 @@ Embora certamente seja possível criar back-end de um aplicativo móvel usando M
 
 ### Serviços Móveis
 
-![MobileServices][]   
+![MobileServices][MobileServices]
  **Figura: Os Serviços Móveis oferecem funcionalidades normalmente requeridas por aplicativos com interface para dispositivos móveis.**
 
-Os Serviços Móveis do Azure fornecem muitas funções úteis, que podem poupar seu tempo ao criar um a back-end para um aplicativo de Serviço Móvel. Isso permite que você faça um provisionamento simples e gerenciamento dos dados armazenados em um Banco de Dados SQL. Com o código do servidor, você pode facilmente usar opções de armazenamento de dados como armazenamento de blob ou MongoDB. Os Serviços Móveis oferecem suporte a notificações, apesar de, em determinados casos, você poder em vez disso utilizar os Hubs de Notificação confome descrito a seguir. O serviço também conta com uma API REST para o qual o seu aplicativo móvel pode ligar, para realizar o trabalho necessário. Os Serviços Móveis também oferecem a capacidade de autenticar usuários por meio do Microsoft e Active Directory, assim como outros provedores de identidade como Facebook, Twitter e Google.
+Os Serviços Móveis do Azure fornecem muitas funções úteis, que podem poupar seu tempo ao criar um a back-end para um aplicativo de Serviço Móvel. Isso permite que você faça um provisionamento simples e gerenciamento dos dados armazenados em um Banco de Dados SQL. Com o código do servidor, você pode facilmente usar opções de armazenamento de dados como armazenamento de blob ou MongoDB. Os Serviços Móveis oferecem suporte a notificações, apesar de, em determinados casos, você poder em vez disso utilizar os Hubs de Notificação conforme descrito a seguir. O serviço também conta com uma API REST para o qual o seu aplicativo móvel pode ligar, para realizar o trabalho necessário. Os Serviços Móveis também oferecem a capacidade de autenticar usuários por meio do Microsoft e Active Directory, assim como outros provedores de identidade como Facebook, Twitter e Google.
 
 Você pode utilizar outros Serviços do Azure, como Barramento de Serviço e funções de trabalho, além de conectar-se a sistemas locais. Você pode até mesmo utilizar Add-Ons terceirizados da Azure Store (como SendGrid para email) para oferecer funcionalidades adicionais.
 
@@ -350,7 +355,7 @@ Como o Azure já dá suporte a transmissão de dados em massa, você pode gerenc
 
 ### Hubs de Notificação
 
-![NotificationHubs][]   
+![NotificationHubs][NotificationHubs]
  **Figura: Os Hubs de Notificação oferecem funcionalidades normalmente requeridas por aplicativos com interface para dispositivos móveis.**
 
 Embora você possa programar código para realizar notificações em Serviços Móveis do Azure, os Hubs de Notificação são otimizados para difundir milhões de notificações por push em questão de minutos. Você não precisa se preocupar com detalhes como operadora móvel ou fabricante de aparelhos. Você pode visar indivíduos ou milhões de usuários com uma única chamada à API.
@@ -376,15 +381,16 @@ A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V,
 
 ### Serviço de Backup do Azure
 
-![Serviço de Backup do Azure][]   
-**Figura: O Backup do Azure realiza o backup dos dados em Windows Servers locais para a nuvem**
-O Serviço de Backup do Azure realiza o backup dos dados em servidores locais com Windows Server para a nuvem. Você pode gerenciar seus backups diretamente a partir das ferramentas de backup no Windows Server 2012, Windows Server 2012 Essentials ou System Center 2012 - Data Protection Manager. Alternativamente, você pode utilizar um agente de backup especializado.
+![Serviço de Backup do Azure][Serviço de Backup do Azure]
+**Figura: O Backup do Azure realiza o backup dos dados em Windows Servers locais para a nuvem.**
+
+O Backup do Azure realiza o backup dos dados em servidores locais que executam o Windows Server na nuvem. Você pode gerenciar seus backups diretamente a partir das ferramentas de backup no Windows Server 2012, Windows Server 2012 Essentials ou System Center 2012 - Data Protection Manager. Alternativamente, você pode utilizar um agente de backup especializado.
 
 Os dados ficam mais seguros porque os backups são criptografados antes da transmissão e armazenados criptografados no Azure, protegidos por um certificado carregado por você. O serviço utiliza os mesmos dados redundantes e altamente disponíveis encontrados no Armazenamento do Azure. Você pode realizar backup de arquivos e pastas regularmente ou imediatamente, realizando esses backups de modo completo ou incremental. Após realizar o backup dos dados para a nuvem, os usuários autorizados podem fazer facilmente a recuperação dos backups para qualquer servidor. Ele também oferece políticas configuráveis de retenção, compressão, transferência de dados e limitação da transferência de dados, de modo que você possa gerenciar o custo de armazenar e transferir dados.
 
 **Cenários para o Serviço de Backup do Azure**
 
-Se você já utiliza o Windows Server ou System Center, o Serviço de Backup do Azure é uma solução natural para suporte do sistema de arquivos de seus servidores, máquinas virtuais e bancos de dados de SQL Server. Essa solução funciona com arquivos criptografados, esparsos e comprimidos. Há algumas limitações, de modo que você deve [verificar os pré-requisitos do Serviço de Backup do Azure][] primeiro.
+Se você já utiliza o Windows Server ou System Center, o Serviço de Backup do Azure é uma solução natural para suporte do sistema de arquivos de seus servidores, máquinas virtuais e bancos de dados de SQL Server. Essa solução funciona com arquivos criptografados, esparsos e comprimidos. Há algumas limitações, de modo que você deve [verificar os pré-requisitos do Serviço de Backup do Azure][verificar os pré-requisitos do Serviço de Backup do Azure] primeiro.
 
 ## <span id="messaging"></span></a>Mensagens e integração
 
@@ -392,33 +398,41 @@ Não importa o que esteja fazendo, o código frequentemente precisa interagir co
 
 ### Filas
 
+![Retransmissão Barramento de Serviço do Azure][Retransmissão Barramento de Serviço do Azure]
+**Figura: As filas permitem o acoplamento solto entre os componentes de um aplicativo e facilitam o dimensionamento.**
+
 O enfileiramento é uma ideia simples: um aplicativo coloca uma mensagem na fila e essa mensagem, por fim, é lida por outro aplicativo. Se seu aplicativo precisar apenas desse serviço direto, as Filas do Azure podem ser a melhor opção.
 
-Devido a como o Azure cresceu ao longo do tempo, as Filas de Armazenamento do Azure e Filas do Barramento de Serviço fornecem serviços de enfileiramento similares. Os motivos pelos quais você desejaria utilizar um no lugar do outro são explicadas num folheto bastante técnico [<link>][]. Na maioria dos cenários, qualquer uma dessas opções funcionará.
+Devido a como o Azure cresceu ao longo do tempo, as Filas de Armazenamento do Azure e Filas do Barramento de Serviço fornecem serviços de enfileiramento similares. Os motivos pelos quais você desejaria utilizar um no lugar do outro são explicadas num folheto bastante técnico [<link>][<link>]. Na maioria dos cenários, qualquer uma dessas opções funcionará.
 
 **Cenários de enfileiramento**
 
 Um uso comum das filas hoje em dia é para permitir que uma instância de função Web comunique-se com uma instância de função de trabalho dentro do mesmo aplicativo dos Serviços de Nuvem.
 
-Por exemplo, suponha que você crie um aplicativo do Azure para compartilhamento de vídeo. O aplicativo é composto por código PHP em execução em uma função web que permite aos usuários carregar e assistir a vídeos, juntamente com uma função de trabalho implementada em C\#, que converte o vídeo carregado em vários formatos.
+Por exemplo, suponha que você crie um aplicativo do Azure para compartilhamento de vídeo. O aplicativo é composto por código PHP em execução em uma função web que permite aos usuários carregar e assistir a vídeos, juntamente com uma função de trabalho implementada em C#, que converte o vídeo carregado em vários formatos.
 
-Quando uma instância da função Web obtém um novo vídeo de um usuário, ela pode armazenar o vídeo em um blob e, em seguida, enviar uma mensagem a uma função de trabalho por uma fila, informando-a onde encontrar esse novo vídeo. Uma instância da função de trabalho (não importa qual) lerá a mensagem na fila e realizará as conversões de vídeo necessárias em segundo plano. A estruturação de um aplicativo dessa maneira permite o processamento assíncrono, além de facilitar o dimensionamento do aplicativo, pois o número de instâncias da função Web e de instâncias da função de trabalho pode ser diversificado de modo independente. Você também pode utilizar o tamanho da fila como um gatilho para dimensionar o número de funções de trabalho, para mais ou menos. Se está alto demais, você acrescenta mais funções. Quando fica mais baixo, você pode reduzir o número de funções em execução para economizar dinheiro.
+Quando uma instância da função Web obtém um novo vídeo de um usuário, ela pode armazenar o vídeo em um blob e, em seguida, enviar uma mensagem a uma função de trabalho por uma fila, informando-a onde encontrar esse novo vídeo. Uma instância da função de trabalho (não importa qual) lerá a mensagem na fila e realizará as conversões de vídeo necessárias em segundo plano.
 
-### Brramento de Serviço
+A estruturação de um aplicativo dessa maneira permite o processamento assíncrono, além de facilitar o dimensionamento do aplicativo, pois o número de instâncias da função Web e de instâncias da função de trabalho pode ser diversificado de modo independente. Você também pode utilizar o tamanho da fila como um gatilho para dimensionar o número de funções de trabalho, para mais ou menos. Se está alto demais, você acrescenta mais funções. Quando fica mais baixo, você pode reduzir o número de funções em execução para economizar dinheiro.
 
-Estejam eles em execução na nuvem, no data center, em um dispositivo móvel ou em qualquer outro lugar, os aplicativos precisam interagir. O objetivo do Brramento de Serviço do Azure é permitir que os aplicativos executados quase em todos os lugares troquem dados.
+Você pode usar esse mesmo padrão entre vários componentes diferentes do seu aplicativo, mesmo que eles não utilizem funções de trabalho e da Web. Isso permite o aumento e a redução dos componentes em ambos os lados da fila, conforme as exigências de demanda e tempo de processamento.
+
+### Barramento de Serviço
+
+Estejam eles em execução na nuvem, no data center, em um dispositivo móvel ou em qualquer outro lugar, os aplicativos precisam interagir. O objetivo do Barramento de Serviço do Azure é permitir que os aplicativos executados quase em todos os lugares troquem dados.
 
 Além das filas (um a um) descritas anteriormente, o Barramento de Serviço também oferece outros métodos de comunicação.
 
-![Retransmissão Barramento de Serviço do Azure][]   
-**Figura: A Retransmissão do Barramento de Serviço permite a comunicação entre as aplicações em diferentes lados de um firewall.**
-O Barramento de Serviço permite a comunicação direta por meio de seu serviço de retransmissão, fornecendo um modo seguro para interagir por meio de firewalls. As retransmissões do Brramento de Serviço permitem que os aplicativos se comuniquem trocando mensagens por meio de um ponto de extremidade hospedado na nuvem, em vez de localmente.
+![Retransmissão Barramento de Serviço do Azure][2]
+**Figura: A Retransmissão do Barramento de Serviço permite a comunicação entre os aplicativos em diferentes lados de um firewall.**
+
+O Barramento de Serviço permite a comunicação direta por meio de seu serviço de retransmissão, fornecendo um meio seguro de interagir por meio de firewalls. As retransmissões do Barramento de Serviço permitem que os aplicativos se comuniquem trocando mensagens por meio de um ponto de extremidade hospedado na nuvem, em vez de localmente.
 
 **Cenários de Retransmissão do Barramento de Serviço**
 
-Os aplicativos que se comunicam por meio do Brramento de Serviço podem ser aplicativos ou softwares do Azure em execução em alguma outra plataforma na nuvem. Entretanto, eles também podem ser aplicativos que são executados fora da nuvem. Por exemplo, pense em uma companhia aérea que implementa serviços de reserva em computadores dentro de seu próprio datacenter. A companhia precisa expor esses serviços a muitos clientes, incluindo check-in em quiosques de aeroportos, terminais de agente de reserva e talvez, até mesmo, telefones de clientes. Ela pode usar o Brramento de Serviço para fazer isso, criando interações acopladas imprecisamente entre os vários aplicativos.
+Os aplicativos que se comunicam por meio do Barramento de Serviço podem ser aplicativos ou softwares do Azure em execução em alguma outra plataforma na nuvem. Entretanto, eles também podem ser aplicativos que são executados fora da nuvem. Por exemplo, pense em uma companhia aérea que implementa serviços de reserva em computadores dentro de seu próprio datacenter. A companhia precisa expor esses serviços a muitos clientes, incluindo check-in em quiosques de aeroportos, terminais de agente de reserva e talvez, até mesmo, telefones de clientes. Ela pode usar o Barramento de Serviço para fazer isso, criando interações acopladas imprecisamente entre os vários aplicativos.
 
-![Tópicos do Barramento de Serviço do Azure][]   
+![Tópicos do Barramento de Serviço do Azure][Tópicos do Barramento de Serviço do Azure]
  **Figura: Os Tópicos do Barramento de Serviço permitem que múltiplos aplicativos publiquem mensagens e que outros aplicativos façam uma assinatura para receber mensagens que atendam a um critério específico.**
 
 O Barramento de Serviço oferece um mecanismo de publicação e assinatura chamado Tópicos e Assinaturas. Com publicação e assinatura, um aplicativo pode enviar mensagens para um tópico enquanto outros aplicativos podem criar assinaturas para esse tópico. Isso permite comunicação de um para muitos entre um conjunto de aplicativos, permitindo que a mesma mensagem seja lida por vários destinatários.
@@ -428,13 +442,13 @@ Em qualquer momento no qual você realiza a configuração e no qual existem mui
 
 ### Serviços do BizTalk
 
-![Serviços BizTalk][]   
+![Serviços BizTalk][Serviços BizTalk]
  **Figura: os Serviços BizTalk fornecem a capacidade de transformar formatos de mensagens XML na nuvem.**
 
 Algumas vezes, você precisa conectar sistemas que comunicam-se utilizando diferentes formatos de mensagens. É comum que empresas tenham esquemas de bancos de dados e formatos de envio de mensagens XML diferentes, mesmo quando há um padrão comum disponível. Em vez de programar uma grande quantidade de código personalizado, você pode utilizar o BizTalk Server localmente para integrar diversos sistemas. O Serviços BizTalk do Azure fornece o mesmo tipo de serviço, mas na nuvem. Você pode pagar apenas pelo que utiliza, sem se preocupar com dimensionamento, como faria em serviços locais.
 
-**Cenários dos Serviços BizTalk TODO**
-As interações entre empresas (B2B) normalmente requerem esse tipo de tradução. Por exemplo, uma empresa fabricando aviões precisa pedir peças de seus diversos fornecedores. Essa empresa terá muitos fornecedores de peças. Esses pedidos deverão ser automatizados, para que sejam enviados diretamente dos sistemas dos fabricantes de aviões para os sistemas dos fornecedores. Nenhuma das empresas deseja modificar seus sistemas e formatos de mensagem principais, sendo muito improvável que esses formatos sejam os mesmos. Os Serviços BizTalk podem transportar mensagens e traduzi-las entre os novos formatos, em ambos os sentidos. O fabricante de aviões pode fazer o trabalho da tradução ou os diversos fornecedores podem fazê-lo, dependendo de quem deseja ter mais controle e da quantidade de tradução necessária.
+**Cenários dos Serviços BizTalk**
+As interações entre empresas (B2B) normalmente requerem esse tipo de conversão. Por exemplo, uma empresa fabricando aviões precisa pedir peças de seus diversos fornecedores. Essa empresa terá muitos fornecedores de peças. Esses pedidos deverão ser automatizados, para que sejam enviados diretamente dos sistemas dos fabricantes de aviões para os sistemas dos fornecedores. Nenhuma das empresas deseja modificar seus sistemas e formatos de mensagem principais, sendo muito improvável que esses formatos sejam os mesmos. Os Serviços BizTalk podem transportar mensagens e traduzi-las entre os novos formatos, em ambos os sentidos. O fabricante de aviões pode fazer o trabalho da tradução ou os diversos fornecedores podem fazê-lo, dependendo de quem deseja ter mais controle e da quantidade de tradução necessária.
 
 ## <span id="ComputeAssist"></span></a>Assistência de Computação
 
@@ -442,8 +456,8 @@ O Azure oferece assistência para serviços que não precisam ser realizados tod
 
 ### Agendador
 
-![Agendador do Azure][]   
-**O Agendador do Azure oferece um meio para agendar trabalhos em um horário específico, por uma duração específica.**
+![Agendador do Azure][Agendador do Azure]
+**Figura: O Agendador do Azure oferece um meio para agendar trabalhos em um horário específico, por uma duração específica.**
 
 Alguns aplicativos só precisam ser executados em um determinado momento. No Azure, você pode poupar dinheiro com esse tipo de aplicativo em vez de apenas deixar um aplicativo ser executado 24x7, esperando que os dados sejam processados. O Agendador do Azure permite que você faça o agendamento de quando um aplicativo deve ser executado, com base no intervalo de tempo de um calendário. Ele é confiável e verificará se um processo está em execução, mesmo se houver falhas de rede, computador e datacenter. Você utiliza o Agendador de API REST para gerenciar essas ações.
 
@@ -454,9 +468,9 @@ Quando um alarme agendado é disparado, o Agendador envia mensagens HTTP ou HTTP
 -   Ações recorrentes do aplicativo: Como um exemplo, um serviço pode obter dados periodicamente do twitter e reunir esses dados em um feed regular.
 -   Manutenção diária: Processamento ou redução do log, realização de backups e outras tarefas de agendamento intermitentes.
 -   Tarefas noturnas.
--   Tarefas de aplicativos web como redução diária de logs, realização de backups e outras tarefas de manutenção. Um administrador pode escolher realizar o backup de seu banco de dados às 13h pelos próximos nove meses, por exemplo.
+-   Tarefas de aplicativos web como redução diária de logs, realização de backups e outras tarefas de manutenção. Um administrador pode escolher realizar o backup de seu banco de dados à 1h da manhã pelos próximos nove meses, por exemplo.
 
-O Agendador do API permite a você criar, atualizar, excluir, exibir e gerenciar “coleções de trabalhos” e “trabalhos” agendados, programaticamente.
+A API do Agendador permite criar, atualizar, excluir, exibir e gerenciar coleções de trabalhos e trabalhos agendados, programaticamente.
 
 ## <span id="Performance"></span></a>Desempenho
 
@@ -464,7 +478,7 @@ O desempenho é sempre importante para um aplicativo. Os aplicativos tendem a ac
 
 ### Caching do Azure
 
-![Caching do Azure][]   
+![Caching do Azure][Caching do Azure]
  **Figura: Se um aplicativo do Azure pode colocar dados em cache de memória e até mesmo dividi-los por muitas funções de trabalho**
 
 Acessar dados armazenados em algum dos serviços de gerenciamento de dados do Azure (Banco de dados SQL, Tabelas ou Blobs) é muito rápido. Porém, acessar dados armazenados na memória é ainda mais rápido. Por esse motivo, manter uma cópia dos dados acessados frequentemente na memória pode aumentar o desempenho do aplicativo. É possível usar o Caching na memória do Azure para fazer isso.
@@ -473,12 +487,13 @@ Um aplicativo dos Serviços de Nuvem pode armazenar dados nesse cache e recuper�
 
 O Azure tem um número de tecnologias de cache diferentes que mudaram ao longo do tempo. Na ordem em que elas foram introduzidas, há um cache compartilhado, em função, gerenciado e Redis. O cache compartilhado é uma tecnologia mais antiga e você não deve criar novas implementações com ele. O Cache Gerenciado tem os as mesmas características do Cache na Função, mas como serviço gerenciado fora do Portal de Gerenciamento do Azure. O Cache Redis está em modo de visualização. A implementação do Redis tem um número maior de recursos e é recomendado ao programar um novo código de caching.
 
-**Cenários de Cache do Azure**
+**Cenários de cache do Azure**
+
 Um aplicativo que lê repetidamente um catálogo de produtos pode se beneficiar do uso desse tipo de caching, por exemplo, uma vez que os dados necessários serão disponibilizados mais rapidamente. A tecnologia também oferece suporte ao bloqueio, permitindo que ele seja usado com dados de leitura/gravação, bem como somente leitura. E os aplicativos ASP.NET podem usar o serviço para armazenar dados da sessão com apenas uma alteração na configuração.
 
 ### CDN
 
-![CDN do Azure][]   
+![CDN do Azure][CDN do Azure]
  **Figura: cópias de um blob podem ser colocadas em cache em sites ao redor do mundo.**
 
 Suponha que você precise armazenar dados de blob que serão acessados por usuários no mundo todo. Talvez seja um vídeo do último jogo da Copa do Mundo, por exemplo, ou atualizações de driver, ou um e-book popular. Armazenar uma cópia dos dados em vários datacenters do Azure ajudará, mas se houver muitos usuários, provavelmente não será suficiente. Para um desempenho ainda melhor, você pode usar a CDN do Azure.
@@ -486,15 +501,17 @@ Suponha que você precise armazenar dados de blob que serão acessados por usuá
 A CDN tem dezenas de sites pelo mundo, cada um capaz de armazenar cópias dos blobs do Azure. Na primeira vez que um usuário em alguma parte do mundo acessar um blob específico, as informações que ele contém serão copiadas de um datacenter do Azure em um armazenamento CDN local na região geográfica. Depois disso, os acessos dessa parte do mundo usarão a cópia blob armazenada em cache na CDN - eles não precisarão fazer todo o caminho até o datacenter mais próximo do Azure. O resultado é um acesso mais rápido aos dados frequentemente acessados por usuários, em qualquer lugar do mundo.
 
 **Cenários de CDN**
+
 É comum utilizar CDN com Serviços de Mídia para transmitir vídeo para todo o mundo. Vídeo geralmente significa arquivos grandes, que exigem muita largura de banda. Falamos sobre os Serviços de Mídia em outra parte desta página.
 
 ## <span id="BigStuff"></span></a>Big Data e Computação de Grande Porte
 
 ### HDInsight (Hadoop)
 
-![HDInsight][]   
+![HDInsight][HDInsight]
  **Figura: O HDInsight ajuda com o processamento em massa de grandes volumes de dados**
-Por muitos anos, a análise de dados em massa foi feita em dados relacionais armazenados em um data warehouse criado com um DBMS relacional. Esse tipo de análise empresarial continua sendo importante e ainda será por um longo tempo. Mas e se os dados que você deseja analisar são tão grandes que os bancos de dados relacionais não podem lidar com eles? E suponha que os dados não sejam relacionais? Eles podem ser logs de servidor em um datacenter, por exemplo, ou dados de eventos históricos de sensores, ou algo parecido. Em casos assim, você tem o que é conhecido como problema de big data. É necessária outra abordagem.
+
+Por muitos anos, a análise de dados em massa foi feita em dados relacionais armazenados em um data warehouse criada com um DBMS relacional. Esse tipo de análise empresarial continua sendo importante e ainda será por um longo tempo. Mas e se os dados que você deseja analisar são tão grandes que os bancos de dados relacionais não podem lidar com eles? E suponha que os dados não sejam relacionais? Eles podem ser logs de servidor em um datacenter, por exemplo, ou dados de eventos históricos de sensores, ou algo parecido. Em casos assim, você tem o que é conhecido como problema de big data. É necessária outra abordagem.
 
 A tecnologia dominante de hoje para analisar big data é o Hadoop. Um projeto de software livre da Apache, essa tecnologia armazena dados usando o HDFS (Hadoop Distributed File System) e permite que os desenvolvedores criem tarefas MapReduce para analisar esses dados. O HDFS distribui os dados por vários servidores e, em seguida, executa partes da tarefa MapReduce em cada um, deixando que o big data sejam processado paralelamente.
 
@@ -504,7 +521,7 @@ O HDinsight oferece suporte a outros componentes do ecossistema do Hadoop, inclu
 
 ### HPC (Computação de Alto Desempenho) - Computação de Grande Porte
 
-Uma das maneiras mais atraentes de usar uma plataforma na nuvem é para HPC (computação de alto desempenho) e outros aplicativos de “Computação de Grande Porte”. Exemplos incluem aplicativos de engenharia especializada, criados para usar MPI (Message Passing Interface), que é padrão da indústria, além dos chamados aplicativos embaraçosamente paralelos, como os modelos de risco financeiro.
+Uma das maneiras mais atraentes de usar uma plataforma na nuvem é para HPC (computação de alto desempenho) e outros aplicativos de "Computação de Grande Porte". Exemplos incluem aplicativos de engenharia especializada, criados para usar MPI (Message Passing Interface), que é padrão da indústria, além dos chamados aplicativos embaraçosamente paralelos, como os modelos de risco financeiro.
 
 A essência da Computação de Grande Porte é executar código em várias máquinas ao mesmo tempo. No Azure, isso significa executar muitas máquinas virtuais simultaneamente, todas trabalhando paralelamente para resolver algum problema. Fazer isso exige algum modo de trabalhar com recursos e agendar aplicativos, ou seja, distribuir o trabalho deles por estas instâncias. O Microsoft HPC Pack gratuito e outras soluções de cluster de computação podem funcionar bem no Azure, aproveitando serviços de infraestrutura e de computação do Azure para acrescentar capacidade sob demanda a um cluster de computação local, ou então executar aplicativos de Computação de Grande Porte totalmente na nuvem.
 
@@ -514,7 +531,7 @@ O Azure também oferece a desenvolvedores de aplicativos de Computação de Gran
 
 ## <span id="media"></span></a>Mídia
 
-![Serviços de Mídia do Azure][]   
+![Serviços de Mídia do Azure][Serviços de Mídia do Azure]
  **Figura: Os Serviços de Mídia tratam-se de uma plataforma para aplicativos, que fornecem vídeo e outros tipos de mídia a clientes ao redor do mundo.**
 
 A reprodução de vídeos constitui uma grande parte do tráfego de Internet hoje em dia, e essa porcentagem será ainda maior no futuro. Apesar disso, fornecer vídeo na web não é algo simples. Há muitas variáveis, como o algoritmo de codificação e a resolução de vídeo da tela do usuário. Vídeos também tendem a ter picos de demanda, como um pico de noite de sábado quando muitas pessoas decidem assistir um filme on-line.
@@ -529,23 +546,26 @@ Os aplicativos que usam essa plataforma podem ser executados no Azure ou em outr
 
 Para distribuir o que produz, um aplicativo pode usar o CDN do Azure, outro CDN ou apenas enviar bits diretamente aos usuários. No entanto, vídeos criados usando os Serviços de Mídia podem ser consumidos por vários sistemas de clientes, incluindo Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash e Silverlight. O objetivo é tornar mais fácil a criação de aplicativos de mídia modernos.
 
-Para obter um panorama mais visual do funcionamento dos Serviços de Mídia, faça o download do [pôster Serviços de Mídia do Azure][]
+**Referências**
+
+Para obter um panorama mais visual do funcionamento dos Serviços de Mídia, faça o download do [pôster Serviços de Mídia do Azure][pôster Serviços de Mídia do Azure].
 
 ## <span id="commerce"></span></a>Comércio
 
-O surgimento de Software como Serviço está transformando a maneira como criamos aplicativos. Ele também está transformando a forma como vendemos aplicativos. Como um aplicativo SaaS reside na nuvem, faz sentido que seus clientes em potencial devam procurar soluções on-line. E essa alteração se aplica a dados assim como aplicativos. Por que as pessoas não devem procurar a nuvem em busca de conjuntos de dados disponíveis no mercado? A Microsoft aborda essas duas preocupações com o [Azure Marketplace][] e [Azure Store][].
+O surgimento de Software como Serviço está transformando a maneira como criamos aplicativos. Ele também está transformando a forma como vendemos aplicativos. Como um aplicativo SaaS reside na nuvem, faz sentido que seus clientes em potencial devam procurar soluções on-line. E essa alteração se aplica a dados assim como aplicativos. Por que as pessoas não devem procurar a nuvem em busca de conjuntos de dados disponíveis no mercado? A Microsoft aborda essas duas preocupações com o [Azure Marketplace][Azure Marketplace] e [Azure Store][Azure Store].
 
-![Comércio do Azure][]   
+![Comércio do Azure][Comércio do Azure]
  **Figura: O Azure Marketplace e a Azure Store permitem encontrar e comprar aplicativos do Azure e conjuntos de dados comerciais e também utilizá-los como parte de seus aplicativos do Azure.**
 
 A diferença entre os dois é que o Marketplace está fora do Portal de Gerenciamento do Azure, mas a Store pode ser acessada de dentro do portal. Clientes potenciais podem pesquisar para encontrar aplicativos do Azure que atendam às suas necessidades. Os clientes também podem pesquisar conjuntos de dados comerciais, incluindo dados demográficos, dados financeiros, dados geográficos e muito mais. Quando eles encontram algo que gostem, podem acessar do fornecedor, diretamente pelos locais da web Marketplace ou Store de ou, em alguns casos, do Portal de Gerenciamento. Os aplicativos também podem usar a API de pesquisa Bing por meio do Marketplace, dando-lhes acesso aos resultados de pesquisas na web.
 
-**Cenários de Comércio**
-O SendGrid é um aplicativo na Azure Store que permite que você envie e-mails. Ele oferece funções adicionais, como entrega e estatísticas confiáveis. Você pode comprar esse aplicativo e serviços relacionados, em vez de tentar construir uma infraestrutura desse tipo por conta própria.
+**Cenários comerciais**
+
+O SendGrid é um aplicativo na Azure Store que permite que você envie emails. Ele oferece funções adicionais, como entrega e estatísticas confiáveis. Você pode comprar esse aplicativo e serviços relacionados, em vez de tentar construir uma infraestrutura desse tipo por conta própria.
 
 ## <span id="start"></span></a>Introdução
 
-Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro aplicativo do Azure. Escolha a linguagem, [obtenha o SDK adequado][] e vá em frente. Computação em nuvem é o novo padrão: comece agora.
+Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro aplicativo do Azure. Escolha a linguagem, [obtenha o SDK adequado][obtenha o SDK adequado] e vá em frente. Computação em nuvem é o novo padrão: comece agora.
 
   [Os componentes do Azure]: #components
   [Portal de Gerenciamento]: #portal
@@ -555,8 +575,8 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
   [Serviços para Desenvolvedores]: #DevService
   [Identidade e Acesso]: #identity
   [Serviço Móvel]: #mobile
-  [Serviço de Backup]: #backup
-  [Mensagem e integração]: #messaging
+  [Backup]: #backup
+  [Mensagens e integração]: #messaging
   [Assistência de Computação]: #ComputeAssist
   [Desempenho]: #Performance
   [Dados e Computação de Grande Porte]: #BigStuff
@@ -564,36 +584,40 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
   [Comércio]: #commerce
   [Introdução]: #start
   [Infográfico O que é o Windows Azure]: http://azure.microsoft.com/pt-br/documentation/infographics/azure/ "Infográfico do pôster O que é o Microsoft Azure?"
-  [Componentes do Azure]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
+  [Componentes do Azure]: ./media/intro-to-azure/AzureComponentsIntroNew780.png
+  [1]: http://manage.windowsazure.com
+  ["Portal de Visualização do Azure"]: https://portal.azure.com/
   [Máquinas Virtuais do Azure]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Sites do Azure]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
   [Serviço de Nuvem do Azure]: ./media/intro-to-azure/CloudServicesIntroNew.png
   [Banco de Dados SQL do Armazenamento do Azure]: ./media/intro-to-azure/StorageAzureSQLDatabaseIntroNew.png
-  [Tabelas de Armazenamento do Azure]: ./media/intro-to-azure/StorageTablesIntroNew.png
+  [Tabelas de armazenamento do Azure]: ./media/intro-to-azure/StorageTablesIntroNew.png
   [Blobs de Armazenamento do Azure]: ./media/intro-to-azure/StorageBlobsIntroNew.png
   [Serviço Importar/Exportar do Azure]: ./media/intro-to-azure/ImportExportIntroNew.png
   [Serviço de Arquivos do Azure]: ./media/intro-to-azure/FileServiceIntroNew.png
   [VirtualNetwork]: ./media/intro-to-azure/VirtualNetworkIntroNew.png
   [Rede Virtual]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [Rota Expressa]: ./media/intro-to-azure/ExpressRouteIntroNew.png
-  [Visão Geral Técnica do Rota Expressa]: http://msdn.microsoft.com/en-us/library/azure/dn606309.aspx
+  [Visão Geral Técnica do Rota Expressa]: http://msdn.microsoft.com/pt-br/library/azure/dn606309.aspx
   [TrafficManager]: ./media/intro-to-azure/TrafficManagerIntroNew.png
-  [Autenticação Multifator do Azure]: ./media/intro-to-azure/MFAIntroNew.png
+  [www.microsoftazure.com]: http://azure.microsoft.com/pt-br/downloads/
+  [Azure Multi-Factor Authentication]: ./media/intro-to-azure/MFAIntroNew.png
   [MobileServices]: ./media/intro-to-azure/MobileServicesIntroNew.png
-  [NotificationHubs]: ./media/intro-to-azure/NotificationHubstIntroNew.png
+  [NotificationHubs]: ./media/intro-to-azure/NotificationHubsIntroNew.png
   [Serviço de Backup do Azure]: ./media/intro-to-azure/AzureBackupIntroNew.png
-  [verificar os pré-requisitos do Serviço de Backup do Azure]: http://technet.microsoft.com/en-us/library/dn296608.aspx
+  [verificar os pré-requisitos do Serviço de Backup do Azure]: http://technet.microsoft.com/pt-br/library/dn296608.aspx
+  [Retransmissão Barramento de Serviço do Azure]: ./media/intro-to-azure/QueuesIntroNew.png
   [<link>]: http://msdn.microsoft.com/library/azure/hh767287.aspx "Filas do Azure e Filas do Barramento de Serviço - Comparadas e Contrastadas"
-  [Retransmissão Barramento de Serviço do Azure]: ./media/intro-to-azure/ServiceBusRelayIntroNew.png
+  [2]: ./media/intro-to-azure/ServiceBusRelayIntroNew.png
   [Tópicos do Barramento de Serviço do Azure]: ./media/intro-to-azure/ServiceBusTopicsSubsIntroNew.png
-  [Serviços BizTalk]: ./media/intro-to-azure/BizTalkServIntroNew2.png
-  [Agendador do Azure]: ./media/intro-to-azure/SchedulerIntroNew2.png
+  [Serviços BizTalk]: ./media/intro-to-azure/BizTalkServicesIntroNew.png
+  [Agendador do Azure]: ./media/intro-to-azure/SchedulerIntroNew.png
   [Caching do Azure]: ./media/intro-to-azure/AzureCacheIntroNew.png
   [CDN do Azure]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Serviços de Mídia do Azure]: ./media/intro-to-azure/MediaServicesIntroNew.png
   [pôster Serviços de Mídia do Azure]: http://azure.microsoft.com/pt-br/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
-  [Azure Store]: /en-us/store/overview/
+  [Azure Store]: /pt-br/store/overview/
   [Comércio do Azure]: ./media/intro-to-azure/CommerceIntroNew.png
-  [obtenha o SDK adequado]: /en-us/downloads/
+  [obtenha o SDK adequado]: /pt-br/downloads/

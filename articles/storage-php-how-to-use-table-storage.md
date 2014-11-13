@@ -1,6 +1,6 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Saiba como usar o servi&ccedil;o Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela." metaCanonical="" services="storage" documentationCenter="PHP" title="Como usar o servi&ccedil;o Tabela do PHP" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Como usar o serviço Tabela do PHP
 
@@ -45,18 +45,18 @@ Neste guia, você usará os recursos de serviço Tabela que podem ser chamados d
 
 Para usar as APIs do serviço Tabela do Azure, você precisa:
 
-1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][require\_once] e
-2.  Consultar qualquer classe que você possa usar.
+1.  Fazer referência ao arquivo de carregador automático usando a instrução [require\_once][require\_once], e
+2.  Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
 > [WACOM.NOTE]
-> Esse exemplo (e outros exemplos deste artigo) pressupõe que você instalou as Bibliotecas de Cliente do PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
+> Este exemplo (e outros exemplos deste artigo) pressupõe que você instalou as Bibliotecas de Cliente do PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
 
     require_once 'vendor\autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
 
-Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos abaixo, a instrução '`require_once`' será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
 ## <span id="ConnectionString"></span></a>Configurar uma conexão de armazenamento do Azure
 
@@ -72,10 +72,11 @@ Para acessar o armazenamento do emulador:
 
 Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
--   passar a cadeia de conexão diretamente ou
--   usar **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
-    -   por padrão, ele é fornecido com suporte para uma fonte externa – variáveis de ambiente
-    -   adicionar novas fontes ao estender a classe **ConnectionStringSource**
+-   passar a cadeia de conexão diretamente para ele ou
+-   usar o **CloudConfigurationManager (CCM)** para verificar várias origens externas para a cadeia de conexão:
+
+    -   por padrão, ele vem com suporte para uma origem externa - variáveis de ambiente
+    -   você pode adicionar novas origens ao estender a classe **ConnectionStringSource**
 
 Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
@@ -486,9 +487,7 @@ Agora que você aprendeu os conceitos básicos do Serviço de Tabela do Azure, s
   [Como: Atualizar uma entidade]: #UpdateEntity
   [Como: Operações de tabela em lote]: #BatchOperations
   [Como: Excluir uma tabela]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
   [Tempos limite de configuração para as operações do serviço Tabela]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894042.aspx
   [Noções básicas sobre o modelo de dados do serviço Tabela]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179338.aspx
   [Consultar tabelas e entidades]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894031.aspx

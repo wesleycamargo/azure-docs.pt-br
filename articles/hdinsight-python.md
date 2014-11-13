@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Usar o Python com o Hive e o Pig no Azure HDInsight" metaKeywords="" description="Saiba como usar as Fun&ccedil;&otilde;es Definidas pelo Usu&aacute;rio (UDF) do Python com o Hive e o Pig no Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use o Python com o Hive e o Pig no HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Use o Python com o Hive e o Pig no HDInsight
 
 Hive e Pig são ótimos para trabalhar com dados no HDInsight, mas algumas vezes você precisa de uma linguagem de propósito mais geral. Tanto o Hive quanto o Pig permitem que você crie Funções Definidas pelo Usuário (UDF) usando uma variedade de linguagens de programação. Neste artigo, você aprenderá como usar uma UDF Python de Hive e Pig.
 
-> [WACOM.NOTE] As etapas neste artigo se aplicam à visualização de cluster do HDInsight versões 2.1, 3.0 e 3.1.
+> [WACOM.NOTE] As etapas neste artigo se aplicam ao cluster do HDInsight versões 2.1, 3.0 e 3.1.
 
 ## Sumário
 
@@ -112,7 +112,7 @@ Aqui está o arquivo **jython.py** usado pelo exemplo Pig:
 
 Você se lembra que, anteriormente, nós apenas definimos a entrada **LINE** como uma matriz de caracteres porque não havia um esquema consistente para a entrada? O que o **jython.py** faz é transformar os dados em um esquema consistente para a saída. Funciona assim:
 
-1.  A instrução **@outputSchema** define o formato dos dados que serão retornados ao Pig. Nesse caso, é uma **mala de dados**, que é um tipo de dado do Pig. A mala contém os campos a seguir, todos eles sendo matrizes de caracteres (cadeias de caracteres):
+1.  A instrução **@outputSchema** define o formato dos dados que serão devolvidos ao Pig. Nesse caso, é uma **mala de dados**, que é um tipo de dado do Pig. A mala contém os campos a seguir, todos eles sendo matrizes de caracteres (cadeias de caracteres):
 
     -   date - a data em que a entrada no log foi criada
     -   time - o horário em que a entrada de log foi criada
@@ -128,7 +128,7 @@ Você se lembra que, anteriormente, nós apenas definimos a entrada **LINE** com
 
 5.  Por fim, os valores são devolvidos ao Pig.
 
-Quando os dados forem devolvidos ao Pig, eles terão um esquema consistente conforme definido na instrução **@outputSchema**.
+Quando os dados forem devolvidos para o Pig, ele terá um esquema consistente como definido na instrução **@outputSchema**.
 
 Consulte [Executando os exemplos][Executando os exemplos] para saber como executar este exemplo em seu cluster HDInsight.
 
@@ -159,7 +159,7 @@ Essas etapas usam o Microsoft Azure PowerShell. Se ele ainda não estiver instal
 
 ### Usando o painel do Hive (somente exemplo do Hive)
 
-1.  Após carregar o arquivo, abra um navegador e navegue até <https://YourClusterName.azurehdinsight.net/>. Quando for solicitado a informar as credenciais, digite o nome de usuário e a senha de administrador para seu cluster.
+1.  Depois de fazer o upload do arquivo, abra um navegador e navegue até https://YourClusterName.azurehdinsight.net/. Quando for solicitado a informar as credenciais, digite o nome de usuário e a senha de administrador para seu cluster.
 
     > [WACOM.NOTE] Você também pode usar o link **Gerenciar Cluster** na parte inferior do **Painel** do HDInsight no portal de gerenciamento do Azure para executar o painel do Hive.
 
@@ -239,7 +239,7 @@ A saída para o trabalho **Pig** deve ter aparência similar à seguinte:
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a> Solucionar problemas
 
 Ambos os scripts de Powershell de exemplo utilizados para executar os exemplos contêm uma linha comentada que exibirá a saída de erro para o trabalho. Se você não estiver vendo a saída esperada para o trabalho, remova o comentário da linha a seguir e veja se as informações de erro indicam um problema.
 
@@ -248,21 +248,34 @@ Ambos os scripts de Powershell de exemplo utilizados para executar os exemplos c
 As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também são registrados para o contêiner blob padrão para seus clusters nos locais a seguir.
 
 <table>
-<tr><td>
+<tr>
+<td>
 Para este trabalho.
-</td><td>
+
+</td>
+<td>
 Veja estes arquivos no contêiner blob
-</td></tr>
-<tr><td>
+
+</td>
+</tr>
+<td>
 Hive
-</td><td>
-/HivePython/stderr<br/>/HivePython/stdout
-</td></tr>
-<tr><td>
+
+</td>
+<td>
+/HivePython/stderr</br>/HivePython/stdout
+
+</td>
+</tr>
+<td>
 Pig
-</td><td>
-/PigPython/stderr<br/>/PigPython/stdout
-</td></tr>
+
+</td>
+<td>
+/PigPython/stderr</br>/PigPython/stdout
+
+</td>
+</tr>
 </table>
 ## <a name="next"></a>Próximas etapas
 

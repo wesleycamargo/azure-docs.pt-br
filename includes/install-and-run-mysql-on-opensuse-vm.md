@@ -59,12 +59,12 @@
 
         quit
 
-11. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][]. No Portal do Azure, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e depois em **Pontos de Extremidade**.
+11. Depois que o MySQL for instalado, você deverá configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure]. No Portal do Azure, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e depois em **Pontos de Extremidade**.
 
-    ![Pontos de extremidade][]
+    ![Pontos de extremidade][Pontos de extremidade]
 
 12. Clique em **Adicionar Ponto de Extremidade** na parte inferior da página.
-    ![Pontos de Extremidade][]
+    ![Pontos de Extremidade][Pontos de Extremidade]
 
 13. Adicione um ponto de extremidade com o nome "MySQL", protocolo **TCP** e portas **públicas** e **particulares** definidas como "3306". Isso permitirá que o MySQL seja acessado remotamente.
     ![Pontos de Extremidade][1]
@@ -77,7 +77,7 @@
 
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][].
+15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][Documentação do MySQL].
 
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Pontos de extremidade]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png

@@ -1,6 +1,6 @@
-<properties pageTitle="Build Reliable and Elastic Cloud Apps with Messaging" metaKeywords="Service Bus, Cloud, elastic" description="Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure." services="service-bus" title="Build Reliable and Elastic Cloud Apps with Messaging" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="Crie aplicativos da nuvem confi&aacute;veis e el&aacute;sticos com o sistema de mensagens" metaKeywords="Service Bus, Cloud, elastic" description="Saiba como criar aplicativos da nuvem confi&aacute;veis e el&aacute;sticos com o sistema de mensagens no Microsoft Azure." services="service-bus" title="Crie aplicativos da nuvem confi&aacute;veis e el&aacute;sticos com o sistema de mensagens" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Crie aplicativos da nuvem confiáveis e elásticos com o sistema de mensagens
 

@@ -1,4 +1,4 @@
-# Usando o CDN para o Azure
+# Usando a CDN para Azure
 
 A CDN (Rede de Distribuição de Conteúdo) do Azure oferece aos desenvolvedores uma solução
 global para entrega de conteúdo de largura de banda alta armazenando em cache blobs
@@ -37,9 +37,10 @@ Para criar uma conta de armazenamento, você deve ser o
 administrador de serviço ou um coadministrador da assinatura associada.
 
 <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>Para obter informa&ccedil;&otilde;es sobre como executar esta opera&ccedil;&atilde;o usando a API de Gerenciamento de Servi&ccedil;os do Azure, consulte o t&oacute;pico de refer&ecirc;ncia <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx">Criar conta de armazenamento</a>.
-</p>
+
+**Observação**
+Para obter informações sobre como executar esta operação usando a API de Gerenciamento de Serviços do Azure, consulte o tópico de referência [Criar conta de armazenamento][Criar conta de armazenamento].
+
 </div>
 
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
@@ -60,7 +61,7 @@ administrador de serviço ou um coadministrador da assinatura associada.
     URI no seguinte formato, onde *\<StorageAccountLabel\>* refere-se
     ao valor digitado em **Inserir uma URL**:
 
-    <http://>*\<ContaDeArmazenamento\>*.blob.core.windows.net/*\<meucontêiner\>*
+    http://*\<StorageAcountLabel\>*.blob.core.windows.net/*\<mycontainer\>*
 
     **Importante:** o rótulo da URL forma o subdomínio do URI da conta
     de armazenamento e deve ser exclusivo entre todos os serviços hospedados no
@@ -103,13 +104,11 @@ quando o período de vida do conteúdo em cache expirar.
     conteúdo em cache. O domínio de origem pode ser uma conta de armazenamento ou um serviço de nuvem. Uma conta de armazenamento é usada para fins deste exemplo. O conteúdo do armazenamento é armazenado em cache em servidores de borda, de acordo com uma configuração de controle de cache que você especificar ou com a heurística padrão da rede de armazenamento em cache. Consulte [Como gerenciar a expiração do conteúdo Blob][Como gerenciar a expiração do conteúdo Blob] para obter mais informações.
 
     <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>A configura&ccedil;&atilde;o criada para o ponto de extremidade n&atilde;o estar&aacute; dispon&iacute;vel imediatamente; leva at&eacute; 60 minutos para que
 
-o registro se propague atrav&eacute;s da rede CDN. Os usu&aacute;rios que tentam usar o nome de dom&iacute;nio do CDN imediatamente pode receber o c&oacute;digo de status 400
+    **Observação**
+    A configuração criada para o ponto de extremidade não estará disponível imediatamente; leva até 60 minutos para que o registro se propague através da rede CDN. Os usuários que tentarem usar o nome de domínio do CDN imediatamente pode receber o código de status 400 (Solicitação Inválida) até que o conteúdo esteja disponível por meio do CDN.
 
-(Solicita&ccedil;&atilde;o Inv&aacute;lida) at&eacute; que o conte&uacute;do esteja dispon&iacute;vel por meio do CDN.</p>
-</div>
+    </div>
 
 <span id="Step3"></span> </a>
 
@@ -118,7 +117,7 @@ o registro se propague atrav&eacute;s da rede CDN. Os usu&aacute;rios que tentam
 </p>
 Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. O endereço de um blob armazenado em cache será semelhante ao seguinte:
 
-<http://>\<*CDNNamespace*\>.vo.msecnd.net/\<*myPublicContainer*\>/\<*BlobName*\>
+http://\<*CDNNamespace*\>.vo.msecnd.net/\<*myPublicContainer*\>/\<*BlobName*\>
 
 <span id="Step4"></span> </a>
 

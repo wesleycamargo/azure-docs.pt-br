@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Azure" metaKeywords="" description="Learn how to use AppDynamics for Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How To Use AppDynamics for Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Monitor with AppDynamics" pageTitle="Como usar o AppDynamics com o Azure" metaKeywords="" description="Saiba como usar o AppDynamics para Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Como usar o AppDynamics para Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
@@ -43,7 +43,7 @@ Há dois componentes no AppDynamics:
 
 Para registrar-se para uma conta AppDynamics para Azure:
 
-1.  Clique em **Teste gratuitamente** ou **Inscrever-se** para AppDynamics Windows Azure Marketplace em [][]<https://datamarket.azure.com/browse/Applications></a>.
+1.  Clique em **Teste gratuitamente** ou **Inscrever-se** para AppDynamics Windows Azure Marketplace em <https://datamarket.azure.com/browse/Applications>.
 
     Se escolher **Inscrever-se**, você receberá uma versão gratuita do AppDynamics Pro para Azure com funcionalidade completa, que é reduzida após 30 dias para uma versão gratuita do AppDynamics Lite para Azure com funcionalidade limitada. Você não precisa fornecer um cartão de crédito para essa opção. Você pode atualizar para o AppDynamics Pro para Azure a qualquer momento.
 
@@ -151,8 +151,9 @@ Para cada projeto de função instrumentada do AppDynamics:
 
 Consulte sua página inicial da conta AppDynamics para obter os links para documentação e vídeos.
 
-[][1][As atualizações mais recentes deste documento estão na versão do wiki em][1]</a>http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure.
+[As atualizações mais recentes deste documento estão na versão do wiki em][As atualizações mais recentes deste documento estão na versão do wiki em]http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure.
 
+  [O que é AppDynamics?]: #what
   [Pré-requisitos]: #prereq
   [Registrar-se para uma conta do AppDynamics]: #register
   [Baixar o agente .NET do AppDynamics]: #download
@@ -160,7 +161,6 @@ Consulte sua página inicial da conta AppDynamics para obter os links para docum
   [Publicar o aplicativo instrumentado pelo AppDynamics para Azure]: #publish
   [Monitorar seu aplicativo]: #monitor
   [Diagrama do AppDynamics]: ./media/cloud-services-how-to-appdynamics/addiagram.png
-  []: https://datamarket.azure.com/browse/Applications
   [Copiar sempre]: ./media/cloud-services-how-to-appdynamics/adcopyalways.png
   [Definição do serviço]: ./media/cloud-services-how-to-appdynamics/adscreen.png
-  [1]: http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure
+  [As atualizações mais recentes deste documento estão na versão do wiki em]: http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure

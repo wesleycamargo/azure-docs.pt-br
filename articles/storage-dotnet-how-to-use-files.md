@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="Como utilizar o armazenamento de arquivos do Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Saiba como utilizar o armazenamento de arquivos do Microsoft Azure para criar compartilhamentos de arquivos e gerenciar o conte&uacute;do de arquivos. As amostras s&atilde;o escritas em PowerShell e C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Como utilizar o armazenamento de arquivos do Microsoft Azure no .NET" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Como utilizar o armazenamento de arquivos do Azure
 
@@ -55,7 +55,7 @@ O armazenamento de arquivos contém os seguintes componentes:
 
 -   **Formato de URL:** Os arquivos são endereçáveis usando o seguinte formato de
     URL:
-    `https://storageaccount.file.core.windows.net/share/directory/directories/file`
+    https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
     A URL de exemplo a seguir poderia ser usada para endereçar um dos arquivos no
     diagrama acima:
@@ -69,7 +69,7 @@ O armazenamento de arquivos do Azure está atualmente em visualização. Para so
 
 > [WACOM.NOTE] O armazenamento de arquivos está disponível atualmente apenas para novas contas de armazenamento. Após ser concedido acesso à sua assinatura para o armazenamento de arquivos, crie uma nova conta de armazenamento para ser usada com este guia.
 
-[WACOM.INCLUDE [create-storage-account][create-storage-account]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">Usar o PowerShell para criar um compartilhamento de arquivo</span>Usar o PowerShell para criar um compartilhamento de arquivo
 
@@ -239,7 +239,7 @@ para obter informações mais detalhadas.
     -   [Referência à API REST do serviço de arquivos][Referência à API REST do serviço de arquivos]
 
 -   Consulte as postagens do blog da Equipe de Armazenamento do Azure relativas ao serviço de arquivos:
-    -   [Apresentando o serviço de arquivos do Microsoft Azure][Apresentando o serviço de arquivos do Microsoft Azure]
+    -   [Apresentando o serviço de arquivo do Microsoft Azure][Apresentando o serviço de arquivo do Microsoft Azure]
     -   [Persistindo conexões para arquivos do Microsoft Azure][Persistindo conexões para arquivos do Microsoft Azure]
 
 -   Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
@@ -262,14 +262,13 @@ para obter informações mais detalhadas.
   [Escalabilidade e Metas de Desempenho do Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/dn249410.aspx
   [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados]: http://msdn.microsoft.com/pt-br/library/azure/dn167011.aspx
   [página de visualização do Microsoft Azure]: /pt-br/services/preview/
-  [create-storage-account]: ../includes/create-storage-account.md
   [Como instalar e configurar o PowerShell do Azure]: /pt-br/documentation/articles/install-configure-powershell/
   [Criar uma máquina virtual executando o Windows Server]: /pt-br/documentation/articles/virtual-machines-windows-tutorial/
   [Como fazer logon em uma máquina virtual executando o Windows Server]: /pt-br/documentation/articles/virtual-machines-log-on-windows-server/
   [namespaces do System.IO]: http://msdn.microsoft.com/pt-br/library/gg145019(v=vs.110).aspx
   [Biblioteca de Cliente de Armazenamento para .NET do Azure]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Referência à API REST do serviço de arquivos]: http://msdn.microsoft.com/pt-br/library/azure/dn167006.aspx
-  [Apresentando o serviço de arquivos do Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
+  [Apresentando o serviço de arquivo do Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [Persistindo conexões para arquivos do Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
   [Armazenamento de Blob]: /pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/
   [Armazenamento de Tabela]: /pt-br/documentation/articles/storage-dotnet-how-to-use-tables/

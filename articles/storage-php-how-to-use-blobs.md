@@ -1,4 +1,4 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="Como usar o armazenamento de blob (PHP) &mdash; guia de recursos do Azure" pageTitle="Como usar o armazenamento de blob (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Saiba como usar o servi&ccedil;o Blob do Azure para carregar, baixar, listar e excluir blobs. Os exemplos de c&oacute;digo s&atilde;o escritos em PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="adinah" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -32,7 +32,7 @@ Este guia mostra como executar cenários comuns usando o serviço Blob do Azure.
 
 O único requisito para a criação de um aplicativo PHP que acessa o serviço Blob do Azure é a referência das classes no SDK do Azure para PHP de dentro de seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
 
-Neste guia, você usará os recursos do serviço que podem ser chamados dentro de um aplicativo PHP localmente ou no código em execução dentro de uma função Web do Azure, função de trabalho ou no site.
+Neste guia, você usará os recursos de serviços que podem ser chamados em um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, uma função de trabalho ou um site.
 
 ## <span id="GetClientLibrary"></span></a>Obter as bibliotecas de cliente do Azure
 
@@ -42,18 +42,18 @@ Neste guia, você usará os recursos do serviço que podem ser chamados dentro d
 
 Para usar as APIs do serviço Blob do Azure, você precisa:
 
-1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][require\_once] e
-2.  Consultar qualquer classe que você possa usar.
+1.  Fazer referência ao arquivo de carregador automático usando a instrução [require\_once][require\_once], e
+2.  Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
 > [WACOM.NOTE]
-> Esse exemplo (e outros exemplos deste artigo) pressupõe que você instalou as Bibliotecas de Cliente do PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
+> Este exemplo (e outros exemplos deste artigo) pressupõe que você instalou as Bibliotecas de Cliente do PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
 
     require_once 'vendor\autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
 
-Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos abaixo, a instrução '`require_once`' será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
 ## <span id="ConnectionString"></span></a>Configurar uma conexão de armazenamento do Azure
 
@@ -69,11 +69,11 @@ Para acessar o armazenamento do emulador:
 
 Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
--   passar a cadeia de conexão diretamente ou
--   usar **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
+-   passar a cadeia de conexão diretamente para ele ou
+-   usar o **CloudConfigurationManager (CCM)** para verificar várias origens externas para a cadeia de conexão:
 
-    -   por padrão, ele é fornecido com suporte para uma fonte externa – variáveis de ambiente
-    -   adicionar novas fontes ao estender a classe **ConnectionStringSource**
+    -   por padrão, ele vem com suporte para uma origem externa - variáveis de ambiente
+    -   você pode adicionar novas origens ao estender a classe **ConnectionStringSource**
 
 Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
@@ -306,9 +306,10 @@ Agora que você aprendeu os conceitos básicos do serviço Blob do Azure, siga e
   [Como: Baixar um blob]: #DownloadBlob
   [Como: Excluir um blob]: #DeleteBlob
   [Como: Excluir um contêiner de blob]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
+  [Configurar ACL do Contêiner (REST API)]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179391.aspx
   [Códigos de erro de serviço Blob]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
+  [file\_get\_contents]: http://php.net/file_get_contents
+  [stream\_get\_contents]: http://www.php.net/stream_get_contents
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx

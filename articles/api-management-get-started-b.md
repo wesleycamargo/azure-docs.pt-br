@@ -1,4 +1,6 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Introdu&ccedil;&atilde;o ao Gerenciamento de API do Azure" metaKeywords="" description="Saiba como criar APIs, opera&ccedil;&otilde;es e obtenha uma introdu&ccedil;&atilde;o ao Gerenciamento de API." metaCanonical="" services="api-management" documentationCenter="API Management" title="Introdu&ccedil;&atilde;o ao Gerenciamento de API do Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Introdução ao Gerenciamento de API do Azure
 
@@ -47,7 +49,7 @@ Para criar **Minha API de Eco**, clique em **APIs** no menu **Gerenciamento de A
 Os três campos a seguir são usados para configurar a nova API.
 
 -   Digite **Minha API de Eco** na caixa de texto **Título da API Web**. O **Título da API Web** fornece um nome descritivo exclusivo para a API. Esse nome será exibido nos portais de gerenciamento e do desenvolvedor.
--   Digite **<http://echoapi.cloudapp.net/api>** em **URL de Serviço Web**. O **URL de Serviço Web** utiliza como referência o serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço.
+-   Digite **http://echoapi.cloudapp.net/api** em **URL de Serviço Web**. O **URL de Serviço Web** utiliza como referência o serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço.
 -   Digite **myecho** no **sufixo de URL da API Web**. **O sufixo da URL da API Web** está anexado à URL base do serviço de gerenciamento de API. Suas APIs compartilharão uma URL de base comum e serão distinguidas por um sufixo exclusivo anexado após a base.
 
 Clique em **Salvar** para criar a API. Após criar as novas APIs, a página de resumo das APIs será exibida no Portal de Gerenciamento.

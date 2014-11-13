@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Desenvolver uma solu&ccedil;&atilde;o preditiva com o Aprendizado de M&aacute;quina do Azure" pageTitle="Desenvolver uma solu&ccedil;&atilde;o preditiva com o Aprendizado de M&aacute;quina | Azure" description="Apresenta&ccedil;&atilde;o de como criar um experimento de anal&iacute;tica preditiva no Est&uacute;dio de Aprendizado de M&aacute;quina do Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure
 
@@ -12,15 +12,15 @@ Neste passo a passo, seguiremos o processo de desenvolvimento de um modelo de an
 
 Seguiremos estas etapas:
 
-1.  [Criar um espaço de trabalho do AM][]
-2.  [Fazer upload de dados existentes][]
-3.  [Criar um novo experimento][]
-4.  [Treinar e avaliar os modelos][]
-5.  [Publicar o serviço Web][]
-6.  [Acessar o serviço Web][]
+1.  [Criar um espaço de trabalho do AM][Criar um espaço de trabalho do AM]
+2.  [Fazer upload de dados existentes][Fazer upload de dados existentes]
+3.  [Criar um novo experimento][Criar um novo experimento]
+4.  [Treinar e avaliar os modelos][Treinar e avaliar os modelos]
+5.  [Publicar o serviço Web][Publicar o serviço Web]
+6.  [Acessar o serviço Web][Acessar o serviço Web]
 
 Este passo a passo é baseado em uma versão simplificada do
-[Experimento de amostra de previsão de risco de crédito][] incluído com o Estúdio AM.
+[Experimento de amostra de previsão de risco de crédito][Experimento de amostra de previsão de risco de crédito] incluído com o Estúdio AM.
 
   [Criar um espaço de trabalho do AM]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [Fazer upload de dados existentes]: ../machine-learning-walkthrough-2-upload-data/

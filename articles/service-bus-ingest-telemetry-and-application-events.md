@@ -1,6 +1,6 @@
-<properties pageTitle="Ingest Telemetry and Application Events at Scale" metaKeywords="Service Bus, telemetry, events" description="Learn how to ingest telemetry and application events at scale across your business solutions." services="service-bus" documentationCenter=".NET" title="Ingest Telemetry and Application Events at Scale" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="Ingest&atilde;o de telemetria e eventos de aplicativo em escala" metaKeywords="Service Bus, telemetry, events" description="Saiba como realizar a ingest&atilde;o de telemetria e eventos de aplicativo em escala em suas solu&ccedil;&otilde;es de neg&oacute;cios." services="service-bus" documentationCenter=".NET" title="Ingest&atilde;o de telemetria e eventos de aplicativo em escala" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Ingestão de telemetria e escala de eventos de aplicação
 

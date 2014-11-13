@@ -1,6 +1,6 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="User Names in Linux" pageTitle="Selecionando nomes de usu&aacute;rio para Linux no Azure" metaKeywords="" description="Saiba como selecionar nomes de usu&aacute;rio para uma m&aacute;quina virtual Linux no Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecionando nomes de usu&aacute;rio para Linux no Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Selecionando nomes de usuário para Linux no Azure
 
@@ -8,7 +8,7 @@ Ao criar uma instância de máquina virtual do Linux no Azure, você tem a capac
 
 **Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado ao criar novos usuários. O processo de provisionamento irá **falhar** se você tentar provisionar uma VM do Linux usando um usuário de sistema existen, que foi definido como usuário com UID 0-99. Um exemplo típico é o usuário `root`, que tem UID 0.
 
--   Consulte também: [Base Padrão Linux - Intervalos de ID de Usuário][]
+-   Consulte também: [Base Padrão Linux - Intervalos de ID de Usuário][Base Padrão Linux - Intervalos de ID de Usuário]
 
 A seguinte lista contém nomes de usuário que devem ser evitados ao fazer o provisionamento de uma máquina virtual do Linux. Por segurança, é recomendado que **não use esses nomes de usuário** ao provisionar uma VM do Linux ou o processo de provisionamento poderá falhar.
 

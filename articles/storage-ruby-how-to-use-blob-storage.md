@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Como usar o armazenamento de blob (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Saiba como usar o servi&ccedil;o Blob do Azure para carregar, baixar, listar e excluir o conte&uacute;do de blob. Exemplos gravados no Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Como usar o servi&ccedil;o Blob do Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
@@ -41,7 +41,7 @@ Para usar o armazenamento do Azure, você deverá baixar e usar o pacote do Azur
 
 ### Usar RubyGems para obter o pacote
 
-1.  Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1.  Use uma interface da linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
 
 2.  Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
 
@@ -139,15 +139,16 @@ Finalmente, para excluir um blob, use o método **delete\_blob()**. O exemplo a 
 
     azure_blob_service.delete_blob(container.name, "image-blob")
 
-## <span id="NextSteps"></span></a> Próximas etapas
+## <span id="NextSteps"></span></a>Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
--   Visite o repositório [SDK do Azure para Ruby][SDK do Azure para Ruby] no GitHub
+-   Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
 
   [Próximas etapas]: #next-steps
+  [O que é o serviço Blob?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #CreateAccount
   [Criar um aplicativo Ruby]: #CreateRubyApp
@@ -159,10 +160,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
   [Como: Baixar blobs]: #DownloadBlobs
   [Como: Excluir um blob]: #DeleteBlob
   [1]: #NextSteps
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Criar um aplicativo Ruby no Azure]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [SDK do Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
+  [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-ruby

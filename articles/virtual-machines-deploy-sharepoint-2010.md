@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="SharePoint on Azure" pageTitle="Implanta&ccedil;&atilde;o do SharePoint 2010 em m&aacute;quinas virtuais do Azure" metaKeywords="" description="Entenda os cen&aacute;rios de uso compat&iacute;veis com o SharePoint 2010 nas m&aacute;quinas virtuais do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Implanta&ccedil;&atilde;o do SharePoint em M&aacute;quinas Virtuais do Azure" authors="josephd" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd" />
 
@@ -112,74 +112,121 @@ Figura 3: Visão geral das etapas de carregamento de imagem
 
 Você pode implantar o SharePoint 2010 no Azure seguindo estas etapas:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] através da sua conta.
-    -   Se você não tiver uma conta do Azure, [inscreva-se para obter uma versão gratuita do Azure][inscreva-se para obter uma versão gratuita do Azure].
+<ol>
+<li>
+Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] através da sua conta.
 
-2.  Criar uma VM com sistema operacional base: No Portal de Gerenciamento do Azure, clique em **+NOVO**, **MÁQUINA VIRTUAL** e **DA GALERIA**. ![azure-sharepoint-wp-4](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png)
-3.  A caixa de diálogo **Seleção de SO da VM** é exibida. Clique em **Imagens de Plataforma**, selecione a imagem de plataforma **Windows Server 2008 R2 SP1**. ![azure-sharepoint-wp-5](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png)
-4.  A caixa de diálogo ***Configuração da VM*** é exibida. Forneça as seguintes informações:
-    -   Digite um **NOME DE MÁQUINA VIRTUAL**.
-        -   Esse nome de máquina deve ser exclusiva globalmente.
-    -   Deixe a caixa **NOVO NOME DE USUÁRIO** como Administrador.
-    -   Na caixa **NOVA SENHA**, digite uma senha forte.
-    -   Na caixa **CONFIRMAR SENHA**, digite a senha novamente.
-    -   Selecione o **TAMANHO** adequado.
-        -   Para um ambiente de produção (banco de dados e servidor do aplicativo SharePoint), é recomendável usar Grande *(4 núcleos, memória de 7 GB)*.
+-   Se você não tiver uma conta do Azure, [inscreva-se para obter uma versão gratuita do Azure][inscreva-se para obter uma versão gratuita do Azure].
 
-    ![azure-sharepoint-wp-6](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-6.png)
-5.  A caixa de diálogo ***Modo da VM*** é exibida. Forneça as seguintes informações:
-    -   Selecione a Máquina Virtual Autônoma.
-    -   Na caixa **DNS NAME** , forneça a primeira parte de um nome DNS de sua escolha.
-        -   Essa parte completará um nome no formato MyService1.cloudapp.net.
-    -   Na caixa **CONTA DE ARMAZENAMENTO**, escolha um dos seguintes:
-        -   Selecione uma conta de armazenamento onde o arquivo de VHD está armazenado.
-        -   Escolha a opção para que a conta de armazenamento seja criada automaticamente.
-            -   Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras VMs criadas com essa configuração estarão localizadas nessa conta de armazenamento.
-            -   Você está limitado a 20 contas de armazenamento.
-            -   Para obter mais informações, consulte [Criar uma conta de armazenamento no Azure][Criar uma conta de armazenamento no Azure] (a página pode estar em inglês).
-    -   Na caixa **REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL**, selecione a região onde a imagem virtual será hospedada.
+</li>
+<li>
+Para criar uma máquina virtual com base no sistema operacional, acesse o Portal de Gerenciamento do Azure. Clique em **NOVO**, em **COMPUTAÇÃO**, em **MÁQUINA VIRTUAL** e em **DA GALERIA**.
 
-    ![azure-sharepoint-wp-7](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-7.png)
-6.  A caixa de diálogo ***Opções da VM*** é exibida. Forneça as seguintes informações:
-    -   Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione (nenhum).
-    -   Leia e aceite o termos legais.
-    -   Clique na marca de seleção para criar a VM.
+</li>
+<li>
+A caixa de diálogo **Escolher uma imagem** será exibida. Clique na imagem da plataforma **Windows Server 2008 R2 SP1**. Em seguida, clique na seta para a direita.
 
-    ![azure-sharepoint-wp-8](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-8.png)
-7.  A página ***Instâncias de VM*** é exibida. Verifique se a sua VM foi criada com êxito. ![azure-sharepoint-wp-9](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-9.png)
-8.  Conclua a instalação da VM:
-    -   Abra a VM usando a Área de Trabalho Remota.
-    -   No Portal de Gerenciamento do Azure, selecione a sua VM e selecione a página **PAINEL**.
-    -   Clique em **Conectar**.
+</li>
+<li>
+A caixa de diálogo ***Configuração da máquina virtual*** será exibida. Forneça as seguintes informações:
 
-    ![azure-sharepoint-wp-10](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-10.png)
-9.  Crie a VM do SQL Server usando uma das opções a seguir:
-    -   Crie uma VM do SQL Server 2012 seguindo as etapas 1 a 7 acima - com exceção da **etapa 3**, use a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para obter mais informações, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)][Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)].
-        -   Quando você escolher essa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório *C:\\SQLServer\_11.0\_Full* para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
-    -   Use a ferramenta SQL Server System Preparation (SysPrep) para instalar o SQL Server na VM com o sistema operacional base (conforme exibido acima nas etapas 1 a 7). Para obter mais informações, consulte [Instalar o SQL Server 2012 usando SysPrep][Instalar o SQL Server 2012 usando SysPrep].
-    -   Use o prompt de comando para instalar o SQL Server. Para obter mais informações, consulte [Instalar o SQL Server 2012 do prompt de comando][Instalar o SQL Server 2012 do prompt de comando].
-    -   Use a mídia compatível do SQL Server e a sua chave de licença para instalar o SQL Server na VM com o sistema operacional base (conforme exibido acima nas etapas 1 a 7).
+-   Digite um **NOME DE MÁQUINA VIRTUAL**.
+-   Selecione o **TAMANHO** adequado.
+    -   Para um ambiente de produção (banco de dados e servidor do aplicativo SharePoint), é recomendável usar A3 *(4 núcleos e memória de 7 GB)*.
+-   Em **NOVO NOME DE USUÁRIO**, digite o nome da conta do administrador local.
+-   Na caixa **NOVA SENHA**, digite uma senha forte.
+-   Na caixa **CONFIRMAR**, digite a senha novamente e clique na seta para a direita.
 
-10. Crie o farm do SharePoint usando as subetapas a seguir:
-    -   Subetapa 1: Configure a assinatura do Azure usando arquivos de script.
-    -   Subetapa 2: Provisione os servidores do SharePoint criando outra VM com o sistema operacional base (conforme mostrado acima nas etapas 1 a 7). Para criar um servidor do SharePoint nesta VM, escolha uma das seguintes opções:
-        -   Provisione usando a GUI do SharePoint:
-            -   Para criar e provisionar um farm do SharePoint, consulte [Crie e configure o farm][Crie e configure o farm].
-            -   Para adicionar uma rede ou um servidor de aplicativos, consulte [Adicionar servidores de aplicativos ou da Web a farms no (SharePoint Server 2010)][Adicionar servidores de aplicativos ou da Web a farms no (SharePoint Server 2010)].
-            -   Para adicionar um servidor de banco de dados a um farm existente, consulte [Adicionar um servidor de banco de dados a um farm existente][Adicionar um servidor de banco de dados a um farm existente].
+<li>
+A segunda caixa de diálogo **Configuração de máquina virtual** é exibida. Forneça as seguintes informações:
 
-                -   Para usar o SQL Server 2012 no seu farm do SharePoint, é necessário baixar e instalar o Service Pack 1 para o SharePoint Server 2010 depois de instalar o aplicativo e escolher não configurar o servidor. Para obter mais informações, consulte [Service Pack 1 para SharePoint Server 2010][Service Pack 1 para SharePoint Server 2010].
-                -   Para aproveitar os recursos do SQL Server BI, é recomendável instalar o SharePoint Server como um farm de servidores em vez de um servidor autônomo. Para obter mais informações, consulte [Instalar os recursos do SQL Server 2012 Business Intelligence][Instalar os recursos do SQL Server 2012 Business Intelligence].
+<ul>
+<li>
+Na caixa **SERVIÇO DE NUVEM**, escolha uma destas opções:
 
-        -   Provisionamento usando o Microsoft Windows PowerShell: Você pode usar a ferramenta de linha de comando Psconfig como uma interface alternativa para executar várias opções de controlam a forma como os produtos do SharePoint 2010 são provisionados. Para obter mais informações, consulte [Referência da linha de comando Psconfig (a página pode estar em inglês)][Referência da linha de comando Psconfig (a página pode estar em inglês)].
-    -   Subetapa 3: Configure o SharePoint. Depois que cada VM do SharePoint estiver no estado Pronto, configure o SharePoint Server em cada servidor usando as seguintes opções:
-        -   Configure o SharePoint a partir da GUI.
-        -   Configure o SharePoint usando o Windows PowerShell. Para obter mais informações, consulte [Instalar o SharePoint Server 2010 usando o Windows PowerShell][Instalar o SharePoint Server 2010 usando o Windows PowerShell].
-            -   Também é possível usar o AutoSPInstaller do CodePlex Project, que consiste em scripts do Windows PowerShell, um arquivo de entrada XML e um arquivo em lotes padrão do Microsoft Windows. O AutoSPInstaller fornece uma estrutura para um script de instalação do SharePoint 2010 baseada no Windows PowerShell. Para obter mais informações, consulte [CodePlex: AutoSPInstaller][CodePlex: AutoSPInstaller]. **Observação**: Não se esqueça de configurar a segurança no ponto de extremidade do Portal de Gerenciamento e de definir uma porta de dados de entrada no Windows Firewall da VM. Em seguida, confirme que você pode iniciar uma sessão do Windows PowerShell para um dos servidores de aplicativo do SharePoint abrindo uma sessão do Windows PowerShell com credenciais do Administrador.
+-   **Crie um novo serviço de nuvem** (nesse caso você deve fornecer um nome DNS para o serviço de nuvem).
+-   Selecione um serviço de nuvem existente.
 
-11. Depois que o script for concluído, conecte-se à VM usando o Painel da VM.
-12. Verifique a configuração do SharePoint: Faça logon no SharePoint Server e use a Administração Central para verificar a configuração.
+<li>
+Na caixa **REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL**, selecione a região onde a imagem virtual será hospedada.
 
+</li>
+<li>
+Na caixa **CONTA DE ARMAZENAMENTO**, escolha um dos seguintes:
+
+<ul>
+<li>
+**Use uma conta de armazenamento gerada automaticamente**.
+
+</li>
+<li>
+Selecione o nome da conta de armazenamento existente.
+
+</li>
+-   Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras VMs criadas com essa configuração estarão localizadas nessa conta de armazenamento.
+-   Você está limitado a 20 contas de armazenamento.
+-   Para obter mais informações, consulte [Criar uma conta de armazenamento no Azure][Criar uma conta de armazenamento no Azure] (a página pode estar em inglês).
+
+</li>
+<li>
+Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)** e clique na seta para a direita.
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+Na terceira caixa de diálogo **Configuração de máquina virtual**, clique na marca de seleção para criar a máquina virtual.
+
+</li>
+<li>
+Para conectar-se à máquina virtual:
+
+-   Abra a VM usando a Área de Trabalho Remota.
+-   No Portal de Gerenciamento do Azure, selecione a sua VM e selecione a página **PAINEL**.
+-   Clique em **Conectar**.
+
+</li>
+<li>
+Crie a VM do SQL Server usando uma das opções a seguir:
+
+-   Crie uma VM do SQL Server 2012 seguindo as etapas 1 a 7 acima - com exceção da **etapa 3**, use a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para obter mais informações, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)][Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)].
+    -   Quando você escolher essa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório *C:\\SQLServer\_11.0\_Full* para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
+-   Use a ferramenta SQL Server System Preparation (SysPrep) para instalar o SQL Server na VM com o sistema operacional base (conforme exibido acima nas etapas 1 a 7). Para obter mais informações, consulte [Instalar o SQL Server 2012 usando SysPrep][Instalar o SQL Server 2012 usando SysPrep].
+-   Use o prompt de comando para instalar o SQL Server. Para obter mais informações, consulte [Instalar o SQL Server 2012 do prompt de comando][Instalar o SQL Server 2012 do prompt de comando].
+-   Use a mídia compatível do SQL Server e a sua chave de licença para instalar o SQL Server na VM com o sistema operacional base (conforme exibido acima nas etapas 1 a 7).
+
+</li>
+<li>
+Crie o farm do SharePoint usando as subetapas a seguir:
+
+-   Subetapa 1: Configure a assinatura do Azure usando arquivos de script.
+-   Subetapa 2: Provisione os servidores do SharePoint criando outra VM com o sistema operacional base (conforme mostrado acima nas etapas 1 a 7). Para criar um servidor do SharePoint nesta VM, escolha uma das seguintes opções:
+    -   Provisione usando a GUI do SharePoint:
+        -   Para criar e provisionar um farm do SharePoint, consulte [Crie e configure o farm][Crie e configure o farm].
+        -   Para adicionar uma rede ou um servidor de aplicativos, consulte [Adicionar servidores de aplicativos ou da Web a farms no (SharePoint Server 2010)][Adicionar servidores de aplicativos ou da Web a farms no (SharePoint Server 2010)].
+        -   Para adicionar um servidor de banco de dados a um farm existente, consulte [Adicionar um servidor de banco de dados a um farm existente][Adicionar um servidor de banco de dados a um farm existente].
+
+            -   Para usar o SQL Server 2012 no seu farm do SharePoint, é necessário baixar e instalar o Service Pack 1 para o SharePoint Server 2010 depois de instalar o aplicativo e escolher não configurar o servidor. Para obter mais informações, consulte [Service Pack 1 para SharePoint Server 2010][Service Pack 1 para SharePoint Server 2010].
+            -   Para aproveitar os recursos do SQL Server BI, é recomendável instalar o SharePoint Server como um farm de servidores em vez de um servidor autônomo. Para obter mais informações, consulte [Instalar os recursos do SQL Server 2012 Business Intelligence][Instalar os recursos do SQL Server 2012 Business Intelligence].
+
+    -   Provisionamento usando o Microsoft Windows PowerShell: Você pode usar a ferramenta de linha de comando Psconfig como uma interface alternativa para executar várias opções de controlam a forma como os produtos do SharePoint 2010 são provisionados. Para obter mais informações, consulte [Referência da linha de comando Psconfig (a página pode estar em inglês)][Referência da linha de comando Psconfig (a página pode estar em inglês)].
+-   Subetapa 3: Configure o SharePoint. Depois que cada VM do SharePoint estiver no estado Pronto, configure o SharePoint Server em cada servidor usando as seguintes opções:
+    -   Configure o SharePoint a partir da GUI.
+    -   Configure o SharePoint usando o Windows PowerShell. Para obter mais informações, consulte [Instalar o SharePoint Server 2010 usando o Windows PowerShell][Instalar o SharePoint Server 2010 usando o Windows PowerShell].
+        -   Também é possível usar o AutoSPInstaller do CodePlex Project, que consiste em scripts do Windows PowerShell, um arquivo de entrada XML e um arquivo em lotes padrão do Microsoft Windows. O AutoSPInstaller fornece uma estrutura para um script de instalação do SharePoint 2010 baseada no Windows PowerShell. Para obter mais informações, consulte [CodePlex: AutoSPInstaller][CodePlex: AutoSPInstaller]. **Observação**: Não se esqueça de configurar a segurança no ponto de extremidade do Portal de Gerenciamento e de definir uma porta de dados de entrada no Windows Firewall da VM. Em seguida, confirme que você pode iniciar uma sessão do Windows PowerShell para um dos servidores de aplicativo do SharePoint abrindo uma sessão do Windows PowerShell com credenciais do Administrador.
+
+</li>
+<li>
+Depois que o script for concluído, conecte-se à VM usando o Painel da VM.
+
+</li>
+<li>
+Verifique a configuração do SharePoint: Faça logon no SharePoint Server e use a Administração Central para verificar a configuração.
+
+</li>
+</ol>
 ### Criando e carregando um Disco Rígido Virtual
 
 Você também pode criar suas próprias imagens e carregá-las no Azure como um arquivo VHD. Para criar e carregar um arquivo de VHD no Azure, siga estas etapas:
@@ -405,28 +452,40 @@ Uma implantação bem-sucedida do SharePoint Server nas Máquinas Virtuais do Az
     [https://www.windowsazure.com/pt-br/manage/windows/][https://www.windowsazure.com/pt-br/manage/windows/]
 
   [azure-sharepoint-wp-1]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-1.png
+  [Detalhes de preços do Azure (a página pode estar em inglês)]: /pt-br/pricing/details/
+  [Crie uma máquina virtual que executa Windows Server 2008 R2 (a página pode estar em inglês)]: /pt-br/manage/windows/tutorials/virtual-machine-from-gallery/
   [azure-sharepoint-wp-2]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png
+  [Criando e carregando um Disco Rígido Virtual (a página pode estar em inglês)]: /pt-br/manage/windows/common-tasks/upload-a-vhd/
   [azure-sharepoint-wp-3]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
   [inscreva-se para obter uma versão gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/
   [Criar uma conta de armazenamento no Azure]: /pt-br/manage/windows/common-tasks/upload-a-vhd/#createstorage
+  [Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)]: /pt-br/manage/windows/common-tasks/install-sql-server/
   [Instalar o SQL Server 2012 usando SysPrep]: http://msdn.microsoft.com/pt-br/library/ee210664.aspx
   [Instalar o SQL Server 2012 do prompt de comando]: http://msdn.microsoft.com/pt-br/library/ms144259.aspx#SysPrep
   [Crie e configure o farm]: http://technet.microsoft.com/pt-br/library/ee805948.aspx#CreateConfigure
+  [Adicionar servidores de aplicativos ou da Web a farms no (SharePoint Server 2010)]: http://technet.microsoft.com/pt-br/library/cc261752.aspx
   [Adicionar um servidor de banco de dados a um farm existente]: http://technet.microsoft.com/pt-br/library/cc262781
   [Service Pack 1 para SharePoint Server 2010]: http://www.microsoft.com/pt-br/download/details.aspx?id=26623
   [Instalar os recursos do SQL Server 2012 Business Intelligence]: http://technet.microsoft.com/pt-br/library/hh231681(v=sql.110).aspx
+  [Referência da linha de comando Psconfig (a página pode estar em inglês)]: http://technet.microsoft.com/pt-br/library/cc263093.aspx
   [Instalar o SharePoint Server 2010 usando o Windows PowerShell]: http://technet.microsoft.com/pt-br/library/cc262839.aspx
   [CodePlex: AutoSPInstaller]: http://autospinstaller.codeplex.com/
   [Criar discos rígidos virtuais]: http://technet.microsoft.com/pt-br/library/cc742509
   [Como usar o SysPrep: Uma introdução]: http://technet.microsoft.com/pt-br/library/bb457073.aspx
   [azure-sharepoint-wp-11]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png
   [Visão geral da rede virtual]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156007.aspx
+  [SharePoint 2010 Easy Setup Script (a página pode estar em inglês)]: http://www.microsoft.com/pt-br/download/details.aspx?id=23415
   [Instalando o Visual Studio]: http://msdn.microsoft.com/pt-br/library/e2h7fzkw.aspx
   [Configurando o SQL Server 2012 para SharePoint no Azure]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint
   [Implantando um farm do SharePoint com as Máquinas Virtuais do Azure]: https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs
+  [Apresentando a replicação geográfica para o armazenamento do Azure (a página pode estar em inglês)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [azure-sharepoint-wp-12]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png
+  [Diretrizes para implantação do Active Directory do Windows Server em Máquinas Virtuais do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090
+  [Configurar rede virtual (a página pode estar em inglês)]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md
+  [Implantando o Active Directory no Azure (Windows PowerShell) (a página pode estar em inglês)]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS
   [Instalação de uma nova floresta de Ative Directory no Azure]: /pt-br/manage/services/networking/active-directory-forest/
+  [Azure Trust Center (a página pode estar em inglês)]: /pt-br/support/trust-center/compliance/
   [azure-sharepoint-wp-13]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png
   [azure-sharepoint-wp-14]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-14.png
   [Join-SharePointFarm]: http://technet.microsoft.com/pt-br/library/ff607979.aspx

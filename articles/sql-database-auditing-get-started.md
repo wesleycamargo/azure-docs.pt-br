@@ -1,4 +1,4 @@
-<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
+<properties title="Introdu&ccedil;&atilde;o &agrave; auditoria do banco de dados SQL" pageTitle="Introdu&ccedil;&atilde;o &agrave; auditoria do banco de dados SQL | Azure" description="Introdu&ccedil;&atilde;o &agrave; auditoria do banco de dados SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
@@ -45,29 +45,28 @@ Cadeia de conexão segura: \<*nome do servidor*\>.database.**secure**.windows.ne
 ## <span id="subheading-2"></span></a>Configure a auditoria para seu banco de dados
 
 1.  [Inscreva-se para a visualização de Auditoria][inscreva-se na visualização].
-2.  Certifique-se de também [registrar-se para a visualização de Novas Camadas de Serviço][registrar-se para a visualização de Novas Camadas de Serviço] e de criar um banco de dados Basic, Standard ou Premium.
-3.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure] em <https://portal.azure.com>.
-4.  Clique no banco de dados que deseja auditar e depois clique em **Visualização da Auditoria** para ativar a visualização da auditoria e iniciar a folha de configuração de auditoria.
+2.  Inicie o [Azure Preview Portal][Azure Preview Portal] em https://portal.azure.com.
+3.  Clique no banco de dados que deseja auditar e depois clique em **Visualização da Auditoria** para ativar a visualização da auditoria e iniciar a folha de configuração de auditoria.
 
     ![][0]
 
-5.  Na folha de configuração de auditoria, selecione a conta de armazenamento do Azure onde os logs serão salvos. **Dica:** Use a mesma conta de armazenamento para todos os bancos de dados auditados para obter o máximo dos modelos de relatórios pré-configurados.
+4.  Na folha de configuração de auditoria, selecione a conta de armazenamento do Azure onde os logs serão salvos. **Dica:** Use a mesma conta de armazenamento para todos os bancos de dados auditados para obter o máximo dos modelos de relatórios pré-configurados.
 
     ![][1]
 
-6.  Em **Opções de Auditoria**, clique em **Todos** para registrar todos os eventos ou escolher tipos de eventos individuais.
+5.  Em **Opções de Auditoria**, clique em **Todos** para registrar todos os eventos ou escolher tipos de eventos individuais.
 
     ![][2]
 
-7.  Marque **Salvar essa configuração como padrão** se quiser que essas configurações se apliquem a todos os bancos de dados futuros no servidor e a qualquer um que ainda não tenha a auditoria configurada. Você pode substituir as configurações mais tarde para cada banco de dados seguindo essas mesmas etapas.
+6.  Marque **Salvar essa configuração como padrão** se quiser que essas configurações se apliquem a todos os bancos de dados futuros no servidor e a qualquer um que ainda não tenha a auditoria configurada. Você pode substituir as configurações mais tarde para cada banco de dados seguindo essas mesmas etapas.
 
     ![][3]
 
-8.  Clique em **Mostrar cadeias de conexão do banco de dados** e depois copie ou anote a cadeia de conexão segura adequada para seu aplicativo. Use essa conexão para aplicativos clientes cuja atividade você queira auditar.
+7.  Clique em **Mostrar cadeias de conexão do banco de dados** e depois copie ou anote a cadeia de conexão segura adequada para seu aplicativo. Use essa conexão para aplicativos clientes cuja atividade você queira auditar.
 
     ![][4]
 
-9.  Clique em **OK**.
+8.  Clique em **OK**.
 
 ## <span id="subheading-3"></span>Analise os logs e relatórios de auditoria</a>
 
@@ -81,17 +80,15 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 
 ![][5]
 
-<!--Anchors-->
-<!--Image references-->
-<!--Link references-->
+<!--Anchors--> <!--Image references--> <!--Link references-->
 
   [inscreva-se na visualização]: http://go.microsoft.com/fwlink/?LinkId=404163
   [Azure Trust Center]: http://azure.microsoft.com/pt-br/support/trust-center/compliance/
   [Fundamentos da Auditoria do Banco de Dados SQL do Azure]: #subheading-1
   [Configure a auditoria para seu banco de dados]: #subheading-2
   [Analise os logs e relatórios de auditoria]: #subheading-3
-  [registrar-se para a visualização de Novas Camadas de Serviço]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
-  [Portal de Visualização do Azure]: https://portal.azure.com
+  [Referência de Formato de Log de Auditoria (download do arquivo .doc)]: http://go.microsoft.com/fwlink/?LinkId=506733
+  [Azure Preview Portal]: https://portal.azure.com
   [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
   [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
   [2]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
@@ -100,4 +97,5 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
   [Gerenciador de Armazenamento do Azure]: http://azurestorageexplorer.codeplex.com/
   [planilha do Excel para download]: http://go.microsoft.com/fwlink/?LinkId=403540
   [aqui]: http://www.microsoft.com/pt-br/download/details.aspx?id=39379
+  [Instruções (download do .doc)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

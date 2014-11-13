@@ -1,39 +1,39 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analisar sentimento no Twitter em tempo real com HBase no HDInsight | Azure" metaKeywords="" description="Saiba como fazer a an&aacute;lise de Big Data em tempo real usando o HBase em um cluster do HDInsight (Hadoop)." metaCanonical="" services="hdinsight" documentationCenter="" title="Analisar sentimento no Twitter em tempo real com HBase no HDInsight." authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Analisar sentimento no Twitter em tempo real com HBase no HDInsight.
 
-Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real do Big Data, usando o HBase em um cluster HDInsight (Hadoop).
+Saiba como fazer a [análise de sentimento][análise de sentimento] em tempo real do Big Data, usando o HBase em um cluster HDInsight (Hadoop).
 
 Sites sociais são uma das forças principais para adoção de Big Data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares. Neste tutorial, você desenvolverá um aplicativo de serviço de streaming do console e um aplicativo da web ASP.NET para realizar o seguinte:
 
-![][img-app-arch]
+![][0]
 
 -   Obtenha os tweets marcados geograficamente em tempo real, usando o API de streaming do Twitter.
 -   Avalie o sentimento desses tweets.
 -   Armazene as informações do sentimento no HBase usando o Microsoft HBase SDK.
 -   Plote o resultados estatísticos em tempo real nos mapas Bing usando um aplicativo da web ASP.NET. Uma visualização dos tweets terá a seguinte aparência:
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
 
     Você será capaz de consultar tweets com certas palavras-chave para obter um sentido da opinião expressa em tweets em positivo, negativo ou neutro.
 
-Uma amostra da solução completa do Visual Studio pode ser encontrada em [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
+Uma amostra da solução completa do Visual Studio pode ser encontrada em <https://github.com/maxluk/tweet-sentiment>.
 
 ## Neste artigo
 
--   [Pré-requisitos](#prerequisites)
--   [Criar um aplicativo do Twitter](#twitter)
--   [Criar um serviço de streaming do Twitter único](#streaming)
--   [Criar um site do Azure para visualizar o sentimento do Twitter](#web)
--   [Próximas etapas](#nextsteps)
+-   [Pré-requisitos][Pré-requisitos]
+-   [Criar um aplicativo do Twitter][Criar um aplicativo do Twitter]
+-   [Criar um serviço de streaming do Twitter único][Criar um serviço de streaming do Twitter único]
+-   [Criar um site do Azure para visualizar o sentimento do Twitter][Criar um site do Azure para visualizar o sentimento do Twitter]
+-   [Próximas etapas][Próximas etapas]
 
 ## <span id="prerequisites"></span></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
--   **Um cluster HBase no HDInsight**. Para obter instruções sobre a provisão do cluster, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][hBase-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
+-   **Um cluster HBase no HDInsight**. Para obter instruções sobre a provisão do cluster, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][Introdução ao uso do HBase com o Hadoop no HDInsight]. Você precisará dos seguintes dados para percorrer o tutorial:
 
     | Propriedade do cluster      | Descrição                                                                                  |
     |-----------------------------|--------------------------------------------------------------------------------------------|
@@ -41,17 +41,17 @@ Antes de começar este tutorial, você deve ter o seguinte:
     | Nome de usuário do cluster  | O nome da conta do usuário Hadoop. O nome de usuário Hadoop padrão é **admin**.            |
     | Senha de usuário do cluster | A senha de usuário do cluster Hadoop.                                                      |
 
--   **Uma estação de trabalho** com Visual Studio 2013 instalado. Para obter instruções, consulte [Instalação do Visual Studio](http://msdn.microsoft.com/pt-br/library/e2h7fzkw.aspx).
+-   **Uma estação de trabalho** com Visual Studio 2013 instalado. Para obter instruções, consulte [Instalação do Visual Studio][Instalação do Visual Studio].
 
 ## <span id="twitter"></span></a>Criar ID e segredos do aplicativo Twitter
 
-As API do Streaming do Twitter usam [OAuth](http://oauth.net/) para autorizar solicitações.
+As API do Streaming do Twitter usam [OAuth][OAuth] para autorizar solicitações.
 
 A primeira etapa para usar OAuth é criar um novo aplicativo no site do desenvolvedor do Twitter.
 
 **Para criar ID e segredos do aplicativo Twiiter:**
 
-1.  Entre no [https://apps.twitter.com/](https://apps.twitter.com/).Clique no link **Inscreva-se agora mesmo** se você não tiver uma conta do Twitter.
+1.  Entre no <https://apps.twitter.com/>.Clique no link **Inscreva-se agora mesmo** se você não tiver uma conta do Twitter.
 2.  Clique em **Criar Novo Aplicativo**.
 3.  Digite o **Nome**, a **Descrição** e o **Site**. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida. A tabela a seguir mostra alguns valores de exemplo para usar:
 
@@ -68,7 +68,7 @@ A primeira etapa para usar OAuth é criar um novo aplicativo no site do desenvol
 8.  Clique em **OAuth de teste** no canto superior direito da página.
 9.  Anote a **chave API**, o **segredo do API**, o **Token de acesso** e **Segredo do token de acesso**. Você precisará dos valores mais tarde no tutorial.
 
-    ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
+    ![hdi.hbase.twitter.sentiment.twitter.app][hdi.hbase.twitter.sentiment.twitter.app]
 
 ## <span id="streaming"></span></a> Criar um serviço de streaming do Twitter único
 
@@ -91,12 +91,12 @@ Crie um aplicativo de console para obter tweets, calcular pontuação de sentime
 **Para instalar os pacotes Nuget e adicionar referências SDK:**
 
 1.  No menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e, em seguida, clique em **Console do Gerenciador de Pacotes**. O painel do console abrirá na parte interior da página.
-2.  Use os comandos a seguir para instalar o pacote [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que é usado para acessar o API do Twitter, e o pacote [Protobuf-net](https://www.nuget.org/packages/protobuf-net/), que é usado para serializar e desserializar objetos.
+2.  Use os comandos a seguir para instalar o pacote [Tweetinvi][Tweetinvi], que é usado para acessar o API do Twitter, e o pacote [Protobuf-net][Protobuf-net], que é usado para serializar e desserializar objetos.
 
         Install-Package TweetinviAPI
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] O pacote Microsoft Hbase SDK Nuget não está disponível em 26 de agosto de 2014. O relatório Github é [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Até que o SDK esteja disponível, você deve criar o dll sozinho. Para obter instruções, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][hdinsight-hbase-get-started].
+    > [WACOM.NOTE] O pacote Microsoft Hbase SDK Nuget não está disponível em 26 de agosto de 2014. O relatório Github é <https://github.com/hdinsight/hbase-sdk-for-net>. Até que o SDK esteja disponível, você deve criar o dll sozinho. Para obter instruções, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][Introdução ao uso do HBase com o Hadoop no HDInsight].
 
 3.  Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e, em seguida, clique em **Adicionar Referência**.
 4.  No painel esquerdo, expanda **Assemblies** e, em seguida, clique em **Framework**.
@@ -413,7 +413,7 @@ Crie um aplicativo de console para obter tweets, calcular pontuação de sentime
 
 **Para baixar o arquivo do dicionário de sentimento:**
 
-1.  Navegue para [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
+1.  Navegue para <https://github.com/maxluk/tweet-sentiment>.
 2.  Clique em **Baixar ZIP**.
 3.  Extraia o arquivo localmente.
 4.  Copie o arquivo de **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
@@ -455,11 +455,11 @@ Nesta seção, você criará um aplicativo da web ASP.NET MVC para ler os dados 
 **Para instalar os pacotes Nuget:**
 
 1.  No menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e, em seguida, clique em **Console do Gerenciador de Pacotes**. O painel do console é aberto na parte interior da página.
-2.  Use o comando a seguir para instalar o pacote [Protobuf-net](https://www.nuget.org/packages/protobuf-net/), que é usado para serializar e desserializar objetos.
+2.  Use o comando a seguir para instalar o pacote [Protobuf-net][Protobuf-net], que é usado para serializar e desserializar objetos.
 
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] O pacote Microsoft Hbase SDK Nuget não está disponível em 20 de agosto de 2014. O relatório Github é [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Até que o SDK esteja disponível, você deve criar o dll sozinho. Para obter instruções, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][hdinsight-hbase-get-started].
+    > [WACOM.NOTE] O pacote Microsoft Hbase SDK Nuget não está disponível em 20 de agosto de 2014. O relatório Github é <https://github.com/hdinsight/hbase-sdk-for-net>. Até que o SDK esteja disponível, você deve criar o dll sozinho. Para obter instruções, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][Introdução ao uso do HBase com o Hadoop no HDInsight].
 
 **Para adicionar a classe HBaseReader:**
 
@@ -621,31 +621,31 @@ Nesta seção, você criará um aplicativo da web ASP.NET MVC para ler os dados 
 1.  A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
 2.  Clique com o botão direito do mouse em **Scripts**, clique em **Adicionar** e em **Arquivo JavaScript**.
 3.  No nome do Item, digite **heatmap.js**.
-4.  Copie e cole o seguinte código no arquivo. O código foi escrito por Alaistair Aitchison. Para obter mais informações, consulte [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
+4.  Copie e cole o seguinte código no arquivo. O código foi escrito por Alaistair Aitchison. Para obter mais informações, consulte <http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/>.
 
         /*******************************************************************************
-		* Author: Alastair Aitchison
-		* Website: http://alastaira.wordpress.com
-		* Date: 15th April 2011
-		* 
-		* Description: 
-		* This JavaScript file provides an algorithm that can be used to add a heatmap
-		* overlay on a Bing Maps v7 control. The intensity and temperature palette
-		* of the heatmap are designed to be easily customisable.
+        * Author: Alastair Aitchison
+        * Website: http://alastaira.wordpress.com
+        * Date: 15th April 2011
+        * 
+        * Description: 
+        * This JavaScript file provides an algorithm that can be used to add a heatmap
+        * overlay on a Bing Maps v7 control. The intensity and temperature palette
+        * of the heatmap are designed to be easily customisable.
         *
-		* Requirements:
-		* The heatmap layer itself is created dynamically on the client-side using
-		* the HTML5 <canvas> element, and therefore requires a browser that supports
-		* this element. It has been tested on IE9, Firefox 3.6/4 and 
-		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
-		* not, I'd love to hear from you!
+        * Requirements:
+        * The heatmap layer itself is created dynamically on the client-side using
+        * the HTML5 <canvas> element, and therefore requires a browser that supports
+        * this element. It has been tested on IE9, Firefox 3.6/4 and 
+        * Chrome 10 browsers. If you can confirm whether it works on other browsers or
+        * not, I'd love to hear from you!
 
-		* Usage:
-		* The HeatMapLayer constructor requires:
-		* - A reference to a map object
-		* - An array or Microsoft.Maps.Location items
-		* - Optional parameters to customise the appearance of the layer
-		*  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
+        * Usage:
+        * The HeatMapLayer constructor requires:
+        * - A reference to a map object
+        * - An array or Microsoft.Maps.Location items
+        * - Optional parameters to customise the appearance of the layer
+        *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
         *
         */
 
@@ -1190,44 +1190,42 @@ Nesta seção, você criará um aplicativo da web ASP.NET MVC para ler os dados 
 1.  Verifique que o aplicativo de console do serviço de streaming ainda está em execução. Então, você pode ver as alterações em tempo real.
 2.  Pressione **F5** para executar o aplicativo Web.
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
 
 3.  Na caixa de texto, insira uma palavra-chave e, em seguida, clique em **Ir**. Dependendo dos dados coletados na tabela HBase, algumas palavras-chave podem não ser encontradas. Tente algumas palavras-chave em comum, como “amor”, “xbox”, “playstation” e assim por diante.
 4.  Alterne entre **Positivo**, **Neutro** e **Negativo** para comparar o sentimento no objeto.
 5.  Deixe o serviço de streaming executando por mais uma hora, e então pesquise a mesma palavra-chave e compare os resultados.
 
-Opcionalmente, é possível implantar o aplicativo em um site do Azure. Para obter instruções, consulte [Introdução aos sites do Azure e ASP.NET][website-get-started].
+Opcionalmente, é possível implantar o aplicativo em um site do Azure. Para obter instruções, consulte [Introdução aos sites do Azure e ASP.NET][Introdução aos sites do Azure e ASP.NET].
 
 ## <span id="nextsteps"></span></a>Próximas etapas
 
 Neste tutoria, aprendemos como obter tweets, analisar o sentimento dos tweets, salvar os dados do sentimento para o HBase e apresentar os dados dos sentimentos do Twitter em tempo real para mapas Bing. Para obter mais informações, consulte:
 
--   [Introdução ao HDInsight][hdinsight-get-started]
--   [Analisar dados do Twitter com Hadoop no HDInsight][hdinsight-analyze-twitter-data]
--   [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-delay-data]
--   [Desenvolver programas de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming]
--   [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
+-   [Introdução ao HDInsight][Introdução ao HDInsight]
+-   [Analisar dados do Twitter com Hadoop no HDInsight][Analisar dados do Twitter com Hadoop no HDInsight]
+-   [Analisar dados de atraso de voo usando o HDInsight][Analisar dados de atraso de voo usando o HDInsight]
+-   [Desenvolver programas de streaming do Hadoop em C# para o HDInsight][Desenvolver programas de streaming do Hadoop em C# para o HDInsight]
+-   [Desenvolver programas Java MapReduce para HDInsight][Desenvolver programas Java MapReduce para HDInsight]
 
-
-  [hbase-get-started]: ../hdinsight-hbase-get-started/
-  [img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
+  [análise de sentimento]: http://en.wikipedia.org/wiki/Sentiment_analysis
+  [0]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
   [hdinsight.hbase.twitter.sentiment.bing.map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
-  [img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
-  [0]: https://github.com/maxluk/tweet-sentiment
-
-  [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/
+  [Pré-requisitos]: #prerequisites
+  [Criar um aplicativo do Twitter]: #twitter
+  [Criar um serviço de streaming do Twitter único]: #streaming
+  [Criar um site do Azure para visualizar o sentimento do Twitter]: #web
+  [Próximas etapas]: #nextsteps
+  [Introdução ao uso do HBase com o Hadoop no HDInsight]: ../hdinsight-hbase-get-started/
   [Instalação do Visual Studio]: http://msdn.microsoft.com/pt-br/library/e2h7fzkw.aspx
   [OAuth]: http://oauth.net/
-  [1]: https://apps.twitter.com/
-  [img-twitter-app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
+  [hdi.hbase.twitter.sentiment.twitter.app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
   [Tweetinvi]: https://www.nuget.org/packages/TweetinviAPI/
   [Protobuf-net]: https://www.nuget.org/packages/protobuf-net/
-  [2]: https://github.com/hdinsight/hbase-sdk-for-net
   [hdinsight.hbase.twitter.sentiment.streaming.service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
-  [3]: http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/
-  [website-get-started]: ../web-sites-dotnet-get-started/
-  [hdinsight-get-started]: ../hdinsight-get-started/
-  [hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/
-  [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
-  [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-  [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
+  [Introdução aos sites do Azure e ASP.NET]: ../web-sites-dotnet-get-started/
+  [Introdução ao HDInsight]: ../hdinsight-get-started/
+  [Analisar dados do Twitter com Hadoop no HDInsight]: ../hdinsight-analyze-twitter-data/
+  [Analisar dados de atraso de voo usando o HDInsight]: ../hdinsight-analyze-flight-delay-data/
+  [Desenvolver programas de streaming do Hadoop em C# para o HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Desenvolver programas Java MapReduce para HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

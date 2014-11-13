@@ -1,4 +1,4 @@
-<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Introduction to Azure Storage" pageTitle="Introdu&ccedil;&atilde;o ao Armazenamento | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="Uma vis&atilde;o geral do Armazenamento do Microsoft Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introdu&ccedil;&atilde;o ao Armazenamento do Microsoft Azure" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -43,7 +43,7 @@ A imagem abaixo mostra as relações entre os recursos de armazenamento do Azure
 
 ![Recursos de Armazenamento do Azure][Recursos de Armazenamento do Azure]
 
-Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. Você pode criar até 20 contas de armazenamento nomeadas exclusivamente com uma única assinatura.
+Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. Você pode criar até 100 contas de armazenamento nomeadas exclusivamente com uma única assinatura. Consulte [Detalhes de preços de armazenamento][Detalhes de preços de armazenamento] para obter informações sobre o preço por volume.
 
 Você pode começar com o Azure com uma [avaliação gratuita][avaliação gratuita]. Quando decidir comprar um plano, você poderá escolher entre uma variedade de [opções de compra][opções de compra]. Se for um [assinante do MSDN][assinante do MSDN], você obterá créditos mensais gratuitos que podem se usados com os serviços do Azure, incluindo o Armazenamento do Azure.
 
@@ -70,7 +70,7 @@ Os aplicativos modernos geralmente demandam armazenamento de dados com maior esc
 
 O armazenamento de tabela é um repositório de chave-atributo, o que significa que cada valor em uma tabela é armazenado com um nome de propriedade. Esse nome de propriedade pode ser usado para filtrar e especificar os critérios de seleção. Um conjunto de propriedades e seus valores compõem uma entidade. Como o Armazenamento de tabela é sem esquema, duas entidades na mesma tabela podem conter diferentes coleções de propriedades, e essas propriedades podem ser de tipos diferentes.
 
-Você pode usar o armazenamento de tabela para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos e qualquer outro tipo de metadados que o serviço requeira. É possível armazenar qualquer número de entidades em uma tabela, e uma conta de armazenamento pode conter qualquer número de tabelas, até o limite de 200 TB de capacidade da conta de armazenamento.
+Você pode usar o armazenamento de tabela para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos e qualquer outro tipo de metadados que o serviço requeira. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
 
 Semelhantemente a Blobs e Filas, os desenvolvedores podem gerenciar e acessar o Armazenamento de Tabela usando protocolos REST padrão, no entanto, o Armazenamento de Tabela também oferece suporte a um subconjunto do protocolo OData, simplificando recursos de consulta avançados e permitindo formatos JSON e AtomPub (baseados em XML).
 
@@ -80,15 +80,15 @@ Para os aplicativos baseados na Internet atuais, os bancos de dados NoSQL como o
 
 Na criação de aplicativos para escala, os componentes do aplicativo geralmente são desassociados, para que possam ser redimensionados independentemente. O Armazenamento de fila fornece uma solução de mensagens confiáveis para comunicação assíncrona entre os componentes do aplicativo, quer estejam em execução na nuvem, na área de trabalho, em um servidor local ou em um dispositivo móvel. O Armazenamento de fila também oferece suporte ao gerenciamento de tarefas assíncronas e à criação de fluxos de trabalho do processo.
 
-Uma conta de armazenamento pode conter qualquer número de filas. Uma fila pode conter qualquer número de mensagens, até o limite de 200 TB de capacidade da conta de armazenamento. Mensagens individuais podem ter até 64 KB de tamanho.
+Uma conta de armazenamento pode conter qualquer número de filas. Uma fila pode conter um número ilimitado de mensagens, até o limite de capacidade da conta de armazenamento. Mensagens individuais podem ter até 64 KB de tamanho.
 
 ## Armazenamento de arquivo
 
 Muitos aplicativos herdados dependem de compartilhamentos de arquivos, e essa dependência complicou a mudança desses aplicativos para a nuvem. O armazenamento de arquivo oferece compartilhamentos de arquivo baseados em nuvem, de modo que você pode migrar aplicativos herdados para o Azure rapidamente e sem regravações caras.
 
-Aplicativos executados em máquinas virtuais do Azure ou em serviços de nuvem podem montar um compartilhamento de armazenamento de arquivo para acessar dados de arquivos, assim como um aplicativo de área de trabalho montaria um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos podem montar e acessar o compartilhamento de armazenamento de arquivo simultaneamente.
+Aplicativos executados em máquinas virtuais ou em serviços de nuvem do Azure podem montar um compartilhamento de armazenamento de arquivos para acessar dados de arquivos, da mesma forma que um aplicativo de área de trabalho montaria um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos podem montar e acessar o compartilhamento de armazenamento de arquivo simultaneamente.
 
-Uma vez que um compartilhamento de armazenamento de Arquivo é um compartilhamento de arquivo SMB 2.1 padrão, aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs E/S de sistemas de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de Arquivo como parte da administração de aplicativos Azure.
+Uma vez que um compartilhamento de armazenamento de Arquivo é um compartilhamento de arquivo SMB 2.1 padrão, aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs E/S de sistemas de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Os profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de arquivos como parte da administração de aplicativos do Azure.
 
 Assim como os outros serviços de armazenamento do Azure, o armazenamento de Arquivo expõe a API REST para acessar dados em um compartilhamento. Aplicativos no local podem chamar a API REST do armazenamento de arquivo para acessar dados em um armazenamento de arquivo. Dessa forma, uma empresa pode optar por migrar alguns aplicativos herdados para o Azure e continuar executando outros de dentro de sua própria organização. Observe que montar um compartilhamento de arquivo é possível somente para aplicativos em execução no Azure. Um aplicativo local pode acessar o compartilhamento de arquivo somente pela API REST.
 
@@ -114,7 +114,7 @@ Os clientes são cobrados pelo Armazenamento do Azure com base em quatro fatores
 
 A capacidade do armazenamento refere-se a quanto de sua alocação de conta de armazenamento você está usando para armazenar dados. O custo de simplesmente armazenar seus dados é determinado pela quantidade de dados que você está armazenando e como eles são replicados. Cada operação de leitura e gravação no Armazenamento do Azure faz uma solicitação no serviço. A saída de dados refere-se aos dados transferidos para fora de uma região do Windows Azure. Quando os dados de sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, quer esse aplicativo seja um serviço de nuvem ou algum outro tipo de aplicativo, você é cobrado pela saída de dados. (Para os serviços do Windows Azure, você pode tomar medidas para agrupar seus dados e serviços nos mesmos data centers para reduzir ou eliminar encargos de processamento e de saída de dados.)
 
-A página [Detalhes de preços de armazenamento][Detalhes de preços de armazenamento] fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados][Detalhes de preços de transferências de dados] fornece informações detalhadas de preços para saída de dados. Você pode usar a [Calculadora de preços do Armazenamento do Azure][Calculadora de preços do Armazenamento do Azure] para ajudar a estimar os custos.
+A página [Detalhes de preços de armazenamento][1] fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados][Detalhes de preços de transferências de dados] fornece informações detalhadas de preços para saída de dados. Você pode usar a [Calculadora de preços do Armazenamento do Azure][Calculadora de preços do Armazenamento do Azure] para ajudar a estimar os custos.
 
 ## Desenvolvendo no armazenamento
 
@@ -175,17 +175,17 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
   [Página de Exibição do Azure]: /pt-br/services/preview/
   [Escalabilidade e Metas de Desempenho do Armazenamento do Azure]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Recursos de Armazenamento do Azure]: ./media/storage-introduction/storage-concepts.png
+  [Detalhes de preços de armazenamento]: http://www.windowsazure.com/pt-br/pricing/details/storage/
   [avaliação gratuita]: /pt-br/pricing/free-trial/
   [opções de compra]: /pt-br/pricing/purchase-options/
   [assinante do MSDN]: /pt-br/pricing/member-offers/msdn-benefits-details/
   [Serviço de importação/exportação do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/storage-import-export-service/
   [assinatura de acesso compartilhado]: ../storage-dotnet-shared-access-signature-part-1/
-  [storage-replication-options]: ../includes/storage-replication-options.md
-  [Detalhes de preços de armazenamento]: /pt-br/pricing/details/storage/
+  [1]: /pt-br/pricing/details/storage/
   [Detalhes de preços de transferências de dados]: /pt-br/pricing/details/data-transfers/
   [Calculadora de preços do Armazenamento do Azure]: /pt-br/pricing/calculator/?scenario=data-management
   [API REST]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
-  [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
+  [.NET]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Código nativo]: http://msdn.microsoft.com/library/dn495438.aspx
   [Java/Android]: /pt-br/develop/java/
   [Node.js]: /pt-br/develop/nodejs/

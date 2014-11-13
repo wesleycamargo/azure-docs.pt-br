@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Como fornecer o HTTP Live Streaming (HLS) da Apple - Azure" metaKeywords="" description="Saiba como criar um localizador para o conte&uacute;do do HTTP Live Stream (HLS) da Apple no servidor de origem dos Servi&ccedil;os de M&iacute;dia. Os exemplos de c&oacute;digo s&atilde;o escritos em C# e usam a SDK dos Servi&ccedil;os de M&iacute;dia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Como: Entregar conte&uacute;do de streaming HLS da Apple" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Como: Entregar conteúdo de streaming HLS da Apple
 
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Entregar conteúdo de streaming da Apple][].
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Entregar conteúdo de streaming da Apple][Como: Entregar conteúdo de streaming da Apple].
 
 Este tópico mostra como criar um localizador para conteúdo HTTP Live Streaming (HLS) da Apple em um servidor de origem dos Serviços de Mídia. Com essa abordagem, é possível criar uma URL para conteúdo de HLS da Apple e fornecê-la aos dispositivos do Apple iOS para reprodução. A abordagem básica para a criação da URL do localizador URL é a mesma. Crie um localizador para o caminho do ativo de streaming HLS da Apple em um servidor de origem e, em seguida, crie uma URL completa que se vincule com o manifesto para o conteúdo de streaming.
 
@@ -59,29 +59,29 @@ O código a seguir mostra como implementar as etapas:
 
 Para obter mais informações sobre entrega de ativos, consulte:
 
--   [Fornecer ativos com os Serviços de Mídia para .NET][]
--   [Fornecer ativos com a API REST dos Serviços de Mídia][]
+-   [Fornecer ativos com os Serviços de Mídia para .NET][Fornecer ativos com os Serviços de Mídia para .NET]
+-   [Fornecer ativos com a API REST dos Serviços de Mídia][Fornecer ativos com a API REST dos Serviços de Mídia]
 
 </p>
 ## Próximas etapas
 
 Este tópico conclui os tópicos Usando os Serviços de Mídia do Azure. Abordamos a configuração de seu computador para desenvolvimento de Serviços de Mídia e a execução de tarefas comuns de programação. Para obter mais informações sobre como programar os Serviços de Mídia, consulte os seguintes recursos:
 
--   [Documentação dos Serviços de Mídia do Azure][]
--   [Introdução ao SDK dos Serviços de Mídia para .NET][]
--   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET][]
--   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure][]
--   [Fórum dos Serviços de Mídia][]
--   [Como monitorar uma conta de Serviços de Mídia][]
--   [Como gerenciar conteúdo nos Serviços de Mídia][]
+-   [Documentação dos Serviços de Mídia do Azure][Documentação dos Serviços de Mídia do Azure]
+-   [Introdução ao SDK dos Serviços de Mídia para .NET][Introdução ao SDK dos Serviços de Mídia para .NET]
+-   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET][Criando aplicativos com o SDK dos Serviços de Mídia para .NET]
+-   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure][Criando aplicativos com a API REST dos Serviços de Mídia do Azure]
+-   [Fórum dos Serviços de Mídia][Fórum dos Serviços de Mídia]
+-   [Como monitorar uma conta de Serviços de Mídia][Como monitorar uma conta de Serviços de Mídia]
+-   [Como gerenciar conteúdo nos Serviços de Mídia][Como gerenciar conteúdo nos Serviços de Mídia]
 
-  [Como: Entregar conteúdo de streaming da Apple]: http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409
-  [Fornecer ativos com os Serviços de Mídia para .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Fornecer ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
+  [Como: Entregar conteúdo de streaming da Apple]: ../media-services-deliver-streaming-content/
+  [Fornecer ativos com os Serviços de Mídia para .NET]: http://msdn.microsoft.com/pt-br/library/jj129575.aspx
+  [Fornecer ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/pt-br/library/jj129578.aspx
   [Documentação dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=245437
   [Introdução ao SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=252967
   [Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
-  [Como monitorar uma conta de Serviços de Mídia]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/
-  [Como gerenciar conteúdo nos Serviços de Mídia]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/
+  [Como monitorar uma conta de Serviços de Mídia]: ../media-services-monitor-services-account/
+  [Como gerenciar conteúdo nos Serviços de Mídia]: ../media-services-manage-content/

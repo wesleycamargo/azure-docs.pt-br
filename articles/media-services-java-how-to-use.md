@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Media Services" pageTitle="Como usar os Servi&ccedil;os de M&iacute;dia (Java) - guia do recurso do Azure" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Descreve como usar os Servi&ccedil;os de M&iacute;dia do Azure para executar tarefas comuns, incluindo codifica&ccedil;&atilde;o, criptografia e recursos de streaming." metaCanonical="" services="media-services" documentationCenter="Java" title="Como usar os Servi&ccedil;os de M&iacute;dia" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Como usar os Serviços de Mídia
 
@@ -28,10 +28,10 @@ A versão atual dos Serviços de Mídia fornece o seguinte conjunto de recursos 
 
 -   **Ingestão**. As operações de ingestão trazem ativos para o sistema, por exemplo, carregando e criptografando-os antes de serem colocados no Armazenamento do Azure. No lançamento do RTM, os Serviços de Mídia oferecerão integração com componentes de parceiros para fornecer soluções de carregamento UDP rápido.
 -   **Codificar**. As operações de codificação incluem codificação, transformação e conversão de ativos de mídia. Você pode executar tarefas de codificação na nuvem usando o Codificador de Mídia que é incluído nos Serviços de Mídia. As opções de codificação incluem:
-	-   Usar o Codificador de Mídia do Azure e trabalhar com um intervalo de codecs e formatos padrão, incluindo o líder do setor, o Smooth Streaming do IIS, MP4 e a conversão para HTTP Live Streaming da Apple.
-	-   Converter bibliotecas inteiras ou arquivos individuais com controle total sobre entrada e saída.
-	-   Um grande conjunto de tipos, formatos e codecs de arquivos com suporte (consulte [Tipos de arquivos com suporte para os Serviços de Mídia]).
-	-   Conversões de formato com suporte. Os Serviços de Mídia permitem que você converta ISO MP4 (.mp4) em formato de arquivo Smooth Streaming (PIFF 1.3) (.ismv; .isma). Você também pode converter o formato de arquivo Smooth Streaming (PIFF) no HTTP Live Streaming da Apple (.msu8, .ts).
+-   Usar o Codificador de Mídia do Azure e trabalhar com um intervalo de codecs e formatos padrão, incluindo o líder do setor, o Smooth Streaming do IIS, MP4 e a conversão para HTTP Live Streaming da Apple.
+-   Converter bibliotecas inteiras ou arquivos individuais com controle total sobre entrada e saída.
+-   Um grande conjunto de tipos, formatos e codecs de arquivos com suporte (consulte [Tipos de arquivos com suporte para os Serviços de Mídia]).
+-   Conversões de formato com suporte. Os Serviços de Mídia permitem que você converta ISO MP4 (.mp4) em formato de arquivo Smooth Streaming (PIFF 1.3) (.ismv; .isma). Você também pode converter o formato de arquivo Smooth Streaming (PIFF) no HTTP Live Streaming da Apple (.msu8, .ts).
 -   **Proteger**. Proteger o conteúdo significa criptografar streaming ao vivo ou conteúdo sob demanda para proteger o transporte, o armazenamento e a entrega. Os Serviços de Mídia fornecem uma solução independente de tecnologia DRM para proteger conteúdo. As tecnologias DRM com suporte no momento são a Proteção do Microsoft PlayReady e a Criptografia Comum MPEG. Suporte para tecnologias DRM adicionais estarão disponíveis.
 -   **Fluxo**. Conteúdo de streaming envolve o envio ao vivo ou sob demanda a clientes, ou a recuperação ou o download de arquivos de mídia específicos da nuvem. Os Serviços de Mídia fornecem uma solução independente de formato DRM para conteúdo de streaming. Os Serviços de Mídia oferecem suporte à origem de streaming para Smooth Streaming, Live Streaming HTTP da Apple e vários formatos MP4. Suporte para formatos adicionais estarão disponíveis. Você pode fornecer conteúdo de streaming transparentemente usando o CDN do Azure ou um CDN de terceiros, o que habilita a opção de escalar para milhões de usuários.
 
@@ -40,6 +40,8 @@ A versão atual dos Serviços de Mídia fornece o seguinte conjunto de recursos 
 Os Serviços de Mídia dão suporte a vários cenários comuns de desenvolvimento de mídia, conforme descrito na tabela a seguir.
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
+
+<thead>
 
 <tr>
 
@@ -54,6 +56,10 @@ Descrição
 </th>
 
 </tr>
+
+</thead>
+
+<tbody>
 
 <tr>
 
@@ -97,8 +103,10 @@ Você pode criar, gerenciar e entregar mídia em vários dispositivos (incluindo
 
 </tr>
 
-</table>
+</tbody>
 
+</table>
+</p>
 ### Desenvolvimento de clientes dos Serviços de Mídia
 
 Amplie o alcance da sua solução de Serviços de Mídia usando SDKs e estruturas de player para criar aplicativos de clientes de mídia. Esses clientes são para desenvolvedores que desejam criar aplicativos de Serviços de Mídia que oferecem experiências de usuário atraentes em vários dispositivos e plataformas. Dependendo dos dispositivos para os quais você deseja criar aplicativos de cliente, há opções para SDKs e estruturas de player disponíveis na Microsoft e em outros parceiros.

@@ -1,6 +1,6 @@
-<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="What is a Cloud Service" pageTitle="O que &eacute; um servi&ccedil;o de nuvem - gerenciamento de servi&ccedil;o do Azure" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="Uma introdu&ccedil;&atilde;o ao servi&ccedil;o de nuvem no Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="O que &eacute; um servi&ccedil;o de nuvem?" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # O que é um serviço de nuvem?
 
@@ -18,17 +18,17 @@ Cada serviço de nuvem tem dois ambientes nos quais você pode implantar seu pac
 
 > -   **função web:** uma função web fornece um servidor web de Serviços de Informações da Internet (IIS) dedicado, usado para hospedar aplicativos web de front-end.
 
-> -   **função de trabalho:** Os aplicativos hospedados em funções de trabalho podem executar tarefas assíncronas, de execução longa ou perpétuas, independente da interação do usuário ou da entrada.
+> -   **função de trabalho:**Os aplicativos hospedados em funções de trabalho podem executar tarefas assíncronas, de execução longa ou perpétuas, independente da interação do usuário ou da entrada.
 
 -   **instância de função:** uma instância de função é uma máquina virtual na qual o código do aplicativo e configuração da função são executados. Uma função pode ter várias instâncias definidas no arquivo de configuração do serviço.
 
--   **sistema operacional convidado:** O sistema operacional convidado para um serviço de nuvem é o sistema operacional instalado nas instâncias de função (as máquinas virtuais), no qual seu código do aplicativo é executado.
+-   **sistema operacional convidado:**O sistema operacional convidado para um serviço de nuvem é o sistema operacional instalado nas instâncias de função (as máquinas virtuais), no qual seu código do aplicativo é executado.
 
--   **componentes do serviço de nuvem:** Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
+-   **componentes do serviço de nuvem:**Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
 > -   **arquivo de definição de serviço:** O arquivo de definição do serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
 
-> -   **arquivo de configuração do serviço:** O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
+> -   **arquivo de configuração do serviço:**O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 
 > -   **pacote de serviço:** O pacote de serviço (arquivo .cspkg) contém o código do aplicativo e o arquivo de definição do serviço.
 

@@ -1,10 +1,10 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" metaKeywords="" description="Customizing the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Personaliza&ccedil;&atilde;o do portal do desenvolvedor no Gerenciamento de API do Azure" metaKeywords="" description="Personaliza&ccedil;&atilde;o do portal do desenvolvedor no Gerenciamento de API do Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="Personaliza&ccedil;&atilde;o do portal do desenvolvedor no Gerenciamento de API do Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Personalização do portal do desenvolvedor no Gerenciamento de API do Azure
 
-Este guia mostra como modificar a aparência do portal do desenvolvedor no Gerenciamento de API (Visualização) para manter consistência com a marca.
+Este guia mostra como modificar a aparência do portal do desenvolvedor no Gerenciamento de API para manter a consistência com a sua marca.
 
 ## Neste tópico
 
@@ -47,22 +47,8 @@ Cada regra representa uma propriedade de estilo do elemento selecionado. Por exe
 
 > Se estiver familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][variáveis LESS] no tema do bootstrap usadas pelo portal do desenvolvedor.
 
-<p>
-Vamos alterar a cor do texto do cabeçalho. Selecione a entrada em
+Vamos alterar a cor do texto do cabeçalho. Selecione a entrada no campo **@headings-color** e digite \#000000. Esse é o código hexadecimal para a cor preta. À medida que fizer isso verá um indicador de cor quadrado exibido no final da caixa de texto. Se você clicar nesse indicador, um seletor de cor permitirá que você escolha uma cor.
 
-<script type="text/javascript">
-<!--
-h='&#104;&#x65;&#x61;&#100;&#x69;&#110;&#x67;&#x73;&#x2d;&#x63;&#x6f;&#108;&#x6f;&#114;&#42;';a='&#64;';n='&#42;&#42;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
-// -->
-</script>
-<noscript>
-\*\* no campo cor do cabeçalho\*
-
-</noscript>
-\* e digite \#000000. Este é o código hexadecimal da cor preta. À medida que fizer isso verá um indicador de cor quadrado exibido no final da caixa de texto. Se você clicar nesse indicador, um seletor de cor permitirá que você escolha uma cor.
-
-</p>
 ![Seletor de cor][Seletor de cor]
 
 Ao finalizar as alterações nos estilos do elemento selecionado, clique em **Visualizar alterações** para ver os resultados na tela. Desta vez, elas serão visíveis somente para os Administradores. Para tornar essas alterações visíveis para qualquer um, clique no botão **Publicar** no editor de estilos e confirme as alterações.
@@ -79,9 +65,9 @@ Para ver uma lista de todas as páginas de conteúdo existentes, clique em **Con
 
 ![Gerenciar conteúdo][Gerenciar conteúdo]
 
-Clique na página “Bem-vindo" para editar o que é exibido na página inicial do portal do desenvolvedor. Faça as alterações desejadas, visualize-as se necessário e depois clique em **Publicar agora** para torná-las visíveis para todos.
+Clique na página “Bem-vindo" para editar o que é exibido na home page do portal do desenvolvedor. Faça as alterações desejadas, visualize-as se necessário e depois clique em **Publicar agora** para torná-las visíveis para todos.
 
-> A página inicial usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção Conteúdo. Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, depois selecione **Página inicial** na lista suspensa **Camada atual** e, em seguida, abra o item **Faixa** na seção Em destaque. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
+> A home page usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção Conteúdo. Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, depois selecione **Home page** na lista suspensa **Camada atual** e, em seguida, abra o item **Faixa** na seção Em destaque. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
 
 ## <a name="next-steps"> </a>Próximas etapas
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to create" pageTitle="Como criar uma conta de armazenamento | Azure" metaKeywords="" description="Saiba como criar uma conta de armazenamento no portal de gerenciamento do Azure." metaCanonical="" services="storage" documentationCenter="" title="Como criar uma conta de armazenamento" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -23,7 +23,7 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
 
     ![NewStorageAccount][NewStorageAccount]
 
-3.  Na **URL**, digite um nome de subdomínio a ser usado na URL da conta de armazenamento. Para acessar um objeto no armazenamento, você acrescentará o local do objeto ao ponto de extremidade. Por exemplo, a URL para acessar um blob deve ser http://*minhaconta*.blob.core.windows.net/*meucontêiner*/*meublob\*.
+3.  Na **URL**, digite um nome de subdomínio a ser usado na URL da conta de armazenamento. Para acessar um objeto no armazenamento, você acrescentará o local do objeto ao ponto de extremidade. Por exemplo, a URL para acessar um blob deve ser http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 4.  Em **Região/Grupo de Afinidade**, selecione uma região ou um grupo de afinidade para o armazenamento. Selecione um grupo de afinidade em vez de uma região se desejar ter os serviços de armazenamento no mesmo data center com outros serviços do Azure que você está usando. Isso pode melhorar o desempenho e nenhum encargo será incorrido para a saída.
 
@@ -53,7 +53,6 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
   [Portal de Gerenciamento]: https://manage.windowsazure.com
   [NewStorageAccount]: ./media/storage-create-storage-account/storage_NewStorageAccount.png
   [Operações em grupos de afinidade]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee460798.aspx
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png
   [azure.com]: http://azure.microsoft.com/pt-br/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/pt-br/library/gg433040.aspx

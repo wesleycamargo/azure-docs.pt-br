@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to manage" pageTitle="Como gerenciar um servi&ccedil;o de nuvem - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Saiba como gerenciar servi&ccedil;os de nuvem no Portal de Gerenciamento do Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Como gerenciar servi&ccedil;os de nuvem" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Como gerenciar serviços de nuvem
-
-[WACOM.INCLUDE [isenção de responsabilidade](../includes/disclaimer.md)]
 
 Na área **Serviços de Nuvem** do Portal de Gerenciamento do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
@@ -21,27 +19,25 @@ Se você precisar atualizar o código do aplicativo para o seu Serviço de Nuvem
 
 1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], no painel, na página **Serviços de Nuvem** ou na página **Instâncias**, clique em **Atualizar**.
 
-    **Atualizar implantação** é exibido.
-
     ![UpdateDeployment][UpdateDeployment]
 
-2.  Em **Rótulo da Implantação**, insira um nome para identificar a implantação (por exemplo, mycloudservicev2). Você encontrará o nome da implantação em **início rápido** no painel.
+2.  Em **Rótulo de Implantação**, insira um nome para identificar a implantação (por exemplo, mycloudservice4). Você encontrará o rótulo de implantação em **início rápido** no painel.
 
-3.  Em **Arquivo do pacote**, use **Procurar** para carregar o arquivo do pacote de serviço (.cspkg).
+3.  Em **Pacote**, use **Procurar** para carregar o arquivo do pacote de serviço (.cspkg).
 
-4.  Em **Arquivo de configuração**, use **Procurar** para carregar o arquivo de configuração do serviço (.cscfg).
+4.  Em **Configuração**, use **Procurar** para carregar o arquivo de configuração do serviço (.cscfg).
 
-5.  Em **Função**, selecione **Tudo** se desejar atualizar todas as funções no Serviço de Nuvem. Para executar uma atualização de função, selecione a função que você deseja atualizar. Mesmo que você selecione uma função específica para atualizar, as atualizações no arquivo de configuração do serviço serão aplicadas a todas as funções.
+5.  Em **Função**, selecione **Tudo** se desejar atualizar todas as funções no Serviço de Nuvem. Para executar uma única atualização de função, selecione a função que você deseja atualizar. Mesmo que você selecione uma função específica para atualizar, as atualizações no arquivo de configuração do serviço serão aplicadas a todas as funções.
 
-6.  Se a atualização for alterar o número de funções ou o tamanho de qualquer função, marque a caixa de seleção **Permitir a atualização se os tamanhos ou o número de funções for alterado** para permitir que a atualização continue.
+6.  Se a atualização alterar o número de funções ou o tamanho de qualquer função, marque a caixa de seleção **Permitir a atualização se os tamanhos ou o número de funções for alterado** para permitir que a atualização continue.
 
     Lembre-se que, se você alterar o tamanho de uma função (u seja, o tamanho de uma máquina virtual que hospede uma instância de função) ou o número de funções, cada instância de função (máquina virtual) deverá ter outra imagem criada e todos os dados locais serão perdidos.
 
 7.  Se alguma das funções de serviço tiver uma instância de função, marque a caixa de seleção **Atualizar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
 
-    O Azure pode garantir apenas 99,95 por cento de disponibilidade do Serviço de Nuvem durante uma atualização do Serviço de Nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada.
+    O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante uma atualização do serviço de nuvem se cada função tiver, pelo menos, duas instâncias de função (máquinas virtu\*\*ais). Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada.
 
-8.  Clique em OK (marca de seleção) para iniciar a atualização do serviço.
+8.  Clique em **OK** (marca de seleção) para iniciar a atualização do serviço.
 
 ## <span id="swap"></span></a>Como: Permutar implantações de preparo para produção
 
@@ -140,7 +136,6 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 > [WACOM.NOTE]
 > Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte “Como: Acessar dados do monitoramento detalhado fora de Portal de Gerenciamento” em [Como monitorar serviços de nuvem][Como monitorar serviços de nuvem] (a página pode estar em inglês).
 
-  [isenção de responsabilidade]: ../includes/disclaimer.md
   [Como: atualizar uma função de serviço de nuvem ou uma implantação]: #updaterole
   [Como: permutar implantações de preparo para produção]: #swap
   [Como: vincular um recurso a um serviço de nuvem]: #linkresources
@@ -148,6 +143,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [UpdateDeployment]: ./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png
   [Permutação dos Serviços de Nuvem]: ./media/cloud-services-how-to-manage/CloudServices_Swap.png
+  [Como dimensionar um Serviço de Nuvem e os recursos vinculados (a página pode estar em inglês)]: ../cloud-services-how-to-scale/
   [Portal de Gerenciamento]: http://manage.windowsazure.com/
   [LinkedResourcesPage]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png
   [Vincular Página1]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png

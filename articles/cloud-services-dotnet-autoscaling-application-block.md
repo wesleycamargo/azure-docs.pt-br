@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Autoscaling" pageTitle="Usar o bloco de aplicativos de dimensionamento autom&aacute;tico (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Saiba como usar o Aplicativo de Dimensionamento Autom&aacute;tico para Azure. Os exemplos de c&oacute;digo s&atilde;o escritos em C# e usam a API .NET." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Como usar o Bloco de Aplicativos de Dimensionamento Autom&aacute;tico" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -7,8 +7,8 @@
 Este guia irá demonstrar como executar cenários comuns usando o
 Bloco de Aplicativos de Dimensionamento Automático do [Pacote de integração
 do Microsoft Enterprise Library 5.0 para Azure][Pacote de integração
-do Microsoft Enterprise Library 5.0 para Azure] As amostras são escritas em C#
-e usam o API do .NET Os cenários abordados incluem **hospedagem do
+do Microsoft Enterprise Library 5.0 para Azure] Os exemplos são escritos em código C# e
+utilizam a API .NET. Os cenários abordados incluem **hospedagem do
 bloco**, **uso de regras de restrição**, e **uso de regras reativas**. Para
 obter mais informações sobre o Bloco de Aplicativos de Dimensionamento Automático, consulte a seção [Próximas etapas][Próximas etapas].
 
@@ -18,9 +18,9 @@ obter mais informações sobre o Bloco de Aplicativos de Dimensionamento Automá
  [Conceitos][Conceitos]
  [Coletar dados do contador de desempenho do seu aplicativo do Azure de destino][Coletar dados do contador de desempenho do seu aplicativo do Azure de destino]
  [Configurar um aplicativo host para o Bloco de Aplicativos de Dimensionamento Automático][Configurar um aplicativo host para o Bloco de Aplicativos de Dimensionamento Automático]
- [Como criar uma instância e executar o Dimensionador Automático][Como criar uma instância e executar o Dimensionador Automático] [Como definir seu modelo de serviço][Como definir seu modelo de serviço]
- [Como definir suas regras de dimensionamento automático][Como definir suas regras de dimensionamento automático]
- [Como configurar o Bloco de Aplicativos de Dimensionamento Automático][Como configurar o Bloco de Aplicativos de Dimensionamento Automático]
+ [Como: Instanciar e executar o Dimensionador Automático][Como: Instanciar e executar o Dimensionador Automático] [Como: Definir seu modelo de serviço][Como: Definir seu modelo de serviço]
+ [Como: Definir suas regras de dimensionamento automático][Como: Definir suas regras de dimensionamento automático]
+ [Como: Configurar o bloco de aplicativos de dimensionamento automático][Como: Configurar o bloco de aplicativos de dimensionamento automático]
  [Próximas etapas][Próximas etapas]
 
 ## <span id="WhatIs"></span> </a>O que é o Bloco de Aplicativos de Dimensionamento Automático?
@@ -54,10 +54,10 @@ regras de dimensionamento automático.
 O bloco usa dois tipos de regras para definir o comportamento do dimensionamento automático para
 seu aplicativo:
 
--   **Regras de Restrição:** para definir os limites superior e inferior do número de
-    instâncias, por exemplo, digamos que entre 8h00 e 10h00 todas
+-   **Regras de restrição:** Para definir os limites superior e inferior do número de
+    instâncias, por exemplo, digamos que entre 8h e 10h todas
     as manhãs você deseja um mínimo de quatro e um máximo de seis instâncias,
-    assim, você usar uma **regra de restrição**. No diagrama, as linhas em vermelho e azul
+    assim, você usará uma **regra de restrição**. No diagrama, as linhas em vermelho e azul
     representam as regras de restrição. Por exemplo, no ponto **A** no
     diagrama, o número mínimo de instâncias de função aumenta de dois para
     quatro, para acomodar o aumento previsto da carga de trabalho do
@@ -65,7 +65,7 @@ seu aplicativo:
     o número de instâncias de função é impedido de aumentar acima de cinco
      para controlar os custos de execução do aplicativo.
 
--   **Regras Reativas:** para habilitar que o número de instâncias de função seja alterado
+-   **Regras reativas:** Para habilitar que o número de instâncias de função seja alterado
     em resposta a alterações repentinas na demanda, use **regras
     reativas**. No ponto **C** no diagrama, o bloco reduz automaticamente
     o número de instâncias de função, de quatro para três, em
@@ -75,13 +75,13 @@ seu aplicativo:
 
 O bloco armazena seus parâmetros configurações em dois repositórios:
 
--   **Repositório de Regras:** o repositório de regras contém a configuração de negócios;
+-   **Repositório de regras:** O repositório de regras contém a configuração de negócios;
     Uma lista de todas as regras de dimensionamento automático que você definiu para seu
     aplicativo do Azure. Esse repositório normalmente é um arquivo XML que
     está localizado onde o Bloco de Aplicativos de Dimensionamento Automático possa lê-lo, por
     exemplo, no armazenamento de blob do Azure ou em um arquivo local.
 
--   **Repositório de Informações do Serviço:** o Repositório de Informações do Serviço armazena
+-   **Repositório de informações do serviço:** O Repositório de Informações do Serviço armazena
     sua configuração operacional, que é o modelo de serviço de seu
     aplicativo do Azure. Esse modelo de serviço inclui todas as
     informações sobre seu aplicativo do Azure (como nomes de função
@@ -140,7 +140,7 @@ A instalação do pacote NuGet atualiza o projeto com todos os
 assemblies e referências necessários de que você precisa para usar o Bloco de
 Aplicativos de Dimensionamento Automático. Seu projeto agora inclui os arquivos de esquema XML para
 as definições de regras de dimensionamento automático e de informações do serviço de dimensionamento automático.
-O projeto agora também inclui um arquivo Leiame que contém
+O projeto agora também inclui um arquivo leia-me que contém
 informações importantes sobre o Bloco de Aplicativo de Dimensionamento Automático:
 
 ![arquivos configurados pelo pacote NuGet de dimensionamento automático][arquivos configurados pelo pacote NuGet de dimensionamento automático]
@@ -155,7 +155,7 @@ estrutura de destino:
 
 2.  Na guia **Aplicativo** da caixa de diálogo Propriedades, defina a Estrutura de Destino como **.NET Framework 4**.
 
-    ![imagem][imagem]
+    ![image][image]
 
 ### Adicionar referências de namespace
 
@@ -224,11 +224,11 @@ você precisará efetuar logon no [Portal de Gerenciamento do Azure][Portal de G
 
 Entre no Portal de Gerenciamento.
 
--   **[subscriptionname]:** escolha um nome amigável para referir-se à
+-   **[subscriptionname]:** Escolha um nome amigável para referir-se à
     assinatura do Azure que contém o aplicativo em que
     você deseja usar o dimensionamento automático.
 
--   **[subscriptionid]:** a ID exclusiva da
+-   **[subscriptionid]:** A ID exclusiva da
     assinatura do Azure que contém o aplicativo em que
     você deseja usar o dimensionamento automático.
 
@@ -240,9 +240,9 @@ Entre no Portal de Gerenciamento.
         painel Visão Rápida à direita exibirá a
         **ID de Assinatura**.
 
-        ![imagem][1]
+        ![image][1]
 
-    -   **[hostedservicednsprefix]:** o Prefixo DNS do serviço hospedado em que você deseja usar o dimensionamento automático.
+    -   **[hostedservicednsprefix]:** O Prefixo DNS do serviço hospedado em que você deseja usar o dimensionamento automático.
 
     1.  No Portal de Gerenciamento do Azure, clique em
         **Serviços de nuvem**.
@@ -251,9 +251,9 @@ Entre no Portal de Gerenciamento.
         aplicativo em que você deseja usar o dimensionamento automático. O nome do
         serviço de nuvem é o **Prefixo DNS**.
 
-        ![imagem][2]
+        ![image][2]
 
-    -   **[targetrolename]:** o nome da função que é o destino de suas regras de dimensionamento automático
+    -   **[targetrolename]:** O nome da função que é o destino de suas regras de dimensionamento automático.
 
     1.  No Portal de Gerenciamento do Azure, clique em
         **Serviços de nuvem**.
@@ -263,9 +263,9 @@ Entre no Portal de Gerenciamento.
         **Instâncias**. A coluna \*\*Função exibe o nome da sua
         função de destino.
 
-        ![imagem][3]
+        ![image][3]
 
-    -   **[storageaccountname]** e **[storageaccountkey]:** o nome da Conta de Armazenamento do Azure que você está usando para o seu aplicativo do Azure de destino.
+    -   **[storageaccountname]** e **[storageaccountkey]:** O nome da conta de armazenamento do Azure que você está usando para o seu aplicativo do Azure de destino.
 
     1.  No Portal de Gerenciamento do Azure, clique em
         **Armazenamento**.
@@ -276,16 +276,16 @@ Entre no Portal de Gerenciamento.
     3.  Clique no botão **Gerenciar chaves** na parte inferior da tela
         para obter a chave de acesso primário.
 
-        ![imagem][4]
+        ![image][4]
 
-    -   **[managementcertificatethumbprint]:** a **Impressão Digital** do Certificado de Gerenciamento que o bloco usará para proteger as solicitações de dimensionamento no aplicativo de destino.
+    -   **[managementcertificatethumbprint]:** A **Impressão Digital** do Certificado de Gerenciamento que o bloco usará para proteger as solicitações de dimensionamento no aplicativo de destino.
 
     1.  No Portal de Gerenciamento do Azure, clique em
         **Configurações**.
 
     2.  A coluna **Nome** exibirá a **Impressão Digital**.
 
-        ![imagem][5]
+        ![image][5]
 
 Para saber mais sobre o conteúdo do arquivo de modelo de serviço, consulte
 [Armazenando seus dados de informações de serviço][Armazenando seus dados de informações de serviço].
@@ -392,21 +392,21 @@ sistema de arquivo local.
     clique em **Editar o Arquivo de Configuração**.
 
 2.  No menu **Blocos**, clique em **Adicionar Configurações de Dimensionamento Automático**:
-    ![imagem][6]
+    ![imagem][imagem]
 
 3.  Expanda as **Configurações de Dimensionamento Automático** e, em seguida, clique nas reticências (...)
     ao lado de **Conta de Armazenamento do Repositório de Pontos de Dados**, adicione o **Nome
     da conta** e a **Chave da conta** da conta do armazenamento do Azure,
     onde o bloco armazenará os pontos de dados que coleta (consulte
-    [Como definir seu modelo de serviço][Como definir seu modelo de serviço] se não tiver certeza sobre onde
+    [Como: Defina seu modelo de serviço][Como: Definir seu modelo de serviço] se não tiver certeza sobre onde
     localizar esses valores) e, em seguida, clique em **OK**:
 
-    ![imagem][7]
+    ![image][6]
 
 4.  Expanda a seção **Configurações do Dimensionamento Automático** para revelar as seções **Repositório
     de Regras** e **Repositório de Informações do Serviço**. Por padrão, eles
     são configurados para usar o Armazenamento de Blob do Azure:
-    ![imagem][8]
+    ![imagem][7]
 
 5.  Clique no sinal de adição (+) ao lado de **Repositório de Regras**, aponte para **Definir
     Repositório de Regras**, clique em **Usar Repositório de Regras de Arquivo Local** e, em seguida,
@@ -414,7 +414,7 @@ sistema de arquivo local.
 
 6.  Na caixa **Nome do Arquivo**, digite **rules.xml**. Esse é o nome do
     arquivo que contém as regras de dimensionamento automático:
-    ![imagem][9]
+    ![imagem][8]
 
 7.  Clique no sinal de adição (+) ao lado de **Repositório de Informações de Serviço**, aponte
     para **Definir Repositório de Informações de Serviço**, clique em **Usar Repositório de Informações de
@@ -422,7 +422,7 @@ sistema de arquivo local.
 
 8.  Na caixa **Nome do Arquivo**, digite **services.xml**. Esse é o nome do
     arquivo que contém as regras de dimensionamento automático:
-    ![imagem][10]
+    ![imagem][9]
 
 9.  Na janela Configuração da Enterprise Library, no menu **Arquivo**
     , clique em **Salvar** para salvar as alterações na configuração. Em seguida,
@@ -515,18 +515,19 @@ dimensionamento automático mais complexos.
 -   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure][Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]
 
   [Próximas etapas]: #NextSteps
+  [O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs
   [Conceitos]: #Concepts
   [Coletar dados do contador de desempenho do seu aplicativo do Azure de destino]: #PerfCounter
   [Configurar um aplicativo host para o Bloco de Aplicativos de Dimensionamento Automático]: #CreateHost
-  [Como criar uma instância e executar o Dimensionador Automático]: #Instantiate
-  [Como definir seu modelo de serviço]: #DefineServiceModel
-  [Como definir suas regras de dimensionamento automático]: #DefineAutoscalingRules
-  [Como configurar o Bloco de Aplicativos de Dimensionamento Automático]: #Configure
+  [Como: Instanciar e executar o Dimensionador Automático]: #Instantiate
+  [Como: Definir seu modelo de serviço]: #DefineServiceModel
+  [Como: Definir suas regras de dimensionamento automático]: #DefineAutoscalingRules
+  [Como: Configurar o bloco de aplicativos de dimensionamento automático]: #Configure
   [diagrama de dimensionamento automático de exemplo]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling01.png
-  [Usando contadores de desempenho do Azure]: http://www.windowsazure.com/pt-BR/develop/net/common-tasks/performance-profiling/
+  [Usando contadores de desempenho do Azure]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [arquivos configurados pelo pacote NuGet de dimensionamento automático]: ./media/cloud-services-dotnet-autoscaling-application-block/auotscaling02.png
-  [imagem]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
+  [image]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
   [Definir o valor de Copiar para Diretório de Saída]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling04.png
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [1]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png
@@ -534,20 +535,20 @@ dimensionamento automático mais complexos.
   [3]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png
   [4]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png
   [5]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png
-  [Armazenando seus dados de informações de serviço]: http://msdn.microsoft.com/pt-BR/library/hh680878(PandP.50).aspx
-  [6]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png
-  [7]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png
-  [8]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png
-  [9]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png
-  [10]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png
-  [Hospedando o Bloco de Aplicativos de Dimensionamento Automático em uma função de trabalho]: http://msdn.microsoft.com/pt-BR/library/hh680914(PandP.50).aspx
-  [Implementando comportamento de limitação]: http://msdn.microsoft.com/pt-BR/library/hh680896(PandP.50).aspx
-  [Compreendendo as classificações e a reconciliação das regras]: http://msdn.microsoft.com/pt-BR/library/hh680923(PandP.50).aspx
-  [Estendendo e modificando o Bloco de Aplicativos de Dimensionamento Automático]: http://msdn.microsoft.com/pt-BR/library/hh680889(PandP.50).aspx
-  [Usando o Estabilizador de Otimização para evitar oscilação de alta frequência e otimizar os custos]: http://msdn.microsoft.com/pt-BR/library/hh680951(PandP.50).aspx
-  [Usando notificações e redimensionamento manual]: http://msdn.microsoft.com/pt-BR/library/hh680885(PandP.50).aspx
-  [Definindo grupos de escala]: http://msdn.microsoft.com/pt-BR/library/hh680902(PandP.50).aspx
-  [Usando os WASABiCmdlets para manipular o bloco via Windows PowerShell]: http://msdn.microsoft.com/pt-BR/library/hh680938(PandP.50).aspx
-  [Guia do desenvolvedor para o Pacote de Integração da Enterprise Library 5.0 para Azure]: http://msdn.microsoft.com/pt-BR/library/hh680949(PandP.50).aspx
-  [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]: http://msdn.microsoft.com/pt-BR/library/jj838716(PandP.50).aspx
-  [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/pt-BR/library/jj838718(PandP.50).aspx
+  [Armazenando seus dados de informações de serviço]: http://msdn.microsoft.com/pt-br/library/hh680878(PandP.50).aspx
+  [imagem]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png
+  [6]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png
+  [7]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png
+  [8]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png
+  [9]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png
+  [Hospedando o Bloco de Aplicativos de Dimensionamento Automático em uma função de trabalho]: http://msdn.microsoft.com/pt-br/library/hh680914(PandP.50).aspx
+  [Implementando comportamento de limitação]: http://msdn.microsoft.com/pt-br/library/hh680896(PandP.50).aspx
+  [Compreendendo as classificações e a reconciliação das regras]: http://msdn.microsoft.com/pt-br/library/hh680923(PandP.50).aspx
+  [Estendendo e modificando o Bloco de Aplicativos de Dimensionamento Automático]: http://msdn.microsoft.com/pt-br/library/hh680889(PandP.50).aspx
+  [Usando o Estabilizador de Otimização para evitar oscilação de alta frequência e otimizar os custos]: http://msdn.microsoft.com/pt-br/library/hh680951(PandP.50).aspx
+  [Usando notificações e redimensionamento manual]: http://msdn.microsoft.com/pt-br/library/hh680885(PandP.50).aspx
+  [Definindo grupos de escala]: http://msdn.microsoft.com/pt-br/library/hh680902(PandP.50).aspx
+  [Usando os WASABiCmdlets para manipular o bloco via Windows PowerShell]: http://msdn.microsoft.com/pt-br/library/hh680938(PandP.50).aspx
+  [Guia do desenvolvedor para o Pacote de Integração da Enterprise Library 5.0 para Azure]: http://msdn.microsoft.com/pt-br/library/hh680949(PandP.50).aspx
+  [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]: http://msdn.microsoft.com/pt-br/library/jj838716(PandP.50).aspx
+  [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/pt-br/library/jj838718(PandP.50).aspx

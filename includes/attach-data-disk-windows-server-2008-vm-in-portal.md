@@ -1,6 +1,6 @@
 Siga estas etapas para anexar um disco de dados:
 
-1.  No [Portal de Gerenciamento do Azure][], clique em **Máquinas Virtuais** e selecione a máquina virtual que acabou de criar (**testwinvm**).
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Máquinas Virtuais** e selecione a máquina virtual que acabou de criar (**testwinvm**).
 
 2.  Na barra de comandos, clique em **Anexar** e, em seguida, clique em **Anexar Disco Vazio**.
 
@@ -8,7 +8,7 @@ Siga estas etapas para anexar um disco de dados:
 
 3.  O **Nome da Máquina Virtual**, **Local de Armazenamento** e **Nome do Arquivo** já estão definidos para você. Tudo o que você precisa fazer é digitar o tamanho desejado para o disco. Digite **5** no campo **Tamanho**.
 
-    ![Anexar Disco Vazio][]
+    ![Anexar Disco Vazio][Anexar Disco Vazio]
 
     **Observação:** Todos os discos são criados por meio de um arquivo VHD no armazenamento do Azure. Você pode fornecer um nome para o arquivo VHD que adicionar ao armazenamento, mas o Azure gera o nome do disco automaticamente.
 
@@ -20,7 +20,7 @@ Siga estas etapas para anexar um disco de dados:
 
     ![Anexar Disco Vazio][1]
 
-    Depois de anexar os dados do disco à máquina virtual, o disco estará offline e não inicializado. Você precisa fazer logon na máquina virtual e inicializar o disco para poder usá-lo para armazenar dados.
+    Depois de anexar os dados do disco à máquina virtual, o disco estará offline e não inicializado. Entre na máquina virtual e inicialize o disco para poder usá-lo para armazenar dados.
 
 ## Conecte-se à Máquina Virtual usando a Área de Trabalho Remota e conclua a instalação
 
@@ -28,23 +28,23 @@ Siga estas etapas para anexar um disco de dados:
 
 2.  Na parte inferior da página, clique em **Conectar**. Abra o arquivo .rpd usando o programa Área de Trabalho Remota do Windows (*%windir%\\system32\\mstsc.exe*).
 
-3.  Na caixa de diálogo **Segurança do Windows**, forneça a senha da conta **Administrador**. (Pode ser solicitado que você verifique as credenciais da máquina virtual.) Na primeira vez que você fizer logon nesta máquina virtual, talvez seja necessário concluir vários processos, incluindo a configuração da área de trabalho, atualizações do Windows e a conclusão de tarefas da configuração inicial do Windows. Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona como qualquer outro computador.
+3.  Na caixa de diálogo **Segurança do Windows**, forneça a senha da conta **Administrador**. (Pode ser solicitado que você verifique as credenciais da máquina virtual.) Na primeira vez que você entrar na máquina virtual, talvez seja necessário concluir vários processos, incluindo a configuração da área de trabalho, atualizações do Windows e a conclusão de tarefas da configuração inicial do Windows. Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona como qualquer outro computador.
 
-4.  Depois de fazer logon na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, expanda **Armazenamento**e, em seguida, clique em **Gerenciamento de Disco**.
+4.  Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, expanda **Armazenamento**e, em seguida, clique em **Gerenciamento de Disco**.
 
-    ![Gerenciador de Servidores][]
+    ![Gerenciador de Servidores][Gerenciador de Servidores]
 
 5.  A janela **Inicializar Disco** é aberta. Clique em **OK**.
 
-    ![Inicializar disco][]
+    ![Inicializar disco][Inicializar disco]
 
 6.  Com o botão direito do mouse na área de alocação de espaço para o Disco 2, clique em **Novo Volume Simples**e, em seguida, conclua o assistente com os valores padrão.
 
-    ![Novo Volume Simples][]
+    ![Novo Volume Simples][Novo Volume Simples]
 
     O disco está online e pronto para ser usado com uma nova letra de unidade.
 
-    ![Inicialização bem-sucedida][]
+    ![Inicialização bem-sucedida][Inicialização bem-sucedida]
 
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Anexar Disco Vazio]: ./media/attach-data-disk-windows-server-2008-vm-in-portal/AttachDataDiskWinVM2.png

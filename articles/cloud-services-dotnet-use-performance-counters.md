@@ -1,6 +1,6 @@
-<properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" pageTitle="Use Performance Counters in Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" description="Learn how to enable and collect data from performance counters in Azure applications. " metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Using performance counters in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Performance Profiling" pageTitle="Usar contadores de desempenho no Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" description="Saiba como habilitar e coletar dados de contadores de desempenho em aplicativos Azure. " metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Usando contadores de desempenho no Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Usando contadores de desempenho no Azure
 
@@ -28,13 +28,13 @@ Siga estes links para saber como implementar cenários de solução de problemas
 -   [Coletando dados do log usando o Diagnóstico do Azure][Coletando dados do log usando o Diagnóstico do Azure]
 -   [Depurando um aplicativo do Azure][Depurando um aplicativo do Azure]
 
-  [Configurando o Diagnóstico no Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/dn186185.aspx
-  [Como configurar os contadores de desempenho]: http://msdn.microsoft.com/pt-BR/library/azure/dn535595.aspx
-  [Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh771389.aspx
-  [Teste de desempenho de um serviço de nuvem]: http://msdn.microsoft.com/pt-BR/library/azure/hh369930.aspx
-  [Como monitorar serviços de nuvem]: http://azure.microsoft.com/pt-BR/documentation/articles/cloud-services-how-to-monitor/
-  [Como usar o Bloco de Aplicativos de Dimensionamento Automático]: http://azure.microsoft.com/pt-BR/documentation/articles/cloud-services-dotnet-autoscaling-application-block/
-  [Criando aplicativos de nuvem elásticos e resilientes]: http://msdn.microsoft.com/pt-BR/library/hh680949(PandP.50).aspx
-  [Habilitando o diagnóstico no Azure]: http://azure.microsoft.com/pt-BR/documentation/articles/cloud-services-dotnet-diagnostics/
-  [Coletando dados do log usando o Diagnóstico do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg433048.aspx
-  [Depurando um aplicativo do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee405479.aspx
+  [Configurando o Diagnóstico no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn186185.aspx
+  [Como configurar os contadores de desempenho]: http://msdn.microsoft.com/pt-br/library/azure/dn535595.aspx
+  [Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh771389.aspx
+  [Teste de desempenho de um serviço de nuvem]: http://msdn.microsoft.com/pt-br/library/azure/hh369930.aspx
+  [Como monitorar serviços de nuvem]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-how-to-monitor/
+  [Como usar o Bloco de Aplicativos de Dimensionamento Automático]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-dotnet-autoscaling-application-block/
+  [Criando aplicativos de nuvem elásticos e resilientes]: http://msdn.microsoft.com/pt-br/library/hh680949(PandP.50).aspx
+  [Habilitando o diagnóstico no Azure]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-dotnet-diagnostics/
+  [Coletando dados do log usando o Diagnóstico do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433048.aspx
+  [Depurando um aplicativo do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405479.aspx

@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Use root privileges" pageTitle="Usar privil&eacute;gios de raiz nas m&aacute;quinas virtuais Linux do Azure" metaKeywords="" description="Saiba como usar privil&eacute;gios de raiz em uma m&aacute;quina virtual Linux do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Utilizando privil&eacute;gios de raiz nas m&aacute;quinas virtuais Linux do Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Utilizando privilégios de raiz nas máquinas virtuais Linux do Azure
 

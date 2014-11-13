@@ -1,6 +1,6 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Consulta com SQL do Banco de Dados de Documentos" pageTitle="Consulta com SQL do Banco de Dados de Documentos | Azure" description="O Banco de Dados de Documentos tem suporte para a realiza&ccedil;&atilde;o da consulta de documentos utilizando uma gram&aacute;tica semelhante &agrave; SQL em documentos hier&aacute;rquicos JSON sem exigir um esquema expl&iacute;cito ou a cria&ccedil;&atilde;o de &iacute;ndices secund&aacute;rios." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Consulta ao Banco de Dados de Documentos
 
@@ -132,7 +132,7 @@ Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem d
 
 -   Como o Banco de Dados de Documentos SQL trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, semelhantemente à referência SQL relacional em duas partes de `<table>.<column>`.
 -   A linguagem trabalha com dados sem esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.
--   O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte [especificação JSON] (<http://www.json.org/>) para obter mais detalhes.
+-   O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON] (http://www.json.org/) para obter mais detalhes.
 -   Uma coleção do Banco de Dados de Documentos é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações PK-FK. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
 # Indexação do Banco de Dados de Documentos
@@ -153,7 +153,7 @@ Portanto, quando criamos o subsistema de indexação do Banco de Dados de Docume
 
 -   Eficiência do armazenamento: Para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Banco de Dados de Documentos permite que o desenvolvedor tome decisões baseadas em custo entre a sobrecarga do índice tendo em vista o desempenho de consulta.
 
-Consulte [amostras do Banco de Dados de Documentos] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) no MSDN para ver como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da linguagem SQL do Banco de Dados de Documentos.
+Consulte [DocumentDB samples] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) no MSDN para saber como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da linguagem SQL do Banco de Dados de Documentos.
 
 # Conceitos básicos da consulta do Banco de Dados de Documentos
 
@@ -367,7 +367,7 @@ A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Ban
 <tr>
 
 <td valign="top">
- **Operador**
+ **Op**
 
 </td>
 
@@ -740,26 +740,26 @@ Eles operam com base em valores boolianos. As tabelas de verdade lógica desses 
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><p><strong>OR</strong> </p></td>
-<td align="left"><p><strong>True</strong></p></td>
-<td align="left"><p><strong>False</strong></p></td>
+<td align="left"><p><strong>OU</strong></p></td>
+<td align="left"><p><strong>Verdadeiro</strong></p></td>
+<td align="left"><p><strong>Falso</strong></p></td>
 <td align="left"><p><strong>Indefinido</strong></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><strong>True</strong></p></td>
-<td align="left"><p>True</p></td>
-<td align="left"><p>True</p></td>
-<td align="left"><p>True</p></td>
+<td align="left"><p><strong>Verdadeiro</strong></p></td>
+<td align="left"><p>Verdadeiro</p></td>
+<td align="left"><p>Verdadeiro</p></td>
+<td align="left"><p>Verdadeiro</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><strong>False</strong></p></td>
-<td align="left"><p>True</p></td>
-<td align="left"><p>False</p></td>
+<td align="left"><p><strong>Falso</strong></p></td>
+<td align="left"><p>Verdadeiro</p></td>
+<td align="left"><p>Falso</p></td>
 <td align="left"><p>Indefinido</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Indefinido</strong></p></td>
-<td align="left"><p>True</p></td>
+<td align="left"><p>Verdadeiro</p></td>
 <td align="left"><p>Indefinido</p></td>
 <td align="left"><p>Indefinido</p></td>
 </tr>
@@ -775,27 +775,27 @@ Eles operam com base em valores boolianos. As tabelas de verdade lógica desses 
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><p><strong>AND</strong> </p></td>
-<td align="left"><p><strong>True</strong></p></td>
-<td align="left"><p><strong>False</strong></p></td>
+<td align="left"><p><strong>E</strong></p></td>
+<td align="left"><p><strong>Verdadeiro</strong></p></td>
+<td align="left"><p><strong>Falso</strong></p></td>
 <td align="left"><p><strong>Indefinido</strong></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><strong>True</strong></p></td>
-<td align="left"><p>True</p></td>
-<td align="left"><p>False</p></td>
+<td align="left"><p><strong>Verdadeiro</strong></p></td>
+<td align="left"><p>Verdadeiro</p></td>
+<td align="left"><p>Falso</p></td>
 <td align="left"><p>Indefinido</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><strong>False</strong></p></td>
-<td align="left"><p>False</p></td>
-<td align="left"><p>False</p></td>
-<td align="left"><p>False</p></td>
+<td align="left"><p><strong>Falso</strong></p></td>
+<td align="left"><p>Falso</p></td>
+<td align="left"><p>Falso</p></td>
+<td align="left"><p>Falso</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Indefinido</strong></p></td>
 <td align="left"><p>Indefinido</p></td>
-<td align="left"><p>False</p></td>
+<td align="left"><p>Falso</p></td>
 <td align="left"><p>Indefinido</p></td>
 </tr>
 </tbody>
@@ -808,16 +808,16 @@ Eles operam com base em valores boolianos. As tabelas de verdade lógica desses 
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><p><strong>NOT</strong> </p></td>
+<td align="left"><p><strong>NÃO</strong></p></td>
 <td align="left"><p></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><strong>True</strong></p></td>
-<td align="left"><p>False</p></td>
+<td align="left"><p><strong>Verdadeiro</strong></p></td>
+<td align="left"><p>Falso</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><strong>False</strong></p></td>
-<td align="left"><p>True</p></td>
+<td align="left"><p><strong>Falso</strong></p></td>
+<td align="left"><p>Verdadeiro</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Indefinido</strong></p></td>
@@ -1321,7 +1321,7 @@ Abaixo há um exemplo de como uma UDF pode ser registrada no banco de dados do B
 
        UserDefinedFunction sqrtUdf = new UserDefinedFunction
        {
-           Name = "SQRT",
+           Id = "SQRT",
            Body = @"function(number) { 
                        return Math.sqrt(number);
                    };",
@@ -1374,7 +1374,7 @@ Para expandir o poder das UDFs, vejamos outro exemplo com lógica condicional:
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
-           Name = "SEALEVEL",
+           Id = "SEALEVEL",
            Body = @"function(city) {
                 switch (city) {
                     case 'seattle':
@@ -1432,13 +1432,13 @@ O LINQ é um modelo de programação .NET que expressa a computação como consu
 
 A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos. Usando o cliente do Banco de Dados de Documentos, os desenvolvedores podem criar um objeto **IQueryable** que direcionaria a consulta ao provedor de consulta do Banco de Dados de Documentos que, por sua vez, traduz a consulta do LINQ para uma consulta do Banco de Dados de Documentos. A consulta é, então, passada ao servidor do Banco de Dados de Documentos para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
 
-![][]
+![][0]
 
 ## Mapeamento .NET e JSON
 
 O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de membro de dados é mapeado para um objeto JSON, em que o nome do campo é mapeado para a parte “chave” do objeto e a parte do “valor” é mapeada recursivamente para a parte de valor do objeto. Considere o exemplo abaixo. O objeto Família criado é mapeado para o documento JSON conforme mostrado abaixo. E vice-versa, o documento JSON é mapeado para um objeto .NET.
 
-**Classe C\#**
+**Classe C#**
 
     public class Family
     {
@@ -1844,7 +1844,7 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
 
 Se os resultados de uma consulta não couberem em uma única página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token`. Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count`.
 
-Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações à API REST. Para consistência da sessão, é preciso ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência do Banco de Dados de Documentos][].
+Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações à API REST. Para consistência da sessão, é preciso ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência do Banco de Dados de Documentos][Níveis de consistência do Banco de Dados de Documentos].
 
 Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, “Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` poderá ser especificado para permitir que a consulta realize uma verificação quando um índice não estiver disponível.
 
@@ -1925,7 +1925,7 @@ O cliente .NET itera automaticamente em todas as páginas dos resultados de pesq
 
 Os desenvolvedores também podem controlar explicitamente as páginas criando `IDocumentQueryable` — usando objeto `IQueryable` —, lendo os valores`ResponseContinuationToken` e transmitindo-os como `RequestContinuationToken` nas `FeedOptions`. `EnableScanInQuery` pode ser configurado para permitir verificações quando a consulta não puder ser suportada pela política de indexação configurada.
 
-Consulte [amostras Banco de Dados de Documentos .NET] ([http://code.msdn.microsoft.com/Azure-Banco de Dados de Documentos-NET-Code-6b3da8af\#content][]) para obter mais amostras de consultas.
+Consulte [amostras de DocumentDB .NET] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) para obter mais amostras em consultas.
 
 ## API do servidor JavaScript
 
@@ -1965,26 +1965,20 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 
 # Referências
 
-1.  [Introdução ao Banco de Dados de Documentos do Azure][]
-2.  [Especificação da linguagem SQL do Banco de Dados de Documentos] (<http://go.microsoft.com/fwlink/p/?LinkID=510612>)
-3.  [Amostras .NET do Banco de Dados de Documentos] ([http://code.msdn.microsoft.com/Azure-Banco de Dados de Documentos-NET-Code-6b3da8af\#content][])
-4.  [Níveis de consistência do Banco de Dados de Documentos][]
-5.  ANSI SQL 2011 - [][]<http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681></a>
-6.  JSON [][1]<http://json.org/></a>
-7.  Especificação Javascript [][2]<http://www.ecma-international.org/publications/standards/Ecma-262.htm></a>
-8.  LINQ [][3]<http://msdn.microsoft.com/en-us/library/bb308959.aspx></a>
-9.  Técnicas de avaliação de consulta para bancos de dados grandes [][4]<http://dl.acm.org/citation.cfm?id=152611></a>
+1.  [Introdução ao Banco de Dados de Documentos do Azure][Introdução ao Banco de Dados de Documentos do Azure]
+2.  [Especificação do DocumentDB SQL Language] (http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.  [Amostras do DocumentDB .NET] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)
+4.  [Níveis de consistência do Banco de Dados de Documentos][Níveis de consistência do Banco de Dados de Documentos]
+5.  ANSI SQL 2011 - <http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681>
+6.  JSON <http://json.org/>
+7.  Especificação Javascript <http://www.ecma-international.org/publications/standards/Ecma-262.htm>
+8.  LINQ <http://msdn.microsoft.com/pt-br/library/bb308959.aspx>
+9.  Técnicas de avaliação de consulta para bancos de dados grandes <http://dl.acm.org/citation.cfm?id=152611>
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-  [http://code.msdn.microsoft.com/Azure-Banco de Dados de Documentos-NET-Code-6b3da8af\#content]: http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content
-  []: ./media/documentdb-sql-query/sql-query1.png
+  [0]: ./media/documentdb-sql-query/sql-query1.png
   [Níveis de consistência do Banco de Dados de Documentos]: ../documentdb-consistency-levels
   [Introdução ao Banco de Dados de Documentos do Azure]: ../documentdb-introduction
-  []: http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681
-  [1]: http://json.org/
-  [2]: http://www.ecma-international.org/publications/standards/Ecma-262.htm
-  [3]: http://msdn.microsoft.com/en-us/library/bb308959.aspx
-  [4]: http://dl.acm.org/citation.cfm?id=152611

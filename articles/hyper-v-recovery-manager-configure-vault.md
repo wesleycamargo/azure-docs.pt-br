@@ -1,14 +1,15 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to another on-premises site." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises Protection" editor="jimbe" manager="cfreeman" authors="raynew" />
+<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Introdu&ccedil;&atilde;o &agrave; Recupera&ccedil;&atilde;o de Site do Azure: No local para prote&ccedil;&atilde;o no local" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="A Recupera&ccedil;&atilde;o de Site do Azure coordena a replica&ccedil;&atilde;o, o failover e a recupera&ccedil;&atilde;o de m&aacute;quinas virtuais Hyper-V localizadas em nuvens VMM no local para outro lugar no local." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Introdu&ccedil;&atilde;o &agrave; Recupera&ccedil;&atilde;o de Site do Azure: No local para prote&ccedil;&atilde;o no local" editor="jimbe" manager="johndaw" authors="raynew" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # Introdução à Recuperação de Site do Azure: No local para proteção no local
 
+<div class="dev-callout">
 
 Use a Recuperação de Site do Azure para orquestrar proteção para máquinas virtuais nos servidores host Hyper-V no local nas nuvens VMM. Você pode configurar:
 
--   **No local para proteção no local** - Replique máquinas virtuais no local para outro site no local. Você configura e habilita configurações de proteção nos cofres de Recuperação de Site do Azure. As máquinas virtuais replicam de um servidor Hyper-V no local para outro. Saiba sobre este cenário em [Introdução à Recuperação de Site do Azure: No local para proteção no local][Introdução à Recuperação de Site do Azure: No local para proteção no local].
--   **No local para proteção no local** - Replique máquinas virtuais no local para o Azure. Você configura e habilita configurações de proteção nos cofres de Recuperação de Site do Azure. As máquinas virtuais replicam de um servidor Hyper-V no local para o armazenamento do Azure. Saiba sobre este cenário em [Introdução à Recuperação de Site do Azure: No local para proteção do Azure][Introdução à Recuperação de Site do Azure: No local para proteção do Azure]
+-   **No local para proteção no local** - Replique máquinas virtuais no local para outro site no local. Você configura e habilita as configurações de proteção nos cofres da Recuperação de Site do Azure. As máquinas virtuais replicam de um servidor Hyper-V no local para outro. Saiba sobre este cenário em [Introdução à Recuperação de Site do Azure: No local para proteção no local][Introdução à Recuperação de Site do Azure: No local para proteção no local].
+-   **No local para proteção no local** - Replique máquinas virtuais no local para o Azure. Você configura e habilita as configurações de proteção nos cofres da Recuperação de Site do Azure. As máquinas virtuais replicam de um servidor Hyper-V no local para o armazenamento do Azure. Saiba sobre este cenário em [Introdução à Recuperação de Site do Azure: No local para proteção do Azure][Introdução à Recuperação de Site do Azure: No local para proteção do Azure]
 
 ## <span id="about"></span></a>Sobre este tutorial
 
@@ -16,8 +17,8 @@ Use este tutorial para configurar uma verificação de conceito rápida para Rec
 
 Se você quer informações sobre uma implantação completa, consulte:
 
--   [Planejar para a Implantação de Recuperação de Site do Azure][Planejar para a Implantação de Recuperação de Site do Azure]- Descreve as etapas de planejamento que devem ser concluídas antes de iniciar uma implantação completa.
--   [Implantação da Recuperação de Site do Azure: No local para proteção no local][Implantação da Recuperação de Site do Azure: No local para proteção no local] - Fornece instruções passo a passo para uma implantação completa.
+-   [Planejar o Azure Site Recovery Deployment][Planejar o Azure Site Recovery Deployment]—Descreve as etapas de planejamento que você deve concluir antes de iniciar uma implantação completa.
+-   [Implantação da Recuperação de Site do Azure: Proteção de local para Local][Implantação da Recuperação de Site do Azure: Proteção de local para Local]—Fornece instruções passo a passo para uma implantação completa.
 
 Se você enfrentar problemas durante este tutorial, reveja o artigo wiki de [Recuperação de Site do Azure: Cenários comuns de erro e resoluções][Recuperação de Site do Azure: Cenários comuns de erro e resoluções] ou poste suas perguntas no [Fórum dos Serviços de Recuperação do Azure][Fórum dos Serviços de Recuperação do Azure].
 
@@ -25,6 +26,7 @@ Se você enfrentar problemas durante este tutorial, reveja o artigo wiki de [Rec
 
 ## <span id="before"></span></a>Antes de começar
 
+<div class="dev-callout">
 
 Antes de iniciar este tutorial, verifique os pré-requisitos.
 
@@ -41,18 +43,19 @@ Antes de iniciar este tutorial, verifique os pré-requisitos.
 
 Depois de verificar os pré-requisitos, faça o seguinte:
 
--   [Etapa 1: Criar um cofre][Etapa 1: Criar um cofre] - Criar um cofre de Recuperação do Site do Azure.
--   [Etapa 2: Instalar o aplicativo do Provedor][Etapa 2: Instalar o aplicativo do Provedor] - Gerar uma chave de registro, e executa o aplicativo do Provedor de Recuperação do Site do Microsoft Azure no servidor VMM. Isso instala o Provedor e registra o servidor VMM no cofre.
--   [Etapa 3: Configurar a proteção de nuvem][Etapa 3: Configurar a proteção de nuvem] - Configurar as configurações de proteção para nuvem VMM.
+-   [Etapa 1: Criar um cofre][Etapa 1: Criar um cofre]—Criar um cofre do Azure Site Recovery.
+-   [Etapa 2: Instalar o aplicativo Provider][Etapa 2: Instalar o aplicativo Provider]—Gerar uma chave de registro e executar o aplicativo Microsoft Azure Site Recovery Provider no servidor VMM. Isso instala o Provedor e registra o servidor VMM no cofre.
+-   [Etapa 3: Configurar a proteção da nuvem][Etapa 3: Configurar a proteção da nuvem]—Defina as configurações de proteção para as nuvens VMM.
 -   <a href="#networkmapping">Etapa 5: Configurar mapeamento de rede - você pode configurar opcionalmente o mapeamento de rede para mapear as redes VM de origem para redes VM de destino.
--   [Etapa 6: Configurar o mapeamento de armazenamento][Etapa 6: Configurar o mapeamento de armazenamento] - Você pode configurar opcionalmente o mapeamento de armazenamento para mapear classificações de armazenamento no servidor VMM de origem para classificações de armazenamento no servidor de destino.
--   [Etapa 7: Ativar a proteção para máquinas virtuais][Etapa 7: Ativar a proteção para máquinas virtuais] - Ativa a proteção para máquinas virtuais do Hyper-V localizadas nas nuvens do VMM.
--   [Etapa 8: Configurar e executar planos de recuperação][Etapa 8: Configurar e executar planos de recuperação] - Criar um plano de recuperação e executar um failover de teste para o plano.
+-   [Etapa 6: Configurar o mapeamento de armazenamento][Etapa 6: Configurar o mapeamento de armazenamento]—Você pode configurar opcionalmente o mapeamento de armazenamento para mapear as classificações de armazenamento na fonte de servidor VMM para as classificações de armazenamento no servidor de destino.
+-   [Etapa 7: Habilitar proteção para máquinas virtuais][Etapa 7: Habilitar proteção para máquinas virtuais]—Habilite a proteção para máquinas virtuais localizadas em nuvens VMM protegidas
+-   [Etapa 8: Configurar e executar planos de recuperação][Etapa 8: Configurar e executar planos de recuperação]—Crie um plano de recuperação e execute um failover de teste para o plano.
 
 <a name="vault"></a>
 
 ## Etapa 1: Criar um cofre
 
+</p>
 1.  Entre no [Portal de Gerenciamento][Portal de Gerenciamento].
 
 2.  Expanda os **Serviços de dados**, expanda os **Serviços de Recuperação** e clique em **Cofre de Recuperação de Site**.
@@ -73,6 +76,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 ## Etapa 2: Configurar o cofre
 
+</p>
 1.  Na página **Serviços de Recuperação**, clique no cofre para abrir na página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
 
     ![Ícone de Inicialização Rápida][Ícone de Inicialização Rápida]
@@ -192,24 +196,24 @@ Para obter mais informações sobre a interação com trabalhos e o painel, cons
 
 ## <span id="next"></span></a>Próximas etapas
 
--   Para planejar e implantar a Recuperação de Site do Azure em um ambiente de produção completo, consulte [Guia de planejamento para a Recuperação do Hyper-V][Planejar para a Implantação de Recuperação de Site do Azure] e [Guia de implantação de Recuperação de Site do Azure][Implantação da Recuperação de Site do Azure: No local para proteção no local].
--   Para dúvidas, visite o [Fórum de serviços de recuperação do Azure][Fórum dos Serviços de Recuperação do Azure].
+-   Para planejar e implantar a Recuperação de Site do Azure em um ambiente de produção completo, consulte [Guia de planejamento para a Recuperação do Hyper-V][Planejar o Azure Site Recovery Deployment] e [Guia de implantação de Recuperação de Site do Azure][Implantação da Recuperação de Site do Azure: Proteção de local para Local].
+-   Para dúvidas, visite o [Fórum de serviços de recuperação do Windows Azure][Fórum dos Serviços de Recuperação do Azure].
 
 </div>
 
   [Introdução à Recuperação de Site do Azure: No local para proteção no local]: http://go.microsoft.com/fwlink/?LinkId=398765
   [Introdução à Recuperação de Site do Azure: No local para proteção do Azure]: http://go.microsoft.com/fwlink/?LinkId=398764
-  [Planejar para a Implantação de Recuperação de Site do Azure]: http://go.microsoft.com/fwlink/?LinkId=321294
-  [Implantação da Recuperação de Site do Azure: No local para proteção no local]: http://go.microsoft.com/fwlink/?LinkId=321295
+  [Planejar o Azure Site Recovery Deployment]: http://go.microsoft.com/fwlink/?LinkId=321294
+  [Implantação da Recuperação de Site do Azure: Proteção de local para Local]: http://go.microsoft.com/fwlink/?LinkId=321295
   [Recuperação de Site do Azure: Cenários comuns de erro e resoluções]: http://go.microsoft.com/fwlink/?LinkId=389879
   [Fórum dos Serviços de Recuperação do Azure]: http://go.microsoft.com/fwlink/?LinkId=313628
   [Avaliação gratuita do Azure]: http://aka.ms/try-azure
   [Detalhes de Preços do Gerenciador de Recuperação de Site do Azure]: http://go.microsoft.com/fwlink/?LinkId=378268
   [Etapa 1: Criar um cofre]: #vault
-  [Etapa 2: Instalar o aplicativo do Provedor]: #download
-  [Etapa 3: Configurar a proteção de nuvem]: #clouds
+  [Etapa 2: Instalar o aplicativo Provider]: #download
+  [Etapa 3: Configurar a proteção da nuvem]: #clouds
   [Etapa 6: Configurar o mapeamento de armazenamento]: #storagemapping
-  [Etapa 7: Ativar a proteção para máquinas virtuais]: #enablevirtual
+  [Etapa 7: Habilitar proteção para máquinas virtuais]: #enablevirtual
   [Etapa 8: Configurar e executar planos de recuperação]: #recovery%20plans
   [Portal de Gerenciamento]: https://manage.windowsazure.com
   [Detalhes dos Preços de Recuperação de Site do Azure]: http://go.microsoft.com/fwlink/?LinkId=389880

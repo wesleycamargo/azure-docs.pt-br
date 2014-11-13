@@ -1,10 +1,10 @@
-<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="custom dns storage" pageTitle="Configurar um nome de dom&iacute;nio para dados de blob em uma conta de armazenamento | Microsoft Azure" metaKeywords="" description="Saiba como configurar um dom&iacute;nio personalizado para acessar os dados de blob em uma conta de armazenamento do Azure." metaCanonical="" services="storage" documentationCenter="" title="Configurar um nome de dom&iacute;nio personalizado para dados de blob em uma conta de armazenamento" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Configurar um nome de domínio personalizado para dados de blob em uma conta de armazenamento do Azure
 
-Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade padrão para o serviço Blob é https://\<*minhacontadearmazenamento*\>.blob.core.windows.net. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, os usuários também poderão acessar os dados de blob em sua conta de armazenamento usando esse domínio.
+Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade padrão para o serviço de Blob é https://\<*mystorageaccount*\>.blob.core.windows.net. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, logo, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
 
 <div class="dev-callout"> 
 <b>Observa&ccedil;&atilde;o</b> 
@@ -17,19 +17,18 @@ O processo de mapeamento de seu domínio personalizado ao ponto de extremidade d
 
 A tabela a seguir mostra exemplos de URLs para acessar os dados do blob em uma conta de armazenamento denominada **mystorageaccount**. O domínio personalizado registrado para a conta de armazenamento é **www.contoso.com**.
 
-<table border="1">
-<tr><th> Tipo de recurso </th><th> Formatos de URL </th></tr>
-<tr><td> Conta de armazenamento </td><td> <strong>URL padrão:</strong> http://minhacontadearmazenamento.blob.core.windows.net  <br />                    
-                         <strong>URL do domínio personalizado:</strong> http://www.contoso.com                                    </td></tr>
-<tr><td> Blob                   </td><td> <strong>URL padrão:</strong> http://minhacontadearmazenamento.blob.core.windows.net/meucontêiner/meublob <br />
-                        <strong>URL do domínio personalizado:</strong> http://www.contoso.com/meucontêiner/meublob                </td></tr>
-<tr><td> Contêiner raiz         </td><td> <strong>URL padrão:</strong> http://minhacontadearmazenamento.blob.core.windows.net/meublob          <br />    
-                          ou o                                                                                         <br />
-                           http://mystorageaccount.blob.core.windows.net/$root/myblob                             <br />     
-                           <strong>URL do domínio personalizado:</strong> http://www.contoso.com/meublob                     <br />       
-                          ou o                                                                                <br />         
-                           http://www.contoso.com/$root/meublob                                                        </td></tr>
-</table>
+|------------------------|---------------------------------------------------------------------------------------------|
+| **Tipo de recurso**    | **Formatos de URL**                                                                         |
+| Conta de armazenamento | **URL padrão:** http://minhacontadearmazenamento.blob.core.windows.net                      
+                           **URL do domínio personalizado:** http://www.contoso.com                                    |
+| Blob                   | **URL padrão:** http://minhacontadearmazenamento.blob.core.windows.net/meucontêiner/meublob 
+                          **URL do domínio personalizado:** http://www.contoso.com/meucontêiner/meublob                |
+| Contêiner raiz         | **URL padrão:** http://minhacontadearmazenamento.blob.core.windows.net/meublob              
+                          ou                                                                                           
+                           http://mystorageaccount.blob.core.windows.net/$root/myblob                                  
+                           **URL do domínio personalizado:** http://www.contoso.com/meublob                            
+                          ou                                                                                           
+                           http://www.contoso.com/$root/meublob                                                        |
 
 Esta tarefa mostrará como:
 
@@ -118,20 +117,18 @@ Os usuários podem agora exibir os dados do blob em seu domínio personalizado, 
 
 Para verificar se seu domínio personalizado está de fato mapeado ao ponto de extremidade do serviço de blobs, crie um blob em um contêiner público em sua conta de armazenamento. Em seguida, em um navegador, use um URI no seguinte formato para acessar o blob:
 
--   http://\<*subdomínio.domíniopersonalizado*\>/\<*meucontêiner*\>/\<*meublob*\>
+-   http://\<*subdomain.customdomain*\>/\<*mycontainer*\>/\<*myblob*\>
 
 Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web por meio de um subdomínio personalizado
 **photos.contoso.com** que mapeia para um blob no contêiner
 **myforms**:
 
--   <http://photos.contoso.com/myforms/applicationform.htm>
+-   http://photos.contoso.com/myforms/applicationform.htm
 
 ## Recursos adicionais
 
 -   [Como mapear o conteúdo CDN para um domínio personalizado][Como mapear o conteúdo CDN para um domínio personalizado]
 
-  [Configurando um nome de domínio personalizado para um serviço em nuvem do Azure]: /pt-br/develop/net/common-tasks/custom-dns/
-  [Configurando um nome de domínio personalizado para um Site do Azure]: /pt-br/develop/net/common-tasks/custom-dns-web-site/
   [Registrar um domínio personalizado para sua conta de armazenamento]: #register-domain
   [Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio asverify intermediário]: #register-asverify
   [Como mapear o conteúdo CDN para um domínio personalizado]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg680307.aspx

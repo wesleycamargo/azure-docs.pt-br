@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Criar um ativo criptografado e carregar no Armazenamento do Azure" metaKeywords="" description="Saiba como obter conte&uacute;do de m&iacute;dia nos Servi&ccedil;os de M&iacute;dia criando e carregando um ativo criptografado." metaCanonical="" services="media-services" documentationCenter="" title="Como: Criar um ativo criptografado e carregar no armazenamento" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="create-asset"> </a><span class="short header">Como: Como criar um ativo criptografado e carregar no armazenamento</span>
 
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior foi [Configurando seu computador para os Serviços de Mídia][]
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior foi [Configurando seu computador para os Serviços de Mídia][Configurando seu computador para os Serviços de Mídia]
 
 Para obter conteúdo de mídia nos Serviços de Mídia, primeiro crie um ativo e adicione arquivos a ele e, em seguida, carregue o ativo. Esse processo é chamado de conteúdo de absorção.
 
@@ -14,7 +14,8 @@ Quando cria ativos, você pode especificar três opções diferentes para cripto
 -   **AssetCreationOptions.CommonEncryptionProtected**: para arquivos CENC (protegidos de criptografia comum). Um exemplo é um conjunto de arquivos que já estão criptografados por PlayReady.
 -   **AssetCreationOptions.StorageEncrypted**: criptografia para armazenamento. Criptografa um arquivo de entrada limpo antes de ele ser carregado no Armazenamento do Azure.
 
-**OBSERVAÇÃO**: Observe que os Serviços de Mídia fornecem criptografia de armazenamento em disco, e não pela conexão, como o DRM (gerenciamento de direitos digitais).
+> WACOM.NOTE
+> Os Serviços de Mídia fornecem criptografia para armazenamento em disco para seus ativos, não pela conexão, como o DRM (gerenciamento de direitos digitais).
 
 O código de exemplo a seguir faz o seguinte:
 
@@ -113,7 +114,7 @@ O código a seguir mostra como criar um ativo e carregar vários arquivos.
 
 ## Próximas etapas
 
-Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][].
+Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][Como obter um processador de mídia].
 
   [Configurando seu computador para os Serviços de Mídia]: http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409
-  [Como obter um processador de mídia]: http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409
+  [Como obter um processador de mídia]: ../media-services-get-media-processor/

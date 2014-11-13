@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="Service Management" pageTitle="Como usar as APIs de gerenciamento de servi&ccedil;os do Azure (PHP)" metaKeywords="" description="Saiba como usar as APIs de Gerenciamento de Servi&ccedil;os do PHP do Azure para gerenciar servi&ccedil;os de nuvem e outros aplicativos do Azure." metaCanonical="" services="" documentationCenter="PHP" title="Como usar o Gerenciamento de Servi&ccedil;os do PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -45,7 +45,7 @@ Neste guia, você usará os recursos de serviços que podem ser chamados em um a
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-## <span id="Connect"></span></a>Como: Conectar-se ao gerenciamento de serviço
+## <span id="Connect"></span></a>Como: Conectar-se ao gerenciamento de serviços
 
 Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e do caminho para um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [Portal de Gerenciamento][Portal de Gerenciamento] e criar certificados de gerenciamento de várias formas. Neste guia o [OpenSSL][OpenSSL] é usado, que você pode [baixar para o Windows (a página pode estar em inglês)][baixar para o Windows (a página pode estar em inglês)] e executar em um console.
 
@@ -57,7 +57,7 @@ Para criar o certificado `.cer`, execute:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obter mais informações sobre certificados do Azure, consulte [Visão geral dos certificados no Azure (a página pode estar em inglês)][Visão geral dos certificados no Azure (a página pode estar em inglês)]. Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Para obter mais informações sobre certificados do Azure, consulte [Visão geral dos certificados no Azure (a página pode estar em inglês)][Visão geral dos certificados no Azure (a página pode estar em inglês)]. Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em <http://www.openssl.org/docs/apps/openssl.html>.
 
 Se você baixou e importou seu arquivo de configurações de publicação usando as [Ferramentas de linha de comando do Azure][Ferramentas de linha de comando do Azure], você poderá usar o arquivo `.pem` que as ferramentas criaram em vez de criar o seu próprio arquivo. As ferramentas criam um arquivo `.cer` para você e o atualizam no Azure, colocam o arquivo `.pem` correspondente no diretório do `.azure` em seu computador (em seu diretório de usuário).
 
@@ -98,7 +98,7 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -121,7 +121,7 @@ Quando cria um serviço de nuvem, um serviço de armazenamento ou um grupo de af
 > [WACOM.NOTE]
 > Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar os locais como enumerações usando a classe `WindowsAzure\ServiceManagement\Models\Locations`. Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar `Locations::WEST_US`.
 
-## <span id="CreateCloudService"></span></a>Como: Criar um serviço de nuvem
+## <span id="CreateCloudService"></span></a>Como: Criar um Serviço de Nuvem
 
 Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem][serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **createHostedServices** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (um nome de serviço hospedado codificado na base 64) e um objeto **CreateServiceOptions**. O objeto [CreateServiceOptions][CreateServiceOptions] permite que você defina o local *ou* o grupo de afinidade para o seu serviço.
 
@@ -147,7 +147,7 @@ Quando você cria um aplicativo e o executa no Azure, o código e a configuraç�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -186,7 +186,7 @@ Você pode excluir um serviço de nuvem passando o nome do serviço para o méto
 
     $serviceManagementRestProxy->deleteHostedService("myhostedservice");
 
-Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Consulte [Como excluir uma implantação][Como: Excluir a implantação] para obter detalhes.)
+Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Veja [Como: Excluir uma implantação][Como: Excluir a implantação] para obter mais detalhes.)
 
 ## <span id="CreateDeployment"></span></a>Como: Criar uma implantação
 
@@ -231,7 +231,7 @@ O exemplo a seguir cria uma nova implantação no slot de produção de um servi
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -289,7 +289,7 @@ O método **changeDeploymentConfiguration** permite carregar um novo arquivo de 
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -319,7 +319,7 @@ O método **updateDeploymentStatus** permite que você defina o status de uma im
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -345,13 +345,13 @@ O exemplo a seguir mostra como usar o método **swapDeployment** para permutar d
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-## <span id="DeleteDeployment"></span></a>Como: Excluir uma implantação
+## <span id="DeleteDeployment"></span></a>Como: Excluir a implantação
 
 Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a seguir mostra como excluir uma implantação no ambiente de preparo usando o método **setSlot** em um objeto [GetDeploymentOptions][ListHostedServicesResult] e passá-lo para **deleteDeployment**. Em vez de especificar uma implantação por slot, você pode usar o método **setName** na classe [GetDepolymentOptions] para especificar uma implantação pelo nome da implantação.
 
@@ -374,7 +374,7 @@ Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a 
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -382,7 +382,7 @@ Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a 
 
 ## <span id="CreateStorageService"></span></a>Como: Criar um serviço de armazenamento
 
-Um [serviço de armazenamento][serviço de armazenamento] fornece acesso a [Blobs][Blobs], [Tabelas][Tabelas] e [Filas][Filas] do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), um rótulo (um nome com até 100 caracteres codificado em base 64 para o serviço) e um local ou um grupo de afinidade. Fornecer uma descrição para o serviço é opcional. O local, o grupo de afinidade e a descrição são definidos em um objeto [CreateServiceOptions][CreateServiceOptions], que é passado para o método **createStorageService**. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se desejar usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como criar um grupo de afinidade][Como: Criar um grupo de afinidade]) e defini-lo com o método **CreateServiceOptions-\>setAffinityGroup**.
+Um [serviço de armazenamento][serviço de armazenamento] fornece acesso a [Blobs][Blobs], [Tabelas][Tabelas] e [Filas][Filas] do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), um rótulo (um nome com até 100 caracteres codificado em base 64 para o serviço) e um local ou um grupo de afinidade. Fornecer uma descrição para o serviço é opcional. O local, o grupo de afinidade e a descrição são definidos em um objeto [CreateServiceOptions][CreateServiceOptions], que é passado para o método **createStorageService**. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se quiser usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como: Criar um grupo de afinidade][Como: Criar um grupo de afinidade]) e defini-lo com o método **CreateServiceOptions-\>setAffinityGroup**.
 
     require_once 'vendor\autoload.php';
      
@@ -409,7 +409,7 @@ Um [serviço de armazenamento][serviço de armazenamento] fornece acesso a [Blob
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -450,7 +450,7 @@ Você pode excluir um serviço de armazenamento passando o nome do serviço para
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -484,7 +484,7 @@ Para criar um grupo de afinidade, você precisa de um nome, de um rótulo (nome 
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -525,7 +525,7 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/pt-br/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -550,19 +550,20 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
   [Como: Excluir um serviço de armazenamento]: #DeleteStorageService
   [Como: Criar um grupo de afinidade]: #CreateAffinityGroup
   [Como: Excluir um grupo de afinidade]: #DeleteAffinityGroup
-  [criar uma conta do Azure]: /pt-BR/pricing/free-trial/
-  [API de Gerenciamento de Serviços do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee460799.aspx
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [criar uma conta do Azure]: /pt-br/pricing/free-trial/
+  [API de Gerenciamento de Serviços do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee460799.aspx
   [OpenSSL]: http://www.openssl.org/
-  []: http://www.openssl.org/docs/apps/openssl.html
+  [baixar para o Windows (a página pode estar em inglês)]: http://www.openssl.org/related/binaries.html
+  [Visão geral dos certificados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg981935.aspx
   [Ferramentas de linha de comando do Azure]: ../command-line-tools/
   [serviço de nuvem]: ../cloud-services-what-is/
   [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
   [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
-  [pacote de serviço]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg433093
+  [pacote de serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433093
   [cmdlets do PowerShell do Azure]: ../install-configure-powershell/
-  [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg432988.aspx
-  [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh386336.aspx
+  [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg432988.aspx
+  [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
+  [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh386336.aspx
   [serviço de armazenamento]: ../storage-whatis-account/
   [Blobs]: ../storage-php-how-to-use-blobs/
   [Tabelas]: ../storage-php-how-to-use-table-storage/

@@ -1,4 +1,4 @@
-Os dados de sua conta de armazenamento são replicados para garantir durabilidade que também é altamente disponível, atendendo ao [Contrato de Nível de Serviço do armazenamento do Azure][] mesmo no caso de falhas transitórias de hardware. O Armazenamento do Azure é implantado em 15 regiões ao redor do mundo e também inclui suporte para replicar dados entre diferentes regiões. Você tem diversas opções para replicar os dados em sua conta de armazenamento:
+Os dados de sua conta de armazenamento são replicados para garantir durabilidade que também é altamente disponível, atendendo ao [Contrato de Nível de Serviço do armazenamento do Azure][Contrato de Nível de Serviço do armazenamento do Azure] mesmo no caso de falhas transitórias de hardware. O Armazenamento do Azure é implantado em 15 regiões ao redor do mundo e também inclui suporte para replicar dados entre diferentes regiões. Você tem diversas opções para replicar os dados em sua conta de armazenamento:
 
 -   O *LRS (armazenamento com redundância local)* mantém três cópias de seus dados. O LRS é replicado três vezes em uma única instalação, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de uma única instalação.
 
@@ -16,11 +16,11 @@ Os dados de sua conta de armazenamento são replicados para garantir durabilidad
 
 -   *O RA-GRS (armazenamento com acesso de leitura geograficamente redundante)* fornece todos os benefícios do armazenamento com redundância geográfica e também permite acesso de leitura dos dados na região secundária caso a região primária fique indisponível. O armazenamento com acesso de leitura geograficamente redundante é recomendado para disponibilidade máxima além de durabilidade.
 
-Para obter mais detalhes sobre as opções de replicação, consulte [Opções de Redundância de Armazenamento do Azure][] e o [Blog da Equipe de Armazenamento do Azure][].
+Para obter mais detalhes sobre as opções de replicação, consulte [Opções de Redundância de Armazenamento do Azure][Opções de Redundância de Armazenamento do Azure] e o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure].
 
-As diferenças de preço entre as diversas opções de replicação encontram-se na página [Detalhes de Preços de Armazenamento][].
+As diferenças de preço entre as diversas opções de replicação encontram-se na página [Detalhes de Preços de Armazenamento][Detalhes de Preços de Armazenamento].
 
-  [Contrato de Nível de Serviço do armazenamento do Azure]: /en-us/support/legal/sla/
+  [Contrato de Nível de Serviço do armazenamento do Azure]: /pt-br/support/legal/sla/
   [Opções de Redundância de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Blog da Equipe de Armazenamento do Azure]: http://msdn.microsoft.com/en-us/library/azure/dn727290.aspx
-  [Detalhes de Preços de Armazenamento]: /en-us/pricing/details/storage/
+  [Blog da Equipe de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn727290.aspx
+  [Detalhes de Preços de Armazenamento]: /pt-br/pricing/details/storage/

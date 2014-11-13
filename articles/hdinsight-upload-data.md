@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Upload Data" pageTitle="Carregar dados para trabalhos do Hadoop no HDInsight | Azure" metaKeywords="" description="Saiba como carregar e acessar dados no HDInsight usando o Gerenciador de Armazenamento do Azure, o Azure PowerShell, a linha de comando do Hadoop ou o Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Carregar dados para trabalhos do Hadoop no HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -77,7 +77,7 @@ Usando as ferramentas do Azure Explorer, você pode perceber alguns arquivos de 
 
 ## <span id="storageexplorer"></span></a>Carregar dados no Armazenamento de Blob usando o Windows Azure Explorer
 
-O *Azure Storage Explorer* é uma ferramenta útil para inspecionar e alterar os dados em seu Armazenamento do Azure. Ele é uma ferramenta gratuita que pode ser baixada em [][]<http://azurestorageexplorer.codeplex.com/></a>.
+O *Azure Storage Explorer* é uma ferramenta útil para inspecionar e alterar os dados em seu Armazenamento do Azure. Ele é uma ferramenta gratuita que pode ser baixada em <http://azurestorageexplorer.codeplex.com/>.
 
 Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento do Azure. Para obter instruções sobre como obter essas informações, consulte a seção “Como: Exibir, copiar e regenerar chaves de acesso de armazenamento” em [Gerenciar contas de armazenamento][Gerenciar contas de armazenamento].
 
@@ -120,7 +120,7 @@ Para usar a linha de comando do Hadoop, primeiro conecte-se ao cluster usando a 
 
         wasb:///example/data/davinci.txt 
 
-    ou o
+    ou
 
         wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
@@ -198,7 +198,6 @@ Agora que você compreende como obter dados no HDInsight, use os seguintes artig
   [Importar dados do Banco de Dados SQL do Azure para o armazenamento de Blob usando o Sqoop]: #sqoop
   [Baixar o AzCopy]: http://aka.ms/WaCopy
   [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell/
-  []: http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer"
   [Gerenciar contas de armazenamento]: ../storage-manage-storage-account/
   [HDI.AzureStorageExplorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
   [HDI.ASEAddAccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

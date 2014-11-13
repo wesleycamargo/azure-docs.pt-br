@@ -1,10 +1,8 @@
-<properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Introdu&ccedil;&atilde;o aos sites da Web do Azure para ASP.NET" metaKeywords="" description="Este tutorial mostra como criar um projeto Web ASP.NET no Visual Studio 2013 e implant&aacute;-lo em um site da Web do Azure. Em menos de 15 minutos, voc&ecirc; ter&aacute; um aplicativo em funcionamento na nuvem." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Introdu&ccedil;&atilde;o aos Sites do Azure e ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Introdução aos Sites do Azure e ASP.NET
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/pt-br/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 Este tutorial mostra como criar um aplicativo Web ASP.NET e implantá-lo em um site do Azure usando o Visual Studio 2013 ou o Visual Studio 2013 for Web Express. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure ou o ASP.NET. Ao concluir o tutorial, você terá um aplicativo Web simples em funcionamento na nuvem.
 
@@ -51,7 +49,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 2.  No menu **Arquivo**, clique em **Novo Projeto**.
 
-3.  Na caixa de diálogo **Novo Projeto**, clique em **C\#** \> **Web** \> **Aplicativo Web ASP.NET**. Se preferir, você pode escolher **Visual Basic**.
+3.  Na caixa de diálogo **Novo Projeto**, clique em **C#** \> **Web** \> **Aplicativo Web ASP.NET**. Se preferir, você pode escolher **Visual Basic**.
 
 4.  Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
 
@@ -224,7 +222,7 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 
 O [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] é uma interface da Web que permite a você gerenciar e monitorar seus serviços do Azure, como o site que você acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
 
-1.  Em seu navegador, vá até [http://manage.windowsazure.com]() e entre com suas credenciais do Azure.
+1.  Em seu navegador, vá até [http://manage.windowsazure.com][http://manage.windowsazure.com] e entre com suas credenciais do Azure.
 
     O portal exibe uma lista de seus serviços do Azure.
 
@@ -305,7 +303,6 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
   [Fazer uma alteração e reimplantar]: #make-a-change-and-redeploy
   [Monitore e gerencie o site no Portal de Gerenciamento]: #monitor-and-manage-the-site-in-the-management-portal
   [Próximas etapas]: #next-steps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Diagrama mostrando a criação do projeto e etapas de implantação]: ./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png
   [Caixa de diálogo Novo Projeto]: ./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png
   [MVC e Web Forms]: http://www.asp.net/get-started/websites
@@ -333,6 +330,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
   [Clicar em Publicar]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [Barra de ferramentas Publicação Web com Um Clique]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
   [Portal de Gerenciamento do Azure]: /pt-br/services/management-portal/
+  [http://manage.windowsazure.com]: 
   [Portal home page com novo site web chamado]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Guia de painel do site do portal]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [Configurar]: /pt-br/documentation/articles/web-sites-configure//
@@ -346,6 +344,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
   [implantação automática]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [sistema de controle do código-fonte]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [Como implantar um Site do Azure]: /pt-br/documentation/articles/web-sites-deploy/"
+  [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [Solucionando problemas de Sites do Azure no Visual Studio]: /pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e banco de dados SQL em um site do Azure]: /pt-br/develop/net/tutorials/web-site-with-sql-database/
   [Configurando um nome de domínio personalizado para um Site do Azure]: /pt-br/documentation/articles/web-sites-custom-domain-name/
@@ -354,3 +353,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [Usando SignalR com sites do Windows Azure]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
   [Modelos de execução do Azure]: /pt-br/develop/net/fundamentals/compute/
+  [Sites, Serviços de Nuvem e VMs do Azure: Quando usar qual opção?]: /pt-br/manage/services/web-sites/choose-web-app-service/

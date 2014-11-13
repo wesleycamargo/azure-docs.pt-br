@@ -14,16 +14,16 @@ Para configurar a cadeia de conexão na configuração de serviço do Azure:
 1.  No Gerenciador de Soluções do Visual Studio, na pasta **Funções**
     de seu Projeto de Implantação do Azure, clique com o botão direito do mouse na sua
     função web ou função de trabalho e clique em **Propriedades**.
-    ![Selecione as propriedades em uma função de Serviço de Nuvem do Visual Studio][]
+    ![Selecione as propriedades em uma função de Serviço de Nuvem do Visual Studio][Selecione as propriedades em uma função de Serviço de Nuvem do Visual Studio]
 
 2.  Clique na guia **Configurações** e pressione o botão **Adicionar Configuração**.
-    ![Adicione uma configuração de Serviço de Nuvem do Visual Studio][]
+    ![Adicione uma configuração de Serviço de Nuvem do Visual Studio][Adicione uma configuração de Serviço de Nuvem do Visual Studio]
 
     Uma nova entrada **Setting1** será mostrada na grade de configurações.
 
 3.  No menu suspenso **Tipo** da nova entrada **Setting1**, escolha
     **Cadeia de Conexão**.
-    ![Defina o tipo da cadeia de conexão][]
+    ![Defina o tipo da cadeia de conexão][Defina o tipo da cadeia de conexão]
 
 4.  Clique no botão **...** na extremidade direita da entrada **Setting1**.
     A caixa de diálogo **Cadeia de Conexão da Conta de Armazenamento** se abrirá.
@@ -37,12 +37,12 @@ Para configurar a cadeia de conexão na configuração de serviço do Azure:
 
     > [WACOM.NOTE] Você pode utilizar o emulador de armazenamento como destino para evitar quaisquer custos associados ao Armazenamento do Microsoft Azure. Todavia, se você escolher utilizar como destino uma conta de armazenamento do Azure na nuvem, os custos para realização das operações neste tutorial serão insignificantes.
 
-    ![Selecione o ambiente de destino][]
+    ![Selecione o ambiente de destino][Selecione o ambiente de destino]
 
 6.  Altere a entrada **Nome** de **Setting1** para um nome "mais amigável”,
     como **StorageConnectionString**. Você fará referência a essa
     cadeia de conexão mais tarde no código deste guia.
-    ![Alterar nome da cadeia de conexão][]
+    ![Alterar nome da cadeia de conexão][Alterar nome da cadeia de conexão]
 
 ### Configurando sua cadeia de conexão usando configuração do .NET
 
@@ -62,7 +62,7 @@ Por exemplo, o parâmetro de configuração em seu arquivo de configuração pod
         </appSettings>
     </configuration>
 
-Leia [Configurando cadeias de conexão][] para obter mais informações sobre cadeias de conexão de armazenamento.
+Leia [Configurando cadeias de conexão][Configurando cadeias de conexão] para obter mais informações sobre cadeias de conexão de armazenamento.
 
 Agora você está pronto para executar as tarefas das instruções deste guia.
 
@@ -71,4 +71,4 @@ Agora você está pronto para executar as tarefas das instruções deste guia.
   [Defina o tipo da cadeia de conexão]: ./media/storage-configure-connection-string/connection-string3.png
   [Selecione o ambiente de destino]: ./media/storage-configure-connection-string/connection-string4.png
   [Alterar nome da cadeia de conexão]: ./media/storage-configure-connection-string/connection-string5.png
-  [Configurando cadeias de conexão]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+  [Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx

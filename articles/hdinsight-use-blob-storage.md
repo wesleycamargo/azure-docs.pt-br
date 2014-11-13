@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Usar o armazenamento de blob com o Hadoop no HDInsight | Azure" metaKeywords="" description="Saiba como o HDInsight usa o Armazenamento de blob como reposit&oacute;rio de dados subjacente para HDFS e como &eacute; poss&iacute;vel consultar dados no reposit&oacute;rio." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Usar o armazenamento de Blob do Azure com o Hadoop no HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Usar o armazenamento de Blob do Azure com o Hadoop no HDInsight
 
@@ -117,7 +117,7 @@ O esquema de URI para acessar arquivos no armazenamento de Blob é:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] A sintaxe para endereçamento de arquivos no emulador de armazenamento (em execução no emulador do HDInsight) é <i>wasb://\<ContainerName\>@storageemulator<i>.
+> [WACOM.NOTE] A sintaxe para lidar com os arquivos no emulador de armazenamento (em execução no emulador HDInsight) é *wasb://\<ContainerName\>@storageemulator*.
 
 O esquema de URI fornece acesso sem criptografia com o prefixo *wasb:* e acesso criptografado SSL com *wasbs*. É recomendável usar *wasbs* sempre que possível, mesmo ao acessar dados que residem dentro do mesmo datacenter do Azure.
 
@@ -262,7 +262,6 @@ Para saber mais, consulte os seguintes artigos:
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
   [HDI.CustomCreateStorageAccount]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png
   [O PowerShell do Azure]: ../install-configure-powershell/
-  [//\<ContainerName\>@storageemulator]: mailto://<ContainerName>@storageemulator
   [Blob.PowerShell.cmdlets]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png
   [Carregar dados no HDInsight]: ../hdinsight-upload-data/
   [Use o hive com o HDInsight]: ../hdinsight-use-hive/

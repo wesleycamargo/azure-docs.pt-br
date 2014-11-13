@@ -1,12 +1,12 @@
-<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows Server in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="danlep,kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Criar uma m&aacute;quina virtual executando o Windows no Portal de Visualiza&ccedil;&atilde;o do Azure" metaKeywords="Azure image gallery vm" description="Saiba como criar uma m&aacute;quina virtual (VM) do Azure executando o Windows, usando a Galeria de VMs do Portal de Visualiza&ccedil;&atilde;o do Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Criar uma m&aacute;quina virtual executando o Windows no Portal de Visualiza&ccedil;&atilde;o do Azure" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep,kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
 
-# Criar uma máquina virtual executando o Windows Server no Portal de Visualização do Azure
+# Criar uma máquina virtual executando o Windows no Portal de Visualização do Azure
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial/" title="Portal do Azure">Portal do Azure</a><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Portal de visualiza&ccedil;&atilde;o do Azure" class="current">Portal de visualiza&ccedil;&atilde;o do Azure</a></div>
 
-Este tutorial mostra como é fácil criar uma máquina virtual (VM) do Azure executando o Windows Server, usando a Galeria de VMs do Portal de Visualização do Azure. A Galeria oferece várias imagens, inclusive sistema operacionais Windows, sistemas operacionais baseados em Linux e imagens de aplicativos.
+Este tutorial mostra como é fácil criar uma máquina virtual (VM) no Azure executando o Windows, usando como exemplo uma imagem do Windows Server da Galeria de Imagens no Portal de Visualização do Azure. A Galeria oferece várias imagens, inclusive sistema operacionais Windows, sistemas operacionais baseados em Linux e imagens de aplicativos.
 
 > [WACOM.NOTE] Não é necessária nenhuma experiência com VMs do Azure para concluir este tutorial. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure][Criar uma conta do Azure].
 
@@ -19,7 +19,9 @@ Para saber mais, consulte [Máquinas Virtuais][Máquinas Virtuais].
 
 ## <span id="createvirtualmachine"></span> </a>Como criar a máquina virtual
 
-Esta seção mostra como usar o Portal de Visualização para criar uma VM com o Windows Server em execução. É possível usar as configurações padrão do Azure na maior parte da configuração e criar a VM em questão de minutos.
+Esta seção mostra como usar o Portal de Visualização para criar uma VM, usando o Windows Server como exemplo. É possível usar as configurações padrão do Azure na maior parte da configuração e criar a VM em questão de minutos.
+
+> [WACOM.NOTE] O número e o tipo de imagens que são disponibilizadas na galeria dependem do tipo de assinatura que você tem. Este tutorial usa uma imagem do Windows Server, mas uma assinatura do MSDN pode ter imagens adicionais disponíveis, incluindo imagens da área de trabalho.
 
 1.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure]. Confira a oferta [Avaliação Gratuita][Avaliação Gratuita] caso você ainda não tenha uma assinatura.
 
@@ -89,8 +91,8 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 
 [Gerenciar a disponibilidade de máquinas virtuais][Gerenciar a disponibilidade de máquinas virtuais]
 
-  [Portal do Azure]: /pt-br/documentation/articles/virtual-machines-windows-tutorial/ "Portal do Azure"
-  [Portal de visualização do Azure]: /pt-br/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Portal de visualização do Azure"
+[Sobre as definições de configuração da VM do Azure][Sobre as definições de configuração da VM do Azure]
+
   [Criar uma conta do Azure]: http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/
   [Como criar a máquina virtual]: #createvirtualmachine
   [Como fazer o logon na máquina virtual após você criá-la]: #logon
@@ -111,3 +113,4 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
   [Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server]: http://www.windowsazure.com/pt-br/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Anexar um disco de dados à máquina virtual]: http://www.windowsazure.com/pt-br/documentation/articles/storage-windows-attach-disk/
   [Gerenciar a disponibilidade de máquinas virtuais]: http://www.windowsazure.com/pt-br/documentation/articles/manage-availability-virtual-machines/
+  [Sobre as definições de configuração da VM do Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx

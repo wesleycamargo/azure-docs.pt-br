@@ -1,11 +1,21 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
+<properties urlDisplayName="HDInsight Emulator release notes" pageTitle="Notas de vers&atilde;o: Emulador do Microsoft HDInsight para Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Obtenha as &uacute;ltimas informa&ccedil;&otilde;es sobre as vers&otilde;es mais recentes do Emulador Hadoop do HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Notas de vers&atilde;o: Emulador do Microsoft HDInsight para Azure" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao" />
 
 # Notas de versão: Emulador do Microsoft HDInsight para Azure
 
 > [WACOM.NOTE]
 > A maneira mais fácil de verificar o número da versão é procurar em Adicionar ou Remover Programas na entrada do "Emulador do Microsoft HDInsight para Azure" (para a versão 1.0.0.0 ou superior) ou "Microsoft HDInsight Developer Preview" (para versões inferiores à 1.0.0.0).
+
+## v2.0.0.0, liberado em 29/8/2014
+
+-   Essa versão atualiza o Emulador do HDInsight visando o mesmo conjunto de projetos do Hadoop que está atualmente ativo no serviço na versão 3.1.
+
+-   Como com as versões de visualização desse produto, esta versão continua a ser destinada para cenários de desenvolvedor e só oferece suporte a implantações de nó único.
+
+### O que há de novo?
+
+-   [Versões de componentes do Hadoop atualizadas][Versões de componentes do Hadoop atualizadas] correspondentes à versão 3.1 do serviço. Isso inclui suporte ao Hive 0.13 e Tez.
 
 ## v1.0.0.0, lançada em 28.10.13
 
@@ -63,7 +73,7 @@
 
 -   Conecte-se a vários clusters, incluindo a instalação local, bem como aos executados remotamente usando o Serviço do Azure HDInsight.
 
--   Para obter mais informações sobre o Serviço do HDInsight, consulte [][]<http://azure.microsoft.com/pt-br/documentation/services/hdinsight/></a>.
+-   Para obter mais informações sobre o Serviço do HDInsight, consulte <http://azure.microsoft.com/pt-br/documentation/services/hdinsight/>.
 
 -   Configure o WASB no cluster local
 
@@ -80,13 +90,13 @@ Números de porta
 -   Os pontos de extremidade da API REST em uma instalação local do HDInsight e o Serviço do Azure HDInsight são acessados por números de porta diferentes para os mesmos serviços:
 
     Local:
-    Oozie: <http://localhost:11000/oozie/v1/admin/status>
-    Templeton: <http://localhost:50111/templeton/v1/status>
+    Oozie: http://localhost:11000/oozie/v1/admin/status
+    Templeton: http://localhost:50111/templeton/v1/status
     ODBC: use a porta 10000 na configuração do DNS ou na cadeia de conexão.
 
     Serviço do HDInsight:
-    Oozie: <http://ServerFQDN:563/oozie/v1/admin/status>
-    Templeton: <http://ServerFQDN:563/templeton/v1/status>
+    Oozie: http://ServerFQDN:563/oozie/v1/admin/status
+    Templeton: http://ServerFQDN:563/templeton/v1/status
     ODBC: use a porta 563 na configuração do DNS ou na cadeia de conexão.
 
 -   Configurar o ASV no cluster local:
@@ -133,7 +143,7 @@ Números de porta
 
             %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    3.  Acesse qualquer arquivo na conta usando o URI completo: asv:[//{container}@{account}/{path][//{container}@{account}/{path]} (ou asvs:// se você quiser usar HTTPS para acessar os dados). Exemplo:
+    3.  Acesse qualquer arquivo na conta usando o URI completo: asv://{container}@{account}/{path} (ou asvs:// se você quiser usar HTTPS para acessar os dados). Exemplo:
 
             hadoop fs -lsr 
             asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
@@ -178,7 +188,7 @@ Números de porta
 
 -   O console do JavaScript falha ao carregar
 
-    -   Em algumas instalações, o console do JavaScript falhará com um erro HTTP 404 exibido na página. Para resolver o problema, navegue diretamente para <http://localhost:8080> para usar o console.
+    -   Em algumas instalações, o console do JavaScript falhará com um erro HTTP 404 exibido na página. Para resolver o problema, navegue diretamente para http://localhost:8080 para usar o console.
 -   Navegar para o painel do HDInsight gera um prompt de logon
 
     -   Tivemos alguns relatos de uma caixa de diálogo de logon sendo gerada ao navegar para o Painel do HDInsight. Nesse caso, você pode fornecer as informações de logon para seu usuário atual e poderá navegar até o painel de controle.
@@ -245,6 +255,5 @@ Números de porta
 
 -   [Introdução ao emulador do HDInsight][Introdução ao emulador do HDInsight]
 
-  []: http://azure.microsoft.com/pt-br/documentation/services/hdinsight/
-  [//{container}@{account}/{path]: mailto://{container}@{account}/{path
+  [Versões de componentes do Hadoop atualizadas]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/
   [Introdução ao emulador do HDInsight]: ../hdinsight-get-started-emulator/

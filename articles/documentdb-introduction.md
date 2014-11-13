@@ -1,6 +1,6 @@
-<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB and its value to cloud and mobile applications. Also, learn about how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Introdu&ccedil;&atilde;o ao Banco de Dados de Documentos do Microsoft Azure" pageTitle="Introdu&ccedil;&atilde;o ao Banco de Dados de Documentos do Microsoft Azure | Azure" description="Aprenda sobre o Banco de Dados de Documentos do Azure e seu valor para os aplicativos de nuvem e m&oacute;veis. Al&eacute;m disso, saiba como ele gerencia dados e como voc&ecirc; pode us&aacute;-lo no desenvolvimento de aplicativos." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Introdução ao Banco de Dados de Documentos do Microsoft Azure
 
@@ -45,7 +45,7 @@ Todos os recursos no Banco de Dados de Documentos do Azure são modelados e arma
 
 A imagem abaixo mostra os relacionamentos entre os recursos do Banco de Dados de Documentos do Azure.
 
-![][1] 
+![][0]
 
 Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas pode conter procedimentos armazenados, gatilhos, UDFs, documentos e anexos relacionados. Um banco de dados também possui usuários associados, cada um com um conjunto de permissões para acessar várias outras coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos, procedimentos armazenados, gatilhos, UDFs e anexos possuem conteúdo JSON arbitrário e definido pelo usuário.
 
@@ -53,10 +53,10 @@ Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada 
 
 O Banco de Dados de Documentos do Azure expõe recursos pode meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Banco de Dados de Documentos do Azure oferece bibliotecas de programação para várias linguagens populares. Essas bibliotecas simplificam muitos aspectos do trabalho com o Banco de Dados de Documentos do Azure manipulando detalhes, como caching de endereço, gerenciamento de exceções, novas tentativas automáticas e assim por diante. Atualmente, as bibliotecas estão disponíveis para as seguintes linguagens e plataformas, com outras a caminho:
 
-- [.NET](http://go.microsoft.com/fwlink/?LinkID=402989)  
--	[Node.js](http://go.microsoft.com/fwlink/?LinkID=402990)
--	[JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991)
--	[Python](http://go.microsoft.com/fwlink/?LinkID=402992)
+-   [.NET][.NET]
+-   [Node.js][Node.js]
+-   [JavaScript][JavaScript]
+-   [Python][Python]
 
 Além das operações básicas de criação, leitura, atualização e exclusão, o Banco de dados de Documentos do Azure fornece uma interface de consulta SQL avançada para recuperar documentos JSON e suporte do servidor para a execução transacional da lógica JavaScript do aplicativo. As interfaces de execução de script e consulta estão disponíveis em todas as bibliotecas da plataforma, bem como as APIs REST.
 
@@ -78,9 +78,19 @@ A execução do JavaScript dentro do Banco de Dados de Documentos é baseada nos
 
 Para começar a usar o Banco de Dados de Documentos do Azure, explore estes recursos:
 
--   [Entenda conceitos do Banco de Dados de Documentos](/documentation/articles/documentdb-resources/)
--   [Interaja com o Banco de Dados de Documentos](/documentation/articles/documentdb-interactions-with-resources/)
--   [Crie uma conta de banco de dados](/documentation/articles/documentdb-create-account/)
--   [Introdução ao Banco de Dados de Documentos](/documentation/articles/documentdb-get-started/)
+-   [Experimente o Banco de Dados de Documentos agora][Experimente o Banco de Dados de Documentos agora]
+-   [Entenda conceitos do Banco de Dados de Documentos][Entenda conceitos do Banco de Dados de Documentos]
+-   [Interaja com o Banco de Dados de Documentos][Interaja com o Banco de Dados de Documentos]
+-   [Crie uma conta de banco de dados][Crie uma conta de banco de dados]
+-   [Introdução ao Banco de Dados de Documentos][Introdução ao Banco de Dados de Documentos]
 
-[1]: ./media/documentdb-introduction/intro.png
+  [0]: ./media/documentdb-introduction/intro.png
+  [.NET]: http://go.microsoft.com/fwlink/?LinkID=402989
+  [Node.js]: http://go.microsoft.com/fwlink/?LinkID=402990
+  [JavaScript]: http://go.microsoft.com/fwlink/?LinkID=402991
+  [Python]: http://go.microsoft.com/fwlink/?LinkID=402992
+  [Experimente o Banco de Dados de Documentos agora]: https://portal.azure.com/#gallery/Microsoft.DocumentDB
+  [Entenda conceitos do Banco de Dados de Documentos]: /documentation/articles/documentdb-resources/
+  [Interaja com o Banco de Dados de Documentos]: /documentation/articles/documentdb-interactions-with-resources/
+  [Crie uma conta de banco de dados]: /documentation/articles/documentdb-create-account/
+  [Introdução ao Banco de Dados de Documentos]: /documentation/articles/documentdb-get-started/

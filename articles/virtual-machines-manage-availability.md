@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-common-tasks-vm-availability" urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Manage Availability of VMs" pageTitle="Gerenciar a disponibilidade de m&aacute;quinas virtuais - Azure" metaKeywords="" description="Saiba como usar v&aacute;rias m&aacute;quinas virtuais para garantir a alta disponibilidade do aplicativo do Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 # Gerenciar a disponibilidade de máquinas virtuais
 
@@ -18,20 +18,22 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 
 -   [Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância][Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância]
 -   [Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados][Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados]
--   [Combine o Balanceador de carga com os Conjuntos de Disponibilidade][Combine o Balanceador de carga com os Conjuntos de Disponibilidade]
+-   [Combine o Balanceador de Carga com os Conjuntos de Disponibilidade][Combine o Balanceador de Carga com os Conjuntos de Disponibilidade]
 -   [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade][Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]
 
 ### Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância
 
 Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um Conjunto de Disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para obter mais informações sobre contratos de nível de serviço, consulte a seção "Serviços de nuvem, Máquinas Virtuais e Rede Virtual" em [Contratos de Nível de Serviço][Contratos de Nível de Serviço].
 
-Para cada máquina virtual em seu Conjunto de Disponibilidade é atribuído um Domínio de Atualização (UD) e Domínio de Falha (FD) pela plataforma subjacente do Azure. Para um dado Conjunto de Disponibilidade, cinco UDs de usuário não configurável são atribuídos aos grupos indicados das máquinas virtuais e do hardware físico subjacente que podem ser reinicializados a qualquer momento. Quando mais do que cinco máquinas virtuais são configuradas com um único Conjunto de Disponibilidade, a sexta máquina virtual será alocada com o mesmo UD da primeira máquina virtual, a sétima com o mesmo UD da segunda máquina virtual e assim sucessivamente. A ordem das UDs sendo reinicializadas podem não acontecer em sequência durante a manutenção planejada, mas apenas uma UD será reinicializada por vez.
+Toda máquina virtual no conjunto de disponibilidade recebe um Domínio de Atualização (UD) e um Domínio de Falha (FD) da plataforma do Azure subjacente. Para um dado Conjunto de Disponibilidade, cinco UDs de usuário não configurável são atribuídos aos grupos indicados das máquinas virtuais e do hardware físico subjacente que podem ser reinicializados a qualquer momento. Quando mais do que cinco máquinas virtuais são configuradas com um único Conjunto de Disponibilidade, a sexta máquina virtual será alocada com o mesmo UD da primeira máquina virtual, a sétima com o mesmo UD da segunda máquina virtual e assim sucessivamente. A ordem das UDs sendo reinicializadas podem não acontecer em sequência durante a manutenção planejada, mas apenas uma UD será reinicializada por vez.
 
 FDs definem o grupo de máquinas virtuais que compartilham uma fonte de energia e chave de rede comum. Por padrão, as máquinas virtuais configuradas dentro do seu Conjunto de Disponibilidade são separadas entre os dois FDs. Enquanto colocar suas máquinas virtuais em um Conjunto de Disponibilidade não protege seu aplicativo de falhas de sistema operacional e nem específicas de aplicativo, isso limita o impacto das potencias falhas físicas de hardware, panes de rede ou interrupções de energia.
 
 <!--Image reference-->
 
 ![Configuration FD do UD][Configuration FD do UD]
+
+> [WACOM.NOTE] Para obter instruções, consulte [Como configurar um conjunto de disponibilidade para máquinas virtuais][Como configurar um conjunto de disponibilidade para máquinas virtuais].
 
 ### Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados
 
@@ -53,11 +55,14 @@ Se o balanceador de carga não estiver configurado para balancear o tráfego ent
 
 Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilidade. Máquinas virtuais com esta configuração não se qualificam como garantia SLA e enfrentarão tempo de inatividades durante os eventos de manutenção planejada do Azure. Além disso, se você implantar uma única instância de VM em um conjunto de disponibilidade, você não receberá nenhum alerta ou notificação antecipada de manutenção de plataforma. Nessa configuração, a instância de sua única máquina virtual pode e será reinicializada sem nenhum alerta antecipado quando a manutenção da plataforma acontecer.
 
+<!-- Link references -->
+
   [Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
   [Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados]: #configure-each-application-tier-into-separate-availability-sets
-  [Combine o Balanceador de carga com os Conjuntos de Disponibilidade]: #combine-the-load-balancer-with-availability-sets
+  [Combine o Balanceador de Carga com os Conjuntos de Disponibilidade]: #combine-the-load-balancer-with-availability-sets
   [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
   [Contratos de Nível de Serviço]: ../../../support/legal/sla/
   [Configuration FD do UD]: ./media/virtual-machines-manage-availability/ud-fd-configuration.png
+  [Como configurar um conjunto de disponibilidade para máquinas virtuais]: ../virtual-machines-how-to-configure-availability
   [Camadas de aplicativo]: ./media/virtual-machines-manage-availability/application-tiers.png
   [Máquinas Virtuais de Balanceamento de Carga]: ../load-balance-virtual-machines/

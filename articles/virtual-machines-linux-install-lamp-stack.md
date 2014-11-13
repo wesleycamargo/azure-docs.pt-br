@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install LAMP stack" pageTitle="Instalar a pilha LAMP em uma m&aacute;quina virtual Linux" metaKeywords="" description="Saiba como instalar a pilha LAMP em uma VM (m&aacute;quina virtual) Linux no Azure. Voc&ecirc; pode instalar no Ubuntu ou no CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Instalar a pilha LAMP em uma m&aacute;quina virtual Linux no Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
@@ -98,9 +98,7 @@ Serão instaladas as solicitações mínimas das extensões PHP necessárias par
 
 Há muitos recursos para configurar uma pilha de LÂMPADA no Ubuntu.
 
--   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
--   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
+-   <https://help.ubuntu.com/community/ApacheMySQLPHP>
+-   <http://fedorasolved.org/server-solutions/lamp-stack>
 
   [configuração de pontos de extremidade]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-set-up-endpoints/
-  []: https://help.ubuntu.com/community/ApacheMySQLPHP
-  [1]: http://fedorasolved.org/server-solutions/lamp-stack

@@ -1,14 +1,14 @@
-<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Gerar recomenda&ccedil;&otilde;es de v&iacute;deo usando o Mahout" pageTitle="Gerar recomenda&ccedil;&otilde;es de v&iacute;deo usando o Mahout com o Microsoft Azure HDInsight (Hadoop)" description="Saiba como usar a biblioteca de aprendizado de m&aacute;quina do Apache Mahout para gerar recomenda&ccedil;&otilde;es de v&iacute;deos com o HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Gerar recomendações de vídeo usando o Apache Mahout com o HDInsight (Hadoop)
 
 Aprenda como usar a biblioteca de aprendizado da máquina [Apache Mahout][Apache Mahout] para gerenciar recomendações de filmes com o Microsoft Azure HDInsight (Hadoop).
 
 > [WACOM.NOTE] Você deve ter um cluster do HDInsight para usar as informações presentes neste artigo. Para obter informações sobre como criar um, consulte [Introdução ao uso do Hadoop no HDInsight][Introdução ao uso do Hadoop no HDInsight].
-
-> [WACOM.NOTE] O Mahout é fornecido com clusters do HDInsight 3.1. Se você estiver usando uma versão anterior do HDInsight, consulte [Instalar o Mahout][Instalar o Mahout] antes de continuar.
+>
+> O Mahout é fornecido com clusters do HDInsight 3.1. Se você estiver usando uma versão anterior do HDInsight, consulte [Instalar o Mahout][Instalar o Mahout] antes de continuar.
 
 ## <a name="learn"></a>O que você aprenderá
 
@@ -58,7 +58,7 @@ Convenientemente, o GroupLens Research oferece [dados de classificação para fi
 
 3.  Carregue o arquivo **u.data** em **example/data/u.data** no seu cluster HDInsight. Se você tem o [Azure PowerShell][Azure PowerShell], pode usar o módulo do PowerShell [HDInsight-Tools][HDInsight-Tools] para carregar o arquivo. Para obter outros meios de carregar arquivos, consulte [Carregar dados para trabalhos do Hadoop no HDInsight][Carregar dados para trabalhos do Hadoop no HDInsight]. A seguir, uma demonstração do uso de `Add-HDInsightFile` para carregar o arquivo
 
-    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+        PS C:PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"gt; Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
     Isso carregará o arquivo **u.data** para **example/data/u.data** no armazenamento padrão de seu cluster. Então, poderemos acessar esses dados usando o URI **wasb:///example/data/u.data** por meio de trabalhos do HDInsight.
 
@@ -70,7 +70,7 @@ Use o seguinte script do PowerShell para executar um trabalho usando o mecanismo
     $clusterName = "the cluster name"
 
     # The location of the Mahout jar file.
-    $jarFile = "C:\apps\dist\mahout-0.9.0.2.1.3.0-1887\examples\target\mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+    $jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
     # NOTE: The version number portion of the file path
     # may change in future versions of HDInsight.
     # Use the following to find the location and name
@@ -217,7 +217,7 @@ Enquanto a saída gerada pode ser adequada para uso em um aplicativo, ela não p
 
 Para usar este script, você precisa extrair a pasta **ml-100k** anteriormente, junto com uma cópia local do arquivo de saída **part-r-00000** gerado pelo trabalho do Mahout. A seguir está um exemplo de execução do script.
 
-	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+    PS C:PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txtgt; show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 > [WACOM.NOTE] O script Python de exemplo, **show\_recommendations.py**, utiliza os mesmos parâmetros.
 
@@ -260,13 +260,13 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 
 A implementação atual do Mahout é compatível com o formato de repositório da Universidade da Califórnia, Irvine (UCI) [porque isso é importante, qual é esse formato]
 
-1.  Baixe os arquivos a seguir por meio de [][]<http://nsl.cs.unb.ca/NSL-KDD/></a>.
+1.  Baixe os arquivos a seguir por meio de <http://nsl.cs.unb.ca/NSL-KDD/>.
 
-	-   [KDDTrain+.ARFF][KDDTrain+.ARFF] - o arquivo de treinamento
+-   [KDDTrain+.ARFF][KDDTrain+.ARFF] - o arquivo de treinamento
 
-	-   [KDDTest+.ARFF][KDDTest+.ARFF] - os dados de teste
+-   [KDDTest+.ARFF][KDDTest+.ARFF] - os dados de teste
 
-1.  Abra cada arquivo e remova as linhas na parte superior, que começam com '@', então, salve os arquivos. Se eles não forem removidos, você receberá erros ao usar esses dados com o Mahout.
+1.  Abra cada arquivo e remova as linhas no topo que começam com '@' e, em seguida, salve os arquivos. Se eles não forem removidos, você receberá erros ao usar esses dados com o Mahout.
 
 2.  Carregue o arquivo para **example/data**. Você pode fazer isso usando a função `Add-HDInsightFile` no módulo do PowerShell [HDInsight-Tools][HDInsight-Tools].
 
@@ -328,11 +328,11 @@ A implementação atual do Mahout é compatível com o formato de repositório d
         Reliability                                53.4921%
         Reliability (standard deviation)            0.4933
 
-	Esse trabalho também produz um arquivo localizado em **wasb:///example/data/predictions/KDDTest+.arff.out**, no entanto, esse arquivo não pode ser lido por pessoas.
+Esse trabalho também produz um arquivo localizado em **wasb:///example/data/predictions/KDDTest+.arff.out**, no entanto, esse arquivo não pode ser lido por pessoas.
 
 > [WACOM.NOTE] Trabalhos do Mahout não sobrescrevem arquivos. Se você deseja executar esses trabalhos novamente, é preciso excluir os arquivos criados pelos trabalhos anteriores.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a> Solucionar problemas
 
 ### <a name="install"></a>Instalar o Mahout
 
@@ -340,12 +340,12 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 1.  A versão do Mahout a ser usada depende da versão do HDInsight do seu cluster. Você pode encontrar a versão do cluster usando o seguinte com o [PowerShell do Azure][Azure PowerShell]:
 
-    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+        PS C:PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select versiongt; Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
-	-   **Para o HDInsight 2.1**, você pode baixar um arquivo jar contendo o [Mahout 0.9][Mahout 0.9].
+-   **Para o HDInsight 2.1**, você pode baixar um arquivo jar contendo o [Mahout 0.9][Mahout 0.9].
 
-	-   **Para o HDInsight 3.0**, você precisa [compilar o Mahout por meio da origem][compilar o Mahout por meio da origem] e especificar a versão do Hadoop fornecida pelo HDInsight. Instale os pré-requisitos listados na página de compilação, baixe a origem e, então, use o comando a seguir para criar os arquivos .jar do Mahout.
-	
+-   **Para o HDInsight 3.0**, você precisa [compilar o Mahout por meio da origem][compilar o Mahout por meio da origem] e especificar a versão do Hadoop fornecida pelo HDInsight. Instale os pré-requisitos listados na página de compilação, baixe a origem e, então, use o comando a seguir para criar os arquivos .jar do Mahout.
+
             mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
         Once the build completes, the jar file will be created at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
@@ -405,7 +405,6 @@ Para executar trabalhos que usam essas classes, conecte-se ao cluster do HDInsig
   [HDInsight-Tools]: https://github.com/Blackmist/hdinsight-tools
   [Carregar dados para trabalhos do Hadoop no HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-upload-data/
   [floresta aleatória]: http://en.wikipedia.org/wiki/Random_forest
-  []: http://nsl.cs.unb.ca/NSL-KDD/
   [KDDTrain+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTrain+.arff
   [KDDTest+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTest+.arff
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

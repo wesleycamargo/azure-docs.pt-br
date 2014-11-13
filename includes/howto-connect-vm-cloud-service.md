@@ -4,19 +4,19 @@
 
 Quando você cria uma máquina virtual, um serviço de nuvem é criado automaticamente para conter a máquina. Você pode criar várias máquinas virtuais no mesmo serviço de nuvem para ativar as máquinas virtuais para se comunicar uns com os outros, para balanceamento de carga entre máquinas virtuais e para manter a alta disponibilidade das máquinas.
 
-Para obter mais informações sobre balanceamento de carga de máquinas virtuais, consulte [Máquinas virtuais de balanceamento de carga][]. Para obter mais informações sobre o gerenciamento da disponibilidade do seu aplicativo, consulte [Gerenciar a disponibilidade de máquinas virtuais][].
+Para obter mais informações sobre balanceamento de carga de máquinas virtuais, consulte [Máquinas virtuais de balanceamento de carga][Máquinas virtuais de balanceamento de carga]. Para obter mais informações sobre o gerenciamento da disponibilidade do seu aplicativo, consulte [Gerenciar a disponibilidade de máquinas virtuais][Gerenciar a disponibilidade de máquinas virtuais].
 
 Primeiro, você precisará criar uma máquina virtual com um novo serviço de nuvem e, em seguida, você poderá conectar mais máquinas virtuais à primeira máquina virtual no mesmo serviço de nuvem.
 
-1.  Criar uma máquina virtual usando as etapas em [Como criar uma máquina virtual personalizada][].
+1.  Criar uma máquina virtual usando as etapas em [Como criar uma máquina virtual personalizada][Como criar uma máquina virtual personalizada].
 
-2.  Depois de criar a primeira máquina virtual personalizada, na [barra de comando do][] Portal de gerenciamento, clique em **Novo**.
+2.  Depois de criar a primeira máquina virtual personalizada, na [barra de comando do][barra de comando do] Portal de gerenciamento, clique em **Novo**.
 
-    ![Criar uma nova máquina virtual][]
+    ![Criar uma nova máquina virtual][Criar uma nova máquina virtual]
 
 3.  Clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
 
-    ![Crie uma máquina virtual personalizada][]
+    ![Crie uma máquina virtual personalizada][Crie uma máquina virtual personalizada]
 
     A caixa de diálogo **Selecionar o sistema operacional da máquina virtual** será exibida.
 

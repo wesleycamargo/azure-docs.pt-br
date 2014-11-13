@@ -1,6 +1,6 @@
-<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="O que &eacute; a Autentica&ccedil;&atilde;o Multifator do Azure?" metaKeywords="" description="Saiba mais sobre a Azure Multi-Factor Authentication, um m&eacute;todo de autentica&ccedil;&atilde;o que exige o uso de mais de um m&eacute;todo de verifica&ccedil;&atilde;o e adiciona uma segunda camada cr&iacute;tica de seguran&ccedil;a aos logons e &agrave;s transa&ccedil;&otilde;es dos usu&aacute;rios." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="Como gerenciar as m&aacute;quinas virtuais do Azure usando o Ruby" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Como gerenciar as máquinas virtuais do Azure usando o Ruby
 
@@ -89,9 +89,11 @@ Para gerenciar os serviços do Azure, você precisa baixar e usar Azure gem, que
         7 gems installed
 
     <div class="dev-callout">
-<b>Observa&ccedil;&atilde;o</b>
-<p>Se voc&ecirc; receber um erro relacionado a permiss&otilde;es, use <code data-inline="1">sudo gem install azure</code>.</p>
-</div>
+
+    **Observação**
+    Se você receber um erro relacionado a permissões, use `sudo gem install azure`.
+
+    </div>
 
 ### Exigir o gem
 
@@ -220,8 +222,10 @@ Para excluir uma máquina virtual, use o método **delete\_virtual\_machine** e 
     vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
 <div class="dev-callout">
-<b>Aviso</b>
-<p>O m&eacute;todo <b>delete_virtual_machine</b> exclui o servi&ccedil;o de nuvem e todos os discos associados &agrave; m&aacute;quina virtual.</p>
+
+**Aviso**
+O método **delete\_virtual\_machine** exclui o serviço de nuvem e todos os discos associados à máquina virtual.
+
 </div>
 
 ### Como: Desligar uma máquina virtual

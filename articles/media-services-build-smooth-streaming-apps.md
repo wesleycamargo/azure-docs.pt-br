@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Aplicativo de Smooth Streaming da Windows Store - Tutoriais do Azure .NET" metaKeywords="" description="Saiba como usar os Servi&ccedil;os de M&iacute;dia do Azure para criar um aplicativo C# da Windows Store com um controle XML MediaElement para reprodu&ccedil;&atilde;o de conte&uacute;do de Smooth Streaming." metaCanonical="" services="media-services" documentationCenter="" title="Como compilar um aplicativo Smooth Streaming do Windows Store" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Como compilar um aplicativo Smooth Streaming do Windows Store
 
@@ -39,19 +39,18 @@ Esta lição contém os seguintes procedimentos:
 
 **Para criar um novo projeto da Windows Store**
 
-1.  Execute o Visual Studio 2012
+1.  Execute o Visual Studio 2012 ou posterior.
 2.  No menu **Arquivo**, clique em **Novo** e, em seguida, clique em **Projeto**.
 3.  Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
-	<table border="1">
-    <tr><th> Nome                           </th><th> Valor                                      </th></tr>
-    <tr><td> Grupo de modelos               </td><td> Instalado/Modelos/Visual C#/Windows Store </td></tr>
-    <tr><td> Modelo                         </td><td> Aplicativo em branco (XAML)                </td></tr>
-    <tr><td> Nome                           </td><td> SSPlayer                                   </td></tr>
-    <tr><td> Local padrão                   </td><td> C:\SSTutorials                            </td></tr>
-    <tr><td> Nome da solução                </td><td> SSPlayer                                   </td></tr>
-    <tr><td> Criar diretório para a solução </td><td> (selecionado)                              </td></tr>
-	</table>
+    | Nome                           | Valor                                      |
+    |--------------------------------|--------------------------------------------|
+    | Grupo de modelos               | Instalado/Modelos/Visual C#/Windows Store |
+    | Modelo                         | Aplicativo em branco (XAML)                |
+    | Nome                           | SSPlayer                                   |
+    | Local                          | C:\\SSTutorials                            |
+    | Nome da solução                | SSPlayer                                   |
+    | Criar diretório para a solução | (selecionado)                              |
 
 4.  Clique em **OK**.
 
@@ -60,11 +59,10 @@ Esta lição contém os seguintes procedimentos:
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 2.  Digite ou selecione os valores a seguir:
 
-	<table border="1">
-    <tr><th> Nome                 </th><th> Valor                                                                                                                   </th></tr>
-    <tr><td> Grupo de referências </td><td> Windows/Extensions                                                                                                      </td></tr>
-    <tr><td> Referência           </td><td> Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ </td></tr>
-	</table>
+    | Nome                 | Valor                                                                                                                   |
+    |----------------------|-------------------------------------------------------------------------------------------------------------------------|
+    | Grupo de referências | Windows/Extensions                                                                                                      |
+    | Referência           | Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ |
 
 3.  Clique em **OK**.
 
@@ -959,6 +957,9 @@ Você concluiu a Lição 4. Nesta lição, você adicionará a funcionalidade pa
 -   [Como criar um aplicativo JavaScript de Smooth Streaming do Windows 8 com recursos avançados][Como criar um aplicativo JavaScript de Smooth Streaming do Windows 8 com recursos avançados]
 -   [Visão geral técnica de Smooth Streaming][Visão geral técnica de Smooth Streaming]
 
+  [notas da versão (a página pode estar em inglês)]: http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes
+  [Player Framework para Windows 8 (a página pode estar em inglês)]: http://playerframework.codeplex.com/
+  [Windows 8 Enterprise Evaluation (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/evalcenter/jj554510.aspx
   [aqui]: http://www.microsoft.com/visualstudio/11/pt-br/downloads
   [SDK do Microsoft Smooth Streaming Client para Windows 8]: http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home
   [Lição 1]: http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Um simples media player do Windows 8 Smooth Streaming"

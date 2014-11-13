@@ -1,6 +1,6 @@
-<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable Remote Desktop" pageTitle="Habilitar &aacute;rea de trabalho remota para servi&ccedil;os de nuvem (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Saiba como habilitar o acesso &agrave; &aacute;rea de trabalho remota para as m&aacute;quinas virtuais que hospedam o aplicativo Azure Node.js. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Habilitando a &Aacute;rea de Trabalho Remota no Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Habilitando a Área de Trabalho Remota no Azure
 
@@ -108,8 +108,6 @@ instâncias de função na nuvem, desabilite o acesso remoto à área de trabalh
 
   [Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure]: #step1
   [Etapa 2: Conectar-se à instância da função]: #step2
-  [Etapa 3: Configurar o serviço para acesso à Área de Trabalho Remota
-  usando o PowerShell do Azure]: #step3
   [PowerShell do Azure]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
   [Entrada no menu de início do PowerShell do Azure]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
   [enable-azureserviceprojectremotedesktop]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
@@ -121,5 +119,5 @@ instâncias de função na nuvem, desabilite o acesso remoto à área de trabalh
   [Prompt de segurança do Windows]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
   [prompt de nome de usuário/senha]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
   [Sessão de área de trabalho remota]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
-  [Acessando instâncias de função remotamente no Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh124107.aspx
-  [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg443832.aspx
+  [Acessando instâncias de função remotamente no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh124107.aspx
+  [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg443832.aspx

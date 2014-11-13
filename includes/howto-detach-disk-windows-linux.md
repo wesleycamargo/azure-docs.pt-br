@@ -1,68 +1,45 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
 
 # Como desanexar um disco de dados de uma máquina virtual
 
-# 
+-   [Etapa 1: Localizar o disco][Etapa 1: Localizar o disco]
+-   [Etapa 2: Desanexar um disco de dados][Etapa 2: Desanexar um disco de dados]
 
--   [Conceitos][]
--   [Como: Localizar os discos que estão associados a uma máquina virtual][]
--   [Como: Desanexar um disco de dados][]
+Quando você não precisar mais um disco de dados que está conectado a uma máquina virtual, você pode desconectá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
-## <a id="concepts"> </a>Conceitos
+> [WACOM.NOTE] Uma máquina virtual no Azure usa diferentes tipos de discos, como discos do sistema operacional, de local temporário e de dados opcionais. Discos de dados são a forma recomendada de armazenar dados para uma máquina virtual. Para obter detalhes sobre discos, consulte [Sobre discos e imagens][Sobre discos e imagens]. Para obter instruções, consulte [Como anexar um disco de dados a uma máquina virtual][Como anexar um disco de dados a uma máquina virtual].
 
-Uma máquina virtual no Azure usa diferentes tipos de discos, como discos do sistema operacional, de local temporário e de dados opcionais. Você também pode anexar um disco de dados a uma máquina virtual para armazenar dados de aplicativo. Um disco de dados é um disco rígido virtual (VHD) que pode ser criado localmente com seu computador ou na nuvem com o Azure.
+## <span id="finddisks"></span> </a>Etapa 1: Localizar o disco
 
-Você pode anexar e desanexar discos de dados sempre que desejar, mas você está limitado o número de discos que você pode se conectar a uma máquina virtual com base no tamanho da máquina.
+Se você não souber ou desejar verificar o nome do disco antes de desanexá-lo, siga estas etapas.
 
-Quando você não precisar mais um disco de dados que está conectado a uma máquina virtual, você pode desconectá-lo facilmente. Esse processo não exclui o disco de armazenamento. Se desejar usar os dados existentes no disco novamente, você pode facilmente conectar o disco novamente para a mesma máquina virtual ou anexá-lo a uma nova máquina virtual.
+> [WACOM.NOTE] O Azure automaticamente atribui um nome ao disco quando você o anexa. O nome consiste no nome do serviço de nuvem, no nome da máquina virtual e no número.
 
-Para obter mais informações sobre o uso de discos de dados, consulte [Gerenciar discos e imagens][]
+1.  Se você ainda não fez isso, entre no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
-## <a id="finddisks"></a>Como: Localizar os discos anexados a uma máquina virtual
+2.  Clique em **Máquinas Virtuais**e, em seguida, selecione a máquina virtual apropriada. O painel da máquina virtual é aberto.
 
-Você pode encontrar os discos que estão conectados a uma máquina virtual usando o painel de controle ou a página de discos de máquinas virtuais.
+3.  Em **Discos**, a tabela lista o nome e o tipo de todos os discos anexados. Por exemplo, esta tela mostra uma máquina virtual com um disco do sistema operacional (SO) e um disco de dados:
 
-### Use o painel de controle para localizar informações sobre discos anexados
+    ![Encontrar disco de dados][Encontrar disco de dados]
 
-1.  Se você ainda não fez isso, entre no [Portal de Gerenciamento][] do Azure.
+## <span id="detachdisk"></span> </a>Etapa 2: Desanexar o disco
 
-2.  Clique em **Máquinas Virtuais**e, em seguida, selecione a máquina virtual apropriada.
+Depois de localizar o nome do disco, você estará pronto para desanexá-lo:
 
-3.  Clique em **Painel**. No painel de controle para a máquina virtual, você pode encontrar o número de discos conectados e os nomes dos discos. O exemplo a seguir mostra um disco de dados conectado a uma máquina virtual:
-
-    ![Encontrar disco de dados][]
-
-**Observação:** Pelo menos um disco está anexado a todas as máquinas virtuais. Cada máquina virtual tem um sistema operacional disco conectado que não é possível desanexar sem excluir a máquina virtual. O local temporário de disco não está listado na seção de discos porque ele não é persistente.
-
-### Use a página de discos de máquinas virtuais para encontrar informações sobre discos anexados
-
-1.  Se você ainda não fez isso, entre no [Portal de Gerenciamento][] do Azure.
-
-2.  Clique em **Máquinas Virtuais**, e, em seguida, clique em **Discos**. Esta página mostra uma lista de todos os discos que estão disponíveis para uso com máquinas virtuais e os discos que estão sendo usados por máquinas virtuais. A lista é uma combinação de discos de sistema operacional e dados. Para diferenciar entre os dois tipos de discos que estão conectados com a máquina virtual, use o painel de controle.
-
-    **Observação:** Ao anexar um novo disco de dados a uma máquina virtual, você pode atribuir um nome ao arquivo. vhd usado para o disco, mas o Azure atribui o nome do disco. O nome consiste no nome do serviço de nuvem, o nome de máquina virtual e um identificador numérico.
-
-## <a id="detachdisk"> </a>Como: Desanexar um disco de dados
-
-Depois de localizar o nome do disco que você deseja desanexar, você pode concluir as seguintes etapas para desanexar o disco da máquina virtual.
-
-1.  Se você ainda não fez isso, entre no Portal de Gerenciamento do Azure.
-
-2.  Clique em **Máquinas Virtuais**, selecione a máquina virtual que tem o disco de dados que você deseja desanexar, e, em seguida, clique em **Desanexar o disco**.
+1.  Clique em **Máquinas Virtuais** e selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
+2.  Na barra de comandos, clique em **Desanexar o disco**.
 
 3.  Selecione o disco de dados e, em seguida, clique na marca de seleção para desconectá-lo.
 
-    ![Desanexar detalhes do disco][]
+    ![Desanexar detalhes do disco][Desanexar detalhes do disco]
 
-    O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
+O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
-Agora você pode anexar o disco novamente para a mesma máquina virtual ou para uma nova máquina. Para obter instruções, consulte [Como anexar um disco de dados a uma máquina virtual][].
-
-  [Conceitos]: #concepts
-  [Como: Localizar os discos que estão associados a uma máquina virtual]: #finddisks
-  [Como: Desanexar um disco de dados]: #detachdisk
-  [Gerenciar discos e imagens]: http://go.microsoft.com/fwlink/p/?LinkId=263439
-  [Portal de Gerenciamento]: http://manage.windowsazure.com
+  [Etapa 1: Localizar o disco]: #finddisks
+  [Etapa 2: Desanexar um disco de dados]: #detachdisk
+  [Sobre discos e imagens]: http://go.microsoft.com/fwlink/p/?LinkId=263439
+  [Como anexar um disco de dados a uma máquina virtual]: /pt-br/manage/windows/how-to-guides/attach-a-disk/
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Encontrar disco de dados]: ./media/howto-detach-disk-windows-linux/FindDataDisks.png
   [Desanexar detalhes do disco]: ./media/howto-detach-disk-windows-linux/DetachDiskDetails.png
-  [Como anexar um disco de dados a uma máquina virtual]: /en-us/manage/windows/how-to-guides/attach-a-disk/

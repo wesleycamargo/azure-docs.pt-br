@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" description="Learn how to create an Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running OpenSUSE Linux in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MySQL" pageTitle="Instalar o MySQL em uma m&aacute;quina virtual Linux no Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" description="Saiba como criar uma m&aacute;quina virtual do Azure com o OpenSUSE Linux e usar o SSH ou o PuTTY para instalar MySQL." metaCanonical="" services="virtual-machines" documentationCenter="" title="Instalar MySQL em uma m&aacute;quina virtual com o OpenSUSE Linux no Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -28,6 +28,4 @@ Neste tutorial, você aprendeu a criar uma máquina virtual que executa o OpenSU
 
   [MySQL]: http://www.mysql.com
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  [create-and-configure-opensuse-vm-in-portal]: ../includes/create-and-configure-opensuse-vm-in-portal.md
-  [install-and-run-mysql-on-opensuse-vm]: ../includes/install-and-run-mysql-on-opensuse-vm.md
   [Documentação do MySQL]: http://dev.mysql.com/doc/

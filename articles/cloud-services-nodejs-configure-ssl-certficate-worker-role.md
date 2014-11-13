@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable SSL worker role" pageTitle="Configurar SSL para uma fun&ccedil;&atilde;o de trabalho de servi&ccedil;o de nuvem (Node.js)" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configurando o SSL para um aplicativo Node.js em uma fun&ccedil;&atilde;o de trabalho do Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure
 
@@ -9,9 +9,11 @@ proteger dados enviados pela Internet. Essa tarefa comum aborda como
 especificar um ponto de extremidade HTTPS para um aplicativo Node.js hospedado como uma Serviço de Nuvem do Azure em uma função de trabalho.
 
 <div class="dev-callout">
-    <b>Observa&ccedil;&atilde;o</b>
-    <p>As etapas deste artigo se aplicam somente a aplicativos de n&oacute; hospedados como um Servi&ccedil;o de Nuvem do Azure em uma fun&ccedil;&atilde;o de trabalho.</p>
-    </div>
+
+**Observação**
+As etapas deste artigo se aplicam somente a aplicativos de nó hospedados como um Serviço de Nuvem do Azure em uma função de trabalho.
+
+</div>
 
 Esta tarefa inclui as seguintes etapas:
 
@@ -43,9 +45,11 @@ world' usando o PowerShell Azure utilizando estas etapas:
     ![][2]
 
     <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>Se n&atilde;o tiver importado anteriormente as configura&ccedil;&otilde;es de publica&ccedil;&atilde;o para sua assinatura do Azure, voc&ecirc; receber&aacute; um erro ao tentar publicar. Para obter informa&ccedil;&otilde;es sobre como baixar e importar as configura&ccedil;&otilde;es de publica&ccedil;&atilde;o para sua assinatura, consulte <a href="https://www.windowsazure.com/pt-BR/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">Como usar o PowerShell do Azure para o Node.js (a p&aacute;gina pode estar em ingl&ecirc;s)</a></p>
-</div>
+
+    **Observação**
+    Se não tiver importado anteriormente as configurações de publicação para sua assinatura do Azure, você receberá um erro ao tentar publicar. Para obter informações sobre como baixar e importar as configurações de publicação para sua assinatura, consulte [Como usar o PowerShell do Azure para o Node.js (a página pode estar em inglês)][Como usar o PowerShell do Azure para o Node.js (a página pode estar em inglês)]
+
+    </div>
 
 O valor da **URL do Site Criada** retornado pelo cmdlet **Publish-AzureServiceProject** contém o nome de domínio totalmente qualificado para o seu aplicativo hospedado. Você precisará obter um certificado SSL para esse nome de domínio específico totalmente qualificado e implantá-lo no Azure.
 
@@ -72,7 +76,7 @@ O arquivo **.pfx** contendo o certificado será adicionado ao seu projeto de ser
 
 ## <a name="step3"> </a>Etapa 3: Modificar o aplicativo para usar o certificado SSL
 
-Quando um aplicativo do Node.js é implantado em uma função de trabalho, o certificado do servidor e a conexão SSL são gerenciados pelo Node.exe. Para tratar o tráfego do SSL, você deve usar o módulo 'https' em vez de 'http'. Execute as seguintes etapas para adicionar o certificado SSL ao seu projeto e, em seguida, modificar o aplicativo para usar o certificado.
+Quando um aplicativo do Node.js é implantado em uma função de trabalho, o certificado do servidor e a conexão SSL são gerenciados pelo Node.exe. Para lidar com o tráfego do SSL, você deve usar o módulo 'https' em vez de 'http'. Execute as seguintes etapas para adicionar o certificado SSL ao seu projeto e, em seguida, modificar o aplicativo para usar o certificado.
 
 1.  Salve o arquivo **.pfx** fornecido por sua CA (Autoridade de Certificação) no diretório que contém o seu aplicativo. Por exemplo, **c:\\node\\securesite\\workerrole1** é o diretório que contém o aplicativo usado neste artigo.
 
@@ -92,9 +96,11 @@ Quando um aplicativo do Node.js é implantado em uma função de trabalho, o cer
         }).listen(port);
 
     <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>Voc&ecirc; deve substituir 'certificate.pfx' pelo nome do arquivo do certificado e &quot;password&quot; pela senha (se houver) do arquivo do certificado.</p>
-</div>
+
+    **Observação**
+    Você deve substituir 'certificate.pfx' pelo nome do arquivo do certificado e "password" pela senha (se houver) do arquivo do certificado.
+
+    </div>
 
 3.  Salvar o arquivo **server.js**.
 
@@ -134,9 +140,11 @@ conectar-se a ela usando HTTPS.
     ![a url do site][a url do site]
 
     <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>Se a URL do Site exibida no portal n&atilde;o especificar HTTPS, voc&ecirc; dever&aacute; inserir manualmente a URL no navegador usando HTTPS em vez de HTTP.</p>
-</div>
+
+    **Observação**
+    Se a URL do Site exibida no portal não especificar HTTPS, você deverá inserir manualmente a URL no navegador usando HTTPS em vez de HTTP.
+
+    </div>
 
 3.  Um novo navegador será aberto e exibirá o seu site.
 
@@ -163,8 +171,9 @@ conectar-se a ela usando HTTPS.
   [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
+  [Como usar o PowerShell do Azure para o Node.js (a página pode estar em inglês)]: https://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [a url do site]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
-  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/pt-BR/library/windowsazure/gg465718.aspx
-  [Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure]: /pt-BR/develop/nodejs/common-tasks/enable-ssl/
-  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ff795779.aspx
+  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg465718.aspx
+  [Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure]: /pt-br/develop/nodejs/common-tasks/enable-ssl/
+  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff795779.aspx

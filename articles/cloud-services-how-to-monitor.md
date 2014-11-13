@@ -1,10 +1,10 @@
-<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="Como monitorar um servi&ccedil;o de nuvem - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Saiba como monitorar servi&ccedil;os de nuvem usando o Portal de Gerenciamento do Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Como monitorar servi&ccedil;os de nuvem" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Como monitorar serviços de nuvem
 
-[WACOM.INCLUDE [isenção de responsabilidade](../includes/disclaimer.md)]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Você pode monitorar métricas do desempenho de seus serviços de nuvem no Portal de Gerenciamento do Azure. Você pode definir o nível de monitoramento como mínimo e detalhado para cada função do serviço, além de poder personalizar as exibições de monitoramento. Os dados de monitoramento detalhados são armazenados em uma conta do armazenamento, que você poderá acessar fora do portal.
 
@@ -24,7 +24,7 @@ O monitoramento das exibições no Portal de Gerenciamento são altamente config
 Por padrão, o monitoramento mínimo é fornecido para um novo serviço de nuvem usando os contadores do desempenho coletados do sistema operacional do host para as instâncias de função (máquinas virtuais). As métricas mínimas estão limitadas a percentual de CPU, entrada de dados, saída de dados, transferência de leitura e gravação de disco. Configurando o monitoramento detalhado, você pode receber métricas adicionais com base nos dados de desempenho em máquinas virtuais (instâncias de função). As métricas detalhadas permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo.
 
 > [WACOM.NOTE]
-> Se você usar o monitoramento detalhado, é possível adicionar mais contadores de desempenho na inicialização da instância de função por meio de um arquivo de configuração de diagnóstico ou usando remotamente a API de Diagnóstico do Azure. Para monitorar essas métricas no Portal de Gerenciamento, você deve adicionar esses contadores de desempenho antes de configurar o monitoramento detalhado. Para obter mais informações, consulte [Coletar dados de registro em log do Diagnóstico do Azure][Coletar dados de registro em log do Diagnóstico do Azure] e [Criar e usar de contadores de desempenho em um aplicativo do Azure][Criar e usar de contadores de desempenho em um aplicativo do Azure].
+> Se você usar o monitoramento detalhado, é possível adicionar mais contadores de desempenho na inicialização da instância de função por meio de um arquivo de configuração de diagnóstico. Para monitorar essas métricas no Portal de Gerenciamento, você deve adicionar esses contadores de desempenho antes de configurar o monitoramento detalhado. Para obter mais informações, consulte [Habilitando o diagnóstico nos serviços de nuvem e máquinas virtuais do Azure][Habilitando o diagnóstico nos serviços de nuvem e máquinas virtuais do Azure].
 
 Por padrão, os dados do contador de desempenho das instâncias de função passam por amostragem e são transferidos da instância de função em intervalos de 3 minutos. Quando você habilita o monitoramento detalhado, os dados brutos do contador de desempenho são agregados para cada instância de função e por instâncias de função para cada função em intervalos de 5 minutos, 1 hora e 12 horas. Os dados agregados são limpos após 10 dias.
 
@@ -41,7 +41,7 @@ Use os procedimentos a seguir para configurar o monitoramento mínimo ou detalha
 -   Crie uma conta de armazenamento para armazenar os dados de monitoramento. Você pode usar contas de armazenamento diferentes para funções diferentes. Para obter mais informações, consulte a ajuda para as **Contas de Armazenamento** ou consulte [Como criar uma conta de armazenamento][Como criar uma conta de armazenamento].
 
 -   Habilite o Diagnóstico do Azure para suas funções do serviço de nuvem.
-    Você deve atualizar o arquivo da definição do serviço de nuvem (.csdef) e o arquivo de configuração do serviço de nuvem (.cscfg). Para obter mais informações, consulte [Configurando o Diagnóstico no Azure][Configurando o Diagnóstico no Azure].
+    Para obter mais informações, consulte [Habilitando o diagnóstico nos serviços de nuvem e máquinas virtuais do Azure][1].
 
 No Portal de Gerenciamento, você pode adicionar ou modificar as cadeias de conexão de diagnóstico que Diagnóstico do Azure usa para acessar as contas do armazenamento que armazenam os dados do monitoramento detalhado, além de poder definir o nível de monitoramento como detalhado ou mínimo. Como o monitoramento detalhado armazena dados em uma conta de armazenamento, você deve configurar as cadeias de conexão de diagnóstico antes de definir o nível de monitoramento como detalhado.
 
@@ -83,7 +83,7 @@ Os dados brutos do contador de desempenho e os dados de monitoramento agregados 
 
 ## <span id="receivealerts"></span></a>Como: receber alertas para métricas do serviço de nuvem
 
-Você pode receber alertas baseados nas métricas de monitoramento do serviço de nuvem. Na página **Serviços de Gerenciamento** do Portal de Gerenciamento do Azure, você pode criar uma regra para acionar uma alerta quando a métrica escolhida alcançar um valor especificado. Você também pode escolher que um email seja enviado quando o alerta é disparado. Para obter mais informações, consulte [Como receber notificações de alerta e gerenciar regras de alerta no Azure][Como receber notificações de alerta e gerenciar regras de alerta no Azure].
+Você pode receber alertas baseados nas métricas de monitoramento do serviço de nuvem. Na página **Serviços de Gerenciamento** do Portal de Gerenciamento do Azure, você pode criar uma regra para acionar uma alerta quando a métrica escolhida alcançar um valor especificado. Você também pode escolher que um email seja enviado quando o alerta é disparado. Para obter mais informações, consulte [Como Receber notificações de alerta e Gerenciar regras de alerta no Azure][Como Receber notificações de alerta e Gerenciar regras de alerta no Azure].
 
 ## <span id="addmetrics"></span></a>Como: adicionar métricas à tabela de métricas
 
@@ -107,10 +107,12 @@ Você pode receber alertas baseados nas métricas de monitoramento do serviço d
 
     Você pode exibir até 50 métricas na tabela de métricas.
 
-    <div class="dev-callout"> 
-<b>Dica</b> 
-<p>No monitoramento detalhado, a lista de m&eacute;tricas pode conter dezenas de m&eacute;tricas. Para exibir uma barra de rolagem, passe o cursor do mouse pelo lado direito da caixa de di&aacute;logo. Para filtrar a lista, clique no &iacute;cone da busca e digite o texto na caixa da busca, conforme mostrado abaixo.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Dica**
+    No monitoramento detalhado, a lista de métricas pode conter dezenas de métricas. Para exibir uma barra de rolagem, passe o cursor do mouse pelo lado direito da caixa de diálogo. Para filtrar a lista, clique no ícone da busca e digite o texto na caixa da busca, conforme mostrado abaixo.
+
+    </div>
 
     ![Pesquisa de métricas adicionadas][Pesquisa de métricas adicionadas]
 
@@ -176,21 +178,19 @@ Por exemplo, as tabelas a seguir armazenariam os dados agregados do monitorament
 
     WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
-  [isenção de responsabilidade]: ../includes/disclaimer.md
   [Conceitos]: #concepts
   [Como: configurar o monitoramento para serviços de nuvem]: #verbose
   [Como: receber alertas para métricas dos serviços de nuvem]: #receivealerts
   [Como: adicionar métricas à tabela de métricas]: #addmetrics
   [Como: personalizar o gráfico de métricas]: #customizechart
   [Como: acessar dados do monitoramento detalhado fora do Portal de Gerenciamento]: #accessverbose
-  [Coletar dados de registro em log do Diagnóstico do Azure]: http://msdn.microsoft.com/pt-br/library/gg433048.aspx
-  [Criar e usar de contadores de desempenho em um aplicativo do Azure]: http://msdn.microsoft.com/pt-br/library/hh411542.aspx
+  [Habilitando o diagnóstico nos serviços de nuvem e máquinas virtuais do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-dotnet-diagnostics/
   [Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account/
-  [Configurando o Diagnóstico no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn186185.aspx
+  [1]: /pt-br/documentation/articles/cloud-services-dotnet-diagnostics/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [Como gerenciar os serviços de nuvem]: http://www.windowsazure.com/pt-br/manage/services/cloud-services/how-to-manage-a-cloud-service/
+  [Como gerenciar os serviços de nuvem]: /pt-br/documentation/articles/cloud-services-how-to-manage/
   [Opções de monitoramento]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
-  [Como receber notificações de alerta e gerenciar regras de alerta no Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
+  [Como Receber notificações de alerta e Gerenciar regras de alerta no Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Portal de Gerenciamento]: http://manage.windowsazure.com/
   [Exibição detalhada]: ./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png
   [Adicionar métricas]: ./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png

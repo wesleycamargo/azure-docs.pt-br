@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="" editor="" />
+<properties urlDisplayName="Intro to Linux" pageTitle="Introdu&ccedil;&atilde;o ao Linux no Azure - Tutorial do Azure" metaKeywords="Azure Linux vm, Linux vm" description="Saiba como usar m&aacute;quinas virtuais Linux no Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introdu&ccedil;&atilde;o ao Linux no Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Introdução ao Linux no Azure
 
@@ -36,11 +36,11 @@ A versão atual do Portal de Gerenciamento aceita apenas chaves públicas SSH en
 
         chmod 600 myPrivateKey.key
 
-3.  Converter o myCert.pem em myCert.cer (certificado X509 codificado em DER)
+3.  Converter o `myCert.pem` em `myCert.cer` (certificado X509 codificado em DER)
 
         openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4.  Carregue o myCert.cer ao criar a máquina virtual Linux. O processo de provisionamento irá instalar automaticamente a chave pública neste certificado no arquivo authorized\_keys para o usuário especificado na máquina virtual.
+4.  Carregue o `myCert.cer` ao criar a máquina virtual Linux. O processo de provisionamento instalará automaticamente a chave pública nesse certificado no arquivo `~/.ssh/authorized_keys` para o usuário especificado na máquina virtual.
 
 5.  Conecte-se à máquina virtual Linux usando o ssh.
 
@@ -48,7 +48,11 @@ A versão atual do Portal de Gerenciamento aceita apenas chaves públicas SSH en
 
     Você será solicitado a aceitar a impressão digital da chave pública do host na primeira vez que você efetuar o login.
 
-6.  Opcionalmente, você pode copiar 'myPrivateKey.key' em ~/.ssh/id\_rsa para que seu cliente openssh possa selecionar automaticamente isso sem usar a opção -i.
+6.  Opcionalmente, você pode copiar `myPrivateKey.key` to `~/.ssh/id_rsa` para que seu cliente openssh possa selecionar automaticamente isso sem usar a opção -i.
+     Como alternativa, você pode modificar `~/.ssh/config` para incluir uma seção da sua máquina virtual:
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 ### Gerar uma chave com base em uma chave compatível com OpenSSH existente
 
@@ -118,7 +122,7 @@ No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do A
 
 No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual][Como anexar um disco de dados a uma máquina virtual].
 
--   Veja também: [Configurar RAID de software no Linux][Configurar RAID de software no Linux]
+-   Consulte também: [Configurar RAID de software no Linux][Configurar RAID de software no Linux]
 
   [Autenticação: Nomes de usuário, senhas e chaves SSH.]: #authentication
   [Geração e uso de chaves SSH para registro em log em máquinas virtuais Linux.]: #keygeneration

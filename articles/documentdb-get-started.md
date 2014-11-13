@@ -1,6 +1,6 @@
-<properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
+<properties title="Introdu&ccedil;&atilde;o &agrave; conta do Banco de Dados de Documentos" pageTitle="Introdu&ccedil;&atilde;o a uma conta do Banco de Dados de Documentos | Azure" description="Saiba como criar e configurar uma conta do Banco de Dados de Documentos do Azure, criar bancos de dados e cole&ccedil;&otilde;es e armazenar documentos JSON na conta." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Introdução à conta do Banco de Dados de Documentos
 
@@ -25,9 +25,9 @@ Há diversos SDKs e APIs disponíveis para trabalhar de forma programática com 
 
 Começaremos criando um DocumentClient para estabelecer uma conexão com nossa conta do Banco de Dados de Documentos. Nós precisaremos das seguintes referências no aplicativo C#:
 
+    using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
-    using Microsoft.Azure.Documents;  
 
 Uma instância do DocumentClient pode ser criada usando o ponto de extremidade da conta do Banco de Dados de Documentos e a chave de acesso primária ou secundária associada à conta.
 
@@ -39,11 +39,11 @@ O ponto de extremidade e as chaves do Banco de Dados de Documentos podem ser obt
 
 Crie o cliente usando código semelhante ao exemplo a seguir.
 
-    private static string endpointUrl = "<your endpoint URI>";
-    private static string authorizationKey = "<your key>";
+    private static string EndpointUrl = "<your endpoint URI>";
+    private static string AuthorizationKey = "<your key>";
 
-    //Create a new instance of the DocumentClient
-    var client = new DocumentClient(new Uri(endpointUrl), authorizationKey);  
+    // Create a new instance of the DocumentClient
+    var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
 **Aviso:** Nunca armazene credenciais no código-fonte. Para manter esse exemplo simples, elas são mostradas no código-fonte. Consulte [Sites do Microsoft Azure na Web: Como as cadeias de caracteres de aplicativo e a cadeia de caracteres de conexão trabalha][Sites do Microsoft Azure na Web: Como as cadeias de caracteres de aplicativo e a cadeia de caracteres de conexão trabalha] para obter informações sobre como armazenar credenciais.
 
@@ -53,136 +53,147 @@ Agora que você sabe como conectar uma conta do Banco de Dados de Documentos e c
 
 Utilizando o SDK .NET, é possível criar um banco de dados do Banco de Dados de Documentos por meio do método CreateDatabaseAsync de um DocumentClient.
 
-    //Create a Database
-     Database database = await client.CreateDatabaseAsync(
+    // Create a Database
+    Database database = await client.CreateDatabaseAsync(
         new Database
-        {
-        Id = "FamilyRegistry"
-        });
+            {
+                Id = "FamilyRegistry"
+            });
 
 ## <span id="CreateColl"></span></a>Criar uma coleção
 
-Utilizando o SDK .NET, é possível criar uma coleção do Banco de Dados de Documentos por meio do método CreateDocumentCollectionAsync de um DocumentClient. O banco de dados criado na etapa anterior tem uma série de propriedades, entre elas a propriedade SelfLink. Com essas informações, podemos criar uma coleção.
+Utilizando o SDK .NET, é possível criar uma coleção do Banco de Dados de Documentos por meio do método CreateDocumentCollectionAsync de um DocumentClient. O banco de dados criado na etapa anterior possui uma série de propriedades, entre elas, a propriedade CollectionsLink. Com essas informações, podemos criar uma coleção.
 
-        //Create a document collection 
-    documentCollection = new DocumentCollection
-        {
-            Id = "FamilyCollection"
-        };
-
-        documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
+    // Create a document collection
+    DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
+        new DocumentCollection
+            {
+                Id = "FamilyCollection"
+            });
 
 ## <span id="CreateDoc"></span></a>Criar documentos
 
-Utilizando o SDK .NET, é possível criar um documento do Banco de Dados de Documentos por meio do método CreateDocumentAsync de um DocumentClient. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade DocumentsLink. Com essas informações, podemos inserir um documento ou mais. Para este exemplo, presumiremos que nós temos uma classe Família que descreve os atributos de uma família como nome, gênero e idade.
+Utilizando o SDK .NET, é possível criar um documento do Banco de Dados de Documentos por meio do método CreateDocumentAsync de um DocumentClient. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade DocumentsLink. Com essas informações, agora podemos inserir um ou mais documentos. Para este exemplo, presumiremos que nós temos uma classe Família que descreve os atributos de uma família como nome, gênero e idade.
 
-    private static async Task CreateDocuments(string    colSelfLink)
+    // Create the Andersen Family document
+    Family andersenFamily = new Family
     {
-        Family AndersonFamily = new Family
-        {
-            Id = "AndersenFamily",
-            LastName = "Andersen",
-            Parents =  new Parent[] {
-                new Parent { FirstName = "Thomas" },
-                new Parent { FirstName = "Mary Kay"}
-            },
-            Children = new Child[] {
-                new Child
-                { 
-                    FirstName = "Henriette Thaulow", 
-                    Gender = "female", 
-                    Grade = 5, 
-                    Pets = new [] {
-                        new Pet { GivenName = "Fluffy" } 
-                    }
-                } 
-            },
-            Address = new Address { State = "WA", County = "King", City = "Seattle" },
-            IsRegistered = true
-        };
+        Id = "AndersenFamily",
+        LastName = "Andersen",
+        Parents =  new Parent[] {
+            new Parent { FirstName = "Thomas" },
+            new Parent { FirstName = "Mary Kay"}
+        },
+        Children = new Child[] {
+            new Child { 
+                FirstName = "Henriette Thaulow", 
+                Gender = "female", 
+                Grade = 5, 
+                Pets = new Pet[] {
+                    new Pet { GivenName = "Fluffy" } 
+                }
+            } 
+        },
+        Address = new Address { State = "WA", County = "King", City = "Seattle" },
+        IsRegistered = true
+    };
 
-        await client.CreateDocumentAsync(colSelfLink, AndersonFamily);
+    await client.CreateDocumentAsync(documentCollection.DocumentsLink, andersenFamily);
 
-        Family WakefieldFamily = new Family
-        {
-            Id = "WakefieldFamily",
-            Parents = new [] {
-                new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
-                new Parent { FamilyName= "Miller", FirstName= "Ben" }
-            },
-            Children = new Child[] {
-                new Child
-                {
-                    FamilyName= "Merriam", 
-                    FirstName= "Jesse", 
-                    Gender= "female", 
-                    Grade= 8,
-                    Pets= new Pet[] {
-                        new Pet { GivenName= "Goofy" },
-                        new Pet { GivenName= "Shadow" }
-                    }
-                },
-                new Child
-                {
-                    FamilyName= "Miller", 
-                    FirstName= "Lisa", 
-                    Gender= "female", 
-                    Grade= 1
+    // Create the WakeField Family document
+    Family wakefieldFamily = new Family
+    {
+        Id = "WakefieldFamily",
+        Parents = new Parent[] {
+            new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
+            new Parent { FamilyName= "Miller", FirstName= "Ben" }
+        },
+        Children = new Child[] {
+            new Child {
+                FamilyName= "Merriam", 
+                FirstName= "Jesse", 
+                Gender= "female", 
+                Grade= 8,
+                Pets= new Pet[] {
+                    new Pet { GivenName= "Goofy" },
+                    new Pet { GivenName= "Shadow" }
                 }
             },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
-        };
+            new Child {
+                FamilyName= "Miller", 
+                FirstName= "Lisa", 
+                Gender= "female", 
+                Grade= 1
+            }
+        },
+        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+        IsRegistered = false
+    };
 
-        await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
-
-}
+    await client.CreateDocumentAsync(documentCollection.DocumentsLink, wakefieldFamily);
 
 ## <span id="Query"></span></a>Consultar recursos do Banco de Dados de Documentos
 
 O Banco de Dados de Documentos tem suporte para consultas avançadas de documentos JSON armazenados em cada coleção. O exemplo de código abaixo mostra diversas consultas - usando a sintaxe SQL do Banco de Dados de Documentos bem como o LINQ - que podem ser realizadas nos documentos que inserimos na etapa anterior.
 
-    //
-    //Querying the documents using DocumentDB SQL for the Andersen family
-    //
-    foreach (var family in client.CreateDocumentQuery(collectionLink, 
-    "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
+    // Query the documents using DocumentDB SQL for the Andersen family
+    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+        "SELECT * " +
+        "FROM Families f " +
+        "WHERE f.id = \"AndersenFamily\"");
+
+    foreach (var family in families)
     {
-    Console.WriteLine("\tRead {0} from SQL", family);
+        Console.WriteLine("\tRead {0} from SQL", family);
     }
 
-    //
-    //Querying the documents using LINQ for the Andersen family
-    //
-    foreach (var family in (
-        from f in client.CreateDocumentQuery(collectionLink)
+    // Query the documents using LINQ for the Andersen family
+    families =
+        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
         where f.Id == "AndersenFamily"
-        select f))
+        select f;
+
+    foreach (var family in families)
     {
-     Console.WriteLine("\tRead {0} from LINQ", family);
+        Console.WriteLine("\tRead {0} from LINQ", family);
     }
 
-    //
-    //Querying the documents using LINQ lambdas for the Andersen family
-    //
-    foreach (var family in client.CreateDocumentQuery(collectionLink)
-    .Where(f => f.Id == "AndersenFamily")
-    .Select(f => f))
+    // Query the documents using LINQ lambdas for the Andersen family
+    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
+        .Where(f => f.Id == "AndersenFamily")
+        .Select(f => f);
+
+    foreach (var family in families)
     {
         Console.WriteLine("\tRead {0} from LINQ query", family);
     }
 
-    //
-    //DocumentDB SQL -  using <> interchangably with != for "not equals"
-    //
-    families = client.CreateDocumentQuery<Family>(colSelfLink, "SELECT * FROM Families f WHERE f.id <> 'AndersenFamily'");
+    // Query the documents using DocumentSQl with one join
+    var items = client.CreateDocumentQuery<dynamic>(documentCollection.DocumentsLink,
+        "SELECT f.id, c.FirstName AS child " +
+        "FROM Families f " +
+        "JOIN c IN f.Children");
 
-    //   
-    // LINQ - combine equality and inequality
-    //
-    families = from f in client.CreateDocumentQuery<Family>(colSelfLink)
-           where f.Id == "Wakefield" && f.Address.City != "NY"
-           select f; 
+    foreach (var item in items.ToList())
+    {
+        Console.WriteLine(item);
+    }
+
+    // Query the documents using LINQ with one join
+    items = client.CreateDocumentQuery<Family>(documentCollection.DocumentsLink)
+        .SelectMany(family => family.Children
+            .Select(children => new
+            {
+                family = family.Id,
+                child = children.FirstName
+            }));
+
+    foreach (var item in items.ToList())
+    {
+        Console.WriteLine(item);
+    }
+
+Para obter a amostra completa de introdução, clique [aqui][aqui].
 
 ## <span id="NextSteps"></span></a>Próximas etapas
 
@@ -198,5 +209,6 @@ O Banco de Dados de Documentos tem suporte para consultas avançadas de document
   [Próximas etapas]: #NextSteps
   [0]: ./media/documentdb-get-started/gs1.png
   [Sites do Microsoft Azure na Web: Como as cadeias de caracteres de aplicativo e a cadeia de caracteres de conexão trabalha]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+  [aqui]: https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started
   [monitorar uma conta do Banco de Dados de Documentos]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [página de documentação do Banco de Dados de Documentos]: http://go.microsoft.com/fwlink/p/?LinkID=402319

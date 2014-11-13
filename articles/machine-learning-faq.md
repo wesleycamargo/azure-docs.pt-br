@@ -1,6 +1,6 @@
-<properties title="Microsoft Azure Machine Learning Frequently Asked Questions (FAQ)" pageTitle="Azure Machine Learning FAQ | Azure" description="Frequently asked questions about Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" videoId="" scriptId="" />
+<properties title="Perguntas frequentes (FAQ) do Aprendizado de M&aacute;quina do Microsoft Azure" pageTitle="Perguntas frequentes do Aprendizado de M&aacute;quina | Azure" description="Perguntas frequentes sobre o Aprendizado de M&aacute;quina do Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pamehta"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
 
 # Perguntas frequentes (FAQ) do Aprendizado de Máquina do Microsoft Azure
 
@@ -18,11 +18,11 @@ O Estúdio AM do Azure é um ambiente de trabalho acessível por meio de um nave
 
 O serviço de API do AM permite implantar um modelo preditivo no Estúdio AM como um serviço Web escalável e tolerante a falhas. Os serviços Web criados pelo serviço de API do AM são APIs REST, que fornecem uma interface para comunicação entre aplicativos externos e seu modelo analítico preditivo. O serviço Web oferece uma forma de comunicar-se com um modelo preditivo em tempo real para receber resultados preditivos e incorporá-los em qualquer aplicativo externo do cliente. O serviço de API do AM utiliza o Microsoft Azure para implantação, host e gerenciamento das APIs REST do AM do Azure. Dois tipos de serviços são criados usando o serviço de API do AM do Azure. O serviço de Execução em Lote para acesso assíncrono em lote e o serviço Resposta de Solicitação para resposta assíncrona de baixa latência.
 
-Um modelo preditivo pode ser colocado em preparação dentro de seu espaço de trabalho. O serviço de API do AM também gera páginas de ajuda para serviços Web. As páginas de ajuda do serviço Web fornecem amostras de código para invocar o serviço Web em C\#, R e Python. É possível testar seu serviço Web fazendo chamadas interativas ao serviço. O serviço Web pré-configurado pode então ser colocado em produção em apenas alguns cliques. Uma vez em produção, é possível monitorar serviços implantados, bem como rastrear o uso e erros no portal do Azure. A atualização dos serviços Web é tão simples quanto atualizar o modelo no Estúdio AM e colocar as mudanças no serviço de preparação.
+Um modelo preditivo pode ser colocado em preparação dentro de seu espaço de trabalho. O serviço de API do AM também gera páginas de ajuda para serviços Web. As páginas de ajuda do serviço Web fornecem amostras de código para invocar o serviço Web em C#, R e Python. É possível testar seu serviço Web fazendo chamadas interativas ao serviço. O serviço Web pré-configurado pode então ser colocado em produção em apenas alguns cliques. Uma vez em produção, é possível monitorar serviços implantados, bem como rastrear o uso e erros no portal do Azure. A atualização dos serviços Web é tão simples quanto atualizar o modelo no Estúdio AM e colocar as mudanças no serviço de preparação.
 
 **4. Como fazer para acessar o Aprendizado de Máquina do Microsoft Azure?**
 
-Para uma introdução ao Aprendizado de Máquina do Azure, visite a [página de introdução](http://go.microsoft.com/fwlink/?LinkId=404226). Visite o [Centro de Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/services/machine-learning/) para obter atualizações do serviço, ler o que há de mais recente no blog da equipe do AM, participar de nossa comunidade Aprendizado de Máquina por meio de fóruns, acessar a ajuda do produto, exibir a galeria de modelos e fornecer feedback sobre o serviço para nos ajudar a dar forma ao roteiro do produto.
+Para uma introdução ao Aprendizado de Máquina do Azure, visite a [página de introdução][página de introdução]. Visite o [Centro de Aprendizado de Máquina do Azure][Centro de Aprendizado de Máquina do Azure] para obter atualizações do serviço, ler o que há de mais recente no blog da equipe do AM, participar de nossa comunidade Aprendizado de Máquina por meio de fóruns, acessar a ajuda do produto, exibir a galeria de modelos e fornecer feedback sobre o serviço para nos ajudar a dar forma ao roteiro do produto.
 
 ### COBRANÇA
 
@@ -36,11 +36,11 @@ Os encargos são agregados por espaço de trabalho para sua assinatura. Em cada 
 -   Horas de Previsão do Serviço de API - este medidor inclui encargos de computação resultantes dos serviços Web em execução na produção.
 -   Previsões de Serviço de API (em 1000s) - este medidor inclui encargos resultantes por chamada ao serviço Web de produção.
 
-Visite a página Preços para obter detalhes de preços, <http://azure.microsoft.com/en-us/pricing/details/machine-learning/>.
+Visite a página Preços para obter detalhes de preços, <http://azure.microsoft.com/pt-br/pricing/details/machine-learning/>.
 
 **6. O Aprendizado de Máquina do Azure tem uma Avaliação Gratuita?**
 
-O AM do Azure é uma parte da avaliação gratuita do Azure. Ao assinar uma avaliação gratuita do Azure, você pode testar quaisquer serviços Azure por um mês. Para aprender mais sobre a avaliação gratuita do Azure, visite <http://azure.microsoft.com/en-us/pricing/free-trial-faq/>.
+O AM do Azure é uma parte da avaliação gratuita do Azure. Ao assinar uma avaliação gratuita do Azure, você pode testar quaisquer serviços Azure por um mês. Para aprender mais sobre a avaliação gratuita do Azure, visite <http://azure.microsoft.com/pt-br/pricing/free-trial-faq/>.
 
 ### ESTÚDIO DE APRENDIZADO DE MÁQUINA
 
@@ -62,7 +62,7 @@ O Estúdio AM fornece os mais avançados algoritmos de AM, como árvores de Deci
 
 **10. O algoritmo, a fonte de dados, o formato de dados e a operação de transformação de dados de Aprendizado de Máquina que busco não está no Estúdio AM do Azure. Quais são minhas opções?**
 
-É possível visitar o [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto nesta solicitação se um recurso que está procurando já tiver sido solicitado. Se o recurso que está procurando não existir, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência.
+É possível visitar o [fórum de feedback do usuário][fórum de feedback do usuário] para ver solicitações de recurso que estamos acompanhando. Inclua seu voto nesta solicitação se um recurso que está procurando já tiver sido solicitado. Se o recurso que está procurando não existir, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência.
 
 **11. Posso trazer meu código existente para o Estúdio AM?**
 
@@ -70,7 +70,7 @@ O Estúdio AM atualmente dá suporte a R; é possível trazer seus códigos R ex
 
 **12. Quais pacotes R estão disponíveis no Estúdio AM?**
 
-O Estúdio AM dá suporte atualmente a mais de 350 pacotes R, e a lista continua crescendo. Consulte o tópico de ajuda do Estúdio AM **Extensibilidade com R** para saber como obter uma lista de pacotes R com suporte. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
+O Estúdio AM dá suporte atualmente a mais de 350 pacotes R, e a lista continua crescendo. Consulte o tópico de ajuda do Estúdio AM **Extensibilidade com R** para saber como obter uma lista de pacotes R com suporte. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário][fórum de feedback do usuário].
 
 ### SERVIÇO DE API DO AM
 
@@ -92,7 +92,6 @@ Atualizar um modelo preditivo para um serviço já implantado é tão simples qu
 
 Uma vez que um modelo preditivo foi colocado em produção, o Portal do Azure lista a URL para os serviços Web implantados. URLs de Serviço de Preparação são acessíveis a partir do Ambiente do Estúdio AM sob a seção de serviços Web e as URLs de serviço de Produção são acessíveis a partir do Portal do Azure, sob a seção Aprendizado de Máquina. As chaves de acesso fornecidas para serviços Web de Preparação e Produção a partir do Painel do serviço Web no Estúdio AM e no ambiente do portal do Azure respectivamente. Elas são necessárias para fazer chamadas ao serviço Web em produção e preparação.
 
-
 **16. Como fazer para monitorar meu serviço Web implantado em produção?**
 
 Uma vez que um modelo preditivo tiver sido colocado em produção, é possível monitorar a partir do portal do Azure. Cada serviço implantado possui seu próprio painel, em que você poderá ver as informações de monitoramento para esse serviço.
@@ -101,14 +100,20 @@ Uma vez que um modelo preditivo tiver sido colocado em produção, é possível 
 
 **17. Onde posso obter treinamento para o AM do Azure?**
 
-O [Cenntro de Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias de instruções passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
+O [Centro de Aprendizado de Máquina do Azure][Centro de Aprendizado de Máquina do Azure] hospeda tutoriais em vídeo e guias de instruções. Esses guias de instruções passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
 
-Os tutoriais de vídeo fornecem um tour visual do Estúdio AM e serviço de API do AM. Os tutoriais de vídeo demonstram a amplitude do serviço, o ingresso de dados mais usado, limpeza e processamento de módulos; criação de um modelo preditivo e implantação de modelos preditivos. Eles também abragem tarefas, como provisionamento de espaço de trabalho e implantação de modelos pré-configurados para produção.
+Os tutoriais de vídeo fornecem um tour visual do Estúdio AM e serviço de API do AM. Os tutoriais de vídeo demonstram a amplitude do serviço, o ingresso de dados mais usado, limpeza e processamento de módulos; criação de um modelo preditivo e implantação de modelos preditivos. Eles também abrangem tarefas, como provisionamento de espaço de trabalho e implantação de modelos pré-configurados para produção.
 
-Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. É possível enviar a solicitação para material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de feedback do usuário](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. É possível enviar a solicitação para material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de feedback do usuário][1].
 
 **18. Como fazer para obter suporte ao AM do Azure?**
 
-O AM do Azure tem suporte como parte da oferta de suporte do Azure. Para obter suporte técnico no AM do Azure, selecione ‘Aprendizado de Máquina' como serviço e você verá uma categoria de tópicos para arquivar seu chamado de suporte. Para aprender mais sobre a oferta do Suporte do Azure, visite <http://azure.microsoft.com/en-us/support/options/>
+O AM do Azure tem suporte como parte da oferta de suporte do Azure. Para obter suporte técnico no AM do Azure, selecione ‘Aprendizado de Máquina' como serviço e você verá uma categoria de tópicos para arquivar seu chamado de suporte. Para aprender mais sobre a oferta do Suporte do Azure, visite <http://azure.microsoft.com/pt-br/support/options/>
 
-O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSDN, em que é possível fazer questões relacionadas ao AM do Azure. O fórum é monitorado pela equipe do AM do Azure. Visite o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning).
+O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSDN, em que é possível fazer questões relacionadas ao AM do Azure. O fórum é monitorado pela equipe do AM do Azure. Visite o [Fórum do Azure][Fórum do Azure].
+
+  [página de introdução]: http://go.microsoft.com/fwlink/?LinkId=404226
+  [Centro de Aprendizado de Máquina do Azure]: http://azure.microsoft.com/pt-br/documentation/services/machine-learning/
+  [fórum de feedback do usuário]: http://go.microsoft.com/fwlink/?LinkId=404231
+  [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
+  [Fórum do Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning

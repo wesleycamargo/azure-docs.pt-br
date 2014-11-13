@@ -1,6 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties umbracoNaviHide="0" pageTitle="Conceitos da conta de armazenamento | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Aprenda sobre os conceitos da conta de armazenamento." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Conceitos da conta de armazenamento" services="storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Conceitos da conta de armazenamento
 
@@ -12,15 +12,15 @@
 
 Os *pontos de extremidade* da conta de armazenamento representam o nível mais alto de namespace para acessar blobs, tabelas ou filas. Os pontos de extremidade padrão de uma conta de armazenamento têm os seguintes formatos:
 
--   Serviço Blob: http://*mystorageaccount\*.blob.core.windows.net
+-   Serviço Blob: http://*minhacontadearmazenamento*.blob.core.windows.net
 
--   Serviço Tabela: http://*mystorageaccount\*.table.core.windows.net
+-   Serviço Tabela: http://*mystorageaccount*.table.core.windows.net
 
--   Serviço Fila: http://*mystorageaccount\*.queue.core.windows.net
+-   Serviço Fila: http://*mystorageaccount*.queue.core.windows.net
 
--   Serviço Arquivo: http://*mystorageaccount\*.file.core.windows.net
+-   Serviço Arquivo: http://*mystorageaccount*.file.core.windows.net
 
-A URL para acessar um objeto em uma conta de armazenamento é compilada acrescentando o local do objeto na conta de armazenamento ao ponto de extremidade. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
+A URL para acessar um objeto em uma conta de armazenamento é compilada acrescentando o local do objeto na conta de armazenamento ao ponto de extremidade. Por exemplo, um endereço de blob pode ter este formato: http://*minhacontadearmazenamento*.blob.core.windows.net/*meucontêiner*/*meublob*.
 
 ## Segurança da conta de armazenamento
 
@@ -40,7 +40,6 @@ Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de ace
 
 Um *grupo de afinidades* é um agrupamento geográfico de seus serviços Azure e VMs na conta de armazenamento do Azure. Um grupo de afinidade pode melhorar o desempenho do serviço localizando cargas de trabalho do computador no mesmo data center ou próximo do público-alvo de usuários. Além disso, não há encargos de cobrança incorridos para saída quando os dados em uma conta de armazenamento são acessados por um serviço em execução do mesmo grupo de afinidade.
 
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [Tutorial de assinatura de acesso compartilhado]: ../storage-dotnet-shared-access-signature-part-1/
   [o esquema da tabela de métricas da análise do armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343264.aspx
   [sobre métricas de análise de armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343258.aspx

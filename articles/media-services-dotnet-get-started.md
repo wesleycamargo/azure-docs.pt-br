@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Introdu&ccedil;&atilde;o aos Servi&ccedil;os de M&iacute;dia - Azure" metaKeywords="Azure media services" description="Uma introdu&ccedil;&atilde;o ao uso dos Servi&ccedil;os de M&iacute;dia com Azure." metaCanonical="" services="media-services" documentationCenter="" title="Introdu&ccedil;&atilde;o aos Servi&ccedil;os de M&iacute;dia" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="getting-started"></a>Introdução aos Serviços de Mídia
 
@@ -20,12 +20,13 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 Os seguintes pré-requisitos são necessários para a explicação passo a passo e o desenvolvimento baseado no SDK dos Serviços de Mídia do Azure.
 
 -   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Para obter detalhes, consulte [Como criar uma conta de Serviços de Mídia (a página pode estar em inglês)][Como criar uma conta de Serviços de Mídia (a página pode estar em inglês)].
--   Sistemas operacionais: Windows 7, Windows 2008 R2 ou Windows 8.
+-   Sistemas operacionais: Windows 7, Windows 2008 R2, Windows 8 ou posterior.
 -   .NET Framework 4.5 ou .NET Framework 4.
--   Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express).
+-   Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou posterior.
 -   Instale o **SDK do Azure para .NET.**, o **SDK dos Serviços de Mídia do Azure para .NET** e o **WCF Data Services 5.0 para bibliotecas OData V3** e adicione referências a seu projeto usando o pacote [Nuget windowsazure.mediaservices][Nuget windowsazure.mediaservices]. A seção a seguir demonstra como instalar e adicionar essas referências.
 
-<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa de uma conta do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
+> [WACOM.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
 
 ## <span id="Step1"></span></a>Configurando o seu projeto
 
@@ -96,7 +97,7 @@ Os seguintes pré-requisitos são necessários para a explicação passo a passo
 
 O objeto de contexto dos Serviços de Mídia contém todos os objetos e coleções fundamentais a serem acessados para a programação dos Serviços de Mídia. O contexto inclui referências a importantes coleções, incluindo trabalhos, ativos, arquivos, políticas de acesso, localizadores e outros objetos. Você deve obter o contexto do servidor para a maioria das tarefas de programação dos Serviços de Mídia.
 
-No arquivo Program.cs, adicione o seguinte código como o primeiro item em seu método **Main**. Esse código usa o nome da conta dos Serviços de Mídia e os valores da chave da conta do arquivo app.config para criar uma instância de contexto do servidor. A instância é atribuída à variável **_context** criada no nível de classe.
+No arquivo Program.cs, adicione o seguinte código como o primeiro item em seu método **Main**. Esse código usa o nome da conta dos Serviços de Mídia e os valores da chave da conta do arquivo app.config para criar uma instância de contexto do servidor. A instância é atribuída à variável \*\*\_context\*\* criada no nível de classe.
 
     // Get the service context.
     _context = new CloudMediaContext(_accountName, _accountKey);
@@ -106,17 +107,18 @@ No arquivo Program.cs, adicione o seguinte código como o primeiro item em seu m
 O código desta seção faz o seguinte:
 
 1.  Cria um ativo vazio
-
     Quando você cria ativos, você pode especificar três opções diferentes para criptografá-los.
 
     -   **AssetCreationOptions.None**: sem criptografia. Se desejar criar um ativo não criptografado, você deve definir essa opção.
     -   **AssetCreationOptions.CommonEncryptionProtected**: para arquivos CENC (protegidos de criptografia comum). Um exemplo é um conjunto de arquivos que já estão criptografados por PlayReady.
     -   **AssetCreationOptions.StorageEncrypted**: criptografia para armazenamento. Criptografa um arquivo de entrada limpo antes de ele ser carregado no Armazenamento do Azure.
 
-        <div class="dev-callout"> 
-<strong>Observa&ccedil;&atilde;o</strong> 
-<p>Os Servi&ccedil;os de M&iacute;dia fornecem criptografia de armazenamento em disco, n&atilde;o pela conex&atilde;o, como o DRM (gerenciamento de direitos digitais).</p> 
-</div>
+        <div class="dev-callout">
+
+        **Observação**
+        Os Serviços de Mídia fornecem criptografia de armazenamento em disco, não pela conexão, como o DRM (gerenciamento de direitos digitais).
+
+        </div>
 
 2.  Cria uma instância de AssetFile que desejamos associar ao ativo.
 3.  Cria uma instância de AccessPolicy que define as permissões e a duração do acesso ao ativo.
@@ -171,6 +173,7 @@ Adicione uma chamada para o método após a linha \*\*\_context = new CloudMedia
 Nos Serviços de Mídia, você pode criar trabalhos que processam conteúdo de mídia de várias maneiras: codificação, criptografia, fazendo conversões de formato e assim por diante. Um trabalho dos Serviços de Mídia sempre contém uma ou mais tarefas que especificam os detalhes do trabalho de processamento. Nesta seção, você criará uma tarefa básica de codificação e executará um trabalho que a realizará usando o Codificador de Mídia do Azure. A tarefa usa uma sequência de caracteres predefinida para especificar o tipo de codificação a ser executada. Para ver os valores de codificação predefinidos disponíveis, consulte [Cadeias de caracteres predefinidas de tarefas do Codificador de Mídia do Azure][Cadeias de caracteres predefinidas de tarefas do Codificador de Mídia do Azure]. Os Serviços de Mídia oferecem suporte aos mesmos formatos de entrada e de saída de arquivos de mídia que o Microsoft Expression Encoder. Para obter uma lista dos formatos com suporte, consulte [Tipos de arquivos com suporte para Serviços de Mídia (a página pode estar em inglês)][Tipos de arquivos com suporte para Serviços de Mídia (a página pode estar em inglês)]
 
 1.  Adicione a seguinte definição do método **CreateEncodingJob** a sua classe. Esse método demonstra como realizar várias tarefas necessárias para um trabalho de codificação:
+
     -   Declarar um novo trabalho.
     -   Declarar um processador de mídia para tratar o trabalho. Um processador de mídia é um componente que manipula a codificação, a criptografia, a conversão de formato e outras tarefas de processamento relacionadas. Há vários tipos de processadores de mídia disponíveis (você pode iterar por todos eles usando \_context.MediaProcessors.) O método GetLatestMediaProcessorByName, exibido mais adiante neste tutorial, retorna o processador do Codificador de Mídia do Azure.
     -   Declarar uma nova tarefa. Todo trabalho tem uma ou mais tarefas. Observe que com a tarefa, você passa para ele um nome amigável, uma instância do processador de mídia, uma cadeia de caracteres de configuração de tarefa e opções de criação de tarefa. A cadeia de caracteres de configuração especifica as configurações de codificação. Este exemplo usa a configuração **H264 Broadband 720p**. Essa predefinição produz um único arquivo MP4. Para obter mais informações sobre esse e outros valores predefinidos, consulte [Cadeias de caracteres predefinidas de tarefas para o Codificador de Mídia do Azure][Cadeias de caracteres predefinidas de tarefas para o Codificador de Mídia do Azure].
@@ -288,15 +291,15 @@ Nos Serviços de Mídia, você pode criar trabalhos que processam conteúdo de m
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  Adicione os seguintes métodos auxiliares à classe. Eles são exigidos para dar suporte ao método **CreateEncodingJob**. O seguinte é um resumo dos métodos auxiliares.
-    -   O método **GetLatestMediaProcessorByName** retorna um processador de mídia apropriado para manipular uma codificação, criptografia ou outra tarefa de processamento relacionada. Você cria um processador de mídia usando o nome da cadeia de caracteres apropriada do processador que você deseja criar. As cadeias de caracteres possíveis que podem ser passadas para o método do parâmetro mediaProcessor são: **Codificador de Mídia do Azure**, **Empacotador de Mídia do Azure**, **Codificador de Mídia do Azure**, **Descriptografia do Armazenamento**.
+    -   O método **GetLatestMediaProcessorByName** retorna um processador de mídia apropriado para manipular uma codificação, criptografia ou outra tarefa de processamento relacionada. Você cria um processador de mídia usando o nome da cadeia de caracteres apropriada do processador que você deseja criar. As cadeias de caracteres possíveis que podem ser passadas para o método do parâmetro mediaProcessor são: **Codificador de Mídia do Azure**, **Empacotador de Mídia do Microsoft Azure**, **Codificador de Mídia do Microsoft Azure**, **Descriptografia do Armazenamento**.
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Azure Media Packager
-                //   Azure Media Encryptor
+                //   Windows Azure Media Packager
+                //   Windows Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -609,10 +612,8 @@ Execute o programa (pressione F5). O console exibe uma saída semelhante à segu
 
 5.  O arquivo de mídia .mp4 e o arquivo \_metadata.xml são baixados na pasta outputFiles.
 
-<div class="dev-callout"> 
-<strong>Observa&ccedil;&atilde;o</strong> 
-<p>No modelo de objeto dos Servi&ccedil;os de M&iacute;dia, um ativo &eacute; um objeto de cole&ccedil;&atilde;o de conte&uacute;do dos Servi&ccedil;os de M&iacute;dia que representa um ou muitos arquivos. O caminho do localizador fornece uma URL de Blob do Azure que &eacute; o caminho base para esse ativo no Armazenamento do Azure. Para acessar arquivos espec&iacute;ficos dentro do ativo, adicione um nome de arquivo ao caminho do localizador base.</p> 
-</div>
+> [WACOM.NOTE]
+> No modelo de objeto dos Serviços de Mídia, um ativo é um objeto de coleção de conteúdo dos Serviços de Mídia que representa um ou muitos arquivos. O caminho do localizador fornece uma URL de Blob do Azure que é o caminho base para esse ativo no Armazenamento do Azure. Para acessar arquivos específicos dentro do ativo, adicione um nome de arquivo ao caminho do localizador base.
 
 ## Próximas etapas
 
@@ -628,8 +629,11 @@ Esta explicação passo a passo demonstrou uma sequência de tarefas de programa
   [Obtendo o contexto do servidor dos Serviços de Mídia]: #Step2
   [Criando um ativo e carregando arquivos que estão associados ao ativo nos Serviços de Mídia]: #Step3
   [Codificando um ativo e baixando um ativo de saída]: #Step4
+  [Como criar uma conta de Serviços de Mídia (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=256662
   [Nuget windowsazure.mediaservices]: http://nuget.org/packages/windowsazure.mediaservices
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Cadeias de caracteres predefinidas de tarefas do Codificador de Mídia do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj129582.aspx
+  [Tipos de arquivos com suporte para Serviços de Mídia (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh973634.aspx
   [Cadeias de caracteres predefinidas de tarefas para o Codificador de Mídia do Azure]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Como usar os Serviços de Mídia]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/media-services/
+  [Como usar os Serviços de Mídia]: http://azure.microsoft.com/pt-br/develop/media-services/resources/
   [Criando aplicativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh973618.aspx

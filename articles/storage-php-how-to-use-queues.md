@@ -1,6 +1,6 @@
-<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
+<properties title="Como usar o servi&ccedil;o Fila (PHP) &mdash; guia de recursos do Azure" pageTitle="Como usar o servi&ccedil;o Fila (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Saiba como usar o servi&ccedil;o Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos escritos em PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Como usar o serviço Fila do PHP
 
@@ -44,18 +44,18 @@ Neste guia, você usará os recursos do serviço Fila que podem ser chamados den
 
 Para usar as APIs do serviço Fila do Azure, você precisa:
 
-1.  Consultar o arquivo do carregador automático usando a instrução [require\_once][require\_once] e
-2.  Consultar qualquer classe que você possa usar.
+1.  Fazer referência ao arquivo de carregador automático usando a instrução [require\_once][require\_once], e
+2.  Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
 > [WACOM.NOTE]
-> Esse exemplo (e outros exemplos deste artigo) pressupõe que você instalou as Bibliotecas de Cliente do PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
+> Este exemplo (e outros exemplos deste artigo) pressupõe que você instalou as Bibliotecas de Cliente do PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
 
     require_once 'vendor\autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
 
-	Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos abaixo, a instrução '`require_once`' será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
 ## <span id="connection-string"></span></a>Configurar uma conexão de armazenamento do Azure
 
@@ -71,10 +71,11 @@ Para acessar o armazenamento do emulador:
 
 Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
--   passar a cadeia de conexão diretamente ou
--   usar **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
-    -   por padrão, ele é fornecido com suporte para uma fonte externa – variáveis de ambiente
-    -   adicionar novas fontes ao estender a classe **ConnectionStringSource**
+-   passar a cadeia de conexão diretamente para ele ou
+-   usar o **CloudConfigurationManager (CCM)** para verificar várias origens externas para a cadeia de conexão:
+
+    -   por padrão, ele vem com suporte para uma origem externa - variáveis de ambiente
+    -   você pode adicionar novas origens ao estender a classe **ConnectionStringSource**
 
 Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
@@ -393,7 +394,5 @@ Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga e
   [Como: Obter o tamanho da fila]: #get-queue-length
   [Como: Excluir uma fila]: #delete-queue
   [1]: #next-steps
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://www.php.net/manual/en/function.require-once.php
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx

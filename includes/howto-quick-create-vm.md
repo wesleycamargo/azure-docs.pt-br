@@ -4,17 +4,17 @@
 
 Você usa o método **Criação Rápida** para criar rapidamente uma máquina virtual no Portal de Gerenciamento. Ao criar essa máquina, use uma caixa de diálogo para fornecer os detalhes de configuração.
 
-**Observação**: este artigo cria uma máquina virtual que não está conectada a uma rede virtual. Se você quiser que sua máquina virtual use uma rede virtual, use o método **Da Galeria** e especifique a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure][]
+**Observação**: este artigo cria uma máquina virtual que não está conectada a uma rede virtual. Se você quiser que sua máquina virtual use uma rede virtual, use o método **Da Galeria** e especifique a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure][Visão geral da rede virtual do Azure].
 
-1.  Entre no [Portal de Gerenciamento do Azure][].
+1.  Entre no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  Na barra de comandos, clique em **Nova**.
 
-    ![Criar uma nova máquina virtual][]
+    ![Criar uma nova máquina virtual][Criar uma nova máquina virtual]
 
 3.  Clique em **Máquinas Virtuais** e, em seguida, clique em **Criação Rápida**.
 
-    ![Crie rapidamente uma nova máquina virtual][]
+    ![Crie rapidamente uma nova máquina virtual][Crie rapidamente uma nova máquina virtual]
 
     A caixa de diálogo **Criar uma Nova Máquina Virtual** será exibida.
 
@@ -28,11 +28,11 @@ Você usa o método **Criação Rápida** para criar rapidamente uma máquina vi
 
 5.  Clique na marca de seleção para criar a máquina virtual.
 
-    **Observação:** uma conta de armazenamento será criada automaticamente para conter esta máquina virtual.
+    **Observação:** uma conta de armazenamento será criada automaticamente para conter a máquina virtual.
 
     Você verá a nova máquina virtual mostrada na página **Máquinas Virtuais**.
 
-    ![A criação da máquina virtual foi bem-sucedida][]
+    ![A criação da máquina virtual foi bem-sucedida][A criação da máquina virtual foi bem-sucedida]
 
   [Visão geral da rede virtual do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com

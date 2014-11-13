@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Como usar o servi&ccedil;o Fila (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Saiba como usar o servi&ccedil;o Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos gravados no Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Como usar o servi&ccedil;o de armazenamento de filas do Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
@@ -48,7 +48,7 @@ Para usar o armazenamento do Azure, você deverá baixar e usar o pacote do Azur
 
 ### Usar RubyGems para obter o pacote
 
-1.  Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1.  Use uma interface da linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
 
 2.  Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
 
@@ -153,17 +153,17 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 
     azure_queue_service.delete_queue("test-queue")
 
-## <span id="next-steps"></span></a> Próximas etapas
+## <span id="next-steps"></span></a>Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber como fazer tarefas mais complexas de armazenamento.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
--   Visite o repositório [SDK do Azure para Ruby][SDK do Azure para Ruby] no GitHub
+-   Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
 
 Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus][Como usar as filas de Service Bus], consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças][Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças]
 
-  [Próximas etapas]: #next-steps
+  [O que é armazenamento de fila?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #CreateAccount
   [Criar um aplicativo Ruby]: #create-a-ruby-application
@@ -177,12 +177,10 @@ Para fazer uma comparação entre o serviço Fila do Azure discutido neste artig
   [Como: Opções adicionais para remover mensagens da fila]: #how-to-additional-options-for-dequeuing-messages
   [Como: Obter o tamanho da fila]: #how-to-get-the-queue-length
   [Como: Excluir uma fila]: #how-to-delete-a-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Criar um aplicativo Ruby no Azure]: /pt-br/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [SDK do Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
+  [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-ruby
   [Como usar as filas de Service Bus]: /pt-br/develop/ruby/how-to-guides/service-bus-queues/
   [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx

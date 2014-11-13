@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-enablestaging" urlDisplayName="Staging Deployment" pageTitle="Stage a cloud service deployment (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="Staging an Application in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Staging Deployment" pageTitle="Preparar uma implanta&ccedil;&atilde;o do servi&ccedil;o de nuvem (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="Saiba como implantar seu aplicativo Azure para um ambiente de preparo e depois implantar em um ambiente de produ&ccedil;&atilde;o usando a permuta do IP Virtual (VIP)." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="Preparando um aplicativo no Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Preparando um aplicativo no Azure
 
@@ -61,8 +61,8 @@ ambiente de preparo e de produção.
 
 <div class="dev-callout">
 <b>Observa&ccedil;&atilde;o</b>
-<p>Essa etapa pressup&otilde;e que voc&ecirc; j&aacute; implantou um aplicativo na produ&ccedil;&atilde;o e preparou a vers&atilde;o atualizada do
-
+<p>Essa etapa pressup&otilde;e que voc&ecirc; j&aacute; implantou um
+aplicativo na produ&ccedil;&atilde;o e preparou a vers&atilde;o atualizada do
 aplicativo.</p>
 </div>
 
@@ -93,5 +93,5 @@ implantação em produção com êxito permutando VIPs com a implantação em pr
   [painel de serviço de nuvem]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
   [url do site]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
   [caixa de diálogo permuta de vip]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ee517253.aspx
-  [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/pt-BR/library/windowsazure/hh386336.aspx
+  [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee517253.aspx
+  [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh386336.aspx

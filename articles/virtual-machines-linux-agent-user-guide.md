@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Guia do usu&aacute;rio do agente Linux para o Azure" metaKeywords="" description="Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua intera&ccedil;&atilde;o de m&aacute;quina virtual com o Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Guia do usu&aacute;rio do agente Linux para o Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Guia do usuário do agente Linux para o Azure
 
@@ -8,32 +8,33 @@
 
 O agente do Linux Azure (waagent) gerencia a interação de máquina virtual com o Azure Fabric Controller. Ele fornece a seguinte funcionalidade para Linux IaaS implantações:
 
-*   **Provisionamento de imagem**
-    - Criação de uma conta de usuário
-    - Configurando os tipos de autenticação do SSH
-    - Implantação de chaves públicas do SSH e pares de chaves
-    - Configuração do nome de host
-    - Publicando o nome do host para a plataforma de DNS
-    - Relatório de impressão digital da chave host SSH para a plataforma
-    - Gerenciamento de recursos de disco
-    - Formatação e montagem do disco do recurso
-    - Configurando o espaço de permuta
-*   **Rede**
-    - Gerencia as rotas para melhorar a compatibilidade com os servidores DHCP de plataforma
-    - Garante a estabilidade do nome da interface de rede
-*   **Kernel**
-    - Configurando NUMA virtual
-    - Consumir entropia de Hyper-V para /dev/random
-    - Configurando os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
-*   **Diagnostics**
-    - Redirecionamento de console de porta serial
-*   **Implantações SCVMM:**
+-   **Provisionamento de imagem**
+-   Criação de uma conta de usuário
+-   Configurando os tipos de autenticação do SSH
+-   Implantação de chaves públicas do SSH e pares de chaves
+-   Configuração do nome de host
+-   Publicando o nome do host para a plataforma de DNS
+-   Relatório de impressão digital da chave host SSH para a plataforma
+-   Gerenciamento de recursos de disco
+-   Formatação e montagem do disco do recurso
+-   Configurando o espaço de permuta
+-   **Rede**
+-   Gerencia as rotas para melhorar a compatibilidade com os servidores DHCP de plataforma
+-   Garante a estabilidade do nome da interface de rede
+-   **Kernel**
+-   Configurando NUMA virtual
+-   Consumir entropia de Hyper-V para /dev/random
+-   Configurando os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
+-   **Diagnostics**
+-   Redirecionamento de console de porta serial
+-   **Implantações SCVMM**
+
     -   Detectar e inicializar o agente VMM para Linux quando executado em um ambiente de System
-        Center Virtual Machine Manage 2012 R2
+         Center Virtual Machine Manage 2012 R2
 
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
 
--   Um DVD anexado ao tempo de inicialização para as implmentações de IaaS. Este DVD inclui um arquivo de configuração compatível com OVF que inclui todas as informações de configuração que não seja os pares de chaves SSH real.
+-   Um DVD anexado ao tempo de inicialização para as implementações de IaaS. Este DVD inclui um arquivo de configuração compatível com OVF que inclui todas as informações de configuração que não seja os pares de chaves SSH real.
 
 -   Um ponto de extremidade TCP expondo uma API REST usada para obter a implantação e a configuração de topologia.
 
@@ -41,11 +42,12 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 
 Você pode obter o agente mais recente do Linux diretamente do:
 
--   [Os diferentes provedores de distribuição endossando o Linux no Azure][]
--   ou do [Repositório de software livre do Github para o agente Linux Azure][]
+-   [Os diferentes provedores de distribuição endossando o Linux no Azure][Os diferentes provedores de distribuição endossando o Linux no Azure]
+-   ou do [Repositório de software livre do Github para o agente Linux Azure][Repositório de software livre do Github para o agente Linux Azure]
 
 ### Distribuições Linux com suporte
 
+-   CoreOS
 -   CentOS 6.2+
 -   Debian 7.0+
 -   Ubuntu 12.04+
@@ -92,37 +94,37 @@ Arquivo de log do agente é mantido em /var/log/waagent.log.
 -   help: Lista os comandos e sinalizadores com suporte.
 
 -   install: Instalação manual do agente
- *   Verifica o sistema para dependências necessárias
+-   Verifica o sistema para dependências necessárias
 
- *   Cria o script de inicialização de SysV (/ etc/init.d/waagent), o arquivo de configuração do logrotate (/etc/logrotate.d/waagent) e configura a imagem para executar o script de inicialização na inicialização
+-   Cria o script de inicialização de SysV (/ etc/init.d/waagent), o arquivo de configuração do logrotate (/etc/logrotate.d/waagent) e configura a imagem para executar o script de inicialização na inicialização
 
- *   Arquivo de configuração função Web de gravações para /etc/waagent.conf
+-   Arquivo de configuração função Web de gravações para /etc/waagent.conf
 
- *   Qualquer arquivo de configuração existente é movido para /etc/waagent.conf.old
+-   Qualquer arquivo de configuração existente é movido para /etc/waagent.conf.old
 
- *   Detectar a versão do kernel e aplica a solução VNUMA, se necessário
+-   Detectar a versão do kernel e aplica a solução VNUMA, se necessário
 
- *   Move as regras udev que podem interferir na rede (/ lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) para/var/lib/waagent /
+-   Move as regras udev que podem interferir na rede (/ lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) para/var/lib/waagent /
 
--   uninstall: Remover waagent e arquivos associados
- *   Cancela o registro do script de inicialização do sistema e o exclui
+-   desinstalar: Remover waagent e arquivos associados
+-   Cancela o registro do script de inicialização do sistema e o exclui
 
- *   Exclui a configuração do logrotate e o arquivo de configuração waagent em /etc/waagent.conf
+-   Exclui a configuração do logrotate e o arquivo de configuração waagent em /etc/waagent.conf
 
- *   Restaura quaisquer regras udev movidas que foram movidas durante a instalação
+-   Restaura quaisquer regras udev movidas que foram movidas durante a instalação
 
- *   Não há suporte para a reversão automática da solução alternativa VNUMA; edite os arquivos de configuração do GRUB manualmente para reabilitar NUMA, se necessário.
+-   Não há suporte para a reversão automática da solução alternativa VNUMA; edite os arquivos de configuração do GRUB manualmente para reabilitar NUMA, se necessário.
 
 -   desprovisionar: Tentativa de limpar o sistema e torná-lo adequado para reprovisionamento. Esta operação excluiu o seguinte:
- *   Todas as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
+-   Todas as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
 
- *   Configuração de servidor de nomes em /etc/resolv.conf
+-   Configuração de servidor de nomes em /etc/resolv.conf
 
- *   Senha raiz do /etc/shadow (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração)
+-   Senha raiz do /etc/shadow (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração)
 
- *   Concessões de cliente DHCP em cache
+-   Concessões de cliente DHCP em cache
 
- *   Reinicia o nome de host para localdomain.localdomain
+-   Reinicia o nome de host para localdomain.localdomain
 
 **Aviso:** O desprovisionamento não garante que a imagem esteja limpa de todas as informações confidenciais e adequada para redistribuição.
 
@@ -171,7 +173,6 @@ A palavra-chave especial "Nenhum" pode ser usada para algumas entradas de config
 **Role.StateConsumer:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: Nenhum
 
 Se for especificado um caminho para um programa executável, ele é chamado quando waagent forneceu a imagem e o estado "Pronto" está prestes a ser relatado à malha. O argumento especificado para o programa serão "Pronto". O agente não aguardará para que o programa retorne antes de continuar.
@@ -179,7 +180,6 @@ Se for especificado um caminho para um programa executável, ele é chamado quan
 **Role.ConfigurationConsumer:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: Nenhum
 
 Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um arquivo de configuração está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que for alterado o arquivo de configuração. Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/HostingEnvironmentConfig.xml.
@@ -187,7 +187,6 @@ Se um caminho para um programa executável for especificado, o programa é invoc
 **Role.TopologyConsumer:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: Nenhum
 
 Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual.O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
@@ -195,7 +194,6 @@ Se um caminho para um programa executável for especificado, o programa é invoc
 **Provisioning.Enabled:**
 
 Tipo: Booleano
-
 padrão: y
 
 Isso permite que o usuário habilite ou desabilite a funcionalidade de provisionamento no agente. Os valores válidos são "y" ou "n". Se a configuração for desabilitada, as chaves SSH de host e usuário da imagem são preservadas e qualquer configuração especificada no Azure provisionamento API será ignorada.
@@ -203,7 +201,6 @@ Isso permite que o usuário habilite ou desabilite a funcionalidade de provision
 **Provisioning.DeleteRootPassword:**
 
 Tipo: Booleano
-
 padrão: n
 
 Se definido, a senha raiz no arquivo sombra é apagado durante o processo de provisionamento.
@@ -211,7 +208,6 @@ Se definido, a senha raiz no arquivo sombra é apagado durante o processo de pro
 **Provisioning.RegenerateSshHostKeyPair:**
 
 Tipo: Booleano
-
 padrão: y
 
 Se o conjunto de todos os SSH host pares de chaves (ecdsa, dsa e rsa) será excluído durante o processo de provisionamento de /etc/ssh /. E um único par de chave novo é gerado.
@@ -221,7 +217,6 @@ O tipo de criptografia para o novo par de chaves é configurável pela entrada d
 **Provisioning.SshHostKeyPairType:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: rsa
 
 Isso pode ser definido como um tipo de algoritmo de criptografia que é suportado pelo daemon SSH na máquina virtual. Os valores geralmente aceitos são "rsa", "dsa" e "ecdsa". Observe que "putty.exe" no Windows não oferece suporte a "ecdsa". Portanto, se você pretende usar putty.exe no Windows para conectar-se a uma implantação do Linux, use "rsa" ou "dsa".
@@ -229,7 +224,6 @@ Isso pode ser definido como um tipo de algoritmo de criptografia que é suportad
 **Provisioning.MonitorHostName:**
 
 Tipo: Booleano
-
 padrão: y
 
 Se definido, waagent monitorará máquina virtual Linux para alterações de nome do host (conforme retornado pelo comando "hostname") e atualizar automaticamente a configuração de rede da imagem para refletir a alteração. Para enviar a alteração do nome para os servidores DNS, a rede será reiniciado na máquina virtual. Isso resultará em resumo perda de conectividade com a Internet.
@@ -237,7 +231,6 @@ Se definido, waagent monitorará máquina virtual Linux para alterações de nom
 **ResourceDisk.Format:**
 
 Tipo: Booleano
-
 padrão: y
 
 Se definido, o disco de recursos fornecido pela plataforma será formatado e montado por waagent se o tipo de sistema de arquivos solicitado pelo usuário em "ResourceDisk.Filesystem" for algo diferente de "ntfs". Uma única partição do tipo Linux (83) será disponibilizada no disco. Observe que essa partição não será formatada se ele pode ser montado com êxito.
@@ -245,7 +238,6 @@ Se definido, o disco de recursos fornecido pela plataforma será formatado e mon
 **ResourceDisk.Filesystem:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: ext4
 
 Especifica o tipo de sistema de arquivos para o disco do recurso. Valores aceitos variam de acordo com a distribuição do Linux. Se a sequência for X, em seguida, mkfs.X deve estar presente na imagem do Linux. Imagens de 11 SLES geralmente devem utilizar 'ext3'. FreeBSD imagens devem usar 'ufs2' aqui.
@@ -253,7 +245,6 @@ Especifica o tipo de sistema de arquivos para o disco do recurso. Valores aceito
 **ResourceDisk.MountPoint:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: /mnt/resource
 
 Especifica o caminho em que o disco do recurso é montado. Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada.
@@ -261,7 +252,6 @@ Especifica o caminho em que o disco do recurso é montado. Observe que o disco d
 **ResourceDisk.EnableSwap:**
 
 Tipo: Booleano
-
 padrão: n
 
 Se definir um arquivo de permuta (/ arquivo de permuta) é criado no disco recursos e adicionado ao espaço de troca de sistema.
@@ -269,7 +259,6 @@ Se definir um arquivo de permuta (/ arquivo de permuta) é criado no disco recur
 **ResourceDisk.SwapSizeMB:**
 
 Tipo: Inteiro
-
 padrão: 0
 
 Especifica o tamanho máximo do arquivo de permuta em megabytes.
@@ -277,7 +266,6 @@ Especifica o tamanho máximo do arquivo de permuta em megabytes.
 **LBProbeResponder:**
 
 Tipo: Booleano
-
 padrão: y
 
 Se definido, waagent responderá ao balanceador de carga de testes da plataforma (se presente).
@@ -285,7 +273,6 @@ Se definido, waagent responderá ao balanceador de carga de testes da plataforma
 **Logs.Verbose:**
 
 Tipo: Booleano
-
 padrão: n
 
 Se definido, a verbosidade do log é aumentado. Waagent faz /var/log/waagent.log e aproveita a funcionalidade de logrotate do sistema para girar os logs.
@@ -293,7 +280,6 @@ Se definido, a verbosidade do log é aumentado. Waagent faz /var/log/waagent.log
 **SISTEMA OPERACIONAL.RootDeviceScsiTimeout:**
 
 Tipo: Inteiro
-
 padrão: 300
 
 Isso configura o tempo limite de SCSI em segundos nos drives de disco e os dados de SO. Se não for definido, o sistema de padrões são usados.
@@ -301,7 +287,6 @@ Isso configura o tempo limite de SCSI em segundos nos drives de disco e os dados
 **SISTEMA OPERACIONAL.OpensslPath:**
 
 Tipo: Cadeia de caracteres
-
 Padrão: Nenhum
 
 Isso pode ser usado para especificar um caminho alternativo para o openssl binário a ser usado para operações de criptografia.

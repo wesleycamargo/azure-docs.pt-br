@@ -5,10 +5,10 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 <p>Os recursos de seguran&ccedil;a do MongoDB, como autentica&ccedil;&atilde;o e associa&ccedil;&atilde;o com o endere&ccedil;o IP, n&atilde;o s&atilde;o habilitados por padr&atilde;o. Os recursos de seguran&ccedil;a devem ser ativados antes de implantar o MongoDB em um ambiente de produ&ccedil;&atilde;o.  Consulte <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Seguran&ccedil;a e autentica&ccedil;&atilde;o</a> para obter mais informa&ccedil;&otilde;es.</p>
 </div>
 
-1. Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, abra o Internet Explorer a partir do menu **Iniciar**.
-2. Selecione o botão **Ferramentas** no canto superior direito. Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione *http://\*.mongodb.org* à lista de sites confiáveis.
-3. Acesse [Downloads- MongoDB][].
-4. Localize a versão mais recente na seção **Production Release (Recommended) (Versão de produção [recomendada])** e clique no link ***2008+** na coluna Windows 64-bit (Windows 64 bits). Clique em **Salvar como** e salve o arquivo zip no desktop.
+1.  Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, abra o Internet Explorer a partir do menu **Iniciar**.
+2.  Selecione o botão **Ferramentas** no canto superior direito. Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione *http://\*.mongodb.org* à lista de sites confiáveis.
+3.  Acesse [Downloads- MongoDB][Downloads- MongoDB].
+4.  Localize a versão mais recente na seção **Production Release (Recommended) (Versão de produção [recomendada])** e clique no link \***2008+** na coluna Windows 64 bits. Clique em **Salvar como** e salve o arquivo zip no desktop.
 5.  Clique com botão direito no arquivo zip e selecione **Extrair tudo...** Especifique "C:" e clique em **Extrair**. Depois que os arquivos forem extraídos, você poderá renomear a pasta de instalação para algo mais simples. Como "MongoDB", por exemplo.
 6.  Crie diretórios de dados e de log do MongoDB no disco de dados (unidade **F:**, por exemplo) criado nas etapas acima. No menu **Iniciar**, selecione **Prompt de Comando** para abrir uma janela do prompt de comando. Tipo:
 
@@ -45,13 +45,13 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 
         C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
-    Isso cria um serviço chamado "Mongo DB" com uma descrição de "Mongo DB". A opção **--logpath** deve ser usada para especificar um arquivo de log, uma vez que o serviço em execução não terá uma janela Comando para exibir a saída. A opção **--logpath** especifica que uma reinicialização do serviço fará com que a saída seja acrescentada ao arquivo de log existente. A opção **--dbpath** especifica o local do diretório de dados. Para obter mais opções de linha de comando relacionadas ao serviço, consulte [Opções de linha de comando relacionadas ao serviço][].
+    Isso cria um serviço chamado "Mongo DB" com uma descrição de "Mongo DB". A opção **--logpath** deve ser usada para especificar um arquivo de log, uma vez que o serviço em execução não terá uma janela Comando para exibir a saída. A opção **--logpath** especifica que uma reinicialização do serviço fará com que a saída seja acrescentada ao arquivo de log existente. A opção **--dbpath** especifica o local do diretório de dados. Para obter mais opções de linha de comando relacionadas ao serviço, consulte [Opções de linha de comando relacionadas ao serviço][Opções de linha de comando relacionadas ao serviço].
 
 10. Agora que o MongoDB está instalado e em execução, você precisa abrir uma porta no Firewall do Windows para poder se conectar remotamente ao MongoDB. No menu **Iniciar**, selecione **Ferramentas Administrativas** e depois **Firewall do Windows com segurança avançada**.
 
 11. No painel esquerdo, selecione **Regras de Entrada**. À direita, no painel **Ações**, selecione **Nova Regra...**.
 
-    ![Firewall do Windows][]
+    ![Firewall do Windows][Firewall do Windows]
 
     No **Assistente para Nova Regra de Entrada**, selecione **Porta** e clique em **Avançar**.
 
@@ -75,7 +75,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 
 12. Se você não configurou um ponto de extremidade para o MongoDB quando criou a máquina virtual, pode fazer isso agora. Você precisa do ponto de extremidade e da regra de firewall para ser capaz de se conectar remotamente ao MongoDB. No Portal de Gerenciamento, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e em **Pontos de Extremidade**.
 
-    ![Pontos de extremidade][]
+    ![Pontos de extremidade][Pontos de extremidade]
 
 13. Clique em **Adicionar Ponto de Extremidade** na parte inferior da página. Selecione **Adicionar Ponto de Extremidade** e clique em **Avançar**.
 
@@ -85,7 +85,6 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 
     ![Pontos de extremidade][7]
 
-  [Segurança e autenticação]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Downloads- MongoDB]: http://www.mongodb.org/downloads
   [Opções de linha de comando relacionadas ao serviço]: http://www.mongodb.org/display/DOCS/Windows+Service
   [Firewall do Windows]: ./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png

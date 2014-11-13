@@ -1,4 +1,4 @@
-<properties linkid="virtual-machines-linux-mysql-use-opensuse" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MongoDB" pageTitle="Instalar o MongoDB em uma m&aacute;quina virtual que executa o CentOS Linux no Azure" metaKeywords="Azure, MongoDB" description="Saiba como instalar o Mongo DB em uma m&aacute;quina virtual no Azure." metaCanonical="" services="" documentationCenter="" title="Instalar o MongoDB em uma m&aacute;quina virtual que executa o CentOS Linux no Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -33,7 +33,4 @@ Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux
   [MySQL]: http://www.mysql.com
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [conta gratuita]: http://azure.microsoft.com
-  [antares-iaas-signup-iaas]: ../includes/antares-iaas-signup-iaas.md
-  [create-and-configure-opensuse-vm-in-portal]: ../includes/create-and-configure-opensuse-vm-in-portal.md
-  [install-and-run-mysql-on-opensuse-vm]: ../includes/install-and-run-mysql-on-opensuse-vm.md
   [Documentação do MySQL]: http://dev.mysql.com/doc/

@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configurar SSL para um servi&ccedil;o de nuvem (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Saiba como especificar um ponto de extremidade HTTPS para uma fun&ccedil;&atilde;o Web do Node.js e como carregar um certificado SSL para proteger seu aplicativo." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configurando o SSL para um aplicativo Node.js em uma fun&ccedil;&atilde;o de trabalho do Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure
 
@@ -9,8 +9,11 @@ proteger dados enviados pela Internet. Esta tarefa comum aborda como
 especificar um ponto de extremidade HTTPS para um aplicativo Node.js como um Serviço de Nuvem do Azure em uma função web e como carregar um
 certificado SSL para proteger seu aplicativo.
 
-<div class="dev-callout">Observa&ccedil;&atilde;o
-<p>As etapas deste artigo se aplicam somente aos aplicativos de n&oacute; hospedados como um Servi&ccedil;o de Nuvem do Azure em uma fun&ccedil;&atilde;o web. Para Sites da Web, consulte <a href="../web-sites-configure-ssl-certificate/">Configurando um certificado SSL para um site do Azure</a>.</p>
+<div class="dev-callout">
+
+Observação
+As etapas deste artigo se aplicam somente aos aplicativos de nó hospedados como um Serviço de Nuvem do Azure em uma função web. Para Sites da Web, consulte [Configurando um certificado SSL para um site do Azure][Configurando um certificado SSL para um site do Azure].
+
 </div>
 
 Esta tarefa inclui as seguintes etapas:
@@ -48,9 +51,11 @@ world' usando o PowerShell Azure utilizando estas etapas:
     ![][2]
 
     <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>Se n&atilde;o tiver importado anteriormente as configura&ccedil;&otilde;es de publica&ccedil;&atilde;o para sua assinatura do Azure, voc&ecirc; receber&aacute; um erro ao tentar publicar. Para obter informa&ccedil;&otilde;es sobre como baixar e importar as configura&ccedil;&otilde;es de publica&ccedil;&atilde;o para sua assinatura, consulte <a href="https://www.windowsazure.com/pt-BR/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">Como usar o PowerShell do Azure para o Node.js (a p&aacute;gina pode estar em ingl&ecirc;s)</a></p>
-</div>
+
+    **Observação**
+    Se não tiver importado anteriormente as configurações de publicação para sua assinatura do Azure, você receberá um erro ao tentar publicar. Para obter informações sobre como baixar e importar as configurações de publicação para sua assinatura, consulte [Como usar o PowerShell do Azure para o Node.js (a página pode estar em inglês)][Como usar o PowerShell do Azure para o Node.js (a página pode estar em inglês)]
+
+    </div>
 
 O valor da **URL do Site Criada** retornado pelo cmdlet **Publish-AzureServiceProject** contém o nome de domínio totalmente qualificado para o seu aplicativo hospedado. Você precisará obter um certificado SSL para esse nome de domínio específico totalmente qualificado e implantá-lo no Azure.
 
@@ -78,8 +83,10 @@ certificados SSL no Azure:
 Depois que você tiver um certificado, instale-o no armazenamento de certificados no seu computador de desenvolvimento. Esse certificado será recuperado e carregado no Azure como parte do seu pacote de implantação do aplicativo com base nas alterações na configuração feitas em uma etapa posterior.
 
 <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>As etapas usadas nesta se&ccedil;&atilde;o s&atilde;o baseadas na vers&atilde;o do Windows 8 do Assistente para Importa&ccedil;&atilde;o de Certificados. Se voc&ecirc; estiver usando uma vers&atilde;o anterior do Windows, as etapas listadas aqui n&atilde;o poder&atilde;o corresponder &agrave; ordem exibida no assistente. Nesse caso, leia totalmente esta se&ccedil;&atilde;o antes de usar o Assistente para Importa&ccedil;&atilde;o de Certificados para compreender quais a&ccedil;&otilde;es gerais devem ser executadas.</p>
+
+**Observação**
+As etapas usadas nesta seção são baseadas na versão do Windows 8 do Assistente para Importação de Certificados. Se você estiver usando uma versão anterior do Windows, as etapas listadas aqui não poderão corresponder à ordem exibida no assistente. Nesse caso, leia totalmente esta seção antes de usar o Assistente para Importação de Certificados para compreender quais ações gerais devem ser executadas.
+
 </div>
 
 Para importar o certificado SSL, execute as seguintes etapas:
@@ -173,9 +180,11 @@ conectar-se a ela usando HTTPS.
     ![a url do site][a url do site]
 
     <div class="dev-callout">
-<strong>Observa&ccedil;&atilde;o</strong>
-<p>Se a URL do Site exibida no portal n&atilde;o especificar HTTPS, voc&ecirc; dever&aacute; inserir manualmente a URL no navegador usando HTTPS em vez de HTTP.</p>
-</div>
+
+    **Observação**
+    Se a URL do Site exibida no portal não especificar HTTPS, você deverá inserir manualmente a URL no navegador usando HTTPS em vez de HTTP.
+
+    </div>
 
 3.  Um novo navegador será aberto e exibirá o seu site.
 
@@ -194,19 +203,20 @@ associar um certificado a um serviço]
 
 [Como configurar um certificado SSL em um ponto de extremidade HTTPS][Como configurar um certificado SSL em um ponto de extremidade HTTPS]
 
+  [Configurando um certificado SSL para um site do Azure]: ../web-sites-configure-ssl-certificate/
   [Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem]: #step1
   [Etapa 2: Obter um certificado SSL]: #step2
   [Etapa 3: Importar o certificado SSL]: #step3
   [Etapa 4: Modificar a definição do serviço e os arquivos de configuração]: #step4
   [Etapa 5: Conectar-se à Instância da Função usando HTTPS]: #step5
   [Ícone PowerShell do Azure]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
-  [install-dev-tools]: ../includes/install-dev-tools.md
   [0]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
+  [Como usar o PowerShell do Azure para o Node.js (a página pode estar em inglês)]: https://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [assistente de certificado]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [proteção de chave privada]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
   [a url do site]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
-  [Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure]: /pt-BR/develop/nodejs/common-tasks/enable-ssl-worker-role/
-  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/pt-BR/library/windowsazure/ff795779.aspx
+  [Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure]: /pt-br/develop/nodejs/common-tasks/enable-ssl-worker-role/
+  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff795779.aspx

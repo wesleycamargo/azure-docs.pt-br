@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to monitor" pageTitle="Como monitorar uma conta de armazenamento | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Saiba como monitorar uma conta de armazenamento no Azure usando o Portal de Gerenciamento." metaCanonical="" services="storage" documentationCenter="" title="Como monitorar uma conta de armazenamento" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -8,9 +8,11 @@ Você pode monitorar suas contas de armazenamento no Portal de Gerenciamento da 
 
 Até que você configure o monitoramento para uma conta de armazenamento, nenhum dado de monitoramento é coletado e os gráficos de métricas no painel e na página **Monitorar** ficam vazios.
 
-<div class="dev-callout"> 
-<b>Observa&ccedil;&atilde;o</b> 
-<p>Lembre-se de que h&aacute; custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">An&aacute;lise de armazenamento e cobran&ccedil;a</a>.</p> 
+<div class="dev-callout">
+
+**Observação**
+Lembre-se de que há custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informações, consulte [Análise de armazenamento e cobrança][Análise de armazenamento e cobrança].
+
 </div>
 
 ## Sumário
@@ -70,7 +72,7 @@ No painel, você pode escolher até seis métricas para serem traçadas no gráf
 
 ## <span id="customizemonitorpage"></span></a>Como: Personalizar a página de Monitoramento
 
-Na página de **Monitoramento**, você pode exibir o conjunto completo de métricas da sua conta de armazenamento.
+Na página de**Monitoramento**, você pode exibir o conjunto completo de métricas da sua conta de armazenamento.
 
 -   Se sua conta de armazenamento tiver a configuração de monitoramento mínimo, métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos são agregadas aos serviços de Blob, Tabela e Fila.
 
@@ -88,10 +90,12 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
     ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
 
-    <div class="dev-callout"> 
-<b>Observa&ccedil;&atilde;o</b> 
-<p>Considere os custos ao selecionar as m&eacute;tricas. Existem transa&ccedil;&otilde;es e custos de sa&iacute;da associados &agrave; atualiza&ccedil;&atilde;o das exibi&ccedil;&otilde;es do monitoramento. Para obter mais informa&ccedil;&otilde;es, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">An&aacute;lise de armazenamento e cobran&ccedil;a</a>.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Observação**
+    Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança][Análise de armazenamento e cobrança].
+
+    </div>
 
 3.  Clique em **Adicionar Métricas**.
 
@@ -143,6 +147,7 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento][Sobre o Log de Analítica do Armazenamento]
 
+  [Análise de armazenamento e cobrança]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx
   [Como: Configurar o monitoramento para uma conta de armazenamento]: #configurestoragemonitoring
   [Como: Personalizar o painel para o monitoramento]: #customizestoragemonitoring
   [Como: Personalizar a página de Monitoramento]: #customizemonitorpage
@@ -152,6 +157,8 @@ Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [Opções de monitoramento]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
   [Sobre as Métricas de Analítica de Armazenamento]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh343258.aspx
+  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
+  [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
   [ExpandCollapse]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png

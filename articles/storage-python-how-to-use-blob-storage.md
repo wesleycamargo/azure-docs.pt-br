@@ -1,6 +1,6 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
+<properties urlDisplayName="Blob Service" pageTitle="Como usar o armazenamento de blob (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Saiba como usar o servi&ccedil;o Blob do Azure para carregar, baixar, listar e excluir blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="Como usar o servi&ccedil;o Blob no Pyton" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # Como usar o serviço de armazenamento de blobs no Python
 
@@ -12,16 +12,16 @@ consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
-[O que é Armazenamento de Blob?][O que é Armazenamento de Blob?]	  
- [Conceitos][Conceitos]	  
- [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]	
- [Como: Criar um contêiner][Como: Criar um contêiner]	
- [Como: Carregar um blob em um contêiner][Como: Carregar um blob em um contêiner]	  
- [Como: Listar os blobs em um contêiner][Como: Listar os blobs em um contêiner]	  
- [Como: Baixar blobs][Como: Baixar blobs]	  
- [Como: Excluir um blob][Como: Excluir um blob]	  
- [Como: Carregar e baixar blobs grandes][Como: Carregar e baixar blobs grandes]	
- [Próximas etapas][Próximas etapas]	
+[O que é Armazenamento de Blob?][O que é Armazenamento de Blob?]
+ [Conceitos][Conceitos]
+ [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+ [Como: Criar um contêiner][Como: Criar um contêiner]
+ [Como: Carregar um blob em um contêiner][Como: Carregar um blob em um contêiner]
+ [Como: Listar os blobs em um contêiner][Como: Listar os blobs em um contêiner]
+ [Como: Baixar blobs][Como: Baixar blobs]
+ [Como: Excluir um blob][Como: Excluir um blob]
+ [Como: Carregar e baixar blobs grandes][Como: Carregar e baixar blobs grandes]
+ [Próximas etapas][Próximas etapas]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
@@ -31,13 +31,13 @@ consulte a seção [Próximas etapas][Próximas etapas].
 
 ## <a name="create-container"> </a>Como: Criar um contêiner
 
-**Observação:** Se for necessário instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python][Guia de instalação do Python].
+**Observação:** se você precisar instalar o Python ou as bibliotecas de cliente, consulte o [Guia de instalação do Python (a página pode estar em inglês)][Guia de instalação do Python (a página pode estar em inglês)].
 
 O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O
 código a seguir cria um objeto **BlobService**. Adicione o seguinte código próximo
 à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
-    from azure.storage import *
+    from azure.storage import BlobService
 
 O código a seguir cria um objeto **Serviço de blob** usando o nome da conta de armazenamento e a chave da conta. Substitua 'Minha conta' e 'mykey' com a conta real e a chave.
 
@@ -94,15 +94,16 @@ Finalmente, para excluir um blob, chame **delete\_blob**.
 
     blob_service.delete_blob('mycontainer', 'myblob') 
 
-## <a name="next-steps"> </a> Próximas etapas
+## <a name="next-steps"> </a>Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links
+Agora que você conhece os conceitos básicos do armazenamento de blobs, acesse os links a seguir
 para saber como executar tarefas de armazenamento mais complexas.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][Armazenando e acessando dados no Azure]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][Blog da Equipe de Armazenamento do Azure]
 
   [Próximas etapas]: #next-steps
+  [O que é Armazenamento de Blob?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
   [Como: Criar um contêiner]: #create-container
@@ -111,8 +112,6 @@ para saber como executar tarefas de armazenamento mais complexas.
   [Como: Baixar blobs]: #download-blobs
   [Como: Excluir um blob]: #delete-blobs
   [Como: Carregar e baixar blobs grandes]: #large-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [Guia de instalação do Python]: ../python-how-to-install/
+  [Guia de instalação do Python (a página pode estar em inglês)]: ../python-how-to-install/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
