@@ -1,6 +1,6 @@
 <properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Create a Line-of-Business Application on Azure Websites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Criar um aplicativo de linha de negócios em Sites do Azure
 
@@ -132,41 +132,48 @@ Além de exibir os registros brutos por meio de utilitários FTP ou armazenament
 
 O Azure permite que você para hospede aplicativos de intranet seguras na nuvem. O Active Directory do Azure fornece a capacidade de autenticar usuários, para que somente os membros da sua organização possam acessar os aplicativos. O serviço de retransmissão do Service Bus fornece um mecanismo para aplicativos da web para comunicar-se com dados e serviços locais. Essa abordagem de aplicativo híbrido torna mais fácil publicar um aplicativo de negócios para a nuvem sem migrar todos os dados e serviços. Uma vez implantados, os aplicativos de negócios beneficiam da escala padrão e das capacidades de monitoramento fornecidas pelos sites do Azure. Para mais informações, consulte os seguintes artigos técnicos.
 
-| Área                             | Recursos                                                                                                                                                 |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Plano**                        | - [Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?][Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?]                                                                     |
-| **Criar e implantar**            | - [Implantando um aplicativo da Web do ASP.NET a um site do Azure][Implantando um aplicativo da Web do ASP.NET a um site do Azure]                                                                                     
-                                    -[Implantar um aplicativo seguro ASP.NET MVC para o Azure][Implantar um aplicativo seguro ASP.NET MVC para o Azure]                                                                                              |
-| **Autenticação**                 | - [Compreender as opções de identidade do Azure][Compreender as opções de identidade do Azure]                                                                                                       
-                                    - [Serviço Active Directory do Azure][2]                                                                                                                  
-                                    - [O que é um locatário AD Azure?][O que é um locatário AD Azure?]                                                                                                                      
-                                    - [Adicionar registro único para seu aplicativo da web usando o AD do Azure][Adicionando registro único para seu aplicativo da Web usando o AD do Azure]  
-                                    - [Tutorial de autenticação do Azure][Autenticação do Azure]                                                                                              |
-| **Retransmissão do Service Bus** | - [Como usar o serviço de retransmissão do Service Bus][3]                                                                                               
-                                    - [Tutorial de mensagens de retransmissão do Service Bus][Tutorial de mensagens retransmitido do Service Bus]                                             |
-| **Monitoramento**                | - [Como monitorar sites da web][Como monitorar sites da web]                                                                                                                        
-                                    - [Como receber notificações de alerta e gerenciar regras de alerta no Azure][Como receber notificações de alerta e gerenciar regras de alerta no Azure]                                                                           
-                                    - [Como configurar diagnósticos e fazer download de logs para um site da web][4]                                                                          
-                                    - [Solucionando problemas dos sites da web do Azure no Visual Studio][Solucionando problemas dos sites da web do Azure no Visual Studio]                                                                                   |
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="top">&Aacute;rea</th>
+   <th align="left" valign="top">Recursos</th>
+</tr>
+<tr>
+   <td valign="middle"><strong>Plano</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/choose-web-app-service">Sites do Azure, servi&ccedil;os de nuvem e m&aacute;quinas virtuais: Quando usar qual op&ccedil;&atilde;o?</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Criar e implantar</strong></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/pt-br/develop/net/tutorials/get-started/">Implantando um aplicativo da Web do ASP.NET a um site do Azure</a><br/>-<a href="http://www.windowsazure.com/pt-br/develop/net/tutorials/web-site-with-sql-database/">Implantar um aplicativo seguro ASP.NET MVC para o Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Autentica&ccedil;&atilde;o</strong></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/pt-br/manage/windows/fundamentals/identity/">Compreender as op&ccedil;&otilde;es de identidade do Azure</a><br/>- <a href="http://www.windowsazure.com/pt-br/documentation/services/active-directory/">Servi&ccedil;o Active Directory do Azure</a><br/>- <a href="http://technet.microsoft.com/pt-br/library/jj573650.aspx">O que &eacute; um locat&aacute;rio AD Azure?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Adicionar registro &uacute;nico para seu aplicativo da web usando o AD do Azure</a><br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Tutorial de autentica&ccedil;&atilde;o do Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Retransmiss&atilde;o do Service Bus</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-relay/">Como usar o servi&ccedil;o de retransmiss&atilde;o do Service Bus</a><br/>- <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/ee706736.aspx">Tutorial de mensagens de retransmiss&atilde;o do Service Bus</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Monitoramento</strong></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/">Como monitorar sites da web</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">Como receber notifica&ccedil;&otilde;es de alerta e gerenciar regras de alerta no Azure</a><br/>- <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">Como configurar diagn&oacute;sticos e fazer download de logs para um site da web</a><br/>- <a href="http://www.windowsazure.com/pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Solucionando problemas dos sites da web do Azure no Visual Studio</a></td>
+</tr>
+</table>
+
 
   [Sites do Azure]: /pt-br/documentation/services/web-sites/
   [Serviços de nuvem do Azure]: /pt-br/documentation/services/cloud-services/
   [Máquinas virtuais do Azure]: /pt-br/documentation/services/virtual-machines/
-  [Sites do Azure, serviços de nuvem e MVs:Quando usar qual opção?]: /pt-br/manage/services/web-sites/choose-web-app-service
   [Considere os benefícios]: #benefits
   [Escolha uma estratégia de autenticação]: #authentication
   [Crie um site do Azure que oferece suporte à autenticação]: #createintranetsite
   [Use o Service Bus para integrar recursos no local]: #servicebusrelay
   [Monitore seu aplicativo]: #monitor
-  [Presença Global da Web]: http://www.windowsazure.com/pt-br/manage/services/web-sites/global-web-presence-solution-overview/
-  [Campanhas de Marketing Digital]: http://www.windowsazure.com/pt-br/manage/services/web-sites/digital-marketing-campaign-solution-overview
   [Serviço Active Directory do Azure]: /pt-br/documentation/services/active-directory/
   [Usando o Active Directory do Azure]: /pt-br/manage/windows/fundamentals/identity/#ad
   [Executando o Active Directory do Windows Server em MVs]: /pt-br/manage/windows/fundamentals/identity/#adinvm
   [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090.aspx
   [Access Control Service do Azure]: http://msdn.microsoft.com/library/windowsazure/hh147631.aspx
   [Usando o Access Control do Active Directory do Azure]: /pt-br/manage/windows/fundamentals/identity/#ac
-  [O que é um locatário AD Azure?]: http://technet.microsoft.com/pt-br/library/jj573650.aspx
   [BusinessApplicationsAzureAD]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AzureAD.png
   [BusinessApplicationsADUsers]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_Users.png
   [Adicionando registro único para seu aplicativo da Web usando o AD do Azure]: http://msdn.microsoft.com/library/windowsazure/dn151790.aspx
@@ -197,13 +204,3 @@ O Azure permite que você para hospede aplicativos de intranet seguras na nuvem.
   [BusinessApplicationsDiagRetention]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diag_Retention.png
   [Como configurar diagnósticos e fazer download de logs para um site da web]: /pt-br/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
   [Solucionando problemas de sites do Azure no Visual Studio]: /pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?]: http://www.windowsazure.com/pt-br/manage/services/web-sites/choose-web-app-service
-  [Implantando um aplicativo da Web do ASP.NET a um site do Azure]: http://www.windowsazure.com/pt-br/develop/net/tutorials/get-started/
-  [Implantar um aplicativo seguro ASP.NET MVC para o Azure]: http://www.windowsazure.com/pt-br/develop/net/tutorials/web-site-with-sql-database/
-  [Compreender as opções de identidade do Azure]: http://www.windowsazure.com/pt-br/manage/windows/fundamentals/identity/
-  [2]: http://www.windowsazure.com/pt-br/documentation/services/active-directory/
-  [3]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-relay/
-  [Como monitorar sites da web]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/
-  [Como receber notificações de alerta e gerenciar regras de alerta no Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [4]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
-  [Solucionando problemas dos sites da web do Azure no Visual Studio]: http://www.windowsazure.com/pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/

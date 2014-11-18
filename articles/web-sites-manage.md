@@ -1,6 +1,6 @@
 <properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage websites - Microsoft Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # <a name="howtomanage"></a>Gerenciar sites por meio do Portal de Gerenciamento do Azure
 
@@ -154,36 +154,38 @@ Cada site tem suas próprias credenciais de perfil de publicação. Para ver ess
 
 O arquivo de perfil de publicação é um arquivo XML. Contém dois perfis, um para Implantação web, e outro para FTP.
 
-    <publishData>
-      <publishProfile
-        profileName="contoso - Web Deploy"
-        publishMethod="MSDeploy"
-        publishUrl="contoso.scm.azurewebsites.net:443"
-        msdeploySite="contoso"
-        userName="$contoso"
-        userPWD="abc1234..."
-        destinationAppUrl="http://contoso.azurewebsites.net"
-        SQLServerDBConnectionString=""
-        mySQLDBConnectionString=""
-        hostingProviderForumLink="" 
-        controlPanelLink="http://windows.azure.com">
-        <databases/>
-      </publishProfile>
-      <publishProfile 
-        profileName="contoso - FTP" 
-        publishMethod="FTP" 
-        publishUrl="ftp://waws-prod-bay-003.ftp.azurewebsites.windows.net/site/wwwroot" 
-        ftpPassiveMode="True" 
-        userName="contoso\$contoso" 
-        userPWD=" abc1234..."  
-        destinationAppUrl="http://contoso.azurewebsites.net" 
-        SQLServerDBConnectionString="" 
-        mySQLDBConnectionString="" 
-        hostingProviderForumLink="" 
-        controlPanelLink="http://windows.azure.com">
-        <databases/>
-      </publishProfile>
-    </publishData>
+<pre>
+&lt;publishData&gt;
+  &lt;publishProfile
+    profileName="contoso - Web Deploy"
+    publishMethod="MSDeploy"
+    publishUrl="contoso.scm.azurewebsites.net:443"
+    msdeploySite="contoso"
+    userName="$contoso"
+    userPWD="abc1234..."
+    destinationAppUrl="http://contoso.azurewebsites.net"
+    SQLServerDBConnectionString=""
+    mySQLDBConnectionString=""
+    hostingProviderForumLink="" 
+    controlPanelLink="http://windows.azure.com"&gt;
+    &lt;databases/&gt;
+  &lt;/publishProfile&gt;
+  &lt;publishProfile 
+    profileName="contoso - FTP" 
+    <mark>publishMethod="FTP"</mark> 
+    publishUrl="ftp://waws-prod-bay-003.ftp.azurewebsites.windows.net/site/wwwroot" 
+    ftpPassiveMode="True" 
+    <mark>userName="contoso\$contoso"</mark> 
+    <mark>userPWD=" abc1234..."</mark>  
+    destinationAppUrl="http://contoso.azurewebsites.net" 
+    SQLServerDBConnectionString="" 
+    mySQLDBConnectionString="" 
+    hostingProviderForumLink="" 
+    controlPanelLink="http://windows.azure.com"&gt;
+    &lt;databases/&gt;
+  &lt;/publishProfile&gt;
+&lt;/publishData&gt;
+</pre>
 
 Procure o perfil com `publishMethod="FTP"`. O nome de usuário está listado em `userName`, e a senha está listada em `userPWD`.
 
@@ -194,10 +196,5 @@ Para redefinir a senha, clique em **Redefinir suas credenciais de perfil publica
 
   [Instalar o WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [SDK do Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=246928
-  [Como monitorar sites (a página pode estar em inglês)]: http://www.windowsazure.com/pt-BR/manage/services/web-sites/how-to-monitor-websites/
   [Credenciais FTP]: #ftp-credentials
-  [Como dimensionar um site (a página pode estar em inglês)]: http://www.windowsazure.com/pt-BR/manage/services/web-sites/how-to-scale-websites
-  [Como usar o recurso Trabalhos Web em Sites do Microsoft Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-BR/documentation/articles/web-sites-create-web-jobs/
   [Como configurar sites]: http://www.windowsazure.com/pt-BR/manage/services/web-sites/how-to-configure-websites
-  [Backups de sites do Microsoft Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-BR/documentation/articles/web-sites-backup/
-  [Restaurar um site do Microsoft Azure (a página pode estar em inglês)]: http://www.windowsazure.com/pt-BR/documentation/articles/web-sites-restore/

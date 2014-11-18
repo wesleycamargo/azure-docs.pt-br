@@ -1,6 +1,6 @@
 <properties linkid="websites-digital-marketing" urlDisplayName="Resources" pageTitle="Create a Digital Marketing Campaign on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Criar uma campanha de marketing digital nos sites do Azure
 
@@ -116,31 +116,50 @@ Por fim, sites do modo padrão podem habilitar o monitoramento e alerta de ponto
 
 Os sites do Azure são uma boa opção para conteúdo da web reutilizável que é personalizado para campanhas de marketing individual. Os sites suportam várias linguagens populares, estruturas e sistemas de controle de origem, facilitando a migração para esses ativos e fluxos de trabalho para a nuvem. O modelo de aplicativo para Facebook ASP.NET torna mais fácil criar aplicativos do Facebook, mas você pode usar praticamente qualquer integração de mídia social de terceiros que suporta interfaces da web. Os serviços de mídia do Azure e outros serviços relacionados no Azure fornecem ferramentas adicionais para construir um site de campanha bem projetado. E as várias opções de dimensionamento automático e manual são úteis para lidar com a demanda do usuário, que pode ser difícil de prever. Para mais informações, consulte os seguintes artigos técnicos.
 
-| Área               | Recursos                                                                                                                                                                                             |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Plano**          | - [Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?][Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?]                                                                                                                 |
-| **Criar**          | - [Como criar e implantar um site][Como criar e implantar um site]                                                                                                                                                                 |
-| **Implantar**      | - [Como implantar um site do Azure][Como implantar um site do Azure]                                                                                                                                                                
-                      - [Publicando do Controle do código-fonte para sites do Azure.][Publicando do Controle do código-fonte para sites do Azure.]                                                                                                                                     |
-| **Mídia social**   | - [Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e banco de dados SQL][Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e banco de dados SQL]                                                                                                    
-                      - [Criar um aplicativo do Facebook usando modelos do Facebook ASP.NET MVC][Criando um aplicativo do Facebook usando modelos do Facebook ASP.NET MVC e hospedando-os gratuitamente em sites do Azure]  
-                      - [Biblioteca e modelo de aplicativo do Facebook ASP.NET MVC][O novo modelo de aplicativo do Facebook e a biblioteca do ASP.NET MVC]                                                                  |
-| **Escala**         | - [Como dimensionar sites][1]                                                                                                                                                                        |
-| **Mídia avançada** | - [Introdução aos conceitos e cenários dos Serviços de Mídia do Azure][Introdução aos cenários e conceitos de serviços de mídia do Azure]                                                            |
-| **Monitoramento**  | - [Como monitorar Sites][Como monitorar Sites]                                                                                                                                                                           
-                      - [como: receber notificações de alerta e gerenciar regras de alerta no Azure][Como receber notificações de alerta e gerenciar regras de alerta no Azure]                                             |
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="top">&Aacute;rea</th>
+   <th align="left" valign="top">Recursos</th>
+</tr>
+<tr>
+   <td valign="middle"><strong>Plano</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/choose-web-app-service">Sites do Azure, servi&ccedil;os de nuvem e m&aacute;quinas virtuais: Quando usar qual op&ccedil;&atilde;o?</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Criar</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-create-websites/">Como criar e implantar um site</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Implantar</strong></td>
+   <td valign="top">- <a href="http://azure.microsoft.com/pt-br/documentation/articles/web-sites-deploy/">Como implantar um site do Azure</a><br/>- <a href="http://www.windowsazure.com/pt-br/develop/net/common-tasks/publishing-with-git/"> Publicando do Controle do c&oacute;digo-fonte para sites do Azure.</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>M&iacute;dia social</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/develop/net/tutorials/web-site-with-sql-database/">Implantar um aplicativo de seguran&ccedil;a ASP.NET MVC com associa&ccedil;&atilde;o, OAuth e banco de dados SQL</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">Criar um aplicativo do Facebook usando modelos do Facebook ASP.NET MVC</a><br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">Biblioteca e modelo de aplicativo do Facebook ASP.NET MVC</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Escala</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-scale-websites/">Como dimensionar sites</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>M&iacute;dia avan&ccedil;ada</strong></td>
+   <td valign="top">- <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn223282.aspx">Introdu&ccedil;&atilde;o aos conceitos e cen&aacute;rios dos Servi&ccedil;os de M&iacute;dia do Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Monitoramento</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/">Como monitorar Sites</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">como: receber notifica&ccedil;&otilde;es de alerta e gerenciar regras de alerta no Azure</a></td>
+</tr>
+</table>
+
 
   [Sites da Web do Azure]: /pt-br/documentation/services/web-sites/
   [serviços de nuvem do Azure]: /pt-br/documentation/services/cloud-services/
   [máquinas virtuais do Azure]: /pt-br/documentation/services/virtual-machines/
-  [Sites do Azure, serviços de nuvem e MVs:Quando usar qual opção?]: /pt-br/manage/services/web-sites/choose-web-app-service
   [Implantar Sites existentes]: #deployexisting
   [Integração com a mídia Social]: #socialmedia
   [Escala com a demanda do usuário]: #scale
   [Integração com outros serviços]: #integrate
   [Monitorar a campanha]: #monitor
-  [Presença Global da Web]: http://www.windowsazure.com/pt-br/manage/services/web-sites/global-web-presence-solution-overview/
-  [Aplicativos de Negócios]: http://www.windowsazure.com/pt-br/manage/services/web-sites/business-application-solution-overview
   [revisar essas informações]: /pt-br/manage/services/web-sites/global-web-presence-solution-overview/
   [DigitalMarketingDeploy1]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy1.png
   [DigitalMarketingDeploy2]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy2.png
@@ -160,18 +179,9 @@ Os sites do Azure são uma boa opção para conteúdo da web reutilizável que �
   [diretrizes de preços para Sites da Web]: https://www.windowsazure.com/pt-br/pricing/details/web-sites/
   [DigitalMarketingAutoScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_AutoScale.png
   [Como dimensionar sites]: /pt-br/manage/services/web-sites/how-to-scale-websites/
-  [Como dimensionar um serviço de nuvem]: http://www.windowsazure.com/pt-br/manage/services/cloud-services/how-to-scale-a-cloud-service/
   [Introdução aos cenários e conceitos de serviços de mídia do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223282.aspx
-  [Serviço de cache do Azure (visualização)]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn386094.aspx
   [DigitalMarketingMonitor]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Monitor.png
-  [Como monitorar sites (a página pode estar em inglês)]: /pt-br/manage/services/web-sites/how-to-monitor-websites/
   [DigitalMarketingUsageOverview]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_UsageOverview.png
   [Gerenciamento de desempenho de aplicativo da Nova Relíquia no Azure]: /pt-br/develop/net/how-to-guides/new-relic/
   [Como receber notificações de alerta e gerenciar regras de alerta no Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?]: http://www.windowsazure.com/pt-br/manage/services/web-sites/choose-web-app-service
-  [Como criar e implantar um site]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-create-websites/
-  [Como implantar um site do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/web-sites-deploy/
-  [Publicando do Controle do código-fonte para sites do Azure.]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/publishing-with-git/
-  [Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e banco de dados SQL]: http://www.windowsazure.com/pt-br/develop/net/tutorials/web-site-with-sql-database/
-  [1]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-scale-websites/
-  [Como monitorar Sites]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/
+  [Serviço de cache do Azure (visualização)]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn386094.aspx

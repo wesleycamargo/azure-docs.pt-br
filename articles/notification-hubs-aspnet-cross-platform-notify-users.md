@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-aspnet" urlDisplayName="Notify Users xplat aspnet" pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Enviar notificações entre plataformas a usuários com Hubs de Notificação
 
@@ -81,7 +81,11 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 -   **[Instruções sobre Hub de Notificação para a Windows Store][Instruções sobre Hub de Notificação para a Windows Store]**
     Inclui uma referência de linguagem de expressão do modelo.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+
+<!-- Images. --> 
+
+<!-- URLs. -->
 
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
   [Visão geral de Hubs de Notificação do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=317339

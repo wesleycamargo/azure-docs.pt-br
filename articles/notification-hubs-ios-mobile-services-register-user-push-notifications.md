@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-ios" urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Registrar o usuário atual para notificações por push usando um serviço móvel
 
@@ -99,10 +99,11 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação][Notificar usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
 
-  [Windows Store C#]: /pt-br/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows Store C#"
-  [iOS]: /pt-br/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
+<!-- Images. --> 
+
+<!-- URLs. -->
+
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios/
-  [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/

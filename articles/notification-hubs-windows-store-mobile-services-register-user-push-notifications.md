@@ -102,8 +102,8 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
         await RegisterNotification();
 
     <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
-<p>Isso garante que o registro seja solicitado sempre que a p&aacute;gina for carregada. Em seu aplicativo, conv&eacute;m fazer esse registro periodicamente apenas para garantir que o registro seja atual.</p>
-</div>
+    <p>Isso garante que o registro seja solicitado sempre que a p&aacute;gina for carregada. Em seu aplicativo, conv&eacute;m fazer esse registro periodicamente apenas para garantir que o registro seja atual.</p>
+    </div>
 
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação][Notificar usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
