@@ -1,10 +1,10 @@
 <properties linkid="manage-services-identity-organization-account" urlDisplayName="Organization accounts" pageTitle="Sign up for Azure as an organization" metaKeywords="" description="Learn how you can use an organizational account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have improve efficiencies between your organization's on-premises identity infrastructure and Azure AD." metaCanonical="" services="active-directory" documentationCenter="" title="Sign up for Azure as an organization" authors="terrylan" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Inscrever-se no Azure como uma organização
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Até recentemente, era possível se inscrever para uma nova assinatura do Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Agora, o Azure oferece suporte aos dois seguintes métodos de conta para inscrição:
 
@@ -22,8 +22,7 @@ Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora mesmo*
 -   [Biblioteca do AD do Azure na TechNet][Biblioteca do AD do Azure na TechNet]
 -   [Biblioteca do AD do Azure no MSDN][Biblioteca do AD do Azure no MSDN]
 
-  [disclaimer]: ../includes/disclaimer.md
-  [Saiba mais]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
+  [Saiba mais]: http://windows.microsoft.com/pt-br/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/pt-br/library/jj573650
   [**Inscreva-se agora mesmo**]: http://go.microsoft.com/fwlink/?LinkId=269967
   [O que é o AD do Azure?]: /pt-br/manage/services/identity/what-is-windows-azure-active-directory/

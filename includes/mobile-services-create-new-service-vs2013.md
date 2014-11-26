@@ -2,21 +2,21 @@ As etapas a seguir criam um novo serviço móvel no Azure e adicionam o código 
 
 1.  No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito no projeto, clique em **Adicionar** e, em seguida, em **Serviço Conectado**.
 
-    ![adicionar serviço conectado][]
+    ![adicionar serviço conectado][adicionar serviço conectado]
 
 2.  No diálogo Gerenciador de Serviços, clique em **Criar serviço...**, selecione **\<Importar...\>** em **Assinatura** no diálogo Criar Serviço Móvel.
 
-    ![criar um novo serviço móvel do VS 2013][]
+    ![criar um novo serviço móvel do VS 2013][criar um novo serviço móvel do VS 2013]
 
 3.  Em Importar Assinaturas do Azure, clique em **Baixar arquivo de assinatura**, faça logon em sua conta do Azure (se necessário) e clique em **Salvar** quando o navegador solicitar que você salve o arquivo.
 
-    ![baixe o arquivo de inscrição no VS][]
+    ![baixe o arquivo de inscrição no VS][baixe o arquivo de inscrição no VS]
 
     <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>A janela de logon &eacute; exibida no navegador, que pode estar por tr&aacute;s da janela do Visual Studio. Lembre-se de anotar onde salvou o arquivo. publishsettings baixado. Voc&ecirc; poder&aacute; ignorar esta etapa se o seu projeto j&aacute; estiver conectado &agrave; sua assinatura do Azure.</p></div>
 
 4.  Clique em **Procurar**, navegue para o local em que salvou o arquivo .publishetings, selecione o arquivo, clique em **Abrir** e então em **Importar**.
 
-    ![importar assinatura no VS][]
+    ![importar assinatura no VS][importar assinatura no VS]
 
     O Visual Studio importa os dados necessários para conectar-se à sua assinatura do Azure. Quando sua assinatura já tem um ou mais serviços móveis existentes, são exibidos os nomes de serviço.
 
@@ -28,7 +28,7 @@ As etapas a seguir criam um novo serviço móvel no Azure e adicionam o código 
 
 6.  Em **Banco de Dados**, selecione **\<Criar um Banco de Dados SQL gratuito\>**, forneça o **Nome de usuário do servidor**, a **Senha do servidor** e a **Confirmação de senha do servidor**. Depois, clique em **Criar**.
 
-    ![criar serviço de VS 2013 parte 2][]
+    ![criar serviço de VS 2013 parte 2][criar serviço de VS 2013 parte 2]
 
     > [WACOM.NOTE]
     > Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL gratuito. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Você só pode ter uma instância de banco de dados gratuito. Se você já tiver um banco de dados na mesma região como novo serviço móvel, você poderá escolher o banco de dados existente. Ao escolher um banco de dados existente, certifique-se de que você forneça as credenciais de login corretas. Se você fornecer credenciais de login incorreto, o serviço móvel é criado em um estado não íntegro.

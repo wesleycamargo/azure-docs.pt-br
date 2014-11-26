@@ -165,9 +165,9 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
      
 	Mostra como usar APIs personalizadas para oferecer suporte a notificações periódicas que atualizam blocos ao vivo em um aplicativo da Windows Store.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Habilitar o controle do código-fonte no seu serviço móvel]: #enable-source-control
   [Instalar o Git e criar o repositório local]: #clone-repo

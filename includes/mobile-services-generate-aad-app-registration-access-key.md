@@ -1,4 +1,4 @@
-1.  Clique na guia **Aplicativos** na sua página de diretório no [Portal de Gerenciamento do Azure][].
+1.  Clique na guia **Aplicativos** na sua página de diretório no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  Clique no registro integrado do seu aplicativo.
 
@@ -12,7 +12,7 @@
 
     ![](./media/mobile-services-generate-aad-app-registration-access-key/app-perms.png)
 
-7.  No [Portal de Gerenciamento do Azure][], navegue de volta a seu serviço móvel e clique na guia **Configurar**. Role para baixo até a seção **configurações de aplicativo**, adicione as configurações de aplicativo a seguir e clique em **Salvar**.
+7.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], navegue de volta a seu serviço móvel e clique na guia **Configurar**. Role para baixo até a seção **configurações de aplicativo**, adicione as configurações de aplicativo a seguir e clique em **Salvar**.
 
     <table border="1">
     <tr>

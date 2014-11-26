@@ -201,11 +201,10 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 -   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Baixar o projeto do aplicativo Xamarin.iOS]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Criar o serviço móvel]: #create-service
   [Adicionar uma tabela de dados para armazenamento]: #add-table
@@ -214,7 +213,6 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
   [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png

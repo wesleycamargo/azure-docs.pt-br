@@ -6,7 +6,7 @@ Nesta seção você usará o Visual Studio para hospedar o aplicativo e o servi�
 
 3.  Digite um novo texto de todoitem. Em seguida, clique em **Salvar**. Isso insere um novo todoItem no banco de dados criado pelo serviço móvel hospedado localmente no IIS Express.
 
-    ![][]
+    ![][0]
 
 4.  Clique na caixa de seleção de um dos itens para marcá-lo como concluído.
 
@@ -16,6 +16,6 @@ Nesta seção você usará o Visual Studio para hospedar o aplicativo e o servi�
 
     ![][2]
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png

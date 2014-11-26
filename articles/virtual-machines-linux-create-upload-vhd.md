@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload a VHD" pageTitle="Criar e carregar um VHD Linux no Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Saiba como criar e carregar um VHD (disco r&iacute;gido virtual) do Azure que contenha um sistema operacional Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Criando e carregando um disco r&iacute;gido virtual que cont&eacute;m o sistema operacional Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
 
@@ -20,15 +20,27 @@ Este artigo pressupõe que você tenha os seguintes itens:
 
 -   **Um certificado de gerenciamento** - Você criou um certificado de gerenciamento para a assinatura para a qual você deseja carregar um VHD e exportou o certificado para um arquivo .cer. Para obter mais informações sobre como criar certificados, consulte [Criar um certificado de gerenciamento para o Azure (a página pode estar em inglês)][Criar um certificado de gerenciamento para o Azure (a página pode estar em inglês)].
 
--   **Sistema operacional Linux instalado em um arquivo .vhd** — Você instalou um sistema operacional Linux com suporte em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd — por exemplo, você pode usar uma solução de virtualização como o Hyper-V para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual][Instalar a função Hyper-V e configurar uma máquina Virtual].
+-   **Sistema operacional Linux instalado em um arquivo .vhd.** - Você instalou um sistema operacional que suporta Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd. Você pode usar uma solução de virtualização, como o Hyper-V, para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual][Instalar a função Hyper-V e configurar uma máquina Virtual].
 
     **Importante**: Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
 
-    Para obter uma lista de distribuições endossadas, consulte [Linux no Azure-Distribuições endossadas][Linux no Azure-Distribuições endossadas]. Como alternativa, confira a seção no final deste artigo referente a [informações sobre distribuições não endossadas][informações sobre distribuições não endossadas].
+    Para obter uma lista de distribuições endossadas, consulte [Linux no Azure-Distribuições endossadas][Linux no Azure-Distribuições endossadas]. Como alternativa, consulte a seção no final deste artigo referente a [informações para distribuições não endossadas][informações para distribuições não endossadas].
 
--   **Ferramenta de linha de comando do Linux Azure** — Se você estiver usando um sistema operacional Linux para criar sua imagem, use as [ferramentas de linha de comando do Azure para Linux e Mac][ferramentas de linha de comando do Azure para Linux e Mac] para carregar o VHD.
+-   **Ferramenta de linha de comando do Linux Azure.** Se você estiver usando um sistema operacional Linux para criar sua imagem, use essa ferramenta para carregar o arquivo VHD. Para baixar a ferramenta, consulte [Ferramentas de linha de comando do Azure para Linux e Mac][Ferramentas de linha de comando do Azure para Linux e Mac].
 
--   **Ferramentas PowerShell do Azure** — o cmdlet `Add-AzureVhd` também pode ser usado para carregar o VHD. Acesse a página de [downloads do Azure][downloads do Azure] para baixar os cmdlets do PowerShell do Azure. Para obter informações de referência, consulte [Add-AzureVhd (a página pode estar em inglês)][Add-AzureVhd (a página pode estar em inglês)].
+-   **Cmdlet Add-AzureVhd**, que faz parte do módulo do PowerShell do Azure. Para baixar o módulo, consulte [Downloads do Azure][Downloads do Azure] (a página pode estar em inglês). Para obter informações de referência, consulte [Add-AzureVhd (a página pode estar em inglês)][Add-AzureVhd (a página pode estar em inglês)].
+
+**Para todas as distribuições, observe o seguinte:**
+
+-   Ao instalar o sistema Linux é recomendável que você utilize partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas.
+
+-   O Agente Linux do Azure (waagent) não é compatível com o NetworkManager. A configuração de rede deve ser controlável por meio de scripts de ifup/ifdown. A maioria dos pacotes RPM/Deb fornecidos pelas distribuições configuram o NetworkManager como um conflito para o pacote do waagent e, portanto, desinstalarão o NetworkManager quando você instalar o pacote do Agente Linux. O Agente Linux do Azure também exige que o pacote python-pyasn1 esteja instalado.
+
+-   NUMA não tem suporte para tamanhos maiores de VM devido a um bug nas versões de kernel do Linux inferiores à 2.6.37. A instalação manual do waagent desabilitará automaticamente o NUMA na configuração do GRUB para o kernel do Linux. Esse problema afeta principalmente distribuições que usam o kernel upstream do Red Hat 2.6.32.
+
+-   Recomendamos que você não crie uma partição SWAP no momento da instalação. Você pode configurar o espaço SWAP usando o Agente Linux do Azure. Também não recomendamos usar o kernel base do Linux com uma máquina virtual do Azure sem o patch disponível no [Site da Microsoft][Site da Microsoft] (muitas distribuições/kernels atuais já podem incluir essa correção).
+
+-   Todos os VHDs devem ter tamanhos que são múltiplos de 1 MB.
 
 Esta tarefa inclui as seguintes etapas:
 
@@ -39,15 +51,533 @@ Esta tarefa inclui as seguintes etapas:
 
 ## <span id="prepimage"></span> </a>Etapa 1: Preparar a imagem a ser carregada
 
-O Microsoft Azure é compatível com diversas distribuições Linux (confira [Distribuições endossadas][Linux no Azure-Distribuições endossadas]). Os artigos a seguir guiam você pela preparação das diversas distribuições do Linux que são compatíveis com o Azure:
+### Preparar o CentOS 6.2+
 
--   **[Distribuições com base em CentOS][Distribuições com base em CentOS]**
--   **[Oracle Linux][Oracle Linux]**
--   **[SLES e openSUSE][SLES e openSUSE]**
--   **[Ubuntu][Ubuntu]**
--   **[Outros — Informações para as distribuições não endossadas][informações sobre distribuições não endossadas]**
+Certifique-se de que essas etapas de configuração foram feitas no sistema operacional para que a máquina virtual possa ser usada como imagem
 
-Após as etapas descritas acima, você deve ter um arquivo VHD pronto para carregamento no Azure.
+1.  No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
+
+2.  Clique em **Conectar** para abrir a janela da máquina virtual.
+
+3.  Desinstale o NetworkManager executando o seguinte comando:
+
+        rpm -e --nodeps NetworkManager
+
+    **Observação:**Se o pacote ainda não foi instalado, esse comando falhará com uma mensagem de erro. Isso é esperado.
+
+4.  Crie um arquivo chamado **rede** no diretório `/etc/sysconfig/` que contém o seguinte texto:
+
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
+
+5.  Crie um arquivo chamado **ifcfg-eth0** no diretório `/etc/sysconfig/network-scripts/` que contém o seguinte texto:
+
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+
+6.  Mova (ou remova) as regras de udev para evitar a geração de regras estáticas da interface Ethernet. Essas regras provocam problemas ao clonar uma máquina virtual no Windows Azure ou no Hyper-V:
+
+        # sudo mkdir -m 0700 /var/lib/waagent
+        # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+        # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+
+7.  Certifique-se de que o serviço de rede será iniciado na inicialização executando o seguinte comando:
+
+        # chkconfig network on
+
+8.  **Somente CentOS 6.2 ou 6.3**: Instale os drivers dos Serviços de Integração Linux
+
+    **Observação:** A etapa só é válida para CentOS 6.2 e 6.3. Os serviços de integração do Linux em CentOS 6.4 + já estão disponíveis no kernel.
+
+    a) Obtenha o arquivo .iso que contém os drivers dos Serviços de Integração Linux do [Centro de Download][Centro de Download].
+
+    b) No Gerenciador do Hyper-V, no painel **Ações**, clique em **Configurações**.
+
+    ![Abrir configurações do Hyper-V][Abrir configurações do Hyper-V]
+
+    c) No painel **Hardware**, clique em **Controlador IDE 1**.
+
+    ![Adicionar unidade de DVD com mídia de instalação][Adicionar unidade de DVD com mídia de instalação]
+
+    d) Na caixa **Controlador IDE**, clique em **Unidade de DVD** e em **Adicionar**.
+
+    e) Selecione o **Arquivo de imagem**, navegue até **Linux IC v3.2.iso** e clique em **Abrir**.
+
+    f) Na página **Configurações**, clique em **OK**.
+
+    g) Clique em **Conectar** para abrir a janela para a máquina virtual.
+
+    h) Na janela Prompt de comando, digite os seguintes comandos:
+
+        mount /dev/cdrom /media
+        /media/install.sh
+        reboot
+
+9.  Instale o python-pyasn1 executando o seguinte comando:
+
+        # sudo yum install python-pyasn1
+
+10. Substitua o arquivo /etc/yum.repos.d/CentOS-Base.repo pelo seguinte texto
+
+        [openlogic]
+        name=CentOS-$releasever - openlogic packages for $basearch
+        baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+        enabled=1
+        gpgcheck=0
+
+        [base]
+        name=CentOS-$releasever - Base
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+        #released updates
+        [updates]
+        name=CentOS-$releasever - Updates
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+        #additional packages that may be useful
+        [extras]
+        name=CentOS-$releasever - Extras
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+        #additional packages that extend functionality of existing packages
+        [centosplus]
+        name=CentOS-$releasever - Plus
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+        gpgcheck=1
+        enabled=0
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+        #contrib - packages by Centos Users
+        [contrib]
+        name=CentOS-$releasever - Contrib
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+        gpgcheck=1
+        enabled=0
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+11. Adicione a seguinte linha a /etc/yum.conf:
+
+        http_caching=packages
+
+    E no CentOS 6.2 e 6.3 apenas adicione a seguinte linha:
+
+        exclude=kernel*
+
+12. Desabilite o módulo yum "fastestmirror", editando o arquivo "/etc/yum/pluginconf.d/fastestmirror.conf" e, em [main], digite o seguinte
+
+        set enabled=0
+
+13. Execute o seguinte comando para limpar os metadados yum atuais:
+
+        yum clean all
+
+14. Para CentOS 6.2 e 6.3, atualize o kernel de uma VM em funcionamento executando os seguintes comandos
+
+    Para CentOS 6.2, execute os seguintes comandos:
+
+        sudo yum remove kernel-firmware
+        sudo yum --disableexcludes=all install kernel
+
+    Para CentOS 6.3+, digite o seguinte:
+
+        sudo yum --disableexcludes=all install kernel
+
+15. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /boot/grub/menu.lst em um editor de texto e verifique se o kernel padrão inclui os seguintes parâmetros:
+
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+
+    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, isso desabilitará o NUMA devido a um erro na versão do kernel usada pelo CentOS 6.
+
+16. Em /etc/sudoers, comente a linha a seguir, se existente:
+
+        Defaults targetpw
+
+17. Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.
+
+18. Instale o Agente Linux do Azure executando o seguinte comando:
+
+        yum install WALinuxAgent
+
+    Observe que a instalação do pacote WALinuxAgent removerá o NetworkManager e os pacotes NetworkManager-gnome se eles já não tiverem sido removidos conforme descrito na etapa 2.
+
+19. Não crie espaço de permuta no disco do SO.
+
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+20. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+
+        waagent -force -deprovision
+        export HISTSIZE=0
+        logout
+
+21. Clique em **Desligar** no Gerenciador do Hyper-V.
+
+### Preparar o Ubuntu 12.04+
+
+1.  No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
+
+2.  Clique em **Conectar** para abrir a janela da máquina virtual.
+
+3.  Substitua os repositórios atuais na sua imagem para usar os repositórios do Azure que contêm o kernel e o pacote do agente que você precisará para atualizar a máquina virtual. As etapas variam um pouco dependendo da versão do Ubuntu.
+
+    Antes de editar o /etc/apt/sources.list, é recomendável fazer um backup
+     sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    Ubuntu 12,04:
+
+        sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+        sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
+        sudo apt-get update
+
+    Ubuntu 12.10:
+
+        sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+        sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
+        sudo apt-get update
+
+    Ubuntu 13.04+:
+
+        sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+        sudo apt-get update
+
+4.  Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
+
+    Ubuntu 12,04:
+
+        sudo apt-get update
+        sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+        (recommended) sudo apt-get dist-upgrade
+        sudo reboot
+
+    Ubuntu 12.10:
+
+        sudo apt-get update
+        sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
+        (recommended) sudo apt-get dist-upgrade
+        sudo reboot
+
+    Ubuntu 13.04, 13.10 e 14.04:
+
+        sudo apt-get update
+        sudo apt-get install hv-kvp-daemon-init
+        (recommended) sudo apt-get dist-upgrade
+        sudo reboot
+
+5.  Ubuntu aguardará o prompt Grub para entrada do usuário após uma falha do sistema. Para evitar isso, conclua as seguintes etapas:
+
+    a) Abra o arquivo /etc/grub.d/00\_header.
+
+    b) Na função **make\_timeout()**, pesquise por **se ${recordfail}" = 1 ]; e, em seguida**
+
+    c) Altere a instrução abaixo desta linha para **set timeout=5**.
+
+    d) Execute 'sudo update-grub'.
+
+6.  Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /etc/default/grub em um editor de texto, localize a variável chamada "GRUB\_CMDLINE\_LINUX\_DEFAULT" (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
+
+        GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+
+    Salve e feche o arquivo e execute 'sudo update-grub'. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte técnico do Azure com problemas de depuração.
+
+7.  Em /etc/sudoers, comente a linha a seguir, se existente:
+
+        Defaults targetpw
+
+8.  Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.
+
+9.  Instale o agente executando os seguintes comandos com sudo:
+
+        apt-get update
+        apt-get install walinuxagent
+
+    Observe que a instalação do pacote walinuxagent removerá o NetworkManager e os pacotes NetworkManager-gnome, se estiverem instalados.
+
+10. Não crie espaço de permuta no disco do SO.
+
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+11. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+
+        waagent -force -deprovision
+        export HISTSIZE=0
+        logout
+
+12. Clique em **Desligar** no Gerenciador do Hyper-V.
+
+### Preparar o Oracle Linux 6.4+
+
+Você deve concluir as etapas de configuração específicas do sistema operacional para que a máquina virtual seja executada no Azure.
+
+1.  No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
+
+2.  Clique em **Conectar** para abrir a janela da máquina virtual.
+
+3.  Desinstale o NetworkManager executando o seguinte comando:
+
+        rpm -e --nodeps NetworkManager
+
+    **Observação:**Se o pacote ainda não foi instalado, esse comando falhará com uma mensagem de erro. Isso é esperado.
+
+4.  Crie um arquivo chamado **rede** no diretório `/etc/sysconfig/` que contém o seguinte texto:
+
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
+
+5.  Crie um arquivo chamado **ifcfg-eth0** no diretório `/etc/sysconfig/network-scripts/` que contém o seguinte texto:
+
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+
+6.  Mova (ou remova) as regras de udev para evitar a geração de regras estáticas da interface Ethernet. Essas regras provocam problemas ao clonar uma máquina virtual no Windows Azure ou no Hyper-V:
+
+        # sudo mkdir -m 0700 /var/lib/waagent
+        # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+        # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+
+7.  Certifique-se de que o serviço de rede será iniciado na inicialização executando o seguinte comando:
+
+        # chkconfig network on
+
+8.  Instale o python-pyasn1 executando o seguinte comando:
+
+        # sudo yum install python-pyasn1
+
+9.  Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /boot/grub/menu.lst em um editor de texto e verifique se o kernel padrão inclui os seguintes parâmetros:
+
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+
+    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, isso desabilitará o NUMA devido a um erro na versão do kernel usada pelo CentOS 6.
+
+10. Em /etc/sudoers, comente a linha a seguir, se existente:
+
+        Defaults targetpw
+
+11. Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.
+
+12. Instale o Agente Linux do Azure executando o seguinte comando:
+
+        yum install WALinuxAgent
+
+    Observe que a instalação do pacote WALinuxAgent removerá o NetworkManager e os pacotes NetworkManager-gnome, se estiverem instalados.
+
+13. Não crie espaço de permuta no disco do SO.
+
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+14. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+
+        waagent -force -deprovision
+        export HISTSIZE=0
+        logout
+
+15. Clique em **Desligar** no Gerenciador do Hyper-V.
+
+### Preparar o SUSE Linux Enterprise Server 11 SP2 e SP3
+
+**OBSERVAÇÃO:** [SUSE Studio][SUSE Studio] pode criar e gerenciar facilmente suas imagens SLES/opeSUSE para Azure e Hyper-V. Além disso, as seguintes imagens oficiais no SUSE Studio Gallery podem ser baixadas ou clonadas em sua própria conta SUSE Studio para personalização fácil -- [SLES 11 SP3 para Azure no SUSE Studio Gallery][SLES 11 SP3 para Azure no SUSE Studio Gallery].
+
+1.  No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
+
+2.  Clique em **Conectar** para abrir a janela da máquina virtual.
+
+3.  Adicione o repositório que contém o kernel mais recente e o Agente Linux do Azure. Execute o comando `zypper lr`. Por exemplo, com o SLES 11 SP3, a saída deve ser semelhante ao seguinte:
+
+        # | Alias                        | Name               | Enabled | Refresh
+        --+------------------------------+--------------------+---------+--------
+        1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
+        2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
+        3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
+        4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
+        5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
+        6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
+
+    Caso o comando retorne uma mensagem de erro como a seguinte:
+
+        "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
+
+    então os repositórios talvez precisem ser reativados ou registrados no sistema. Isso pode ser feito por meio do utilitário suse\_register. Para obter mais informações, consulte a [documentação SLES][documentação SLES].
+
+    Caso um dos repositórios de atualização relevantes não estiver ativado, ative-o com o comando a seguir:
+
+        zypper mr -e [REPOSITORY NUMBER]
+
+    No caso acima, o comando apropriado seria
+
+        zypper mr -e 1 2 3 4
+
+1.  Atualize o kernel para a versão mais recente disponível:
+
+        zypper up kernel-default
+
+2.  Instale o Agente Linux do Azure:
+
+        zypper up WALinuxAgent
+
+    Você deve ver uma mensagem semelhante à seguinte:
+
+        "There is an update candidate for 'WALinuxAgent', but it is from different vendor.
+        Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
+
+    Como o fornecedor do pacote foi alterado de "Microsoft Corporation" para "SUSE LINUX Products GmbH, Nuremberg, Alemanha", é preciso instalar o pacote como mencionado na mensagem.
+
+    Observação: A versão do pacote do WALinuxAgent pode ser um pouco diferente.
+
+3.  Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /boot/grub/menu.lst em um editor de texto e verifique se o kernel padrão inclui os seguintes parâmetros:
+
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+
+    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração.
+
+4.  É recomendável que você defina o /etc/sysconfig/network/dhcp ou o equivalente de DHCLIENT\_SET\_HOSTNAME="yes" como DHCLIENT\_SET\_HOSTNAME="no"
+
+5.  Em /etc/sudoers, comente a linha a seguir, se existente:
+
+        Defaults targetpw
+
+6.  Certifique-se de que o servidor SSH esteja instalado e configurado para iniciar no momento da inicialização
+
+7.  Não crie espaço swap no disco do sistema operacional
+
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+8.  Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+
+        waagent -force -deprovision
+        export HISTSIZE=0
+        logout
+
+9.  Clique em **Desligar** no Gerenciador do Hyper-V.
+
+### Preparar o openSUSE 12.3+
+
+**OBSERVAÇÃO:** [SUSE Studio][SUSE Studio] pode criar e gerenciar facilmente suas imagens SLES/opeSUSE para Azure e Hyper-V. Além disso, as seguintes imagens oficiais no SUSE Studio Gallery podem ser baixadas ou clonadas em sua própria conta SUSE Studio para personalização fácil:
+
+> -   [openSUSE 13.1 para Azure no SUSE Studio Gallery][openSUSE 13.1 para Azure no SUSE Studio Gallery]
+
+1.  No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
+
+2.  Clique em **Conectar** para abrir a janela da máquina virtual.
+
+3.  Atualize o sistema operacional para os kernel e patches mais recentes disponíveis
+
+4.  No shell, execute o comando '`zypper lr`'. Se esse comando retornar uma saída semelhante à seguinte (observe que os números de versão podem variar):
+
+        # | Alias                     | Name                      | Enabled | Refresh
+        --+---------------------------+---------------------------+---------+--------
+        1 | Cloud:Tools_openSUSE_12.3 | Cloud:Tools_openSUSE_12.3 | Yes     | Yes
+        2 | openSUSE_12.3_OSS         | openSUSE_12.3_OSS         | Yes     | Yes
+        3 | openSUSE_12.3_Updates     | openSUSE_12.3_Updates     | Yes     | Yes
+
+    os repositórios estão configurados conforme o esperado e nenhum ajuste é necessário.
+
+    Se o comando retornar "Nenhum repositório definido. Use o comando 'zypper addrepo' para adicionar um
+ou mais repositórios". Em seguida, os repositórios precisam ser reabilitados:
+
+        zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
+        zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
+
+     Verifique se seus repositórios foram adicionados chamando 'zypper Ir' novamente.
+
+    Caso um dos repositórios de atualização relevantes não estiver ativado, ative-o com o comando a seguir:
+
+        zypper mr -e [NUMBER OF REPOSITORY]
+
+1.  Desative a sondagem automática do DVD ROM.
+
+2.  Instale o Agente Linux do Azure:
+
+    Primeiro, adicione o repositório que contém o novo WALinuxAgent:
+
+        zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.3/Cloud:Tools.repo
+
+    Em seguida, execute o seguinte comando:
+
+        zypper up WALinuxAgent
+
+    Depois de executar este comando, você pode receber uma mensagem semelhante a seguinte:
+
+        "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
+        Use 'zypper install WALinuxAgent' to install this candidate."
+
+    Essa mensagem é esperada. Como o fornecedor do pacote foi alterado de "Microsoft Corporation" para "obs://build.opensuse.org/Cloud", é necessário instalar o pacote explicitamente conforme mencionado na mensagem.
+
+3.  Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /boot/grub/menu.lst em um editor de texto e verifique se o kernel padrão inclui os seguintes parâmetros:
+
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+
+    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, remova os seguintes parâmetros da linha de inicialização do kernel, se existirem:
+
+        libata.atapi_enabled=0 reserve=0x1f0,0x8
+
+4.  É recomendável que você defina o /etc/sysconfig/network/dhcp ou o equivalente de DHCLIENT\_SET\_HOSTNAME="yes" como DHCLIENT\_SET\_HOSTNAME="no"
+
+5.  Em /etc/sudoers, comente a linha a seguir, se existente:
+
+        Defaults targetpw
+
+6.  Certifique-se de que o servidor SSH esteja instalado e configurado para iniciar no momento da inicialização
+
+7.  Não crie espaço swap no disco do sistema operacional
+
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+8.  Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+
+        waagent -force -deprovision
+        export HISTSIZE=0
+        logout
+
+9.  Verifique se o Agente Linux do Azure é executado durante a inicialização:
+
+        systemctl enable waagent.service
+
+10. Clique em **Desligar** no Gerenciador do Hyper-V.
 
 ## <span id="createstorage"></span> </a>Etapa 2: Criar uma conta de armazenamento no Azure
 
@@ -79,7 +609,7 @@ A conta de armazenamento representa o mais alto nível do namespace para acessar
 
     ![Conta de armazenamento criada com êxito][Conta de armazenamento criada com êxito]
 
-## <span id="connect"></span> </a>Etapa 3: Preparar a conexão com o Azure
+## <span id="#connect"></span> </a>Etapa 3: Preparar a conexão com o Azure
 
 Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segura entre seu computador e sua assinatura do Azure.
 
@@ -109,36 +639,91 @@ Faça uma das opções a seguir:
 
 -   Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
-        `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
+    `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
     Para obter mais informações, consulte [Add-AzureVhd (a página pode estar em inglês)][1].
 
 -   Use a ferramenta de linha de comando do Linux para carregar a imagem. Você pode carregar uma imagem usando o seguinte comando:
 
-        # azure vm image create <image-name> --location <location-of-the-data-center> --OS Linux <source-path-to the vhd>
+        Azure vm image create <image name> --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
+
+## <span id="nonendorsed"></span> </a>Informações para as distribuições não endossadas
+
+Essencialmente, todas as distribuições em execução no Azure precisam atender aos seguintes pré-requisitos para ter a chance de serem executadas corretamente na plataforma.
+
+Esta lista não é conclusiva, já que cada distribuição é diferente e, por isso, é bem possível que mesmo que você atenda a todos os critérios abaixo, ainda será preciso ajustar significativamente sua imagem para garantir que ela seja corretamente executada no topo da plataforma.
+
+É por isso que recomendamos que você inicie com uma das nossas [imagens endossadas de parceiros][imagens endossadas de parceiros].
+
+A lista a seguir substitui a etapa 1 do processo para criar seu próprio VHD:
+
+1.  Você precisará garantir que o kernel em execução incorpore os mais recentes drivers LIS para Hyper V ou que você os tenha compilados- com sucesso (com origem livre). Os drivers podem ser encontrados [neste local][neste local]
+
+2.  O kernel também deve incluir a versão mais recente do driver ATA PiiX que é usado para fazer a provisão de imagens e possui as correções para o kernel com confirmação cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date: Fri May 4 22:15:11 2012 +0100 ata\_piix: adie os discos para the Hyper-V drivers por padrão
+
+3.  O seu intird compactado deve ser menor que 40 MB (\*estamos trabalhando para aumentar esse número, que pode já estar desatualizado neste momento)
+
+4.  Modifique a linha de inicialização do kernel no Grub ou Grub2 para incluir os parâmetros a seguir. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração:
+
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+
+5.  É recomendável que você defina o /etc/sysconfig/network/dhcp ou o equivalente de DHCLIENT\_SET\_HOSTNAME="yes" como DHCLIENT\_SET\_HOSTNAME="no"
+
+6.  Você deve se certificar de que todos os dispositivos SCSI montados em seu núcleo incluam um tempo limite de e/s de 300 segundos ou mais.
+
+7.  Você precisará instalar o Agente Linux do Azure seguindo as etapas no [Guia do Agente Linux][Guia do Agente Linux]. O agente foi lançado sob a licença Apache 2 e você pode obter os bits mais recentes no [local do agente GitHub][local do agente GitHub]
+
+8.  Em /etc/sudoers, comente a linha a seguir, se existente:
+
+        Defaults targetpw
+
+9.  Certifique-se de que o servidor SSH esteja instalado e configurado para iniciar no momento da inicialização
+
+10. Não crie espaço swap no disco do sistema operacional
+
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+11. Você precisará executar os seguintes comandos para cancelar o provisionamento da máquina virtual:
+
+        waagent -force -deprovision
+        export HISTSIZE=0
+        logout
+
+12. Em seguida, será necessário desligar a máquina virtual e continuar com o carregamento.
 
   [Criar uma conta do Azure]: http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/
-  [Gerenciar discos e imagens (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj672979.aspx
   [Como criar uma máquina virtual personalizada]: /pt-br/manage/windows/how-to-guides/custom-create-a-vm/
   [neste artigo]: http://support.microsoft.com/kb/2805216
-  [Criar um certificado de gerenciamento para o Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
   [Instalar a função Hyper-V e configurar uma máquina Virtual]: http://technet.microsoft.com/library/hh846766.aspx
   [Linux no Azure-Distribuições endossadas]: ../linux-endorsed-distributions
-  [informações sobre distribuições não endossadas]: ../virtual-machines-linux-create-upload-vhd-generic
-  [ferramentas de linha de comando do Azure para Linux e Mac]: http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409
-  [downloads do Azure]: http://azure.microsoft.com/pt-br/downloads/
-  [Add-AzureVhd (a página pode estar em inglês)]: http://msdn.microsoft.com/library/windowsazure/dn495173.aspx
+  [informações para distribuições não endossadas]: #nonendorsed
+  [Ferramentas de linha de comando do Azure para Linux e Mac]: http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409
+  [Downloads do Azure]: /pt-br/develop/downloads/
+  [Site da Microsoft]: http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409
   [Etapa 1: Preparar a imagem a ser carregada]: #prepimage
   [Etapa 2: Criar uma conta de armazenamento no Azure]: #createstorage
   [Etapa 3: Preparar a conexão com o Azure]: #connect
   [Etapa 4: Carregar a imagem no Azure]: #upload
-  [Distribuições com base em CentOS]: ../virtual-machines-linux-create-upload-vhd-centos
-  [Oracle Linux]: ../virtual-machines-linux-create-upload-vhd-oracle
-  [SLES e openSUSE]: ../virtual-machines-linux-create-upload-vhd-suse
-  [Ubuntu]: ../virtual-machines-linux-create-upload-vhd-ubuntu
+  [Centro de Download]: http://www.microsoft.com/pt-br/download/details.aspx?id=34603
+  [Abrir configurações do Hyper-V]: ./media/virtual-machines-linux-create-upload-vhd/settings.png
+  [Adicionar unidade de DVD com mídia de instalação]: ./media/virtual-machines-linux-create-upload-vhd/installiso.png
+  [SUSE Studio]: http://www.susestudio.com
+  [SLES 11 SP3 para Azure no SUSE Studio Gallery]: http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure
+  [documentação SLES]: https://www.suse.com/documentation/sles11/
+  [openSUSE 13.1 para Azure no SUSE Studio Gallery]: https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure
   [Criar conta de armazenamento]: ./media/virtual-machines-linux-create-upload-vhd/create.png
   [Criação rápida de uma conta de armazenamento]: ./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png
   [Insira os detalhes da conta de armazenamento]: ./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png
   [Conta de armazenamento criada com êxito]: ./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png
   [Introdução aos cmdlets do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554332.aspx
   [1]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn205185.aspx
+  [imagens endossadas de parceiros]: https://www.windowsazure.com/pt-br/manage/linux/other-resources/endorsed-distributions/
+  [neste local]: http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409
+  [Guia do Agente Linux]: https://www.windowsazure.com/pt-br/manage/linux/how-to-guides/linux-agent-guide/
+  [local do agente GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409

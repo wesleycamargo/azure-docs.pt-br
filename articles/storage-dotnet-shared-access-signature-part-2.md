@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Criar e usar um SAS com o servi&ccedil;o Blob | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore a gera&ccedil;&atilde;o e o uso de assinaturas de acesso compartilhado com o servi&ccedil;o Blob" metaCanonical="" services="storage" documentationCenter="" title="Parte 2: Criar e usar um SAS com o Servi&ccedil;o Blob" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -91,7 +91,7 @@ Adicione as linhas a seguir na parte inferior do método **Main()**, antes da ch
 
 Compile e execute para gerar a saída do URI de assinatura de acesso compartilhado para o novo contêiner. O URI será semelhante a este:
 
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
 
 Depois de executar o código, a assinatura de acesso compartilhado criada no contêiner será válida durante as próximas quatro horas. A assinatura concede uma permissão de cliente para listar os blobs no contêiner e gravar um novo blob no contêiner.
 
@@ -139,7 +139,7 @@ Na parte inferior do método **Main()**, adicione as linhas a seguir para chamar
 
 Compile e execute para gerar a saída do URI de assinatura de acesso compartilhado para o novo blob. O URI será semelhante a este:
 
-https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
 
 ## Criar uma política de acesso armazenado no contêiner
 
@@ -527,5 +527,4 @@ Execute o aplicativo de console e observe a saída para ver quais operações s�
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [Gerenciar o acesso aos recursos de Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee393343.aspx
-  [Delegando acesso com uma assinatura de acesso compartilhado (API REST)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee395415.aspx
   [Introdução à Tabela e à Fila SAS]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

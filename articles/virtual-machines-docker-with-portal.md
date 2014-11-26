@@ -113,7 +113,9 @@ O resultado deve ter esta aparência:
 
 Você está pronto para conferir o [Guia do usuário do Docker][Guia do usuário do Docker] e usar sua máquina virtual Docker. Para ver como começar a criar máquinas virtuais Docker no Azure com rapidez e de forma contínua, confira [Como usar a extensão de máquina virtual na interface de plataforma cruzada do Azure (xplat-cli)][Como usar a extensão de máquina virtual na interface de plataforma cruzada do Azure (xplat-cli)]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [contêineres Linux]: http://en.wikipedia.org/wiki/LXC

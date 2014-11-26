@@ -108,7 +108,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
         NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
 
-	Substitua isso por este código:
+   Substitua isso por este código:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
         QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -120,9 +120,9 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
             @"deviceToken" : delegate.deviceToken
         };
 
-    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+   	Isso adicionará uma referência a <strong>QSAppDelegate</strong> para obter o token do dispositivo e modificará a carga de solicitação para incluir esse token de dispositivo.
 
-    > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   > [WACOM.NOTE] Adicione esse código antes da chamada do método <strong>addItem</strong>.
 
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
@@ -185,10 +185,7 @@ Este tutorial foi concluído com êxito.
 Neste exemplo simples, um usuário recebe uma notificação por push com os dados que você acabou de inserir. O token de dispositivo usado pelo APNS é fornecido para o serviço móvel pelo cliente na solicitação. No próximo tutorial, [Notificações de push para os usuários do aplicativo][Notificações de push para os usuários do aplicativo], você irá criar uma tabela separada de Dispositivos para armazenar tokens de dispositivo e enviar uma notificação por push para todos os canais armazenados quando ocorre uma inserção.
 
 
-<!-- Anchors. --> 
 
-<!-- Images. --> 
-<!-- URLs. -->
 
   [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Gerar a solicitação de assinatura de certificado]: #certificates
@@ -201,8 +198,6 @@ Neste exemplo simples, um usuário recebe uma notificação por push com os dado
   [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
-  [Habilitar as Notificações por Push da Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333

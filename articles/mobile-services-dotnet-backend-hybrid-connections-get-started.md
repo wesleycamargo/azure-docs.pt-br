@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-hybrid-connections-get-started" urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" metaKeywords="" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Conectar-se a um SQL Server no local por meio de um serviço móvel do Azure utilizando Conexões Híbridas
 
@@ -10,11 +10,11 @@ Neste tutorial, você aprenderá a modificar um serviço móvel de back-end .NET
 
 Esse tópico explica estas etapas básicas:
 
-1.  [Pré-requisitos][]
-2.  [Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local][]
-3.  [Criar uma Conexão Híbrida][]
-4.  [Instalar o Hybrid Connection Manager local para concluir a conexão][]
-5.  [Modificar um Serviço Móvel para usar a conexão][]
+1.  [Pré-requisitos][Pré-requisitos]
+2.  [Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local][Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local]
+3.  [Criar uma Conexão Híbrida][Criar uma Conexão Híbrida]
+4.  [Instalar o Hybrid Connection Manager local para concluir a conexão][Instalar o Hybrid Connection Manager local para concluir a conexão]
+5.  [Modificar um Serviço Móvel para usar a conexão][Modificar um Serviço Móvel para usar a conexão]
 
 <a name="Prerequisites"></a>
 
@@ -22,9 +22,9 @@ Esse tópico explica estas etapas básicas:
 
 Para concluir este tutorial, você precisará dos produtos a seguir. Todos estão disponíveis em versões gratuitas, portanto, é possível começar a desenvolver para o Azure de maneira totalmente gratuita.
 
--   **Visual Studio 2013** - Para baixar uma versão de avaliação gratuita do Visual Studio 2013, consulte [Downloads do Visual Studio][]. Instale isso antes de continuar.
+-   **Visual Studio 2013** - Para baixar uma versão de avaliação gratuita do Visual Studio 2013, consulte [Downloads do Visual Studio][Downloads do Visual Studio]. Instale isso antes de continuar.
 
--   **SQL Server 2014 Express with Tools** - baixe o Microsoft SQL Server Express gratuitamente na [página do Banco de dados da plataforma da web da Microsoft][]. Escolha a versão **Express** (não LocalDB). A versão **Express with Tools** inclui o SQL Server Management Studio, que você usará neste tutorial.
+-   **SQL Server 2014 Express with Tools** - baixe o Microsoft SQL Server Express gratuitamente na [página do Banco de dados da plataforma da web da Microsoft][página do Banco de dados da plataforma da web da Microsoft]. Escolha a versão **Express** (não LocalDB). A versão **Express with Tools** inclui o SQL Server Management Studio, que você usará neste tutorial.
 
 Você também precisará de um computador local que conectará ao Azure usando Conexões Híbridas. Esse computador deve atender aos seguintes critérios:
 
@@ -37,7 +37,7 @@ Você também precisará de um computador local que conectará ao Azure usando C
 
 Para usar um banco de dados local SQL Server ou SQL Server Express com uma conexão híbrida, o TCP/IP precisa ser habilitado em uma porta estática. As instâncias padrão no SQL Server usam a porta estática 1433, ao passo que instâncias nomeadas não.
 
-Para obter instruções detalhadas sobre como configurar o SQL Server para que atenda às condições descritas acima, consulte [Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local][1]. Se você já tiver o SQL Server instalado em uma configuração e em um ambiente que atenda às condições descritas acima, é possível avançar e iniciar com [Criar um banco de dados SQL Server local][].
+Para obter instruções detalhadas sobre como configurar o SQL Server para que atenda às condições descritas acima, consulte [Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local][1]. Se você já tiver o SQL Server instalado em uma configuração e em um ambiente que atenda às condições descritas acima, é possível avançar e iniciar com [Criar um banco de dados SQL Server local][Criar um banco de dados SQL Server local].
 
 Para os fins deste tutorial, presumiremos que o nome do banco de dados seja **OnPremisesDB**, ele está em execução na porta **1433** e que o nome do host do computador seja **onPremisesServer**.
 
@@ -45,33 +45,33 @@ Para os fins deste tutorial, presumiremos que o nome do banco de dados seja **On
 
 ## Criar uma Conexão Híbrida
 
-1.  No computador local, faça logon no [Portal de Gerenciamento do Azure][].
+1.  No computador local, faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  Na parte inferior do painel de navegação, selecione **+NOVO** e selecione **Serviços de Aplicativos**, **Serviço BizTalk** e em seguida **Criação Personalizada**
 
-    ![Criar Serviço BizTalk][]
+    ![Criar Serviço BizTalk][Criar Serviço BizTalk]
 
 3.  Forneça um **Nome de Serviço BizTalk** e selecione uma **Edição**.
 
-    ![Configure o novo Serviço BizTalk][]
+    ![Configure o novo Serviço BizTalk][Configure o novo Serviço BizTalk]
 
     Este tutorial usa **mobile1**. Você precisará fornecer um nome exclusivo para seu novo Serviço BizTalk.
 
 4.  Uma vez que o Serviço BizTalk foi criado, selecione a guia **Conexões Híbridas** e clique em **Incluir**.
 
-    ![Incluir Conexão Híbrida][]
+    ![Incluir Conexão Híbrida][Incluir Conexão Híbrida]
 
     Isso cria uma nova conexão híbrida.
 
 5.  Forneça um **Nome** e **Nome de Host** para sua conexão híbrida e configure a **Porta** para `1433`.
 
-    ![Configurar a Conexão Híbrida][]
+    ![Configurar a Conexão Híbrida][Configurar a Conexão Híbrida]
 
     O nome do host é o nome do servidor local. Isso configura a conexão híbrida para acessar o SQL Server em execução na porta 1433.
 
 6.  Uma vez que a nova conexão estiver criada, ela aparecerá na tabela a seguir.
 
-    ![Conexão Híbrida criada com sucesso][]
+    ![Conexão Híbrida criada com sucesso][Conexão Híbrida criada com sucesso]
 
     O status da nova conexão mostra **Configuração local incompleta**.
 
@@ -85,21 +85,21 @@ O Hybrid Connection Manager permite que seu computador local se conecte ao Azure
 
 1.  Selecione a conexão que acabou de criar e na barra inferior clique em **Configuração Local**.
 
-    ![Configuração Local][]
+    ![Configuração Local][Configuração Local]
 
 2.  Clique em **Instalar e Configurar**.
 
-    ![Instalar o Hybrid Connection Manager][]
+    ![Instalar o Hybrid Connection Manager][Instalar o Hybrid Connection Manager]
 
     Isso instala uma instância personalizada do Gerenciador de Conexão, que já está pré-configurado para trabalhar com a conexão híbrida que você acabou de criar.
 
 3.  Conclua o restante das etapas de configuração para o Gerenciador de Conexão.
 
-    ![Configuração do Gerenciador de Conexão Híbrida][]
+    ![Configuração do Gerenciador de Conexão Híbrida][Configuração do Gerenciador de Conexão Híbrida]
 
     Quando a instalação estiver concluída, o status de conexão híbrida será alterado para **1 Instância Conectada**. Pode ser necessário atualizar o navegador e aguardar alguns minutos. A configuração local agora está concluída.
 
-    ![Conexão Híbrida conectada][]
+    ![Conexão Híbrida conectada][Conexão Híbrida conectada]
 
 <a name="CreateService"></a>
 
@@ -109,15 +109,15 @@ O Hybrid Connection Manager permite que seu computador local se conecte ao Azure
 
 1.  Na guia **Serviços Móveis** do portal, selecione um serviço móvel existente ou crie um novo.
 
-    > [WACOM.NOTE]Assegure-se de selecionar um serviço que foi criado usando o back-end do .NET ou crie um novo serviço móvel de back-end do .NET. Para aprender a criar um novo serviço móvel de back-end do .NET, consulte [Introdução aos Serviços Móveis][]
+    > [WACOM.NOTE]Assegure-se de selecionar um serviço que foi criado usando o back-end do .NET ou crie um novo serviço móvel de back-end do .NET. Para aprender a criar um novo serviço móvel de back-end do .NET, consulte [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis]
 
 2.  Na guia **Configurar** para seu serviço móvel, localize a seção **Conexões Híbridas** e selecione **Incluir Conexão Híbrida**.
 
-    ![Associar Conexão Híbrida][]
+    ![Associar Conexão Híbrida][Associar Conexão Híbrida]
 
 3.  Selecione a conexão híbrida que acabou de criar na guia Serviços BizTalk e pressione **OK**.
 
-    ![Escolher Conexão Híbrida associada][]
+    ![Escolher Conexão Híbrida associada][Escolher Conexão Híbrida associada]
 
 O serviço móvel agora está associado à nova conexão híbrida.
 
@@ -127,7 +127,7 @@ Por fim, precisamos criar uma configuração de aplicativo para armazenar o valo
 
 1.  Na guia **Configurar** em **Configurações do Aplicativo**, inclua uma nova configuração do aplicativo chamada `onPremisesDatabase` com valor igual a `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
 
-    ![Configuração de aplicativo para cadeia de conexão][]
+    ![Configuração de aplicativo para cadeia de conexão][Configuração de aplicativo para cadeia de conexão]
 
     Substitua `{password}` pela senha segura para seu banco de dados local.
 
@@ -135,7 +135,7 @@ Por fim, precisamos criar uma configuração de aplicativo para armazenar o valo
 
 3.  No Visual Studio 2013, abra o projeto que define seu serviço móvel baseado em .NET.
 
-    Para aprender sobre como baixar seu projeto de back-end do .NET, consulte [Introdução aos Serviços Móveis][].
+    Para aprender sobre como baixar seu projeto de back-end do .NET, consulte [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
 4.  No Gerenciador de Soluções, expanda a pasta **Modelos** e abra o arquivo de modelo de dados, que termina em *Context.cs*.
 
@@ -159,15 +159,15 @@ Por fim, precisamos criar uma configuração de aplicativo para armazenar o valo
 
 8.  Clique com o botão direito na tabela **hybridService1.TodoItems** e escolha **Selecionar as 1000 linhas principais** para exibir os resultados.
 
-    ![SQL Management Studio][]
+    ![SQL Management Studio][SQL Management Studio]
 
 As mudanças geradas em seu aplicativo foram extraídas do seu serviço móvel para seu banco de dados local.
 
 ## Consulte também
 
--   [Site de Conexões Híbridas][]
--   [Visão geral de Conexões Híbridas][]
--   [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida][]
+-   [Site de Conexões Híbridas][Site de Conexões Híbridas]
+-   [Visão geral de Conexões Híbridas][Visão geral de Conexões Híbridas]
+-   [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida][Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida]
 
 <!-- IMAGES -->
 
@@ -195,6 +195,6 @@ As mudanças geradas em seu aplicativo foram extraídas do seu serviço móvel p
   [Escolher Conexão Híbrida associada]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
   [Configuração de aplicativo para cadeia de conexão]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
   [SQL Management Studio]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
-  [Site de Conexões Híbridas]: http://azure.microsoft.com/en-us/services/biztalk-services/
+  [Site de Conexões Híbridas]: http://azure.microsoft.com/pt-br/services/biztalk-services/
   [Visão geral de Conexões Híbridas]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida]: http://azure.microsoft.com/pt-br/documentation/articles/biztalk-dashboard-monitor-scale-tabs/

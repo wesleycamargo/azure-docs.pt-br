@@ -27,19 +27,21 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-1.  Navegue para a pasta do projeto `\services\mobileServices\scripts`, copie o arquivo de script \<*your\_service\_name*\>.push.register.js gerado na pasta `\js` compartilhada e, em seguida, exclua este arquivos dos projetos Windows individual e aplicativo WindowsPhone.
+<ol start="6">
+<li><p>Navegue para a pasta do projeto <code>\services\mobileServices\scripts</code>, copie o arquivo de script &lt;<em>your_service_name</em>&gt;.push.register.js gerado na pasta <code>\js</code> compartilhada e, em seguida, exclua este arquivos dos projetos Windows individual e aplicativo WindowsPhone.</p></li>
 
-2.  Abra esse arquivo de script na pasta do projeto `\js` compartilhado, localize o código no ouvinte de eventos *ativado*, que registra o canal URL do dispositivo com o hub de notificação e exclua a função de comprometimento **feita**.
+<li><p>Abra esse arquivo de script na pasta do projeto <code>\js</code> compartilhado, localize o código no ouvinte de eventos <em>ativado</em>, que registra o canal URL do dispositivo com o hub de notificação e exclua a função de comprometimento <b>feita</b>.</p>
 
-    Esse tutorial envia notificações quando um novo item é inserido, não quando um API personalizado é chamado.
+    <p>Esse tutorial envia notificações quando um novo item é inserido, não quando um API personalizado é chamado.</p></li>
 
-3.  No projeto do aplicativo Windows, abra o arquivo default.html e mude o caminho da referência do arquivo de script para a pasta do projeto `\js` compartilhada, para que se pareça com o seguinte:
+<li><p>No projeto do aplicativo Windows, abra o arquivo default.html e mude o caminho da referência do arquivo de script para a pasta do projeto <code>\js</code> compartilhada, para que se pareça com o seguinte:</p>
 
-        <script src="/js/your_service_name.push.register.js"></script>
+<pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 
-4.  Repita essa etapa para o projeto do aplicativo WindowsPhone.
+<li><p>Repita essa etapa para o projeto do aplicativo WindowsPhone.</p>
 
-    Agora, ambos os projetos estão usando uma versão compartilhada do script de registro em push.
+    <p>Agora, ambos os projetos estão usando uma versão compartilhada do script de registro em push.</p></li>
+</ol>
 
 Agora que as notificações por push estão ativadas no aplicativo, você deve atualizar o serviço móvel para enviar notificações por push.
 
@@ -57,18 +59,21 @@ As etapas restantes nesta seção são opcionais. Elas permitem que você teste 
 
 > [WACOM.NOTE]Nunca use um serviço móvel de produção para testar e desenvolver o trabalho. Sempre publique seu projeto de serviço móvel para um serviço de preparação para testes.
 
-1.  Navegue para a pasta do projeto `\services\mobileServices\settings`, copie o arquivo de script \<*your\_service\_name*\>.js gerado na pasta de projeto `\js` compartilhada e, em seguida, exclua este arquivo dos projetos do aplicativo Windows individual e WindowsPhone. Também exclua este arquivo da pasta `\services\mobileServices\scripts` em cada projeto de aplicativo, se existir lá também.
+<ol start="5">
+<li><p>Navegue para a pasta do projeto <code>\services\mobileServices\settings</code>, copie o arquivo de script &lt;<em>your_service_name</em>&gt;.js gerado na pasta de projeto <code>\js</code> compartilhada e, em seguida, exclua este arquivo dos projetos do aplicativo Windows individual e WindowsPhone. Também exclua este arquivo da pasta <code>\services\mobileServices\scripts</code> em cada projeto de aplicativo, se existir lá também.</p></li>
 
-2.  Abra este arquivo de script na pasta de projeto `\js` compartilhada e comente o código existente que define o [objeto MobileServiceClient][objeto MobileServiceClient] usado para acessar o serviço móvel em execução no Azure.
+<li><p>Abra este arquivo de script na pasta de projeto <code>\js</code> compartilhada e comente o código existente que define o <a href="http://msdn.microsoft.com/pt-br/library/azure/jj554219.aspx">objeto MobileServiceClient</a> usado para acessar o serviço móvel em execução no Azure.</p></li>
 
-3.  Adicione uma nova definição de objeto **MobileServiceClient** com o mesmo nome, mas usando a URL do host local no construtor, selelhante à seguinte:
+<li><p>Adicione uma nova definição de objeto <b>MobileServiceClient</b> com o mesmo nome, mas usando a URL do host local no construtor, selelhante à seguinte:</p>
 
-        // This MobileServiceClient has been configured to communicate with your local
-        // test project for debugging purposes.
-        var todolistClient = new WindowsAzure.MobileServiceClient(
-            "http://localhost:4584");
+<pre><code>// This MobileServiceClient has been configured to communicate with your local
+// test project for debugging purposes.
+var todolistClient = new WindowsAzure.MobileServiceClient(
+	"http://localhost:4584");
+</code></pre>
 
-    Usando o objeto **MobileServiceClient**, o aplicativo se conectará ao serviço local ao invés da versão hospedada no Azure. Quando você quiser retornar e executar o aplicativo em relação ao serviço móvel hospedado no Azure, mude de volta para as definições do objeto **MobileServiceClient** originais.
+    <p>Usando o objeto <b>MobileServiceClient</b>, o aplicativo se conectará ao serviço local ao invés da versão hospedada no Azure. Quando você quiser retornar e executar o aplicativo em relação ao serviço móvel hospedado no Azure, mude de volta para as definições do objeto <b>MobileServiceClient</b> originais.</p></li>
+</ol>
 
 ## <span id="test"></span></a>Testar notificações de push no seu aplicativo
 
@@ -94,7 +99,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [esta versão]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
   [Registrar seu aplicativo para notificações por push]: #register
   [Atualizar o serviço para enviar notificações por push]: #update-service
@@ -102,12 +106,8 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [Testar notificações por push no seu aplicativo]: #test
   [conta ativa da Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
-  [objeto MobileServiceClient]: http://msdn.microsoft.com/pt-br/library/azure/jj554219.aspx
-  [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-users
+  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
   [Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library

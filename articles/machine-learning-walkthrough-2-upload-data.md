@@ -1,15 +1,15 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-Esta é a segunda etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][]:
+Esta é a segunda etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][Desenvolvendo uma Solução Preditiva com o AM do Azure]:
 
-1.  [Criar um espaço de trabalho do AM][]
+1.  [Criar um espaço de trabalho do AM][Criar um espaço de trabalho do AM]
 2.  **Fazer upload de dados existentes**
-3.  [Criar um novo experimento][]
-4.  [Treinar e avaliar os modelos][]
-5.  [Publicar o serviço Web][]
-6.  [Acessar o serviço Web][]
+3.  [Criar um novo experimento][Criar um novo experimento]
+4.  [Treinar e avaliar os modelos][Treinar e avaliar os modelos]
+5.  [Publicar o serviço Web][Publicar o serviço Web]
+6.  [Acessar o serviço Web][Acessar o serviço Web]
 
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ Uma vez que os dados tiverem sido convertidos para o formato CSV, precisaremos f
 6.  Para tipo de dados, selecione “Arquivo CSV Genérico Sem Cabeçalho (.nh.csv)"
 7.  Inclua uma descrição se desejar
 8.  Clique em **OK**  
-![Fazer upload do conjunto de dados][]
+![Fazer upload do conjunto de dados][Fazer upload do conjunto de dados]
 
 
 Isso faz upload dos dados em um Módulo de conjunto de dados que podemos usar em um experimento.

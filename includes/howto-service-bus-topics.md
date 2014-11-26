@@ -6,7 +6,7 @@ componentes de um aplicativo distribuído não se comunicam diretamente uns
 com os outros, mas compartilham mensagens por meio de um tópico, que atua como um
 intermediário.
 
-![Conceitos de tópico][]
+![Conceitos de tópico][Conceitos de tópico]
 
 Ao contrário das filas do Barramento de Serviço, em que cada mensagem é processada por um
 único consumidor, tópicos e assinaturas fornecem uma forma de comunicação **um-para-muitos**,
@@ -34,13 +34,13 @@ aplicativo.
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em
     **Service Bus**.
 
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.
-    ![][]
+    ![][0]
 
 4.  No diálogo **Adicionar um novo namespace**, insira um nome de namespace.
     O sistema imediatamente verifica se o nome está disponível.
@@ -70,7 +70,7 @@ gerenciamento para o namespace. Você pode obter essas credenciais do Portal de 
 
 1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para
     exibir a lista de namespaces disponíveis:
-    ![][]
+    ![][0]
 
 2.  Selecione o namespace que você acabou de criar na lista abaixo:
     ![][3]
@@ -82,7 +82,7 @@ gerenciamento para o namespace. Você pode obter essas credenciais do Portal de 
 
 ### Para obter credenciais de gerenciamento do Gerenciador de Servidores
 
-Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui][], na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Brramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
+Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui][aqui], na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Brramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
 
 Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
 
@@ -90,10 +90,10 @@ Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
 
   [Conceitos de tópico]: ./media/howto-service-bus-topics/sb-topics-01.png
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-topics/sb-queues-13.png
+  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [1]: ./media/howto-service-bus-topics/sb-queues-04.png
   [2]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  [aqui]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [aqui]: http://http://msdn.microsoft.com/pt-br/library/windowsazure/ff687127.aspx
   [5]: ./media/howto-service-bus-topics/VSProperties.png

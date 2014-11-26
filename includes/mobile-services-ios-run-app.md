@@ -2,7 +2,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 1.  Navegue até o local onde você salvou os arquivos compactados do projeto, expanda os arquivos em seu computador e abra o arquivo do projeto usando o Xcode.
 
-    ![][]
+    ![][0]
 
 2.  Pressione o botão **Executar** para criar o projeto e iniciar o aplicativo no emulador do iPhone, que é o padrão para este projeto.
 
@@ -17,5 +17,5 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
     > </div>
     > </p>
 
-  []: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
+  [0]: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
   [1]: ./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png

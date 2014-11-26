@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Modelo e conceitos de recursos do Banco de Dados de Documentos
 
@@ -8,7 +8,7 @@ O Banco de Dados de Documentos oferece um modelo de programação RESTful simple
 
 > [AZURE.NOTE] Adicionalmente, ele também oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do SDK do cliente .NET.
 
-![][]
+![][0]
 **Modelo de recurso hierárquico em uma conta de banco de dados**
 
 Como cliente do Banco de Dados de Documentos, comece provisionando uma **conta de banco de dados** do Banco de Dados de Documentos usando sua assinatura do Azure. Uma conta do banco de dados pode ser formada por um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também possui **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.
@@ -109,7 +109,7 @@ Você pode criar e gerenciar conta(s) de banco de dados do Banco de Dados de Doc
 </tbody>
 </table>
 
-Observe que, além de provisionar, configurar e gerenciar sua conta do banco de dados a partir do portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos por meio das [APIs REST do Banco de Dados de Documentos do Azure][], bem como SDKs clientes.
+Observe que, além de provisionar, configurar e gerenciar sua conta do banco de dados a partir do portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos por meio das [APIs REST do Banco de Dados de Documentos do Azure][APIs REST do Banco de Dados de Documentos do Azure], bem como SDKs clientes.
 
  
 
@@ -123,7 +123,7 @@ Um banco de dados pode conter praticamente um armazenamento de documentos ilimit
 
 Um banco de dados do Banco de Dados de Documentos também é um contêiner de usuários. Um usuário, por sua vez, é um namespace lógico para um conjunto de permissões que oferece uma autorização/acesso refinado a coleções, documentos e anexos.
 
-Assim como com outros recursos no modelo de recursos do Banco de Dados de Documentos, os bancos de dados podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as [APIs REST do Banco de Dados de Documentos do Azure][] ou qualquer SDK do cliente. O Banco de Dados de Documentos garante uma forte consistência para a leitura ou consulta de metadados de um recurso do banco de dados. Excluir um banco de dados automaticamente garante que você não possa acessar qualquer uma das coleções ou usuários contidos nele. Embora o Banco de Dados de Documentos recupere o armazenamento e a produtividade provisionados como parte do banco de dados excluído em segundo plano, o armazenamento provisionado e a produtividade para o banco de dados excluído estão disponíveis imediatamente para uso.
+Assim como com outros recursos no modelo de recursos do Banco de Dados de Documentos, os bancos de dados podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as [APIs REST do Banco de Dados de Documentos do Azure][APIs REST do Banco de Dados de Documentos do Azure] ou qualquer SDK do cliente. O Banco de Dados de Documentos garante uma forte consistência para a leitura ou consulta de metadados de um recurso do banco de dados. Excluir um banco de dados automaticamente garante que você não possa acessar qualquer uma das coleções ou usuários contidos nele. Embora o Banco de Dados de Documentos recupere o armazenamento e a produtividade provisionados como parte do banco de dados excluído em segundo plano, o armazenamento provisionado e a produtividade para o banco de dados excluído estão disponíveis imediatamente para uso.
 
 # Coleções
 
@@ -155,7 +155,7 @@ Os documentos dentro de uma coleção podem ter esquemas arbitrários e os docum
 2.  Um subconjunto de operações relacionais, incluindo composição, filtragem, projeções, agregados e junções automáticas.
 3.  UDFs puras baseadas em JavaScript combinadas a (1) e (2)
 
-O modelo de consulta do Banco de Dados de Documentos tenta criar um equilíbrio entre funcionalidade, eficiência e simplicidade. O mecanismo de banco de dados do Banco de Dados de Documentos compila nativamente e executa as declarações de consulta SQL. É possível consultar uma coleção usando as [APIs REST do Banco de Dados de Documentos do Azure][] ou qualquer um dos SDKs clientes. O SDK do .NET é fornecido com o provedor LINQ. Em uma versão futura, mapeamentos sublinhados nativos serão fornecidos, que podem ser usados a partir dos SDKs de JavaScript do lado do cliente, bem como com os procedimentos e gatilhos armazenados no lado do servidor.
+O modelo de consulta do Banco de Dados de Documentos tenta criar um equilíbrio entre funcionalidade, eficiência e simplicidade. O mecanismo de banco de dados do Banco de Dados de Documentos compila nativamente e executa as declarações de consulta SQL. É possível consultar uma coleção usando as [APIs REST do Banco de Dados de Documentos do Azure][APIs REST do Banco de Dados de Documentos do Azure] ou qualquer um dos SDKs clientes. O SDK do .NET é fornecido com o provedor LINQ. Em uma versão futura, mapeamentos sublinhados nativos serão fornecidos, que podem ser usados a partir dos SDKs de JavaScript do lado do cliente, bem como com os procedimentos e gatilhos armazenados no lado do servidor.
 
 ## Transações entre vários documentos
 
@@ -217,7 +217,7 @@ Observe que, como o banco de dados compreende nativamente JSON e JavaScript, nã
 
 Os procedimentos armazenados e gatilhos interagem com uma coleção e os documentos em uma coleção por meio de um modelo de objeto bem-definido que expõe o contexto de coleção atual.
 
-As coleções no Banco de Dados de Documentos podem ser criadas, excluídas, lidas ou enumeradas facilmente usando as [APIs REST do Banco de Dados de Documentos do Azure][] ou qualquer SDK cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de uma coleção. Excluir uma coleção automaticamente garante que você não possa acessar qualquer documento, anexo, procedimento armazenado, gatilho e UDFs contidos nela. Embora o Banco de Dados de Documentos recupere o armazenamento e a produtividade provisionados como parte da coleção excluída em segundo plano, o armazenamento provisionado e a produtividade para a coleção excluída estão disponíveis imediatamente para uso.
+As coleções no Banco de Dados de Documentos podem ser criadas, excluídas, lidas ou enumeradas facilmente usando as [APIs REST do Banco de Dados de Documentos do Azure][APIs REST do Banco de Dados de Documentos do Azure] ou qualquer SDK cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de uma coleção. Excluir uma coleção automaticamente garante que você não possa acessar qualquer documento, anexo, procedimento armazenado, gatilho e UDFs contidos nela. Embora o Banco de Dados de Documentos recupere o armazenamento e a produtividade provisionados como parte da coleção excluída em segundo plano, o armazenamento provisionado e a produtividade para a coleção excluída estão disponíveis imediatamente para uso.
 
  
 
@@ -417,9 +417,9 @@ A única maneira de obter uma chave de recurso é criar um recurso de permissão
 
 Assim como todos os outros recursos, as permissões no Banco de Dados de Documentos podem ser criadas, substituídas, excluídas, lidas ou enumeradas facilmente usando as APIs REST ou qualquer SDK cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de uma permissão.
 
-  []: ./media/documentdb-resources/resources1.png
+  [0]: ./media/documentdb-resources/resources1.png
   [1]: ./media/documentdb-resources/resources2.png
-  []: http://portal.azure.com/
+  [0]: http://portal.azure.com/
   [APIs REST do Banco de Dados de Documentos do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=402413
   [2]: ./media/documentdb-resources/resources3.png
   [3]: ./media/documentdb-resources/resources4.png

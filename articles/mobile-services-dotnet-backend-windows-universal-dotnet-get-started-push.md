@@ -29,17 +29,19 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-1.  Navegue na pasta de projeto `\Services\MobileServices\your_service_name`, abra o arquivo de código push.register.cs gerado e inspecione o método **UploadChannel** que registra a URL do canal do dispositivo com o hub de notificação.
+<ol start="6">
+<li><p>Navegue na pasta de projeto <code>\Services\MobileServices\your_service_name</code>, abra o arquivo de código push.register.cs gerado e inspecione o método <b>UploadChannel</b> que registra a URL do canal do dispositivo com o hub de notificação.</p></li>
 
-2.  Abra o arquivo de código App.xaml.cs compartilhado e avise que uma chamada para o novo método **UploadChannel** foi adicionada no manipulador de evento **OnLaunched**.
+<li><p>Abra o arquivo de código App.xaml.cs compartilhado e avise que uma chamada para o novo método <b>UploadChannel</b> foi adicionada no manipulador de evento <b>OnLaunched</b>.</p>
 
-    Isso garante a tentativa do registro do dispositivo sempre que o aplicativo for iniciado.
+<p>Isso garante a tentativa do registro do dispositivo sempre que o aplicativo for iniciado.</p></li>
 
-3.  Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e, em seguida, no arquivo App.xaml.cs compartilhado, remova a chamada extra para **UploadChannel** e o wrapper condicional `#if...#endif` restante.
+<li><p>Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e, em seguida, no arquivo App.xaml.cs compartilhado, remova a chamada extra para <b>UploadChannel</b> e o wrapper condicional <code>#if...#endif</code> restante.</p>
 
-    Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
+<p>Ambos os projetos podem agora compartilhar uma única chamada para <b>UploadChannel</b>.</p>
 
-    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Voc&ecirc; tamb&eacute;m pode simplificar o c&oacute;digo gerado ao unificar as defini&ccedil;&otilde;es ajustadas do <code data-inline="1">#if...#endif</code> <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> em uma &uacute;nica defini&ccedil;&atilde;o n&atilde;o ajustada usada por ambas as vers&otilde;es do aplicativo.</p></div>
+<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Voc&ecirc; tamb&eacute;m pode simplificar o c&oacute;digo gerado ao unificar as defini&ccedil;&otilde;es ajustadas do <code data-inline="1">#if...#endif</code> <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> em uma &uacute;nica defini&ccedil;&atilde;o n&atilde;o ajustada usada por ambas as vers&otilde;es do aplicativo.</p></div></li>
+</ol>
 
 Agora que as notificações por push estão ativadas no aplicativo, você deve atualizar o serviço móvel para enviar notificações por push.
 
@@ -57,17 +59,20 @@ As etapas restantes nesta seção são opcionais. Elas permitem que você teste 
 
 > [WACOM.NOTE]Nunca use um serviço móvel de produção para testar e desenvolver o trabalho. Sempre publique seu projeto de serviço móvel para um serviço de preparação para testes.
 
-1.  Abra o arquivo de projeto App.xaml.cs compartilhado e localize qualquer uma das linhas do código que cria uma nova instância da classe [MobileServiceClient][MobileServiceClient] para acessar o serviço móvel em execução no Azure.
+<ol start="5">
+<li><p>Abra o arquivo de projeto App.xaml.cs compartilhado e localize qualquer uma das linhas do código que cria uma nova instância da classe <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> para acessar o serviço móvel em execução no Azure.</p></li>
 
-2.  Comente este código e adicione o código que cria um novo [MobileServiceClient][MobileServiceClient] com o mesmo nome, mas usando a URL do host local no construtor, semelhante ao seguinte:
+<li><p>Comente este código e adicione o código que cria um novo <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> com o mesmo nome, mas usando a URL do host local no construtor, semelhante ao seguinte:</li>
 
-        // This MobileServiceClient has been configured to communicate with your local
-        // test project for debugging purposes.
-        public static MobileServiceClient todolistClient = new MobileServiceClient(
-            "http://localhost:4584"
-        );
+<pre><code>// This MobileServiceClient has been configured to communicate with your local
+// test project for debugging purposes.
+public static MobileServiceClient todolistClient = new MobileServiceClient(
+	"http://localhost:4584"
+);
+</code></pre>
 
-    Usando este [MobileServiceClient][MobileServiceClient], o aplicativo conectará ao serviço local ao invés da versão hospedada no Azure. Quando quiser voltar e executar o aplicativo no serviço móvel hospedado no Azure, mude de volta para as definições [MobileServiceClient][MobileServiceClient] originais.
+    <p>Usando este <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, o aplicativo conectará ao serviço local ao invés da versão hospedada no Azure. Quando quiser voltar e executar o aplicativo no serviço móvel hospedado no Azure, mude de volta para as definições <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> originais.</p></li>
+</ol>
 
 ## <span id="test"></span></a>Testar notificações de push no seu aplicativo
 
@@ -93,7 +98,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introdução à autenticação dos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
   [esta versão]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [Registrar seu aplicativo para notificações por push]: #register
@@ -102,12 +106,8 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [Testar notificações por push no seu aplicativo]: #test
   [conta ativa da Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [MobileServiceClient]: http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
-  [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users
+  [O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
   [Como usar um cliente .NET para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

@@ -239,9 +239,9 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -251,12 +251,9 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
   [Adicionar verificação de acesso baseada em função às operações de banco de dados]: #add-access-checking
   [Testar o acesso do cliente]: #test-client
   [Scripts do servidor de armazenamento]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Registrar-se para usar um logon do Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [Referência de erro de Graph API]: http://msdn.microsoft.com/pt-br/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/pt-br/library/azure/dn151601.aspx
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

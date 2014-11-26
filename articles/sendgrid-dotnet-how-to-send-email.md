@@ -227,7 +227,6 @@ Agora que você já conhece os princípios do serviço de email do SendGrid, ace
   [serviço de email baseado em nuvem]: http://sendgrid.com/solutions
   [entrega de email transacional]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [pacote NuGet do SendGrid]: https://www.nuget.org/packages/Sendgrid
   [Pacote NuGet do SendGrid]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp

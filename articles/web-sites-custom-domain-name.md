@@ -115,22 +115,18 @@ Os visitantes do seu site não enxergarão o subdomínio awverify; ele serve ape
 
 ## Habilitar o nome do domínio no seu site
 
-[WACOM.INCLUDE [modos][2]]
+[WACOM.INCLUDE [modos](../includes/custom-dns-web-site-modes.md)]
 
-<!-- Anchors. --> 
+ 
 <!-- Images -->
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [subdomínio contoso.azurewebsites.net]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Visão geral]: #overview
   [Tipos de registro DNS]: #dns-record-types
   [Localizar o endereço IP virtual]: #find-the-virtual-ip-address
   [Criar os registros DNS]: #create-the-dns-records
   [Habilitar o nome do domínio no seu site]: #enable-the-domain-name-on-your-website
-  [modos]: ../includes/custom-dns-web-site-modes.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Como dimensionar sites]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-scale/
   [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

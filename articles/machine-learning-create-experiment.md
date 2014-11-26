@@ -1,6 +1,6 @@
 <properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure
 
@@ -14,15 +14,15 @@ As cinco etapas básicas a serem seguidas para criar um experimento no Estúdio 
 
 -   Criar um modelo
 
-    -   [Etapa 1: Obter dados][]
-    -   [Etapa 2: Pré-processar dados][]
-    -   [Etapa 3: Definir recursos][]
+    -   [Etapa 1: Obter dados][Etapa 1: Obter dados]
+    -   [Etapa 2: Pré-processar dados][Etapa 2: Pré-processar dados]
+    -   [Etapa 3: Definir recursos][Etapa 3: Definir recursos]
 -   Treinar o modelo
 
-    -   [Etapa 4: Escolher e aplicar um algoritmo de aprendizado][]
+    -   [Etapa 4: Escolher e aplicar um algoritmo de aprendizado][Etapa 4: Escolher e aplicar um algoritmo de aprendizado]
 -   Pontuar e testar o modelo
 
-    -   [Etapa 5: Prever novos dados][]
+    -   [Etapa 5: Prever novos dados][Etapa 5: Prever novos dados]
 
 Neste exemplo, explicaremos a criação de um modelo de regressão usando dados de automóveis de amostra. O objetivo é prever o preço de um automóvel usando diferentes variáveis, como especificações técnicas e de manufatura.
 
@@ -34,15 +34,15 @@ Há vários conjuntos de dados de amostra incluídos com o Estúdio AM e é poss
 
 2.  À esquerda da tela do experimento está uma paleta de conjuntos de dados e módulos. Digite “automóvel" na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados rotulado **Dados de preço de automóvel (Brutos)**.
 
-    ![Pesquisa de paleta][]
+    ![Pesquisa de paleta][Pesquisa de paleta]
 
 3.  Arraste o conjunto de dados até a tela do experimento.
 
-    ![Conjunto de dados][]
+    ![Conjunto de dados][Conjunto de dados]
 
 Para ver a aparência dos dados, clique duas vezes na porta de saída na parte inferior do conjunto de dados do automóvel e selecione **Visualizar**. As variáveis no conjunto de dados aparecem como colunas e cada instância de um automóvel aparece como uma linha. A coluna mais à direita "preço" (coluna 26) é a variável de destino que tentaremos prever.
 
-![Visualização de conjunto de dados][]
+![Visualização de conjunto de dados][Visualização de conjunto de dados]
 
 Feche a janela de visualização clicando no "**x**" no canto superior direito.
 
@@ -62,23 +62,23 @@ Primeiro, removeremos a coluna “perdas normalizadas” e removeremos qualquer 
     -   Na próxima linha, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida - selecione “perdas normalizadas” e será incluída na caixa de texto.
     -   Clique na marca de seleção do botão **OK** para fehcar o seletor de coluna.
 
-    ![Selecionar colunas][]
+    ![Selecionar colunas][Selecionar colunas]
 
     O painel de propriedades para **Colunas do Projeto** indica que passará por todas as colunas do conjunto de dados, exceto “perdas normalizadas”.
 
-    ![Propriedades de Colunas do Projeto][]
+    ![Propriedades de Colunas do Projeto][Propriedades de Colunas do Projeto]
 
     > **Dica** - É possível incluir um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Neste caso, clique duas vezes no módulo **Colunas do Projeto** e insira o comentário “Excluir perdas normalizadas”.
 
 3.  Arraste o módulo **Programa de limpeza de valores ausentes** até a tela do experimento e conecte-a ao módulo **Colunas do Projeto**. No painel de propriedades, selecione **Remover linha inteira** em **Para valores ausentes** para limpar os dados removendo linhas que possuem valores ausentes. Clique duas vezes no módulo e insira o comentário “Remover linhas de valores ausentes”.
 
-    ![Propriedades do Programa de Limpeza de Valores Ausentes][]
+    ![Propriedades do Programa de Limpeza de Valores Ausentes][Propriedades do Programa de Limpeza de Valores Ausentes]
 
 4.  Execute o experimento clicando em **EXECUTAR** abaixo da tela do experimento.
 
 Quando o experimento for concluído, todos os módulos terão uma marca de seleção verde para indicar que foram concluídos com sucesso. Observe também o status “Execução concluída” no canto superior direito.
 
-![Primeira execução do experimento][]
+![Primeira execução do experimento][Primeira execução do experimento]
 
 Tudo que o experimento fez até este momento foi limpar os dados. Para exibir o conjunto de dados limpo, clique duas vezes na porta da saída do módulo **Programa de Limpeza de Valores Ausentes** e selecione **Exibir**. Observe que a coluna “perdas normalizadas” não está mais incluída e não há valores ausentes.
 
@@ -124,7 +124,7 @@ Desejamos prever o preço de um automóvel, que pode ser qualquer valor, portant
 
 4.  Localize e arraste o módulo **Treinar Modelo** até o experimento. Clique em **Ativar seletor de coluna** e selecione a coluna *preço*. Este é o valor que nosso modelo vai prever.
 
-    ![Selecione a coluna “preço"][]
+    ![Selecione a coluna “preço"][Selecione a coluna “preço"]
 
 5.  Conecte a porta de entrada esquerda à saída do módulo **Regressão Linear** e a porta de entrada direita à saída de dados de treinamento (porta esquerda) do módulo **Dividir**.
 
@@ -132,7 +132,7 @@ Desejamos prever o preço de um automóvel, que pode ser qualquer valor, portant
 
 O resultado é um modelo de regressão treinado que pode ser usado para pontuar novas amostras para fazer previsões.
 
-![Aplicando o algoritmo de aprendizado][]
+![Aplicando o algoritmo de aprendizado][Aplicando o algoritmo de aprendizado]
 
 ### Etapa 5: Prever novos dados
 
@@ -140,7 +140,7 @@ Agora que treinamos o modelo, podemos usá-lo para pontuar os outros 25% de noss
 
 1.  Localize e arraste o módulo **Modelo de Pontuação** à tela do experimento e conecte a porta de entrada esquerda à saída do módulo **Treinar Modelo** e a porta de entrada direita à saída de dados de teste (porta direita) do módulo **Dividir**.
 
-    ![Módulo de Modelo de Pontuação][]
+    ![Módulo de Modelo de Pontuação][Módulo de Modelo de Pontuação]
 
 2.  Execute o experimento e visualize a saída do módulo **Modelo de Pontuação** (clique duas vezes na porta de saída e selecione **exibir**). A saída mostrará os valores preditivos para preço junto com os valores conhecidos dos dados de teste.
 
@@ -156,11 +156,11 @@ Agora que treinamos o modelo, podemos usá-lo para pontuar os outros 25% de noss
 
     Para cada uma das estatísticas de erro, menor é melhor - um valor menor indica que as previsões mais próximas correspondem aos valores reais. Para **Coeficiente de Determinação**, quanto mais próximo o valor estiver de um (1,0), melhores as previsões.
 
-    ![Resultados de avaliação][]
+    ![Resultados de avaliação][Resultados de avaliação]
 
 O experimento final deve ficar assim:
 
-![Experimento completo][]
+![Experimento completo][Experimento completo]
 
 ### O que vem a seguir?
 
@@ -170,7 +170,7 @@ Agora que você tem seu experimento configurado, é possível iterar para tentar
 
 Quando estiver satisfeito com seu modelo, será possível publicá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Consulte o tópico de ajuda do Estúdio AM **Publicando Experimentos** para obter mais detalhes.
 
-Para obter um acompanhamento mais extenso e detalhado da criação, treinamento, pontuação e publicação de um modelo preditivo, consulte [Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure][].
+Para obter um acompanhamento mais extenso e detalhado da criação, treinamento, pontuação e publicação de um modelo preditivo, consulte [Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure][Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure].
 
 <!-- Images -->
 

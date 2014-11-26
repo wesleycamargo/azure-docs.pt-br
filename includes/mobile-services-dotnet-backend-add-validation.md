@@ -4,7 +4,7 @@
 
 2.  Na janela do Gerenciador de Soluções, expanda o projeto de serviço da lista de tarefas e expanda **Controladores**. Abra o arquivo TodoItemController.cs que faz parte do projeto de serviço móvel.
 
-    ![][]
+    ![][0]
 
 3.  Substitua o método `PostTodoItem` pelo seguinte método que validará se a cadeia de caracteres de texto não é maior que 10 caracteres. Para itens que tenham um tamanho de texto maior que 10 caracteres, o método retorna um código de status HTTP Solicitação Inválida 400 com uma mensagem descritiva incluída como conteúdo.
 
@@ -31,10 +31,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  []: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
+  [0]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
   [1]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png
   [2]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png

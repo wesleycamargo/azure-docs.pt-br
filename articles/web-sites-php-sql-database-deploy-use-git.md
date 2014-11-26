@@ -278,7 +278,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
   [gito]: http://git-scm.com/
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Site PHP do Azure]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Criar um novo site do Azure]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Criação personalizada de um novo site]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png

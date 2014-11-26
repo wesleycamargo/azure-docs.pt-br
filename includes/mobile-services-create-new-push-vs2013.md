@@ -26,7 +26,7 @@ As seguintes etapas registram seu aplicativo com a Windows Store, configuram o s
 
     > [WACOM.NOTE]O código que é adicionado a sua solução de aplicativo universal do Windows pelo assistente Adicionar Notificação por Push é específico da plataforma. Mais tarde nesta seção, removeremos esta redundância compartilhando o código cliente dos Serviços Móveis, o que torna mais fácil a manutenção do aplicativo universal.
 
-<!-- URLs. -->
+
 
   [Adicionar o assistente Notificação por Push no Visual Studio 2013]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png
   [Selecione o nome do aplicativo no assistente Adicionar Notificação por Push]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png

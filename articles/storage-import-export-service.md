@@ -1,4 +1,4 @@
-<properties urlDisplayName="Azure Import/Export Service" pageTitle="Usando importa&ccedil;&atilde;o/exporta&ccedil;&atilde;o para transferir dados para o Armazenamento de Blob | Microsoft Azure" metaKeywords="" description="Saiba como criar trabalhos de importa&ccedil;&atilde;o e exporta&ccedil;&atilde;o no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Usando o servi&ccedil;o de importa&ccedil;&atilde;o/exporta&ccedil;&atilde;o do Azure para transferir dados para o Armazenamento de Blob" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -27,10 +27,8 @@ Ao criar um trabalho, você notifica o serviço de Importação/Exportação de 
 Para preparar seu disco rígido para envio a um trabalho de importação, execute a **Ferramenta de Importação/Exportação do Microsoft Azure**, que facilita a cópia dos seus dados para a unidade, criptografando os dados na unidade com BitLocker e gerando os arquivos de diário de unidade, que serão discutidos a seguir.
 
 <div class="dev-callout">
-
-**Observação**
-Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso protegerá os dados enquanto eles estiverem em trânsito. Em um trabalho de exportação, o serviço Importar/Exportar criptografa seus dados antes de enviar a unidade de volta para você.
-
+<strong>Observa&ccedil;&atilde;o</strong>
+<p>Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso proteger&aacute; os dados enquanto eles estiverem em tr&acirc;nsito. Em um trabalho de exporta&ccedil;&atilde;o, o servi&ccedil;o Importar/Exportar criptografa seus dados antes de enviar a unidade de volta para voc&ecirc;.</p>
 </div>
 
 Ao criar um trabalho de importação ou de exportação, você também precisará da *ID da unidade*, que é o número de série atribuído pelo fabricante da unidade a um disco rígido específico. A ID de unidade é exibida na parte externa da unidade.
@@ -103,15 +101,16 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
     A tabela mostra exemplos de caminhos de blob válidos:
 
-    |-------------|---------------------|----------------------------------------------------------------------------------|
-    | **Seletor** | **Caminho do Blob** | **Descrição**                                                                    |
-    | Começa com  | /                   | Exporta todos os blobs na conta de armazenamento                                 |
-    | Começa com  | /$root/             | Exporta todos os blobs no contêiner raiz                                         |
-    | Começa com  | /book               | Exporta todos os blobs em qualquer contêiner que comece com o prefixo **book**   |
-    | Começa com  | /music/             | Exporta todos os blobs no contêiner **music**                                    |
-    | Começa com  | /music/love         | Exporta todos os blobs no contêiner **music** que comecem com o prefixo **love** |
-    | Igual a     | $root/logo.bmp      | Exporta o blob **logo.bmp** no contêiner raiz                                    |
-    | Igual a     | videos/story.mp4    | Exporta o blob **story.mp4** no contêiner **vídeos**                             |
+	<table border="1">
+    <tr><th> Seletor </th><th> Caminho do Blob </th><th> Descrição </th></tr>
+    <tr><td> Começa com  </td><td> /                   </td><td> Exporta todos os blobs na conta de armazenamento                                 </td></tr>
+    <tr><td> Começa com  </td><td> /$root/             </td><td> Exporta todos os blobs no contêiner raiz                                         </td></tr>
+    <tr><td> Começa com  </td><td> /book               </td><td> Exporta todos os blobs em qualquer contêiner que comece com o prefixo <strong>book</strong>   </td></tr>
+    <tr><td> Começa com  </td><td> /music/             </td><td> Exporta todos os blobs no contêiner <strong>music</strong>                                    </td></tr>
+    <tr><td> Começa com  </td><td> /music/love         </td><td> Exporta todos os blobs no contêiner <strong>music</strong> que comecem com o prefixo <strong>love</strong> </td></tr>
+    <tr><td> Igual a     </td><td> $root/logo.bmp      </td><td> Exporta o blob <strong>logo.bmp</strong> no contêiner raiz                                    </td></tr>
+    <tr><td> Igual a     </td><td> videos/story.mp4    </td><td> Exporta o blob <strong>story.mp4</strong> no contêiner <strong>vídeos</strong>                             </td></tr>
+	</table>
 
 4.  Na Etapa 4, digite um nome descritivo para o trabalho de exportação. O nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar por letra e não pode conter espaços.
 
@@ -133,13 +132,14 @@ Você pode acompanhar o status dos seus trabalhos de importação ou exportaçã
 
 A tabela descreve o que significa cada designação de status do trabalho:
 
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Status do Trabalho** | **Descrição**                                                                                                                                       |
-| Criando                | Seu trabalho foi criado, mas você ainda não forneceu as informações de remessa.                                                                     |
-| Remessa                | Seu trabalho foi criado e você forneceu as informações de remessa.                                                                                  |
-| Transferindo           | Os dados estão sendo transferidos do seu disco rígido (para um trabalho de importação) ou para o seu disco rígido (para um trabalho de exportação). |
-| Empacotamento          | A transferência dos dados foi concluída e o seu disco rígido está sendo preparado para enviar de volta para você.                                   |
-| Concluído              | Seu disco rígido foi enviado de volta para você.                                                                                                    |
+<table border="1">
+<tr><th> Status do Trabalho </th><th> Descrição </th></tr>
+<tr><td> Criando                </td><td> Seu trabalho foi criado, mas você ainda não forneceu as informações de remessa.                                                                     </td></tr>
+<tr><td> Remessa                </td><td> Seu trabalho foi criado e você forneceu as informações de remessa.                                                                                  </td></tr>
+<tr><td> Transferindo           </td><td> Os dados estão sendo transferidos do seu disco rígido (para um trabalho de importação) ou para o seu disco rígido (para um trabalho de exportação). </td></tr>
+<tr><td> Empacotamento          </td><td> A transferência dos dados foi concluída e o seu disco rígido está sendo preparado para enviar de volta para você.                                   </td></tr>
+<tr><td> Concluído              </td><td> Seu disco rígido foi enviado de volta para você.                                                                                                    </td></tr>
+</table>
 
 ## Exibir Chaves do BitLocker para um trabalho de exportação
 
@@ -161,7 +161,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 **Quais tipos de interface têm suporte?**
 
--   - O serviço de Importação/Exportação oferece suporte a HDDs (unidades de disco rígido) internos SATA II/III de 3,5 polegadas. Você pode usar os seguintes conversores para transferir os dados nos dispositivos em USB para SATA antes da remessa:
+-   O serviço de Importação/Exportação oferece suporte a HDDs (unidades de disco rígido) internos SATA II/III de 3,5 polegadas. Você pode usar os seguintes conversores para transferir os dados nos dispositivos em USB para SATA antes da remessa:
 
     -   Anker 68UPSATAA-02BU
     -   Anker 68UPSHHDS-BU
@@ -208,11 +208,9 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 -   As regiões na Ásia só dão suporte ao serviço [DHL][DHL]. Todos os pacotes serão retornados via DHL Express Worldwide.
 
     <div class="dev-callout">
-
-    **Importante**
-    Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
-
-    </div>
+<strong>Importante</strong>
+<p>Voc&ecirc; deve fornecer seu n&uacute;mero de controle ao servi&ccedil;o de Importa&ccedil;&atilde;o/Exporta&ccedil;&atilde;o do Azure; caso contr&aacute;rio, seu trabalho n&atilde;o poder&aacute; ser processado.</p>
+</div>
 
 **Existe algum custo associado à remessa de retorno?**
 
@@ -227,7 +225,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
     -   Leste dos EUA
     -   Oeste dos EUA
     -   Centro-Norte dos EUA
-    -   Centro-Sul dos Estados Unidos
+    -   Centro-Sul dos EUA
     -   Norte da Europa
     -   Europa Ocidental
     -   Ásia Oriental
@@ -235,11 +233,9 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 -   Você receberá um endereço de remessa na região onde sua conta de armazenamento está localizada. Por exemplo, se morar nos EUA e sua conta de armazenamento estiver no data center da Europa Ocidental, você receberá um endereço de remessa na Europa para envio das unidades.
 
     <div class="dev-callout">
-
-    **Importante**
-    Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
-
-    </div>
+<strong>Importante</strong>
+<p>Observe que a m&iacute;dia f&iacute;sica que est&aacute; enviando talvez precise cruzar fronteiras internacionais. Voc&ecirc; &eacute; respons&aacute;vel por garantir que seus dados e m&iacute;dia f&iacute;sica sejam importados e/ou exportados de acordo com as leis aplic&aacute;veis. Antes de enviar a m&iacute;dia f&iacute;sica, verifique com seus consultores se a m&iacute;dia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudar&aacute; a garantir que eles cheguem &agrave; Microsoft pontualmente.</p>
+</div>
 
 -   Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure][Termos de Serviço do Microsoft Azure].
 

@@ -1,12 +1,12 @@
 As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para acessar recursos. Primeiro, você precisa obter as credenciais necessárias para solicitar acesso usando o OAuth 2.0. Em seguida, você irá armazená-las com segurança nas configurações do aplicativo para seu serviço móvel.
 
-1.  Se ainda não o fez, conclua as etapas do tópico [Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis][].
+1.  Se ainda não o fez, conclua as etapas do tópico [Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis][Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis].
 
     O Twitter gera as credenciais necessárias para habilitar seu acesso às APIs do Twitter v1.1. Você pode obter essas credenciais no site de Desenvolvedores do Twitter.
 
-2.  Navegue até o site [Desenvolvedores do Twitter][], entre usando suas credenciais de conta do Twitter, navegue até **Meus Aplicativos** e selecione seu aplicativo do Twitter.
+2.  Navegue até o site [Desenvolvedores do Twitter][Desenvolvedores do Twitter], entre usando suas credenciais de conta do Twitter, navegue até **Meus Aplicativos** e selecione seu aplicativo do Twitter.
 
-    ![][]
+    ![][0]
 
 3.  Na guia **Detalhes** do aplicativo, anote os seguintes valores:
 
@@ -17,7 +17,7 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 
     ![][1]
 
-4.  Faça o logon no [Portal de Gerenciamento do Windows Azure][], clique em **Serviços Móveis** e clique em seu serviço móvel.
+4.  Faça o logon no [Portal de Gerenciamento do Windows Azure][Portal de Gerenciamento do Windows Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
 
 5.  Clique na guia **Identidade**, insira os valores de **Chave do consumidor** e **Segredo do consumidor** obtidos no Twitter e clique em **Salvar**.
 
@@ -30,13 +30,13 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 
     ![][3]
 
-    Isso armazena o token de acesso do Twitter nas configurações do aplicativo. Como as credenciais do consumidor na guia **Identidade**, as credenciais de acesso também são armazenadas criptografadas nas configurações do aplicativo, e você pode acessá-las em seus scripts de servidor sem embuti-las em código no arquivo de script. Para obter mais informações, consulte [Configurações do aplicativo][].
+    Isso armazena o token de acesso do Twitter nas configurações do aplicativo. Como as credenciais do consumidor na guia **Identidade**, as credenciais de acesso também são armazenadas criptografadas nas configurações do aplicativo, e você pode acessá-las em seus scripts de servidor sem embuti-las em código no arquivo de script. Para obter mais informações, consulte [Configurações do aplicativo][Configurações do aplicativo].
 
-<!-- URLs. -->
+
 
   [Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-how-to-register-twitter-authentication/
   [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  []: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
+  [0]: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
   [1]: ./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png
   [Portal de Gerenciamento do Windows Azure]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png

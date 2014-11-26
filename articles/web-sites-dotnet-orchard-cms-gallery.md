@@ -73,7 +73,6 @@ Azure iniciam construir e implantar as operações. Enquanto o site estiver send
   [Pomar]: http://www.orchardproject.net/
   [fazer o download de outros módulos e temas]: http://gallery.orchardproject.net/
   [Blog do pomar]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Criar Novo]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [Criar Da Galeria]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [Pomar da lista]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

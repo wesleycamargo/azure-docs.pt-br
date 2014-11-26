@@ -60,8 +60,8 @@
 
 4.  Toque no botão **Tudo Concluído**.
 
-    ![][]
+    ![][0]
 
     É exibida uma caixa de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-  []: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png
+  [0]: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png

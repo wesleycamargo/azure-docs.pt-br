@@ -236,9 +236,9 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 -   [Como usar a biblioteca de cliente Android para os Serviços Móveis][Como usar a biblioteca de cliente Android para os Serviços Móveis]
     Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [tutorial anterior de notificação por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
   [Criar a tabela Registration]: #create-table

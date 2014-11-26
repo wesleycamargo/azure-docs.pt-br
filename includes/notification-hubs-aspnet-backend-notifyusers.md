@@ -4,7 +4,7 @@ A primeira etapa é criar um projeto WebAPI ASP.NET. Esse é o back-end usado pa
 
 > [AZURE.NOTE] **Importante**: antes de iniciar este tutorial, certifique-se de ter instalado a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. A partir do menu **Ferramentas**, clique em **Extensões e atualizações**. Pesquise **Gerenciador de Pacotes NuGet para Visual Studio 2013**, certificando-se de ter instalada a versão 2.8.50313.46 ou posterior. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
 >
-> ![][]
+> ![][0]
 
 1.  Inicie o Visual Studio com privilégios elevados (execute como Administrador).
 2.  No Visual Studio ou Visual Studio Express, clique em **Arquivo**, depois clique em **Novo**, em seguida em **Projeto**, expanda o item **Modelos**, **Visual C\#**, então clique em **Web** e em **Aplicativo Web ASP.NET**, digite o nome **AppBackend** e, por fim, clique em **OK**.
@@ -50,7 +50,7 @@ A primeira etapa é criar um projeto WebAPI ASP.NET. Esse é o back-end usado pa
 
         using Microsoft.ServiceBus.Notifications;
 
-12. No método `Notifications()`, substitua os dois espaços reservados no preenchimento da linha de código pela cadeia de conexão (com acesso completo) para seu hub de notificação, além do nome do hub. Você pode obter esses valores do [Portal de Gerenciamento do Azure][]:
+12. No método `Notifications()`, substitua os dois espaços reservados no preenchimento da linha de código pela cadeia de conexão (com acesso completo) para seu hub de notificação, além do nome do hub. Você pode obter esses valores do [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure]:
 
         Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
 
@@ -280,7 +280,7 @@ A primeira etapa é criar um projeto WebAPI ASP.NET. Esse é o back-end usado pa
 
     ![][10]
 
-  []: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+  [0]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
   [1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
   [2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
   [3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png

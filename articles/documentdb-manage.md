@@ -1,6 +1,6 @@
 <properties title="Manage DocumentDB capacity and performance" pageTitle="Manage DocumentDB capacity and performance | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos
 
@@ -58,7 +58,7 @@ Observe na tabela que as unidades de solicitação consumidas pelas operações 
 
 Para obter um número preciso de unidades de solicitação para seu aplicativo, você pode usar a calculadora de unidades de solicitação para calcular as unidades de solicitação consumidas para várias operações. Você também pode inspecionar o cabeçalho de resposta x-ms-request-charge que inclui o número de unidades de solicitação consumidas para determinada solicitação.
 
-[Calculadora de unidades de solicitação][]
+[Calculadora de unidades de solicitação][Calculadora de unidades de solicitação]
 
 # Coleções e taxa de transferência provisionada
 
@@ -71,7 +71,7 @@ A escolha do nível de consistência padrão tem impacto na taxa de transferênc
 -   Os níveis de consistência Session e Eventual fornecem aproximadamente 2000 solicitações de leitura de documentos e 500 inserções/substituições/exclusões de documentos.
 -   Os níveis de consistência Strong e Bounded Staleness fornecem aproximadamente 1200 solicitações de leitura de documentos e 500 inserções/substituições/exclusões de documentos. As inserções/substituições/exclusões com Bounded Staleness são significativamente menores em latência que no nível Strong.
 
-[Calculadora de unidades de solicitação][]
+[Calculadora de unidades de solicitação][Calculadora de unidades de solicitação]
 
 # Armazenamento de documentos provisionado e sobrecarga de índice
 
@@ -79,6 +79,6 @@ Cada CU comprada para sua conta é provisionada com 10 GB de armazenamento de do
 
 Por padrão, todos os documentos são indexados pelo Banco de Dados de Documentos automaticamente. Porém, caso deseje ajustar a sobrecarga de índice, você pode optar por remover determinados documentos da indexação no momento da inserção ou substituição de um documento. Você pode configurar uma coleção do Banco de Dados de Documentos para excluir todos os documentos na coleção para não serem indexados. Você também pode configurar uma coleção do Banco de Dados de Documentos para indexar seletivamente somente determinadas propriedades ou caminhos com caracteres curinga dos seus documentos JSON. A exclusão de propriedades ou documentos também melhora a taxa de transferência de gravação – o que significa que você consumirá menos unidades de solicitação.
 
-[Calculadora de unidades de solicitação][]
+[Calculadora de unidades de solicitação][Calculadora de unidades de solicitação]
 
   [Calculadora de unidades de solicitação]: http://go.microsoft.com/fwlink/?LinkID=510088

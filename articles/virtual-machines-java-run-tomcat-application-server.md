@@ -1,4 +1,4 @@
-<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat em uma m&aacute;quina virtual &mdash; tutoria do Azure" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Saia como criar uma m&aacute;quina virtual Windows e configur&aacute;-la para executar um servidor de aplicativos Apache Tomcat." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="Como executar um servidor de aplicativos Java em uma m&aacute;quina virtual" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -54,9 +54,8 @@ Para os objetivos deste tutorial, um servidor de aplicativos Apache Tomcat será
 1.  Faça logon no [Portal de Gerenciamento][Portal de Gerenciamento do Azure].
 2.  Clique em **Máquinas Virtuais**.
 3.  Clique no nome da máquina virtual na qual você deseja fazer logon.
-4.  Depois que a máquina virtual for iniciada, um menu pop-up aparecerá na parte inferior da página para permitir as conexões.
-5.  Clique em **Conectar**.
-6.  Responda às solicitações conforme necessário para se conectar à máquina virtual. Isso deve incluir salvar ou abrir o arquivo .rdp que contém os detalhes de conexão. Pode ser necessário copiar url:port como último parte da primeira linha do arquivo .rdp e colar essa informações em um aplicativo de logon remoto.
+4.  Clique em **Conectar**.
+5.  Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
 
 ## Para instalar um servidor de aplicativos Java em sua máquina virtual
 
@@ -123,7 +122,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 
 ![Nome da nova regra de entrada][Nome da nova regra de entrada]
 
-Neste ponto, o site Tomcat agora deve ser visível a partir de um navegador externo, usando uma URL do formulário **http://*your\_DNS\_name*.cloudapp.net**, onde ***your\_DNS\_name*** é o nome DNS que você especificou quando criou a máquina virtual.
+Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando uma URL no formato **http://_your\_DNS\_name_.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
 

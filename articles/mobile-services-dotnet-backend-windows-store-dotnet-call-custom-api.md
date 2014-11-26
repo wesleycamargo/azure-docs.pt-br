@@ -45,17 +45,15 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo da Wind
 
     Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
   [Introdução a dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [Definir a API personalizada]: #define-custom-api
   [Atualizar o aplicativo para chamar a API personalizada]: #update-app
   [Testar o aplicativo]: #test-app
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-windows-store-dotnet-call-custom-api]: ../includes/mobile-services-windows-store-dotnet-call-custom-api.md
   [Definir uma API personalizada que ofereça suporte a notificações periódicas]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
   [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control

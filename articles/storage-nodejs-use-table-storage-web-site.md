@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website with Storage" pageTitle="Site do Node.js com armazenamento de tabela | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="Um tutorial que ensina a usar o servi&ccedil;o Tabela do Azure para armazenar dados de um aplicativo de n&oacute; hospedado em um site do Azure." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Aplicativo Web Node.js que usa o Servi&ccedil;o Tabela do Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Aplicativo Web Node.js que usa o Serviço Tabela do Azure
 
@@ -22,7 +22,7 @@ Os arquivos do projeto deste tutorial serão armazenados em um diretório chamad
 
 > [WACOM.NOTE] Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\\node\\tasklist**.
 
-> [WACOM.NOTE] Muitas das etapas abaixo mencionam o uso da linha de comando. Para essas etapas, use a linha de comando de seu sistema operacional, como **cmd.exe** (Windows) ou **Bash** (Unix Shell). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo Terminal.
+> [WACOM.NOTE] Muitas das etapas abaixo mencionam o uso de linha de comando. Para essas etapas, use a linha de comando de seu sistema operacional, como **cmd.exe** (Windows) ou **Bash** (Unix Shell). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo Terminal.
 
 ## Pré-requisitos
 
@@ -80,7 +80,7 @@ Nesta seção você criará um novo aplicativo de nó e usará o npm para adicio
         ├── mkdirp@0.3.5
         └── commander@1.3.2 (keypress@0.1.0)
 
-    > [WACOM.NOTE] O parâmetro '-g' usado durante a instalação do módulo expresso o instala globalmente. Isso é feito para que possamos acessar o comando **express** para gerar o scaffolding do site da Web sem precisar digitar informações adicionais do caminho.\*\*
+    > [WACOM.NOTE] O parâmetro '-g' usado durante a instalação do módulo express instala globalmente. Isso é feito para que possamos acessar o comando **express** para gerar o scaffolding do site da Web sem precisar digitar informações adicionais do caminho.\*\*
 
 3.  Para criar o scaffolding que será usado para esse aplicativo, use o comando **express**:
 
@@ -202,7 +202,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 1.  No diretório **tasklist**, crie um novo diretório com nome **models**.
 
-2.  No diretório **models**, crie um novo arquivo chamado **task.js**. Esse arquivo vai conter o modelo para as tarefas criadas pelo seu aplicativo.
+2.  No diretório **models**, crie um novo arquivo com nome **task.js**. Esse arquivo vai conter o modelo para as tarefas criadas pelo seu aplicativo.
 
 3.  No início do arquivo **task.js**, adicione o seguinte código para fazer a referência às bibliotecas necessárias:
 
@@ -282,7 +282,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 1.  No diretório **tasklist/routes**, crie um novo arquivo chamado **tasklist.js** e abra-o em um editor de texto.
 
-2.  Adicione os seguintes códigos ao **tasklist.js**. Isso carrega os módulos azure e async, que são usados por **tasklist.js**. Isso também define a função de **TaskList**, que é transmitida a uma instância do objeto da **Tarefa** definido anteriormente:
+2.  Adicione o código a seguir a **tasklist.js**. Isso carrega os módulos azure e async, que são usados por **tasklist.js**. Isso também define a função de **TaskList**, que é transmitida a uma instância do objeto da **Tarefa** definido anteriormente:
 
         var azure = require('azure-storage');
         var async = require('async');
@@ -293,7 +293,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
           this.task = task;
         }
 
-3.  Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados para **showTasks**, **addTask** e **completeTasks**:
+3.  Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados a **showTasks**, **addTask** e **completeTasks**:
 
         TaskList.prototype = {
           showTasks: function(req, res) {
@@ -462,7 +462,7 @@ O arquivo **config.json** contém a cadeia de caracteres de conexão usada para 
 
 ## Execute seu aplicativo localmente
 
-Execute as etapas a seguir para testar o aplicativo em seu computador local.
+Execute as etapas a seguir para testar o aplicativo em seu computador local:
 
 1.  Da linha de comando, mude os diretórios para o diretório **tasklist**.
 
@@ -470,11 +470,11 @@ Execute as etapas a seguir para testar o aplicativo em seu computador local.
 
         npm start
 
-3.  Abra um navegador da web e navegue até http://127.0.0.1:3000. Isso deve exibir uma página web semelhante à seguinte:
+3.  Abra o navegador da Web e acesse <http://127.0.0.1:3000>. Isso deve exibir uma página semelhante à seguinte:
 
     ![Uma página da Web que exibe uma lista de tarefas vazia][Uma página da Web que exibe uma lista de tarefas vazia]
 
-4.  Use os campos fornecidos para **Nome do Item** e **Categoria do Item** para inserir informações e clique em **Adicionar item**.
+4.  Use os campos fornecidos para **Nome do Item** e **Categoria do Item** para inserir informações e clique em **Adicionar Item**.
 
 5.  A página deverá ser atualizada para exibir o item na tabela da ToDo List.
 
@@ -490,11 +490,11 @@ As etapas desta seção usam as ferramentas de linha de comando do Azure para cr
 
 > [WACOM.NOTE] Essas etapas também podem ser executadas com o uso do portal do Azure. Para obter as etapas sobre como usar o portal do Azure para implantar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure].
 
-> [WACOM.NOTE] Se este for o primeiro site do Azure que você criou, você deve usar o portal do Azure para implantar este aplicativo.
+> [WACOM.NOTE] Se este for o primeiro site do Azure que você criou, será necessário usar o portal do Azure para implantar o aplicativo.
 
-### Crie uma assinatura do Azure.
+### Criar uma assinatura do Azure
 
-Se você não tiver uma conta do Azure, será possível se inscrever em uma [conta gratuita][Portal do Azure]. Após a inscrição, siga estas etapas para continuar esse tutorial.
+Se você não tiver uma conta do Azure, será possível se inscrever em uma [conta gratuita][Portal do Azure]. Após a inscrição, siga estas etapas para continuar este tutorial.
 
 [WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
@@ -552,7 +552,7 @@ Antes de usar as ferramentas de linha de comando com o Azure, você deve primeir
 
     O parâmetro `--git` criará um repositório Git no Azure para este site. Ele também inicializará um repositório Git no diretório atual, se não houver nenhum. Isso também criará um [Git remoto][Git remoto] chamado 'azure', que será usado para publicar o aplicativo no Azure. Por fim, isso criará um arquivo **web.config**, que contém as configurações usadas pelo Azure para hospedar aplicativos de nó.
 
-    > [WACOM.NOTE] Se este comando for executado de um diretório que já contém um repositório Git, ele não inicializará novamente o diretório.
+    > [WACOM.NOTE] Se esse comando for executado de um diretório que já contenha um repositório Git, ele não inicializará o diretório novamente.
 
     > [WACOM.NOTE] Se o parâmetro `--git` for omitido, ainda que o diretório contenha um repositório Git, o 'azure' remoto ainda será criado.
 
@@ -575,14 +575,14 @@ Antes de usar as ferramentas de linha de comando com o Azure, você deve primeir
 
 ### Publicar o aplicativo
 
-1.  Na janela do Terminal, altere os diretórios para o diretório **tasklist**, se você não ainda estiver lá.
+1.  Na janela do Terminal, altere os diretórios para o diretório **tasklist**, se você ainda não tiver feito isso.
 
 2.  Use os seguintes comandos para adicionar e, em seguida, submeter arquivos para o repositório Git local:
 
         git add .
         git commit -m "adding files"
 
-3.  Ao enviar as alterações do repositório Git mais recentes para o Site do Azure, você deve especificar que a ramificação de destino é **master**, já que ele é usado para o conteúdo do site.
+3.  Ao enviar as alterações mais recentes do repositório Git para o site do Azure, você deve especificar que a ramificação de destino é **master**, já que é usada para o conteúdo do site.
 
         git push azure master
 
@@ -636,15 +636,15 @@ Embora as etapas neste artigo descrevam como usar o Serviço de Tabela para arma
 
 ## Recursos adicionais
 
-[Ferramenta de linha de comando do Azure para Mac e Linux] [Criar e implantar um aplicativo Node.js em sites do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Publicando sites do Azure com o Git][Publicando sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
+[Ferramenta de linha de comando do Azure para Mac e Linux](/pt-br/documentation/articles/xplat-cl)
+[Criar e implantar um aplicativo Node.js em sites do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publicando sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
 [Centro de Desenvolvedores do Azure]: /pt-br/develop/nodejs/
 
   [nó]: http://nodejs.org
   [Git]: http://git-scm.com
   [Uma página da Web que exibe uma lista de tarefas vazia]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [Portal do Azure]: http://windowsazure.com
-  [+novo]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [Conta de Armazenamento]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [Criação Rápida]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [teclas de acesso]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -662,4 +662,3 @@ Embora as etapas neste artigo descrevam como usar o Serviço de Tabela para arma
   [configurações do aplicativo]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [salvar as configurações do aplicativo]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [Aplicativo da web Node.js com o MongoDB]: /pt-br/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Publicando sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/

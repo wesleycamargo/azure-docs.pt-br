@@ -1,6 +1,6 @@
 <properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="Learn how to use DocumentDB to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong" />
 
 # <a name="_Toc395809351">Criar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos</a>
 
@@ -33,7 +33,7 @@ baseado na Web que permite criar, recuperar e
 concluir as tarefas. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do
 Azure.
 
-![Texto Alt][]
+![Texto Alt][Texto Alt]
 
 # <a name="_Toc395637760">Pré-requisitos</a>
 
@@ -42,11 +42,11 @@ você possui os seguintes itens instalados:
 
 Git para Windows <http://www.git-scm.com/downloads>
 
-Visual Studio 2013 (ou [Visual Studio Express][], que é a
+Visual Studio 2013 (ou [Visual Studio Express][Visual Studio Express], que é a
 versão gratuita)
 
 SDK do Azure para .NET versão 2.3 ou superior, disponível pelo
-[Microsoft Web Platform Installer][]
+[Microsoft Web Platform Installer][Microsoft Web Platform Installer]
 
 Todas as capturas de tela neste documento foram feitas usando o
 Visual Studio 2013 com Atualização 3 aplicada e o SDK do Azure para .NET versão
@@ -654,7 +654,7 @@ Parabéns! Você acabou de criar seu primeiro Aplicativo ASP.NET MVC usando o Ba
 [aqui] (<http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409>)
 
   [Texto Alt]: ./media/documentdb-dotnet-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [1]: ./media/documentdb-dotnet-application/image2.png
   [2]: ./media/documentdb-dotnet-application/image3.png

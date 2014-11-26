@@ -1,19 +1,19 @@
 Esta seção mostra como enviar notificações a partir de um aplicativo de console .NET e qualquer outro.
-Se você utiliza Serviços Móveis, consulte os tutoriais [Introdução ao Push][]. Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação a partir de Java/PHP][]. Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação][].
+Se você utiliza Serviços Móveis, consulte os tutoriais [Introdução ao Push][Introdução ao Push]. Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação a partir de Java/PHP][Como utilizar Hubs de Notificação a partir de Java/PHP]. Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação][interface REST de Hubs de notificação].
 
 O código a seguir envia notificações à Windows Store, Windows Phone, iOS e dispositivos Android.
 
-Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando concluído [começar com Hubs de notificação][].
+Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando concluído [começar com Hubs de notificação][começar com Hubs de notificação].
 
 1.  No Visual Studio, crie um novo aplicativo de console em Visual C\#:
 
-    ![][]
+    ![][0]
 
 2.  No menu principal do Visual Studio, clique em **ferramentas**, **do Gerenciador de Pacotes de biblioteca**, e **Console do Gerenciador de Pacotes**, em seguida, na janela do console digite o seguinte e pressione **Enter**:
 
         Install-Package WindowsAzure.ServiceBus
 
-    Isso adiciona uma referência ao Azure Service Bus SDK usando o [pacote do WindowsAzure.ServiceBus NuGet][].
+    Isso adiciona uma referência ao Azure Service Bus SDK usando o [pacote do WindowsAzure.ServiceBus NuGet][pacote do WindowsAzure.ServiceBus NuGet].
 
 3.  Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
 
@@ -82,12 +82,12 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
          Console.ReadLine();
 
 <!-- Anchors -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [Introdução ao Push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
   [Como utilizar Hubs de Notificação a partir de Java/PHP]: /pt-br/documentation/articles/notification-hubs-java-backend-how-to/
-  [interface REST de Hubs de notificação]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [interface REST de Hubs de notificação]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
   [começar com Hubs de notificação]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
+  [0]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [pacote do WindowsAzure.ServiceBus NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/

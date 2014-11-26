@@ -1,6 +1,6 @@
 <properties linkid="cdn-serve-content-from-cdn-in-your-web-application" urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Fornecer conteúdo da CDN do Azure em seu aplicativo Web
 
@@ -58,7 +58,7 @@ Vamos lá. Siga as etapas abaixo para começar a usar a CDN do Azure:
 1.  Para criar um ponto de extremidade CDN, faça logon no [portal de gerenciamento do Azure][portal de gerenciamento do Azure].
 2.  Crie uma conta de armazenamento clicando em **Novo \> Serviços de Dados \> Armazenamento \> Criação Rápida**. Especifique um URL, um local e clique em **Criar Conta de Armazenamento**.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Observe que estou usando Ásia Oriental como a região, pois é distante o suficiente para que eu teste minha CDN por meio da América do Norte mais tarde.
 
@@ -277,10 +277,8 @@ Para obter mais informações sobre como integrar a CDN do Azure aos Serviços d
   [conta do Microsoft Azure]: http://azure.microsoft.com/pt-br/account/
   [SDK do Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [PowerShell do Azure]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [abrir uma conta do Azure gratuitamente]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A261C142F
-  [ativar benefícios para assinantes do MSDN]: http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [portal de gerenciamento do Azure]: http://manage.windowsazure.com/
-  []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
+  [0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
   [2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG

@@ -70,9 +70,9 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
 	Saiba mais sobre como usar os Serviços Móveis com o .NET
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Instalar a biblioteca do Cliente de Armazenamento]: #install-storage-client
   [Atualizar o script de inserção para gerar uma SAS]: #update-scripts
@@ -82,8 +82,6 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
   [Conta de Armazenamento do Azure]: /pt-br/manage/services/storage/how-to-create-a-storage-account
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
   [Enviar email dos Serviços Móveis com SendGrid]: /pt-br/develop/mobile/tutorials/send-email-with-sendgrid/
   [Agendar trabalhos de back-end nos Serviços Móveis]: /pt-br/develop/mobile/tutorials/schedule-backend-tasks/
   [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293

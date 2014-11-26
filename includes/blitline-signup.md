@@ -1,14 +1,14 @@
 ### Para se inscrever em uma conta do Blitline
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  No painel inferior do portal de gerenciamento, clique em **Novo**.
 
-    ![command-bar-new][]
+    ![command-bar-new][command-bar-new]
 
 3.  Clique em **Repositório**.
 
-    ![blitline-store][]
+    ![blitline-store][blitline-store]
 
 4.  Na caixa de diálogo **Escolher um complemento**, selecione **Blitline** e clique na seta à direita.
 
@@ -16,7 +16,7 @@
 
 6.  Digite um nome para identificar seu serviço do **Blitline** em suas configurações do Azure ou use o valor padrão de **Blitline**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
 
-    ![store-screen-1][]
+    ![store-screen-1][store-screen-1]
 
 7.  Escolha um valor para a região; por exemplo, oeste dos Estados Unidos.
 
@@ -30,11 +30,11 @@ Para usar o Blitline, você precisa ter a ID do aplicativo.
 
 1.  Clique em **Informações de Conexão**.
 
-    ![blitline-connection-info-button][]
+    ![blitline-connection-info-button][blitline-connection-info-button]
 
 2.  Na caixa de diálogo *Informações de Conexão*, você pode ver a ID do Aplicativo
 
-    ![blitline-connection-info][]
+    ![blitline-connection-info][blitline-connection-info]
 
 <!--images-->
 

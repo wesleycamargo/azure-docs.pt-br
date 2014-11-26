@@ -99,11 +99,11 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação][Notificar usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios/

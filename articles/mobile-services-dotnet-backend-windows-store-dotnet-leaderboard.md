@@ -710,9 +710,9 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 -   [Adicionar notificações por push][Adicionar notificações por push]; por exemplo, quando alguém adicionar um novo jogador ou atualizar uma pontuação.
 -   [Introdução à autenticação][Introdução à autenticação]
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [API Web ASP.NET]: http://asp.net/web-api
   [Visão geral]: #overview

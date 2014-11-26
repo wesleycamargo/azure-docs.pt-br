@@ -100,7 +100,9 @@ o daemon do Docker no host é configurado para escutar e autenticar conexões cl
 
 Você está pronto para conferir o [Guia do usuário do Docker][Guia do usuário do Docker] e usar sua máquina virtual Docker. Para criar uma máquina virtual habilitada para o Docker no novo portal, confira [Como usar a extensão de máquina virtual Docker com o Portal][Como usar a extensão de máquina virtual Docker com o Portal].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [contêineres Linux]: http://en.wikipedia.org/wiki/LXC

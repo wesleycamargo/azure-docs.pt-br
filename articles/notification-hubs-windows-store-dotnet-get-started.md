@@ -228,9 +228,9 @@ Você pode encontrar todas as cargas suportadas nos tópicos do [catálogo de no
 
 Neste exemplo simples você envia notificações para todos os seus dispositivos Windows. Para selecionar usuários de destino específicos, consulte o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários][Usar Hubs de Notificação para enviar notificações por push aos usuários]. Se desejar segmentar os usuários por grupos de interesse, você poderá ler [Usar Hubs de Notificação para enviar notícias mais recentes][Usar Hubs de Notificação para enviar notícias mais recentes]. Para saber mais sobre como usar Hubs de Notificação, consulte [Diretrizes dos Hubs de Notificação][Diretrizes dos Hubs de Notificação].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
   [1]: /pt-br/documentation/articles/notification-hubs-windows-phone-get-started/

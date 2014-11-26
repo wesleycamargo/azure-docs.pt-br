@@ -463,7 +463,7 @@ declaração de entrada em uma declaração de tipo de função para que quando 
 chegue ao aplicativo ou a um serviço o WIF possa analisar essa declaração de função para certificar-se de que a chamada do método
 IsInRole foi bem-sucedida.
 
-![][]
+![][0]
 
 **WIF ClaimsAuthenticationManager**. Nesta implementação use
 o ClaimsAuthenticationManager como ponto de extensibilidade do WIF. Usando essa
@@ -803,18 +803,12 @@ aplicativo é hospedado nas Máquinas Virtuais do Azure.
 -   [Ciclo de vida de desenvolvimento de segurança][Ciclo de vida de desenvolvimento de segurança da Microsoft]
 -   [Security Developer Center (MSDN)][Security Developer Center (MSDN)]
 
-  [PDF de observações de
-  segurança do Azure]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
   [Protegendo o aplicativo]: ./media/SecurityRX/01_SecuringTheApplication.gif
-  [folha de cola: quadro
-  de segurança de aplicativo da Web]: http://msdn.microsoft.com/pt-br/library/ff649461.aspx
   [Guia de Segurança para Índice de Aplicativos (as páginas podem estar em inglês)]: http://msdn.microsoft.com/pt-br/library/ff650760.aspx
   [Ameaças, vulnerabilidades e ataques]: ./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif
   [Exemplos do Windows Identity Foundation 4.5]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
   [Ferramentas do Windows Identity Foundation 4.5 para o Visual Studio 11 Beta]: http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
   [Tempo de execução do Windows Identity Foundation (.Net 3.5/4.0)]: http://www.microsoft.com/pt-br/download/details.aspx?id=17331
-  [Exemplos do Windows Identity Foundation 3.5/4.0 e modelos do
-  Visual Studio 2008/2010]: http://www.microsoft.com/pt-br/download/details.aspx?displaylang=en&id=4451
   [Access Control Service 2.0]: http://msdn.microsoft.com/library/gg429786.aspx
   [Cenários e soluções usando o ACS]: http://msdn.microsoft.com/pt-br/library/gg185920.aspx
   [Instruções do ACS]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg185939.aspx
@@ -831,49 +825,25 @@ aplicativo é hospedado nas Máquinas Virtuais do Azure.
   [Como: criar meu primeiro aplicativo ASP.NET com reconhecimento de declarações usando o ACS]: http://msdn.microsoft.com/pt-br/library/gg429779.aspx
   [Como: hospedar páginas de logon no seu aplicativo da web ASP.NET]: http://msdn.microsoft.com/pt-br/library/gg185926.aspx
   [Como: implementar a autorização de declarações em um aplicativo ASP.NET com reconhecimento de declarações usando WIF e ACS]: http://msdn.microsoft.com/pt-br/library/gg185907.aspx
-  [Como: implementar o Controle de Acesso Baseado em Função (RBAC) em um aplicativo
-  ASP.NET com reconhecimento de declarações, usando WIF e ACS]: http://msdn.microsoft.com/pt-br/library/gg185914.aspx
-  [Como: configurar a confiança entre o ACS e os aplicativos da web ASP.NET
-   usando os certificados X.509]: http://msdn.microsoft.com/pt-br/library/gg185947.aspx
   [Amostra do código: formulários simples do ASP.NET]: http://msdn.microsoft.com/pt-br/library/gg185938.aspx
   [Serviço WCF (SOAP)]: ./media/SecurityRX/04_WCF(SOAP)Service.gif
-  [Como: Adicionar identidade de serviço com um certificado X.509, senha
-  ou chave simétrica]: http://msdn.microsoft.com/pt-br/library/gg185924.aspx
-  [Como: Como: autenticar com um Certificado Cliente em um serviço WCF
-  protegido pelo ACS]: http://msdn.microsoft.com/pt-br/library/hh289316.aspx
-  [Como: autenticar com nome de usuário e senha em um serviço WCF
-  protegido pelo ACS]: http://msdn.microsoft.com/pt-br/library/gg185954.aspx
   [Amostra do código: autenticação do certificado WCF]: http://msdn.microsoft.com/pt-br/library/gg185952.aspx
   [Amostra do código: autenticação do nome de usuário WCF]: http://msdn.microsoft.com/pt-br/library/gg185927.aspx
   [Serviço WCF (SOAP) com AD]: ./media/SecurityRX/05_AzureADAccessControl.gif
   [Como: configurar o AD FS 2.0 como Provedor de identidade]: http://msdn.microsoft.com/pt-br/library/gg185961.aspx
-  [Como: usar o Management Service para configurar o AD FS 2.0 como
-  Provedor de identidade empresarial]: http://msdn.microsoft.com/pt-br/library/gg185905.aspx
   [Amostra de código: autenticação federada WCF com AD FS 2.0]: http://msdn.microsoft.com/pt-br/library/hh127796.aspx
   [Serviço REST]: ./media/SecurityRX/06_RESTService.gif
-  [Como: configurar a confiança entre o ACS e o serviço WCF usando
-  chaves simétricas]: http://msdn.microsoft.com/pt-br/library/gg185958.aspx
-  [Como: autenticar para um Serviço REST WCF implantado no Azure
-  usando o ACS]: http://msdn.microsoft.com/pt-br/library/hh289317.aspx
   [Amostra do código: serviço web do ASP.NET]: http://msdn.microsoft.com/pt-br/library/gg983271.aspx
-  [WCF REST com Token SWT emitido pelo Access Control
-  Service do Azure (ACS) (a página pode estar em inglês)]: http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0
   [O WIF é opcional.]: ./media/SecurityRX/07_WIFisOptional.gif
   [Como: configurar o Google como um provedor de identidade]: http://msdn.microsoft.com/pt-br/library/gg185976.aspx
   [Como: configurar o Facebook como um provedor de identidade]: http://msdn.microsoft.com/pt-br/library/gg185919.aspx
   [Como: configurar o Yahoo! como um provedor de identidade]: http://msdn.microsoft.com/pt-br/library/gg185977.aspx
   [Aplicativo Web ASP.NET]: ./media/SecurityRX/08_ASPNETWebApptoREST.gif
-  [Aplicativo Web ASP.NET para Serviço REST com WCF usando
-  Token SWT Compartilhado (a página pode estar em inglês)]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-  []: ./media/SecurityRX/09_RBAC.gif
+  [0]: ./media/SecurityRX/09_RBAC.gif
   [1]: ./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif
   [2]: ./media/SecurityRX/11_SecurityTokenRequriementmapping.gif
   [3]: ./media/SecurityRX/12_CustomRoleManager.gif
   [Como: implementar a lógica de transformação do token usando regras]: http://msdn.microsoft.com/pt-br/library/gg185955.aspx
-  [Autorização com RoleManager para
-  aplicativos Web ASP.NET com reconhecimento de declarações (WIF) (a página pode estar em inglês)]: http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx
-  [SDK do Windows Identity
-  Foundation (a página pode estar em inglês)]: http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504
   [4]: ./media/SecurityRX/13_ClaimsAuthorizationManager.gif
   [5]: ./media/SecurityRX/14_WindowsAzurestorage.gif
   [6]: ./media/SecurityRX/15_SQLAzureIdentityandAccessScenarios.gif
@@ -888,13 +858,7 @@ aplicativo é hospedado nas Máquinas Virtuais do Azure.
   [7]: ./media/SecurityRX/16_WindowsAzureServiceBusIdentity.gif
   [Proteção do Service Bus com o ACS (a página pode estar em inglês)]: http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS
   [Proteção do Service Bus com ACS (a página pode estar em inglês)]: https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849
-  [Autenticação e autorização do Service Bus com o Serviço de Controle
-  de Acesso]: http://msdn.microsoft.com/pt-br/library/hh403962.aspx
   [8]: ./media/SecurityRX/17_WindowsAzureCacheIdentity.gif
-  [Como: configurar um cliente de cache de forma programática para o Caching
-  do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg618003.aspx
-  [Como: configurar um cliente de cache usando o arquivo de configuração
-  de aplicativo do Caching do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg278346.aspx
   [Exemplos de Caching e Service Bus do Azure]: http://msdn.microsoft.com/pt-br/library/ee706741.aspx
   [9]: ./media/SecurityRX/18_IAccessMyDataset.gif
   [Uso de HTTP Basic Auth no seu aplicativo do Marketplace (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/gg193417.aspx
@@ -905,12 +869,6 @@ aplicativo é hospedado nas Máquinas Virtuais do Azure.
   [Baixar o Kit de publicação de aplicativo]: http://go.microsoft.com/fwlink/?LinkId=221323
   [Introdução ao Azure Marketplace para aplicativos]: https://datamarket.azure.com/
   [Considerações sobre design do WIF]: http://msdn.microsoft.com/pt-br/library/ee517298.aspx
-  [Segurança do Windows Identity Foundation (WIF)
-  para aplicativos Web ASP.NET - ameaças e contramedidas (as páginas podem estar em inglês)]: http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx
-  [Windows Identity Foundation (WIF): um valor Request.Form
-  potencialmente perigoso foi detectado no cliente (a página pode estar em inglês)]: http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx
-  [Diretrizes de
-   segurança do ACS]: http://msdn.microsoft.com/pt-br/library/gg185962.aspx
   [Diretrizes de gerenciamento de certificados e chaves]: http://msdn.microsoft.com/pt-br/library/hh204521.aspx
   [12]: http://go.microsoft.com/fwlink/?LinkId=214555
   [13]: http://go.microsoft.com/fwlink/?LinkId=214561

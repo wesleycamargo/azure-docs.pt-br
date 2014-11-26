@@ -10,7 +10,8 @@ O exemplo a seguir mostra como você pode usar a Twilio para fazer uma chamada d
 
 Você precisará fazer o seguinte para usar o código deste tópico:
 
-1.  Obter uma conta e um token de autenticação da Twilio. Para uma introdução à Twilio, avalie os preços em [][]<http://www.twilio.com/pricing></a>. Você pode se inscrever em [][1]<https://www.twilio.com/try-twilio></a>. Para obter informações sobre a API fornecida pela Twilio, consulte [][2]<http://www.twilio.com/api></a>.
+1.  Obter uma conta e um tok
+2.  en de autenticação da Twilio. Para uma introdução à Twilio, avalie os preços em [][]<http://www.twilio.com/pricing></a>. Você pode se inscrever em [][1]<https://www.twilio.com/try-twilio></a>. Para obter informações sobre a API fornecida pela Twilio, consulte [][2]<http://www.twilio.com/api></a>.
 2.  Verifique seu número de telefone como uma ID de chamador de saída com a Twilio. Para obter informações sobre como verificar o número do seu telefone, consulte [][3]<https://www.twilio.com/user/account/phone-numbers/verified>\#</a>. Como alternativa ao uso de um número existente, você pode adquirir um número de telefone da Twilio.
     Para o objetivo deste exemplo, use o número de telefone verificado como o valor de **From** do callform.jsp (descrito posteriormente).
 3.  Obter o JAR da Twilio. Em [][4]<https://github.com/twilio/twilio-java></a>, você pode baixar as fontes GitHub e criar seu próprio JAR ou baixar um JAR predefinido (com ou sem dependências).
@@ -160,10 +161,10 @@ As seguintes são as etapas de alto nível para executar seu aplicativo. Os deta
 2.  Modifique o **startup.cmd** para descompactar seu WAR TwilioCloud.
 3.  Compile o aplicativo para o emulador de computação.
 4.  Inicie a implantação no emulador de computação.
-5.  Abra um navegador, e execute o **<http://localhost:8080/TwilioCloud/callform.jsp>**.
+5.  Abra um navegador, e execute o **http://localhost:8080/TwilioCloud/callform.jsp**.
 6.  Insira os valores no formulário, clique em **Fazer esta chamada** e, em seguida, veja os resultados em makecall.jsp.
 
-Quando estiver pronto para implantar no Azure, recompile para implantação na nuvem, implante no Azure e execute http://[your\_hosted\_name][your\_hosted\_name]*.cloudapp.net/TwilioCloud/callform.jsp no navegador (substitua seu valor por* your\_hosted\_name\*).
+Quando estiver pronto para implantar no Azure, recompile para implantação na nuvem, implante no Azure e execute http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp no navegador (substitua seu valor por *your\_hosted\_name*).
 
 ## Próximas etapas
 
@@ -189,6 +190,7 @@ Para obter informações adicionais sobre a Twilio, consulte [][11]<https://www.
   [4]: http://github.com/twilio/twilio-java
   [5]: http://api.twilio.com
   [Adicionando um certificado ao repositório de certificados da CA do Java]: ../java-add-certificate-ca-store
+  [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com o Java (da Microsoft Open Technologies)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx
   [Resposta de chamada do Azure usando a Twilio e o Java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
   [Como usar o serviço de armazenamento de blob do Java]: http://www.windowsazure.com/pt-br/develop/java/how-to-guides/blob-storage/
   [Usando o Banco de Dados SQL no Java]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh749029.aspx

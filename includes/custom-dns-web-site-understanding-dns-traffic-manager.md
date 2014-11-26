@@ -16,7 +16,7 @@ Um registro CNAME mapeia um nome DNS *específico* como **mail.contoso.com** ou 
 
 Depois que o tráfego chega ao Gerenciador de Tráfego, ele encaminha o tráfego para o site, usando o método de balanceamento de carga para o qual está configurado. Isso é completamente transparente para os visitantes do site. Eles verão apenas o nome de domínio personalizado no navegador.
 
-> [WACOM.NOTE] Alguns registradores de domínio só permitem que você mapeie subdomínios ao usar um registro CNAME, como **www.contoso.com**, e não nomes raiz, como **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida pelo seu registrador, [a entrada da Wikipédia sobre o registro CNAME][], ou do documento de implementação e especificação [IETF Domain Names][].
+> [WACOM.NOTE] Alguns registradores de domínio só permitem que você mapeie subdomínios ao usar um registro CNAME, como **www.contoso.com**, e não nomes raiz, como **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida pelo seu registrador, [a entrada da Wikipédia sobre o registro CNAME][a entrada da Wikipédia sobre o registro CNAME], ou do documento de implementação e especificação [IETF Domain Names][IETF Domain Names].
 
   [a entrada da Wikipédia sobre o registro CNAME]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF Domain Names]: http://tools.ietf.org/html/rfc1035

@@ -39,7 +39,7 @@ Siga estas etapas para criar um novo serviço móvel.
 
 Você criou um novo serviço móvel que pode ser usado por seus aplicativos móveis.
 
-<!-- URLs. -->
+
 
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-create-new-service/plus-new.png

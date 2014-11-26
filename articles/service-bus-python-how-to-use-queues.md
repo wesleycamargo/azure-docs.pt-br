@@ -150,5 +150,4 @@ links para saber mais.
   [Como: Enviar mensagens para uma fila]: #send-messages
   [Como: Receber mensagens de uma fila]: #receive-messages
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

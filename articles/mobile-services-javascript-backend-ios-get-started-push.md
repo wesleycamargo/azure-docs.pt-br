@@ -187,8 +187,8 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo i
 -   [Referência de script de servidor dos Serviços Móveis][Referência de script de servidor dos Serviços Móveis]
     Saiba mais sobre como implementar lógica de negócios em seu serviço móvel.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs.   -->
 
   [Gerar a solicitação de assinatura de certificado]: #certificates
@@ -201,8 +201,6 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo i
   [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started
-  [Habilitar Notificações por Push para Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333

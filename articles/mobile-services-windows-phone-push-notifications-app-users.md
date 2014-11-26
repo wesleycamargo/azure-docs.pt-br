@@ -197,8 +197,8 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
     Saiba mais sobre como registrar e usar scripts de servidor.
 
 <!-- anchors -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [tutorial anterior de notificação por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8
   [Criar a tabela Channel]: #create-table

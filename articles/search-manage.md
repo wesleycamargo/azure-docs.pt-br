@@ -2,7 +2,7 @@
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
 
-[WACOM.INCLUDE [Este artigo usa o Portal de Visualização do Azure][]]
+[WACOM.INCLUDE [Este artigo usa o Portal de Visualização do Azure](../includes/preview-portal-note.md)]
 
 A Pesquisa do Azure é um serviço baseado em nuvem e uma API baseada em HTTP que pode ser usada em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento e uma sintaxe de comandos de consulta.
 
@@ -12,17 +12,17 @@ Conforme observado, o novo Portal de Visualização é necessário para tarefas 
 
 <!--TOC-->
 
--   [Adicionar o serviço de pesquisa à sua assinatura][]
--   [Tarefas administrativas][]
--   [URL do Serviço][]
--   [Gerenciar as chaves de API][]
--   [Monitorar o uso de recursos][]
--   [Expandir ou reduzir][]
--   [Iniciar ou parar o serviço][]
+-   [Adicionar o serviço de pesquisa à sua assinatura][Adicionar o serviço de pesquisa à sua assinatura]
+-   [Tarefas administrativas][Tarefas administrativas]
+-   [URL do Serviço][URL do Serviço]
+-   [Gerenciar as chaves de API][Gerenciar as chaves de API]
+-   [Monitorar o uso de recursos][Monitorar o uso de recursos]
+-   [Expandir ou reduzir][Expandir ou reduzir]
+-   [Iniciar ou parar o serviço][Iniciar ou parar o serviço]
 
 ## Adicionar o serviço de pesquisa à sua assinatura
 
-Como administrador, você pode adicionar a pesquisa à sua assinatura existente do Azure usando o novo [Portal de Visualização do Azure][]. Apenas administradores podem adicionar recursos a uma assinatura. Ao configurar o serviço, é possível optar entre duas faixas de preço.
+Como administrador, você pode adicionar a pesquisa à sua assinatura existente do Azure usando o novo [Portal de Visualização do Azure][Portal de Visualização do Azure]. Apenas administradores podem adicionar recursos a uma assinatura. Ao configurar o serviço, é possível optar entre duas faixas de preço.
 
 Sem custos adicionais para assinantes atuais, você pode usar um serviço compartilhado, recomendado para fins de aprendizado, testes de prova de conceito e pequenos projetos de desenvolvimento. O serviço compartilhado é limitado a 50 MB de armazenamento, três índices e contagem de documentos - um limite de 10.000 documentos, ainda que o consumo de armazenamento seja inferior aos 50 MB disponibilizados. Não há garantias de desempenho do serviço compartilhado, ou seja, se você for criar um aplicativo de pesquisa de produção, considere usar a pesquisa padrão.
 
@@ -30,10 +30,10 @@ A pesquisa padrão é cobrada porque você se inscreverá para usar infraestrutu
 
 Para se planejar quanto à capacidade e compreender o impacto da cobrança, recomendamos estes links:
 
--   [Limites e restrições][]
--   [Detalhes dos Preços][]
+-   [Limites e restrições][Limites e restrições]
+-   [Detalhes dos Preços][Detalhes dos Preços]
 
-Quando estiver pronto para se inscrever, consulte [Configurar Pesquisa no Portal de Visualização do Azure][].
+Quando estiver pronto para se inscrever, consulte [Configurar Pesquisa no Portal de Visualização do Azure][Configurar Pesquisa no Portal de Visualização do Azure].
 
 ## Tarefas administrativas
 
@@ -54,16 +54,16 @@ Os desenvolvedores que estiverem compilando aplicativos de pesquisa precisarão 
 
 Para obter a URL do serviço do painel de serviço:
 
-1.  Entre no [Portal de Visualização do Azure][].
+1.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure].
 2.  Clique em **Navegar** | **Tudo** | **Serviços de pesquisa**.
 3.  Clique no nome do seu serviço de pesquisa para abrir o painel.
 4.  Clique em **PROPRIEDADES** para abrir uma página de propriedades. A URL do serviço está no topo da página. Você pode fixar esta página para acessá-la rapidamente mais tarde.
 
-    ![][]
+    ![][0]
 
 Os desenvolvedores podem solicitar também a versão da API. Um requisito de codificação da API de Pesquisa do Azure é sempre especificar a versão da API na solicitação. Este requisito existe para que os desenvolvedores possam continuar usando uma versão anterior e passar a uma versão posterior quando for o momento certo.
 
-A versão da API não é exibida nas páginas do portal, de modo que não se trata de uma informação que você possa fornecer. Para obter informações sobre versões atuais e anteriores da API, consulte [API REST de Pesquisa do Azure][].
+A versão da API não é exibida nas páginas do portal, de modo que não se trata de uma informação que você possa fornecer. Para obter informações sobre versões atuais e anteriores da API, consulte [API REST de Pesquisa do Azure][API REST de Pesquisa do Azure].
 
 <!---->
 
@@ -92,10 +92,10 @@ Nesta visualização pública, o monitoramento de recursos é limitado às infor
 
 No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
 
-Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições][] para obter detalhes.
+Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições][Limites e restrições] para obter detalhes.
 
--   [Obter estatísticas de índice][]
--   [Contar documentos][]
+-   [Obter estatísticas de índice][Obter estatísticas de índice]
+-   [Contar documentos][Contar documentos]
 
 > [WACOM.NOTE] Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite.
 
@@ -151,7 +151,6 @@ Parar ou iniciar o serviço não desativa a cobrança. Você deve excluir o serv
 <!--Image references--> 
 <!--Link references-->
 
-  [Este artigo usa o Portal de Visualização do Azure]: ../includes/preview-portal-note.md
   [Adicionar o serviço de pesquisa à sua assinatura]: #sub-1
   [Tarefas administrativas]: #sub-2
   [URL do Serviço]: #sub-3
@@ -160,13 +159,13 @@ Parar ou iniciar o serviço não desativa a cobrança. Você deve excluir o serv
   [Expandir ou reduzir]: #sub-6
   [Iniciar ou parar o serviço]: #sub-7
   [Portal de Visualização do Azure]: https://portal.azure.com
-  [Limites e restrições]: http://msdn.microsoft.com/en-us/library/dn798934.aspx
+  [Limites e restrições]: http://msdn.microsoft.com/pt-br/library/dn798934.aspx
   [Detalhes dos Preços]: http://go.microsoft.com/fwlink/p/?LinkdID=509792
   [Configurar Pesquisa no Portal de Visualização do Azure]: ../search-configure/
-  []: ./media/search-manage/Azure-Search-Manage-1-URL.png
+  [0]: ./media/search-manage/Azure-Search-Manage-1-URL.png
   [API REST de Pesquisa do Azure]: http://go.microsoft.com/fwlink/p/?LinkdID=509922
   [1]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
-  [Obter estatísticas de índice]: http://msdn.microsoft.com/en-us/library/dn798942.aspx
-  [Contar documentos]: http://msdn.microsoft.com/en-us/library/dn798924.aspx
+  [Obter estatísticas de índice]: http://msdn.microsoft.com/pt-br/library/dn798942.aspx
+  [Contar documentos]: http://msdn.microsoft.com/pt-br/library/dn798924.aspx
   [2]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
   [3]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png

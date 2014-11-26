@@ -4,7 +4,7 @@ Nesta seção, você atualizará o projeto do tutorial [Introdução aos Serviç
 
 1.  No Gerenciador de Soluções para Visual Studio, sob o projeto, expanda **Propriedades**. Em seguida, abra o arquivo WMAppManifest.xml e, na guia **Recursos**, habilite a câmera clicando em **ID\_CAP\_ISV\_CAMERA**. Feche o arquivo para salvar as alterações.
 
-    ![][]
+    ![][0]
 
     Isso garantirá que seu aplicativo possa usar uma câmera conectada ao computador. Os usuários serão solicitados a permitir acesso à câmera na primeira vez que o aplicativo for executado.
 
@@ -177,7 +177,7 @@ A etapa final consiste em testar o aplicativo e validar que os carregamentos sej
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
   [CameraCaptureTask]: http://msdn.microsoft.com/pt-br/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
   [PhotoCamera]: http://msdn.microsoft.com/pt-br/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-  []: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
+  [0]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
   [1]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png
   [2]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
   [3]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png

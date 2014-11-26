@@ -1,10 +1,10 @@
 <properties linkid="mobile-services-dotnet-backend-windows-store-dotnet-get-started-data" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Introdução aos dados nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-center-tutorial-subselector">
     <a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Back-end do .NET" class="current">Back-end do .NET</a> | 
@@ -15,26 +15,26 @@ Este tópico mostra como usar os Serviços Móveis do Azure como uma fonte de da
 
 O serviço móvel que você criará neste tutorial é um serviço móvel back-end .NET. O back-end .NET permite que você use linguagens .NET e o Visual Studio para a lógica dos negócios do lado do servidor no serviço móvel, e você pode executar e depurar seu serviço móvel no seu computador local. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte Versão de back-end do JavaScript neste tópico.
 
-> [WACOM.NOTE]Este tópico mostra como adicionar os Serviços Móveis do Azure a um projeto da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para adicionar o mesmo serviço móvel de back-end .NET a um projeto de aplicativo universal. Para obter mais informações, consulte a [versão do aplicativo universal do Windows][] deste tutorial.
+> [WACOM.NOTE]Este tópico mostra como adicionar os Serviços Móveis do Azure a um projeto da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para adicionar o mesmo serviço móvel de back-end .NET a um projeto de aplicativo universal. Para obter mais informações, consulte a [versão do aplicativo universal do Windows][versão do aplicativo universal do Windows] deste tutorial.
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
-1.  [Baixar o projeto de aplicativo da Windows Store][]
-2.  [Criar um novo serviço móvel][]
-3.  [Baixar o serviço móvel localmente][]
-4.  [Atualizar o aplicativo da Windows Store para usar o Serviço Móvel][]
-5.  [Testar o aplicativo da Windows Store no serviço hospedado localmente][]
-6.  [Publicar o serviço móvel no Azure][]
-7.  [Testar o aplicativo da Windows Store no serviço hospedado no Azure][]
+1.  [Baixar o projeto de aplicativo da Windows Store][Baixar o projeto de aplicativo da Windows Store]
+2.  [Criar um novo serviço móvel][Criar um novo serviço móvel]
+3.  [Baixar o serviço móvel localmente][Baixar o serviço móvel localmente]
+4.  [Atualizar o aplicativo da Windows Store para usar o Serviço Móvel][Atualizar o aplicativo da Windows Store para usar o Serviço Móvel]
+5.  [Testar o aplicativo da Windows Store no serviço hospedado localmente][Testar o aplicativo da Windows Store no serviço hospedado localmente]
+6.  [Publicar o serviço móvel no Azure][Publicar o serviço móvel no Azure]
+7.  [Testar o aplicativo da Windows Store no serviço hospedado no Azure][Testar o aplicativo da Windows Store no serviço hospedado no Azure]
 
 Para concluir este tutorial, você precisará do seguinte:
 
--   Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
--   [Visual Studio Professional 2013][]. Uma versão de avaliação gratuita está disponível.
+-   Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
+-   [Visual Studio Professional 2013][Visual Studio Professional 2013]. Uma versão de avaliação gratuita está disponível.
 
 ## <a name="download-app"></a>Baixar o projeto GetStartedWithData
 
-Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][], que é um projeto de aplicativo da Windows Store no Visual Studio 2013. A interface do usuário desse aplicativo é semelhante ao aplicativo gerado pelo quickstart dos Serviços Móveis, exceto pelo fato de que os itens adicionados são armazenados localmente na memória.
+Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][aplicativo GetStartedWithMobileServices], que é um projeto de aplicativo da Windows Store no Visual Studio 2013. A interface do usuário desse aplicativo é semelhante ao aplicativo gerado pelo quickstart dos Serviços Móveis, exceto pelo fato de que os itens adicionados são armazenados localmente na memória.
 
 1.  Baixe a versão C# do aplicativo de exemplo GetStartedWithMobileServices do [site de exemplos de código do desenvolvedor][aplicativo GetStartedWithMobileServices].
 
@@ -48,17 +48,17 @@ Este tutorial é baseado no [aplicativo GetStartedWithMobileServices][], que é 
 
 5.  No aplicativo, digite um texto em **Inserir um TodoItem** e, em seguida, clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
     Observe que o texto salvo é exibido na segunda coluna em **Consultar e atualizar dados**.
 
 ## <a name="create-service"></a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a>Baixar o projeto do serviço móvel e adicioná-lo à solução.
 
-1.  No [Portal de Gerenciamento do Azure][], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
 
     ![][1]
 
@@ -176,11 +176,11 @@ Nesta seção, você irá atualizar o aplicativo da Windows Store para usar o se
 
 ## <a name="test-locally-hosted"></a>Testar o aplicativo da Windows Store no serviço hospedado localmente
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
 ## <a name="publish-mobile-service"></a>Publicar o serviço móvel no Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>Testar o serviço móvel publicado no Azure
 
@@ -208,7 +208,7 @@ Nesta seção, você irá atualizar o aplicativo da Windows Store para usar o se
 
 ## <a name="view-stored-data"></a>Exibir os dados armazenados no Banco de Dados SQL
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 
 Isso conclui o tutorial **Introdução aos dados**.
 
@@ -216,35 +216,32 @@ Isso conclui o tutorial **Introdução aos dados**.
 
 Este tutorial demonstrou as noções básicas sobre a ativação de um aplicativo da Windows Store para trabalhar com dados nos Serviços Móveis. Em seguida, considere fazer um dos seguintes tutoriais com base no aplicativo GetStartedWithData que você criou neste tutorial:
 
--   [Validar e modificar dados com scripts][]
+-   [Validar e modificar dados com scripts][Validar e modificar dados com scripts]
 
     Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
 
--   [Refinar consultas com paginação][]
+-   [Refinar consultas com paginação][Refinar consultas com paginação]
 
     Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
 
 Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
 
     Saiba como autenticar usuários de seu aplicativo.
 
--   [Introdução às notificações por push][]
+-   [Introdução às notificações por push][Introdução às notificações por push]
 
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
--   [Referência conceitual do tutorial do .NET de Serviços Móveis][]
+-   [Referência conceitual do tutorial do .NET de Serviços Móveis][Referência conceitual do tutorial do .NET de Serviços Móveis]
 
     Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Back-end do JavaScript"
+
+
+
   [versão do aplicativo universal do Windows]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
   [Baixar o projeto de aplicativo da Windows Store]: #download-app
   [Criar um novo serviço móvel]: #create-service
@@ -256,8 +253,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [aplicativo GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/app-view.png
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/app-view.png
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/mobile-service-overview-page.png
   [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/download-service-project.png
@@ -273,10 +269,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [12]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-nuget-packages.png
   [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/copy-mobileserviceclient-snippet.png
   [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-pasted-mobileserviceclient.png
-  [mobile-services-dotnet-backend-test-local-service-data]: ../includes/mobile-services-dotnet-backend-test-local-service-data.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-items.png
-  [mobile-services-dotnet-backend-view-sql-data]: ../includes/mobile-services-dotnet-backend-view-sql-data.md
   [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
   [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/

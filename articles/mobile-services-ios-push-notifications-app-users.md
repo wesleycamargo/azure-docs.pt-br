@@ -216,9 +216,9 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
     
 	 Saiba mais sobre como registrar e usar scripts de servidor.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [tutorial anterior sobre notificação por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios
   [Criar a tabela de dispositivos]: #create-table

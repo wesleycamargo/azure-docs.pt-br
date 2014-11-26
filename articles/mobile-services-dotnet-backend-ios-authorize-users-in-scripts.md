@@ -36,10 +36,9 @@ Este tutorial baseia-se no início rápido dos Serviços Móveis e no tutorial a
 
 <!--## Próximas etapas  Isto conclui os tutoriais que demonstram os fundamentos do trabalho com a autenticação. Considere descobrir mais sobre os seguintes tópicos de Serviços Móveis:  * [Introdução aos dados]   <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.  * [Introdução as notificações de push]    <br/>Saiba mais sobre como enviar uma notificação de push muito básica para o seu aplicativo.    * [Referência conceitual de tutorial do .NET para Serviços Móveis]   <br/>Saiba mais sobre como usar os Serviços Móveis com .NET --> 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-  [mobile-services-filter-user-results-dotnet-backend]: ../includes/mobile-services-filter-user-results-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

@@ -439,7 +439,7 @@ A seguir, descobriu o que acontece quando há um conflito. Você adicionou supor
 
 Ao longo do caminho, adicionou uma classe auxiliar **QSUIAlertViewWithBlock** para exibir um alerta aos usuários e terminou adicionando código a **QSTodoListViewController** para avisar o usuário para reconciliar o conflito de uma das três maneiras a seguir.
 
-<!-- URLs. -->
+
 
   [Introdução aos dados offline]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data/
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28

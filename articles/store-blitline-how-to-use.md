@@ -131,4 +131,3 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
   [Como salvar uma imagem em seu armazenamento do Azure]: #saveazure
   [Próximas etapas]: #nextsteps
   []: http://www.blitline.com
-  [blitline-signup]: ../includes/blitline-signup.md

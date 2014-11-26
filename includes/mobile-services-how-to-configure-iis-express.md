@@ -1,6 +1,6 @@
 1.  Certifique-se de interromper o serviço móvel se ele estiver sendo executado no IIS Express. Clique com o botão direito do mouse no ícone de bandeja e clique em **parar** para o serviço móvel.
 
-    ![][]
+    ![][0]
 
 2.  Em uma janela de prompt de comando, execute o comando **ipconfig** para procurar um endereço IP local válido para sua estação de trabalho.
 
@@ -32,8 +32,8 @@
 
     > [WACOM.NOTE] Depois de concluir o teste do serviço localmente, você deve excluir a regra do Firewall do Windows que criou.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [Como adicionar uma nova regra de porta do Firewall do Windows]: http://go.microsoft.com/fwlink/?LinkId=392240

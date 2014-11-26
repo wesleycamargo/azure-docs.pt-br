@@ -1,6 +1,6 @@
 1.  Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push. Verificar que o logon e a autenticação sejam bem sucedidos.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
@@ -18,7 +18,7 @@
 
 Este tutorial foi concluído com êxito.
 
-  []: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png

@@ -126,7 +126,6 @@ Para fazer uma comparação entre as filas de Service Bus do Azure discutidas ne
   [Como enviar mensagens para uma fila]: #how-to-send-messages-to-a-queue
   [Como receber mensagens de uma fila]: #how-to-receive-messages-from-a-queue
   [Como tratar falhas do aplicativo e mensagens ilegíveis]: #how-to-handle-application-crashes-and-unreadable-messages
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
   [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-ruby
   [Como usar o serviço Fila do Azure]: /pt-br/develop/ruby/how-to-guides/queue-service/

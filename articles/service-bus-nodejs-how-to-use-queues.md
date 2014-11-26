@@ -258,7 +258,6 @@ links para saber mais.
   [Como: Enviar mensagens para uma fila]: #send-messages
   [Como: Receber mensagens de uma fila]: #receive-messages
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/develop/nodejs/tutorials/create-a-website-(mac)/
   [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site com o WebMatrix]: /pt-br/develop/nodejs/tutorials/web-site-with-webmatrix/

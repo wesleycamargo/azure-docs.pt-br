@@ -179,11 +179,10 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
     
 	Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
+
   [Baixar o projeto de aplicativo do Windows Phone 8]: #download-app
   [Criar o serviço móvel]: #create-service
   [Adicionar uma tabela de dados para armazenamento]: #add-table
@@ -194,8 +193,6 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [versão do aplicativo do Windows Phone Store]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [Portal de Gerenciamento]: https://manage.windowsazure.com/

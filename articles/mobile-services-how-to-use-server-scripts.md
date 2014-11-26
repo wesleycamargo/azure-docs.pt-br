@@ -888,9 +888,9 @@ Observe que a cadeia de caracteres `%j` é usada como o espaço reservado de um 
 
 Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para console.log() que não são necessárias para uso de produção.
 
-<!-- Anchors. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Introdução]: #intro
   [Operações de tabela]: #table-scripts

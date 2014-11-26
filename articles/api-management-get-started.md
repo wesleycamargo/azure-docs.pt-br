@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Introdução ao Gerenciamento de API do Azure
 
@@ -8,32 +8,32 @@ Este guia mostra como iniciar rapidamente a usar o Gerenciamento de API e como f
 
 ## Neste tópico
 
--   [Criar uma instância de Gerenciamento de API][]
--   [Criar uma API][]
--   [Adicionar uma operação][]
--   [Adicionar a nova API a um produto][]
--   [Assinar o produto que contém a API][]
--   [Chamar uma operação no Portal do Desenvolvedor][]
--   [Exibir análise][]
--   [Próximas etapas][]
+-   [Criar uma instância de Gerenciamento de API][Criar uma instância de Gerenciamento de API]
+-   [Criar uma API][Criar uma API]
+-   [Adicionar uma operação][Adicionar uma operação]
+-   [Adicionar a nova API a um produto][Adicionar a nova API a um produto]
+-   [Assinar o produto que contém a API][Assinar o produto que contém a API]
+-   [Chamar uma operação no Portal do Desenvolvedor][Chamar uma operação no Portal do Desenvolvedor]
+-   [Exibir análise][Exibir análise]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="create-service-instance"> </a>Criar uma instância de Gerenciamento de API
 
-> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
+> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
 
-Esta etapa sobre como trabalhar com o Gerenciamento de API serve para criar uma instância de serviço. Faça logon no [Portal de Gerenciamento][] e clique em **Novo**, **Serviços de Aplicativos**, **Gerenciamento de API**, **Criar**.
+Esta etapa sobre como trabalhar com o Gerenciamento de API serve para criar uma instância de serviço. Faça logon no [Portal de Gerenciamento][Portal de Gerenciamento] e clique em **Novo**, **Serviços de Aplicativos**, **Gerenciamento de API**, **Criar**.
 
-![Nova instância do Gerenciamento de API][]
+![Nova instância do Gerenciamento de API][Nova instância do Gerenciamento de API]
 
 Para obter a **URL**, especifique um nome de subdomínio exclusivo para usar na URL do serviço.
 
 Selecione a **Camada de Preços**, **Assinatura** e a **Região** de sua instância de serviço. Todas as camadas de preços podem ser usadas neste tutorial. Após fazer suas seleções, clique no botão Avançar.
 
-![Novo serviço de Gerenciamento de API][]
+![Novo serviço de Gerenciamento de API][Novo serviço de Gerenciamento de API]
 
 Insira **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no email do administrador.
 
-> Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Configurar Notificações][].
+> Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Configurar Notificações][Configurar Notificações].
 
 Clique na caixa de seleção para criar sua instância de serviço.
 
@@ -53,13 +53,13 @@ Este tutorial usa o serviço Web <http://echoapi.cloudapp.net/api> para criar um
 
 As APIs são criadas e configuradas a partir do console de Gerenciamento de APIs, acessado pelo Portal de Gerenciamento do Azure. Para acessar o console de Gerenciamento de API, clique em **Console de Gerenciamento** no Portal do Azure para acessar o serviço de Gerenciamento de API.
 
-![Novo console de gerenciamento de API][]
+![Novo console de gerenciamento de API][Novo console de gerenciamento de API]
 
 Para criar **Minha API de Eco**, clique em **APIs** no menu **Gerenciamento de API** à esquerda e depois clique em **Adicionar API**.
 
-![Criar API][]
+![Criar API][Criar API]
 
-![Adicionar nova API][]
+![Adicionar nova API][Adicionar nova API]
 
 Os três campos a seguir são usados para configurar a nova API.
 
@@ -69,11 +69,11 @@ Os três campos a seguir são usados para configurar a nova API.
 
 Clique em **Salvar** para criar a API. Após criar as novas APIs, a página de resumo das APIs será exibida no Portal de Gerenciamento.
 
-![Resumo da API][]
+![Resumo da API][Resumo da API]
 
 A seção API possui quatro guias. A guia **Resumo** exibe as métricas básicas e as informações sobre a API. A guia **Configurações** é usada para exibir e editar a configuração de uma API, incluindo as credenciais do serviço back-end. A guia **Operações** é usada para gerenciar as operações de API na etapa seguinte do tutorial e a guia **Questões** pode ser usada para exibir os problemas reportados pelos desenvolvedores que usam suas APIs.
 
-> A API eco função Web não usa autenticação, mas para obter mais informações sobre a configuração de autenticação, consulte [Definir Configurações de API][].
+> A API eco função Web não usa autenticação, mas para obter mais informações sobre a configuração de autenticação, consulte [Definir Configurações de API][Definir Configurações de API].
 
 Após criar as API is e definir as configurações, a próxima etapa será adicionar operações à API. As definições de operações são usadas para validar solicitações recebidas e para gerar documentação automaticamente.
 
@@ -81,11 +81,11 @@ Após criar as API is e definir as configurações, a próxima etapa será adici
 
 Clique em **Operações** para exibir o painel de operações da API. Como ainda não adicionamos uma operação, não existe nenhuma exibida.
 
-![Operações][]
+![Operações][Operações]
 
 Clique em **adicionar operação** para adicionar uma nova operação. A janela **Nova operação** será exibida e a guia **Assinatura** será selecionada por padrão.
 
-![Assinatura de operação][]
+![Assinatura de operação][Assinatura de operação]
 
 Neste exemplo, especificaremos uma operação GET no serviço de eco. Insira os valores a seguir nos campos da guia **Assinatura**.
 
@@ -114,13 +114,13 @@ Para obter o segundo parâmetro de consulta, insira os valores a seguir.
 
 Clique em **Adicionar** na seção Respostas, comece a digitar **200** na caixa de texto e depois selecione **200 OK** na lista suspensa.
 
-![Adicionar resposta][]
+![Adicionar resposta][Adicionar resposta]
 
 Após selecionar **200 OK**, um novo código de resposta será adicionado à operação e a janela de resposta será exibida. Digite **Retornado em todos os casos.** na caixa de texto **Descrição**.
 
 ![Adicionar resposta][3]
 
-> A opção **Adicionar Representação** é usada para configurar respostas em várias representações. Para obter mais informações, consulte [Respostas][].
+> A opção **Adicionar Representação** é usada para configurar respostas em várias representações. Para obter mais informações, consulte [Respostas][Respostas].
 
 Clique em **Salvar** para adicionar a operação que acabou de configurar para a API.
 
@@ -130,7 +130,7 @@ Os desenvolvedores devem primeiro assinar um produto antes de poder fazer chamad
 
 Clique em **Produtos** no menu **Gerenciamento de API** à esquerda par exibir e configurar os produtos disponíveis nesta instância de API.
 
-![Produtos][]
+![Produtos][Produtos]
 
 Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web:
 
@@ -139,7 +139,7 @@ Por padrão, cada instância de Gerenciamento de API é fornecida com dois produ
 
 Neste tutorial usaremos o produto de **Início**. Clique em **Início** para exibir as configurações, incluindo as APIs que estão associadas ao produto.
 
-![Adicionar API][]
+![Adicionar API][Adicionar API]
 
 Clique em **Adicionar API ao produto**.
 
@@ -147,11 +147,11 @@ Clique em **Adicionar API ao produto**.
 
 Marque a caixa de **Minha API de ECO** e clique em **Salvar**.
 
-![API adicionada][]
+![API adicionada][API adicionada]
 
 Agora que **Minha API de Eco** está associada a um produto, os desenvolvedores podem assiná-lo e começar a usar a API.
 
-> Esta etapa do tutorial usa o produto de Início fornecido pré-configurado e pronto para uso. Para obter um guia passo a passo sobre como criar e publicar um novo produto, consulte [Como criar e publicar um produto][].
+> Esta etapa do tutorial usa o produto de Início fornecido pré-configurado e pronto para uso. Para obter um guia passo a passo sobre como criar e publicar um novo produto, consulte [Como criar e publicar um produto][Como criar e publicar um produto].
 
 ## <a name="subscribe"> </a>Assinar o produto que contém a API
 
@@ -159,13 +159,13 @@ Para fazer chamadas a uma API, os desenvolvedores precisam primeiro inscrever-se
 
 Clique em **Desenvolvedores** no menu **Gerenciamento de API** à esquerda para exibir e configurar os desenvolvedores desta instância de serviço.
 
-![Desenvolvedores][]
+![Desenvolvedores][Desenvolvedores]
 
 Clique no nome do desenvolvedor para definir as configurações do usuário, incluindo as assinaturas.
 
-> Neste exemplo, estamos inscrevendo um desenvolvedor chamado Clayton Gragg. Se você não tiver nenhuma conta de desenvolvedor criada, poderá inscrever a conta do administrador. Para obter informações sobre como criar contas de desenvolvedor, consulte [Como gerenciar contas de desenvolvedor no gerenciamento de API do Azure][].
+> Neste exemplo, estamos inscrevendo um desenvolvedor chamado Clayton Gragg. Se você não tiver nenhuma conta de desenvolvedor criada, poderá inscrever a conta do administrador. Para obter informações sobre como criar contas de desenvolvedor, consulte [Como gerenciar contas de desenvolvedor no gerenciamento de API do Azure][Como gerenciar contas de desenvolvedor no gerenciamento de API do Azure].
 
-![Adicionar assinatura][]
+![Adicionar assinatura][Adicionar assinatura]
 
 Clique em **Adicionar assinatura**.
 
@@ -173,7 +173,7 @@ Clique em **Adicionar assinatura**.
 
 Clique na caixa de texto **Início** e clique em **Assinar**.
 
-![Assinatura adicionada][]
+![Assinatura adicionada][Assinatura adicionada]
 
 Após inscrever a conta do desenvolvedor, você poderá chamar a API do produto.
 
@@ -181,7 +181,7 @@ Após inscrever a conta do desenvolvedor, você poderá chamar a API do produto.
 
 As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa do tutorial você chamará o método GET adicionado à **Minha API de ECO**. Clique em **Portal do Desenvolvedor** no menu da parte superior direita do Portal de Gerenciamento.
 
-![Portal do desenvolvedor][]
+![Portal do desenvolvedor][Portal do desenvolvedor]
 
 Clique em **APIs** no menu superior e depois clique em **Minha API de ECO** para ver as operações disponíveis.
 
@@ -191,39 +191,39 @@ Observe que a descrição e os parâmetros que foram adicionados quando você cr
 
 Clique em **Recurso GET** e depois clique em **Abrir Console**.
 
-![Console de operação][]
+![Console de operação][Console de operação]
 
 Insira alguns valores para os parâmetros e especifique sua chave de desenvolvedor e depois clique em**HTTP Get**.
 
-![HTTP Get][]
+![HTTP Get][HTTP Get]
 
 Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada** do serviço back-end, o **Status de resposta**, os **Cabeçalhos de resposta** e qualquer **Conteúdo de resposta**.
 
-![Resposta][]
+![Resposta][Resposta]
 
 ## <a name="view-analytics"> </a>Exibir análise
 
 Para exibir a análise de **Minha API de ECO**, alterne para o Portal Administrativo selecionando **Gerenciar** no menu de usuário na parte direita superior do portal do desenvolvedor.
 
-![Gerenciar][]
+![Gerenciar][Gerenciar]
 
 A visualização padrão do Portal Administrativo é o Painel, que fornece uma visão geral da instância de Gerenciamento da API.
 
-![Painel][]
+![Painel][Painel]
 
 Passe o mouse sobre o gráfico de Minha API de ECO para ver as métricas específicas de utilização da API durante um período de tempo específico.
 
 > Se você não vir linhas no gráfico, volte ao Portal do desenvolvedor e faça algumas chamadas à API, aguarde alguns momentos e volte para o Painel.
 
-![Análise][]
+![Análise][Análise]
 
 Clique em**Exibir detalhes** para exibir a página de resumo da API, incluindo uma versão maior das métricas exibidas.
 
-![Resumo][]
+![Resumo][Resumo]
 
 Para obter métricas e relatórios detalhados, clique em **Análise** no menu **Gerenciamento de API** à esquerda.
 
-![Visão geral][]
+![Visão geral][Visão geral]
 
 A seção **Análise** possui as quatro guias a seguir.
 
@@ -234,7 +234,7 @@ A seção **Análise** possui as quatro guias a seguir.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--   Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
+-   Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][Introdução à configuração avançada de API].
 
   [Criar uma instância de Gerenciamento de API]: #create-service-instance
   [Criar uma API]: #create-api
@@ -244,7 +244,7 @@ A seção **Análise** possui as quatro guias a seguir.
   [Chamar uma operação no Portal do Desenvolvedor]: #call-operation
   [Exibir análise]: #view-analytics
   [Próximas etapas]: #next-steps
-  [Avaliação gratuita do Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [Nova instância do Gerenciamento de API]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [Novo serviço de Gerenciamento de API]: ./media/api-management-get-started/api-management-create-instance-step1.png

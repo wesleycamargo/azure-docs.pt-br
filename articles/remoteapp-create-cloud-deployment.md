@@ -1,6 +1,6 @@
-<properties title="Como criar uma implanta&ccedil;&atilde;o de nuvem do RemoteApp" pageTitle="Como criar uma implanta&ccedil;&atilde;o de nuvem do RemoteApp" description="Saiba como criar uma implanta&ccedil;&atilde;o de nuvem do RemoteApp que salva dados na nuvem do Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/05/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="elizapo" />
 
 # Como criar uma implantação de nuvem do RemoteApp
 
@@ -20,10 +20,9 @@ Este tutorial explica o processo de criação de uma implantação de nuvem. Há
 
 É necessário fazer o seguinte antes de criar o serviço:
 
--   Inscreva-se para a visualização do RemoteApp. É possível fazer isso em <http://azure.microsoft.com/pt-br/services/remoteapp/>.
--   Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
+-   Increva-se para a visualização do RemoteApp. É possível fazer isso em [][]<http://azure.microsoft.com/pt-br/services/remoteapp/></a>.
+-   Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Pode ser informações da conta da Microsoft ou da conta organizacional do Active Directory para usuários e grupos.
 -   Este procedimento pressupõe que você irá usar a imagem do modelo fornecida como parte da sua assinatura ou que já tenha feito o upload da imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente.
--   Deseja fornecer aplicativos personalizados ou programas de LOB? Crie uma nova [imagem de modelo personalizada][imagem de modelo personalizada] e use-a na sua implantação de nuvem.
 
 ## **Etapa 1: Crie um serviço RemoteApp**
 
@@ -34,7 +33,7 @@ Este tutorial explica o processo de criação de uma implantação de nuvem. Há
 4.  Escolha a assinatura que deseja usar para criar este serviço.
 5.  Escolha o modelo para usar neste serviço.
 
-    **Dica:** A sua assinatura do RemoteApp acompanha uma imagem do modelo que contém os programas Office 2013, alguns publicados (como o Word) e outros prontos para a publicação. Você também pode criar uma nova [imagem de modelo personalizada][imagem de modelo personalizada] e usá-la na sua implantação de nuvem.
+    **Dica:** A sua assinatura do RemoteApp acompanha uma imagem do modelo que contém os programas Office 2013, alguns publicados (como o Word) e outros prontos para a publicação.
 
 6.  Clique em **Criar o serviço RemoteApp**.
 
@@ -59,16 +58,16 @@ Antes que os seus usuários possam acessar os programas do RemoteApp, é necess�
 Agora que o seu serviço do RemoteApp foi criado, é necessário adicionar os usuários e grupos que deseja habilitar para usar os seus recursos remotos. Se estiver usando o Active Directory, os usuários ou grupos que possuem acesso liberado precisam existir no locatário do Active Directory, associado à assinatura usada para criar este serviço do RemoteApp.
 
 1.  Na página Início Rápido, clique em **Configurar o acesso do usuário**.
-2.  Digite a conta corporativa ou o nome do grupo (do Active Directory) ou a conta da Microsoft para a qual deseja conceder acesso.
+2.  Digite a conta organizacional ou o nome do grupo (do Active Directory) ou a conta da Microsoft que deseja liberar o acesso.
 
-    Para os usuários, certifique-se de que você use o formato “user@domain.com”. Para grupos, digite o nome do grupo.
+	Para os usuários, certifique-se de usar o formato “usuário@domínio.com”. Para grupos, digite o nome do grupo.
 
 3.  Uma vez que os usuários ou grupos forem validades, clique em **Salvar**.
 
 ## Próximas etapas
 
-É isso - a sua implantação de nuvem do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, faça com que os usuários façam logon no cliente e acessem os programas do RemoteApp publicados.
+É isso - a sua implantação de nuvem do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, faça com que os usuários façam logon no Azure e acessem os programas do RemoteApp publicados.
 
-  [imagem de modelo personalizada]: http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-custom-image/
+  []: http://azure.microsoft.com/pt-br/services/remoteapp/
   [Portal de Gerenciamento do Microsoft Azure]: http://manage.windowsazure.com
   [Roteiro de sincronização do diretório]: http://msdn.microsoft.com/pt-br/library/azure/hh967642.aspx

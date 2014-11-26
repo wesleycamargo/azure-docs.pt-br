@@ -183,9 +183,9 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 -   [Referência de script de servidor dos Serviços Móveis][Referência de script de servidor dos Serviços Móveis]
     Saiba mais sobre como registrar e usar scripts de servidor.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [C# da Windows Store]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript da Windows Store"

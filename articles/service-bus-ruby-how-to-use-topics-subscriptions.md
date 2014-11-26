@@ -195,7 +195,6 @@ Agora que você já sabe os princípios dos tópicos do Service Bus, acesse este
   [Como receber mensagens de uma assinatura]: #how-to-receive-messages-from-a-subscription
   [Como tratar falhas do aplicativo e mensagens ilegíveis]: #how-to-handle-application-crashes-and-unreadable-messages
   [Como excluir tópicos e assinaturas]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/pt-br/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

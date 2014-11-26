@@ -311,13 +311,13 @@ Agora que você concluiu este tutorial, considere concluir os seguintes tutoriai
 
 Para obter mais informações sobre Hubs de Notificação, consulte [Hubs de Notificação do Azure].
 
-<!-- Anchors. -->
+
 [Criar um aplicativo ASP.NET com autenticação]: #create-application
 [Atualizar seu aplicativo ASP.NET para se registrar para notificações]: #register-notification
 [Atualizar o aplicativo para fazer logon e solicitar o registro]: #update-app
 [Atualizar seu aplicativo ASP.NET para enviar notificações]: #send-notifications
 
-<!-- Images. -->
+
 [0]: ./media/notification-hubs-aspnet-notify-users/notification-hub-create-mvc-app.png
 [1]: ./media/notification-hubs-aspnet-notify-users/notification-hub-create-aspnet-class.png
 [2]: ./media/notification-hubs-aspnet-notify-users/notification-hub-add-nuget-package.png
@@ -326,7 +326,7 @@ Para obter mais informações sobre Hubs de Notificação, consulte [Hubs de Not
 [7]: ./media/notification-hubs-aspnet-notify-users/notification-hub-connection-strings.png
 
 
-<!-- URLs. -->
+
 [Introdução à Windows Store]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet
 [Introdução ao iOS]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios
 [Introdução ao Android]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-android

@@ -228,7 +228,6 @@ Agora que você já conhece os princípios do serviço de email do SendGrid, ace
   [serviço de email baseado em nuvem]: http://sendgrid.com/solutions
   [entrega de email transacional]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [SMTP x API da Web]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Configurações de filtro]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

@@ -275,8 +275,6 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Compilar um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do Barramento de Serviço orientado a mensagens do.NET][Tutorial do Barramento de Serviço orientado a mensagens do.NET].
 
   [Próximas etapas]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/pt-br/library/microsoft.servicebus.messaging.sqlfilter.aspx

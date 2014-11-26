@@ -1,6 +1,6 @@
 <properties title="Manage an Azure website" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 
 # Gerenciar um site do Azure
 
@@ -78,7 +78,7 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 -   [Usando o Controle de Versão do Team Foundation (TFVC)][Usando o Controle de Versão do Team Foundation (TFVC)]
 -   [Usando a grade][Usando a grade]
 
-<!-- Anchors. -->
+
 
   [Antes de você implantar seu site para produção]: #before-you-deploy-your-site-to-production
   [Enquanto seu site está executando]: #while-your-website-is-running

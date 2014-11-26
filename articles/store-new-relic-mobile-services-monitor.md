@@ -111,9 +111,9 @@ Em seguida, você deverá habilitar o monitoramento do New Relic de seu serviço
 -   Para informações sobre preços, consulte o [página nova Relíquia no armazenamento do Azure][página nova Relíquia no armazenamento do Azure]
 -   Para obter mais informações sobre como usar o New Relic, consulte [Visão geral de aplicativos][Visão geral de aplicativos] na documentação do New Relic.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Inscrever-se para o New Relic usando a Azure Store]: #sign-up
   [Instalar o módulo New Relic]: #install-module

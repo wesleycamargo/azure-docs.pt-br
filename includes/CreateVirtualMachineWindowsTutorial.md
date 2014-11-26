@@ -18,7 +18,7 @@ Para saber mais, consulte [Máquinas Virtuais][Máquinas Virtuais].
 
 Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciamento para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>Como fazer o logon na máquina virtual após você criá-la
 
@@ -125,7 +125,6 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
   [Como fazer o logon na máquina virtual após você criá-la]: #logon
   [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
   [Máquinas Virtuais]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [Portal de Gerenciamento]: http://manage.windowsazure.com
   [Selecione MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/selectvm.png
   [Conectar-se a MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png

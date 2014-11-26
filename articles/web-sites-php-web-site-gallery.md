@@ -13,6 +13,5 @@ Você aprendeu como criar e implantar um site da galeria. Para saber mais sobre 
 -   [Criar um site do Azure PHP MySQL e implantar usando o Git][Criar um site do Azure PHP MySQL e implantar usando o Git] -- Criar um site PHP a partir do zero e implantá-lo em um Site do Azure usando o Git
 -   [Mais tutoriais de PHP][Mais tutoriais de PHP] - Criar tipos adicionais de aplicativos usando o PHP e o Azure
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [Criar um site do Azure PHP MySQL e implantar usando o Git]: /pt-br/develop/php/tutorials/website-w-mysql-and-git/
   [Mais tutoriais de PHP]: /pt-br/develop/php/tutorials/

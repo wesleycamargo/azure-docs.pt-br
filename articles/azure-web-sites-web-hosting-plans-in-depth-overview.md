@@ -1,6 +1,6 @@
 <properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron="" Tardif="" and="" Yochay="" Kiryaty" />
 </br>
 
 # Visão geral detalhada de planos de hospedagem na Web de sites do Azure
@@ -18,7 +18,7 @@ Um site pode ser associado com apenas um plano de hospedagem na Web em qualquer 
 </br>
 É possível ter múltiplos planos de hospedagem de web em um grupo de recursos e cada plano de hospedagem terá seu próprio conjunto de recursos e capacidades que são utilizadas pelos seus sites associados. A imagem a seguir ilustra essa relação:
 </br>
-![Planos de hospedagem na Web e grupos de recursos][]
+![Planos de hospedagem na Web e grupos de recursos][Planos de hospedagem na Web e grupos de recursos]
 </br>
 A capacidade para ter múltiplos planos de hospedagem na Web em um único grupo de recursos permite alocar sites diferentes para recursos diferentes, primeiramente máquinas virtuais executando seus sites. Por exemplo, essa capacidade permite a separação de recursos entre sites de teste e desenvolvimento e produção, onde você pode querer atribuir um plano de hospedagem de web com seu próprio conjunto específico de recursos para os seus locais de produção e um segundo plano de hospedagem na Web para seus sites desenvolvimento e teste.
 </br>
@@ -30,7 +30,7 @@ Ter múltiplos planos de hospedagem na Web em um único grupo de recursos també
 </br>
 Ao criar um novo site, deve-se considerar a criação de um novo grupo de recursos quando o site que você está prestes a criar representa um novo aplicativo Web. Nesse caso, criar um novo grupo de recursos, um plano de hospedagem na Web associado e um site é a escolha certa. Ao criar um novo site através da nova visualização de portal do Azure, usando a galeria ou a nova opção de site + SQL, o portal será o padrão para criar um novo plano de grupo de recursos e de hospedagem para o seu novo site. Se você precisar, no entanto, pode substituir esses padrões.
 </br>
-![Criando um novo plano de hospedagem na Web][]
+![Criando um novo plano de hospedagem na Web][Criando um novo plano de hospedagem na Web]
 </br>
 É possível adicionar sempre um novo site ou quaisquer outros recursos para um grupo de recursos existente. Ao criar um novo site do contexto de um grupo de recursos existente, o novo assistente do site padroniza para o plano de hospedagem na Web e recurso existente. Aqui também você pode substituir esses padrões conforme for necessário. Ao adicionar um novo site a um grupo de recursos existente, é possível escolher adicionar o site a um plano de hospedagem na Web (essa é a opção padrão na nova visualização do portal do Azure), ou você pode criar um novo plano de hospedagem na Web para adicionar ao site.
 </br>
@@ -46,11 +46,11 @@ Uma coisa importante a se lembrar é que não é possível mover planos de hospe
 </br>
 Se você já possui sites existentes nos sites do Azure, notará que todos os seus sites aparecem no portal de visualização do Azure. É possível ver todos os seus sites como uma lista simples clicando no botão do **procurar** no painel de navegação esquerdo e selecionando **Sites**:
 </br>
-![Consulte todos os seus sites em uma lista simples][]
+![Consulte todos os seus sites em uma lista simples][Consulte todos os seus sites em uma lista simples]
 </br>
 Também é possível consultar todos os grupos de recursos que foram criados por você ao clicar no painel de navegação esquerdo, selecionar o botão do **navegador** no painel de navegação esquerdo e selecionar **Grupos de recursos**:
 </br>
-![Consulte todos os grupos de recursos que foram criados][]
+![Consulte todos os grupos de recursos que foram criados][Consulte todos os grupos de recursos que foram criados]
 </br>
 Você também notará que tem um grupo de recursos padrão gerado automaticamente em cada região em que já possui sites. O nome do grupo de recursos gerado automaticamente para sites é *Default-Web-<location name>* onde o nome do local representa uma região do Azure (por exemplo *Default-Web-WestUS*). Em cada grupo de recursos você encontrará todos os seus sites existentes para a região do grupo. Cada site que você criou no passado ou criará no futuro estará tanto no portal do Azure Completo quanto no Portal de visualização do Azure.
 </br>
@@ -75,15 +75,15 @@ Como todo o site tem sido associado a um plano de hospedagem na Web, criamos pla
     </br>
     Para fazer isso usando a interface de usuário no novo **portal de visualização do Azure** clique em **NOVO** e selecione **Site**, que irá abrir a lâmina para criação de site. Na primeira imagem abaixo você poderá ver o ícone **NOVO** na parte inferior esquerda e na segunda imagem você verá a lâmina de criação de **Site**, a lâmina do **Plano de hospedagem na Web** e a lâmina da **Faixa de preço**:
     </br>
-    ![Criar um novo site][]
+    ![Criar um novo site][Criar um novo site]
     </br>
-    ![Site, lâminas de plano de hospedagem na Web e faixa de preço][]
+    ![Site, lâminas de plano de hospedagem na Web e faixa de preço][Site, lâminas de plano de hospedagem na Web e faixa de preço]
     </br>
-    Nesse exemplo escolhemos criar um novo site chamado **contosomarketing** e colocá-lo no novo plano de hospedagem na Web chamado**contoso**. A faixa de preço selecionada para esse plano de hospedagem na Web é **Padrão pequeno**. Para obter mais detalhes sobre as faixas de preço do plano de hospedagem na Web bem como recursos, opções de escala e preço fornecidos em cada um, visite as [Especificações de planos de hospedagem na Web][].
+    Nesse exemplo escolhemos criar um novo site chamado **contosomarketing** e colocá-lo no novo plano de hospedagem na Web chamado**contoso**. A faixa de preço selecionada para esse plano de hospedagem na Web é **Padrão pequeno**. Para obter mais detalhes sobre as faixas de preço do plano de hospedagem na Web bem como recursos, opções de escala e preço fornecidos em cada um, visite as [Especificações de planos de hospedagem na Web][Especificações de planos de hospedagem na Web].
     </br>
     Observe também que um plano de hospedagem também pode ser criado no portal do Azure existente. Isso é feito como parte do assistente de **criação rápida** selecionando **Criar novo plano de hospedagem na Web** da lista suspensa **PLANO DE HOSPEDAGEM DE WEB**:
     </br>
-    ![Criar novo plano de hospedagem de web no portal existente][]
+    ![Criar novo plano de hospedagem de web no portal existente][Criar novo plano de hospedagem de web no portal existente]
     </br>
     Para esse exemplo criamos um site chamado **northwind** e escolhemos criar um novo plano de hospedagem na Web. O resultado dessa operação será um novo plano de hospedagem na Web chamado **default0** que contém o site **northwind**. Todos os planos de hospedagem na Web criados através dessa experiência seguem essa convenção de nomenclatura e os planos de hospedagem na Web não podem ser renomeados depois de criados. Além disso, os planos de hospedagem na Web criados através desse processo serão criados na faixa de preço **Gratuito**.
     </br>
@@ -95,11 +95,11 @@ Como todo o site tem sido associado a um plano de hospedagem na Web, criamos pla
     </br>
     Depois, na lâmina de criação de site, selecione o plano de hospedagem:
     </br>
-    ![Selecionar um plano de hospedagem][]
+    ![Selecionar um plano de hospedagem][Selecionar um plano de hospedagem]
     </br>
     Um site pode também ser criado em um plano de hospedagem na Web usando o portal do Azure existente. Isso é feito como parte do assistente de **criação rápida**. Depois de digitar a URL do site, utilize a lista suspensa do **PLANO DE HOSPEDAGEM NA WEB** para selecionar:
     </br>
-    ![Selecione um plano de hospedagem no portal existente][]
+    ![Selecione um plano de hospedagem no portal existente][Selecione um plano de hospedagem no portal existente]
     </br>
     **Questão**: Como eu posso mover um site para um plano de hospedagem diferente na Web?
     </br>
@@ -107,7 +107,7 @@ Como todo o site tem sido associado a um plano de hospedagem na Web, criamos pla
     </br>
     Para mover um site para outro plano, navegue até a lâmina de site do site que você deseja mover. Em seguida, clique em **Plano de hospedagem na Web**:
     </br>
-    ![Escolha um plano de hospedagem na Web novo ou um existente][]
+    ![Escolha um plano de hospedagem na Web novo ou um existente][Escolha um plano de hospedagem na Web novo ou um existente]
     </br>
     Isso abrirá a lâmina do plano de hospedagem na Web. Nesse ponto, você poderá pegar um plano de hospedagem na Web existente ou criar um novo. Planos em uma localização geográfica ou grupo de recursos diferente são desabilitados e não podem ser selecionados
     </br>
@@ -120,7 +120,7 @@ Como todo o site tem sido associado a um plano de hospedagem na Web, criamos pla
     </br>
     Na imagem abaixo você pode visualizar a lâmina do **Plano de hospedagem na Web** e também a lâmina da **Faixa de preço**. Clicar na parte da **Faixa de preço** na lâmina do **Plano de hospedagem na Web** expande a lâmina da **Faixa de preço** onde você pode alterar a faixa de preço do plano de hospedagem na Web:
     </br>
-    ![O plano de hospedagem na Web e a faixa de preço][]
+    ![O plano de hospedagem na Web e a faixa de preço][O plano de hospedagem na Web e a faixa de preço]
     </br>
     A segunda maneira de dimensionar um plano é aumentá-lo aumentando o número de instâncias em seu plano de hospedagem na Web. Na imagem abaixo é possível visualizar a lâmina do **Plano de hospedagem na Web**, bem como a lâmina de **Escala**. Clicar na área de escala na lâmina do **Plano de hospedagem na Web** o expande e permite alterar a conta de instância do plano:
     </br>
@@ -181,8 +181,3 @@ Como todo o site tem sido associado a um plano de hospedagem na Web, criamos pla
   [Selecione um plano de hospedagem no portal existente]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview10.png
   [Escolha um plano de hospedagem na Web novo ou um existente]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview22.png
   [O plano de hospedagem na Web e a faixa de preço]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview16.png
-  [Alterando a conta de instância de um plano de hospedagem]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview17.png
-  [Alterando a contagem de instância de um plano de hospedagem no portal existente]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview18.png
-  [Excluindo um plano de hospedagem na Web]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview19.png
-  [Monitorando um plano de hospedagem na Web]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview20.png
-  [Editando os controles de monitoramento]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview21.png

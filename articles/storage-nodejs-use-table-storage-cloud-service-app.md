@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web App with Storage" pageTitle="Aplicativo Web com armazenamento de tabela (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os servi&ccedil;os de Armazenamento do Azure e o m&oacute;dulo Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Aplicativo Web do Node.js usando Armazenamento" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Aplicativo Web do Node.js usando Armazenamento
 
@@ -18,9 +18,7 @@ onde você pode armazenar e acessar dados, além de poder utilizar os serviços 
 armazenamento das APIs incluídos no SDK do Azure para Node,js ou
 por meio de APIs REST. Para obter mais informações, consulte [Armazenando e acessando dados no Azure (a página pode estar em inglês)][Armazenando e acessando dados no Azure (a página pode estar em inglês)].
 
-Este tutorial pressupõe que você tenha concluído os tutoriais [Aplicativo Web do
-Node.js][Aplicativo Web do
-Node.js] e [Node.js com Express][Aplicativo Web do Node.js usando o Express].
+Este tutorial pressupõe que você tenha concluído os tutoriais [Aplicativo Web do Node.js][Aplicativo Web do Node.js] e [Node.js com Express][Aplicativo Web do Node.js usando o Express].
 
 Você aprenderá a:
 
@@ -39,10 +37,10 @@ Essas configurações serão transmitidas como variáveis de ambiente para Node 
 serão lidas pelo SDK do Azure.
 
 <div class="dev-callout">
-
-**Observação**
-As credenciais de armazenamento são usadas somente quando o aplicativo é implantado no Azure. Quando executado no emulador, o aplicativo usará o emulador de armazenamento.
-
+<strong>Observa&ccedil;&atilde;o</strong>
+<p>As credenciais de armazenamento s&atilde;o usadas somente quando o aplicativo &eacute; 
+implantado no Azure. Quando executado no emulador, o aplicativo 
+usar&aacute; o emulador de armazenamento.</p>
 </div>
 
 Execute as etapas a seguir para recuperar as credenciais da conta de armazenamento
@@ -59,11 +57,9 @@ e adicioná-las às configurações de web.config:
     Isso recupera a lista de contas de armazenamento e as chaves da conta associada ao seu serviço hospedado.
 
     <div class="dev-callout">
-
-    **Observação**
-    Como o SDK do Azure cria uma conta de armazenamento quando você implanta um serviço, uma conta de armazenamento já deve existir da implantação de seu aplicativo nos guias anteriores.
-
-    </div>
+<strong>Observa&ccedil;&atilde;o</strong>
+<p>Como o SDK do Azure cria uma conta de armazenamento quando voc&ecirc; implanta um servi&ccedil;o, uma conta de armazenamento j&aacute; deve existir da implanta&ccedil;&atilde;o de seu aplicativo nos guias anteriores.</p>
+</div>
 
 4.  Abra o arquivo **ServiceDefinition.csdef** que contém as configurações de ambiente usadas quando o aplicativo é implantado no Azure:
 
@@ -111,7 +107,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 1.  No diretório **WebRole1**, crie um novo diretório com nome **models**.
 
-2.  No diretório **models**, crie um novo arquivo chamado **task.js**. Esse arquivo vai conter o modelo para as tarefas criadas pelo seu aplicativo.
+2.  No diretório **models**, crie um novo arquivo com nome **task.js**. Esse arquivo vai conter o modelo para as tarefas criadas pelo seu aplicativo.
 
 3.  No início do arquivo **task.js**, adicione o seguinte código para fazer a referência às bibliotecas necessárias:
 
@@ -192,7 +188,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 1.  No diretório **WebRole1/routes**, crie um novo arquivo chamado **tasklist.js** e abra-o em um editor de texto.
 
-2.  Adicione os seguintes códigos ao **tasklist.js**. Isso carrega os módulos azure e async, que são usados por **tasklist.js**. Isso também define a função de **TaskList**, que é transmitida a uma instância do objeto da **Tarefa** definido anteriormente:
+2.  Adicione o código a seguir a **tasklist.js**. Isso carrega os módulos azure e async, que são usados por **tasklist.js**. Isso também define a função de **TaskList**, que é transmitida a uma instância do objeto da **Tarefa** definido anteriormente:
 
         var azure = require('azure-storage');
         var async = require('async');
@@ -203,7 +199,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
           this.task = task;
         }
 
-3.  Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados para **showTasks**, **addTask** e **completeTasks**:
+3.  Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados a **showTasks**, **addTask** e **completeTasks**:
 
         TaskList.prototype = {
           showTasks: function(req, res) {
@@ -356,7 +352,7 @@ O navegador abrirá e exibirá a página a seguir:
 
 Use o formulário para adicionar itens ou remover itens existentes marcando-os como completos.
 
-## Publicar o Aplicativo no Azure
+## Publicando o aplicativo no Azure
 
 Na janela do Windows PowerShell, chame o seguinte cmdlet para reimplantar o serviço hospedado no Azure.
 
@@ -411,7 +407,7 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
     Excluir o serviço pode levar alguns minutos. Após o serviço ter sido excluído, você recebe uma mensagem indicando que o serviço foi excluído.
 
   [Aplicativo Web do Node.js usando o Express]: http://www.windowsazure.com/pt-br/develop/nodejs/tutorials/web-app-with-express/
-  [Armazenando e acessando dados no Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+  [Aplicativo Web do Node.js]: http://www.windowsazure.com/pt-br/develop/nodejs/tutorials/getting-started/
   [A página da Web completa no Internet Explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [O conteúdo do arquivo web.cloud.config]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap

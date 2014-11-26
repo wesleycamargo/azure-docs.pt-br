@@ -7,27 +7,27 @@
 
 Este guia mostra como executar cenários comuns usando o
 serviço de Armazenamento de tabelas no Azure. As amostras estão escritas em código C#
-e usam a Biblioteca de Cliente de Armazenamento do Azure para .NET. Os cenários abrangidos incluem a **criação e a exclusão de uma tabela** e o **trabalho com entidades de tabela**. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas][].
+e usam a Biblioteca de Cliente de Armazenamento do Azure para .NET. Os cenários abrangidos incluem a **criação e a exclusão de uma tabela** e o **trabalho com entidades de tabela**. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas][Próximas etapas].
 
 ## Sumário
 
--   [O que é o serviço Tabela][]
--   [Conceitos][]
--   [Criar uma conta de Armazenamento do Azure][]
--   [Configurar uma cadeia de conexão de armazenamento][]
--   [Como acessar programaticamente o armazenamento de tabela][]
--   [Como: criar uma tabela][]
--   [Como: adicionar uma entidade a uma tabela][]
--   [Como: inserir um lote de entidades][]
--   [Como: recuperar todas as entidades em uma partição][]
--   [Como: recuperar um intervalo de entidades em uma partição][]
--   [Como: recuperar uma única entidade][]
--   [Como: substituir uma entidade][]
--   [Como: inserir ou substituir uma entidade][]
--   [Como: consultar um subconjunto de propriedades de entidade][]
--   [Como: excluir uma entidade][]
--   [Como: excluir uma tabela][]
--   [Próximas etapas][]
+-   [O que é o serviço Tabela][O que é o serviço Tabela]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de Armazenamento do Azure][Criar uma conta de Armazenamento do Azure]
+-   [Configurar uma cadeia de conexão de armazenamento][Configurar uma cadeia de conexão de armazenamento]
+-   [Como acessar programaticamente o armazenamento de tabela][Como acessar programaticamente o armazenamento de tabela]
+-   [Como: criar uma tabela][Como: criar uma tabela]
+-   [Como: adicionar uma entidade a uma tabela][Como: adicionar uma entidade a uma tabela]
+-   [Como: inserir um lote de entidades][Como: inserir um lote de entidades]
+-   [Como: recuperar todas as entidades em uma partição][Como: recuperar todas as entidades em uma partição]
+-   [Como: recuperar um intervalo de entidades em uma partição][Como: recuperar um intervalo de entidades em uma partição]
+-   [Como: recuperar uma única entidade][Como: recuperar uma única entidade]
+-   [Como: substituir uma entidade][Como: substituir uma entidade]
+-   [Como: inserir ou substituir uma entidade][Como: inserir ou substituir uma entidade]
+-   [Como: consultar um subconjunto de propriedades de entidade][Como: consultar um subconjunto de propriedades de entidade]
+-   [Como: excluir uma entidade][Como: excluir uma entidade]
+-   [Como: excluir uma tabela][Como: excluir uma tabela]
+-   [Próximas etapas][Próximas etapas]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
@@ -93,7 +93,7 @@ Se você estiver escrevendo um aplicativo que não seja um Serviço de Nuvem do 
   		</appSettings>
 	</configuration>
 
-Leia [Configurando cadeias de conexão][] para obter mais informações sobre cadeias de conexão de armazenamento.
+Leia [Configurando cadeias de conexão][Configurando cadeias de conexão] para obter mais informações sobre cadeias de conexão de armazenamento.
 	
 Agora você está pronto para executar as tarefas das instruções deste guia.
 
@@ -408,7 +408,7 @@ operação **InsertOrReplace**.  Essa operação insere a entidade, se ela não 
 
 <h2><a name="query-entity-properties"></a><span class="short-header">Consultar um subconjunto das propriedades</span>Como consultar um subconjunto das propriedades da entidade</h2>
 
-Uma consulta de tabela pode recuperar apenas algumas propriedades de uma entidade em vez de todas as propriedades da entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir retorna apenas os endereços de e-mail das entidades na tabela. Isso é feito por meio de uma consulta de **DynamicTableEntity** e também de um **EntityResolver**. Você pode aprender mais sobre projeção nesta [postagem de blog][]. Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela.
+Uma consulta de tabela pode recuperar apenas algumas propriedades de uma entidade em vez de todas as propriedades da entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir retorna apenas os endereços de e-mail das entidades na tabela. Isso é feito por meio de uma consulta de **DynamicTableEntity** e também de um **EntityResolver**. Você pode aprender mais sobre projeção nesta [postagem de blog][postagem de blog]. Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -509,9 +509,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
   [Próximas etapas]: #next-steps
   [O que é o serviço Tabela]: #what-is
   [Conceitos]: #concepts
-  [Criar uma conta de armazenamento do Azure]: #create-account
-  [Criar um projeto do Azure no Visual Studio]: #create-project
-  [Configurar seu aplicativo para acessar o armazenamento]: #configure-access
   [Configurar uma cadeia de conexão de armazenamento]: #setup-connection-string
   [Como acessar programaticamente o armazenamento de tabela]: #configure-access
   [Como: criar uma tabela]: #create-table
@@ -525,8 +522,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
   [Como: consultar um subconjunto de propriedades de entidade]: #query-entity-properties
   [Como: excluir uma entidade]: #delete-entity
   [Como: excluir uma tabela]: #delete-table
-  [Baixar e instalar o SDK do Azure para .NET]: /pt-br/develop/net/
-  [Criando um projeto do Azure no Visual Studio (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405487.aspx
   
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage-20/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-table-storage-20/blob6.png
@@ -535,8 +530,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage-20/blob9.png
   
   [postagem de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Referência à biblioteca cliente do .NET]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn495001(v=azure.10).aspx[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

@@ -39,9 +39,9 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo iOS, pr
 
     Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
   [Introdução a dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
@@ -50,7 +50,5 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo iOS, pr
   [Testar o aplicativo]: #test-app
   [SDK do iOS para Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-ios-call-custom-api]: ../includes/mobile-services-ios-call-custom-api.md
   [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control

@@ -1,19 +1,19 @@
 Em seguida, você criará um novo serviço móvel para substituir a lista na memória pelo armazenamento de dados. Siga estas etapas para criar um novo serviço móvel.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 2.  Na parte inferior do painel de navegação, clique em **+NOVO**.
 
-    ![plus-new][]
+    ![plus-new][plus-new]
 
 3.  Expanda **Computação** e **Serviço Móvel** e, em seguida, clique em **Criar**.
 
-    ![mobile-create][]
+    ![mobile-create][mobile-create]
 
     Isso exibe a caixa de diálogo **Novo Serviço Móvel**.
 
 4.  Na página **Criar um serviço móvel**, selecione **Criar um Banco de Dados SQL gratuito com 20 MB** e, em seguida, digite um nome de subdomínio para o novo serviço móvel na caixa de texto **URL** e aguarde a verificação de nome. Uma vez concluída a verificação do nome, clique no botão de seta para a direita para ir para a próxima página.
 
-    ![mobile-create-page1][]
+    ![mobile-create-page1][mobile-create-page1]
 
     Isso exibe a página **Especificar configurações de banco de dados**.
 
@@ -23,7 +23,7 @@ Em seguida, você criará um novo serviço móvel para substituir a lista na mem
 
 5.  Em **Nome**, digite o nome do novo banco de dados, digite **Nome de logon**, que é o nome de logon de administrator do novo servidor de Banco de Dados SQL, digite e confirme a senha e clique no botão de seleção para concluir o processo.
 
-    ![mobile-create-page2][]
+    ![mobile-create-page2][mobile-create-page2]
 
     <div class="dev-callout"> 
     <b>Observa&ccedil;&atilde;o</b> 

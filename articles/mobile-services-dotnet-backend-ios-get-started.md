@@ -83,19 +83,14 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 -   [Solucionar problemas de back-end do .NET dos Serviços Móveis][Solucionar problemas de back-end do .NET dos Serviços Móveis]
      Saiba como diagnosticar e corrigir problemas que podem surgir com o back-end do .NET dos Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [Versão de back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-ios-get-started
   [0]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-completed-ios.png
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-steps-vs.png
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-ios-run-app]: ../includes/mobile-services-ios-run-app.md
   [Configurar o servidor web local para permitir conexões a um Serviço Móvel local]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express
   [Começar a trabalhar com dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
   [Introdução à sincronização de dados offline]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data

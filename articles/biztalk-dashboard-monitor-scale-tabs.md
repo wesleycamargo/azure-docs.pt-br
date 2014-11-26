@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Serviços do BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida
 
@@ -23,42 +23,32 @@ Isso abre uma nova janela com as seguintes guias: Este tópico descreve essas gu
 ## <a name="QuickStart"></a>Início Rápido (![Início Rápido][Início Rápido])
 
 Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis.
-
 <table border="1">
+    <tr>
+        <td><strong>Obter as ferramentas</strong></td>
 
-<tr>
-
-<td>
-**Obter as ferramentas**
-
-</td>
-</p>
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Baixar o SDK dos Serviços do BizTalk para instalar os modelos do projeto do Visual Studio em seu computador de desenvolvimento local. 	Esses modelos criam os projetos do Visual Studio <strong>Serviços BizTalk</strong> (ponte) e <strong>Artefatos do Serviço do BizTalk</strong> (Transformação) que estão implantados em seu Serviço do BizTalk.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Como começar a usar o SDK dos Serviços BizTalk do Azure </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">	Instalando o SDK dos Serviços BizTalk do Azur</a> lista as etapas para começar..
         </td>
     </tr>
 
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>Criar contratos de parceiro</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>Abre o Portal dos Serviços BizTalk hospedados no Azure onde você adiciona parceiros e cria contratos EDI X12 e AS2.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens EDI no Portal dos Serviços BizTalk</a> lista as etapas para começar..
         </td>
     </tr>
 
 <tr>
-<td>
-**Saiba mais sobre os Serviços do BizTalk**
-
-</td>
-<td>
-Acesse o [centro de aprendizado][centro de aprendizado] para saber mais sobre os Serviços do BizTalk do Azure.
-
-</td>
+        <td><strong>Saiba mais sobre os Serviços do BizTalk</strong></td>
+        <td>Acesse o <a HREF="http://azure.microsoft.com/pt-BR/documentation/services/biztalk-services/">centro de aprendizado</a> para saber mais sobre os Serviços do BizTalk do Azure.</td>
 </tr>
 </table>
+
+
 Na barra de tarefas na parte inferior, você pode:
 
 <table>
@@ -111,23 +101,50 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 
 ##### Visão Rápida: Lista as propriedades do Serviço BizTalk
 
-|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Atualização das credenciais do banco de dados de acompanhamento** | Altera o nome de usuário e senha usado para fazer logon no banco de dados de acompanhamento.                                                                                                                                                                                                                                                      |
-| **Atualização do certificado de SSL**                               | Pode modificar o Serviço do BizTalk para usar um certificado SSL diferente. Um Certificado SSL autoassinado é criado automaticamente ao [criar o Serviço do BizTalk][criar o Serviço do BizTalk].                                                                                                                                                                           |
-| **Baixar Certificado**                                              | Você pode baixar o certificado SSL usado pelo Serviço de BizTalk em uma máquina local.                                                                                                                                                                                                                                                            |
-| **Status**                                                          | Mostra o status atual do Serviço do BizTalk. Consulte [Serviços do BizTalk: Gráfico de estado de serviço][Serviços do BizTalk: Gráfico de estado de serviço].                                                                                                                                                                                                                                      |
-| **URL do Serviço**                                                  | A URL para o seu Serviço do BizTalk. É igual à **URL do Domínio** inserida quando o Serviço do BizTalk é criado.                                                                                                                                                                                                                                  |
-| **Endereço IP virtual público (VIP)**                               | O endereço IP atribuído ao seu Serviço do BizTalk. Ele é usado para todos os pontos de extremidade de entrada e é o endereço de origem para o tráfego de saída. Esse endereço IP pertence ao seu Serviço do BizTalk enquanto ele for provisionado. Se você excluir o Serviço do BizTalk, o endereço IP será atribuído a outro Serviço do BizTalk. |
-| **Namespace do ACS**                                                | Autenticados com o Serviço do BizTalk.                                                                                                                                                                                                                                                                                                            |
-| **Edição**                                                          | Lista a Edição inserida quando o Serviço do BizTalk é criado.                                                                                                                                                                                                                                                                                     |
-| **Local**                                                           | Mostra a região geográfica que hospeda seu Serviço do BizTalk.                                                                                                                                                                                                                                                                                    |
-| **Criação**                                                         | Mostra a data e a hora em que o Serviço do BizTalk foi criado.                                                                                                                                                                                                                                                                                    |
-| **Banco de Dados de Acompanhamento**                                | O nome do Banco de Dados SQL que armazena as tabelas de acompanhamento usadas pelo Serviço do BizTalk.                                                                                                                                                                                                                                            
-                                                                        [Requisitos explicados][criar o Serviço do BizTalk] fornece detalhes sobre o Banco de Dados de Acompanhamento.                                                                                                                                                                                                                                    |
-| **Armazenamento de monitoramento/arquivamento**                     | O nome da conta de Armazenamento do Azure que armazena a saída do monitoramento de seu Serviço do BizTalk.                                                                                                                                                                                                                                        
-                                                                        [Requisitos explicados][criar o Serviço do BizTalk] fornece detalhes sobre a conta de Armazenamento.                                                                                                                                                                                                                                              |
-| **Nome da assinatura**                                              | Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura rege o acesso ao Portal de Gerenciamento do Azure.                                                                                                                                                                                                                            |
-| **ID da assinatura**                                                | Quando uma assinatura é criada, uma ID da assinatura é gerada automaticamente. Ao usar APIs REST, talvez seja necessário inserir a ID da assinatura                                                                                                                                                                                               |
+<table border="1">
+
+<tr>
+<td><strong>Atualização das credenciais do banco de dados de acompanhamento</strong></td> 
+<td>Altera o nome de usuário e senha usado para fazer logon no banco de dados de acompanhamento.</td>
+</tr>
+<tr>                                                                                                                                                                                                                                                      
+<td><strong>Atualização do certificado de SSL</strong></td>                                
+<td>Pode modificar o Serviço do BizTalk para usar um certificado SSL diferente. Um Certificado SSL autoassinado é criado automaticamente ao <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">criar o Serviço do BizTalk</a>.</td>
+</tr>
+<tr>                                                                                                                                                                           
+<td><strong>Baixar Certificado</strong></td>                                             <td>Você pode baixar o certificado SSL usado pelo Serviço de BizTalk em uma máquina local.</td>                                                                                                                                                                                                                                                            </tr>
+<tr>
+<td><strong>Status</strong></td>                                                      <td>Mostra o status atual do Serviço do BizTalk. Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">Serviços do BizTalk: Gráfico de estado de serviço</a>.</td>                                                                                                                                                                                                                                      </tr>
+<tr>
+<td><strong>URL do Serviço</strong></td>                                              <td>A URL para o seu Serviço do BizTalk. É igual à <strong>URL do Domínio</strong> inserida quando o Serviço do BizTalk é criado.</td>                                                                                                                                                                                                                                  </tr>
+<tr>
+<td><strong>Endereço IP virtual público (VIP)</strong></td>                              
+<td>O endereço IP atribuído ao seu Serviço do BizTalk. Ele é usado para todos os pontos de extremidade de entrada e é o endereço de origem para o tráfego de saída. Esse endereço IP pertence ao seu Serviço do BizTalk enquanto ele for provisionado. Se você excluir o Serviço do BizTalk, o endereço IP será atribuído a outro Serviço do BizTalk.</td>
+</tr>
+<tr>
+<td><strong>Namespace do ACS</strong></td>                                                <td>Autenticados com o Serviço do BizTalk.</td>                                                                                                                                                                                                                                                                                                            </tr>
+<tr>
+<td><strong>Edição</strong></td>                                                          <td>Lista a Edição inserida quando o Serviço do BizTalk é criado.</td>                                                                                                                                                                                                                                                                                     </tr>
+<tr>
+<td><strong>Local</strong></td>                                                          <td>Mostra a região geográfica que hospeda seu Serviço do BizTalk.</td>                                                                                                                                                                                                                                                                                    </tr>
+<tr>
+<td><strong>Criação</strong></td>                                                       <td>Mostra a data e a hora em que o Serviço do BizTalk foi criado.</td>                                                                                                                                                                                                                                                                                    </tr>
+<tr>
+<td><strong>Banco de Dados de Acompanhamento</strong></td>                              
+<td>O nome do Banco de Dados SQL que armazena as tabelas de acompanhamento usadas pelo Serviço do BizTalk.
+<br/><br/>                                                                                                                                                                                                                                        
+                                                                 
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre o Banco de Dados de Acompanhamento.</td>                                                                                                                                                                                                                                    
+</tr>
+<tr>
+<td><strong>Armazenamento de monitoramento/arquivamento</strong></td>                     
+<td>O nome da conta de Armazenamento do Azure que armazena a saída do monitoramento de seu Serviço do BizTalk.                                                                                                                                                                                                                                        
+<br/><br/>                                                                        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre a conta de Armazenamento.</td>                                                                                                                                                                                                                                              </tr>
+<tr>
+<td><strong>Nome da assinatura</strong></td>                                            <td>Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura rege o acesso ao Portal de Gerenciamento do Azure.</td>                                                                                                                                                                                                                            </tr>
+<tr>
+<td><strong>ID da assinatura</strong></td>                                               <td>Quando uma assinatura é criada, uma ID da assinatura é gerada automaticamente. Ao usar APIs REST, talvez seja necessário inserir a ID da assinatura</td>                                                                                                                                                                                               </tr>
+</table>
 
 [Serviços do BizTalk: Provisionamento usando o Portal de Gerenciamento do Windows Azure][criar o Serviço do BizTalk] lista as etapas para criar um Serviço do BizTalk.
 
@@ -306,9 +323,6 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
   [Escala]: #Scale
   [Configurar]: #Configure
   [Conexões Híbridas]: #HybridConnections
-  [centro de aprendizado]: http://azure.microsoft.com/pt-BR/documentation/services/biztalk-services/
-  [Configurando componentes para mensagens de EDI no Portal de Serviços do BizTalk (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=303653
-  [Gerenciando o namespace do ACS (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [Métricas disponíveis]: #Metrics
   [criar o Serviço do BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [Serviços do BizTalk: Gráfico de estado de serviço]: http://go.microsoft.com/fwlink/p/?LinkID=329870

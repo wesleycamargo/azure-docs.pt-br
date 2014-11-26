@@ -22,7 +22,7 @@ Este guia mostrará como criar funções Web ou de trabalho do PHP em um ambient
 
 O Azure fornece três modelos de computação para aplicações em execução: [Sites do Azure][Sites do Azure], [Máquinas Virtuais do Azure][Máquinas Virtuais do Azure], e [Serviços de Nuvem do Azure][Serviços de Nuvem do Azure] Todos os três modelos oferecem suporte ao PHP. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função Web fornece um servidor web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
 
-Para obter mais informações, consulte [O que é um Serviço de Nuvem?][O que é um Serviço de Nuvem?].
+Para obter mais informações, consulte [O que é um Serviço de Nuvem?][O que é um Serviço de Nuvem].
 
 ## <a name="DownloadSdk"></a>Baixar o SDK do Azure para PHP
 
@@ -30,7 +30,7 @@ O [SDK do Azure para PHP][SDK do Azure para PHP] consiste em vários componentes
 
 ## <a name="CreateProject"></a>Como: Criar um projeto de Serviço de Nuvem
 
-A primeira etapa na criação de uma função Web ou de trabalho do PHP é criar um projeto de Serviço do Azure. Um projeto de serviço do Azure atua como um contêiner lógico para funções Web e de trabalho e contém os arquivos de [(definição do serviço (.csdef)][(definição do serviço (.csdef)] e de [configuração do serviço (.cscfg)][configuração do serviço (.cscfg)] do projeto.
+A primeira etapa na criação de uma função Web ou de trabalho do PHP é criar um projeto de Serviço do Azure. Um projeto de serviço do Azure atua como um contêiner lógico para funções Web e de trabalho e contém os arquivos de [(definição do serviço (.csdef)][definição do serviço (.csdef)] e de [configuração do serviço (.cscfg)][configuração do serviço (.cscfg)] do projeto.
 
 Para criar um novo projeto de Serviço do Azure, execute o seguinte comando:
 
@@ -207,7 +207,6 @@ Para parar os emuladores, execute este comando:
 
 Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação com o cmdlet **PublishSettingsFile** e, em seguida, publicar seu aplicativo com o cmdlet **Publish-AzureServiceProject**. Detalhes sobre como usar cada um desses cmdlets podem ser encontrados em [Como: Importar configurações de publicação][Como: Importar configurações de publicação] e [Como: Implantar um serviço de nuvem no Azure][Como: Implantar um serviço de nuvem no Azure], respectivamente.
 
-  [O que são funções Web e de Trabalho do PHP?]: #WhatIs
   [Baixar o SDK do Azure para PHP]: #DownloadSdk
   [Como: Criar um projeto de Serviço de Nuvem]: #CreateProject
   [Como: Adicionar funções de trabalho e Web PHP]: #AddRole
@@ -219,16 +218,11 @@ Para publicar seu aplicativo, você precisa primeiro importar suas configuraçõ
   [Sites do Azure]: /pt-br/develop/net/fundamentals/compute/#WebSites
   [Máquinas Virtuais do Azure]: /pt-br/develop/net/fundamentals/compute/#VMachine
   [Serviços de Nuvem do Azure]: /pt-br/develop/net/fundamentals/compute/#CloudServices
-  [O que é um Serviço de Nuvem?]: /pt-br/manage/services/cloud-services/what-is-a-cloud-service/
+  [O que é um Serviço de Nuvem]: /pt-br/manage/services/cloud-services/what-is-a-cloud-service/
   [SDK do Azure para PHP]: /pt-br/develop/php/common-tasks/download-php-sdk/
   [Instalar o PowerShell do Azure e o Emuladores do Azure]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-  [(definição do serviço (.csdef)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758711.aspx
-  [configuração do serviço (.cscfg)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
   [Drivers da Microsoft para PHP para SQL Server]: http://php.net/sqlsrv
   [SQL Server Native Client 2012]: http://msdn.microsoft.com/pt-br/sqlserver/aa937733.aspx
   [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-  [Serviços de Informações da Internet (IIS)]: http://www.iis.net/
-  [Diferenças entre o Emulador de Computação e o Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg432960.aspx
-  [Diferenças entre o Emulador de Armazenamento e os Serviços de Armazenamento do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433135.aspx
   [Como: Importar configurações de publicação]: /pt-br/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [Como: Implantar um serviço de nuvem no Azure]: /pt-br/develop/php/how-to-guides/powershell-cmdlets/#Deploy

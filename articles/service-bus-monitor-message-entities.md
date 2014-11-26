@@ -1,6 +1,6 @@
 <properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Como monitorar as entidades de mensagens do Barramento de Serviço
 
@@ -28,7 +28,7 @@ Para qualquer fila, você pode ver gráficos de:
 
 **Visão Rápida** no painel, reflete o tamanho atual da fila como o **Comprimento da Fila**. Também exibe outras propriedades da fila ou do tópico. Essas informações são atualizadas a cada 10 segundos.
 
-![][]
+![][0]
 
 ## Como monitorar a atividade em tópicos do Barramento de Serviço
 
@@ -45,5 +45,5 @@ Um painel de tópico é semelhante a um painel de fila, com exceção das métri
 ![][1]
 
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-monitor-message-entities/QueueDashboard.png
+  [0]: ./media/service-bus-monitor-message-entities/QueueDashboard.png
   [1]: ./media/service-bus-monitor-message-entities/AddMetrics.png

@@ -2,7 +2,7 @@
 
 2.  Role até **Extras**, expanda-o e escolha **Google Play Services**, conforme mostrado abaixo. Clique em **Instalar Pacotes**. Anote o caminho do SDK a ser usado na etapa a seguir. Reinicie o Eclipse.
 
-    ![][]
+    ![][0]
 
 3.  Instale o SDK dos Serviços do Google Play em seu projeto. No Eclipse, clique em **Arquivo** e em **Importar**. Selecione **Android**, em seguida, **Código do Android existente no espaço de trabalho** e clique em **Avançar**. Clique em **Procurar**, navegue até o caminho do Android SDK (geralmente em uma pasta chamada `adt-bundle-windows-x86_64`) e, em seguida, vá para a subpasta `\extras\google\google_play_services\libproject` e selecione a pasta google-play-services-lib e clique em **OK**. Marque a caixa de seleção **Copiar projetos na área de trabalho** e, em seguida, clique em **Concluir**.
 
@@ -22,6 +22,6 @@
 
 9.  Clique em **Aplicar** e em **OK**.
 
-  []: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
+  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
   [2]: ./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png

@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Interagir com recursos do Banco de Dados de Documentos
 
@@ -12,7 +12,7 @@ O Banco de Dados de Documentos oferece um modelo de programação RESTful simple
 
 As entidades que o Banco de Dados de Documentos gerencia são referidas como **recursos**, que são identificados exclusivamente pelo seu URI lógico. Os desenvolvedores podem interagir com os recursos usando verbos de HTTP padrão, cabeçalhos de solicitação/resposta e códigos de status. Como ilustrado pelo diagrama a seguir, o **modelo de recursos** do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta do banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Um conjunto de recursos é referido como um **feed** neste documento.
 
-![][]
+![][0]
 
 ## Modelo de recurso hierárquico em uma conta de banco de dados
 
@@ -283,14 +283,14 @@ O Banco de Dados de Documentos expõe um modelo de endereçamento lógico, em qu
 -   Especificação JSON [][2]<http://-www.ietf.org/rfc/rfc4627.txt></a>
 -   Especificação HTTP [][3]<http://www.w3.org/Protocols/rfc2616/rfc2616.html></a>
 -   Marcas da entidade [][4]<http://en.wikipedia.org/wiki/HTTP_ETag></a>
--   [Banco de Dados de Documentos de consulta][]
--   [Referência SQL do Banco de Dados de Documentos][]
--   [Programação do Banco de Dados de Documentos: Procedimentos armazenados, gatilhos e UDFs][]
--   [Documentação de referência do Banco de Dados de Documentos][]
+-   [Banco de Dados de Documentos de consulta][Banco de Dados de Documentos de consulta]
+-   [Referência SQL do Banco de Dados de Documentos][Referência SQL do Banco de Dados de Documentos]
+-   [Programação do Banco de Dados de Documentos: Procedimentos armazenados, gatilhos e UDFs][Programação do Banco de Dados de Documentos: Procedimentos armazenados, gatilhos e UDFs]
+-   [Documentação de referência do Banco de Dados de Documentos][Documentação de referência do Banco de Dados de Documentos]
 
-  []: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
+  [0]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
   [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
-  []: http://en.wikipedia.org/wiki/Representational_state_transfer
+  [0]: http://en.wikipedia.org/wiki/Representational_state_transfer
   [2]: http://-www.ietf.org/rfc/rfc4627.txt
   [3]: http://www.w3.org/Protocols/rfc2616/rfc2616.html
   [4]: http://en.wikipedia.org/wiki/HTTP_ETag

@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-sql-scale-guidance" urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Escalar serviços móveis suportados pelo Banco de Dados SQL do Azure
 
@@ -459,11 +459,11 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
   [Arquitetura de serviço]: #Architecture
   [Solução de problemas avançada]: #Advanced
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  [Perguntas frequentes da desativação das Edições Web e Business]: http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx
+  [Perguntas frequentes da desativação das Edições Web e Business]: http://msdn.microsoft.com/pt-br/library/azure/dn741330.aspx
   [Recursos de Visualização]: https://account.windowsazure.com/previewfeatures
-  [Razões para usar as novas camadas de serviço]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons
+  [Razões para usar as novas camadas de serviço]: http://msdn.microsoft.com/pt-br/library/azure/dn369873.aspx#Reasons
   [Portal de Gerenciamento do Azure – Métricas do Banco de Dados SQL]: ./media/mobile-services-sql-scale-guidance/3.png
-  [Entendendo o uso dos recursos]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource
+  [Entendendo o uso dos recursos]: http://msdn.microsoft.com/pt-br/library/azure/dn369873.aspx#Resource
   [Portal de Gerenciamento do Azure – Escala do Banco de Dados SQL]: ./media/mobile-services-sql-scale-guidance/4.png
   [Portal de Gerenciamento do Azure – Alerta SQL]: ./media/mobile-services-sql-scale-guidance/5.png
   [Portal de Gerenciamento do Azure – Nome e Descrição do Alerta SQL]: ./media/mobile-services-sql-scale-guidance/6.png

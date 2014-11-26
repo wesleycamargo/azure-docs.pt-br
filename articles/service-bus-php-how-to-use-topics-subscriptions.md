@@ -333,8 +333,6 @@ tópico do MSDN [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] p
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #HandleCrashes
   [Como: excluir tópicos e assinaturas]: #DeleteTopicsAndSubscriptions
   [Próximas etapas]: #NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [extensão OpenSSL]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [propriedade SqlFilter.SqlExpression]: http://msdn.microsoft.com/pt-br/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

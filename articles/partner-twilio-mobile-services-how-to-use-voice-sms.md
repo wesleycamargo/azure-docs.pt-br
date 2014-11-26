@@ -224,4 +224,3 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Como Fornecer as respostas TwiML de seu próprio site]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

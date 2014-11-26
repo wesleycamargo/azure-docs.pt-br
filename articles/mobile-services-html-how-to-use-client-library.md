@@ -587,9 +587,9 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
     
 	Saiba como obter o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usá-lo para filtrar os dados retornados pelos Serviços Móveis.
 
-<!-- Anchors. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Início rápido do JavaScript da Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started
   [Início rápido do HTML]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-html
@@ -613,7 +613,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
   [Como: Personalizar cabeçalhos de solicitações]: #customizing
   [Como: Usar compartilhamento de recursos entre origens]: #hostnames
   [Próximas etapas]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Introdução a dados em JavaScript na Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-js
   [Introdução a dados em HTML/JavaScript]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-html/
   [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502

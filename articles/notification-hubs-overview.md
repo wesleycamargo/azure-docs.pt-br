@@ -1,6 +1,6 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Hubs de Notificação do Azure
 
@@ -29,7 +29,7 @@ No entanto, em um alto nível, todos os sistemas de notificação de plataforma 
 3.  Para enviar uma notificação por push, o back-end do aplicativo entra em contato com o PNS usando o identificador para direcionar para uma instância de aplicativo cliente específico.
 4.  O PNS encaminha a notificação para o dispositivo especificado pelo identificador.
 
-![][]
+![][0]
 
 ## <span class="short-header">Desafios das notificações por push</span>Desafios das notificações por push
 
@@ -73,7 +73,7 @@ As referências relevantes da API .NET gerenciada para notificações push estã
 -   [Microsoft.WindowsAzure.Messaging.NotificationHub][Microsoft.WindowsAzure.Messaging.NotificationHub]
 -   [Microsoft.ServiceBus.Notifications][Microsoft.ServiceBus.Notifications]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Como usam os clientes os Hubs de Notificação]: http://azure.microsoft.com/pt-br/services/notification-hubs
   [Tutoriais e guias de Hubs de notificação]: http://azure.microsoft.com/pt-br/documentation/services/notification-hubs

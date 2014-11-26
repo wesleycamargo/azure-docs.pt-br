@@ -87,6 +87,6 @@
 
 4.  Toque o botão **Tudo**. Uma caixa de alerta é exibida indicando o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-    ![][]
+    ![][0]
 
-  []: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png
+  [0]: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png

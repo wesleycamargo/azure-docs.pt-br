@@ -1,6 +1,6 @@
 Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo para armazenar itens nos Serviços Móveis em vez de na coleção local.
 
-1.  Se você ainda não tiver instalado o [SDK do iOS dos Serviços Móveis][], instale-o agora.
+1.  Se você ainda não tiver instalado o [SDK do iOS dos Serviços Móveis][SDK do iOS dos Serviços Móveis], instale-o agora.
 
 2.  No Navegador de Projetos no Xcode, abra os arquivos TodoService.m e TodoService.h localizados na pasta Quickstart e adicione a seguinte instrução de importação:
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-wp8" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Validar e modificar dados em Serviços Móveis usando scripts de servidor
 
@@ -45,7 +45,7 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Dados** e clique na tabela **TodoItem**.
 
@@ -219,24 +219,13 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 
 
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
-  [Back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Back-end do .NET"
-  [Back-end do JavaScript]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Back-end do JavaScript"
-  [assista ao tutorial]: http://go.microsoft.com/fwlink/?LinkId=298629
   [Adicionar validação de comprimento de cadeia de caracteres]: #string-length-validation
   [Atualizar o cliente para oferecer suporte à validação]: #update-client-validation
   [Adicionar um carimbo de data/hora na inserção]: #add-timestamp
   [Atualizar o cliente para exibir o carimbo de data/hora]: #update-client-timestamp
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-wp8
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8

@@ -1,6 +1,6 @@
 <properties pageTitle="Calling SQL stored procedures with a JavaScript back end" metaKeywords="stored procedures, SQL, mobile devices, Azure" description="explains how to use SQL stored procedures in a mobile services JavaScript backed." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Calling SQL stored procedures with a JavaScript back end" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Chamando processos SQL armazenados com um back-end do JavaScript
 
@@ -144,8 +144,8 @@ Veja aqui outros cenários que você pode encontrar:
 
 Você também pode usar o portal do Azure para gerenciar e criar novos procedimentos armazenados.
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Chamar um procedimento armazenado simples]: #simple
   [Chamar um procedimento armazenado com parâmetros]: #parameters
@@ -159,5 +159,5 @@ Você também pode usar o portal do Azure para gerenciar e criar novos procedime
   [iOS]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-call-custom-api/
   [Android]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-android-call-custom-api/
   [HTML]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-html-call-custom-api/
-  [Como faço mais de uma operação de leitura por script]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
+  [Como faço mais de uma operação de leitura por script]: http://social.msdn.microsoft.com/Forums/windowsazure/pt-br/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
   [Acessando um procedimento armazenado por meio de um esquema diferente]: http://blogs.msdn.com/b/jpsanders/archive/2013/05/02/windows-azure-mobile-services-accessing-a-stored-procedure-from-a-different-schema.aspx

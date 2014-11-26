@@ -10,21 +10,21 @@
 
 Este guia demonstra como executar cenários comuns usando o Serviço Blob Storage no Azure. As amostras são escritas em C\# e
 usam a API do .NET. Os cenários abordados incluem
-**carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
+**carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][Próximas etapas].
 
 <h2>Sumário</h2>
 
--   [O que é Blob Storage][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Configurar uma cadeia de conexão de armazenamento][]
--   [Como: acessar o armazenamento de blob programaticamente][]
--   [Como: criar um contêiner][]
--   [Como: carregar um blob em um contêiner][]
--   [Como: listar os blobs em um contêiner][]
--   [Como: baixar blobs][]
--   [Como: excluir blobs][]
--   [Próximas etapas][]
+-   [O que é Blob Storage][O que é Blob Storage]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Configurar uma cadeia de conexão de armazenamento][Configurar uma cadeia de conexão de armazenamento]
+-   [Como: acessar o armazenamento de blob programaticamente][Como: acessar o armazenamento de blob programaticamente]
+-   [Como: criar um contêiner][Como: criar um contêiner]
+-   [Como: carregar um blob em um contêiner][Como: carregar um blob em um contêiner]
+-   [Como: listar os blobs em um contêiner][Como: listar os blobs em um contêiner]
+-   [Como: baixar blobs][Como: baixar blobs]
+-   [Como: excluir blobs][Como: excluir blobs]
+-   [Próximas etapas][Próximas etapas]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
@@ -88,7 +88,7 @@ Ao usar Sites ou Máquinas Virtuais, é recomendável que você use o sistema de
 		</appSettings>
 	</configuration>
 
-Leia [Configurando cadeias de conexão][] para obter mais informações sobre cadeias de conexão de armazenamento.
+Leia [Configurando cadeias de conexão][Configurando cadeias de conexão] para obter mais informações sobre cadeias de conexão de armazenamento.
 	
 Agora você está pronto para executar as tarefas das instruções deste guia.
 
@@ -201,7 +201,7 @@ caso, os diretórios '2010' e '2011', bem como photo 'rootphoto1',
 seriam retornados. Opcionalmente, você pode passar uma nova classe
 **BlobRequestOptions** com **UseFlatBlobListing** definida como
 **true**. Isso resultaria no retorno de cada blob sendo, independentemente do
-diretório. Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][].
+diretório. Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 <h2> <a name="download-blobs"> </a><span  class="short-header">Baixar blobs</span>Como: baixar blobs</h2>
 
@@ -286,9 +286,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs-20/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs-20/blob9.png
   
-  [Acessar e armazenar dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx
-  [Referência à biblioteca cliente do .NET]: http://msdn.microsoft.com/pt-br/library/windowsazure/wl_svchosting_mref_reference_home
-  [Referência da API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179355
 

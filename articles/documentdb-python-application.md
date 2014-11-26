@@ -1,6 +1,6 @@
 <properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
 # <a name="_Toc395888515"></a><a name="_Toc395809324">Criar um aplicativo Web com Python e Flask (MVC) usando o Banco de Dados de Documentos</a>
 
@@ -33,23 +33,24 @@ Você aprenderá a:
 Seguindo esse passo a passo, você criará um aplicativo simples de votação
 que permite que você vote em uma enquete.
 
-![Texto Alt][]
+![Texto Alt][Texto Alt]
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">Pré-requisitos</a>
 
 Antes de seguir as instruções deste artigo, verifique se
 você possui os seguintes itens instalados:
 
-Visual Studio 2013 (ou [Visual Studio Express][], que é a
+Visual Studio 2013 (ou [Visual Studio Express][Visual Studio Express], que é a
 versão gratuita)
 
-Ferramentas Python para Visual Studio [aqui][]
+Ferramentas Python para Visual Studio [aqui][aqui]
 
 SDK do Azure para o Visual Studio 2013, versão 2.4 ou superior disponível
 [aqui][1]
 
 Ferramentas da linha de comando entre plataformas do Azure, disponíveis por meio do [Microsoft
-Web Platform Installer][]
+Web Platform Installer][Microsoft
+Web Platform Installer]
 
 # <a name="_Toc395888519"></a><a name="_Toc395809328">Criar uma conta de banco de dados do Banco de Dados de Documentos</a>
 
@@ -110,7 +111,7 @@ e clique em Criar. Isso configurará o ambiente virtual necessário do Python
 para seu projeto.
 
 Para aqueles que não estão familiarizados com o Flask, ele é uma estrutura da Web que nos ajuda a construir aplicativos Web
-no Python mais rapidamente. [Clique aqui para acessar os tutoriais do Flask][].
+no Python mais rapidamente. [Clique aqui para acessar os tutoriais do Flask][Clique aqui para acessar os tutoriais do Flask].
 
 ![Texto Alt][10]
 
@@ -436,17 +437,16 @@ sendo executado no Azure!
 Parabéns! Só é preciso construir seu primeiro aplicativo Python usando o
 Banco de Dados de Documentos do Azure e publicá-lo nos Websites do Azure.
 
-Se quiser concluir a solução, [clique aqui][]. (Nota: Você ainda
+Se quiser concluir a solução, [clique aqui][clique aqui]. (Nota: Você ainda
 terá que adicionar o ambiente virtual, instalar as ferramentas e
 pacotes do Python, conforme mencionado acima)
 
 </h1>
 
   [Texto Alt]: ./media/documentdb-python-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx
   [aqui]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
-  [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [2]: ./media/documentdb-python-application/image2.png
   [3]: ./media/documentdb-python-application/image3.png
   [4]: ./media/documentdb-python-application/image4.png

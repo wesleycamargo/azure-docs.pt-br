@@ -5,24 +5,24 @@
 
 Este guia mostrará a você como executar cenários comuns usando o
 serviço de armazenamento Fila do Azure. As amostras estão escritas em código C#
-e usam o cliente de armazenamento do Azure para .NET. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+e usam o cliente de armazenamento do Azure para .NET. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][Próximas etapas].
 
 <h2>Sumário</h2>
 
--   [O que é Armazenamento de Filas][]
--   [Conceitos][]
--   [Criar uma conta de armazenamento do Azure][]
--   [Configurar uma cadeia de conexão de armazenamento do Azure][]
--   [Como acessar filas de forma programática usando o .NET][]
--   [Como criar uma fila][]
--   [Como inserir uma mensagem em uma fila][]
--   [Como inspecionar a próxima mensagem][]
--   [Como alterar o conteúdo de uma mensagem em fila][]
--   [Como remover a próxima mensagem da fila][]
--   [Como utilizar opções adicionais para remover mensagens da fila][]
--   [Como obter o comprimento da fila][]
--   [Como excluir uma fila][]
--   [Próximas etapas][]
+-   [O que é Armazenamento de Filas][O que é Armazenamento de Filas]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de armazenamento do Azure][Criar uma conta de armazenamento do Azure]
+-   [Configurar uma cadeia de conexão de armazenamento do Azure][Configurar uma cadeia de conexão de armazenamento do Azure]
+-   [Como acessar filas de forma programática usando o .NET][Como acessar filas de forma programática usando o .NET]
+-   [Como criar uma fila][Como criar uma fila]
+-   [Como inserir uma mensagem em uma fila][Como inserir uma mensagem em uma fila]
+-   [Como inspecionar a próxima mensagem][Como inspecionar a próxima mensagem]
+-   [Como alterar o conteúdo de uma mensagem em fila][Como alterar o conteúdo de uma mensagem em fila]
+-   [Como remover a próxima mensagem da fila][Como remover a próxima mensagem da fila]
+-   [Como utilizar opções adicionais para remover mensagens da fila][Como utilizar opções adicionais para remover mensagens da fila]
+-   [Como obter o comprimento da fila][Como obter o comprimento da fila]
+-   [Como excluir uma fila][Como excluir uma fila]
+-   [Próximas etapas][Próximas etapas]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
@@ -85,7 +85,11 @@ Se você estiver escrevendo um aplicativo que não seja um serviço de nuvem do 
   		</appSettings>
 	</configuration>
 
-Leia [Configurando cadeias de conexão][] para obter mais informações sobre cadeias de conexão de armazenamento.
+Leia [Configurando cadeias de conexão][AccountKey" />
+  		</appSettings>
+	</configuration>
+
+Leia [Configurando cadeias de conexão] para obter mais informações sobre cadeias de conexão de armazenamento.
 	
 Agora você está pronto para executar as tarefas das instruções deste guia.
 
@@ -134,7 +138,7 @@ Um objeto **CloudQueueClient** permite que você obtenha objetos de referência 
 O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos
 neste guia usam uma cadeia de conexão de armazenamento
 armazenada na configuração de serviço do aplicativo do Azure. Também existem outras maneiras de criar
-um objeto **CloudStorageAccount**. Consulte a [CloudStorageAccount][]
+um objeto **CloudStorageAccount**. Consulte a [CloudStorageAccount][CloudStorageAccount]
 documentação para ver detalhes.
 
     // Retrieve storage account from connection string
@@ -353,14 +357,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Como utilizar opções adicionais para remover mensagens da fila]: #advanced-get
   [Como obter o comprimento da fila]: #get-queue-length
   [Como excluir uma fila]: #delete-queue
-  [Baixar e instalar o SDK do Azure para .NET]: /pt-br/develop/net/
-  [Referência à biblioteca cliente do .NET]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn495001(v=azure.10).aspx
-  [Criando um projeto do Azure no Visual Studio]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405487.aspx 
   [CloudStorageAccount]: http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Espacial]: http://nuget.org/packages/System.Spatial/5.0.2
 

@@ -40,9 +40,9 @@ Este tópico mostra a você como registrar seus aplicativos para poder usar o Tw
 
 Agora você está pronto para usar um logon do Twitter para autenticação no seu aplicativo, fornecendo os valores de chave do consumidor e de segredo do consumidor para os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
   [0]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png

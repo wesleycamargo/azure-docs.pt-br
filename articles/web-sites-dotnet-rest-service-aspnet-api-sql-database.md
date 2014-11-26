@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Serviço REST usando a API Web ASP.NET e o Banco de Dados SQL
 
@@ -37,7 +37,7 @@ Neste tutorial:
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-get-started/ -->
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## <a name="bkmk_setupwindowsazure"></a>Configurar o ambiente do Azure
 
@@ -826,7 +826,6 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
   [Adicionar uma interface de API Web Restful]: #bkmk_addwebapi
   [Adicionar proteção XSRF]: #xsrf
   [Publicar a atualização do aplicativo no Azure e no Banco de Dados SQL]: #bkmk_deploydatabaseupdate
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Criar com link de banco de dados no Portal de Gerenciamento]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG
   [Etapa Criar um novo site de Novo Site - Criar com o assistente de banco de dados]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png

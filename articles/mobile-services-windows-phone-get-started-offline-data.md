@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-wp8" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Introdução à sincronização de dados offline nos Serviços Móveis
 
@@ -14,27 +14,27 @@
 
 Este tópico mostra como usar os recursos offline dos Serviços Móveis do Azure. Os recursos offline dos Serviços Móveis do Azure permitem que você interaja com um banco de dados local quando estiver em um cenário offline com seu Serviço Móvel. Os recursos offline permitem que você sincronize suas alterações locais com o serviço móvel quando estiver online novamente.
 
-Neste tutorial, você irá atualizar o aplicativo do tutorial [Introdução aos Serviços Móveis][] ou [Introdução aos Dados][] para oferecer suporte aos recursos offline dos Serviços Móveis do Azure. Você irá adicionar dados em um cenário desconectado offline, sincronizar esses itens ao banco de dados online e, em seguida, fazer logon no Portal de Gerenciamento do Azure para exibir as alterações de dados feitas durante a execução do aplicativo.
+Neste tutorial, você irá atualizar o aplicativo do tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução aos Dados][Introdução aos Dados] para oferecer suporte aos recursos offline dos Serviços Móveis do Azure. Você irá adicionar dados em um cenário desconectado offline, sincronizar esses itens ao banco de dados online e, em seguida, fazer logon no Portal de Gerenciamento do Azure para exibir as alterações de dados feitas durante a execução do aplicativo.
 
-> [WACOM.NOTE] Este tutorial é destinado a ajudar você a entender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados em um aplicativo Windows Phone. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis][].
+> [WACOM.NOTE] Este tutorial é destinado a ajudar você a entender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados em um aplicativo Windows Phone. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
-1.  [Atualizar o aplicativo para dar suporte aos recursos offline][]
-2.  [Testar o aplicativo em um cenário offline][]
-3.  [Atualizar o aplicativo para reconectar seu serviço móvel][]
-4.  [Testar o aplicativo conectado ao Serviço Móvel][]
+1.  [Atualizar o aplicativo para dar suporte aos recursos offline][Atualizar o aplicativo para dar suporte aos recursos offline]
+2.  [Testar o aplicativo em um cenário offline][Testar o aplicativo em um cenário offline]
+3.  [Atualizar o aplicativo para reconectar seu serviço móvel][Atualizar o aplicativo para reconectar seu serviço móvel]
+4.  [Testar o aplicativo conectado ao Serviço Móvel][Testar o aplicativo conectado ao Serviço Móvel]
 
 Este tutorial exige o seguinte:
 
 -   Visual Studio 2012
--   [SDK do Windows Phone 8][]
--   Conclusão do tutorial [Introdução aos Serviços Móveis][] ou [Introdução aos Dados][].
--   [Azure Mobile Services SDK versão 1.3.0-alpha4 (ou posterior)][]
--   [Azure Mobile Services SQLite Store versão 1.0.0-alpha4 (ou posterior)][]
--   [SQLite for Windows Phone 8][]
+-   [SDK do Windows Phone 8][SDK do Windows Phone 8]
+-   Conclusão do tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução aos Dados][Introdução aos Dados].
+-   [Azure Mobile Services SDK versão 1.3.0-alpha4 (ou posterior)][Azure Mobile Services SDK versão 1.3.0-alpha4 (ou posterior)]
+-   [Azure Mobile Services SQLite Store versão 1.0.0-alpha4 (ou posterior)][Azure Mobile Services SQLite Store versão 1.0.0-alpha4 (ou posterior)]
+-   [SQLite for Windows Phone 8][SQLite for Windows Phone 8]
 
-> [WACOM.NOTE] Para concluir este tutorial, será necessária uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
+> [WACOM.NOTE] Para concluir este tutorial, será necessária uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
 
 ## <a name="enable-offline-app"></a>Atualizar o aplicativo para dar suporte aos recursos offline
 
@@ -42,15 +42,15 @@ Os recursos offline dos Serviços Móveis do Azure permitem que você interaja c
 
 Esta seção usa o SQLite como o armazenamento local para os recursos offline.
 
-> [WACOM.NOTE] É possível ignorar esta seção e apenas baixar uma versão do projeto Introdução que já tenha suporte offline. Para baixar um projeto com suporte offline habilitado, consulte [Introdução à Amostra Offline para o Windows Phone][].
+> [WACOM.NOTE] É possível ignorar esta seção e apenas baixar uma versão do projeto Introdução que já tenha suporte offline. Para baixar um projeto com suporte offline habilitado, consulte [Introdução à Amostra Offline para o Windows Phone][Introdução à Amostra Offline para o Windows Phone].
 
-1.  Instale projetos do SQLite for Windows Phone 8. É possível instalá-lo a partir deste link, [SQLite for Windows Phone 8][].
+1.  Instale projetos do SQLite for Windows Phone 8. É possível instalá-lo a partir deste link, [SQLite for Windows Phone 8][SQLite for Windows Phone 8].
 
     > [WACOM.NOTE] Se estiver usando o Internet Explorer, clicar no link para instalar o SQLite pode avisá-lo para baixar o .vsix como um arquivo .zip. Salve o arquivo em um local no seu disco rígido com a extensão .vsix em vez de .zip. O duplo clique no arquivo .vsix no Windows Explorer para executar a instalação.
 
-2.  No Visual Studio, abra o projeto que você concluiu no tutorial [Introdução aos Serviços Móveis][] ou [Introdução aos Dados][]. No Gerenciador de Soluções, clique com o botão direito em **Referências** no projeto e inclua uma referência ao **SQLite for Windows Phone** em **Windows Phone**\>**Extensões**.
+2.  No Visual Studio, abra o projeto que você concluiu no tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução aos Dados][Introdução aos Dados]. No Gerenciador de Soluções, clique com o botão direito em **Referências** no projeto e inclua uma referência ao **SQLite for Windows Phone** em **Windows Phone**\>**Extensões**.
 
-    ![][]
+    ![][0]
 
 3.  O Tempo de Execução do SQLite requer que altere a arquitetura do processador do projeto que está sendo criado para **x86**, **x64** ou **ARM**. Não há suporte para **Qualquer CPU**. Altere a arquitetura do processador para uma das configurações com suporte que deseja testar.
 
@@ -235,21 +235,16 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
     Também há sobrecargas de **PullAsync()** que permitem que uma consulta seja especificada. Observe que, na versão de visualização do suporte offline para os Serviços Móveis, **PullAsync** lerá todas as linhas na tabela correspondente (ou consulta)--ele não tenta ler apenas as linhas mais recentes do que a última sincronização, por exemplo. Se as linhas já existirem na tabela de sincronização local, elas permanecerão inalteradas.
 
--   Para baixar um projeto com suporte offline habilitado, consulte [Introdução à Amostra Offline para o Windows Phone][].
+-   Para baixar um projeto com suporte offline habilitado, consulte [Introdução à Amostra Offline para o Windows Phone][Introdução à Amostra Offline para o Windows Phone].
 
 ## Próximas etapas
 
--   [Tratando conflitos com o suporte offline para Serviços Móveis][]
+-   [Tratando conflitos com o suporte offline para Serviços Móveis][Tratando conflitos com o suporte offline para Serviços Móveis]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /pt-br/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started/
   [Introdução aos Dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/
   [Atualizar o aplicativo para dar suporte aos recursos offline]: #enable-offline-app
@@ -260,9 +255,9 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
   [Azure Mobile Services SDK versão 1.3.0-alpha4 (ou posterior)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha4
   [Azure Mobile Services SQLite Store versão 1.0.0-alpha4 (ou posterior)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha4
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28
   [Introdução à Amostra Offline para o Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
-  []: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-phone-get-started-offline-data/vs-select-processor-architecture.png
   [2]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [3]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Introdução à sincronização de dados offline nos Serviços Móveis
 
@@ -30,13 +30,8 @@ Este tutorial mostra como atualizar o aplicativo com base nos tutoriais [Introdu
 **Um tutorial completo estará disponível em breve. Enquanto isso, consulte a amostra [Lista de tarefas pendentes offline do iOS][Lista de tarefas pendentes offline do iOS] e [a postagem complementar no blog][a postagem complementar no blog].**
 
 <!-- ## Next steps  * [How to use the Mobile Services client library for iOS]    -->
-<!-- URLs. -->
 
-  [C# da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# da Windows Store"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /pt-br/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
   [Introdução aos Dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AE564AB28

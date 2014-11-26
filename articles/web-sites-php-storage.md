@@ -417,7 +417,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
 
   [PHP]: http://www.php.net/manual/en/install.php
   [Site PHP do Azure]: ./media/web-sites-php-storage/ws-storage-app.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Instalar o Git.]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [composer.phar]: http://getcomposer.org/composer.phar
   []: http://msdn.microsoft.com/pt-BR/library/windowsazure/dd179438.aspx

@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-html-call-custom-api" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from an HTML client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an HTML app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="jparrel" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Chamar uma API personalizada a partir de um aplicativo HTML
 
@@ -20,7 +20,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
 ## <a name="update-app"></a><span class="short-header">Atualizar o aplicativo </span>Atualizar o aplicativo para chamar a API personalizada
 
@@ -69,19 +69,12 @@ Agora que você criou uma API personalizada e a chamou a partir de seu aplicativ
 -   [Referência de script de servidor de Serviços Móveis][Referência de script de servidor de Serviços Móveis]
     Saiba mais sobre como criar APIs personalizadas.
 
-<!-- Anchors. -->
-<!-- URLs. -->
 
-  [Windows Store C\#]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
-  [Windows Store JavaScript]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
-  [Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /pt-br/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /pt-br/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /pt-br/documentation/articles/mobile-services-html-call-custom-api "HTML"
+
+
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-get-started
   [Introdução a dados]: /pt-br/documentation/articles/mobile-services-html-get-started-data
   [Definir a API personalizada]: #define-custom-api
   [Atualizar o aplicativo para chamar a API personalizada]: #update-app
   [Testar o aplicativo]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
   [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293

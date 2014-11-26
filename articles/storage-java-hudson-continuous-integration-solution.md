@@ -1,4 +1,4 @@
-<properties urlDisplayName="Hudson Continuous Integration" pageTitle="Como usar o Hudson com o servi&ccedil;o Blob do Azure | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="Descreve como usar o Hudson com o armazenamento de Blob do Azure como um reposit&oacute;rio para artefatos de compila&ccedil;&atilde;o." metaCanonical="" services="storage" documentationCenter="Java" title="Usando o Armazenamento do Azure com uma solu&ccedil;&atilde;o Hudson Continuous Integration" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-java-how-to-hudson-ci" urlDisplayName="Hudson Continuous Integration" pageTitle="How to use Hudson with the Azure Blob service | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="Describes how to use Hudson with Azure Blob storage as a repository for build artifacts." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -50,7 +50,7 @@ Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI
 
         `java -jar hudson-3.1.2.war`
 
-    3.  In your browser, open `http://localhost:8080/`. Isso abrirá o painel do Hudson.
+    3.  No navegador, abra `http://localhost:8080/`. Isso abrirá o painel do Hudson.
 
     4.  Na primeira utilização do Hudson, conclua a configuração inicial em `http://localhost:8080/`.
 
@@ -75,7 +75,7 @@ Para usar o serviço Blob com o Hudson, você deverá instalar o plug-in Armazen
 3.  Clique na guia **Disponível**.
 4.  Clique em **Others**.
 5.  Na seção **Carregadores de Artefatos**, marque **Plug-in de Armazenamento do Microsoft Azure**.
-6.  Clique em **Instalar**.
+6.  Clique em **Install**.
 7.  Após a conclusão da instalação, reinicie o Hudson.
 
 ## <span id="howtoconfigure"></span></a><span class="short header">Como configurar</span>Como configurar o plug-in Armazenamento do Azure para usar sua conta de armazenamento
@@ -83,7 +83,6 @@ Para usar o serviço Blob com o Hudson, você deverá instalar o plug-in Armazen
 1.  No painel do Hudson, clique em **Manage Hudson**.
 2.  Na página **Manage Hudson**, clique em **Configure System**.
 3.  Na seção **Configuração da Conta de Armazenamento do Microsoft Azure**:
-
     1.  Insira seu nome de conta de armazenamento, que pode ser obtido no portal do Azure, <https://manage.windowsazure.com>.
     2.  Insira a chave de sua conta de armazenamento, que também pode ser obtida no portal do Azure.
     3.  Use o valor padrão para **URL de Ponto de Extremidade de Serviço Blob**, se você estiver usando a nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade, conforme especificado no portal de gerenciamento do Azure, para a sua conta de armazenamento.
@@ -128,7 +127,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
     4.  Clique em **Contêineres**.
     5.  Clique no contêiner chamado **myjob**, que é a versão em letra minúscula do nome do trabalho que você atribuiu ao criar o trabalho do Hudson. Os nomes de contêineres e de blob são escritos em letra minúscula (e diferenciam maiúsculas de minúsculas) no armazenamento do Azure. Na lista de blobs do contêiner chamado **myjob**, você deverá visualizar **hello.txt** e **date.txt**. Copie a URL de um desses itens e abra-a em seu navegador. Você visualizará o arquivo de texto carregado como um artefato de compilação.
 
-Somente uma ação pós-compilação que carrega artefatos no armazenamento de blob do Azure pode ser criada por trabalho. Observe que uma única ação pós-compilação para carregar artefatos no armazenamento de blob do Azure pode especificar arquivos diferentes (inclusive curingas) e caminhos a arquivos dentro da **Lista de Artefatos a serem carregados** usando um ponto e vírgula como o separador. Por exemplo, se a compilação Hudson produzir arquivos JAR e arquivos TXT na pasta **build**, e você quiser carregar ambos no armazenamento de blobs do Azure, use o seguinte no valor **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. Você também pode usar a sintaxe de dois-pontos duplos para especificar um caminho a ser usado dentro do nome do blob. Por exemplo, se você quiser que os JARs sejam carregados usando **binários** no caminho do blob e quiser que os arquivos TXT sejam carregados usando **notificações** no caminho do blob, use o seguinte para o valor **List of Artifacts to upload**: **build/\*.jar::binaries;build/\*.txt::notices**.
+Somente uma ação pós-compilação que carrega artefatos no armazenamento de blob do Azure pode ser criada por trabalho. Observe que uma única ação pós-compilação para carregar artefatos no armazenamento de blob do Azure pode especificar arquivos diferentes (inclusive curingas) e caminhos a arquivos dentro da **Lista de Artefatos a serem carregados** usando um ponto e vírgula como o separador. Por exemplo, se a compilação Hudson produzir arquivos JAR e arquivos TXT na pasta **build**, e você quiser carregar ambos no armazenamento de blobs do Azure, use o seguinte no valor **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. Você também pode usar a sintaxe de dois-pontos duplos para especificar um caminho a ser usado dentro do nome do blob. Por exemplo, se você quiser que os JARs sejam carregados usando **binários** no caminho do blob e quiser que os arquivos TXT sejam carregados usando **notificações** no caminho do blob, use o seguinte para o valor **List of Artifacts to upload**: **build/\*.<jar::binaries;build/>\*.txt::notices**.
 
 ## <a name="howtocreatebuildstep"></a><span class="short header">Como criar uma etapa de compilação</span>Como criar uma etapa de compilação baixada do armazenamento de blob do Azure
 
@@ -157,7 +156,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
     (O formato acima aplica-se a uma nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade localizado no portal de gerenciamento do Azure para determinar o ponto de extremidade de sua URL.
 
-    In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Dentro do nome do contêiner, é possível ter vários caminhos, separados por uma barra, **/**. O exemplo de nome do contêiner neste tutorial foi **MyJob** e **${BUILD\_ID}/${BUILD\_NUMBER}** foi usado para o caminho virtual comum, fazendo com que o blob tivesse uma URL no seguinte formato:
+    No formato acima, `storageaccount` representa o nome de sua conta de armazenamento, `container_name` representa o nome de seu contêiner e `blob_name` representa o nome de seu blob, respectivamente. Dentro do nome do contêiner, é possível ter vários caminhos, separados por uma barra, **/**. O exemplo de nome do contêiner neste tutorial foi **MyJob** e **${BUILD\_ID}/${BUILD\_NUMBER}** foi usado para o caminho virtual comum, fazendo com que o blob tivesse uma URL no seguinte formato:
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -171,7 +170,3 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [Como criar uma ação de pós-compilação que carrega os artefatos de compilação para a sua conta de armazenamento]: #howtocreatepostbuild
   [Como criar uma etapa de compilação baixada do armazenamento de blob do Azure]: #howtocreatebuildstep
   [Componentes usados pelo serviço Blob]: #components
-  [Conheça o Hudson (a página pode estar em inglês)]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
-  [Como criar uma conta de armazenamento (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279889
-  [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee691964.aspx

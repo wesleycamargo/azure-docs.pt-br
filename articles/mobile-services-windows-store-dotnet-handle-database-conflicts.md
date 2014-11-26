@@ -364,7 +364,7 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
   [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
   [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet
-<!-- Images. -->
+
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
 [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
 [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 

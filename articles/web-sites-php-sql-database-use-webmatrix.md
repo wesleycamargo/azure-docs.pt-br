@@ -176,7 +176,6 @@ Você viu como criar e implantar um site a partir do WebMatrix para o Azure. Par
 
   [SQL Server Express]: http://www.microsoft.com/pt-br/download/details.aspx?id=29062
   [Site PHP do Azure]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Baixe]: http://go.microsoft.com/fwlink/?LinkId=252504
   [Portal de Gerenciamento]: https://manage.windowsazure.com
   [Criar um novo site do Azure]: ./media/web-sites-php-sql-database-use-webmatrix/NewWebSite1.jpg

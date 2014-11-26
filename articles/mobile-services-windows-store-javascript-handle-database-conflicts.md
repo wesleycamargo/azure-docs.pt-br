@@ -270,9 +270,9 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 -   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [C# da Windows Store]: /pt-br/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# da Windows Store"
   [JavaScript da Windows Store]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "JavaScript da Windows Store"

@@ -116,19 +116,15 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
      
 	Saiba como diagnosticar e corrigir problemas que podem surgir com o back-end do .NET dos Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [Versão de back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-android-get-started/
   [0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
   [Ferramentas para desenvolvedores do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs.png
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android.png
   [3]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-workspace.png

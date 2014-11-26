@@ -45,7 +45,7 @@ A inclusão de AMQP 1.0 significa que agora você pode aproveitar o enfileiramen
 
 O diagrama a seguir ilustra um exemplo de implantação nas quais clientes Java sendo executado no Linux, escrito usando o padrão Java Message Service (JMS) API e clientes .NET em execução no Windows, trocarem mensagens por meio do Service Bus usando o AMQP 1.0.
 
-![][]
+![][0]
 
 **Figura 1: Cenário de implantação de exemplo mostrando mensagens usando o Service Bus e AMQP 1.0 em plataformas cruzadas**
 
@@ -75,7 +75,7 @@ Para obter mais informações sobre como obter e usar essas bibliotecas com o Se
 -   [Guia do desenvolvedor do AMQP 1.0 do Service Bus][Guia do desenvolvedor do AMQP 1.0 do Service Bus]
 -   [Especificação do protocolo de enfileiramento de mensagens de Avançado (AMQP) versão 1.0 OASIS][Especificação do protocolo de enfileiramento de mensagens de Avançado (AMQP) versão 1.0 OASIS]
 
-  []: ./media/service-bus-amqp-overview/Example1.png
+  [0]: ./media/service-bus-amqp-overview/Example1.png
   [Como usar os tópicos AMQP 1.0 com o Service Bus .NET API]: http://aka.ms/lym3vk
   [Como usar a API do Serviço de Mensagem Java (JMS) com Service Bus e AMQP 1.0]: http://aka.ms/ll1fm3
   [Guia do desenvolvedor do AMQP 1.0 do Service Bus]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx

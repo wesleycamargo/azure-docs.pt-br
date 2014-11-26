@@ -704,7 +704,6 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
   [Usando a API de Associação]: #mbrDB
   [1]: #bkmk_deploytowindowsazure11
   [Próximas etapas]: #nextsteps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Visual Studio 2013 Update 2 RC]: http://go.microsoft.com/fwlink/?LinkId=390521
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
 

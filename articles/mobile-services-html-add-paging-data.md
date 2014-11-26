@@ -28,7 +28,7 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
     Isso iniciará um servidor web no computador local para hospedar o aplicativo.
 
-2.  Em um navegador da web, navegue até [http://localhost:8000 /][http://localhost:8000 /], digite texto em **Adicionar nova tarefa** e clique em **Adicionar**.
+2.  Em um navegador da web, navegue até http://localhost:8000 /, digite texto em **Adicionar nova tarefa** e clique em **Adicionar**.
 
 3.  Repita a etapa anterior, pelo menos três vezes, para que você tenha mais de três itens armazenados na tabela TodoItem.
 
@@ -66,11 +66,8 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
 Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Em seguida, saiba como autenticar os usuários de seu aplicativo em [Introdução à autenticação][Introdução à autenticação]. Saiba mais sobre como usar os Serviços Móveis com HTML/JavaScript em [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis][Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
 
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-html
-  [http://localhost:8000 /]: http://localhost:8000/
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html
   [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client

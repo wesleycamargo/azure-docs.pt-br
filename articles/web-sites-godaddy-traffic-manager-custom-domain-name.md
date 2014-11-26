@@ -61,21 +61,14 @@ Para associar seu domínio personalizado a um Site do Azure, você deve adiciona
 
 ## <a name="enabledomain"></a>Habilitar o site do Gerenciador de Tráfego
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [GoDaddy]: /pt-BR/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://godaddy.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Compreendendo os registros DNS]: #understanding-records
   [Configurar seus sites para modo padrão]: #bkmk_configsharedmode
   [Adicionar um registro DNS a seu domínio personalizado]: #bkmk_configurecname
   [Habilitar o Gerenciador de Tráfego para o seu site]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [página de domínio personalizado para GoDaddy]: ./media/web-sites-custom-domain-name/godaddy-customdomain.png
   [Guia Arquivo de Zona DNS]: ./media/web-sites-custom-domain-name/godaddy-zonetab.png
   [editor de arquivo de zona]: ./media/web-sites-custom-domain-name/godaddy-quickaddcname.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

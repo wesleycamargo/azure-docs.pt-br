@@ -31,5 +31,5 @@ A seguir, encontram-se importantes recursos e conceitos dos Serviços Móveis:
 -   **Script de servidor:** código de lógica de negócios personalizado em um serviço móvel de back-end de JavaScript. Esse código é registrado em uma operação de tabela (ler, inserir, atualizar, excluir), em uma API personalizada ou em um trabalho agendado.
 -   **Tabela:** os dados de usuário são armazenados em tabelas em um banco de dados SQL. Você pode criar essas tabelas no Portal de Gerenciamento.
 
-<!-- Images. -->
+
 

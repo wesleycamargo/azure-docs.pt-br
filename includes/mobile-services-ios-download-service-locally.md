@@ -1,4 +1,4 @@
-1.  No [Portal de Gerenciamento do Azure][], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
@@ -6,7 +6,7 @@
 
     ![](./media/mobile-services-ios-download-service-locally/download-service-project.png)
 
-3.  Se ainda não tiver feito isso, baixe e instale o [Visual Studio Professional 2013][] ou uma versão posterior.
+3.  Se ainda não tiver feito isso, baixe e instale o [Visual Studio Professional 2013][Visual Studio Professional 2013] ou uma versão posterior.
 
 4.  Clique em **Baixar** em **Baixar e publicar seu serviço na nuvem**.
 
@@ -18,7 +18,7 @@
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
-<!-- URLs. -->
+
 
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Tarefa .NET que requer muitos recursos computacionais em uma m&aacute;quina virtual &mdash; Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Saiba como implantar e executar aplicativos .NET que requerem muitos recursos computacionais em uma m&aacute;quina virtual Azure e como usar filas de barramento de servi&ccedil;os para monitorar o progresso remotamente." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="Como executar uma tarefa que exija muita computa&ccedil;&atilde;o no .NET em uma m&aacute;quina virtual Azure" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -68,12 +68,7 @@ Para criar um namespace de serviço:
     ![Criar uma caixa de diálogo de namespace][Criar uma caixa de diálogo de namespace]
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha a região em que o namespace deve ser hospedado (não se esqueça de usar a mesma região em que a máquina virtual está hospedada).
-    <div class="dev-callout">
-
-    **Importante**
-    Escolha a **mesma região** que você usa ou pretende usar na máquina virtual. Isso lhe dará o melhor desempenho.
-
-    </div>
+    <div class="dev-callout"><br /><strong>Importante</strong><br /><p>Escolha a <strong>mesma regi&atilde;o</strong> que voc&ecirc; usa ou pretende usar na m&aacute;quina virtual. Isso lhe dar&aacute; o melhor desempenho.</p><br /></div>
 
 6.  Se você tiver mais de uma assinatura do Azure para a conta com a qual você fez logon, selecione a assinatura a ser usada no namespace. (Se tiver somente uma assinatura para a conta com a qual fez logon, você não verá uma lista suspensa contendo suas assinaturas.)
 7.  Clique na marca de seleção. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
@@ -107,224 +102,227 @@ namespace.
 6.  Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 7.  Compile o aplicativo. Isso criará **TSPSolver.exe** na pasta **bin** do projeto (**bin\\release** ou **bin\\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você copiará esse executável e Microsoft.ServiceBus.dll para a máquina virtual depois.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.IO;
+<p/>
 
-    using Microsoft.ServiceBus;
-    using Microsoft.ServiceBus.Messaging;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.IO;
+	
+	using Microsoft.ServiceBus;
+	using Microsoft.ServiceBus.Messaging;
+	
+	namespace TSPSolver
+	{
+	    class Program
+	    {
+	        // Value specifying how often to provide an update to the console.
+	        private static long loopCheck = 100000000;
+	        private static long nTimes = 0, nLoops = 0;
+	
+	        private static double[,] distances;
+	        private static String[] cityNames;
+	        private static int[] bestOrder;
+	        private static double minDistance;
+	
+	        private static NamespaceManager namespaceManager;
+	        private static QueueClient queueClient;
+	        private static String queueName = "TSPQueue";
+	
+	        private static void BuildDistances(String fileLocation, int numCities)
+	        {
+	
+	            try
+	            {
+	                StreamReader sr = new StreamReader(fileLocation);
+	                String[] sep1 = { ", " };
+	
+	                double[,] cityLocs = new double[numCities, 2];
+	
+	                for (int i = 0; i < numCities; i++)
+	                {
+	                    String[] line = sr.ReadLine().Split(sep1, StringSplitOptions.None);
+	                    cityNames[i] = line[0];
+	                    cityLocs[i, 0] = Convert.ToDouble(line[1]);
+	                    cityLocs[i, 1] = Convert.ToDouble(line[2]);
+	                }
+	                sr.Close();
+	
+	                for (int i = 0; i < numCities; i++)
+	                {
+	                    for (int j = i; j < numCities; j++)
+	                    {
+	                        distances[i, j] = hypot(Math.Abs(cityLocs[i, 0] - cityLocs[j, 0]), Math.Abs(cityLocs[i, 1] - cityLocs[j, 1]));
+	                        distances[j, i] = distances[i, j];
+	                    }
+	                }
+	            }
+	            catch (Exception e)
+	            {
+	                throw e;
+	            }
+	        }
+	
+	        private static double hypot(double x, double y)
+	        {
+	            return Math.Sqrt(x * x + y * y);
+	        }
+	
+	        private static void permutation(List<int> startCities, double distSoFar, List<int> restCities)
+	        {
+	            try
+	            {
+	
+	                nTimes++;
+	                if (nTimes == loopCheck)
+	                {
+	                    nLoops++;
+	                    nTimes = 0;
+	                    DateTime dateTime = DateTime.Now;
+	                    Console.Write("Current time is {0}.", dateTime);
+	                    Console.WriteLine(" Completed {0} iterations of size of {1}.", nLoops, loopCheck);
+	                }
+	
+	                if ((restCities.Count == 1) && ((minDistance == -1) || (distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 1]] < minDistance)))
+	                {
+	                    startCities.Add(restCities[0]);
+	                    newBestDistance(startCities, distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 2]]);
+	                    startCities.Remove(startCities[startCities.Count - 1]);
+	                }
+	                else
+	                {
+	                    for (int i = 0; i < restCities.Count; i++)
+	                    {
+	                        startCities.Add(restCities[0]);
+	                        restCities.Remove(restCities[0]);
+	                        permutation(startCities, distSoFar + distances[startCities[startCities.Count - 1], startCities[startCities.Count - 2]], restCities);
+	                        restCities.Add(startCities[startCities.Count - 1]);
+	                        startCities.Remove(startCities[startCities.Count - 1]);
+	                    }
+	                }
+	            }
+	            catch (Exception e)
+	            {
+	                throw e;
+	            }
+	        }
+	
+	        private static void newBestDistance(List<int> cities, double distance)
+	        {
+	            try
+	            {
+	                minDistance = distance;
+	                String cityList = "Shortest distance is " + minDistance + ", with route: ";
+	
+	                for (int i = 0; i < bestOrder.Length; i++)
+	                {
+	                    bestOrder[i] = cities[i];
+	                    cityList += cityNames[bestOrder[i]];
+	                    if (i != bestOrder.Length - 1)
+	                        cityList += ", ";
+	                }
+	                Console.WriteLine(cityList);
+	                queueClient.Send(new BrokeredMessage(cityList));
+	            }
+	            catch (Exception e)
+	            {
+	                throw e;
+	            }
+	        }
+	
+	        static void Main(string[] args)
+	        {
+	            try
+	            {
+	
+	                String serviceBusNamespace = "your_service_bus_namespace";
+	                String issuer = "your_service_bus_owner";
+	                String key = "your_service_bus_key";
+	
+	                String connectionString = @"Endpoint=sb://" +
+	                       serviceBusNamespace +
+	                       @".servicebus.windows.net/;SharedSecretIssuer=" +
+	                       issuer + @";SharedSecretValue=" + key;
+	
+	                int numCities = 10; // Use as the default, if no value is specified
+	                // at the command line.
+	                if (args.Count() != 0)
+	                {
+	
+	                    if (args[0].ToLower().CompareTo("createqueue") == 0)
+	                    {
+	                        // No processing to occur other than creating the queue.
+	                        namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+	                        namespaceManager.CreateQueue(queueName);
+	                        Console.WriteLine("Queue named {0} was created.", queueName);
+	                        Environment.Exit(0);
+	                    }
+	
+	                    if (args[0].ToLower().CompareTo("deletequeue") == 0)
+	                    {
+	                        // No processing to occur other than deleting the queue.
+	                        namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+	                        namespaceManager.DeleteQueue("TSPQueue");
+	                        Console.WriteLine("Queue named {0} was deleted.", queueName);
+	                        Environment.Exit(0);
+	                    }
+	
+	                    // Neither creating or deleting a queue.
+	                    // Assume the value passed in is the number of cities to solve.
+	                    numCities = Convert.ToInt32(args[0]);
+	                }
+	
+	                Console.WriteLine("Running for {0} cities.", numCities);
+	
+	                queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
+	
+	                List<int> startCities = new List<int>();
+	                List<int> restCities = new List<int>();
+	
+	                startCities.Add(0);
+	                for (int i = 1; i < numCities; i++)
+	                {
+	                    restCities.Add(i);
+	                }
+	                distances = new double[numCities, numCities];
+	                cityNames = new String[numCities];
+	                BuildDistances(@"c:\tsp\cities.txt", numCities);
+	                minDistance = -1;
+	                bestOrder = new int[numCities];
+	                permutation(startCities, 0, restCities);
+	                Console.WriteLine("Final solution found!");
+	                queueClient.Send(new BrokeredMessage("Complete"));
+	
+	                queueClient.Close();
+	                Environment.Exit(0);
 
-    namespace TSPSolver
-    {
-        class Program
-        {
-            // Value specifying how often to provide an update to the console.
-            private static long loopCheck = 100000000;
-            private static long nTimes = 0, nLoops = 0;
+	            }
+	            catch (ServerBusyException serverBusyException)
+	            {
+	                Console.WriteLine("ServerBusyException encountered");
+	                Console.WriteLine(serverBusyException.Message);
+	                Console.WriteLine(serverBusyException.StackTrace);
+	                Environment.Exit(-1);
+	            }
+	            catch (ServerErrorException serverErrorException)
+	            {
+	                Console.WriteLine("ServerErrorException encountered");
+	                Console.WriteLine(serverErrorException.Message);
+	                Console.WriteLine(serverErrorException.StackTrace);
+	                Environment.Exit(-1);
+	            }
+	            catch (Exception exception)
+	            {
+	                Console.WriteLine("Exception encountered");
+	                Console.WriteLine(exception.Message);
+	                Console.WriteLine(exception.StackTrace);
+	                Environment.Exit(-1);
+	            }
+	        }
+	    }
+	}
 
-            private static double[,] distances;
-            private static String[] cityNames;
-            private static int[] bestOrder;
-            private static double minDistance;
-
-            private static NamespaceManager namespaceManager;
-            private static QueueClient queueClient;
-            private static String queueName = "TSPQueue";
-
-            private static void BuildDistances(String fileLocation, int numCities)
-            {
-
-                try
-                {
-                    StreamReader sr = new StreamReader(fileLocation);
-                    String[] sep1 = { ", " };
-
-                    double[,] cityLocs = new double[numCities, 2];
-
-                    for (int i = 0; i < numCities; i++)
-                    {
-                        String[] line = sr.ReadLine().Split(sep1, StringSplitOptions.None);
-                        cityNames[i] = line[0];
-                        cityLocs[i, 0] = Convert.ToDouble(line[1]);
-                        cityLocs[i, 1] = Convert.ToDouble(line[2]);
-                    }
-                    sr.Close();
-
-                    for (int i = 0; i < numCities; i++)
-                    {
-                        for (int j = i; j < numCities; j++)
-                        {
-                            distances[i, j] = hypot(Math.Abs(cityLocs[i, 0] - cityLocs[j, 0]), Math.Abs(cityLocs[i, 1] - cityLocs[j, 1]));
-                            distances[j, i] = distances[i, j];
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
-            }
-
-            private static double hypot(double x, double y)
-            {
-                return Math.Sqrt(x * x + y * y);
-            }
-
-            private static void permutation(List<int> startCities, double distSoFar, List<int> restCities)
-            {
-                try
-                {
-
-                    nTimes++;
-                    if (nTimes == loopCheck)
-                    {
-                        nLoops++;
-                        nTimes = 0;
-                        DateTime dateTime = DateTime.Now;
-                        Console.Write("Current time is {0}.", dateTime);
-                        Console.WriteLine(" Completed {0} iterations of size of {1}.", nLoops, loopCheck);
-                    }
-
-                    if ((restCities.Count == 1) && ((minDistance == -1) || (distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 1]] < minDistance)))
-                    {
-                        startCities.Add(restCities[0]);
-                        newBestDistance(startCities, distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 2]]);
-                        startCities.Remove(startCities[startCities.Count - 1]);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < restCities.Count; i++)
-                        {
-                            startCities.Add(restCities[0]);
-                            restCities.Remove(restCities[0]);
-                            permutation(startCities, distSoFar + distances[startCities[startCities.Count - 1], startCities[startCities.Count - 2]], restCities);
-                            restCities.Add(startCities[startCities.Count - 1]);
-                            startCities.Remove(startCities[startCities.Count - 1]);
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
-            }
-
-            private static void newBestDistance(List<int> cities, double distance)
-            {
-                try
-                {
-                    minDistance = distance;
-                    String cityList = "Shortest distance is " + minDistance + ", with route: ";
-
-                    for (int i = 0; i < bestOrder.Length; i++)
-                    {
-                        bestOrder[i] = cities[i];
-                        cityList += cityNames[bestOrder[i]];
-                        if (i != bestOrder.Length - 1)
-                            cityList += ", ";
-                    }
-                    Console.WriteLine(cityList);
-                    queueClient.Send(new BrokeredMessage(cityList));
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
-            }
-
-            static void Main(string[] args)
-            {
-                try
-                {
-
-                    String serviceBusNamespace = "your_service_bus_namespace";
-                    String issuer = "your_service_bus_owner";
-                    String key = "your_service_bus_key";
-
-                    String connectionString = @"Endpoint=sb://" +
-                           serviceBusNamespace +
-                           @".servicebus.windows.net/;SharedSecretIssuer=" +
-                           issuer + @";SharedSecretValue=" + key;
-
-                    int numCities = 10; // Use as the default, if no value is specified
-                    // at the command line.
-                    if (args.Count() != 0)
-                    {
-
-                        if (args[0].ToLower().CompareTo("createqueue") == 0)
-                        {
-                            // No processing to occur other than creating the queue.
-                            namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-                            namespaceManager.CreateQueue(queueName);
-                            Console.WriteLine("Queue named {0} was created.", queueName);
-                            Environment.Exit(0);
-                        }
-
-                        if (args[0].ToLower().CompareTo("deletequeue") == 0)
-                        {
-                            // No processing to occur other than deleting the queue.
-                            namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-                            namespaceManager.DeleteQueue("TSPQueue");
-                            Console.WriteLine("Queue named {0} was deleted.", queueName);
-                            Environment.Exit(0);
-                        }
-
-                        // Neither creating or deleting a queue.
-                        // Assume the value passed in is the number of cities to solve.
-                        numCities = Convert.ToInt32(args[0]);
-                    }
-
-                    Console.WriteLine("Running for {0} cities.", numCities);
-
-                    queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-
-                    List<int> startCities = new List<int>();
-                    List<int> restCities = new List<int>();
-
-                    startCities.Add(0);
-                    for (int i = 1; i < numCities; i++)
-                    {
-                        restCities.Add(i);
-                    }
-                    distances = new double[numCities, numCities];
-                    cityNames = new String[numCities];
-                    BuildDistances(@"c:\tsp\cities.txt", numCities);
-                    minDistance = -1;
-                    bestOrder = new int[numCities];
-                    permutation(startCities, 0, restCities);
-                    Console.WriteLine("Final solution found!");
-                    queueClient.Send(new BrokeredMessage("Complete"));
-
-                    queueClient.Close();
-                    Environment.Exit(0);
-
-                }
-                catch (ServerBusyException serverBusyException)
-                {
-                    Console.WriteLine("ServerBusyException encountered");
-                    Console.WriteLine(serverBusyException.Message);
-                    Console.WriteLine(serverBusyException.StackTrace);
-                    Environment.Exit(-1);
-                }
-                catch (ServerErrorException serverErrorException)
-                {
-                    Console.WriteLine("ServerErrorException encountered");
-                    Console.WriteLine(serverErrorException.Message);
-                    Console.WriteLine(serverErrorException.StackTrace);
-                    Environment.Exit(-1);
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine("Exception encountered");
-                    Console.WriteLine(exception.Message);
-                    Console.WriteLine(exception.StackTrace);
-                    Environment.Exit(-1);
-                }
-            }
-        }
-    }
 
 ## Como criar um aplicativo do .NET que monitore o progresso da tarefa que exige muita computação
 
@@ -334,6 +332,8 @@ namespace.
 4.  Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
 5.  Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 6.  Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\\release** ou **bin\\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você pode executar esse código na máquina de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para uma máquina que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
+
+</p>
 
     using System;
     using System.Collections.Generic;

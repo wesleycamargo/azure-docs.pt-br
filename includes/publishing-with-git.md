@@ -91,7 +91,7 @@ Execute as seguintes etapas para ativar um repositório do Git em seu site usand
 
 7.  Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local.
 
-    ![][]
+    ![][0]
 
 8.  Após um pequeno intervalo, deverá aparecer uma mensagem informando que o seu repositório está pronto.
 
@@ -324,7 +324,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
   [portal do Azure]: http://manage.windowsazure.com
   [Uma imagem exibindo um site selecionado]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
-  []: ./media/publishing-with-git/git_credentials.png
+  [0]: ./media/publishing-with-git/git_credentials.png
   [git-instructions]: ./media/publishing-with-git/git-instructions.png
   [Uma página da Web contendo 'Hello Git!']: ./media/publishing-with-git/git-hello-git.png
   [Uma página da Web contendo 'Sim'!]: ./media/publishing-with-git/git-yay.png

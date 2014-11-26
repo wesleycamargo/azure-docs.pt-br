@@ -1,6 +1,6 @@
 # Configurando um nome de domínio personalizado para um Site do Azure.
 
-Quando você cria um site, o Azure fornece um subdomínio amigável no domínio azurewebsites.net para que seus usuários possam acessar seu site usando uma URL como [http://\<mysite][http://\<mysite]\>.azurewebsites.net. No entanto, se você configurar seu site para o modo Padrão, poderá mapeá-lo para o seu próprio nome de domínio.
+Quando você cria um site, o Azure fornece um subdomínio amigável no domínio azurewebsites.net para que seus usuários possam acessar seu site usando uma URL como http://\<mysite\>.azurewebsites.net. No entanto, se você configurar seu site para o modo Padrão, poderá mapeá-lo para o seu próprio nome de domínio.
 
 Opcionalmente, você pode usar o Gerenciador de Tráfego do Azure para balancear a carga do tráfego de entrada para seu site. Para obter mais informações sobre como o Gerenciador de Tráfego funciona com Sites da Web, consulte [Controlar o tráfego de Sites da Web do Azure com o Gerenciador de Tráfego do Azure][Controlar o tráfego de Sites da Web do Azure com o Gerenciador de Tráfego do Azure].
 
@@ -44,7 +44,7 @@ A configuração de um nome de domínio personalizado em um site está disponív
 1.  No navegador, abra o [Portal de gerenciamento][Portal de gerenciamento].
 2.  Na guia **Sites**, clique no nome do seu site.
 
-    ![][]
+    ![][0]
 
 3.  Clique na guia **ESCALA**.
 
@@ -268,9 +268,7 @@ Após a conclusão da configuração, o nome de domínio personalizado será lis
 
 -   [Configurar um certificado SSL para sites][Configurar um certificado SSL para sites]
 
-<!-- Bookmarks --> <!-- Links --> <!-- images --> <!-- images -->
 
-  [http://\<mysite]: http://<mysite
   [Controlar o tráfego de Sites da Web do Azure com o Gerenciador de Tráfego do Azure]: /pt-br/documentation/articles/web-sites-traffic-manager/
   [Configurar um nome de domínio personalizado no Azure]: /pt-br/develop/net/common-tasks/custom-dns/
   [Detalhes de Preços dos Sites]: /pt-br/pricing/details/web-sites/
@@ -283,7 +281,7 @@ Após a conclusão da configuração, o nome de domínio personalizado será lis
   [Nomes de domínio IETF - Implementação e especificação]: http://tools.ietf.org/html/rfc1035
   [Detalhes de preços]: /pt-br/pricing/details/
   [Portal de gerenciamento]: http://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-1.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-1.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-2.png
   [2]: ./media/custom-dns-web-site/dncmntask-cname-3.png
   [Criar um perfil do Gerenciador de Tráfego usando Criação Rápida]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn339012.aspx

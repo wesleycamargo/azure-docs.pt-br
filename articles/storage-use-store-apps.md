@@ -72,6 +72,6 @@ Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.T
   [As ferramentas do WCF Data Services para aplicativos da Windows Store (a página pode estar em inglês)]: http://www.microsoft.com/pt-br/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [palavra-chave async]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [palavra-chave async]: http://msdn.microsoft.com/pt-br/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [Gerenciando pacotes NuGet com a caixa de diálogo (a página pode estar em inglês)]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

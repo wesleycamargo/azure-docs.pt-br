@@ -54,9 +54,9 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 Agora você está pronto para usar um logon do Facebook para autenticação em seu aplicativo, fornecendo os valores de ID do Aplicativo e Segredo do Aplicativo para os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Serviços Móveis do Azure]: http://azure.microsoft.com/pt-br/services/mobile-services/
   [Introdução à autenticação]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-get-started-users/

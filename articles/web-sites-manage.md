@@ -192,7 +192,7 @@ Procure o perfil com `publishMethod="FTP"`. O nome de usuário está listado em 
 Para redefinir a senha, clique em **Redefinir suas credenciais de perfil publicado**. Para obter as novas credenciais, baixar o perfil de publicação novamente. As credenciais de perfil de publicação estão associadas com o site. Cada site tem seu próprio perfil de publicação.
 
 <!-- LINKS -->
-<!-- Anchors. -->
+
 
   [Instalar o WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [SDK do Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=246928

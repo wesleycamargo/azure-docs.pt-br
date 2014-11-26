@@ -1,6 +1,6 @@
-<properties urlDisplayName="Diagnostics" pageTitle="Como usar os diagn&oacute;sticos (.NET) - guia de recursos do Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Saiba como usar dados de diagn&oacute;stico no Azure para depura&ccedil;&atilde;o, medi&ccedil;&atilde;o do desempenho, monitoramento, an&aacute;lise de tr&aacute;fego e mais." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Habilitando o diagn&oacute;stico no Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Habilitando o Diagnostics nos Serviços de nuvem do Azure e Máquinas virtuais
 
@@ -31,17 +31,53 @@ Para uma comparação mais detalhada, consulte [Comparando o Azure Diagnostics 1
 
 O Diagnóstico do Azure pode coletar os seguintes tipos de telemetria:
 
-|------------------------------------------------|--------------------------------------------------------------------------------|
-| **Fonte de dados**                             | **Descrição**                                                                  |
-| Logs IIS                                       | Informações sobre sites IIS.                                                   |
-| Logs de infraestrutura de diagnóstico do Azure | Informações sobre o próprio Diagnostics.                                       |
-| Logs de solicitação com falha IIS              | Informações sobre solicitações falhas para um site IIS ou aplicativo.          |
-| Log de eventos do Windows                      | Informações enviadas ao sistema de registro de evento do Windows.              |
-| Contadores de desempenho                       | Sistema Operacional e contadores de desempenho personalizados.                 |
-| Despejos de falhas                             | Informações sobre o estado do processo no evento de uma falha do aplicativo.   |
-| Logs de erros personalizados                   | Logs criados por seu aplicativo ou serviço.                                    |
-| .NET EventSource                               | Os eventos de log gerados pelo seu código usando o [.NET EventSource Class][.NET EventSource Class]. |
-| Manifesto com base no ETW                      | Eventos ETW gerados por qualquer processo.                                     |
+
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+            <td style="width: 100px;"><strong>Fonte de dados</strong></td>
+            <td><strong>Descri&ccedil;&atilde;o</strong></td>
+    </tr>
+    <tr>
+        <td>Logs IIS</td>
+        <td>Informa&ccedil;&otilde;es sobre sites IIS.</td>            
+    </tr>
+    <tr>
+        <td>Logs de infraestrutura de diagn&oacute;stico do Azure</td>
+        <td>Informa&ccedil;&otilde;es sobre o pr&oacute;prio Diagnostics.</td>            
+    </tr>
+    <tr>
+        <td>Logs de solicita&ccedil;&atilde;o com falha IIS </td>
+        <td>Informa&ccedil;&otilde;es sobre solicita&ccedil;&otilde;es falhas para um site IIS ou aplicativo.</td>            
+    </tr>
+    <tr>
+        <td>Log de eventos do Windows</td>
+        <td>Informa&ccedil;&otilde;es enviadas ao sistema de registro de evento do Windows.</td>            
+    </tr>
+    <tr>
+        <td>Contadores de desempenho</td>
+        <td>Sistema Operacional e contadores de desempenho personalizados.</td>            
+    </tr>
+    <tr>
+        <td>Despejos de falhas</td>
+        <td>Informa&ccedil;&otilde;es sobre o estado do processo no evento de uma falha do aplicativo.</td>            
+    </tr>
+    <tr>
+        <td>Logs de erros personalizados</td>
+        <td>Logs criados por seu aplicativo ou servi&ccedil;o.</td>            
+    </tr>
+    <tr>
+        <td>.NET EventSource</td>
+        <td>Os eventos de log gerados pelo seu c&oacute;digo usando o <a href="http://msdn.microsoft.com/pt-br/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">.NET EventSource Class</a>.</td>            
+    </tr>
+    <tr>
+        <td>Manifesto com base no ETW</td>
+        <td>Eventos ETW gerados por qualquer processo.</td>            
+    </tr>
+        
+</tbody>
+</table>
+
 
 ## <a name="worker-role"></a><span class="short-header">Habilitar o Diagnostics em uma Função de Trabalho</span>Como habilitar o Diagnostics em uma Função do Trabalho
 
@@ -155,7 +191,8 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
 ### Etapa 4: Criar seu arquivo de configuração do Diagnostics e instale a extensão
 
 1.  Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
-2.  (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
+
+		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 3.  Adicione um arquivo XML ao seu projeto **WorkerRole1** ao clicar com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -\> **Novo Item…** -\> **Itens Visual C#** -\> **Dados** -\> **Arquivo XML**. Nomeie o arquivo como “WadExample.xml”.
 
@@ -367,7 +404,7 @@ O arquivo de configuração do Diagnostics define valores que são usados para i
 
 O Diagnostics é comprimido de dois componentes: Um plug-in do agente convidado e o agente de monitoramento. Os arquivos de log para o plug-in do agente convidado estão localizados no arquivo:
 
-*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics\\<diagnosticsversion>*\\CommandExecution.log
+*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<diagnosticsversion>*\\CommandExecution.log
 
 Os seguintes códigos de erro são devolvidos pelo plug-in:
 
@@ -532,87 +569,179 @@ Aqui está um exemplo:
 
 Isso gerará 4 tabelas:
 
+
+
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
-<tr>
-<td style="width: 100px;">
-**Evento**
+    <tr>
+            <td style="width: 100px;"><strong>Evento</strong></td>
+            <td><strong>Nome da tabela</strong></td>            
+    </tr>
+    <tr>
+            <td>provider=&rdquo;prov1&rdquo; &lt;Event id=&rdquo;1&rdquo; /&gt;</td>
+            <td>WADEvent+MD5(&ldquo;prov1&rdquo;)+&rdquo;1&rdquo;</td>          
+    </tr>
+    <tr>
+            <td>provider=&rdquo;prov1&rdquo; &lt;Event id=&rdquo;2&rdquo; eventDestination=&rdquo;dest1&rdquo; /&gt;</td>
+            <td>WADdest1</td>           
+    </tr>
+    <tr>
+            <td>provider=&rdquo;prov1&rdquo; &lt;DefaultEvents /&gt;</td>
+            <td>WADDefault+MD5(&ldquo;prov1&rdquo;)</td>            
+    </tr>
+    <tr>
+            <td>provider=&rdquo;prov2&rdquo; &lt;DefaultEvents eventDestination=&rdquo;dest2&rdquo; /&gt;</td>
+            <td>WADdest2</td>           
+    </tr>
+    
 
-</td>
-<td>
-**Nome da tabela**
-
-</td>
-</tr>
-<tr>
-<td>
-provider=”prov1” \<Event id=”1” /\>
-
-</td>
-<td>
-WADEvent+MD5(“prov1”)+”1”
-
-</td>
-</tr>
-<tr>
-<td>
-provider=”prov1” \<Event id=”2” eventDestination=”dest1” /\>
-
-</td>
-<td>
-WADdest1
-
-</td>
-</tr>
-<tr>
-<td>
-provider=”prov1” \<DefaultEvents /\>
-
-</td>
-<td>
-WADDefault+MD5(“prov1”)
-
-</td>
-</tr>
-<tr>
-<td>
-provider=”prov2” \<DefaultEvents eventDestination=”dest2” /\>
-
-</td>
-<td>
-WADdest2
-
-</td>
-</tr>
 </table>
 </tbody>
+
 ## <a name="comparing"></a><span class="short-header">Azure Diagnostics 1.0 vs 1.2</span>Comparando o Azure Diagnostics 1.0 e 1.2
 
 A tabela seguinte compara os recursos suportados pelo Azure Diagnostics versões 1.0 e 1.1/1.2:
 
-|--------------------------------|---------------------|-------------------------|
-| **Tipos de função suportados** | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
-| Função Web                     | Sim                 | Sim                     |
-| Função do funcionário          | Sim                 | Sim                     |
-| IaaS                           | Não                 | Sim                     |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+            <td style="width: 100px;"><strong>Tipos de fun&ccedil;&atilde;o suportados</strong></td>
+            <td><strong>Diagnostics 1.0</strong></td>
+            <td><strong>Diagnostics 1.1/1.2</strong></td>
+    </tr>
 
-|---------------------------------------------------------------------------------------------------------|---------------------|-------------------------|
-| **Configuração e implantação**                                                                          | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
-| Integração com Visual Studio - integrado na experiência de desenvolvimento da web/trabalhador do Azure. | Sim                 | Não                     |
-| Scripts do PowerShell - Scripts para gerenciar a instalação e configuração dos Diagnostics na função.   | Sim                 | Sim                     |
+    <tr>
+            <td>Fun&ccedil;&atilde;o Web</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Fun&ccedil;&atilde;o do funcion&aacute;rio</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>IaaS</td>
+            <td>No</td>
+            <td>Sim</td>
+    </tr>
+</tbody>
+</table>
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+            <td style="width: 100px;"><strong>Configura&ccedil;&atilde;o e implanta&ccedil;&atilde;o</strong></td>
+            <td><strong>Diagnostics 1.0</strong></td>
+            <td><strong>Diagnostics 1.1/1.2</strong></td>
+    </tr>
 
-|------------------------------------------------|--------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-------------------------|
-| **Fonte de dados**                             | **Coleção padrão** | **Formatar** | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
-| Logs System.Diagnostics.Trace                  | Sim                | Tabela       | As mensagens de rastreamento de logs enviadas a partir de seu código ao ouvinte de rastreamento (um ouvinte de rastreamento deve ser adicionado ao arquivo web.config ou app.config). Os dados em log serão transferidos no intervalo de transferência scheduledTransferPeriod para a tabela de armazenamento WADLogsTable.                                                                                                                  | Sim                 | Não (Use EventSource)   |
-| Logs IIS                                       | Sim                | Blob         | Informações de logs sobre sites IIS. Os dados em log serão transferidos no intervalo de transferência scheduledTransferPeriod ao contêiner que você especificar.                                                                                                                                                                                                                                                                             | Sim                 | Sim                     |
-| Logs de infraestrutura de diagnóstico do Azure | Sim                | Tabela       | As informações de logs sobre a infraestrutura de diagnóstico, o módulo RemoteAccess e o módulo RemoteForwarder. Os dados de log serão transferidos no intervalo de scheduledTransferPeriodtransfer para a tabela de armazenamento WADDiagnosticInfrastructureLogsTable.                                                                                                                                                                      | Sim                 | Sim                     |
-| Logs de solicitação com falha IIS              | Não                | Blob         | Informações de logs sobre solicitações falhas para um site IIS ou aplicativo. Você também deve habilitar através das opções de rastreamento de configurações em system.WebServer nos dados de log Web.config. Os dados em log serão transferidos no intervalo de transferência scheduledTransferPeriod ao contêiner que você especificar.                                                                                                    | Sim                 | Sim                     |
-| Log de eventos do Windows                      | Não                | Tabela       | Informações de logs sobre quão bem o sistema operacional, o aplicativo ou o driver está sendo executado. Os contadores de desempenho devem ser especificados explicitamente. Quando estes são adicionados, os dados do contador de desempenho serão transferidos no intervalo de transferência scheduledTransferPeriod para a tabela de armazenamento WADPerformanceCountersTable.                                                           | Sim                 | Sim                     |
-| Contadores de desempenho                       | Não                | Tabela       | Informações de logs sobre quão bem o sistema operacional, o aplicativo ou o driver está sendo executado. Os contadores de desempenho devem ser especificados explicitamente. Quando estes são adicionados, os dados do contador de desempenho serão transferidos no intervalo de transferência scheduledTransferPeriod para a tabela de armazenamento WADPerformanceCountersTable.                                                           | Sim                 | Sim                     |
-| Despejos de falhas                             | Não                | Blob         | Informações de logs sobre o estado do sistema operacional no evento de uma falha do sistema. Os despejos da mini-falha são coletados localmente. Os despejos completos podem ser habilitados. Os dados em log serão transferidos no intervalo de transferência scheduledTransferPeriod ao contêiner que você especificar. Pelo fato do ASP.NET manipular mais exceções, isso geralmente é útil somente para uma função de trabalho ou um VM. | Sim                 | Sim                     |
-| Logs de erros personalizados                   | Não                | Blob         | Ao usar os recursos de armazenamento local, os dados personalizados podem ser registrados e transferidos imediatamente para o contêiner que você especificar.                                                                                                                                                                                                                                                                                | Sim                 | Sim                     |
-| EventSource                                    | Não                | Tabela       | Os eventos de log gerados pelo seu código usando a classe .NET EventSource.                                                                                                                                                                                                                                                                                                                                                                  | Não                 | Sim                     |
-| Manifesto com base no ETW                      | Não                | Tabela       | Eventos ETW gerados por qualquer processo.                                                                                                                                                                                                                                                                                                                                                                                                   | Não                 | Sim                     |
+    <tr>
+            <td>Integra&ccedil;&atilde;o com Visual Studio - integrado na experi&ecirc;ncia de desenvolvimento da web/trabalhador do Azure.</td>
+            <td>Sim</td>
+            <td>No</td>
+    </tr>
+    <tr>
+            <td>Scripts do PowerShell - Scripts para gerenciar a instala&ccedil;&atilde;o e configura&ccedil;&atilde;o dos Diagnostics na fun&ccedil;&atilde;o.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    
+</tbody>
+</table>
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+            <td style="width: 100px;"><strong>Fonte de dados</strong></td>
+            <td><strong>Cole&ccedil;&atilde;o padr&atilde;o</strong></td>
+            <td><strong>Formatar</strong></td>
+            <td><strong>Descri&ccedil;&atilde;o</strong></td>
+            <td><strong>Diagnostics 1.0</strong></td>
+            <td><strong>Diagnostics 1.1/1.2</strong></td>
+    </tr>
+    <tr>
+            <td>Logs System.Diagnostics.Trace</td>
+            <td>Sim</td>
+            <td>Tabela</td>
+            <td>As mensagens de rastreamento de logs enviadas a partir de seu c&oacute;digo ao ouvinte de rastreamento (um ouvinte de rastreamento deve ser adicionado ao arquivo web.config ou app.config). Os dados em log ser&atilde;o transferidos no intervalo de transfer&ecirc;ncia scheduledTransferPeriod para a tabela de armazenamento WADLogsTable.</td>
+            <td>Sim</td>
+            <td>N&atilde;o (Use EventSource)</td>
+    </tr>
+    <tr>
+            <td>Logs IIS</td>
+            <td>Sim</td>
+            <td>Blob</td>
+            <td>Informa&ccedil;&otilde;es de logs sobre sites IIS. Os dados em log ser&atilde;o transferidos no intervalo de transfer&ecirc;ncia scheduledTransferPeriod ao cont&ecirc;iner que voc&ecirc; especificar.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Logs de infraestrutura de diagn&oacute;stico do Azure</td>
+            <td>Sim</td>
+            <td>Tabela</td>
+            <td>As informa&ccedil;&otilde;es de logs sobre a infraestrutura de diagn&oacute;stico, o m&oacute;dulo RemoteAccess e o m&oacute;dulo RemoteForwarder. Os dados de log ser&atilde;o transferidos no intervalo de scheduledTransferPeriodtransfer para a tabela de armazenamento WADDiagnosticInfrastructureLogsTable.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Logs de solicita&ccedil;&atilde;o com falha IIS</td>
+            <td>No</td>
+            <td>Blob</td>
+            <td>Informa&ccedil;&otilde;es de logs sobre solicita&ccedil;&otilde;es falhas para um site IIS ou aplicativo. Voc&ecirc; tamb&eacute;m deve habilitar atrav&eacute;s das op&ccedil;&otilde;es de rastreamento de configura&ccedil;&otilde;es em system.WebServer nos dados de log Web.config. Os dados em log ser&atilde;o transferidos no intervalo de transfer&ecirc;ncia scheduledTransferPeriod ao cont&ecirc;iner que voc&ecirc; especificar.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Log de eventos do Windows</td>
+            <td>No</td>
+            <td>Tabela</td>
+            <td>Informa&ccedil;&otilde;es de logs sobre qu&atilde;o bem o sistema operacional, o aplicativo ou o driver est&aacute; sendo executado. Os contadores de desempenho devem ser especificados explicitamente. Quando estes s&atilde;o adicionados, os dados do contador de desempenho ser&atilde;o transferidos no intervalo de transfer&ecirc;ncia scheduledTransferPeriod para a tabela de armazenamento WADPerformanceCountersTable.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Contadores de desempenho</td>
+            <td>No</td>
+            <td>Tabela</td>
+            <td>Informa&ccedil;&otilde;es de logs sobre qu&atilde;o bem o sistema operacional, o aplicativo ou o driver est&aacute; sendo executado. Os contadores de desempenho devem ser especificados explicitamente. Quando estes s&atilde;o adicionados, os dados do contador de desempenho ser&atilde;o transferidos no intervalo de transfer&ecirc;ncia scheduledTransferPeriod para a tabela de armazenamento WADPerformanceCountersTable.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Despejos de falhas</td>
+            <td>No</td>
+            <td>Blob</td>
+            <td>Informa&ccedil;&otilde;es de logs sobre o estado do sistema operacional no evento de uma falha do sistema. Os despejos da mini-falha s&atilde;o coletados localmente. Os despejos completos podem ser habilitados. Os dados em log ser&atilde;o transferidos no intervalo de transfer&ecirc;ncia scheduledTransferPeriod ao cont&ecirc;iner que voc&ecirc; especificar. Pelo fato do ASP.NET manipular mais exce&ccedil;&otilde;es, isso geralmente &eacute; &uacute;til somente para uma fun&ccedil;&atilde;o de trabalho ou um VM.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Logs de erros personalizados</td>
+            <td>N&atilde;o</td>
+            <td>Blob</td>
+            <td>Ao usar os recursos de armazenamento local, os dados personalizados podem ser registrados e transferidos imediatamente para o cont&ecirc;iner que voc&ecirc; especificar.</td>
+            <td>Sim</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>EventSource</td>
+            <td>N&atilde;o</td>
+            <td>Tabela</td>
+            <td>Os eventos de log gerados pelo seu c&oacute;digo usando a classe .NET EventSource.</td>
+            <td>N&atilde;o</td>
+            <td>Sim</td>
+    </tr>
+    <tr>
+            <td>Manifesto com base no ETW</td>
+            <td>N&atilde;o</td>
+            <td>Tabela</td>
+            <td>Eventos ETW gerados por qualquer processo.</td>
+            <td>N&atilde;o</td>
+            <td>Sim</td>
+    </tr>
+</tbody>
+</table>
+
+
 
 ## <a name="additional"></a><span class="short-header">Recursos adicionais</span>Recursos adicionais
 
@@ -633,11 +762,5 @@ A tabela seguinte compara os recursos suportados pelo Azure Diagnostics versões
   [.NET EventSource Class]: http://msdn.microsoft.com/pt-br/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [Teste Gratuito]: http://azure.microsoft.com/pt-br/pricing/free-trial/
   [Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Esquema de Configuração do Azure Diagnostics 1.2]: http://msdn.microsoft.com/pt-br/library/azure/dn782207.aspx
-  [Coletar dados do log usando o Diagnóstico do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433048.aspx
   [Depurando um aplicativo do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405479.aspx
-  [Configurando o Diagnóstico do Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn186185.aspx

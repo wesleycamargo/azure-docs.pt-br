@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## Logs de streaming e o console
 
@@ -42,7 +42,7 @@ console.log("My trace statement").
 
 O diagnóstico é habilitado por site. Dentro do [portal][portal], clique no botão **Procurar** na barra de menus à esquerda e, em seguida, clique em **Sites** para obter a lista de todos os sites.
 
-![][]
+![][0]
 
 Clique no nome do site que você deseja configurar. Em seguida, clique na parte chamada **LOGS DE DIAGNÓSTICO** e deixe a configuração do **Registro em Log do Aplicativo (Sistema de Arquivos)** em **ON**. Em seguida, a opção **Nível** é exibida, permitindo que você altere o nível de severidade de rastreamentos para capturar. Você deverá defini-lo como **Detalhado** se estiver tentando se familiarizar com o recurso porque isso garantirá que todas as instruções de rastreamento sejam registradas.
 
@@ -71,9 +71,9 @@ dir
 cd
 `````````````````````````
 
-<!-- Images. -->
+
 
   [portal]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

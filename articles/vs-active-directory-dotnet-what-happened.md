@@ -1,6 +1,6 @@
 <properties title="Introdu&ccedil;&atilde;o &agrave; Autentica&ccedil;&atilde;o do Active Directory - O que aconteceu" pageTitle="Introdu&ccedil;&atilde;o &agrave; Autentica&ccedil;&atilde;o do Active Directory - O que aconteceu" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >

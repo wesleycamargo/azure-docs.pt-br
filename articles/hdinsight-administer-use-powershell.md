@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Gerenciar clusters Hadoop no HDInsight com o PowerShell do Azure | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Saiba como realizar tarefas administrativas para os clusters Hadoop no HDInsight usando o PowerShell do Azure." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure" authors="jgao" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -28,8 +28,6 @@ Antes de começar este artigo, você deve ter o seguinte:
 ## <span id="provision"></span></a>Provisione um cluster HDInsight
 
 O HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Uma conta de armazenamento do Azure e um contêiner de armazenamento são necessários para poder criar um cluster HDInsight.
-
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **Para criar uma conta de Armazenamento do Azure**
 
@@ -152,8 +150,7 @@ O script do PowerShell a seguir envia o trabalho do exemplo de contagem de palav
 
 > [WACOM.NOTE] O *hadoop-examples.jar* é fornecido com clusters HDInsight versão 2.1. O arquivo foi renomeado para *hadoop-mapreduce.jar* em clusters HDInsight versão 3.0.
 
-Para obter informações sobre o prefixo WASBx, consulte[Usar o nto de Blob do Azure para HDInsight◆][hdinsight-
-storage].
+Para obter informações sobre o prefixo WASBx, consulte [Usar o nto de Blob do Azure para HDInsight][hdinsight-storage].
 
 **Para baixar a saída do trabalho MapReduce**
 
@@ -241,3 +238,5 @@ Consulte a sessão [Enviar trabalhos MapReduce][Enviar trabalhos MapReduce] nest
   [Provisione clusters HDInsight]: ../hdinsight-provision-clusters/
   [Enviar trabalhos Hadoop de forma programática]: ../hdinsight-submit-hadoop-jobs-programmatically/
   [Introdução ao Azure HDInsight]: ../hdinsight-get-started/
+  [hdinsight-storage]: ../hdinsight-use-blob-storage/
+

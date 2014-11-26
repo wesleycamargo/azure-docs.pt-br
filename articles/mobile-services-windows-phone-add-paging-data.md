@@ -28,11 +28,10 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
     
 	Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introdução a dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users/
   [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-push/

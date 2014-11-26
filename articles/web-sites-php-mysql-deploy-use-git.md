@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP website with MySQL and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Criar um Site do Azure PHP-MySQL e implantar usando o Git
 
@@ -185,7 +185,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
         </body>
         </html>
 
-Agora você pode navegar para **<http://localhost/registration/index.php>** para testar o aplicativo.
+Agora você pode navegar para **http://localhost/registration/index.php** para testar o aplicativo.
 
 ## Publicar seu aplicativo
 
@@ -242,7 +242,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
   [PHP]: http://www.php.net/manual/en/install.php
   [Git]: http://git-scm.com/
   [Site PHP do Azure]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A74E0F923
   [SDK do Azure para PHP]: http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
   [Criar um novo site do Azure]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg
@@ -256,6 +255,5 @@ Para publicar alterações no aplicativo, siga estas etapas:
   [Obter informações da conexão do banco de dados]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
   [extensão PDO do MySQL]: http://www.php.net/manual/en/ref.pdo-mysql.php
   [Envio por push inicial ao Azure via Git]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-  [http://[nome]: http://[site
   [Enviando alterações por push ao Site do Azure via Git]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
   [Lista das implantações de site]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png

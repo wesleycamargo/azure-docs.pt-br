@@ -271,9 +271,9 @@ O trabalho deve ser registrado na guia **Agendador** para que os Serviços Móve
 
 Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móvel. Esse trabalho será executado conforme programado até que você o desabilite ou modifique.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
   [Baixar e instalar o LINQ para a biblioteca do Twitter]: #install-linq2twitter
@@ -282,7 +282,6 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
   [Testar o trabalho agendado localmente]: #run-job-locally
   [Publicar o serviço e registrar o trabalho]: #register-job
   [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Como usar as Migrações Code First para atualizar o modelo de dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

@@ -1,6 +1,6 @@
 Siga estas etapas para criar um novo serviço móvel.
 
-1.	Faça logon no [Portal de Gerenciamento][].
+1.	Faça logon no [Portal de Gerenciamento][Portal de Gerenciamento].
 
 2.	Na parte inferior do painel de navegação, clique em **+NOVO**.
 
@@ -33,6 +33,6 @@ Siga estas etapas para criar um novo serviço móvel.
 
 Você criou um novo serviço móvel que pode ser usado por seus aplicativos móveis.
 
-<!-- URLs. -->
+
 
   [Portal de Gerenciamento]: https://manage.windowsazure.com/

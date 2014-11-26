@@ -28,9 +28,9 @@ Antes de criar o serviço móvel, você deve importar o arquivo de configuraçõ
 
     <div class="dev-callout"><strong>Observa&ccedil;&atilde;o de seguran&ccedil;a</strong> <p>Depois de importar as configura&ccedil;&otilde;es de publica&ccedil;&atilde;o, considere a possibilidade de excluir o arquivo .publishSettings baixado, pois ele cont&eacute;m informa&ccedil;&otilde;es que podem ser usadas por outras pessoas para acessar sua conta. Proteja o arquivo se voc&ecirc; pretende mant&ecirc;-lo para uso em outros projetos de aplicativo conectado.</p></div>
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [adicionar serviço conectado]: ./media/mobile-services-create-new-service-vs2013/mobile-add-connected-service.png
   [criar um novo serviço móvel do VS 2013]: ./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png

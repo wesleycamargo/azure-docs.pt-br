@@ -805,7 +805,8 @@ Você pode também usar o recurso Application Insights no Visual Studio Online c
 
 Na hora da gravação o Application Insights está em visualização. Você pode encontrar mais informações no [Application Insights para Visual Studio Online no MSDN][Application Insights para Visual Studio Online no MSDN].
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Introdução]: #introduction
   [Como esse guia está organizado]: #how-this-guide-is-organized

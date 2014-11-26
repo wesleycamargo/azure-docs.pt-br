@@ -80,9 +80,9 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
     Saiba como autenticar usuários de seu aplicativo com uma conta do Windows.
 
 <!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. --> 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios

@@ -98,9 +98,9 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 -   [Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis][Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]
     Saiba mais sobre como usar os Serviços Móveis com HTML e JavaScript.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
   [Registrar seu aplicativo para notificações por push e configurar os Serviços Móveis]: #register
@@ -108,8 +108,6 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
   [Inserir dados para receber notificações]: #test
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
   [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-js/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet/

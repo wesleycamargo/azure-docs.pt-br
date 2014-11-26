@@ -10,10 +10,9 @@ Este tópico mostra como habilitar seu aplicativo iOS para notificações por pu
 
 Agora, você pode usar esse certificado .p12 para habilitar serviços para autenticar com APNS e enviar notificações por push em nome de seu aplicativo.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Habilitar Notificações por Push para Apple]: ../includes/enable-apple-push-notifications.md

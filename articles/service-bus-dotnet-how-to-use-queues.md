@@ -212,8 +212,6 @@ links para saber mais.
     para uma fila do Barramento de Serviço: [Tutorial do Barramento de Serviço orientado a mensagens do.NET][Tutorial do Barramento de Serviço orientado a mensagens do.NET].
 
   [Próximas etapas]: #next-steps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
   [Tutorial do Barramento de Serviço orientado a mensagens do.NET]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367512.aspx

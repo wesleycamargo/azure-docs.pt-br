@@ -178,6 +178,5 @@ Uma referência à linguagem de expressão do modelo por ser encontrada em [Inst
   [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
   [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notificar usuários com Hubs de Notificação: ASP.NET]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
   [Notificar usuários com Hubs de Notificação: Serviços Móveis]: /pt-br/manage/services/notification-hubs/notify-users

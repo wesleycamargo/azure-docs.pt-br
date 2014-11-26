@@ -56,9 +56,9 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 
 -   Autenticação básica. Esse método, que oferece suporte a vários provedores de autenticação, requer que os usuários façam logon sempre que seu aplicativo é iniciado. Para obter mais informações, consulte [Comece a usar a autenticação][Comece a usar a autenticação].
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   [0]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png

@@ -26,9 +26,9 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 Agora você está pronto para usar um Active Directory do Azure para autenticação em seu aplicativo fornecendo os valores de ID do cliente e de segredo do cliente aos Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png

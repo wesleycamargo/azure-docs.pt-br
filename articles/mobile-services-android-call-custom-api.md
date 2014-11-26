@@ -36,15 +36,13 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo Android
 -   [Scripts de servidor de armazenamento no controle do código-fonte][Scripts de servidor de armazenamento no controle do código-fonte]
     Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-get-started/
   [Introdução a dados]: /pt-br/documentation/articles/mobile-services-android-get-started-data/
   [Definir a API personalizada]: #define-custom-api
   [Atualizar o aplicativo para chamar a API personalizada]: #update-app
   [Testar o aplicativo]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-android-call-custom-api]: ../includes/mobile-services-android-call-custom-api.md
   [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control

@@ -486,7 +486,6 @@ Você já implantou o aplicativo do ASP.NET com êxito em um site do Azure. Para
 <!-- TOC BOOKMARKS -->
 
   [O MongoDB]: http://www.mongodb.org
-  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
   [Criar uma máquina virtual e instalar MongoDB]: #virtualmachine
   [Criar e executar o aplicativo Minha Lista de Tarefas do ASP.NET no computador de desenvolvimento]: #createapp
   [Criar um site do Azure]: #createwebsite

@@ -1,6 +1,6 @@
 # Como usar as ferramentas de linha de comando do Azure para Mac e Linux
 
-Saiba como usar as ferramentas de linha de comando do Azure para Mac e Linux para criar e gerenciar serviços no Azure. Os cenários abordados incluem **instalar as ferramentas**, **importar as configurações de publicação**, **criação e gerenciamento de sites do Azure** e **criação e gerenciamento das Máquinas Virtuais do Azure**. Para obter uma documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][].
+Saiba como usar as ferramentas de linha de comando do Azure para Mac e Linux para criar e gerenciar serviços no Azure. Os cenários abordados incluem **instalar as ferramentas**, **importar as configurações de publicação**, **criação e gerenciamento de sites do Azure** e **criação e gerenciamento das Máquinas Virtuais do Azure**. Para obter uma documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][Ferramenta de Linha de Comando do Azure para Mac e Linux].
 
 ## Sumário
 
@@ -27,9 +27,9 @@ Para uma lista completa dos comandos com suporte, digite `azure -help` na linha 
 
 A lista a seguir contém informações para instalar as ferramentas de linha de comando, dependendo do seu sistema operacional:
 
--   **Mac**: Baixe o [Instalador do SDK do Azure][]. Abra o arquivo .pkg baixado e conclua as etapas de instalação quando for solicitado.
+-   **Mac**: Baixe o [Instalador do SDK do Azure][Instalador do SDK do Azure]. Abra o arquivo .pkg baixado e conclua as etapas de instalação quando for solicitado.
 
--   **Linux**: instale a versão mais recente do [Node.js][] (consulte [Instalar o Node.js por meio do Gerenciador de Pacotes][]), em seguida, execute o seguinte comando:
+-   **Linux**: instale a versão mais recente do [Node.js][Node.js] (consulte [Instalar o Node.js por meio do Gerenciador de Pacotes][Instalar o Node.js por meio do Gerenciador de Pacotes]), em seguida, execute o seguinte comando:
 
         npm install azure-cli -g
 
@@ -37,7 +37,7 @@ A lista a seguir contém informações para instalar as ferramentas de linha de 
 
         sudo npm install azure-cli -g
 
--   **Windows**: execute o instalador do Windows (arquivo .msi), que está disponível aqui: [Ferramentas de linha de comando do Azure][].
+-   **Windows**: execute o instalador do Windows (arquivo .msi), que está disponível aqui: [Ferramentas de linha de comando do Azure][Ferramentas de linha de comando do Azure].
 
 Para testar a instalação, digite `azure` no prompt de comando. Se a instalação tiver sido executada com êxito, você verá uma lista de todos os comandos `azure` disponíveis.
 
@@ -47,7 +47,7 @@ Para usar as ferramentas de comando do Azure para Mac e Linux, você precisará 
 
 Abra um navegador da Web e navegue para [][]<http://www.windowsazure.com></a> e clique em **avaliação gratuita** no canto superior direito.
 
-![Site do Azure][]
+![Site do Azure][Site do Azure]
 
 Siga as instruções para a criação de uma conta.
 
@@ -176,7 +176,7 @@ uma Máquina Virtual do Azure é criada por meio de uma imagem de máquina virtu
 
 Você pode provisionar e iniciar uma máquina virtual por meio de uma das imagens disponíveis com o comando `vm create`. O exemplo a seguir mostra como criar uma máquina virtual do Linux (chamada `myVM`) a partir de uma imagem na galeria de imagens (CentOS 6.2). O nome de usuário raiz e a senha para a máquina virtual são `myusername` e `Mypassw0rd`, respectivamente. (Observe que o parâmetro `--location` especifica o datacenter em que a máquina virtual é criada. Se você omitir o parâmetro `--location`, será solicitado que escolha um local.)
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-pt-br-30GB.vhd myusername --location "West US"
 
 Você pode considerar transmitir o sinalizador `--ssh` (Linux) ou o sinalizador `--rdp` (Windows) para `vm create`, habilitando conexões remotas com a máquina virtual recém-criada.
 

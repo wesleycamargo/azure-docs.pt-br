@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create" pageTitle="Criar uma conta de Servi&ccedil;os de M&iacute;dia - Azure" metaKeywords="" description="Descreve como criar uma nova conta de Servi&ccedil;os de M&iacute;dia no Azure." metaCanonical="" services="media-services" documentationCenter="" title="Como criar uma conta de Servi&ccedil;os de M&iacute;dia" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # Como criar uma conta de Serviços de Mídia
 
@@ -18,10 +18,7 @@ Este tópico explica como usar o método de Criação Rápida para criar uma nov
 O acesso aos Serviços de Mídia requer duas contas associadas:
 
 -   **Uma conta dos Serviços de Mídia**. Sua conta fornece acesso a um conjunto de Serviços de Mídia baseado na nuvem que está disponível no Azure. Uma conta de Serviços de Mídia não armazena o conteúdo de mídia real. Em vez disso, armazena metadados sobre o conteúdo de mídia e os trabalhos de processamento de mídia em sua conta. No momento em que cria a conta, você seleciona uma região de Serviços de Mídia disponível. A região selecionada é um data center que armazena os registros dos metadados de sua conta.
-
-    > [WACOM.NOTE]
-    > As regiões disponíveis para Serviços de Mídia incluem: **Oeste da Europa**, **Sudeste da Ásia**, **Ásia Oriental**, **Norte da Europa**, **Oeste dos EUA**, **Leste dos EUA**. Os Serviços de Mídia não usam grupos de afinidade.
-
+    -   **Observação** As regiões disponíveis para Serviços de Mídia incluem: **Oeste da Europa**, **Sudeste da Ásia**, **Ásia Oriental**, **Norte da Europa**, **Oeste dos EUA**, **Leste dos EUA**. Os Serviços de Mídia não usam grupos de afinidade.
 -   **Uma conta de armazenamento associada**. Sua conta de armazenamento é uma conta de Armazenamento do Azure que está associada à sua conta de Serviços de Mídia. A conta de armazenamento fornece armazenamento de blob para arquivos de mídia e deve estar localizada na mesma região geográfica que a conta de Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
 
 ## <span id="quick"></span></a>Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida
@@ -50,7 +47,6 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
     Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção de ESCREVER UM CÓDIGO, copiar o código e usá-lo em seu aplicativo.
 
-<!-- Reusable paths. --> <!-- Anchors. --> <!-- URLs. -->
 
   [Conceitos]: #concepts
   [Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida]: #quick

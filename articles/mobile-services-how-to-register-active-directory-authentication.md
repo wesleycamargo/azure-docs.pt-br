@@ -56,9 +56,9 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 Agora você está pronto para usar um Active Directory do Azure para autenticação em seu aplicativo.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Autenticar o seu aplicativo com Logon Único com a biblioteca de autenticação do Active Directory]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

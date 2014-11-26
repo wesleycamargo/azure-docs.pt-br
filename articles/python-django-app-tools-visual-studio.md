@@ -1,14 +1,14 @@
-<properties urlDisplayName="Django with Visual Studio" pageTitle="Tutorial do Django com Visual Studio (Python) - Azure" metaKeywords="Azure Django web app, Azure Django virtual machine" description="Um tutorial que ensina a compilar um aplicativo Web Django hospedado em uma m&aacute;quina virtual do Azure." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Criando aplicativos Django com o Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Criando aplicativos Django com o Python Tools for Visual Studio 1.5
 
-**Observação:**este tutorial também está encapsulado em um [vídeo do Youtube][vídeo do Youtube].
+**Observação:** este tutorial também está encapsulado em um [vídeo do Youtube][vídeo do Youtube].
 
 **Observação:** Um [tutorial mais recente e amplo][tutorial mais recente e amplo] voltado para o PTVS 2.0 Beta agora está disponível.
 
-Desenvolver para Azure é fácil usando as ferramentas disponíveis.
+O desenvolvimento para o Azure é fácil quando as ferramentas disponíveis são usadas.
 Este tutorial pressupõe que você não tem experiência anterior com o Azure.
 Após concluir este guia, você terá um aplicativo Django em funcionamento na nuvem.
 
@@ -19,8 +19,8 @@ Você aprenderá a:
 -   Executar seu aplicativo Django localmente no emulador de computação
 -   Publicar e republicar seu aplicativo no Azure.
 
-Seguindo este tutorial, você criará um simples aplicativo da
-web Hello World. O aplicativo será hospedado em uma instância de uma função web
+Seguindo este tutorial, você criará um simples
+aplicativo da web Hello World. O aplicativo será hospedado em uma instância de uma função web
 que, quando executado no Azure, será ele próprio hospedado em uma
 máquina virtual (VM) dedicada.
 
@@ -154,7 +154,7 @@ Agora, você precisará aguardar o aplicativo ser configurado e implantado.
 
 Depois que tudo estiver configurado, você poderá clicar no link sob Nome DNS para ver seu site em execução na nuvem:
 
-![Seu aplicativo Django na nuvem][Seu aplicativo Django na nuvem]
+![Seu aplicativo Django na nuvem](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)
 
   [vídeo do Youtube]: http://www.youtube.com/watch?v=UsLti4KlgAY
   [tutorial mais recente e amplo]: ../web-sites-python-create-deploy-django-app/

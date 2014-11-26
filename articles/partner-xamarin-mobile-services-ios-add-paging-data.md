@@ -60,9 +60,9 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 
 <!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. -->
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-ios

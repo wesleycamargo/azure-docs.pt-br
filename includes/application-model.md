@@ -420,12 +420,8 @@ funções, consulte [Implantando e atualizando aplicativos do Azure][Implantando
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   [Visão geral de preços do Azure]: http://www.windowsazure.com/pt-br/pricing/calculator/
-  [Gerenciando certificados no
-  Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg981929.aspx
   []: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
   [5]: http://msdn.microsoft.com/pt-br/library/hh560567.aspx
-  [Gerenciando as atualizações em
-  Sistemas operacionais convidados no Azure]: http://msdn.microsoft.com/pt-br/library/ee924680.aspx
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
   [6]: ./media/application-model/application-model-8.jpg
   [Implantando e atualizando aplicativos do Azure]: http://www.windowsazure.com/pt-br/develop/net/fundamentals/deploying-applications/

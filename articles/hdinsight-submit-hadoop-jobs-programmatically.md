@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Enviar trabalhos Hadoop no HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Saiba como enviar trabalhos Hadoop para o Hadoop no Azure HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Enviar trabalhos Hadoop no HDInsight" authors="jgao" />
+<properties linkid="manage-services-hdinsight-submit-hadoop-jobs" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit  Hadoop jobs in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -43,7 +43,7 @@ O MapReduce do Hadoop é uma estrutura de software para escrever aplicativos que
 3.  Execute os seguintes comandos para criar uma definição de trabalho MapReduce:
 
         # Define the word count MapReduce job
-        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     Existem dois argumentos. O primeiro é o nome do arquivo de origem e o segundo é o caminho do arquivo de saída. Para obter mais informações sobre o prefixo wasb, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][Usar o Armazenamento de Blob do Azure com o HDInsight].
 
@@ -162,11 +162,12 @@ Você pode instalar a compilação publicada mais recentemente do SDK no [NuGet]
 
 3.  No Novo Projeto, digite ou selecione os seguintes valores:
 
-    | Propriedade | Valor                      |
-    |-------------|----------------------------|
-    | Categoria   | Modelos/Visual C#/Windows |
-    | Modelo      | Aplicativo de console      |
-    | Nome        | SubmitMapReduceJob         |
+	<table border="1">
+    <tr><th>	 Propriedade </th><th> Valor                      </th></tr>
+    <tr><td> Categoria   </td><td> Modelos/Visual C#/Windows </td></tr>
+    <tr><td> Modelo      </td><td> Aplicativo de console      </td></tr>
+    <tr><td> Nome        </td><td> SubmitMapReduceJob         </td></tr>
+	</table>
 
 4.  Clique em **OK** para criar o projeto.
 
@@ -400,11 +401,12 @@ Você pode instalar a compilação publicada mais recentemente do SDK no [NuGet]
 
 3.  No Novo Projeto, digite ou selecione os seguintes valores:
 
-    | Propriedade | Valor                      |
-    |-------------|----------------------------|
-    | Categoria   | Modelos/Visual C#/Windows |
-    | Modelo      | Aplicativo de console      |
-    | Nome        | SubmitHiveJob              |
+	<table border="1">
+    <tr><th> Propriedade </th><th> Valor                      </th></tr>
+    <tr><td> Categoria   </td><td> Modelos/Visual C#/Windows </td></tr>
+    <tr><td> Modelo      </td><td> Aplicativo de console      </td></tr>
+    <tr><td> Nome        </td><td> SubmitHiveJob              </td></tr>
+	</table>
 
 4.  Clique em **OK** para criar o projeto.
 
@@ -535,7 +537,6 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
   [Usar o Sqoop com o HDInsight]: ../hdinsight-use-sqoop/
   [NuGet]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
-  [Criar e baixar um certificado de gerenciamento para o Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg551722.aspx
   [Desenvolver programas de streaming do Hadoop em C# para o HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Documentação de referência do cmdlet do HDInsight]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn479228.aspx
   [Use o Pig com o HDInsight]: ../hdinsight-use-pig/

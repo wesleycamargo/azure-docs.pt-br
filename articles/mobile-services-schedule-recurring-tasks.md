@@ -166,14 +166,13 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 
     Saiba mais sobre como registrar e usar scripts de servidor.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
   [Criar a nova tabela Updates]: #create-table
   [Criar um novo trabalho agendado]: #add-job
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png

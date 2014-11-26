@@ -67,8 +67,8 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [notificação por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Atualizar o serviço para solicitar autenticação para registro]: #register
@@ -76,6 +76,3 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
   [Testar o aplicativo]: #test
   [versão da Windows Store deste tópico]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

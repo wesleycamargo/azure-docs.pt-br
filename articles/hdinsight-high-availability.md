@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight High Availability" pageTitle="Disponibilidade dos clusters Hadoop no HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="O HDInsight implanta clusters altamente dispon&iacute;veis e confi&aacute;veis." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Disponibilidade dos clusters Hadoop no HDInsight" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -58,7 +58,7 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 
 -   [ZooKeeper][ZooKeeper]
 -   [Conectar ao clusters HDInsight usando o RDP][Conectar a clusters HDInsight usando RDP]
--   [Usando o SDK do .NET do HDInsight][Usando o SD .NET do HDInsight]
+-   [Usando o SD .NET do HDInsight][Usando o SD .NET do HDInsight]
 
   [0]: http://i.imgur.com/jrUmrH4.png
   [ZooKeeper]: http://zookeeper.apache.org/

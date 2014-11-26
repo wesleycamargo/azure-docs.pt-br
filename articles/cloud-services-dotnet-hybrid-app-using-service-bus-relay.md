@@ -19,7 +19,7 @@ Você aprenderá a:
 -   Usar a Retransmissão do Barramento de Serviço para compartilhar dados entre
     um aplicativo do Azure e um serviço Web hospedado em outro lugar.
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### COMO A RETRANSMISSÃO DO BARRAMENTO DE SERVIÇO AJUDA COM SOLUÇÕES HÍBRIDAS
 
@@ -729,7 +729,6 @@ Para obter mais informações sobre o Brramento de Serviço, consulte os seguint
 -   [Como é o Barramento de Serviço][Como é o Barramento de Serviço]
 -   [Como usar as filas do Service Bus][Como usar as filas do Service Bus]
 
-  [create-account-note]: ../includes/create-account-note.md
  
   [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
@@ -743,7 +742,7 @@ Para obter mais informações sobre o Brramento de Serviço, consulte os seguint
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [aqui]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [aqui]: http://http://msdn.microsoft.com/pt-br/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [Utilizando o pacote NuGet de Barramento de Serviço]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -760,8 +759,8 @@ Para obter mais informações sobre o Brramento de Serviço, consulte os seguint
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Modelos de execução do Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [Implantando um aplicativo Web ASP.NET em um site do Azure]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Modelos de execução do Azure]: http://www.windowsazure.com/pt-br/develop/net/fundamentals/compute/
+  [Implantando um aplicativo Web ASP.NET em um site do Azure]: http://www.windowsazure.com/pt-br/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -774,6 +773,6 @@ Para obter mais informações sobre o Brramento de Serviço, consulte os seguint
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Service Bus do Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Service Bus do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee732537.aspx
   [Como é o Barramento de Serviço]: /pt-br/documentation/services/service-bus/
-  [Como usar as filas do Service Bus]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [Como usar as filas do Service Bus]: /pt-br/develop/net/how-to-guides/service-bus-queues/

@@ -4,11 +4,11 @@ Após os registros do nome de domínio serem propagados, você deverá associá-
 >
 > É possível usar um serviço como <http://www.digwebinterface.com/> para verificar se o CNAME está disponível.
 
-1.  No seu navegador, abra o [Portal de Gerenciamento do Azure][].
+1.  No seu navegador, abra o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  Na guia **Sites**, clique no nome do seu site, selecione **Painel** e **Gerenciar Domínios** na parte inferior da página.
 
-    ![][]
+    ![][0]
 
 3.  Use as caixas de texto **NOMES DE DOMÍNIO** para inserir os nomes de domínio a serem associados a este site.
 
@@ -21,5 +21,5 @@ Após os registros do nome de domínio serem propagados, você deverá associá-
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao site do Azure.
 
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-7.png

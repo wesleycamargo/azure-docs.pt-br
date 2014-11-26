@@ -1,8 +1,10 @@
-<properties urlDisplayName="How to scale" pageTitle="Como dimensionar um servi&ccedil;o de nuvem - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Saiba como dimensionar um servi&ccedil;o de nuvem e os recursos vinculados no Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Como dimensionar um aplicativo" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # Como dimensionar um aplicativo
+
+[WACOM.INCLUDE [isenção de responsabilidade](../includes/disclaimer.md)]
 
 Na página Escala do Portal de Gerenciamento do Azure, você pode dimensionar manualmente seu aplicativo ou definir parâmetros para dimensioná-lo automaticamente. Você pode dimensionar aplicativos executados em funções Web, funções de trabalho ou máquinas virtuais. Para dimensionar um aplicativo que esteja executando instâncias de funções Web ou funções de trabalho, você pode adicionar ou remover instâncias de função para acomodar a carga de trabalho.
 

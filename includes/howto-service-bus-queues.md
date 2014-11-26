@@ -15,7 +15,7 @@ recebidas e processadas pelos receptores na ordem em que foram
 adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas
 um consumidor de mensagem.
 
-![Conceitos de fila][]
+![Conceitos de fila][Conceitos de fila]
 
 Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser usada para
 uma grande variedade de cenários:
@@ -38,13 +38,13 @@ contêiner de controle para endereçamento dos recursos do Barramento de Serviç
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em
     **Service Bus**.
 
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.
-    ![][]
+    ![][0]
 
 4.  No diálogo **Adicionar um novo namespace**, insira um nome de namespace.
     O sistema imediatamente verifica se o nome está disponível.
@@ -93,7 +93,7 @@ namespace. Você pode obter essas credenciais do Portal de Gerenciamento ou do G
 
 ### Para obter credenciais de gerenciamento do Gerenciador de Servidores
 
-Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui][], na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Brramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
+Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui][aqui], na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Brramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
 
 Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
 
@@ -101,11 +101,11 @@ Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
 
   [Conceitos de fila]: ./media/howto-service-bus-queues/sb-queues-08.png
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-queues/sb-queues-03.png
+  [0]: ./media/howto-service-bus-queues/sb-queues-03.png
   [1]: ./media/howto-service-bus-queues/sb-queues-04.png
   [2]: ./media/howto-service-bus-queues/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-queues/sb-queues-13.png
   [4]: ./media/howto-service-bus-queues/sb-queues-09.png
   [5]: ./media/howto-service-bus-queues/sb-queues-06.png
-  [aqui]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [aqui]: http://http://msdn.microsoft.com/pt-br/library/windowsazure/ff687127.aspx
   [6]: ./media/howto-service-bus-queues/VSProperties.png

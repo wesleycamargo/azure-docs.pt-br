@@ -1,30 +1,30 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure Xamarin.Android data, Azure mobile services data" description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Introdução aos dados nos Serviços Móveis
 
 <div class="dev-center-tutorial-selector sublanding">    
-    <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="C# da Windows Store">C# da Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+    <a href="/pt-br/develop/mobile/tutorials/get-started-with-data-dotnet" title="C# da Windows Store">C# da Windows Store</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-js" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 Este tópico mostra como usar os Serviços Móveis do Azure para utilizar os dados em um aplicativo Xamarin.Android. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
 <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
-<p>O objetivo deste tutorial &eacute; ajudar voc&ecirc; a compreender melhor como os Servi&ccedil;os M&oacute;veis permitem usar o Azure para armazenar e recuperar dados de um aplicativo Xamarin.Android. Desse modo, este t&oacute;pico explica muitas das etapas que s&atilde;o conclu&iacute;das para voc&ecirc; no Guia de in&iacute;cio r&aacute;pido dos Servi&ccedil;os M&oacute;veis. Se esta for sua primeira experi&ecirc;ncia com os Servi&ccedil;os M&oacute;veis, primeiro conclua o tutorial <a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">Introdu&ccedil;&atilde;o aos Servi&ccedil;os M&oacute;veis</a>.</p>
+<p>O objetivo deste tutorial &eacute; ajudar voc&ecirc; a compreender melhor como os Servi&ccedil;os M&oacute;veis permitem usar o Azure para armazenar e recuperar dados de um aplicativo Xamarin.Android. Desse modo, este t&oacute;pico explica muitas das etapas que s&atilde;o conclu&iacute;das para voc&ecirc; no Guia de in&iacute;cio r&aacute;pido dos Servi&ccedil;os M&oacute;veis. Se esta for sua primeira experi&ecirc;ncia com os Servi&ccedil;os M&oacute;veis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-xamarin-android">Introdu&ccedil;&atilde;o aos Servi&ccedil;os M&oacute;veis</a>.</p>
 </div>
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
-1.  [Baixar o projeto do aplicativo Xamarin.Android][]
-2.  [Criar o serviço móvel][]
-3.  [Adicionar uma tabela de dados para armazenamento][]
-4.  [Atualizar o aplicativo para usar Serviços Móveis][]
-5.  [Testar o aplicativo com os Serviços Móveis][]
+1.  [Baixar o projeto do aplicativo Xamarin.Android][Baixar o projeto do aplicativo Xamarin.Android]
+2.  [Criar o serviço móvel][Criar o serviço móvel]
+3.  [Adicionar uma tabela de dados para armazenamento][Adicionar uma tabela de dados para armazenamento]
+4.  [Atualizar o aplicativo para usar Serviços Móveis][Atualizar o aplicativo para usar Serviços Móveis]
+5.  [Testar o aplicativo com os Serviços Móveis][Testar o aplicativo com os Serviços Móveis]
 
-<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa de uma conta do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
+<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa de uma conta do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, poder&aacute; criar uma conta de avalia&ccedil;&atilde;o gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
 
-Este tutorial requer o [Componente dos Serviços Móveis do Azure][], [Xamarin.Android] e Android SDK 4.2 ou uma versão mais recente.
+Este tutorial requer o [Componente dos Serviços Móveis do Azure][Componente dos Serviços Móveis do Azure], [Xamarin.Android] e Android SDK 4.2 ou uma versão mais recente.
 
 <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
 <p>O projeto GetStartedWithData baixado requer o Android 4.2 ou uma vers&atilde;o mais recente. No entanto, o SDK dos Servi&ccedil;os M&oacute;veis requer apenas o Android 2.2 ou uma vers&atilde;o mais recente.</p>
@@ -48,13 +48,13 @@ Este tutorial é baseado no [aplicativo GetStartedWithData][Baixar o projeto do 
 
 5.  No aplicativo, digite um texto significativo, como *Concluir o tutorial* e clique em **Adicionar**.
 
-    ![][]
+    ![][0]
 
     Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
 
 ## <a name="create-service"></a><span class="short-header">Criar um novo serviço móvel</span>Crie um novo serviço móvel no Portal de Gerenciamento
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Adicionar uma nova tabela</span>Adicione uma nova tabela para o serviço móvel
 
@@ -209,7 +209,7 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
     Isso envia um novo item como uma inserção no serviço móvel.
 
-3.  No [Portal de Gerenciamento][], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
+3.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
 4.  Clique na guia **Dados** e, em seguida, clique em **Procurar**.
 
@@ -229,48 +229,38 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo X
 
 Em seguida, considere fazer um dos seguintes tutoriais com base no aplicativo GetStartedWithData que você criou neste tutorial:
 
--   [Validar e modificar dados com scripts][]
+-   [Validar e modificar dados com scripts][Validar e modificar dados com scripts]
     Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
 
--   [Refinar consultas com paginação][]
+-   [Refinar consultas com paginação][Refinar consultas com paginação]
     Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
 
 Depois de ter concluído a série de dados, tente um destes outros tutoriais do Xamarin.Android:
 
--   [Introdução à autenticação][]
+-   [Introdução à autenticação][Introdução à autenticação]
     Saiba como autenticar usuários de seu aplicativo.
 
--   [Introdução às notificações por push][]
+-   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
-<!-- Anchors. -->
+
 <!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->
 
-  [C# da Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-data-js "JavaScript da Windows Store"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
+  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
   [Baixar o projeto do aplicativo Xamarin.Android]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Criar o serviço móvel]: #create-service
   [Adicionar uma tabela de dados para armazenamento]: #add-table
   [Atualizar o aplicativo para usar Serviços Móveis]: #update-app
   [Testar o aplicativo com os Serviços Móveis]: #test-app
-  [Avaliação gratuita do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5
   [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
-<!-- Images. -->
-  []: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+
+  [0]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
   [1]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-dashboard-tab.png
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [4]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-  [Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-  [Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-  [Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+  [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+  [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+  [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-android

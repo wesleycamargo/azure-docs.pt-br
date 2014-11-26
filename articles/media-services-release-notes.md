@@ -396,9 +396,9 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 
     O suporte assíncrono foi adicionado a todos os métodos.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
-  [Fórum MSDN de Serviços de Mídia do Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+  [Fórum MSDN de Serviços de Mídia do Azure]: http://social.msdn.microsoft.com/forums/azure/pt-br/home?forum=MediaServices
   [Problemas conhecidos no momento]: #issues
   [Histórico de versões da API REST]: #rest_version_history
   [Versão de outubro de 2014]: #october_changes_14

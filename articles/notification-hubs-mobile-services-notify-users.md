@@ -233,12 +233,12 @@ Agora que você concluiu este tutorial, considere concluir os seguintes tutoriai
 
 Para obter mais informações sobre Hubs de Notificação, consulte [Hubs de Notificação do Azure].
 
-<!-- Anchors. -->
+
 [Atualizar seu serviço móvel para registrar-se para notificações]: #register-notification
 [Atualizar o aplicativo para fazer logon e solicitar o registro]: #update-app
 [Atualizar seu serviço móvel para enviar notificações]: #send-notifications
 
-<!-- Images. -->
+
 [0]: ./media/notification-hubs-mobile-services-notify-users/mobile-services-selection.png
 [1]: ./media/notification-hubs-mobile-services-notify-users/mobile-custom-api-create.png
 [2]: ./media/notification-hubs-mobile-services-notify-users/mobile-custom-api-create2.png
@@ -248,7 +248,7 @@ Para obter mais informações sobre Hubs de Notificação, consulte [Hubs de Not
 [6]: ./media/notification-hubs-mobile-services-notify-users/notification-hub-select-hub-connection.png
 [7]: ./media/notification-hubs-mobile-services-notify-users/notification-hub-connection-strings.png
 
-<!-- URLs. -->
+
 [Get started Windows Store]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet
 [Get started iOS]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios
 [Get started Android]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-android

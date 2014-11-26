@@ -4,4 +4,3 @@
 <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=331133" class="solution-cta-link light-font arrowbtn green">baixar</a></p>
 </div>
 
-  [baixar]: http://go.microsoft.com/fwlink/p/?LinkId=331133

@@ -1,10 +1,10 @@
 <properties linkid="manage-services-identity-what-is-windows-azure-AD" urlDisplayName="What is Azure AD?" pageTitle="What is Azure Active Directory?" metaKeywords="" description="Use Azure Active Directory to extend your existing on-premises identities into the cloud for an improved admin and end user experience while Microsoft keeps Active Directory running in the cloud with high scale, high availability, and integrated disaster recovery. Or, develop Azure AD integrated applications for your organization or for other organizations." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="justinha"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="justinha" />
 
 # O que é o Active Directory do Azure?
 
-O Active Directory do Azure é um serviço que fornece recursos de gerenciamento de acesso e identidade na nuvem. Da mesma forma que o Active Directory é um serviço disponibilizado para os clientes através do sistema operacional do Windows Server para gerenciamento de identidade no local, o Active Directory do Azure (AD do Azure) é um serviço disponibilizado pelo Azure para gerenciamento de identidade baseado na nuvem. [Saiba mais][]
+O Active Directory do Azure é um serviço que fornece recursos de gerenciamento de acesso e identidade na nuvem. Da mesma forma que o Active Directory é um serviço disponibilizado para os clientes através do sistema operacional do Windows Server para gerenciamento de identidade no local, o Active Directory do Azure (AD do Azure) é um serviço disponibilizado pelo Azure para gerenciamento de identidade baseado na nuvem. [Saiba mais][Saiba mais]
 
 Como esse é diretório de nuvem da sua organização, você decide quem são os seus usuários, quais informações são mantidas na nuvem, quem pode usar essas informações ou gerenciá-las e quais aplicativos ou serviços podem acessar essas informações.
 
@@ -21,9 +21,9 @@ Os desenvolvedores de aplicativos podem integrar seus aplicativos com o AD do Az
 
 **Recursos adicionais**
 
--   [Inscrever-se no Azure como uma organização][]
--   [Identidade do Azure][]
--   [Biblioteca do AD do Azure no MSDN][]
+-   [Inscrever-se no Azure como uma organização][Inscrever-se no Azure como uma organização]
+-   [Identidade do Azure][Identidade do Azure]
+-   [Biblioteca do AD do Azure no MSDN][Biblioteca do AD do Azure no MSDN]
 
   [Saiba mais]: http://msdn.microsoft.com/library/hh967611.aspx
   [1]: http://msdn.microsoft.com/library/jj573653

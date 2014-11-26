@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 <div>
 <div class="left-nav">
@@ -108,16 +108,4 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 
 <!--links-->
 
-  [Computação]: /pt-br/develop/net/compute/
-  [Serviços de dados]: /pt-br/develop/net/data/
-  [Serviços de Aplicativos]: /pt-br/develop/net/app-services/
-  [Referência]: /pt-br/develop/net/reference/
-  [Diretrizes]: /pt-br/develop/net/guidance/
-  [Arquitetura]: /pt-br/develop/net/architecture/
-  [Exemplos]: /pt-br/develop/net/samples/
-  [Tutoriais baseados em cenário]: /pt-br/develop/net/end-to-end-Apps/
-  [Fóruns]: /pt-br/support/forums/
-  [Visões gerais da arquitetura do aplicativo]: /pt-br/develop/net/architecture/#overviews
-  [Padrão do aplicativo: Testes de carga]: /pt-br/develop/net/architecture/load-testing-pattern/
-  [Padrões de design]: /pt-br/develop/net/architecture/#designpatterns
   [Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/pt-br/library/hh534480.aspx

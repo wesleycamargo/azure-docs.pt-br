@@ -75,4 +75,3 @@ Para obter mais informações, consulte [Sites do Azure][Sites do Azure].
   [Como: excluir um site]: #deleteawebsite
   [Próximas etapas]: #nextsteps
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
-  [website-from-gallery]: ../includes/website-from-gallery.md

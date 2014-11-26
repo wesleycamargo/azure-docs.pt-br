@@ -63,11 +63,11 @@
 
 	>[WACOM.NOTE]Quando você define suas credenciais dos WNS para notificações por push aprimoradas na guia **Enviar por Push** no portal, elas são compartilhadas com os Hubs de Notificação para configurar o hub de notificação com seu aplicativo.
 
-<!-- Anchors. -->
 
 
 
-<!-- URLs. -->
+
+
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

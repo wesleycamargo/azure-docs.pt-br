@@ -24,7 +24,7 @@ Os principais benefícios de um registro A em relação a um registro CNAME são
 
 Um registro CNAME mapeia um nome DNS *específico* como **mail.contoso.com** ou **www.contoso.com** para outro nome de domínio (canônico). No caso de Sites do Azure, o nome de domínio canônico é o nome de domínio **&lt;nomedoseusite>.azurewebsites.net** de seu site. Quando criado, o CNAME cria um alias para o nome de domínio **&lt;nomedoseusite>.azurewebsites.net**. A entrada CNAME resolverá o endereço IP de seu nome de domínio **&lt;nomedoseusite>.azurewebsites.net** automaticamente, portanto, se o endereço IP do site for alterado, nenhuma ação será necessária.
 
-> [WACOM.NOTE] Alguns registradores de domínios só permitem que você mapeie subdomínios quando usa um registro CNAME, como **www.contoso.com**, e não nomes raiz, por exemplo, **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida pelo seu registrador, [a entrada da Wikipédia sobre o registro CNAME][], ou do documento de implementação e especificação [IETF Domain Names][].
+> [WACOM.NOTE] Alguns registradores de domínios só permitem que você mapeie subdomínios quando usa um registro CNAME, como **www.contoso.com**, e não nomes raiz, por exemplo, **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida pelo seu registrador, [a entrada da Wikipédia sobre o registro CNAME][a entrada da Wikipédia sobre o registro CNAME], ou do documento de implementação e especificação [IETF Domain Names][IETF Domain Names].
 
 ###Especificações de DNS de site do Azure
 
@@ -38,13 +38,13 @@ Esse registro CNAME é usado para verificar se você tem o domínio que está te
 
 Você pode encontrar o endereço IP, bem como os nomes **awverify** e **.azurewebsites.net** para seu site executando as seguintes etapas:
 
-1.  No seu navegador, abra o [Portal de Gerenciamento do Azure][].
+1.  No seu navegador, abra o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
 
 2.  Na guia **Sites**, clique no nome do seu site, selecione **Painel** e **Gerenciar Domínios** na parte inferior da página.
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE] Se **Gerenciar Domínios** não estiver habilitado, então você está usando um site gratuito. Você não pode utilizar nomes de domínio personalizados com um site gratuito; por isso, precisa atualizar para o modo Compartilhado, Básico ou Padrão. Para obter mais informações sobre os modos de site, inclusive sobre como alterar o modo do site, consulte [Como dimensionar sites][].
+    > [WACOM.NOTE] Se **Gerenciar Domínios** não estiver habilitado, então você está usando um site gratuito. Você não pode utilizar nomes de domínio personalizados com um site gratuito; por isso, precisa atualizar para o modo Compartilhado, Básico ou Padrão. Para obter mais informações sobre os modos de site, inclusive sobre como alterar o modo do site, consulte [Como dimensionar sites][Como dimensionar sites].
 
 3.  No diálogo **GERENCIAR DOMÍNIOS PERSONALIZADOS**, você verá as informações de **awverify**, o nome de domínio **.azurewebsites.net** atribuído no momento e os endereços IP virtuais. Salve essas informações, pois elas serão utilizadas na criação de registros DNS.
 
@@ -53,6 +53,6 @@ Você pode encontrar o endereço IP, bem como os nomes **awverify** e **.azurewe
   [a entrada da Wikipédia sobre o registro CNAME]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF Domain Names]: http://tools.ietf.org/html/rfc1035
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [Como dimensionar sites]: http://www.windowsazure.com/pt-br/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

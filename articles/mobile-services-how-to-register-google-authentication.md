@@ -34,9 +34,9 @@ Este tópico mostra a você como registrar seus aplicativos para poder usar o Go
 
 Agora você está pronto para usar um logon do Google para autenticação no seu aplicativo, fornecendo os valores de ID do cliente e de segredo do cliente para os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
   [0]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png

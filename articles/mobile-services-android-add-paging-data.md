@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-android" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
@@ -97,18 +97,10 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 -   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [C# da Windows Store]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet "C# da Windows Store"
-  [JavaScript da Windows Store]: /pt-br/develop/mobile/tutorials/add-paging-to-data-js "JavaScript da Windows Store"
-  [Windows Phone]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /pt-br/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /pt-br/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
+
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
   [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android

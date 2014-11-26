@@ -277,5 +277,4 @@ Para executar o aplicativo, faça o seguinte:
 4.  Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
 
   [Registrando-se a partir do back-end do aplicativo]: http://msdn.microsoft.com/pt-br/library/dn743807.aspx
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG

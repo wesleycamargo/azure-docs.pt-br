@@ -1,6 +1,6 @@
 <properties title="Introdu&ccedil;&atilde;o ao armazenamento do Azure" pageTitle="Introdu&ccedil;&atilde;o ao armazenamento do Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -41,5 +41,4 @@ Para obter mais informações, consulte [ASP.NET][ASP.NET].
   [Filas]: /documentation/articles/vs-storage-aspnet-getting-started-queues/
   [Tabelas]: /documentation/articles/vs-storage-aspnet-getting-started-tables/
   [Como usar o Armazenamento de Blob do .NET]: http://azure.microsoft.com/pt-BR/documentation/articles/storage-dotnet-how-to-use-blobs/ "Como usar o Armazenamento de Blob do .NET"
-  [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md
   [ASP.NET]: http://www.asp.net

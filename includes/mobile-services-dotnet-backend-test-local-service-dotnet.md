@@ -6,7 +6,7 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 2.  Pressione a tecla **F5** para recompilar o projeto e iniciar o serviço móvel localmente.
 
-    ![][]
+    ![][0]
 
     Uma página da web é exibida depois que o serviço móvel é iniciado com êxito.
 
@@ -18,4 +18,4 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
     Isso envia uma solicitação POST ao serviço móvel local. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png

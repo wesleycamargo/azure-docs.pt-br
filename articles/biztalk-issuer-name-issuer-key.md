@@ -83,7 +83,7 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
 
 -   [Instalando o SDK dos Serviços BizTalk do Azure][Instalando o SDK dos Serviços BizTalk do Azure]
 -   [Tutoriais: Serviços do BizTalk do Azure][Tutoriais: Serviços do BizTalk do Azure]
--   [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]
+-   [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)][Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]
 -   [Serviços BizTalk do Azure][Serviços BizTalk do Azure]
 
 ## Consulte também

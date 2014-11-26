@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning API service operations" pageTitle="Machine Learning API service operations | Azure" description="Creating and managing Azure Machine Learning web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Operações de serviço de API de Aprendizado de Máquina do Azure
 
@@ -28,7 +28,7 @@ O Azure AM permite a criação de serviços Web por meio de testes AM definidos 
 
 O diagrama a seguir mostra as etapas em alto nível em duas partes: primeiro compilando um modelo e depois publicando esse modelo como um Serviço Web. Este documento descreve o lado direito do diagrama da Figura 1 – Publicando um serviço Web de pontuação - e explica os conceitos envolvidos nesse processo.
 
-![][]
+![][0]
 
 Figura 1: Provisão, compilação e publicação de um serviço Web de pontuação
 
@@ -219,7 +219,7 @@ Depois que o Teste tiver siado atualizado e o novo Modelo treinado estiver criad
 <!--Image references-->
 <!--Link references-->
 
-  []: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
+  [0]: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
   [1]: ./media/machine-learning-overview-of-azure-ml-process/oamlp2.png
   [2]: ./media/machine-learning-overview-of-azure-ml-process/oamlp3.png
   [3]: ./media/machine-learning-overview-of-azure-ml-process/oamlp4.png

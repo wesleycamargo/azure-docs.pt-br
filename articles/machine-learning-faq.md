@@ -116,4 +116,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
   [Centro de Aprendizado de Máquina do Azure]: http://azure.microsoft.com/pt-br/documentation/services/machine-learning/
   [fórum de feedback do usuário]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [Fórum do Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [Fórum do Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/pt-br/home?forum=MachineLearning

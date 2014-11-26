@@ -1,6 +1,6 @@
 <properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Principais conceitos de Gerenciamento de API
 
@@ -12,18 +12,18 @@ Esse tópico fornece uma visão geral dos principais conceitos de Gerenciamento 
 
 ## Neste tópico
 
--   [APIs e operações][]
--   [Produtos][]
--   [Grupos][]
--   [Desenvolvedores][]
--   [Políticas][]
--   [Portal do desenvolvedor][]
+-   [APIs e operações][APIs e operações]
+-   [Produtos][Produtos]
+-   [Grupos][Grupos]
+-   [Desenvolvedores][Desenvolvedores]
+-   [Políticas][Políticas]
+-   [Portal do desenvolvedor][Portal do desenvolvedor]
 
 ## <a name="apis"> </a>APIs e operações
 
 As APIs são a fundação de uma instância de serviço de Gerenciamento de API. Cada API representa um conjunto de operações disponíveis para desenvolvedores. Cada API contém uma referência para serviço back-end que implementa a API, e suas operações são mapeadas para as operações implementadas pelo serviço de back-end. As operações no Gerenciamento de API são altamente configuráveis, com controle sobre o mapeamento de URL, parâmetros de consulta e caminho, conteúdo de solicitação e resposta e caching de resposta de operação. As políticas de limite de taxa, cotas e restrições de IP podem também ser implementadas no nível de operação individual ou da API.
 
-Para obter mais informações, consulte [Como criar APIs][] e [Como adicionar operações a uma API][].
+Para obter mais informações, consulte [Como criar APIs][Como criar APIs] e [Como adicionar operações a uma API][Como adicionar operações a uma API].
 
 ## <a name="products"> </a> Produtos
 
@@ -31,7 +31,7 @@ Os produtos são como as APIs são exibidas para os desenvolvedores. Os produtos
 
 Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem.
 
-Para obter mais informações, consulte [Como criar e publicar um produto][].
+Para obter mais informações, consulte [Como criar e publicar um produto][Como criar e publicar um produto].
 
 ## <a name="groups"> </a> Grupos
 
@@ -43,21 +43,21 @@ Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvo
 
 Além desses grupos internos, os administradores podem criar grupos personalizados. Os grupos personalizados têm os mesmos privilégios que o grupo de desenvolvedores internos e podem ser usados para gerenciar vários grupos de desenvolvedores. Por exemplo, você pode criar um grupo personalizado para desenvolvedores que usará as APIs de um produto e um outro grupo de desenvolvedores que usará as APIs de um produto diferente.
 
-Para obter mais informações, consulte [Como criar e utilizar grupos][].
+Para obter mais informações, consulte [Como criar e utilizar grupos][Como criar e utilizar grupos].
 
 ## <a name="developers"> </a> Desenvolvedores
 
-Os desenvolvedores representam as contas de usuários em uma instância de serviço de Gerenciamento de API. Os desenvolvedores podem ser criados ou convidados para se juntar aos administradores ou podem fazer a inscrição no [Portal do desenvolvedor][]. Cada desenvolvedor é um membro de um ou mais grupos e pode assinar os produtos que tornam visíveis esses grupos.
+Os desenvolvedores representam as contas de usuários em uma instância de serviço de Gerenciamento de API. Os desenvolvedores podem ser criados ou convidados para se juntar aos administradores ou podem fazer a inscrição no [Portal do desenvolvedor][Portal do desenvolvedor]. Cada desenvolvedor é um membro de um ou mais grupos e pode assinar os produtos que tornam visíveis esses grupos.
 
 Quando os desenvolvedores assinam um produto, recebem as chaves principal e secundária para esse produto. Essa chave é usada quando eles fazem chamadas às APIs dos produtos.
 
-Para obter mais informações, consulte [Como criar ou convidar desenvolvedores][] e [Como associar grupos aos desenvolvedores][].
+Para obter mais informações, consulte [Como criar ou convidar desenvolvedores][Como criar ou convidar desenvolvedores] e [Como associar grupos aos desenvolvedores][Como associar grupos aos desenvolvedores].
 
 ## <a name="policies"> </a> Políticas
 
 As políticas são um poderoso recurso de Gerenciamento de API que permite ao editor alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. Instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
 
-Para obter uma lista completa de políticas de Gerenciamento de API, consulte [Referência de política][]. Para obter mais informações sobre como usar e configurar políticas, consulte [Políticas de Gerenciamento de API][]. Para obter um tutorial sobre como criar um produto com políticas de cota e limite de taxa, consulte [Como criar e definir configurações avançadas de produto][].
+Para obter uma lista completa de políticas de Gerenciamento de API, consulte [Referência de política][Referência de política]. Para obter mais informações sobre como usar e configurar políticas, consulte [Políticas de Gerenciamento de API][Políticas de Gerenciamento de API]. Para obter um tutorial sobre como criar um produto com políticas de cota e limite de taxa, consulte [Como criar e definir configurações avançadas de produto][Como criar e definir configurações avançadas de produto].
 
 ## <a name="developer-portal"> </a> Portal do desenvolvedor
 

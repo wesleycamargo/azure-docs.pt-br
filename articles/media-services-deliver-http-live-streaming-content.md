@@ -82,6 +82,6 @@ Este tópico conclui os tópicos Usando os Serviços de Mídia do Azure. Abordam
   [Introdução ao SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/pt-br/MediaServices/threads
   [Como monitorar uma conta de Serviços de Mídia]: ../media-services-monitor-services-account/
   [Como gerenciar conteúdo nos Serviços de Mídia]: ../media-services-manage-content/

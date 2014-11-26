@@ -2,6 +2,10 @@
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
+
+
+
+
 # Aplicativo Web do Node.js usando o Banco de Dados SQL do Azure
 
 Este tutorial mostra como usar o banco de dados SQL fornecido pelo Gerenciamento de Dados do Azure para armazenar e acessar dados em um aplicativo de [nó][nó] hospedado no Azure. Este tutorial pressupõe que você tenha alguma experiência anterior usando nó e [Git][Git].
@@ -418,7 +422,7 @@ Nesta seção, você usará as etapas de implantação recebidas depois de criar
         To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
          * [new branch]      master -> master
 
-3.  Quando a operação de envio por push for concluída, navegue até o **[http://[site][http://[site] name].azurewebsites.net/** para exibir o seu aplicativo.
+3.  Quando a operação de envio por push for concluída, navegue até o **http://[nome do site].azurewebsites.net/** para exibir o seu aplicativo.
 
 ### Alternar para uma variável de ambiente
 
@@ -459,8 +463,9 @@ Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo da 
 
 ## Recursos adicionais
 
-[Ferramenta de linha de comando do Azure para Mac e Linux] [Criar e implantar um aplicativo Node.js em sites do Azure]: /pt-br/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publicando Sites do Azure com Git][Publicando Sites do Azure com Git]: /pt-br/develop/nodejs/common-tasks/publishing-with-git/
+[Ferramenta de linha de comando do Azure para Mac e Linux]    
+[Criar e implantar um aplicativo Node.js em sites do Azure]: /pt-br/develop/nodejs/tutorials/create-a-website-(mac)/
+[Publicando Sites do Azure com Git]: /pt-br/develop/nodejs/common-tasks/publishing-with-git/
 [Azure Developer Center]: /pt-br/develop/nodejs/
 [Aplicativo web Node.js com Armazenamento de tabela]: /pt-br/develop/nodejs/tutorials/web-site-with-storage/
 
@@ -472,6 +477,7 @@ Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo da 
   [Criar um novo site do Azure]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Criação personalizada de um novo site]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [Preencha os detalhes do site]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
+  [(WEB ou BUSINESS)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee621788.aspx
   [Preencher as configurações do banco de dados SQL]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Criar um novo servidor de banco de dados SQL]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Abrir o painel do site]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -496,4 +502,5 @@ Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo da 
   [configurações do aplicativo]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [salvar as configurações do aplicativo]: ./media/sql-database-nodejs-use-web-site/savebutton.png
   [Aplicativo Web Node.js com MongoDB]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
-  [Publicando Sites do Azure com Git]: ../CommonTasks/publishing-with-git
+  [Ferramenta de linha de comando do Azure para Mac e Linux]:  /pt-br/develop/nodejs/how-to-guides/command-line-tools/
+

@@ -169,11 +169,10 @@ Este tutorial demonstrou as noções básicas sobre a ativação do aplicativo d
     
 	Saiba mais sobre como implementar a lógica de negócios no seu serviço móvel.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
   [Atualizar o aplicativo para registrar-se para notificações]: #update-app
   [Atualizar scripts de servidor para enviar notificações por push]: #update-scripts
   [Inserir dados para receber notificações por push]: #test

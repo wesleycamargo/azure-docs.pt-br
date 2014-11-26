@@ -65,9 +65,9 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 -   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introdução a dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android

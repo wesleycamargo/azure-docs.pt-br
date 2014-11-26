@@ -499,7 +499,6 @@ Para implementar o aplicativo criado neste tutorial como um projeto Web padrão,
 
 Para saber como implantar o front-end em um site do Azure, consulte [Implantando um aplicativo Web do ASP.NET em um site do Azure][Implantando um aplicativo Web do ASP.NET em um site do Azure]. Para saber como implantar o back-end em um serviço de nuvem do Azure, consulte [Aplicativo multicamadas do .NET usando tabelas, filas e blobs de armazenamento][Aplicativo de várias camadas .NET usando Tabelas de armazenamento, Filas e Blobs].
 
-  [create-account-note]: ../includes/create-account-note.md
   [Próximas etapas]: #nextsteps
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Filas do Azure e filas do Barramento de Serviço do Azure - comparadas e contrastadas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx

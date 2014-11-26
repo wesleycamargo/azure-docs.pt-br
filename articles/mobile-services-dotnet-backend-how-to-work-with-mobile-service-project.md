@@ -1,6 +1,6 @@
 <properties pageTitle="Work with a .NET backend mobile service" metaKeywords="Web API, mobile service, Azure, controllers" description="Provides examples on how to define, register, and use server-side components in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Trabalhar com um serviço móvel de back-end .NET
 
@@ -54,7 +54,7 @@ A assinatura da função principal no script de servidor depende do contexto em 
 
 Para obter descrições de objetos de script de servidor individual e funções, consulte [Referência de script de servidor dos Serviços Móveis].
 
-<!-- Anchors. -->
+
 
   [Introdução]: #intro
   [Operações de tabela]: #table-scripts

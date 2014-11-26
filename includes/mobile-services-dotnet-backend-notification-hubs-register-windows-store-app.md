@@ -1,6 +1,6 @@
 1.  Se você não tiver registrado seu aplicativo, navegue até o [Enviar uma página de aplicativo][Enviar uma página de aplicativo] no Centro de Desenvolvimento de aplicativos da Windows Store, faça logon com sua conta da Microsoft e, em seguida, clique em **Nome do aplicativo**.
 
-    ![][]
+    ![][0]
 
 2.  Digite um nome para o seu aplicativo em **Nome do aplicativo**, clique em **Reservar nome do aplicativo** e, em seguida, clique em **Salvar**.
 
@@ -52,10 +52,10 @@
 
     > [WACOM.NOTE]Quando você define suas credenciais dos WNS para notificações por push aprimoradas na guia **Enviar por Push** no portal, elas são compartilhadas com os Hubs de Notificação para configurar o hub de notificação para seu aplicativo.
 
-<!-- URLs. -->
+
 
   [Enviar uma página de aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
   [2]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png
   [3]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png

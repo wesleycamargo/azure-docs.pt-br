@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  Baixe e descompacte o [Mobile Services Android SDK][], abra a pasta **notificações**, copie o arquivo **notifications-1.0.1.jar** para a pasta *libs* do seu projeto Eclipse e atualize a pasta *libs*.
+4.  Baixe e descompacte o [Mobile Services Android SDK][Mobile Services Android SDK], abra a pasta **notificações**, copie o arquivo **notifications-1.0.1.jar** para a pasta *libs* do seu projeto Eclipse e atualize a pasta *libs*.
 
     <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
 <p>Os n&uacute;meros no fim do nome do arquivo podem ser alterados em vers&otilde;es subsequentes do SDK.</p>
@@ -43,7 +43,7 @@
 
 9.  Em **Nome**, digite `MyHandler`, no tipo **Superclasse**, digite \` `com.microsoft.windowsazure.notifications.NotificationsHandler` e clique em **Concluir**.
 
-    ![][]
+    ![][0]
 
     Isto criará a nova classe MyHandler.
 
@@ -113,7 +113,7 @@
 
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
-<!-- URLs. -->
+
 
   [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png

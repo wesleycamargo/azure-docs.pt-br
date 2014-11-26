@@ -1,10 +1,10 @@
 <properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online team project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create team project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online team project and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services, visual-studio-online" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="jimlamb" solutions="" writer="jimlamb" manager="" editor=""  />
 
-<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb"></tags>
+<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb" />
 
 # Criar um projeto do Visual Studio Online e configurar implantação contínua no Windows Azure
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 O Portal de Gerenciamento do Windows Azure permite criar um Projeto de Equipe no Visual Studio Online e configurar seu aplicativo web para implantação contínua em um site.
 
@@ -57,7 +57,6 @@ O Portal de Gerenciamento do Windows Azure permite criar um Projeto de Equipe no
 3.  Na lâmina de compilação, clique no primeiro item na parte **Implantações** para abrir o site associado.
 4.  Na lâmina do site, clique no comando em nível de lâmina **Procurar** para procurar o site e verificar a implantação do seu aplicativo web.
 
-  [disclaimer]: ../includes/disclaimer.md
   [Como criar um projeto de equipe]: #create_team_project
   [Como criar um novo aplicativo web e adicioná-lo ao controle de versão Git]: #create_web_app
   [Como configurar a implantação contínua]: #continuous_deployment

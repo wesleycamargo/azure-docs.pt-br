@@ -2,7 +2,7 @@
 
 2.  No aplicativo, digite um texto com sentido, como *Concluir o tutorial*, em **Inserir um TodoItem** e clique em **Salvar**.
 
-    ![][]
+    ![][0]
 
     Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure.
 
@@ -12,5 +12,5 @@
 
     Observe que os dados salvos da etapa anterior são carregados a partir do serviço móvel após o aplicativo ser iniciado.
 
-  []: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png

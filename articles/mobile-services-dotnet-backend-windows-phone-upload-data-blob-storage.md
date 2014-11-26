@@ -46,9 +46,9 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
 
 [WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Instalar a biblioteca do Cliente de Armazenamento]: #install-storage-client
   [Atualizar o aplicativo cliente para capturar imagens]: #add-select-images
@@ -59,6 +59,4 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
   [SDK do Windows Phone 8.0]: http://www.microsoft.com/pt-br/download/details.aspx?id=35471
   [Conta de Armazenamento do Azure]: /pt-br/documentation/articles/storage-create-storage-account/
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md

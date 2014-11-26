@@ -1,6 +1,6 @@
 <properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
 
 # Monitorar uma conta de Banco de Dados de Documentos
 
@@ -23,7 +23,7 @@ Você pode monitorar suas contas de Banco de Dados de Documentos no [Portal de V
     -   Solicitações totais para o dia de hoje.
     -   Média de solicitações por segundo para o dia de hoje
 
-    ![][]
+    ![][0]
 
 3.  Clicar na parte **Solicitações totais ou Média de solicitações por segundo** abre uma lâmina de **Métrica** detalhada.
 4.  A lâmina Métrica mostra a você detalhes sobre as métricas que você selecionou. Na parte superior da lâmina há um gráfico, abaixo dele há uma tabela que mostra valores de agregação das métricas selecionadas como a média, o mínimo e o máximo. A lâmina Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na lâmina de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).
@@ -106,7 +106,7 @@ O portal de Visualização do Azure permite que você crie gráficos de métrica
   [Como: Visualizar métricas de utilização para uma conta do Banco de Dados de Documentos]: #view
   [Como: Defina alertas de métrica de desempenho para uma conta do Banco de Dados de Documentos]: #setup
   [Próximas etapas]: #next
-  []: http://i.imgur.com/y7pigTT.png
+  [0]: http://i.imgur.com/y7pigTT.png
   [1]: http://i.imgur.com/6rBNPBL.png
   [2]: http://i.imgur.com/tRZEHk1.png
   [3]: http://i.imgur.com/G4UTi5U.png

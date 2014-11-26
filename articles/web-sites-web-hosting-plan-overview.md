@@ -49,7 +49,7 @@ O clique no plano iniciará um blade que permite gerenciar o plano de hospedagem
 
 Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure][Avaliação Gratuita do Microsoft Azure].
 
-<!-- Images. -->
+
 
   [Acesse aqui]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Saiba mais sobre como gerenciar planos de hospedagem na Web]: http://go.microsoft.com/fwlink/?LinkID=394411

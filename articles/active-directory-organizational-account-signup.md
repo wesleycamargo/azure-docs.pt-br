@@ -26,7 +26,6 @@ Como esse é diretório de nuvem da sua organização, você decide quem são os
 
 Se sua organização já usa o Active Directory no local, você poderá usar os recursos de integração do diretório do AD do Azure, como a sincronização do diretório e o logon único, para estender ainda mais o alcance de suas identidades existentes no local para a nuvem para oferecer uma experiência aprimorada para o administrador e o usuário final. [Saiba mais][3]
 
-  [disclaimer]: ../includes/disclaimer.md
   [Saiba mais]: http://windows.microsoft.com/pt-br/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/pt-BR/library/jj573650
   [2]: http://technet.microsoft.com/pt-BR/library/hh967619

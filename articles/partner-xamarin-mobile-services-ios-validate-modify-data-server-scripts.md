@@ -106,9 +106,9 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 -   [Referência de script de servidor dos Serviços Móveis][Referência de script de servidor dos Serviços Móveis]
     Saiba mais sobre como registrar e usar scripts de servidor.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [aplicativo ValidateModifyData]: http://go.microsoft.com/fwlink/p/?LinkId=331330
   [Adicionar validação de comprimento de cadeia de caracteres]: #string-length-validation

@@ -36,19 +36,20 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-1.  No Solution Explorer, abra o arquivo de código App.xaml.cs na pasta de projeto GetStartedWithData.Shared e avise sobre o novo campo estático que foi adicionado à classe **Aplicativo** dentro do bloco de compilação condicional do aplicativo Windows Store, que parece com o exemplo a seguir:
+<ol start="8"><li><p>No Solution Explorer, abra o arquivo de código App.xaml.cs na pasta de projeto GetStartedWithData.Shared e avise sobre o novo campo estático que foi adicionado à classe <b>Aplicativo</b> dentro do bloco de compilação condicional do aplicativo Windows Store, que parece com o exemplo a seguir:</p>
 
-        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-                    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-                        "https://todolist.azure-mobile.net/",
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                
+		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+		        "https://todolist.azure-mobile.net/",
+		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		</code></pre>
 
-    Esse código fornece acesso ao novo serviço móvel em seu aplicativo usando uma instância da [classe MobileServiceClient][classe MobileServiceClient]. O cliente é criado ao fornecer a URI e a chave de aplicativo do novo serviço móvel. Este campo estático está disponível para todas as páginas em seu aplicativo.
+    <p>Esse código fornece acesso ao novo serviço móvel em seu aplicativo usando uma instância da <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">classe MobileServiceClient</a>. O cliente é criado ao fornecer a URI e a chave de aplicativo do novo serviço móvel. Este campo estático está disponível para todas as páginas em seu aplicativo.</p>
 
-2.  Clique com o botão direito do mouse no projeto do aplicativo Windows Phone, clique em **Adicionar**, clique em **Serviço Conectado...**, selecione o serviço móvel que você acabou de criar e, em seguida, clique em **OK**.
+<li><p>Clique com o botão direito do mouse no projeto do aplicativo Windows Phone, clique em <b>Adicionar</b>, clique em <b>Serviço Conectado...</b>, selecione o serviço móvel que você acabou de criar e, em seguida, clique em <b>OK</b>.</p>
 
-    O mesmo código é adicionado ao arquivo App.xaml.cs compartilhado, mas desta vez dentro de um bloco de compilação condicional do aplicativo Windows Phone.
+    <p>O mesmo código é adicionado ao arquivo App.xaml.cs compartilhado, mas desta vez dentro de um bloco de compilação condicional do aplicativo Windows Phone.</p></li>
+</ol>
 
 Neste momento, ambos os aplicativos do Windows Store e Windows Phone Store são conectados ao novo serviço móvel. A próxima etapa é criar uma nova tabela TodoItem no serviço móvel.
 
@@ -68,12 +69,14 @@ Agora podemos testar ambos os serviços do aplicativo Windows universal em rela�
 
 [WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
-1.  No [Portal de Gerenciamento][Portal de Gerenciamento], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
+<ol start="4">
+<li><p>No <a href="https://manage.windowsazure.com/" target="_blank">Portal de Gerenciamento</a>, clique em <b>Serviços Móveis</b> e, em seguida, clique em seu serviço móvel.
 
-    <p>
-2.  Clique na guia **Dados** e, em seguida, clique em **Procurar**.
 
-    Observe que a tabela **TodoItem** agora contém dados com valores de id gerados pelos Serviços Móveis, e que as colunas foram automaticamente adicionadas à tabela para coincidir com a classe TodoItem no aplicativo.
+<li><p>Clique na guia <b>Dados</b> e, em seguida, clique em <b>Procurar</b>.</p>
+
+    <p>Observe que a tabela <b>TodoItem</b> agora contém dados com valores de id gerados pelos Serviços Móveis, e que as colunas foram automaticamente adicionadas à tabela para coincidir com a classe TodoItem no aplicativo.</p></li>
+</ol>
 
 ![][0]
 
@@ -102,7 +105,6 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 
 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Criar aplicativos universais do Windows voltados para Windows e Windows Phone]: http://msdn.microsoft.com/pt-br/library/windows/apps/xaml/dn609832.aspx
   [Introdução aos dados para Windows Phone]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data
   [esta versão]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
@@ -114,14 +116,7 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [Exibir os dados carregados no Portal de Gerenciamento do Azure]: #view-data
   [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
   [Visual Studio Express 2013 para Windows]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-  [mobile-services-windows-universal-dotnet-download-project]: ../includes/mobile-services-windows-universal-dotnet-download-project.md
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
-  [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [Esquema dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj193175.aspx
-  [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md
-  [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
-  [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
   [Validar e modificar dados com scripts]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
   [Refinar consultas com paginação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/

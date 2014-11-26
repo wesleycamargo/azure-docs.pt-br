@@ -1,114 +1,36 @@
-<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Desenvolver programas MapReduce em Java para Hadoop no HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Saiba como desenvolver programas MapReduce em Java no emulador do HDInsight e como implant&aacute;-los no HDInsight." services="hdinsight" title="Desenvolver programas Java MapReduce para Hadoop no HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="nitinme" />
+<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/10/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Desenvolver programas Java MapReduce para Hadoop no HDInsight
 
-Este tutorial explica um cenário completo de desenvolvimento de um trabalho de contagem de palavras do MapReduce do Hadoop em Java usando o Apache Haven. O tutorial também mostra como testar o aplicativo no Emulador do HDInsight e depois implantá-lo e executá-lo no cluster do Azure HDInsight.
+Este tutorial explica um cenário completo de desenvolvimento e teste de um trabalho de contagem de palavras MapReduce do Hadoop em Java no Emulador do HDInsight até a sua implantação e execução no Azure HDInsight.
 
 **Pré-requisitos:**
 
-Antes de começar este tutorial, você deve ter concluído o seguinte:
+Antes de começar este tutorial, você deve ter o seguinte:
 
 -   Instale o Emulador do Azure HDInsight. Para obter instruções, consulte [Introdução ao Emulador do HDInsight][Introdução ao Emulador do HDInsight].
 -   Instale o PowerShell do Azure no computador do emulador. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][Instalar e configurar o PowerShell do Azure].
--   Instale a plataforma Java JDK 7 ou superior no computador emulador. Ela já está disponível no computador emulador.
--   Instale e configure o [Apache Maven][Apache Maven].
 -   Obtenha uma assinatura do Azure. Para obter instruções, consulte [Opções de compra][Opções de compra], [Ofertas para membros][Ofertas para membros] ou [Avaliação gratuita][Avaliação gratuita].
 
 ## Neste artigo
 
--   [Use o Apache Maven para criar um programa MapReduce de contagem de palavras em Java][Use o Apache Maven para criar um programa MapReduce de contagem de palavras em Java]
+-   [Desenvolver um programa de contagem de palavras MapReduce em Java][Desenvolver um programa de contagem de palavras MapReduce em Java]
 -   [Testar o programa no emulador][Testar o programa no emulador]
 -   [Carregar os arquivos de dados e o aplicativo no Armazenamento de Blob do Azure][Carregar os arquivos de dados e o aplicativo no Armazenamento de Blob do Azure]
 -   [Executar o programa MapReduce no Azure HDInsight][Executar o programa MapReduce no Azure HDInsight]
 -   [Recuperar os resultados do MapReduce][Recuperar os resultados do MapReduce]
 -   [Próximas etapas][Próximas etapas]
 
-## <a name="develop"></a>Use o Apache Maven para criar um programa MapReduce em Java
+## <a name="develop"></a>Desenvolver um programa de contagem de palavras MapReduce em Java
 
-Crie um aplicativo MapReduce de contagem de palavras. É um aplicativo simples que conta as ocorrências de cada palavra em um determinado conjunto de entrada. Nesta seção, realizaremos as seguintes tarefas:
+A contagem de palavras é um aplicativo simples que conta as ocorrências de cada palavra em um determinado conjunto de entrada.
 
-1.  Criar um projeto usando o Apache Maven
-2.  Atualizar o modelo do objeto do projeto (POM)
-3.  Criar o aplicativo MapReduce de contagem de palavras
-4.  Compilar e criar o pacote do aplicativo
+**Para escrever o trabalho de contagem de palavras MapReduce em Java**
 
-**Para criar um projeto usando o Maven**
-
-1.  Crie um diretório \*\*C:\\Tutorials\\WordCountJava\*\*.
-2.  Na linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local criado.
-3.  Use o comando **mvn**, que é instalado com o Maven, para gerar o scaffolding para o projeto.
-
-        mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-
-    Isso criará um novo diretório dentro do diretório atual, com o nome especificado pelo parâmetro **artifactID** (**wordcountjava** neste exemplo). Esse diretório conterá os itens a seguir.
-
-    -   **pom.xml** - o Modelo de Objeto de Projeto ([POM][POM]) contém informações e detalhes de configuração usados para criar o projeto
-
-    -   **src** - o diretório que contém o diretório **main\\java\\org\\apache\\hadoop\\examples**, onde você criará seu aplicativo.
-
-4.  Exclua o arquivo **src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java**, já que ele não será utilizado neste exemplo.
-
-**Para atualizar o modelo do objeto do projeto (POM)**
-
-1.  Edite o arquivo **pom.xml** e adicione o seguinte dentro da seção `<dependencies>`.
-
-        <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-examples</artifactId>
-          <version>2.5.1</version>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>2.5.1</version>
-        </dependency>
-        <dependency>                                                                                     
-          <groupId>org.apache.hadoop</groupId>                                                                                                       
-          <artifactId>hadoop-common</artifactId>                                                                                                         
-          <version>2.5.1</version>                                                                                            
-        </dependency>
-
-    Isso informa ao Maven que o projeto exige as bibliotecas (listadas em <artifactid\>) com a versão específica (listada em <version\>). No momento da compilação, ele será baixado do repositório padrão do Maven. Você pode usar a [pesquisa de repositório do Maven][pesquisa de repositório do Maven] para exibir mais informações.
-
-2.  Adicione o conteúdo a seguir ao arquivo **pom.xml**. Isso precisa estar dentro das tags `<project>...</project>` no arquivo; por exemplo, entre `</dependencies>` e `</project>`.
-
-        <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
-                <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                  </transformer>
-                </transformers>
-              </configuration>
-              <executions>
-                <execution>
-                  <phase>package</phase>
-                    <goals>
-                      <goal>shade</goal>
-                    </goals>
-                </execution>
-              </executions>
-            </plugin>       
-          </plugins>
-        </build>
-
-    Isso configura o [maven-shade-plugin][maven-shade-plugin], que é utilizado para evitar duplicação de licenças no JAR que é compilado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o maven-shade-plugin com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
-
-    O maven-shade-plugin também produzirá um uberjar (ou fatjar), que contém todas as dependências exigidas pelo aplicativo.
-
-3.  Salve o arquivo **pom.xml**.
-
-**Para criar o aplicativo de contagem de palavras**
-
-1.  Vá até o diretório **wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples** e renomeie o arquivo **app.java** como **WordCount.java**.
-2.  Abra o Bloco de Notas.
-3.  Copie e cole o programa a seguir no Bloco de Notas.
+1.  Abra o Bloco de Notas.
+2.  Copie e cole o programa a seguir no Bloco de Notas.
 
         package org.apache.hadoop.examples;
 
@@ -181,30 +103,41 @@ Crie um aplicativo MapReduce de contagem de palavras. É um aplicativo simples q
 
     Observe que o nome do pacote é **org.apache.hadoop.examples** e o nome da classe é **WordCount**. Você usará os nomes quando enviar o trabalho MapReduce.
 
-4.  Salve o arquivo.
+3.  Salve o arquivo como **c:\\Tutorials\\WordCountJava\\WordCount.java**. Crie a estrutura de pastas, se ela ainda não existir.
 
-**Para criar e compactar o aplicativo**
+O emulador do HDInsight é fornecido com um compilador *javac*.
 
-1.  Abra um prompt de comando e mude os diretórios para o diretório **wordcountjava**.
+**Para compilar o programa MapReduce**
 
-2.  Use o comando a seguir para compilar um JAR contendo o aplicativo.
+1.  Abra o prompt de comando.
+2.  Altere o diretório para **c:\\Tutorials\\WordCountJava**. Essa é a pasta para o programa de contagem de palavras MapReduce.
+3.  Execute o comando a seguir para verificar a existência dos dois arquivos jar:
 
-        mvn clean package
+        dir %hadoop_home%\hadoop-core-1.1.0-SNAPSHOT.jar
+        dir %hadoop_home%\lib\commons-cli-1.2.jar
 
-    Isso limpará quaisquer artefatos de compilações anteriores, baixará quaisquer dependências que ainda não tiverem sido instaladas e, então, compilará e criará o pacote do aplicativo.
+4.  Execute o comando a seguir para compilar o programa:
 
-3.  Assim que o comando for concluído, o diretório **wordcountjava\\target** conterá um arquivo chamado **wordcountjava-1.0-SNAPSHOT.jar**.
+        C:\Hadoop\java\bin\javac -classpath %hadoop_home%\hadoop-core-1.1.0-SNAPSHOT.jar;%hadoop_home%\lib\commons-cli-1.2.jar WordCount.java
 
-    > [WACOM.NOTE] O arquivo **wordcountjava-1.0-SNAPSHOT.jar** é um uberjar (algumas vezes chamado de um fatjar), que contém todas as dependências exigidas para executar o aplicativo.
+    O javac está localizado na pasta C:\\Hadoop\\java\\bin. O último parâmetro é o programa java que está na pasta atual. O compilador cria três arquivos de classe na pasta atual.
+
+5.  Execute o seguinte comando para criar um arquivo jar:
+
+        C:\Hadoop\java\bin\jar -cvf WordCount.jar *.class
+
+    O comando cria um arquivo WordCount.jar na pasta atual.
+
+    ![HDI.EMulator.WordCount.Compile][HDI.EMulator.WordCount.Compile]
 
 ## <a name="test"></a>Testar o programa no emulador
 
-Testar o trabalho do MapReduce no emulador HDInsight inclui os seguintes procedimentos:
+O teste do trabalho MapReduce no emulador inclui os seguintes procedimentos:
 
-1.  Carregar os arquivos de dados no HDFS no emulador
-2.  Criar um grupo de usuários local
-3.  Executar um trabalho do MapReduce de contagem de palavras
-4.  Recupere os resultados do trabalho
+1.  carregar os arquivos de dados no HDFS do emulador
+2.  enviar um trabalho de contagem de palavras MapReduce
+3.  verificar o status do trabalho
+4.  recuperar os resultados do trabalho
 
 Por padrão, o emulador do HDInsight usa o HDFS como o sistema de arquivos padrão. Opcionalmente, você pode configurar o emulador do HDInsight para usar o Armazenamento de Blob do Azure. Para obter detalhes, consulte [Introdução ao Emulador do HDInsight][1].
 
@@ -212,13 +145,14 @@ Neste tutorial, você usará o comando *copyFromLocal* do HDFS para carregar os 
 
 Este tutorial usa a seguinte estrutura de pastas HDFS:
 
-|---------------------------|---------------------------------------------------|
-| Pasta                     | Observação                                        |
-| /WordCount                | A pasta raiz do projeto de contagem de palavras.  |
-| /WordCount/Apps           | A pasta dos executáveis do mapeador e do redutor. |
-| /WordCount/Input          | A pasta do arquivo de origem do MapReduce.        |
-| /WordCount/Output         | A pasta do arquivo de saída do MapReduce.         |
-| /WordCount/MRStatusOutput | A pasta de saída do trabalho.                     |
+<table border="1">
+<tr><th> Pasta                     </th><th> Observação                                        </th></tr>
+<tr><td> /WordCount                </td><td> A pasta raiz do projeto de contagem de palavras.  </td></tr>
+<tr><td> /WordCount/Apps           </td><td> A pasta dos executáveis do mapeador e do redutor. </td></tr>
+<tr><td> /WordCount/Input          </td><td> A pasta do arquivo de origem do MapReduce.        </td></tr>
+<tr><td> /WordCount/Output         </td><td> A pasta do arquivo de saída do MapReduce.         </td></tr>
+<tr><td> /WordCount/MRStatusOutput </td><td> A pasta de saída do trabalho.                     </td></tr>
+</table>
 
 Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home% como os arquivos de dados.
 
@@ -237,7 +171,7 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home% como
 
 3.  Execute o comando a seguir para copiar alguns arquivos de texto na pasta de entrada no HDFS:
 
-        hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\*.txt /WordCount/Input
+        hadoop fs -copyFromLocal %hadoop_home%\*.txt /WordCount/Input
 
     O trabalho MapReduce contará as palavras desses arquivos.
 
@@ -245,35 +179,24 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home% como
 
         hadoop fs -ls /WordCount/Input
 
-**Para criar um grupo de usuários local**
-
-Para executar com sucesso o trabalho do MapReduce no cluster, você deve criar um grupo de usuários chamado hdfs. Nesse grupo, você também deve adicionar um hadoop do usuário e um usuário local com o qual faz logon no emulador. Use os comandos a seguir de um prompt de comando elevado:
-
-        # Add a user group called hdfs      
-        net localgroup hdfs /add
-
-        # Adds a user called hadoop to the group
-        net localgroup hdfs hadoop /add
-
-        # Adds the local user to the group
-        net localgroup hdfs <username> /add
+    Você deverá ver cerca de oito arquivos .txt.
 
 **Para executar o trabalho MapReduce usando a linha de comando do Hadoop**
 
 1.  Abra a linha de comando do Hadoop na sua área de trabalho.
 2.  Execute o seguinte comando para excluir a estrutura de pastas de /WordCount/Output do HDFS. / WordCount/Output é a pasta de saída do trabalho de contagem de palavras MapReduce. O trabalho MapReduce falhará se a pasta já existir. Essa etapa será necessária se esta for a segunda vez que você executa o trabalho.
 
-        hadoop fs -rm - r /WordCount/Output
+        hadoop fs -rmr /WordCount/Output
 
 3.  Execute o comando a seguir:
 
-        hadoop jar C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /WordCount/Input /WordCount/Output
+        hadoop jar c:\Tutorials\WordCountJava\wordcount\target\wordcount-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /WordCount/Input /WordCount/Output
 
     Se o trabalho for concluído com êxito, você verá uma saída semelhante à seguinte captura de tela:
 
     ![HDI.EMulator.WordCount.Run][HDI.EMulator.WordCount.Run]
 
-    Na captura de tela, você pode ver o mapa e a redução 100% concluídos. Ele também lista a ID do trabalho. O mesmo relatório pode ser recuperado ao abrir o atalho **Status do MapReduce do Hadoop** em sua área de trabalho e procurar a mesma ID do trabalho.
+    Na captura de tela, você pode ver o mapa e a redução 100% concluídos. Ela também lista a ID do trabalho, job\_201312092021\_0002. O mesmo relatório pode ser recuperado ao abrir o atalho **Status do MapReduce do Hadoop** em sua área de trabalho e procurar a ID do trabalho.
 
 A outra opção para executar um trabalho MapReduce é usar o PowerShell do Azure. Para obter instruções, consulte [Introdução ao emulador do HDInsight][Introdução ao Emulador do HDInsight].
 
@@ -283,19 +206,19 @@ A outra opção para executar um trabalho MapReduce é usar o PowerShell do Azur
 2.  Execute os comandos a seguir para exibir a saída:
 
         hadoop fs -ls /WordCount/Output/
-        hadoop fs -cat /WordCount/Output/part-r-00000
+        hadoop fs -cat /WordCount/Output/part-00000
 
     Você pode acrescentar "|more" no final do comando para obter a exibição da página. Ou usar o comando findstr para localizar um padrão de cadeia de caracteres:
 
-        hadoop fs -cat /WordCount/Output/part-r-00000 | findstr "there"
+        hadoop fs -cat /WordCount/Output/part-00000 | findstr "there"
 
 Até agora, você desenvolveu um trabalho de contagem de palavras MapReduce e o testou com êxito no emulador. A próxima etapa é implantá-lo e executá-lo no Azure HDInsight.
 
-## <span id="upload"></span></a>Carregar os dados e o aplicativo no armazenamento de Blob do Azure
+## <span id="upload"></span></a>Carregar dados no armazenamento de Blob do Azure
 
 O Azure HDInsight usa o armazenamento de Blob do Azure para armazenar dados. Quando um cluster HDInsight é provisionado, um contêiner de armazenamento de Blob do Azure é usado para armazenar os arquivos do sistema. Você pode usar esse contêiner padrão ou outro contêiner (na mesma conta de armazenamento do Azure ou em outra conta de armazenamento localizada no mesmo data center que o cluster) para armazenar os arquivos de dados.
 
-Neste tutorial, você criará um contêiner em uma conta de armazenamento separada para os arquivos de dados e o aplicativo MapReduce. Os arquivos de dados são arquivos de texto no diretório **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** em sua estação de trabalho do emulador.
+Neste tutorial, você criará um contêiner em uma conta de armazenamento separada para os arquivos de dados e o aplicativo MapReduce. Os arquivos de dados são os arquivos de texto no diretório %hadoop\_home% de sua estação de trabalho.
 
 **Para criar um armazenamento de Blob e um contêiner**
 
@@ -336,7 +259,7 @@ Neste tutorial, você criará um contêiner em uma conta de armazenamento separa
         $storageAccountName_Data = "<AzureStorageAccountName>"  
         $containerName_Data = "<ContainerName>"
 
-        $localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\"
+        $localFolder = "c:\Hadoop\hadoop-1.1.0-SNAPSHOT"
         $destFolder = "WordCount/Input"
 
     O **$storageAccountName\_Data** e o **$containerName\_Data** são os mesmos que você definiu no último procedimento.
@@ -375,7 +298,7 @@ Neste tutorial, você criará um contêiner em uma conta de armazenamento separa
         Write-Host "The Uploaded data files:" -BackgroundColor Green
         Get-AzureStorageBlob -Container $containerName_Data -Context $destContext -Prefix $destFolder
 
-    Você deve ver os arquivos de dados de texto carregados.
+    Você deve ver cerca de oito arquivos de dados de texto.
 
 **Para carregar o aplicativo de contagem de palavras**
 
@@ -414,26 +337,26 @@ Neste tutorial, você criará um contêiner em uma conta de armazenamento separa
 
 ## <a name="run"></a>Executar o trabalho MapReduce no Azure HDInsight
 
-Nesta seção, você criará um script do PowerShell que realiza as seguintes tarefas:
+O seguinte script PowerShell executa as seguintes tarefas:
 
-1.  Provisiona um cluster HDInsight
+1.  provisionar um cluster HDInsight
 
-    1.  Crie uma conta de armazenamento que será usada como o sistema de arquivos padrão do cluster HDInsight
-    2.  Crie um contêiner de armazenamento de Blob
-    3.  Crie um cluster HDInsight
+    1.  criar uma conta de armazenamento que será usada como o sistema de arquivos padrão do cluster HDInsight
+    2.  criar um contêiner de armazenamento de Blob
+    3.  criar um cluster HDInsight
 
-2.  Envia o trabalho de MapReduce
+2.  enviar o trabalho MapReduce
 
-    1.  Crie uma definição do trabalho MapReduce
-    2.  Envie um trabalho MapReduce
-    3.  Aguarde a conclusão do trabalho
-    4.  Exiba o erro padrão
-    5.  Exiba a saída padrão
+    1.  cria uma definição do trabalho MapReduce
+    2.  enviar um trabalho MapReduce
+    3.  aguardar a conclusão do trabalho
+    4.  exibir o erro padrão
+    5.  exibir a saída padrão
 
-3.  Exclui o cluster
+3.  excluir o cluster
 
-    1.  Exclua o cluster HDInsight
-    2.  Exclua a conta de armazenamento usada como o sistema de arquivos padrão do cluster HDInsight
+    1.  excluir o cluster HDInsight
+    2.  excluir a conta de armazenamento usada como o sistema de arquivos padrão do cluster HDInsight
 
 **Para executar o script do PowerShell**
 
@@ -442,17 +365,17 @@ Nesta seção, você criará um script do PowerShell que realiza as seguintes ta
 
         # The storage account and the HDInsight cluster variables
         $subscriptionName = "<AzureSubscriptionName>"
-        $stringPrefix = "<StringForPrefix>"
+        $serviceNameToken = "<ServiceNameTokenString>"
         $location = "<MicrosoftDataCenter>"     ### must match the data storage account location
         $clusterNodes = <NumberOFNodesInTheCluster>
 
         $storageAccountName_Data = "<TheDataStorageAccountName>"
         $containerName_Data = "<TheDataBlobStorageContainerName>"
 
-        $clusterName = $stringPrefix + "hdicluster"
+        $clusterName = $serviceNameToken + "hdicluster"
 
-        $storageAccountName_Default = $stringPrefix + "hdistore"
-        $containerName_Default =  $stringPrefix + "hdicluster"
+        $storageAccountName_Default = $serviceNameToken + "hdistore"
+        $containerName_Default =  $serviceNameToken + "hdicluster"
 
         # The MapReduce job variables
         $jarFile = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/jars/WordCount.jar"
@@ -514,10 +437,7 @@ Nesta seção, você criará um script do PowerShell que realiza as seguintes ta
         Write-Host "Delete the storage account" -ForegroundColor Green
         Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3.  Defina as primeiras seis variáveis no script. O **$stringPrefix** é usado como prefixo da cadeia especificada para o nome do cluster HDInsight, o nome da conta de armazenamento e o nome do contêiner de armazenamento de Blob. Como seus nomes devem ter entre 3 e 24 caracteres, certifique-se de que a cadeia especificada e os nomes usados por este script juntos não excedam o limite de caracteres para o nome. Use tudo em minúsculas no **$stringPrefix**.
-
-    **$storageAccountName\_Data** e **$containerName\_Data** são a conta e o contêiner de armazenamento usados para armazenar os arquivos de dados e os aplicativos. **$location** deve corresponder ao local da conta de armazenamento de dados.
-
+3.  Defina as primeiras seis variáveis no script. **$serviceNameToken** será usado para o nome do cluster HDInsight, o nome da conta de armazenamento padrão e o nome do contêiner de armazenamento de Blob padrão. Como o nome do serviço deve ter de 3 a 24 caracteres, e o script acrescenta uma cadeia de até 10 caracteres aos nomes, você deverá limitar a cadeia de caracteres para 14 caracteres ou menos. $serviceNameToken precisa ser escrito em minúsculas. **$storageAccountName\_Data** e **$containerName\_Data** são a conta e o contêiner de armazenamento usados para armazenar os arquivos de dados e os aplicativos. **$location** deve corresponder ao local da conta de armazenamento de dados.
 4.  Verifique o restante das variáveis.
 5.  Salve o arquivo de script.
 6.  Abra o PowerShell do Azure.
@@ -572,19 +492,16 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a te
 
   [Introdução ao Emulador do HDInsight]: ../hdinsight-get-started-emulator/
   [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell/
-  [Apache Maven]: http://maven.apache.org/
   [Opções de compra]: http://azure.microsoft.com/pt-br/pricing/purchase-options/
   [Ofertas para membros]: http://azure.microsoft.com/pt-br/pricing/member-offers/
   [Avaliação gratuita]: http://azure.microsoft.com/pt-br/pricing/free-trial/
-  [Use o Apache Maven para criar um programa MapReduce de contagem de palavras em Java]: #develop
+  [Desenvolver um programa de contagem de palavras MapReduce em Java]: #develop
   [Testar o programa no emulador]: #test
   [Carregar os arquivos de dados e o aplicativo no Armazenamento de Blob do Azure]: #upload
   [Executar o programa MapReduce no Azure HDInsight]: #run
   [Recuperar os resultados do MapReduce]: #retrieve
   [Próximas etapas]: #nextsteps
-  [POM]: http://maven.apache.org/guides/introduction/introduction-to-the-pom.html
-  [pesquisa de repositório do Maven]: http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar
-  [maven-shade-plugin]: http://maven.apache.org/plugins/maven-shade-plugin/
+  [HDI.EMulator.WordCount.Compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
   [1]: ../hdinsight-get-started-emulator/#blobstorage
   [Carregar dados no HDInsight]: ../hdinsight-upload-data/
   [HDI.EMulator.WordCount.Run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png

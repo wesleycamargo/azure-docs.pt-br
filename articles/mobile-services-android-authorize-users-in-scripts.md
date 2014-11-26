@@ -79,9 +79,9 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 -   [Referência de script de servidor dos Serviços Móveis][Referência de script de servidor dos Serviços Móveis]
     Saiba mais sobre como registrar e usar scripts de servidor.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

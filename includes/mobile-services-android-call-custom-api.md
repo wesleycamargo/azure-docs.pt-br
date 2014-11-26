@@ -97,8 +97,8 @@
 
 4.  Clique no botão **Concluir Tudo**.
 
-    ![][]
+    ![][0]
 
     É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-  []: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png
+  [0]: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png

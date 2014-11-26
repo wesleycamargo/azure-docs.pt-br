@@ -94,7 +94,8 @@ Para obter mais informações sobre o recurso de Escala Elástica, consulte:
 -   Channel 9: [Visão geral da Escala Elástica][1]
 -   Fórum de discussão: [Fórum do Banco de Dados SQL do Azure][Fórum do Banco de Dados SQL do Azure]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Visão geral da Escala Elástica]: http://go.microsoft.com/?linkid=9862592
   [Mapa da documentação da Escala Elástica]: ./sql-database-elastic-scale-documentation-map.md
@@ -118,4 +119,4 @@ Para obter mais informações sobre o recurso de Escala Elástica, consulte:
   [Elasticidade do fragmento no Script Center]: http://go.microsoft.com/?linkid=9862617
   [Anúncio da Escala Elástica]: http://go.microsoft.com/?linkid=9862608
   [1]: http://go.microsoft.com/?linkid=9862609
-  [Fórum do Banco de Dados SQL do Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Fórum do Banco de Dados SQL do Azure]: http://social.msdn.microsoft.com/forums/azure/pt-br/home?forum=ssdsgetstarted

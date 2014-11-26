@@ -157,9 +157,9 @@ Nesta seção, você atualizará o método `AuthenticateAsync` que implementou n
 
 No próximo tutorial, [Controle de acesso baseado em função com o AAD em Serviços Móveis][Controle de acesso baseado em função com o AAD em Serviços Móveis], você usará o controle de acesso baseado em função com o Active Directory do Azure (AAD) para verificar a associação de grupo antes de permitir o acesso.
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Biblioteca de cliente gráfico]: http://go.microsoft.com/fwlink/?LinkId=510536
   [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
@@ -169,8 +169,5 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
   [Testar o aplicativo]: #test-app
   [Tutorial de API personalizada]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
   [Registrar-se para usar um logon do Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Controle de acesso baseado em função com o AAD em Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

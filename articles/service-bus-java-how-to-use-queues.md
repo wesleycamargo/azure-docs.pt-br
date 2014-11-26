@@ -257,5 +257,4 @@ tópico do MSDN [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] p
   [Como: Receber mensagens de uma fila]: #bkmk_HowToReceiveMsgs
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #bkmk_HowToHandleAppCrashes
   [Próximas etapas]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx

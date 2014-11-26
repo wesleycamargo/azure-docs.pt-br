@@ -167,6 +167,5 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
   [Enviar notificações de seu back-end]: #send
   [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
   [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/pt-br/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notificar usuários com Hubs de Notificação: ASP.NET]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
   [Notificar usuários com Hubs de Notificação: Serviços Móveis]: /pt-br/manage/services/notification-hubs/notify-users

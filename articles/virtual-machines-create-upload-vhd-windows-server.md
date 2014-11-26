@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload a VHD" pageTitle="Crie e carregue um VHD do Windows Server no Azure" metaKeywords="Azure VHD, uploading VHD" description="Saiba como criar e carregar um VHD (disco r&iacute;gido virtual) no Azure que tenha o Windows Server como sistema operacional." metaCanonical="" services="virtual-machines" documentationCenter="" title="Crie e carregue um VHD do Windows Server no Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 

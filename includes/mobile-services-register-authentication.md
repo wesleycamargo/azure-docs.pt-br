@@ -2,7 +2,7 @@ Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com 
 
 1.  Faça o logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
 
-    ![][]
+    ![][0]
 
 2.  Clique na guia **Painel** e anote o valor da **URL do Serviço Móvel**.
 
@@ -30,10 +30,10 @@ Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com 
 
     O serviço móvel e seu aplicativo agora estão configurados para funcionar com o provedor de autenticação escolhido.
 
-<!-- URLs. -->
+
 
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-register-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
   [Conta da Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
   [Logon no Facebook]: /pt-br/documentation/articles/mobile-services-how-to-register-facebook-authentication/

@@ -201,7 +201,7 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 
     Saiba como enviar notificações por push a usuários autenticados específicos. É uma boa solução enviar notificações somente a usuários específicos.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
+  <!-- URLs.-->
 
   [Windows Phone]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
   [1]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news
@@ -211,7 +211,6 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
   [Enviar notificações de seu back-end]: #send
   [Executar o aplicativo e gerar notificações]: #test-app
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

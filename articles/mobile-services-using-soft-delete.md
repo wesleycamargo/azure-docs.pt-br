@@ -129,7 +129,7 @@ Esse é um trabalho de amostra que exclui registros atualizados antes de uma dat
 
 Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript][3].
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [tipo de bit SQL]: http://msdn.microsoft.com/pt-br/library/ms177603.aspx
   [Operação de Consulta REST]: http://msdn.microsoft.com/pt-br/library/azure/jj677199.aspx

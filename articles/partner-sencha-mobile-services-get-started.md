@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-sencha" urlDisplayName="Get Started" pageTitle="Get Started with Azure Mobile Services and Sencha" metaKeywords="" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis e ao Sencha Touch
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -18,7 +18,7 @@
 
 Uma captura de tela do aplicativo completo é mostrada abaixo:
 
-![][]
+![][0]
 
 ## Requisitos
 
@@ -30,7 +30,7 @@ Uma captura de tela do aplicativo completo é mostrada abaixo:
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Criar uma tabela TodoItems
 
@@ -693,12 +693,9 @@ Para obter mais informações sobre como começar a usar o Sencha Touch, acesse 
 
 <!-- images -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [assista ao tutorial]: http://go.microsoft.com/fwlink/?LinkId=392574
-  []: ./media/partner-sencha-mobile-services-get-started/finished-app.png
+  [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
   [Sencha Touch]: http://wwww.sencha.com/products/touch/download
   [Sencha Cmd]: http://www.sencha.com/products/sencha-cmd/download
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [Início rápido móvel de HTML]: ./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png
   [1]: ./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png
   [chave do aplicativo]: ./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png

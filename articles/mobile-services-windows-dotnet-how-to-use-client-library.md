@@ -664,9 +664,9 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
     
 	Saiba como obter o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usá-lo para filtrar os dados retornados pelos Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Tutorial de início rápido da Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started/
   [Tutorial de início rápido do Windows Phone]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-wp8/
@@ -697,7 +697,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
   [Personalizar cabeçalhos de solicitações]: #headers
   [Serialização personalizada]: #serialization
   [Próximas etapas]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Criar uma tabela]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Esquema dinâmico]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554275.aspx

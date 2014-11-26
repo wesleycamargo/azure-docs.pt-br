@@ -182,9 +182,9 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 -   [Introdução às notificações por push][Introdução às notificações por push]
     Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Baixar o projeto de aplicativo da Windows Store]: #download-app
   [Criar o serviço móvel]: #create-service
@@ -194,8 +194,6 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
   [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-data-sample-download-js.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [2]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-add-nuget-package-js.png
   [3]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-dashboard-tab.png
   [Portal de Gerenciamento]: https://manage.windowsazure.com/

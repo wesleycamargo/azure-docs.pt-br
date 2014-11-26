@@ -292,9 +292,9 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
     
 	Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Atualizar o aplicativo para permitir atualizações]: #uiupdate
   [Habilitar a detecção de conflitos em seu aplicativo]: #enableOC

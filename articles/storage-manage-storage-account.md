@@ -1,4 +1,4 @@
-<properties urlDisplayName="How to manage" pageTitle="Como gerenciar contas de armazenamento | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Saiba como gerenciar contas de armazenamento no Azure usando o Portal de Gerenciamento." metaCanonical="" services="storage" documentationCenter="" title="Como gerenciar contas de armazenamento" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -52,7 +52,7 @@ Você deve alterar as chaves de acesso de sua conta de armazenamento periodicame
     <b>Aviso</b> 
     <p>Regenerar suas chaves de acesso afeta as m&aacute;quinas virtuais, os servi&ccedil;os de m&iacute;dia e quaisquer aplicativos que dependam da conta de armazenamento. Todos os clientes que usam a chave de acesso para acessar a conta de armazenamento precisam ser atualizados para usar a nova chave.
     </p> 
-    </div>
+</div>
 
 **Máquinas virtuais** - Se sua conta de armazenamento contiver máquinas virtuais em execução, será necessário reimplantar todas as máquinas virtuais após regenerar as chaves de acesso. Para evitar a reimplantação, desligue as máquinas virtuais antes de regenerar as chaves de acesso.
 

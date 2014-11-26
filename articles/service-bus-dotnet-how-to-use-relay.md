@@ -249,7 +249,6 @@ siga estes links para obter mais informações.
 -   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][Exemplos do Azure].
 
   [Próximas etapas]: #next_steps
-  [create-account-note]: ../includes/create-account-note.md
   [Conceitos de retransmissão]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png

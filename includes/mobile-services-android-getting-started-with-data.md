@@ -1,6 +1,6 @@
 Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo para armazenar itens nos Serviços Móveis em vez de na coleção local.
 
-1.  Se você ainda não tiver o [SDK dos Serviços Móveis Android][], baixe-o agora e expanda os arquivos compactados.
+1.  Se você ainda não tiver o [SDK dos Serviços Móveis Android][SDK dos Serviços Móveis Android], baixe-o agora e expanda os arquivos compactados.
 
 2.  Copie os arquivos `.jar` da pasta `mobileservices` do SDK para a pasta `libs` do projeto GetStartedWithData.
 
@@ -43,7 +43,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 11. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
 
-    ![][]
+    ![][0]
 
     Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
 
@@ -124,7 +124,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
     Isso consulta o serviço móvel e retorna todos os itens que não estão marcados como concluídos. Os itens são adicionados ao adaptador para vinculação.
 
-<!-- URLs. -->
+
 
   [SDK dos Serviços Móveis Android]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/download-android-sample-code/mobile-dashboard-tab.png
+  [0]: ./media/download-android-sample-code/mobile-dashboard-tab.png

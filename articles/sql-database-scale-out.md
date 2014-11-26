@@ -27,7 +27,7 @@ Em cenários limitados, você pode criar cópias de um banco de dados e, em segu
 
 As federações no Banco de Dados SQL são usadas para atingir uma maior escalabilidade e desempenho. Uma ou mais tabelas em um banco de dados são divididas por linha e repartidas em vários bancos de dados (membros da Federação). Esse tipo de repartição horizontal é conhecida como 'fragmentação'. Os principais cenários em que isso é útil são aqueles nos quais você precisa obter escala, desempenho ou para gerenciar a capacidade. 
 
-As federações são suportadas no Business Edition. Para obter mais informações, consulte [Federações no Banco de Dados SQL][] e [Tutorial de Federações do Banco de Dados SQL - DBA][].
+As federações são suportadas no Business Edition. Para obter mais informações, consulte [Federações no Banco de Dados SQL][Federações no Banco de Dados SQL] e [Tutorial de Federações do Banco de Dados SQL - DBA][Tutorial de Federações do Banco de Dados SQL - DBA].
 
 ##Considere outras formas de armazenamento
 

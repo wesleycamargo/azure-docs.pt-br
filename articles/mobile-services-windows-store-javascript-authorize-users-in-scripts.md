@@ -84,9 +84,9 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 
     Saiba mais sobre como registrar e usar scripts de servidor.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-js
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

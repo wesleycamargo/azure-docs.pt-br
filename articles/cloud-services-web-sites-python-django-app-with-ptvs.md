@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a website or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Criando aplicativos Django com as Python Tools 2.0 para Visual Studio
 
@@ -306,7 +306,7 @@ Nosso aplicativo web está quase pronto para uso, mas primeiro é necessário co
 
 8.  Navegue até **<http://localhost>:{port}/**. Você verá um índice das pesquisas adicionadas.
 
-    ![][]
+    ![][0]
 
 9.  Clique em uma das pesquisas para ir para a página de votação.
 
@@ -566,9 +566,7 @@ A hospedagem do Django em uma Máquina Virtual está fora do escopo deste tutori
 
 Neste tutorial, desenvolvemos um aplicativo Django usando as [Python Tools for Visual Studio][Python Tools 2.0 para Visual Studio]. Usamos 3 bancos de dados diferentes: sqlite3, SQL Server e bancos de dados do MySQL. Finalmente, publicamos o aplicativo nos Sites e nos Serviços de Nuvem do Azure.
 
-  [assista ao tutorial]: http://www.youtube.com/watch?v=wkqjafvvU5w
-  []: https://www.djangoproject.com/
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [0]: https://www.djangoproject.com/
   [Python Tools 2.0 para Visual Studio]: http://pytools.codeplex.com
   [Python 2.7 (32 bits)]: http://www.python.org/download/
   [baixar o código-fonte deste projeto (a página pode estar em inglês)]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
@@ -585,7 +583,7 @@ Neste tutorial, desenvolvemos um aplicativo Django usando as [Python Tools for V
   [Navegador da Web]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-008-dev-server.png
   [Adicionar pesquisa]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-login.png
   [Índice da pesquisa]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-add-poll.png
-  []: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
+  [0]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
   [Detalhes da pesquisa]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-011-detail.png
   [Resultados da pesquisa]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-012-results.png
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png

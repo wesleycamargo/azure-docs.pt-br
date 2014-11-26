@@ -137,5 +137,4 @@ Para executar o aplicativo, faça o seguinte:
 
 4.  Na interface do usuário do aplicativo iOS, clique em **Logon**. Em seguida, clique em **Enviar push**. Você deve ver a notificação segura sendo exibida no centro de notificações.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

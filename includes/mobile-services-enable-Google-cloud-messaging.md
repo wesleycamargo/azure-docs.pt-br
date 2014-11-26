@@ -28,9 +28,4 @@
 
     Você usará esse valor de chave da API a fim de habilitar os Serviços Móveis para autenticação com o GCM e enviar notificações por push em nome do seu aplicativo.
 
-  [Google Cloud Console]: http://cloud.google.com/console
   []: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-  [1]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
-  [2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-  [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-  [4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png

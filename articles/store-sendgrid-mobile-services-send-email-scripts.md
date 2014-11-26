@@ -104,9 +104,9 @@ estes links para saber mais sobre o SendGrid.
 -   Oferta especial de SendGrid para clientes Azure:
     <http://sendgrid.com/azure.html>
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [serviço de e-mail baseado em nuvem]: http://sendgrid.com/solutions
   [entrega de e-mail transacional]: http://sendgrid.com/transactional-email
@@ -114,7 +114,6 @@ estes links para saber mais sobre o SendGrid.
   [Adicionar um script para enviar e-mails]: #add-script
   [Inserir dados para receber e-mails]: #insert-data
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png

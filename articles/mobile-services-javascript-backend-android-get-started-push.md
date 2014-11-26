@@ -172,9 +172,9 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
     
 	Saiba mais sobre como implementar a lógica de negócios no seu serviço móvel.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
   [Configurar os Serviços Móveis]: #configure
@@ -184,15 +184,11 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-get-started/
   [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-android-get-started-data/
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [esta orientação]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Verificar SDK]: ../includes/mobile-services-verify-android-sdk-version.md
   [Configurar o SDK do Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801
-  [Incluir Serviços de Reprodução]: ../includes/mobile-services-add-Google-play-services.md
-  [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png
   [objeto gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645

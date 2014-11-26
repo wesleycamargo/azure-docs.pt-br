@@ -1,12 +1,12 @@
-<properties urlDisplayName="Web App with Express" pageTitle="Aplicativo Web com Express (Node.js) - Tutorial do Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Um tutorial que complementa o tutorial de servi&ccedil;o de nuvem e demonstra como usar o m&oacute;dulo Express." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Criar um aplicativo web do Node.js usando o Express em um Servi&ccedil;o de Nuvem do Windows Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Criar um aplicativo web do Node.js usando o Express em um Serviço de Nuvem do Windows Azure
 
 O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico.
-Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional
-ao desenvolver um aplicativo do Node.js. Neste tutorial,
+Os desenvolvedores normalmente usam módulos de terceiros para fornecer
+funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial,
 você irá criar um novo aplicativo usando o módulo [Express][Express] que fornece uma estrutura MVC para criar aplicativos web do Node.js.
 
 A seguinte é uma captura de tela do aplicativo concluído:
@@ -29,7 +29,7 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
         PS C:\Node\expressapp> Add-AzureNodeWebRole
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
 
-    > [WACOM.NOTE] Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure a usar a versão 0.10.21 do Nó.
+    > [WACOM.NOTE] Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão 0.10.21 do Nó.
 
 ## Instalar o Express
 
@@ -91,7 +91,7 @@ Agora modifique a exibição para exibir a mensagem "Bem-vindo ao Express no
     ![O conteúdo do arquivo index.jade.][O conteúdo do arquivo index.jade.]
 
     Jade é o mecanismo de exibição padrão usado por aplicativos do Express. Para obter mais
-    informações sobre o mecanismo de exibição Jade, consulte <http://jade-lang.com>.
+    informações sobre o mecanismo de exibição Jade, consulte [][]<http://jade-lang.com></a>.
 
 2.  Modifique a última linha de texto acrescentando **no Azure**.
 
@@ -123,5 +123,5 @@ Quando a operação de implantação estiver concluída, o navegador será abert
   [A saída do comando npm install]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
   [Uma página da web que contém as boas-vindas ao express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [O conteúdo do arquivo index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
-  [O arquivo index.jade, a última linha diz: Bem-vindo ao \#{title} no Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
+  []: http://jade-lang.com
   [Uma janela do navegador, a página contém Bem-vindo ao Express no Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

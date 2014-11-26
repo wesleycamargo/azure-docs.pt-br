@@ -84,7 +84,7 @@ Agora que o serviço móvel está validando dados e enviando respostas de erros,
             evt.preventDefault();
         });
 
-3.  Em um navegador da web, navegue até [http://localhost:8000 /][http://localhost:8000 /], digite texto em **Adicionar nova tarefa** e clique em **Adicionar**.
+3.  Em um navegador da web, navegue até http://localhost:8000/, digite texto em **Adicionar nova tarefa** e clique em **Adicionar**.
 
     Observe que a operação falhará e o tratamento de erros exibirá a resposta de erro em uma caixa de diálogo.
 
@@ -190,9 +190,9 @@ Agora que você concluiu este tutorial, considere continuar com o tutorial final
 
 Para obter mais informações, consulte [Trabalhar com scripts de servidor][Trabalhar com scripts de servidor] e [Referência conceitual ao tutorial do .NET dos Serviços Móveis][Referência conceitual ao tutorial do .NET dos Serviços Móveis]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Adicionar validação de comprimento de cadeia de caracteres]: #string-length-validation
   [Atualizar o cliente para oferecer suporte à validação]: #update-client-validation
@@ -203,7 +203,6 @@ Para obter mais informações, consulte [Trabalhar com scripts de servidor][Trab
   [0]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-insert-script-users.png
-  [http://localhost:8000 /]: http://localhost:8000/
   [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html
   [Trabalhar com scripts de servidor]: /pt-br/develop/mobile/how-to-guides/work-with-server-scripts
   [Referência conceitual ao tutorial do .NET dos Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client

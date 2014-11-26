@@ -23,7 +23,7 @@
 
     Observe que apenas os três primeiros resultados da tabela TodoItem são exibidos.
 
-6.  (Opcional) Exiba o URI da solicitação enviada ao serviço móvel usando software de inspeção de mensagem, como as ferramentas de desenvolvedor do navegador ou o [Fiddler][].
+6.  (Opcional) Exiba o URI da solicitação enviada ao serviço móvel usando software de inspeção de mensagem, como as ferramentas de desenvolvedor do navegador ou o [Fiddler][Fiddler].
 
     Observe que o método **take(3)** foi convertido na opção de consulta **$top=3** no URI da consulta.
 

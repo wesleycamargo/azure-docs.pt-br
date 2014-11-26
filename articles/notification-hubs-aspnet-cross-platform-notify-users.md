@@ -81,11 +81,11 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 -   **[Instruções sobre Hub de Notificação para a Windows Store][Instruções sobre Hub de Notificação para a Windows Store]**
     Inclui uma referência de linguagem de expressão do modelo.
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
   [Visão geral de Hubs de Notificação do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=317339

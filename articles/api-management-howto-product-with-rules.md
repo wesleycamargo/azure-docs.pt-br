@@ -1,6 +1,6 @@
 <properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Como criar e definir configurações avançadas no Gerenciamento de API do Azure
 
@@ -10,13 +10,13 @@ Neste tutorial você irá criar um produto de avaliação gratuita que permite f
 
 ## Neste tópico
 
--   [Criar um produto][]
--   [Adicionar uma API ao produto][]
--   [Configurar o limite de taxa de chamada e as políticas de cota][]
--   [Publicar o produto][]
--   [Inscrever uma conta de desenvolvedor no produto][]
--   [Chamar uma operação e testar a taxa de limite][]
--   [Próximas etapas][]
+-   [Criar um produto][Criar um produto]
+-   [Adicionar uma API ao produto][Adicionar uma API ao produto]
+-   [Configurar o limite de taxa de chamada e as políticas de cota][Configurar o limite de taxa de chamada e as políticas de cota]
+-   [Publicar o produto][Publicar o produto]
+-   [Inscrever uma conta de desenvolvedor no produto][Inscrever uma conta de desenvolvedor no produto]
+-   [Chamar uma operação e testar a taxa de limite][Chamar uma operação e testar a taxa de limite]
+-   [Próximas etapas][Próximas etapas]
 
 ## <a name="create-product"> </a>Criar um produto
 
@@ -24,17 +24,17 @@ Nesta etapa você criará um produto de avaliação gratuita que não requer apr
 
 Para começar, clique em **Console de gerenciamento** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal administrativo do Gerenciamento de API.
 
-> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
+> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 
-![Console de Gerenciamento de API][]
+![Console de Gerenciamento de API][Console de Gerenciamento de API]
 
 Clique em **Produtos** no menu **Gerenciamento de API** à esquerda para exibir a página **Produtos**.
 
-![Adicionar produto][]
+![Adicionar produto][Adicionar produto]
 
 Clique em **Adicionar Produto** para exibir a janela pop-uo **Adicionar novo produto**.
 
-![Adicionar novo produto][]
+![Adicionar novo produto][Adicionar novo produto]
 
 Digite **Avaliação Gratuita** na caixa de texto **Título**.
 
@@ -44,13 +44,13 @@ Se deseja que um administrador revise e aceite ou rejeite as tentativas de assin
 
 Após inserir todos os valores, clique em **Salvar** para criar o produto.
 
-![Produto adicionado][]
+![Produto adicionado][Produto adicionado]
 
 Por padrão, os novos produtos ficam visíveis para os usários no grupo **Administradores**. Vamos adicionar o grupo **Desenvolvedores**. **Clique em Avaliação Gratuita** e selecione a guia **Visibilidade**.
 
-> No Gerenciamento de API, os grupos são usados para gerenciar a visibilidade dos produtos para desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem. Para obter mais informações, consulte [Como criar e usar grupos no Gerenciamento de API do Azure][].
+> No Gerenciamento de API, os grupos são usados para gerenciar a visibilidade dos produtos para desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem. Para obter mais informações, consulte [Como criar e usar grupos no Gerenciamento de API do Azure][Como criar e usar grupos no Gerenciamento de API do Azure].
 
-![Adicionar um grupo de desenvolvedores][]
+![Adicionar um grupo de desenvolvedores][Adicionar um grupo de desenvolvedores]
 
 Marque o grupo **Desenvolvedores** e clique em **Salvar**.
 
@@ -58,37 +58,37 @@ Marque o grupo **Desenvolvedores** e clique em **Salvar**.
 
 Nesta etapa do tutorial você adicionará a API de ECO a uma produto de avaliação gratuita.
 
-> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][].
+> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 
 Clique em **Produtos** no menu **Gerenciamento de API** à esquerda, depois clique em **Avaliação Gratuita** para configurar o produto.
 
-![Configurar produto][]
+![Configurar produto][Configurar produto]
 
 Clique em **Adicionar API ao produto**.
 
-![Adicionar API ao produto][]
+![Adicionar API ao produto][Adicionar API ao produto]
 
 Marque a caixa ao lado de **API de Eco** e clique em **Salvar**.
 
-![Adicionar API de Eco][]
+![Adicionar API de Eco][Adicionar API de Eco]
 
 ## <a name="policies"> </a>Configurar o limite de taxa de chamada e as políticas de cota
 
 Os limites de taxa e as cotas são configurados no editor de políticas. Clique em **Políticas** no menu **Gerenciamento de API** à esquerda e selecione **Avaliação Gratuita** na lista suspensa **Produto de escopo da política**.
 
-![Política de produtos][]
+![Política de produtos][Política de produtos]
 
 Clique em **Adicionar política** para importar o modelo de política e começar a criar o limite de taxa e a política de cota.
 
-![Adicionar política][]
+![Adicionar política][Adicionar política]
 
 Para inserir políticas, posicione o cursor na seção **entrada** ou **saída** do modelo da política. A taxa de limite e as políticas de cota são políticas de entrada; portanto, posicione o cursor no elemento de entrada.
 
-![Editor de políticas][]
+![Editor de políticas][Editor de políticas]
 
 As duas políticas que estamos adicionando neste tutorial são as políticas **Limitar taxa de chamada** e **Definir cota de uso**.
 
-![Declarações de políticas][]
+![Declarações de políticas][Declarações de políticas]
 
 Após posicionar o cursor no elemento de política de **entrada**, clique na seta ao lado de **Limitar taxa de chamada** para inserir o modelo de política.
 
@@ -153,17 +153,17 @@ Ao finalizar a configuração da política, ela deve corresponder ao exemplo a s
 
 Após configurar as políticas desejadas, clique em **Salvar**.
 
-![Salvar política][]
+![Salvar política][Salvar política]
 
 ## <a name="publish-product"> </a> Publicar o produto
 
 Agora que as APIs foram adicionadas e as políticas configuradas, o produto está pronto para ser usado pelos desenvolvedores. Antes que o produto possa ser usado pelos desenvolvedores, ele deve ser publicado. Clique em **Produtos** no menu **Gerenciamento de API** à esquerda, depois clique em **Avaliação Gratuita** para configurar o produto.
 
-![Configurar produto][]
+![Configurar produto][Configurar produto]
 
 Clique em **Publicar** e depois clique em **Sim, publicar** para confirmar.
 
-![Publicar produto][]
+![Publicar produto][Publicar produto]
 
 ## <a name="subscribe-account"> </a>Inscrever uma conta de desenvolvedor no produto
 
@@ -173,11 +173,11 @@ Agora que o produto foi publicado, ele está disponível para inscrição e para
 
 Clique em **Desenvolvedores** no menu **Gerenciamento de API** à esquerda e clique no nome de sua conta de desenvolvedor. Neste exemplo, estamos usando a conta de desenvolvedor **Clayton Gragg**.
 
-![Configurar desenvolvedor][]
+![Configurar desenvolvedor][Configurar desenvolvedor]
 
 Clique em **Adicionar assinatura**.
 
-![Adicionar assinatura][]
+![Adicionar assinatura][Adicionar assinatura]
 
 Marque a caixa ao lado de **Avaliação Gratuita** e clique em **Assinar**.
 
@@ -187,7 +187,7 @@ Marque a caixa ao lado de **Avaliação Gratuita** e clique em **Assinar**.
 
 Agora que o produto de Avaliação Gratuita está configurado e publicado, podemos chamar algumas operações e testar a política da taxa de limite. Alterne para o portal do desenvolvedor clicando em **Portal do desenvolvedor** no menu superior à direita.
 
-![Portal do desenvolvedor][]
+![Portal do desenvolvedor][Portal do desenvolvedor]
 
 Clique em **APIs** no menu superior e selecione **API de Eco**.
 
@@ -197,17 +197,17 @@ Clique em **APIs** no menu superior e selecione **API de Eco**.
 
 Selecione a operação **Recurso GET** e clique em **Abri Console**.
 
-![Abrir console][]
+![Abrir console][Abrir console]
 
 Mantenha os valores de parâmetros padrão e selecione a chave de assinatura para o produto de **Avaliação Gratuita**.
 
-![Chave de assinatura][]
+![Chave de assinatura][Chave de assinatura]
 
 > Se você tem várias inscrições certifique-se de selecionar a chave de **Avaliação Gratuita** ou as políticas que foram configuradas nas etapas anteriores não entrarão em vigor.
 
 Clique em **HTTP Get** e visualize a resposta. Observe o **Status de resposta** de **200 OK**.
 
-![Resultados da operação][]
+![Resultados da operação][Resultados da operação]
 
 Clique em **HTTP Get** a uma taxa maior que a política de limite de taxa de 10 chamadas por minuto. Uma vez excedida a política de limite de taxa, um status de resposta de **429 muitas solicitações** será retornado.
 
@@ -219,7 +219,7 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--   Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
+-   Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][Introdução à configuração avançada de API].
 
   [Criar um produto]: #create-product
   [Adicionar uma API ao produto]: #add-api

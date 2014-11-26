@@ -10,7 +10,7 @@ O MapReduce do Hadoop é uma estrutura de software para escrever aplicativos que
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
--   Um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [[Provisionar clusters HDInsight][[Provisionar clusters HDInsight].
+-   Um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Provisionar clusters HDInsight][Provisionar clusters HDInsight].
 
 -   Uma estação de trabalho com o PowerShell do Azure instalado e configurado. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][Instalar e configurar o PowerShell do Azure].
 
@@ -209,7 +209,7 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 -   [Use o Pig com o HDInsight][Use o Pig com o HDInsight]
 -   [Executar os exemplos do HDInsight][Executar os exemplos do HDInsight]
 
-  [[Provisionar clusters HDInsight]: ../hdinsight-provision-clusters/
+  [Provisionar clusters HDInsight]: ../hdinsight-provision-clusters/
   [Instalar e configurar o PowerShell do Azure]: ../install-and-configure-powershell/
   [Compreender o cenário]: #scenario
   [Executar o exemplo com o PowerShell do Azure]: #run-sample

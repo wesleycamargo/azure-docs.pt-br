@@ -124,9 +124,9 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 -   [Referência de script de servidor de Serviços Móveis][Referência de script de servidor de Serviços Móveis]
     Saiba mais sobre como criar APIs personalizadas.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Notificações periódicas]: http://msdn.microsoft.com/pt-br/library/windows/apps/jj150587.aspx
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service

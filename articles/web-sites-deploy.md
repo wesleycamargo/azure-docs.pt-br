@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-websites" pageTitle="How to deploy an Azure Website" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 
 # Como implantar um site do Azure
 
@@ -211,7 +211,7 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
   [BitBucket]: https://bitbucket.org/
   [Publicando do controle do código-fonte para sites do Azure]: /pt-br/documentation/articles/web-sites-publish-source-control/
   [Implantar em sites da Web com o GitHub usando o Kudu]: /pt-br/documentation/videos/deploying-to-azure-from-github/
-  [Fórum do Azure para Git, Mercurial e Dropbox]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit
+  [Fórum do Azure para Git, Mercurial e Dropbox]: http://social.msdn.microsoft.com/Forums/windowsazure/pt-br/home?forum=azuregit
   [Mercurial]: http://mercurial.selenic.com/
   [Dropbox]: https://www.dropbox.com/
   [Implantar no Windows Azure usando o Dropbox]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx

@@ -1,10 +1,10 @@
 Um novo script de inserção está registrado e gerará uma SAS quando um novo item de Todo for inserido.
 
-1.  Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento][].
+1.  Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento][Como criar uma conta de armazenamento].
 
 2.  No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**.
 
-    ![][]
+    ![][0]
 
 3.  Anote o **Nome da Conta de Armazenamento** e a **Chave de Acesso**.
 
@@ -17,7 +17,7 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
     ![][2]
 
-    A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo][].
+    A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo][Configurações do aplicativo].
 
 5.  Clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
@@ -82,7 +82,7 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
     Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade `sasQueryString` do item devolvido. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
 
-    > [WACOM.NOTE] Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o [método generateSharedAccessSignature][] com um nome de recurso de blob vazio, da seguinte forma:
+    > [WACOM.NOTE] Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o [método generateSharedAccessSignature][método generateSharedAccessSignature] com um nome de recurso de blob vazio, da seguinte forma:
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -90,12 +90,12 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
 Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalidade de carregamento de imagem usando a SAS gerada em Inserir.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
-  []: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
   [Configurações do aplicativo]: http://msdn.microsoft.com/pt-br/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

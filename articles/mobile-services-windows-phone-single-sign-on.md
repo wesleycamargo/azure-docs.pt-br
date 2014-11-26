@@ -164,9 +164,9 @@ Em seguida, você irá atualizar o aplicativo para autenticar usuários com o Li
 
 No próximo tutorial, [Autorizar usuários com scripts][Autorizar usuários com scripts], você irá obter o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis. Para obter informações sobre como usar outros provedores de identidade para autenticação, consulte [Introdução à autenticação][8].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-wp8/
   [Registrar seu aplicativo para a autenticação e configure os Serviços Móveis]: #register

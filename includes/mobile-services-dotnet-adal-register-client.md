@@ -1,6 +1,6 @@
 ## <a name="register-app-aad"></a>Registrar o seu aplicativo cliente com o Active Directory do Azure
 
-1.  Navegue até **Active Directory** no [Portal de Gerenciamento do Azure][] e clique no seu diretório.
+1.  Navegue até **Active Directory** no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] e clique no seu diretório.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 

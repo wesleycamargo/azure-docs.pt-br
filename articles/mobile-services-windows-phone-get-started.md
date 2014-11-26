@@ -103,15 +103,13 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
     
 	Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [Versão de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [Avaliação gratuita do Azure]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFpt-br%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-phone-get-started/mobile-portal-quickstart-wp8.png
   [2]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-steps-wp8.png
   [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374

@@ -102,8 +102,8 @@ Este tutorial exige o seguinte:
 
 ![][0]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Introdução aos serviços móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
   [Registrar o seu serviço móvel com o Active Directory do Azure]: #register-mobile-service-aad
@@ -113,9 +113,6 @@ Este tutorial exige o seguinte:
   [Testar o cliente usando autenticação]: #test-client
   [Introdução aos Dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
   [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Como registrar-se com o Azure Active Directory]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png

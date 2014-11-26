@@ -118,4 +118,3 @@ Para executar o aplicativo, faça o seguinte:
 
 4.  Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md

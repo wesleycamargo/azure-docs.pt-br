@@ -6,7 +6,7 @@ Para gerar uma SAS para carregar imagens no armazenamento de Blob, primeiro adic
 
 2.  No painel esquerdo, selecione a categoria **Online**, selecione **Apenas Estáveis**, pesquise **WindowsAzure.Storage**, clique em **Instalar** no pacote **Armazenamento do Azure** e aceite os contratos de licença.
 
-    ![][]
+    ![][0]
 
     Isso adiciona a biblioteca de cliente para os serviços de armazenamento do Azure ao projeto do serviço móvel.
 
@@ -25,13 +25,13 @@ A classe TodoItem define o objeto de dados, e é necessário adicionar a essa cl
 
     Essas propriedades são utilizadas para gerar a SAS e armazenar informações de imagem. Observe as maiúsculas e minúsculas nessas propriedades correspondem à versão back-end do JavaScript.
 
-    > [WACOM.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados][].
+    > [WACOM.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados][Como usar as Migrações Code First para atualizar o modelo de dados].
 
 ## <a name="update-scripts"></a>Atualizar o controlador de TodoItem para gerar uma assinatura de acesso compartilhado
 
 O **TodoItemController** existente é atualizado para que o método **PostTodoItem** gere uma SAS quando um novo TodoItem é inserido. Você também
 
-1.  Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento][].
+1.  Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento][Como criar uma conta de armazenamento].
 
 2.  No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**.
 
@@ -48,7 +48,7 @@ O **TodoItemController** existente é atualizado para que o método **PostTodoIt
 
     ![][3]
 
-    A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo][].
+    A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo][Configurações do aplicativo].
 
 5.  No Gerenciador de Soluções no Visual Studio, abra o arquivo Web.config do projeto do serviço móvel e adicione as novas configurações de aplicativo a seguir, substituindo os espaços reservados pelo nome da conta de armazenamento e pela chave de acesso que você acabou de definir no portal:
 
@@ -123,7 +123,7 @@ O **TodoItemController** existente é atualizado para que o método **PostTodoIt
 
     Esse método POST agora gera uma nova SAS para o item inserido, que é válida por cinco minutos, e atribui o valor da SAS gerada à propriedade `sasQueryString` do item retornado. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
 
-    > [WACOM.NOTE] Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o [método generateSharedAccessSignature][] com um nome de recurso de blob vazio, da seguinte forma:
+    > [WACOM.NOTE] Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o [método generateSharedAccessSignature][método generateSharedAccessSignature] com um nome de recurso de blob vazio, da seguinte forma:
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -131,15 +131,15 @@ O **TodoItemController** existente é atualizado para que o método **PostTodoIt
 
 Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalidade de carregamento de imagem usando a SAS gerada em Inserir.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  []: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+
+
+
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [Como usar as Migrações Code First para atualizar o modelo de dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
-  [Como criar uma conta de armazenamento]: /en-us/manage/services/storage/how-to-create-a-storage-account
+  [Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [3]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
-  [Configurações do aplicativo]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+  [Configurações do aplicativo]: http://msdn.microsoft.com/pt-br/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
   [método generateSharedAccessSignature]: http://go.microsoft.com/fwlink/?LinkId=390455

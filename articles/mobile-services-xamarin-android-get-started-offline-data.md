@@ -156,9 +156,9 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 -   [Como usar o cliente Componente Xamarin para os Serviços Móveis do Azure][Como usar o cliente Componente Xamarin para os Serviços Móveis do Azure]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Introdução aos Dados]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/

@@ -192,7 +192,7 @@ Isso interromperá a operação atual de push mas manterá todas as alterações
 
 Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedException` e a propriedade de exceção `PushResult.Status` terá o valor `MobileServicePushStatus.CancelledByOperation`.
 
-<!-- Anchors. -->
+
 <!-- Images -->
 <!-- URLs -->
 

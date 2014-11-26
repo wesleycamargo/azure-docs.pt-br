@@ -2,8 +2,8 @@ Depois que os registros do nome de domínio tiverem sido propagados, você dever
 
 > [WACOM.NOTE] Pode levar algum tempo para que o CNAME seja propagado pelo sistema DNS. É possível usar um serviço como <http://www.digwebinterface.com/> para verificar se o CNAME está disponível.
 
-Se ainda não tiver adicionado o site como um ponto de extremidade do Gerenciador de Tráfego, você deverá fazer isso antes de a resolução de nome funcionar, uma vez que o nome de domínio personalizado é encaminhado para o Gerenciador de Tráfego. Em seguida, o Gerenciador de Tráfego encaminha para o site. Use as informações contidas em [Adicionar ou Excluir Pontos de Extremidade][] para adicionar o site como um ponto de extremidade em seu perfil do Gerenciador de Tráfego.
+Se ainda não tiver adicionado o site como um ponto de extremidade do Gerenciador de Tráfego, você deverá fazer isso antes de a resolução de nome funcionar, uma vez que o nome de domínio personalizado é encaminhado para o Gerenciador de Tráfego. Em seguida, o Gerenciador de Tráfego encaminha para o site. Use as informações contidas em [Adicionar ou Excluir Pontos de Extremidade][Adicionar ou Excluir Pontos de Extremidade] para adicionar o site como um ponto de extremidade em seu perfil do Gerenciador de Tráfego.
 
 > [WACOM.NOTE] Se o site não for listado ao adicionar um ponto de extremidade, verifique se ele está configurado para o modo Padrão. Você deve usar o modo Padrão para o site para trabalhar com o Gerenciador de Tráfego.
 
-  [Adicionar ou Excluir Pontos de Extremidade]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
+  [Adicionar ou Excluir Pontos de Extremidade]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh744839.aspx

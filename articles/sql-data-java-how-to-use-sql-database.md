@@ -35,7 +35,7 @@ O Banco de Dados SQL do Azure fornece um sistema de gerenciamento de banco de da
 
 ## <span id="concepts"></span></a>Conceitos
 
-Como o Banco de Dados SQL do Azure tem como base as tecnologias do SQL Server, o acesso ao Banco de Dados SQL a partir do Java é muito semelhante ao acesso ao SQL Server a partir do Java. Você pode desenvolver um aplicativo localmente (usando o SQL Server) e depois conectar-se ao Banco de Dados SQL, alterando a cadeia de conexão. Você pode usar um driver JDBC do SQL Server para o seu aplicativo. No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)][Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)]
+Como o Banco de Dados SQL do Azure tem como base as tecnologias do SQL Server, o acesso ao Banco de Dados SQL a partir do Java é muito semelhante ao acesso ao SQL Server a partir do Java. Você pode desenvolver um aplicativo localmente (usando o SQL Server) e depois conectar-se ao Banco de Dados SQL, alterando a cadeia de conexão. Você pode usar um driver JDBC do SQL Server para o seu aplicativo. No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL)](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394102.aspx) (a página pode estar em inglês).
 
 Para obter recursos adicionais para o Banco de Dados SQL, consulte a seção [Próximas etapas][Próximas etapas].
 
@@ -45,8 +45,8 @@ A seguir estão os pré-requisitos se você pretende usar o Banco de Dados SQL c
 
 -   Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 -   Uma assinatura de Azure, que pode ser adquirida em [Uma assinatura do Azure, que pode ser adquirida em][Uma assinatura do Azure, que pode ser adquirida em].
--   Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês))][Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês))].
--   Se não estiver usando o Eclipse, você precisará do Microsoft JDBC Driver 4.0 para SQL Server, que pode ser baixado em [http://www.microsoft.com/pt-br/download/details.aspx?id=11774][http://www.microsoft.com/pt-br/download/details.aspx?id=11774].
+-   Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690946.aspx) (a página pode estar em inglês).
+-   Se não estiver usando o Eclipse, você precisará do Microsoft JDBC Driver 4.0 para SQL Server, que pode ser baixado em <http://www.microsoft.com/pt-br/download/details.aspx?id=11774>.
 
 ## <span id="create_db"></span></a>Criando um Banco de Dados SQL do Azure
 
@@ -84,15 +84,15 @@ Antes de usar o Banco de Dados SQL do Azure no código Java, você deverá criar
     ![Determinar a cadeia de conexão JDBC][Determinar a cadeia de conexão JDBC]
 
 6.  Clique com o botão direito do mouse no conteúdo realçado da cadeia de conexão **JDBC** e clique em **Copiar**.
-7.  Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua *your\_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua *your\_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.)
+7.  Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua *your\_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua *your\_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.) 
 
-        Cadeia connectionString =
-        "jdbc:sqlserver://*your\_server*.database.windows.net:1433" + ";" +
-        "database=gettingstarted" + ";" +
-        ["user=MySQLAdmin@\*your\_server\*]" + ";" +
-        "password=*your\_password*" + ";" +
+    Cadeia connectionString =
+		"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
+    	"database=gettingstarted" + ";" + 
+    	"user=MySQLAdmin@*your_server*" + ";" +  
+    	"password=*your_password*" + ";" +  
         "encrypt=true" + ";" +
-        "hostNameInCertificate=\*.int.mscds.com" + ";" +
+        "hostNameInCertificate=*.int.mscds.com" + ";" +  
         "loginTimeout=30";
 
 Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por enquanto, você deve conhecer as etapas para determinar a cadeia de conexão. Além disso, dependendo das necessidades de seu aplicativo, você talvez não precise usar as configurações **encrypt** e **hostNameInCertificate** e talvez precise modificar a configuração **loginTimeout**.
@@ -111,21 +111,21 @@ Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por
 
 8.  Clique no botão de conclusão. Os endereços IP que você especificar agora terão acesso ao seu servidor de banco de dados.
 
-## <span id="use_sql_azure_in_java"></span></a>Para usar o Banco de Dados SQL do Azure em Java
+<h2><a id="use_sql_azure_in_java"></a>Para usar o Banco de Dados SQL do Azure em Java</h2>
 
 1.  Crie um projeto Java. Para os fins deste tutorial, chame-o de **HelloSQLAzure**.
 2.  Adicione um arquivo de classe Java chamado **HelloSQLAzure.java** ao projeto.
 3.  Adicione o **Driver JDBC da Microsoft para SQL Server** ao seu caminho de compilação.
 
-Se estiver usando o Eclipse:
+  Se estiver usando o Eclipse:
 
-    1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
-    2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
-    3. Click the **Libraries** tab, and then click **Add Library**.
-    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
-    5. Click **OK** to close the **Properties** dialog.
+   1. No Explorador de Projeto do Eclipse, clique com o botão direito no projeto **HelloSQLAzure** e clique em **Propriedades**.
+   2. No painel esquerdo da caixa de diálogo **Propriedades**, clique em **Caminho de Compilação Java**.
+   3. Clique na guia **Bibliotecas** e, em seguida, em **Adicionar Biblioteca**.
+   4. Na caixa de diálogo **Adicionar Biblioteca**, selecione **Microsoft JDBC Driver 4.0 para SQL Server**, clique em **Avançar** e, em seguida, em **Concluir**.
+   5. Clique em **OK** para fechar a caixa de diálogo **Propriedades**.
 
-    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/pt-br/library/ms378526.aspx).
+    Se não estiver usando o Eclipse, adicione o Microsoft JDBC Driver 4.0 para SQL Server JAR ao seu caminho de classe. Para obter informações relacionadas, consulte [Using the JDBC Driver](http://msdn.microsoft.com/pt-br/library/ms378526.aspx).
 
 1.  Em seu código **HelloSQLAzure.java**, adicione instruções `import` conforme mostrado a seguir:
 
@@ -693,7 +693,7 @@ Para usar o Banco de Dados SQL em Java em uma implantação do Azure, além de t
 3.  Na caixa de diálogo **Nova Diretiva de Assembly**, clique em **Entradas do Caminho de Compilação Java** e, em seguida, clique em **Avançar**.
 4.  Selecione **Microsoft JDBC Driver 4.0 para SQL Server** e clique em **Concluir**.
 5.  Clique em **OK** para fechar a caixa de diálogo **Propriedades**.
-6.  Exporte o arquivo WAR de seu projeto para a pasta approot e recompile seu projeto do Azure, de acordo com as etapas documentadas em [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies) (a página pode estar em inglês)][Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies) (a página pode estar em inglês)]. Este tópico também descreve como executar seu aplicativo no emulador de computação e no Azure.
+6.  Exporte o arquivo WAR de seu projeto para a pasta approot e recompile seu projeto do Azure, de acordo com as etapas documentadas em [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx) (a página pode estar em inglês). Este tópico também descreve como executar seu aplicativo no emulador de computação e no Azure.
 
 **Empacotando o Microsoft JDBC Driver 4.0 para SQL Server se não estiver usando o Eclipse**
 
@@ -701,7 +701,7 @@ Para usar o Banco de Dados SQL em Java em uma implantação do Azure, além de t
 
 ## <span id="nextsteps"></span></a>Próximas etapas
 
-Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão geral do JDBC Driver][Visão geral do JDBC Driver]. Para saber mais sobre o Banco de Dados SQL, consulte [Visão geral do Banco de Dados SQL (a página pode estar em inglês)][Visão geral do Banco de Dados SQL (a página pode estar em inglês)].
+Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão geral do JDBC Driver][Visão geral do JDBC Driver]. Para saber mais sobre o Banco de Dados SQL, consulte [Visão geral do Banco de Dados SQL] (http://msdn.microsoft.com/pt-br/library/windowsazure/ee336241.aspx) (a página pode estar em inglês).
 
   [Portal de Gerenciamento do Azure]: https://windows.azure.com
   [Conceitos]: #concepts

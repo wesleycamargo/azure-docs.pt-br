@@ -1,4 +1,4 @@
-<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Aplicativo Java que requer muitos recursos computacionais em uma m&aacute;quina virtual &mdash; Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Saiba como criar uma m&aacute;quina virtual do Azure que execute aplicativos Java que requerem muitos recursos computacionais e podem ser monitorados por outro aplicativo Java." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="Como executar uma tarefa com uso intenso de computa&ccedil;&atilde;o no Java em uma m&aacute;quina virtual" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -116,6 +116,8 @@ namespace.
 1.  Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java][Azure SDK para Java].
 2.  Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 3.  Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
+
+</p>
 
     // TSPSolver.java
 
@@ -295,13 +297,15 @@ namespace.
                 System.exit(-1);
             }
         }
-
     }
+
 
 ## Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva
 
 1.  Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos o **TSPClient.java** como o nome do arquivo Java. Como acima, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 2.  Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPClient.jar** como o nome do arquivo JAR gerado.
+
+</p>
 
     // TSPClient.java
 
@@ -408,10 +412,9 @@ namespace.
                 e.printStackTrace();
                 System.exit(-1);
             }
-
         }
-        
     }
+
 
 ## Como executar os aplicativos Java.
 

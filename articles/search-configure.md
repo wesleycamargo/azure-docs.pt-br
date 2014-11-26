@@ -2,27 +2,27 @@
 
 # Configurar a pesquisa no Portal de Visualização do Azure
 
-[WACOM.INCLUDE [Este artigo usa o Portal de Visualização do Azure][]]
+[WACOM.INCLUDE [Este artigo usa o Portal de Visualização do Azure](../includes/preview-portal-note.md)]
 
 A pesquisa no Microsoft Azure (visualização pública) está disponível no Portal de Visualização. Como administrador, você pode adicionar o serviço de Pesquisa a uma assinatura existente sem custos adicionais ao selecionar o serviço compartilhado, ou por um valor reduzido ao optar por recursos dedicados. Este artigo possui as seguintes seções:
 
 <!--Table of contents -->
 
--   [Começar com o serviço gratuito][]
--   [Atualizar para a pesquisa padrão][]
--   [Testar operações de serviço][]
--   [Explorar as páginas de configuração do serviço de Pesquisa][]
--   [Experimentar][]
+-   [Começar com o serviço gratuito][Começar com o serviço gratuito]
+-   [Atualizar para a pesquisa padrão][Atualizar para a pesquisa padrão]
+-   [Testar operações de serviço][Testar operações de serviço]
+-   [Explorar as páginas de configuração do serviço de Pesquisa][Explorar as páginas de configuração do serviço de Pesquisa]
+-   [Experimentar][Experimentar]
 
 ## Começar com o serviço gratuito
 
 Os assinantes obtêm automaticamente acesso gratuito a um serviço de Pesquisa compartilhado, multilocatários, que você pode utilizar para fins de aprendizado, testes de prova de conceito ou pequenos projetos de desenvolvimento de pesquisa. Inscreva-se na versão gratuita por meio das seguintes etapas.
 
-1.  Entre no [Portal de Visualização do Azure][] usando sua assinatura existente. Observe que esta URL leva você até o Portal de Visualização.
+1.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure] usando sua assinatura existente. Observe que esta URL leva você até o Portal de Visualização.
 
 2.  Clique em **Novo** na parte inferior da página.
 
-    ![][]
+    ![][0]
 
 3.  Clique em **Tudo**, no início da página.
 
@@ -74,7 +74,7 @@ Em alguns minutos, o serviço é criado. Você pode voltar para as configuraçõ
 
 **USO** mostra a contagem de documentos, recursos disponíveis e limites de armazenamento.
 
-Continue até [Testar operações de serviço][] para obter instruções de como se conectar ao serviço usando esses valores.
+Continue até [Testar operações de serviço][Testar operações de serviço] para obter instruções de como se conectar ao serviço usando esses valores.
 
 ## Atualizar para a pesquisa padrão
 
@@ -88,7 +88,7 @@ Configurar recursos dedicados pode levar algum tempo (15 minutos ou mais).
 
 **Etapa 1 - Criar um novo serviço com a Camada de Preços definida como Padrão**
 
-1.  Entre no [Portal de Visualização do Azure][] usando sua assinatura existente.
+1.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure] usando sua assinatura existente.
 
 2.  Clique em **Novo** na parte inferior da página.
 
@@ -116,13 +116,13 @@ A pesquisa padrão começa com uma réplica e uma partição cada, mas pode ser 
 
 2.  Use os controles deslizantes para adicionar réplicas, partições ou ambas.
 
-Réplicas e partições adicionais são cobradas em unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos. Você pode verificar os [Detalhes de Preços][] para obter as informações de cobrança por unidade.
+Réplicas e partições adicionais são cobradas em unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos. Você pode verificar os [Detalhes de Preços][Detalhes de Preços] para obter as informações de cobrança por unidade.
 
 ![][10]
 
 ## Testar operações de serviço
 
-Confirmar que seu serviço está funcionando e pode ser acessado por meio de um aplicativo cliente é a etapa final da configuração da Pesquisa. Este procedimento usa o Fiddler, disponível como um [download gratuito do Telerik][], para emitir solicitações HTTP e ver respostas. Usando o Fiddler, você pode testar a API imediatamente, sem precisar escrever nenhum código.
+Confirmar que seu serviço está funcionando e pode ser acessado por meio de um aplicativo cliente é a etapa final da configuração da Pesquisa. Este procedimento usa o Fiddler, disponível como um [download gratuito do Telerik][download gratuito do Telerik], para emitir solicitações HTTP e ver respostas. Usando o Fiddler, você pode testar a API imediatamente, sem precisar escrever nenhum código.
 
 O procedimento a seguir funciona para a pesquisa padrão e a compartilhada. Nas etapas abaixo, você criará um índice, carregará documentos, consultará o índice e consultará o sistema quanto a informações de serviço.
 
@@ -286,7 +286,7 @@ O código de resposta deve ser 200, e a saída de resposta deve ser semelhante �
 
 ![][14]
 
-O exemplo de consulta a seguir é da [operação Pesquisar Índice (API da Pesquisa do Azure)][] no MSDN. Muitos dos exemplos de consulta deste tópico incluem espaços, que não são permitidos no Fiddler. Substitua cada espaço por um caractere + antes de colar na cadeia de consulta e tentar realizar a consulta no Fiddler:
+O exemplo de consulta a seguir é da [operação Pesquisar Índice (API da Pesquisa do Azure)][operação Pesquisar Índice (API da Pesquisa do Azure)] no MSDN. Muitos dos exemplos de consulta deste tópico incluem espaços, que não são permitidos no Fiddler. Substitua cada espaço por um caractere + antes de colar na cadeia de consulta e tentar realizar a consulta no Fiddler:
 
 **Antes da substituição dos espaços:**
 
@@ -327,7 +327,7 @@ Você também pode consultar o sistema para obter informações de contagens de 
 
 Se você precisar de um lembrete de onde encontrar as páginas de configuração, siga as etapas a seguir para localizar o painel de serviço.
 
-1.  Entre no [Portal de Visualização do Azure][] usando sua assinatura existente.
+1.  Entre no [Portal de Visualização do Azure][Portal de Visualização do Azure] usando sua assinatura existente.
 2.  Clique em **Navegar** | **Tudo**.
 
     ![][17]
@@ -346,26 +346,25 @@ Se você precisar de um lembrete de onde encontrar as páginas de configuração
 
 Pronto para a próxima etapa? Os links a seguir levam você a materiais adicionais que mostram como compilar e gerenciar aplicativos de pesquisa que usam a Pesquisa do Azure.
 
-[Criar sua primeira solução de pesquisa do Azure][]
+[Criar sua primeira solução de pesquisa do Azure][Criar sua primeira solução de pesquisa do Azure]
 
-[Gerenciar sua solução de pesquisa no Microsoft Azure][]
+[Gerenciar sua solução de pesquisa no Microsoft Azure][Gerenciar sua solução de pesquisa no Microsoft Azure]
 
-[Visão geral técnica da Pesquisa do Azure][]
+[Visão geral técnica da Pesquisa do Azure][Visão geral técnica da Pesquisa do Azure]
 
-[API REST da Pesquisa do Azure][]
+[API REST da Pesquisa do Azure][API REST da Pesquisa do Azure]
 
 <!--Anchors--> 
 <!--Image references--> 
 <!--Link references-->
 
-  [Este artigo usa o Portal de Visualização do Azure]: ../includes/preview-portal-note.md
   [Começar com o serviço gratuito]: #sub-1
   [Atualizar para a pesquisa padrão]: #sub-2
   [Testar operações de serviço]: #sub-3
   [Explorar as páginas de configuração do serviço de Pesquisa]: #sub-4
   [Experimentar]: #next-steps
   [Portal de Visualização do Azure]: https://portal.azure.com
-  []: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
+  [0]: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
   [1]: ./media/search-configure/AzureSearch_Configure1_2_Everything.PNG
   [2]: ./media/search-configure/Azuresearch_Configure1_3_Gallery.PNG
   [3]: ./media/search-configure/AzureSearch_Configure1_4_GallerySeeAll.PNG
@@ -382,11 +381,11 @@ Pronto para a próxima etapa? Os links a seguir levam você a materiais adiciona
   [12]: ./media/search-configure/AzureSearch_Configure1_12_POSTDocs.PNG
   [13]: ./media/search-configure/AzureSearch_Configure1_13_GETQuery.PNG
   [14]: ./media/search-configure/AzureSearch_Configure1_14_GETQueryResponse.PNG
-  [operação Pesquisar Índice (API da Pesquisa do Azure)]: http://msdn.microsoft.com/en-us/library/dn798927.aspx
+  [operação Pesquisar Índice (API da Pesquisa do Azure)]: http://msdn.microsoft.com/pt-br/library/dn798927.aspx
   [15]: ./media/search-configure/AzureSearch_Configure1_15_Stats.PNG
   [16]: ./media/search-configure/AzureSearch_Configure1_16_StatsResponse.PNG
   [17]: ./media/search-configure/AzureSearch_Configure1_17_BrowseEverything.PNG
   [Criar sua primeira solução de pesquisa do Azure]: ../search-create-first-solution/
   [Gerenciar sua solução de pesquisa no Microsoft Azure]: ../search-manage/
-  [Visão geral técnica da Pesquisa do Azure]: http://msdn.microsoft.com/en-us/library/dn798933.aspx
-  [API REST da Pesquisa do Azure]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [Visão geral técnica da Pesquisa do Azure]: http://msdn.microsoft.com/pt-br/library/dn798933.aspx
+  [API REST da Pesquisa do Azure]: http://msdn.microsoft.com/pt-br/library/dn798935.aspx

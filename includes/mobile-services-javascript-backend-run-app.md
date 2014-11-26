@@ -14,11 +14,11 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 5.  No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
 
-    ![][]
+    ![][0]
 
     Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
     ![][1]
 
-  []: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
+  [0]: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
   [1]: ./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png

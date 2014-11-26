@@ -106,8 +106,6 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
   [Inserir dados para receber notificações]: #test
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
   [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
   [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet/

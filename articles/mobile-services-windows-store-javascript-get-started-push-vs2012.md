@@ -151,9 +151,9 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 -   [Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis][Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]
     Saiba mais sobre como usar os Serviços Móveis com HTML e JavaScript.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Registrar seu aplicativo para notificações por push e configurar os Serviços Móveis]: #register
   [Criar a tabela de registros]: #create-table
@@ -161,10 +161,7 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
   [Atualizar scripts para enviar notificações por push]: #update-scripts
   [Inserir dados para receber notificações]: #test
   [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-js
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png
   [3]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push2.png

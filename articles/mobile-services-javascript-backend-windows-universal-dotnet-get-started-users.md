@@ -25,25 +25,29 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-1.  (Opcional) Conclua as etapas em [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft][Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft].
+<ol start="5">
+<li><p>(Opcional) Conclua as etapas em <a href="/pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft</a>.</p>
 
     <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
     <p>Esta etapa &eacute; opcional, pois s&oacute; &eacute; aplicada ao provedor de login da conta da Microsoft. Ao registrar as informa&ccedil;&otilde;es do pacote de aplicativos da Windows Store com Servi&ccedil;os M&oacute;veis, o cliente &eacute; capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experi&ecirc;ncia de logon &uacute;nica. Se voc&ecirc; n&atilde;o fizer isso, os usu&aacute;rios de login da conta da Microsoft ser&atilde;o apresentados com uma solicita&ccedil;&atilde;o de logon toda vez que o m&eacute;todo de logon for chamado. Conclua esta etapa ao planejar usar o provedor de identidade da conta da Microsoft.</p>
-    </div>
+    </div></li>
+</ol>
 
 ## <a name="permissions"></a>Restringir as permissões aos usuários autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  No Visual Studio, clique com o botão direito do mouse no projeto do Windows Store para o aplicativo TodoList e clique em **Definir como Projeto de Inicialização**.
+<ol start="3">
+<li><p>No Visual Studio, clique com o botão direito do mouse no projeto do Windows Store para o aplicativo TodoList e clique em <b>Definir como Projeto de Inicialização</b>.</p></li>
 
-2.  No projeto compartilhado, abra o arquivo de projeto App.xaml.cs, localize a definição para o [MobileServiceClient][MobileServiceClient], e certifique-se de que está configurado para conectar ao serviço móvel em execução no Azure.
+<li><p>No projeto compartilhado, abra o arquivo de projeto App.xaml.cs, localize a definição para o <a href="http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, e certifique-se de que está configurado para conectar ao serviço móvel em execução no Azure.</p>
 
-    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong><p>Ao usar as ferramentas do Visual Studio para conectar seu aplicativo a um Servi&ccedil;o M&oacute;vel, a ferramenta gera dois conjuntos de defini&ccedil;&otilde;es <strong>MobileServiceClient</strong>, um para cada plataforma de cliente. Este &eacute; um bom momento para simplificar o c&oacute;digo gerado, ao unificar as defini&ccedil;&otilde;es ajustadas do <code data-inline="1">#if...#endif</code> do <strong>MobileServiceClient</strong> em uma &uacute;nica defini&ccedil;&atilde;o n&atilde;o ajustada usada por ambas as vers&otilde;es do aplicativo.</p></div>
+    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong><p>Ao usar as ferramentas do Visual Studio para conectar seu aplicativo a um Servi&ccedil;o M&oacute;vel, a ferramenta gera dois conjuntos de defini&ccedil;&otilde;es <strong>MobileServiceClient</strong>, um para cada plataforma de cliente. Este &eacute; um bom momento para simplificar o c&oacute;digo gerado, ao unificar as defini&ccedil;&otilde;es ajustadas do <code data-inline="1">#if...#endif</code> do <strong>MobileServiceClient</strong> em uma &uacute;nica defini&ccedil;&atilde;o n&atilde;o ajustada usada por ambas as vers&otilde;es do aplicativo.</p></div></li>
 
-3.  Pressione a tecla F5 para executar o aplicativo Windows Store e verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.
+<li><p>Pressione a tecla F5 para executar o aplicativo Windows Store e verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.</p>
 
-    Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
+    <p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
+</ol>
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
@@ -61,7 +65,6 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
   [Restringir permissões de tabela para usuários autenticados]: #permissions
   [Adicionar autenticação ao aplicativo]: #add-authentication
@@ -70,11 +73,5 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
   [Introdução à autenticação dos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users
   [Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on
   [essa postagem]: http://go.microsoft.com/fwlink/p/?LinkId=506605
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [MobileServiceClient]: http://msdn.microsoft.com/pt-br/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-  [mobile-services-windows-universal-dotnet-authenticate-app]: ../includes/mobile-services-windows-universal-dotnet-authenticate-app.md
-  [mobile-services-windows-store-dotnet-authenticate-app-with-token]: ../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md
   [Autorização do lado do serviço dos usuários dos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts
   [Referência Conceitual do tutorial dos Serviços Móveis .NET]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

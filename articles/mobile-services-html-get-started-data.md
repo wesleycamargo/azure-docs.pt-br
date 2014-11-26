@@ -259,11 +259,10 @@ Este tutorial demonstrou as noções básicas de como habilitar um aplicativo HT
 
 Após concluir a série de dados, saiba como autenticar os usuários do seu aplicativo. Experimente um destes outros tutoriais após concluir [Introdução à autenticação][Introdução à autenticação].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+
   [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-html
   [Baixar o projeto do aplicativo HTML]: #download-app
   [Criar o serviço móvel]: #create-service
@@ -272,7 +271,6 @@ Após concluir a série de dados, saiba como autenticar os usuários do seu apli
   [Testar o aplicativo com os Serviços Móveis]: #test-app
   [aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

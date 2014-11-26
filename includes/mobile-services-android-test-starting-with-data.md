@@ -12,7 +12,7 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 3.  No Portal de Gerenciamento do Azure, clique em gerenciar para o banco de dados associado a seu serviço móvel.
 
-    ![][]
+    ![][0]
 
 4.  No Portal de Gerenciamento, execute um consulta para exibir as mudanças feitas pelo aplicativo da Windows Store. Sua consulta será semelhante à consulta a seguir, mas usará seu nome de banco de dados em vez de `todolist`.
 
@@ -22,5 +22,5 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 Isso conclui o tutorial **Introdução aos dados** para Android.
 
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png

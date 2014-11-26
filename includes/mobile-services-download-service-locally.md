@@ -1,4 +1,4 @@
-1.  No [Portal de Gerenciamento do Azure][], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
+1.  No [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/mobile-portal-quickstart-android.png)
 
@@ -18,6 +18,6 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-publish-profile.png)
 
-<!-- URLs. -->
+
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125

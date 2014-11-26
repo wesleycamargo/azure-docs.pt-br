@@ -433,8 +433,8 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 -   Autorizar usuários com scripts ([Xamarin.iOS][16]/[Xamarin.Android][17])
     Saiba como usar o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usá-lo para filtrar os dados retornados pelos Serviços Móveis.
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Xamarin]: /pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -461,7 +461,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
   [Como: Trabalhar com dados não tipados]: #untyped
   [Como: Projetar testes da unidade]: #unit-testing
   [Próximas etapas]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Criar uma tabela]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Esquema dinâmico]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554275.aspx

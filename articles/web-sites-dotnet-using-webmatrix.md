@@ -145,7 +145,6 @@ Você viu como criar e implantar um site a partir do WebMatrix para o Azure. Par
 
 -   [Site do WebMatrix][Site do WebMatrix]
 
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Adicionar conta]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-add-account.png
   [Entrar no Azure]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-sign-in.png
   [Novo site da Galeria de modelos]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-site-from-template.png

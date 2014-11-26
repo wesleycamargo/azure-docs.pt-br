@@ -102,7 +102,8 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 -   [Filas do Service Bus][Filas do Service Bus]
 -   [Tópicos do Service Bus][Tópicos do Service Bus]
 
-<!--Link references--> <!--External Link references-->
+<!--Link references-->
+<!--External Link references-->
 
   [Python Tools para Visual Studio]: http://pytools.codeplex.com
   [Pré-requisitos]: #prerequisites

@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="O que h&aacute; de novo nas vers&otilde;es de cluster Hadoop do HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="O HDInsight oferece suporte a v&aacute;rias vers&otilde;es de cluster Hadoop implant&aacute;veis a qualquer momento. Consulte as vers&otilde;es de distribui&ccedil;&atilde;o com suporte do Hadoop e do HortonWorks Data Platform (HDP)." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="O que h&aacute; de novo nas vers&otilde;es de cluster fornecidas pelo HDInsight?" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -16,7 +16,6 @@ O HDInsight oferece suporte a várias versões do cluster Hadoop que podem ser i
 <col width="20%" />
 <col width="20%" />
 </colgroup>
-<thead>
 <tr class="header">
 <th align="left">Componente</th>
 <th align="left">HDInsight versão 3.1 (padrão)</th>
@@ -24,14 +23,12 @@ O HDInsight oferece suporte a várias versões do cluster Hadoop que podem ser i
 <th align="left">HDIinsight versão 2.1</th>
 <th align="left">HDInsight versão 1.6</th>
 </tr>
-</thead>
-<tbody>
 <tr class="odd">
 <td align="left">HDP (Hortonworks Data Platform)</td>
-<td align="left">2.1</td>
-<td align="left">2.0</td>
-<td align="left">1.3</td>
-<td align="left">1.1</td>
+<td align="left">2,1</td>
+<td align="left">2,0</td>
+<td align="left">1,3</td>
+<td align="left">1,1</td>
 </tr>
 <tr class="even">
 <td align="left">Apache Hadoop e YARN</td>
@@ -117,7 +114,6 @@ O HDInsight oferece suporte a várias versões do cluster Hadoop que podem ser i
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-</tbody>
 </table>
 
 **Obter informações atuais sobre a versão do componente**
@@ -148,15 +144,13 @@ Por padrão, o Azure HDInsight agora dá suporte ao Hadoop 2.4 com o cluster HDI
 
 -   **Tez (somente HDInsight 3.1)**: Uma estrutura personalizável e de uso geral que cria tarefas simplificadas de processamento de dados em cargas de trabalho de pequena e grande escala no Hadoop. Ela oferece a capacidade de executar um DAG (gráfico acíclico direcionado) complexo de tarefas para um único trabalho, de modo que os projetos no ecossistema do Apache Hadoop, como Apache Hive e Apache Pig, possam atender aos requisitos de tempos de resposta interativa humana e extrema produtividade em uma escala de petabytes. Observe que o Hive 0.13 permite que consultas do Hive sejam executadas parte superior do Tez, em vez de no MapReduce.
 
--   **Alta disponibilidade**: Um segundo headnode foi adicionado aos clusters Hadoop implantados pelo HDInsight para aumentar a disponibilidade do serviço. Implementações padrão de clusters Hadoop normalmente têm um único headnode. O HDInsight remove esse ponto único de falha com a adição de um headnode secundário. A mudança para uma nova configuração de cluster de alta disponibilidade não altera o preço do cluster, a menos que os clientes provisionem clusters com um nó de cabeça extragrande em vez do nó de tamanho grande padrão.
+-   **Alta disponibilidade**: Um segundo headnode foi adicionado aos clusters Hadoop implantados pelo HDInsight para aumentar a disponibilidade do serviço. Implementações padrão de clusters Hadoop normalmente têm um único headnode. O HDInsight remove esse ponto único de falha com a adição de um headnode secundário. A mudança para uma nova configuração de cluster de alta disponibilidade não altera o preço do cluster, a menos que os clientes provisionem clusters com um headnode extragrande em vez do nó de tamanho grande padrão.
 
 -   **Desempenho do Hive**: melhorias na ordem de magnitude dos tempos de resposta de consulta do Hive (até 40x) e da compactação de dados (até 80%) usando o formato OCR **(Optimized Row Columnar)**.
 
--   **Pig, Sqoop, Oozie, Ambari**: Atualizações da versão do componente para o cluster HDInsight versão 3.0 (HDP 2.0/Hadoop 2.2) que fornece paridade com o cluster HDInsight versão 2.1 (HDP 1.3/Hadoop 1.2). Consulte as tabelas de versão abaixo para obter informações específicas.
+-   **Pig, Sqoop, Qozie, Ambari**: Atualizações da versão do componente para o cluster HDInsight versão 3.0 (HDP 2.0/Hadoop 2.2) que fornece paridade com o cluster HDInsight versão 2.1 (HDP 1.3/Hadoop 1.2). Consulte as tabelas de versão abaixo para obter informações específicas.
 
 -   **Mahout**: Essa biblioteca escalonável de algoritmos de aprendizado de máquina é pré-instalada em clusters Hadoop do HDInsight 3.1. Desse modo, você pode executar trabalhos do Mahout sem a necessidade de alguma configuração de cluster adicional.
-
--   **Suporte à Rede Virtual**: Os clusters do HDInsight podem ser usados com a Rede Virtual do Azure para oferecer suporte ao isolamento de recursos de nuvem ou a cenários híbridos que vinculam os recursos de nuvem àqueles em seu datacenter.
 
 ## Versões com suporte
 
@@ -175,7 +169,7 @@ Versão do HDInsight
 Versão do HDP</a>
 
 <th>
-Alta Disponibilidade
+Alta disponibilidade
 
 </th>
 </th>
@@ -234,7 +228,7 @@ Sim
 
 </td>
 <td>
-02/11/2014
+11/02/2014
 
 </td>
 <td>
@@ -242,11 +236,11 @@ Sim
 
 </td>
 <td>
-09/17/2014
+17/09/2014
 
 </td>
 <td>
-06/30/2015
+30/06/2015
 
 </td>
 </tr>
@@ -264,7 +258,7 @@ Sim
 
 </td>
 <td>
-10/28/2013
+28/10/2013
 
 </td>
 <td>
@@ -272,11 +266,11 @@ Não
 
 </td>
 <td>
-05/12/2014
+12/05/2014
 
 </td>
 <td>
-05/31/2015
+31/05/2015
 
 </td>
 </tr>
@@ -294,7 +288,7 @@ Não
 
 </td>
 <td>
-10/28/2013
+28/10/2013
 
 </td>
 <td>
@@ -302,11 +296,11 @@ Não
 
 </td>
 <td>
-04/26/2014
+26/04/2014
 
 </td>
 <td>
-05/31/2015
+31/05/2015
 
 </td>
 </tr>
@@ -338,7 +332,6 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [Documentação do Ambari]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
-  [HDInsight Release Notes (Notas de versão do HDInsight)]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-release-notes/
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/pt-br/library/dn593744.aspx
   [Família 4]: http://msdn.microsoft.com/pt-br/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html

@@ -4,21 +4,21 @@
 
 Este guia demonstra como executar cenários comuns usando o Serviço de armazenamento de blob do Azure. As amostras estão escritas em C# e
 usam a Biblioteca de Cliente de Armazenamento do Azure para .NET. Os cenários abordados incluem
-**carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
+**carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][Próximas etapas].
 
 ##Sumário
 
--   [O que é Blob Storage][]
--   [Conceitos][]
--   [Criar uma conta de Armazenamento do Azure][]
--   [Configurar uma cadeia de conexão de armazenamento][]
--   [Como: acessar o armazenamento de blob programaticamente][]
--   [Como: criar um contêiner][]
--   [Como: carregar um blob em um contêiner][]
--   [Como: listar os blobs em um contêiner][]
--   [Como: baixar blobs][]
--   [Como: excluir blobs][]
--   [Próximas etapas][]
+-   [O que é Blob Storage][O que é Blob Storage]
+-   [Conceitos][Conceitos]
+-   [Criar uma conta de Armazenamento do Azure][Criar uma conta de Armazenamento do Azure]
+-   [Configurar uma cadeia de conexão de armazenamento][Configurar uma cadeia de conexão de armazenamento]
+-   [Como: acessar o armazenamento de blob programaticamente][Como: acessar o armazenamento de blob programaticamente]
+-   [Como: criar um contêiner][Como: criar um contêiner]
+-   [Como: carregar um blob em um contêiner][Como: carregar um blob em um contêiner]
+-   [Como: listar os blobs em um contêiner][Como: listar os blobs em um contêiner]
+-   [Como: baixar blobs][Como: baixar blobs]
+-   [Como: excluir blobs][Como: excluir blobs]
+-   [Próximas etapas][Próximas etapas]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
@@ -83,7 +83,11 @@ Se você estiver escrevendo um aplicativo que não seja um Serviço de Nuvem do 
   		</appSettings>
 	</configuration>
 
-Leia [Configurando cadeias de conexão][] para obter mais informações sobre cadeias de conexão de armazenamento.
+Leia [Configurando cadeias de conexão][AccountKey" />
+  		</appSettings>
+	</configuration>
+
+Leia [Configurando cadeias de conexão] para obter mais informações sobre cadeias de conexão de armazenamento.
 	
 Agora você está pronto para executar as tarefas das instruções deste guia.
 
@@ -265,7 +269,7 @@ e estes seriam os resultados:
 	Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][].
+Para obter mais informações, consulte [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a><span  class="short-header">Baixar blobs</span>Como baixar blobs
 
@@ -358,7 +362,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [Próximas etapas]: #next-steps
   [O que é Blob Storage]: #what-is
   [Conceitos]: #concepts
-  [Criar uma conta de armazenamento do Azure]: #create-account
   [Configurar uma cadeia de conexão de armazenamento]: #setup-connection-string
   [Como: acessar o armazenamento de blob programaticamente]: #configure-access
   [Como: criar um contêiner]: #create-container
@@ -372,12 +375,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs-20/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs-20/blob9.png
   
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx
-  [Referência à biblioteca cliente do .NET]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn495001(v=azure.10).aspx
-  [Referência da API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Espacial]: http://nuget.org/packages/System.Spatial/5.0.2
 

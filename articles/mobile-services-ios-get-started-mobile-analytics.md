@@ -76,7 +76,7 @@ Este tutorial exige o seguinte:
 
 Saiba mais sobre o que o Capptain pode fazer em seu aplicativo em <http://www.capptain.com>
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Capptain]: http://www.capptain.com
   [Inicialize o SDK Capptain]: #initialize

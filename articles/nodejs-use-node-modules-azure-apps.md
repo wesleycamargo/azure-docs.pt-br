@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Usando Módulos no Node.js com aplicativos do Windows Azure
 
@@ -69,7 +69,6 @@ Quando seu aplicativo estiver pronto para produção, você poderá bloquear os 
 
 Agora que você aprendeu como usar os módulos no Node.js com o Windows Azure, aprenda como [especificar a versão do Node.js][especificar a versão do Node.js], [criar e implantar um Site no Node.js][criar e implantar um Site no Node.js] e [Como usar as Ferramentas de Linha de Comando do Windows Azure para Mac e Linux][Como usar as Ferramentas de Linha de Comando do Windows Azure para Mac e Linux].
 
-  [Tarefa de Inicialização do Windows Azure para executar a instalação do npm e evitar a implantação de módulos de nó]: http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure
   [instalar-npm]: https://npmjs.org/doc/install.html
   [especificar a versão do Node.js]: /pt-br/documentation/articles/nodejs-specify-node-version-azure-apps/
   [criar e implantar um Site no Node.js]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/

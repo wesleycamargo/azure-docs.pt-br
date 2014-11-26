@@ -11,7 +11,7 @@ Os informes oficiais listados abaixo fornecem exibições adicionais e perspecti
 <tr>
 
 <td style="width: 200px;">
- [Práticas de segurança recomendadas no desenvolvimento de aplicativos do Azure][]
+ [Práticas de segurança recomendadas no desenvolvimento de aplicativos do Azure][Práticas de segurança recomendadas no desenvolvimento de aplicativos do Azure]
 
 </td>
 
@@ -25,7 +25,7 @@ Este artigo enfoca os desafios de segurança e métodos recomendados para projet
 <tr>
 
 <td style="width: 200px;">
- [Visão Geral de Segurança do Azure][]
+ [Visão Geral de Segurança do Azure][Visão Geral de Segurança do Azure]
 
 </td>
 
@@ -39,7 +39,7 @@ Este documento descreve a matriz de controles implementados no Azure, para que o
 <tr>
 
 <td style="width: 200px;">
- [Logon único do Active Directory para um white paper de aplicativo do Azure][]
+ [Logon único do Active Directory para um white paper de aplicativo do Azure][Logon único do Active Directory para um white paper de aplicativo do Azure]
 
 </td>
 
@@ -53,7 +53,7 @@ Este artigo contém instruções passo a passo para usar o Windows Identity Foun
 <tr>
 
 <td style="width: 200px;">
- [Tabela do Azure - Programando o armazenamento da tabela][]
+ [Tabela do Azure - Programando o armazenamento da tabela][Tabela do Azure - Programando o armazenamento da tabela]
 
 </td>
 
@@ -67,7 +67,7 @@ Este documento descreve a tabela do Azure, que é o armazenamento estruturado fo
 <tr>
 
 <td style="width: 200px;">
- [Guia do Desenvolvedor para Barramento de Serviço do Azure AppFabric][]
+ [Guia do Desenvolvedor para Barramento de Serviço do Azure AppFabric][Guia do Desenvolvedor para Barramento de Serviço do Azure AppFabric]
 
 </td>
 
@@ -81,7 +81,7 @@ Este artigo se concentra em como você pode usar o Service Bus para superar algu
 <tr>
 
 <td style="width: 200px;">
- [Fila do Azure - Programação da Fila de Armazenamento][]
+ [Fila do Azure - Programação da Fila de Armazenamento][Fila do Azure - Programação da Fila de Armazenamento]
 
 </td>
 
@@ -95,7 +95,7 @@ Este documento descreve a fila do Azure e como usá-lo para fornecer um mecanism
 <tr>
 
 <td style="width: 200px;">
- [Whitepaper de unidade do Windows Azure - usando uma unidade durável para seus aplicativos em nuvem NTFS][]
+ [Whitepaper de unidade do Windows Azure - usando uma unidade durável para seus aplicativos em nuvem NTFS][Whitepaper de unidade do Windows Azure - usando uma unidade durável para seus aplicativos em nuvem NTFS]
 
 </td>
 
@@ -109,7 +109,7 @@ Este documento descreve a unidade do Azure e como usá-lo para fornecer volumes 
 <tr>
 
 <td style="width: 200px;">
- [Apresentando o Azure][]
+ [Apresentando o Azure][Apresentando o Azure]
 
 </td>
 
@@ -123,7 +123,7 @@ Este documento apresenta o Azure, plataforma de nuvem da Microsoft que permite q
 <tr>
 
 <td style="width: 200px;">
- [Blob do Azure - Programando o armazenamento de blobs][]
+ [Blob do Azure - Programando o armazenamento de blobs][Blob do Azure - Programando o armazenamento de blobs]
 
 </td>
 
@@ -137,7 +137,7 @@ Este artigo descreve o Azure Blob e como usá-lo para permitir que os aplicativo
 <tr>
 
 <td style="width: 200px;">
- [O modelo de programação do Azure][]
+ [O modelo de programação do Azure][O modelo de programação do Azure]
 
 </td>
 
@@ -151,7 +151,7 @@ Este artigo discute as vantagens de *plataforma como serviço* nuvem oferta e co
 <tr>
 
 <td style="width: 200px;">
- [Windows HPC Server e Azure][]
+ [Windows HPC Server e Azure][Windows HPC Server e Azure]
 
 </td>
 
@@ -165,7 +165,7 @@ Este artigo descreve como o Windows HPC Server R2 e Azure podem trabalhar juntos
 <tr>
 
 <td style="width: 200px;">
- [Semelhanças e diferenças - SQL Azure versus SQL Server][]
+ [Semelhanças e diferenças - SQL Azure versus SQL Server][Semelhanças e diferenças - SQL Azure versus SQL Server]
 
 </td>
 
@@ -179,7 +179,7 @@ Este artigo destaca as semelhanças e as diferenças entre o SQL Azure e SQL Ser
 <tr>
 
 <td style="width: 200px;">
- [TI como Serviço][]
+ [TI como Serviço][TI como Serviço]
 
 </td>
 
@@ -193,7 +193,7 @@ Este artigo discute como o Azure complementa o Windows Server, e como juntos, el
 <tr>
 
 <td style="width: 200px;">
- [Diretrizes da segurança do SQL Azure][]
+ [Diretrizes da segurança do SQL Azure][Diretrizes da segurança do SQL Azure]
 
 </td>
 
@@ -207,7 +207,7 @@ Este documento apresenta uma visão geral das diretrizes de segurança para clie
 <tr>
 
 <td style="width: 200px;">
- [Uma introdução ao Azure AppFabric para desenvolvedores][]
+ [Uma introdução ao Azure AppFabric para desenvolvedores][Uma introdução ao Azure AppFabric para desenvolvedores]
 
 </td>
 
@@ -221,7 +221,7 @@ Este documento fornece uma breve introdução ao AppFabric da Plataforma Azure, 
 <tr>
 
 <td style="width: 200px;">
- [Azure e ISVs - um guia para os responsáveis pelas decisões][]
+ [Azure e ISVs - um guia para os responsáveis pelas decisões][Azure e ISVs - um guia para os responsáveis pelas decisões]
 
 </td>
 
@@ -235,7 +235,7 @@ Este artigo discute como usar a nuvem tem o potencial de aumentar a receita do I
 <tr>
 
 <td style="width: 200px;">
- [Otimização em nuvem - uma estrutura para a tomada de decisões de negócios sobre nuvem da nuvem de computação][]
+ [Otimização em nuvem - uma estrutura para a tomada de decisões de negócios sobre nuvem da nuvem de computação][Otimização em nuvem - uma estrutura para a tomada de decisões de negócios sobre nuvem da nuvem de computação]
 
 </td>
 
@@ -249,7 +249,7 @@ Este artigo discute como a computação em nuvem permite que as empresas com nov
 <tr>
 
 <td style="width: 200px;">
- [Visão Geral de Preços do Azure AppFabric][]
+ [Visão Geral de Preços do Azure AppFabric][Visão Geral de Preços do Azure AppFabric]
 
 </td>
 
@@ -263,7 +263,7 @@ Este documento apresenta o Azure AppFabric, uma plataforma de middleware de nuve
 <tr>
 
 <td style="width: 200px;">
- [Economia de nuvem][]
+ [Economia de nuvem][Economia de nuvem]
 
 </td>
 
@@ -277,7 +277,7 @@ Este artigo avalia a economia da nuvem usando modelagem detalhada e usa essa est
 <tr>
 
 <td style="width: 200px;">
- [White paper de integrador de sistema][]
+ [White paper de integrador de sistema][White paper de integrador de sistema]
 
 </td>
 
@@ -291,7 +291,7 @@ Este artigo descreve como parceiros de integrador de sistema Microsoft estão us
 <tr>
 
 <td style="width: 200px;">
- [Plataformas de nuvem para líderes de negócios][]
+ [Plataformas de nuvem para líderes de negócios][Plataformas de nuvem para líderes de negócios]
 
 </td>
 
@@ -305,7 +305,7 @@ Este documento examina os benefícios e os riscos de plataformas na nuvem de uma
 <tr>
 
 <td style="width: 200px;">
- [Arquitetura de aplicativos para usar o Azure AppFabric Caching][]
+ [Arquitetura de aplicativos para usar o Azure AppFabric Caching][Arquitetura de aplicativos para usar o Azure AppFabric Caching]
 
 </td>
 
@@ -319,7 +319,7 @@ Este artigo analisa os diferenes tipos de padrão de cache que o Caching do Azur
 <tr>
 
 <td style="width: 200px;">
- [Visão geral do Microsoft SQL Azure][]
+ [Visão geral do Microsoft SQL Azure][Visão geral do Microsoft SQL Azure]
 
 </td>
 
@@ -333,7 +333,7 @@ Este artigo descreve como o SQL Azure oferece uma solução robusta e econômica
 <tr>
 
 <td style="width: 200px;">
- [Cenário de migração de aplicativo IIS personalizado da Web/Microsoft SQL Server][]
+ [Cenário de migração de aplicativo IIS personalizado da Web/Microsoft SQL Server][Cenário de migração de aplicativo IIS personalizado da Web/Microsoft SQL Server]
 
 </td>
 
@@ -347,7 +347,7 @@ Este artigo descreve o padrão de arquitetura de aplicativo IIS/SQL Server e ilu
 <tr>
 
 <td style="width: 200px;">
- [Cenário de migração de aplicativos de Web personalizados (foco de dimensionamento rápido)][]
+ [Cenário de migração de aplicativos de Web personalizados (foco de dimensionamento rápido)][Cenário de migração de aplicativos de Web personalizados (foco de dimensionamento rápido)]
 
 </td>
 
@@ -361,7 +361,7 @@ Este artigo descreve o padrão de arquitetura aplicativo web personalizado (dime
 <tr>
 
 <td style="width: 200px;">
- [Cenário de migração de aplicativo personalizado E-Commerce (foco em elasticidade)][]
+ [Cenário de migração de aplicativo personalizado E-Commerce (foco em elasticidade)][Cenário de migração de aplicativo personalizado E-Commerce (foco em elasticidade)]
 
 </td>
 
@@ -375,7 +375,7 @@ Este artigo descreve o padrão de arquitetura aplicativo de e-commerce personali
 <tr>
 
 <td style="width: 200px;">
- [Desenvolvendo e implantando com o SQL Azure][]
+ [Desenvolvendo e implantando com o SQL Azure][Desenvolvendo e implantando com o SQL Azure]
 
 </td>
 

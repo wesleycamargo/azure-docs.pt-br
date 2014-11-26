@@ -336,5 +336,4 @@ MSDN [Filas, tópicos e assinaturas do Barramento de Serviço][Filas, tópicos e
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #bkmk_HowToHandleAppCrash
   [Como: Excluir tópicos e assinaturas]: #bkmk_HowToDeleteTopics
   [Próximas etapas]: #bkmk_NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Filas, tópicos e assinaturas do Barramento de Serviço]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

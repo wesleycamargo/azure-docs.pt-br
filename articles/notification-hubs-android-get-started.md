@@ -287,7 +287,7 @@ Use as seguintes etapas para executar o aplicativo em um dispositivo ou em um em
 
 Neste simples exemplo, você envia notificações para todos os seus dispositivos Android. Para selecionar usuários de destinos específicos, consulte o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários][Usar Hubs de Notificação para enviar notificações por push aos usuários]. Se desejar segmentar os usuários por grupos de interesse, você poderá consultar [Usar Hubs de Notificação para enviar notícias de última hora][Usar Hubs de Notificação para enviar notícias de última hora]. Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Notificação][Diretrizes dos Hubs de Notificação].
 
-<!-- Images. --> <!-- URLs. -->
+ 
 
   [Habilitar o sistema de mensagens em nuvem do Google]: #register
   [Configurar seu Hub de Notificação]: #configure-hub
@@ -296,7 +296,6 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
   [Testando seu aplicativo]: #run-app
   [aqui]: http://go.microsoft.com/fwlink/?LinkId=389797
   [SDK de Serviços Móveis do Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Habilitar GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
@@ -305,7 +304,6 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
   [4]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
   [5]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
   [6]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
-  [Incluir Serviços de Reprodução]: ../includes/mobile-services-add-Google-play-services.md
   [7]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
   [interface REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
   [back-end do .NET]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/

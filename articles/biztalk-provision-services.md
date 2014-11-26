@@ -1,4 +1,4 @@
-<properties urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Criar Servi&ccedil;os do BizTalk no portal de gerenciamento | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Saiba como provisionar um servi&ccedil;o do BizTalk no Portal de Gerenciamento do Azure, bem como criar um servidor de banco de dados SQL opcional e uma conta de armazenamento." metaCanonical="http://www.windowsazure.com/pt-br/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="Servi&ccedil;os do BizTalk: Provisionamento usando o Portal de Gerenciamento do Azure" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+<properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/pt-BR/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
@@ -11,11 +11,9 @@ Este tópico lista as etapas para criar um Serviço do BizTalk do Azure no Porta
 -   [Requisitos explicados][Requisitos explicados]
 -   [Conexões híbridas - Novo!][Conexões híbridas - Novo!]
 
-<div class="dev-callout">
-
-**Dica**
-Para fazer logon no Portal de Gerenciamento do Azure, você precisa de uma conta e de uma assinatura do Azure. Se você não tiver uma conta, será possível criar uma conta de avaliação gratuita em questão de minutos. Consulte [Avaliação gratuita do Azure][Avaliação gratuita do Azure].
-
+<div class="dev-callout"> 
+<b>Dica</b> 
+<p>Para fazer logon no Portal de Gerenciamento do Azure, voc&ecirc; precisa de uma conta e de uma assinatura do Azure. Se voc&ecirc; n&atilde;o tiver uma conta, ser&aacute; poss&iacute;vel criar uma conta de avalia&ccedil;&atilde;o gratuita em quest&atilde;o de minutos. Consulte <a href="http://go.microsoft.com/fwlink/p/?LinkID=239738">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p> 
 </div>
 
 ## <a name="BizTalk"></a>Criar um Serviço do BizTalk
@@ -31,19 +29,19 @@ Depende da Edição que você escolher, é possível que não todas as configura
 
 4.  Insira as configurações do Serviço do BizTalk.
 
-    |-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Nome do Serviço BizTalk** | Você pode inserir qualquer nome, mas seja específico. Alguns exemplos incluem:                                                                                                                                                                                               
-                                    *minha\_empresa*. biztalk.windows.net                                                                                                                                                                                                                                        
-                                    *Meu\_Aplicativo\_da\_Minha\_Empresa*.biztalk.windows.net                                                                                                                                                                                                                    
-                                    *meu\_aplicativo*.biztalk.windows.net                                                                                                                                                                                                                                        
-                                    ".biztalk.windows.net" é adicionado automaticamente ao nome que você inserir. Isso cria uma URL que é usada para acessar seu Serviço do BizTalk, como **https://*myapplication*.biztalk.windows.net**.                                                                       |
-    | **Edição**                  | Se você estiver em fase de teste/desenvolvimento, escolha **Developer**. Se você estiver na fase de produção, use os [Serviços do BizTalk: Gráfico de edições][Serviços do BizTalk: Gráfico de edições] para determinar se **Premium**, **Standard** ou **Basic** é a escolha certa para o seu cenário de negócios. |
-    | **Região**                  | Selecione a região geográfica para hospedar seu Serviço BizTalk.                                                                                                                                                                                                             |
-    | **URL do domínio**          | **Opcional**. Por padrão, a URL do domínio é *YourBizTalkServiceName*.biztalk.windows.net. Um domínio personalizado também pode ser inserido. Por exemplo, se seu domínio for *contoso*, você pode inserir:                                                                  
-                                    *Minha\_Empresa*.contoso.com                                                                                                                                                                                                                                                 
-                                    *Meu\_Aplicativo\_da\_Minha\_Empresa*.contoso.com                                                                                                                                                                                                                            
-                                    *Meu\_Aplicativo*.contoso.com                                                                                                                                                                                                                                                
-                                    *YourBizTalkServiceName*.contoso.com                                                                                                                                                                                                                                         |
+    |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Nome do Serviço BizTalk** | Você pode inserir qualquer nome, mas seja específico. Alguns exemplos incluem:                                                                                                                                                                                                
+                                    *minha\_empresa*. biztalk.windows.net                                                                                                                                                                                                                                         
+                                    *Meu\_Aplicativo\_da\_Minha\_Empresa*.biztalk.windows.net                                                                                                                                                                                                                     
+                                    *meu\_aplicativo*.biztalk.windows.net                                                                                                                                                                                                                                         
+                                    ".biztalk.windows.net" é adicionado automaticamente ao nome que você inserir. Isso cria uma URL que é usada para acessar seu Serviço do BizTalk, como **https://*myapplication*.biztalk.windows.net**.                                                                        |
+    | **Edição**                  | Se você estiver em fase de teste/desenvolvimento, escolha **Developer**. Se você estiver na fase de produção, use os [Serviços do BizTalk: Gráfico de edições][Serviços do BizTalk: Gráfico de edições] para determinar se **Premium**, **Standard**, ou **Basic** for a escolha certa para seu cenário de negócios. |
+    | **Região**                  | Selecione a região geográfica para hospedar seu Serviço BizTalk.                                                                                                                                                                                                              |
+    | **URL do domínio**          | **Opcional**. Por padrão, a URL do domínio é *YourBizTalkServiceName*.biztalk.windows.net. Um domínio personalizado também pode ser inserido. Por exemplo, se seu domínio for *contoso*, você pode inserir:                                                                   
+                                    *Minha\_Empresa*.contoso.com                                                                                                                                                                                                                                                  
+                                    *Meu\_Aplicativo\_da\_Minha\_Empresa*.contoso.com                                                                                                                                                                                                                             
+                                    *Meu\_Aplicativo*.contoso.com                                                                                                                                                                                                                                                 
+                                    *YourBizTalkServiceName*.contoso.com                                                                                                                                                                                                                                          |
 
     Selecione a seta de AVANÇO.
 
@@ -62,10 +60,10 @@ Depende da Edição que você escolher, é possível que não todas as configura
     <tr class="even">
     <td align="left"><strong>Banco de Dados de Acompanhamento</strong></td>
     <td align="left">Se você usar um banco de dados SQL do Azure, não poderá ser usado por outro Serviço do BizTalk. Você precisará do nome e da senha de logon inseridos na criação do Banco de Dados SQL Azure.<br /><br />
-    <div class="dev-callout">
-    <strong>Dica</strong>
-    <p>Crie o banco de dados de acompanhamento e a Conta de Armazenamento de monitoramento/arquivamento na mesma região que o Serviço BizTalk.</p>
-    </div></td>
+    <div class="dev-callout"> 
+<b>Dica</b> 
+<p>Crie o banco de dados de acompanhamento e a Conta de Armazenamento de monitoramento/arquivamento na mesma regi&atilde;o que o Servi&ccedil;o BizTalk.</p> 
+</div></td>
     </tr>
     </tbody>
     </table>
@@ -168,7 +166,7 @@ Assinatura do Azure
 
 <td>
 A assinatura determina quem pode fazer logon no Portal de Gerenciamento do Azure. O titular da conta cria a assinatura em [Assinaturas do Azure][Assinaturas do Azure].
-A conta do Azure pode ter várias assinaturas e pode ser gerenciada por quem for permitido. Por exemplo, o titular da sua conta do Azure cria uma assinatura chamada *BizTalkServiceSubscription* e dá acesso a essa assinatura aos administradores do BizTalk em sua empresa (por exemplo, ContosoBTSAdmins@live.com). Neste cenário, os administradores do BizTalk fazem logon no Portal de Gerenciamento do Azure e têm acesso total aos serviços hospedados na assinatura, inclusive os Serviços BizTalk do Azure. Os administradores do BizTalk não são os titulares da conta do Azure e, portanto, não têm acesso às informações de cobrança.
+A conta do Azure pode ter várias assinaturas e pode ser gerenciada por quem for permitido. Por exemplo, o titular da sua conta do Azure cria uma assinatura chamada *BizTalkServiceSubscription* e dá acesso a essa assinatura aos administradores do BizTalk em sua empresa (por exemplo, <ContosoBTSAdmins@live.com>). Neste cenário, os administradores do BizTalk fazem logon no Portal de Gerenciamento do Azure e têm acesso total aos serviços hospedados na assinatura, inclusive os Serviços BizTalk do Azure. Os administradores do BizTalk não são os titulares da conta do Azure e, portanto, não têm acesso às informações de cobrança.
 [Gerenciar assinaturas e Contas de Armazenamento no Portal de Gerenciamento do Azure][Gerenciar assinaturas e Contas de Armazenamento no Portal de Gerenciamento do Azure] fornece mais informações.
 
 </td>
@@ -278,29 +276,24 @@ Agora que o Serviço do BizTalk é criado, familiarize-se com os diferentes [Ser
   [Etapas pós-provisionamento]: #PostProv
   [Requisitos explicados]: #Requirements
   [Conexões híbridas - Novo!]: #HC
-  [Avaliação gratuita do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Selecione o botão Novo]: ./media/biztalk-provision-services/WABS_New.png
   [Selecione o Serviço do BizTalk e selecione Criação Personalizada]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
   [Serviços do BizTalk: Gráfico de edições]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [O ícone de progresso é mostrado ao concluir]: ./media/biztalk-provision-services/WABS_ProgressComplete.png
   [guias Painel, Monitor e Escala.]: http://go.microsoft.com/fwlink/p/?LinkID=302281
-  [Gráfico de estado do serviço BizTalk (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Instalar o certificado em um computador local]: #InstallCert
   [Adicionar um certificado pronto para produção]: #AddCert
   [Obter o namespace do Controle de Acesso]: #ACS
   [Modificar o certificado SSL]: ./media/biztalk-provision-services/WABS_QuickGlance.png
   [Selecione a informação de conexão]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [Identidades de Serviço do ACS no Portal de Gerenciamento de Controle de Acesso]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
-  [Gerenciando o namespace de seu ACS (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [Assinaturas do Azure]: https://account.windowsazure.com/Subscriptions
   [Gerenciar assinaturas e Contas de Armazenamento no Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=267577
   [Contas e faturamento no banco de dados SQL do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=234930
   [Armazenamento]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [Guia de Conexões Híbridas]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [Conexões híbridas]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=235197
   [Serviços do BizTalk: Backup e restauração]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [Serviços do BizTalk: limitação]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Serviços do BizTalk: nome e chave do emissor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkID=302335

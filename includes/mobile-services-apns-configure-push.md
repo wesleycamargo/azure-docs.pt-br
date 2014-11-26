@@ -8,7 +8,7 @@ Anote o nome do arquivo e o local do certificado exportado.
 
 > [WACOM.NOTE] Este tutorial cria um arquivo QuickstartPusher.p12. O nome do arquivo e o local podem ser diferentes.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][], clique em **Serviços Móveis** e clique em seu aplicativo.
+1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
 
     ![][2]
 
@@ -26,7 +26,7 @@ Anote o nome do arquivo e o local do certificado exportado.
 
 Agora, seu serviço móvel está configurado para funcionar com o APNS.
 
-<!-- URLs. -->
+
 
   [1]: ./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

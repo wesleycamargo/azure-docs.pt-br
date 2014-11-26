@@ -2,16 +2,16 @@
 
 É fácil criar uma máquina virtual que executa o sistema operacional Linux quando você usa a galeria de imagens no Portal de Gerenciamento do Azure. Este guia pressupõe que você não tem experiência anterior com o Azure. Você pode criar uma máquina virtual que executa o sistema operacional Linux na nuvem que possa acessar e personalizar.
 
-> [WACOM.NOTE] Não é necessária nenhuma experiência com VMs do Azure para concluir este tutorial. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure][].
+> [WACOM.NOTE] Não é necessária nenhuma experiência com VMs do Azure para concluir este tutorial. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure][Criar uma conta do Azure].
 
 Você aprenderá a:
 
--   [Sobre máquinas virtuais no Azure][]
--   [Como criar a máquina virtual][]
--   [Como fazer o logon na máquina virtual após você criá-la][]
--   [Como anexar um disco de dados à nova máquina virtual][]
+-   [Sobre máquinas virtuais no Azure][Sobre máquinas virtuais no Azure]
+-   [Como criar a máquina virtual][Como criar a máquina virtual]
+-   [Como fazer o logon na máquina virtual após você criá-la][Como fazer o logon na máquina virtual após você criá-la]
+-   [Como anexar um disco de dados à nova máquina virtual][Como anexar um disco de dados à nova máquina virtual]
 
-**Observação**: Este tutorial cria uma máquina virtual que não está conectada a uma rede virtual. Se você deseja que uma máquina virtual use uma rede virtual, você deve especificar a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure][].
+**Observação**: Este tutorial cria uma máquina virtual que não está conectada a uma rede virtual. Se você deseja que uma máquina virtual use uma rede virtual, você deve especificar a rede virtual ao criar a máquina virtual. Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure][Visão geral da rede virtual do Azure].
 
 ## <span id="virtualmachine"></span> </a>Sobre máquinas virtuais no Azure
 
@@ -23,15 +23,15 @@ A máquina virtual no Azure é um servidor na nuvem que pode ser controlado e ge
 As seguintes opções estão disponíveis para usar imagens para criar uma máquina virtual:
 
 -   Crie uma máquina virtual usando uma imagem fornecida na Galeria de Imagens do Portal de Gerenciamento do Azure.
--   Crie e carregue no Azure um arquivo .vhd que contém uma imagem e crie uma máquina virtual usando a imagem. Para obter mais informações sobre como criar e fazer upload de uma imagem personalizada, consulte [Criação e upload de um disco rígido virtual que contém o sistema operacional Linux][].
+-   Crie e carregue no Azure um arquivo .vhd que contém uma imagem e crie uma máquina virtual usando a imagem. Para obter mais informações sobre como criar e fazer upload de uma imagem personalizada, consulte [Criação e upload de um disco rígido virtual que contém o sistema operacional Linux][Criação e upload de um disco rígido virtual que contém o sistema operacional Linux].
 
-Cada máquina virtual reside em um serviço de nuvem, por si só, ou agrupada com outras máquinas virtuais. Você pode criar várias máquinas virtuais no mesmo serviço de nuvem a fim de ativar as máquinas virtuais para se comunicarem uma com as outras, para balanceamento de carga entre máquinas virtuais e para manter a alta disponibilidade das máquinas. Para obter mais informações sobre os serviços de nuvem e máquinas virtuais, consulte a seção "Modelos de execução" em [Apresentando o Azure][].
+Cada máquina virtual reside em um serviço de nuvem, por si só, ou agrupada com outras máquinas virtuais. Você pode criar várias máquinas virtuais no mesmo serviço de nuvem a fim de ativar as máquinas virtuais para se comunicarem uma com as outras, para balanceamento de carga entre máquinas virtuais e para manter a alta disponibilidade das máquinas. Para obter mais informações sobre os serviços de nuvem e máquinas virtuais, consulte a seção "Modelos de execução" em [Apresentando o Azure][Apresentando o Azure].
 
 ## <span id="custommachine"></span> </a>Como criar a máquina virtual
 
 Você usa o método **Da galeria** para criar uma máquina virtual personalizada no Portal de Gerenciamento. Este método fornece mais opções para configurar a máquina virtual quando você criá-lo, como recursos conectados, o nome DNS e a conectividade de rede, se necessário.
 
-1.  Entre no [Portal de Gerenciamento do Azure][].
+1.  Entre no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
     Na barra de comandos, clique em **Novo**.
 
 2.  Clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
@@ -58,9 +58,9 @@ Você usa o método **Da galeria** para criar uma máquina virtual personalizada
 
 13. Em **Conjunto de disponibilidade**, para os fins deste tutorial usam-se a configuração padrão de **Nenhum**. Clique na marca de seleção para criar a máquina virtual e, em seguida, clique na seta para continuar.
 
-14. Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões][].
+14. Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões][Gerenciar extensões].
 
-15. Em **Pontos de extremidade**, examine o ponto de extremidade que é criado automaticamente para permitir conexões Secure Shell (SSH) para a máquina virtual. (Pontos de extremidade permitem que os recursos na Internet ou outras redes virtuais se comuniquem com uma máquina virtual.) Você pode adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual][].
+15. Em **Pontos de extremidade**, examine o ponto de extremidade que é criado automaticamente para permitir conexões Secure Shell (SSH) para a máquina virtual. (Pontos de extremidade permitem que os recursos na Internet ou outras redes virtuais se comuniquem com uma máquina virtual.) Você pode adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual][Como configurar pontos de extremidade para uma máquina virtual].
 
 Após a criação da máquina virtual e do serviço de nuvem, o Portal de gerenciamento lista a nova máquina virtual em **Máquinas Virtuais** e lista o serviço de nuvem em **Serviços de Nuvem**. A máquina virtual e o serviço de nuvem são iniciados automaticamente.
 
@@ -68,24 +68,24 @@ Após a criação da máquina virtual e do serviço de nuvem, o Portal de gerenc
 
 Para gerenciar as configurações da máquina virtual e os aplicativos executados na máquina, você pode usar um cliente SSH. Para fazer isso, você deve instalar um cliente SSH no computador que você deseja usar para acessar a máquina virtual. Há muitos programas de cliente SSH que você pode escolher. Estas são algumas opções:
 
--   Se estiver usando um computador que executa um sistema operacional Windows, poderá usar um cliente SSH como PuTTY. Para obter mais informações, consulte [Download do PuTTY][].
--   Se estiver usando um computador que executa um sistema operacional Linux, poderá usar um cliente SSH como OpenSSH. Para obter mais informações, consulte [OpenSSH][].
+-   Se estiver usando um computador que executa um sistema operacional Windows, poderá usar um cliente SSH como PuTTY. Para obter mais informações, consulte [Download do PuTTY][Download do PuTTY].
+-   Se estiver usando um computador que executa um sistema operacional Linux, poderá usar um cliente SSH como OpenSSH. Para obter mais informações, consulte [OpenSSH][OpenSSH].
 
 Este tutorial mostra como usar o programa PuTTY para acessar a máquina virtual.
 
 1.  Encontre o **Nome do Host** e as **Informações da porta** no Portal de gerenciamento. Você pode encontrar as informações que você precisa no painel da máquina virtual. Clique no nome da máquina virtual e procure os **Detalhes de SSH** na seção **Visão Rápida** do painel de controle.
 
-    ![Obtenha os detalhes de SSH][]
+    ![Obtenha os detalhes de SSH][Obtenha os detalhes de SSH]
 
 2.  Abra o programa PuTTY.
 
 3.  Digite o **Nome do Host** e as **Informações da porta** coletados do painel de controle e, em seguida, clique em **abrir**.
 
-    ![Digite o nome do host e as informações da porta][]
+    ![Digite o nome do host e as informações da porta][Digite o nome do host e as informações da porta]
 
 4.  Faça logon na máquina virtual usando a conta de NewUser1 especificada quando a máquina foi criada.
 
-    ![Faça logon em uma nova máquina virtual][]
+    ![Faça logon em uma nova máquina virtual][Faça logon em uma nova máquina virtual]
 
     Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro servidor.
 
@@ -98,7 +98,7 @@ Os discos de dados residem no Armazenamento do Azure e podem ser usados para o a
 
 Cada máquina virtual criada também tem um *Disco de Recurso* local temporário anexado. Devido aos dados em um disco de recurso poderem não ser duráveis entre as reinicializações, geralmente ele é usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e temporário. Ele também é usado para armazenar páginas ou trocar de arquivos do sistema operacional.
 
-No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc` e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure][] para obter mais informações.
+No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc` e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure][Guia de usuário agente do Linux do Azure] para obter mais informações.
 
 1.  Se você ainda não fez isso, entre no Portal de Gerenciamento do Azure.
 
@@ -108,7 +108,7 @@ No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do A
 
     A caixa de diálogo **Anexar Disco Vazio** é exibida.
 
-    ![Definir detalhes do disco][]
+    ![Definir detalhes do disco][Definir detalhes do disco]
 
 4.  O **Nome da Máquina Virtual**, **Local de Armazenamento** e **Nome do Arquivo** já estão definidos para você. Tudo o que você precisa fazer é digitar o tamanho desejado para o disco. Digite **5** no campo **Tamanho**.
 
@@ -120,7 +120,7 @@ No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do A
 
     O número de discos agora é 2 para a máquina virtual e o disco que você anexou é listado na tabela **Discos**.
 
-    ![Anexar disco com êxito][]
+    ![Anexar disco com êxito][Anexar disco com êxito]
 
 O disco de dados que acabou de anexar à máquina virtual estará offline e não será inicializado depois de anexá-lo. Você deve fazer logon no computador e inicializar o disco para usá-lo para armazenar dados.
 
@@ -132,7 +132,7 @@ O disco de dados que acabou de anexar à máquina virtual estará offline e não
 
     Você pode localizar o identificador do último disco de dados que foi adicionado nas mensagens que são exibidas.
 
-    ![Identificar o disco][]
+    ![Identificar o disco][Identificar o disco]
 
 3.  Na janela SSH, digite o seguinte comando para criar um novo dispositivo e, em seguida, digite a senha da conta:
 
@@ -142,25 +142,25 @@ O disco de dados que acabou de anexar à máquina virtual estará offline e não
 
 4.  Digite **n** para criar uma nova partição.
 
-    ![Criar novo dispositivo][]
+    ![Criar novo dispositivo][Criar novo dispositivo]
 
 5.  Digite **p** para definir a partição como primária, digite **1** para torná-la a primeira partição e clique enter para aceitar o valor padrão para o cilindro.
 
-    ![Criar partição][]
+    ![Criar partição][Criar partição]
 
 6.  Digite **p** para ver os detalhes sobre o disco que está sendo particionado.
 
-    ![Listar informações de disco][]
+    ![Listar informações de disco][Listar informações de disco]
 
 7.  Digite **w** para gravar as configurações do disco.
 
-    ![Gravar as alterações de disco][]
+    ![Gravar as alterações de disco][Gravar as alterações de disco]
 
 8.  Você deve criar o sistema de arquivos na nova partição. Como exemplo, digite o seguinte comando para criar o sistema de arquivo e, em seguida, digite a senha da conta:
 
     `sudo mkfs -t ext4 /dev/sdc1`
 
-    ![Criar sistema de arquivos][]
+    ![Criar sistema de arquivos][Criar sistema de arquivos]
 
     > [WACOM.NOTE] Observe que, nos sistemas SUSE Linux Enterprise 11, só há acesso somente leitura para sistemas de arquivos ext4. Para esses sistemas é recomendável formatar o novo sistema de arquivos como ext3 em vez de ext4.
 
@@ -213,17 +213,17 @@ O disco de dados que acabou de anexar à máquina virtual estará offline e não
 
 Para saber mais sobre o Linux no Azure, consulte os seguintes artigos:
 
--   [Introdução ao Linux no Azure][]
+-   [Introdução ao Linux no Azure][Introdução ao Linux no Azure]
 
--   [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][]
+-   [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]
 
-  [Criar uma conta do Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [Criar uma conta do Azure]: http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/
   [Sobre máquinas virtuais no Azure]: #virtualmachine
   [Como criar a máquina virtual]: #custommachine
   [Como fazer o logon na máquina virtual após você criá-la]: #logon
   [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
   [Visão geral da rede virtual do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [Criação e upload de um disco rígido virtual que contém o sistema operacional Linux]: /en-us/manage/linux/common-tasks/upload-a-vhd/
+  [Criação e upload de um disco rígido virtual que contém o sistema operacional Linux]: /pt-br/manage/linux/common-tasks/upload-a-vhd/
   [Apresentando o Azure]: http://go.microsoft.com/fwlink/p/?LinkId=311926
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Gerenciar extensões]: http://go.microsoft.com/FWLink/p/?LinkID=390493
@@ -233,7 +233,7 @@ Para saber mais sobre o Linux no Azure, consulte os seguintes artigos:
   [Obtenha os detalhes de SSH]: ./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png
   [Digite o nome do host e as informações da porta]: ./media/CreateVirtualMachineLinuxTutorial/putty.png
   [Faça logon em uma nova máquina virtual]: ./media/CreateVirtualMachineLinuxTutorial/sshlogin.png
-  [Guia de usuário agente do Linux do Azure]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
+  [Guia de usuário agente do Linux do Azure]: http://www.windowsazure.com/pt-br/manage/linux/how-to-guides/linux-agent-guide/
   [Definir detalhes do disco]: ./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png
   [Anexar disco com êxito]: ./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png
   [Identificar o disco]: ./media/CreateVirtualMachineLinuxTutorial/diskmessages.png
