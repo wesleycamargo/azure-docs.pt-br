@@ -1,6 +1,6 @@
-<properties title="How to scale a website" pageTitle="How to scale a website" description="Learn how to scale your hosting plan in Azure." authors="stepsic"  />
+﻿<properties title="How to scale a website" pageTitle="Como dimensionar um site" description="Learn how to scale your hosting plan in Azure." authors="stepsic" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
 
 # Como dimensionar um site
 
@@ -10,24 +10,23 @@ A escala afeta todo um Plano de Hospedagem na Web. Quando cria um Site, você te
 
 ## Dimensionando um Plano de Hospedagem na Web
 
-1.  Na [Visualização do Portal do Azure][Visualização do Portal do Azure], clique em **Procurar**, em seguida, em **Sites**, e clique no nome do Site para abrir a lâmina.
-2.  A parte **Dimensionar** na lente **Operações** da lâmina Site informará o status do Plano de Hospedagem da Web: **Desativado** quando você estiver dimensionando manualmente, **Desempenho** quando você estiver dimensionando por uma ou mais métricas de desempenho, e **Agendamento** quando você tiver habilitado vários perfis de dimensionamento automático.<br />
-    ![Parte Dimensionar][Parte Dimensionar]
-3.  Um clique na parte abrirá a lâmina **Escala**. Na parte superior da lâmina de escala, você pode ver um histórico das ações de dimensionamento automático de Plano de Hospedagem na Web.
+1. Na [Visualização do Portal do Azure](https://portal.azure.com/), clique em **Navegar**, em seguida, em **Sites** e clique no nome do Site para abrir a folha.
+2. A parte **Escala** na lente **Operações** da folha Site informará o status do Plano de Hospedagem na Web: **Desativado** para quando você estiver dimensionando manualmente, **Desempenho** quando você estiver dimensionando por uma ou mais métricas de desempenho e **Agendamento** para quando você tiver habilitado vários perfis de dimensionamento automático.  
+    ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
+3. Um clique na parte abrirá a lâmina **Escala**. Na parte superior da folha de escala, você pode ver um histórico das ações de dimensionamento automático de Plano de Hospedagem na Web.  
 
-    ![Lâmina Escala][Lâmina Escala]
-
-4.  Você pode ajustar manualmente o número de máquinas virtuais que executam seu Plano de Hospedagem na Web com controle deslizante **Instância**.
-5.  Se desejar que o número de instâncias seja ajustado automaticamente com base na carga, selecione **Desempenho** em **Modo de Autoescala**. Neste ponto, você não pode selecionar **Agendamento** na Visualização do Portal do Azure.<br />
-    ![Dimensionar a lâmina com a porcentagem do CPU][Dimensionar a lâmina com a porcentagem do CPU]
-6.  Depois de selecionar Desempenho, há duas alterações:
-    -   **Intervalo de Instâncias** agora permite que você escolha uma contagem de instância máxima e mínima. A autoescala sempre mantém você nesse intervalo, independentemente da carga.
-    -   Você pode definir as métricas de desempenho na seção **Métricas de Destino**
-7.  A seção **Porcentagem de CPU** permite que você defina um destino para a média de CPU entre todas as instâncias no seu Plano de Hospedagem na Web. Uma expansão acontecerá quando a média de CPU exceder o máximo definido.
+    ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+4. Você pode ajustar manualmente o número de máquinas virtuais que executam seu Plano de Hospedagem na Web com o controle deslizante **Instância**.
+5. Se desejar que o número de instâncias seja ajustado automaticamente com base na carga, selecione **Desempenho** em **Modo de Autoescala**. Neste ponto, você não pode selecionar **Agendamento** na Visualização do Portal do Azure.  
+    ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
+6. Depois de selecionar Desempenho, há duas alterações:
+    - **Intervalo de Instâncias** agora permite que você escolha uma contagem de instância máxima e mínima. A autoescala sempre mantém você nesse intervalo, independentemente da carga.
+    - Você pode definir as métricas de desempenho na seção **Métricas de Destino**
+7. A seção **Porcentagem de CPU** permite que você defina um destino para a média de CPU entre todas as instâncias no seu Plano de Hospedagem na Web. Uma escala vertical acontecerá quando a média de CPU exceder o máximo definido.
 
 Com a autoescala habilitada, você verá **Desempenho** na parte da lâmina Site e o histórico de sua escala no gráfico:
 
-![Lâmina Escala com a porcentagem de CPU][Lâmina Escala com a porcentagem de CPU]
+![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScalePartBladeOn.png) 
 
 Observe que, na Visualização do Portal do Azure, você não pode alterar o número de instâncias de um Plano de Hospedagem na Web Compartilhado.
 
@@ -36,48 +35,38 @@ Observe que, na Visualização do Portal do Azure, você não pode alterar o nú
 Novidade na Visualização do Portal do Azure, você pode dimensionar com base em métricas diferentes de Porcentagem de CPU e até mesmo ter um conjunto complexo de regras de expansão e redução.
 
 ### Dimensionamento com base em outras métricas de desempenho
-
 Além da CPU, você pode dimensionar com base em:
 
--   Média de Memória se o percentual médio de memória usado nas instâncias ficar acima ou abaixo dos limites especificados, as instâncias serão adicionadas ou removidas.
--   Profundidade da Fila HTTP ou Profundidade da Fila do Disco se o número de mensagens na fila das solicitações HTTP ou do Disco ficar acima ou abaixo do limite especificado, as instâncias serão adicionadas ou removidas.
+- Média de Memória se o percentual médio de memória usado nas instâncias ficar acima ou abaixo dos limites especificados, as instâncias serão adicionadas ou removidas.
+- Profundidade da Fila HTTP ou Profundidade da Fila do Disco se o número de mensagens na fila das solicitações HTTP ou do Disco ficar acima ou abaixo do limite especificado, as instâncias serão adicionadas ou removidas.
 
-Há duas maneiras diferentes de dimensionar por outra métrica. Se você desejar dimensionar apenas por uma única métrica, selecione a divisa ao lado do controle deslizante **Porcentagem da CPU**. Isso abrirá a lâmina Detalhes da Métrica:
+Há duas maneiras diferentes de dimensionar por outra métrica. Se você desejar dimensionar apenas por uma única métrica, selecione a divisa ao lado do controle deslizante **Porcentagem da CPU**. Isso abrirá a folha Detalhes da Métrica:
 
-![Ponto de entrada para métricas de escala][Ponto de entrada para métricas de escala]
+![Entry point to scale metrics](./media/insights-how-to-scale/Insights_ScaleMetricChevron.png)
 
 Para dimensionar por mais de uma métrica ao mesmo tempo, você pode clicar em **Adicionar Métrica** na barra de comandos:
 
-![Adicionar métricas][Adicionar métricas]
+![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
 
-A lâmina Detalhes da Métrica contém todos os controles que você precisa para configurar seu perfil ideal de escala. Na parte superior, escolha a nova métrica pela qual você deseja dimensionar.
+A folha Detalhes da Métrica contém todos os controles que você precisa para configurar seu perfil ideal de escala. Na parte superior, escolha a nova métrica pela qual você deseja dimensionar.
 
 ### Dimensionamento com várias etapas
 
-Abaixo do gráfico da métrica há duas seções: **Regras de aumento** e **Regras de redução**. Seu serviço será aumentado se **qualquer uma** das regras de aumento for atendida. De modo oposto, seu serviço será reduzido se **todas** as regras de redução forem atendidas.
+Abaixo do gráfico da métrica há duas seções: **Regras de expansão** e **Regras de redução**. Seu serviço será aumentado se **qualquer uma** das regras de aumento for atendida. De modo oposto, seu serviço será reduzido se **todas** as regras de redução forem atendidas.
 
 Para cada regra que você escolher:
 
--   Condição - maior ou menor que
--   Limite - o número que essa métrica tem que passar para disparar a ação
--   Nos últimos - o número de minutos no qual a média dessa métrica é definida
--   Aumentar ou reduzir por - o tamanho da ação da escala
--   Resfriamento - quanto tempo esta regra deve esperar após a ação anterior de escala para dimensionar novamente
+- Condição - maior ou menor que
+- Limite - o número que essa métrica tem que passar para disparar a ação
+- Nos últimos - o número de minutos no qual a média dessa métrica é definida
+- Aumentar ou reduzir por - o tamanho da ação da escala
+- Resfriamento - quanto tempo esta regra deve esperar após a ação anterior de escala para dimensionar novamente
 
-![Várias regras de escala][Várias regras de escala]
+![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
 Com várias regras de escala, você pode ser mais agressivo sobre como expandir (ou reduzir) à medida que o desempenho muda. Por exemplo, você pode definir duas regras de escala:
 
-1.  Aumentar uma instância se a porcentagem de CPU estiver acima de 60%
-2.  Aumentar três instâncias se a porcentagem de CPU estiver acima de 85%
+1. Aumentar uma instância se a porcentagem de CPU estiver acima de 60%
+2. Aumentar três instâncias se a porcentagem de CPU estiver acima de 85%
 
-Com essa regra adicional, se sua carga exceder 85% antes de uma ação de escala, você terá duas instâncias adicionais em vez de uma.
-
-  [Visualização do Portal do Azure]: https://portal.azure.com/
-  [Parte Dimensionar]: ./media/insights-how-to-scale/Insights_ScalePartOff.png
-  [Lâmina Escala]: ./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png
-  [Dimensionar a lâmina com a porcentagem do CPU]: ./media/insights-how-to-scale/Insights_ScaleBladeCPU.png
-  [Lâmina Escala com a porcentagem de CPU]: ./media/insights-how-to-scale/Insights_ScalePartBladeOn.png
-  [Ponto de entrada para métricas de escala]: ./media/insights-how-to-scale/Insights_ScaleMetricChevron.png
-  [Adicionar métricas]: ./media/insights-how-to-scale/Insights_AddMetric.png
-  [Várias regras de escala]: ./media/insights-how-to-scale/Insights_MultipleScaleRules.png
+Com essa regra adicional, se sua carga exceder 85% antes de uma ação de escala, você terá duas instâncias adicionais em vez de uma. 

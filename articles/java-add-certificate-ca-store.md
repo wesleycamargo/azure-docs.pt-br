@@ -1,46 +1,40 @@
-<properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Cert to the CA Store" pageTitle="Add a certificate to the Java CA store - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Add a Cert to the CA Store" pageTitle="Adicionar um certificado ao repositório Java CA - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
 # Adicionar um certificado ao repositório de certificados Java CA
-
-As etapas a seguir mostram como adicionar um certificado de autoridade de certificado (CA) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java. O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio. Informações fornecidas posteriormente no tópico descrevem como instalar o certificado da CA para o Service Bus do Azure.
+As etapas a seguir mostram como adicionar um certificado de AC (autoridade de certificação) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java. O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio. Informações fornecidas posteriormente no tópico descrevem como instalar o certificado de autoridade de certificação para o Barramento de Serviço do Azure. 
 
 Você pode usar o keytool para adicionar o certificado de autoridade de certificação antes de compactar seu JDK e adicionar a sua pasta **approot** do projeto do Azure ou executar uma tarefa de inicialização do Azure que usa keytool para adicionar o certificado. Este exemplo assume que você irá adicionar um certificado de autoridade de certificação antes do JDK ser compactado. Além disso, um certificado de autoridade de certificação específico será usado no exemplo, mas as etapas para obter um certificado de autoridade de certificação diferente e importar no repositório cacerts seriam semelhantes.
 
 ## Para adicionar um certificado ao repositório cacerts
 
-1.  No prompt de comando definido como sua pasta **jdk\\jre\\lib\\security** do JDK, execute o seguinte para ver quais certificados estão instalados:
+1. No prompt de comando definido como sua pasta **jdk\jre\lib\security** do JDK, execute o seguinte para ver quais certificados estão instalados:
 
-    `keytool -list -keystore cacerts`
+	`keytool -list -keystore cacerts`
 
-    Você será solicitado a digitar a senha de armazenamento. A senha padrão é **changeit**. (Se você quiser alterar a senha, consulte a documentação do keytool em <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) Este exemplo assume que o certificado com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 não está listado e que você deseja importar (esse certificado específico é necessário para o serviço Twilio API).
+	Você será solicitado a digitar a senha de armazenamento. A senha padrão é **changeit**. (Se você quiser alterar a senha, consulte a documentação do keytool em <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) Este exemplo assume que o certificado com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 não está listado e que você deseja importar (esse certificado específico é necessário para o serviço Twilio API).
+2. Obtenha o certificado da lista de certificados em [Certificados de raiz de GeoTrust](http://www.geotrust.com/resources/root-certificates/). Clique com botão direito no link do certificado com o número de série 35:DE:F4:CF e salve na pasta **jdk\jre\lib\security**. Para fins deste exemplo, ele foi salvo em um arquivo chamado **Equifax\_Secure\_Certificate\_Authority.cer**.
+3. Importe o certificado por meio do seguinte comando:
 
-2.  Obtenha o certificado da lista de certificados em [Certificados de raiz de GeoTrust][Certificados de raiz de GeoTrust]. Clique com botão direito no link do certificado com o número de série 35:DE:F4:CF e salve na pasta **jdk\\jre\\lib\\security**. Para fins deste exemplo, ele foi salvo em um arquivo chamado **Equifax\_Secure\_Certificate\_Authority.cer**.
+	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
 
-3.  Importe o certificado por meio do seguinte comando:
+	Quando solicitado para confiar nesse certificado, se o certificado tiver impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, responda digitando **y**.
+4. Execute o seguinte comando para garantir que o certificado de CA foi importado com êxito:
 
-    `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
+	`keytool -list -keystore cacerts`
 
-    Quando solicitado para confiar nesse certificado, se o certificado tiver impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, responda digitando **y**.
-
-4.  Execute o seguinte comando para garantir que o certificado de CA foi importado com êxito:
-
-    `keytool -list -keystore cacerts`
-
-5.  Compacte o JDK e adicione a sua pasta **approot** do projeto do Azure.
+5. Compacte o JDK e adicione a sua pasta **approot** do projeto do Azure.
 
 Para obter mais informações sobre o keytool, consulte <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
 # Certificados de Raiz do Azure
 
-Os aplicativos que usam os serviços do Azure (por exemplo, o Service Bus do Azure) precisam confiar no certificado de Baltimore CyberTrust Root. (A partir de 15 de abril de 2013, o Azure começou migrando do GTE CyberTrust Global Root para o Baltimore CyberTrust Root. Essa migração levou vários meses para ser concluída.)
+Os aplicativos que usam os serviços do Azure (por exemplo, o Barramento de Serviço do Azure) precisam confiar no certificado de Baltimore CyberTrust Root. (A partir de 15 de abril de 2013, o Azure começou migrando do GTE CyberTrust Global Root para o Baltimore CyberTrust Root. Essa migração levou vários meses para ser concluída.)
 
-O certificado Baltimore já pode estar instalado no seu repositório cacerts, portanto, lembre-se de executar o comando **keytool-list** primeiro para ver se ele já existe.
+O certificado Baltimore já pode estar instalado no seu repositório cacerts, portanto, lembre-se de executar o comando **keytool -list** primeiro para ver se ele já existe.
 
-Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de série 02:00:00:b9 e impressão digital SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Ele pode ser baixado do <https://cacert.omniroot.com/bc2025.crt>, salvo em um arquivo local com extensão **.cer**, e importado usando o **keytool** conforme mostrado acima.
+Se você precisar adicionar o Baltimore CyberTrust Root, ele tem o número de série 02:00:00:b9 e SHA1 fingerprint d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Pode ser baixado de <https://cacert.omniroot.com/bc2025.crt>, salvo em um arquivo local com a extensão **.cer** e então importado usando **keytool** como mostrado acima.
 
-Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de certificados de raiz do Azure][Migração de certificados de raiz do Azure].
+Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de certificados de raiz do Microsoft Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-  [Certificados de raiz de GeoTrust]: http://www.geotrust.com/resources/root-certificates/
-  [Migração de certificados de raiz do Azure]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx

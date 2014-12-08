@@ -8,7 +8,7 @@
 
 Até recentemente, era possível se inscrever para uma nova assinatura do Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Agora, o Azure oferece suporte aos dois seguintes métodos de conta para inscrição:
 
--   **Contas da Microsoft** (criadas por você para o uso pessoal) - fornecem acesso a todos os produtos voltados para o consumidor da Microsoft e serviços de nuvem, como Outlook (Hotmail), Messenger, SkyDrive, MSN, Xbox Live ou Office Live. Se inscrever no Outlook cria automaticamente uma conta da Microsoft com um endereço @Outlook.com. Após a criação, a conta da Microsoft pode ser usada para acessar serviços de nuvem relacionados ao consumidor da Microsoft e/ou ao Azure. [Saiba mais][Saiba mais]
+-   **Contas da Microsoft** (criadas por você para o uso pessoal) - fornecem acesso a todos os produtos voltados para o consumidor da Microsoft e serviços de nuvem, como Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox Live ou Office Live. Se inscrever no Outlook cria automaticamente uma conta da Microsoft com um endereço @Outlook.com. Após a criação, a conta da Microsoft pode ser usada para acessar serviços de nuvem relacionados ao consumidor da Microsoft e/ou ao Azure. [Saiba mais][Saiba mais]
 
 -   **Contas organizacionais** (emitidas por uma administração para uso comercial/acadêmico) - fornecem acesso a todos os serviços de nuvem pequenos, médios e de nível de negócios da Microsoft, como o Azure, Windows Intune ou Office 365. Quando você se inscreve em qualquer um desses serviços como uma organização, um locatário baseado na nuvem é provisionado automaticamente no Windows Azure Active Directory para representar sua organização. [Saiba mais][1]
 

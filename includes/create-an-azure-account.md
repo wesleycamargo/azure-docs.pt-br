@@ -1,27 +1,26 @@
-# Crie uma conta do Azure e habilite os recursos de visualização
+﻿# Crie uma conta do Azure e habilite os recursos de visualização
 
-Você precisa de uma conta para implantar aplicativos no Azure. Este artigo descreve como criar uma conta de avaliação gratuita e como habilitar recursos de visualização do Azure, incluindo os serviços do BizTalk, HDInsight e Azure Back, na conta.
+Você precisa de uma conta para implantar aplicativos no Azure. Este artigo descreve como criar uma conta de avaliação gratuita e como habilitar recursos de visualização do Azure, incluindo os Serviços BizTalk, HDInsight e Azure Back, na conta.
 
 ## Criar uma conta do Azure
 
-1.  Abra um navegador da web e navegue para <http://www.windowsazure.com>
-2.  Se você tiver uma assinatura do MSDN, navegue até a página [Benefício do Azure para assinantes do MSDN][Benefício do Azure para assinantes do MSDN] e siga as etapas para criar uma conta ativando seus benefícios de assinante do MSDN.
+1.  Abra um navegador da Web e navegue até <a href="http://www.windowsazure.com">http://www.windowsazure.com</a>
+2.  Se você tiver uma assinatura do MSDN, navegue até a página <a href="/pt-br/pricing/member-offers/msdn-benefits-details/" target="_blank">Benefício do Azure para assinantes do MSDN</a> e siga as etapas para criar uma conta ativando seus benefícios de assinante do MSDN.
 
-Caso contrário, vá para a página [criar uma conta gratuita de avaliação][criar uma conta gratuita de avaliação] e siga as etapas para criar uma conta de avaliação. Você precisará de um número de cartão de crédito e um número de celular para comprovação de identidade, mas não será cobrado.
+   Caso contrário, vá até a página <a href="/pt-br/pricing/free-trial/" target="_blank">criar uma conta de avaliação gratuita</a> e siga as etapas para criar uma conta de avaliação. Você precisará de um número de cartão de crédito e um número de celular para comprovação de identidade, mas não será cobrado.
 
-## <span id="enable"></span></a>Habilitar os recursos de visualização do Azure
+<h2><a id="enable"></a>Habilitar os recursos de visualização do Azure</h2>
 
-1.  Navegue até [][]<https://account.windowsazure.com/></a> e entre com sua conta do Azure.
-2.  Clique em **recursos de visualização** para ver as visualizações disponíveis.
-    ![Abra a guia Recursos de visualização][Abra a guia Recursos de visualização]
-3.  Role até o recurso que você deseja habilitar e clique em **experimentar agora**.
-    ![Selecione um recurso de visualização][Selecione um recurso de visualização]
-4.  Selecione a assinatura e clique na seleção.
-    ![Selecione assinatura][Selecione assinatura]
+1.  Navegue até [https://account.windowsazure.com/](https://account.windowsazure.com/) e entre com sua conta do Azure.
+2.  Clique em **recursos de visualização** para exibir as visualizações disponíveis.<br />
+    ![open preview features tab][1]
+3.  Role até o recurso que você deseja habilitar e clique em **experimentar agora**.<br />
+    ![select a preview feature][2]
+4.  Selecione sua assinatura e clique em verificação.<br />
+    ![select subscription][3]
 
-  [Benefício do Azure para assinantes do MSDN]: /pt-br/pricing/member-offers/msdn-benefits-details/
-  [criar uma conta gratuita de avaliação]: /pt-br/pricing/free-trial/
-  []: https://account.windowsazure.com/
-  [Abra a guia Recursos de visualização]: ./media/create-an-azure-account/antares-iaas-preview-01.png
-  [Selecione um recurso de visualização]: ./media/create-an-azure-account/antares-iaas-preview-05.png
-  [Selecione assinatura]: ./media/create-an-azure-account/antares-iaas-preview-06.png
+
+
+[1]: ./media/create-an-azure-account/antares-iaas-preview-01.png
+[2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
+[3]: ./media/create-an-azure-account/antares-iaas-preview-06.png

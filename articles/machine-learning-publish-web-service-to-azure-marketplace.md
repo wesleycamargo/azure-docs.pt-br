@@ -1,71 +1,82 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publicando serviços Web de AM do Azure para o Azure Marketplace" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
 
-# Publicando Serviços Web AM do Azure para o Azure Marketplace
+# Publicando Serviços Web AM do Azure para o Azure Marketplace 
 
 Neste documento:
 
--   [Introdução][Introdução]
--   [Visão geral do processo de publicação][Visão geral do processo de publicação]
--   [Diretrizes para publicar no Azure Marketplace][Diretrizes para publicar no Azure Marketplace]
--   [Opções específicas de Aprendizado de Máquina][Opções específicas de Aprendizado de Máquina]
+- [Introdução]
+- [Visão geral do processo de publicação]
+- [Diretrizes para publicar no Azure Marketplace]
+- [Opções específicas de Aprendizado de Máquina] 
 
 <!--Anchors-->
+[Introdução]: #introduction
+[Visão geral do processo de publicação]: #overview-of-the-publishing-process
+[Diretrizes para publicar no Azure Marketplace]: #guidelines-for-publishing-to-azure-marketplace
+[Opções específicas de aprendizado de máquina]: #machine-learning-specific-options 
 
 ## Introdução
 
 O Azure Marketplace fornece a capacidade de publicar serviços Web de Aprendizado de Máquina do Azure como serviços pagos ou gratuitos para consumo por clientes externos. Este documento fornece uma visão geral desse processo com links para diretrizes que o ajudam a começar. Usando esse processo, é possível começar a disponibilizar seus serviços Web a outros desenvolvedores para que usem seus aplicativos.
 
-## Visão geral do processo de publicação
+## Visão geral do processo de publicação 
 
 A seguir estão as etapas para publicar um serviço Web AM do Azure para o Azure Marketplace:
 
-1.  Criar e publicar um serviço Web RRS (Serviço de solicitação-resposta) ou BES (Serviço de execução em lote) AM do Azure.
-2.  No Portal de Gerenciamento do Azure, implante o serviço na produção.
-3.  Use a URL do serviço Web publicado para publicar no Azure Marketplace.
-4.  Visão geral do processo de publicação: <http://msdn.microsoft.com/pt-br/library/azure/hh580725.aspx>
-5.  Depois de enviada, sua oferta é revisada e precisa ser aprovada antes que os clientes possam iniciar a compra dela. O processo de publicação pode levar alguns dias úteis. Estamos trabalhando para reduzir o máximo possível esse tempo e logo forneceremos uma atualização nas comunicações.
+1.	Criar e publicar um serviço Web RSS (serviço de solicitação-resposta) de AM do Azure.
+2.	No Portal de Gerenciamento do Azure, implante o serviço na produção.
+3.	Use a URL do serviço Web publicado para publicar no Azure Marketplace.
+4.	Visão geral do processo de publicação: http://msdn.microsoft.com/pt-br/library/azure/hh580725.aspx 
+5.	Depois de enviada, sua oferta é revisada e precisa ser aprovada antes que os clientes possam iniciar a compra dela. O processo de publicação pode levar alguns dias úteis. Estamos trabalhando para reduzir o máximo possível esse tempo e logo forneceremos uma atualização nas comunicações.
 
 ## Diretrizes para publicar no Azure Marketplace
 
-1.  Será necessário registrar-se como um editor. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563872.aspx>
-2.  Será necessário fornecer informações sobre sua oferta, inclusive um plano de preços. Decida se você oferecerá um serviço gratuito ou pago. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563873.aspx>
-3.  Para ser pago, será necessário fornecer informações de pagamento como banco e impostos. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563873.aspx>
+1.	Será necessário registrar-se como um editor. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563872.aspx>
+2.	Será necessário fornecer informações sobre sua oferta, inclusive um plano de preços. Decida se você oferecerá um serviço gratuito ou pago. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563873.aspx> 
+3.	Para ser pago, será necessário fornecer informações de pagamento como banco e impostos. Para obter mais informações, consulte: <http://msdn.microsoft.com/pt-br/library/azure/hh563873.aspx>
 
 ## Opções específicas de Aprendizado de Máquina
 
-1.  Quando criar uma nova oferta, selecione **Serviços de dados**, em seguida, clique em **Criar um novo serviço de dados**.
 
-    ![Azure Marketplace][Azure Marketplace]
+1.	Quando criar uma nova oferta, selecione **Serviços de dados**, em seguida, clique em **Criar um novo serviço de dados**. 
+ 
+	![Azure Marketplace][image1]
 
-2.  Na guia **Serviço de dados**, clique em **Serviços Web** como a fonte de dados.
+	<br />
 
-    ![Azure Marketplace][1]
+2. Na guia **Serviço de dados**, clique em **Serviço Web** como a fonte de dados.
 
-3.  Para a **URL do Serviço**, use a URL de seu serviço Web:
+	![Azure Marketplace][image2]
 
-    -   No menu esquerdo do Estúdio AM do Azure, clique em **SERVIÇOS WEB**.
-    -   Clique no serviço Web que deseja publicar no Marketplace.
-    -   Na página **Painel**, clique na **Página de ajuda da API** para o serviço RRS.
-    -   Copie o endereço do ponto de extremidade OData.
+3.	Obtenha a chave API e o URL do serviço Web do Portal de gerenciamento do Azure:
+	1.	Em uma janela separada do navegador ou a guia, faça logon no Portal de gerenciamento do Azure ([https://manage.windowsazure.com](https://manage.windowsazure.com)) 
+	2.	Selecione **Aprendizado de máquina** no menu esquerdo
+	3.	Clique em **Serviços Web** e depois clique no serviço Web que estiver publicando
+	4.	Copie a **chave de API** para um local temporário (por exemplo, Bloco de Notas)
+	5.	Clique na **página de ajuda da API** para o tipo de serviço de solicitação/resposta
+	6.	Copie o **endereço do ponto de extremidade OData** para o local temporário
 
-4.  Para Autenticação, escolha **Cabeçalho** como o **Esquema de autenticação**.
+	<br />
 
-    -   Insira “Autorização" para **Nome do cabeçalho**.
-    -   Para **Valor do cabeçalho**:
+3.	Na caixa de diálogo Configurar serviço de dados do Marketplace, cole o endereço do ponto de extremidade OData no **URL do serviço**.
 
-        -   Na página **Painel** de seu serviço Web no Estúdio AM, copie a **Chave da API**.
-        -   No campo de **Valor do cabeçalho**, insira “Portador" (sem as aspas), depois espaço e, em seguida, cole a chave da API.
-    -   Marque a caixa de seleção **Este serviço é OData**.
+	<br />
 
-5.  Categorias:
+4. Para Autenticação, escolha **Cabeçalho** como o **Esquema de autenticação**.
 
-    -   Assegure que **Aprendizado de Máquina** esteja marcado.
+	- Insira "Autorização" para o **Nome do cabeçalho**
+	- No campo de **Valor do cabeçalho**, insira "Portador" (sem as aspas), depois espaço e, em seguida, cole a chave da API.
+	- Marque a caixa de seleção **Este serviço é OData**
+	- Clique em **Testar conexão** para testar a conexão
 
-  [Introdução]: #introduction
-  [Visão geral do processo de publicação]: #overview-of-the-publishing-process
-  [Diretrizes para publicar no Azure Marketplace]: #guidelines-for-publishing-to-azure-marketplace
-  [Opções específicas de Aprendizado de Máquina]: #machine-learning-specific-options
-  [Azure Marketplace]: ./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
-  [1]: ./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+	<br />
+
+5.	Em categorias:
+	- Garanta que **Aprendizado de máquina** esteja marcado
+
+
+
+[image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
+[image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png

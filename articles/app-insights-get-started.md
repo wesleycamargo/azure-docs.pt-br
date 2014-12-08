@@ -1,65 +1,53 @@
-<properties title="Application Insights" pageTitle="Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+﻿<properties title="Application Insights" pageTitle="Application Insights - iniciar o monitoramento de integridade e uso do seu aplicativo" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
 
-# Application Insights - Introdução
+# Application Insights - Iniciar o monitoramento de integridade e uso do seu aplicativo
 
 *O Application Insights está em modo de visualização.*
 
-O Application Insights permite que você monitore a disponibilidade, o desempenho e o uso de seu aplicativo on-line. (Não é necessário que seja um aplicativo do Microsoft Azure.) A configuração é muito fácil e você verá os resultados dentro de minutos.
+O Application Insights permite que você monitore seu aplicativo ao vivo para:
 
--   **Disponibilidade** - Certifique-se de que seu aplicativo Web esteja disponível e respondendo. Nós testaremos suas URLs em intervalos de alguns minutos por meio de locais no mundo inteiro e informaremos se houver algum problema.
--   **Desempenho** - Diagnostique quaisquer problemas ou exceções de desempenho em seu serviço da Web. Veja como seus tempos de resposta variam de acordo com a quantidade de solicitações, descubra se a CPU ou outros recursos estão sendo alongados, obtenha rastreamentos de pilha de exceções e pesquise com facilidade em rastreamentos de logs.
--   **Uso** - Descubra o que os usuários estão fazendo com o seu aplicativo, para que você possa concentrar o trabalho de desenvolvimento onde for mais útil. Atualmente, é possível monitorar aplicativos Web, aplicativos da Windows Store e do Windows Phone.
+* **Disponibilidade** - Testaremos suas URLs a cada poucos minutos em todo o mundo.
+* **Desempenho** - Detecte e diagnostique problemas de desempenho e exceções.
+* **Uso** - Descubra o que os usuários estão fazendo com o seu aplicativo, para que você possa fazer melhor do que eles.
+
+A configuração é muito fácil, e você verá os resultados em minutos. Atualmente, suportamos aplicativos de web ASP.NET (em seus próprios servidores ou no Azure).
+
 
 ## Introdução
 
-Há duas maneiras de começar:
+Inicie com qualquer combinação, em qualquer ordem, dos pontos de entrada à esquerda desta tabela. Escolha as rotas que funcionam para você. Se estiver desenvolvendo um aplicativo Web ASP.NET, inicie ao adicionar o Application Insights ao seu projeto Web - é fácil adicionar outros elementos posteriormente.
 
--   [Adicionar o Application Insights ao seu projeto no Visual Studio][Adicionar o Application Insights ao seu projeto no Visual Studio]
+Você precisará de uma conta no [Microsoft Azure](http://azure.com) (a não ser que esteja usando a versão VSO).
 
-    Adicione o Application Insights aos seus projetos para controlar o uso, o desempenho e a disponibilidade e analisar logs de diagnóstico. Você poderá ver os dados dentro de minutos no modo de depuração e, então, implantar o projeto para obter dados em tempo real.
+<table >
+<tr valign="top"><th>O que você precisa</th><th colspan="2">O que fazer</th><th>O que você ganha</th></tr>
+<tr valign="top"><td>Obter análise de desempenho e uso para meu aplicativo ASP.NET</td><td colspan="2"><a href="../app-insights-start-monitoring-app-health-usage/">Adicionar o Application Insights ao seu projeto Web</a></td><td>Métricas de desempenho: contagens de carga, tempos de resposta, ...</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Enviar eventos e métricas do código de seu servidor</a></td><td>Análise empresarial personalizada</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">Enviar telemetria de rastreamento e de exceção de seu servidor ou capturar dados de log de terceiros.</td><td>Diagnósticos dos aplicativos do servidor. Dados de log de pesquisa e de filtro.</a></td></tr>
+<tr valign="top"><td>Obter análise de uso para minhas páginas da Web (em qualquer plataforma)</td><td colspan="2"><a href="../app-insights-web-track-usage/">Inserir script AI em suas páginas da Web</a></td><td>Análises de uso: visualizações de uso, usuários que retornam, contagens de sessão</td></tr>
+<tr valign="top"><td></td><td>&nbsp;&nbsp;</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Gravar chamadas de eventos e métricas em scripts de sua página da Web</a></td><td>Análises de experiência do usuário personalizada</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">Gravar chamadas de rastreamento e diagnóstico nos scripts de sua página da Web</a></td><td>Dados de log de pesquisa e de filtro.</td></tr>
+<tr valign="top"><td>Diagnosticar problemas em um aplicativo ASP.NET já em execução em meu servidor Web</td><td colspan="2"><a href="../app-insights-monitor-performance-live-website-now/">Instalar Monitor de Status em seu servidor Web</a></td><td>Durações e contagens de chamadas de dependência; contadores de CPU, memória e rede; contagens de carga, tempos de resposta</td></tr>
+<tr valign="top"><td>Monitorar a disponibilidade de qualquer página da Web</td><td colspan="2"><a href="../app-insights-monitor-web-app-availability/">Configurar testes da Web no Application Insights</a></td><td>Monitor e alertas de disponibilidade</td></tr>
+<tr valign="top"><td>Obter análise de desempenho e uso para aplicativos do Windows Phone, da Windows Store ou para sites Java</td><td colspan="2"><a href="http://msdn.microsoft.com/library/dn481095.aspx">Por enquanto, use a versão VSO mais antiga do Application Insights</a></td><td>Análises de uso e desempenho. <a href="http://msdn.microsoft.com/library/dn793604.aspx">Estamos aumentando gradativamente os recursos na versão do Azure.</a></td></tr>
+</table>
 
-    Use esta opção se estiver atualizando ou criando um projeto.
 
-    [Começar adicionando o Application Insights ao seu projeto.][Adicionar o Application Insights ao seu projeto no Visual Studio]
+## <a name="video"></a>Vídeos
 
--   [Diagnosticar problemas em um serviço da Web agora][Diagnosticar problemas em um serviço da Web agora]
+#### Introdução
 
-    Instale o agente do Application Insights em seu servidor IIS e veja dados de desempenho em minutos. Veja a contagem de solicitações, os tempos de resposta, o carregamento de recursos e obtenha rastreamentos de exceção.
+> [AZURE.VIDEO application-insights-introduction]
 
-    Use esta opção se precisar compreender o que está acontecendo em seu servidor Web agora. Essa opção não envolve a reimplantação do seu código. Mas você precisará de acesso de administrador ao seu servidor e uma conta do Microsoft Azure.
+#### Introdução
 
-    É possível adicionar o monitoramento de disponibilidade a qualquer momento.
+> [AZURE.VIDEO getting-started-with-application-insights]
 
-    Depois, você pode usar a outra opção para adicionar o Application Insights ao seu projeto para analisar logs de diagnóstico e controlar o uso.
 
-    [Comece instalando o Application Insights ao seu servidor da Web.][Diagnosticar problemas em um serviço da Web agora]
 
-> [WACOM.NOTE] Há uma [versão mais antiga do Application Insights][versão mais antiga do Application Insights] no Visual Studio Online. Nós o estamos recriando a partir do zero como parte do Microsoft Azure e, aqui, você está lendo sobre a nova versão.
 
-![Exemplo de monitor de aplicativo no Application Insights][Exemplo de monitor de aplicativo no Application Insights]
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
-## Saiba mais
 
--   [Application Insights][Application Insights]
--   [Adicionar o Application Insights ao seu projeto][Adicionar o Application Insights ao seu projeto no Visual Studio]
--   [Monitorar um servidor Web on-line agora][Diagnosticar problemas em um serviço da Web agora]
--   [Explorar métricas no Application Insights][Explorar métricas no Application Insights]
--   [Pesquisa de log de diagnóstico][Pesquisa de log de diagnóstico]
--   [Controle de disponibilidade com testes da Web][Controle de disponibilidade com testes da Web]
--   [Controle de uso com eventos e métricas][Controle de uso com eventos e métricas]
--   [Perguntas e respostas e solução de problemas][Perguntas e respostas e solução de problemas]
-
-<!--Link references-->
-
-  [Adicionar o Application Insights ao seu projeto no Visual Studio]: ../app-insights-monitor-application-health-usage/
-  [Diagnosticar problemas em um serviço da Web agora]: ../app-insights-monitor-performance-live-website-now/
-  [versão mais antiga do Application Insights]: http://msdn.microsoft.com/pt-br/library/dn481095.aspx
-  [Exemplo de monitor de aplicativo no Application Insights]: ./media/appinsights/appinsights-00-appblade.png
-  [Application Insights]: ../app-insights-get-started/
-  [Explorar métricas no Application Insights]: ../app-insights-explore-metrics/
-  [Pesquisa de log de diagnóstico]: ../app-insights-search-diagnostic-logs/
-  [Controle de disponibilidade com testes da Web]: ../app-insights-monitor-web-app-availability/
-  [Controle de uso com eventos e métricas]: ../app-insights-web-track-usage-custom-events-metrics/
-  [Perguntas e respostas e solução de problemas]: ../app-insights-troubleshoot-faq/
