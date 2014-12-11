@@ -170,9 +170,9 @@ Para experimentar o Hadoop no HDInsight, consulte os artigos de "Introdução" n
 
 -   [Apache Hadoop][Apache Hadoop]: saiba mais sobre a biblioteca de software Apache Hadoop, uma estrutura que permite o processamento distribuído de grandes conjuntos de dados em clusters de computadores.
 
--   [HDFS][1]: saiba mais sobre a arquitetura e o design do HDFS (Sistema de Arquivos Distribuído Hadoop), o sistema de armazenamento primário usado pelos aplicativos Hadoop.
+-   <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: saiba mais sobre a arquitetura e o design do HDFS (Sistema de Arquivos Distribuído Hadoop), o sistema de armazenamento primário usado pelos aplicativos Hadoop.
 
--   [MapReduce][2]: saiba mais sobre a estrutura de programação para escrever aplicativos Hadoop que processam rapidamente grandes quantidades de dados paralelamente em grandes clusters de nós de computação.
+-   <a target="_blank" href="http://mapreduce.org/">MapReduce</a>: saiba mais sobre a estrutura de programação para escrever aplicativos Hadoop que processam rapidamente grandes quantidades de dados paralelamente em grandes clusters de nós de computação.
 
   [Visão geral do ecossistema do Hadoop no HDInsight:]: #overview
   [Vantagens do Hadoop na nuvem:]: #advantage
