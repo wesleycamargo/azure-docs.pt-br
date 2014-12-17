@@ -1,25 +1,22 @@
-<properties pageTitle="Call a custom API from a Windows Phone app - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Phone app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="" editor=""  />
+﻿<properties pageTitle="Chamar uma API personalizada de um aplicativo do Windows Phone - Serviços Móveis" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Phone app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
 # Chamar uma API personalizada do cliente
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api" title="C# da Windows Store">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api" title="Windows Phone" class="current">Windows Phone</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api" title="iOS" class="current">iOS</a><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api" title="Android" class="current">Android</a>
-</div>
-
-<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-windows-phone-call-custom-api"  title="Back-end do JavaScript">Back-end do JavaScript</a></div>
+[WACOM.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
 Este tópico mostra como chamar uma API personalizada em um aplicativo do Windows Phone. Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
 A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador como `true` para todos os itens de tarefas pendentes na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução a dados][Introdução a dados]. Para fazer isso, você executará as seguintes etapas:
+Você adicionará essa funcionalidade ao aplicativo que criou quando concluiu o tutorial [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Para fazer isso, você executará as seguintes etapas:
 
-1.  [Definir a API personalizada][Definir a API personalizada]
-2.  [Atualizar o aplicativo para chamar a API personalizada][Atualizar o aplicativo para chamar a API personalizada]
-3.  [Testar o aplicativo][Testar o aplicativo]
+1. [Definir a API personalizada]
+2. [Atualizar o aplicativo para chamar a API personalizada]
+3. [Testar o aplicativo] 
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis] ou [Introdução aos dados][Introdução a dados]. Este tutorial usa o Visual Studio 2012 Express para Windows Phone.
+Este tutorial baseia-se no exemplo GetStartedWithData, um aplicativo TodoList simples. Antes de iniciar este tutorial, você deve primeiro concluir [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
@@ -27,26 +24,30 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 [WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
 
+
 ## Próximas etapas
 
 Agora que você criou uma API personalizada e a chamou em seu aplicativo da Windows Phone, procure mais informações sobre os seguintes tópicos de Serviços Móveis:
 
--   [Referência de script de servidor de Serviços Móveis][Referência de script de servidor de Serviços Móveis]
+* [Referência de script de servidor dos Serviços Móveis]
+  <br/>Saiba mais sobre como criar APIs personalizadas.
 
-    Saiba mais sobre como criar APIs personalizadas.
+* [Armazenar scripts de servidor no controle do código-fonte]
+  <br/> Saiba como usar o recurso de controle do código-fonte para desenvolver e publicar o código de script da API personalizada de maneira mais fácil e segura.
 
--   [Scripts de servidor de armazenamento no controle do código-fonte][Scripts de servidor de armazenamento no controle do código-fonte]
+<!-- Anchors. -->
+[Definir a API personalizada]: #define-custom-api
+[Atualizar o aplicativo para chamar a API personalizada]: #update-app
+[Testar o aplicativo]: #test-app
+[Próximas etapas]: #next-steps
 
-    Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
+<!-- Images. -->
 
+<!-- URLs. -->
+[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 
-
-
-
-  [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started/
-  [Introdução a dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-  [Definir a API personalizada]: #define-custom-api
-  [Atualizar o aplicativo para chamar a API personalizada]: #update-app
-  [Testar o aplicativo]: #test-app
-  [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
+[Armazenar scripts de servidor no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control

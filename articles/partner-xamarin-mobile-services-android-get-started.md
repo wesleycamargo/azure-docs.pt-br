@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties pageTitle="Introdução aos Serviços Móveis para Xamarin.Android" metaKeywords="aplicativo Xamarin.Android do Azure, serviço móvel XamarinAndroid, introdução ao Xamarin.Android do Azure" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
@@ -8,114 +8,122 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Este tutorial mostra como adicionar um servi&ccedil;o de back-end baseado em nuvem a um aplicativo Xamarin.Android usando os Servi&ccedil;os M&oacute;veis do Azure. Neste tutorial, voc&ecirc; criar&aacute; um novo servi&ccedil;o m&oacute;vel e um aplicativo simples <em>To do list</em> que armazena dados do aplicativo no novo servi&ccedil;o m&oacute;vel.</p>
-<p>Uma captura de tela do aplicativo completo est&aacute; dispon&iacute;vel abaixo:</p>
+<p>Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin.Android usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples <em>To do list</em> que armazena dados do aplicativo no novo serviço móvel.</p>
+<p>Uma captura de tela do aplicativo completo está disponível abaixo:</p>
 </div>
-
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o v&iacute;deo</span></a> <span class="time">10:05:00</span></div>
-
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a> <span class="time">10:05:00</span></div>
 </div>
 
 ![][0]
 
-A conclusão deste tutorial requer o [Xamarin.Android][Xamarin.Android], que instala o Xamarin Studio e um plug-in do Visual Studio (no Windows), bem como a mais recente plataforma Android. SDK do Android 4.2 ou uma versão posterior é necessária.
+A conclusão deste tutorial requer o [Xamarin.Android], que instala o Xamarin Studio e um plug-in do Visual Studio (no Windows), bem como a mais recente plataforma Android. SDK do Android 4.2 ou uma versão posterior é necessária. 
 
 O projeto quickstart baixado contém o componente dos Serviços Móveis do Azure para o Xamarin.Android. Embora esse projeto tenha como alvo o Android 4.2 ou uma versão posterior, o SDK dos Serviços Móveis exige apenas o Android 2.2 ou uma versão posterior.
 
-<div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para concluir este tutorial, voc&ecirc; precisa de uma conta do Azure. Se voc&ecirc; n&atilde;o tem uma conta, voc&ecirc; pode se inscrever para uma avalia&ccedil;&atilde;o do Azure e obter at&eacute; 10 servi&ccedil;os m&oacute;veis gratuitos que voc&ecirc; pode continuar usando mesmo depois do fim de sua avalia&ccedil;&atilde;o. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Avalia&ccedil;&atilde;o gratuita do Azure</a>.</p></div>
+<div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisará de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Avaliação gratuita do Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## 
+## <h2>Criar um novo aplicativo Xamarin.Android</h2>
 
-## <span class="short-header">Criar um novo aplicativo</span>Criar um novo aplicativo
-
-</h2>
-Depois de criar seu serviço móvel, você poderá seguir um quickstart fácil no Portal de Gerenciamento para criar um novo aplicativo ou modificar um aplicativo existente para conexão a seu serviço móvel.
+Depois de criar seu serviço móvel, você poderá seguir um início rápido fácil no Portal de Gerenciamento para criar um novo aplicativo ou modificar um aplicativo existente para conexão a seu serviço móvel. 
 
 Nesta seção, você criará um novo aplicativo Xamarin.Android que está conectado ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1.  No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
-2.  Na guia de início rápido, clique em **Xamarin.Android** sob **Escolher plataforma** e expanda **Criar um novo aplicativo Android**.
+2. Na guia de início rápido, clique em **Xamarin.Android** em **Escolher a plataforma** e expanda **Criar um novo aplicativo Android**.
 
-    ![][1]
+	![][6]
 
-    Isso exibe as três etapas fáceis de criar um aplicativo Xamarin.Android conectado a seu serviço móvel.
+	Isso exibe as três etapas fáceis de criar um aplicativo Xamarin.Android conectado a seu serviço móvel.
 
-    ![][2]
+	![][7]
 
-3.  Clique em **Criar tabela TodoItem** para criar uma tabela para armazenar os dados do aplicativo.
+3. Clique em **Criar tabela TodoItem** para criar uma tabela para armazenar dados do aplicativo.
 
-4.  Em **Baixe e execute o aplicativo**, clique em **Baixar**.
+4.  Em **Baixar e executar aplicativo**, clique em **Baixar**. 
 
-    Isso baixa o projeto para o aplicativo de exemplo *To do list* que está conectado ao seu serviço móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
+	Isso baixa o projeto para o aplicativo de exemplo _To do list_ que está conectado ao seu serviço móvel. Salve o arquivo de projeto compactado em seu computador local e anote onde ele foi salvo.
 
 ## Executar seu aplicativo Android
 
 O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
-1.  Navegue até o local onde você salvou os arquivos do projeto compactados e expanda os arquivos em seu computador.
+1. Navegue até o local onde você salvou os arquivos do projeto compactados e expanda os arquivos em seu computador.
 
 2.  No Xamarin Studio ou no Visual Studio, clique em **Arquivo** e, em seguida, em **Abrir**, navegue até os arquivos de exemplo não compactados e selecione **XamarinTodoQuickStart.Android.sln** para abri-lo.
 
-    ![][3]
+ 	![][8]
 
-    ![][4]
+	![][9]
 
-3.  Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo. Você será solicitado a selecionar um emulador ou um dispositivo USB conectado.
+3.  Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo. Você será solicitado a selecionar um emulador ou um dispositivo USB conectado. 
 
-    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> <p>Para que seja poss&iacute;vel executar o projeto no emulador do Android, voc&ecirc; deve definir no m&iacute;nimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.</p></div>
+	<div class="dev-callout"><strong>Nota</strong> <p>Para poder executar o projeto no emulador Android, você deve definir no mínimo um Dispositivo Virtual Android (AVD). Use o Gerenciador AVD para criar e gerenciar esses dispositivos.</p></div>
 
-4.  No aplicativo, digite um texto significativo, como *Concluir o tutorial* e clique em **Adicionar**.
+4. No aplicativo, digite um texto significativo, como _Complete the tutorial_ e clique em **Adicionar**.
 
-    ![][5]
+	![][10]
 
-    Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
+	Isso envia uma solicitação de POST ao novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
-    > [WACOM.NOTE]
-    > Você pode examinar o código que acessa seu serviço móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
+	> [WACOM.NOTE] 
+   	> Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
 
-5.  No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
+6. No Portal de Gerenciamento, clique na guia **Dados** e depois clique na tabela **TodoItems**.
 
-    ![][6]
+	![][11]
 
-    Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
+	Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
-    ![][7]
+	![][12]
 
 ## <a name="next-steps"> </a>Próximas etapas
+Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
 
-Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
+* [Introdução aos dados]
+  <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
 
--   [Começar a trabalhar com dados][Começar a trabalhar com dados]
-    Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
+* [Introdução à sincronização de dados offline]
+  <br/>Aprenda a usar a sincronização de dados offline para tornar seu aplicativo robusto e responsivo.
 
--   [Introdução à sincronização de dados offline][Introdução à sincronização de dados offline]
-    Saiba como usar a sincronização de dados offline para tornar o seu aplicativo responsivo e robusto.
+* [Introdução à autenticação]
+  <br/>Aprenda a autenticar usuários do aplicativo com um provedor de identidade.
 
--   [Introdução à autenticação][Introdução à autenticação]
-    Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+* [Introdução às notificações por push] 
+  <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
--   [Introdução às notificações por push][Introdução às notificações por push]
-    Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+<!-- Anchors. -->
+[Introdução aos Serviços Móveis]:#getting-started
+[Criar um novo serviço móvel]:#create-new-service
+[Definir a instância do serviço móvel]:#define-mobile-service-instance
+[Próximas etapas]:#next-steps
 
- 
- 
+<!-- Images. -->
+[0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
+[2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create.png
+[3]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page1.png
+[4]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page2.png
+[5]: ./media/partner-xamarin-mobile-services-android-get-started/obile-services-selection.png
+[6]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
+[7]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png
+[8]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-xs.png
+[9]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-vs.png
+[10]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-startup-android.png
+[11]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-tab.png
+[12]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-browse.png
+[13]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-services-diagram.png
 
 
-  [0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
-  [Xamarin.Android]: http://xamarin.com/download
-  [1]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
-  [2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png
-  [3]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-xs.png
-  [4]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-vs.png
-  [5]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-startup-android.png
-  [6]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-tab.png
-  [7]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-browse.png
-  [Começar a trabalhar com dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android
-  [Introdução à sincronização de dados offline]: /pt-br/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-  [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-android
+<!-- URLs. -->
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Introdução à sincronização de dados offline]: /pt-br/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Xamarin.Android]: http://xamarin.com/download
+[SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[WindowsAzure.com]: http://www.windowsazure.com/
+[Portal de Gerenciamento]: https://manage.windowsazure.com/

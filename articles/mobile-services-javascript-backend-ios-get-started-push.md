@@ -1,39 +1,37 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Introdução às notificações por push (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
-# Introdução às notificações por push nos Serviços Móveis
+# Adicionar notificações por push a seu aplicativo de Serviços Móveis
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="C# da Windows Store">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="JavaScript da Windows Store">JavaScript da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a><!---<a href="/pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>--></div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="Back-end do .NET" >Back-end do .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="Back-end do JavaScript" class="current">Back-end do JavaScript</a></div>
-
-Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push para um aplicativo iOS. Neste tutorial, você adicionará as notificações por push usando o APNS (Serviço de Notificação por Push da Apple) ao projeto de início rápido. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
-
-> [WACOM.NOTE]Este tutorial demonstra a integração dos Serviços Móveis com Hubs de Notificação, que é o modo como você envia notificações por push de seu serviço móvel. Se estiver usando um serviço móvel antigo usando push herdado que ainda não foi atualizado para usar Hubs de Notificação, *recomendamos a atualização* como parte deste tutorial. Se escolher não atualizar agora, siga esta versão do tutorial: [Introdução às notificações por push (herdado)][Introdução às notificações por push (herdado)].
+Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push por meio do Serviço de Notificação por Push da Apple (APNS) para um aplicativo iOS. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure para o [projeto de início rápido](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-get-started/). Ao concluir, seu serviço móvel enviará uma notificação de push sempre que um registro é inserido.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
-1.  [Gerar a solicitação de assinatura de certificado][Gerar a solicitação de assinatura de certificado]
-2.  [Registrar seu aplicativo e habilitar as notificações por push][Registrar seu aplicativo e habilitar as notificações por push]
-3.  [Criar um perfil de provisionamento para o aplicativo][Criar um perfil de provisionamento para o aplicativo]
-4.  [Configurar os Serviços Móveis][Configurar os Serviços Móveis]
-5.  [Adicionar notificações por push ao aplicativo][Adicionar notificações por push ao aplicativo]
-6.  [Atualizar scripts para enviar notificações por push][Atualizar scripts para enviar notificações por push]
-7.  [Inserir dados para receber notificações][Inserir dados para receber notificações]
+1. [Gerar a solicitação de assinatura de certificado]
+2. [Registrar seu aplicativo e habilitar as notificações por push]
+3. [Criar um perfil de provisionamento para o aplicativo]
+4. [Configurar os Serviços Móveis]
+5. [Adicionar notificações por push ao aplicativo]
+6. [Atualizar scripts para enviar notificações por push]
+7. [Inserir dados para receber notificações]
 
 Este tutorial exige o seguinte:
 
--   [SDK do iOS dos Serviços Móveis][SDK do iOS dos Serviços Móveis]
--   [XCode 4.5][XCode 4.5]
--   Um dispositivo compatível com iOS 6.0 (ou versão posterior)
--   Associação no Programa de Desenvolvedores de iOS
++ [SDK do iOS dos Serviços Móveis]
++ [XCode 4.5][Instalar XCode]
++ Um dispositivo compatível com o iOS 6,0 (ou versão posterior)
++ Associação no Programa de Desenvolvedores de iOS
 
-> [WACOM.NOTE] Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad), em vez de usar o emulador.
+   > [WACOM.NOTE] Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
+Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis].
 
-[WACOM.INCLUDE [Habilitar Notificações por Push para Apple](../includes/enable-apple-push-notifications.md)]
+
+[WACOM.INCLUDE [Habilitar Notificações por push da Apple](../includes/enable-apple-push-notifications.md)]
+
 
 ## Configurar Serviços Móveis para enviar solicitações de push
 
@@ -41,7 +39,11 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## Adicionar notificações de push para seu aplicativo
 
-1.  Em QSAppDelegate.m, substitua o método de manipulador a seguir na implementação:
+1. Em Qsappdelegate.m, insira o trecho a seguir para importar o SDK do iOS para Serviços Móveis:
+
+        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
+2. Em QSAppDelegate.m, substitua o método de manipulador a seguir dentro da implementação:
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -52,22 +54,29 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
             return YES;
         }
 
-2.  Em QSAppDelegate.m, adicione o método de manipulador a seguir na implementação:
+3. Em QSAppDelegate.m, adicione o método de manipulador a seguir dentro da implementação. Certifique-se de copiar os valores da URL do Serviço Móvel e da Chave de Aplicativo e colocá-los nos espaços reservados:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
-            client.push.registerNative(deviceToken, @”uniqueTag”);
+            // TODO: update @"MobileServiceUrl" and @"AppKey" placeholders
+			MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"];
+
+            [client.push registerNativeWithDeviceToken:deviceToken tags:@[@"uniqueTag"] completion:^(NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Error registering for notifications: %@", error);
+                }
+            }];
         }
 
-3.  Em QSAppDelegate.m, adicione o método de manipulador a seguir na implementação:
+4. Em QSAppDelegate.m, adicione o método de manipulador a seguir dentro da implementação:
 
-        // Handle any failure to register. 
+        // Handle any failure to register.
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-4.  Em QSAppDelegate.m, adicione o método de manipulador a seguir na implementação:
+5. Em QSAppDelegate.m, adicione o método de manipulador a seguir dentro da implementação:  
 
         // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
@@ -80,49 +89,25 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
             [alert show];
         }
 
-5.  Em QSTodoListViewController.m, importe o arquivo QSAppDelegate.h para poder usar o representante para obter o token do dispositivo:
-
-        #import "QSAppDelegate.h"
-
-6.  Em QSTodoListViewController.m, modifique a ação **(IBAction)onAdd**, localizando a linha a seguir:
-
-        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
-
-Substitua isso por este código:
-
-        // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-
-        NSDictionary *item = @{
-            @"text" : itemText.text,
-            @"complete" : @(NO),
-            // add the device token property to our todo item payload
-            @"deviceToken" : [[NSString alloc] initWithData:delegate.deviceToken encoding:NSUTF8StringEncoding]
-        };
-
-Isso adicionará uma referência a **QSAppDelegate** para obter o token do dispositivo e modificará a carga de solicitação para incluir esse token de dispositivo.
-
-> [WACOM.NOTE] Adicione esse código antes da chamada do método **addItem**.
-
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
 ## Atualizar o script de inserção registrados no Portal de Gerenciamento
 
-1.  No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
 
-    ![][0]
+   	![][21]
 
-2.  Em **todoitem**, clique na guia **Script** e selecione **Inserir**.
+2. Em **todoitem**, clique na guia **Script** e selecione **Inserir**.
 
-    ![][1]
+  	![][22]
 
-    Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
+   	Isso exibirá a função invocada quando ocorrer uma inserção na tabela **TodoItem**.
 
-3.  Substitua a função de inserção com o seguinte código e **Salvar**:
+3. Substitua a função de inserção pelo seguinte código e clique em **Salvar**:
 
         function insert(item, user, request) {
             request.execute();
-            // Set timeout to delay the notification, to provide time for the 
+            // Set timeout to delay the notification, to provide time for the
             // app to be closed on the device to demonstrate push notifications
             setTimeout(function() {
                 push.apns.send(null, {
@@ -134,29 +119,30 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
             }, 2500);
         }
 
-    Isso registra um novo script de inserção, que usa o [objeto apns][objeto apns] para enviar uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção.
+   	Isso registra um novo script de inserção, que usa o [objeto apns] para enviar uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção.
 
-    > [WACOM.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação por push.
+
+   	> [WACOM.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação por push.
 
 ## Testar notificações por push no seu aplicativo
 
-1.  Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push
+1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push
 
-    ![][2]
+  	![][23]
 
-    > [WACOM.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+    > [WACOM.NOTE]  Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2.  No aplicativo, digite um texto significativo, como *Uma nova tarefa de Serviços Móveis* e clique no ícone do sinal de mais (**+**).
+2. No aplicativo, digite um texto significativo, como _Uma nova tarefa de Serviços Móveis_, e clique no ícone de adição (**+**).
 
-    ![][3]
+  	![][24]
 
-3.  Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
+3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
 
-    ![][4]
+  	![][25]
 
-4.  Repita a etapa 2 e feche o aplicativo imediatamente; em seguida, verifique se a notificação por push a seguir é mostrada.
+4. Repita a etapa 2 e feche o aplicativo imediatamente; em seguida, verifique se a notificação por push a seguir é mostrada.
 
-    ![][5]
+  	![][26]
 
 Este tutorial foi concluído com êxito.
 
@@ -164,53 +150,99 @@ Este tutorial foi concluído com êxito.
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo iOS para usar Serviços Móveis e Hubs de Notificação para enviar notificações por push. Em seguida, considere concluir um dos seguintes tutoriais:
 
--   [Enviar notificações por push a usuários autenticados][Enviar notificações por push a usuários autenticados]
-    Saiba como usar marcas para enviar notificações por push de um Serviço Móvel somente para um usuário autenticado.
++ [Enviar notificações por push para usuários autenticados]
+	<br/>Saiba como usar marcas para enviar notificações por push de um Serviço Móvel para um único usuário autenticado.
 
--   [Enviar notificações de difusão aos assinantes][Enviar notificações de difusão aos assinantes]
-    Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
-    <!--- + [Send template-based notifications to subscribers]     <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end. -->
-    Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
++ [Difundir notificações de transmissão a assinantes]
+	<br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
+<!---
++ [Send template-based notifications to subscribers]
+	<br/>Saiba usar modelos para enviar notificações por push de um Serviço Móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
+-->
+Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 
--   [Introdução aos dados][Introdução aos dados]
-    Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
+* [Introdução aos dados]
+  <br/>Saiba mais sobre como armazenar e consultar dados usando os serviços móveis.
 
--   [Introdução à autenticação][Introdução à autenticação]
-    Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
+* [Introdução à autenticação]
+  <br/>Saiba como autenticar os usuários de seu aplicativo com diferentes tipos de conta usando os serviços móveis.
 
--   [O que são Hubs de Notificação?][O que são Hubs de Notificação?]
-    Saiba mais sobre como os Hubs de Notificação funcionam para entregar notificações aos seus aplicativos entre todas as diversas principais plataformas de cliente.
+* [O que são Hubs de Notificação?]
+  <br/>Saiba mais sobre como os Hubs de Notificação funcionam para entregar notificações aos seus aplicativos entre todas as diversas principais plataformas de cliente.
 
--   [Referência conceitual de como do Objective-C de Serviços Móveis][Referência conceitual de como do Objective-C de Serviços Móveis]
-    Saiba mais sobre como usar os Serviços Móveis com Objective-C e iOS.
+* [Depurar aplicativos de Hubs de Notificação](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Obtenha diretrizes de solução de problemas e depuração de soluções de Hubs de Notificação. 
 
--   [Referência de script de servidor dos Serviços Móveis][Referência de script de servidor dos Serviços Móveis]
-    Saiba mais sobre como implementar lógica de negócios em seu serviço móvel.
+* [Referência conceitual ao tutorial de Objective-C para Serviços Móveis]
+  <br/>Saiba mais sobre como usar os Serviços Móveis com Objective-C e iOS.
 
+* [Referência de script de servidor dos Serviços Móveis]
+  <br/>Saiba mais sobre como implementar lógica de negócios em seu serviço móvel.
 
+<!-- Anchors. -->
+[Gerar a solicitação de assinatura de certificado]: #certificates
+[Registrar seu aplicativo e habilitar as notificações por push]: #register
+[Criar um perfil de provisionamento para o aplicativo]: #profile
+[Configurar os Serviços Móveis]: #configure
+[Atualizar scripts para enviar notificações por push]: #update-scripts
+[Adicionar notificações por push ao aplicativo]: #add-push
+[Inserir dados para receber notificações]: #test
+[Próximas etapas]:#next-steps
+
+<!-- Images. -->
+[5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
+[6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png
+[7]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png
+
+[9]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step9.png
+[10]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step10.png
+[17]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step17.png
+[18]: ./media/mobile-services-ios-get-started-push/mobile-services-selection.png
+[19]: ./media/mobile-services-ios-get-started-push/mobile-push-tab-ios.png
+[20]: ./media/mobile-services-ios-get-started-push/mobile-push-tab-ios-upload.png
+[21]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+[22]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
+[23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+[24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
+[25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
+[26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
+[28]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step18.png
+
+[101]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-01.png
+[102]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-02.png
+[103]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-03.png
+[104]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-04.png
+[105]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-05.png
+[106]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-06.png
+[107]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-07.png
+[108]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-08.png
+
+[110]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-10.png
+[111]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-11.png
+[112]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-12.png
+[113]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-13.png
+[114]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-14.png
+[115]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-15.png
+[116]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
+[117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
+[Instalar o Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Portal de Provisionamento do iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-  [Gerar a solicitação de assinatura de certificado]: #certificates
-  [Registrar seu aplicativo e habilitar as notificações por push]: #register
-  [Criar um perfil de provisionamento para o aplicativo]: #profile
-  [Configurar os Serviços Móveis]: #configure
-  [Adicionar notificações por push ao aplicativo]: #add-push
-  [Atualizar scripts para enviar notificações por push]: #update-scripts
-  [Inserir dados para receber notificações]: #test
-  [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-  [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started
-  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
-  [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
-  [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
-  [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
-  [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
-  [4]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
-  [5]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
-  [Enviar notificações por push a usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
-  [Enviar notificações de difusão aos assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/
-  [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data
-  [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users
-  [Referência conceitual de como do Objective-C de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
-  [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
+
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Difundir notificações de transmissão a assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/
+[Enviar notificações baseadas em modelo a assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+
+[Referência conceitual ao tutorial de Objective-C para Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

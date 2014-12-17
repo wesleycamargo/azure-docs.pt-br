@@ -1,216 +1,167 @@
-<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
+﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Tratar conflitos com dados offline nos Serviços Móveis (Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
+
 
 # Tratamento de conflitos com sincronização de dados offline nos Serviços Móveis
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="C# da Windows Store" class="current">C# da Windows Store</a>
+<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#" class="current">C# da Windows Store</a>
 <a href="/pt-br/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/pt-br/documentation/articles/mobile-services-ios-handling-conflicts-offline-data" title="iOS">iOS</a>
 </div>
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Este t&oacute;pico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Servi&ccedil;os M&oacute;veis do Azure.</p>
-<p>Se voc&ecirc; preferir assistir a um v&iacute;deo, o clipe &agrave; direita segue as mesmas etapas deste tutorial.</p>
+<p>Este tópico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Serviços Móveis do Azure.</p>
+<p>Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapas deste tutorial.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a> <span class="time">14:36:00</span></div>
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o v&iacute;deo</span></a> <span class="time">14:36:00</span></div>
+Neste tutorial, você baixará uma solução Windows Universal c# para um aplicativo que dá suporte a tratamento de conflitos de sincronização offline. Você integrará um serviço móvel com o aplicativo e executar os clientes Windows Store 8.1 e Windows Phone 8.1 para gerar um conflito de sincronização e resolvê-lo.
 
-</div>
+Esse tutorial baseia-se nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados offline]. Antes de começar este tutorial, você deve primeiro concluir a [Introdução aos dados offline].
 
-Neste tutorial, você baixará um aplicativo que oferece suporte a dados offline e online, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir e atualizar o banco de dados ao executar o aplicativo.
-
-Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados offline][Introdução aos dados offline]. Antes de começar este tutorial, você deve primeiro concluir a [Introdução aos dados offline][Introdução aos dados offline].
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
-1. [Baixar o projeto de aplicativo da Windows Store][Baixar o projeto de aplicativo da Windows Store]
-2. [Adicionar uma coluna de data de conclusão para o banco de dados][Adicionar uma coluna de data de conclusão para o banco de dados]
-  * [Atualizando o banco de dados para serviços móveis de back-end do .NET][Atualizando o banco de dados para serviços móveis de back-end do .NET]
-  * [Atualizando o banco de dados para os serviços móveis do JavaScript][Atualizando o banco de dados para os serviços móveis do JavaScript]  
-1.  [Testar o aplicativo no serviço móvel][Testar o aplicativo no serviço móvel]
-2.  [Atualizar manualmente os dados no back-end para criar um conflito][Atualizar manualmente os dados no back-end para criar um conflito]
+1. [Baixar o projeto de aplicativo da Windows Store] 
+2. [Testar o aplicativo no serviço móvel]
+3. [Atualizar manualmente os dados no back-end para criar um conflito]
 
 Este tutorial requer o Visual Studio 2013 em execução no Windows 8.1.
 
-## <a name="download-app"></a>Baixar o projeto de amostra
+
+## <a name="download-app"></a>Baixar o projeto de exemplo
 
 ![][0]
 
-Este tutorial é baseado no [Exemplo de código de tratamento de conflitos][Exemplo de código de tratamento de conflitos], que é um projeto de aplicativo da Windows Store para o Visual Studio 2013. A interface do usuário desse aplicativo é semelhante ao aplicativo do tutorial [Introdução aos dados offline][Introdução aos dados offline], com a exceção de que há uma nova coluna para cada TodoItem.
+	Este tutorial é um passo a passo de como o [Exemplo de serviços móveis offline de tarefas pendentes] trata conflitos de sincronização entre o repositório offline local e o banco de dados de Serviço Móvel no Azure.
 
-1.  Baixe a versão do C# do [Código de exemplo de tratamento de conflitos][Exemplo de código de tratamento de conflitos].
+1. Baixe o arquivo zip no [Repositório de exemplos Github para Serviços Móveis] e extraia-os em um diretório de trabalho. 
 
-2.  Instalar o [SQLite para Windows 8.1][SQLite para Windows 8.1] se ainda não estiver instalado.
+2. Se você ainda não tiver instalado SQLite para Windows 8.1 e Windows Phone 8.1 como mencionado em [Introdução aos dados offline] instale ambos os tempos de execução.
 
-3.  No Visual Studio 2013, abra o projeto transferido por download. Pressione a tecla **F5** para recompilar o projeto e iniciar o aplicativo.
+3. No Visual Studio 2013, abra o arquivo de solução *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Pressione a tecla **F5** para recompilar e executar o projeto. Verifique se os pacotes NuGet estão restaurados e se as referências estão definidas corretamente.
 
-4.  No aplicativo, digite um texto em **Inserir um TodoItem** e, em seguida, clique em **Salvar**. Você também pode modificar a data de conclusão dos itens de tarefas pendentes que adicionar.
+    >[AZURE.NOTE] Talvez seja necessário excluir todas as referências antigas no tempo de execução do SQLite e substituí-los por uma referência atualizada conforme mencionado no tutorial [Introdução aos dados offline].
+
+4. No aplicativo, digite algum texto em **Inserir um TodoItem**, depois clique em **Salvar** para adicionar alguns itens de tarefas pendentes no repositório local. Em seguida, feche o aplicativo.
 
 Observe que o aplicativo ainda não está conectado a nenhum serviço móvel, portanto, os botões **Push** e **Pull** gerarão exceções.
 
-## <a name="add-column"></a>Incluir uma coluna no model de dados
 
-Nesta seção, você irá atualizar o banco de dados para o serviço móvel para incluir uma tabela TodoItem com uma coluna de data de conclusão. O aplicativo permite que você altere a data de conclusão de um item em tempo de execução para que possa gerar conflitos de sincronização em uma seção posterior deste tutorial.
 
-A classe `TodoItem` no exemplo está definida no MainPage.xaml.cs. Observe que a classe tem o seguinte atributo que se destina às operações de sincronização nessa tabela.
-
-        [DataTable("TodoWithDate")]
-
-Atualize seu banco de dados para incluir essa tabela.
-
-### <a name="dotnet-backend"></a>Atualizando o banco de dados para serviços móveis de back-end do .NET
-
-Se estiver usando o back-end do .NET para o seu serviço móvel, siga estas etapas para atualizar o esquema do seu banco de dados.
-
-1.  Abra seu projeto de serviço móvel de back-end do .NET no Visual Studio.
-2.  No Gerenciador de Soluções para o Visual Studio, no seu projeto de serviço, expanda a pasta **Modelos** e abra ToDoItem.cs. Inclua a propriedade `DueDate` como mostrado a seguir.
-
-          public class TodoItem : EntityData
-          {
-            public string Text { get; set; }
-            public bool Complete { get; set; }
-            public System.DateTime DueDate { get; set; }
-          }
-
-3.  No Gerenciador de Soluções para o Visual Studio, expanda a pasta **App\_Start** e abra o arquivo WebApiConfig.cs.
-
-    No arquivo WebApiConfig.cs, observe que a classe de inicializador padrão do banco de dados é derivada da classe `DropCreateDatabaseIfModelChanges`. Isso significa que qualquer alteração no modelo resultará na tabela que está sendo descartada e recriada para acomodar o modelo novo. Portanto, os dados da tabela serão perdidos e a tabela será refeita. Modifique o método Seed do inicializador do banco de dados para que a inicialização `Seed()` funcione da seguinte maneira para inicializar a nova coluna DueDate. Salve o arquivo WebApiConfig.cs.
-
-    > [WACOM.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework eliminará e recriará o banco de dados sempre que detectar uma mudança do modelo de dados na definição de modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados][Como usar as Migrações Code First para atualizar o modelo de dados].
-
-        new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
-        new TodoItem { Id = "2", Text = "Second item", Complete = false, DueDate = DateTime.Today },
-
-4.  No Gerenciador de Soluções para o Visual Studio, expanda a pasta **Controladores** e abra ToDoItemController.cs. Renomeie a classe `TodoItemController` para `TodoWithDateController`. Isso irá alterar o ponto de extremidade REST para as operações da tabela.
-
-        public class TodoWithDateController : TableController<TodoItem>
-
-5.  No Gerenciador de Soluções para o Visual Studio, clique com o botão direito em seu projeto de serviço móvel de back-end do .NET e clique em **Publicar** para publicar suas mudanças.
-
-### <a name="javascript-backend"></a>Atualizando o banco de dados para os serviços móveis de back-end do JavaScript
-
-Para os serviços móveis de back-end do JavaScript, você irá adicionar uma nova tabela com o nome **TodoWithDate**. Para adicionar a tabela **TodoWithDate** nos serviços móveis de back-end do JavaScript, siga estas etapas.
-
-1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
-
-2.  Navegue até a guia **Dados** de seu serviço móvel.
-
-3.  Clique em **Criar** na parte inferior da página e crie uma nova tabela chamada **TodoWithDate**.
 
 ## <a name="test-app"></a>Testar o aplicativo no serviço móvel
 
 Está na hora de testar o aplicativo nos Serviços Móveis.
 
-1.  No Portal de Gerenciamento do Azure, localize sua chave do aplicativo de serviço móvel clicando em **Gerenciar Chaves** na barra de comandos da guia **Painel**. Copie a **Chave do Aplicativo**.
+1. No Portal de Gerenciamento do Azure, localize sua chave do aplicativo de serviço móvel clicando em **Gerenciar Chaves** na barra de comandos da guia **Painel**. Copie a **Chave do Aplicativo**.
 
-2.  No Gerenciador de Soluções para o Visual Studio, abra o arquivo App.xaml.cs no projeto de amostra do cliente. Altere a inicialização do **MobileServiceClient** para usar a URL do seu serviço móvel e a chave do aplicativo:
+2. No Gerenciador de Soluções do Visual Studio, abra o arquivo App.xaml.cs no projeto de exemplo do cliente. Altere a inicialização de **MobileServiceClient** para usar a URL do seu serviço móvel e a chave do aplicativo:
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://your-mobile-service.azure-mobile.net/",
             "Your AppKey"
         );
 
-3.  No Visual Studio, pressione a chave **F5** para criar e executar o aplicativo.
-
-4.  Como anteriormente, digite texto na caixa de texto e clique no botão **Salvar**. Isso salva os dados na tabela de sincronização local, mas não no servidor.
+3. No Visual Studio, pressione a tecla **F5** para compilar e execute o aplicativo novamente.
 
     ![][0]
 
-5.  Para ver o estado atual de seu banco de dados, faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
-
-  * Se estiver usando o back-end do JavaScript para seu serviço móvel, clique na guia **Dados**, em seguida, clique na tabela **TodoWithDate**. Clique em **Procurar** para ver que a tabela ainda estará vazia, uma vez que não enviamos por push as alterações do aplicativo para o servidor.
-
-        ![][1]
-
-  * Se estiver usando o back-end do .NET para seu serviço móvel, clique na guia **Configurar**, em seguida, clique em seu banco de dados SQL. Clique em **Gerenciar** na parte inferior da tela para fazer logon no Portal de Gerenciamento do Azure SQL para exibir seu banco de dados executando uma consulta SQL semelhante ao seguinte.
-
-            SELECT * FROM todolist.todowithdate
-
-        ![][2]
-
-1.  Novamente no aplicativo, clique em **Enviar por Push**.
-
-2.  No Portal de Gerenciamento, clique em **Atualizar** na tabela **TodoItem**. Agora você deve ver os dados que inseriu em seu aplicativo.
-
-    ![][1]
 
 ## <a name="handle-conflict"></a>Atualizar os dados no back-end para criar um conflito
 
-Em um cenário do mundo real, um conflito de sincronização ocorrerá quando um aplicativo enviar atualizações por push para um registro no banco de dados e, em seguida, outro aplicativo tentar enviar uma alteração por push para o mesmo registro usando uma versão desatualizada desse registro. Se uma instância do aplicativo tentar atualizar o mesmo registro sem efetuar pull no registro atualizado, ocorrerá um conflito e o conflito será capturado como um `MobileServicePreconditionFailedException` no aplicativo.
+Em um cenário do mundo real, um conflito de sincronização ocorre quando um aplicativo envia atualizações por push para um registro no banco de dados e, em seguida, outro aplicativo tenta enviar uma atualização por push para o mesmo registro usando uma versão desatualizada desse registro. Se você se lembra da [Introdução aos dados offline], a propriedade do sistema de versão é necessária para dar suporte aos recursos de sincronização offline. Essas informações de versão são examinadas com cada atualização do banco de dados. Se uma instância do aplicativo tentar atualizar um registro usando uma versão desatualizada, um conflito ocorrerá e será captado como uma `MobileServicePreconditionFailedException` no aplicativo. Se o aplicativo não capturar a `MobileServicePreconditionFailedException` então uma `MobileServicePushFailedException` será gerada descrevendo o número de erros de sincronização encontrados.
 
-Se desejar implantar o aplicativo em outro computador para executar duas instâncias do aplicativo para gerar um conflito, você poderá seguir as instruções de implantação do tutorial [Tratando de conflitos no banco de dados][Tratando de conflitos no banco de dados].
+>[AZURE.NOTE] Para dar suporte à sincronização dos registros excluídos com a sincronização de dados offline, você deve habilitar [Exclusão Reversível](/pt-br/documentation/articles/mobile-services-using-soft-delete/). Caso contrário, você precisa remover registros no armazenamento local, manualmente ou chamar `IMobileServiceSyncTable::PurgeAsync()` para limpar o armazenamento local.
 
-As etapas a seguir mostram como você pode atualizar o banco de dados no Visual Studio para provocar um conflito.
 
-1.  No Visual Studio, execute o Gerenciador de Servidores e conecte-se à sua conta do Azure. Expanda o **Bancos de Dados SQL** de sua conta do Azure.
+As etapas a seguir mostram os clientes Windows Phone 8.1 e Windows Store 8.1 em execução ao mesmo tempo para causar e resolver um conflito usando o exemplo.
 
-    ![][2]
-
-2.  Clique com o botão direito do mouse em seu Banco de Dados SQL e clique em **Abrir no Pesquisador de Objetos do SQL Server**.
-3.  No Pesquisador de Objetos do SQL Server, expanda seu banco de dados e expanda **Tabelas**. Clique com o botão direito do mouse na tabela **TodoWithDate** e clique em **Exibir Dados**.
-
-4.  Altere o campo **Concluído** de um dos itens para Verdadeiro.
-
+1. No Visual Studio, clique com botão direito do mouse no projeto do Windows Phone 8.1 e clique em **Definir como Projeto de Inicialização**. Em seguida, pressione as teclas **Ctrl+F5** para executar o cliente Windows Phone 8.1 sem depuração. Quando o cliente Windows Phone 8.1 estiver em execução no emulador, clique no botão **Pull** para sincronizar o repositório local com o estado atual do banco de dados.
+ 
     ![][3]
-
-5.  De volta em seu aplicativo Todo, edite o mesmo item que você modificou diretamente no banco de dados.
+ 
+   
+2. No Visual Studio, clique com botão direito do mouse no projeto de tempo de execução do Windows 8.1 e clique em **Definir como Projeto de Inicialização** para defini-lo de volta ao projeto de inicialização. Pressione **F5** para executá-lo. Quando o cliente Windows Store 8.1 estiver em execução, clique no botão **Pull** para sincronizar o repositório local com o estado atual do banco de dados.
 
     ![][4]
-
-6.  Clique no botão **Enviar por Push**. Você verá uma caixa de diálogo perguntando como resolver o conflito. Escolha uma das opções para resolver o conflito.
+ 
+3. Nesse ponto, ambos os clientes são sincronizados com o banco de dados. O código de ambos os clientes também está usando a sincronização incremental, para que eles sincronizem apenas itens de tarefas pendentes. Itens de tarefas pendentes concluídas serão ignorados. Escolha um dos itens e edite o texto do mesmo item em ambos os clientes com um valor diferente. Clique no botão **Enviar por Push** para sincronizar alterações com o banco de dados no servidor.
 
     ![][5]
 
+    ![][6]
+
+
+4. O cliente cujo push estava sendo executado por último encontra o conflito e permite que o usuário decida o valor a ser confirmado no banco de dados. A exceção fornece o valor de versão correta, que é usado para resolver o conflito.
+
+    ![][7]
+
+
+
 ## Revisão do código para tratamento de conflitos de sincronização
-Para ver o estado atual
-Para configurar o recurso offline para detectar conflitos, você deve incluir uma coluna de versão no banco de dados local e no objeto de transferência de dados. A classe `TodoItem` possui o seguinte membro:
+
+Para usar recursos offline nos serviços móveis, você deve incluir a coluna de versão no banco de dados local e o objeto de transferência de dados. Isso é realizado ao atualizar a classe `TodoItem` do membro a seguir:
 
         [Version]
         public string Version { get; set; }
 
-A coluna `__version` também é especificada no banco de dados local configurado no método `OnNavigatedTo()`.
+A coluna `__version` é incluída no banco de dados local no método `OnNavigatedTo()` quando a classe `TodoItem` é usada para definir o armazenamento local.
 
-Para tratar conflitos de sincronização offline no seu código, crie uma classe que implementa `IMobileServiceSyncHandler`. Passe um objeto deste tipo na chamada para `InitializeAsync`:
+Para resolver conflitos de sincronização offline em seu código, crie uma classe que implemente o arquivo `IMobileServiceSyncHandler`. Passe um objeto desse tipo na chamada para `MobileServiceClient.SyncContext.InitializeAsync()`. Isso também ocorre no método `OnNavigatedTo()`de exemplo.
 
      await App.MobileService.SyncContext.InitializeAsync(store, new SyncHandler(App.MobileService));
 
-A classe `SyncHandler` no arquivo **MainPage.xaml.cs** implementa o `IMobileServiceSyncHandler`. O método `ExecuteTableOperationAsync` é chamado quando cada operação de push é enviada ao servidor. Se uma exceção do tipo `MobileServicePreconditionFailedException` for lançada, isso significará que há um conflito entre as versões local e remota de um item.
+A classe `SyncHandler` em **SyncHandler.cs** implementa `IMobileServiceSyncHandler`. O método `ExecuteTableOperationAsync` é chamado quando cada operação de push é enviada ao servidor. Se uma exceção do tipo `MobileServicePreconditionFailedException` for lançada, isso significa que há um conflito entre as versões local e remota de um item.
 
-Para resolver conflitos em favor do item local, simplesmente repita a operação. Depois que um conflito ocorreu, a versão local do item será atualizada para corresponder à versão do servidor, portanto, executar a operação novamente substituirá as alterações de servidor pelas alterações locais:
+Para resolver conflitos em favor do item local, simplesmente repita a operação. Depois que ocorre um conflito, a versão local do item é atualizada para corresponder à versão do servidor, portanto, a execução de outra operação substituirá as alterações do servidor pelas alterações locais:
 
     await operation.ExecuteAsync(); 
 
-Para resolver conflitos em favor do item do servidor, apenas retorne do `ExecuteTableOperationAsync`. A versão local do objeto será descartada e substituída pelo valor do servidor.
+Para resolver os conflitos em favor do item de servidor, simplesmente retorne de `ExecuteTableOperationAsync`. A versão local do objeto será descartada e substituída pelo valor do servidor.
 
-Para parar a operação de push (mas manter as mudanças enfileiradas), use o método `AbortPush()`:
+Para parar a operação de push (mas manter as alterações na fila), use o método `AbortPush()`:
 
     operation.AbortPush();
 
-Isso interromperá a operação atual de push mas manterá todas as alterações pendentes, inclusive a operação atual, se `AbortPush` for chamado de `ExecuteTableOperationAsync`. Na próxima vez que `PushAsync()` for chamado, essas alterações serão enviadas ao servidor.
+Isso interromperá a operação atual de push mas manterá todas as alterações pendentes, inclusive a operação atual, se `AbortPush` for chamado de `ExecuteTableOperationAsync`. Na próxima vez que `PushAsync()` for chamado, essas alterações serão enviadas ao servidor. 
 
-Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedException` e a propriedade de exceção `PushResult.Status` terá o valor `MobileServicePushStatus.CancelledByOperation`.
+Quando um push é cancelado, `PushAsync` lança uma `MobileServicePushFailedException`, e a propriedade da exceção `PushResult.Status` terá o valor `MobileServicePushStatus.CancelledByOperation`. 
 
+
+<!-- Anchors. -->
+[Baixar o projeto de aplicativo da Windows Store]: #download-app
+[Criar o serviço móvel]: #create-service
+[Adicionar uma coluna de data de conclusão para o banco de dados]: #add-column
+[Atualizando o banco de dados para serviços móveis de back-end do .NET]: #dotnet-backend  
+[Atualizando o banco de dados para os serviços móveis do JavaScript]: #javascript-backend
+[Testar o aplicativo no serviço móvel]: #test-app
+[Atualizar manualmente os dados no back-end para criar um conflito]: #handle-conflict
+[Próximas etapas]:#next-steps
 
 <!-- Images -->
-<!-- URLs -->
+[0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+[1]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/javascript-backend-database.png
+[2]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/dotnet-backend-database.png
+[3]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/wp81-view.png
+[4]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/win81-view.png
+[5]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/wp81-edit-text.png
+[6]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/win81-edit-text.png
+[7]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/conflict.png
 
-  [Introdução aos dados offline]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
-  [Baixar o projeto de aplicativo da Windows Store]: #download-app
-  [Adicionar uma coluna de data de conclusão para o banco de dados]: #add-column
-  [Atualizando o banco de dados para serviços móveis de back-end do .NET]: #dotnet-backend
-  [Atualizando o banco de dados para os serviços móveis do JavaScript]: #javascript-backend
-  [Testar o aplicativo no serviço móvel]: #test-app
-  [Atualizar manualmente os dados no back-end para criar um conflito]: #handle-conflict
-  [0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
-  [Exemplo de código de tratamento de conflitos]: http://go.microsoft.com/fwlink/?LinkId=394787
-  [SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-  [Como usar as Migrações Code First para atualizar o modelo de dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
-  [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [1]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
-  [Tratando de conflitos no banco de dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
-  [2]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-server-explorer.png
-  [3]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-sql-server-object-explorer-update-data.png
-  [4]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run2.png
-  [5]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run3.png
+
+
+
+<!-- URLs -->
+[Tratando exemplos de conflitos de código]: http://go.microsoft.com/fwlink/?LinkId=394787
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
+[Introdução aos dados offline]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Tratando conflitos de banco de dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Repositório Github de exemplos de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=512865
+[Exemplo de Serviços Móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866

@@ -1,8 +1,9 @@
-O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o serviço móvel sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma melhor abordagem é armazenar em cache o token de autorização retornado pelos Serviços Móveis e tentar usá-lo antes de usar a entrada baseada no provedor.
+﻿
+O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o serviço móvel sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma melhor abordagem é armazenar em cache o token de autorização retornado pelos Serviços Móveis e tentar usá-lo antes de utilizar a entrada baseada no provedor.
 
-> [WACOM.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
+>[WACOM.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
 
-1.  No arquivo de projeto default.js substitua a função **Logon** existente pelo seguinte código:
+1. No arquivo de projeto default.js, substitua a função **Logon** existente pelo seguinte código:
 
         var credential = null;
         var vault = new Windows.Security.Credentials.PasswordVault();
@@ -30,7 +31,7 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
             });
         }
 
-2.  Substitua a função **authenticate** existente por este código:
+2. Substitua a função **autenticar** existente pelo seguinte código:
 
         var authenticate = function () {
             // Try to get a stored credential from the PasswordVault.                
@@ -40,7 +41,7 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
             catch (error) {
                 // This is expected when there's no stored credential.
             }
-
+            
             if (credential) {
                 // Set the user from the returned credential.   
                 credential.retrievePassword();
@@ -75,10 +76,8 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
             }
         }
 
-    Nesta versão do **authenticate**, o aplicativo tenta usar as credenciais armazenadas no **PasswordVault** para acessar ao serviço móvel. Uma consulta simples é enviada para verificar que o token armazenado não tenha expirado. Se um 401 for retornado, tenta-se um registro normal baseado no provedor. Também é realizado um registro normal quando não há uma credencial armazenada.
+Nesta versão de **autenticar**, o aplicativo tenta usar as credenciais armazenadas no **PasswordVault** para acessar o serviço móvel. Uma consulta simples é enviada para verificar que o token armazenado não tenha expirado. Se um 401 for retornado, tenta-se um registro normal baseado no provedor. Também é realizado um registro normal quando não há uma credencial armazenada.
 
-3.  Reiniciar o aplicativo.
+3. Reiniciar o aplicativo.
 
-    Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado.
-
-
+	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. 
