@@ -3,8 +3,8 @@
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
-> - [Introdução](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [O que aconteceu](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Introdução](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
+> - [O que aconteceu](/documentation/articles/vs-storage-aspnet5-what-happened/)
 
 ###<span id="whathappened">O que aconteceu com meu projeto?</span>
 
@@ -22,7 +22,9 @@ Esse pacote adiciona as referências de .NET a seguir:
 - `System.Data`
 - `System.Spatial`
 
-#####Cadeia de conexão do Armazenamento do Azure adicionada 
-No arquivo web.config do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
+Além disso, o pacote **Microsoft.Framework.ConfigurationModel.Json** foi adicionado.
 
-Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
+#####Cadeia de conexão do Armazenamento do Azure adicionada 
+No arquivo config.json do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
+
+Para obter mais informações, consulte [ASP.NET 5](http://www.asp.net/vnext).
