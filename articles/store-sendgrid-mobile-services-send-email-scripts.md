@@ -1,43 +1,44 @@
-<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Send Email Using SendGrid" pageTitle="Enviar email usando o SendGrid - serviços móveis do Azure" metaKeywords ="Azure SendGrid, serviço SendGrid, envio por email do Azure, email dos serviços móveis" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+
 
 # Enviar email dos Serviços Móveis com SendGrid
 
-Este tópico mostra como adicionar a funcionalidade de e-mail ao seu serviço móvel. Nste tópico, você adicionará scripts do lado do servidor para enviar e-mails usando o SendGrid. Ao concluir, seu serviço móvel enviará um e-mail sempre que um registro for inserido.
+Este tópico mostra como adicionar a funcionalidade de email ao seu serviço móvel. Nste tópico, você adicionará scripts do lado do servidor para enviar e-mails usando o SendGrid. Ao concluir, seu serviço móvel enviará um email sempre que um registro for inserido.
 
-O SendGrid é um [serviço de e-mail baseado em nuvem][serviço de e-mail baseado em nuvem] que oferece [entrega de e-mail transacional][entrega de e-mail transacional], escalabilidade e análise em tempo real confiáveis com APIsflexíveis que facilitam a integração personalizada. Para obter mais informações, consulte <http://sendgrid.com>.
+O SendGrid é um [serviço de email baseado em nuvem] que oferece [entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis que facilitam a integração personalizada. Para obter mais informações, consulte <http://sendgrid.com>.
 
 Este tutorial explica as etapas básicas para habilitar a funcionalidade de e-mail:
 
-1.  [Criar uma conta do SendGrid][Criar uma conta do SendGrid]
-2.  [Adicionar um script para enviar e-mails][Adicionar um script para enviar e-mails]
-3.  [Inserir dados para receber e-mails][Inserir dados para receber e-mails]
+1. [Criar uma conta do SendGrid]
+2. [Adicionar um script para enviar e-mails]
+3. [Inserir dados para receber e-mails]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][Introdução aos Serviços Móveis].
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. 
 
-## <a name="sign-up"></a><span class="short-header">Criar uma nova conta do SendGrid</span>Criar uma nova conta do SendGrid
+<h2><a name="sign-up"></a>Criar uma nova conta do SendGrid</h2>
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="add-script"></a><span class="short-header">Registrar um script</span>Registrar um novo script que envia e-mails
+<h2><a name="add-script"></a>Registrar um novo script que envia emails</h2>
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-2.  No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+2. No Portal de Gerenciamento, clique na guia **Dados** e na tabela **TodoItem**. 
 
-    ![][0]
+	![][1]
 
-3.  Em **todoitem**, clique na guia **Script** e selecione **Inserir**.
+3. Em **todoitem**, clique na guia **Script** e selecione **Inserir**.
+   
+	![][2]
 
-    ![][1]
+Isso exibirá a função invocada quando ocorrer uma inserção na tabela **TodoItem**.
 
-    Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
-
-4.  Substitua a função de inserção pelo seguinte código:
+4. Substitua a função de inserção pelo seguinte código:
 
         var SendGrid = require('sendgrid').SendGrid;
-
+        
         function insert(item, user, request) {    
             request.execute({
                 success: function() {
@@ -50,7 +51,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
             function sendEmail(item) {
                 var sendgrid = new SendGrid('**username**', '**password**');       
-
+                
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -65,57 +66,61 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
             }
         }
 
-5.  Substitua os espaços reservados no script acima pelos valores corretos:
+5. Substitua os espaços reservados no script acima pelos valores corretos:
 
-    -   ***nome de usuário* e *senha***: credenciais do SendGrid identificadas em [Criar uma conta SendGrid][Criar uma conta do SendGrid].
+	- **_username_ and _password_**: credenciais do SendGrid identificadas em [Criar uma conta SendGrid].
 
-    -   ***endereço de e-mail***: o endereço para o qual os e-mails são enviados. Em um aplicativo do mundo real, você pode usar as tabelas para armazenar e recuperar endereços de e-mail. Ao testar o seu aplicativo, basta usar o seu próprio endereço de e-mail.
+	- **_email-address_**: o endereço para o qual os e-mails são enviados. Em um aplicativo do mundo real, você pode usar as tabelas para armazenar e recuperar endereços de e-mail. Ao testar o seu aplicativo, basta usar o seu próprio endereço de email.
 
-    -   ***from-address***: o endereço do e-mail de origem. Considere usar um endereço de domínio registrado que pertence à sua organização.
+	- **_from-address_**: o endereço do e-mail de origem. Considere usar um endereço de domínio registrado que pertence à sua organização. 
 
-    <div class="dev-callout"><b>Observa&ccedil;&atilde;o</b><br /> <p>Se voc&ecirc; n&atilde;o tiver um dom&iacute;nio registrado, voc&ecirc; pode usar o dom&iacute;nio de seus Servi&ccedil;os M&oacute;veis, no formato <strong>notifica&ccedil;&otilde;es@<i>seu-servi&ccedil;o-m&oacute;vel</i>.azure-mobile.net</strong>. No entanto, as mensagens enviadas para seu dom&iacute;nio de servi&ccedil;os m&oacute;veis ser&atilde;o ignoradas.</p><br /></div>
+     <div class="dev-callout"><b>Observação</b>
+     <p>Se você não tiver um domínio registrado, você pode usar o domínio de seus Serviços Móveis, no formato <strong>notificações@<i>seu-serviço-móvel</i>.azure-mobile.net</strong>. No entanto, as mensagens enviadas para seu domínio de serviços móveis serão ignoradas.</p>
+    </div> 
 
-    </p>
-6.  Clique no botão **Salvar**. Você configurou um script para enviar um e-mail sempre que um registro for inserido na tabela **TodoItem**.
+6. Clique no botão **Salvar**. Você configurou um script para enviar um email sempre que um registro for inserido na tabela **TodoItem**.
 
-## <a name="insert-data"></a><span class="short-header">Inserir dados de teste</span>Inserir dados de teste para receber e-mails
+<h2><a name="insert-data"></a>Inserir dados para receber emails</h2>
 
-1.  No projeto de aplicativo do cliente, execute o aplicativo de início rápido.
+1. No projeto de aplicativo do cliente, execute o aplicativo de início rápido. 
 
-    Este tópico mostra a versão do Windows Store do início rápido,
+	Este tópico mostra a versão do Windows Store do início rápido,
 
-2.  No aplicativo, digite um texto em **Inserir um TodoItem** e, em seguida, clique em **Salvar**.
+2. No aplicativo, digite um texto em **Inserir um TodoItem** e clique em **Salvar**.
 
-    ![][2]
+	![][3]
 
-3.  Observe que você recebe um e-mail, como o mostrado na notificação abaixo.
+3. Observe que você recebe um e-mail, como o mostrado na notificação abaixo. 
 
-    ![][3]
+	![][4]
 
-    Parabéns, você configurou com êxito seu serviço móvel para que ele envie e-mails usando o SendGrid.
+	Parabéns, você configurou com êxito seu serviço móvel para que ele envie e-mails usando o SendGrid.
 
 ## <a name="nextsteps"> </a>Próximas etapas
 
-Agora que você já viu como é fácil usar o serviço de e-mails do SendGrid com os Serviços Móveis, acesse
-estes links para saber mais sobre o SendGrid.
+Agora que você já viu como é fácil usar o serviço de emails do SendGrid com os Serviços Móveis, acesse estes links para saber mais sobre o SendGrid.
 
 -   Documentação da API do SendGrid:
-    <http://docs.sendgrid.com/documentation/api/>
--   Oferta especial de SendGrid para clientes Azure:
-    <http://sendgrid.com/azure.html>
+    <https://sendgrid.com/docs>
+-   Oferta especial do SendGrid para clientes do Azure:
+    <https://sendgrid.com/windowsazure.html>
 
+<!-- Anchors. -->
+[Criar uma conta do SendGrid]: #sign-up
+[Adicionar um script para enviar e-mails]: #add-script
+[Inserir dados para receber e-mails]: #insert-data
 
+<!-- Images. -->
+[1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
+[2]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png
+[3]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-quickstart-push1.png
+[4]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png
 
+<!-- URLs. -->
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
+[página de inscrição]: https://sendgrid.com/windowsazure.html
+[Página de credenciais de usuário vários]: https://sendgrid.com/credentials
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[serviço de e-mail baseado em nuvem]: https://sendgrid.com/email-solutions
+[entrega de e-mail transacional]: https://sendgrid.com/transactional-email
 
-
-  [serviço de e-mail baseado em nuvem]: http://sendgrid.com/solutions
-  [entrega de e-mail transacional]: http://sendgrid.com/transactional-email
-  [Criar uma conta do SendGrid]: #sign-up
-  [Adicionar um script para enviar e-mails]: #add-script
-  [Inserir dados para receber e-mails]: #insert-data
-  [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
-  [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-  [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
-  [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png
-  [2]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-quickstart-push1.png
-  [3]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png

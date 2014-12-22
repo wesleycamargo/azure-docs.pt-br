@@ -16,7 +16,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 4. [Adicionar um carimbo de data/hora para CompleteDate]
 5. [Atualizar o cliente para exibir a CompleteDate]
 
-Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve primeiro concluir o tutorial atual.  
+Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve primeiro concluir o tutorial atual.  
 
 ## <a name="string-length-validation"></a>Add validation
 
@@ -184,14 +184,14 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
-[Autorização de usuários do lado do serviço]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
-[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-js
+[Introdução aos Serviços Móveis]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
+[Autorização de usuários do lado do serviço]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
+[Refinar consultas com paginação]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introdução]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Introdução à autenticação]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Introdução às notificações por push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[JavaScript e HTML]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library

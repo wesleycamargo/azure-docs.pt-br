@@ -1,68 +1,68 @@
-<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Como usar o serviço de email SendGrid (PHP) - Azure" metaKeywords ="SendGrid do Azure, serviço de email do Azure, PHP SendGrid do Azure, email do Azure PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
 # Como usar serviço de email SendGrid do PHP
 
-Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas em PHP.
-Os cenários abordados incluem **email em construção**, **enviar email** e **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas][Próximas etapas].
+Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Microsoft Azure. As amostras são gravadas em PHP.
+Os cenários abordados incluem **escrever email**, **enviar email** e **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte a seção [Próximas etapas][].
 
 ## Sumário
 
--   [O que é o Serviço de E-mail SendGrid][O que é o Serviço de E-mail SendGrid]
--   [Criar uma conta do SendGrid][Criar uma conta do SendGrid]
--   [Usando SendGrid de seu aplicativo PHP][Usando SendGrid de seu aplicativo PHP]
--   [Como: Enviar um email][Como: Enviar um email]
--   [Como: Adicionar um anexo][Como: Adicionar um anexo]
--   [Como: Usar filtros para habilitar rodapés, rastreamento e análise][Como: Usar filtros para habilitar rodapés, rastreamento e análise]
--   [Próximas etapas][Próximas etapas]
+-   [O que é o Serviço de E-mail SendGrid][]
+-   [Criar uma conta do SendGrid][]
+-   [Usando SendGrid de seu aplicativo PHP][]
+-   [Como: Enviar um email][]
+-   [Como: Adicionar um anexo][]
+-   [Como: Usar filtros para habilitar rodapés, rastreamento e análise][]
+-   [Próximas etapas][]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>O que é o serviço de email SendGrid?
 
-O SendGrid é um [serviço de email baseado em nuvem][serviço de email baseado em nuvem] que oferece
-[entrega de email transacional][entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis
+SendGrid é um [serviço de email baseado em nuvem] que fornece confiável
+[entrega de email transacional], escalabilidade e análise em tempo real com APIs flexíveis
 que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid
 incluem:
 
 -   Envio automático de recibos para os clientes
--   Administração de listas de distribuição para enviar aos clientes mensalmente
+-   Distribuição de administração de listas para enviar aos clientes mensalmente
     panfletos eletrônicos e ofertas especiais
--   Coleta de métrica em tempo real para, por exemplo, email bloqueado e
-    capacidade de resposta do cliente
+-   Coleta de métricas em tempo real para email bloqueado e
+    resposta ao cliente
 -   Geração de relatórios para ajudar a identificar as tendências
 -   Encaminhamento de consultas dos clientes
--   Notificações de email a partir de seu aplicativo
+- Notificações de email a partir de seu aplicativo
 
-Para obter mais informações, consulte [][]<http://sendgrid.com></a>.
+Para obter mais informações, consulte [http://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Criar uma conta do SendGrid
 
 [WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_UsingSendGridfromPHP"> </a>Usando o SendGrid de seu aplicativo PHP
+## <a name="bkmk_UsingSendGridfromPHP"> </a>Usando SendGrid de seu aplicativo PHP
 
-O uso do SendGrid em um aplicativo PHP Azure não exige
-configuração ou codificação especial. Como o SendGrid é um serviço, ele pode ser
-acessado exatamente da mesma maneira de um aplicativo em nuvem ou de
+Usando o SendGrid em um aplicativo PHP do Azure não requer 
+codificação ou configuração especial. Como o SendGrid é um serviço, ele pode ser
+acessado exatamente da mesma forma de um aplicativo em nuvem como ele pode de
 um aplicativo local.
 
 ## <a name="bkmk_HowToSendEmail"> </a>Como: Enviar um email
 
-É possível enviar emails usando o SMTP ou a API Web fornecida pelo
+Você pode enviar emails usando o SMTP ou a API da Web fornecida pelo
 SendGrid.
 
 ### API do SMTP
 
-Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma
-biblioteca baseada em componente para envio de emails de aplicativos PHP. É
-possível baixar a biblioteca do *Swift Mailer* em
-[][1]<http://swiftmailer.org/download></a>. O envio de email pela biblioteca
-envolve a criação de instâncias do
+Para enviar email usando a API de SMTP do SendGrid, use *Swift Mailer*, uma
+biblioteca baseada em componente para envio de emails de aplicativos PHP. Você
+pode baixar a biblioteca *Swift Mailer* de 
+[http://swiftmailer.org/download][]. Enviar email com a biblioteca
+envolve a criação de instâncias de 
 <span class="auto-style2">Swift\_SmtpTransport</span>,
-<span class="auto-style2">Swift\_Mailer</span> e classes do
-<span class="auto-style2">Swift\_Message</span>, definição das
-propriedades adequadas e a chamada do método do
-<span class="auto-style2">SwiftMailer::send</span>.
+<span class="auto-style2">Swift\_Mailer</span> e
+classes de <span class="auto-style2">Swift\_Message</span>, definindo as
+propriedades adequadas e chamando
+método <span class="auto-style2">Swift\_Mailer::Send</span>.
 
     <?php
      include_once "lib/swift_required.php";
@@ -128,11 +128,11 @@ propriedades adequadas e a chamada do método do
 
 ### API Web
 
-Use a [função de rotação][função de rotação] do PHP para enviar email usando a API Web do SendGrid.
+Use a [função de rotação][] do PHP para enviar email usando a API Web do SendGrid.
 
     <?php
 
-     $url = 'http://sendgrid.com/';
+     $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD'; 
 
@@ -143,7 +143,7 @@ Use a [função de rotação][função de rotação] do PHP para enviar email us
           'subject' => 'testing from curl',
           'html' => 'testing body',
           'text' => 'testing body',
-          'from' => 'anna@sendgrid.com',
+          'from' => 'anna@contoso.com',
        );
        
      $request = $url.'api/mail.send.json';
@@ -168,16 +168,16 @@ Use a [função de rotação][função de rotação] do PHP para enviar email us
      // print everything out
      print_r($response);
 
-A API Web do SendGrid é muito semelhante a uma API REST, embora ela não seja
-realmente uma API RESTful já que, na maioria das chamadas, ambos os verbos GET e POST
-podem ser usados de maneira alternada.
+API de Web do SendGrid é muito semelhante a uma API REST, embora
+não seja realmente uma API RESTful já que, na maioria das chamadas, GET e POST verbos
+podem ser usados alternadamente.
 
 ## <a name="bkmk_HowToAddAttachment"> </a>Como: Adicionar um anexo
 
 ### API do SMTP
 
-O envio de um anexo usando a API do SMTP envolve uma linha adicional de
-código para o script função Web para enviar um email com Swift Mailer.
+Enviando um anexo usando a API de SMTP envolve uma linha adicional de
+código para o script de exemplo para enviar um email com Swift Mailer.
 
     <?php
      include_once "lib/swift_required.php";
@@ -248,23 +248,23 @@ A linha de código adicional é a seguinte:
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-A linha de código chama o método adicionar no objeto
-<span class="auto-style2">Swift\_Message</span> e usa o método
-estático <span class="auto-style2">fromPath</span> na classe
-<span class="auto-style2">SwiftAttachment</span> para obter e
+Esta linha de código chama o método anexar ao
+objeto <span class="auto-style2">Swift\_Message</span> e usa o método
+estático <span class="auto-style2">fromPath</span> na
+classe <span class="auto-style2">Swift\_Attachment</span> para obter e
 anexar um arquivo a uma mensagem.
 
 ### API Web
 
-O envio de um anexo usando a API Web é muito semelhante ao envio de um
-email usando a API Web. No entanto, observe que, no exemplo a seguir,
+Enviando um anexo usando a API da Web é muito similar ao envio de um
+email usando a API da Web. No entanto, observe que no exemplo a seguir,
 a matriz de parâmetros deve conter este elemento:
 
      'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
     <?php
 
-     $url = 'http://sendgrid.com/';
+     $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD';
      
@@ -278,7 +278,7 @@ a matriz de parâmetros deve conter este elemento:
          'subject' => 'test of file sends',
          'html' => '<p> the HTML </p>',
          'text' => 'the plain text',
-         'from' => 'anna@sendgrid.com',
+         'from' => 'anna@contoso.com',
          'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
      );
      
@@ -309,14 +309,14 @@ a matriz de parâmetros deve conter este elemento:
 ## <a name="bkmk_HowToUseFilters"> </a>Como: Usar filtros para habilitar rodapés, rastreamento e análise
 
 O SendGrid fornece a funcionalidade adicional de email por meio do uso de
-‘filtros’. Essas são as configurações que podem ser adicionadas a uma mensagem de email para
-habilitar uma funcionalidade específica, como habilitar rastreamento de clique, Google
-analytics, rastreamento de assinatura e assim por diante.
+'filtros'. Essas são as configurações que podem ser adicionadas a uma mensagem de email para
+habilitar funcionalidades específicas como habilitar acompanhamento de clique, Google
+analytics, acompanhamento de assinatura e assim por diante.
 
-Os filtros podem ser aplicados a uma mensagem pela propriedade filtros. Cada
+Os filtros podem ser aplicados a uma mensagem pela propriedade filters. Cada
 filtro é especificado por um hash que possui configurações específicas de filtro. O
 exemplo a seguir ativa o filtro do rodapé e especifica uma mensagem de texto
-que será anexada na parte inferior da mensagem de email:
+que será acrescentado ao final da mensagem de email:
 
     <?php
      /*
@@ -354,11 +354,11 @@ que será anexada na parte inferior da mensagem de email:
      $subject = 'Example SendGrid Email';
      
      // Where is this message coming from. For example, this message can be from support@yourcompany.com, info@yourcompany.com
-     $from = array('someone@example.com' =&gt; 'Name Of Your Company');
+     $from = array('someone@example.com' => 'Name Of Your Company');
      
      // If you do not specify a sender list above, you can specifiy the user here. If 
      // a sender list IS specified above, this email address becomes irrelevant.
-     $to = array('john@contoso.com'=&gt;'Personal Name Of Recipient');
+     $to = array('john@contoso.com'=>'Personal Name Of Recipient');
      
      # Create the body of the message (a plain-text and an HTML version). 
      # text is your plain-text email 
@@ -407,8 +407,7 @@ que será anexada na parte inferior da mensagem de email:
      
      // add SMTPAPI header to the message
      // *****IMPORTANT NOTE*****
-     // SendGrid's asJSON function escapes characters. If you are using Swift 
-     Mailer's
+     // SendGrid's asJSON function escapes characters. If you are using Swift Mailer's
      // PHP Mailer functions, the getTextHeader function will also escape characters.
      // This can cause the filter to be dropped.
      $headers = $message->getHeaders();
@@ -435,13 +434,13 @@ que será anexada na parte inferior da mensagem de email:
      print_r($failures);
      }
 
-## <a name="bkmk_NextSteps"> </a> Próximas etapas
+## <a name="bkmk_NextSteps"> </a>Próximas etapas
 
-Agora que você já conhece os princípios do serviço de email do SendGrid, acesse
-estes links para saber mais.
+Agora que você aprendeu os conceitos básicos do serviço de SendGrid Email, acesse
+estes links para obter mais informações.
 
 -   Documentação do SendGrid: <https://sendgrid.com/docs>
--   Oferta especial do SendGrid para clientes do Azure: <http://sendgrid.com/azure.html>
+-   Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
   [Próximas etapas]: #bkmk_NextSteps
   [O que é o Serviço de E-mail SendGrid]: #bkmk_WhatIsSendGrid
@@ -450,8 +449,12 @@ estes links para saber mais.
   [Como: Enviar um email]: #bkmk_HowToSendEmail
   [Como: Adicionar um anexo]: #bkmk_HowToAddAttachment
   [Como: Usar filtros para habilitar rodapés, rastreamento e análise]: #bkmk_HowToUseFilters
-  [serviço de email baseado em nuvem]: http://sendgrid.com/solutions
-  [entrega de email transacional]: http://sendgrid.com/transactional-email
-  []: http://sendgrid.com
-  [1]: http://swiftmailer.org/download
+  [Como: Usar serviços adicionais do SendGrid]: #bkmk_HowToUseAdditionalSvcs
+  [https://sendgrid.com]: https://sendgrid.com
+  [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
+  [oferta especial]: https://www.sendgrid.com/windowsazure.html
+  [Empacotamento e implantação de aplicativos do PHP para Microsoft Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh674499(v=VS.103).aspx
+  [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [função de rotação]: http://php.net/curl
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email
