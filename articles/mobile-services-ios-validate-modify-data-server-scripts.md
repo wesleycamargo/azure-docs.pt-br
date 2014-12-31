@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Usar scripts de servidor para validar e modificar dados (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data" pageTitle="Usar scripts de servidor para validar e modificar dados (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -16,23 +16,23 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados]. Antes de começar este tutorial, você deve primeiro concluir a [Introdução aos dados].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Adicionar validação
 
-It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
+É sempre uma boa prática validar o comprimento dos dados enviados pelos usuários. Primeiro, você registra um script que valida o comprimento dos dados enviados ao serviço móvel e rejeita as cadeias de caracteres que são muito longas, neste caso mais de 10 caracteres.
 
-1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
    	![][0]
 
-2. Click the **Data** tab, then click the **TodoItem** table.
+2. Clique na guia **Dados** e clique na tabela **TodoItem**.
 
    	![][1]
 
-3. Click **Script**, then select the **Insert** operation.
+3. Clique em **Script** e selecione a operação **Inserir**.
 
    	![][2]
 
-4. Replace the existing script with the following function, and then click **Save**.
+4. Substitua o script existente pela função a seguir e clique em **Salvar**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,27 @@ It is always a good practice to validate the length of data that is submitted by
             }
         }
 
-    This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
+    Esse script verifica o comprimento da propriedade **text** e envia uma resposta de erro quando o comprimento exceder 10 caracteres. Caso contrário, o método **execute** será chamado para concluir a inserção.
 
     <div class="dev-callout">
-	<b>Note</b>
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+	<b>Observa&ccedil;&atilde;o</b> 
+    <p>Voc&ecirc; pode remover um script registrado na guia <strong>Script</strong> clicando em <strong>Limpar</strong> e, em seguida, em <strong>Salvar</strong>.</p></div>
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Atualizar o cliente
 
-Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
+Agora que o serviço móvel está validando dados e enviando respostas de erros, você precisa atualizar seu aplicativo para que possa tratar respostas de erros na validação.
 
-1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
+1. No Xcode, abra o projeto que você modificou quando concluiu o tutorial [Introdução aos dados][Introdução a dados].
 
-2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
+2. Pressione o botão **Executar** (Command + R) para compilar o projeto e iniciar o aplicativo, digite texto com mais de 10 caracteres na caixa de texto e clique no ícone de sinal de adição (**+**).
 
-   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
+   	Observe que o aplicativo gera um erro não tratado como resultado da resposta 400 (solicitação incorreta) retornada pelo serviço móvel.
 
-3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
+3. No arquivo QSTodoService.m, localize a seguinte linha de código no método **addItem**:
 
         [self logErrorIfNotNil:error];
 
-   	After this line of code, replace the remainder of the completion block with the following code:
+   	Após essa linha de código, substitua o restante do bloco de conclusão pelo seguinte código:
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,13 +93,13 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   	This logs the error to the output window and displays it to the user.
+   	Isso registra o erro na janela de saída e o exibe para o usuário.
 
-4. Rebuild and start the app.
+4. Recrie e inicie o aplicativo.
 
    	![][4]
 
-  	Notice that error is handled and the error messaged is displayed to the user.
+  	Observe que o erro é tratado e a mensagem de erro é exibida para o usuário.
 
 <!--## <a name="add-timestamp"></a>Add a timestamp
 
