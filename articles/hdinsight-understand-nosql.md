@@ -1,34 +1,31 @@
-<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Compreendendo as tecnologias NoSQL no Azure | Azure" metaKeywords="" description="Saiba como as tecnologias NoSQL no HDInsight podem ajudar a gerenciar dados n&atilde;o adequados para bancos de dados relacionais, como grandes conjuntos de dados e documentos ou gr&aacute;ficos JSON." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Gerenciamento de dados: Compreendendo as tecnologias NoSQL no Azure" authors="dchappell" />
+﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Compreendendo as tecnologias NoSQL no Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="dchappell" />
 
 # Gerenciamento de dados: Compreendendo as tecnologias NoSQL no Azure
 
-**Resumo:** O Azure oferece uma ampla gama de opções para as cargas de trabalho NoSQL, mas pode ser um desafio determinar qual delas é ideal para você. Este documento explica as tecnologias NoSQL no Azure e como escolher o serviço certo para gerenciar dados não relacionais, que incluem conjuntos de dados não estruturados ou conjuntos de dados particularmente grandes conhecidos como "big data".
+**Resumo:** O Azure oferece uma ampla gama de opções para as cargas de trabalho NoSQL, mas pode ser um desafio determinar as diferenças entre todas as opções disponíveis.Este documento explica as tecnologias NoSQL noAzure e como elas diferem no gerenciamento de modelos relacionais na gestão de seus dados.
 
-A tecnologia relacional tem sido a abordagem dominante para trabalhar com dados. No entanto, quando você trabalha com grandes quantidades de diferentes tipos de dados, o dimensionamento entre muitos servidores é um desafio. Além disso, a tecnologia relacional não é a melhor opção para gerenciar alguns tipos de dados, como documentos ou gráficos JSON. Este guia aborda as opções, explicando o que cada uma delas fornece e por que você pode desejar usá-las.
+A tecnologia relacional tem sido a abordagem dominante para trabalhar com dados. No entanto, quando você trabalha com grandes quantidades de diferentes tipos de dados, como é cada vez mais o caso atualmente, você se depara com novos desafios de gerenciamento de dados. A tecnologia relacional é, às vezes, a melhor opção e, muitas vezes, não é a melhor opção para gerenciar esses dados. Este guia aborda as opções, explicando o que cada uma delas fornece e por que você pode desejar usá-las.
 
-**Conteúdo:**
 
--   Dados no Azure: A Visão Global
--   Tecnologias Relacionais do Azure: Uma Visão Rápida
--   Tecnologias NoSQL do Azure: Dados Operacionais
+**Sumário:**
 
-    -   Armazenamentos de chave/valor
-    -   Repositórios de famílias de colunas
-    -   Repositórios de documentos
-    -   Bancos de dados de gráficos
--   Tecnologias NoSQL do Azure: Dados Analíticos
+* Dados no Azure: A visão global	
+* Tecnologias relacionais do Azure: Uma análise rápida	
+* Tecnologias NoSQL do Azure
+	* Repositórios de documentos: Banco de Dados de Documentos
+	* Repositórios de chave/valor: Tabelas
+	* Repositórios de família de colunas: HBase
+	* Aplicativos de Big Data: HDInsight 
 
-    -   MapReduce do Hadoop
-    -   HDInsight
 
-**Autor:** David Chappell, diretor da Chappell & Associates
+**Autor:**David Chappell, diretor da Chappell & Associates
 
-**Publicado em:** Novembro de 2013
+**Publicado:**Novembro de 2014
 
-**Revisão:** 1.0
+**Revisão:**2.0
 
-**Download:** [Arquivo PDF Compreendendo as tecnologias NoSQL no Azure][Arquivo PDF Compreendendo as tecnologias NoSQL no Azure]
+**Baixar:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Arquivo de PDF "Compreendendo o NoSQL no Microsoft Azure"</a>
 
-  [Arquivo PDF Compreendendo as tecnologias NoSQL no Azure]: http://go.microsoft.com/fwlink/p/?LinkId=330292
+<!--HONumber=35_1-->

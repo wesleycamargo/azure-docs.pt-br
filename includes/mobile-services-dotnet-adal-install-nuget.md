@@ -1,5 +1,7 @@
-1.  Na janela Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto e clique em **Gerenciar Pacotes NuGet**.
+﻿1. Na janela Gerenciador de Soluções do Visual Studio, clique com o botão direito no projeto e clique em **Gerenciar Pacotes NuGet**.
 
-2.  No gerenciador de Pacotes NuGet, clique em **Online** e em **Incluir Pré-lançamento**. Insira **Microsoft.IdentityModel.Clients.ActiveDirectory** como um termo de pesquisa. Em seguida, clique em **Instalar** para instalar o pacote NuGet da biblioteca de autenticação do Active Directory.
+2. No gerenciador de pacotes NuGet, clique em **Online**. Insira **Microsoft.IdentityModel.Clients.ActiveDirectory** como um termo de procura. Em seguida, clique em **Instalar** para instalar o pacote Active Directory Authentication Library Nuget. 
 
    ![](./media/mobile-services-dotnet-adal-install-nuget/mobile-services-adal-nuget-package.png)
+
+<!--HONumber=35_1-->

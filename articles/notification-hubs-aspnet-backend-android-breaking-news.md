@@ -1,8 +1,9 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="Hubs de Notificação do Tutorial de últimas notícias - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Breaking News" pageTitle="Tutorial de últimas notícias de Hubs de Notificação - Android" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
-# Usar Hubs de Notificação para enviar notícias de última hora
+
+# Usar hubs de notificação para enviar notícias recentes
 <div class="dev-center-tutorial-selector sublanding">     	
 	<a href="/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
 	<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
@@ -10,7 +11,7 @@
 
 Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notícias de última hora a um aplicativo Android. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc. 
 
-Os cenários de difusão são habilitados por meio da inclusão de uma ou mais _tags_ ao criar um registro no Hub de Notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre rótulos, consulte [Diretrizes dos Hubs de Notificação]. 
+Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais _tags_ ao criar um registro no Hub de Notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre rótulos, consulte [Diretrizes dos Hubs de Notificação]. 
 
 Este tutorial explicará estas etapas básicas a serem seguidas para habilitar este cenário:
 
@@ -19,7 +20,7 @@ Este tutorial explicará estas etapas básicas a serem seguidas para habilitar e
 3. [Enviar notificações de seu back-end]
 4. [Executar o aplicativo e gerar notificações]
 
-Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notificação][get-started]. Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução aos Hubs de Notificação][get-started].
+Este tópico baseia-se no aplicativo criado em [Introdução aos Hubs de Notificação][get-started]. Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução aos Hubs de Notificação][get-started].
 
 ##<a name="adding-categories"></a>Adicionar a seleção de categorias ao aplicativo
 
@@ -152,19 +153,19 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 
 	Essa classe usa o armazenamento local para armazenar as categorias de notícias que este dispositivo deverá receber. Ela também contém métodos para se registrar nessas categorias.
 
-4. No código acima, substitua os espaços reservados `<nome do hub>` e `<cadeia de conexão com acesso de escuta>` pelo nome do seu hub de notificação e a cadeia de conexão por *DefaultListenSharedAccessSignature* obtido anteriormente.
+4. No código acima, substitua os espaços reservados `<hub name>` e `<connection string with listen access>` pelo nome do hub de notificação e a cadeia de conexão por *DefaultListenSharedAccessSignature* que você obteve anteriormente.
 
 	<div class="dev-callout"><strong>Observação</strong> 
 		<p>Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completo é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.</p>
 	</div> 
 
-4. Na classe **MainActivity**, remova os campos provados para **NotificationHub**e **GoogleCloudMessaging** e adicione um campo para **Notificações**:
+4. Na classe**MainActivity** remova os campos privados para **NotificationHub** e**GoogleCloudMessaging**, e adicione um campo para **Notificações**:
 
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
 		private Notifications notifications;
  
-5. Em seguida, no método **onCreate**, remova a inicialização do campo **hub** e o método **registerWithNotificationHubs**. Depois, adicione as linhas a seguir, que inicializam uma instância da classe **Notificações**. O método deve conter as linhas a seguir:
+5. Em seguida, no método **onCreate**, remova a inicialização do campo **hub** e o método **registerWithNotificationHubs**. Depois, adicione as linhas a seguir, que inicializam uma instância da classe **Notificações**.O método deve conter as linhas a seguir:
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -204,7 +205,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 			notifications.storeCategoriesAndSubscribe(categories);
 	    }
 	
-	Esse método cria uma lista de categorias e usa a classe **Notificações** para armazenar a lista no armazenamento local e registrar os rótulos correspondentes com o hub de notificação. Quando as categorias são alteradas, o registro é recriado com as novas categorias.
+	Esse método cria uma lista de categorias e usa a classe**Notificações** para armazenar a lista no armazenamento local e registrar os rótulos correspondentes com o hub de notificação.Quando as categorias são alteradas, o registro é recriado com as novas categorias.
 
 Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo e registrar com o hub de notificação, sempre que o usuário alterar a seleção de categorias. 
 
@@ -273,15 +274,15 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 
 4. Envie uma nova notificação do back-end usando uma das seguintes maneiras:
 
-	+ **Aplicativo .NET Console:** iniciar o aplicativo de console.
+	+ **Aplicativo do console .NET:** inicie o aplicativo de console.
 
-	+ **Java/PHP:** executar seu aplicativo/script.
+	+ **Java/PHP:** execute seu aplicativo/script.
 
 	As notificações para as categorias selecionadas são exibidas como notificações do sistema.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Considere a conclusão de um dos seguintes tutoriais que destacam outros cenários avançados de Hubs de Notificação:
+Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria. Considere a conclusão de um dos seguintes tutoriais que destacam outros cenários avançados de Hubs de Notificação:
 
 + [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]
 
@@ -307,7 +308,7 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /pt-br/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users
 [Serviço Móvel]: /pt-br/develop/mobile/tutorials/get-started/
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
+[Diretrizes dos hubs de notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/pt-br/library/jj927172.aspx
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -315,3 +316,5 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+
+<!--HONumber=35_1-->

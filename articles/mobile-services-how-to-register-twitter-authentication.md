@@ -1,52 +1,59 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-twitter-authentication" urlDisplayName="Register for Twitter Authentication" pageTitle="Register for Twitter authentication - Mobile Services" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Learn how to use Twitter authentication with your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Register for Twitter Authentication" pageTitle="Registrar para autenticação no Twitter - Serviços Móveis" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Learn how to use Twitter authentication with your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
-# Registrar seus aplicativos para logon no Twitter com os Serviços Móveis
+#Registrar seus aplicativos para logon no Twitter com os Serviços Móveis
 
-Este tópico mostra a você como registrar seus aplicativos para poder usar o Twitter para se autenticar com os Serviços Móveis do Azure.
+Este tópico mostra a você como registrar seus aplicativos para usar o Twitter e se autenticar com os Serviços Móveis do Azure.
 
-<div class="dev-callout"><b>Observa&ccedil;&atilde;o</b>
-<p>Para concluir o procedimento deste t&oacute;pico, voc&ecirc; deve ter uma conta do Twitter com um endere&ccedil;o de email verificado. Para criar uma nova conta do Twitter, v&aacute; para <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.</p>
-</div>
+>[WACOM.NOTE] Este tutorial é sobre os [Serviços Móveis do Azure](http://azure.microsoft.com/pt-br/services/mobile-services/), uma solução para ajudá-lo a criar aplicativos móveis escaláveis para qualquer plataforma. Os Serviços Móveis facilitam a sincronização de dados, autenticam usuários e enviam notificações por push. Esta página dá suporte ao tutorial <a href="http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-get-started-users/">Introdução à autenticação</a> que mostra como registrar usuários em seu aplicativo. Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial <a href="http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-ios-get-started/">Introdução aos Serviços Móveis</a>.
 
-1.  Navegue até o site [Desenvolvedores do Twitter][Desenvolvedores do Twitter], entre com suas credenciais de conta do Twitter e clique em **Criar um novo aplicativo**.
+Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter com um endereço de email verificado. Para criar uma nova conta do Twitter, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-    ![][0]
+1. Navegue até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Desenvolvedores do Twitter</a> insira suas credenciais na conta do Twitter e clique em **Criar um novo aplicativo**.
 
-2.  Digite os valores **Nome**, **Descrição** e **Site** para seu aplicativo, depois digite a URL para seu serviço acrescentado ao caminho */login/twitter* em **URL de Retorno de Chamada**.
+   	![][1]
 
-    > [WACOM.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescentada ao caminho *signin-twitter* e o seu serviço móvel é um serviço .NET, por exemplo, . <code>https://todolist.azure-mobile.net/signin-twitter</code>.
+2. Digite os valores de **Nome**, **Descrição** e **Site da Web** para o seu aplicativo e digite a URL dos serviços móveis anexado ao caminho _/login/twitter_ na **URL de retorno de chamada**.
 
-    ![][1]
+	>[WACOM.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescentada ao caminho _signin-twitter_ e o seu serviço móvel é um serviço .NET, por exemplo <code>https://todolist.azure-mobile.net/signin-twitter</code>.
 
-3.  Na parte inferior da página, leia e aceite os termos, digite as palavras corretas de CAPTCHA e, em seguida, clique em **Criar seu aplicativo Twitter**.
+   	![][2]
 
-    ![][2]
+3.  Na parte inferior da página, leia e aceite os termos, digite as palavras corretas de CAPTCHA e, em seguida, clique em **Criar seu aplicativo Twitter**. 
 
-    Isso registrará o aplicativo e exibirá os detalhes do aplicativo.
+   	![][3]
 
-4.  Anote os valores de **Chave do consumidor** e **Segredo do consumidor**.
+   	Isso registrará o aplicativo e exibirá os detalhes do aplicativo.
 
-    ![][3]
+6. Anote os valores de **Chave do consumidor** e **Segredo do consumidor**. 
 
-    <div class="dev-callout"><b>Observa&ccedil;&atilde;o de Seguran&ccedil;a</b>
-<p>O segredo do consumidor &eacute; uma credencial de seguran&ccedil;a importante. N&atilde;o compartilhe esse segredo com ningu&eacute;m nem o distribua com seu aplicativo.</p>
-</div>
+   	![][4]
 
-5.  Clique na guia **Configurações**, role para baixo, marque **Permitir que este aplicativo seja usado para entrar com o Twitter** e, em seguida, clique em **Atualizar as configurações deste aplicativo Twitter**.
+    <div class="dev-callout"><b>Observação de Segurança</b>
+	<p>O segredo do consumidor é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo.</p>
+    </div>
 
-    ![][4]
+7. Clique na guia **Configurações**, role para baixo, marque **Permitir que este aplicativo seja usado para entrar com o Twitter** e, em seguida, clique em **Atualizar as configurações deste aplicativo Twitter**.
+
+	![][5]
 
 Agora você está pronto para usar um logon do Twitter para autenticação no seu aplicativo, fornecendo os valores de chave do consumidor e de segredo do consumidor para os Serviços Móveis.
 
- 
- 
+<!-- Anchors. -->
 
+<!-- Images. -->
+[1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
+[2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
+[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
+[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
+[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
-  [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  [0]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
-  [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
-  [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
-  [3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
-  [4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
+<!-- URLs. -->
+
+[Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
+
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35_1-->

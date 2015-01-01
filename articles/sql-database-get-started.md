@@ -1,17 +1,15 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Introdução ao Banco de Dados SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Introdução ao Banco de Dados SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
-
-
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
 
 #Introdução ao banco de dados SQL do Microsoft Azure
 
-Neste tutorial você aprenderá os fundamentos da administração do Microsoft Azure usando o Portal de Gerenciamento do Azure. Se você for novo na administração de banco de dados, poderá seguir estas lições para aprender habilidades essenciais em cerca de 30 minutos. 
+Neste tutorial você aprenderá os fundamentos da administração do Banco de Dados SQL do Microsoft Azure usando o Portal de Gerenciamento do Azure. Se você for novo na administração de banco de dados, poderá seguir estas lições para aprender habilidades essenciais em cerca de 30 minutos. 
 
 Este tutorial não pressupõe nenhuma experiência anterior com o SQL Server ou o Banco de Dados SQL do Azure. Após a conclusão deste tutorial, você terá um exemplo de banco de dados no Azure e um entendimento de como executar tarefas básicas de administração usando o Portal de Gerenciamento.
 
-Você irá criar e provisionar um banco de dados de exemplo na plataforma do Azure e um sistema de consulta e dados de usuário usando o Excel.
+Você criará e provisionará um banco de dados de exemplo na plataforma do Azure e um sistema de consulta e dados de usuário usando o Excel.
 
 
 ##Sumário##
@@ -24,12 +22,12 @@ Você irá criar e provisionar um banco de dados de exemplo na plataforma do Azu
 * [Etapa 6: Inserir dados](#insertData)
 * [Etapa 7: Exemplo de consulta e dados do sistema no Portal de Gerenciamento do Banco de Dados SQL](#QueryDBSysData)
 * [Etapa 8: Criar um logon de banco de dados e atribuir permissões](#DBLogin)
-* [Etapa 9: Conectar-se de outros aplicativos](#ClientConnection)
+* [Etapa 9: Conectar-se por meio de um aplicativo](#ClientConnection)
 
 
 <h2 id="Subscribe">Etapa 1: Criar uma conta do Microsoft Azure</h2>
 
-1. Abra um navegador da Web e navegue até [http://azure.microsoft.com](http://azure.microsoft.com).
+1. Abra um navegador da Web e navegue para [http://azure.microsoft.com](http://azure.microsoft.com).
 Para começar com uma conta gratuita, clique em avaliação gratuita no canto superior direito e siga as etapas.
 
 2. Sua conta agora está criada. Você está pronto para começar.
@@ -48,7 +46,7 @@ Para começar com uma conta gratuita, clique em avaliação gratuita no canto su
 
 	![Navigation pane][Image2]
 
-A escolha dessa opção permite que você crie um novo servidor e banco de dados SQL ao mesmo tempo, com você como o administrador. Como o administrador do sistema, você pode executar mais tarefas, incluindo a conexão ao Portal de Gerenciamento do Banco de Dados SQL, o que você irá fazer mais tarde neste tutorial.  
+A escolha dessa opção permite que você crie um novo servidor e banco de dados SQL ao mesmo tempo, com você como o administrador. Como o administrador do sistema, você pode executar mais tarefas, incluindo a conexão ao Portal de Gerenciamento do Banco de Dados SQL, o que você vai fazer mais tarde neste tutorial.  
 
 4.  A página Configurações do Banco de Dados é exibida quando você clica em **Criação Personalizada**. Esta página fornece informações básicas que criam um banco de dados SQL vazio no servidor. A adição de tabelas e dados será apresentada em uma etapa posterior. 
 
@@ -69,21 +67,21 @@ A escolha dessa opção permite que você crie um novo servidor e banco de dados
 
 	![Navigation pane][Image4]
 
-* Digite um nome de administrador como uma palavra sem espaços. O Banco de Dados SQL usa a Autenticação do SQL através de uma conexão criptografada para validar a identidade do usuário. Será criado um novo logon de autenticação do SQL Server que tem permissões de administrador usando o nome que você fornecer. O nome do administrador não pode ser um usuário do Windows e também não deve ser uma ID do nome do usuário do Windows Live. A Autenticação do Windows não é suportada no Banco de Dados SQL.
+* Digite um nome de administrador como uma palavra sem espaços. O Banco de Dados SQL usa a Autenticação do SQL através de uma conexão criptografada para validar a identidade do usuário. Será criado um novo logon de autenticação do SQL Server que tem permissões de administrador usando o nome que você fornecer. O nome do administrador não pode ser um usuário do Windows e também não deve ser uma ID do nome de usuário do Windows Live. A Autenticação do Windows não tem suporte no Banco de Dados SQL.
 
 * Forneça uma senha forte com mais de oito caracteres, usando uma combinação de letras maiúsculas e minúsculas e um número ou um símbolo. Use a bolha de Ajuda para obter detalhes sobre a complexidade da senha.
 
 * Escolha uma região. A Região determina a localização geográfica do servidor. As Regiões não podem ser facilmente alternadas, portanto, escolha uma que faça sentido para este servidor. Escolha um local mais próximo de você. Ao manter seu aplicativo do Azure e o banco de dados na mesma região, você economiza em custo de largura de banda de entrada e em latência de dados.
 
-* Certifique-se de manter a caixa de seleção **Permitir que os serviços do Azure acessem este servidor**  marcada para que você possa se conectar ao banco de dados usando o Portal de gerenciamento de banco de dados SQL, o Excel no Office 365 ou Relatórios SQL do Azure.
+* Mantenha a caixa de seleção **Permitir que os serviços do Azure Services** acessem este servidor selecionada, para que você possa conectar-se ao banco de dados usando o Portal de Gerenciamento do Banco de Dados SQL, o Excel no Office 365 ou os Relatórios SQL do Azure.
 
 * Clique na marca de seleção localizada na parte inferior da página quando tiver concluído.
 
-Observe que você não especificou um nome de servidor. Como o servidor de Banco de Dados SQL deve ser acessível em todo o mundo, o Banco de Dados SQL configura as entradas DNS apropriadas quando o servidor é criado. O nome gerado garante que não há colisões de nome com outras entradas DNS. Você não pode alterar o nome do seu servidor de Banco de Dados SQL.
+Observe que você não especificou um nome do servidor. Como o servidor do Banco de Dados SQL deve ser acessível em todo o mundo, o Banco de Dados SQL configura as entradas DNS apropriadas quando o servidor é criado. O nome gerado garante que não há colisões de nome com outras entradas DNS. Você não pode alterar o nome do seu servidor do Banco de Dados SQL.
 
 Para ver o nome do servidor que hospeda o banco de dados **School** que você acabou de criar, clique em **Bancos de Dados SQL** no painel de navegação à esquerda e, em seguida clique no banco de dados **School** na exibição da lista dos **Bancos de Dados SQL**. Na página **Início Rápido**, role para baixo para ver o nome do servidor.
 
-Na próxima etapa, você irá configurar o firewall para que as conexões de aplicativos em execução no seu computador tenham permissão para acessar os bancos de dados em seu servidor de Banco de Dados SQL.
+Na próxima etapa, você vai configurar o firewall para que as conexões de aplicativos em execução no seu computador tenham permissão para acessar os bancos de dados em seu servidor do Banco de Dados SQL.
 
 
 
@@ -91,14 +89,14 @@ Na próxima etapa, você irá configurar o firewall para que as conexões de apl
 
 Para configurar o firewall para que as conexões sejam permitidas através dele, você digitará informações na página do servidor.
 
-**Observação:** O serviço de Banco de Dados SQL só está disponível com a porta TCP 1433 usada pelo protocolo TDS, portanto certifique-se de que o firewall no seu computador local e na sua rede permita a comunicação de saída TCP na porta 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-pt-br.aspx).
+**Observação**: O serviço de Banco de Dados SQL só está disponível com a porta TCP 1433 usada pelo protocolo TDS, portanto certifique-se de que o firewall no seu computador local e na sua rede permita a comunicação de saída TCP na porta 1433.Para obter mais informações, consulte [Firewall do Banco de Dados SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-pt-br.aspx).
 
 
 1. No painel de navegação à esquerda, clique em **Bancos de Dados SQL**.
 
-2. Clique em **Servidores** na parte superior da página. Em seguida, clique no servidor que você acabou de criar para abrir a página do servidor.
+2. Clique em **Servidores** na parte superior da página.Em seguida, clique no servidor que você acabou de criar para abrir a página do servidor.
 
-3. Na página do servidor, clique em **Configurar** para abrir as configurações de **Endereços de IP Permitidos** e, em seguida, clique no link de **Adicionar os Endereços de IP permitidos**. Isso criará uma nova regra de firewall para permitir solicitações de conexão a partir do roteador ou servidor de proxy que o seu dispositivo está escutando.
+3. Na página do servidor, clique em **Configurar** para abrir as configurações de **Endereços de IP Permitidos** e, em seguida, clique no link de **Adicionar os Endereços de IP permitidos**.Isso criará uma nova regra de firewall para permitir solicitações de conexão por meio do roteador ou servidor proxy que o seu dispositivo está escutando.
 
 4. Você pode criar regras de firewall adicional ao especificar um nome de regra e os valores de intervalo de IP inicial e final.
 
@@ -110,7 +108,7 @@ Para configurar o firewall para que as conexões sejam permitidas através dele,
 
 	![Navigation pane][Image7]
 
-Agora você tem um servidor de Banco de Dados SQL no Azure, uma regra de firewall que permite o acesso ao servidor, um objeto de banco de dados e um logon de administrador. Mas você ainda não tem um banco de dados de trabalho que você possa consultar. Para fazer isso, seu banco de dados deve ter um esquema e dados reais.
+Agora você tem um servidor do Banco de Dados SQL no Azure, uma regra de firewall que permite o acesso ao servidor, um objeto de banco de dados e um logon de administrador. Mas você ainda não tem um banco de dados de trabalho que você possa consultar. Para fazer isso, seu banco de dados deve ter um esquema e dados reais.
 
 Por causa deste tutorial, use apenas as ferramentas em mãos, você usará a janela de consulta no Portal de Gerenciamento de Banco de Dados SQL para executar um script Transact-SQL para compilar um banco de dados predefinido.
 
@@ -122,30 +120,30 @@ Conforme suas habilidades aumentarem, você desejará explorar maneiras adiciona
 
 Nesta etapa, você executa dois scripts. O primeiro cria um esquema que define tabelas, colunas e relações. O segundo script adiciona os dados. Cada etapa é executada independentemente em uma conexão separada. Se você tiver criado bancos de dados no SQL Server anteriormente, uma das diferenças que você observará no Banco de Dados SQL é que os comandos CREATE e INSERT devem ser executados em lotes separados. O Banco de Dados SQL impõe esse requisito para minimizar ataques contra os dados enquanto estiverem em trânsito. 
 
-**Observação:**Os valores de esquema e dados são obtidos deste [Artigo do MSDN](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621790.aspx "MSDN article") e foram modificados para funcionar com o banco de dados SQL.
+**Observação**: Os valores de esquema e dados são obtidos deste[Artigo do MSDN](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621790.aspx "MSDN article") e foram modificados para funcionar com o banco de dados SQL.
 
-1. Acesse a página inicial. Na seção [Portal de Gerenciamento](http://manage.windowsazure.com), o banco de dados **Escola** aparece na lista de itens na home page.
+1. Acesse a página inicial. No [Portal de Gerenciamento](http://manage.windowsazure.com), o banco de dados **Escola** aparece na lista de itens na home page.
 
 	![Navigation pane][Image8]
 
-2. Clique em **Escola** para selecioná-la e, em seguida, clique em **Gerenciar** na parte inferior da página. Isso abrirá o Portal de Gerenciamento do Banco de Dados SQL. Esse Portal é separado do Portal de Gerenciamento do Azure. Você usará esse portal para executar comandos e consultas Transact-SQL.
+2. Clique em **Escola** para selecioná-la e, em seguida, clique em **Gerenciar** na parte inferior da página. Isso abrirá o Portal de Gerenciamento do Banco de Dados SQL. Esse Portal é separado do Portal de Gerenciamento do Azure.Você usará esse portal para executar comandos e consultas Transact-SQL.
 
-3. Insira um nome de logon e senha de administrador para efetuar logon no banco de dados **Escola**. Esse é o logon de administrador que você especificou quando criou o servidor.
+3. Insira um nome de logon e senha de administrador para efetuar logon no banco de dados **Escola**.Esse é o logon de administrador que você especificou quando criou o servidor.
 
-4. Clique em **Nova Consulta** no Portal de Gerenciamento do Banco de Dados SQL, na faixa de opções. Uma janela de consulta vazia abrirá na área de trabalho. Na próxima etapa, você usará essa janela para copiar uma série de scripts predefinidos que adicionarão a estrutura e os dados a seu banco de dados vazio.
+4. Clique em **Nova Consulta** no Portal de Gerenciamento do Banco de Dados SQL, na faixa de opções. Uma janela de consulta vazia abrirá no espaço de trabalho.Na próxima etapa, você usará essa janela para copiar uma série de scripts predefinidos que adicionarão a estrutura e os dados a seu banco de dados vazio.
 
 
 
 <h2 id="createschema">Etapa 5: Criar o esquema</h2>
 
-Nesta etapa, você criará o esquema usando o seguinte script. O script primeiro verifica se há uma tabela existente de mesmo nome para garantir que não haverá uma colisão de nomes e cria a tabela usando a instrução [CREATE TABLE](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336258.aspx) . Além disso, esse script usa a instrução [ALTER TABLE](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336286.aspx) para especificar as relações de chave e tabela primária.
+Nesta etapa, você criará o esquema usando o seguinte script. O script primeiro verifica se há uma tabela existente de mesmo nome para garantir que não haverá uma colisão de nomes e cria a tabela usando a instrução [CREATE TABLE](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336258.aspx) . Além disso, esse script usa a instrução[ALTER TABLE](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336286.aspx) para especificar as relações de chave e tabela primária.
 
 Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte superior da janela para executar o script.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
-	-- Criar a tabela Departamento.
+	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
-		WHERE object_id = OBJECT_ID(N'[dbo].[Departamento]') 
+		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
 		AND type in (N'U'))
    	BEGIN
   	CREATE TABLE [dbo].[Department](
@@ -153,16 +151,16 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 		[Name] [nvarchar](50) NOT NULL,
 		[Budget] [money] NOT NULL,
 		[StartDate] [datetime] NOT NULL,
-		[Administrador] [int] NULL,
-     CONSTRAINT [PK_Department] CHAVE PRIMÁRIA EM CLUSTER 
+		[Administrator] [int] NULL,
+     CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
     (
 	[DepartmentID] ASC
     )WITH (IGNORE_DUP_KEY = OFF)
     )
     END;
-	IR
+	GO
 
-	-- Criar a tabela Person.
+	-- Create the Person table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
 		AND type in (N'U'))
@@ -173,33 +171,33 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 		[FirstName] [nvarchar](50) NOT NULL,
 		[HireDate] [datetime] NULL,
 		[EnrollmentDate] [datetime] NULL,
- 	 CONSTRAINT [PK_School.Student] CHAVE PRIMÁRIA EM CLUSTER 	
+ 	 CONSTRAINT [PK_School.Student] PRIMARY KEY CLUSTERED 	
 	(
 	[PersonID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	IR
+	GO
 
-	-- Criar a tabela OnsiteCourse.
+	-- Create the OnsiteCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
 		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[OnsiteCourse](
 		[CourseID] [int] NOT NULL,
-		[Local] [nvarchar](50) NOT NULL,
+		[Location] [nvarchar](50) NOT NULL,
 		[Days] [nvarchar](50) NOT NULL,
 		[Time] [smalldatetime] NOT NULL,
- 	 CONSTRAINT [PK_OnsiteCourse] CHAVE PRIMÁRIA EM CLUSTER 
+ 	 CONSTRAINT [PK_OnsiteCourse] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	IR
+	GO
 
-	-- Criar a tabela OnlineCourse.
+	-- Create the OnlineCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
 		AND type in (N'U'))
@@ -207,15 +205,15 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 	CREATE TABLE [dbo].[OnlineCourse](
 		[CourseID] [int] NOT NULL,
 		[URL] [nvarchar](100) NOT NULL,
- 	 CONSTRAINT [PK_OnlineCourse] CHAVE PRIMÁRIA EM CLUSTER 
+ 	 CONSTRAINT [PK_OnlineCourse] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	IR
+	GO
 
-	--Criar a tabela StudentGrade.
+	--Create the StudentGrade table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
 		AND type in (N'U'))
@@ -225,15 +223,15 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 		[CourseID] [int] NOT NULL,
 		[StudentID] [int] NOT NULL,
 		[Grade] [decimal](3, 2) NULL,
-	 CONSTRAINT [PK_StudentGrade] CHAVE PRIMÁRIA EM CLUSTER 
+	 CONSTRAINT [PK_StudentGrade] PRIMARY KEY CLUSTERED 
 	(
 		[EnrollmentID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	IR
+	GO
 
-	-- Criar uma tabela CourseInstructor.
+	-- Create the CourseInstructor table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
 		AND type in (N'U'))
@@ -241,143 +239,143 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 	CREATE TABLE [dbo].[CourseInstructor](
 		[CourseID] [int] NOT NULL,
 		[PersonID] [int] NOT NULL,
-	 CONSTRAINT [PK_CourseInstructor] CHAVE PRIMÁRIA EM CLUSTER 
+	 CONSTRAINT [PK_CourseInstructor] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC,
 		[PersonID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	IR
+	GO
 
-	-- Criar uma tabela Course.
+	-- Create the Course table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
-		WHERE object_id = OBJECT_ID(N'[dbo].[Curso]') 
+		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
 		AND type in (N'U'))
 	BEGIN
-	CREATE TABLE [dbo].[Curso](
+	CREATE TABLE [dbo].[Course](
 		[CourseID] [int] NOT NULL,
 		[Title] [nvarchar](100) NOT NULL,
 		[Credits] [int] NOT NULL,
 		[DepartmentID] [int] NOT NULL,
- 	 CONSTRAINT [PK_School.Course] CHAVE PRIMÁRIA EM CLUSTER 
+ 	 CONSTRAINT [PK_School.Course] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	)
 	END;
-	IR
+	GO
 
-	-- Criar uma tabela OfficeAssignment.
+	-- Create the OfficeAssignment table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
 		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[OfficeAssignment](
 		[InstructorID] [int] NOT NULL,
-		[Local] [nvarchar](50) NOT NULL,
+		[Location] [nvarchar](50) NOT NULL,
 		[Timestamp] [timestamp] NOT NULL,
- 	 CONSTRAINT [PK_OfficeAssignment] CHAVE PRIMÁRIA EM CLUSTER 
+ 	 CONSTRAINT [PK_OfficeAssignment] PRIMARY KEY CLUSTERED 
 	(
 		[InstructorID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	)
 	END;
-	IR
+	GO
 
-	-- Definir o relacionamento entre OnsiteCourse e Course.
+	-- Define the relationship between OnsiteCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
 	ALTER TABLE [dbo].[OnsiteCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Curso] ([CourseID]);
-	IR
+	REFERENCES [dbo].[Course] ([CourseID]);
+	GO
 	ALTER TABLE [dbo].[OnsiteCourse] CHECK 
        CONSTRAINT [FK_OnsiteCourse_Course];
-	IR
+	GO
 
-	-- Definir o relacionamento entre OnlineCourse e Course.
+	-- Define the relationship between OnlineCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
 	ALTER TABLE [dbo].[OnlineCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Curso] ([CourseID]);
-	IR
+	REFERENCES [dbo].[Course] ([CourseID]);
+	GO
 	ALTER TABLE [dbo].[OnlineCourse] CHECK 
        CONSTRAINT [FK_OnlineCourse_Course];
-	IR
-	-- Definir o relacionamento entre StudentGrade e Course.
+	GO
+	-- Define the relationship between StudentGrade and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Curso] ([CourseID]);
-	IR
+	REFERENCES [dbo].[Course] ([CourseID]);
+	GO
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
        CONSTRAINT [FK_StudentGrade_Course];
-	IR
+	GO
 
-	-- Definir o relacionamento entre StudentGrade e Student.
+	--Define the relationship between StudentGrade and Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
 	REFERENCES [dbo].[Person] ([PersonID]);
-	IR
+	GO
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
        CONSTRAINT [FK_StudentGrade_Student];
-	IR
+	GO
 
-	-- Definir o relacionamento entre CourseInstructor e Course.
+	-- Define the relationship between CourseInstructor and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
   	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
   	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
   	 CONSTRAINT [FK_CourseInstructor_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Curso] ([CourseID]);
-	IR
+	REFERENCES [dbo].[Course] ([CourseID]);
+	GO
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
  	  CONSTRAINT [FK_CourseInstructor_Course];
-	IR
+	GO
 
-	-- Definir o relacionamento entre CourseInstructor e Person.
+	-- Define the relationship between CourseInstructor and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
  	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
 	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
  	  CONSTRAINT [FK_CourseInstructor_Person] FOREIGN KEY([PersonID])
 	REFERENCES [dbo].[Person] ([PersonID]);
-	IR
+	GO
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
   	 CONSTRAINT [FK_CourseInstructor_Person];
-	IR
+	GO
 
-	-- Definir o relacionamento entre Course e Department.
+	-- Define the relationship between Course and Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[Curso]'))
-	ALTER TABLE [dbo].[Curso]  WITH CHECK ADD  
+       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
+	ALTER TABLE [dbo].[Course]  WITH CHECK ADD  
        CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	REFERENCES [dbo].[Department] ([DepartmentID]);
-	IR
-	ALTER TABLE [dbo].[Curso] CHECK CONSTRAINT [FK_Course_Department];
-	IR
+	GO
+	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
+	GO
 
-	--Definir o relacionamento entre OfficeAssignment e Person.
+	--Define the relationship between OfficeAssignment and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
  	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
 	ALTER TABLE [dbo].[OfficeAssignment]  WITH CHECK ADD  
  	  CONSTRAINT [FK_OfficeAssignment_Person] FOREIGN KEY([InstructorID])
 	REFERENCES [dbo].[Person] ([PersonID]);
-	IR
+	GO
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
    	 CONSTRAINT [FK_OfficeAssignment_Person];
-	IR
+	GO
 </pre></div>
 
 
@@ -387,9 +385,9 @@ Copie o script e cole-o na janela de consulta. Clique em **Executar** na parte s
 Abra uma nova janela de consulta e, em seguida, cole-a no script a seguir. Execute o script para inserir dados. Este script usa a instrução [INSERT](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336284.aspx) para adicionar valores a cada coluna.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
-	-- Inserir dados na tabela Person.
+	-- Insert data into the Person table.
 	SET IDENTITY_INSERT dbo.Person ON;
-	IR
+	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (1, 'Abercrombie', 'Kim', '1995-03-11', null);
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
@@ -458,16 +456,16 @@ Abra uma nova janela de consulta e, em seguida, cole-a no script a seguir. Execu
 	VALUES (33, 'Gao', 'Erica', null, '2003-01-30');
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (34, 'Van Houten', 'Roger', '2000-12-07', null);
-	IR
+	GO
 	SET IDENTITY_INSERT dbo.Person OFF;
-	IR
+	GO
 	
 </pre></div>
 
 
 <h2 id="QueryDBSysData">Etapa 7: Exemplo de consulta e dados do sistema no Portal de Gerenciamento do Banco de Dados SQL</h2>
 
-Para verificar seu trabalho, execute uma consulta que retorne os dados que você acabou de digitar. Você também pode executar procedimentos armazenados internos e modos de exibição de gerenciamento de dados que fornecem informações sobre os bancos de dados em execução no seu servidor de Banco de Dados SQL.
+Para verificar seu trabalho, execute uma consulta que retorne os dados que você acabou de digitar. Você também pode executar procedimentos armazenados internos e modos de exibição de gerenciamento de dados que fornecem informações sobre os bancos de dados em execução no seu servidor do Banco de Dados SQL.
 
 <h4 id="QueryDB">Consultar dados de exemplo</h4>
 
@@ -497,31 +495,31 @@ Execute este procedimento armazenado para retornar uma lista de todos os objetos
 
 	EXEC SP_help
 
-Não feche a conexão do portal ao banco de dados **Escola**. Você precisará dela novamente em alguns minutos.
+Não feche a conexão do portal ao banco de dados **Escola**.Você precisará dela novamente em alguns minutos.
 
 
 
 <h2 id="DBLogin">Etapa 8: Criar um logon de banco de dados e atribuir permissões</h2>
 
-No Banco de Dados SQL, você pode criar logons e conceder permissões usando o Transact-SQL. Nesta lição, usando o Transact-SQL, você irá fazer três coisas:
+No Banco de Dados SQL, você pode criar logons e conceder permissões usando o Transact-SQL. Nesta lição, usando o Transact-SQL, você vai fazer três coisas:
 
 
 1. Criar um logon de autenticação do SQL Server
 2. Criar um usuário de banco de dados e
 3. Conceder permissões através da associação da função.
 
-Um logon de autenticação do SQL Server é usado para conexões com o servidor. Todos os usuários que acessam um servidor de Banco de Dados fazem isso fornecendo um nome de logon e uma senha de autenticação do SQL Server. 
+Um logon de autenticação do SQL Server é usado para conexões com o servidor. Todos os usuários que acessam um servidor do Banco de Dados SQL fazem isso fornecendo um nome de logon e uma senha de autenticação do SQL Server. 
 
 Para criar um logon, você deve primeiro conectar-se ao banco de dados **mestre**.
 
 <h4 id="CreateLogin">Criar um logon de autenticação do SQL Server</h4>
 
-1. Na seção [Portal de Gerenciamento](http://manage.windowsazure.com), selecione **Bancos de dados SQL**, clique em **Servidores**, escolha o servidor e, em seguida, clique na seta branca para abrir a
+1. No [Portal de Gerenciamento](http://manage.windowsazure.com), selecione **Bancos de dados SQL**, clique em **Servidores**, escolha o servidor e, em seguida, clique na seta branca para abrir a
 página do servidor.
 
 2. Na página Início Rápido, clique em **Gerenciar Servidor** para abrir uma nova conexão com o Portal de Gerenciamento do Banco de Dados SQL. 
 
-3. Especifique **mestre** para o banco de dados se conectar, em seguida efetue logon com seu nome de usuário e senha. Esse é o logon de administrador que você especificou quando criou o servidor.
+3. Especifique **mestre** para o banco de dados se conectar, em seguida efetue logon com seu nome de usuário e senha.Esse é o logon de administrador que você especificou quando criou o servidor.
 
 4. O Portal de Gerenciamento do Banco de Dados SQL abre em uma nova janela do navegador e você será conectado ao **mestre**.
 
@@ -558,46 +556,97 @@ Depois de criar um logon de autenticação do SQL Server, a próxima etapa é at
 
         EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
 
-Agora você tem um novo logon de autenticação do SQL Server que tem permissão somente leitura para o banco de dados **Escola**. Usando essas etapas, você pode criar outros logons de autenticação do SQL Server para permitir diferentes níveis de acesso aos seus dados.
+Agora você tem um novo logon de autenticação do SQL Server que tem permissão somente leitura para o banco de dados **Escola**.Usando essas etapas, você pode criar outros logons de autenticação do SQL Server para permitir diferentes níveis de acesso aos seus dados.
 
 
+<h2 id="ClientConnection">Etapa 9: Conectar-se por meio de um aplicativo</h2>
+
+É possível adicionar ADO.NET para conectar-se ao Banco de Dados SQL do Microsoft Azure. Diferente de uma conexão local, é preciso considerar a aceleração ou outras falhas de serviço que poderiam encerar uma conexão ou bloquear temporariamente novas conexões. Essa condição é chamada de falha temporária. Para gerenciar falhas temporárias, você implanta uma estratégia de nova tentativa. Ao conectar-se ao Banco de dados SQL do Azure, o [Bloco de aplicativos de manipulação de falha temporária](http://go.microsoft.com/fwlink/?LinkId=519356), parte da Enterprise Library 6 - abril 2013, possui estratégias de detecção que identificam uma condição de falha temporária.
+
+<h4>Exemplo de aplicativo do console C#</h4>
 
 
-<h2 id="ClientConnection">Etapa 9: Conectar-se de outros aplicativos</h2>
+	static void Main(string[] args)
+    {
+        //NOTE: Use appropriate exception handling in a production application.
 
-Agora que você tem um banco de dados operacional, você pode conectá-lo em uma pasta de trabalho Excel.
+        //Replace
+        //  builder["Server"]: {servername} = Your Azure SQL Database server name
+        //  builder["User ID"]: {username}@{servername} = Your Azure SQL Database user name and server name
+        //  builder["Password"]: {password} = Your Azure SQL Database password
 
-<h4>Conectar-se a partir do Excel</h4>
+        System.Data.SqlClient.SqlConnectionStringBuilder builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
+        builder["Server"] = "{servername}";
+        builder["User ID"] = "{username}@{servername}";
+        builder["Password"] = "{password}";
 
+        builder["Database"] = "AdventureWorks2012";
+        builder["Trusted_Connection"] = false;
+        builder["Integrated Security"] = false;
+        builder["Encrypt"] = true;
 
-Se o Microsoft Excel estiver instalado em seu computador, você poderá usar as etapas a seguir para se conectar a seu banco de dados de exemplo.
+        //1. Define an Exponential Backoff retry strategy for Azure SQL Database throttling (ExponentialBackoff Class). An exponential back-off strategy will gracefully back off the load on the service.
+        int retryCount = 4;
+        int minBackoffDelayMilliseconds = 2000;
+        int maxBackoffDelayMilliseconds = 8000;
+        int deltaBackoffMilliseconds = 2000;
 
-1. No Excel, na guia Dados, clique em **De Outras Origens**e, em seguida, clique em **Do SQL Server**.
+        ExponentialBackoff exponentialBackoffStrategy = 
+          new ExponentialBackoff("exponentialBackoffStrategy",
+              retryCount,
+              TimeSpan.FromMilliseconds(minBackoffDelayMilliseconds), 
+              TimeSpan.FromMilliseconds(maxBackoffDelayMilliseconds),
+              TimeSpan.FromMilliseconds(deltaBackoffMilliseconds));
 
-2. No assistente para Conexão de Dados, digite o nome de domínio totalmente qualificado do seu Servidor de Banco de Dados SQL, seguido de um logon de Autenticação do SQL Server que tem permissão para acessar o banco de dados. 
+        //2. Set a default strategy to Exponential Backoff.
+        RetryManager manager = new RetryManager(new List<RetryStrategy>
+        {  
+            exponentialBackoffStrategy 
+        }, "exponentialBackoffStrategy");
 
-  O nome do servidor pode ser localizado no Portal de Gerenciamento do Azure, no Banco de Dados SQL, na página Servidor, no Painel, em **Gerenciar URL**. O nome do servidor consiste em uma série de letras e números, seguidos de '.database.windows.net'. Especifique esse nome no assistente de Conexão do Banco de Dados. Não inclua o prefixo http:// ou https:// ao especificar o nome.
+        //3. Set a default Retry Manager. A RetryManager provides retry functionality, or if you are using declarative configuration, you can invoke the RetryPolicyFactory.CreateDefault
+            RetryManager.SetDefault(manager);
 
-  Insira um logon de autenticação do SQL Server. Para fins de teste, você pode usar o logon de administrador que criou quando configurou o servidor. Para acesso normal a dados, use um logon de usuário de banco de dados semelhante ao que você acabou de criar.
+        //4. Define a default SQL Connection retry policy and SQL Command retry policy. A policy provides a retry mechanism for unreliable actions and transient conditions.
+        RetryPolicy retryConnectionPolicy = manager.GetDefaultSqlConnectionRetryPolicy();
+        RetryPolicy retryCommandPolicy = manager.GetDefaultSqlCommandRetryPolicy();
 
-![Navigation pane][Image16]
+        //5. Create a function that will retry the connection using a ReliableSqlConnection.
+        retryConnectionPolicy.ExecuteAction(() =>
+        {
+            using (ReliableSqlConnection connection = new ReliableSqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
 
-3.  Na próxima página, escolha o banco de dados **Escola** e, em seguida, escolha **Pessoa**. Clique em **Concluir**. Se você solicitou por detalhes de logon, digite-os e, em seguida, clique em **OK**.
+                IDbCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT Name FROM Production.Product";
 
-4. A caixa de diálogo Importar Dados é exibida solicitando que você selecione como e onde importar seus dados. Com as opções padrão selecionadas, clique em **OK**.
+                //6. Create a function that will retry the command calling ExecuteCommand() from the ReliableSqlConnection
+                retryCommandPolicy.ExecuteAction(() =>
+                {
+                    using (IDataReader reader = connection.ExecuteCommand<IDataReader>(command))
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(0);
 
-	![Navigation pane][Image19]
+                            Console.WriteLine(name);
+                        }
+                    }
+                });                  
+            }
+        });
 
-5. Na planilha, você deve ver uma tabela com um conjunto de resultados que inclui 34 linhas da tabela pessoal, incluindo PersonID, LastName, FirstName, HireDate e EnrollmentDate, assim como os resultados de consulta da Etapa 7. 
+        Console.ReadLine();
+    }
 
-Usando somente o Excel, você pode importar apenas uma tabela por vez. Uma abordagem melhor é usar o suplemento PowerPivot para Excel, que permite que você importe e trabalhe com várias tabelas como um único conjunto de dados. Trabalhar com o PowerPivot está além do escopo deste tutorial, mas você pode obter mais informações sobre isso em [PowerPivot para Excel](http://go.microsoft.com/fwlink/?LinkId=396969).
 
 
 <h2 id="NextSteps">Próximas etapas</h2>
 
 Agora que você está familiarizado com o Banco de Dados SQL e os Portais de Gerenciamento, você pode experimentar outras ferramentas e técnicas usadas pelos administradores de Banco de Dados do SQL Server.
 
-Para gerenciar ativamente o seu novo banco de dados, considere a possibilidade de instalar e usar o SQL Server Management Studio. O Management Studio é a ferramenta de administração de banco de dados primário para o gerenciamento de bancos de dados do SQL Server, inclusive aqueles em execução no Azure. Usando o Management Studio, você pode salvar consultas para uso futuro, adicionar novas tabelas e procedimentos armazenados e aprimorar suas habilidades no Transact-SQL em um ambiente de script sofisticado que inclui um verificador de sintaxe, intellisense e modelos. Para começar, siga as instruções em [Gerenciando o Banco de Dados SQL usando o SQL Server Management Studio](http://www.azure.microsoft.com/pt-br/documentation/articles/sql-database-manage-azure-ssms/).
+Para gerenciar ativamente o seu novo banco de dados, considere a possibilidade de instalar e usar o SQL Server Management Studio. O Management Studio é a ferramenta de administração de banco de dados primário para o gerenciamento de bancos de dados do SQL Server, inclusive aqueles em execução no Azure. Usando o Management Studio, você pode salvar consultas para uso futuro, adicionar novas tabelas e procedimentos armazenados e aprimorar suas habilidades no Transact-SQL em um ambiente de script sofisticado que inclui um verificador de sintaxe, intellisense e modelos. Para começar, siga as instruções em [Gerenciando o Banco de Dados do SQL Server usando o SQL Server Management Studio (a página pode estar em inglês)](http://www.azure.microsoft.com/pt-br/documentation/articles/sql-database-manage-azure-ssms/).
 
 Ter fluência na consulta Transact SQL e na linguagem de definição de dados é essencial para os administradores de Banco de Dados. Se você for novo no Transact-SQL, comece com o [Tutorial: Escrevendo instruções de Transact-SQL](http://msdn.microsoft.com/pt-br/library/ms365303.aspx) para aprender algumas técnicas básicas.
 
@@ -630,3 +679,5 @@ Existem outros métodos para mover um banco de dados local para o Banco de Dados
 [Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
+
+<!--HONumber=35_1-->

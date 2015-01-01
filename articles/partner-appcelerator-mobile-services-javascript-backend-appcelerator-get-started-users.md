@@ -1,12 +1,12 @@
-﻿<properties pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento móvel" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # Introdução à autenticação dos Serviços Móveis
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Este tópico mostra como autenticar usuários no Windows Azure Mobile Services do seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Microsoft Azure do seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
@@ -22,11 +22,11 @@ Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> Restringir permissões a usuários autenticados
+##<a name="permissions"></a> Restringir as permissões aos usuários autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-3.	No Appcelerator Titanium Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis].
+3.	No Appcelerator Titanium Studio, abra o projeto que você criou ao concluir o tutorial [Introdução aos Serviços Móveis].
 
 4.	Pressione o botão Executar para criar o projeto e iniciar o aplicativo no emulador do iPhone. Verifique se uma exceção sem tratamento com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.
     
@@ -80,7 +80,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
             }
         });
 
->[WACOM.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes: *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[WACOM.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes:*microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
 4.	Pressione o botão Executar para criar o projeto, inicie o aplicativo no simulador do iPhone ou em um emulador do Android e clique na opção Com Logon para fazer logon no provedor de identidade.
 
@@ -97,3 +97,5 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+
+<!--HONumber=35_1-->

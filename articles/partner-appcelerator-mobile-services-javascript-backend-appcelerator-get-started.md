@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para o Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
@@ -26,13 +26,13 @@ Para criação para Android, você também precisará do Android 4.3 ou SDK supe
 
 2. Clique em **Adicionar uma Tabela** e crie uma nova tabela denominada **TodoItem**.
 
-3. Baixe o novo aplicativo Todolist do [Appcelerator] e descompacte o projeto.
+3. Baixe o novo [aplicativo Todolist] do Appcelerator e descompacte o projeto.
 
-4. Se ainda não tiver feito isso, baixe e instale o [Appcelerator Titanium Studio][Appcelerator Titanium] e o SDK v3.2.1 ou versão posterior. Você também precisará do Xcode (v 5.0 +) e/ou Android SDK (v 4.3+) para executar o projeto.
+4. Se ainda não tiver feito isso, baixe e instale o [Appcelerator Titanium Studio][Appcelerator Titanium] e o SDK v3.2.1 ou versão posterior.Você também precisará do Xcode (v 5.0 +) e/ou Android SDK (v 4.3+) para executar o projeto.
 
-5. De volta no portal dos Serviços Móveis, em **Painel**, selecione **Gerenciar Chaves** e copie a **Chave do Aplicativo**.
+5. De volta no portal dos Serviços Móveis, em **Painel**, escolha **Gerenciar Chaves** e copie a **Chave do Aplicativo**.
 
-5. Em index.js do aplicativo, substitua `<---App Name---->` e `<------------APP KEY------------>` pelos valores do seu serviço móvel.
+5. No index.js do aplicativo, substitua`<---App Name---->` e`<------------APP KEY------------>` pelos valores de seu serviço móvel.
 
 ## Execute seu novo aplicativo do Appcelerator ##
 
@@ -42,7 +42,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
     ![][0]
 
-2.	Na tela seguinte, selecione **Projetos existentes no espaço de trabalho** e clique em **Próximo**.
+2.	Na tela seguinte, selecione **Projetos existentes no espaço de trabalho** e clique em **Avançar**.
 
     ![][1]
 
@@ -50,7 +50,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
     ![][2]
 
-4.	Por fim, o projeto que você selecionou na seção de projetos é exibido. Opcionalmente, você pode marcar a opção &quot;Copiar projetos para o espaço de trabalho&quot; que copiará o projeto baixado para o espaço de trabalho. Por fim, clique em Finalizar para abrir o projeto no Titanium Studio.
+4.	Por fim, o projeto que você selecionou na seção de projetos é exibido. Opcionalmente, você pode marcar a opção "Copiar projetos no espaço de trabalho", que copiará o projeto baixado no espaço de trabalho. Por fim, clique em Finalizar para abrir o projeto no Titanium Studio.
 
     ![][3]
 
@@ -64,20 +64,20 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
     ![][5]
 
-8.	Na tela seguinte, clique no ícone de mais (+) e digite um texto com sentido, como &quot;Concluir este tutorial&quot; e clique no botão Salvar.<br />
+8.	Na tela seguinte, clique no ícone mais (+) e digite um texto com sentido, como "Concluir este tutorial" e clique no botão Salvar.<br />
 
     ![][6]
 
     ![][7]
 
-Isso envia uma solicitação POST para o novo serviço móvel hospedado no Windows Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
+Isso envia uma solicitação POST para o novo serviço móvel hospedado no Microsoft Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
 ![][8]
 
 
 >[WACOM.NOTE] Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.m.
 
-4. No Portal de Gerenciamento, clique na guia **Dados** e depois clique na tabela **TodoItems**.
+4. No Portal de Gerenciamento, clique na guia **Dados** e na tabela **TodoItems**.
 
    	![][9]
 
@@ -115,3 +115,5 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [Introdução à autenticação]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Introdução às notificações por push]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+
+<!--HONumber=35_1-->

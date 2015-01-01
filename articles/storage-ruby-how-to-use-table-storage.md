@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 
 
 
@@ -8,11 +8,7 @@
 
 # Como usar o serviço Tabela do Ruby
 
-Este guia mostra como executar cenários comuns usando o
-Serviço de tabela do Azure. As amostras são escritas usando a
-API do Ruby. Os cenários abordados incluem **criação e exclusão de uma
-tabela, inserção e consulta de entidades em uma tabela**. Para obter mais
-informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) .
+Este guia mostra como executar cenários comuns usando o serviço Tabela do Microsoft Azure. Os exemplos são gravados usando a API do Ruby. Os cenários abrangidos incluem **criar e excluir uma tabela, inserindo e consultando entidades em uma tabela**. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) .
 
 ## Sumário
 
@@ -23,7 +19,7 @@ informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) 
 * [Configurar seu aplicativo para acessar o armazenamento](#configure-your-application-to-access-storage)
 * [Configurar uma conexão de armazenamento do Azure](#setup-a-windows-azure-storage-connection)
 * [Como: Criar uma tabela](#how-to-create-a-table)
-* [Como: Adicionar uma entidade à tabela](#how-to-add-an-entity-to-a-table)
+* [Como: Adicionar uma entidade a uma tabela](#how-to-add-an-entity-to-a-table)
 * [Como: Atualizar uma entidade](#how-to-update-an-entity)
 * [Como: Trabalhar com grupos de entidades](#how-to-work-with-groups-of-entities)
 * [Como: Consultar uma entidade](#how-to-query-for-an-entity)
@@ -41,30 +37,27 @@ informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) 
 
 ## <a id="create-a-ruby-application"></a>Criar um aplicativo Ruby
 
-Crie um aplicativo Ruby. Para obter instruções, 
-consulte [Criar um aplicativo Ruby no Azure](/pt-br/develop/ruby/tutorials/web-app-with-linux-vm/).
+Crie um aplicativo Ruby. Para obter instruções, consulte [Criar um aplicativo Ruby no Azure](/pt-br/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="configure-your-application-to-access-storage"></a>Configurar seu aplicativo para acessar o armazenamento
 
-Para usar o armazenamento do Azure, você precisa baixar e usar o pacote do Azure Ruby 
-que inclui um conjunto de bibliotecas de conveniência que se comunicam com os serviços REST.
+Para usar o armazenamento do Azure, você deverá baixar e usar o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
 
 ### Usar RubyGems para obter o pacote
 
-1. Use uma interface da linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1. Use uma interface de linha de comando, como o **PowerShell** (Windows), o **Terminal** (Mac) ou o **Bash** (Unix).
 
-2. Digite **gem install azure** na janela de comandos para instalar a gema e as dependências.
+2. Digite **gem install azure** na janela de comando para instalar a gema e as dependências.
 
 ### Importar o pacote
 
 Use seu editor de texto favorito e adicione o seguinte na parte superior do arquivo do Ruby no qual você pretende usar o armazenamento:
 
-	exigir "azure"
+	require "azure"
 
 ## <a id="setup-a-windows-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
 
-O módulo azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** 
-para obter informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta antes de usar **Azure::TableService** com o seguinte código:
+O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta antes de usar **Azure::TableService** com o seguinte código:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -81,7 +74,7 @@ Para obter esses valores:
 
 ## <a id="how-to-create-a-table"></a>Como criar uma tabela
 
-O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create\_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver algum.
+O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create\_table()**.O exemplo a seguir cria uma tabela ou imprime o erro, se houver algum.
 
 	azure_table_service = Azure::TableService.new
 	begin
@@ -92,7 +85,7 @@ O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para
 
 ## <a id="how-to-add-an-entity-to-a-table"></a>Como adicionar uma entidade à tabela
 
-Para adicionar uma entidade, primeiro crie um objeto hash que defina as propriedades da entidade. Observe que, para cada entidade, você deveespecificar um **PartitionKey** e um **RowKey**. Estes são os identificadores exclusivos das entidades e são os valores que podem ser consultados muito mais rápido que as outras propriedades. O serviço Armazenamento do Azure usa **PartitionKey** para distribuir automaticamente as entidades da tabela entre vários nós de armazenamento. As entidades com o mesmo **PartitionKey** são armazenadas no mesmo nó. O **RowKey** é o ID exclusivo da entidade na partição à qual pertence. 
+Para adicionar uma entidade, primeiro crie um objeto hash que defina as propriedades da entidade.  Observe que, para cada entidade, você deveespecificar um **PartitionKey** e um **RowKey**.Estes são os identificadores exclusivos das entidades e são os valores que podem ser consultados muito mais rápido que as outras propriedades.O serviço Armazenamento do Azure usa **PartitionKey** para distribuir automaticamente as entidades da tabela entre vários nós de armazenamento. As entidades com o mesmo **PartitionKey** são armazenadas no mesmo nó. O **RowKey** é a ID exclusiva da entidade na partição à qual pertence. 
 
 	entity = { "content" => "test entity", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -102,10 +95,10 @@ Para adicionar uma entidade, primeiro crie um objeto hash que defina as propried
 
 Há vários métodos disponíveis para atualizar uma entidade existente:
 
-* **update\_entity():** Atualizar uma entidade existente ao substituí-la.
-* **merge\_entity():** Atualiza uma entidade existente mesclando novos valores de propriedade na entidade existente.
-* **insert\_or\_merge\_entity():** Atualiza uma entidade existente ao substituí-la. Se não existir nenhuma entidade, uma nova será inserida:
-* **insert\_or\_replace\_entity():** Atualiza uma entidade existente mesclando novos valores de propriedade na entidade existente. Se nenhuma entidade existir, uma nova será inserida.
+* **update\_entity():**Atualizar uma entidade existente ao substituí-la.
+* **merge\_entity():**Atualiza uma entidade existente mesclando novos valores de propriedade na entidade existente.
+* **insert\_or\_merge\_entity():** Atualiza uma entidade existente ao substituí-la.Se não existir nenhuma entidade, uma nova será inserida:
+* **insert\_or\_replace\_entity():** Atualiza uma entidade existente mesclando novos valores de propriedade na entidade existente.Se nenhuma entidade existir, uma nova será inserida.
 
 O exemplo a seguir demonstra a atualização de uma entidade com o uso de **update\_entity()**:
 
@@ -117,7 +110,7 @@ Com **update\_entity()** e **merge\_entity()**, se a entidade que está sendo at
 
 ## <a id="how-to-work-with-groups-of-entities"></a>Como: Trabalhar com grupos de entidades
 
-Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para fazer isso, você deve primeiro criar um objeto **Batch** e, em seguida, usar o método **execute\_batch()** em **TableService**. O seguinte exemplo demonstra o envio de duas entidades com RowKey 2 e 3 em um lote. Observe que isso funciona apenas em entidades com o mesmo PartitionKey.
+Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor.  Para fazer isso, você deve primeiro criar um objeto **Batch** e, em seguida, usar o método **execute\_batch()** em **TableService**.O seguinte exemplo demonstra o envio de duas entidades com RowKey 2 e 3 em um lote.Observe que isso funciona apenas em entidades com o mesmo PartitionKey.
 
 	azure_table_service = Azure::TableService.new
 	batch = Azure::Storage::Table::Batch.new("testtable", 
@@ -153,7 +146,7 @@ Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma enti
 
 ## <a id="how-to-delete-an-entity"></a>Como: Excluir uma entidade
 
-Para excluir uma entidade, use o método **delete\_entity()**. Você deve transmitir o nome da tabela que contém a entidade, o PartitionKey e o RowKey da entidade.
+Para excluir uma entidade, use o método **delete\_entity()**.Você deve transmitir o nome da tabela que contém a entidade, o PartitionKey e o RowKey da entidade.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
@@ -168,5 +161,7 @@ Para excluir uma tabela, use o método **delete\_table()** e transmita o nome da
 Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
 
 * Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx)
-* Visite o repositório do [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-* Visite o repositório do [SDK do Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
+* Visite o[ Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* Visite o repositório[SDK do Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
+
+<!--HONumber=35_1-->

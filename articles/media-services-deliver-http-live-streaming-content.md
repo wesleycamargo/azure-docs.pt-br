@@ -1,87 +1,90 @@
-<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Como fornecer o HTTP Live Streaming (HLS) da Apple - Azure" metaKeywords="" description="Saiba como criar um localizador para o conte&uacute;do do HTTP Live Stream (HLS) da Apple no servidor de origem dos Servi&ccedil;os de M&iacute;dia. Os exemplos de c&oacute;digo s&atilde;o escritos em C# e usam a SDK dos Servi&ccedil;os de M&iacute;dia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Como: Entregar conte&uacute;do de streaming HLS da Apple" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Como fornecer o HTTP Live Streaming (HLS) da Apple - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
-# Como: Entregar conteúdo de streaming HLS da Apple
 
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Entregar conteúdo de streaming da Apple][Como: Entregar conteúdo de streaming da Apple].
+
+
+
+<h1>Como: Entregar conteúdo de streaming HLS da Apple</h1>
+
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Fornecer conteúdo de streaming](../media-services-deliver-streaming-content/).
 
 Este tópico mostra como criar um localizador para conteúdo HTTP Live Streaming (HLS) da Apple em um servidor de origem dos Serviços de Mídia. Com essa abordagem, é possível criar uma URL para conteúdo de HLS da Apple e fornecê-la aos dispositivos do Apple iOS para reprodução. A abordagem básica para a criação da URL do localizador URL é a mesma. Crie um localizador para o caminho do ativo de streaming HLS da Apple em um servidor de origem e, em seguida, crie uma URL completa que se vincule com o manifesto para o conteúdo de streaming.
 
-O exemplo de código a seguir pressupõe que você já obteve uma referência para um ativo de streaming HLS e que a variável chamada **assetToStream** está referenciada no código. Depois de executar esse código para gerar um localizador de origem no ativo, você pode usar a URL resultante para reproduzir o conteúdo de streaming em um dispositivo iOS, como um iPad ou um iPhone.
+O exemplo de código a seguir pressupõe que você já obteve uma referência para um ativo de streaming HLS e que a variável chamada **assetToStream** está referenciada no código.Depois de executar esse código para gerar um localizador de origem no ativo, você pode usar a URL resultante para reproduzir o conteúdo de streaming em um dispositivo iOS, como um iPad ou um iPhone.
 
 Para criar um localizador para conteúdo de streaming HLS da Apple:
 
-1.  Obtenha uma referência para o arquivo de manifesto no ativo
-2.  Defina uma diretiva de acesso
-3.  Crie o localizador de origem chamando CreateLocator
-4.  Crie uma URL para o arquivo de manifesto
+   1. Obtenha uma referência para o arquivo de manifesto no ativo
+   2. Defina uma política de acesso
+   3. Crie o localizador de origem chamando CreateLocator
+   4. Crie uma URL para o arquivo de manifesto
 
 O código a seguir mostra como implementar as etapas:
 
-    static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
-    {
-        // Get a reference to the asset you want to stream.
-        IAsset assetToStream = GetAsset(targetAssetID);
+<pre><code>
+static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
+{
+    // Get a reference to the asset you want to stream.
+    IAsset assetToStream = GetAsset(targetAssetID);
 
-        // Get a reference to the HLS streaming manifest file from the  
-        // collection of files in the asset. 
-        var theManifest =
-                            from f in assetToStream.AssetFiles
-                            where f.Name.EndsWith(".ism")
-                            select f;
+    // Get a reference to the HLS streaming manifest file from the  
+    // collection of files in the asset. 
+    var theManifest =
+                        from f in assetToStream.AssetFiles
+                        where f.Name.EndsWith(".ism")
+                        select f;
 
-        // Cast the reference to a true IAssetFile type. 
-        IAssetFile manifestFile = theManifest.First();
-        IAccessPolicy policy = null;
-        ILocator originLocator = null;
+    // Cast the reference to a true IAssetFile type. 
+    IAssetFile manifestFile = theManifest.First();
+    IAccessPolicy policy = null;
+    ILocator originLocator = null;
 
-        // Create a 30-day readonly access policy. 
-        policy = _context.AccessPolicies.Create("Streaming HLS Policy",
-            TimeSpan.FromDays(30),
-            AccessPermissions.Read);
+    // Create a 30-day readonly access policy. 
+    policy = _context.AccessPolicies.Create("Streaming HLS Policy",
+        TimeSpan.FromDays(30),
+        AccessPermissions.Read);
 
-        originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
-                    policy,
-                    DateTime.UtcNow.AddMinutes(-5));
+    originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
+                policy,
+                DateTime.UtcNow.AddMinutes(-5));
 
-        // Create a URL to the HLS streaming manifest file. Use this for playback
-        // in Apple iOS streaming clients.
-        string urlForClientStreaming = originLocator.Path
-            + manifestFile.Name + "/manifest(format=m3u8-aapl)";
-        Console.WriteLine("URL to manifest for client streaming: ");
-        Console.WriteLine(urlForClientStreaming);
-        Console.WriteLine();
+    // Create a URL to the HLS streaming manifest file. Use this for playback
+    // in Apple iOS streaming clients.
+    string urlForClientStreaming = originLocator.Path
+        + manifestFile.Name + "/manifest(format=m3u8-aapl)";
+    Console.WriteLine("URL to manifest for client streaming: ");
+    Console.WriteLine(urlForClientStreaming);
+    Console.WriteLine();
 
-        // Return the locator. 
-        return originLocator;
-    }
+    // Return the locator. 
+    return originLocator;
+}
+</code></pre>
 
-Para obter mais informações sobre entrega de ativos, consulte:
+Para obter mais informações sobre como fornecer ativos, consulte:
+<ul>
+<li><a href="http://msdn.microsoft.com/pt-br/library/jj129575.aspx">Fornecer ativos com os Serviços de Mídia para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/pt-br/library/jj129578.aspx">Fornecer ativos com a API REST dos Serviços de Mídia</a></li>
+</ul>
 
--   [Fornecer ativos com os Serviços de Mídia para .NET][Fornecer ativos com os Serviços de Mídia para .NET]
--   [Fornecer ativos com a API REST dos Serviços de Mídia][Fornecer ativos com a API REST dos Serviços de Mídia]
-
-</p>
-## Próximas etapas
+<h2>Próximas etapas</h2>
 
 Este tópico conclui os tópicos Usando os Serviços de Mídia do Azure. Abordamos a configuração de seu computador para desenvolvimento de Serviços de Mídia e a execução de tarefas comuns de programação. Para obter mais informações sobre como programar os Serviços de Mídia, consulte os seguintes recursos:
 
--   [Documentação dos Serviços de Mídia do Azure][Documentação dos Serviços de Mídia do Azure]
--   [Introdução ao SDK dos Serviços de Mídia para .NET][Introdução ao SDK dos Serviços de Mídia para .NET]
--   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET][Criando aplicativos com o SDK dos Serviços de Mídia para .NET]
--   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure][Criando aplicativos com a API REST dos Serviços de Mídia do Azure]
--   [Fórum dos Serviços de Mídia][Fórum dos Serviços de Mídia]
--   [Como monitorar uma conta de Serviços de Mídia][Como monitorar uma conta de Serviços de Mídia]
--   [Como gerenciar conteúdo nos Serviços de Mídia][Como gerenciar conteúdo nos Serviços de Mídia]
+-   [Documentação dos Serviços de Mídia do Azure][]
+-   [Introdução ao SDK dos Serviços de Mídia para .NET][]
+-   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET][]
+-   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure][]
+-   [Fórum dos Serviços de Mídia][]
+-	[Como monitorar uma conta de Serviços de Mídia](../media-services-monitor-services-account/)
+-	[Como gerenciar conteúdo nos Serviços de Mídia](../media-services-manage-content/)
 
-  [Como: Entregar conteúdo de streaming da Apple]: ../media-services-deliver-streaming-content/
-  [Fornecer ativos com os Serviços de Mídia para .NET]: http://msdn.microsoft.com/pt-br/library/jj129575.aspx
-  [Fornecer ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/pt-br/library/jj129578.aspx
-  [Documentação dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=245437
-  [Introdução ao SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-  [Criando aplicativos com o SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-  [Criando aplicativos com a API REST dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/pt-br/MediaServices/threads
-  [Como monitorar uma conta de Serviços de Mídia]: ../media-services-monitor-services-account/
-  [Como gerenciar conteúdo nos Serviços de Mídia]: ../media-services-manage-content/
+[Documentação dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=245437
+[Introdução ao SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
+[Criando aplicativos com a API REST dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=252967
+[Criando aplicativos com o SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
+[Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+
+<!--HONumber=35_1-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Como usar o serviço Fila (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Queue Service" pageTitle="Como usar o serviço Fila (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 
 
 
@@ -8,16 +8,13 @@
 
 # Como usar o serviço de armazenamento de filas do Ruby
 
-Este guia mostra como executar cenários comuns usando o
-Serviço de armazenamento de fila do Azure. Os exemplos são gravados usando a API do Ruby Azure.
-Os cenários abordados incluem mensagens das filas de **inserção**, **inspeção**, **obtenção**
-e **exclusão**, bem como **criação e exclusão
-de filas**. Para obter mais informações sobre filas, consulte a seção [Avançar
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de filas do Microsoft Azure. Os exemplos são gravados usando a API do Ruby Azure.
+Os cenários abordados incluem **inserir, ****espiar, ****obter**e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas
 Etapas](#next-steps) .
 
 ## Sumário
 
-* [O que é armazenamento de fila?](#what-is)
+* [O que é Armazenamento de Filas?](#what-is)
 * [Conceitos](#concepts)
 * [Criar uma conta de armazenamento do Azure](#CreateAccount)
 * [Criar um aplicativo Ruby](#create-a-ruby-application)
@@ -25,7 +22,7 @@ Etapas](#next-steps) .
 * [Configurar uma conexão de armazenamento do Azure](#setup-a-windows-azure-storage-connection)
 * [Como: Criar uma fila](#how-to-create-a-queue)
 * [Como: Inserir uma mensagem em uma fila](#how-to-insert-a-message-into-a-queue)
-* [Como: Exibir a próxima mensagem](#how-to-peek-at-the-next-message)
+* [Como: Espiar a próxima mensagem](#how-to-peek-at-the-next-message)
 * [Como: Remover a próxima mensagem da fila](#how-to-dequeue-the-next-message)
 * [Como: Alterar o conteúdo de uma mensagem na fila](#how-to-change-the-contents-of-a-queued-message)
 * [Como: Opções adicionais para remover mensagens da fila](#how-to-additional-options-for-dequeuing-messages)
@@ -41,8 +38,7 @@ Etapas](#next-steps) .
 
 ## <a id="create-a-ruby-application"></a>Criar um aplicativo Ruby
 
-Crie um aplicativo Ruby. Para obter instruções, 
-consulte [Criar um aplicativo Ruby no Azure](/pt-br/develop/ruby/tutorials/web-app-with-linux-vm/).
+Crie um aplicativo Ruby. Para obter instruções, consulte [Criar um aplicativo Ruby no Azure](/pt-br/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="configure-your-application-to-access-storage"></a>Configurar seu aplicativo para acessar o armazenamento
 
@@ -50,9 +46,9 @@ Para usar o armazenamento do Azure, você deverá baixar e usar o pacote do Azur
 
 ### Usar RubyGems para obter o pacote
 
-1. Use uma interface da linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1. Use uma interface de linha de comando, como o **PowerShell** (Windows), o **Terminal** (Mac) ou o **Bash** (Unix).
 
-2. Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
+2. Digite "gem install azure" na janela de comando para instalar a gema e as dependências.
 
 ### Importar o pacote
 
@@ -96,9 +92,9 @@ Para inserir uma mensagem em uma fila, use o método **create_message()** para c
 
 	azure_queue_service.create_message("test-queue", "test message")
 
-## <a id="how-to-peek-at-the-next-message"></a>Como: ExibirExibir a próxima mensagem
+## <a id="how-to-peek-at-the-next-message"></a>Como: Espiar a próxima mensagem
 
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()**. Por padrão, **peek\_messages()** inspeciona uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()**. Por padrão, **peek\_messages()**inspeciona uma única mensagem.Você também pode especificar quantas mensagens deseja inspecionar.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -107,7 +103,7 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 
 É possível remover uma mensagem da fila em duas etapas.
 
-1. Quando você chamar **list\_messages()**, receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter. As mensagens retornadas de **list\_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila. Passe o tempo limite de visibilidade em segundos como um parâmetro.
+1. Quando você chamar **list\_messages()**, receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter.As mensagens retornadas de **list\_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila.Passe o tempo limite de visibilidade em segundos como um parâmetro.
 
 2. Para concluir a remoção da mensagem da fila, chame também **delete_message()**.
 
@@ -119,7 +115,7 @@ Este processo de duas etapas de remover uma mensagem garante que quando o códig
 
 ## <a id="how-to-change-the-contents-of-a-queued-message"></a>Como: Alterar o conteúdo de uma mensagem na fila
 
-Você pode alterar o conteúdo de uma mensagem in-loco na fila. O código a seguir usa o método **update_message()** para atualizar uma mensagem. O método retornará uma tupla que contém o recebimento pop da mensagem da fila e um valor de data/hora UTC que representa quando a mensagem estará visível na fila.
+Você pode alterar o conteúdo de uma mensagem in-loco na fila. O código a seguir usa o método **update_message()** para atualizar uma mensagem.O método retornará uma tupla que contém o recebimento pop da mensagem da fila e um valor de data/hora UTC que representa quando a mensagem estará visível na fila.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -134,7 +130,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
 
 2. Você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem.
 
-O exemplo de código a seguir usa o método **list\_messages()** para receber 15 mensagens em uma chamada. Em seguida, ele lê e exclui cada mensagem. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+O exemplo de código a seguir usa o método **list\_messages()** para receber 15 mensagens em uma chamada. Em seguida, ele lê e exclui cada mensagem.Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -160,7 +156,9 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber como fazer tarefas mais complexas de armazenamento.
 
 - Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx)
-- Visite o repositório do [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- Visite o repositório do [SDK do Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
+- Visite o[ Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- Visite o repositório[SDK do Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
 
-Para fazer uma comparação entre o serviço de fila do Azure discutido neste artigo e filas do barramento de serviço do Azure discutidas no artigo [Como usar filas do Barramento de Serviço](/pt-br/develop/ruby/how-to-guides/service-bus-queues/) , consulte [Filas do Azure e Filas do Service Bus do Azure Semelhanças e diferenças](http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx)
+Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e filas do barramento de serviço do Azure discutidas no artigo [Como usar filas do Barramento de Serviço](/pt-br/develop/ruby/how-to-guides/service-bus-queues/) , consulte [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx)
+
+<!--HONumber=35_1-->

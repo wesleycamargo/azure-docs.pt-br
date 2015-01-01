@@ -1,52 +1,52 @@
-﻿<properties pageTitle="Introdução aos Hubs de eventos" metaKeywords="barramento de serviço do Azure, hub de eventos, introdução a hubs de eventos" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Introdução aos Hubs de Evento" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
-# <a name="getting-started"> </a>Introdução aos Hubs de Eventos
+# <a name="getting-started"> </a>Introdução aos Hubs de Evento
 
 [WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Eventos, você pode transformar e armazenar os dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
+Hubs de Evento é um sistema de ingestão altamente escalável que pode processar milhões de eventos por segundo, permitindo que seu aplicativo processe e analise quantidades maciças de dados produzidos pelos dispositivos e aplicativos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento. Para mais informações sobre Hubs de Evento, consulte o [Guia do desenvolvedor de Hubs de Evento]. 
 
-Para mais informações, consulte [Visão geral de Hubs de Eventos].
+Para obter mais informações, consulte[Visão geral de Hubs de Evento].
 
-Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando um aplicativo de console em C#, e recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
+Neste tutorial, você vai aprender a ingerir mensagens em um Hub de Evento usando um aplicativo de console em C#, e a recuperá-las em paralelo usando a biblioteca C#[Host de processador de eventos].
 
 Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio Express 2013 para Windows
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
-## Criar um Hub de Eventos
+## Criar um Hub de Evento
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **+NOVO** na parte inferior da tela.
+1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
 
-2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Eventos** e, em seguida, **Criação Rápida**.
+2.  Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Evento** e, em seguida, **Criação Rápida**.
 
    	![][1]
 
-3. Digite um nome para seu Hub de Eventos, selecione a região desejada e clique em **Criar novo Hub de Eventos**.
+3. Digite um nome para o Hub de Evento, selecione a região desejada e clique em **Criar um novo Hub de Evento**.
 
    	![][2]
 
-4. Clique no namespace que você acabou de criar (geralmente ***event hub name*-ns**).
+4. Clique no namespace que você acabou de criar (geralmente o***event hub name*-ns**).
 
    	![][3]
 
-5. Clique na guia **Hubs de Eventos** na parte superior da página e depois clique no Hub de Eventos recém-criado.
+5. Clique na guia **Hubs de Evento** na parte superior e clique no Hub de Evento que acabou de criar.
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** com direitos de *Manage, Send, Listen* e clique em **Salvar**.
+6. Clique na guia **Configurar** na parte superior, adicione uma regra denominada**SendRule** com direito de *Enviar* e adicione outra regra denominada**ReceiveRule** com direitos de*Gerenciar, Enviar, Escutar* e clique em **Salvar**.
 
    	![][5]
 
-7. Clique na guia **Painel** na parte superior da página e clique em **Informações de Conexão**. Anote as duas cadeias de conexão.
+7. Clique na guia **Painel** na parte superior e clique em **Informações de Conexão**.Anote as duas cadeias de conexão.
 
    	![][6]
 
-Seu Hub de Eventos agora está criado e você tem as cadeias de conexão necessárias para enviar e receber eventos.
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
@@ -57,11 +57,11 @@ Seu Hub de Eventos agora está criado e você tem as cadeias de conexão necess�
 
 Agora você está pronto para executar os aplicativos.
 
-1. No Visual Studio, execute o projeto **Receptor**, então aguarde ele iniciar os receptores para todas as partições.
+1.	No Visual Studio, execute o projeto **Receptor** e aguarde que ele inicie os receptores de todas as partições.
 
    	![][21]
 
-2.	Execute o projeto **Remetente**, pressione **Enter** nas janelas do console e veja os eventos aparecerem na janela do receptor.
+2.	Execute o projeto **Remetente** pressione **Enter** nas janelas do console e veja os eventos aparecem na janela do receptor.
 
    	![][22]
 
@@ -80,3 +80,5 @@ Agora você está pronto para executar os aplicativos.
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/azure/dn836025.aspx
+
+<!--HONumber=35_1-->

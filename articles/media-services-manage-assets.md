@@ -1,27 +1,44 @@
-<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Como gerenciar ativos nos Servi&ccedil;os de M&iacute;dia - Azure" metaKeywords="" description="Saiba como gerenciar ativos em Servi&ccedil;os de M&iacute;dia. Voc&ecirc; tamb&eacute;m pode gerenciar trabalhos, tarefas, pol&iacute;ticas de acesso, localizadores e muito mais. Os exemplos de c&oacute;digo s&atilde;o escritos em C# e usam a SDK dos Servi&ccedil;os de M&iacute;dia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Como: Gerenciar ativos no armazenamento" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Como gerenciar ativos nos Serviços de Mídia - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
-# Como: Gerenciar ativos no armazenamento
 
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Proteger um ativo][Como: Proteger um ativo].
 
-Depois que você cria ativos de mídia e os carrega nos Serviços de Mídia, você pode acessar e gerenciar os ativos no servidor. Você também pode gerenciar outros objetos no servidor que fazem parte dos Serviços de Mídia, incluindo trabalhos, tarefas, políticas de acesso, localizadores e muito mais.
 
-O exemplo a seguir mostra como consultar um ativo por assetId.
+<h1>Como: Gerenciar ativos no armazenamento</h1>
 
-    static IAsset GetAsset(string assetId){ // Use a LINQ Select query to get an asset. var assetInstance = from a in _context.Assets where a.Id == assetId select a; // Reference the asset as an IAsset. IAsset asset = assetInstance.FirstOrDefault();
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Proteger um ativo](../media-services-protect-asset/).
+
+Depois que você cria ativos de mídia e os carrega nos Serviços de Mídia, pode acessar e gerenciar os ativos no servidor. Você também pode gerenciar outros objetos no servidor que fazem parte dos Serviços de Mídia, incluindo trabalhos, tarefas, políticas de acesso, localizadores e muito mais.
+
+O exemplo a seguir mostra como consultar um ativo por assetId. 
+<pre><code>
+static IAsset GetAsset(string assetId)
+{
+    // Use a LINQ Select query to get an asset.
+    var assetInstance =
+        from a in _context.Assets
+        where a.Id == assetId
+        select a;
+    // Reference the asset as an IAsset.
+    IAsset asset = assetInstance.FirstOrDefault();
+
     return asset;
-
-<p>
 }
-</code>
+</code></pre> 
 
-</pre>
-</p>
 Para listar todos os recursos disponíveis no servidor, você pode usar o método a seguir que itera pela coleção de ativos e exibe detalhes sobre cada ativo.
+<pre><code> 
+static void ListAssets()
+{
+    string waitMessage = "Building the list. This may take a few "
+        + "seconds to a few minutes depending on how many assets "
+        + "you have."
+        + Environment.NewLine + Environment.NewLine
+        + "Please wait..."
+        + Environment.NewLine;
+    Console.Write(waitMessage);
 
-    static void ListAssets(){ string waitMessage = "Building the list. This may take a few " + "seconds to a few minutes depending on how many assets " + "you have." + Environment.NewLine + Environment.NewLine + "Please wait..." + Environment.NewLine; Console.Write(waitMessage);
     // Create a Stringbuilder to store the list that we build. 
     StringBuilder builder = new StringBuilder();
 
@@ -46,28 +63,23 @@ Para listar todos os recursos disponíveis no servidor, você pode usar o métod
 
     // Display output in console.
     Console.Write(builder.ToString());
-
-<p>
 }
-</code>
-
-</pre>
+</code></pre>
 O trecho de código a seguir exclui todos os ativos da conta de Serviços de Mídia.
+<pre><code>
+foreach (IAsset asset in _context.Assets)
+{
+    asset.Delete();
+}
+</code></pre>
 
-    foreach (IAsset asset in _context.Assets){ asset.Delete();}
-
-</p>
 Para obter mais informações sobre como gerenciar ativos, consulte:
+<ul>
+<li><a href="http://msdn.microsoft.com/pt-br/library/jj129589.aspx">Gerenciar ativos com o SDK dos Serviços de Mídia para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/pt-br/library/jj129583.aspx">Gerenciar ativos com a API REST dos Serviços de Mídia</a></li></ul>
 
--   [Gerenciar ativos com o SDK dos Serviços de Mídia para .NET][Gerenciar ativos com o SDK dos Serviços de Mídia para .NET]
--   [Gerenciar ativos com a API REST dos Serviços de Mídia][Gerenciar ativos com a API REST dos Serviços de Mídia]
 
-</p>
-## Próximas etapas
+<h2>Próximas etapas</h2>
+Agora que você sabe como gerenciar ativos, visite o tópico[Como entregar um ativo por download](../media-services-deliver-asset-download/) .
 
-Agora que você sabe como gerenciar ativos, visite o tópico [Como entregar um ativo por download][Como entregar um ativo por download].
-
-  [Como: Proteger um ativo]: ../media-services-protect-asset/
-  [Gerenciar ativos com o SDK dos Serviços de Mídia para .NET]: http://msdn.microsoft.com/pt-br/library/jj129589.aspx
-  [Gerenciar ativos com a API REST dos Serviços de Mídia]: http://msdn.microsoft.com/pt-br/library/jj129583.aspx
-  [Como entregar um ativo por download]: ../media-services-deliver-asset-download/
+<!--HONumber=35_1-->

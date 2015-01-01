@@ -1,15 +1,15 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="Serviço .NET REST utilizando a API da Web - tutorial do Azure" metaKeywords="site de tutorial do Azure, site de API do ASP.NET, VS do Azure" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="REST service using Web API" pageTitle="Serviço REST .NET usando a API da Web API - Tutorial do Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="06/06/2014" ms.author="riande" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
 
 
 
 # Serviço REST usando a API Web ASP.NET e o Banco de Dados SQL 
 
-***Por [Rick Anderson](https://twitter.com/RickAndMSFT) e Tom Dykstra. Atualizado em março de 2014.***
+***Por [Rick Anderson](https://twitter.com/RickAndMSFT) e Tom Dykstra.***
 
-Este tutorial mostra como implantar um aplicativo Web ASP.NET em um site do Azure utilizando o assistente Publicar Web no Visual Studio 2013 ou no Visual Studio 2013 para Web Express. (Se você preferir utilizar o Visual Studio 2012, consulte [a versão anterior deste tutorial](/pt-br/develop/net/tutorials/get-started-vs2012/).)
+Este tutorial mostra como implantar um aplicativo Web ASP.NET em um site do Azure usando o assistente Publicar Web no Visual Studio 2013 ou no Visual Studio 2013 for Web Express. 
 
 É possível abrir uma conta do Azure gratuitamente e, se você ainda não tiver o Visual Studio 2013, o SDK instalará automaticamente o Visual Studio 2013 para o Web Express. Portanto, você pode começar a desenvolver para o Azure de maneira totalmente gratuita.
 
@@ -23,7 +23,7 @@ Você aprenderá a:
 * Como usar um banco de dados SQL para armazenar dados no Azure.
 * Como publicar atualizações de aplicativo no Azure.
 
-Você criará um aplicativo Web de lista de contatos simples que será criado no ASP.NET MVC 5 e que utilizará o ADO.NET Entity Framework para acesso ao banco de dados. A ilustração a seguir mostra o aplicativo concluído:
+Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET MVC 5 e que usa o ADO.NET Entity Framework para acesso ao banco de dados. A ilustração a seguir mostra o aplicativo concluído:
 
 ![screenshot of web site][intro001]
 Neste tutorial:
@@ -33,10 +33,10 @@ Neste tutorial:
 * [Criar um aplicativo ASP.NET MVC 5][createapplication]
 * [Implantar o aplicativo no Azure][deployapp1]
 * [Adicionar um banco de dados ao aplicativo][adddb]
-* [Adicionar um controlador e uma exibição para os dados][addcontroller]
-* [Adicionar uma interface de API Restful de Web ][addwebapi]
+* [Adicionar um controlador e uma visualização para os dados][addcontroller]
+* [Adicionar uma interface de API Web Restful][addwebapi]
 * [Adicionar proteção XSRF][]
-* [Publicar a atualização do aplicativo no Azure e no banco de dados SQL][deploy2]
+* [Publicar a atualização do aplicativo no Azure e no Banco de Dados SQL][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-get-started/ -->
@@ -52,35 +52,35 @@ A próxima etapa é criar o site do Azure e o banco de dados SQL que o aplicativ
 
 O seu site do Azure será executado em um ambiente de hospedagem compartilhado, o que significa que ele é executado em máquinas virtuais (VMs) compartilhadas com outros clientes do Azure. Um ambiente de hospedagem compartilhado é uma maneira de começar na nuvem a um baixo custo. Mais tarde, se seu tráfego da Web aumentar, o aplicativo poderá ser dimensionado para atender à necessidade executando em VMs dedicadas. Se precisar de uma arquitetura mais complexa, você poderá migrar para um Serviço de Nuvem do Azure. Os serviços de nuvem são executados em VMs dedicadas que podem ser configuradas de acordo com suas necessidades.
 
-O banco de dados SQL é um serviço de banco de dados relacional baseado em nuvem que é fundamentado em tecnologias do SQL Server. As ferramentas e os aplicativos que funcionam com o SQL Server também funcionam com o banco de dados SQL.
+O Banco de dados SQL é um serviço de banco de dados relacional baseado em nuvem que é fundamentado em tecnologias do SQL Server. As ferramentas e os aplicativos que funcionam com o SQL Server também funcionam com o Banco de Dados SQL.
 
-1. No [Portal de gerenciamento do Azure](https://manage.windowsazure.com), clique em **Sites** na guia à esquerda e, em seguida, clique em  **Novo**.
+1. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), clique em **Sites** na guia esquerda e depois clique em **Novo**.
 
 2. Clique em **CRIAÇÃO PERSONALIZADA**.
 
 	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
 
-	O assistente de **Novo site - Criação personalizada** é aberto. 
+	O assistente **Novo site - Criação personalizada** é aberta. 
 
-3. Na etapa **Novo Site** do assistente, insira uma cadeia de caracteres na caixa **URL** a ser utilizada como a URL exclusiva de seu aplicativo. A URL completa consistirá no que você digitar aqui mais o sufixo que você vê abaixo da caixa de texto. A ilustração mostra "contactmgr11", mas essa URL provavelmente já é utilizada e, portanto, é necessário escolher outra.
+3. Na etapa **Criar Site** do assistente, insira uma sequência de caracteres na caixa **URL** a ser usada como a URL exclusiva de seu aplicativo. A URL completa consistirá no que você digitar aqui mais o sufixo que você vê abaixo da caixa de texto.A ilustração mostra "contactmgr11", mas essa URL provavelmente já é utilizada e, portanto, você precisa escolher outra.
 
 1. Na lista suspensa **Região**, escolha a região mais próxima de você.
 
-1. Na lista suspensa **Banco de dados**, escolha **Criar um banco de dados SQL de 20 MB gratuito**.
+1. Na lista suspensa **Banco de Dados**, escolha **Criar um banco de dados SQL de 20 MB gratuito**.
 
 	![Create a New Website step of New Website - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
 
 6. Clique na seta que aponta para a direita na parte inferior da caixa.
 
-	O assistente avança para a etapa **Configurações do banco de dados**.
+	O assistente avança para a etapa **Configurações do Banco de Dados**.
 
 7. Na caixa **Nome**, digite *ContactDB*.
 
-8. Na caixa **Servidor**, selecione **Novo Servidor do Banco de Dados SQL**. Como alternativa, se tiver criado um banco de dados SQL Server, você poderá selecionar esse SQL Server no controle suspenso.
+8. Na caixa **Servidor**, selecione **Novo Servidor do Banco de Dados SQL**.Como alternativa, se tiver criado um banco de dados SQL Server, você poderá selecionar esse SQL Server no controle suspenso.
 
 9. Clique na seta que aponta para a direita na parte inferior da caixa.
 
-10. Insira o **NOME DE LOGON** e a **SENHA** de um administrador. Se selecionou **Novo servidor do Banco de Dados SQL**, você não irá digitar um nome e uma senha existentes aqui; digite um novo nome e uma senha que você está definindo agora para usar mais tarde ao acessar o banco de dados. Se você tiver selecionado um SQL Server criado anteriormente, será solicitada a senha para o nome da conta do SQL Server anterior que você criou. Neste tutorial, não selecionaremos a caixa **Avançado**. A caixa **Avançado** permite a definição do tamanho do banco de dados (o padrão é 1 GB, mas é possível aumentar esse tamanho para 150 GB) e do agrupamento.
+10. Insira o **NOME DE LOGON** e a **SENHA** de um administrador.  Se selecionou **Novo servidor do Banco de Dados SQL**, você não digitará um nome e uma senha existentes aqui; digite um novo nome e uma senha que você está definindo agora para usar mais tarde ao acessar o banco de dados.Se você tiver selecionado um SQL Server criado anteriormente, será solicitada a senha para o nome da conta do SQL Server anterior que você criou.Neste tutorial, não selecionaremos a caixa **Avançado**. A caixa **Avançado** permite que você defina o tamanho do banco de dados (o padrão é 1 GB, mas você pode aumentar esse tamanho para 150 GB) e o agrupamento.
 
 11. Clique na marca de seleção na parte inferior da caixa para indicar que você concluiu.
 
@@ -90,7 +90,7 @@ O banco de dados SQL é um serviço de banco de dados relacional baseado em nuve
 	
 	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
 
-	O Portal de Gerenciamento do Azure retorna para a página de Sites e a coluna **Status** mostra que o site está em criação. Depois de um tempo (normalmente menos de um minuto), a coluna **Status** mostra que o site foi criado com êxito. Na barra de navegação à esquerda, o número de sites presentes na sua conta é exibido próximo ao ícone **Sites**, enquanto o número de bancos de dados aparece ao lado do ícone **Bancos de dados SQL**.
+	O Portal de Gerenciamento do Azure retorna para a página Sites e a coluna **Status** mostra que o site está sendo criado. Depois de um tempo (normalmente menos de um minuto), a coluna **Status** mostra que o site foi criado com êxito. Na barra de navegação à esquerda, o número de sites presentes na sua conta é exibido próximo ao ícone **Sites**, enquanto o número de bancos de dados aparece ao lado do ícone **Bancos de Dados SQL**.
 
 <!-- [Websites page of Management Portal, website created][setup009] -->
 
@@ -102,19 +102,19 @@ Você criou um Site do Azure, mas ainda não há conteúdo nele. A próxima etap
 
 1. Inicie o Visual Studio 2013.
 1. No menu **Arquivo**, clique em **Novo Projeto**.
-3. Na caixa de diálogo **Novo Projeto**, expanda **Visual C#** e selecione **Web**, em seguida selecione **Aplicativo Web do ASP.NET MVC 5**. Mantenha o padrão **.NET Framework 4.5**. Nomeie o aplicativo **ContactManager** e clique em **OK**.
+3. Na caixa de diálogo **Novo Projeto**, expanda **Visual C#** e selecione **Web** e **Aplicativo Web MVC 5 do ASP.NET**. Mantenha o **.NET Framework 4.5** padrão. Nomeie o aplicativo **ContactManager** e clique em **OK**.
 	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
-1. Na caixa de diálogo **Novo projeto ASP.NET**, selecione o modelo **MVC**, marque **API Web** e clique em **Alterar autenticação**.
+1. Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo **MVC**, marque **API Web** e clique em **Alterar Autenticação**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
-1. Na caixa de diálogo **Alterar autenticação**, clique em **Sem autenticação** e, em seguida, clique em **OK**.
+1. Na caixa de diálogo **Alterar Autenticação**, clique em **Sem Autenticação** e em **OK**.
 
 	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
 	O aplicativo de exemplo que você está criando não possui recursos que exijam que os usuários façam logon. Para obter informações sobre como implementar recursos de autenticação e autorização, consulte a seção [Próximas etapas](#nextsteps) no final deste tutorial. 
 
-1. Na caixa de diálogo **Novo projeto ASP .NET**, clique em **OK**.
+1. Na caixa de diálogo **Novo Projeto ASP .NET**, clique em **OK**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
@@ -164,7 +164,7 @@ Você criou um Site do Azure, mas ainda não há conteúdo nele. A próxima etap
 		</body>
 		</html>
 			
-A marcação acima altera o nome do aplicativo de "My ASP.NET App" para "Contact Manager" e remove os links para a **Página inicial**, **Sobre** e **Contato**.
+A marcação acima altera o nome do aplicativo de "My ASP.NET App" para "Contact Manager" e remove os links para **Página Inicial, ****Sobre** e **Contato**.
 
 ### Executar o aplicativo localmente
 
@@ -172,7 +172,7 @@ A marcação acima altera o nome do aplicativo de "My ASP.NET App" para "Contact
 A home page do aplicativo é exibida no navegador padrão.
 	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
-Isso é tudo que necessita ser feito, por enquanto, para criar o aplicativo que você implantará no Azure. Posteriormente, você adicionará a funcionalidade do banco de dados.
+Isso é tudo o que você precisa fazer por enquanto para criar o aplicativo que você implantará no Azure. Posteriormente, você adicionará a funcionalidade do banco de dados.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Implantar o aplicativo no Azure</h2>
 
@@ -180,19 +180,19 @@ Isso é tudo que necessita ser feito, por enquanto, para criar o aplicativo que 
 
 	![Publish in project context menu][PublishVSSolution]
 
-	O assistente **Publicar Web** é aberto.
+	O assistente de **Publicar Web** é aberto.
 
 2. Na guia **Perfil** do assistente de **Publicar Web**, clique em **Importar**.
 
 	![Import publish settings][ImportPublishSettings]
 
-	A caixa de diálogo **Importar perfil de publicação** é aberta.
+	A caixa de diálogo **Importar Perfil de Publicação** é aberta.
 
- 3.	Selecione Importar de um Site do Azure. Você deverá primeiro entrar, se ainda não tiver feito isso. Clique em **Entrar**. Insira o usuário associado à assinatura e siga as etapas para entrar.
+ 3.	Selecione Importar de um Site do Azure. Você deverá primeiro entrar, se ainda não tiver feito isso. Clique em **Entrar**.Insira o usuário associado à assinatura e siga as etapas para entrar.
 
 	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
 
-	Selecione seu site na lista suspensa e clique em **OK**.
+	Selecione o site na lista suspensa e clique em **OK**.
 
 	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
 
@@ -208,11 +208,11 @@ Isso é tudo que necessita ser feito, por enquanto, para criar o aplicativo que 
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	É possível aceitar as configurações padrão nesta guia.  Você está implantando uma configuração de compilação de versão e não precisa excluir arquivos no servidor de destino, pré-compilar o aplicativo ou excluir arquivos na pasta App_Data. Se quiser depurar o site do Azure dinâmico, você precisará implantar uma configuração de depuração (e não de versão). Consulte a seção [Próximas etapas](#nextsteps) ao final deste tutorial.
+	Você pode aceitar as configurações padrão nesta guia.  Você está implantando uma configuração da compilação de versão e não precisa excluir arquivos no servidor de destino, pré-compilar o aplicativo ou excluir arquivos na pasta App_Data. Se quiser depurar o site do Azure dinâmico, você precisará implantar uma configuração de depuração (e não de versão). Consulte as [Próximas etapas](#nextsteps) no final deste tutorial.
 
 12. Na guia **Visualização**, clique em **Iniciar Visualização**.
 
-A guia exibe uma lista dos arquivos que serão copiados no servidor. A exibição da visualização não é obrigatória para publicar o aplicativo, mas é uma função reconhecidamente útil. Nesse caso, você não precisa fazer nada com a lista de arquivos exibida. Na próxima vez que você publicar, apenas os arquivos que foram alterados estarão na lista de visualização.
+	A guia exibe uma lista dos arquivos que serão copiados no servidor. A exibição da visualização não é obrigatória para publicar o aplicativo, mas é uma função reconhecidamente útil. Nesse caso, você não precisa fazer nada com a lista de arquivos exibida. Na próxima vez que você publicar, apenas os arquivos que foram alterados estarão na lista de visualização.
 
 	![StartPreview button in the Preview tab][firsdeploy009]
 
@@ -228,7 +228,7 @@ A guia exibe uma lista dos arquivos que serão copiados no servidor. A exibiçã
 
 <h2><a name="bkmk_addadatabase"></a>Adicionar um banco de dados ao aplicativo</h2>
 
-Em seguida, você atualizará o aplicativo MVC para adicionar a habilidade de exibir e atualizar contatos e armazenará os dados em um banco de dados. O aplicativo utilizará o Entity Framework para criar o banco de dados e ler e atualizar dados no banco de dados.
+Em seguida, você atualizará o aplicativo MVC para adicionar a habilidade de exibir e atualizar contatos e armazenar os dados em um banco de dados. O aplicativo usará o Entity Framework para criar o banco de dados e ler e atualizar dados no banco de dados.
 
 ### Adicionar classes de modelo de dados aos contatos
 
@@ -238,7 +238,7 @@ Você começa criando um modelo de dados simples no código.
 
 	![Add Class in Models folder context menu][adddb001]
 
-2. Na caixa de diálogo **Adicionar novo item**, nomeie o novo arquivo de classe *Contact.cs* e, em seguida, clique em **Adicionar**.
+2. Na caixa de diálogo **Adicionar Novo Item**, nomeie o novo arquivo de classe *Contact.cs* e depois clique em **Adicionar**.
 
 	![Add New Item dialog box][adddb002]
 
@@ -257,7 +257,7 @@ Você começa criando um modelo de dados simples no código.
 				public string Zip { get; set; }
 				public string Email { get; set; }
 				public string Twitter { get; set; }
-				Public string Self
+				public string Self
         		{
             		get { return string.Format(CultureInfo.CurrentCulture,
 				         "api/contacts/{0}", this.ContactId); }
@@ -266,13 +266,13 @@ Você começa criando um modelo de dados simples no código.
     		}
 		}
 
-A classe **Contatos** define os dados que você armazenará para cada contato, além de uma chave primária, ContactID, exigida pelo banco de dados. É possível obter mais informações sobre modelos de dados na seção [Próximas etapas](#nextsteps) no final deste tutorial.
+A classe **Contatos** define os dados que você armazenará para cada contato, além de uma chave primária, ContactID, exigida pelo banco de dados. É possível obter mais informações sobre modelos de dados em [Próximas etapas](#nextsteps) no final deste tutorial.
 
 ### Criar as páginas da web que permitem que os usuários do aplicativo trabalhem com os contatos
 
 No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código que executa as ações CRUD (criar, ler, atualizar e excluir).
 
-<h2><a name="bkmk_addcontroller"></a>Adicionar um controlador e uma exibição para os dados</h2>
+<h2><a name="bkmk_addcontroller"></a>Adicionar um controlador e uma visualização para os dados</h2>
 
 1. No **Gerenciador de Soluções**, expanda a pasta Controladores.
 
@@ -282,7 +282,7 @@ No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código qu
 
 	![Add Controller in Controllers folder context menu][addcode001]
 
-1. Na caixa de diálogo **Adicionar Scaffold**, selecione **Controlador MVC com exibições, utilizando o Entity Framework** e clique em **Adicionar**.
+1. Na caixa de diálogo **Adicionar Scaffold**, selecione **Controlador MVC com exibições, usando Entity Framework** e, clique em **Adicionar**.
 
  ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
@@ -290,15 +290,15 @@ No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código qu
 
 	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
-	Uma caixa de diálogo avisará: "Já existe um arquivo com o nome HomeController. Deseja substituí-lo?". Clique em **Sim**. Estamos substituindo o controlador inicial que foi criado com o novo projeto. Usaremos o novo controlador inicial para nossa lista de contatos.
+	Uma caixa de diálogo avisará:  "Já existe um arquivo com o nome HomeController. Deseja substituí-lo?". Clique em **Sim**.Estamos substituindo o controlador inicial que foi criado com o novo projeto.Usaremos o novo controlador inicial para nossa lista de contatos.
 
-	O Visual Studio cria métodos de controlador e modos de exibição para as operações de banco de dados CRUD para objetos **Contato**.
+	O Visual Studio cria métodos do controlador e modos de exibição para as operações de banco de dados CRUD para objetos **Contact**.
 
 ## Habilitar migrações, criar o banco de dados, adicionar dados de exemplo e um inicializador de dados ##
 
-A próxima tarefa é habilitar o recurso [Code First Migrations](http://curah.microsoft.com/55220) para criar o banco de dados com base no modelo de dados criado.
+A próxima tarefa é habilitar o modelo [Primeiras migrações de código](http://curah.microsoft.com/55220) para criar o banco de dados com base no modelo de dados criado.
 
-1. No menu **Ferramentas**, selecione **Gerenciador de pacotes da biblioteca** e, em seguida, **Console do Gerenciador de pacotes**.
+1. No menu **Ferramentas**, selecione **Gerenciador de Pacotes da Biblioteca** e **Console do Gerenciador de Pacotes**.
 
 	![Package Manager Console in Tools menu][addcode008]
 
@@ -306,23 +306,23 @@ A próxima tarefa é habilitar o recurso [Code First Migrations](http://curah.mi
 
 		enable-migrations 
   
-O comando **enable-migrations** cria a pasta *Migrações* e coloca nessa pasta um arquivo *Configuration.cs* que pode ser editado para configurar Migrações. 
+	O comando **enable-migrations** cria a pasta *Migrações* e coloca nessa pasta um arquivo *Configuration.cs*, que pode ser editado para configurar Migrações. 
 
 2. Na janela **Console do Gerenciador de Pacotes**, digite o seguinte comando:
 
 		add-migration Initial
 
-	O comando **add-migration Initial** gera uma classe denominada **&lt;date_stamp&gt;Initial** que cria o banco de dados. O primeiro parâmetro ( *Initial* ) é arbitrário e é utilizado para criar o nome do arquivo. Você pode ver os novos arquivos de classe no **Gerenciador de Soluções**.
+	O comando **add-migration Initial** gera uma classe denominada **<date_stamp>Initial**, que cria o banco de dados. O primeiro parâmetro (*Initial*) é arbitrário e é usado para criar o nome do arquivo.Você pode ver os novos arquivos de classe no **Gerenciador de Soluções**.
 
-	Na classe **Initial**, o método **Up** cria a tabela Contatos e o método **Down** (utilizado quando você deseja retornar ao estado anterior) a descarta.
+	Na classe **Initial**, o método **Up** cria a tabela Contatos, e o método **Down** (usado quando você deseja retornar ao estado anterior) a descarta.
 
 3. Abra o arquivo *Migrations\Configuration.cs*. 
 
-4. Adicione os namespaces a seguir. 
+4. Adicione os seguintes namespaces. 
 
     	 using ContactManager.Models;
 
-5. Substitua o método *Seed* por este código:
+5. Substitua o método *Seed* pelo seguinte código:
 		
         protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
@@ -380,7 +380,7 @@ O comando **enable-migrations** cria a pasta *Migrações* e coloca nessa pasta 
                 );
         }
 
-	O código acima inicializa o banco de dados com as informações de contato. Para obter mais informações sobre a propagação do banco de dados, consulte [Depurando BDs do Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	O código acima inicializa o banco de dados com as informações de contato. Para obter mais informações sobre a propagação do banco de dados, consulte [Depurando BDs do Entity Framework (EF) (a página pode estar em inglês)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
 1. No **Console do Gerenciador de Pacotes**, insira o comando:
@@ -389,7 +389,7 @@ O comando **enable-migrations** cria a pasta *Migrações* e coloca nessa pasta 
 
 	![Package Manager Console commands][addcode009]
 
-O **update-database** executa a primeira migração que cria o banco de dados. Por padrão, o banco de dados é criado como um banco de dados LocalDB do SQL Server Express.
+	O **update-database** executa a primeira migração que cria o banco de dados.Por padrão, o banco de dados é criado como um banco de dados LocalDB do SQL Server Express.
 
 1. Pressione CTRL+F5 para executar o aplicativo. 
 
@@ -399,7 +399,7 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 
 <h2><a name="bkmk_addview"></a>Editar a exibição</h2>
 
-1. Abra o arquivo *Views\Home\Index.cshtml*. Na próxima etapa, substituiremos a marcação gerada pelo código que usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Esse novo código recupera a lista de contatos do uso da API Web e do JSON e em seguida associa os dados de contato à interface do usuário usando knockout.js. Para obter mais informações, consulte a seção [Próximas etapas](#nextsteps) ao final deste tutorial. 
+1. Abra o arquivo *Views\Home\Index.cshtml*. Na próxima etapa, substituiremos a marcação gerada pelo código que usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Esse novo código recupera a lista de contatos do uso da API Web e do JSON e associa os dados de contato à interface do usuário usando knockout.js. Para obter mais informações, consulte a seção [Próximas etapas](#nextsteps) no final deste tutorial. 
 
 
 2. Substitua o conteúdo do arquivo pelo código a seguir.
@@ -480,7 +480,7 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 		                <input type="text" name="Zip" />
 		            </li>
 		            <li>
-		                <label for="Email">Email</label>
+		                <label for="Email">E-mail</label>
 		                <input type="text" name="Email" />
 		            </li>
 		            <li>
@@ -492,14 +492,14 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 		    </fieldset>
 		</form>
 
-3. Clique com o botão direito do mouse na pasta Conteúdo e clique em **Adicionar** e, em seguida, clique em **Novo item...**.
+3. Clique com o botão direito do mouse na pasta Conteúdo e clique em **Adicionar** e em **Novo Item...**.
 
 	![Add style sheet in Content folder context menu][addcode005]
 
-4. Na caixa de diálogo **Adicionar novo item**, insira **Estilo** na caixa de pesquisa na parte superior direita e selecione **Folha de estilos**.
+4. Na caixa de diálogo **Adicionar Novo Item**, insira **Estilo** na caixa de pesquisa na parte superior direita e selecione **Folha de Estilos**.
 	![Add New Item dialog box][rxStyle]
 
-5. Nomeie o arquivo *Contacts.css* e clique em **Adicionar**. Substitua o conteúdo do arquivo pelo código a seguir.
+5. Nomeie o arquivo *Contacts.css* e clique em **Adicionar**.Substitua o conteúdo do arquivo pelo código a seguir.
     
         .column {
             float: left;
@@ -560,18 +560,18 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 6. Abra o arquivo *App_Start\BundleConfig.cs*.
 
 
-7. Adicione o código a seguir para registrar o plug-in [Knockout](http://knockoutjs.com/index.html "KO").
+7. Adicione o código a seguir para registrar o plug-in [Knockout](http://knockoutjs.com/index.html "KO") .
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-{version}.js"));
 	Este exemplo usa o knockout para simplificar o código JavaScript dinâmico que lida com os modelos de tela.
 
-8. Modifique a entrada contents/css para registrar a folha de estilos *contacts.css*. Altere a linha a seguir:
+8. Modifique a entrada contents/css para registrar a folha de estilos de *contacts.css*. Altere a linha a seguir:
 
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-Para:
+To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -586,7 +586,7 @@ Para:
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta Controladores e clique em **Adicionar** e em **Controlador....** 
 
-1. Na caixa de diálogo **Adicionar Scaffold**, insira **Controlador da API 2 da Web com ações, utilizando o Entity Framework** e, em seguida, clique em **Adicionar**.
+1. Na caixa de diálogo **Adicionar Scaffold**, insira **Controlador API 2 Web com ações, usando Entity Framework** e clique em **Adicionar**.
 
 	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
@@ -600,7 +600,7 @@ Para:
 
 	![Index page][intro001]
 
-2. Insira um contato e clique em **Adicionar**. O aplicativo retorna para a home page e exibe o contato que você inseriu.
+2. Insira um contato e clique em **Adicionar**.O aplicativo retorna para a home page e exibe o contato que você inseriu.
 
 	![Index page with to-do list items][addwebapi004]
 
@@ -618,21 +618,21 @@ Para:
 	
 	Você pode abrir os contatos retornados no bloco de notas ou em um navegador.
 	
-	Essa saída pode ser consumida por outro aplicativo, como um aplicativo ou uma página da web móvel.
+	Essa saída pode ser consumida por outro aplicativo, como um aplicativo ou uma página da Web móvel.
 
 	![Web API save dialog][addwebapi007]
 
-	**Aviso de segurança**: Neste momento, o aplicativo é inseguro e vulnerável a ataques CSRF. Mais à frente no tutorial, removeremos essa vulnerabilidade. Para obter mais informações, consulte [Evitando ataques de solicitação intersite forjada (CSRF)][prevent-csrf-attacks].
+	**Aviso de segurança**: Neste momento, o aplicativo é inseguro e vulnerável a ataques CSRF. Mais à frente no tutorial, removeremos essa vulnerabilidade.Para obter mais informações, consulte [Evitando ataques de solicitação intersite forjada (CSRF)][prevent-csrf-attacks].
 
 <h2><a name="xsrf"></a>Adicionar proteção XSRF</h2>
 
-A solicitação forjada entre sites (também conhecida como XSRF ou CSRF) é um ataque contra aplicativos hospedados na Web, no qual um site mal-intencionado pode influenciar a interação entre um navegador cliente e um site confiável para esse navegador. Esses ataques são possibilitados porque os navegadores da web enviarão tokens de autenticação automaticamente com cada solicitação para um site. O exemplo canônico é um cookie de autenticação, como o tíquete de autenticação de formulários do ASP.NET. No entanto, os sites que utilizam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser direcionados por esses ataques.
+A solicitação entre sites forjada (também conhecida como XSRF ou CSRF) é um ataque contra aplicativos web hospedados, no qual um site mal-intencionado pode influenciar a interação entre um navegador cliente e um site confiável para esse navegador. Esses ataques são possibilitados porque os navegadores da web enviarão tokens de autenticação automaticamente com cada solicitação para um site. O exemplo canônico é um cookie de autenticação, como o tíquete de autenticação de formulários do ASP.NET. No entanto, os sites que usam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser direcionados por esses ataques.
 
 Um ataque XSRF é diferente de um ataque de phishing. Os ataques de phishing exigem a interação da vítima. Em um ataque de phishing, um site mal-intencionado imita o site de destino e a vítima é levada a fornecer informações confidenciais ao invasor. Em um ataque XSRF, normalmente não é necessária nenhuma interação da vítima. Em vez disso, o invasor conta com que o navegador envie automaticamente todos os cookies relevantes ao site de destino.
 
-Para obter mais informações, consulte o [Abrir o projeto de segurança do aplicativo Web](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Para obter mais informações, consulte o [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **ContactManager** e clique em **Adicionar** e, em seguida, clique em **Classe**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **ContactManager** e clique em **Adicionar** e em **Classe**.
 
 2. Nomeie o arquivo como *ValidateHttpAntiForgeryTokenAttribute.cs* e adicione o seguinte código:
 
@@ -704,7 +704,7 @@ Para obter mais informações, consulte o [Abrir o projeto de segurança do apli
             }
         }
 
-1. Adicione a instrução *using* a seguir ao controlador de contratos, de forma que você tenha acesso ao atributo **[ValidateHttpAntiForgeryToken]**.
+1. Adicione a instrução *using* a seguir ao controlador de contratos, de forma que você tenha acesso ao atributo **[[ValidateHttpAntiForgeryToken]]**.
 
 	using ContactManager.Filters;
 
@@ -714,7 +714,7 @@ Para obter mais informações, consulte o [Abrir o projeto de segurança do apli
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. Atualize a seção *Scripts* do arquivo *Views\Home\Index.cshtml* para incluir o código para obtenção de tokens XSRF.
+1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -730,15 +730,15 @@ Para obter mais informações, consulte o [Abrir o projeto de segurança do apli
 
                function ContactsViewModel() {
                   var self = this;
-		            self.contacts = ko.observableArray([]);
+                  self.contacts = ko.observableArray([]);
                   self.addContact = function () {
 
                      $.ajax({
-		                    type: "post",
-		                    url: "api/contacts",
+                        type: "post",
+                        url: "api/contacts",
                         data: $("#addContact").serialize(),
                         dataType: "json",
-		                    success: function (value) {
+                        success: function (value) {
                            self.contacts.push(value);
                         },
                         headers: {
@@ -749,9 +749,9 @@ Para obter mais informações, consulte o [Abrir o projeto de segurança do apli
                   }
                   self.removeContact = function (contact) {
                      $.ajax({
-		                    type: "DELETE",
-		                    url: contact.Self,
-		                    success: function () {
+                        type: "DELETE",
+                        url: contact.Self,
+                        success: function () {
                            self.contacts.remove(contact);
                         },
                         headers: {
@@ -784,18 +784,18 @@ Para publicar o aplicativo, repita o procedimento seguido anteriormente.
 
 	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
-7. Marque a caixa de seleção **Executar Code First Migrations (executado na inicialização do aplicativo)**.
+7. Marque a caixa de seleção de **Executar Codificar Migrações Iniciais (executado na inicialização do aplicativo)**.
 
-1. Clique em **Avançar** e em **Visualizar**. O Visual Studio exibe uma lista dos arquivos que serão adicionados ou atualizados.
+1. Clique em **Avançar** e em **Visualizar**.O Visual Studio exibe uma lista dos arquivos que serão adicionados ou atualizados.
 
 8. Clique em **Publicar**.
 Depois que a implantação for concluída, o navegador será aberto na home page do aplicativo.
 
 	![Index page with no contacts][intro001]
 
-	O processo de publicação do Visual Studio configurou automaticamente a cadeia de conexão no arquivo *Web.confi* implantado para apontar para o banco de dados SQL. Ele também configurou Code First Migrations para atualizar automaticamente o banco de dados para a versão mais recente na primeira vez em que o aplicativo acessar o banco de dados após a implantação.
+	O processo de publicação do Visual Studio configurou automaticamente a cadeia de conexão no arquivo *Web.config* implantado para apontar para o banco de dados SQL. Ele também configurou Codificar Migrações Iniciais para atualizar automaticamente o banco de dados para a versão mais recente na primeira vez em que o aplicativo acessar o banco de dados após a implantação.
 
-	Como resultado dessa configuração, o Code First criou o banco de dados executando o código na classe **Initial** que você criou anteriormente. Ele fez isso na primeira vez que o aplicativo tentou acessar o banco de dados após a implantação.
+	Como resultado dessa configuração, o Código Primeiro criou o banco de dados executando o código na classe **Initial** que você criou anteriormente.Ele fez isso na primeira vez que o aplicativo tentou acessar o banco de dados após a implantação.
 
 9. Insira um contato como quando você executou o aplicativo localmente para verificar se a implantação do banco de dados teve êxito.
 
@@ -803,23 +803,23 @@ Ao ver que o item inserido foi salvo e exibido na página do gerenciador de cont
 
 ![Index page with contacts][addwebapi004]
 
-O aplicativo agora está sendo executado na nuvem, utilizando o banco de dados SQL para armazenar seus dados. Depois de concluir o teste do aplicativo no Azure, exclua-o. O aplicativo é público e não tem um mecanismo para limitar o acesso.
+O aplicativo agora está sendo executado na nuvem, usando o Banco de dados SQL para armazenar seus dados. Depois de concluir o teste do aplicativo no Azure, exclua-o. O aplicativo é público e não tem um mecanismo para limitar o acesso.
 
 <h2><a name="nextsteps"></a>Próximas etapas</h2>
 
-Um aplicativo real exigiria autenticação e autorização e você utilizaria esse banco de dados de associação para essa finalidade. O tutorial [Implantar um aplicativo de segurança ASP.NET MVC com OAuth, Associação e banco de dados SQL](http://www.windowsazure.com/pt-br/develop/net/tutorials/web-site-with-sql-database/) é baseado neste tutorial e mostra como implantar um aplicativo Web com o banco de dados de associação.
+Um aplicativo real exigiria autenticação e autorização, e você usaria esse banco de dados de associação para essa finalidade. O tutorial [Implantar um aplicativo ASP.NET MVC seguro com OAuth, associação e banco de dados SQL](http://www.windowsazure.com/pt-br/develop/net/tutorials/web-site-with-sql-database/) é baseado nesse tutorial e mostra como implantar um aplicativo Web com o banco de dados de associação.
 
-Outra maneira de armazenar dados em um aplicativo do Azure é utilizar o armazenamento do Azure, que fornece armazenamento de dados não relacionais na forma de blobs e tabelas. Os links a seguir fornecem mais informações sobre a API da Web, o ASP.NET MVC e o Microsoft Azure.
+Outra maneira de armazenar dados em um aplicativo do Azure é usar o Armazenamento do Azure, que fornece armazenamento de dados não relacionais na forma de blobs e tabelas. Os links a seguir fornecem mais informações sobre a API Web, o ASP.NET MVC e o Microsoft Azure.
  
 
-* [Introdução ao Entity Framework utilizando MVC][EFCodeFirstMVCTutorial]
+* [Introdução ao Entity Framework usando MVC][EFCodeFirstMVCTutorial]
 * [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Sua primeira API Web ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Depurando WAWS](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
-Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) com a assistência de Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) com assistência de Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
-Deixe comentários sobre o que você gostou ou sobre o que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quanto há de interesse em mais automação para o processo de configuração e implantação de banco de dados de associação. 
+Deixe comentários sobre o que você gostou ou do que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quanto há de interesse em mais automação para o processo de configuração e implantação de banco de dados de associação. 
 
 <!-- bookmarks -->
 [Adicionar um provedor de OAuth]: #addOauth
@@ -879,12 +879,14 @@ Deixe comentários sobre o que você gostou ou sobre o que você gostaria de ver
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Adicionar proteção XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Adicionar proteção XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+
+<!--HONumber=35_1-->
