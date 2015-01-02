@@ -16,7 +16,7 @@
 
   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	Isso exibe o Assistente de **Associar o Aplicativo à Windows Store**.
+   	Isso exibe o Assistente de **Associar o Aplicativo à Windows Store**.
 
 5. No assistente, clique em **Entrar** e, em seguida, faça logon com sua conta da Microsoft.
 
