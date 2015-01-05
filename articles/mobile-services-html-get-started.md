@@ -155,4 +155,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client
 [Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn155871.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

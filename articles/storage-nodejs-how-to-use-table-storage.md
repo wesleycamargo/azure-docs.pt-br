@@ -436,4 +436,4 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Aplicativo Web Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

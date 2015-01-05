@@ -27,4 +27,4 @@ Após criar uma máquina virtual, é uma boa ideia incluir um disco de dados par
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

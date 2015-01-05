@@ -132,4 +132,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -221,4 +221,4 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Fl
 [Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Projetos de serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

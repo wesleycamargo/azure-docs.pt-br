@@ -291,4 +291,4 @@ Para obter mais informações, consulte [Visual Studio Online](http://go.microso
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

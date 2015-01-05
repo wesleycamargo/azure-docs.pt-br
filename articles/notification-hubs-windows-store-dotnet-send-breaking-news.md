@@ -235,4 +235,4 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -199,4 +199,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

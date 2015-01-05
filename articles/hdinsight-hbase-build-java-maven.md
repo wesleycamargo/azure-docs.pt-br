@@ -568,4 +568,4 @@ Substitua __hdinsightclustername__ pelo nome de seu cluster HDInsight.
 
 Use o parâmetro `-showErr` para exibir o STDERR produzido durante a execução do trabalho.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

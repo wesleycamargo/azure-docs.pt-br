@@ -448,4 +448,4 @@ Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a[Docum
   [Desenvolvimento de cliente dos Serviços de Mídia]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223283.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

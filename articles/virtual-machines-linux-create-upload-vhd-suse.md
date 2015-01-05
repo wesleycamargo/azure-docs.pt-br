@@ -191,4 +191,4 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

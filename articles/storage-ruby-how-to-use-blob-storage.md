@@ -149,4 +149,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 -   Visite o[ Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Visite o repositório[SDK do Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

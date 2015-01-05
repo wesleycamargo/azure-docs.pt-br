@@ -29,4 +29,4 @@ Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

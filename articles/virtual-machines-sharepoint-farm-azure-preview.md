@@ -68,4 +68,4 @@ Para criar o seu farm do SharePoint com o SharePoint Farm, faça o seguinte:
 O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/).
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

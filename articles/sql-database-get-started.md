@@ -680,4 +680,4 @@ Existem outros métodos para mover um banco de dados local para o Banco de Dados
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

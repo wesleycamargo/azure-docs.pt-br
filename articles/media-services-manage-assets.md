@@ -82,4 +82,4 @@ Para obter mais informações sobre como gerenciar ativos, consulte:
 <h2>Próximas etapas</h2>
 Agora que você sabe como gerenciar ativos, visite o tópico[Como entregar um ativo por download](../media-services-deliver-asset-download/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

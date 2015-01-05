@@ -155,4 +155,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/pt-br/library/windowsazure/hh343262.aspx).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

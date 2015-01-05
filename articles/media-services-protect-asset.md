@@ -116,4 +116,4 @@ Para obter mais informações sobre a Proteção do PlayReady, consulte:
 <h2>Próximas etapas</h2>
 Agora que você sabe como proteger ativos com os Serviços de Mídia, visite o tópico [Como gerenciar ativos](../media-services-manage-assets/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

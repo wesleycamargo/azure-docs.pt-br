@@ -110,4 +110,4 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -873,4 +873,4 @@ Agora, você compreende como carregar arquivos para o armazenamento de Blob, com
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

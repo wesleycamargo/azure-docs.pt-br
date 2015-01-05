@@ -199,4 +199,4 @@ A biblioteca cliente do .NET dos Serviços Móveis fornece suporte para os aplic
 [Criando aplicativos universais do Windows para todos os dispositivos Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Projeto de aplicativo universal do Windows para os Serviços Móveis do Azure usando MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

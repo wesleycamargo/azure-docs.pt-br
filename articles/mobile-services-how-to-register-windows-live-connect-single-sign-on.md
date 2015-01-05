@@ -81,4 +81,4 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 [JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

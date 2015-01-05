@@ -678,4 +678,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 
 [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

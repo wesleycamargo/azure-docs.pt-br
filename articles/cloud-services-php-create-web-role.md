@@ -219,4 +219,4 @@ Para publicar seu aplicativo, você precisa primeiro importar suas configuraçõ
 [Como: Importar configurações de publicação]: /pt-br/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Como: Implantar um serviço de nuvem no Azure]: /pt-br/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -387,4 +387,4 @@ Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga e
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

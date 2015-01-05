@@ -523,4 +523,4 @@ Uma implantação bem-sucedida do SharePoint Server nas Máquinas Virtuais do Az
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

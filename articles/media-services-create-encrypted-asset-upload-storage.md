@@ -122,4 +122,4 @@ Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico[Co
 
 [Como obter um processador de mídia]: ../media-services-get-media-processor/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

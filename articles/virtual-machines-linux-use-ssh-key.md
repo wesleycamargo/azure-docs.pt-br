@@ -137,4 +137,4 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -127,4 +127,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Portal de Gerenciamento anterior]: ../../Shared/Media/previous-portal.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

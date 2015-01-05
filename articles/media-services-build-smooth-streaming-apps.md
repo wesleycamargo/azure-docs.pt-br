@@ -994,4 +994,4 @@ Você concluiu a lição 4.  Nesta lição, você adicionará a funcionalidade d
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -767,4 +767,4 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/pt-br/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/pt-br/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

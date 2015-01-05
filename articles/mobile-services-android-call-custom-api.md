@@ -60,4 +60,4 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo Android
 
 [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

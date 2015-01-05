@@ -99,4 +99,4 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

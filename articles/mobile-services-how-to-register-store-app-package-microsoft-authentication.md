@@ -24,4 +24,4 @@ Depois de registrar seu pacote do aplicativo, lembre-se de fornecer um valor <st
 [Introdução aos usuários de C#]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Introdução aos usuários de JavaScript ]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -343,4 +343,4 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -161,4 +161,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
 
 Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e filas do barramento de serviço do Azure discutidas no artigo [Como usar filas do Barramento de Serviço](/pt-br/develop/ruby/how-to-guides/service-bus-queues/) , consulte [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

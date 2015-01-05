@@ -188,4 +188,4 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando o Twilio
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/pt-br/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

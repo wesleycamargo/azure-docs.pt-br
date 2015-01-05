@@ -230,4 +230,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Referência de API para [SqlFilter](http://msdn.microsoft.com/pt-br/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 -	Visite o repositório[SDK do Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

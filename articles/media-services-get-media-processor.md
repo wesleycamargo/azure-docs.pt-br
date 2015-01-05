@@ -73,4 +73,4 @@ Agora que você sabe como obter uma instância do processador de mídia, vá par
 [Cadeias de caracteres de predefinição de tarefa do Codificador de Mídia do Azure]: http://msdn.microsoft.com/pt-br/library/jj129582.aspx
 [Como: Conectar aos Serviços de Mídia de modo programático]: ../media-services-set-up-computer/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

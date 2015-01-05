@@ -73,4 +73,4 @@ Para obter mais informações sobre como fornecer ativos, consulte:
 <h2>Próximas etapas</h2>
 Este tópico explicou como baixar um ativo do Armazenamento do Azure. Para obter informações sobre outras maneiras de entregar ativos, vá para o tópico [Como entregar conteúdo de streaming](../media-services-deliver-streaming-content/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

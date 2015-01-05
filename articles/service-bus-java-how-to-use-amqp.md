@@ -349,4 +349,4 @@ Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagen
 * [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx)
 * [Como usar filas do Barramento de Serviço](http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

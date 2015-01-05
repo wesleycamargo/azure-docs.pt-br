@@ -99,4 +99,4 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 [Modelos]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Instruções de Hub de Notificação para a Windows Store]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

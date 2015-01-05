@@ -601,4 +601,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a te
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

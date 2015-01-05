@@ -110,4 +110,4 @@ Agora que você aprendeu como configurar o PHP nos Sites do Azure, siga os links
 [Configurar, monitorar e dimensionar seus sites no Azure]: http://www.windowsazure.com/pt-br/manage/services/web-sites/
 [Baixar o SDK do Azure para PHP]: http://www.windowsazure.com/pt-br/develop/php/common-tasks/download-php-sdk/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

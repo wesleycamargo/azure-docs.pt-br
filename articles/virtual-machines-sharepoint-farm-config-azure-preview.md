@@ -106,4 +106,4 @@ Aqui estão os detalhes da configuração:
 	-	Senha do farm do SharePoint: Especificada durante a configuração inicial.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -23,4 +23,4 @@ Depois de testar o aplicativo cliente no serviço móvel local, o estágio final
 	Quando a publicação for bem-sucedida, você verá novamente a página de confirmação de que o serviço móvel está ativo e em execução, desta vez no Azure.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

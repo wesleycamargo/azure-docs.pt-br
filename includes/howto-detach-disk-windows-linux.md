@@ -48,4 +48,4 @@ O disco permanece no armazenamento mas não esteja conectado a uma máquina virt
 [Sobre discos e imagens]:http://go.microsoft.com/fwlink/p/?LinkId=263439
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

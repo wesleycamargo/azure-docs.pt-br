@@ -102,4 +102,4 @@ Se o valor do tamanho do arquivo não for atualizado depois que o processo de ca
 [codificador]: ./media/media-services-manage-content/EncoderDialog2.png
 [marcas]: ./media/branding-reporting.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

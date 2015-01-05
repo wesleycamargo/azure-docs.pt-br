@@ -51,4 +51,4 @@ As métricas são armazenadas na conta de armazenamento em quatro tabelas intitu
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

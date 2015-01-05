@@ -73,4 +73,4 @@ Para obter instruções passo a passo sobre como criar uma credencial do SQL Ser
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

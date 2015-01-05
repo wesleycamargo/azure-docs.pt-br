@@ -19,4 +19,4 @@ Se um deles for exibido, a versão do SDK do Android instalado no Eclipse poder�
 	
 3. No Gerenciador de Pacotes do Eclipse, clique com o botão direito do mouse no nó do projeto, escolha **Propriedades** e, na coluna à esquerda, escolha **Android**. Verifique se a opção **Destino da Compilação do Projeto** está definida como a mesma versão do SDK que o **targetSdkVersion**.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

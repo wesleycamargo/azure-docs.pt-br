@@ -280,4 +280,4 @@ Saiba como fazer [análise de sentimento ](http://en.wikipedia.org/wiki/Sentimen
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

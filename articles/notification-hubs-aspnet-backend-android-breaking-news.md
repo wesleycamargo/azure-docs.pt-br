@@ -317,4 +317,4 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

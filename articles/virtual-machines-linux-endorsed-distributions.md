@@ -104,4 +104,4 @@ A tabela também inclui um link para o [Patch de compatibilidade do kernel Linux
 </table>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -98,4 +98,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 
 3. Clique em **Sim** para confirmar que deseja excluir a conta de armazenamento.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

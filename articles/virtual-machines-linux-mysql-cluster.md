@@ -333,4 +333,4 @@ As seguintes limitações se aplicam:
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

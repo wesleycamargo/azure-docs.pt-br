@@ -71,4 +71,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

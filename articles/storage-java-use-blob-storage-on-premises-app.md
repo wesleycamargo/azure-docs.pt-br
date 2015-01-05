@@ -371,4 +371,4 @@ Para obter uma visão geral de outras classes e outros métodos de armazenamento
   [Como gerenciar contas de armazenamento]: http://www.windowsazure.com/pt-br/manage/services/storage/how-to-manage-a-storage-account/
   [Como usar o serviço de armazenamento de blobs com Java]: http://www.windowsazure.com/pt-br/develop/java/how-to-guides/blob-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

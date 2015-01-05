@@ -709,4 +709,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 
 [apache-hive]: http://hive.apache.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

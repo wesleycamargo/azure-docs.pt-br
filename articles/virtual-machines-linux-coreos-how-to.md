@@ -206,4 +206,4 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Deste ponto, voc
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

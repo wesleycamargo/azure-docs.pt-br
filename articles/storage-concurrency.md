@@ -267,4 +267,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 - Arquitetura de armazenamento - [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

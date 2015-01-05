@@ -78,4 +78,4 @@ Para obter mais informações sobre como fornecer ativos, consulte:
 <h2>Próximas etapas</h2>
 Até agora, explicamos como fornecer mídia baixando do Armazenamento do Azure e usando o Smooth Streaming. O próximo tópico [Como entregar conteúdo HLS ](../media-services-deliver-http-live-streaming-content/) discute como entregar conteúdo de streaming usando o HLS (HTTP Live Streaming) da Apple.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

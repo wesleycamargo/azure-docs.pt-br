@@ -116,4 +116,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução à autenticação]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Introdução às notificações por push]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

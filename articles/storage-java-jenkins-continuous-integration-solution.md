@@ -167,4 +167,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [Conheça Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

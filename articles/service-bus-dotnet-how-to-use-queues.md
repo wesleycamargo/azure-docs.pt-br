@@ -238,4 +238,4 @@ links para saber mais.
   [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
   [Tutorial do Sistema de mensagens agenciado .NET do Barramento de Serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367512.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

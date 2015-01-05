@@ -204,4 +204,4 @@ Agora que você aprendeu como usar o Giraph com o HDInsight, experimente o [Pig]
 [pig]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-use-pig/
 [hive]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-use-hive/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -17,4 +17,4 @@ Uma máquina virtual *personalizada* é simplesmente a uma máquina virtual que 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

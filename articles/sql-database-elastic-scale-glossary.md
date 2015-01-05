@@ -66,4 +66,4 @@ Os termos a seguir são definidos para o recurso de Escala Elástica do Banco de
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -93,4 +93,4 @@ Para abrir um tíquete de suporte, faça o seguinte:
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

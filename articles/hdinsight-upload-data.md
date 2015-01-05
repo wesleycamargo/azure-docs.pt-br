@@ -295,4 +295,4 @@ Agora que você compreende como obter dados no HDInsight, use os seguintes artig
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

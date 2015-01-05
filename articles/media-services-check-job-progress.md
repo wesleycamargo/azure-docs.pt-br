@@ -90,4 +90,4 @@ private static string JobIdAsFileName(string jobID)
 <h2>Próximas etapas</h2>
 Agora que você sabe como criar um trabalho e acompanhar seu andamento, a próxima etapa é proteger os ativos. Para obter mais informações, consulte [Como proteger um ativo com os Serviços de Mídia do Azure](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

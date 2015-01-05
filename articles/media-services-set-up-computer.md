@@ -70,4 +70,4 @@ Agora que você configurou seu computador e criou uma solução do Visual Studio
 [Como criar uma conta de Serviços de Mídia]: ../media-services-create-account/
 [Como criar um ativo criptografado e carregar no armazenamento]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

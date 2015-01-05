@@ -303,4 +303,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	No Azure você pode executar aplicativos Web nos Sites, conforme mostrado neste tutorial ou em serviços de nuvem ou máquinas virtuais. Para obter mais informações, consulte [Modelos de execução do Azure](/pt-br/develop/net/fundamentals/compute/) e [sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?](/pt-br/manage/services/web-sites/choose-web-app-service/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

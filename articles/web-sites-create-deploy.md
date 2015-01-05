@@ -52,4 +52,4 @@ Os sites são excluídos usando o ícone **Excluir** no Portal de Gerenciamento 
 
 Para obter mais informações, consulte [Sites do Azure](/pt-br/documentation/services/web-sites/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -397,4 +397,4 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
   [Aplicativo Web do Node.js]: http://www.windowsazure.com/pt-br/develop/nodejs/tutorials/getting-started/
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

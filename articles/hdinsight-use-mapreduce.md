@@ -233,4 +233,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

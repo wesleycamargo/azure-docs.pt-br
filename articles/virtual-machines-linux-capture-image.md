@@ -56,4 +56,4 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

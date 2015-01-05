@@ -42,4 +42,4 @@ Agora que a autenticação é obrigatória para acessar dados na tabela TodoItem
 
 6. Republique o projeto de serviço móvel no Azure.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

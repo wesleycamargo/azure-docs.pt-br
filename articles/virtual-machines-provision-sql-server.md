@@ -389,4 +389,4 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 [Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

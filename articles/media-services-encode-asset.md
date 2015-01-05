@@ -166,4 +166,4 @@ Agora que você sabe como criar um trabalho para codificar um ativo, vá para o 
 [Como verificar o andamento do trabalho]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Predefinição de tarefa para o Empacotador de Mídia do Azure]:http://msdn.microsoft.com/pt-br/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

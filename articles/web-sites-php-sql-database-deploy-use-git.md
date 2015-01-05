@@ -287,4 +287,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [sql-database-editions]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee621788.aspx
 [where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -147,4 +147,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 > Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte "Como: Acessar dados do monitoramento detalhado fora do Portal de Gerenciamento" em <a href="http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-how-to-monitor/">Como monitorar serviços de nuvem</a>.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

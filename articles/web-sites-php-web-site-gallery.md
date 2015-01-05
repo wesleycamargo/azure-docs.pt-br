@@ -16,4 +16,4 @@ Você aprendeu como criar e implantar um site da galeria. Para saber mais sobre 
 - [Mais tutoriais PHP](/pt-br/develop/php/tutorials/) - Crie tipos adicionais de aplicativos usando PHP e Azure
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

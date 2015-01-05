@@ -645,4 +645,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 
   [89e2276a]: /pt-br/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

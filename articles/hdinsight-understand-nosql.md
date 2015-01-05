@@ -28,4 +28,4 @@ A tecnologia relacional tem sido a abordagem dominante para trabalhar com dados.
 
 **Baixar:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Arquivo de PDF "Compreendendo o NoSQL no Microsoft Azure"</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -195,4 +195,4 @@ Next steps here....
 [Como instalar ferramentas da linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -245,4 +245,4 @@ Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de
 [Amostra de wrapper de REST PHP ]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Tutorial de introdução]: http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

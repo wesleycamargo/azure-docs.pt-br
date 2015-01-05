@@ -181,4 +181,4 @@ Este tutorial mostrou como criar e configurar um aplicativo de locatário único
 [ASP.NET MVC 3]: http://www.microsoft.com/pt-br/download/details.aspx?id=4211
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

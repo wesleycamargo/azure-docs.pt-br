@@ -209,4 +209,4 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [Armazenamento do Azure]: http://azure.microsoft.com/pt-br/documentation/services/storage/
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

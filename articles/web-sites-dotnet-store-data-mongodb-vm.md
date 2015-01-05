@@ -516,4 +516,4 @@ Você já implantou o aplicativo do ASP.NET com êxito em um site do Azure.  Par
 [Criar um site do Azure]: #createwebsite
 [Implantar o aplicativo do ASP.NET no site usando Git]: #deployapp
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

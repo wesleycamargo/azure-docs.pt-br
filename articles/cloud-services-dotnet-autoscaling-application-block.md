@@ -401,4 +401,4 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com o dimensionamento automático no Azure]: http://msdn.microsoft.com/pt-br/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

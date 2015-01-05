@@ -9,4 +9,4 @@ Este tópico não tem mais suporte; um projeto autônomo da Windows Store não e
 
 Para obter instruções sobre como adicionar Serviços Móveis a um aplicativo da Windows Store existente, consulte [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -284,4 +284,4 @@ Consulte a sessão [Enviar trabalhos do MapReduce](#mapreduce) neste artigo.
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

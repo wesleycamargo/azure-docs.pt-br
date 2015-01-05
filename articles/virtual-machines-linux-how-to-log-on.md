@@ -39,4 +39,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->
