@@ -53,7 +53,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
   	Isso adiciona uma referência ao Live SDK ao projeto.
 
-3. Abra o arquivo de projeto default.html e adicione o seguinte elemento <script> no elemento <head>. 
+3. Abra o arquivo de projeto default.html e adicione o seguinte elemento &lt;script&gt; no elemento &lt;head&gt;. 
 
         <script src="///LiveSDKHTML/js/wl.js"></script>
 
