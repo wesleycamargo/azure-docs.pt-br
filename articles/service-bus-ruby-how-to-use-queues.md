@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do barramento de serviço (Ruby) - Azure" metaKeywords="filas do barramento de serviço do Azure, filas do Azure, sistema de mensagens do Azure, filas do Azure em Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do barramento de serviço (Ruby) - Azure" metaKeywords="filas do barramento de serviço do Azure, filas do Azure, sistema de mensagens do Azure, filas do Azure em Ruby" description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 

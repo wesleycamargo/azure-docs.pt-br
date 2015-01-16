@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Enviar notificações por push aos usuários (iOS) | Mobile Dev Center" metaKeywords="deprecated" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Enviar notificações por push aos usuários (iOS) | Mobile Dev Center" metaKeywords="deprecated" description="Aprenda a usar os serviços móveis para enviar notificações por push aos usuários do seu aplicativo iOS." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/07/2014" ms.author="krisragh" />
 

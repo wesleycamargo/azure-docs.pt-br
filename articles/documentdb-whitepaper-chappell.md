@@ -1,4 +1,4 @@
-﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="White paper de Banco de Dados de Documentos por David Chappell | Azure" description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
+﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="White paper de Banco de Dados de Documentos por David Chappell | Azure" description="Baixe um white paper de David Chappell com descrição do Banco de Dados de Documentos, um banco de dados NoSQL gerenciado no Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
 

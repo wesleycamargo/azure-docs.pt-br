@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Notification Hubs" pageTitle="Notificações por push do Hubs de Notificação do Azure" metaKeywords=", hubs de notificação do Azure, mensagens do Azure" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
+﻿<properties urlDisplayName="Azure Notification Hubs" pageTitle="Notificações por push do Hubs de Notificação do Azure" metaKeywords=", hubs de notificação do Azure, mensagens do Azure" description="Saiba como usar notificações por push no Azure. Exemplos de códigos escritos em c# usando a API do .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

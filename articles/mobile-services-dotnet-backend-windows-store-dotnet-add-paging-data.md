@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Refinar consultas de Serviços Móveis com paginação (Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Refinar consultas de Serviços Móveis com paginação (Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornados ao seu aplicativo da Windows Store dos serviços móveis." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
 

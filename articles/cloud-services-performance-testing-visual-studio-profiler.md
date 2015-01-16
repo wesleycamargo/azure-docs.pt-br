@@ -1,4 +1,4 @@
-﻿<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Criando um perfil de serviço de nuvem localmente no emulador de computação" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="kempb" manager="douge" />
+﻿<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Criando um perfil de serviço de nuvem localmente no emulador de computação" metakeywords="" footerexpose="" description=""umbraconavihide ="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="kempb" manager="douge" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 

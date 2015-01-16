@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Scripts de servidor de armazenamento no controle do código-fonte - Serviços Móveis do Azure" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
+﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Scripts de servidor de armazenamento no controle do código-fonte - Serviços Móveis do Azure" metaKeywords="" description="Saiba como usar o complemento New Relic para monitorar seu serviço móvel." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 

@@ -1,5 +1,5 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="Usando dados offline nos Serviços Móveis (Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
-Usando exclusão reversível nos Serviços Móveis (Windows Store) | Centro de desenvolvimento móvel
+<properties urlDisplayName="Using Offline Data" pageTitle="Usando dados offline nos Serviços Móveis (Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no seu aplicativo da Windows Store" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
+
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
 # Usando sincronização de dados offline em Serviços Móveis

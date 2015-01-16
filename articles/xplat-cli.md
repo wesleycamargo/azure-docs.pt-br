@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="A interface de linha de comando entre plataformas do Azure" title ="A interface de linha de comando entre plataformas do Azure"metaKeywords ="interface de linha de comando entre plataformas do Azure, linha de comando do Azure, linha de comando do azure, cli do azure" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/pt-br/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
+<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="A interface de linha de comando entre plataformas do Azure" title ="A interface de linha de comando entre plataformas do Azure"metaKeywords ="interface de linha de comando entre plataformas do Azure, linha de comando do Azure, linha de comando do azure, cli do azure" description="Instale e configure a interface de linha de comando entre plataformas do Azure para gerenciar os serviços do Azure" metaCanonical="http://www.windowsazure.com/pt-br/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
@@ -6,7 +6,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/manage/install-and-configure-windows-powershell/" title="PowerShell">CLI de plataforma cruzada do</a><a href="/pt-br/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">PowerShell</a></div>
 
-	A interface de linha de comando entre plataformas do Azure (xplat-cli) oferece um conjunto de comandos entre plataformas, de software livre, para o trabalho com a plataforma Azure. A xplat-cli oferece praticamente a mesma funcionalidade encontrada no Portal de Gerenciamento do Azure, como a capacidade de gerenciar sites, máquinas virtuais, serviços móveis, Banco de Dados SQL e outros serviços fornecidos pela plataforma Azure.
+A interface de linha de comando entre plataformas do Azure (xplat-cli) oferece um conjunto de comandos entre plataformas, de software livre, para o trabalho com a plataforma Azure. A xplat-cli oferece praticamente a mesma funcionalidade encontrada no Portal de Gerenciamento do Azure, como a capacidade de gerenciar sites, máquinas virtuais, serviços móveis, Banco de Dados SQL e outros serviços fornecidos pela plataforma Azure.
 
 A xplat-cli é escrita em JavaScript e requer o Node.js. Ela é implementada usando o SDK do Azure para Node.js e liberada sob uma licença do Apache 2.0. O repositório do projeto está localizado em [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
@@ -387,8 +387,8 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 
 
 
-[instalador do Mac]: http://go.microsoft.com/fwlink/?LinkId=252249
-[instalador do Windows]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
+[mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
+[windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [authandsub]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Site do Azure]: ../media/freetrial.png

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="View ACS SAML" pageTitle="Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="View ACS SAML" pageTitle="Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)" metaKeywords="" description="Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

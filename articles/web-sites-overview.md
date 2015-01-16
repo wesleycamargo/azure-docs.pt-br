@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Quais são os sites" metaKeywords="Sites do Azure, implantação do Azure, alterações de configuração do Azure, atualização de implantação do Azure, implantação do .NET do Azure, implantação do .NET do Azure" description="Learn how to configure Websites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
+﻿<properties umbracoNaviHide="0" pageTitle="Quais são os sites" metaKeywords="Sites do Azure, implantação do Azure, alterações de configuração do Azure, atualização de implantação do Azure, implantação do .NET do Azure, implantação do .NET do Azure" description="Saiba como configurar sites no Azure para usar um banco de dados SQL ou MySQL e saiba como configurar diagnósticos e baixar logs." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin" />
 

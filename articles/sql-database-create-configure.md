@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Como criar e configurar um banco de dados SQL do Azure - tutorial do Azure" metaKeywords="Criar banco de dados SQL do Azure, Configurar o banco de dados SQL do Azure" description="How to create and configure an Azure SQL Database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Como criar e configurar um banco de dados SQL do Azure - tutorial do Azure" metaKeywords="Criar banco de dados SQL do Azure, Configurar o banco de dados SQL do Azure" description="Como criar e configurar um banco de dados SQL do Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 

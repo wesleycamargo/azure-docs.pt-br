@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Android Client Library" pageTitle="Trabalhando com a Biblioteca de Cliente Android para Serviços Móveis" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Android Client Library" pageTitle="Trabalhando com a Biblioteca de Cliente Android para Serviços Móveis" metaKeywords="" description="Saiba como usar um cliente Android para os serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal" />
 

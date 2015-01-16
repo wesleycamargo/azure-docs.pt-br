@@ -1,4 +1,4 @@
-﻿<properties title="Sample Web Services Built with R on Azure ML and Published to Marketplace" pageTitle="Exemplo de serviços Web criados com R no AM do Azure e publicados no Marketplace | Azure" description="Sample Web Services Built with R on Azure ML and Published to Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Sample Web Services Built with R on Azure ML and Published to Marketplace" pageTitle="Exemplo de serviços Web criados com R no AM do Azure e publicados no Marketplace | Azure" description="Exemplo de serviços Web criados com R no AM do Azure e publicados no Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
 

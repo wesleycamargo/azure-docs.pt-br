@@ -1,4 +1,4 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos | Azure" description="Saiba como você pode dimensionar elasticamente o Banco de Dados de Documentos para atender às necessidades de armazenamento e desempenho do seu aplicativo." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Recursos recomendados de WebJobs do Azure"metaKeywords ="WebJobs do Azure, SDK de WebJobs do Azure, armazenamento do Azure, filas do Azure, tabelas do Azure, barramento de serviço do Azure" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties pageTitle="Recursos recomendados de WebJobs do Azure"metaKeywords ="WebJobs do Azure, SDK de WebJobs do Azure, armazenamento do Azure, filas do Azure, tabelas do Azure, barramento de serviço do Azure" description="Recursos recomendados para aprender a usar os WebJobs do Azure e o SDK WebJobs do Azure." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra" />
 

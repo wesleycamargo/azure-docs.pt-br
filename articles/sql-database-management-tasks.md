@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Como gerenciar o Banco de Dados SQL" metaKeywords="banco de dados SQL do Azure, banco de dados SQL, gerenciar o banco de dados sql, adicionar logons, conectar-se ao banco de dados sql" description="Learn how to manage Azure SQL database." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+﻿<properties umbracoNaviHide="0" pageTitle="Como gerenciar o Banco de Dados SQL" metaKeywords="banco de dados SQL do Azure, banco de dados SQL, gerenciar o banco de dados sql, adicionar logons, conectar-se ao banco de dados sql" description="Saiba como gerenciar o banco de dados SQL do Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 

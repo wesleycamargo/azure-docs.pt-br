@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de HTML 5" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de HTML 5" metaKeywords="" description="Siga este tutorial para começar a usar o os Serviços Móveis do Azure para desenvolvimento de HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 

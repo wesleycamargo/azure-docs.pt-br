@@ -1,6 +1,10 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configurar SSL para uma função de trabalho de serviço de nuvem (Node.js)" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+
+
+
+
 
 # Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure
 
@@ -9,17 +13,17 @@ proteger dados enviados pela Internet. Essa tarefa comum aborda como
 especificar um ponto de extremidade HTTPS para um aplicativo Node.js hospedado como uma Serviço de Nuvem do Azure em uma função de trabalho.
 
 <div class="dev-callout">
-    <b>Observa&ccedil;&atilde;o</b>
-    <p>As etapas deste artigo se aplicam somente a aplicativos de n&oacute; hospedados como um Servi&ccedil;o de Nuvem do Azure em uma fun&ccedil;&atilde;o de trabalho.</p>
-    </div>
+<b>Observa&ccedil;&atilde;o</b>
+<p>As etapas deste artigo se aplicam somente a aplicativos de n&oacute; hospedados como um Servi&ccedil;o de Nuvem do Azure em uma fun&ccedil;&atilde;o de trabalho.</p>
+</div>
 
 Esta tarefa inclui as seguintes etapas:
 
--   [Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem][Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem]
--   [Etapa 2: Obter um certificado SSL][Etapa 2: Obter um certificado SSL]
--   [Etapa 3: Modificar o aplicativo para usar o certificado SSL][Etapa 3: Modificar o aplicativo para usar o certificado SSL]
--   [Etapa 4: Modificar o arquivo de definição do serviço][Etapa 4: Modificar o arquivo de definição do serviço]
--   [Etapa 5: Conectar-se à Instância da Função usando HTTPS][Etapa 5: Conectar-se à Instância da Função usando HTTPS]
+-   [Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem](#step1)
+-   [Etapa 2: Obter um certificado SSL](#step2)
+-   [Etapa 3: Modificar o aplicativo para usar o certificado SSL](#step3)
+-   [Etapa 4: Modificar o arquivo de definição do serviço](#step4)
+-   [Etapa 5: Conectar-se à Instância da Função usando HTTPS](#step5)
 
 ## <a name="step1"> </a>Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem
 
@@ -154,11 +158,6 @@ conectar-se a ela usando HTTPS.
 
 [Como configurar um certificado SSL em um ponto de extremidade HTTPS][Como configurar um certificado SSL em um ponto de extremidade HTTPS]
 
-  [Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem]: #step1
-  [Etapa 2: Obter um certificado SSL]: #step2
-  [Etapa 3: Modificar o aplicativo para usar o certificado SSL]: #step3
-  [Etapa 4: Modificar o arquivo de definição do serviço]: #step4
-  [Etapa 5: Conectar-se à Instância da Função usando HTTPS]: #step5
   [Ícone PowerShell do Azure]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
   [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png

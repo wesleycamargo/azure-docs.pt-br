@@ -1,4 +1,4 @@
-﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Acompanhe métricas e eventos de uso em seu aplicativo Web com o Application Insights" description="Insert a few lines of code to find out what users are doing with your website." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Acompanhe métricas e eventos de uso em seu aplicativo Web com o Application Insights" description="Insira algumas linhas de código para descobrir o que os usuários estão fazendo com o seu site." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
  
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-01" ms.author="awills" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Como depurar sites do Azure no Node.js" metaKeywords="depurar site azure, depuração azure, solução de problemas do site do azure, solução de problemas do nó do site do azure" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Como depurar sites do Azure no Node.js" metaKeywords="depurar site azure, depuração azure, solução de problemas do site do azure, solução de problemas do nó do site do azure" description="Aprenda como depurar um site do Azure no Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

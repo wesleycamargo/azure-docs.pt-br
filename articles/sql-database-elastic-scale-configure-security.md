@@ -1,4 +1,4 @@
-﻿<properties title="Elastic Scale Security Configurations" pageTitle="Configurações de segurança de dimensionamento Elástico" description="Security for Split-Merge services using Elastic Scale for Azure SQL Database" metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Elastic Scale Security Configurations" pageTitle="Configurações de segurança de dimensionamento Elástico" description="Segurança para serviços de mesclagem de divisão usando a escala elástica para banco de dados SQL do Azure" metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorar e gerenciar o Data Factory do Azure utilizando o PowerShell do Azure" description="Learn how to use Azure PowerShell to monitor and manage Azure data factories you have created." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorar e gerenciar o Data Factory do Azure utilizando o PowerShell do Azure" description="Aprenda a usar o Azure PowerShell para monitorar e gerenciar fábricas de dados do Azure que você criou." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

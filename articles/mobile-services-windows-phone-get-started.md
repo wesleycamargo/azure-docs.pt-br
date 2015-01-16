@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de Windows Phone" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de Windows Phone" metaKeywords="" description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento do Windows Phone. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="glenga" />
 

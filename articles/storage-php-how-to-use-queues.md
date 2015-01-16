@@ -1,4 +1,4 @@
-﻿<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="Como usar o serviço Fila (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
+﻿<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="Como usar o serviço Fila (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos escritos em PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 

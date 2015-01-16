@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Usar scripts de servidor para validar dados (Windows Phone) | Centro de desenvolvimento móvel" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Validate Data" pageTitle="Usar scripts de servidor para validar dados (Windows Phone) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo do Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

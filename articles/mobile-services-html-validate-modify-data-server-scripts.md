@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Usar scripts de servidor para validar e modificar dados (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Usar scripts de servidor para validar e modificar dados (HTML 5) | Mobile Dev Center" metaKeywords="" description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

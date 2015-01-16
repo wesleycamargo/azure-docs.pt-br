@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Use Serviços Móveis para carregar dados para o armazenamento de blob (iOS) | Serviços Móveis" metaKeywords="" description="Learn how to use Mobile Services to upload data to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
+﻿<properties pageTitle="Use Serviços Móveis para carregar dados para o armazenamento de blob (iOS) | Serviços Móveis" metaKeywords="" description="Saiba como usar os Serviços Móveis para carregar dados para o Armazenamento de Blob Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
 

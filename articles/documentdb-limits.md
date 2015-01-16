@@ -1,4 +1,4 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="Limites da versão de teste do Banco de Dados de Documentos | Azure" description="Learn about the limits and quota enforcements of DocumentDB for the preview release." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="DocumentDB limits for the preview release" pageTitle="Limites da versão de teste do Banco de Dados de Documentos | Azure" description="Saiba mais sobre os limites e imposições de cota do Banco de Dados de Documentos para a versão de visualização." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

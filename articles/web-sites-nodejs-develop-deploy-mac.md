@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website" pageTitle="Criar um site do Node.js no Mac - tutoriais do Azure" metaKeywords="nó do site de criação do Azure, nó do site de implantação do Azure, Node.js do site, site do nó" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website" pageTitle="Criar um site do Node.js no Mac - tutoriais do Azure" metaKeywords="nó do site de criação do Azure, nó do site de implantação do Azure, Node.js do site, site do nó" description="Aprenda a criar e implantar um site do Node.js no Azure. Código de exemplo é escrito em Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

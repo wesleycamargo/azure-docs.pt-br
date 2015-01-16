@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Monitorar uma conta do Serviços de Mídia - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="Monitorar uma conta do Serviços de Mídia - Azure" metaKeywords="" description="Descreve como configurar o monitoramento de sua conta de Serviços de Mídia no Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
@@ -47,7 +47,7 @@ As métricas são armazenadas na conta de armazenamento em quatro tabelas intitu
 
 
 <!-- Images -->
-[]: ./media/media-services-monitor-services-account/media-services-dashboard.png
+[dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 

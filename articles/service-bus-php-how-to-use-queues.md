@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do Barramento de Serviço (PHP) - Azure" metaKeywords="filas do Barramento de Serviço do Azure, filas do Azure, sistema de mensagens do Azure, filas do Azure em PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do Barramento de Serviço (PHP) - Azure" metaKeywords="filas do Barramento de Serviço do Azure, filas do Azure, sistema de mensagens do Azure, filas do Azure em PHP" description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 

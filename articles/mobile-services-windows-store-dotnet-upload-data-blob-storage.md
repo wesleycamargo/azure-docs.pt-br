@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Usar Serviços Móveis para carregar dados no Blob Storage (Windows Store)| Serviços Móveis" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usar Serviços Móveis para carregar dados no Blob Storage (Windows Store)| Serviços Móveis" metaKeywords="" description="Aprenda a usar os serviços móveis para carregar imagens no armazenamento de Blob do Azure e acessar as imagens do seu aplicativo da Windows Store." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

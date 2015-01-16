@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Criar e usar um SAS com o serviço Blob | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="" pageTitle="Criar e usar um SAS com o serviço Blob | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore a geração e o uso de assinaturas de acesso compartilhado com o serviço Blob" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

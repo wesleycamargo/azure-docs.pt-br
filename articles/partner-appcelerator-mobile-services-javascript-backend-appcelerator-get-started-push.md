@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução às notificações por push (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introdução às notificações por push (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
