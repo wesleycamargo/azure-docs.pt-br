@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR-LIST (Plataforma | Back-end)]
+﻿> [AZURE.SELECTOR-LIST (Plataforma | Back-end)]
 - [(iOS | .NET)](/pt-br/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/)
 - [(iOS | JavaScript)](/pt-br/documentation/articles/mobile-services-ios-call-custom-api/)
 - [(Windows Store C# | .NET)](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/)
