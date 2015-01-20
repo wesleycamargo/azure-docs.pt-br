@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Get Started with Authentication (iOS)" pageTitle="Introdução à autenticação (iOS) | Mobile Dev Center" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services iOS" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Authentication (iOS)" pageTitle="Introdução à autenticação (iOS) | Centro de Desenvolvimento M móvel" metaKeywords="aplicativo de registro do Azure, autenticação do Azure, aplicativo autenticar, autenticar serviços móveis, Serviços Móveis iOS" description="Aprenda como usar os Serviços Móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
-# Adicionar autenticação ao aplicativo de Serviços Móveis
+# Adicionar autenticação ao seu aplicativo de Serviços Móveis
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo iOS.  Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade ao qual os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.  
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure do seu aplicativo iOS.  Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.  
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
@@ -15,7 +15,7 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 3. [Adicionar autenticação ao aplicativo]
 4. [Armazenando tokens de autenticação no seu aplicativo]
 
-Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
 
 Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões posteriores.
 
@@ -23,15 +23,15 @@ Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões 
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a> Restringir permissões a usuários autenticados
+##<a name="permissions"></a> Restringir as permissões aos usuários autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
-<li><p>No Xcode, abra o projeto criado quando você concluiu o tutorial <a href="/pt-br/documentation/articles/mobile-services-ios-get-started">Introdução aos Serviços Móveis</a>.</p></li>
-<li><p>Pressione o botão <strong>Executar</strong> para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.<p>
+<li><p>No Xcode, abra o projeto que você criou quando concluiu o tutorial <a href="/pt-br/documentation/articles/mobile-services-ios-get-started">Introdução aos Serviços Móveis</a>.</p></li>
+<li><p>Pressione o <strong>Execute</strong> botão Executar para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.<p>
 
-   	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
+   	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a <em>TodoItem</em> tabela agora exige autenticação.</p></li>
 </ol>
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
@@ -46,7 +46,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Autorizar usuários com scripts], você obterá o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e o usará para filtrar os dados retornados pelos Serviços Móveis.
+No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Authorize users with scripts], você usará o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis.
 
 <!-- Anchors. -->
 [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
@@ -86,3 +86,5 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

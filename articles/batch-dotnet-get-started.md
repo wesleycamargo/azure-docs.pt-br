@@ -1,6 +1,6 @@
 ﻿<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Introdução à Biblioteca do Azure Batch para .NET" description="obrigatório" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/02/2014" ms.author="yidingz, karran.batta" />
+<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, karran.batta" />
 
 #Introdução à Biblioteca do Azure Batch para .NET  
 
@@ -19,11 +19,11 @@ Este tutorial mostra a você como criar um aplicativo de console que configura a
 
 >[WACOM.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://www.windowsazure.com/pt-br/pricing/free-trial/). 
 >
->Você precisa usar o NuGet para obter o assembly **Microsoft.Azure.Batch.dll**. Depois de criar seu projeto no Visual Studio, clique com botão direito no projeto pelo **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por **Azure.Batch** e em seguida clique em Instalar para instalar o pacote Armazenamento do Azure e as dependências.
+>Você precisa usar o NuGet para obter o assembly **Microsoft.Azure.Batch.dll**. Depois de criar seu projeto no Visual Studio, clique com botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por **Azure.Batch** e, em seguida, clique em Instalar para instalar o pacote Azure Batch e as dependências.
 >
 >Certifique-se de que sua versão do Gerenciador de Pacotes do Nuget é a 2.8 ou posterior. Você pode encontrar o número de versão em Visual Studio -> "Ajuda" -> caixa de diálogo "Sobre o Microsoft Visual Studio". Se você tiver uma versão mais antiga do Gerenciador de Pacotes do Nuget, você precisa atualizar o Visual Studio ou talvez tenha problemas para baixar a versão correta das dependências do Nuget.
 > 
->Além disso, você pode consultar o [exemplo de Hello World do Azure Batch](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) no MSDN para um exemplo similar ao código discutido aqui.
+>Além disso, você pode consultar o [exemplo do Hello World do Azure Batch](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) no MSDN para obter um exemplo similar ao código discutido aqui.
 
 
 
@@ -37,7 +37,7 @@ O serviço Batch é usado para o agendamento de computação distribuída e dime
 -	**Item de trabalho** - especifica como a computação é realizada em máquinas virtuais de tarefa em um pool.
 -	**Trabalho** - uma instância em execução de um item de trabalho e que consiste em um conjunto de tarefas.
 -	**Tarefa** - um aplicativo que está associado a um trabalho e é executado em uma máquina virtual de tarefa.
--	**Arquivo** - contém as informações que são processadas por uma tarefa.  
+-	**Arquivo** - contém as informações que são processadas por uma tarefa.
 
 Vamos começar com o uso mais básico.
 
@@ -49,7 +49,7 @@ Um pool de máquinas virtuais de tarefa é o primeiro conjunto de recursos que v
 
 1.	Abra o Microsoft Visual Studio 2013 e, no menu **Arquivo**, clique em **Novo**, depois clique em **Projeto**.
 
-2.	No **Windows**, no **Visual C#**, clique em **Aplicativo de Console**, nomeie o projeto como **Introdução**, nomeie a solução como **AzureBatch** e, por fim, clique em **OK**.
+2.	No**Windows**, em **Visual C#**, clique em **Aplicativo de Console**, nomeie o projeto **GettingStarted**, nomeie a solução **AzureBatch**e, em seguida, clique em **OK**.
 
 3.	Adicione as seguintes declarações de namespace ao topo de Program.cs:
 
@@ -67,15 +67,15 @@ Um pool de máquinas virtuais de tarefa é o primeiro conjunto de recursos que v
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
 	Substitua os seguintes valores:
-	-	**[nome-do-pool]** - o nome que você deseja usar para o pool.
-	-	**[nome-da-conta-do-batch]** - o nome da conta do Batch.
-	-	**[chave-da-conta-de-batch]** - a chave fornecida a você para a conta do Batch.
+	-	**[name-of-pool]** - o nome que você deseja usar para o pool.
+	-	**[name-of-batch-account]** - o nome da conta do Batch.
+	-	**[key-of-batch-account]** - a chave fornecida a você para a conta do Batch.
 5.	Adicione a Main o seguinte código, que define as credenciais a usar:
 
-		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
+		Credenciais BatchCredentials = novo BatchCredentials(AccountName, AccountKey);
 6.	Adicione a Main o seguinte código, para criar o cliente que é usado para executar operações:
 
-		IBatchClient client = BatchClient.Connect(Uri, cred);
+		Cliente IBatchClient = BatchClient.Connect (URI, credenciais).
 7.	Adicione a Main o seguinte código, que cria o pool se ele não existir:
 
 		using (IPoolManager pm = client.OpenPoolManager())
@@ -286,7 +286,7 @@ Você usará o seguinte fluxo de trabalho básico ao criar um cenário computaci
 Exibimos as etapas n.º 3 a 6. Vejamos como preparar o armazenamento do Azure para executar a tarefa.
 
 ####Obtendo a conta de armazenamento
-Você precisará de uma conta de armazenamento para continuar a completar o restante deste tutorial. Se você não souber como fazer isso, consulte [Criar uma conta de armazenamento do Azure](#tutorial1_storage).
+Você precisará de uma conta de armazenamento para continuar a completar o restante deste tutorial. Se você não souber como fazer isso, consulte [Criar uma conta de armazenamento do Azure].(#tutorial1_storage).
 
 ####Carregando dados
 
@@ -296,17 +296,17 @@ Você precisará de uma conta de armazenamento para continuar a completar o rest
 
 3. Crie três arquivos de texto (taskdata1.txt, taskdata2.txt, taskdata3.txt), com cada um deles contendo um dos parágrafos a seguir, então carregue-os no contêiner:
 
-		You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs. From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server. Or, you can capture and use your own images to create customized virtual machines.
+		Você poderá usar as Máquinas Virtuais do Azure para provisionar a infraestrutura de computação dimensionável por demanda quando precisar de recursos flexíveis para suas necessidades comerciais. Na galeria, é possível criar máquinas virtuais que executam aplicativos Windows, Linux e corporativos, como o SharePoint e o SQL Server. Ou você pode capturar e usar suas próprias imagens para criar máquinas virtuais personalizadas.
 		
-		Quickly deploy and manage powerful applications and services with Azure Cloud Services. Simply upload your application and Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability. Your application is backed by an industry leading 99.95% monthly SLA. You just focus on the application and not the infrastructure.
+		Implante e gerencie rapidamente aplicativos e serviços poderosos com os serviços de nuvem do Azure. Basta carregar seu aplicativo e o Azure lidará com os detalhes da implantação, desde o provisionamento e o balanceamento de carga até o monitoramento para fornecer disponibilidade contínua. Seu aplicativo é garantido por um Contrato de Nível de Serviço mensal de 99,95% líder do setor. Mantenha seu foco no aplicativo, não na infraestrutura.
 		
-		Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications. Select from a range of frameworks and templates to create a web site in seconds. Use any tool or OS to develop your site with .NET, PHP, Node.js or Python. Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team. Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.
+		Os Sites do Azure oferecem um ambiente dimensionável, confiável e de fácil utilização para hospedagem de aplicativos Web. Selecione de um intervalo de estruturas e modelos para criar um site em segundos. Use qualquer ferramenta ou sistema operacional para desenvolver seu site com .NET, PHP, Node.js ou Python. Escolha de uma variedade de opções de controle de fonte, incluindo TFS, GitHub e BitBucket para configurar a integração contínua e o desenvolvimento como uma equipe. Expanda sua funcionalidade de site com o tempo aproveitando outros serviços gerenciados do Azure, como armazenamento, CDN e Banco de Dados SQL.
 
 
 >[WACOM.NOTE] Em um ambiente de produção, é recomendável que você use uma assinatura de acesso compartilhado.
 
 
->[WACOM.NOTE] Equipe de armazenamento do Azure tem uma [postagem de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx), listando os gerenciadores de armazenamento do Azure que podem ajudar no carregamento de arquivos.
+>[WACOM.NOTE] A equipe de Armazenamento do Azure tem uma [postagem de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx), listando os gerenciadores de Armazenamento do Azure que podem ajudar no carregamento de arquivos.
 
 
 
@@ -316,7 +316,7 @@ Você precisará de uma conta de armazenamento para continuar a completar o rest
 
 		private const string BlobPath = "[storage-path]"; 
 	Substitua os seguintes valores:
-	-	**[storage-path]** - o caminho para o blob no armazenamento. Por exemplo: http://yiding.blob.core.windows.net/gettingstarted/
+	-	**[storage-path]** - o caminho para o blob no armazenamento. Por exemplo,: http://yiding.blob.core.windows.net/gettingstarted/
 
 2. Atualize o código de envio de tarefa como demonstrado a seguir.
 
@@ -398,10 +398,10 @@ Antes de poder executar o código apresentado neste tutorial, você deve ter ace
 1.	Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/).
 2.	Na parte inferior do painel de navegação, clique em **NOVO**.  
 ![][1]
-3.	Clique em **SERVIÇOS DE DADOS**, depois em **ARMAZENAMENTO** e, por fim, clique em **CRIAÇÃO RÁPIDA**.
+3.	Clique em **SERVIÇOS DE DADOS**, **ARMAZENAMENTO** e em **CRIAÇÃO RÁPIDA**.
 ![][2]
 
-4.	Em **URL**, digite um nome de subdomínio a ser usado no URI para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse valor torna-se o nome de host no URI que é usado para lidar com os recursos de Blob, Fila ou Tabela da assinatura em questão.
+4.	Na **URL**, digite um nome de subdomínio a ser usado na URI para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse valor torna-se o nome de host no URI que é usado para lidar com os recursos de Blob, Fila ou Tabela da assinatura em questão.
 5.	Escolha um **GRUPO DE REGIÃO/AFINIDADE** no qual deseja localizar o armazenamento.
 6.	Opcionalmente, você pode habilitar a replicação geográfica.
 7.	Clique em **CRIAR CONTA DE ARMAZENAMENTO**.  
@@ -416,7 +416,7 @@ Batch Apps é um recurso do Azure Batch que oferece um modo, centrado em aplicat
 
 No cenário do Batch Apps, você escreve código usando o SDK de Nuvem do Batch Apps para dividir os trabalhos em tarefas paralelas, descrever quaisquer eventuais dependências entre essas tarefas e especificar como cada tarefa deve ser executada.  Esse código é implantado na conta do Batch.  Os clientes podem, em seguida, executar trabalhos especificando o tipo de trabalho e os arquivos de entrada para uma API REST.
 
->[WACOM.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://www.windowsazure.com/pt-br/pricing/free-trial/). Você pode usar o NuGet para obter ambos o assembly de <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Nuvem do Batch Apps</a> e o assembly de <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Cliente do Batch Apps</a>. Depois de criar seu projeto no Visual Studio, clique com botão direito no projeto pelo **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Você também pode baixar a extensão do Visual Studio para Batch Apps, que inclui um modelo de projeto para aplicativos de habilitação de nuvem e a capacidade de implantar um aplicativo <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aqui</a> ou pesquisando por **Batch Apps** no Visual Studio, pelo item de menu Extensões e Atualizações.  Você também pode encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemplos de ponta a ponta no MSDN.</a>
+>[WACOM.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure].(http://www.windowsazure.com/pt-br/pricing/free-trial/) Você pode usar o NuGet para obter o <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Nuvem do Batch Apps</a> assembly e o <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Cliente do Batch Apps</a> assembly. Depois de criar seu projeto no Visual Studio, clique com botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Você também pode baixar a extensão do Visual Studio para Batch Apps que inclui um modelo de projeto para aplicativos habilitados para nuvem e a capacidade de implantar um aplicativo <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aqui</a> ou procurando o **Batch Apps** no Visual Studio por meio do item de menu extensões e atualizações.  Você também pode encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemplos de ponta a ponta no MSDN.</a>
 >
 
 ###Princípios básicos do Azure Batch Apps 
@@ -426,7 +426,7 @@ O Batch é projetado para funcionar com aplicativos de computação intensiva ex
 2.	Crie um arquivo zip com os "assemblies de nuvem" que enviam suas cargas de trabalho para o aplicativo e carregue esse zip por meio do portal de gerenciamento ou da API REST. Um assembly de nuvem contém dois componentes que são compilados com o SDK de nuvem:
 	1.	Divisor de Trabalho - que divide o trabalho em tarefas que podem ser processadas independentemente. Por exemplo, em um cenário de animação, o divisor de trabalho abriria um trabalho de filme e dividiria-o em quadros individuais. 
 	2.	Processador de Tarefa - que chama o executável do aplicativo para uma determinada tarefa. Por exemplo, em um cenário de animação, o processador de tarefa invocaria um programa de renderização para renderizar o único quadro especificado pela tarefa em questão. 
-3.	Fornecem uma maneira para enviar trabalhos ao aplicativo habilitado no Azure. Isso pode ser um plug-in no aplicativo da interface do usuário ou um portal da Web, ou até mesmo um serviço autônomo como parte do pipeline de execução. Consulte os <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemplos</a> do MSDN para obter exemplos.
+3.	Fornecem uma maneira para enviar trabalhos ao aplicativo habilitado no Azure. Isso pode ser um plug-in no aplicativo da interface do usuário ou um portal da Web, ou até mesmo um serviço autônomo como parte do pipeline de execução. Consulte o <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemplos</a> no MSDN para obter exemplos.
 
 
 
@@ -526,7 +526,7 @@ A classe ExternalProcess do SDK de nuvem fornece lógica auxiliar útil para a e
 
 O método RunExternalTaskProcess retorna um TaskProcessResult, que inclui uma lista de arquivos de saída. Isso deve incluir pelo menos todos os arquivos necessários para a mesclagem; você também pode, opcionalmente, retornar arquivos de log, arquivos de visualização e arquivos intermediários (por exemplo, para fins de diagnóstico em caso de falha na tarefa).  Observe que seu método retorna os caminhos de arquivo, não o conteúdo do arquivo.
 
-Cada arquivo deve ser identificado com o tipo de saída que contém: saída (ou seja, parte da eventual saída do trabalho), visualização, log ou intermediária.  Esses valores são oriundos da enumeração de TaskOutputFileKind. O fragmento a seguir retorna uma única saída de tarefa e nenhuma visualização ou log. O método TaskProcessResult.FromExternalProcessResult simplifica o cenário comum de capturar o código de saída, a saída do processador e arquivos de saída de um programa de linha de comando:
+Cada arquivo deve ser identificado com o tipo de saída que contém: saída (ou seja, parte da eventual saída do trabalho), visualização, log ou intermediária.  Esses valores são originados da enumeração TaskOutputFileKind. O fragmento a seguir retorna uma única saída de tarefa e nenhuma visualização ou log. O método TaskProcessResult.FromExternalProcessResult simplifica o cenário comum de capturar o código de saída, a saída do processador e arquivos de saída de um programa de linha de comando:
 
 O código a seguir demonstra uma implementação simples de ParallelTaskProcessor.RunExternalTaskProcess.
 
@@ -595,3 +595,5 @@ Um trabalho descreve uma carga de trabalho a ser executada e precisa incluir tod
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
 
+
+<!--HONumber=35.2-->

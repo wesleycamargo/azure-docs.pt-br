@@ -1,16 +1,16 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Visão geral detalhada de planos de hospedagem na Web de sites do Azure - guia de recursos do Microsoft Azure" description="Saiba como planos de hospedagem na web de sites do Azure funcionam e como eles beneficiam a sua experiência de gerenciamento." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Visão geral detalhada de planos de hospedagem na Web de sites do Azure - guia de recursos do Microsoft Azure" description="Saiba como os planos de hospedagem na Web para os sites da Web do Azure funcionam, e como eles se beneficiam de sua experiência em gerenciamento." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
 </br>
 #Visão geral detalhada de planos de hospedagem na Web de sites do Azure#
 </br>
-Planos de hospedagem na Web (WHPs) representam um conjunto de recursos e uma capacidade que pode ser compartilhada entre seus sites.  Planos de hospedagem na Web suportam as 4 faixas de preço para sites do Azure (gratuito, compartilhado, básico e padrão), onde cada camada tem seus próprios recursos e capacidade.   Sites pertencentes à mesma assinatura, grupo de recursos e localização geográfica podem compartilhar uma plano de hospedagem na Web. Todos os sites compartilham um plano de hospedagem na Web que pode alavancar todos os recursos e capacidades definidos pela faixa de plano de hospedagem na Web. Todos os sites associados com um dado plano de hospedagem de web executam nos recursos definidos pelo plano de hospedagem na Web. Por exemplo, se seu plano de hospedagem na Web está configurado para duas máquinas virtuais "pequenas", todos os sites associados com esse plano de hospedagem na Web irão executar nas duas máquinas virtuais. Como sempre, com sites do Azure, as máquinas virtuais nas quais seus sites estão sendo executados são totalmente gerenciadas e altamente disponíveis.
+Os planos de hospedagem na Web (WHPs) representam um conjunto de recursos e capacidades que são possíveis de compartilhar entre seus sites.  Os planos de hospedagem na Web oferecem suporte às 4 faixas de preço dos sites do Azure (Grátis, Compartilhado, Básica e Padrão), sendo que cada faixa tem seus próprios recursos e capacidade.  Sites na mesma assinatura, grupo de recursos e localização geográfica podem compartilhar um plano de hospedagem na Web. Todos os sites compartilham um plano de hospedagem na Web que pode alavancar todos os recursos e capacidades definidos pela faixa de plano de hospedagem na Web. Todos os sites associados com um dado plano de hospedagem de web executam nos recursos definidos pelo plano de hospedagem na Web. Por exemplo, se seu plano de hospedagem na Web está configurado para duas máquinas virtuais "pequenas", todos os sites associados com esse plano de hospedagem na Web irão executar nas duas máquinas virtuais. Como sempre, com sites do Azure, as máquinas virtuais nas quais seus sites estão sendo executados são totalmente gerenciadas e altamente disponíveis.
 </br>
 Neste artigo, exploraremos as principais características como camada e escala de um plano na Web de hospedagem e como eles entram em jogo ao gerenciar seus sites. 
 </br>
 ##Sites, planos de hospedagem na Web e grupos de recursos##
 </br>
-Um site pode ser associado com apenas um plano de hospedagem na Web em qualquer dado momento. Um plano de hospedagem na Web é associado com um grupo de recursos. Um grupo de recursos é um novo conceito no Azure que serve como o limite do clico da vida para todos os recursos contidos nele. Os grupos de recursos permitem que você gerencie todos os seus recursos em um aplicativo, coletivamente. 
+Um site pode ser associado com apenas um plano de hospedagem na Web em qualquer dado momento. Um plano de hospedagem na Web é associado com um grupo de recursos. Um grupo de recursos é um novo conceito no Azure que serve como o limite do clico da vida para todos os recursos contidos nele. Os grupos de recursos permitem que você gerencie todas as partes de um aplicativo, coletivamente. 
 </br>
 Você pode ter vários planos de hospedagem na Web em um grupo de recursos e cada plano de hospedagem terá seu próprio conjunto de recursos e funções, que são utilizados pelos sites associados a esse plano.  A imagem a seguir ilustra essa relação:
 </br>
@@ -32,7 +32,7 @@ Ao criar um novo site, deve-se considerar a criação de um novo grupo de recurs
 </br>
 Você sempre pode adicionar um novo site ou outros recursos a um grupo de recursos existente. Ao criar um novo site do contexto de um grupo de recursos existente, o novo assistente do site padroniza para o plano de hospedagem na Web e recurso existente. Aqui também você pode substituir esses padrões conforme for necessário. Ao adicionar um novo site a um grupo de recursos existente, você pode optar por adicionar o site a uma plano de hospedagem na Web existente (essa é a opção padrão na nova visualização do portal do Azure), ou criar um novo plano de hospedagem na Web ao qual adicionar o site.
 </br>
-Criar um novo plano de hospedagem permite a você alocar um novo conjunto de recursos para seus sites e oferece maior controle sobre a alocação de recursos, já que cada plano de hospedagem na Web é criado com seu próprio conjunto de máquinas virtuais. Como é possível mover sites entre planos de hospedagem na Web, supondo que os planos de hospedagem na Web estão na mesma região, a decisão de se criar um novo plano de hospedagem na Web ou não tem pouca importância. Se um determinado site começa a consumir muitos recursos ou se você precisar separar alguns sites, poderá criar um nov plano de hospedagem na Web e mover seus sites para ele.
+Criar um novo plano de hospedagem permite a você alocar um novo conjunto de recursos para seus sites e oferece maior controle sobre a alocação de recurso, já que cada plano de hospedagem na Web é criado com seu próprio conjunto de máquinas virtuais. Como é possível mover sites entre planos de hospedagem na Web, supondo que os planos de hospedagem na Web estão na mesma região, a decisão de se criar um novo plano de hospedagem na Web ou não tem pouca importância. Se um determinado site começa a consumir muitos recursos ou se você precisar separar alguns sites, poderá criar um nov plano de hospedagem na Web e mover seus sites para ele.
 </br>
 Se você deseja criar um novo site em uma região diferente e essa região não tem uma plano de hospedagem na Web existente, você terá que criar um novo plano de hospedagem na Web nessa região para poder ter um site associado a ele. 
 </br>
@@ -40,13 +40,13 @@ Uma coisa importante para ter em mente é que você não pode mover planos de ho
 </br>
 ##Grupos de recursos existentes no portal de visualização do Azure##
 </br>
-Se você já possui sites existentes nos sites do Azure, notará que todos os seus sites aparecem no portal de visualização do Azure. Você pode ver todo o seu site como uma lista plana, clicando no botão **Procurar** no painel de navegação esquerdo e selecionando **Sites**:
+Se você já possui sites existentes nos sites do Azure, notará que todos os seus sites aparecem no portal de visualização do Azure. Você pode ver todo o seu site como uma lista plana, clicando no botão **procurar** no painel de navegação esquerdo e selecionando **Sites**:
 </br>
 </br>
 ![See all your website as a flat list](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
 </br>
 </br>
-Você também pode ver todos os grupos de recursos que foram criados para você clicando no botão **Procurar** no painel de navegação esquerdo e selecionando **Grupos de recursos**:
+Você também pode ver todos os grupos de recursos que foram criados para você clicando no botão **procurar** no painel de navegação esquerdo e selecionando **Grupos de recursos**:
 </br>
 </br>
 ![See all the resource groups that have been created](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
@@ -58,13 +58,13 @@ Uma vez que cada site deve ser associado a uma plano de hospedagem na Web, criam
 </br>
 * Todos os seus sites **Gratuitos** são associados a um plano de hospedagem na Web **Padrão** e sua faixa de preço é definida como **Gratuito**. 
 </br>
-* Todos os seus sites **Compartilhados** são associados a um plano de hospedagem na Web **Padrão** e sua faixa de preço é definida como **Compartilhado.**
+* Todos os seus sites **Compartilhados** são associados a um plano de hospedagem na Web **Padrão** e sua faixa de preço é definida como **Compartilhado**
 </br>
 * Todos os seus sites **Padrão** são associados a um plano de hospedagem na Web padrão e sua faixa de preço é definida como **Padrão**. 
 </br>
 O nome deste plano de hospedagem na Web é **DefaultServerFarm**. Esse nome foi escolhido para dar suporte a uma API herdada. O nome **ServerFarm** pode ser um pouco enganador, uma vez que ele se refere a um **Plano de hospedagem na Web**, mas é importante notar que ele é um nome de plano de hospedagem na Web e não uma entidade própria. 
 </br>
-##Perguntas frequentes sobre plano de hospedagem na Web##
+##P.F.## de Plano de Hospedagem na Web
 </br>
 **Questão**: Como crio um plano de hospedagem na Web?
 </br>
@@ -79,9 +79,9 @@ Para fazer isso usando a interface do usuário na nova **visualização do Porta
 ![Website, Web Hosting Plan and pricing tier blades](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview06.png)
 </br>
 </br>
-Para este exemplo, estamos criando um novo site chamado **contosomarketing** e optando por colocá-lo no novo plano de hospedagem na Web chamado **contoso**. A faixa de preço selecionada para esse plano de hospedagem na Web é **Padrão pequeno**. Para obter mais detalhes sobre as faixas de preço de planos de hospedagem na Web, bem como os recursos, valores e opções de escala oferecidos em cada um, visite as [Especificações de planos de hospedagem na Web do Azure](http://go.microsoft.com/?linkid=9845586). 
+Para este exemplo, estamos criando um novo site chamado **contosomarketing** e optando por colocá-lo no novo plano de hospedagem na Web chamado **contoso**. A faixa de preço selecionada para esse plano de hospedagem na Web é **Padrão pequeno**. Para obter mais detalhes sobre as Faixas de Preço de Planos de hospedagem na Web, bem como os recursos, valores e opções de escala oferecidos em cada um, visite as [Especificações de planos de hospedagem na Web do Azure](http://go.microsoft.com/?linkid=9845586). 
 </br>
-Deve-se observar também que um plano de hospedagem na Web também pode ser criado no Portal do Azure existente. Isso é feito como parte do assistente de **criação rápida**, selecionando **Criar um novo plano de hospedagem na Web** a partir da lista suspensa **PLANO DE HOSPEDAGEM NA WEB**:
+Deve-se observar também que um plano de hospedagem na Web também pode ser criado no Portal do Azure existente. Isso é feito como parte do assistente de **criação rápida**, selecionando **Criar um novo plano de hospedagem na Web** na lista suspensa **PLANO DE HOSPEDAGEM NA WEB**:
 </br>
 </br>
 ![Create new web hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview07.png)
@@ -109,11 +109,11 @@ Um site também pode ser criado em um plano específico de hospedagem na Web usa
 ![Select a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview10.png)
 </br>
 </br>
-**Questão**: Como movo um site para um Plano de Hospedagem na Web diferente? 
+**Questão**: Como movo um site para um Plano de Hospedagem na Web diferente?
 </br>
 **Resposta**: Você pode mover um site para um plano diferente de hospedagem na Web usando o portal de visualização do Azure. Sites podem ser movidos entre planos de hospedagem na Web na mesma região geográfica, que pertencem ao mesmo grupo de recursos.
 </br>
-Para mover um site para outro plano, navegue até a lâmina do site que você deseja mover.  Em seguida, clique em **Plano de Hospedagem na Web**:
+Para mover um site para outro plano, navegue até a lâmina do site do site que você deseja mover.  Em seguida, clique em **Plano de Hospedagem da Web**:
 </br>
 </br>
 ![Choose a new or existing web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview22.png)
@@ -134,13 +134,13 @@ Na imagem abaixo é possível visualizar a lâmina **Plano de Hospedagem na Web*
 ![The Web Hosting Plan blade and the Pricing Tier](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview16.png)
 </br>
 </br>
-O segundo modo de dimensionar um plano é aumentando o número de instâncias no seu plano de hospedagem na Web. Na imagem abaixo é possível visualizar a lâmina do **Plano de hospedagem na Web**, bem como a lâmina de **Escala**. Clicar na área Escala, da lâmina **Plano de Hospedagem na Web**, expande essa área e permite a alteração da contagem de instâncias do plano:
+O segundo modo de dimensionar um plano é aumentando o número de instâncias no seu plano de hospedagem na Web. Na imagem abaixo é possível visualizar a lâmina do **Plano de Hospedagem na Web**, bem como a lâmina de **Escala**. Clicar na área Escala, da lâmina **Plano de Hospedagem na Web**, expande essa área e permite a alteração da contagem de instâncias do plano:
 </br>
 </br>
 ![Changing the instance count of a hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview17.png)
 </br>
 </br>
-Já que o plano de hospedagem na Web na imagem acima está configurado para usar a faixa de preço **Padrão**, a opção **Escala automática** está habilitada. 
+Já que o Plano de Hospedagem na Web na imagem acima está configurado para usar a faixa de preço **Padrão**, a opção **Escala automática** está habilitada. 
 </br>
 Executar isso no Portal do Azure completo pode ser feito na guia **Escala**, conforme mostrado abaixo:
 </br>
@@ -186,4 +186,6 @@ Essas métricas representam a média de uso entre instâncias pertencentes a um 
 </br>
 ##Impressões e conclusões##
 </br>
-Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Um plano de hospedagem na Web oferece a flexibilidade para alocar sites específicos a um determinado conjunto de recursos, como máquinas virtuais, e otimiza ainda mais a alocação de seus recursos do Azure e o uso de sites. 
+Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Um plano de hospedagem na Web oferece a flexibilidade para alocar sites específicos a um determinado conjunto de recursos, como máquinas virtuais, e otimiza ainda mais a alocação de seus recursos do Azure e o uso de sites.
+
+<!--HONumber=35.2-->

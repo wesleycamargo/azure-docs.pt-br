@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="Chamar uma API personalizada de um cliente da Windows Store - Serviços Móveis" metaKeywords="" description="Saiba como definir uma API personalizada e chamá-la em um aplicativo da Windows Store que usa serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="Chamar uma API personalizada de um cliente da Windows Store - Serviços Móveis" metaKeywords ="" description="Saiba como definir um API personalizado e, em seguida, chamá-lo a partir de um aplicativo da Windows Store que usa Serviços Móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -8,13 +8,13 @@
 
 Este tópico mostra como chamar uma API personalizada em um aplicativo da Windows Store. Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
-A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador de concluído como 'true' para todos os itens de tarefas pendentes na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
+A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador de concluído como 'true' para todos os itens todo na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que criou quando concluiu o tutorial [Introdução aos Serviços Móveis] ou [Introdução aos dados]. Para fazer isso, você executará as seguintes etapas:
+Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis] ou [Introdução a dados]. Para fazer isso, você executará as seguintes etapas:
 
 1. [Definir a API personalizada]
 2. [Atualizar o aplicativo para chamar a API personalizada]
-3. [Testar o aplicativo] 
+3. [Testar o aplicativo]
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução aos Serviços Móveis] ou [Introdução aos dados]. Este tutorial usa o Visual Studio 2012 Express para Windows 8.
 
@@ -36,7 +36,7 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo da Wind
   <br/>Saiba mais sobre como criar APIs personalizadas.
 
 * [Scripts de servidor de armazenamento no controle do código-fonte]
-  <br/> Saiba como usar o recurso de controle do código-fonte para desenvolver e publicar o código de script da API personalizada de maneira mais fácil e segura.
+  <br/> Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
 
 <!-- Anchors. -->
 [Definir a API personalizada]: #define-custom-api
@@ -54,3 +54,5 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo da Wind
 [Definir uma API personalizada que dá suporte a notificações periódicas]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
 [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
 
+
+<!--HONumber=35.2-->

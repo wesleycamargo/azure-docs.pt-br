@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Get Started with Authentication" pageTitle="Introdução à autenticação (JavaScript ) | Centro de desenvolvimento móvel"metaKeywords ="" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo JavaScript da Windows Store por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Authentication" pageTitle="Introdução à autenticação (JavaScript) | Centro de desenvolvimento móvel" metaKeywords ="" description="Aprenda como usar os Serviços Móveis para autenticar os usuários do seu aplicativo JavaScript do Windows Store por meio de uma variedade de provedores de identidade, incluindo o Google, Facebook, Twitter e Microsoft." services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
-# Adicionar autenticação ao aplicativo de Serviços Móveis
+# Adicionar autenticação ao seu aplicativo de Serviços Móveis
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users-legacy](../includes/mobile-services-selector-get-started-users-legacy.md)]
 
-Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure do seu aplicativo.  Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.  
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo.  Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.    
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
@@ -15,9 +15,9 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 3. [Adicionar autenticação ao aplicativo]
 4. [Armazenar os tokens de autenticação no cliente]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].  
 
->[WACOM.NOTE]Este tutorial demonstra o fluxo de autenticação gerenciado pelos Serviços Móveis utilizando uma variedade de provedores de identidade. Esse método é fácil de configurar e oferece suporte a vários provedores. Em vez de usar o Live Connect com autenticação gerenciada pelo cliente e forneça uma experiência de logon único em seu aplicativo da Windows Phone, consulte o tópico [Logon único para aplicativos da Windows Store usando o Live Connect]. Ao usar a autenticação gerenciada pelo cliente, seu aplicativo tem acesso aos dados adicionais do usuário mantidos pelo provedor de identidade. Você pode obter os mesmos dados do usuário em seu serviço móvel ao chamar a função **user.getIdentities()** nos scripts do servidor. Para obter mais informações, consulte [esta postagem](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+>[WACOM.NOTE]Este tutorial demonstra o fluxo de autenticação gerenciado pelos Serviços Móveis utilizando uma variedade de provedores de identidade. Esse método é fácil de configurar e oferece suporte a vários provedores. Em vez de usar o Live Connect com autenticação gerenciada pelo cliente e fornecer uma experiência de logon único em seu aplicativo do Windows Phone, consulte o tópico [Logon único para aplicativos da Windows Store usando o Live Connect]. Ao usar a autenticação gerenciada pelo cliente, seu aplicativo tem acesso aos dados adicionais do usuário mantidos pelo provedor de identidade. Você pode obter os mesmos dados do usuário em seu serviço móvel ao chamar a função **user.getIdentities()** nos scripts do servidor. Para obter mais informações, consulte [essa publicação](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
 ##<a name="register"></a> Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
@@ -27,18 +27,18 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 <li><p>(Opcional) Conclua as etapas em <a href="/pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft</a>.</p>
 
     <div class="dev-callout"><b>Observação</b>
-	<p>Esta etapa é opcional, pois só é aplicada ao provedor de login da conta da Microsoft. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de login da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Conclua esta etapa ao planejar usar o provedor de identidade da conta da Microsoft.</p>
+	<p>Esta etapa é opcional, pois só é aplicada ao provedor de login da conta da Microsoft. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Conclua esta etapa ao planejar usar o provedor de identidade da conta da Microsoft.</p>
     </div>
 </li>
 </ol>
 O serviço móvel e seu aplicativo agora estão configurados para funcionar com o provedor de autenticação escolhido.
 
-##<a name="permissions"></a> Restringir permissões a usuários autenticados
+##<a name="permissions"></a> Restringir as permissões aos usuários autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>No Visual Studio 2012 Express para Windows 8, abra o projeto que você criou quando concluiu o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started/">Introdução aos Serviços Móveis</a>.</p></li> 
+<li><p>No Visual Studio 2012 Express para Windows 8, abra o projeto que você criou quando concluiu o tutorial Introdução aos Serviços Móveis. <a href="/pt-br/develop/mobile/tutorials/get-started/">Introdução aos Serviços Móveis</a>.</p></li> 
 <li><p>Pressione a tecla F5 para executar este aplicativo baseado em inicialização rápida; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.</p>
    
    	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
@@ -50,13 +50,13 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 [WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
 
-##<a name="tokens"></a>Armazene os tokens de autorização no cliente
+##<a name="tokens"></a>Armazenar os tokens de autorização no cliente
 
 [WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Authorize users with scripts], você usará o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis. 
+No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Authorize users with scripts], você usará o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis.  
 
 
 <!-- Anchors. -->
@@ -79,3 +79,5 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/develop/mobile/how-to-guides/register-windows-store-app-package
+
+<!--HONumber=35.2-->

@@ -1,10 +1,10 @@
 ﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitorar a integridade e o uso do aplicativo com o Application Insights" description="Introdução ao Application Insights. Analise o uso, disponibilidade e desempenho de seu local ou aplicativos do Microsoft Azure." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Monitore o desempenho dos aplicativos web
 
-*O Application Insights está em visualizar.*
+*O Application Insights está em visualização.*
 
 
 Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. [O Application Insights][start] vai lhe dizer sobre quaisquer problemas de desempenho e exceções, e o ajudará a localizar e diagnosticar as causas raízes.
@@ -12,7 +12,7 @@ Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamen
 O Application Insights pode monitorar os aplicativos da web ASP.NET hospedados no local ou em máquinas virtuais, bem como em sites do Microsoft Azure. 
 
 * [Configurar o monitoramento de desempenho](#setup)
-* [Veja os dados](#view)
+* [Consulte os dados](#view)
 * [O que significa tudo isso?](#metrics)
 * [Problemas de diagnóstico](#diagnosis)
 * [Próximas etapas](#next)
@@ -21,9 +21,9 @@ O Application Insights pode monitorar os aplicativos da web ASP.NET hospedados n
 
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
-* [Adicione o Application Insights ao seu projeto do aplicativo no Visual Studio][greenbrown] - Recomendado. Além do monitoramento de desempenho passivo, você pode inserir o registro em log do diagnóstico e acompanhar o uso.
-* [Monitore o desempenho de um site ao vivo agora][redfield] - desse modo, você não precisa atualizar o projeto do aplicativo ou reimplementar o site.
-* [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring/)  você já pode ver métricas na lente de monitoramento do site. 
+* [Adicione o Application Insights ao seu projeto de aplicativo no Visual Studio][greenbrown] - Recomendado. Além do monitoramento de desempenho passivo, você pode inserir o registro em log do diagnóstico e acompanhar o uso.
+* [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplantar o site da web.
+* [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring/)  você já pode ver métricas lentea de monitoramento do site. 
 
 
 ## <a name="view"></a>Exibir relatórios
@@ -40,7 +40,7 @@ Abrir Application Insights do seu projeto.
 ![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
 
-Procure pelos dados nos blocos de **Integridade do aplicativo**. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
+Procure pelos dados nos mosaicos da **integridade do aplicativo**. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
 
 ![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
 
@@ -55,7 +55,7 @@ Clique em qualquer bloco para ver mais detalhes, e para ver os resultados por um
 
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
-Clique em um gráfico para escolher quais métricas exibir:
+Clique em um gráfico para selecionar outras medidas que são exibidas, ou adicionar um novo gráfico e selecionar a métrica:
 
 ![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
 
@@ -112,8 +112,19 @@ Para ver que outras métricas que você pode exibir, clique em um gráfico e, em
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
 
-Selecionar qualquer métrica ocultará as outras que não podem aparecer no mesmo gráfico.
+Ao selecionar qualquer métrica, desaticará as outras que não podem aparecer no mesmo gráfico.
 
+## Definir alertas
+
+Para ser notificado por email sobre valores incomuns de qualquer métrica, adicione um alerta. Você pode escolher para enviar o email para os administradores de conta ou para endereços de email específicos.
+
+![](./media/appinsights/appinsights-413setMetricAlert.png)
+
+Defina o recurso antes de outras propriedades. Não escolha os recursos webtest se você quer definir alertas em métricas de desempenho ou de uso.
+
+Observe as unidades quando você for solicitado para inserir o valor de limite.
+
+*Não estou encontrando o botão Adicionar alerta.* - Isso acontece provavelmente porque você tem acesso somente de leitura. 
 
 ## <a name="diagnosis"></a>Problemas de diagnóstico
 
@@ -121,7 +132,7 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
 * Configure os [testes na Web][availability] para ser alertado se seu site cair ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
-* [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar em problemas de pinpoint.
+* [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar problemas de pinpoint.
 
 ## <a name="next"></a>Próximas etapas
 
@@ -139,3 +150,5 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
 
 
+
+<!--HONumber=35.2-->

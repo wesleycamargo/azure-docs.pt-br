@@ -2,9 +2,9 @@
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
 
-# Gerenciar o controle de acesso com base em função com o Windows PowerShell #
+# Gerenciar o controle de acesso com base em função com o Windows PowerShell
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">CLI entre plataformas do</a><a href="/pt-br/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Windows PowerShell</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/pt-br/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">CLI entre plataformas</a></div>
 
 O controle de acesso com base em função (RBAC) no portal de visualização do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -16,9 +16,9 @@ Neste tutorial, você aprenderá a usar o Windows PowerShell para gerenciar o RB
 
 Para poder usar o Windows PowerShell para gerenciar o RBAC, você deve ter o seguinte:
 
-- Windows PowerShell, versão 3.0 ou 4.0. Para localizar a versão do Windows PowerShell, digite:`$PSVersionTable` e verifique se o valor de `PSVersion` é 3.0 ou 4.0. Para instalar uma versão compatível, consulte [Windows Management Framework 3.0 ](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855).
+- Windows PowerShell, versão 3.0 ou 4.0. Para localizar a versão do Windows PowerShell, digite: "$PSVersionTable" e verifique se o valor de "PSVersion" é 3.0 ou 4.0. Para instalar uma versão compatível, consulte [Windows Management Framework 3.0 ](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855).
 
-- PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Windows Azure (a página pode estar em inglês)](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/).
+- PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Windows Azure](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/).
 
 Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/pt-br/library/hh857337.aspx).
 
@@ -33,17 +33,17 @@ Por exemplo, para obter ajuda sobre o cmdlet Add-AzureAccount, digite:
 Leia também os tutoriais a seguir para se familiarizar com a instalação e para usar o Gerenciador de Recursos do Azure do Windows PowerShell:
 
 - [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/)
-- [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/)
+- [Usando o Windows PowerShell com o Gerenciador de recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/)
 
 ## Neste tutorial ##
 
-* [Conecte-se as suas assinaturas](#connect)
-* [Verifique as atribuições de função existentes](#check)
-* [Crie uma atribuição de função](#create)
-* [Verifique as permissões](#verify)
+* [Conectar-se às suas assinaturas](#connect)
+* [Verifique as atribuições de função existente](#check)
+* [Criar uma atribuição de função](#create)
+* [Verificar permissões](#verify)
 * [Próximas etapas](#next)
 
-## <a id="connect"></a>Conecte-se às suas assinaturas ##
+## <a id="connect"></a>Conectar-se às suas assinaturas ##
 
 Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira coisa a fazer é alternar para o modo do Gerenciador de Recursos do Azure, digite:
 
@@ -59,9 +59,9 @@ No controle do navegador pop-up, insira o nome de usuário e senha da conta do A
 
 Se você tem várias assinaturas e deseja alternar para outra, digite:
 
-    # Isso mostrará as assinaturas sob a conta.
+    # Isso mostrará as assinaturas na conta.
     PS C:\> Get-AzureSubscription
-    # Use o nome da assinatura para selecionar aquele em que você deseja trabalhar.
+    # Use o nome da assinatura para selecionar aquela na qual você deseja trabalhar.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
 Para obter mais informações, consulte [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
@@ -72,7 +72,7 @@ Agora vamos verificar quais atribuições de função já existem na assinatura.
 
     PS C:\> Get-AzureRoleAssignment
 
-Isso retornará todas as atribuições de função na assinatura. Há dois pontos a serem observados:
+Isso retornará todas as atribuições de função na assinatura. Há duas coisas a serem observadas:
 
 1. Você precisará ter acesso de leitura em nível de assinatura.
 2. Se a assinatura tiver várias atribuições de função, pode demorar um pouco para obter todas.
@@ -88,11 +88,11 @@ Isso retornará todas as atribuições de função para um usuário em particula
 
 Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para verificar as atribuições de função com diferentes filtros.
 
-## <a id="create"></a>Crie uma atribuição de função ##
+## <a id="create"></a>Criar uma atribuição de função ##
 
 Para criar uma atribuição de função, você precisa pensar sobre
 
-- Para quem você deseja atribuir a função: você pode usar os seguintes cmdlets do Active Directory do Azure para ver quais usuários, grupos ou entidades de serviço você tem no seu locatário do AD.
+- Para quem você deseja atribuir a função: você pode usar os seguintes cmdlets do active directory do Azure para ver quais usuários, grupos e entidades de serviço tem no seu locatário do AD.
 
     `PS C:\> Get-AzureADUser
     PS C:\> Get-AzureADGroup
@@ -103,13 +103,13 @@ Para criar uma atribuição de função, você precisa pensar sobre
 
     `PS C:\> Get-AzureRoleDefinition`
 
-- Qual escopo você deseja atribuir: você tem três níveis para escopos
+- Qual o escopo que você deseja atribuir: você tem três níveis de escopo
 
     - A assinatura atual
-    - Um grupo de recursos, para obter uma lista de grupos de recursos, digite `PS C:\> Get-AzureResourceGroup`
-    - Um recurso, para obter uma lista de recursos, digite `PS C:\> Get-AzureResource`
+    - Um grupo de recursos, para obter uma lista de grupos de recursos, digite "PS C:\> Get-AzureResourceGroup"
+    - Um recurso, para obter uma lista de recursos, digite "PS C:\> Get-AzureResource"
 
-Use `New-AzureRoleAssignment` para criar uma atribuição de função. Por exemplo:
+Então use "New-AzureRoleAssignment" para criar uma atribuição de função. Por exemplo:
 
  - Isso criará uma atribuição de função em nível da assinatura atual para um usuário como um leitor.
 
@@ -133,17 +133,19 @@ Depois de você verificar que sua conta tem algumas atribuições de função, v
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 
-Então quando você tenta executar outro cmdlet como `New-AzureResourceGroup`, você receberá um erro de acesso negado se não tiver a permissão.
+Então quando você tenta executar outro cmdlet como "New-AzureResourceGroup", você receberá um erro de acesso negado se não tiver a permissão.
 
 ## <a id="next"></a>Próximas etapas ##
 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o Windows PowerShell e tópicos relacionados:
  
-- [Controle de acesso com base em função do Windows Azure](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/)
+- [Controle de acesso no Windows Azure baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/)
 - [Cmdlets do Gerenciador de Recursos do Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Saiba usar os cmdlets nos módulos AzureResourceManager.
 - [Usando grupos de recursos para gerenciar os recursos do Azure](http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups): Saiba como criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): Saiba sobre os novos recursos do Azure.
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): Saiba mais sobre os novos recursos do Windows PowerShell.
-- [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Obtenha dicas reais e truques da comunidade do Windows PowerShell.
-- [Configurar o controle de acesso com base em função usando o XPLAT CLI](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-xplat-cli/)
-- [Solucionar problemas de controle de acesso com base em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/)
+- [Blog "Hey, Scripting Guy!" ](http://blogs.technet.com/b/heyscriptingguy/): Obtenha dicas reais e truques da comunidade do Windows PowerShell.
+- [Configurar controle de acesso baseado em função usando XPLAT CLI](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-xplat-cli/)
+- [Solucionando problemas de controle de acesso baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/)
+
+<!--HONumber=35.2-->

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Autorização no lado do serviço (Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como autorizar usuários no back-end do JavaScript dos serviços móveis do Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorização do lado do serviço (Windows Store) | Centro de desenvolvimento móvel" metaKeywords ="" description="Saiba como autorizar os usuários no back-end .NET dos Serviços Móveis do Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -6,22 +6,22 @@
 
 [WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
-Este tópico mostra como usar scripts de servidor para autorizar usuários autenticados a acessar dados nos Serviços Móveis do Azure de um aplicativo da Windows Store.  Neste tutorial, você registra scripts nos Serviços Móveis para filtrar consultas com base na userId de um usuário autenticado, garantindo que cada usuário possa ver apenas seus próprios dados.
+Este tópico mostra como usar scripts de servidor para autorizar usuários autenticados para acessar dados nos Serviços Móveis do Azure a partir de um aplicativo da Windows Store.  Neste tutorial, você registra scripts nos Serviços Móveis para filtrar consultas com base na userId de um usuário autenticado, garantindo que cada usuário possa ver apenas seus próprios dados.
 
-Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis e no tutorial anterior [Introdução à autenticação]. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução à autenticação].  
+Este tutorial baseia-se no início rápido dos Serviços Móveis e no tutorial anterior [Introdução à autenticação]. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução à autenticação].    
 
 ## <a name="register-scripts"></a>Registrar scripts
 Como o aplicativo Guia de início rápido lê e insere dados, você precisa registrar scripts para essas operações com base na tabela TodoItem.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e no aplicativo. 
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.  
 
    	![][0]
 
-2. Clique na guia **Dados** e na tabela **TodoItem**.
+2. Clique na guia **Dados** e clique na tabela **TodoItem**.
 
    	![][1]
 
-3. Clique em **Script** e selecione a operação **Insert**.
+3. Clique em **Script** e selecione a operação **Inserir**.
 
    	![][2]
 
@@ -32,14 +32,14 @@ Como o aplicativo Guia de início rápido lê e insere dados, você precisa regi
           request.execute();
         }
 
-    Este script adiciona um valor de userId ao item, que é a ID de usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
+    Este script adiciona um valor de userId ao item que é a ID de usuário autenticado, antes que ele seja inserido na tabela TodoItem.  
 
     <div class="dev-callout"><b>Observação</b>
-	<p>O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna <strong>userId</strong> à tabela <strong>TodoItem</strong> na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Store.</p>
+	<p>O esquema dinâmico deve ser habilitado na primeira vez que esse script insert for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna <strong>userId</strong> à tabela <strong>TodoItem</strong> na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Store.</p>
     </div>
 
 
-5. Repita as etapas 3 e 4 para substituir a operação **Read**  existente por esta função:
+5. Repita as etapas 3 e 4 para substituir a operação **Ler** existente pela seguinte função:
 
         function read(query, user, request) {
            query.where({ userId: user.userId });    
@@ -50,21 +50,21 @@ Como o aplicativo Guia de início rápido lê e insere dados, você precisa regi
 
 ## Testar o aplicativo
 
-1. In Visual Studio 2012 Express para Windows 8, abra o projeto modificado quando você concluiu o tutorial [Introdução à autenticação].
+1. No Visual Studio 2012 Express para Windows 8, abra o projeto modificado que você concluiu o tutorial [Introdução à autenticação].
 
-2. Pressione a tecla F5 para executar o aplicativo e fazer o logon com seu provedor de identidade. 
+2. Pressione a tecla F5 para executar o aplicativo e fazer o logon com seu provedor de identidade.  
 
    	Observe que, desta vez, embora já existam itens na tabela TodoItem de tutoriais anteriores, nenhum item é retornado. Isso acontece porque os itens anteriores foram inseridos sem a coluna userId e agora têm valores nulos.
 
-3. No aplicativo, insira texto em **Inserir um TodoItem** e clique em **Salvar**.
+3. No aplicativo, insira o texto em **Inserir um TodoItem** e clique em **Salvar**.
 
    	![][3]
 
    	Isso insere o texto e a userId na tabela TodoItem no serviço móvel. Como o novo item tem o valor de userId correto, ele é retornado pelo serviço móvel e exibido na segunda coluna.
 
-5. Na tabela **todoitem** no [Portal de Gerenciamento][Azure Management Portal], clique em **Procurar** e verifique se cada item recém-adicionado agora tem um valor de userId associado.
+5. De volta a tabela **todoitem** no [Portal de Gerenciamento][Azure Management Portal], clique em **Procurar** e verifique se cada item recém-adicionado agora tem um valor de userId associado.
 
-6. (Opcional) Se tiver contas de logon adicionais, você poderá verificar se os usuários podem ver apenas seus próprios dados, fechando o aplicativo (Alt + F4) e, em seguida, executando-o novamente. Quando a caixa de diálogo de credenciais de logon for exibida, insira um logon diferente e, em seguida, verifique se os itens inseridos na conta anterior não são exibidos. 
+6. (Opcional) Se tiver contas de logon adicionais, você poderá verificar se os usuários podem ver apenas seus próprios dados, fechando o aplicativo (Alt + F4) e, em seguida, executando-o novamente. Quando a caixa de diálogo de credenciais de logon for exibida, insira um logon diferente e, em seguida, verifique se os itens inseridos na conta anterior não são exibidos.  
 
 ## Próximas etapas
 
@@ -97,6 +97,8 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
 [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-js
 [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-js
-[JavaScript e HTML]: mobile-services-win8-javascript/
+[JavaScript e HTML]: serviços móveis-javascript win8 /
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

@@ -1,11 +1,11 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Envio seguro por push de Hubs de Notificação do Azure" metaKeywords="notificações por push do Azure, hubs de notificação do Azure, envio seguro" description="Saiba como enviar notificações por push seguro para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e c#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Envio por push seguro de Hubs de notificação do Azure" metaKeywords ="notificações por envio por push do Azure, hubs de notificação do Azure, envio por push seguro" description="Saiba como enviar notificações por push segura para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 #Push Seguro dos Hubs de Notificação do Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/pt-br/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -24,7 +24,7 @@ Em um nível superior, o fluxo é o seguinte:
 
 É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificar Usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
+Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
 
 > [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/).
 
@@ -36,17 +36,17 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
 
 Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back-end do aplicativo.
 
-1. Em **AppDelegate.m**, verifique se os registros do aplicativo para notificações silenciosas para processar a id de notificação enviada do back-end. Adicione a opção **UIRemoteNotificationTypeNewsstandContentAvailability** em didFinishLaunchingWithOptions:
+1. Em **Appdelegate.m**, verifique se o aplicativo registra para notificações silenciosas para processar a id de notificação enviada do back-end. Adicione a opção **UIRemoteNotificationTypeNewsstandContentAvailability** em didFinishLaunchingWithOptions:
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
-2. No **AppDelegate.m**, adicione uma seção de implementação no topo, com a seguinte declaração:
+2. Em **AppDelegate.m**, adicione uma seção de implementação no topo, com a seguinte declaração:
 
 		@interface AppDelegate ()
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Em seguida, adicione o código a seguir à seção de implementação, substituindo o espaço reservado `{back-end endpoint}` pelo ponto de extremidade para seu back-end obtido anteriormente:
+3. Em seguida, adicione o código a seguir à seção de implementação, substituindo o espaço reservado pelo ponto de extremidade para seu back-end obtido anteriormente:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -138,3 +138,5 @@ Para executar o aplicativo, faça o seguinte:
 3. Na interface do usuário do aplicativo iOS, clique em **Logon**. Em seguida, clique em **Enviar push**. Você deve ver a notificação segura sendo exibida no centro de notificações.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+
+<!--HONumber=35.2-->

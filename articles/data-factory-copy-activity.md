@@ -1,11 +1,11 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copiar dados com o Data Factory do Azure" description="Saiba como usar a atividade de cópia no Azure Data Factory para copiar dados de uma fonte de dados para outra." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copiar dados com o Data Factory do Azure" description="Saiba como usar a atividade de cópia no Azure Data Factory para copiar dados a partir de uma fonte de dados para outra fonte de dados." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Copiar dados com o Azure Data Factory (atividade de cópia)
-É possível utilizar a **atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. A atividade de cópia pode ser utilizada nos seguintes cenários:
+É possível utilizar a **Atividade de Cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. A atividade de cópia pode ser utilizada nos seguintes cenários:
 
-- **Ingresso no Azure**. Nesse cenário, os dados são copiados de uma fonte de dados local (ex: SQL Server) para um armazenamento de dados do Azure (ex: Blob do Azure, tabela do Azure ou banco de dados SQL do Azure) para os seguintes subcenários:
+- **Ingresso no Azure**. Nesse cenário, os dados são copiados de uma fonte de dados local (ex: SQL Server) para um armazenamento de dados do Azure (ex: blob do Azure, tabela do Azure ou banco de dados SQL do Azure) para os seguintes subcenários:
 	- Coletar dados em um local centralizado no Azure para processamento adicional.
 	- Migrar dados de plataformas de nuvem não pertencentes ao Azure ou locais para o Azure.
 	- Arquivar ou fazer backup de dados do Azure para armazenamento econômico em camadas.
@@ -13,23 +13,23 @@
 	- Transferir dados para o local devido à falta de suporte para o data warehouse de nuvem.
 	- Transferir dados para o local para aproveitar a solução local existente ou a infraestrutura de relatório.
 	- Arquivar ou fazer backup de dados para os locais de armazenamento em camadas
-- **Cópia do Azure para o Azure**. Nesse cenário, os dados distribuídos por meio de fontes de dados do Azure são agregados em um repositório centralizado de dados do Azure. Exemplos: tabela do Azure para blobs do Azure, blobs do Azure para tabela do Azure, tabela do Azure para SQL Azure, blob do Azure para SQL Azure.
+- **cópia do Azure para o Azure**. Nesse cenário, os dados distribuídos por meio de fontes de dados do Azure são agregados em um repositório centralizado de dados do Azure. Exemplos: tabela do Azure para blobs do Azure, blobs do Azure para tabela do Azure, tabela do Azure para SQL Azure, blob do Azure para SQL Azure.
 
-Consulte [Introdução ao Azure Data Factory][adfgetstarted] para obter um tutorial que mostra como copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure utilizando a Atividade de cópia. Consulte [Habilitar pipelines para trabalhar com dados locais][utilizando fontes de dados locais] para obter uma explicação passo a passo que mostra como copiar dados de um banco de dados SQL Server local para um armazenamento de blobs do Azure utilizando a Atividade de cópia.
+Consulte [Introdução ao Data Factory do Azure][adfgetstarted] para obter um tutorial que mostra como copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure utilizando a Atividade de Cópia. Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-datasources]para uma explicação passo a passo que mostra como copiar dados de um banco de dados SQL Server local para um armazenamento de blobs do Azure utilizando a Atividade de Cópia.
 
 
 ## Atividade de cópia - componentes
 A atividade de cópia contém os seguintes componentes: 
 
 - **Tabela de entrada**. Uma tabela é um conjunto de dados retangular que tem um esquema. O componente da tabela de entrada 
-- descreve os dados de entrada para a atividade que incluí o seguinte: nome da tabela, tipo da tabela e serviço vinculado que faz referência a uma fonte de dados que contém os dados de entrada.
-- **Tabela de saída**. A tabela de saída descreve os dados de saída da atividade que incluem o seguinte: nome da tabela, tipo da tabela e serviço vinculado que faz referência a uma fonte de dados que mantém os dados de saída.
+- descreve os dados de entrada para a atividade que incluem o seguinte: nome da tabela, tipo de tabela e serviço vinculado que faz referência a uma fonte de dados que contém os dados de entrada.
+- **Tabela de saída**. A tabela de saída descreve dados de saída para a atividade que incluem o seguinte: nome da tabela, tipo de tabela e o serviço vinculado que faz referência a uma fonte de dados que contém os dados de saída.
 - **Regras de transformação**. As regras de transformação especificam como os dados de entrada são extraídos da fonte e como os dados de saída são carregados no coletor etc...
  
 Uma atividade de cópia pode ter uma **tabela de entrada** e uma **tabela de saída**.
 
 ## JSON para Atividade de cópia
-Uma pipeline consiste em uma ou mais atividades. A atividades nas pipelines são definidas na seção de **atividades []**. O JSON para uma pipeline é o seguinte:
+Uma pipeline consiste em uma ou mais atividades. As atividades nas pipelines são definidas na seção de **atividades []**. O JSON para uma pipeline é o seguinte:
          
 	{
 		"name": "PipelineName",
@@ -43,7 +43,7 @@ Uma pipeline consiste em uma ou mais atividades. A atividades nas pipelines são
 		}
 	}
 
-Cada atividade dentro da seção de **atividades** tem a seguinte estrutura de nível superior. A propriedade **type** (tipo) deve ser definida como **CopyActivity**. A Atividade de cópia pode ter apenas uma tabela de entrada e uma de saída.
+Cada atividade dentro da seção de **atividades** tem a seguinte estrutura de nível superior. A propriedade **type** deve ser definida como **CopyActivity**. A Atividade de Cópia pode ter apenas uma tabela de entrada e uma de saída.
          
 
 	{
@@ -85,25 +85,25 @@ A tabela a seguir descreve as marcas utilizadas com uma seção de atividade.
 
 	<tr>
 		<td>type</td>
-		<td>Especifica o tipo da atividade. <br/><br/>O <b>tipo</b> deve ser definido como <b>CopyActivity</b>.</td>
+		<td>Especifica o tipo da atividade. <br/><br/>O <b>type</b> deve ser definido como <b>CopyActivity</b>.</td>
 		<td>S</td>
 	</tr>
 
 	<tr>
 		<td>inputs</td>
-		<td>Tabelas de entrada utilizadas pela atividade.  Especifica uma única tabela de entrada para a Atividade de cópia.</td>
+		<td>Tabelas de entrada usadas pela atividade.  Especifique uma única tabela de entrada para a Atividade de Cópia.</td>
 		<td>S</td>
 	</tr>
 
 	<tr>
 		<td>outputs</td>
-		<td>Tabelas de saída utilizadas pela atividade.  Especifica uma única tabela de saída para a Atividade de cópia.</td>
+		<td>Tabelas de saída usadas pela atividade.  Especifique uma única tabela de saída para a Atividade de Cópia.</td>
 		<td>S</td>
 	</tr>
 
 	<tr>
 		<td>transformation</td>
-		<td>As propriedades da transformação dependem do tipo.  A <b>atividade de cópia</b> requer que você especifique uma <b>fonte</b> e uma seção <b>coletor</b> dentro da seção <b>transformação</b>. Mais detalhes serão fornecidos posteriormente neste artigo. </td>
+		<td>Propriedades da transformação depende do tipo.  O <b>A Atividade de Cópia</b> exige que você especifique uma <b>fonte</b> e um <b>coletor</b> na seção de <b>transformation</b> . Mais detalhes serão fornecidos posteriormente neste artigo. </td>
 		<td>S</td>
 	</tr>
 
@@ -116,7 +116,7 @@ A tabela a seguir descreve as marcas utilizadas com uma seção de atividade.
 
 </table>
 
-Consulte a [Referência de script JSON][json-script-reference] para obter informações detalhadas sobre propriedades/marcas JSON.
+Consulte [Referência de Script JSON][json-script-reference] para obter informações detalhadas sobre propriedades/marcas JSON.
 
 ## Atividade de cópia - exemplo
 Neste exemplo, uma tabela de entrada e uma tabela de saída são definidas e as tabelas são utilizadas em uma Atividade de cópia em uma pipeline que copia dados de um banco de dados SQL Server local para um blob do Azure.
@@ -130,7 +130,7 @@ Os seguintes artefatos do Azure Data Factory são referenciados em exemplos de s
 * Um serviço vinculado denominado **MyAzureStorage** que aponta para um armazenamento de blobs do Azure.
 
 ### Tabela de entrada JSON
-O script JSON a seguir define uma tabela de entrada que se refere a uma tabela SQL: **MyTable** em um banco de dados SQL Server local que o serviço vinculado **MyOnPremisesSQLDB** define. Observe que o **name** é o nome da tabela do Azure Data Factory e **tableName** é o nome da tabela SQL em um banco de dados SQL Server.
+O script JSON a seguir define uma tabela de entrada que se refere a uma tabela SQL: **MyTable** em um banco de dados SQL Server local que o serviço vinculado **MyOnPremisesSQLDB** define. Observe que **name** é o nome da tabela do Data Factory do Azure e **tableName** é o nome da tabela SQL em um banco de dados SQL Server.
 
          
 	{
@@ -155,7 +155,7 @@ O seguinte exemplo de comando do PowerShell do Azure utiliza a **New-AzureDataFa
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -Name MyOnPremTable -DataFactoryName CopyFactory -File <Filepath>\MyOnPremTable.json.
 
-Consulte a [Referência de cmdlet][cmdlet-reference] para obter detalhes sobre os cmdlets do Data Factory. 
+Consulte [Referência do Cmdlet][cmdlet-reference] para obter detalhes sobre os cmdlets da Data Factory. 
 
 ### Tabela de saída JSON
 O script JSON a seguir define uma tabela de saída: **MyDemoBlob**, que se refere a um blob do Azure: **MyBlob** na pasta blob: **MySubFolder** no contêiner de blob: **MyContainer**.
@@ -195,10 +195,10 @@ O seguinte exemplo de comando do PowerShell do Azure utiliza a **New-AzureDataFa
 ### Pipeline (com a Atividade de cópia) JSON
 Neste exemplo, uma pipeline: **CopyActivityPipeline** é definida com as seguintes propriedades: 
 
-- A propriedade **type** (tipo) é definida como **CopyActivity**.
+- A propriedade **type** é definida como **CopyActivity**.
 - **MyOnPremTable** é especificado como a entrada (marca de **entradas**).
 - **MyAzureBlob** é especificado como a saída (marca de **saídas**)
-A seção - **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é definido como **SqlSource** e o tipo de coletor é definido como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON][json-script-reference].
+- A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é definido como **SqlSource** e o tipo de coletor é definido como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de Script JSON][json-script-reference].
 
          
 		{
@@ -237,7 +237,7 @@ A seção - **Transformação** contém duas subseções: **fonte** e **coletor*
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName CopyFactory -File <Filepath>
 
 ## Saídas e entradas com suporte
-O exemplo acima utilizando SqlSource como fonte e BlobSink como o coletor na seção de transformação. A tabela a seguir lista as fontes e coletores com suporte pela Atividade de cópia. 
+O exemplo acima utilizando SqlSource como fonte e BlobSink como o coletor na seção de transformação. A tabela a seguir lista as fontes e coletores com suporte pela Atividade de Cópia. 
 
 <table border="1">	
 	<tr>
@@ -373,14 +373,14 @@ A tabela a seguir lista as propriedades com suporte por essas fontes e coletores
 		<td><b>AzureTableSource</b></td>
 		<td>AzureTableSourceQuery</td>
 		<td>Utiliza a consulta personalizada para ler os dados.</td>
-		<td>Cadeia de caracteres de consulta de tabela do Azure.<br/>Exemplo: "ColumnA eq ValueA"</td> ("coluna A equivale a valor A)
+		<td>Cadeia de caracteres de consulta de tabela do Azure.<br/>Exemplo: "ColumnA eq ValueA"</td>
 		<td>N</td>
 	</tr>
 
 	<tr>
 		<td></td>
 		<td>AzureTableSourceIgnoreTableNotFound</td>
-		<td>Indica se deseja ignorar a exceção: "table does not exist".</td> ("a tabela não existe")
+		<td>Indica se deseja ignorar a exceção: "a tabela não existe".</td>
 		<td>TRUE<br/>FALSE</td>
 		<td>N</td>
 	</tr>
@@ -414,7 +414,7 @@ A tabela a seguir lista as propriedades com suporte por essas fontes e coletores
 	<tr>
 		<td></td>
 		<td>azureTableRowKeyName</td>
-		<td>Valores de coluna de nome de coluna especificado que serão utilizados como uma chave de linha.<br/><br/>Se não especificado, é utilizado um GUID para cada linha.</td>
+		<td>Valores de coluna de nome de coluna especificado a ser usado como uma chave de linha.<br/><br/>Se não especificado, um GUID é usado para cada linha.</td>
 		<td>Um nome de coluna.</td>
 		<td>N</td>
 	</tr>
@@ -432,7 +432,7 @@ A tabela a seguir lista as propriedades com suporte por essas fontes e coletores
 		<td>writeBatchSize</td>
 		<td>Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido.</td>
 		<td>Inteiro de 1 a 100 (unidade = contagem de linhas)</td>
-		<td>N<br/><br/>(padrão = 100)</td>
+		<td>N<br/><br/>(Padrão = 100)</td>
 	</tr>
 
 	<tr>
@@ -440,7 +440,7 @@ A tabela a seguir lista as propriedades com suporte por essas fontes e coletores
 		<td>writeBatchTimeout</td>
 		<td>Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido</td>
 		<td>(Unidade = timespan)<br/><br/>Exemplo: "00:20:00" (20 minutos)</td>
-		<td>N<br/><br/>(padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)</td>
+		<td>N<br/><br/>(Padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)</td>
 	</tr>
 
 	<tr>
@@ -461,19 +461,19 @@ A tabela a seguir lista as propriedades com suporte por essas fontes e coletores
 </table>
 
 ### SQL na IaaS(Infraestrutura como um serviço)
-Para SQL na IaaS, há suporte para o Azure como provedor da IaaS. Há suporte para a seguinte rede e topologias VPN. Observe que o Gateway de gerenciamento de dados é necessário para o caso #2 e #3, enquanto não é necessário caso #1. Para obter detalhes sobre o Gateway de gerenciamento de dados, consulte [Habilitar suas pipelines para acessar os dados locais][use-onpremises-datasources].
+Para SQL na IaaS, há suporte para o Azure como provedor da IaaS. Há suporte para a seguinte rede e topologias VPN. Observe que o Gateway de Gerenciamento de Dados é necessário para o caso #2 e 3 #, quanto não for necessário para o caso #1. Para obter detalhes sobre o Gateway de Gerenciamento de Dados, consulte [Ativar suas pipelines para acessar dados locais][use-onpremises-datasources].
 
-1.	Máquina virtual com o nome DNS e a porta estática pública: mapeamento de porta privada
+1.	Máquina virtual com o nome DNS público e porta estática pública: mapeamento de porta privada
 2.	Máquina virtual com o nome DNS público sem ponto de extremidade SQL exposto
 3.	Rede virtual
 	<ol type='a'>
-	<li>VPN de nuvem do Azure com topologia a seguir no final da lista. </li>	
-	<li>Máquina virtual com VPN de site a site local para nuvem utilizando a Rede virtual do Azure.</li>	
+	<li>Azure Cloud VPN with following topology at the end of the list. </li>	
+	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>	
 	</ol>  
 	![Data Factory with Copy Activity][image-data-factory-copy-actvity]
 
-## Filtragem de coluna utilizando a definição de estrutura
-Dependendo do tipo de tabela, é possível especificar um subconjunto das colunas da fonte especificando menos colunas na definição de **estrutura** da definição de tabela que existe na fonte de dados subjacente. A tabela a seguir fornece informações sobre a lógica de filtragem de coluna para diferentes tipos de tabela. 
+## Column filtering using structure definition
+Depending on the type of Table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source. The following table provides information about column filtering logic for different types of table. 
 
 <table>
 
@@ -484,21 +484,21 @@ Dependendo do tipo de tabela, é possível especificar um subconjunto das coluna
 
 	<tr>
 		<td>AzureBlobLocation</td>
-		<td>A definição da <b>estrutura</b> da tabela JSON deve corresponder à estrutura do blob.  Para selecionar um subconjunto das colunas, utilize o recurso de mapeamento de coluna descrito na próxima seção: Regras de transformação - mapeamento de coluna.</td>
+		<td>O <b>Estrutura</b> a definição da estrutura da tabela JSON deve corresponder à estrutura do blob.  Para selecionar um subconjunto das colunas, use o recurso de mapeamento de coluna descrito na próxima seção: Regras de transformação - mapeamento de coluna.</td>
 	<tr>
 
 	<tr>
 		<td>AzureSqlTableLocation e OnPremisesSqlServerTableLocation</td>
 		<td align="left">
-			<p>Se a propriedade <b>SqlReaderQuery</b> for especificada como parte da definição da Atividade de cópia, a definição de <b>estrutura</b> da tabela deve ser alinhada com as colunas selecionadas na consulta.</p>
-			<p>Se a propriedade <b>SqlReaderQuery</b> não for especificada, a Atividade de cópia automaticamente construirá uma consulta SELECT, com base nas colunas especificadas na definição de <b>estrutura</b> da definição de tabela.</p>
+			<p>Se a propriedade <b>SqlReaderQuery</b> for especificada como parte da definição de Atividade de Cópia, <b>Estrutura</b> a definição da estrutura da tabela deve estar alinhada com as colunas selecionadas na consulta.</p>
+			<p>Se a propriedade <b>SqlReaderQuery</b> não for especificada, a Atividade de Cópia criará automaticamente uma consulta SELECIONAR, com base nas colunas especificadas na <b>Estrutura</b> a definição da estrutura da definição de tabela.</p>
 		</td>
 	<tr>
 
 	<tr>
 		<td>AzureTableLocation</td>
 		<td>
-			A seção <b>estrutura</b> na definição da tabela pode conter o conjunto completo ou um subconjunto das colunas na tabela subjacente do Azure.
+			O <b>Estrutura</b> a seção estrutura na definição da tabela pode conter o conjunto completo ou um subconjunto das colunas na tabela subjacente do Azure.
 		</td>
 	<tr>
 
@@ -579,7 +579,7 @@ Nesse exemplo, a **tabela de saída** é definida da seguinte maneira. A tabela 
 		}
 	}	
 
-Se você não especificar um **fileName** para uma **tabela de entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos de exemplo no [tutorial][adf-tutorial] para ver exemplos.
+se você não especificar um **fileName** para uma **tabela de entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
 
 Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -657,7 +657,7 @@ Neste exemplo, uma consulta SQL (em vez de tabela no exemplo anterior) é utiliz
 
 #### Manipulação de tipo de dados pela Atividade de cópia
 
-Os tipos de dados especificados na seção Estrutura da definição de tabela será considerado somente para **BlobSource**.  A tabela a seguir descreve como os tipos de dados são tratados para outros tipos de fonte e coletor.
+Os tipos de dados especificados na seção Estrutura da definição de Tabela serão considerados somente para **BlobSource**.  A tabela a seguir descreve como os tipos de dados são tratados para outros tipos de fonte e coletor.
 
 <table>	
 	<tr>
@@ -667,19 +667,19 @@ Os tipos de dados especificados na seção Estrutura da definição de tabela se
 
 	<tr>
 		<td>SqlSource</td>
-		<td>Tipos de dados definidos na seção <b>estrutura</b> da definição de tabela são ignorados.  Os tipos de dados definidos no banco de dados SQL subjacente serão utilizados para a extração de dados durante a atividade de cópia.</td>
+		<td>Tipos de dados definidos na <b>Estrutura</b> seção da definição da tabela são ignorados.  Os tipos de dados definidos no banco de dados SQL subjacente serão usados para a extração de dados durante a atividade da cópia.</td>
 	</tr>
 
 	<tr>
 		<td>SqlSink</td>
-		<td>Tipos de dados definidos na seção <b>estrutura</b> da definição de tabela são ignorados.  Os tipos de dados na fonte e destino subjacente serão comparados e a conversão implícita de tipo será feita se houver a incompatibilidades de tipo.</td>
+		<td>Tipos de dados definidos na <b>Estrutura</b> seção da definição da tabela são ignorados.  Os tipos de dados na origem e destino subjacente serão comparados e conversão implícita de tipo será feito quando há incompatibilidades de tipo.</td>
 	</tr>
 
 	<tr>
 		<td>BlobSource</td>
-		<td><p>Durante a transferência de <b>BlobSource</b> para <b>BlobSink</b>, não há nenhuma transformação do tipo. Os tipos definidos na seção <b>estrutura</b> da definição de tabela são ignorados.  Para destinos que não sejam <b>BlobSink</b>, os tipos de dados definidos na seção <b>estrutura</b> da definição de tabela serão respeitados.</p>
+		<td><p>Durante a transferência de <b>BlobSource</b> para <b>BlobSink</b>, não há nenhuma transformação de tipo. Tipos definidos em <b>Estrutura</b> seção da definição da tabela são ignorados.  Para destinos diferentes de <b>BlobSink</b>, tipos de dados definidos na <b>Estrutura</b> seção da definição da Tabela será respeitada.</p>
 		<p>
-		Se a <b>estrutura</b> não é especificada na definição de tabela, a manipulação de tipo depende da propriedade <b>format</b> de <b>BlobSink</b>:
+		Se o <b>Estrutura</b> não foi especificada na definição de tabela, a manipulação de tipo depende do <b>formato</b> da propriedade de <b>BlobSink</b>:
 		</p>
 		<ul>
 			<li> <b>TextFormat:</b> todos os tipos de coluna são tratados como cadeia de caracteres e todos os nomes de coluna são definidos como "Prop_<0-N>"</li> 
@@ -691,31 +691,26 @@ Os tipos de dados especificados na seção Estrutura da definição de tabela se
 
 	<tr>
 		<td>BlobSink</td>
-		<td>Os tipos de dados definidos na seção <b>estrutura</b> da definição de tabela de entrada são ignorados.  Os tipos de dados definidos no armazenamento de dados de entrada subjacente serão utilizados.  As colunas serão especificadas como anulável para a serialização Avro.</td>
+		<td>Tipos de dados definidos na <b>Estrutura</b> seção da definição de Tabela de entrada são ignorados.  Os tipos de dados definidos no repositório de dados de entrada subjacente serão usados.  As colunas serão especificadas como anulável para a serialização de Avro.</td>
 	</tr>
 
 	<tr>
 		<td>AzureTableSource</td>
-		<td>Os tipos de dados definidos na seção <b>estrutura</b> da definição de tabela são ignorados.  Os tipos de dados definidos na tabela subjacente do Azure serão utilizados.</td>
+		<td>Tipos de dados definidos na <b>Estrutura</b> seção da definição da Tabela são ignorados.  Os tipos de dados definidos na tabela subjacente do Azure serão usados.</td>
 	</tr>
 
 	<tr>
 		<td>AzureTableSink</td>
-		<td>Os tipos de dados definidos na seção <b>estrutura</b> da definição de tabela são ignorados.  Os tipos de dados definidos no armazenamento de dados de entrada subjacente serão utilizados.</td>
+		<td>Tipos de dados definidos na <b>Estrutura</b> seção da definição da Tabela são ignorados.  Os tipos de dados definidos no repositório de dados de entrada subjacente serão usados.</td>
 	</tr>
 
 </table>
 
-## Limitações
-
-> [WACOM.NOTE] Quando uma pipeline é suspensa ou excluída, ou quando um data factory é excluído, a operação de cópia em andamento não é suspensa. Ela continuará a executar até a conclusão. No entanto, a operação de cópia que envolve uma fonte de dados local pode ser interrompida ao reiniciar o serviço de Gateway de gerenciamento de dados utilizando o gerenciador de configuração de Gateway de gerenciamento de dados ou o miniaplicativo de serviços. 
-
-
 
 ## Instruções passo a passo
-Consulte [Introdução ao Azure Data Factory][adfgetstarted] para obter um tutorial que mostra como copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure utilizando a Atividade de cópia.
+Consulte [Introdução ao Data Factory do Azure][adfgetstarted] para obter um tutorial que mostra como copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure utilizando a Atividade de Cópia.
  
-Consulte [Habilitar pipelines para trabalhar com dados locais][utilizando fontes de dados locais] para uma explicação passo a passo que mostra como copiar dados de um banco de dados SQL Server local para um armazenamento de blobs do Azure utilizando a Atividade de cópia.
+Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-datasources]para uma explicação passo a passo que mostra como copiar dados de um banco de dados SQL Server local para um armazenamento de blobs do Azure utilizando a Atividade de Cópia.
 
 
 
@@ -727,3 +722,5 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][utilizando fontes
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+
+<!--HONumber=35.2-->

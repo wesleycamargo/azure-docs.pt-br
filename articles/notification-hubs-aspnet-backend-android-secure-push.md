@@ -1,11 +1,11 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Envio seguro por push de Hubs de Notificação do Azure" metaKeywords="notificações por push do Azure, hubs de notificação do Azure, envio seguro" description="Saiba como enviar notificações por push seguro para um aplicativo Android do Azure. Exemplos de códigos escritos em Java e c#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Envio por push seguro de Hubs de notificação do Azure" metaKeywords ="notificações por envio por push do Azure, hubs de notificação do Azure, envio por push seguro" description="Saiba como enviar notificações por push segura para um aplicativo Android do Azure. Exemplos de códigos escritos em Java e C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 #Push Seguro dos Hubs de Notificação do Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/pt-br/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+    	<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
 		<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
@@ -24,7 +24,7 @@ Em um nível superior, o fluxo é o seguinte:
 
 É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificar Usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
+Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
 
 > [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Android)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-android-get-started/).
 
@@ -32,17 +32,17 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 
 ## Modificar o projeto Android
 
-Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de uma notificação, é preciso alterar o aplicativo Android para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
-Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android saiba como autenticar-se com o back-end ao receber as notificações de envio.
+Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de uma notificação, é preciso alterar o aplicativo iOS para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
+Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android Saiba como autenticar-se com o back-end ao receber as notificações de envio.
 
-Agora, modificaremos o fluxo de *logon* para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas de seu aplicativo. Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisará usar sem solicitar as credenciais do usuário.
+Agora, modificaremos o fluxo de logon para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas de seu aplicativo. Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisará usar sem solicitar as credenciais do usuário.
 
 1. No projeto do aplicativo Android, adicione as seguintes constantes na parte superior da classe **MainActivity**:
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. Ainda na classe **MainActivity**, atualize o método `getAuthorizationHeader()` para conter o código a seguir:
+2. Ainda na classe **MainActivity**, atualize o método "getAuthorizationHeader()" para conter o seguinte código:
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -56,13 +56,13 @@ Agora, modificaremos o fluxo de *logon* para salvar o valor do cabeçalho de aut
     		return basicAuthHeader;
 		}
 
-3. Adicione as seguintes instruções 'importar' na parte superior do arquivo **MainActivity**:
+3. Adicione as seguintes instruções "import" na parte superior do arquivo **MainActivity**:
 
 		import android.content.SharedPreferences;
 
 Agora, alteraremos o manipulador que é chamado quando a notificação é recebida.
 
-4. Na classe **MyHandler**, altere o método `OnReceive()` para conter:
+4. Na classe **MyHandler** altere o método "OnReceive()" para conter:
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -70,7 +70,7 @@ Agora, alteraremos o manipulador que é chamado quando a notificação é recebi
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. Em seguida, adicione o método `retrieveNotification()`, substituindo o espaço reservado `{back-end endpoint}` com o ponto de extremidade de back-end obtido durante a implantação de back-end:
+5. Em seguida, adicione o método "retrieveNotification()", substituindo o espaço reservado "{ponto de extremidade do back-end}" com o ponto de extremidade do back-end obtido ao implantar seu back-end:
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -114,4 +114,6 @@ Para executar o aplicativo, faça o seguinte:
 
 3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
 
-4. Na IU do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
+4. Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
+
+<!--HONumber=35.2-->

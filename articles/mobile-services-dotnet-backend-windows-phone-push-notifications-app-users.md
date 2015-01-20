@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Enviar notificações por push para usuários autenticados" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Saiba como enviar notificações por push para especificar " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+<properties pageTitle="Enviar notificações por push para usuários autenticados" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Saiba como enviar notificações por push para especificar " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -32,7 +32,7 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 ##<a name="update-app"></a>Atualizar o aplicativo para fazer logon antes do registro
 
-[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app- md)] users](../includes/mobile-services-windows-phone-push-notifications-app-users.
+[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Testar o aplicativo
@@ -56,3 +56,5 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+
+<!--HONumber=35.2-->

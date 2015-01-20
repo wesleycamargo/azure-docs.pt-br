@@ -1,28 +1,28 @@
-﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="Introdução aos dados (HTML 5) | Mobile Dev Center" metaKeywords="" description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="Introdução aos dados (HTML 5) Adicionar os Serviços Móveis para um aplicativo existente| Centro de Desenvolvimento Móvel" metaKeywords ="" description="Saiba como começar a usar os Serviços Móveis para utilizar dados em seu aplicativo HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
-# Adicionar Serviços Móveis a um aplicativo existente
+# Adicionar os Serviços Móveis em um aplicativo existente
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
-Este tópico mostra como usar os Serviços Móveis do Azure para aproveitar os dados de um aplicativo HTML. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criar[a um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
+Este tópico mostra como usar os Serviços Móveis do Azure para aproveitar os dados de um aplicativo HTML. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
->[WACOM.NOTE]O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo HTML. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-html">Introdução aos Serviços Móveis</a>.
+>[WACOM.NOTE]O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo HTML. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial. <a href="/pt-br/develop/mobile/tutorials/get-started-html">Introdução aos Serviços Móveis</a>.
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
 1. [Baixar o projeto do aplicativo HTML]
 2. [Criar o serviço móvel]
 3. [Adicionar uma tabela de dados para armazenamento]
-4. [Atualizar o aplicativo para usar Serviços Móveis]
+4. [Atualizar o aplicativo para usar os Serviços Móveis]
 5. [Testar o aplicativo com os Serviços Móveis]
 
-<div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisará de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Avaliação gratuita do Azure</a>.</p></div> 
+<div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Avaliação gratuita do Azure</a>.</p></div> 
 
 ###Requisitos adicionais
 
-Você pode hospedar o aplicativo GetStartedWithData em qualquer servidor Web. No entanto, para sua conveniência, foram fornecidos scripts para permitir que você execute o aplicativo em `http://localhost:8000`.
+Você pode hospedar o aplicativo GetStartedWithData em qualquer servidor web. No entanto, para sua conveniência, foram fornecidos scripts para permitir que você execute o aplicativo em "http://localhost:8000".
  
 + Para usar o localhost, este tutorial requer que você tenha um dos seguintes servidores web em execução no seu computador local:
 
@@ -38,7 +38,7 @@ Você pode hospedar o aplicativo GetStartedWithData em qualquer servidor Web. No
 
 Este tutorial é baseado no [aplicativo GetStartedWithData], que é um aplicativo HTML5. A interface do usuário desse aplicativo é idêntica a do aplicativo gerado pelo início rápido dos Serviços Móveis, a não ser pelos os itens adicionados que são armazenados localmente na memória. 
 
-1. [Baixe os arquivos de projeto do aplicativo HTML][aplicativo GetStartedWithData].
+1. [Baixar os arquivos de projeto do aplicativo HTML][GetStartedWithData app].
 
 2. Em um editor HTML, abra o projeto baixado e examine o arquivo app.js.
 
@@ -46,17 +46,17 @@ Este tutorial é baseado no [aplicativo GetStartedWithData], que é um aplicativ
 
 3. Inicie um dos arquivos de comando a seguir da subpasta **server**.
 
-	+ **launch-windows** (computadores com Windows) 
-	+ **launch-mac.command** (computadores com Mac OS X)
-	+ **launch-linux.sh** (computadores com Linux)
+	+ ** launch-windows** (computadores com Windows) 
+	+ ** launch-mac.command** (computadores com Mac OS X)
+	+ ** launch-linux.sh** (computadores com Linux)
 
 	<div class="dev-callout"><b>Observação</b>
-		<p>Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.</p>
+		<p>Em um computador Windows, digite 'R' quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.</p>
 	</div>
 	
 	Isso iniciará um servidor web no computador local para hospedar o novo aplicativo.
 
-4. Abra a URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> em um navegador da Web para iniciar o aplicativo.
+4. Abrir a URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> em um navegador da web para iniciar o aplicativo.
 
 5. No aplicativo, digite um texto significativo, como _Concluir o tutorial_, em **Inserir nova tarefa** e clique em **Adicionar**.
 
@@ -72,15 +72,15 @@ Este tutorial é baseado no [aplicativo GetStartedWithData], que é um aplicativ
 
 Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeiro você deve criar uma nova tabela na instância do banco de dados SQL associada.
 
-1. No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+1. No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
 
-2. Clique na guia **Dados** e clique em **+Criar**.
+2. Clique na guia **Dados** e, em seguida, clique em **+Criar**.
 
    	![][5]
 
    	Isso exibe a caixa de diálogo **Criar uma nova tabela**.
 
-3. Em **Nome da tabela**, digite _TodoItem_ e clique no botão de seleção.
+3. Em **Nome da tabela** digite _TodoItem_ e, em seguida, clique no botão de seleção.
 
   	![][6]
 
@@ -88,7 +88,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
     <div class="dev-callout"> 
 	<b>Observação</b> 
-	<p>O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso servirá para evitar colisões de dados quando vários serviços móveis usarem o mesmo banco de dados.</p> 
+	<p>O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso é para evitar colisões de dados quando vários serviços móveis usam o mesmo banco de dados.</p> 
 	</div>
 
 4. Clique na nova tabela **TodoItem** e verifique se não há linhas de dados.
@@ -129,12 +129,12 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 	<p>Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.</p>
     </div>
 
-6. Na guia **Configurar**, verifique se `localhost` já está relacionado na lista **Permitir solicitações de nomes de host** em **Compartilhamento de Recursos entre Origens (CORS)**. Se ele não estiver, digite `localhost` no campo **Nome do host** e clique em **Salvar**.
+6. Na guia **Configurar**, verifique se 'localhost' já está relacionado na lista **Permitir solicitações de nomes de host** em **Compartilhamento de Recursos entre Origens (CORS)**. Se ele não estiver, digite 'localhost' no campo **Nome do host** e clique em **Salvar**.
 
   	![][11]
 
 	<div class="dev-callout"><b>Observação</b>
-		<p>Se você implantar o aplicativo de início rápido em um servidor Web que não seja o localhost, adicione o nome do host do servidor Web à lista <strong>Permitir solicitações de nomes de host</strong>. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn155871.aspx" target="_blank">Compartilhamento de recursos entre origens</a>.</p>
+		<p>Se você implantar o aplicativo quickstart para um servidor web que não seja localhost, deverá adicionar o nome do host do servidor web à lista <strong>Permitir solicitações de nomes de host</strong> . Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn155871.aspx" target="_blank">Compartilhamento de recursos entre origens</a>.</p>
 	</div>
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
@@ -143,7 +143,7 @@ Agora você está pronto para usar o novo serviço móvel como armazenamento de 
 
 Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo para armazenar itens nos Serviços Móveis em vez de na coleção local. 
 
-3. No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+3. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
 
 4. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
 
@@ -191,7 +191,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
   	Esse código insere um novo item na tabela.
 
-8. Substitua o método **refreshTodoItems** pelo código a seguir:
+8. Substitua o método **RefreshTodoItems** pelo seguinte código:
 
 		function refreshTodoItems() {
 
@@ -241,29 +241,29 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 <h2><a name="test-app"></a>Testar o aplicativo com seu novo serviço móvel</h2>
 
-4. Recarregue a URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> em um navegador da Web para iniciar o aplicativo.
+4. Recarregue a URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> em um navegador da web, inicie o aplicativo.
 
     <div class="dev-callout"><b>Observação</b>
 	<p>Se você precisar reiniciar o servidor da web, repita as etapas da primeira seção.</p>
     </div>
 
-2. Como feito anteriormente, insira texto em **Inserir nova tarefa** e clique em **Adicionar**. 
+2. Da mesma forma que antes, digite o texto em **Inserir nova tarefa** e, em seguida, clique em **Adicionar**. 
 
    	Isso envia um novo item como uma inserção no serviço móvel.
 
-3. No [Portal de Gerenciamento], clique em **Serviços Móveis** e clique no seu serviço móvel.
+3. No [Portal de Gerenciamento], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-4. Clique na guia **Dados** e clique em **Procurar**.
+4. Clique na guia **Dados** e, em seguida, clique em **Procurar**.
 
    	![][9]
   
    	Observe que a tabela **TodoItem** agora contém dados com valores de id gerados pelos Serviços Móveis, e que as colunas foram automaticamente adicionadas à tabela para coincidir com a classe TodoItem no aplicativo.
 
-5. No aplicativo, verifique um dos itens da lista e retorne À guia Procurar no portal e clique em **Atualizar**. 
+5. No aplicativo, verifique um dos itens na lista, depois volte para a guia Procurar no portal e clique em **Atualizar**. 
 
   	Observe que o valor completo foi alterado de **false** para **true**.
 
-6. No arquivo de projeto app.js, localize o método **RefreshTodoItems** e substitua a linha de código que define `query` pela seguinte:
+6. No arquivo de projeto app.js, localize o método **RefreshTodoItems** e substitua a linha do código que define "query" pelo seguinte:
 
    		var query = todoItemTable.where({ complete: false });
 
@@ -278,7 +278,7 @@ Isso conclui o tutorial **Introdução aos dados**.
 Este tutorial demonstrou as noções básicas de como habilitar um aplicativo HTML para trabalhar com dados nos Serviços Móveis. Em seguida, considere fazer um dos seguintes tutoriais com base no aplicativo GetStartedWithData que você criou neste tutorial:
 
 * [Validar e modificar dados com scripts]
-  <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar dados enviados do seu aplicativo.
+  <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
 
 * [Refinar consultas com paginação]
   <br/>Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
@@ -289,7 +289,7 @@ Após concluir a série de dados, saiba como autenticar os usuários do seu apli
 [Baixar o projeto do aplicativo HTML]: #download-app
 [Criar o serviço móvel]: #create-service
 [Adicionar uma tabela de dados para armazenamento]: #add-table
-[Atualizar o aplicativo para usar Serviços Móveis]: #update-app
+[Atualizar o aplicativo para usar os Serviços Móveis]: #update-app
 [Testar o aplicativo com os Serviços Móveis]: #test-app
 [Próximas etapas]:#next-steps
 
@@ -321,3 +321,5 @@ Após concluir a série de dados, saiba como autenticar os usuários do seu apli
 
 [Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn155871.aspx
 
+
+<!--HONumber=35.2-->

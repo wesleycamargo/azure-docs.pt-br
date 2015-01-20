@@ -1,73 +1,82 @@
-<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
+﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="Como criar uma coleção na nuvem do RemoteApp" description="Saiba como criar uma implantação de nuvem do RemoteApp que salva dados na nuvem do Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
 
-# Como criar uma implantação de nuvem do RemoteApp
+#Como criar uma coleção na nuvem do RemoteApp
 
-Há dois tipos de implantação do RemoteApp:
+Há dois tipos de coleções de RemoteApp: 
 
--   Nuvem: reside completamente no Azure e é criada usando a opção **Criação rápida** no Portal de Gerenciamento do Azure.
--   Híbrida: inclue uma rede virtual para acesso local e é criada usando a opção **Criar com VPN** no Portal de Gerenciamento.
+- Nuvem: reside completamente no Azure e é criada usando a opção **Criação rápida** no Portal de Gerenciamento do Azure.  
+- Híbrida: inclui uma rede virtual para acesso local e é criada usando a opção **Criar com VPN** no Portal de Gerenciamento.
 
-Este tutorial explica o processo de criação de uma implantação de nuvem. Há quatro etapas:
+Este tutorial explica o processo de criação de uma implantação de nuvem. Há quatro etapas: 
 
-1.  Criar um serviço RemoteApp.
-2.  Opcionalmente, configure a sincronização do diretório. O RemoteApp exige esta sincronização de usuário, grupos, contatos e senhas do seu Active Directory local para o seu locatário do Active Directory do Azure.
-3.  Publicar os programas do RemoteApp.
-4.  Configurar o acesso do usuário.
+1.	Criar uma coleção de RemoteApp.
+2.	Opcionalmente, configure a sincronização do diretório. O RemoteApp exige esta sincronização de usuários, grupos, contatos e senhas do seu Active Directory local para o seu locatário do Active Directory do Azure.
+5.	Publicar aplicativos do RemoteApp.
+6.	Configurar o acesso do usuário.
 
 **Antes de começar**
 
-É necessário fazer o seguinte antes de criar o serviço:
+Você precisa fazer o seguinte antes de criar a coleção:
 
--   Increva-se para a visualização do RemoteApp. É possível fazer isso em [][]<http://azure.microsoft.com/pt-br/services/remoteapp/></a>.
--   Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Pode ser informações da conta da Microsoft ou da conta organizacional do Active Directory para usuários e grupos.
--   Este procedimento pressupõe que você irá usar a imagem do modelo fornecida como parte da sua assinatura ou que já tenha feito o upload da imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente.
+- Inscrever-se no RemoteApp. É possível fazer isso em [http://azure.microsoft.com/pt-br/services/remoteapp/](http://azure.microsoft.com/pt-br/services/remoteapp/).
+- Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
+- Este procedimento pressupõe que usará ou uma das imagens de modelo fornecidas como parte de sua assinatura ou que você já carregou a imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Carregar uma imagem do modelo** e siga as etapas do assistente. 
+- Deseja fornecer aplicativos personalizados ou programas LOB? Crie uma nova [imagem de modelo personalizada](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-custom-image/) e use-a na sua implantação na nuvem.
 
-## **Etapa 1: Crie um serviço RemoteApp**
+## **Etapa 1: Criar uma coleção de RemoteApp** ##
 
-1.  No [Portal de Gerenciamento do Microsoft Azure][Portal de Gerenciamento do Microsoft Azure], vá para a página do RemoteApp.
-2.  Clique em **Novo \> Criação Rápida**.
 
-3.  Digite um nome para o seu serviço e selecione a sua região.
-4.  Escolha a assinatura que deseja usar para criar este serviço.
-5.  Escolha o modelo para usar neste serviço.
 
-    **Dica:** A sua assinatura do RemoteApp acompanha uma imagem do modelo que contém os programas Office 2013, alguns publicados (como o Word) e outros prontos para a publicação.
+1. No [Portal de Gerenciamento do Microsoft Azure](http://manage.windowsazure.com), vá para a página do RemoteApp.
+2. Clique em **Novo > Criação Rápida**.
 
-6.  Clique em **Criar o serviço RemoteApp**.
+3. Digite um nome para a coleção e selecione sua região.
+4. Escolha o plano que você deseja usar - standard ou basic.
+5. Escolha o modelo a ser usado para esta coleção. 
 
-    **Importante:** Pode demorar até 30 minutos para provisionar o seu serviço.
+	**Dica:** sua assinatura do RemoteApp vem com [imagens de modelo](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-images/) que contêm programas do Office 365 ou do Office 2013 (para uso de avaliação), alguns publicados (como Word) e outros prontos para publicação. Você também pode criar uma nova [imagem de modelo personalizada](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-custom-image/) e usá-la em sua coleção na nuvem.
 
-Após a criação do serviço RemoteApp, vá para a página **Início Rápido** do RemoteApp para continuar as etapas de configuração.
 
-## **Etapa 2: Configurar a sincronização de diretório do Active Directory (Opcional)**
+1. Clique em **Criar coleção de RemoteApp**.
+	
+	**Importante:** pode levar até 30 minutos para provisionar sua coleção.
 
-Se desejar usar o Active Directory, o RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte o [Roteiro de sincronização do diretório][Roteiro de sincronização do diretório] para as informações de planejamento e etapas detalhadas.
+Após a criação da coleção de RemoteApp, vá para a página **Início Rápido** do RemoteApp para continuar as etapas de configuração.
 
-## **Etapa 3: Publicar os programas do RemoteApp**
 
-Um programa do RemoteApp é um aplicativo ou um programa fornecido para os seus usuários. Ele está localizado na imagem do modelo no qual foi feito o upload do serviço. Quando o usuário acessa um programa do RemoteApp, o programa parece estar em execução no seu ambiente local mas, na verdade, está em execução no Azure.
+## **Etapa 2: Configurar a sincronização do diretório do Active Directory (opcional)** ##
 
-Antes que os seus usuários possam acessar os programas do RemoteApp, é necessário publicá-los nos comentários do usuário final – uma lista de programas disponíveis que os seus usuários acessam através do portal do Azure.
+Se desejar usar o Active Directory, o RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte [Configurando o Active Directory para o RemoteApp do Azure](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-ad/) para obter informações de planejamento.
 
-É possível publicar vários programas em seu serviço do RemoteApp. Na página de prohramas do RemoteApp, clique em **Publicar** para adicionar um programa. É possível publicar no menu Iniciar da imagem do modelo ou especificar o caminho na imagem do modelo para o programa. Se optar por adicionar a partir do menu Iniciar, escolha o programa para publicar. Se optar por fornecer o caminho para o programa, forneça um nome para o programa e o caminha no qual o programa está instalado na imagem do modelo.
+## **Etapa 3: Publicar aplicativos do RemoteApp** ##
 
-## **Etapa 4: Configurar o acesso do usuário**
+Um aplicativo do RemoteApp é o aplicativo ou programa fornecido aos seus usuários. Ele está localizado na imagem do modelo na qual foi carregada a coleção. Quando um usuário acessa um aplicativo do RemoteApp, o aplicativo aparenta ser executado no seu ambiente local, mas, na realidade, ele está em execução no Azure. 
 
-Agora que o seu serviço do RemoteApp foi criado, é necessário adicionar os usuários e grupos que deseja habilitar para usar os seus recursos remotos. Se estiver usando o Active Directory, os usuários ou grupos que possuem acesso liberado precisam existir no locatário do Active Directory, associado à assinatura usada para criar este serviço do RemoteApp.
+Antes que os usuários possam acessar aplicativos, você precisa publicá-los para o feed do usuário final - uma lista dos aplicativos disponíveis que os usuários acessam por meio do cliente da área de trabalho remota.
+ 
+Você pode publicar vários aplicativos em sua coleção de RemoteApp. Na página de publicação de RemoteApp, clique em **Publicar** para adicionar um programa. É possível publicar no menu Iniciar da imagem do modelo ou especificar o caminho na imagem do modelo para o aplicativo. Se você optar por adicionar a partir do menu Iniciar, escolha o aplicativo para publicar. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
 
-1.  Na página Início Rápido, clique em **Configurar o acesso do usuário**.
-2.  Digite a conta organizacional ou o nome do grupo (do Active Directory) ou a conta da Microsoft que deseja liberar o acesso.
+## **Etapa 4: Configurar o acesso de usuário** ##
 
-	Para os usuários, certifique-se de usar o formato “usuário@domínio.com”. Para grupos, digite o nome do grupo.
+Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usuários que você deseja que usem seus recursos remotos. Se estiver usando o Active Directory, os usuários ou grupos que possuem acesso liberado precisam existir no locatário do Active Directory, associado à assinatura usada para criar este serviço do RemoteApp.
 
-3.  Uma vez que os usuários ou grupos forem validades, clique em **Salvar**.
+1.	Na página Início Rápido, clique em **Configurar o acesso do usuário**. 
+2.	Insira a conta de trabalho (a partir do Active Directory) ou a conta da Microsoft para a qual você deseja conceder acesso.
 
-## Próximas etapas
+	**Observações:** 
 
-É isso - a sua implantação de nuvem do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, faça com que os usuários façam logon no Azure e acessem os programas do RemoteApp publicados.
+	Certifique-se de usar o formato "user@domain.com".
 
-  []: http://azure.microsoft.com/pt-br/services/remoteapp/
-  [Portal de Gerenciamento do Microsoft Azure]: http://manage.windowsazure.com
-  [Roteiro de sincronização do diretório]: http://msdn.microsoft.com/pt-br/library/azure/hh967642.aspx
+	Se você estiver usando o Office 365 ProPlus em sua coleção, você deve usar as identidades do Active Directory para os usuários. Isso ajuda a validar o licenciamento. 
+
+3.	Depois que os usuários são validados, clique em **Salvar**.
+
+
+## Próximas etapas ##
+
+É isso - a sua implantação na nuvem do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, os usuários podem fazer o logon no cliente e acessar os aplicativos que você publicou.
+
+
+<!--HONumber=35.2-->

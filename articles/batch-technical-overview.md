@@ -1,6 +1,6 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Visão técnica geral do Azure Batch" metaKeywords="" description="Saiba mais sobre os conceitos, os fluxos de trabalho e cenários do serviço Lote do Azure" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Visão técnica geral do Azure Batch" metaKeywords="" description="Saiba mais sobre os conceitos, fluxos de trabalho e cenários do serviço de Lote do Azure" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="danlep" />
+<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
 
 
 #Visão técnica geral do Azure Batch
@@ -13,14 +13,14 @@ Este artigo fornece a você uma visão geral de:
  
 * [Casos de uso](#BKMK_Scenarios)
 * [Cenários do desenvolvedor](#BKMK_Approaches)
-* [Conceitos de lote](#BKMK_Entities)
+* [Conceitos do Batch](#BKMK_Entities)
 * [Fluxo de trabalho por item de trabalho](#BKMK_Workflow_workitems)
 * [Fluxo de trabalho para publicar e executar aplicativos](#BKMK_Workflow_cloudappss)
 * [Recursos adicionais](#BKMK_Resources)
 
 <h2 id="BKMK_Scenarios">Casos de uso</h2>
 
-O Batch usa a elasticidade e a escala da nuvem para ajudá-lo com *processamento em lotes* ou *computação em lotes* - executando programaticamente grandes volumes de tarefas similares. Um programa ou script de linha de comando usa um conjunto de arquivos de dados como entrada, processa os dados em uma série de tarefas e produz um conjunto de arquivos de saída. Os arquivos de saída podem ser os resultados finais ou uma etapa intermediária em um fluxo de trabalho maior.       
+O Batch usa a elasticidade e a escala da nuvem para ajudá-lo com o *processamento em lotes* ou *computação em lotes* - executando programaticamente grandes volumes de tarefas similares. Um programa ou script de linha de comando usa um conjunto de arquivos de dados como entrada, processa os dados em uma série de tarefas e produz um conjunto de arquivos de saída. Os arquivos de saída podem ser os resultados finais ou uma etapa intermediária em um fluxo de trabalho maior.       
  
 Computação de lote é um padrão comum para as organizações que processam, transformam e analisam grandes volumes de dados, seja em um agendamento ou sob demanda. Ela inclui o processamento de final do ciclo, como o relatório de risco diário dos bancos ou uma folha de pagamento que deve ser feita segundo uma agenda. Ela também inclui os aplicativos em grande escala de negócios, ciência e engenharia, que normalmente precisam de ferramentas e recursos de uma grade ou cluster de computação. Os aplicativos incluem aplicativos HPC tradicionais como simulações de dinâmica de fluidos, bem como cargas de trabalho especializadas em campos como design automotivo, exploração de petróleo e gás, pesquisas de ciências biológicas e criação de conteúdo digital. 
  
@@ -42,16 +42,16 @@ Você também pode usar o Batch para realizar cálculos paralelos com uma etapa 
 
 >[WACOM.NOTE]A Visualização do Batch atualmente não oferece suporte a aplicativos de interface de troca de mensagens (MPI).
 
-<h2 id="BKMK_Approaches">Cenários do desenvolvedor</h2>
+<h2 id="BKMK_Approaches">cenários do desenvolvedor</h2>
 
 As APIs do Batch baseadas em REST oferecem suporte a dois cenários de desenvolvedor para ajudá-lo a configurar e executar suas cargas de trabalho em lotes com o serviço Batch:
  
 1. **Distribua computações como itens de trabalho** - utilize as APIs do *Batch* para criar e gerenciar um pool flexível de VMs para computação e especificar os itens de trabalho executados nessas VMs. Isso lhe dá total controle sobre os recursos e exige que o cliente gerencie o pipeline de execução de tarefas - por exemplo, com um gerenciador de fluxo de trabalho ou um meta-agendador, que pode ser implementado usando as APIs REST do Batch ou, opcionalmente, um recurso de gerenciador de trabalho do item de trabalho. Em vez de configurar um cluster de computação ou escrever código para colocar em fila e agendar os trabalhos, você pode automatizar o agendamento de trabalhos de computação e dimensionar, para mais ou menos, um pool de VMs de computação para executar esses trabalhos. Como parte da especificação de itens de trabalho, você define todas as dependências e também a movimentação de arquivos de entrada e saída. 
 
-2. **Publique e execute aplicativos com o serviço Batch** - as APIs do *Batch Apps* oferecem um maior nível de abstração e um pipeline para execução de trabalhos, hospedado pelo serviço Batch. Com o Batch Apps, você pode criar uma carga de trabalho em lotes como um serviço na nuvem, por meio de um aplicativo executado atualmente em estações de trabalho clientes ou em um cluster de computação. O Batch Apps ajuda você a encapsular executáveis e binários existentes e publicá-los para execução por VMs em pool, as quais o serviço de lote cria e gerencia em segundo plano. A estrutura do Batch Apps cuida da movimentação de arquivos de saída e entrada, da execução do trabalho, do gerenciamento de trabalhos e da persistência de dados. O Batch Apps também permite a você modelar tarefas segundo o modo como os dados são particionados e para múltiplas etapas em um trabalho. Estão incluídos uma API baseada em REST e o portal do Batch Apps, o qual pode ser acessado pelo Portal de Gerenciamento do Azure e ajuda a monitorar os trabalhos enviados por você.
+2. **Publique e execute aplicativos com o serviço Batch** - as APIs do *Batch Apps* oferecem um maior nível de abstração e uma pipeline para execução de trabalhos, hospedada pelo serviço Batch. Com o Batch Apps, você pode criar uma carga de trabalho em lotes como um serviço na nuvem, por meio de um aplicativo executado atualmente em estações de trabalho clientes ou em um cluster de computação. O Batch Apps ajuda você a encapsular executáveis e binários existentes e publicá-los para execução por VMs em pool, as quais o serviço de lote cria e gerencia em segundo plano. A estrutura do Batch Apps cuida da movimentação de arquivos de saída e entrada, da execução do trabalho, do gerenciamento de trabalhos e da persistência de dados. O Batch Apps também permite a você modelar tarefas segundo o modo como os dados são particionados e para múltiplas etapas em um trabalho. Estão incluídos uma API baseada em REST e o portal do Batch Apps, o qual pode ser acessado pelo Portal de Gerenciamento do Azure e ajuda a monitorar os trabalhos enviados por você.
 
 
-<h2 id="BKMK_Entities">Conceitos de lote</h2>
+<h2 id="BKMK_Entities">Conceitos Batch</h2>
 
 As seções a seguir resumem os conceitos principais para trabalhar com o serviço Batch e APIs. Para obter mais informações, consulte [Noções básicas de API para o Azure Batch](http://azure.microsoft.com/pt-br/documentation/articles/batch-api-basics). 
 
@@ -91,7 +91,7 @@ Se você usar as APIs do Batch, você pode criar um pool diretamente ou configur
 
 Os atributos de um pool incluem:
 
-* Um [tamanho](http://msdn.microsoft.com/library/azure/dn197896.aspx) para as TVMs 
+* Um []tamanho(http://msdn.microsoft.com/library/azure/dn197896.aspx) para as TVMs 
 * O sistema operacional executado nas TVMs
 * O número máximo de TVMs
 * Uma política de escalonamento para o pool - uma fórmula com base no uso de recursos e na carga de trabalho atuais, que ajusta dinamicamente o número de TVMs que processam tarefas
@@ -130,7 +130,7 @@ Cada tarefa tem um diretório de trabalho sob o qual ele cria diretórios e arqu
 
 Novamente, dependendo das APIs que você usa com o Batch, você precisará gerenciar mais ou menos detalhes sobre os locais e a movimentação de arquivos de entrada e saída para seus trabalhos e tarefas. Se você está desenvolvendo com APIs de Batch de nível inferior, você especifica essas dependências e movimentos de arquivo explicitamente. Com Batch Apps, a estrutura cuida da maioria desses detalhes para você. 
 
-<h2 id="BKMK_Workflow_workitems">Fluxo de trabalho por itens de trabalho</h2>
+<h2 id="BKMK_Workflow_workitems"> Fluxo de trabalho de itens de trabalho</h2>
 A Figura 4 mostra um fluxo de trabalho típico para distribuir computações a um pool de TVMs, pelo uso da API de Batch.
 
 ![Work items workflow][work_item_workflow]
@@ -174,6 +174,7 @@ A Figura 5 mostra um fluxo de trabalho básico para publicar um aplicativo usand
 <h2 id="BKMK_Resources">Recursos adicionais</h2>
 
 * [Introdução à Biblioteca do Azure Batch para .NET](http://azure.microsoft.com/pt-br/documentation/articles/batch-dotnet-get-started/)
+* [Ferramentas e bibliotecas de desenvolvimento do Azure Batch](http://azure.microsoft.com/pt-br/documentation/articles/batch-development-libraries-tools/)
 * [Referência da API REST do Azure Batch](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Referência da API REST do Azure Batch Apps](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -183,3 +184,5 @@ A Figura 5 mostra um fluxo de trabalho básico para publicar um aplicativo usand
 [account_portal]: ./media/batch-technical-overview/account_portal.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
+
+<!--HONumber=35.2-->

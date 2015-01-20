@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="" pageTitle="Usando grupos de recursos para gerenciar os recursos do Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="Usando grupos de recursos para gerenciar os recursos do Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
 
 
 # Usando grupos de recursos para gerenciar os recursos do Azure
@@ -59,7 +59,7 @@ Você pode adicionar recursos a um grupo de recursos usando o comando "Adicionar
 
 ![](http://i.imgur.com/G79kayH.png)
 
-Observação: não é recomendável colocar um projeto de equipe no mesmo grupo de recursos que outros recursos do Azure. Se você criar um projeto de equipe em uma nova conta e grupo e em seguida criar um site, o grupo de sites será padronizado para o último grupo usado (grupo VSO) e você acabará com recursos de tempo de execução/desenvolvedor no mesmo grupo. 
+Observação: não é recomendável colocar um projeto de equipe no mesmo grupo de recursos que outros recursos do Azure. Se você criar um projeto da equipe em uma nova conta e grupo e em seguida criar um site, o grupo de sites será padronizado para o último grupo usado (grupo VSO) e você acabará com recursos de tempo de execução/desenvolvedor no mesmo grupo. 
 
 
 
@@ -70,3 +70,5 @@ Observação: não é recomendável colocar um projeto de equipe no mesmo grupo 
 Como os grupos de recursos permitem que você gerencie o ciclo de vida de todos os recursos contidos, a exclusão de um grupo de recursos resultará na exclusão de todos os recursos contidos no grupo. Você também pode excluir recursos individuais de um grupo de recursos. Tenha cuidado ao excluir um grupo de recursos pois pode haver outros recursos vinculados a ele. Você pode ver os recursos vinculados no mapa de recursos e tomar as medidas necessárias para evitar consequências não intencionais ao excluir grupos de recursos. 
 
 ![](http://i.imgur.com/ZTXoISb.png)
+
+<!--HONumber=35.2-->

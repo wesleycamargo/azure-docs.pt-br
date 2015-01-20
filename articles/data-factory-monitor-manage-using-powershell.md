@@ -1,6 +1,6 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorar e gerenciar o Data Factory do Azure utilizando o PowerShell do Azure" description="Aprenda a usar o Azure PowerShell para monitorar e gerenciar fábricas de dados do Azure que você criou." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorar e gerenciar o Data Factory do Azure utilizando o PowerShell do Azure" description="Aprenda a usar o Azure PowerShell para monitorar e gerenciar os dados de fábrica do Azure que você criou." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Monitorar e gerenciar o Data Factory do Azure utilizando o PowerShell do Azure
 A tabela a seguir lista os cmdlets, é possível utilizar o monitor e gerenciar as data factories do Azure usando o PowerShell do Azure. 
@@ -40,7 +40,7 @@ Esse comando retorna detalhes sobre a data factory ADFTutorialDataFactory no gru
 ## <a name="get-azuredatafactorylinkedservice"></a> Get-AzureDataFactoryLinkedService ##
 O cmdlet Get-AzureDataFactoryLinkedService obtém informações sobre um serviço vinculado específico ou todos os serviços vinculados a uma data factory do Azure.
 
-### Exemplo 1 ###
+### Exemplo 1 # # #
 
     Get-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
  
@@ -189,7 +189,7 @@ Esse comando obtém todas as fatias para a tabela EmpSQLTable na data factory AD
 
 ## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
 
-O cmdlet Get-AzureDataFactoryRun obtém todas as execuções para uma fatia de dados de uma tabela em uma data factory do Azure.  Uma tabela em uma data factory do Azure é composta de fatias ao longo do eixo de tempo. A largura de uma fatia é determinada pelo agendamento - por hora/diariamente. A execução é uma unidade de processamento de uma fatia. Pode haver uma ou mais execuções de uma fatia no caso de repetições ou se você executar novamente a fatia em caso de falhas. Uma fatia é identificada pela sua hora de início. Portanto, para o cmdlet Get-AzureDataFactoryRun, é necessário passar a hora de início da fatia dos resultados do cmdlet Get-AzureDataFactorySlice.
+O cmdlet Get-AzureDataFactoryRun obtém todas as execuções para uma fatia de dados de uma tabela em um Data Factory do Azure.  Uma tabela em um data factory do Azure é composta de fatias ao longo do eixo de tempo. A largura de uma fatia é determinada pelo agendamento - por hora/diariamente. A execução é uma unidade de processamento de uma fatia. Pode haver uma ou mais execuções de uma fatia no caso de repetições ou se você executar novamente a fatia em caso de falhas. Uma fatia é identificada pela sua hora de início. Portanto, para o cmdlet Get-AzureDataFactoryRun, é necessário passar a hora de início da fatia dos resultados do cmdlet Get-AzureDataFactorySlice.
 
 Por exemplo, para obter uma execução da fatia a seguir, utilize 2015-04-02T20:00:00. 
 
@@ -242,7 +242,7 @@ Esse comando retorna o local dos arquivos de log. Observe que o parâmetro - Dow
 
 
 ## <a name="get-azuredatafactorygateway"></a> Get-AzureDataFactoryGateway
-O cmdlet Get-AzureDataFactoryGateway obtém informações sobre todos os gateways ou um gateway específico em uma data factory do Azure. É necessário instalar um gateway em seu computador local para poder adicionar um SQL Server local como um serviço vinculado a uma data factory.
+O cmdlet Get-AzureDataFactoryGateway obtém informações sobre todos os gateways ou um gateway específico em uma data factory do Azure. É necessário instalar um gateway em seu computador local para poder adicionar um SQL Server local como um serviço vinculado a um data factory.
 
 ### Exemplo 1
     Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
@@ -257,7 +257,7 @@ Esse comando retorna informações sobre o gateway EmpTableFromBlob na data fact
 ## <a name="set-azuredatafactorypipelineactiveperiod"></a> Set-AzureDataFactoryPipelineActivePeriod
 Esse cmdlet define o período ativo para as fatias de dados que são processados pela pipeline. Se você utilizar o conjunto AzureDataFactorySliceStatus, certifique-se de que a data de início e término da fatia está no período ativo da pipeline.
 
-Depois que os pipelines são criados, você pode especificar a duração em que o processamento de dados ocorrerá. Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de Disponibilidade que foram definidas para cada tabela do ADF.
+Depois que as pipelines são criadas, você pode especificar a duração em que o processamento de dados ocorrerá. Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de Disponibilidade que foram definidas para cada tabela do ADF.
 
 ### Exemplo
 
@@ -272,7 +272,7 @@ Define o status de uma fatia para uma tabela. A fatia da data de início e de t�
 Cada fatia de dados para uma tabela percorre os estágios diferentes. Esses estágios são ligeiramente diferentes com base em se as políticas de validação são especificadas.
 
 
-- Se as políticas de validação  não forem especificadas: PendingExecution -> InProgress -> Ready
+- Se as políticas de validação não forem especificadas: PendingExecution -> InProgress -> Ready
 - Se a políticas de validação são especificadas: PendingExecution -> Pending Validation -> InProgress -> Ready
 
 A tabela a seguir fornece descrições dos status possíveis de uma fatia e informa se o status pode ser definido utilizando o Set-AzureDataFactorySliceStatus ou não.
@@ -391,13 +391,13 @@ Este comando retoma a pipeline ADFTutorialPipeline na data factory ADFTutorialDa
 
 Artigo | Descrição
 ------ | ---------------
-[Monitore e gerencie a data factory do Azure utilizando o Portal de visualização do Azure][monitor-manage-using-portal] | Este artigo descreve como monitorar e gerenciar uma data factory do Azure utilizando o Portal de visualização do Azure.
-[Habilitar seus pipelines para trabalhar com dados locais][use-onpremises-datasources] | Este artigo tem um passo a passo que mostra como copiar dados de um banco de dados SQL Server local para um blob do Azure.
-[Usar o Pig e o Hive com o Data Factory][use-pig-and-hive-with-data-factory] | Este artigo tem um passo a passo que mostra como usar a Atividade de HDInsight para executar um script do hive/pig para processar dados de entrada a fim de gerar dados de saída. 
-[Tutorial: Mover e processar arquivos de log usando o Data Factory][adf-tutorial] | Este artigo fornece um passo a passo que mostra como implementar um cenário próximo do real usando o Data Factory do Azure para transformar dados de arquivos de log em informações.
-[Usar atividades personalizadas em um Data Factory][use-custom-activities] | Este artigo fornece um passo a passo com instruções para criar uma atividade personalizada e usá-la em um pipeline. 
-[Solucionar problemas de Data Factory][troubleshoot] | Este artigo descreve como solucionar problemas do Data Factory do Azure.
-[Referência do Desenvolvedor do Data Factory do Azure][developer-reference] | A Referência do Desenvolvedor tem o conteúdo de referência abrangente de cmdlets, script JSON, funções, etc... 
+[Monitore e gerencie o Data Factory do Azure utilizando o Portal de Visualização do Azure][monitor-manage-using-portal] | Este artigo descreve como monitorar e gerenciar um data factory do Azure utilizando o Portal de Visualização do Azure.
+[Habilitar seus pipelines para trabalhar com dados locais][use-onpremises-datasources] | Este artigo tem um passo a passo que mostra como copiar dados de um banco de dados SQL Server local em um blob do Azure.
+[Usar o Pig e o Hive com o Data Factory][use-pig-and-hive-with-data-factory] | Este artigo tem um passo a passo que mostra como usar a Atividade de HDInsight para executar um script do hive/pig para processar dados de entrada a fim de gerar dados de saída.
+[Tutorial: Mover e processar arquivos de log usando a Data Factory][adf-tutorial] | Este artigo fornece um passo a passo que mostra como implementar um cenário próximo do real usando a Data Factory do Azure para transformar dados de arquivos de log em informações.
+[Usar atividades personalizadas em uma Data Factory][use-custom-activities] | Este artigo fornece um passo a passo com instruções para criar uma atividade personalizada e usá-la em uma pipeline.
+[Solucionar problemas de Data Factory][troubleshoot]| Este artigo descreve como solucionar problemas do Data Factory do Azure.
+[Referência do Desenvolvedor da Data Factory do Azure][developer-reference]A Referência do Desenvolvedor tem um conteúdo de referência abrangente de cmdlets, script JSON, funções, etc... 
 [Referência de cmdlet do Data Factory do Azure][cmdlet-reference] | Este conteúdo de referência apresenta detalhes sobre todos os **cmdlets do Data Factory**.
 
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -409,3 +409,5 @@ Artigo | Descrição
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+
+<!--HONumber=35.2-->
