@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Como criar e configurar um banco de dados SQL do Azure - tutorial do Azure" metaKeywords="Criar banco de dados SQL do Azure, Configurar o banco de dados SQL do Azure" description="Como criar e configurar um banco de dados SQL do Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Como criar e configurar um banco de dados SQL do Azure - tutorial do Azure" metaKeywords="Criar banco de dados SQL do Azure, Configurar o banco de dados SQL do Azure" description="Como criar e configurar um banco de dados SQL do Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -6,7 +6,7 @@
 
 Neste tópico, você vai criar e configurar um banco de dados SQL do Azure usando o Portal de Gerenciamento do Azure. Neste fluxo de trabalho, você criará o servidor primeiro. Talvez você prefira essa abordagem se tiver bancos de dados do SQL Server existentes que deseja carregar.
 
-##Sumário##
+## Sumário##
 * [Como: Criar um servidor lógico](#createLogical)
 * [Como: Configurar o firewall para o servidor lógico](#configFWLogical)
 
@@ -40,13 +40,13 @@ Neste tópico, você vai criar e configurar um banco de dados SQL do Azure usand
 
 9. Clique na marca de seleção localizada na parte inferior da página quando tiver concluído.
 
-###Nome do servidor gerado automaticamente
+### Nome do servidor gerado automaticamente
 
 Observe que você não especificou um nome do servidor. O Banco de dados SQL gera automaticamente o nome do servidor para garantir que não existam entradas do DNS duplicadas. O nome do servidor é uma cadeia de 10 caracteres alfanuméricos. Você não pode alterar o nome do seu servidor de Banco de Dados SQL.
 
 Na próxima etapa, você configurará o firewall para que as conexões de aplicativos em execução em sua rede tenham permissão de acesso.
 
-##Como: Configurar o firewall para o servidor lógico
+## Como: Configurar o firewall para o servidor lógico
 
 1. No [Portal de Gerenciamento](http://manage.windowsazure.com), clique em **banco de dados SQL**, então clique em **Servidores**
 

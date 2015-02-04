@@ -1,4 +1,4 @@
-﻿
+
 1. Se você não tiver registrado seu aplicativo, navegue até [Enviar uma página do aplicativo] no Centro de Desenvolvimento de aplicativos da Windows Store, faça logon com sua Conta da Microsoft e, em seguida, clique em **Nome do Aplicativo**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
@@ -15,7 +15,7 @@
 
   	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	Isso exibe o Assistente de **Associar o Aplicativo à Windows Store**.
+   	Isso exibe o Assistente de **Associar o Aplicativo à Windows Store**.
 
 5. No assistente, clique em **Entrar** e, em seguida, faça logon com sua conta da Microsoft.
 
@@ -23,7 +23,7 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png)
 
-Isso adiciona as informações de registro da Windows Store necessárias para o manifesto do aplicativo.    
+   	Isso adiciona as informações de registro da Windows Store necessárias para o manifesto do aplicativo.    
 
 7. De volta na página do Centro de Desenvolvimento do Windows do seu novo aplicativo, clique em **Serviços**. 
 

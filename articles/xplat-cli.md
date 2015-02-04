@@ -152,7 +152,7 @@ Depois de importar as configurações de publicação, você deve excluir o arqu
 
 ###Várias assinaturas
 
-	Se você tiver várias assinaturas do Azure, o logon dará acesso a todas as assinaturas associadas às credenciais. Se você estiver usando um arquivo de configurações de publicação, o arquivo `.publishsettings` conterá informações de todas as assinaturas. Com qualquer um dos métodos, uma assinatura será selecionada como a assinatura padrão usada pela xplat-cli durante a realização das operações. Você pode exibir as assinaturas, bem como qual delas é a padrão, mas usando o comando `azure account list`. Esse comando retornará informações semelhantes às seguintes:
+Se você tiver várias assinaturas do Azure, o logon dará acesso a todas as assinaturas associadas às credenciais. Se você estiver usando um arquivo de configurações de publicação, o arquivo `.publishsettings` conterá informações de todas as assinaturas. Com qualquer um dos métodos, uma assinatura será selecionada como a assinatura padrão usada pela xplat-cli durante a realização das operações. Você pode exibir as assinaturas, bem como qual delas é a padrão, mas usando o comando `azure account list`. Esse comando retornará informações semelhantes às seguintes:
 
 	info:    Executing command account list
 		data:    Name              Id                                    Current
@@ -298,7 +298,7 @@ Embora seja possível usar a xplat-cli para emitir comandos manualmente, você t
 
 Este exemplo redireciona uma lista de sites para o comando `grep`, que inspeciona a cadeia de caracteres 'Running' em cada linha. Todas as linhas que corresponderem serão canalizadas para o comando `awk`, que chama `azure site stop` e usa a segunda coluna passada para ele (o nome do site em execução) como o nome do site a ser parado.
 
-	Embora isso demonstre como é possível encadear comandos, você também pode criar scripts mais elaborados usando os recursos de script fornecidos pelo seu interpretador de linha de comando. Interpretadores de linha de comando diferentes têm sintaxe e recursos de script diferentes. O Bash, provavelmente, é o interpretador de linha de comando mais amplamente usado para sistemas baseados em UNIX, incluindo o Linux e o OS X.
+Embora isso demonstre como é possível encadear comandos, você também pode criar scripts mais elaborados usando os recursos de script fornecidos pelo seu interpretador de linha de comando. Interpretadores de linha de comando diferentes têm sintaxe e recursos de script diferentes. O Bash, provavelmente, é o interpretador de linha de comando mais amplamente usado para sistemas baseados em UNIX, incluindo o Linux e o OS X.
 
 Para obter informações sobre como criar scripts com o Bash, consulte [Guia de script Bash avançado][advanced-bash].
 
@@ -394,10 +394,10 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 [Site do Azure]: ../media/freetrial.png
 [Selecione um recurso de visualização]: ../media/antares-iaas-preview-02.png
 [Selecione a assinatura]: ../media/antares-iaas-preview-03.png
-[avaliação gratuita]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A7171371E
-[bash avançado]: http://tldp.org/LDP/abs/html/
+[free-trial]: http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A7171371E
+[advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[lote]: http://technet.microsoft.com/pt-br/library/bb490890.aspx
+[batch]: http://technet.microsoft.com/pt-br/library/bb490890.aspx
 [xplatarm]: /pt-br/documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/pt-br/documentation/articles/sign-up-organization/

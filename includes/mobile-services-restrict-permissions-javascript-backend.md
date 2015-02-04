@@ -1,3 +1,5 @@
+
+
 1.  No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
 
     ![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)

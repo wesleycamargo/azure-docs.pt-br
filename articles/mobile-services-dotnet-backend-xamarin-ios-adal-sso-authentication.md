@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (Xamarin.iOS) | Mobile Dev Center" metaKeywords="" description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo iOS Xamarin." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (Xamarin.iOS) | Mobile Dev Center" metaKeywords="" description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo iOS Xamarin." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender" />
 
@@ -130,8 +130,8 @@ Este tutorial exige o seguinte:
 <!-- URLs. -->
 [Introdução aos dados]: /pt-br/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Como registrar-se com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Uma associação do Xamarin à Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
+[Xamarin à Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Extensão Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download

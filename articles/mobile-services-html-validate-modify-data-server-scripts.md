@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Usar scripts de servidor para validar e modificar dados (HTML 5) | Mobile Dev Center" metaKeywords="" description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data - HTML5" pageTitle="Usar scripts de servidor para validar e modificar dados (HTML 5) | Mobile Dev Center" metaKeywords="" description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -186,7 +186,7 @@ Você concluiu isso trabalhando com o tutorial de dados.
 
 Agora que você concluiu este tutorial, considere continuar com o tutorial final da série de dados: [Refinar consultas com paginação].
 
-Para obter mais informações, consulte [Trabalhar com scripts de servidor] e [Referência conceitual ao tutorial do .NET dos Serviços Móveis]
+Para obter mais informações, consulte [Trabalhar com scripts de servidor] e [Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]
 
 
 <!-- Anchors. -->

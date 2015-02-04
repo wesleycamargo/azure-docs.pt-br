@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="Farm do SharePoint Server" description="Descreve o novo recurso Farm do SharePoint Server disponível no Portal de Visualização do Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="Farm do SharePoint Server" description="Descreve o novo recurso Farm do SharePoint Server disponível no Portal de Visualização do Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#Farm do SharePoint Server#
+# Farm do SharePoint Server#
 
 Com o Farm do SharePoint Server, o Portal de visualização do Microsoft Azure cria um farm pré-configurado do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
@@ -47,7 +47,7 @@ Observações:
 - O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Esta não é uma conexão VPN de site para site em sua rede de organização. 
 - É possível administrar estes servidores através de conexões de área de trabalho remota.
 
-##Percorrendo a configuração##
+## Percorrendo a configuração##
 
 Para criar o seu farm do SharePoint com o SharePoint Farm, faça o seguinte:
 
@@ -63,7 +63,7 @@ Para criar o seu farm do SharePoint com o SharePoint Farm, faça o seguinte:
 10. Para especificar a localização (região), clique na seta.
 11. Quando tiver concluído, clique em **Criar**.
 
-##Gerenciador de Recursos do Azure##
+## Gerenciador de Recursos do Azure##
 
 O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/).
 

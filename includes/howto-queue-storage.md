@@ -18,17 +18,17 @@ O serviço Fila contém os seguintes componentes:
 
 ![Fila1][Fila1]
 
--   **Formato de URL:** As filas são endereçáveis usando o seguinte formato de URL:
-    http://`<storage account>`.queue.core.windows.net/`<queue>`
+- **Formato de URL:** As filas são endereçáveis usando o seguinte formato de URL:   
+	http://`<storage account>`.queue.core.windows.net/`<queue>`
 
-A URL a seguir endereça uma das filas no diagrama:
- http://myaccount.queue.core.windows.net/imagesToDownload
+A URL a seguir endereça uma das filas no diagrama:  
+    http://myaccount.queue.core.windows.net/imagesToDownload
 
 -**Conta de Armazenamento:** Todo o acesso ao Armazenamento do Azure é feito por meio de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure][Escalabilidade e Metas de Desempenho do Armazenamento do Azure] para obter detalhes sobre a capacidade da conta de armazenamento.
 
--   **Fila:** Uma fila contém um conjunto de mensagens. Todas as mensagens devem estar em uma fila.
+- **Fila:** Uma fila contém um conjunto de mensagens. Todas as mensagens devem estar em uma fila.
 
--   **Mensagem:** Uma mensagem, em qualquer formato, de até 64 KB.
+- **Mensagem:** Uma mensagem, em qualquer formato, de até 64 KB.
 
   [Escalabilidade e Metas de Desempenho do Armazenamento do Azure]: http://msdn.microsoft.com/pt-br/library/dn249410.aspx
   [Fila1]: ./media/howto-queue-storage/queue1.png

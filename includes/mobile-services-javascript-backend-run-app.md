@@ -1,3 +1,4 @@
+
 O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 1.  Navegue até o local onde você salvou os arquivos compactados do projeto, expanda os arquivos em seu computador e abra o arquivo da solução no Visual Studio.
@@ -6,7 +7,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 3.  No aplicativo, digite um texto com sentido, como *Concluir o tutorial*, em **Inserir um TodoItem** e clique em **Salvar**.
 
-    Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
+   	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
 4.  (Opcional) Em uma solução universal do Windows, altere o projeto inicial padrão para o outro aplicativo e execute o aplicativo novamente.
 

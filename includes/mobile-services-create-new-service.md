@@ -20,8 +20,8 @@ Siga estas etapas para criar um novo serviço móvel.
 
     <div class="dev-callout">
 
-    **Observação**
-    Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo serviço móvel, você poderá escolher **Usar o banco de dados existente** e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
+    <strong>Observação</strong>
+    <p>Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo serviço móvel, você poderá escolher <b>Usar o banco de dados existente</b> e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.</p>
 
     </div>
 
@@ -31,9 +31,9 @@ Siga estas etapas para criar um novo serviço móvel.
 
     <div class="dev-callout">
 
-    **Observação**
-    Será exibido um aviso se a senha fornecida não atender aos requisitos mínimos ou em caso de incompatibilidade.
-    Recomendamos que você anote a senha e o nome de logon do administrador especificados. Você precisará dessas informações para reutilizar, no futuro, o servidor ou a instância do Banco de Dados SQL.
+    <strong>Observação</strong>
+    <p>Será exibido um aviso se a senha fornecida não atender aos requisitos mínimos ou em caso de incompatibilidade.
+    Recomendamos que você anote a senha e o nome de logon do administrador especificados. Você precisará dessas informações para reutilizar, no futuro, o servidor ou a instância do Banco de Dados SQL.</p>
 
     </div>
 

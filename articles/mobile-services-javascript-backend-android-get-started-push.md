@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Introdução às notificações por push (Android JavaScript) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo JavaScript do Android." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
+<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Introdução às notificações por push (Android JavaScript) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo JavaScript do Android." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
 
@@ -19,11 +19,11 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 >[AZURE.NOTE] Se você quiser ver o código-fonte do aplicativo concluído, vá <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">aqui</a>.
 
-##Pré-requisitos
+## Pré-requisitos
 
 [WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>Habilitar o sistema de mensagens de nuvem do Google
+## <a id="register"></a>Habilitar o sistema de mensagens de nuvem do Google
 
 >[WACOM.NOTE]Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
@@ -31,7 +31,7 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 Em seguida, você usará esse valor de chave de API para habilitar os Serviços Móveis para autenticar com o GCM e enviar notificações de push em nome do seu aplicativo.
 
-##<a id="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
+## <a id="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
 
 1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e no aplicativo.
 
@@ -50,9 +50,9 @@ Em seguida, você usará esse valor de chave de API para habilitar os Serviços 
 
 O serviço móvel e seu aplicativo agora estão configurados para trabalhar com os GCM e os Hubs de Notificação.
 
-##<a id="add-push"></a>Adicionar notificações de push para seu aplicativo
+## <a id="add-push"></a>Adicionar notificações de push para seu aplicativo
 
-###Verificar Versão de SDK do Android
+### Verificar Versão de SDK do Android
 
 [WACOM.INCLUDE [Verificar SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
@@ -60,16 +60,16 @@ A próxima etapa é instalar os serviços do Google Play. O Google Cloud Messagi
 
 Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK do Google Play Services] para determinar a menor definição para esse valor, e configurá-lo de forma adequada.
 
-###Inclua o Google Play Services no projeto
+### Inclua o Google Play Services no projeto
 
 [WACOM.INCLUDE [Adicionar o Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
-###Incluir código
+### Incluir código
 
 [WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>Atualizar o script de inserção registrados no Portal de Gerenciamento
+## <a id="update-scripts"></a>Atualizar o script de inserção registrados no Portal de Gerenciamento
 
 1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**. 
 
@@ -113,11 +113,11 @@ Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK d
 
    	Isso registra um novo script de inserção, que usa o [objeto gcm] para enviar uma notificação por push a todos os dispositivos registrados depois que a inserção for bem-sucedida. 
 
-##<a id="test"></a>Testar notificações por push no seu aplicativo
+## <a id="test"></a>Testar notificações por push no seu aplicativo
 
 Você pode testar o aplicativo anexando um telefone Android com um cabo USB diretamente ou usando um dispositivo virtual no emulador.
 
-###Configurando o emulador para teste
+### Configurando o emulador para teste
 
 Quando você executa o aplicativo no emulador, certifique-se de usar um Android Virtual Device (AVD) que dá suporte a APIs do Google.
 
@@ -137,7 +137,7 @@ Quando você executa o aplicativo no emulador, certifique-se de usar um Android 
 
 	Destina-se ao AVD para usar APIs do Google.
 
-###Executando o teste
+### Executando o teste
 
 1. No menu **Executar** no Eclipse, clique em **Executar** para iniciar o aplicativo.
 
@@ -182,7 +182,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 * [Como usar a biblioteca de cliente Android para os Serviços Móveis]
   <br/>Saiba mais sobre como usar os Serviços Móveis com o Android.
 
-* [Mobile Services server script reference]
+* [Referência de script de servidor dos Serviços Móveis]
   <br/>Saiba mais sobre como implementar a lógica de negócios no seu serviço móvel.
 
 

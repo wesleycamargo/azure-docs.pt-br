@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Autenticar seu aplicativo com logon único da biblioteca de autenticação do Active Directory(Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo da Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" manager="dwrede" />
+<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Autenticar seu aplicativo com logon único da biblioteca de autenticação do Active Directory(Windows Store) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo da Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 
@@ -16,7 +16,7 @@ Para autenticar usuários, registre seu aplicativo com o Active Directory do Azu
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
 1. [Registrar o seu serviço móvel com o Active Directory do Azure]
-2. [Registre seu aplicativo com o Active Directory do Azure] 
+2. [Registrar o seu aplicativo com o Active Directory do Azure] 
 3. [Configurar o serviço móvel para requerer autenticação]
 4. [Adicionar o código de autenticação ao aplicativo do cliente]
 5. [Testar o cliente usando autenticação]

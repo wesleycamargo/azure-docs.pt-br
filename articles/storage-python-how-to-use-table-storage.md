@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Saiba como usar o serviço Tabela do Python para criar e excluir tabelas e inserir, excluir e consultar a tabela." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Saiba como usar o serviço Tabela do Python para criar e excluir tabelas e inserir, excluir e consultar a tabela." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -6,7 +6,8 @@
 
 
 
-# Como usar o serviço de armazenamento Tabela com Python. Este guia mostra como executar cenários comuns usando o serviço de armazenamento Tabela do Microsoft Azure. As amostras foram escritas usando a API do Python. Os cenários abrangidos incluem **criar e excluir uma tabela, inserindo e consultando entidades em uma tabela**. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas][].
+# Como usar o serviço de armazenamento Tabela com Python. 
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento Tabela do Microsoft Azure. As amostras foram escritas usando a API do Python. Os cenários abrangidos incluem **criar e excluir uma tabela, inserindo e consultando entidades em uma tabela**. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas][].
 
 ## Sumário
 
@@ -46,18 +47,10 @@ O código a seguir cria um objeto **TableService** usando o nome da conta de arm
 
 ## <a name="add-entity"> </a>Como adicionar uma entidade à tabela
 
-Para adicionar uma entidade, primeiro crie um dicionário que defina os nomes e valores da
-propriedade da entidade. Observe que para cada entidade será preciso
-especificar um **PartitionKey** e **RowKey**.Esses são identificadores
-exclusivos de suas entidades e são valores que podem ser consultados muito
-mais rápido do que as outras propriedades. O sistema usa **PartitionKey** para
-distribuir automaticamente as entidades de tabela por vários nós de armazenamento.
-As entidades com o mesmo **PartitionKey** são armazenadas no mesmo nó.O
-**RowKey** é a ID exclusiva da entidade na partição à qual
-pertence.
+Para adicionar uma entidade, primeiro crie um dicionário que defina os nomes e valores da propriedade da entidade. Observe que para cada entidade será preciso especificar um **PartitionKey** e **RowKey**.Esses são identificadores exclusivos de suas entidades e são valores que podem ser consultados muito mais rápido do que as outras propriedades. O sistema usa **PartitionKey** para distribuir automaticamente as entidades de tabela por vários nós de armazenamento. As entidades com o mesmo **PartitionKey** são armazenadas no mesmo nó.O
+**RowKey** é a ID exclusiva da entidade na partição à qual pertence.
 
-Para adicionar uma entidade à sua tabela, passe um objeto de dicionário
-para o método **insert\_entity**.
+Para adicionar uma entidade à sua tabela, passe um objeto de dicionário para o método **insert\_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
@@ -73,8 +66,7 @@ Você também pode passar uma instância da classe **Entity** para o método **i
 
 ## <a name="update-entity"> </a>Como atualizar uma entidade
 
-Este código mostra como substituir a versão antiga de uma entidade existente
-por uma versão atualizada.
+Este código mostra como substituir a versão antiga de uma entidade existente por uma versão atualizada.
 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)

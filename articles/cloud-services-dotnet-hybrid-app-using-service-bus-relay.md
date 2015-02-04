@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="Aplicativo local/na nuvem híbrido (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Aprenda a criar um aplicativo .NET no local/na nuvem híbrida usando a Retransmissão do Barramento de Serviço do Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="Aplicativo local/na nuvem híbrido (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Aprenda a criar um aplicativo .NET no local/na nuvem híbrida usando a Retransmissão do Barramento de Serviço do Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
@@ -152,16 +152,11 @@ namespace.
 1.  Na janela principal, clique no nome do seu namespace de serviço.   
 
 	![][39]
-  
-
 2.  Clique em **Informações de Conexão**.   
 
 	![][40]
 
-
-3.  No painel **Informações da conexão de acesso**, localize as entradas **Emissor Padrão** e **Chave Padrão**.   
-    
-
+3.  No painel **Informações da conexão de acesso**, localize as entradas **Emissor Padrão** e **Chave Padrão**. 
 4.  Anote a chave ou copie-a na área de transferência.
 
 ###Gerencie um namespace de serviço com o Gerenciador de Servidores do Visual Studio:
@@ -413,8 +408,8 @@ exibirá os dados recuperados do seu serviço de produto.
             }
         }
 
-2.  In the HomeController.cs file in Visual Studio, replace the existing
-    namespace definition with the following code:
+2.  No arquivo HomeController.cs no Visual Studio, substitua a definição do
+    namespace existente pelo código a seguir:
 
         namespace ProductsWeb.Controllers
         {

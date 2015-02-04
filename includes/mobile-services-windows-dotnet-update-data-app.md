@@ -1,3 +1,4 @@
+
 1.  No arquivo MainPage.xaml.cs, adicione ou remova o comentário dos seguintes usando instruções:
 
         using Microsoft.WindowsAzure.MobileServices;
@@ -17,7 +18,7 @@
 
     O **JsonPropertyAttribute** é usado para definir o mapeamento entre os nomes das propriedades no tipo de cliente para nomes de coluna na tabela de dados subjacente.
 
-    > [WACOM.NOTE] Em um projeto universal do Windows, a classe TodoItem é definida no arquivo de código separado na pasta DataModel compartilhada.
+    >[WACOM.NOTE] Em um projeto universal do Windows, a classe TodoItem é definida no arquivo de código separado na pasta DataModel compartilhada.
 
 3.  No MainPage.xaml.cs, remova o comentário ou exclua a linha que define a coleção de itens existentes e remova os comentários ou adicione as seguintes linhas, substituindo *\<yourClient\>* pelo campo `MobileServiceClient` adicionado ao arquivo App.xaml.cs quando você conecta seu projeto ao serviço móvel:
 

@@ -1,4 +1,4 @@
-﻿1.No arquivo insert.js para a tabela **canais**, localize as seguintes linhas de código, comente-as ou remova-as do arquivo, e salve as alterações.
+1. No arquivo insert.js para a tabela **canais**, localize as seguintes linhas de código, comente-as ou remova-as do arquivo, e salve as alterações.
 
 		sendNotifications(item.channelUri);
 

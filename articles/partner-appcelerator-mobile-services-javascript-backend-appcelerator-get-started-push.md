@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução às notificações por push (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introdução às notificações por push (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -358,11 +358,11 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
 
 5.	Para Android, substitua o código acima pelo seguinte código:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+           }; 
     
     
 
@@ -377,11 +377,11 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
 
 7.	Para iOS, substitua o código acima pelo seguinte código:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+           };
     
  
 Seu aplicativo foi atualizado para dar suporte a notificações por push nas plataformas iOS e Android.
@@ -455,7 +455,7 @@ Isso registra um novo script insert, o qual usa o [objeto de push dos Serviços 
 [Gerar a solicitação de assinatura de certificado]: #certificates
 [Registrar o aplicativo e habilitar notificações por push]: #register
 [Criar um perfil de provisionamento para o aplicativo]: #profile
-[Habilitar o sistema de mensagens em nuvem do Google]: #register-gcm
+[Habilitar o sistema de mensagens de nuvem do Google]: #register-gcm
 [Criar o módulo do GCM para Titanium]: #gcm-module
 [Configurar os Serviços Móveis]: #configure
 [Adicionar notificações por push ao aplicativo]: #add-push
@@ -464,9 +464,9 @@ Isso registra um novo script insert, o qual usa o [objeto de push dos Serviços 
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[Uando os módulos do Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Usando módulos do Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
 [Portal de Gerenciamento do Microsoft Azure]: https://manage.windowsazure.com/
-[Objeto push de serviços móveis]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
-[Instalando ferramentas de desenvolvimento Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
+[objeto de push dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[Instalando as ferramentas de desenvolvimento de Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
 <!--HONumber=35.1-->

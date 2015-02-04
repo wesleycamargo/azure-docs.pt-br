@@ -1,4 +1,4 @@
-﻿# Publicando sites do Azure com o Git
+# Publicando sites do Azure com o Git
 
 Os Sites do Azure oferecem suporte à implantação contínua do controle do código-fonte e ferramentas de repositório, como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu site e enviar as alterações de push de forma rápida e fácil ao seu site quando desejar.
 
@@ -247,7 +247,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: Não é possível acessar '[siteURL]': Falha ao conectar ao [scmAddress]
+**Sintoma**: Unable to access '[siteURL]':Failed to connect to [scmAddress]
 
 **Causa**: Este erro pode ocorrer se o site não estiver carregado e em execução.
 
@@ -256,7 +256,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: Não foi possível resolver o nome de host 'host'
+**Sintoma**: Couldn't resolve host 'hostname'
 
 **Causa**: Este erro pode ocorrer se as informações de endereço inseridas ao criar o 'azure' remoto estiverem incorretas.
 
@@ -264,7 +264,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: não há referências em comum e nenhum especificado; fazendo nada. Talvez você deva especificar uma ramificação como 'mestre'.
+**Sintoma**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
 
 **Causa**: Este erro pode ocorrer se você não especificar uma ramificação ao executar uma operação de envio de git e não tiver definido o valor de push.default usado pelo Git.
 
@@ -274,7 +274,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: src refspec [branchname] não corresponde a nada.
+**Sintoma**: src refspec [branchname] does not match any.
 
 **Causa**: Este erro pode ocorrer se você tentar enviar para uma ramificação que não seja a mestre no remoto 'azure'.
 
@@ -284,7 +284,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: Erro - alterações confirmadas para o repositório remoto, mas o site não foi atualizado.
+**Sintoma**: Error - Changes commited to remote repository but your website not updated.
 
 **Causa**: Este erro pode ocorrer se você estiver implantando um aplicativo do Node.js que contém um arquivo package.json que especifica módulos adicionais necessários.
 

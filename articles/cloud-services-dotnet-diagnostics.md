@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="Como usar o diagnóstico (.NET) - Guia de recursos do Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Saiba como usar dados de diagnóstico no Azure para depuração, medição do desempenho, monitoramento, análise de tráfego e mais." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Como usar o diagnóstico (.NET) - Guia de recursos do Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Saiba como usar dados de diagnóstico no Azure para depuração, medição do desempenho, monitoramento, análise de tráfego e mais." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -187,7 +187,7 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
 
 <h3>Etapa 4: Criar seu arquivo de configuração do Diagnóstico e instalar a extensão</h3>
 1.	Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	Adicione um arquivo XML ao seu projeto **WorkerRole1** clicando com o botão direito no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item...** -> **Itens Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".

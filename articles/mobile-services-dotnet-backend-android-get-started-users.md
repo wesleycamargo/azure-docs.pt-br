@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução à autenticação (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo da Windows Store por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introdução à autenticação (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo da Windows Store por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/27/2014" ms.author="mahender" />
 
@@ -19,13 +19,13 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 
 Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
 
-##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-##<a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
@@ -37,7 +37,7 @@ Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também 
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
@@ -49,16 +49,16 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
-##<a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Autorizar usuários com scripts], você obterá o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e o usará para filtrar os dados retornados pelos Serviços Móveis. 
 
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
+[Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
 [Restringir permissões de tabela para usuários autenticados]: #permissions
 [Adicionar autenticação ao aplicativo]: #add-authentication
-[Armazenar tokens de autenticação no cliente]: #cache-tokens
+[Armazenar os tokens de autenticação no cliente]: #cache-tokens
 [Atualizar tokens expirados]: #refresh-tokens
 [Próximas etapas]:#next-steps
 
@@ -70,5 +70,7 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library móveis
+
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+
 [Registrar seu pacote do aplicativo da Windows Store para autenticação pela Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

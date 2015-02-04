@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Adicionar paginação aos dados (Windows Phone) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornados a seu aplicativo Windows Phone dos serviços móveis." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Adicionar paginação aos dados (Windows Phone) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornados a seu aplicativo Windows Phone dos serviços móveis." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/11/2014" ms.author="glenga" />
 
@@ -12,7 +12,7 @@ Este tópico mostra como usar a paginação para gerenciar a quantidade de dados
 
 Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve concluir o tutorial atual. 
 
-##Define o tamanho da página do servidor
+## Define o tamanho da página do servidor
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 

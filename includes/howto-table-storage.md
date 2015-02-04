@@ -25,8 +25,8 @@ O serviço Tabela contém os seguintes componentes:
 ![Tabela1][Tabela1]
 
 -   **Formato de URL:** o código endereça as tabelas em uma conta usando este
-    formato de endereço:
-    http://`<storage account>`.table.core.windows.net/`<table>`
+    formato de endereço:   
+    http://`<storage account>`.table.core.windows.net/`<table>`  
 
     Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o
     protocolo OData. Para obter mais informações, consulte [OData.org][OData.org]

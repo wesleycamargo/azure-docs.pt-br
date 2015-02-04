@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="AzCopy" pageTitle="Como usar o AzCopy com o armazenamento do Microsoft Azure" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Saiba como usar o utilitário AzCopy para carregar, baixar e copiar blobs e conteúdo de arquivos." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="AzCopy" pageTitle="Como usar o AzCopy com o armazenamento do Microsoft Azure" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Saiba como usar o utilitário AzCopy para carregar, baixar e copiar blobs e conteúdo de arquivos." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="tamram" />
 
@@ -10,7 +10,7 @@ AzCopy é um utilitário de linha de comando projetado para upload, download e c
 > Este guia também aborda o uso do AzCopy 4.0.0, que é uma versão de visualização do AzCopy. Ao longo deste guia, funções fornecidas apenas na versão de visualização são designadas como *visualização*.<br />
 > Observe que, para o AzCopy 4.x, as opções de linha de comandos e funcionalidades podem ser alteradas em versões futuras.
 
-##Sumário
+## Sumário
 
 - [Baixar e instalar o AzCopy](#install)
 - [Entenda a sintaxe da linha de comando do AZCopy](#syntax)
@@ -21,13 +21,13 @@ AzCopy é um utilitário de linha de comando projetado para upload, download e c
 - [Versões do AzCopy](#versions)
 - [Próximas etapas](#next-steps)
 
-##<a id="install"></a> Baixar e instalar o AzCopy
+## <a id="install"></a> Baixar e instalar o AzCopy
 
 1. Baixe a [versão mais recente do AzCopy](http://aka.ms/downloadazcopy), ou a [versão de visualização mais recente](http://aka.ms/downloadazcopypr).
 2. Execute a instalação. Por padrão, a instalação do AzCopy cria uma pasta chamada `AzCopy` sob `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (em um computador que executa Windows de 64 bits) ou `%ProgramFiles%\Microsoft SDKs\Azure\` (em um computador que executa Windows de 32 bits). No entanto, é possível alterar o caminho da instalação por meio do assistente de instalação.
 3. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema.
 
-##<a id="syntax"></a> Entenda a sintaxe da linha de comando do AZCopy
+## <a id="syntax"></a> Entenda a sintaxe da linha de comando do AZCopy
 
 Em seguida, abra uma janela de comando e navegue até o diretório de instalação do AzCopy no computador, onde o executável `AzCopy.exe`está localizado. A sintaxe básica dos comandos do AzCopy é:
 
@@ -51,21 +51,21 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <th>Aplicável ao armazenamento de tabela (S/N) (somente na versão de teste)</th>
   </tr>
   <tr>
-    <td><b>/Source:<source></b></td>
+    <td><b>/Source:&lt;source&gt;</b></td>
     <td>Especifica os dados de origem para cópia. A origem pode ser um diretório do sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><b>/Dest:<destination></b></td>
+    <td><b>/Dest:&lt;destination&gt;</b></td>
     <td>Especifica o destino da cópia. O destino pode ser um diretório do sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><b>/Pattern:<file-pattern></b></td>
+    <td><b>/Pattern:&lt;file-pattern&gt;</b></td>
       <td>
           Especifica um padrão de arquivo que indica quais arquivos devem ser copiados. O comportamento do parâmetro /Pattern é determinado pelo local dos dados de origem e pela presença da opção do modo recursivo. O modo recursivo é especificado pela opção /S.
           <br />
@@ -81,14 +81,14 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/DestKey:<storage-key></b></td>
+    <td><b>/DestKey:&lt;storage-key&gt;</b></td>
     <td>Especifica a chave de conta de armazenamento do recurso de destino.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td class="auto-style1"><b>/DestSAS:<sas-token></b></td>
+    <td class="auto-style1"><b>/DestSAS:&lt;sas-token&gt;</b></td>
     <td class="auto-style1">Especifica uma SAS (Assinatura de Acesso Compartilhado) para o contêiner de destino (se aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.<br />
         Se o recurso de destino for um blob, um contêiner ou uma tabela será possível especificar essa opção seguida do token da SAS ou a SAS como parte do URI do blob de destino, sem essa opção.<br />
         Se a origem e o destino forem blobs, ambos devem residir na mesma conta de armazenamento.</td>
@@ -97,14 +97,14 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td class="auto-style1">S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><b>/SourceKey:<storage-key></b></td>
+    <td><b>/SourceKey:&lt;storage-key&gt;</b></td>
     <td>Especifica a chave de conta de armazenamento para o recurso de origem.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><b>/SourceSAS:<sas-token></b></td>
+    <td><b>/SourceSAS:&lt;sas-token&gt;</b></td>
     <td>Especifica uma Assinatura de Acesso Compartilhado para o contêiner de origem (se aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.
         <br />
         Se o recurso da fonte for um contêiner de blob e não for fornecida uma chave nem uma SAS, o contêiner será lido por meio de acesso anônimo.
@@ -122,7 +122,7 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/BlobType:<block | page></b></td>
+    <td><b>/BlobType:&lt;block | page&gt;</b></td>
     <td>Especifica se o destino é um blob de blocos ou um blob de páginas. Essa opção só é aplicável no carregamento de blobs. Do contrário, um erro é gerado. Se o destino for um blob e essa opção não estiver especificada, por padrão, o AzCopy criará um blob de blocos.</td>
     <td>S</td>
     <td>N</td>
@@ -284,7 +284,7 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/Delimiter:<delimiter></b></td>
+    <td><b>/Delimiter:&lt;delimiter&gt;</b></td>
     <td>Indica o caractere delimitador usado para delimitar diretórios virtuais em um nome de blob.<br />
         Por padrão, o AzCopy usa / como o caractere delimitador. No entanto, o AzCopy dá suporte ao uso de qualquer caractere comum (como @, # ou %) como delimitador. Se precisar incluir um desses caracteres especiais na linha de comando, coloque o nome do arquivo entre aspas duplas. 
         <br />
@@ -294,7 +294,7 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/NC:<number-of-concurrents></b></td>
+    <td><b>/NC:&lt;number-of-concurrents&gt;</b></td>
     <td>Especifica o número de operações simultâneas.
         <br />
         Por padrão, o AzCopy inicia uma determinada quantidade de operações simultâneas para aumentar a taxa de transferência de dados. O grande número de operações simultâneas em um ambiente com baixa largura de banda pode sobrecarregar a conexão de rede, evitando que as operações sejam concluídas. Limite operações simultâneas com base na largura de banda real de rede disponível.
@@ -319,24 +319,24 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><strong>/PKRS:<&quot;key1#key2#key3#...&quot;></strong></td>
+    <td><strong>/PKRS:&lt;&quot;key1#key2#key3#...&quot;&gt;</strong></td>
     <td>Divide o intervalo de chaves de partição para possibilitar a exportação paralela dos dados, o que aumenta a velocidade dessa operação.
         <br />
         Se essa opção não for especificada, o AzCopy usa um único thread para exportar entidades de tabela. Por exemplo, se o usuário especifica /PKRS:&quot;aa#bb&quot;, o AzCopy inicia três operações simultâneas.
         <br />
         Cada operação exporta um dos três intervalos de chaves de partição, como mostramos abaixo: 
         <br />
-        &nbsp;&nbsp;&nbsp;&#91;<first partition key>, aa&#41; 
+        &nbsp;&nbsp;&nbsp;&#91;&lt;first partition keygt;, aa&#41; 
         <br />
         &nbsp;&nbsp;&nbsp;&#91;aa, bb&#41;
         <br />
-        &nbsp;&nbsp;&nbsp;&#91;bb, <last partition key>&#93; </td>
+        &nbsp;&nbsp;&nbsp;&#91;bb, &lt;last partition key&gt;&#93; </td>
     <td>N</td>
     <td>N</td>
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><strong>/SplitSize:</strong><file-size><strong><file-size></strong></td>
+    <td><strong>/SplitSize:</strong><file-size><strong>&lt;file-size&gt;</strong></td>
     <td>Especifica o tamanho da divisão do arquivo exportado, em MB.
         <br />
         Se essa opção não for especificada, o AzCopy exporta os dados da tabela para um único arquivo.
@@ -347,7 +347,7 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><b>/EntityOperation:<InsertOrSkip | InsertOrMerge | InsertOrReplace>
+    <td><b>/EntityOperation:&lt;InsertOrSkip | InsertOrMerge | InsertOrReplace&gt;
 </b>
 </td>
     <td>Especifica o comportamento da importação dos dados da tabela.
@@ -362,7 +362,7 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
-    <td><b>/Manifest:<manifest-file></b></td>
+    <td><b>/Manifest:&lt;manifest-file&gt;</b></td>
     <td>Especifica o arquivo de manifesto para a operação de importação. <br />
         O arquivo de manifesto é gerado durante a operação de exportação.</td>
     <td>N</td>
@@ -373,13 +373,13 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
 
 <br/>
 
-##<a id="limit-writes"></a> Limite gravações simultâneas durante a cópia de dados
+## <a id="limit-writes"></a> Limite gravações simultâneas durante a cópia de dados
 
 Ao copiar blobs ou arquivos usando o AZCopy, lembre-se de que outro aplicativo pode estar modificando os dados enquanto você os copia. Se possível, verifique se os dados que está copiando não estão sendo modificados durante a cópia. Por exemplo, ao copiar um VHD associado a uma máquina virtual do Azure, verifique se nenhum outro aplicativo está gravando no VHD, no momento. Também é possível criar um instantâneo do VHD primeiro e, em seguida, copiar o instantâneo.
 
 Se não for possível evitar que outros aplicativos gravem em blobs ou arquivos enquanto são copiados, lembre-se que, quando o trabalho terminar, os recursos copiados não poderão mais ter paridade total com os recursos de origem.
 
-##<a id="copy-blobs"></a> Copie blobs do Azure com o AzCopy
+## <a id="copy-blobs"></a> Copie blobs do Azure com o AzCopy
 
 Os exemplos abaixo demonstram vários cenários para copiar blobs com o AzCopy.
 
@@ -705,7 +705,7 @@ A opção `/NC` especifica o número de operações de cópia simultâneas. Por 
 	AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
 
-##<a id="copy-files"></a> Copiar arquivos no armazenamento de arquivos do Azure com o AzCopy (somente na versão de teste)
+## <a id="copy-files"></a> Copiar arquivos no armazenamento de arquivos do Azure com o AzCopy (somente na versão de teste)
 
 Os exemplos abaixo demonstram vários cenários para copiar arquivos do Azure com o AzCopy.
 
@@ -733,7 +733,7 @@ Nenhuma pasta vazia será copiada.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
-##<a id="copy-entities"></a> Copie entidades em uma tabela do Azure com o AzCopy (somente na versão de teste)
+## <a id="copy-entities"></a> Copie entidades em uma tabela do Azure com o AzCopy (somente na versão de teste)
 
 Os exemplos abaixo demonstram vários cenários para copiar entidades de tabela do Azure com o AzCopy.
 
@@ -791,7 +791,7 @@ A opção `/EntityOperation` indica como inserir entidades na tabela. Os valores
 Observe que não é possível especificar a opção `/PKRS` no cenário de importação. Diferente do cenário de importação, no qual é necessário especificar a opção `/PKRS` para iniciar operações simultâneas, por padrão, o AzCopy inicia as operações simultâneas quando você importa as entidade. A quantidade padrão de operações iniciadas simultaneamente é igual à quantidade de processadores de núcleo. No entanto, você pode especificar outro valor com a opção `/NC`. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
 
 
-##<a id="versions"></a> Versões do AzCopy
+## <a id="versions"></a> Versões do AzCopy
 
 | Versão | Novidades                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
@@ -808,7 +808,7 @@ Observe que não é possível especificar a opção `/PKRS` no cenário de impor
 | V2.1 | Oferece mais de 20 opções para permitir operações de upload, download e cópia de blob de maneira eficiente.		|
 
 
-##<a id="next-steps"></a> Próximas etapas
+## <a id="next-steps"></a> Próximas etapas
 
 Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consulte os recursos a seguir.
 

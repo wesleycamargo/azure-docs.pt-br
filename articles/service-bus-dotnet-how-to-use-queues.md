@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do Barramento de Serviço (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em c# usando a API do .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do Barramento de Serviço (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em c# usando a API do .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,13 +14,13 @@
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##Configurar o aplicativo para usar o Barramento de Serviço
+## Configurar o aplicativo para usar o Barramento de Serviço
 
 Quando você cria um aplicativo que usa Barramento de Serviço, você deve
 adicionar uma referência ao assembly Barramento de Serviço e incluir os
 namespaces correspondentes.
 
-##Obtenha o pacote do NuGet do Barramento de Serviço
+## Obtenha o pacote do NuGet do Barramento de Serviço
 
 O pacote **NuGet** de Barramento de Serviço é a maneira mais fácil de obter a API de Barramento de Serviço e configurar seu aplicativo com todas as dependências de Barramento de Serviço.A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express 2012 para Web.
 
@@ -34,7 +34,7 @@ Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 Agora você está pronto para escrever código no Barramento de Serviço.
 
 
-##Como configurar uma cadeia de conexão do Barramento de Serviço
+## Como configurar uma cadeia de conexão do Barramento de Serviço
 
 O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais. Você pode colocar a cadeia de conexão em um arquivo de configuração, em vez de embuti-la no código:
 
@@ -85,7 +85,7 @@ Ao usar Sites ou Máquinas Virtuais, é recomendável usar o sistema de configur
 
 Use os valores de emissor e chave recuperados do Portal de Gerenciamento, conforme descrito na seção anterior.
 
-##Como criar uma fila
+## Como criar uma fila
 
 Você pode executar operações de gerenciamento de filas do Barramento de Serviço por meio da classe **NamespaceManager**. A classe**NamespaceManager** fornece métodos para criar, enumerar e excluir filas. 
 
@@ -128,7 +128,7 @@ Há sobrecargas do método **CreateQueue** que permitem que você ajuste as prop
 
 **Observação**:  Você pode usar o método **QueueExists** em objetos **NamespaceManager**para verificar se uma fila com um nome especificado já existe no namespace de serviço.
 
-##Como enviar mensagens para uma fila
+## Como enviar mensagens para uma fila
 
 Para enviar uma mensagem para uma fila do Barramento de Serviço, seu aplicativo cria um objeto**QueueClient** usando a cadeia de conexão.
 
@@ -160,7 +160,7 @@ As mensagens enviadas para (e recebidas das) filas de Barramento de Serviço sã
 
 As filas de Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode te rum tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
 
-##Como receber mensagens de uma fila
+## Como receber mensagens de uma fila
 
 A maneira mais fácil para receber mensagens de uma fila é usar um objeto **QueueClient**. Esses objetos podem trabalhar em dois modos diferentes:**ReceiveAndDelete** e **PeekLock**.
 
@@ -197,7 +197,7 @@ O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas
        }
     } 
 
-##Como tratar falhas do aplicativo e mensagens ilegíveis
+## Como tratar falhas do aplicativo e mensagens ilegíveis
 
 O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **Abandon** na mensagem recebida (em vez do método **Complete**).Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
 
@@ -205,15 +205,13 @@ Também há um tempo limite associado a uma mensagem bloqueada na fila e, se hou
 
 Se houver falha do aplicativo após o processamento da mensagem, mas antes que a solicitação **Complete** seja gerada, a mensagem será entregue novamente ao aplicativo quando ele reiniciar.  Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente.Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada.Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
-##Próximas etapas
+## Próximas etapas
 
 Agora que você já sabe as noções básicas das filas de Barramento de Serviço, siga estes
 links para saber mais.
 
 -   Consulte a referência de MSDN: [Filas, tópicos e assinaturas.][]
--   Compilar um aplicativo de trabalho que envia e recebe mensagens para e
-    uma fila do Barramento de Serviço: [Sistema de mensagens agenciado .NET do Barramento de Serviço
-    Tutorial].
+-   Compilar um aplicativo de trabalho que envia e recebe mensagens para e uma fila do Barramento de Serviço: [Sistema de mensagens agenciado .NET do Barramento de Serviço Tutorial].
 
   [Próximas etapas]: #next-steps
   [O que são as filas do Barramento de Serviço]: #what-queues
@@ -236,6 +234,6 @@ links para saber mais.
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
-  [Tutorial do Sistema de mensagens agenciado .NET do Barramento de Serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367512.aspx
+  [Sistema de mensagens agenciado .NET do Barramento de Serviço Tutorial]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367512.aspx
 
 <!--HONumber=35.1-->

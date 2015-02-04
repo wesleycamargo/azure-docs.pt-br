@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Site PHP com MySQL e Git - Tutorial do Azure" metaKeywords="" description="Um tutorial que demonstra como criar um site do PHP que armazena dados no MySQL e usar implantação Git no Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Site PHP com MySQL e Git - Tutorial do Azure" metaKeywords="" description="Um tutorial que demonstra como criar um site do PHP que armazena dados no MySQL e usar implantação Git no Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
-#Criar um Site do Azure PHP-MySQL e implantar usando o Git
+# Criar um Site do Azure PHP-MySQL e implantar usando o Git
 
 Este tutorial mostra como criar um Site do Azure PHP-MySQL e como implantá-lo usando o Git.  Você usará [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados no seu computador.As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux.Após a conclusão deste guia, você terá um site do PHP/MySQL em execução no Azure.
  
@@ -20,18 +20,18 @@ Seguindo este tutorial, você criará um aplicativo Web de registro simples no P
 > 
 > Se quiser conhecer os Sites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, onde é possível criar imediatamente um site ASP.NET de vida curta nos Sites do Azure gratuitamente. Nenhum cartão de crédito necessário, nenhum compromisso.
 
-##Configurar o ambiente de desenvolvimento
+## Configurar o ambiente de desenvolvimento
 
 Este tutorial pressupõe que você tenha o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados em seu computador.
 
 > [WACOM.NOTE]
 > Se você estiver executando este tutorial no Windows, poderá configurar seu computador para o PHP e configurar automaticamente o IIS (o servidor Web interno do Windows) instalando o <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK do Azure para PHP.
 
-##<a id="create-web-site-and-set-up-git"></a>Criar um site do Azure e configurar a publicação Git
+## <a id="create-web-site-and-set-up-git"></a>Criar um site do Azure e configurar a publicação Git
 
 Siga estas etapas para criar um Site do Azure e um banco de dados MySQL:
 
-1. Faça logon no [Portal de gerenciamento do Azure][portal-gerenciamento].
+1. Faça logon no [Portal de gerenciamento do Azure][management-portal].
 2. Clique no ícone **Novo** na parte inferior esquerda do portal.
 
 	![Create New Azure web site][new-website]
@@ -42,7 +42,7 @@ Siga estas etapas para criar um Site do Azure e um banco de dados MySQL:
 	
 	Insira um valor para a **URL**, selecione **Criar Novo Banco de Dados MySQL** na lista suspensa **Banco de dados** e selecione o data center para seu site na lista suspensa **Região**. Clique na seta na parte inferior da caixa de diálogo.
 
-	![Fill in web site details][detalhes-site]
+	![Fill in web site details][website-details]
 
 4. Insira um valor para o **Nome** do banco de dados, selecione o data center para seu banco de dados na lista suspensa **Região** e marque a caixa que indica que você concorda com os termos legais. Clique na marca de seleção na parte inferior da caixa de diálogo.
 
@@ -69,7 +69,7 @@ Siga estas etapas para criar um Site do Azure e um banco de dados MySQL:
 
 	![Git instructions][git-instructions]
 
-##Obter informações da conexão MySQL remota
+## Obter informações da conexão MySQL remota
 
 Para conectar-se ao do Banco de Dados SQL que está em execução nos Sites do Azure, você precisará das informações da conexão. Para obter informações sobre a conexão MySQL, siga estas etapas:
 
@@ -77,9 +77,9 @@ Para conectar-se ao do Banco de Dados SQL que está em execução nos Sites do A
 
 	![Get database connection information][connection-string-info]
 	
-2. Anote os valores de "Banco de Dados", "Fonte de Dados", "ID do Usuário" e "Senha".
+2. Anote os valores de `Banco de Dados`, `Fonte de Dados`, `ID do Usuário` e `Senha`.
 
-##Criar e testar o aplicativo localmente
+## Criar e testar o aplicativo localmente
 
 Agora que criou um Site do Azure, você pode desenvolver seu aplicativo localmente e implantá-lo após o teste. 
 
@@ -89,7 +89,7 @@ O aplicativo Registro é um aplicativo simples do PHP que permite que você se r
 
 Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas presumem que o PHP, a ferramenta de linha de comando do MySQL (parte do MySQL) e um servidor Web estão configurados no seu computador local e que você habilitou a [extensão PDO para MySQL][pdo-mysql].
 
-1. Conecte-se ao servidor MySQL remoto usando os valores para `Fonte de dados', `Id do usuário', Senha' e `Banco de dados' recuperados anteriormente:
+1. Conecte-se ao servidor MySQL remoto usando os valores para `Fonte de dados`, `Id do usuário`, Senha' e `Banco de dados` recuperados anteriormente:
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
@@ -193,7 +193,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 Agora é possível navegar até **http://localhost/registration/index.php** para testar o aplicativo.
 
 
-##Publicar seu aplicativo
+## Publicar seu aplicativo
 
 Depois de testar o aplicativo localmente, você poderá publicá-lo no Site do Azure usando Git. Você inicializara seu repositório local do Git e publicará o aplicativo.
 
@@ -222,7 +222,7 @@ Depois de testar o aplicativo localmente, você poderá publicá-lo no Site do A
 
 Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
 
-##Publicar alterações em seu aplicativo
+## Publicar alterações em seu aplicativo
 
 Para publicar alterações no aplicativo, siga estas etapas:
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Usar Hubs de notificação para enviar as últimas notícias (Windows Phone)" metaKeywords="" description="Use Hubs de notificação do Azure para usar a etiqueta nos registros para enviar as notícias mais recentes para um aplicativo do Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Usar Hubs de notificação para enviar as últimas notícias (Windows Phone)" metaKeywords="" description="Use Hubs de notificação do Azure para usar a etiqueta nos registros para enviar as notícias mais recentes para um aplicativo do Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
 
@@ -7,7 +7,7 @@
     	<a href="/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias para um aplicativo do Windows Phone 8.0/8.1 Silverlight. Se você estiver direcionando para o aplicativo da Windows Store ou do Windows Phone 8.1, consulte à versão [Windows Universal]/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc. 
+Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias para um aplicativo do Windows Phone 8.0/8.1 Silverlight. Se você estiver direcionando para o aplicativo da Windows Store ou do Windows Phone 8.1, consulte à versão [Windows Universal](/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/). Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc. 
 
 Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais _tags_ ao criar um registro no Hub de Notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre rótulos, consulte [Diretrizes dos Hubs de Notificação]. 
 
@@ -101,8 +101,8 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
 
 4. No código acima, substitua os espaços reservados "<nome do hub>" e "<cadeia de conexão com acesso de escuta>" com o nome de seu hub de notificação e a cadeia de conexão para *DefaultListenSharedAccessSignature* que você tiver obtido anteriormente.
 
-	<div class="dev-callout"><strong>Note</strong> 
-		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
+	<div class="dev-callout"><strong>Observação</strong> 
+		<p>Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.</p>
 	</div> 
 
 4. No arquivo de projeto App.xaml.cs, adicione a propriedade a seguir na classe **App**:
@@ -140,8 +140,8 @@ Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazena
 
 Estas etapas registram com o hub de notificação na inicialização, usando as categorias que foram armazenadas no armazenamento local. 
 
-<div class="dev-callout"><strong>Note</strong> 
-	<p>Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
+<div class="dev-callout"><strong>Observação</strong> 
+	<p>Como o URI do canal atribuído pelo MPNS (Serviço de Notificação por Push da Microsoft) pode ser escolhido a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.</p>
 </div>  
 
 1. Adicione o seguinte código à classe **Notificações**:

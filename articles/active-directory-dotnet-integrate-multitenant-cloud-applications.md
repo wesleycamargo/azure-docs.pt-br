@@ -57,7 +57,7 @@ Para gerar uma ID do Cliente e um Segredo do Cliente, será necessário inserir 
 
 **Domínio do Aplicativo**: o nome do host do seu aplicativo, por exemplo "contoso.com". Essa propriedade não deve conter nenhum número de porta. Durante o desenvolvimento, essa propriedade deve ser definida como "localhost".
 
-**URL de Redirecionamento do Aplicativo**: a URL de redirecionamento para onde o AD do Azure enviará uma resposta depois que o usuário entrar e quando uma organização tiver autorizado o seu aplicativo, por exemplo: "<https://contoso.com/>." Durante o desenvolvimento, essa propriedade deve ser definida como "<https://localhost>:\<port number\>"
+**URL de Redirecionamento do Aplicativo**: a URL de redirecionamento para onde o AD do Azure enviará uma resposta depois que o usuário entrar e quando uma organização tiver autorizado o seu aplicativo, por exemplo: "https://contoso.com/." Durante o desenvolvimento, essa propriedade deve ser definida como "https://localhost:&#60;port number&#62;"
 
 ### Etapa 3: Configurar seu aplicativo para usar a ID do Cliente e o Segredo do Cliente
 

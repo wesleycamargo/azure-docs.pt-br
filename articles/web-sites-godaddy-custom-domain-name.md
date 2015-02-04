@@ -1,8 +1,8 @@
-﻿<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configurar um nome de domínio GoDaddy para um site do Azure" metaKeywords="Azure, sites do Azure, nome de domínio" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configurar um nome de domínio GoDaddy para um site do Azure" metaKeywords="Azure, sites do Azure, nome de domínio" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
-#Configurando um nome de domínio personalizado para um Site do Azure (GoDaddy)
+# Configurando um nome de domínio personalizado para um Site do Azure (GoDaddy)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Domínio personalizado</a><a href="/pt-br/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Soluções de rede</a><a href="/pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/pt-br/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/pt-br/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/pt-br/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/pt-br/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/pt-br/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Websites" class="current">Site</a> | <a href="/pt-br/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Site usando o Gerenciador de Tráfego</a></div>
@@ -38,7 +38,7 @@ Para associar seu domínio personalizado a um site do Azure, você deve adiciona
 
 	![DNS Zone File tab](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
 
-Selecione **Adicionar registro** para adicionar um registro existente.
+	Selecione **Adicionar registro** para adicionar um registro existente.
 
 	Para **editar** um registro existente, selecione o ícone de lápis e papel do lado do registro.
 
@@ -48,7 +48,7 @@ Selecione **Adicionar registro** para adicionar um registro existente.
 
 	![select record type](./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png)
 
-Em seguida, você deve fornecer o **Host** (o domínio ou subdomínio personalizado) e o que **Aponta**.
+	Em seguida, você deve fornecer o **Host** (o domínio ou subdomínio personalizado) e o que **Aponta**.
 
 	![add zone record](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
 

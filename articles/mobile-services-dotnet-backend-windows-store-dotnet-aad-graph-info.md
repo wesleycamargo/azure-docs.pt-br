@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Acessando informações do Azure Active Directory Graph (Windows Store) | Mobile Dev Center" metaKeywords="" description="Saiba como acessar informações do Active Directory do Azure usando a Graph API em seu aplicativo da Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" manager="dwrede" />
+<properties urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Acessando informações do Azure Active Directory Graph (Windows Store) | Mobile Dev Center" metaKeywords="" description="Saiba como acessar informações do Active Directory do Azure usando a Graph API em seu aplicativo da Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 
@@ -22,7 +22,7 @@ Este tutorial apresenta as seguintes etapas:
 3. [Atualizar o aplicativo para usar a API personalizada]
 4. [Testar o aplicativo]
 
-##Pré-requisitos 
+## Pré-requisitos 
 
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
@@ -161,7 +161,7 @@ Nesta seção, você atualizará o método `AuthenticateAsync` que implementou n
 
 
 
-##<a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 No próximo tutorial, [Controle de acesso baseado em função com o AAD em Serviços Móveis], você usará o controle de acesso baseado em função com o Active Directory do Azure (AAD) para verificar a associação a um grupo antes de permitir o acesso. 
 

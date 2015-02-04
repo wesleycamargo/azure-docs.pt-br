@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de HTML 5" metaKeywords="" description="Siga este tutorial para começar a usar o os Serviços Móveis do Azure para desenvolvimento de HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de HTML 5" metaKeywords="" description="Siga este tutorial para começar a usar o os Serviços Móveis do Azure para desenvolvimento de HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -22,7 +22,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 <div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Avaliação gratuita do Azure</a>.</p></div>
 
-###Requisitos adicionais
+### Requisitos adicionais
 
 + Este tutorial requer que você tenha um dos seguintes servidores web em execução no computador local:
 

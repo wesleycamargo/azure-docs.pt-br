@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Criar funções Web e de trabalho" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Criar funções Web e de trabalho" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 
@@ -194,7 +194,7 @@ Você verá uma saída semelhante à seguinte:
 	Role is running at http://127.0.0.1:81
 	Started
 
-Você pode ver o aplicativo em execução no emulador abrindo um navegador da Web e navegando até o endereço local mostrado na saída ("http://127.0.0.1:81" na saída do exemplo acima).
+Você pode ver o aplicativo em execução no emulador abrindo um navegador da Web e navegando até o endereço local mostrado na saída (`http://127.0.0.1:81` na saída do exemplo acima).
 
 Para parar os emuladores, execute este comando:
 
@@ -204,17 +204,17 @@ Para parar os emuladores, execute este comando:
 
 Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação com o cmdlet **PublishSettingsFile** e, em seguida, publicar seu aplicativo com o cmdlet **Publish-AzureServiceProject**. Detalhes sobre como usar cada um desses cmdlets podem ser encontrados em [Como: Importar configurações de publicação] e [Como: Implantar um serviço de nuvem no Azure], respectivamente.
 
-[modelo de execução-sites]: /pt-br/develop/net/fundamentals/compute/#WebSites
-[modelo de execução-vms]: /pt-br/develop/net/fundamentals/compute/#VMachine
-[modelo de execução-serviços de nuvem]: /pt-br/develop/net/fundamentals/compute/#CloudServices
+[execution model-web sites]: /pt-br/develop/net/fundamentals/compute/#WebSites
+[execution model-vms]: /pt-br/develop/net/fundamentals/compute/#VMachine
+[execution model-cloud services]: /pt-br/develop/net/fundamentals/compute/#CloudServices
 [SDK do Azure para PHP]: /pt-br/develop/php/common-tasks/download-php-sdk/
-[instalar ps e emuladores]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
+[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
 [O que é um Serviço de Nuvem?]: /pt-br/manage/services/cloud-services/what-is-a-cloud-service/
-[definição de serviço (.csdef)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758711.aspx
-[configuração de serviço (.cscfg)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
+[definição do serviço (.csdef)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758711.aspx
+[configuração do serviço (.cscfg)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/pt-br/sqlserver/aa937733.aspx
-[drivers sqlsrv]: http://php.net/sqlsrv
+[sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 [Como: Importar configurações de publicação]: /pt-br/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Como: Implantar um serviço de nuvem no Azure]: /pt-br/develop/php/how-to-guides/powershell-cmdlets/#Deploy

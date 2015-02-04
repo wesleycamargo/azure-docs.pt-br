@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução aos Hubs de Evento" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Siga este tutorial para começar a usar os Hubs de eventos do Azure com o C# usando o EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Introdução aos Hubs de Evento" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Siga este tutorial para começar a usar os Hubs de eventos do Azure com o C# usando o EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -30,7 +30,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][2]
 
-4. Clique no namespace que você acabou de criar (geralmente o***event hub name*-ns**).
+4. Clique no namespace que você acabou de criar (geralmente o ***nome para o Hub de Evento*-ns**).
 
    	![][3]
 

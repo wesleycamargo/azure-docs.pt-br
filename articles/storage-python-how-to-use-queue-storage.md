@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Como usar o serviço Fila (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Como usar o serviço Fila (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# Como usar o serviço de armazenamento Fila com Python. Este guia mostra como executar cenários comuns usando o serviço de armazenamento Fila do Microsoft Azure. Os exemplos foram escritos usando a API do Python. Os cenários abordados incluem **inserir**, **espiar**, **obter** e **excluir** mensagens de fila, bem como **criar e excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+# Como usar o serviço de armazenamento Fila com Python. 
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento Fila do Microsoft Azure. Os exemplos foram escritos usando a API do Python. Os cenários abordados incluem **inserir**, **espiar**, **obter** e **excluir** mensagens de fila, bem como **criar e excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
 
 ## Sumário
 
@@ -103,7 +104,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método**delet
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para aprender como executar tarefas de armazenamento mais complexas.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
--   Visite o[ Blog da Equipe de Armazenamento do Azure][]
+-   Visite o [Blog da Equipe de Armazenamento do Azure][]
 
   [Próximas etapas]: #next-steps
   [O que é Armazenamento de Filas?]: #what-is
@@ -118,6 +119,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Como: Obter o tamanho da fila]: #get-queue-length
   [Como: Excluir uma fila]: #delete-queue
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
 <!--HONumber=35.1-->

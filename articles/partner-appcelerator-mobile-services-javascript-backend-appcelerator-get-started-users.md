@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -18,11 +18,11 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1 ou versões posteriores e o iOS 7.0 e/ou versões posteriores e o Android 4.3 ou versões posteriores.
 
-##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> Restringir as permissões aos usuários autenticados
+## <a name="permissions"></a> Restringir as permissões aos usuários autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
@@ -34,7 +34,7 @@ Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
 1.	Abra o arquivo de projeto index.js e no método Ouvinte de eventos da tabela, procure por `case 2:`
 
