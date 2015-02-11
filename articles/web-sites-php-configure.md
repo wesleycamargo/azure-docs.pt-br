@@ -1,12 +1,12 @@
-﻿<properties title="How to Configure PHP in Azure Websites" pageTitle="Como configurar o PHP nos Sites do Azure" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Saiba como configurar a instalação padrão do PHP ou adicionar uma instalação personalizada do PHP nos sites do Azure." services="Web Sites" documentationCenter="PHP" authors="tomfitz" manager="wpickett" />
+<properties title="How to Configure PHP in Azure Websites" pageTitle="Como configurar o PHP nos Sites do Azure" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Saiba como configurar a instalação padrão do PHP ou adicionar uma instalação personalizada do PHP nos sites do Azure." services="Web Sites" documentationCenter="PHP" authors="tomfitz" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
 
-#Como configurar o PHP nos Sites do Azure
+# Como configurar o PHP nos Sites do Azure
 
 Este guia mostrará a você como configurar o tempo de execução interno do PHP nos Sites do Azure, como fornecer um tempo de execução personalizado do PHP e habilitar extensões nos Sites do Azure. Para usar os Sites do Azure, inscreva-se para uma [avaliação gratuita]. Para obter o máximo deste guia, você deverá, primeiramente, criar um site PHP nos Sites do Azure (consulte os [Tutoriais do centro de desenvolvedores de PHP]). Para informações gerais sobre como configurar os Sites do Azure, consulte [Como configurar sites].
 
-##Sumário
+## Sumário
 
 * [O que é são os sites do Azure?](#WhatIs)
 * [Como: Alterar a configuração PHP padrão](#ChangeBuiltInPHP)
@@ -98,7 +98,7 @@ Agora que você aprendeu como configurar o PHP nos Sites do Azure, siga os links
 [Como configurar sites]: https://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-configure-websites/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Lista de diretivas php.ini]: http://www.php.net/manual/en/ini.list.php
+[Lista de diretrizes php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
 [configure]: ./media/web-sites-php-configure/configure.png

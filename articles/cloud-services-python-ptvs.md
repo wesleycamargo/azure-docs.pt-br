@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Funções Web e de Trabalho do Python com o Python Tools 2.1 para Visual Studio" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho." metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Funções Web e de Trabalho do Python com o Python Tools 2.1 para Visual Studio" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho." metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -111,9 +111,9 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 <!--Link references-->
 
 [O que é um Serviço de Nuvem?]: /pt-br/manage/services/cloud-services/what-is-a-cloud-service/
-[modelo de execução-sites]: /pt-br/documentation/articles/fundamentals-application-models/#WebSites
-[modelo de execução-vms]: /pt-br/documentation/articles/fundamentals-application-models/#VMachine
-[modelo de execução-serviços de nuvem]: /pt-br/documentation/articles/fundamentals-application-models/#CloudServices
+[execution model-web sites]: /pt-br/documentation/articles/fundamentals-application-models/#WebSites
+[execution model-vms]: /pt-br/documentation/articles/fundamentals-application-models/#VMachine
+[execution model-cloud services]: /pt-br/documentation/articles/fundamentals-application-models/#CloudServices
 [Python Developer Center]: /pt-br/develop/python/
 
 [Serviço Blob]: /pt-br/documentation/articles/storage-python-how-to-use-blob-storage/
@@ -132,7 +132,7 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Ferramentas do SDK do Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
 <!--HONumber=35.1-->

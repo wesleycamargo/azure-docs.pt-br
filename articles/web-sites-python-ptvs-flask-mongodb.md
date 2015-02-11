@@ -1,4 +1,4 @@
-﻿<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask e MongoDB no Azure com Python Tools 2.1 para Visual Studio" description="Aprenda a usar o Python Tools for Visual Studio para criar um aplicativo Flask que armazena dados em uma instância de banco de dados MongoDB e pode ser implantado em um website." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask e MongoDB no Azure com Python Tools 2.1 para Visual Studio" description="Aprenda a usar o Python Tools for Visual Studio para criar um aplicativo Flask que armazena dados em uma instância de banco de dados MongoDB e pode ser implantado em um website." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -24,7 +24,7 @@ Consulte o [Python Developer Center][] para obter mais artigos que abrangem o de
 + [Configurar Site do Azure](#configure-the-azure-website)
 + [Próximas etapas](#next-steps)
 
-##<a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
  - Visual Studio 2012 ou 2013
  - [Python Tools 2.1 para Visual Studio][]
@@ -35,7 +35,7 @@ Consulte o [Python Developer Center][] para obter mais artigos que abrangem o de
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="create-the-project"></a>Criar o projeto
+## <a name="create-the-project"></a>Criar o projeto
 
 Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra.  Criaremos um ambiente virtual e instalaremos pacotes necessários.  Em seguida, executaremos o aplicativo localmente usando o repositório da memória padrão.
 
@@ -59,7 +59,7 @@ Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra.  
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
-##<a name="create-a-mongodb-database"></a>Criar o banco de dados MongoDB
+## <a name="create-a-mongodb-database"></a>Criar o banco de dados MongoDB
 
 Para o banco de dados, criaremos um banco de dados MongoLab hospedado no Azure.
 
@@ -85,7 +85,7 @@ Você pode criar uma avaliação gratuita com MongoLab seguindo estas etapas.
 
 1.  Clique em **COMPRA**.
 
-##<a name="configure-the-project"></a>Configurar o projeto
+## <a name="configure-the-project"></a>Configurar o projeto
 
 Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoDB que acabamos de criar.  Veremos como obter configurações de conexão no portal do Azure.  Em seguida, executaremos o aplicativo localmente.
 
@@ -117,7 +117,7 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoD
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
-##<a name="explore-the-mongodb-database"></a>Explorar o banco de dados MongoDB
+## <a name="explore-the-mongodb-database"></a>Explorar o banco de dados MongoDB
 
 É possível usar um aplicativo como [RoboMongo][] para consultar e fazer edições em um banco de dados MongoDB.Nesta seção, usaremos o RoboMongo para visualizar o conteúdo do banco de dados de aplicativo de pesquisas.
 
@@ -139,7 +139,7 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoD
 
   	![RoboMongo Query Results](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-##<a name="publish-to-an-azure-website"></a>Publicar para um website do Azure
+## <a name="publish-to-an-azure-website"></a>Publicar para um website do Azure
 
 O PTVS fornece uma forma fácil de implantar seu aplicativo Web para um website do Azure.
 
@@ -161,7 +161,7 @@ O PTVS fornece uma forma fácil de implantar seu aplicativo Web para um website 
 
     Isso é porque as variáveis de ambiente não estão configuradas no Website do Azure, portanto, ele usa os valores padrão especificados em **settings.py**.
 
-##<a name="configure-the-azure-website"></a>Configurar Site do Azure
+## <a name="configure-the-azure-website"></a>Configurar Site do Azure
 
 Nesta seção, configuraremos variáveis do ambiente para o site.
 
@@ -185,7 +185,7 @@ Nesta seção, configuraremos variáveis do ambiente para o site.
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
-##<a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Flask e MongoDB.
 
@@ -210,8 +210,8 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Fl
 [Python Tools 2.1 para Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Ferramentas do SDK do Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentação do Flask]: http://flask.pocoo.org/
 [MongoDB]: http://www.mongodb.org/

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Command Line Administration" pageTitle="Administrando um serviço móvel na linha de comando - tutorial do Azure" metaKeywords="" description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Command Line Administration" pageTitle="Administrando um serviço móvel na linha de comando - tutorial do Azure" metaKeywords="" description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -8,7 +8,7 @@ Este tópico mostra como usar as ferramentas de linha de comando do Azure para a
 
 -	[Criar um novo serviço móvel] 
 -	[Criar uma nova tabela]
--   [Registrar um script para uma operação de tabela][Register a new table script]
+-   [Registrar um script para uma operação de tabela][Registrar novo script de tabela]
 -   [Listar tabelas]
 - 	[Excluir uma tabela existente]
 -	[Listar serviços móveis]
@@ -40,10 +40,10 @@ A lista a seguir contém informações para instalar as ferramentas de linha de 
 
 		npm install azure-cli -g
 
-Para testar a instalação, digite 'azure' no prompt de comando. Quando a instalação for concluída com êxito, você verá uma lista de todos os comandos `azure` disponíveis.
+Para testar a instalação, digite `azure` no prompt de comando. Quando a instalação for concluída com êxito, você verá uma lista de todos os comandos `azure` disponíveis.
 <h2><a name="import-account"></a>Como baixar e importar as configurações de publicação</h2>
 
-Para iniciar, você deve primeiro baixar e importar suas configurações de publicação. Em seguida, você poderá usar as ferramentas para criar e gerenciar os Serviços do Azure. Para baixar as configurações de sua publicação, use o comando 'download de conta':
+Para iniciar, você deve primeiro baixar e importar suas configurações de publicação. Em seguida, você poderá usar as ferramentas para criar e gerenciar os Serviços do Azure. Para baixar as configurações de sua publicação, use o comando `download de conta`:
 
 		azure account download
 
@@ -183,7 +183,7 @@ Next steps here....
 
 
 <!-- URLs. -->
-[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p?LinkId=262293
+[Referência para script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
@@ -192,7 +192,7 @@ Next steps here....
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
 [reference-docs]: /pt-br/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
-[Como instalar ferramentas da linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
+[Como instalar as ferramentas de linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
 <!--HONumber=35.1-->

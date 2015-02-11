@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Scripts de servidor de armazenamento no controle do código-fonte - Serviços Móveis do Azure" metaKeywords="" description="Saiba como usar o complemento New Relic para monitorar seu serviço móvel." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
+<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Scripts de servidor de armazenamento no controle do código-fonte - Serviços Móveis do Azure" metaKeywords="" description="Saiba como usar o complemento New Relic para monitorar seu serviço móvel." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 
@@ -15,7 +15,7 @@ O tutorial o orientará por estas etapas:
 
 Para concluir este tutorial, você já deverá ter criado um serviço móvel, concluindo o tutorial [Introdução aos Serviços Móveis] ou [Introdução aos dados].
 
-##<a name="sign-up"></a>Inscrever-se para o New Relic usando a Azure Store
+## <a name="sign-up"></a>Inscrever-se para o New Relic usando a Azure Store
 
 A primeira etapa é adquirir o serviço New Relic. Este tutorial mostra como adquirir o serviço na Azure Store. Os Serviços Móveis dão suporte a inscrições do New Relic adquiridas fora da Azure Store.
 
@@ -39,7 +39,7 @@ A primeira etapa é adquirir o serviço New Relic. Este tutorial mostra como adq
 
 11. Depois que você clicar em **Comprar**, a sua conta New Relic iniciará o processo de criação.Você pode monitorar o status no portal de gerenciamento do Azure.
 
-##<a name="install-module"></a>Instalar o módulo New Relic
+## <a name="install-module"></a>Instalar o módulo New Relic
 
 Depois de se inscrever para o serviço New Relic, você deverá instalar o módulo Node.js do New Relic em seu serviço móvel. O controle do código-fonte deverá estar habilitado para que o seu serviço móvel possa carregar o módulo.
 
@@ -61,7 +61,7 @@ Depois de se inscrever para o serviço New Relic, você deverá instalar o módu
 
 Em seguida, você deverá habilitar o monitoramento do New Relic de seu serviço móvel no [Portal de Gerenciamento][Azure Management Portal]. 
 
-##<a name="enable-service"></a>Habilitar a análise para o desenvolvedor do New Relic para o serviço móvel
+## <a name="enable-service"></a>Habilitar a análise para o desenvolvedor do New Relic para o serviço móvel
 
 1. No [Portal de Gerenciamento][Azure Management Portal], selecione o serviço móvel e clique na guia **Configurar**.
 
@@ -87,7 +87,7 @@ Em seguida, você deverá habilitar o monitoramento do New Relic de seu serviço
 
 	![][3] 
 
-##<a name="monitor"></a>Monitorar o serviço móvel no painel do New Relic
+## <a name="monitor"></a>Monitorar o serviço móvel no painel do New Relic
 
 1. Execute o aplicativo cliente para gerar solicitações de leitura, criação, atualização e exclusão para seu serviço móvel.
 
@@ -103,7 +103,7 @@ Em seguida, você deverá habilitar o monitoramento do New Relic de seu serviço
 
 	![][5]
 
-##<a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"> </a>Próximas etapas
 
 + Para otimizar o desempenho do seu aplicativo móvel para **iOS**/**Android**, consulte [New Relic Mobile].
 + Para informações sobre preços, consulte o [página nova Relíquia no armazenamento do Azure].
@@ -127,13 +127,16 @@ Em seguida, você deverá habilitar o monitoramento do New Relic de seu serviço
 <!-- URLs. -->
 [Controle do código-fonte]: http://msdn.microsoft.com/pt-br/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Trabalhar com scripts de servidor em Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-server-scripts.md
-
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Documentação da API do Node.js: Módulos]: http://nodejs.org/api/modules.html
 [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/develop/mobile/tutorials/store-scripts-in-source-control/
+[Armazenar scripts de servidor no controle do código-fonte]: /pt-br/develop/mobile/tutorials/store-scripts-in-source-control/
 [newrelic]: https://npmjs.org/package/newrelic
+[página nova Relíquia no armazenamento do Azure]: /pt-br/gallery/store/new-relic/new-relic/
 [Página do New Relic no Armazenamento do Azure]: /pt-br/gallery/store/new-relic/new-relic/
 [Visão Geral dos Aplicativos]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
+[Visão geral de aplicativos]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
 [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet
 [New Relic Mobile]: http://newrelic.com/mobile-monitoring

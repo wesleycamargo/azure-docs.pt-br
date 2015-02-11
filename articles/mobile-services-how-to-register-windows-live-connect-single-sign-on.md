@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Registrar-se para logon único - Serviços Móveis do Azure" metaKeywords="" description="Saiba como registrar-se para autenticação de logon único em seu aplicativo de serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Registrar-se para logon único - Serviços Móveis do Azure" metaKeywords="" description="Saiba como registrar-se para autenticação de logon único em seu aplicativo de serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -75,7 +75,7 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
+[Comece a usar a autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
 [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
 [JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/

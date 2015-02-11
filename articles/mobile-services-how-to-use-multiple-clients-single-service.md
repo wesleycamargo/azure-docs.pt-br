@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Como usar vários clientes com um único back-end de serviços móveis | Serviços Móveis do Azure" metaKeywords="mobile services single backend" description="Saiba como usar um back-end de serviço móvel único de vários aplicativos cliente para diferentes plataformas móveis, incluindo Windows Store e Windows Phone." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
+<properties pageTitle="Como usar vários clientes com um único back-end de serviços móveis | Serviços Móveis do Azure" metaKeywords="mobile services single backend" description="Saiba como usar um back-end de serviço móvel único de vários aplicativos cliente para diferentes plataformas móveis, incluindo Windows Store e Windows Phone." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/15/2014" ms.author="glenga" />
 
 # Dando suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel
@@ -177,8 +177,8 @@ A biblioteca cliente do .NET dos Serviços Móveis fornece suporte para os aplic
 <!-- URLs -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
 [Hubs de notificação do Azure]: /pt-br/develop/net/how-to-guides/service-bus-notification-hubs/
-[SSO na Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-[SSO no Windows Phone]: /pt-br/develop/mobile/tutorials/single-sign-on-wp8/
+[SSO Windows Store]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[SSO Windows Phone]: /pt-br/develop/mobile/tutorials/single-sign-on-wp8/
 [Tutoriais e Recursos]: /pt-br/develop/mobile/resources/
 [Introdução aos hubs de notificação]: /pt-br/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Enviar notificações entre plataformas aos usuários]: /pt-br/manage/services/notification-hubs/notify-users-xplat-mobile-services/
@@ -197,6 +197,6 @@ A biblioteca cliente do .NET dos Serviços Móveis fornece suporte para os aplic
 [SendAsync]: http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [O que vem a seguir para os desenvolvedores do Windows Phone 8]: http://msdn.microsoft.com/pt-br/library/windows/apps/dn655121(v=vs.105).aspx
 [Criando aplicativos universais do Windows para todos os dispositivos Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
-[Projeto de aplicativo universal do Windows para os Serviços Móveis do Azure usando MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+[Projeto de aplicativos universais do Windows para os Serviços Móveis do Azure usando o MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
 <!--HONumber=35.1-->

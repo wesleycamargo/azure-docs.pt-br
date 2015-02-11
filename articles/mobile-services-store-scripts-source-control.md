@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Armazenar código de projeto no controle do código-fonte - Serviços Móveis do Azure" metaKeywords="" description="Saiba como armazenar seus arquivos de script de servidor e módulos em um repositório Git local no computador." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Armazenar código de projeto no controle do código-fonte - Serviços Móveis do Azure" metaKeywords="" description="Saiba como armazenar seus arquivos de script de servidor e módulos em um repositório Git local no computador." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -55,7 +55,7 @@ Para concluir este tutorial, você já deverá ter criado um serviço móvel, co
 
 7. Abra a subpasta .\service\table e observe se ela contém um arquivo TodoItem.json, que é uma representação JSON das permissões de operação na tabela TodoItem. 
 
-	Quando os scripts de servidor foram definidos nessa tabela, você também terá um ou mais arquivos denominados <code>TodoItem._<operation>_.js</code> que contêm os scripts para a operação de tabela específica. O Agendador e os scripts de APIs personalizadas serão mantidos em pastas separadas com esses respectivos nomes. Para obter mais informações, consulte [Controle do código-fonte].
+	Quando os scripts de servidor foram definidos nessa tabela, você também terá um ou mais arquivos denominados <code>TodoItem._&lt;operation&gt;_.js/code> que contêm os scripts para a operação de tabela específica. O Agendador e os scripts de APIs personalizadas serão mantidos em pastas separadas com esses respectivos nomes. Para obter mais informações, consulte [Controle do código-fonte].
 
 Agora que criou seu repositório local, você pode fazer alterações nos scripts de servidor e enviar por push as alterações de volta para o serviço móvel.
 
@@ -146,10 +146,10 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 	<br/> Mostra como criar APIs personalizados que podem ser chamados do cliente.
 
 <!-- Anchors. -->
-[Habilitar o controle do código-fonte no seu serviço móvel]: #enable-source-control
+[Habilitar controle do código-fonte no serviço móvel]: #enable-source-control
 [Instalar o Git e criar o repositório local]: #clone-repo
 [Implantar arquivos de script atualizados no seu serviço móvel]: #deploy-scripts
-[Aproveitar o código compartilhado e módulos do Node. js em seus scripts de servidor]: #use-npm
+[Aproveitar o código compartilhado e os módulos do Node.js nos seus scripts de servidor]: #use-npm
 
 <!-- Images. -->
 [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
@@ -160,12 +160,12 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Site do Git]: http://git-scm.com
 [Controle do código-fonte]: http://msdn.microsoft.com/pt-br/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
+[Introdução aos Serviços Móveis Services]: /pt-br/documentation/articles/mobile-services-ios-get-started/
 [Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
 [Trabalhar com scripts de servidor em Serviços Móveis]: /pt-br/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-ios-call-custom-api/
-[Documentação da API do Node.js: Módulos]: http://nodejs.org/api/modules.html
+[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
 <!--HONumber=35.1-->

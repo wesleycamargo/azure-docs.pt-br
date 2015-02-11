@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Introdução às notificações por push (iOS) | Centro de Desenvolvimento Móvel" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo iOS." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Introdução às notificações por push (iOS) | Centro de Desenvolvimento Móvel" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo iOS." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -156,7 +156,7 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo i
 + [Enviar notificações de transmissão para assinantes]
 	<br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 <!---
-+ [Send template-based notifications to subscribers]
++ [Enviar notificações baseadas em modelo aos assinantes]
 	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
@@ -220,7 +220,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Instalar o Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portal de Provisionamento do iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [SDK de iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584

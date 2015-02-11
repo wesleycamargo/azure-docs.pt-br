@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HTML Client" pageTitle="Como usar um cliente HTM - Serviços Móveis do Azure" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Saiba como usar um cliente HTML para serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="HTML Client" pageTitle="Como usar um cliente HTM - Serviços Móveis do Azure" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Saiba como usar um cliente HTML para serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -64,7 +64,7 @@ Todos os códigos que acessam e modificam dados na tabela de Banco de Dados SQL 
 
 ### <a name="filtering"></a>Como: Filtrar dados retornados
 
-O código a seguir ilustra como filtrar dados incluindo uma cláusula 'where' em uma consulta. Ele retorna todos os itens da `todoItemTable` cujo campo total é igual a `false`. `todoItemTable` é a referência à tabela de serviço móvel que criamos anteriormente. A função where aplica um predicado de filtragem de linha à consulta na tabela. Ela aceita como argumento um objeto JSON ou uma função que define o filtro de linha e retorna uma consulta que pode ser composta adicionalmente.
+O código a seguir ilustra como filtrar dados incluindo uma cláusula `where` em uma consulta. Ele retorna todos os itens da `todoItemTable` cujo campo total é igual a `false`. `todoItemTable` é a referência à tabela de serviço móvel que criamos anteriormente. A função where aplica um predicado de filtragem de linha à consulta na tabela. Ela aceita como argumento um objeto JSON ou uma função que define o filtro de linha e retorna uma consulta que pode ser composta adicionalmente.
 
 	var query = todoItemTable.where({
 	    complete: false
@@ -74,7 +74,7 @@ O código a seguir ilustra como filtrar dados incluindo uma cláusula 'where' em
 	    alert("Error: " + err);
 	});
 
-Adicionando a chamada 'where' no objeto Query e passando um objeto como um parâmetro, estamos instruindo os Serviços Móveis a retornar apenas as linhas cuja coluna 'complete' contém o valor 'false'. Além disso, examine o URI da solicitação abaixo e observe que estamos modificando a própria cadeia de caracteres da consulta:
+Adicionando a chamada `where` no objeto Query e passando um objeto como um parâmetro, estamos instruindo os Serviços Móveis a retornar apenas as linhas cuja coluna `complete` contém o valor `false`. Além disso, examine o URI da solicitação abaixo e observe que estamos modificando a própria cadeia de caracteres da consulta:
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -86,7 +86,7 @@ Essa solicitação normalmente é traduzida aproximadamente para a seguinte cons
 	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
 
-O objeto que é passado para o método 'where' pode ter um número arbitrário de parâmetros, e eles serão todos interpretados como cláusulas AND para a consulta. Por exemplo, a linha abaixo:
+O objeto que é passado para o método `where` pode ter um número arbitrário de parâmetros, e eles serão todos interpretados como cláusulas AND para a consulta. Por exemplo, a linha abaixo:
 
 	query.where({
 	   complete: false,
@@ -106,9 +106,9 @@ O objeto que é passado para o método 'where' pode ter um número arbitrário d
 	      AND assignee = 'david'
 	      AND difficulty = 'medium'
 
-O demonstrativo 'where' acima e a consulta SQL acima encontraram itens incompletos atribuídos a "david" de dificuldade "média".
+O demonstrativo `where` acima e a consulta SQL acima encontraram itens incompletos atribuídos a "david" de dificuldade "média".
 
-No entanto, há outra maneira de escrever a mesma consulta. Uma chamada 'where' no objeto de consulta adicionará uma expressão 'AND' a cláusula 'WHERE', portanto, poderíamos ter escrito isso nas três linhas em vez disso:
+No entanto, há outra maneira de escrever a mesma consulta. Uma chamada `where` no objeto de consulta adicionará uma expressão `AND` a cláusula `WHERE`, portanto, poderíamos ter escrito isso nas três linhas em vez disso:
 
 	query.where({
 	   complete: false
@@ -132,7 +132,7 @@ Ou usar a API fluente:
 	   difficulty: "medium"
 	});
 
-Os dois métodos são equivalentes e podem ser usados de maneira intercambiável. Todas as chamadas 'where' até agora introduzem um objeto com alguns parâmetros e são comparadas de igualdade em relação aos dados do banco de dados. No entanto, há outra sobrecarga para o método de consulta, que assume uma função em vez do objeto. Nesta função podemos então escrever expressões mais complexas, usando operadores tais como desigualdade e outras operações relacionais. Nessas funções, a palavra-chave 'this' vincula-se ao objeto do servidor.
+Os dois métodos são equivalentes e podem ser usados de maneira intercambiável. Todas as chamadas `where` até agora introduzem um objeto com alguns parâmetros e são comparadas de igualdade em relação aos dados do banco de dados. No entanto, há outra sobrecarga para o método de consulta, que assume uma função em vez do objeto. Nesta função podemos então escrever expressões mais complexas, usando operadores tais como desigualdade e outras operações relacionais. Nessas funções, a palavra-chave `this` vincula-se ao objeto do servidor.
 
 O corpo da função é traduzido em uma expressão booliana OData (Open Data Protocol) que é passada para um parâmetro de cadeia de caracteres de consulta. É possível passar em uma função que não recebe parâmetros, da seguinte forma:
 
@@ -145,7 +145,7 @@ O corpo da função é traduzido em uma expressão booliana OData (Open Data Pro
     });
 
 
-Se passando em uma função com parâmetros, quaisquer argumentos após a cláusula 'where' são associados aos parâmetros da função na ordem. Quaisquer objetos que vêm de fora do escopo da função DEVEM ser passados como parâmetros - a função não pode capturar quaisquer variáveis externas. Nos próximos dois exemplos, o argumento "david" está associado ao parâmetro 'nome' e no primeiro exemplo, o argumento "medium" também está associado ao parâmetro 'nível'. Além disso, a função deve consistir em uma única demonstração 'return' com uma expressão com suporte, da seguinte forma:
+Se passando em uma função com parâmetros, quaisquer argumentos após a cláusula `where` são associados aos parâmetros da função na ordem. Quaisquer objetos que vêm de fora do escopo da função DEVEM ser passados como parâmetros - a função não pode capturar quaisquer variáveis externas. Nos próximos dois exemplos, o argumento "david" está associado ao parâmetro `nome` e no primeiro exemplo, o argumento "medium" também está associado ao parâmetro `nível`. Além disso, a função deve consistir em uma única demonstração `return` com uma expressão com suporte, da seguinte forma:
 
 	 query.where(function (name, level) {
 	    return this.assignee == name && this.difficulty == level;
@@ -174,7 +174,7 @@ O código a seguir ilustra como classificar dados incluindo uma função `orderB
 
 <div class="dev-callout"><strong>Observação</strong> <p>Um tamanho da página de servidor controlado por nós usado por padrão para prevenir todos os elementos de serem retornados. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. </p> </div>
 >
-Você pode aumentar o número de itens a ser retornado pela chamada 'take' conforme descrito na próxima seção. `todoItemTable` é a referência à tabela de serviço móvel que criamos anteriormente.
+Você pode aumentar o número de itens a ser retornado pela chamada `take` conforme descrito na próxima seção. `todoItemTable` é a referência à tabela de serviço móvel que criamos anteriormente.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -196,7 +196,7 @@ Você pode aumentar o número de itens a ser retornado pela chamada 'take' confo
 
 ### <a name="paging"></a>Como: Retornar dados em páginas
 
-O código a seguir mostra como implementar a paginação de dados retornados usando as cláusulas 'skip' e 'take' na consulta.  A consulta a seguir, quando executada, retorna os três itens principais na tabela.
+O código a seguir mostra como implementar a paginação de dados retornados usando as cláusulas `skip` e `take` na consulta.  A consulta a seguir, quando executada, retorna os três itens principais na tabela.
 
 	var query = todoItemTable.take(3).read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -220,7 +220,7 @@ Esse é um cenário simplificado de passar valores de paginação embutidos em c
 
 ### <a name="selecting"></a>Como: Selecionar colunas específicas
 
-Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula 'select' à sua consulta. Por exemplo, o código a seguir retorna as propriedades 'id', 'complete' e 'text' de cada linha na `todoItemTable`:
+Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula `select` à sua consulta. Por exemplo, o código a seguir retorna as propriedades `id`, `complete` e `text` de cada linha na `todoItemTable`:
 
 	var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -246,7 +246,7 @@ Todas as funções descritas até agora são aditivas, portanto, podemos continu
 
 ### <a name="lookingup"></a>Como: Pesquisar dados por ID
 
-A função 'lookup' usa apenas o valor de 'id' e retorna o objeto do banco de dados com essa ID. Tabelas de banco de dados são criadas com uma coluna de números inteiros ou de 'id' de cadeia de caracteres. Uma coluna de 'id' de cadeia de caracteres é o padrão.
+A função `lookup` usa apenas o valor de `id` e retorna o objeto do banco de dados com essa ID. Tabelas de banco de dados são criadas com uma coluna de números inteiros ou de `id` de cadeia de caracteres. Uma coluna de `id` de cadeia de caracteres é o padrão.
 
 	todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
 	   alert(JSON.stringify(result));
@@ -321,13 +321,13 @@ Você também pode usar scripts de servidor para definir valores de ids. O exemp
 
 Se um aplicativo fornecer um valor para uma id, os Serviços Móveis irão armazená-lo como está. Isso inclui espaços em branco à direita ou à esquerda. O espaço em branco não será cortado do valor.
 
-O valor da 'id' deve ser exclusivo e não deve incluir caracteres dos seguintes conjuntos:
+O valor da `id` deve ser exclusivo e não deve incluir caracteres dos seguintes conjuntos:
 
 + Caracteres de controle: [0x0000-0x001F] and [0x007F-0x009F]. Para obter mais informações, consulte [Códigos de controle ASCII C0 e C1].
 +  Caracteres de impressão: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Os ids "." e ".."
 
-Como alternativa, você pode usar Ids de números inteiros para suas tabelas. Para usar uma Id de número inteiro, você deve criar sua tabela com o comando 'mobile table create' usando a opção '--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis].
+Como alternativa, você pode usar Ids de números inteiros para suas tabelas. Para usar uma Id de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis].
 
 
 <h2><a name="modifying"></a>Como: Modificar dados em um serviço móvel</h2>
@@ -403,7 +403,7 @@ Os Serviços Móveis dão suporte à autenticação e à autorização de usuár
 Dois fluxos de autenticação têm suporte: um _server flow_ e um _client flow_. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos do dispositivo, como logon único, uma vez que depende de provedores específicos e SDKs específicos do dispositivo.
 
 <h3>Fluxo de servidor</h3>
-Para que os Serviços Móveis gerenciem o processo de autenticação em seu aplicativo da Windows Store ou HTML5, você deve registrar seu aplicativo no provedor de identidade. Em seguida, no seu serviço móvel, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor. Para obter mais informações, consulte o tutorial "Introdução à autenticação" ([Windows Store/][Get started with authentication Windows Store][HTML][Get started with authentication]).
+Para que os Serviços Móveis gerenciem o processo de autenticação em seu aplicativo da Windows Store ou HTML5, você deve registrar seu aplicativo no provedor de identidade. Em seguida, no seu serviço móvel, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor. Para obter mais informações, consulte o tutorial "Introdução à autenticação" ([Windows Store/][Get started with authentication Windows Store][HTML][Introdução à autenticação]).
 
 Depois de registrar o provedor de identidade, basta chamar o [método LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor.Por exemplo, para fazer logon com o Facebook, use o código a seguir.
 
@@ -451,7 +451,7 @@ Ao usar as APIs do Facebook ou do Google para autenticação do cliente, o exemp
 		     alert("Error: " + err);
 		});
 
-Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é armazenado na variável 'token'.
+Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é armazenado na variável `token`.
 O Twitter não pode ser usado para autenticação de cliente desta vez.
 
 <h3>Armazenando o token de autenticação em cache</h3>
@@ -515,7 +515,7 @@ Para evidenciar isso ainda mais, você passa o manipulador de erro como o segund
 
 As promessas fornecem um mecanismo para agendar o trabalho a ser feito em um valor que ainda não foi computado. São uma abstração para o gerenciamento de interações com APIs assíncronas.
 
-A promessa 'done' é executada assim que a função fornecida a ela foi concluída com êxito ou obteve um erro. Ao contrário da promessa 'then', ela gera qualquer erro que não seja tratado dentro da função e depois que os manipuladores concluírem a execução, essa função gera qualquer erro que tenha sido retornado, como uma promessa no estado errado. Para obter mais informações, consulte [done].
+A promessa `done` é executada assim que a função fornecida a ela foi concluída com êxito ou obteve um erro. Ao contrário da promessa `then`, ela gera qualquer erro que não seja tratado dentro da função e depois que os manipuladores concluírem a execução, essa função gera qualquer erro que tenha sido retornado, como uma promessa no estado errado. Para obter mais informações, consulte [done].
 
 			promise.done(onComplete, onError);
 
@@ -528,7 +528,7 @@ Desta forma:
 			   alert("Error: " + err);
 			});
 
-A promessa 'then' é igual a promessa 'done', mas ao contrário da promessa 'then', 'done' gera qualquer erro que não é tratado dentro da função. Se você não fornecer um manipulador de erro para 'then', e a operação tiver um erro, ela não gerará uma exceção, mas, em vez disso, retornará uma promessa no estado de erro. Para obter mais informações, consulte [then].
+A promessa `then` é igual a promessa `done`, mas ao contrário da promessa 'then', `done` gera qualquer erro que não é tratado dentro da função. Se você não fornecer um manipulador de erro para `then`, e a operação tiver um erro, ela não gerará uma exceção, mas, em vez disso, retornará uma promessa no estado de erro. Para obter mais informações, consulte [then].
 
 			promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -541,7 +541,7 @@ Desta forma:
 			   alert("Error: " + err);
 			});
 
-Você pode usar promessas de várias maneiras diferentes. Você pode encadear operações de promessas chamando 'then' ou 'done' na promessa que é retornada pela função anterior 'then'. Use 'then' para um estágio intermediário da operação (por exemplo '.then().then()') e 'done' para o estágio final da operação (por exemplo '.then().then().done()').  Você pode encadear várias funções 'then', porque 'then' retorna uma promessa. Não é possível encadear mais de um método 'done', porque ele retorna indefinido. [Saiba mais sobre as diferenças entre then e done].
+Você pode usar promessas de várias maneiras diferentes. Você pode encadear operações de promessas chamando `then` ou `done` na promessa que é retornada pela função anterior `then`. Use `then` para um estágio intermediário da operação (por exemplo `.then().then()`) e `done` para o estágio final da operação (por exemplo `.then().then().done()`).  Você pode encadear várias funções `then`, porque `then` retorna uma promessa. Não é possível encadear mais de um método `done`, porque ele retorna indefinido. [Saiba mais sobre as diferenças entre then e done].
 
  			todoItemTable.insert({
  			   text: "foo"
@@ -554,7 +554,7 @@ Você pode usar promessas de várias maneiras diferentes. Você pode encadear op
 
 <h2><a name="customizing"></a>Como: Personalizar cabeçalhos de solicitações de clientes</h2>
 
-Você pode enviar cabeçalhos de solicitações personalizados usando a função 'withFilter', ler e escrever propriedades arbitrárias da solicitação prestes a ser enviada com o filtro. Talvez você queira adicionar um cabeçalho personalizado HTTP desse tipo se um script do lado do servidor precisar ou puder ser melhorado por ele.
+Você pode enviar cabeçalhos de solicitações personalizados usando a função `withFilter`, ler e escrever propriedades arbitrárias da solicitação prestes a ser enviada com o filtro. Talvez você queira adicionar um cabeçalho personalizado HTTP desse tipo se um script do lado do servidor precisar ou puder ser melhorado por ele.
 
 			var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
 			   .withFilter(function (request, next, callback) {
@@ -566,7 +566,7 @@ Os filtros são usados para muito mais do que cabeçalhos de solicitações pers
 
 <h2><a name="hostnames"></a>Como: Usar compartilhamento de recursos entre origens</h2>
 
-Para controlar quais sites podem interagir e enviar solicitações para o seu serviço móvel, certifique-se de adicionar o nome do host do site que você usa para hospedá-lo à lista branca do CORS (Compartilhamento de Recursos entre Origens) usando a guia Configuração. Você pode usar caracteres curinga se necessário. Por padrão, novos Serviços Móveis instruem os navegadores para permitirem acesso somente por meio do 'localhost', e o CORS (Compartilhamento de Recursos entre Origens) permite que o código em JavaScript em execução em um navegador em um nome de host externo interaja com o Serviço Móvel.  Essa configuração não é necessária para aplicativos WinJS.
+Para controlar quais sites podem interagir e enviar solicitações para o seu serviço móvel, certifique-se de adicionar o nome do host do site que você usa para hospedá-lo à lista branca do CORS (Compartilhamento de Recursos entre Origens) usando a guia Configuração. Você pode usar caracteres curinga se necessário. Por padrão, novos Serviços Móveis instruem os navegadores para permitirem acesso somente por meio do `localhost`, e o CORS (Compartilhamento de Recursos entre Origens) permite que o código em JavaScript em execução em um navegador em um nome de host externo interaja com o Serviço Móvel.  Essa configuração não é necessária para aplicativos WinJS.
 
 <h2><a name="nextsteps"></a>Próximas etapas</h2>
 
@@ -619,7 +619,7 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Introdução a dados]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-html/
 [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html
-[Introdução à autenticação da Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-users-js
+[Get started with authentication Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-users-js
 [then]: http://msdn.microsoft.com/pt-br/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/pt-br/library/windows/apps/hh701079.aspx
 [Saiba mais sobre as diferenças entre then e done]: http://msdn.microsoft.com/pt-br/library/windows/apps/hh700334.aspx
@@ -630,19 +630,19 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 
 [ListView]: http://msdn.microsoft.com/pt-br/library/windows/apps/br211837.aspx
 [Vinculação de dados (aplicativos da Windows Store usando JavaScript e HTML)]: http://msdn.microsoft.com/pt-br/library/windows/apps/hh758311.aspx
-[Início rápido de JavaScript da Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started
-[Início rápido de HTML]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-html
-[Introdução a dados com JavaScript da Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-js
+[Início rápido do JavaScript da Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started
+[Início rápido do HTML]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-html
+[Introdução a dados em JavaScript na Windows Store]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-js
 [Introdução a dados em HTML/JavaScript]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/get-started-with-data-html/
 [Você pode ver um exemplo completo de como configurar este cenário aqui]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-html
 [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html
 [Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-html
-[logon]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554236.aspx
+[login]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554236.aspx
 [Autenticar seu aplicativo com logon único]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para gerenciar tabelas dos Serviços Móveis]: http://www.windowsazure.com/pt-br/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI para gerenciar tabelas de Serviços Móveis]: http://www.windowsazure.com/pt-br/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 <!--HONumber=35.1-->
