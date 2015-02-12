@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Como monitorar sites - Gerenciamento de serviço do Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Saiba como monitorar sites do Azure usando a página de monitoramento no portal de gerenciamento." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="Como monitorar sites - Gerenciamento de serviço do Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Saiba como monitorar sites do Azure usando a página de monitoramento no portal de gerenciamento." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -34,7 +34,7 @@ No modo de site **padrão**, você pode receber alertas com base nas métricas d
 
 ##<a name="howtoviewusage"></a>Como: Exibir cotas de uso de um site
 
-Os sites podem ser configurados para serem executados em modo de site **compartilhado** ou **padrão** na página de gerenciamento **Escala** do site.  Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 sites por região em modo de site **Compartilhado**. O pool de recursos disponíveis para cada assinatura de site para essa finalidade é compartilhado por outros sites na mesma localização geográfica configurados para serem executados em modo **compartilhado**.Como esses recursos são compartilhados para uso por outros sites, todas as assinaturas são limitadas em termos de uso desses recursos.Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada site.
+Os sites podem ser configurados para serem executados em modo de site **compartilhado** ou **padrão** na página de gerenciamento **Escala** do site.  Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 sites por região em modo de site **Compartilhado**. O pool de recursos disponíveis para cada assinatura de site para essa finalidade é compartilhado por outros sites na mesma localização geográfica configurados para serem executados em modo **compartilhado**. Como esses recursos são compartilhados para uso por outros sites, todas as assinaturas são limitadas em termos de uso desses recursos.Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada site.
 
 >[WACOM.NOTE] Quando um site está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e de serviços de nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de sites no modo **padrão**. No entanto, o número de sites no modo **Padrão** que podem ser criados por região é 500.
  
@@ -85,10 +85,10 @@ Você pode habilitar ou desabilitar os seguintes diagnóstico de aplicativos:
 Para obter mais informações sobre Contas de Armazenamento do Azure, consulte [Como gerenciar contas de armazenamento (a página pode estar em inglês)](https://www.windowsazure.com/pt-br/manage/services/storage/how-to-manage-a-storage-account/).
 
 <div class="dev-callout"on> 
-<b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+<b>Observação</b> 
+<p>Log de aplicativo para o armazenamento de tabela ou blob só tem suporte para aplicativos .NET.</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+Como o log do aplicativo no armazenamento requer o uso de um cliente de armazenamento para exibir os dados do log, ele será mais útil quando você planejar usar um serviço ou aplicativo que saiba como ler e processar os dados diretamente no Armazenamento de Tabela ou de Blob do Azure. O log do sistema de arquivos produz arquivos que podem ser baixados no computador local usando FTP ou outros utilitários conforme descrito mais adiante nesta seção.
 
 <div class="dev-callout"> 
 	<b>Observação</b> 

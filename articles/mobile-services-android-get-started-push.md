@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Introdução às notificações por push (Android) | Mobile Dev Center" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Introdução às notificações por push (Android) | Mobile Dev Center" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
@@ -263,7 +263,7 @@ Neste exemplo simples, um usuário recebe uma notificação por push com os dado
 
 <!-- Images. -->
 
-<google-developers.png
+[1]: ./media/mobile-services-android-get-started-push/mobile-services-google-developers.png
 [2]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server.png
 [3]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server2.png
 [4]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server3.png

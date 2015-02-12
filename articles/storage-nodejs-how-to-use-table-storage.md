@@ -1,4 +1,5 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Saiba como usar o serviço de armazenamento de tabela no Azure. As amostras de código são escritas usando a API do Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+
+<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Saiba como usar o serviço de armazenamento de tabela no Azure. As amostras de código são escritas usando a API do Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -143,9 +144,9 @@ o método **insertEntity**.
 		}
 	});
 
-Se a operação for bem-sucedida, 'result' conterá o [Etag](http://en.wikipedia.org/wiki/HTTP_ETag) do registro inserido e 'response' conterá informações sobre a operação.
+Se a operação for bem-sucedida, `result` conterá o [Etag](http://en.wikipedia.org/wiki/HTTP_ETag) do registro inserido e `response` conterá informações sobre a operação.
 
-> [WACOM.NOTE] Por padrão, **insertEntity** não retorna a entidade inserida como parte da informação de 'response'. Se você planeja executar outras operações nesta entidade ou se desejar armazenar as informações em cache, pode ser útil retorná-las como parte de 'result'.Você pode fazer isso habilitando **echoContent** da seguinte maneira:
+> [WACOM.NOTE] Por padrão, **insertEntity** não retorna a entidade inserida como parte da informação de `response`. Se você planeja executar outras operações nesta entidade ou se desejar armazenar as informações em cache, pode ser útil retorná-las como parte de `result`.Você pode fazer isso habilitando **echoContent** da seguinte maneira:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -171,22 +172,22 @@ O exemplo a seguir demonstra a atualização de uma entidade usando **updateEnti
 
 > [WACOM.NOTE] Por padrão, a atualização de uma entidade não verifica se os dados que estão sendo atualizados foram modificados anteriormente por outro processo. Para suporte a atualizações simultâneas:
 > 
-> 1. Obtenha a ETag do objeto que está sendo atualizado. Isso será retornado como parte de response` para qualquer operação relacionada à entidade e pode ser recuperado através de `response['.metadata'].etag`.
+> 1. Obtenha a ETag do objeto que está sendo atualizado. Isso será retornado como parte de `response` para qualquer operação relacionada à entidade e pode ser recuperado através de `response['.metadata'].etag`.
 > 
 > 2. Ao realizar uma operação de atualização em uma entidade, adicione as informações de ETag obtidas anteriormente para a nova entidade. Por exemplo:
 > 
 >     `entity2['.metadata'].etag = currentEtag;`
 >    
-> 3. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um 'error' será retornado informando que a condição da atualização especificada na solicitação não foi atendida.
+> 3. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um `error` será retornado informando que a condição da atualização especificada na solicitação não foi atendida.
     
 Com **updateEntity** e **mergeEntity**, se a entidade que está sendo atualizada não existir, haverá falha na operação de atualização. Portanto, se desejar armazenar uma entidade independentemente de sua existência, você deverá usar **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
-O 'result' para operações de atualização de sucesso conterá **Etag** da entidade atualizada.
+O `result` para operações de atualização de sucesso conterá **Etag** da entidade atualizada.
 
 ## <a name="change-entities"> </a>Como trabalhar com grupos de entidades
 Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para realizar isso, você usa a classe **TableBatch** para criar um lote, em seguida, usar o método **executeBatch** de **TableService** para executar as operações em lote.
 
- The following example demonstrates submitting two entities in a batch:
+ O exemplo a seguir demonstra o envio de duas entidades em um lote:
 
     var task1 = { 
 	  PartitionKey: {'_':'hometasks'},
@@ -212,7 +213,7 @@ O 'result' para operações de atualização de sucesso conterá **Etag** da ent
 	  }
 	});
 
-Para operações em lote bem-sucedidas, 'result' conterá informações para cada operação no lote.
+Para operações em lote bem-sucedidas, `result` conterá informações para cada operação no lote.
 
 ###Trabalhando com operações em lote
 
@@ -238,7 +239,7 @@ Se você quiser retornar uma entidade específica com base em **PartitionKey** e
 	  }
     });
 
-Quando essa operação for concluída, 'result' conterá a entidade.
+Quando essa operação for concluída, `result` conterá a entidade.
 
 ## <a name="query-set-entities"> </a>Como consultar um conjunto de entidades
 
@@ -270,7 +271,7 @@ Como **select** não é usado, todos os campos serão retornados. Para realizar 
 	  }
 	});
 
-Se for bem-sucedido, 'result.entries' conterá uma matriz de entidades que correspondem à consulta. Se a consulta não puder retornar todas as entidades, 'result.continuationToken' poderá ser usado como o terceiro parâmetro de **queryEntities** para recuperar mais resultados.Para a consulta inicial, o terceiro parâmetro deve ser *null*.
+Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não puder retornar todas as entidades, `result.continuationToken` poderá ser usado como o terceiro parâmetro de **queryEntities** para recuperar mais resultados.Para a consulta inicial, o terceiro parâmetro deve ser *null*.
 
 ###Como consultar um subconjunto de propriedades de entidade
 
@@ -406,7 +407,7 @@ para saber como fazer tarefas mais complexas de armazenamento.
 -   [Visite o Blog da equipe do Armazenamento do Azure][].
 -   Visite o repositório [SDK de armazenamento do Azure para nó][] no GitHub.
 
-  [SDK de armazenamento do Azure para o nó]: https://github.com/Azure/azure-storage-node
+  [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node
   [Próximas etapas]: #next-steps
   [O que é o serviço Tabela?]: #what-is
   [Conceitos]: #concepts
@@ -430,7 +431,7 @@ para saber como fazer tarefas mais complexas de armazenamento.
 
   [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Visite o Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Visite o Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Site com WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Serviço de Nuvem do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Aplicativo Web Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/

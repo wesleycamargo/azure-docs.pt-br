@@ -1,4 +1,5 @@
-﻿<properties urlDisplayName="Linux Agent guide" pageTitle="Guia do usuário do agente Linux para o Azure" metaKeywords="" description="Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+
+<properties urlDisplayName="Linux Agent guide" pageTitle="Guia do usuário do agente Linux para o Azure" metaKeywords="" description="Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
@@ -99,15 +100,15 @@ Arquivo de log do agente é mantido em /var/log/waagent.log.
 - install: Instalação manual do agente
  * Verifica o sistema para dependências necessárias
 
- * Cria o script SysV init (/etc/init.d/waagent)para o arquivo de configuração logrotate (/etc/logrotate.d/waagent and configures the image to run the init script on boot
+ * Cria o script SysV init (/etc/init.d/waagent)para o arquivo de configuração logrotate (/etc/logrotate.d/waagent e configura a imagem para executar o script de inicialização na inicialização
 
- * Writes sample configuration file to /etc/waagent.conf
+ * Arquivo de configuração função Web de gravações para /etc/waagent.conf
 
- * Any existing configuration file is moved to /etc/waagent.conf.old
+ * Qualquer arquivo de configuração existente é movido para /etc/waagent.conf.old
 
- * Detects kernel version and applies the VNUMA workaround if necessary
+ * Detectar a versão do kernel e aplica a solução VNUMA, se necessário
 
- * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) para /var/lib/waagent/  
+ * Move as regras udev que podem interferir na rede (/ lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) para/var/lib/waagent /  
 
 - desinstalar: Remover waagent e arquivos associados
  * Cancela o registro do script de inicialização do sistema e o exclui
@@ -314,7 +315,7 @@ Isso pode ser usado para especificar um caminho alternativo para o openssl biná
 	    <PrivilegeLevel mode="max" />
 	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
 	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="<m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;><r name=&quot;LinuxVM&quot;><e name=&quot;HTTP&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /><e name=&quot;SSH&quot; /></r></m>" />
+	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />

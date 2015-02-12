@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Usar o back-end do .NET para validar e modificar dados (Windows Store) | Mobile Dev Center" metaKeywords="" description="Saiba como validar, modificar e aumentar dados para seu aplicativo Javascript da Windows Store com serviços móveis do Microsoft Azure com back-end do .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Usar o back-end do .NET para validar e modificar dados (Windows Store) | Mobile Dev Center" metaKeywords="" description="Saiba como validar, modificar e aumentar dados para seu aplicativo Javascript da Windows Store com serviços móveis do Microsoft Azure com back-end do .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
@@ -142,11 +142,11 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
   <br/>Saiba mais sobre como usar os Serviços Móveis com .NET.
 
 <!-- Anchors. -->
-[Adicionar validação de tamanho da cadeia de caracteres]: #string-length-validation
-[Atualizar o cliente para dar suporte à validação]: #update-client-validation
-[Testar validação de tamanho]: #test-length-validation
+[Adicionar validação de comprimento de cadeia de caracteres]: #string-length-validation
+[Atualizar o cliente para oferecer suporte à validação]: #update-client-validation
+[Validação da duração do teste]: #test-length-validation
 [Adicionar um campo de carimbo de data/hora para CompleteDate]: #add-timestamp
-[Atualizar o cliente para exibir o CompleteDate]: #update-client-timestamp
+[Atualizar o cliente para exibir a CompleteDate]: #update-client-timestamp
 [Próximas etapas]: #next-steps
 
 <!-- Images. -->
@@ -159,7 +159,7 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
-[Autorização de usuários no lado do serviço]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
+[Autorização de usuários do lado do serviço]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
 [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
 [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
@@ -168,4 +168,4 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library móveis
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library

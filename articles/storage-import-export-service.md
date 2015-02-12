@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" metaKeywords="" description="Saiba como criar trabalhos de importação e exportação no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" metaKeywords="" description="Saiba como criar trabalhos de importação e exportação no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 
@@ -264,8 +264,8 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 - Para regiões na Ásia, há suporte apenas para [DHL](http://www.dhl-welcome.com/Tutorial/) . Todos os pacotes serão retornados via DHL Express Worldwide.
 
 	<div class="dev-callout">
-	<strong>Important</strong>
-	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	<strong>Importante</strong>
+	<p>Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.</p>
 	</div>
 
 **Existe algum custo associado à remessa de retorno?**

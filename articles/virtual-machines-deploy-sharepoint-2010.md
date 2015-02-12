@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="Implantação do SharePoint 2010 em máquinas virtuais do Azure" metaKeywords="" description="Entenda os cenários de uso compatíveis com o SharePoint 2010 nas máquinas virtuais do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="SharePoint on Azure" pageTitle="Implantação do SharePoint 2010 em máquinas virtuais do Azure" metaKeywords="" description="Entenda os cenários de uso compatíveis com o SharePoint 2010 nas máquinas virtuais do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
 
@@ -116,7 +116,7 @@ Os usuários também podem carregar uma imagem do SysPrep no Portal de Gerenciam
 Você pode implantar o SharePoint 2010 no Azure seguindo estas etapas:
 
 <ol>
-<li>Log on to the <a href="http://manage.windowsazure.com/">Portal de Gerenciamento do Azure</a> por meio da sua conta de assinatura do Azure.
+<li>Faça logon no <a href="http://manage.windowsazure.com/">Portal de Gerenciamento do Azure</a> do Azure através da sua conta. 
 <ul>
 
 <li>Se você não tiver uma conta do Azure, <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/">inscreva-se para uma avaliação gratuita do Azure</a>.</li>
@@ -231,7 +231,7 @@ Você pode implantar o SharePoint 2010 no Azure seguindo estas etapas:
 Você também pode criar suas próprias imagens e carregá-las no Azure como um arquivo VHD. Para criar e carregar um arquivo de VHD no Azure, siga estas etapas:
 
 <ol>
-<li>Create the Hyper-V-enabled image: Use Hyper-V Manager to create the Hyper-V-enabled VHD. For more information, go to <a href="http://technet.microsoft.com/pt-br/library/cc742509">Criar discos rígidos virtuais</a>.</li>
+<li>Crie a imagem habilitada para Hyper-V: Use o Gerenciador do Hyper-V para criar o VHD habilitado para Hyper-V. Para obter mais informações, consulte <a href="http://technet.microsoft.com/pt-br/library/cc742509">Criar discos rígidos virtuais</a>.</li>
 <li>Crie uma conta de armazenamento no Azure: Uma conta de armazenamento no Azure é necessária para carregar um arquivo VHD que pode ser usado para criar uma VM. Essa conta pode ser criada usando o Portal de Gerenciamento do Azure. Para obter mais informações, consulte <a href="/pt-br/manage/windows/common-tasks/upload-a-vhd/">Criar uma conta de armazenamento no Azure</a>.</li>
 <li>Preparar a imagem a ser carregada: Para que a imagem possa ser carregada para o Azure, ela deve ser generalizada usando o comando Sysprep. Para obter mais informações, consulte <a href="http://technet.microsoft.com/pt-br/library/bb457073.aspx">Como usar o Sysprep: Uma introdução</a>.</li>
 <li>Carregar a imagem no Azure: Para carregar uma imagem contida em um arquivo VHD, é necessário criar e instalar um certificado de gerenciamento. Obtenha a impressão digital do certificado e a ID da assinatura. Defina a conexão e carregue o arquivo VHD usando a ferramenta de linha de comando CSUpload. Para obter mais informações, consulte <a href="/pt-br/manage/windows/common-tasks/upload-a-vhd/">Carregar a imagem no Azure</a>.</li>
@@ -333,7 +333,7 @@ Neste cenário, mais servidores front-end da Web para o SharePoint Server devem 
 Para implementar um farm do SharePoint voltado para o público no Azure, siga estas etapas:
 
 <ol>
-<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090">Diretrizes para implantar o Active Directory em máquinas virtuais do Azure</a>. Para implantar o Active Directory no Azure:
+<li><em>Implantar o Active Directory</em>: Os requisitos fundamentais para implantar o Active Directory nas Máquinas Virtuais do Azure são semelhantes -mas não idênticos- aos da implantação em VMs (e, de algum modo, máquinas físicas) no local. Para obter mais informações sobre as diferenças, bem como as diretrizes e outras considerações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090">Diretrizes para implantar o Active Directory em máquinas virtuais do Azure</a>. Para implantar o Active Directory no Azure:
 <ul>
 <li>Defina e crie uma rede virtual na qual as VMs podem ser atribuídas a sub-redes específicas. Para obter mais informações, consulte <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configurar a rede virtual</a>.</li>
 <li>Use o Portal de Gerenciamento para criar e implantar o controlador do domínio em uma nova VM no Azure. Para obter mais informações, consulte <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Implantar e criar o controlador de domínio</a>.
@@ -443,7 +443,7 @@ Para implantar um site do SharePoint totalmente personalizável no Azure, a orga
 As etapas a seguir mostram como criar um ambiente de farm do SharePoint personalizado de imagens predefinidas disponíveis na biblioteca de imagens. No entanto, também é possível carregar as VMs do farm do SharePoint na biblioteca de imagens, e os usuários autorizados podem escolher essas VMs para criar o farm do SharePoint necessário no Azure.
 
 <ol>
-<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090">Diretrizes para implantar o Active Directory em máquinas virtuais do Azure</a>. Para implantar o Active Directory no Azure:</em>
+<li>Implantar o Active Directory<em>: Os requisitos fundamentais para implantar o Active Directory nas Máquinas Virtuais do Windows Azure são semelhantes -mas não idênticos- aos da implantação em VMs (e, de algum modo, máquinas físicas) no local. Para obter mais informações sobre as diferenças, bem como as diretrizes e outras considerações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090">Diretrizes para implantar o Active Directory em máquinas virtuais do Azure</a>. Para implantar o Active Directory no Azure:</em>
 <ul>
 <li>Defina e crie uma rede virtual na qual as VMs podem ser atribuídas a sub-redes específicas. Para obter mais informações, consulte <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configurar a rede virtual</a>.</li>
 <li>Use o Portal de Gerenciamento para criar e implantar o controlador do domínio em uma nova VM no Azure. Para obter mais informações, consulte <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Implantar e criar o controlador de domínio</a>.

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Criar um Site que use MongoDB em MongoLab (.NET)" metaKeywords="" description="Saiba como criar um site do Azure que armazena dados no MongoDB hospedado pelo MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Criar um Site que use MongoDB em MongoLab (.NET)" metaKeywords="" description="Saiba como criar um site do Azure que armazena dados no MongoDB hospedado pelo MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
 
@@ -230,7 +230,7 @@ Aqui, você acessará uma variável de ambiente que configurará posteriormente.
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
+  Não há nada para alterar aqui> Lembre-se apenas de que é assim que você obtém um objeto MongoCollection para executar inserções, atualizações e consultas, como o seguinte em **GetAllNotes()**:  
 
         collection.FindAll().ToList<Note>();
 
@@ -423,7 +423,7 @@ Como opção, você também pode configurar um Site diretamente do Visual Studio
 
 [WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
-Parabéns! Você acabou de iniciar um aplicativo C# ASP.NET com suporte de um banco de dados MongoDB hospedado por MongoLab! Agora que o banco de dados MongoLab foi criado, você poderá entrar em contato com [support@mongolab.com](mailto:support@mongolab.com) com perguntas ou dúvidas sobre seu banco de dados ou para obter ajuda para o MongoDB ou para o próprio driver C#.Boa sorte!
+Parabéns! Você acabou de iniciar um aplicativo C# ASP.NET com suporte de um banco de dados MongoDB hospedado por MongoLab! Agora que o banco de dados MongoLab foi criado, você poderá entrar em contato com [support@mongolab.com](mailto:support@mongolab.com) com perguntas ou dúvidas sobre seu banco de dados ou para obter ajuda para o MongoDB ou para o próprio driver C#. Boa sorte!
 
 [screen-mongolab-sampleapp]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-sampleapp.png
 [dialog-mongolab-vspublish]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-vspublish.png

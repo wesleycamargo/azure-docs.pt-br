@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definir uma API personalizada que ofereça suporte a notificações por pull - Serviços Móveis do Azure" metaKeywords="" description="Saiba como definir uma API personalizada que dá suporte a notificações periódicas em aplicativos da Windows Store que usam serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definir uma API personalizada que ofereça suporte a notificações por pull - Serviços Móveis do Azure" metaKeywords="" description="Saiba como definir uma API personalizada que dá suporte a notificações periódicas em aplicativos da Windows Store que usam serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # Definir uma API personalizada que dá suporte a notificações periódicas
@@ -66,7 +66,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 		    }
 		};
 
-	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+	Esse código retorna os três primeiros itens não concluídos da tabela TodoItem e os carrega em um objeto JSON passado para a função **wns**.**createTileSquareText01**:
 
 		<tile>
 			<visual>
@@ -75,7 +75,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 
 
-				</binding>
+					</binding>
 			</visual>
 		</tile>
 

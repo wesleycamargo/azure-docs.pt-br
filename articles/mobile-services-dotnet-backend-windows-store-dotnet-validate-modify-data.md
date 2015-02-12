@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Usar o back-end do .NET para validar e modificar dados (Windows Store) | Mobile Dev Center" metaKeywords="" description="Saiba como validar, modificar e aumentar dados para seu aplicativo da Windows Store com serviços móveis do Microsoft Azure com back-end do .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Usar o back-end do .NET para validar e modificar dados (Windows Store) | Mobile Dev Center" metaKeywords="" description="Saiba como validar, modificar e aumentar dados para seu aplicativo da Windows Store com serviços móveis do Microsoft Azure com back-end do .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,14 +18,14 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Este tutorial se baseia nas etapas e no código de exemplo do tutorial anterior [Introdução] ou [Introdução aos dados]. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução] ou [Introdução aos dados].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Adicionar validação
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Atualizar o cliente
 
-Agora que o serviço móvel está configurado para validar os dados e enviar respostas para um comprimento de texto inválido, você precisa atualizar seu aplicativo para que possa tratar respostas de erros na validação. O erro será captado como uma "MobileServiceInvalidOperationException" na chamada do aplicativo cliente para "IMobileServiceTable<TodoItem].InsertAsync()".
+Agora que o serviço móvel está configurado para validar os dados e enviar respostas para um comprimento de texto inválido, você precisa atualizar seu aplicativo para que possa tratar respostas de erros na validação. O erro será captado como uma `MobileServiceInvalidOperationException` na chamada do aplicativo cliente para `IMobileServiceTable<TodoItem].InsertAsync()`.
 
 1. Na janela do Gerenciador de Soluções do Visual Studio, navegue para o projeto cliente e abra o arquivo MainPage.xaml.cs. Adicione as seguintes instruções **using** nesse arquivo:
 
@@ -74,19 +74,19 @@ Agora que o serviço móvel está configurado para validar os dados e enviar res
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>Adicionar um campo de carimbo de data/hora para CompleteDate
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>Atualizar o cliente para exibir a CompleteDate
 
 A etapa final é atualizar o cliente para exibir os novos dados de **CompleteDate**. 
 
 
-1. No Gerenciador de Soluções do Visual Studio, no projeto cliente todolist, abra o arquivo MainPage.xaml e substitua o elemento **CheckBoxComplete** pelas definições abaixo. Em seguida, salve o arquivo. Isso altera o manipulador de eventos em **CheckBoxComplete** para que possamos manipular o evento de "clique". Também podemos adicionar um bloco de texto ao lado da caixa de seleção e vinculá-lo ao carimbo de data/hora da data de conclusão.
+1. No Gerenciador de Soluções do Visual Studio, no projeto cliente todolist, abra o arquivo MainPage.xaml e substitua o elemento **CheckBoxComplete** pelas definições abaixo. Em seguida, salve o arquivo. Isso altera o manipulador de eventos em **CheckBoxComplete** para que possamos manipular o evento de `clique`. Também podemos adicionar um bloco de texto ao lado da caixa de seleção e vinculá-lo ao carimbo de data/hora da data de conclusão.
 	      
         <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
           Click="CheckBoxComplete_Clicked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>

@@ -157,7 +157,7 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo i
 	<br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 <!---
 + [Enviar notificações baseadas em modelo aos assinantes]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+	<br/>Saiba usar modelos para enviar notificações por push de um Serviço Móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
 -->
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 

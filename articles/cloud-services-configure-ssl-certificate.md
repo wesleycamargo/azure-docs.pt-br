@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Enable SSL" pageTitle="Configurar SSL para um serviço de nuvem - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Saiba como especificar um ponto de extremidade HTTPS para uma função web e como carregar um certificado SSL para proteger seu aplicativo." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configurar SSL para um serviço de nuvem - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Saiba como especificar um ponto de extremidade HTTPS para uma função web e como carregar um certificado SSL para proteger seu aplicativo." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
 
 
 
 
-# Configuring SSL for an application in Azure
+# Configurando SSL para um aplicativo no Azure
 
 [WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -158,6 +158,6 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff795779.aspx
+  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff795779.aspx
 
 <!--HONumber=35.1-->

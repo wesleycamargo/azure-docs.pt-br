@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ Storage" pageTitle="Website PHP com armazenamento de tabelas - Tutorial do Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="Este tutorial mostra como criar um site PHP e usar o serviço de armazenamento de tabelas do Azure no back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ Storage" pageTitle="Website PHP com armazenamento de tabelas - Tutorial do Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="Este tutorial mostra como criar um site PHP e usar o serviço de armazenamento de tabelas do Azure no back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 
@@ -189,7 +189,7 @@ A home page do aplicativo Tasklist deve listar todas as tarefas existentes e per
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Por fim, você deve inserir o formulário que fornece dados para o script de inserção de tarefa e concluir o HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -333,7 +333,7 @@ Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar
 
 	![Select Manage Keys][storage-access-keys]
 
-7. Abra **init.php** e substitua [NOME DA SUA CONTA DE ARMAZENAMENTO] e [NOME DA SUA CHAVE DE CONTA DE ARMAZENAMENTO] com o nome da conta e a chave que você anotou na última etapa.Salve o arquivo.
+7. Abra **init.php** e substitua `[NOME DA SUA CONTA DE ARMAZENAMENTO]` e `[NOME DA SUA CHAVE DE CONTA DE ARMAZENAMENTO]` com o nome da conta e a chave que você anotou na última etapa.Salve o arquivo.
 
 
 ## Criar um site do Azure e configurar a publicação Git
@@ -391,7 +391,7 @@ Para publicar o aplicativo com Git, siga as etapas abaixo.
 			
 	Quando o Gerenciador de pacotes do Composer baixa as bibliotecas de cliente Azure e suas dependências, ele faz isso por meio da clonagem de repositório GitHub em que reside. Na próxima etapa, o aplicativo será implantado por meio do Git através da criação de um repositório fora da pasta raiz do aplicativo. O Git ignorará o repositório sub onde as bibliotecas de cliente residem, a menos que os arquivos específicos do repositório são removidos.
 
-2. Abra GitBash (ou um terminal, se o Git está no seu PATH), altere os diretórios para o diretório raiz do seu aplicativo e execute os seguintes comandos (**Observação:** estas são as mesmas etapas indicadas no final da seção **Criar um Site do Azure e configurar a publicação Git**):
+2. Abra GitBash (ou um terminal, se o Git está no seu `PATH`), altere os diretórios para o diretório raiz do seu aplicativo e execute os seguintes comandos (**Observação:** estas são as mesmas etapas indicadas no final da seção **Criar um Site do Azure e configurar a publicação Git**):
 
 		git init
 		git add .

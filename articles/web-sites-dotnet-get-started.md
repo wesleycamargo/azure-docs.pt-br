@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução aos sites da Web do Azure para ASP.NET" metaKeywords="" description="Este tutorial mostra como criar um projeto Web ASP.NET no Visual Studio 2013 e implantá-lo em um site da Web do Azure. Em menos de 15 minutos, você terá um aplicativo em funcionamento na nuvem." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Introdução aos sites da Web do Azure para ASP.NET" metaKeywords="" description="Este tutorial mostra como criar um projeto Web ASP.NET no Visual Studio 2013 e implantá-lo em um site da Web do Azure. Em menos de 15 minutos, você terá um aplicativo em funcionamento na nuvem." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
 
@@ -201,7 +201,7 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 
 	![Web site running locally](./media/web-sites-dotnet-get-started-vs2013/localandazure.png)
 
-	A URL 'http://localhost' mostra que ele está sendo executado no computador local. Por padrão, ele é executado no IIS Express, que é uma versão simples do IIS desenvolvida para uso durante o desenvolvimento de aplicativo Web.
+	A URL `http://localhost` mostra que ele está sendo executado no computador local. Por padrão, ele é executado no IIS Express, que é uma versão simples do IIS desenvolvida para uso durante o desenvolvimento de aplicativo Web.
 
 
 1. Feche o navegador.
@@ -270,11 +270,11 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	Neste tutorial, você viu a maneira mais rápida de criar um site e implantá-lo em uma única operação. Para uma visão geral de outras maneiras de implantar usando Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Como implantar um site do Azure](/pt-br/documentation/articles/web-sites-deploy/"). 
 
-	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* How to manage a website in Visual Studio
+* Como gerenciar um site no Visual Studio
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+	Para obter informações sobre o que você pode fazer no **Gerenciador de Servidores**, consulte [Solucionando problemas de Sites do Azure no Visual Studio](/pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/). 
 
 * Como solucionar problemas de um site
 
