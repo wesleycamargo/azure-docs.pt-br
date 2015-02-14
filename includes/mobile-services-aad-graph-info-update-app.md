@@ -3,7 +3,7 @@
 As instruções abaixo se aplicam à atualização de um cliente da Windows Store, mas isso pode ser testado em qualquer uma das outras plataformas compatíveis com os Serviços Móveis do Azure. 
 
 
-1. No Visual Studio, abra o MainPage.xaml.cs e adicione a seguinte instrução `using` na parte superior do arquivo.
+1. No Visual Studio, abra o MainPage.xaml.cs e adicione a seguinte instrução  `using` na parte superior do arquivo.
  
         using System.Net.Http;
 
@@ -19,7 +19,7 @@ As instruções abaixo se aplicam à atualização de um cliente da Windows Stor
         }
 
 
-3. No MainPage.xaml.cs, atualize o método `AuthenticateAsync` para chamar a API personalizada para que ela retorne informações adicionais sobre o usuário do AAD. 
+3. No MainPage.xaml.cs, atualize o método  `AuthenticateAsync` para chamar a API personalizada para que ela retorne informações adicionais sobre o usuário do AAD. 
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -49,3 +49,4 @@ As instruções abaixo se aplicam à atualização de um cliente da Windows Stor
 
 
 4. Salve suas alterações e compile o serviço para verificar se não existem erros de sintaxe.  
+<!--HONumber=42-->

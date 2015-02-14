@@ -1,7 +1,7 @@
-﻿
+
 Em seguida, você precisa alterar a maneira que as notificações por push são registradas para garantir que o usuário seja autenticado antes da tentativa do registro. 
 
-1. Em **QSAppDelegate.m**, remova a implementação de **didFinishLaunchingWithOptions**:
+1. Em **QSAppDelegate.m**, remova a implementação de **didFinishLaunchingWithOptions** completamente:
 
 		
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
@@ -32,3 +32,4 @@ Em seguida, você precisa alterar a maneira que as notificações por push são 
 		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 		}
+<!--HONumber=42-->

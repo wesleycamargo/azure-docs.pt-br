@@ -1,15 +1,169 @@
-﻿<properties title="HDInsight Release Notes" pageTitle="Notas de versão do HDInsight | Azure" description="Notas de versão do HDInsight." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
+﻿<properties 
+	pageTitle="Notas de versão do HDInsight | Azure" 
+	description="Notas de versão do HDInsight." 
+	services="hdinsight" 
+	documentationCenter="" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="bradsev"/>
 
 
 #Notas de versão do Microsoft HDInsight
 
-## Notas da versão de 21/11/2014 do HDInsight ##
+## Notas da versão de 29/01/2015 do HDInsight ##
 
 Os números completos da versão dos clusters HDInsight implantados com essa versão são:
 
-* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351 )
+* HDInsight 	2.1.10.455.1309616	(HDP 1.3.9.0-01351 - inalterado)
+* HDInsight 	3.0.6.455.1309616	(HDP 2.0.9.0-2097 -  inalterado)
+* HDInsight 	3.1.2.455.1309616	(HDP 2.1.9.0-2196 -  inalterado)
+* SDK			N/D
+
+Esta versão contém a seguinte atualização.
+
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descrição</th>
+<th>Área afetada 
+(por exemplo, serviço, componentes de sistemas operacionais, SDK, PS, AUX)</p></th>
+<th>Tipo de cluster afetado (por exemplo, Hadoop, HBase, tempestade, todos)</th>
+<th>JIRA (se aplicável)</th>
+</tr>
+
+
+<tr>
+
+<td> Correções de bug</td>
+<td>Fizemos algumas correções de bugs importantes que melhoram a confiabilidade dos Clusters HDInsight durante as atualizações do Azure.</td>
+<td>Serviços</td>
+<td></td>
+<td>N/D</td>
+</tr>
+
+
+
+</table>
+<br>
+
+## Notas da versão de 05/01/2015 do HDInsight ##
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 	2.1.10.420.1246118	(HDP 1.3.9.0-01351 - inalterado)
+* HDInsight 	3.0.6.420.1246118	(HDP 2.0.9.0-2097 - inalterado)
+* HDInsight 	3.1.2.420.1246118	(HDP 2.1.9.0-2196 - inalterado)
+
+
+Esta versão contém a seguinte atualização.
+
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descrição</th>
+<th>Componente</th>
+<th>Tipo de cluster</th>
+<th>JIRA (se aplicável)</th>
+</tr>
+
+
+<tr>
+<td>Exemplos para análise de tendência do Twitter e Mahout com base em recomendações de filmes</td>
+<td><p>Nesta versão, o console de consulta do HDInsight tem dois exemplos adicionais:</p>
+
+<p><b>Análise de tendência do Twitter</b><br>
+APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares. Neste tutorial, Aprenda a usar o Hive para obter uma lista dos usuários do Twitter que enviaram a maioria dos tweets que contêm uma palavra específica. </p>
+
+<p><b>Recomendação de filme do Mahout</b><br>
+O Apache Mahout é uma biblioteca de aprendizado de máquina de Apache Hadoop. O Mahout contém algoritmos para processamento de dados, como filtragem, classificação e clustering. Neste tutorial, você utilizará um mecanismo de recomendação para gerar recomendações de filmes baseadas nos vídeos que seus amigos assistiram.</p></td>
+<td>Console de consulta</td>
+<td>Hadoop</td>
+<td>N/D</td>
+</tr>
+
+<tr>
+<td>Mude para o valor padrão na configuração de hive hive.auto.convert.join.noconditionaltask.size</td>
+<td><p>Essa configuração de tamanho aplica-se a associações de mapa convertidas automaticamente. O valor representa a soma dos tamanhos das tabelas que podem ser convertidas em hashmaps que cabem na memória. Em uma versão anterior, esse valor aumentava do valor padrão de 10MB para 128MB. No entanto, o novo valor de 128MB estava causando falhas nos trabalhos devido à falta de memória. Esta versão reverte o valor padrão de volta para 10MB. Os clientes ainda podem optar por substituir esse valor durante a criação do cluster considerando suas consultas e tamanhos de tabela. Para obter mais informações sobre essa configuração e como substituí-la, consulte <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Otimizar a conversão de associação automática</a> na documentação Hortonworks. </p></td>
+<td>Hive</td>
+<td>Hadoop, HBase</td>
+<td>N/D</td>
+</tr>
+
+</table>
+<br>
+
+## Notas da versão de 23/12/2014 do HDInsight ##
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 	2.1.10.420.1246783	(versão HDP inalterada)
+* HDInsight 	3.0.6.420.1246783	(versão HDP inalterada)
+* HDInsight 	3.1.1.420.1246783	(versão HDP inalterada)
+
+Esta versão contém a seguinte atualização.
+
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descrição</th>
+<th>Componente</th>
+<th>Tipo de cluster</th>
+<th>JIRA (se aplicável)</th>
+</tr>
+
+
+<tr>
+<td>Falhas intermitentes de criação de Cluster causadas por excesso de carga</td>
+<td><p>Algoritmo aprimorado para baixar os pacotes HDP durante a criação do cluster permite a manipulação mais robusta de falhas causadas por excesso de carga. Espere mais algumas melhorias mais nessa área, permitindo melhor dimensionamento para o aumento de carga relacionado à criação de cluster.</p></td>
+<td>Acesso</td>
+<td>Hadoop, Hbase, Storm</td>
+<td>N/D</td>
+</tr>
+
+
+
+</table>
+<br>
+
+## Notas da versão de 18/12/2014 do HDInsight ##
+
+Esta versão contém as seguintes atualizações de componentes.
+
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descrição</th>
+<th>Componente</th>
+<th>Tipo de cluster</th>
+<th>JIRA (se aplicável)</th>
+</tr>
+
+<tr>
+<td><a href = "http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">GA de personalização de cluster</a></td>
+<td><p>Personalização oferece a capacidade de personalizar os clusters de HDInsight do Azure com projetos disponíveis por meio do ecossistema do Apache Hadoop. Com esse novo recurso, agora você pode testar e implantar projetos de Hadoop para o HDInsight do Azure. Isso é habilitado por meio do recurso de <b>Ação de Script</b> que pode modificar clusters Hadoop de modos arbitrários usando scripts personalizados. Esse recurso de personalização está disponível em todos os tipos de clusters do HDInsight, incluindo Hadoop, HBase e Storm. Para demonstrar o poder desse recurso, documentamos o processo para instalar os populares módulos <a href = "http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>e <a href = "http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> . Esta versão também adiciona o recurso para os clientes especificares suas ações de script personalizadas por meio do Portal de Gerenciamento do Azure, fornece diretrizes e práticas recomendadas de como criar ações de script personalizadas usando métodos auxiliares e fornece diretrizes sobre como testar a ação de script. </p></td>
+<td>GA do recurso</td>
+<td>Todos</td>
+<td>N/D</td>
+</tr>
+
+
+</table>
+<br>
+
+## Notas da versão de 05/12/2014 do HDInsight ##
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
 * HDInsight 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
 * HDInsight 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
 * SDK do HDInsight N/D
@@ -27,14 +181,14 @@ Esta versão contém as seguintes atualizações de componentes.
 
 <tr>
 <td>Correção de bug: Erro intermitente ao adicionar grande número de partições a uma tabela na DDL do Hive. </td>
-<td><p>Se existir um erro de conexão intermitente com o banco de dados do metastore do Hive ao adicionar diversas partições a uma tabela Hive, a DDL do Hive poderá falhar. A seguinte instrução será vista no log de erros do Hive se essa falha ocorrer: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0.This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
+<td><p>Se existir um erro de conexão intermitente com o banco de dados do metastore do Hive ao adicionar diversas partições a uma tabela Hive, a DDL do Hive poderá falhar. A seguinte instrução será vista no log de erros do Hive se essa falha ocorrer: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0. This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
 <td>Hive</td>
 <td>Hadoop, HBase</td>
 <td>HIVE-482 (Este é um JIRA interno de modo que não é possível fazer um orçamento externamente. Mencionado aqui para referência.)</td>
 </tr>
 
 <tr>
-<td>Correção de bug: Interrupção de funcionamento ocasional no consulta do HDInsight Console de Consulta</td>
+<td>Correção de bug: Interrupção de funcionamento ocasional no consulta do HDInsight  Console de Consulta</td>
 <td>Quando isso acontece, a seguinte instrução pode ser vista no log do WebHCat para o trabalho do inicializador do WebHCat: <p>"org.apache.hive.hcatalog.templeton.CatchallExceptionMapper | org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.yarn.exceptions.YarnRuntimeException): Could not load history file {wasb url to the history file}"</p></td>
 <td>WebHCat</td>
 <td>Hadoop</td>
@@ -85,23 +239,23 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>Acesso a logs de aplicativos</td>
 <td>Capacidade para enumerar de modo programático aplicativos que foram executados em seus clusters e para baixar logs de aplicativos relevantes ou de contêineres específicos para ajudar a depurar aplicativos problemáticos.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Hadoop</td>
 <td>N/D</td>
 </tr>
 
 <tr>
 <td>Capacidade para especificar o nome da região no IHdInsightClient.DeleteCluster </td>
-<td>O SDK do Azure HDInsight agora fornece a capacidade de especificar um nome de região ao usar o **DeleteCluster**.Isso ajuda a desbloquear clientes com 2 recursos de mesmo nome em regiões diferentes que não conseguiam excluir nenhum deles.</td>
-<td>SDK</td>
+<td>O SDK do Azure HDInsight agora fornece a capacidade de especificar um nome de região ao usar o **DeleteCluster**. Isso ajuda a desbloquear clientes com 2 recursos de mesmo nome em regiões diferentes que não conseguiam excluir nenhum deles.</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
 
 <tr>
 <td>ClusterDetails.DeploymentId</td>
-<td>O objeto **ClusterDetails** agora retorna um campo **DeploymentID** que representa um identificador exclusivo do cluster.É garantida a exclusividade nas tentativas de criação de clusters com os mesmos nomes.</td>
-<td>SDK</td>
+<td>O objeto **ClusterDetails** agora retorna um campo **DeploymentID** que representa um identificador exclusivo do cluster. É garantida a exclusividade nas tentativas de criação de clusters com os mesmos nomes.</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -160,8 +314,8 @@ Aprenda como trabalhar com o HDInsight ao analisar alguns cenários básicos, co
 
 Observação: Para demonstrar os novos recursos disponíveis pela personalização de clusters, os procedimentos que usam as Ações de script para instalar ps módulos Spark e R em um cluster foram documentados. Para obter mais informações, consulte:
 
-* [Instalar e usar o Spark 1.0 em clusters HDInsight][hdinsight-install-spark]
-* [Instalar e usar o R em clusters HDInsight Hadoop][hdinsight-r-scripts]
+* [Instalar e usar o Spark 1.0 em clusters HDInsight (visualização)][hdinsight-install-spark]
+* [Instalar e usar R em clusters Hadoop do HDInsight (visualização)][hdinsight-r-scripts]
 
 
 
@@ -206,7 +360,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>ID de Implantação de Cluster</td>
 <td>Iniciando pela versão mais recente do SDK 1.3.3.1.5426.29232, os usuários podem acessar o HDInsight um uma ID exclusiva emitida para cada cluster. Isso permite que os clientes tomem conhecimento das instâncias exclusivas de clusters quando um dnsname está sendo reutilizado entre cenários de criação/cancelamento.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -222,7 +376,7 @@ A liberação desse hotfix corrige um vazamento de memória no Templeton que afe
 
 ## Notas da versão de 07/10/2014 ##
 
-* Ao usar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host_name* agora retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de apenas o nome do host.  Por exemplo, em vez de retornar "**headnode0**", você obtém o FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**".Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implantados em uma rede virtual (VNET).Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
+* Ao usar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host_name* agora retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de apenas o nome do host. Por exemplo, ao invés de retornar "**headnode0**", você obtém o FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**". Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implantados em uma rede virtual (VNET). Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
 
 * Fornecemos novas configurações de memória para a implantação padrão do cluster do HDInsight. As configurações de memória padrão anteriores não atentavam adequadamente à instrução quanto ao número de núcleos de CPU implantados. Essas novas configurações de memória devem fornecer melhores padrões, de acordo com as recomendações da Hortonworks. Para alterá-las, consulte a documentação de referência do SDK sobre alteração da configuração de clusters. As novas configurações de memória usadas pelo cluster do HDInsight padrão com 4 núcleos de CPU (8 contêineres) são detalhadas na tabela a seguir. (Os valores usados anteriormente a essa versão também são fornecidos entre parênteses). 
  
@@ -246,16 +400,16 @@ Para obter mais informações sobre as configurações de memória usadas pelo Y
 
 Erro do PowerShell do HDInsight/SDK: "*O cluster não foi configurado para acessar os Serviços Http*":
 
-* Esse erro é conhecido como [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) que pode ocorrer devido a uma diferença entre a versão do SDK/PowerShell e a versão do cluster. Clusters criados em 15 de agosto, ou posteriormente, dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK/PowerShell. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar APIs do SDK ou cmdlets do PowerShell para enviar trabalhos (**Use-AzureHDInsightCluster, ****Invoke-Hive**), essas operações podem falhar com a mensagem de erro "*O cluster <nome_cluster> não está configurado para acessar os Serviços Http*" ou, dependendo da operação, com outras mensagens de erro, como "*Não é possível se conectar ao cluster*".
+* Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença na versão do SDK/PowerShell e na versão do cluster. Clusters criados em 15 de agosto, ou posteriormente, dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK/PowerShell. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar APIs do SDK ou cmdlets do PowerShell para enviar trabalhos (**Use-AzureHDInsightCluster**, **Invoke-Hive**), essas operações podem falhar com a mensagem de erro "*O cluster <nome_cluster> não está configurado para acessar os Serviços Http*" ou, dependendo da operação, com outras mensagens de erro, como "*Não é possível se conectar ao cluster*".
 
-* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do HDInsight SDK e do Azure PowerShell. Recomendamos atualizar o HDInsight SDK para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao SDK do HDInsight mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e nas Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
+* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do HDInsight SDK e do Azure PowerShell. Recomendamos atualizar o HDInsight SDK para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e ao Azure PowerShell Tools em [Como instalar e configurar o Azure PowerShell](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
 
 * Pode-se esperar que o SDK e o PowerShell continuem a funcionar com as novas atualizações dos clusters, contanto que a versão do cluster permaneça a mesma. Por exemplo, a versão de clusters 3.1 sempre será compatível com a versão atual do SDK/PowerShell 1.3.1.6 e 0.8.8.
 
 
 ## Notas da versão de 12/09/2014 do HDInsight 3.1##
 
-* Esta versão é baseada no Hortonworks Data Platform (HDP) 2.1.5. Para obter uma lista dos bugs corrigidos nesta versão, consulte a página [Corrigido nesta versão](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) no site da Hortonworks.
+* Esta versão é baseada no Hortonworks Data Platform (HDP) 2.1.5. Para obter uma lista de bugs corrigidos nesta versão, consulte a página [Corrigido nesta versão](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) no site da Hortonworks.
 * Na pasta de bibliotecas do Pig, o arquivo "avro-mapred-1.7.4.jar" foi alterado para avro-mapred-1.7.4-hadoop2.jar. Esse arquivo contém uma pequena correção de bug que é não separável. Recomenda-se que os clientes não assumam uma dependência direta no nome do arquivo JAR em si para evitar separações quando os arquivos forem renomeados.
 
 
@@ -278,9 +432,9 @@ Erro do PowerShell do HDInsight/SDK: "*O cluster não foi configurado para acess
 
 ## Observações sobre os clusters criados antes de 15/8/2014 ##
 
-Um erro do PowerShell do HDInsight/SDK com a mensagem "O cluster <nome_cluster> não está configurado para acessar Serviços Http" (ou, dependendo da operação, outras mensagens de erro, como: "Não é possível se conectar ao cluster") poderá ser encontrado devido a uma diferença de versões entre o SDK/PowerShell e um cluster. Clusters criados em 15 de agosto, ou posteriormente, dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Essa funcionalide não é interpretada corretamente por versões mais antigas do SDK/PowerShell, o que resulta em falhas de operações de envio de trabalhos. Se você usar APIs do SDK ou cmdlets do PowerShell para enviar trabalhos, como Use-AzureHDInsightCluster ou Invoke-AzureHDInsightHiveJob, essas operações podem falhar com uma das mensagens de erro descritas acima.
+Um erro do PowerShell do HDInsight/SDK com a mensagem "O cluster <nome_cluster> não está configurado para acessar Serviços Http" (ou, dependendo da operação, outras mensagens de erro, como: "Não é possível se conectar ao cluster") poderá ser encontrado devido a uma diferença de versões entre o SDK/PowerShell e um cluster. Clusters criados em 15 de agosto, ou posteriormente, dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK/PowerShell, o que resulta em falhas de operações de envio de trabalhos. Se você usar APIs do SDK ou cmdlets do PowerShell para enviar trabalhos, como Use-AzureHDInsightCluster ou Invoke-AzureHDInsightHiveJob, essas operações podem falhar com uma das mensagens de erro descritas acima.
 
-Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK e do Azure PowerShell. Recomendamos atualizar o HDInsight SDK para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao SDK do HDInsight mais recente no [NuGet](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) e nas Ferramentas do PowerShell do Azure usando o [Microsoft Web PI](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK e do Azure PowerShell. Recomendamos atualizar o HDInsight SDK para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) e ao Azure PowerShell Tools usando o [Microsoft Web PI](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
 
 Pode-se esperar que o SDK e o PowerShell continuem a funcionar com as novas atualizações dos clusters, contanto que a versão do cluster permaneça a mesma. Por exemplo, a versão de clusters 3.1 sempre será compatível com a versão atual do SDK/PowerShell 1.3.1.6 e 0.8.8.
 
@@ -291,7 +445,7 @@ Pode-se esperar que o SDK e o PowerShell continuem a funcionar com as novas atua
 	* Ásia Oriental, 
 	* Centro-Norte dos EUA e 
 	* Centro-Sul dos EUA 
-* Com essa versão, o HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) e o HDInsight v2.1 (HDP1.3, Hadoop 1.2) estão sendo removidos do Portal de Gerenciamento do Azure. Você pode continuar a criar clusters Hadoop para essas versões usando cmdlets do PowerShell do HDInsight ([New-AzureHDInsightCluster](http://msdn.microsoft.com/pt-br/library/dn593744.aspx)) ou o [SDK do HDInsight](http://msdn.microsoft.com/pt-br/library/azure/dn469975.aspx). Consulte a página de [Controle de versão de componente do HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/) para obter mais informações.
+* Com essa versão, o HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) e o HDInsight v2.1 (HDP1.3, Hadoop 1.2) estão sendo removidos do Portal de Gerenciamento do Azure. Você pode continuar a criar clusters Hadoop para essas versões usando cmdlets do HDInsight PowerShell ([New-AzureHDInsightCluster](http://msdn.microsoft.com/pt-br/library/dn593744.aspx)) ou usando o [SDK do HDInsight](http://msdn.microsoft.com/pt-br/library/azure/dn469975.aspx). Consulte a página [Controle de versão do componente HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/) para obter mais informações.
 * Alterações ao Hortonworks Data Platform (HDP) nesta versão: 
 
 <table border="1">
@@ -307,8 +461,8 @@ Pode-se esperar que o SDK e o PowerShell continuem a funcionar com as novas atua
 
 Essa versão contém diversos novos aprimoramentos para o serviço HDInsight: 
 
-* **Disponibilidade do HDP 2.1**:O HDInsight 3.1, que contém o HDP 2.1, agora está disponível de modo geral e é a versão padrão para novos clusters.
-* **HBase - Melhorias no Portal de Gerenciamento do Azure**: Estamos tornando os clusters HBase disponíveis na visualização.Agora você pode criar clusters HBase por meio do portal com três cliques.
+* **Disponibilidade do HDP 2.1**: O HDInsight 3.1, que contém o HDP 2.1, agora está disponível de modo geral e é a versão padrão para novos clusters.
+* **HBase - Melhorias no Portal de Gerenciamento do Azure**: Estamos tornando os clusters HBase disponíveis na visualização. Agora você pode criar clusters HBase por meio do portal com três cliques.
 
 ![](http://i.imgur.com/cmOl5fM.png)
 
@@ -316,16 +470,16 @@ Com o HBase, você pode criar uma variedade de cargas de trabalho em tempo real 
 
 ### Agora, o Apache Mahout é pré-instalado no HDInsight 3.1 ###
 
- [Mahout](http://hortonworks.com/hadoop/mahout/) é pré-instalado nos clusters Hadoop do HDInsight 3.1. Desse modo, você pode executar trabalhos do Mahout sem a necessidade de alguma configuração de cluster adicional. Por exemplo, você pode acessar remotamente um cluster do Hadoop usando o Protocolo de Área de trabalho remota (RDP) e, sem etapas adicionais, executar o comando Hello world do Mahout:
+ [O Mahout](http://hortonworks.com/hadoop/mahout/) é pré-instalado nos clusters do Hadoop do HDInsight 3.1. Desse modo, você pode executar trabalhos do Mahout sem a necessidade de alguma configuração de cluster adicional. Por exemplo, você pode acessar remotamente um cluster do Hadoop usando o Protocolo de Área de trabalho remota (RDP) e, sem etapas adicionais, executar o comando Hello world do Mahout:
 
 		mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
 
 		mahout org.apache.mahout.classifier.df.BreimanExample -d /user/hdp/glass.data -ds /user/hdp/glass.info -i 10 -t 100
 
-Para obter uma explicação mais completa deste procedimento, consulte a documentação do [Exemplo Breiman](https://mahout.apache.org/users/classification/breiman-example.html) no site do Apache Mahout. 
+Para obter uma explicação mais completa sobre este procedimento, consulte a documentação do [Exemplo Breiman](https://mahout.apache.org/users/classification/breiman-example.html) no site do Apache Mahout. 
 
 
-### Consultas de Hive podem usar o Tez no HDInsight 3.1 ###
+### Consultas de Hive podem usar o Tez no HDinsight 3.1 ###
 
 O Hive 0.13 agora está disponível no HDInsight 3.1 e é capaz de executar consultas usando Tez, que pode ser utilizado para melhorias de desempenho significativas. 
 O Tez não está habilitado por padrão para consultas de Hive. Para utilizá-lo, você precisa optar por isso. Você pode habilitar o Tez executando o trecho de código a seguir:
@@ -333,7 +487,7 @@ O Tez não está habilitado por padrão para consultas de Hive. Para utilizá-lo
 		set hive.execution.engine=tez;
 		select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
 
-A Hortonworks publicou uma demonstração detalhada das melhorias nas consultas do Hive com o Tez, conforme fornecido em medições de desempenho padrão. Para obter mais informações, consulte [Medindo o desempenho do Apache Hive 13 Apache para Hadoop Enterprise](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/). 
+A Hortonworks publicou uma demonstração detalhada das melhorias nas consultas do Hive com o Tez, conforme fornecido em medições de desempenho padrão. Para obter mais informações, consulte [Medindo o desempenho do Hive 13 Apache para Hadoop Enterprise](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/). 
 
 Para obter mais detalhes sobre como usar o Hive com o Tez, confira a [página wiki Hive em Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez).
 
@@ -353,10 +507,10 @@ Uma observação mais geral e um pouco ortogonal, metastores do Oozie estão ass
 ###Alterações de última hora
 
 **Sintaxe de prefixo**:
-Apenas a sintaxe "wasb://" tem suporte em clusters HDInsight 3.0 e 3.1. A antiga sintaxe "asv://" tem suporte em clusters HDInsight 2.1 e 1.6, mas não tem suporte em clusters HDInsight 3.0 ou em versões posteriores. Isso significa que qualquer trabalho enviado para um cluster HDInsight 3.0 ou 3.1 que usa explicitamente a sintaxe "asv://" falhará. Em vez disso, a sintaxe wasb:// deve ser usada. Além disso, os trabalhos enviados para qualquer cluster HDInsight 3.0 ou 3.1, que foram criados com um metastore existente que contenha referências explícitas a recursos usando a sintaxe asv://, falharão. Esses metastores precisarão ser recriados usando o wasb:// para endereçar recursos. 
+Apenas a sintaxe "wasb://" tem suporte em clusters HDInsight 3.0 e 3.1. A antiga sintaxe "asv://" tem suporte em clusters HDInsight 2.1 e 1.6, mas não tem suporte em clusters HDInsight 3.0 ou em versões posteriores. Isso significa que todos os trabalhos enviados para um cluster HDInsight 3.0  ou 3.1 que use explicitamente a sintaxe "asv: / /" falhará. Em vez disso, a sintaxe wasb:// deve ser usada. Além disso, os trabalhos enviados para qualquer cluster HDInsight 3.0 ou 3.1, que foram criados com um metastore existente que contenha referências explícitas a recursos usando a sintaxe asv://, falharão. Esses metastores precisarão ser recriados usando o wasb:// para endereçar recursos. 
 
 
-**Portas**: As portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço Hortonworks Data Platform (HDP) permitido está agora fora desse intervalo para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora.Os números usados agora são conforme descrito a seguir:
+**Portas**: As portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço Hortonworks Data Platform (HDP) permitido está agora fora desse intervalo para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora. Os números usados agora são conforme descrito a seguir:
 
  **HDInsight 1.6 (HDP 1.1)**
 <table border="1">
@@ -489,7 +643,7 @@ O driver JDBC do SQL Server é usado internamente pelo HDInsight e não é usado
 
 ### Correções de bug ###
 
-Com essa versão, atualizamos as seguintes versões do HDInsight (Hortonworks Data Platform - HDP) com diversas correções de bug:
+Com esta versão, podemos ter atualizado HDInsight a seguir  (Hortonworks Data Platform - HDP) versões com diversas correções de bugs:
 
 * HDInsight 2.1 (HDP 1.3)
 * HDInsight 3.0 (HDP 2.0)
@@ -500,13 +654,13 @@ Com essa versão, atualizamos as seguintes versões do HDInsight (Hortonworks Da
 
 As notas de versão para os HDPs que são usados pelas versões do cluster HDInsight estão disponíveis nos locais listados a seguir.
 
-* O cluster HDInsight versão 3.1 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Esse será o cluster Hadoop padrão criado ao usar o portal do Azure HDInsight após 07/11/2014. Os clusters do HDInsight 3.1 criados antes de 07/11/2014 eram baseados no [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 
+* O cluster HDInsight versão 3.1 usa uma distribuição do Hadoop baseada na [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Esse será o cluster Hadoop padrão criado ao usar o portal do Azure HDInsight após 07/11/2014. Os clusters do HDInsight 3.1 criados antes de 07/11/2014 eram baseados no [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 
 
-* O cluster HDInsight versão 3.0 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.0][hdp-2-0-8].
+* O cluster HDInsight versão 3.0 usa uma distribuição do Hadoop que é baseada no [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
-* O cluster HDInsight versão 2.1 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 1.3][hdp-1-3-0]. 
+* O cluster HDInsight versão 2.1 usa uma distribuição do Hadoop que é baseada no [Hortonworks Data Platform 1.3][hdp-1-3-0]. 
 
-* O cluster HDInsight versão 1.6 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 1.1][hdp-1-1-0]. 
+* O cluster HDInsight versão 1.6 usa uma distribuição do Hadoop que é baseada no [Hortonworks Data Platform 1.1][hdp-1-1-0]. 
 
 [hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
@@ -524,5 +678,4 @@ As notas de versão para os HDPs que são usados pelas versões do cluster HDIns
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

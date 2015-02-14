@@ -2,7 +2,7 @@
 
 Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com um provedor de identidade. Você deve registrar o segredo do cliente gerado pelo provedor com os Serviços Móveis.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e depois no serviço móvel.
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
    	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
 
@@ -23,15 +23,13 @@ Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com 
 
     Lembre-se de anotar os valores da identidade do cliente e segredo gerados pelo provedor.
 
-    <div class="dev-callout"><b>Observação de Segurança</b>
-	<p>O segredo gerado pelo provedor é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo.</p>
-    </div>
+    > [AZURE.IMPORTANT]O segredo gerado pelo provedor é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo.
 
-4. De volta ao Portal de Gerenciamento, clique na guia **Identidade**, insira os valores do identificador do aplicativo e do segredo compartilhado obtidos do seu provedor de identidade e clique em **Salvar**.
+4. No Portal de Gerenciamento, clique na guia **Identidade**, digite os valores do identificador do aplicativo e do segredo compartilhados obtidos do provedor de identidade e clique em **Salvar**.
 
    	![](./media/mobile-services-register-authentication/mobile-identity-tab.png)
 
 	O serviço móvel e seu aplicativo agora estão configurados para funcionar com o provedor de autenticação escolhido.
 
 <!-- URLs. -->
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/<!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿
+
 1. Para escalonar privilégios, execute:
 
 		sudo -s
@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Aviso!  Após a instalação, a senha da raiz do MySQL é vazia por padrão.  É recomendável executar **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. Ao executar **mysql\_secure\_installation**, você será solicitado a alterar a senha raiz MySQL, remover as contas de usuário anônimo, desabilitar logons de raiz remotos, remover bancos de dados de teste e recarregar a tabela de privilégios.É recomendável que você responda Sim para todas essas opções e altere a senha raiz.Execute o comando a seguir para executar o script:
+5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão.  É recomendável executar **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. Ao executar **mysql\_secure\_installation**, você será solicitado a alterar a senha raiz MySQL, remover as contas de usuário anônimo, desabilitar logons de raiz remotos, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
 
 		$ mysql_secure_installation
 
@@ -35,13 +35,13 @@
 
 	Digite a senha raiz de MySQL (que você alterou na etapa anterior) e será exibido um prompt onde você poderá executar instruções SQL para interagir com o banco de dados.
 
-7. Para criar um novo usuário MySQL, execute o seguinte no prompt **mysql>**:
+7. Para criar um novo usuário do MySQL, execute o seguinte no prompt **mysql>**:
 
 		mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 	Observe que o ponto e vírgula (;) no final das linhas são cruciais para encerrar os comandos.
 
-8. Para criar um banco de dados e conceda as permissões de usuário `mysqluser`nele, emita os comandos seguintes:
+8. Para criar um banco de dados e conceder as permissões de usuário `mysqluser` a ele, emita os seguintes comandos:
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -65,8 +65,8 @@
 12. Clique em **Adicionar** na parte inferior da página.
 	![Endpoints][Image8]
 
-13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e as portas**Pública** e **Privada** configuradas para "3306".Isso permite o acesso remoto a MySQL.
-	![Endpoints][Image9]
+13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e as portas**Pública** e **Privada** configuradas para "3306". Isso permite o acesso remoto a MySQL.
+	![Endpoints][Imagem 9]
 
 14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Azure, execute o seguinte comando no computador local:
 
@@ -81,6 +81,5 @@
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
-[Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=35.1-->
+[Imagem 9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
+<!--HONumber=42-->

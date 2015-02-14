@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="File Service" pageTitle="Como utilizar o armazenamento de arquivos do Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Saiba como utilizar o armazenamento de arquivos do Microsoft Azure para criar compartilhamentos de arquivos e gerenciar o conteúdo de arquivos. As amostras são escritas em PowerShell e C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="adinah" />
+﻿<properties 
+	pageTitle="Como utilizar o armazenamento de arquivos do Azure | Microsoft Azure" 
+	description="Saiba como utilizar o armazenamento de arquivos do Microsoft Azure para criar compartilhamentos de arquivos e gerenciar o conteúdo de arquivos. As amostras são escritas em PowerShell e C#." 
+	services="storage" 
+	documentationCenter=".net" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 # Como utilizar o armazenamento de arquivos do Azure
 
@@ -8,7 +22,7 @@ Neste guia de introdução, demonstramos os fundamentos sobre como utilizar o ar
 
 Para usuários que possam querer acessar os arquivos em um compartilhamento por meio de um aplicativo local, bem como por meio de uma máquina virtual ou serviço de nuvem do Azure, mostramos como usar a Biblioteca de Cliente de Armazenamento para .NET do Azure para trabalhar com compartilhamento de arquivos em um aplicativo de área de trabalho.
 
-> [WACOM.NOTE] Executar os exemplos de código do .NET neste guia exige a Biblioteca de Cliente de Armazenamento para .NET do Azure 4.x ou versão posterior. A Biblioteca de Cliente de Armazenamento está disponível por meio do [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+> [AZURE.NOTE] Executar os exemplos de código do .NET neste guia exige a Biblioteca de Cliente de Armazenamento para .NET do Azure 4.x ou versão posterior. A Biblioteca de Cliente de Armazenamento está disponível por meio do [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
 
 ##Sumário
@@ -44,18 +58,17 @@ O armazenamento de arquivos contém os seguintes componentes:
 ![files-concepts][files-concepts]
 
 
--   **Conta de Armazenamento**: Todo o acesso ao Armazenamento do Azure é feito por meio de uma conta de armazenamento.Consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+-   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Consulte [metas de desempenho e escalabilidade do armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
--   **Compartilhamento:** Um compartilhamento de arquivo de armazenamento é um compartilhamento de arquivos SMB 2.1 no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai.Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento.
+-   **Compartilhamento:** um compartilhamento de arquivo de armazenamento é um compartilhamento de arquivos SMB 2.1 no Azure. Todos os diretórios e arquivos devem ser criados em um compartilhamento pai. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos até os limites de capacidade da conta de armazenamento.
 
--   **Diretório:** Uma hierarquia opcional de diretórios. 
+-   **Diretório:** uma hierarquia opcional de diretórios. 
 
--	**Arquivo:** Um arquivo no compartilhamento.Um arquivo pode ter até 1 TB de tamanho.
+-	**Arquivo:** um arquivo no compartilhamento. Um arquivo pode ser de até 1 TB.
 
--   **Formato de URL**:  Os arquivos são endereçáveis usando o seguinte formato de URL: https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
-    
-    A URL de exemplo a seguir poderia ser usada para endereçar um dos arquivos no diagrama acima:  
-    `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
+-   **Formato de URL:** arquivos são endereçáveis usando o seguinte formato de URL: https://`<storageaccount>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
+A URL de exemplo a seguir poderia ser usada para endereçar um dos arquivos no diagrama acima:
+`http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
 
 
@@ -63,32 +76,32 @@ Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos,
 
 ##<a name="create-account"></a>Criar uma conta de Armazenamento do Azure
 
-O armazenamento de arquivos do Azure está atualmente em visualização. Para solicitar acesso à visualização, navegue para a [página de Visualização do Microsoft Azure](/pt-br/services/preview/)e solicite acesso aos **Arquivos do Azure**. Após a solicitação ser aprovada, você será notificado de que pode acessar a visualização do armazenamento de arquivos.Você pode então criar uma conta de armazenamento para acessar o armazenamento de arquivos.
+O armazenamento de arquivos do Azure está atualmente em visualização. Para solicitar acesso à visualização, vá até a [página de visualização do Microsoft Azure](/pt-br/services/preview/) e solicite acesso aos **Arquivos do Azure**. Após a solicitação ser aprovada, você será notificado de que pode acessar a visualização do armazenamento de arquivos. Você pode então criar uma conta de armazenamento para acessar o armazenamento de arquivos.
 
-> [WACOM.NOTE] O armazenamento de arquivos está disponível atualmente apenas para novas contas de armazenamento. Após ser concedido acesso à sua assinatura para o armazenamento de arquivos, crie uma nova conta de armazenamento para ser usada com este guia.
+> [AZURE.NOTE] O armazenamento de arquivos está disponível atualmente apenas para novas contas de armazenamento. Após ser concedido acesso à sua assinatura para o armazenamento de arquivos, crie uma nova conta de armazenamento para ser usada com este guia.
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ##<a name="use-cmdlets"></a>Usar o PowerShell para criar um compartilhamento de arquivo
 
 ###Instalar os cmdlets do PowerShell para Armazenamento do Azure
 
-Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/) para ver as instruções de instalação e o ponto de instalação.
+Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/) para obter o ponto e as instruções de instalação.
 
-> [WACOM.NOTE] Os cmdlets do PowerShell para o serviço de arquivos estão disponíveis somente no módulo mais recente do PowerShell do Azure, versão 0.8.5 e posterior. É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
+> [AZURE.NOTE] Os cmdlets do PowerShell para o serviço de arquivos estão disponíveis somente no módulo mais recente do PowerShell do Azure, versão 0.8.5 e posterior. É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
 
-Abra uma janela do PowerShell do Azure clicando em **Iniciar** e digitando **PowerShell do Microsoft Azure**.A janela do PowerShell do Azure carrega do módulo do PowerShell do Azure para você.
+Abra uma janela do PowerShell do Azure clicando em **Iniciar** e digitando **PowerShell do Microsoft Azure**. A janela do PowerShell do Azure carrega do módulo do PowerShell do Azure para você.
 
 ###Criar um contexto para sua conta e chave de armazenamento
 
-Agora, crie o contexto da conta de armazenamento. O contexto encapsula o nome e a chave da conta. Substituir 'account-name' e 'account-key' pelo nome de conta e chave no exemplo a seguir:
+Agora, crie o contexto da conta de armazenamento. O contexto encapsula o nome e a chave da conta. Substitua `account-name` e `account-key` pelo nome e a chave da sua conta no exemplo a seguir:
 
     # create a context for account and key
     $ctx=New-AzureStorageContext account-name account-key
     
 ###Criar um novo compartilhamento de arquivo
 
-Em seguida, crie o novo compartilhamento, denominado 'sampleshare' neste exemplo:
+Em seguida, crie o nove compartilhamento, denominado `sampleshare` neste exemplo:
 
     # create a new share
     $s = New-AzureStorageShare sampleshare -Context $ctx
@@ -97,14 +110,14 @@ Agora você tem um compartilhamento de arquivo no armazenamento de arquivos. Em 
 
 ###Criar um diretório no compartilhamento de arquivos
 
-Em seguida, crie um diretório no compartilhamento. No exemplo a seguir, o diretório é nomeado 'sampledir':
+Em seguida, crie um diretório no compartilhamento. No exemplo a seguir, o diretório é nomeado `sampledir`:
 
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path sampledir
 
 ###Carregar um arquivo local no diretório
 
-Agora, carregue um arquivo local no diretório. O exemplo a seguir carrega um arquivo de 'C:\temp\samplefile.txt'. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local: 
+Agora, carregue um arquivo local no diretório. O exemplo a seguir carrega um arquivo de `C:\temp\samplefile.txt`. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local: 
     
     # upload a local file to the new directory
     Set-AzureStorageFileContent -Share $s -Source C:\temp\samplefile.txt -Path sampledir
@@ -126,23 +139,23 @@ Para demonstrar como montar um compartilhamento de arquivos do Azure, criaremos 
 
 ###Persistir as credenciais da sua conta de armazenamento para a máquina virtual
 
-Antes de montar o compartilhamento de arquivos, primeiro é preciso persistir as credenciais da sua conta de armazenamento na máquina virtual. Essa etapa permite ao Windows reconectar automaticamente ao compartilhamento de arquivos quando a máquina virtual é reinicializada. Para persistir as credenciais da sua conta, execute o comando 'cmdkey' na janela do PowerShell da máquina virtual. Substituir '<storage-account>' pelo nome da sua conta de armazenamento e '<account-key>' pela sua chave de conta de armazenamento:
+Antes de montar o compartilhamento de arquivos, primeiro é preciso persistir as credenciais da sua conta de armazenamento na máquina virtual. Essa etapa permite ao Windows reconectar automaticamente ao compartilhamento de arquivos quando a máquina virtual é reinicializada. Para persistir as credenciais da sua conta, execute o comando `cmdkey` na janela do PowerShell da máquina virtual. Substitua `<storage-account>` pelo nome da sua conta de armazenamento e `<account-key>` pela chave da conta de armazenamento:
 
 	cmdkey /add:<storage-account>.file.core.windows.net /user:<storage-account> /pass:<account-key>
 
-O Windows reconectará ao compartilhamento de arquivo quando a máquina virtual for reinicializada. Você pode verificar se o compartilhamento foi reconectado executando o comando `net use` em uma janela do PowerShell.
+O Windows reconectará ao compartilhamento de arquivo quando a máquina virtual for reinicializada. Você pode verificar se o compartilhamento foi reconectado executando o comando  `net use` em uma janela do PowerShell.
 
 ###Montar o compartilhamento de arquivos usando as credenciais persistidas
 
-Após ter uma conexão remota com a máquina virtual, você poderá executar o comando `net use` para montar o compartilhamento de arquivos usando a sintaxe a seguir. Substitua `<storage-account>` pelo nome da sua conta de armazenamento e `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos.
+Após ter uma conexão remota com a máquina virtual, você poderá executar o comando  `net use` para montar o compartilhamento de arquivos usando a sintaxe a seguir. Substitua `<storage-account>` pelo nome da sua conta de armazenamento e `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos.
 
 	net use z: \\<storage-account>.file.core.windows.net\<share-name>
 
-> [WACOM.NOTE] Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando 'net use'. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando 'net use'. Substitua `<storage-account>` pelo nome da sua conta de armazenamento, `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos e `<account-key>` pela sua chave da conta de armazenamento:
+> [AZURE.NOTE] Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando  `net use`. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando  `net use`. Substitua `<storage-account>` pelo nome da conta de armazenamento, `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos e `<account-key>` pela chave da conta de armazenamento:
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [System.IO namespaces](http://msdn.microsoft.com/pt-br/library/gg145019(v=vs.110).aspx) no .NET Framework. 
+Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [namespaces do System.IO](http://msdn.microsoft.com/pt-br/library/gg145019(v=vs.110).aspx) no .NET Framework. 
 
 Você também pode montar o compartilhamento de arquivos por meio de uma função executada em um serviço de nuvem do Azure ao estabelecer comunicação remota à função.
 
@@ -156,13 +169,13 @@ Para mostrar como usar a API por meio de um aplicativo local, criaremos um aplic
 
 Para criar um novo aplicativo de console no Visual Studio e instalar o pacote NuGet no Armazenamento do Azure:
 
-1. No Visual Studio, escolha **Arquivo** -> **Novo Projeto** e **Windows** -> **Aplicativo de Console** na lista de modelos C# do Visual.
+1. No Visual Studio, escolha **Novo** -> **projeto de arquivo**e escolha **Aplicativo de** -> **Console Windows** da lista de modelos do Visual C#.
 2. Forneça um nome para o aplicativo de console e clique em **OK**.
-3. Após o projeto ser criado, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "MicrosoftAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
+3. Após o projeto ser criado, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
 ###Salvar suas credenciais da conta de armazenamento no arquivo app.config
 
-Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arquivo app.config para que ele pareça semelhante ao exemplo a seguir, substituindo 'myaccount' pelo nome da sua conta de armazenamento e 'mykey' pela chave da sua conta de armazenamento:
+Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arquivo app.config para que ele pareça semelhante ao exemplo a seguir, substituindo  `myaccount` pelo nome da sua conta de armazenamento e  `mykey` pela chave da sua conta de armazenamento:
 
     <?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
@@ -174,7 +187,7 @@ Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arq
 		</appSettings>
 	</configuration>
 
-> [WACOM.NOTE] A versão mais recente do emulador de armazenamento do Azure não dá suporte ao armazenamento de arquivos. Sua cadeia de conexão deve ter com destino uma conta de armazenamento do Azure na nuvem com acesso à visualização de arquivos.
+> [AZURE.NOTE] A versão mais recente do emulador de armazenamento do Azure não dá suporte ao armazenamento de arquivos. Sua cadeia de conexão deve ter com destino uma conta de armazenamento do Azure na nuvem com acesso à visualização de arquivos.
 
 
 ###Adicionar declarações do namespace
@@ -185,14 +198,14 @@ Abra o arquivo program.cs por meio do Gerenciador de Soluções e adicione as se
 	using Microsoft.WindowsAzure.Storage.File;
 
 ###Recuperar sua cadeia de conexão programaticamente
-Você pode recuperar as credenciais salvas do arquivo App. config usando a classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou a clasee 'System.Configuration.ConfigurationManager'. O exemplo aqui mostra como recuperar suas credenciais usando a classe 'CloudConfigurationManager' e encapsulá-las com a classe 'CloudStorageAccount'. Adicione o seguinte código ao método `Main()` em program.cs:
+Você pode recuperar suas credenciais salvas por meio do arquivo app.config usando a classe  `Microsoft.WindowsAzure.CloudConfigurationManager` ou a classe  `System.Configuration.ConfigurationManager` . O exemplo aqui mostra como recuperar suas credenciais usando a classe `CloudConfigurationManager` e encapsulá-las com a classe  `CloudStorageAccount`. Adicione o seguinte código ao método  `Main()` em program.cs:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ###Acessar o compartilhamento de armazenamento de arquivo programaticamente
 
-Em seguida, adicione o código a seguir ao método `Main()` após o código mostrado acima para recuperar a cadeia de conexão. Esse código obtém uma referência para o arquivo que criamos anteriormente e exporta seu conteúdo para a janela do console.
+Em seguida, adicione o código a seguir ao método  `Main()` após o código mostrado acima para recuperar a cadeia de conexão. Esse código obtém uma referência para o arquivo que criamos anteriormente e exporta seu conteúdo para a janela do console.
 
 	//Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
@@ -246,10 +259,10 @@ para obter informações mais detalhadas.
   </ul>
 </li><li>Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
   <ul>
-    <li>Use <a href="/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/">Armazenamento de Blob</a> para armazenar dados não estruturados.</li>
-    <li>Use <a href="/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/">Armazenamento de tabela</a> para armazenar dados estruturados.</li>
-    <li>Use <a href="/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/">Armazenamento de Fila</a> para armazenar mensagens de forma confiável.</li>
-    <li>Use <a href="/pt-br/documentation/articles/sql-database-dotnet-how-to-use/">Banco de dados SQL</a> para armazenar dados relacionais.</li>
+    <li>Usar o <a href="/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/">Armazenamento de Blob</a> para armazenar dados não estruturados.</li>
+    <li>Usar o <a href="/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/">Armazenamento de Tabela</a> para armazenar dados estruturados.</li>
+    <li>Usar o <a href="/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/">Armazenamento de Fila</a> para armazenar mensagens de maneira confiável.</li>
+    <li>Usar o <a href="/pt-br/documentation/articles/sql-database-dotnet-how-to-use/">Banco de Dados SQL</a> para armazenar dados relacionais.</li>
   </ul>
 </li>
 </ul>
@@ -264,5 +277,4 @@ para obter informações mais detalhadas.
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

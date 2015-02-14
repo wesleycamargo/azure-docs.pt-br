@@ -1,6 +1,20 @@
-﻿ <properties urlDisplayName="User Names in Linux" pageTitle="Selecionando nomes de usuário para Linux no Azure" metaKeywords="" description="Saiba como selecionar nomes de usuário para uma máquina virtual Linux no Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿<properties 
+	pageTitle="Selecionando nomes de usuário para Linux no Azure" 
+	description="Saiba como selecionar nomes de usuário para uma máquina virtual Linux no Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -8,7 +22,7 @@
 
 Ao criar uma máquina virtual Linux, é possível escolher um nome para o nome de usuário ou aceitar o padrão, *azureuser*. Na maioria dos casos, esse novo usuário não existe na imagem de base e é criado durando o processo de provisionamento. Se o usuário já existir na imagem de base da máquina virtual, o agente do Linux do Azure simplesmente configura a senha (e/ou chave SSH) para o usuário com base na informação especificada ao criar a máquina virtual.
 
-**Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado. O processo de provisionamento vai **falhar** se você tentar provisionar uma máquina virtual Linux usando um usuário existente que esteja definido como um usuário com UID 0-99.Um exemplo típico é o usuário `root`, que tem uma UID 0.
+**Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado. O processo de provisionamento vai **falhar** se você tentar provisionar uma máquina virtual Linux usando um usuário existente que esteja definido como um usuário com UID 0-99. Um exemplo típico é o usuário `root`, que tem o UID 0.
 
  - Consulte também: [Base Padrão Linux - Intervalos de ID de Usuário](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
@@ -105,7 +119,7 @@ A seguir estão nomes de usuário que devem ser evitados ao fazer o provisioname
 - sshd
 - sys
 - test
-- ctrusted
+- trusted
 - tty
 - users
 - utmp
@@ -229,6 +243,5 @@ A seguir estão nomes de usuário que devem ser evitados ao fazer o provisioname
 - voice
 - whoopsie
 - www-data
- 
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

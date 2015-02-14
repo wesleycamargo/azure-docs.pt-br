@@ -5,7 +5,7 @@ Em seguida, você precisa alterar a maneira que as notificações por push são 
 
 Neste método, o assistente gera arquivos novos push.register.cs no seu projeto.
 
->[WACOM.NOTE]O assistente para adicionar notificações por push atualmente só tem suporte para um serviço móvel de back-end do .NET.
+>[AZURE.NOTE]O assistente para adicionar notificações por push atualmente só tem suporte para um serviço móvel de back-end do .NET.
 
 1. No Gerenciador de Soluções do Visual Studio, abra o arquivo de projeto push.register.js e comente ou exclua a chamada para **addEventListener**. 
 
@@ -79,3 +79,4 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
 		        });
 		    });
 		}  
+<!--HONumber=42-->

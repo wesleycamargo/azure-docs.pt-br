@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="" pageTitle="Assinaturas de acesso compartilhado: Noções básicas sobre o modelo SAS | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Saiba como delegar acesso a recursos de blob, fila e tabela com assinaturas de acesso compartilhado" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
+﻿<properties 
+	pageTitle="Assinaturas de acesso compartilhado: Noções básicas sobre o modelo SAS | Microsoft Azure" 
+	description="Saiba como delegar acesso a recursos de blob, fila e tabela com assinaturas de acesso compartilhado" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
 
 # Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS
 
-O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. [Parte 2](../storage-dotnet-shared-access-signature-part-2/) do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
+O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. [A Parte 2](../storage-dotnet-shared-access-signature-part-2/) do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
 
 ## O que é uma assinatura de acesso compartilhado? ##
 
@@ -35,10 +49,10 @@ Uma assinatura de acesso compartilhado é um URI que aponta para um recurso de a
 
 Uma assinatura de acesso compartilhado tem as seguintes restrições que a definem, cada uma das quais é representada como um parâmetro no URI:
 
-- **O recurso de armazenamento.**Os recursos de armazenamento para os quais você pode delegar acesso incluem contêineres, blobs, filas, tabelas e intervalos de entidades de tabela.
-- **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente. 
-- **Hora de expiração.** É a hora após a qual a SAS não é mais válida.As práticas recomendadas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada (veja mais abaixo).
-- **Permissões.** As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS. 
+- **Os recursos de armazenamento** Os recursos de armazenamento para os quais você pode delegar acesso incluem contêineres, blobs, filas, tabelas e intervalos de entidades de tabela.
+- **Hora de início.** Esta é a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional. Se omitido, a SAS tem efeita imediato.
+- **Tempo de expiração.** Isso é o tempo após o qual a SAS não é mais válida. As práticas recomendadas sugerem que você especifique uma hora de expiração de uma SAS ou associe-o uma política de acesso armazenada (veja mais abaixo).
+- **Permissões.**As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS.
 
 Este é um exemplo de um URI SAS que fornece permissões de leitura e gravação para um blob. A tabela divide cada parte do URI para explicar como ele também contribui para a SAS:
 
@@ -161,7 +175,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
             </td>
             <td valign="top" width="213">
                 <p>
-                    Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e                     depois codificado usando a codificação Base64.
+                    Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64.
                 </p>
             </td>
         </tr>
@@ -173,8 +187,8 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
-- **SAS ad hoc:** Quando você cria uma SAS ad hoc, a hora de início, a hora de expiração e as permissões para a SAS são todas especificadas no URI SAS (ou implícitas, quando a hora de início é omitida).Esse tipo de SAS pode ser criado em um contêiner, um blob, uma tabela ou uma fila.
-- **SAS com política de acesso armazenada:** Uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela ou uma fila - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado.Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada.
+- **SAS ad hoc:** quando você cria uma SAS ad hoc, a hora de início, hora de expiração e as permissões para a SAS são especificada no URI SAS (ou implícitas, no caso em que a hora de início for omitida). Esse tipo de SAS pode ser criado em um contêiner, blob, tabela ou fila.
+- **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, tabela ou fila - e pode ser usada para gerenciar as restrições para uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS com uma política de acesso armazenada, a SAS herda as restrições - a hora de início, hora de expiração e permissões - definidas para a política de acesso armazenada.
 
 A diferença entre as duas formas é importante para um cenário fundamental: revogação. Uma SAS é uma URL, portanto qualquer pessoa que obtiver a SAS poderá usá-la, independentemente de quem a tiver solicitado em primeiro lugar. Se uma SAS for publicada publicamente, ela poderá ser usada por qualquer pessoa no mundo. Uma SAS distribuída será válida até que ocorra um destes quatro fatores:
 
@@ -192,33 +206,32 @@ Ao usar assinaturas de acesso compartilhado nos seus aplicativos, você precisar
 
 As recomendações a seguir para uso de assinaturas de acesso compartilhado ajudarão a equilibrar esses riscos:
 
-1. **Sempre use HTTPS** para criar ou distribuir uma SAS.Se uma SAS for passada por HTTP e interceptada, um invasor que estiver realizando um ataque intermediário poderá lê-la e, em seguida, usá-la exatamente como o usuário previsto, o que poderá comprometer dados confidenciais ou gerar dados corrompidos pelo usuário mal-intencionado.
-2. **Faça referência às políticas de acesso armazenadas sempre que possível.**  As políticas de acesso armazenadas permitem que você revogue permissões sem precisar regenerar as chaves de conta de armazenamento.Defina a expiração nessas políticas para um tempo muito longo (ou infinito) e certifique-se de que ela seja atualizada regularmente para uma data mais distante no futuro.
-3. **Use horas de expiração de curto prazo em uma SAS ad hoc.** Dessa forma, mesmo que uma SAS seja comprometida inadvertidamente, ela só será viável por um curto período. Esta prática será especialmente importante se você não puder fazer referência a uma política de acesso armazenada.Essa prática também ajudará a limitar a quantidade de dados que podem ser gravados em um blob, limitando o tempo disponível para carregá-los.
-4. **Faça com que os clientes renovem a SAS automaticamente, se necessário.**  Os clientes devem renovar a SAS bem antes da expiração esperada, para que haja tempo para novas tentativas se o serviço que fornece a SAS estiver indisponível.  Se o objetivo de uso da SAS for destinado a um pequeno número de operações imediatas e de curta duração, que devem ser concluídas dentro do tempo de expiração fornecido, isso talvez não seja necessário, pois não se espera que a SAS seja renovada.  No entanto, se você tiver um cliente que está sempre fazendo solicitações via SAS, surge a possibilidade de expiração.A principal consideração consiste em equilibrar a necessidade de a SAS ser de curta duração (conforme mencionado acima) com a necessidade de garantir que o cliente esteja solicitando renovação com antecedência suficiente para evitar uma interrupção devido à expiração da SAS antes da renovação bem-sucedida.
-5. **Tenha cuidado com a hora de início da SAS.**   Se você definir a hora de início de uma SAS para **agora**, poderão ser observadas falhas intermitentemente para os primeiros minutos devido à defasagem horária (diferenças na hora atual de acordo com máquinas diferentes).  Em geral, defina a hora de início para, no mínimo, 15 minutos antes, ou não a defina, o que a tornará imediatamente válida em todos os casos.Em geral, o mesmo também aplica-se à hora de expiração - lembre-se de que você pode observar até 15 minutos de defasagem horária em uma das duas direções em qualquer solicitação.Observação para os clientes que usam uma versão de REST anterior à 2012-02-12, a duração máxima de uma SAS que não faz referência a uma política de acesso armazenada é 1 hora, e qualquer política que especifique um período maior do que esse falhará.
-6.	**Seja específico com o recurso a ser acessado.**  Uma prática recomendada de segurança comum consiste em fornecer os privilégios mínimos necessários a um usuário.  Se um usuário precisar apenas de acesso de leitura a uma única entidade, conceda-lhe acesso de leitura a essa única entidade, e não acesso de leitura/gravação/exclusão a todas as entidades.Isso também ajuda a minimizar a ameaça da SAS que estiver sendo comprometida, pois a SAS terá menos poder nas mãos de um invasor.
-7.	**É importante que você entenda que a sua conta será cobrada por qualquer uso, incluindo o realizado com a SAS.**  Se você fornecer acesso de gravação a um blob, um usuário poderá optar por carregar um blob de 200 GB.  Se você também tiver concedido a ele acesso de leitura, é possível que ele decida baixá-lo 10 vezes, incorrendo em 2 TB de custos de egresso para você.  Mais uma vez, forneça permissões limitadas, para ajudar a reduzir a possibilidade de usuários mal-intencionados.Use SAS de curta duração para reduzir essa ameaça (mas, tenha cuidado com a defasagem horária na hora de término).
-8.	**Valide os dados gravados com a SAS.** Quando um aplicativo cliente gravar dados na sua conta de armazenamento, tenha em mente de que poderá haver problemas com esses dados. Se o seu aplicativo necessitar de que esses dados sejam validados ou autorizados antes que estejam prontos para uso, você deverá realizar essa validação depois que os dados forem gravados e antes que eles sejam usados pelo seu aplicativo.Essa prática também protegerá contra dados corrompidos ou mal-intencionados que estiverem sendo gravados na sua conta por um usuário que adquiriu a SAS de forma adequada ou por um usuário que estiver explorando uma SAS vazada.
-9. **Não use sempre SAS.**  Às vezes, os riscos associados a uma determinada operação em relação à sua conta de armazenamento superam os benefícios da SAS. Para essas operações, crie um serviço de camada intermediária que grave na sua conta de armazenamento após a validação, a autenticação e a auditoria da regra de negócio. Além disso, algumas vezes é mais simples de gerenciar o acesso de outras maneiras.Por exemplo, se quiser tornar todos os blobs de um contêiner publicamente legíveis, você poderá tornar o contêiner Público, em vez de fornecer uma SAS para o acesso de cada cliente.
-10.	**Use a Análise de Armazenamento para monitorar seu aplicativo.** Você pode usar log e métricas para observar qualquer pico nas falhas de autenticação devido a uma interrupção no seu serviço de provedor de SAS ou à remoção acidental de uma política de acesso armazenada.Veja o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) para mais informações.
+1. **Sempre use HTTPS** para criar ou distribuir uma SAS.  Se uma SAS for passada por HTTP e interceptada, um invasor que estiver realizando um ataque intermediário poderá lê-la e, em seguida, usá-la exatamente como o usuário previsto, o que poderá comprometer dados confidenciais ou gerar dados corrompidos pelo usuário mal-intencionado.
+2. **Referência de políticas de acesso armazenadas sempre que possível.** Políticas de acesso armazenado oferecem a opção para revogar permissões sem precisar regenerar as chaves de conta de armazenamento. Defina a expiração nessas políticas para ser um tempo muito longo (ou infinito) e certifique-se de que ela seja atualizada regularmente para movê-lo mais distante no futuro.
+3. **Use tempos de expiração de curto prazo em uma SAS ad hoc.** Dessa forma, mesmo se uma SAS seja comprometida inadvertidamente, ela só será viável para um curto período. Essa prática é especialmente importante se você não pode fazer referência a uma política de acesso armazenada. Essa prática também ajuda a limitar a quantidade de dados que podem ser gravados em um blob, limitando o tempo disponível para carregá-los.
+4. **Ter clientes renovem automaticamente a SAS se necessário.** Os clientes devem renovar a SAS bem antes da expiração esperada, para que haja tempo para repetições se o serviço fornece a SAS estiver indisponível. Se a SAS deve ser usada para um pequeno número de operações imediatas e de curta duração, que devem ser concluídas dentro do tempo de expiração fornecido, em seguida, talvez isso não seja necessário, como a SAS não é esperada ser renovado. No entanto, se você tiver um cliente que está sempre fazendo solicitações via SAS, a possibilidade de expiração entra em cena. A principal consideração consiste em equilibrar a necessidade de SAS ser de curta duração (conforme mencionado acima) com a necessidade de garantir que o cliente está solicitando renovação com antecedência suficiente para evitar a interrupção devido à expiração antes da renovação bem-sucedida da SAS.
+5. **Tenha cuidado com a hora de início da SAS.** Se você definir a hora de início de uma SAS para **agora**, em seguida, devido à defasagem horária (diferenças na hora atual de acordo com máquinas diferentes), poderão ser observadas falhas intermitentemente para a primeira apenas alguns minutos. Em geral, defina a hora de início pelo menos 15 minutos antes de ser ou não a defina, tornando-o imediatamente válida em todos os casos. O mesmo se aplica normalmente a hora de expiração - Lembre-se de que você pode observar até 15 minutos de defasagem horária em ambas as direções em qualquer solicitação. Observação para os clientes que usam uma versão REST anterior à 2012-02-12, a duração máxima de uma SAS que não faz referência a uma política de acesso armazenada é 1 hora e qualquer política que especifique um período maior do que falhará.
+6.	**Seja específico com o recurso a ser acessado.** Uma prática recomendada é fornecer a um usuário com os privilégios mínimos necessários de segurança típica. Se um usuário precisa apenas acesso de leitura a uma única entidade, em seguida, conceda a eles acesso de leitura a essa única entidade e não de leitura/gravação/exclusão acesso a todas as entidades. Isso também ajuda a atenuar a ameaça da SAS seja comprometido, como a SAS terá menos poder nas mãos de um invasor.
+7.	**Entenda o que sua conta será cobrada por qualquer uso, incluindo realizado com a SAS.** Se você fornecer acesso de gravação a um blob, um usuário pode optar por carregar um blob de 200GB. Se você tiver concedido a eles acesso de leitura, eles podem escolher baixá-lo 10 vezes, incorrendo em 2TB de custos de egresso para você. Novamente, forneça permissões limitadas, para ajudar a reduzir a possibilidade de usuários mal-intencionados. Use SAS de curta duração para reduzir essa ameaça (mas estar atento a defasagem horária na hora de término).
+8.	**Valide os dados gravados com a SAS.** Quando um aplicativo cliente grava dados em sua conta de armazenamento, tenha em mente que pode haver problemas com esses dados. Se seu aplicativo requer que esses dados ser validados ou autorizados antes que ele está pronto para uso, você deve executar essa validação depois que os dados são gravados e antes de ser usada pelo seu aplicativo. Essa prática também protegerá contra dados corrompidos ou mal-intencionados que estão sendo gravados na sua conta, por um usuário que adquiriu corretamente a SAS ou por um usuário explorando uma SAS vazada.
+9. **Não use sempre SAS.** Às vezes, os riscos associados a uma determinada operação em relação a sua conta de armazenamento superam os benefícios da SAS. Para essas operações, criar um serviço de camada intermediária que grava em sua conta de armazenamento após a realização de negócios de regra de validação, autenticação e auditoria. Além disso, às vezes é mais simples de gerenciar o acesso de outras maneiras. Por exemplo, se você quiser tornar todos os blobs em um contêiner publicamente legíveis, você pode tornar o contêiner público, em vez de fornecer uma SAS para todos os clientes de acesso.
+10.	**Use a análise de armazenamento para monitorar seu aplicativo.** Você pode usar o registro em log e métricas para observar qualquer pico nas falhas de autenticação devido a uma interrupção no serviço de provedor de SAS ou à remoção acidental de uma política de acesso armazenada. Consulte o [Blog da equipe do armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) para obter informações adicionais.
 
 ## Conclusão ##
 
 As assinaturas de acesso compartilhado são úteis para fornecer permissões limitadas para a sua conta de armazenamento aos clientes que não devem ter a chave de conta.  Desse modo, elas são uma parte vital do modelo de segurança para qualquer aplicativo que utilize o Armazenamento do Azure.  Se você seguir as práticas recomendadas listadas aqui, poderá usar a SAS para oferecer mais flexibilidade de acesso aos recursos da sua conta de armazenamento, sem comprometer a segurança do seu aplicativo.
 
-## Próximas Etapas ##
+## Next Steps ##
 
-[Assinaturas de acesso compartilhado, Parte 2: Criar e usar um SAS com o Serviço Blob](../storage-dotnet-shared-access-signature-part-2/)
+[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../storage-dotnet-shared-access-signature-part-2/)
 
-[Gerenciar o acesso aos recursos de Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/ee393343.aspx)
+[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/pt-br/library/windowsazure/ee393343.aspx)
 
-[Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/pt-br/library/windowsazure/ee395415.aspx)
+[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/pt-br/library/windowsazure/ee395415.aspx)
 
-[Introdução à Tabela e à Fila SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

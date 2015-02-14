@@ -1,12 +1,26 @@
-﻿<properties title="Build an HBase application using Maven" pageTitle="Compilar um aplicativo HBase usando o Maven" description="Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+﻿<properties 
+	pageTitle="Compilar um aplicativo HBase usando o Maven" 
+	description="Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no Azure HDInsight" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="larryfr"/>
 
 ##Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
 
-Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.org/) em Java usando o Apache Maven. Então, use o aplicativo com o HDInsight do Azure (Hadoop).
+Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.org/) em Java usando o Maven no Apache. Então, use o aplicativo com o HDInsight do Azure (Hadoop).
 
-[Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
+[O Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
 
 ##Requisitos
 
@@ -24,9 +38,9 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 		mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	Isso criará um novo diretório dentro do diretório atual, com o nome especificado pelo parâmetro __artifactID__ (**hbaseapp** neste exemplo). Esse diretório conterá os itens a seguir.
+	Isso criará um novo diretório dentro do diretório atual, com o nome especificado pelo parâmetro __artifactID__ (neste exemplo, **hbaseapp**). Esse diretório conterá os itens a seguir.
 
-	* __pom.xml__ - o modelo do objeto do projeto ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém informações e detalhes de configuração usados para compilar o projeto
+	* __pom.xml__ - o Modelo de Objeto de Projeto ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém informações e detalhes de configuração usados para criar o projeto
 
 	* __src__ - o diretório que contém o diretório __main\java\com\microsoft\examples__, onde você criará o aplicativo.
 
@@ -34,7 +48,7 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 ##Atualize o modelo do objeto do projeto
 
-1. Edite o arquivo __pom.xml__ e adicione o seguinte dentro da seção `<dependencies>`.
+1. Edite o arquivo __POM__ e adicione o seguinte dentro da seção `<dependencies>`.
 
 		<dependency>
       	  <groupId>org.apache.hbase</groupId>
@@ -42,7 +56,7 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
           <version>0.98.4-hadoop2</version>
         </dependency>
 
-	Isso informa ao Maven que o projeto exige o __hbase-client__ versão __0.98.4-hadoop2__. No tempo de compilação, ele será baixado do repositório padrão do Maven. É possível usar a [pesquisa de repositório do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para exibir mais informações sobre essa dependência.
+	Isso informa ao Maven que o projeto exige o __hbase-client__ versão __0.98.4-hadoop2__. No tempo de compilação, ele será baixado do repositório padrão do Maven. Você pode usar a [pesquisa de repositório do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para exibir mais informações sobre essa dependência.
 
 2. Adicione o seguinte ao arquivo __pom.xml__. Isso deve estar dentro das marcas `<project>...</project>` no arquivo; por exemplo, entre `</dependencies>` e `</project>`.
 
@@ -58,6 +72,14 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 	        </resource>
 	      </resources>
 		  <plugins>
+		    <plugin>
+        	  <groupId>org.apache.maven.plugins</groupId>
+        	  <artifactId>maven-compiler-plugin</artifactId>
+        	  <configuration>
+          	    <source>1.6</source>
+          	    <target>1.6</target>
+        	  </configuration>
+      		</plugin>
 		    <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
 		      <artifactId>maven-shade-plugin</artifactId>
@@ -82,9 +104,9 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 	Isso configura um recurso (__conf\hbase-site.xml__), que contém informações de configuração para o HBase.
 
-	> [WACOM.NOTE] Você também pode definir valores de configuração via código. Veja os comentários no exemplo __CreateTable__ abaixo sobre como fazer isso.
+	> [AZURE.NOTE] Você também pode definir valores de configuração via código. Veja os comentários no exemplo __CreateTable__  abaixo sobre como fazer isso.
 
-	Isso também configura o [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/), que é utilizado para evitar duplicação de licenças no JAR que é compilado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o maven-shade-plugin com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
+	Isso também configura o [maven-compiler-plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) e o [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para impedir a duplicação de licenças no pacote JAR que é criado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o maven-shade-plugin com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
 
 	O maven-shade-plugin também produzirá um uberjar (ou fatjar), que contém todas as dependências exigidas pelo aplicativo.
 
@@ -132,7 +154,7 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 	Esse arquivo será usado para carregar a configuração HBase para um cluster HDInsight.
 
-	> [WACOM.NOTE] Esse é um arquivo hbase-site.xml mínimo, contendo as configurações absolutamente mínimas para o cluster HDInsight. Para um versão completa do arquivo de configuração hbase-site.xml usado pelo HDInsight, [habilite a área de trabalho remota no cluster HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-administer-use-management-portal/#rdp)para encontrar o arquivo hbase-site.xml no diretório C:\apps\dist\hbase-<número da versão>-hadoop2\conf. A parte do caminho para o arquivo referente ao número de versão será modificada conforme o HBase é atualizado no cluster.
+	> [AZURE.NOTE] Esse é um arquivo hbase-site.xml mínimo, contendo as configurações absolutamente mínimas para o cluster HDInsight. Para obter uma versão completa do arquivo de configuração hbase-site.xml usado pelo HDInsight, [acesse o cluster HDInsight via desktop remoto](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-administer-use-management-portal/#rdp), o arquivo hbase-site.xml está localizado no diretório C:\apps\dist\hbase-&lt;número da versão>-hadoop2\conf. A parte do caminho para o arquivo referente ao número de versão será modificada conforme o HBase é atualizado no cluster.
 
 3. Salve o arquivo __hbase-site.xml__.
 
@@ -323,11 +345,11 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 3. Assim que o comando for concluído, o diretório __hbaseapp\target__ conterá um arquivo chamado __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [WACOM.NOTE] O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de um fatjar), que contém todas as dependências exigidas para executar o aplicativo.
+	> [AZURE.NOTE] O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de um fatjar), que contém todas as dependências exigidas para executar o aplicativo.
 
 ##Carregue o JAR e inicie um trabalho
 
-> [WACOM.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](/pt-br/documentation/articles/hdinsight-upload-data/). As etapas abaixo utilizam o [PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](/pt-br/documentation/articles/hdinsight-upload-data/). As etapas abaixo utilizam o [PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/).
 
 1. Após instalar e configurar o [PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/), crie um novo arquivo chamado __hbase-runner.psm1__. Use o conteúdo a seguir para este arquivo.
 
@@ -511,9 +533,9 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 	Esse arquivo contém dois módulos:
 
-	* __Add-HDInsightFile__ - usado para carregar arquivos no HDInsight
+	* __Add-HDInsightFile__ - utilizado para carregar arquivos no HDInsight
 
-	* __Start-HBaseExample__ - usado para executar as classes criadas anteriormente
+	* __Start-HBaseExample__ - utilizado para executar as classes criadas anteriormente
 
 2. Salve o arquivo __hbase-runner.psm1__.
 
@@ -523,7 +545,7 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 	Altere o caminho para o local do arquivo __hbase-runner.psm1__ criado anteriormente. Isso registrará o módulo para essa sessão do PowerShell.
 
-2. Use o comando a seguir para carregar o __hbaseapp-1.0-SNAPSHOT.jar__ em seu cluster HDInsight.
+2. Utilize o comando a seguir para carregar o __hbaseapp-1.0-SNAPSHOT.jar__ para seu cluster HDInsight.
 
 		Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
 
@@ -543,7 +565,7 @@ Saiba como criar e compilar um aplicativo do [Apache HBase](http://hbase.apache.
 
 	Substitua __hdinsightclustername__ pelo nome de seu cluster HDInsight.
 
-	Isso utilizará a classe SearchByEmail para procurar por quaisquer linhas nas quais a família da coluna __contactinformation__, a coluna __email__, contenha a cadeia __contoso.com__. Você deve receber os seguintes resultados:
+	Isso utilizará a classe SearchByEmail para procurar por quaisquer linhas onde a família da coluna __contactinformation__, a coluna __email__, contenha a cadeia __contoso.com__. Você deve receber os seguintes resultados:
 
 		Franklin Holtz - ID: 2
 		Franklin Holtz - franklin@contoso.com - ID: 2
@@ -566,6 +588,5 @@ Substitua __hdinsightclustername__ pelo nome de seu cluster HDInsight.
 
 ###Nenhum resultado ou resultados inesperados ao usar o Start-HBaseExample
 
-Use o parâmetro `-showErr` para exibir o STDERR produzido durante a execução do trabalho.
-
-<!--HONumber=35.1-->
+Utilize o parâmetro `-showErr` para visualizar o STDERR produzido durante a execução do trabalho.
+<!--HONumber=42-->

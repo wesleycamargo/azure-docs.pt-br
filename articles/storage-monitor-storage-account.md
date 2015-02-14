@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Como monitorar uma conta de armazenamento | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Saiba como monitorar uma conta de armazenamento no Azure usando o Portal de Gerenciamento." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Como monitorar uma conta de armazenamento | Microsoft Azure" 
+	description="Saiba como monitorar uma conta de armazenamento no Azure usando o Portal de Gerenciamento." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tamram"/>
 
 # <a id="createstorageaccount"></a>Monitorar uma conta de armazenamento no Portal de Gerenciamento do Azure
 
-É possível monitorar sua conta de armazenamento no Portal de Gerenciamento do Azure. Ao conifgurar sua conta de armazenamento para monitorar por meio do portal, o Armazenamento do Azure usa [Análise de Armazenamento](http://msdn.microsoft.com/pt-br/library/azure/hh343270.aspx) para rastrear as métricas para a sua conta e registrar dados de solicitação. 
+É possível monitorar sua conta de armazenamento no Portal de Gerenciamento do Azure. Quando você configurar sua conta de armazenamento para o monitoramento por meio do portal, o armazenamento do Azure usa [Storage Analytics](http://msdn.microsoft.com/pt-br/library/azure/hh343270.aspx) para acompanhar métricas para sua conta e dados de solicitação de log. 
 
-> [WACOM.NOTE] Lembre-se de que há custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">Análise de armazenamento e cobrança</a>. 
+> [AZURE.NOTE] Lembre-se de que há custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
 
-> [WACOM.NOTE] O serviço de Arquivo do Azure não tem suporte para Análise de Armazenamento no momento.
+> O serviço de Arquivo do Azure não tem suporte para Análise de Armazenamento no momento.
 
-> [WACOM.NOTE] Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/).
+> Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ##Sumário##
@@ -39,9 +53,9 @@
 
       **Detalhado** - Além das métricas mínimas, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do Serviço de Armazenamento do Azure. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo. 
 
-      **Desativado** - Desativa o monitoramento.Os dados de monitoramento existentes são mantidos até o final do período de retenção.
+      **Desativar** - Desativa o monitoramento. Os dados de monitoramento existentes são mantidos até o final do período de retenção.
 
-- Para definir a política de retenção de dados, em **Retenção (em dias)**, digite o número de dias de dados que serão retidos de 1-365 dias. Se não quiser definir uma política de retenção, digite zero. Se não houver nenhuma política de retenção, cabe a você excluir os dados de monitoramento.É recomendável configurar uma política de retenção com base em quanto tempo deseja manter os dados de analítica do armazenamento da sua conta para que os dados de analítica antigos e não utilizados possam ser excluídos pelo sistema sem custo adicional.
+- Para definir a política de retenção de dados, em **Retenção (em dias)**, digite o número de dias de dados que serão retidos de 1-365 dias. Se não quiser definir uma política de retenção, digite zero. Se não houver nenhuma política de retenção, cabe a você excluir os dados de monitoramento. É recomendável configurar uma política de retenção com base em quanto tempo deseja manter os dados de analítica do armazenamento da sua conta para que os dados de analítica antigos e não utilizados possam ser excluídos pelo sistema sem custo adicional.
 
 4. Ao concluir a configuração do monitoramento, clique em **Salvar**.
 
@@ -81,7 +95,7 @@ Na página de**Monitoramento**, você pode exibir o conjunto completo de métric
 
 - Se sua conta de armazenamento tiver a configuração de monitoramento detalhado, as métricas estarão disponíveis em uma resolução maior das operações de armazenamento individuais, além dos agregados de nível de serviço.
 
-Use os procedimentos a seguir para escolher quais métricas de armazenamento deverão ser exibidas nos gráficos de métricas e na tabela que são exibidos na página de **Monitoramento**.Essas configurações não afetam a coleta, agregação e armazenamento dos dados de monitoramento na conta de armazenamento.
+Use os procedimentos a seguir para escolher quais métricas de armazenamento deverão ser exibidas nos gráficos de métricas e na tabela que são exibidos na página de **Monitoramento**. Essas configurações não afetam a coleta, agregação e armazenamento dos dados de monitoramento na conta de armazenamento.
 
 <h2><a id="addmonitoringmetrics"></a>Como: adicionar métricas à tabela de métricas</h2>
 
@@ -90,15 +104,12 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 2. Clique em **Monitoramento**.
 
-	A página de **Monitoramento** é exibida. Por padrão, a tabela de métricas exibe um subconjunto de métricas que estão disponíveis para o monitoramento. A ilustração mostra a exibição de Monitoramento padrão para uma conta de armazenamento com a configuração de monitoramento detalhado para os três serviços.Use **Adicionar métricas** para selecionar as métricas que você deseja monitorar de todas as métricas disponíveis.
+	A página de **Monitoramento** é exibida. Por padrão, a tabela de métricas exibe um subconjunto de métricas que estão disponíveis para o monitoramento. A ilustração mostra a exibição de Monitoramento padrão para uma conta de armazenamento com a configuração de monitoramento detalhado para os três serviços. Use **Adicionar métricas** para selecionar as métricas que você deseja monitorar de todas as métricas disponíveis.
 
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	<div class="dev-callout"> 
-	<b>Observação</b> 
-	<p>Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">Análise de armazenamento e cobrança</a>.</p> 
-</div>
+	> [AZURE.NOTE] Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx).
 
 3. Clique em **Adicionar métricas**. 
 
@@ -126,7 +137,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 <h2><a id="customizemetricschart"></a>Como: Personalizar o gráfico de métricas na página de Monitoramento</h2>
 
-1. Na página de **Monitoramento** da conta de armazenamento, na tabela de métricas, selecione até 6 métricas para serem traçadas no gráfico de métricas. Para selecionar uma métrica, clique na caixa de seleção à esquerda.Para remover uma métrica do gráfico, desmarque a caixa de seleção.
+1. Na página de **Monitoramento** da conta de armazenamento, na tabela de métricas, selecione até 6 métricas para serem traçadas no gráfico de métricas. Para selecionar uma métrica, clique na caixa de seleção à esquerda. Para remover uma métrica do gráfico, desmarque a caixa de seleção.
 
 2. Para alternar o gráfico entre os valores relativos (somente valor final exibido) e os valores absolutos (eixo Y exibido), selecione **Relativo** ou **Absoluto** na parte superior do gráfico.
 
@@ -154,5 +165,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 4. Clique em **Salvar**.
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/pt-br/library/windowsazure/hh343262.aspx).
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,0 +1,70 @@
+Alguns pacotes podem não ser instalados usando pip durante a execução do Azure.  É possível simplesmente que o pacote não esteja disponível no índice de pacotes de Python.  Talvez um compilador seja necessário (um compilador não está disponível no computador executando o site do Azure).
+
+Nesta seção, examinaremos modos de lidar com esse problema.
+
+### Solicitar discos
+
+Se a instalação do pacote requer um compilador, você deve tentar entrar em contato com o proprietário do pacote para solicitar que discos sejam disponibilizados para o pacote.
+
+Com o lançamento recente do [Compilador do Microsoft Visual C++ para Python 2.7][], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
+
+### Compilar discos (requires Windows)
+
+Observação: Ao usar essa opção, certifique-se de compilar o pacote usando um ambiente de Python que corresponda à plataforma/arquitetura/versão usadas no site do Azure (Windows/32-bit/2.7 ou 3.4).
+
+Se o pacote não for instalado porque exige um compilador, você pode instalar o compilador em sua máquina local e criar um disco para o pacote, que em seguida, você incluirá no repositório.
+
+Usuários de Mac/Linux: Se você não tiver acesso a uma máquina do Windows, consulte [Criar uma máquina Virtual executando Windows][] para saber como criar uma máquina virtual no Azure.  Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar. 
+
+Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][].
+
+Para o Python 3.4, você pode instalar o [Microsoft Visual C++ 2010 Express][].
+
+Para criar os discos, você precisará do pacote de discos:
+
+    env\scripts\pip install wheel
+
+Você usará `pip wheel` para compilar uma dependência:
+
+    env\scripts\pip wheel azure==0.8.4
+
+Isso cria um arquivo .whl na pasta \wheelhouse.  Adicione a pasta \wheelhouse e os arquivos de disco a seu repositório.
+
+Edite seu requirements.txt para acrescentar a opção `--find-links` ao topo. Isso instrui o pip a buscar uma correspondência exata na pasta local antes de consultar o índice de pacotes do python.
+
+    --find-links wheelhouse
+    azure==0.8.4
+			
+Se você quiser incluir todas as suas dependências na pasta \wheelhouse e não usar o índice de pacotes do python, você pode forçar o pip a ignorar o índice de pacotes adicionando `--no-index` na parte superior do seu requirements.txt.
+
+    --no-index
+
+### Personalizar a instalação
+
+Você pode personalizar o script de implantação para instalar um pacote no ambiente virtual usando um instalador alternativo, como easy\_install.  Consulte deploy.cmd para obter um exemplo que é comentado.  Certifique-se de que esses pacotes não são listados em requirements.txt, para impedir que o pip os instale.
+
+Adicione isto ao script de implantação:
+
+    env\scripts\easy_install somepackage
+
+Você também poderá usar easy\_install para instalar por meio de um instalador exe (alguns são compatíveis com zip, portanto easy\_install oferece suporte a eles).  Adicione o instalador ao repositório e chame easy\_install, passando o caminho para o executável.
+
+Adicione isto ao script de implantação:
+
+    env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
+
+### Incluir o ambiente virtual no repositório (requer o Windows)
+
+Observação: Ao usar essa opção, certifique-se de usar um ambiente virtual que corresponda à plataforma/arquitetura/versão usadas no site do Azure (Windows/32-bit/2.7 ou 3.4).
+
+Se você incluir o ambiente virtual no repositório poderá, pela criação de um arquivo vazio, impedir que o script de implantação faça o gerenciamento do ambiente virtual no Azure:
+
+    .skipPythonDeployment
+
+É recomendável que você exclua o ambiente virtual existente no site, para impedir que sobrem arquivos de quando o ambiente virtual foi gerenciado automaticamente.
+
+
+[Criar uma máquina Virtual executando Windows]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-windows-tutorial/
+[Compilador do Microsoft Visual C++ para Python 2.7]: http:://aka.ms/vcpython27
+[Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+<!--HONumber=42-->

@@ -10,7 +10,7 @@
 
 2. Clique com o botão direito do mouse em projeto, clique em **Adicionar** e, em seguida, clique em **Classe...**.
 
-3. Nomeie a nova classe vazia `PushRegistrationHandler` e, em seguida, clique em **Adicionar**.
+3. Nomeie a nova classe vazia  `PushRegistrationHandler` e, em seguida, clique em **Adicionar**.
 
 4. Na parte superior da página de código, adicione as seguintes instruções **using**:
 
@@ -77,7 +77,7 @@
         }
     }
 
-O método **Register** é chamado durante o registro. Isso permite que você adicione uma marca ao registro que seja o ID do usuário conectado. As marcas fornecidas são validadas para prevenir que um usuário se registre com um ID de outro usuário. Assim que a notificação for enviada para este usuário, ela é recebida neste e em qualquer outro dispositivo registrado pelo usuário. 
+	O método **Register** é chamado durante o registro. Isso permite que você adicione uma marca ao registro que seja o ID do usuário conectado. As marcas fornecidas são validadas para impedir que um usuário se registre para outra ID de usuário. Quando uma notificação é enviada para esse usuário, ela é recebida por este e qualquer outro dispositivo registrado pelo usuário. 
 
 6. Expanda a pasta Controladores, abra o arquivo de projeto TodoItemController.cs, localize o método **PostTodoItem** e substitua a linha de código que chama o **SendAsync** pelo seguinte código:
 
@@ -90,4 +90,4 @@ O método **Register** é chamado durante o registro. Isso permite que você adi
 7. Publicar novamente o projeto do serviço móvel.
 
 Agora, o serviço usa a marca de ID do usuário para enviar notificações por push (com o texto do item inserido) para todos os registros criados pelo usuário conectado.
-
+ <!--HONumber=42-->

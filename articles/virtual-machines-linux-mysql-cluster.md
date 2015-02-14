@@ -1,6 +1,20 @@
-﻿<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Usando conjuntos de carga balanceada para clusterizar MySQL em Linux" description="Um artigo que ilustra padrões para configurar um cluster Linux de alta disponibilidade com carga balanceada no Azure usando MySQL como exemplo" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Usando conjuntos de carga balanceada para clusterizar MySQL em Linux" 
+	description="Um artigo que ilustra padrões para configurar um cluster Linux de alta disponibilidade e carga balanceada no Azure, utilizando o MySQL como exemplo" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="bureado" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/23/2014" 
+	ms.author="jparrel"/>
 
 # Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
 
@@ -15,7 +29,7 @@
 
 ## Introdução
 
-A finalidade deste artigo é explorar e ilustrar as diferentes abordagens disponíveis para implantar serviços com base em Linux, altamente disponíveis no Microsoft Azure, explorando a alta disponibilidade do MySQL Server como elemento principal. Há um vídeo ilustrando essa abordagem disponível no [Channel 9].(http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
+A finalidade deste artigo é explorar e ilustrar as diferentes abordagens disponíveis para implantar serviços com base em Linux, altamente disponíveis no Microsoft Azure, explorando a alta disponibilidade do MySQL Server como elemento principal. Há um vídeo ilustrando essa abordagem disponível no [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
 Descrevemos uma solução de alta disponibilidade do MySQL de mestre único, dois nós e sem compartilhar nada, com base em DRBD, Corosync e Pacemaker. Apenas um nó executa o MySQL por vez. A leitura e a gravação do recurso DRBD também está limitada a apenas um nó por vez.
 
@@ -46,31 +60,31 @@ Uma nova rede é criada, e uma sub-rede é criada dentro da rede. Escolhemos uma
 
 ### Máquinas virtuais
 
-A primeira VM do Ubuntu 13.10 é criada usando-se uma imagem da Endorsed Ubuntu Gallery e chamada `hadb01`. Um novo serviço de nuvem é criado no processo, chamado hadb. Demos esse nome para ilustrar a natureza compartilhada, de balanceamento de carga, que o serviço terá quando adicionarmos mais recursos. A criação de `hadb01` é tranquila e concluída usando o portal. Um ponto de extremidade para SSH é criado automaticamente e a nossa rede criada é selecionada. Também optamos por criar um novo conjunto de disponibilidade para as VMs.
+A primeira VM do Ubuntu 13.10 é criada usando-se uma imagem da Endorsed Ubuntu Gallery e chamada  `hadb01`. Um novo serviço de nuvem é criado no processo, chamado hadb. Demos esse nome para ilustrar a natureza compartilhada, de balanceamento de carga, que o serviço terá quando adicionarmos mais recursos. A criação de `hadb01` é tranquila e concluída usando o portal. Um ponto de extremidade para SSH é criado automaticamente e a nossa rede criada é selecionada. Também optamos por criar um novo conjunto de disponibilidade para as VMs.
 
-Assim que a primeira VM é criada (tecnicamente, quando o serviço de nuvem é criado), passamos à criação da segunda VM, `hadb02`. Para a segunda VM, também usaremos a VM Ubuntu 13.10 da Gallery usando o Portal, mas optaremos por usar um serviço de nuvem existente, `hadb.cloudapp.net`, em vez de criar uma nova. A rede e o conjunto de disponibilidade devem ser selecionadas automaticamente para nós. Também será criado um ponto de extremidade SSH.
+Assim que a primeira VM é criada (tecnicamente, quando o serviço de nuvem é criado), passamos à criação da segunda VM,  `hadb02`. Para a segunda VM, também usaremos a VM Ubuntu 13.10 da Gallery usando o Portal, mas optaremos por usar um serviço de nuvem existente, `hadb.cloudapp.net`, em vez de criar uma nova. A rede e o conjunto de disponibilidade devem ser selecionadas automaticamente para nós. Também será criado um ponto de extremidade SSH.
 
 Depois que ambas as VMs forem criadas, anotaremos a porta SSH de `hadb01` (TCP 22) e de `hadb02` (atribuída automaticamente pelo Azure)
 
 ### Armazenamento anexado
 
-Anexamos um novo disco a ambas as VMs e criamos novos discos de 5 GB no processo. Os discos serão hospedados no contêiner VHD em uso para os discos do nosso sistema operacional principal. Como os discos são criados e anexados, não há necessidade de reiniciarmos o Linux porque o kernek verá o novo dispositivo (normalmente, `/dev/sdc`; é possível verificar `dmesg` na saída)
+Anexamos um novo disco a ambas as VMs e criamos novos discos de 5 GB no processo. Os discos serão hospedados no contêiner VHD em uso para os discos do nosso sistema operacional principal. Como os discos são criados e anexados, não há necessidade de reiniciarmos o Linux porque o kernek verá o novo dispositivo (normalmente,  `/dev/sdc`; é possível verificar  `dmesg` na saída)
 
-Em cada VM, passamos à criação de uma nova partição usando `cfdisk` (principalmente a partição do Linux) e gravamos a nova tabela de partição. **Não crie um sistema de arquivos nessa partição**.
+Em cada VM, passamos à criação de uma nova partição usando  `cfdisk` (principalmente a partição do Linux) e gravamos a nova tabela de partição. **Não crie um sistema de arquivos nessa partição** .
 
 ## Configurando o cluster
 
-Em ambas as VMs Ubuntu, precisamos usar o APT para instalar Corosync, Pacemaker e DRBD. Usando `apt-get`:
+Em ambas as VMs Ubuntu, precisamos usar o APT para instalar Corosync, Pacemaker e DRBD. Usando  `apt-get`:
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-**Não instale o MySQL neste momento**.Os scripts de instalação do Debian e do Ubuntu inicializarão um diretório de dados em `/var/lib/mysql`, mas como o diretório será substituído por um sistema de arquivos DRBD, precisamos fazer isso depois.
+**Não instale o MySQL neste momento**. Os scripts de instalação do Debian e do Ubuntu inicializarão um diretório de dados em  `/var/lib/mysql`, mas como o diretório será substituído por um sistema de arquivos DRBD, precisamos fazer isso depois.
 
-A esta altura, também devemos verificar (usando `/sbin/ifconfig`) se ambas as VMs estão usando endereços na sub-rede 10.10.10.0/24 e se podem executar ping, uma na outra, pelo nome. Se quiser, você também pode usar `ssh-keygen` e `ssh-copy-id` para verificar se ambas as VMs conseguem se comunicar via SSH sem exigir uma senha.
+A esta altura, também devemos verificar (usando  `/sbin/ifconfig`) se ambas as VMs estão usando endereços na sub-rede 10.10.10.0/24 e se podem executar ping uma na outra, pelo nome. Se quiser, você também pode usar  `ssh-keygen` e  `ssh-copy-id` para verificar se ambas as VMs conseguem se comunicar via SSH sem exigir uma senha.
 
 ### Configurando DRBD
 
-Criaremos um recurso DRBD que usa a partição `/dev/sdc1` subjacente para produzir um recurso `/dev/drbd1` capaz de ser formatado usando ext3 e usado em nós primários e secundários. Para isso, abra `/etc/drbd.d/r0.res` e copie a definição de recurso a seguir. Faça isso em ambas as VMs:
+Criaremos um recurso DRBD que usa a partição  `/dev/sdc1`  subjacente para produzir um recurso `/dev/drbd1` capaz de ser formatado usando ext3 e usado em nós primários e secundários. Para isso, abra  `/etc/drbd.d/r0.res` e copie a definição de recurso a seguir. Faça isso em ambas as VMs:
 
     resource r0 {
       on `hadb01` {
@@ -96,7 +110,7 @@ E, por fim, na propriedade forçada primária (`hadb01`) (principal) do recurso 
 
     sudo drbdadm primary --force r0
 
-Se você examinar os conteúdos de /proc/drbd (`sudo cat /proc/drbd`) em ambas as máquinas virtuais, você deve ver `Primary/Secondary` em `hadb01` e `Secondary/Primary` em `hadb02`, de modo consistente com a solução nesse ponto. O disco de 5 GB será sincronizado na rede 10.10.10.0/24 sem encargos para os clientes.
+Se você examinar o conteúdo de /proc/drbd (`sudo cat /proc/drbd`) em ambas as VMs, você deve ver `primário/secundário` em `hadb01` and `primário/secundário` na `hadb02`,consistente com a solução neste momento. O disco de 5 GB será sincronizado na rede 10.10.10.0/24 sem encargos para os clientes.
 
 Assim que o disco for sincronizado, será possível criar o sistema de arquivos em `hadb01`. Para finalidades de testes, usamos ext2, mas a seguinte instrução criará um sistema de arquivos ext3:
 
@@ -104,7 +118,7 @@ Assim que o disco for sincronizado, será possível criar o sistema de arquivos 
 
 ### Montando o recurso DRBD
 
-Em `hadb01`, agora estamos prontos para montar os recursos DRBD. Debian e derivados usam `/var/lib/mysql` como o diretório de dados do MySQL. Como não instalamos o MySQL, iremos criar o diretório e montar o recurso DRBD. Em `hadb01`:
+Em `hadb01` , agora estamos prontos para montar os recursos DRBD. Debian e derivativos usam `/var/lib/mysql` como o diretório de dados do MySQL. Como não instalamos o MySQL, iremos criar o diretório e montar o recurso DRBD. No `hadb01`:
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
@@ -115,7 +129,7 @@ Agora você está pronto para instalar o MySQL em `hadb01`:
 
     sudo apt-get install mysql-server
 
-Para `hadb02`, você tem duas opções. Você pode instalar o mysql-server, que criará /var/lib/mysql e o preencherá com um novo diretório de dados e, em seguida, passará à remoção do conteúdo. Em `hadb02`:
+Você tem duas opções para `hadb02`. Você pode instalar o mysql-server, que criará /var/lib/mysql e o preencherá com um novo diretório de dados e, em seguida, passará à remoção do conteúdo. No `hadb02`:
 
     sudo apt-get install mysql-server
     sudo service mysql stop
@@ -123,11 +137,11 @@ Para `hadb02`, você tem duas opções. Você pode instalar o mysql-server, que 
 
 A segunda opção é de failover para `hadb02` e instalar lá o mysql-server (os scripts de instalação perceberão a instalação existente e não tocarão nela)
 
-Em `hadb01`:
+No `hadb01`:
 
     sudo drbdadm secondary -force r0
 
-Em `hadb02`:
+No `hadb02`:
 
     sudo drbdadm primary -force r0
     sudo apt-get install mysql-server
@@ -140,15 +154,15 @@ Se não pretende usar failover no DRBD agora, a primeira opção é mais fácil,
     INSERT INTO things VALUES (1, "Yet another entity");
     GRANT ALL ON things.\* TO root;
 
-**Aviso**: a última instrução desabilita efetivamente a autenticação para o usuário raiz nessa tabela.Ela deve ser substituída pelas instruções GRANT de nível de produção e só é incluída para fins de ilustração.
+**Aviso**: a última instrução desabilita efetivamente a autenticação para o usuário raiz nessa tabela. Ela deve ser substituída pelas instruções GRANT de nível de produção e só é incluída para fins de ilustração.
 
-Você também precisa habilitar a rede para MySQL caso queira fazer consultas externas às VMs, que é a finalidade deste guia. Em ambas as máquinas virtuais, abra `/etc/mysql/my.cnf` e navegue para `bind-address`, alterando-o de 127.0.0.1 para 0.0.0.0. Depois de salvar o arquivo, emita um `sudo service mysql restart` no primário atual.
+Você também precisa habilitar a rede para MySQL caso queira fazer consultas externas às VMs, que é a finalidade deste guia. Em ambas as VMs, abra `/etc/mysql/my.cnf` e navegue até `endereço de ligação`, altere-os de 127.0.0.1 para 0.0.0.0.  Depois de salvar o arquivo, emita um  `sudo service mysql restart` no primário atual.
 
 ### Criando o conjunto de balanceamento de carga do MySQL
 
-Retornaremos ao Portal do Azure e navegaremos até a VM `hadb01` e, em seguida, aos pontos de extremidade. Iremos criar um novo ponto de extremidade, escolher MySQL (TCP 3306) no menu suspenso e marcar na caixa *Criar novo conjunto de balanceamento de carga*. Chamaremos nosso ponto de extremidade de balanceamento de carga `lb-mysql`. Deixaremos a maioria das opções sozinha, exceto o tempo, que reduziremos para 5 (segundos, o mínimo)
+Retornaremos ao Portal do Azure e navegaremos até a VM `hadb01` e, em seguida, aos pontos de extremidade. Iremos criar um novo ponto de extremidade, escolher MySQL (TCP 3306) no menu suspenso e marcar na caixa  *Criar novo conjunto de balanceamento de carga*. Chamaremos nosso ponto de extremidade de balanceamento de carga  `lb-mysql`. Deixaremos a maioria das opções sozinha, exceto o tempo, que reduziremos para 5 (segundos, o mínimo)
 
-Depois que o ponto de extremidade é criado, vamos até `hadb02`, Pontos de extremidade, e criemos um novo ponto de extremidade, mas escolheremos `lb-mysql` e selecionaremos MySQL no menu suspenso. Também é possível usar a CLI do Azure nesta etapa.
+Depois que o ponto de extremidade é criado, vamos até `hadb02`, Pontos de extremidade, e criaremos um novo ponto de extremidade, mas escolheremos `lb-mysql` e selecionaremos MySQL no menu suspenso. Também é possível usar a CLI do Azure nesta etapa.
 
 No momento, temos tudo o que precisamos para uma operação manual do cluster.
 
@@ -178,11 +192,11 @@ Corosync é a infraestrutura de cluster subjacente necessária ao funcionamento 
 
 A restrição principal do Corosync no Azure é que o Corosync prefere comunicação multicast via broadcast via unicast, mas a rede do Microsoft Azure só é compatível com unicast.
 
-Felizmente, o Corosync tem um modo unicast funcional, a única restrição real é que, como todos os nós não estão se comunicando entre si *automaticamente*, você precisa definir os nós em arquivos de configuração, inclusive seus endereços IP. Podemos usar os arquivos de exemplo do Corosync para unicast e apenas alterar o endereço de associação, as listas de nós e o diretório do registro em log (o Ubuntu usa `/var/log/corosync` e os arquivos de exemplo usam `/var/log/cluster`), além de habilitar as ferramentas de quorum. 
+Felizmente, o Corosync tem um modo unicast funcional, a única restrição real é que, como todos os nós não estão se comunicando entre si  *automaticamente*, você precisa definir os nós em arquivos de configuração, inclusive seus endereços IP. Podemos usar os arquivos de exemplo do Corosync para unicast e apenas alterar o endereço de associação, as listas de nós e o diretório do registro em log (o Ubuntu usa  `/var/log/corosync` e os arquivos de exemplo usam  `/var/log/cluster`), além de habilitar as ferramentas de quorum. 
 
-**A diretiva de `transport: udpu` abaixo e os endereços IP definidos manualmente para os nós**.
+**Observe a diretiva de `transport: udpu` abaixo e os endereços IP definidos manualmente para os nós**.
 
-Em `/etc/corosync/corosync.conf` para ambos os nós:
+Em  `/etc/corosync/corosync.conf` para ambos os nós:
 
     totem {
       version: 2
@@ -251,7 +265,7 @@ Ao instalar o Pacemaker pela primeira vez, a configuração deve ser bem simples
     node $id="2" hadb02
       attributes standby="off"
 
-Verifique-o executando `sudo crm configure show`. Agora, crie um arquivo (digamos, `/tmp/cluster.conf`) com os seguintes recursos:
+Verifique-o executando `sudo crm configure show`. Agora crie um arquivo (digamos,  `/tmp/cluster.conf`) com os seguintes recursos:
 
     primitive drbd_mysql ocf:linbit:drbd \
           params drbd_resource="r0" \
@@ -292,9 +306,9 @@ Além disso, verifique se o Pacemaker é iniciado durante a inicialização em a
 
     sudo update-rc.d pacemaker defaults
 
-Depois de alguns segundos, e usando `sudo crm_mon -L`, verifique se um dos nós se tornou o mestre do cluster e está executando todos os recursos. Você pode usar montar e verificar se os recursos estão em execução.
+Depois de alguns segundos, e usando  `sudo crm_mon -L`, verifique se um dos nós se tornou o mestre do cluster e está executando todos os recursos. Você pode usar montar e verificar se os recursos estão em execução.
 
-A captura de tela a seguir mostra `crm_mon` com um nó parado (saia usando Control-C)
+A captura de tela a seguir mostra  `crm_mon` com um nó parado (saia usando Control-C)
 
 ![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
@@ -310,7 +324,7 @@ A maneira difícil é desligando a VM primária (hadb01) por meio do Portal ou a
 
 ## STONITH
 
-Deve ser possível emitir um desligamento da VM por meio das ferramentas de linha de comando do Azure para Linux em lugar de um script STONITH que controla um dispositivo físico. É possível usar `/usr/lib/stonith/plugins/external/ssh` como base e habilita STONITH na configuração do cluster. A CLI do Azure deve estar instalada globalmente e as configurações/perfil de publicação devem ser carregadas para o usuário do cluster.
+Deve ser possível emitir um desligamento da VM por meio das ferramentas de linha de comando do Azure para Linux em lugar de um script STONITH que controla um dispositivo físico. É possível usar  `/usr/lib/stonith/plugins/external/ssh` como base e habilitar STONITH na configuração do cluster. A CLI do Azure deve estar instalada globalmente e as configurações/perfil de publicação devem ser carregadas para o usuário do cluster.
 
 Código de exemplo para o recurso disponível em [GitHub](https://github.com/bureado/aztonith). Você precisa alterar a configuração do cluster adicionando o seguinte a `sudo crm configure`:
 
@@ -320,17 +334,16 @@ Código de exemplo para o recurso disponível em [GitHub](https://github.com/bur
       property stonith-enabled=true \
       commit
 
-**Observação:** O script não realiza verificações ligado/desligado.O recurso SSH original apresentava 15 verificações de ping, mas o tempo de recuperação de uma VM do Azure pode ser mais variável.
+**Observação:** O script não realiza verificações ligado/desligado. O recurso SSH original apresentava 15 verificações de ping, mas o tempo de recuperação de uma VM do Azure pode ser mais variável.
 
 ## Limitações
 
 As seguintes limitações se aplicam:
 
-- O script do recurso DRBD linbit que gerencia DRBD como um recurso no Pacemaker usa `drbdadm down` durante a desativação de um nó, mesmo que o nó esteja apenas em modo de espera. Isso não é o ideal, pois o escravo não sincronizará o recurso DRBD enquanto o mestre receber gravações. Se o mestre não falhar, o escravo poderá assumir um estado do sistema de arquivos mais antigo. Existem duas maneiras em potencial de resolver isso:
+- O script do recurso DRBD linbit que gerencia DRBD como um recurso no Pacemaker usa  `drbdadm down` durante a desativação de um nó, mesmo que o nó esteja apenas em modo de espera. Isso não é o ideal, pois o escravo não sincronizará o recurso DRBD enquanto o mestre receber gravações. Se o mestre não falhar, o escravo poderá assumir um estado do sistema de arquivos mais antigo. Existem duas maneiras em potencial de resolver isso:
   - Impondo um `drbdadm up r0` a todos os nós de cluster por meio de um watchdog local (não clusterizado) ou
-  - Editando o script DRBD linbit garantindo que `down` não seja chamado, em `/usr/lib/ocf/resource.d/linbit/drbd`.
+  - Editando o linbit DRBD script certificando-se de que `para baixo` não é chamado, em `/usr/lib/ocf/resource.d/linbit/drbd`.
 - Como o balanceador de carga precisa de pelo menos 5 segundos para responder, os aplicativos devem reconhecer o cluster e ser mais tolerantes ao tempo limite. Outras características também podem ajudar, por exemplo, filas em aplicativo, middleware de consulta, etc.
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

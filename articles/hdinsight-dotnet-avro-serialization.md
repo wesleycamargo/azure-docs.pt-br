@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serializar dados com a Biblioteca do Microsoft Avro | Azure" metaKeywords="" description="Saiba como o Azure HDInsight usa o Avro para serializar big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft Avro Library " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Serializar dados com a Biblioteca do Microsoft Avro | Azure" 
+	description="Saiba como o Azure HDInsight usa o Avro para serializar big data." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 # Serializar dados com a Biblioteca do Microsoft Avro
@@ -32,7 +46,7 @@ O formato de serialização Apache Avro é amplamente usado no Azure HDInsight e
 A Biblioteca do Microsoft .NET para Avro dá suporte a dois modos de serialização de objetos:
 
 - **reflexão**: o esquema JSON dos tipos é criado automaticamente com base nos atributos do contrato de dados dos tipos .NET a serem serializados. 
-- **registro genérico**: Um esquema JSON é especificado explicitamente em um registro representado pela classe [**AvroRecord**].(http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.avrorecord.aspx) quando nenhum tipo .NET está presente para descrever o esquema para os dados a serem serializados. 
+- **registro genérico**: um esquema JSON é especificado explicitamente em um registro representado pela classe [**AvroRecord**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.avrorecord.aspx) quando nenhum tipo .NET estiver presente para descrever o esquema dos dados a serem serializados. 
 
 Quando o esquema de dados é conhecido tanto pelo gravador quanto pelo leitor do fluxo, os dados podem ser enviados sem o seu esquema. Em casos em que um arquivo contêiner de objetos do Avro é usado, o esquema é armazenado dentro do arquivo. Outros parâmetros podem ser especificados, como o codec usado para compressão dos dados. Esses cenários são descritos com mais detalhes e ilustrados nos exemplos de código abaixo.
 
@@ -52,7 +66,7 @@ A Biblioteca do Microsoft Avro é distribuída como um Pacote NuGet, o qual pode
 
 Observe que a dependência Newtonsoft.Json.dll (>=6.0.4) também é baixada automaticamente com a Biblioteca do Microsoft Avro.
 
-Você pode desejar visitar a <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page da Biblioteca do Microsoft Avro</a> para ler as Notas de versão atuais
+Você pode desejar visitar a <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page da Biblioteca do Microsoft Avro</a> para ler as Notas de versão atuais.
  
 ##<a name="sourceCode"></a>Código-fonte da Biblioteca do Microsoft Avro
 
@@ -106,7 +120,7 @@ Aqui estão os links aos seis exemplos abordados neste tópico:
 
 <h3> <a name="Scenario1"></a>Exemplo 1: Serialização com reflexão</h3>
  
-O esquema JSON dos tipos pode ser compilado automaticamente pela Biblioteca do Microsoft Avro usando reflexão com base nos atributos do contrato de dados dos objetos C# a serem serializados. A Biblioteca do Microsoft Avro cria um [**IAvroSeralizer<T>**](http://msdn.microsoft.com/pt-br/library/dn627341.aspx) para identificar os campos a serem serializados.
+O esquema JSON dos tipos pode ser compilado automaticamente pela Biblioteca do Microsoft Avro usando reflexão com base nos atributos do contrato de dados dos objetos C# a serem serializados. A Biblioteca Avro Microsoft cria um [**IAvroSeralizer<T>**](http://msdn.microsoft.com/pt-br/library/dn627341.aspx) para identificar os campos a serem serializados.
 
 Neste exemplo, os objetos (uma classe **SensorData** com uma estrutura-membro **Local**) são serializados para um fluxo de memória que, por sua vez, é desserializado. Em seguida, o resultado é comparado à instância inicial para confirmar que o objeto **SensorData** recuperado é idêntico ao original.
 
@@ -233,7 +247,7 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
 
 Um esquema JSON pode ser especificado explicitamente em um registro genérico quando a reflexão não pode ser usada, pois os dados não podem ser representados usando classes .NET com um contrato de dados. Este método é geralmente mais lento do que usar reflexão. Nesses casos, o esquema para os dados também pode ser dinâmico, ou seja, ele não é conhecido até o momento da compilação. Os dados representados como arquivos CSV (valores separados por vírgulas), cujo esquema seja desconhecido até ser transformado no formato Avro em tempo de execução, são exemplos desse tipo de cenário dinâmico.
 
-Este exemplo mostra como criar e usar um [**AvroRecord**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.avrorecord.aspx) para especificar explicitamente um esquema JSON, como preenchê-lo com dados para serializá-lo e desserializá-lo. Em seguida, o resultado é comparado à instância inicial para confirmar que o registro recuperado é idêntico ao original.
+Este exemplo mostra como criar e usar um [**AvroRecord**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.avrorecord.aspx) para especificar explicitamente um esquema JSON, como preenchê-lo com dados para, depois, serializá-lo e desserializá-lo. Em seguida, o resultado é comparado à instância inicial para confirmar que o registro recuperado é idêntico ao original.
 
 Presume-se que o esquema neste exemplo é compartilhado entre os leitores e gravadores, portanto, o formato do contêiner de objetos do Avro não é exigido. Para um exemplo de como serializar e desserializar dados em buffers de memória usando um registro genérico com o formato de contêiner de objeto quando o esquema precisa ser incluído com os dados serializados, consulte o exemplo <a href="#Scenario4">Serialização usando arquivos contêiner de objetos com registro genérico</a> genérico.
 
@@ -355,9 +369,9 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
 
 <h3> <a name="Scenario3"></a>Exemplo 3: Serialização usando arquivos contêiner de objetos e serialização com reflexão</h3>
 
-Este exemplo é semelhante ao cenário do <a href="#Scenario1"> primeiro exemplo,</a> no qual o esquema é especificado implicitamente com reflexão, exceto pelo fato de que aqui, não se presume que o esquema seja conhecido pelo leitor que o desserializa. Os objetos **SensorData** a serem serializados e seu esquema especificado implicitamente são armazenados em um arquivo contêiner de objetos representado pela classe [**AvroContainer**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.container.avrocontainer.aspx) . 
+Este exemplo é semelhante ao cenário do <a href="#Scenario1"> primeiro exemplo,</a> no qual o esquema é especificado implicitamente com reflexão, exceto pelo fato de que aqui, não se presume que o esquema seja conhecido pelo leitor que o desserializa. Os objetos **SensorData** a serem serializados e seu esquema especificado implicitamente são armazenados em um arquivo contêiner de objetos Avro representado pela classe [**AvroContainer**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.container.avrocontainer.aspx). 
 
-O dados são serializados neste exemplo com [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/pt-br/library/dn627340.aspx) e desserializados com [**SequentialReader<SensorData>**](http://msdn.microsoft.com/pt-br/library/dn627340.aspx). Em seguida, o resultado é comparado com as instâncias iniciais para garantir a identidade.
+Os dados neste exemplo são serializados com o [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/pt-br/library/dn627340.aspx) e desserializados com o [**SequentialReader<SensorData>**](http://msdn.microsoft.com/pt-br/library/dn627340.aspx). Em seguida, o resultado é comparado com as instâncias iniciais para garantir a identidade.
 
 Os dados no arquivo contêiner de objetos são compactados usando o codec de compactação padrão [**Deflate**][deflate-100] do .NET Framework 4.0. Consulte o <a href="#Scenario5"> quinto exemplo</a> neste tópico para aprender como usar uma versão mais recente e superior do codec de compactação [**Deflate**][deflate-110], disponível no .NET Framework 4.5.
 
@@ -597,9 +611,9 @@ Os dados no arquivo contêiner de objetos são compactados usando o codec de com
 
 Este exemplo é semelhante ao cenário do <a href="#Scenario2"> segundo exemplo,</a> no qual o esquema é especificado explicitamente com o JSON, exceto pelo fato de que aqui, não se presume que o esquema seja conhecido pelo leitor que o desserializa. 
 
-O conjunto de dados de teste é coletado na lista de objetos [**AvroRecord**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.avrorecord.aspx)  usando um esquema JSON especificado explicitamente e armazenado em um arquivo contêiner de objetos representado pela classe [**AvroContainer**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.container.avrocontainer.aspx) . Esse arquivo contêiner cria um gravador usado para serializar os dados descompactados em um fluxo de memória que é salvo em um arquivo. É usado o parâmetro [**Codex.Null**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.container.codec.null.aspx) ao criar o leitor que especifica que esses dados não serão compactados. 
+O conjunto de dados para teste é coletado em uma lista de objetos [**AvroRecord**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.avrorecord.aspx) usando um esquema JSON definido explicitamente e, depois, armazenado em um arquivo contêiner de objetos representado pela classe [**AvroContainer**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.container.avrocontainer.aspx). Esse arquivo contêiner cria um gravador usado para serializar os dados descompactados em um fluxo de memória que é salvo em um arquivo. O parâmetro [**Codex.Null**](http://msdn.microsoft.com/pt-br/library/microsoft.hadoop.avro.container.codec.null.aspx) é usado ao criar o leitor que especifica que esses dados não serão compactados. 
 
-Em seguida, os dados são lidos no arquivo e desserializados em uma coleção de objetos. Essa coleção é comparada à lista inicial de registros do Avro para confirmar que são idênticos.
+Em seguida, os dados são lidos a partir do arquivo e desserializados em uma coleção de objetos. Essa coleção é comparada à lista inicial de registros do Avro para confirmar que são idênticos.
 
 
     namespace Microsoft.Hadoop.Avro.Sample
@@ -858,9 +872,9 @@ Em seguida, os dados são lidos no arquivo e desserializados em uma coleção de
 
 <h3> <a name="Scenario5"></a>Exemplo 5: Serialização usando arquivos contêiner de objetos com um codec de compactação personalizado</h3>
 
-O quinto exemplo mostra como usar um codec de compactação personalizado para arquivos contêiner de objetos do Avro. Uma amostra contendo o código para esse exemplo pode ser baixada no site [Exemplos de código do](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) Azure.
+O quinto exemplo mostra como usar um codec de compactação personalizado para arquivos contêiner de objetos do Avro. Uma amostra contendo o código para esse exemplo pode ser baixada no site  [Exemplos de código do Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111).
 
-A [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite o uso de um codec de compactação opcional (além dos padrões **Null** e **Deflate**). Este exemplo não implementa um codec totalmente novo como o Snappy (mencionado como um codec opcional com suporte na [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar a implementação do .NET Framework 4.5 do codec [**Deflate**][deflate-110], o qual fornece um algoritmo de compactação baseado na biblioteca de compactação [zlib](http://zlib.net/) melhor do que a versão padrão do .NET Framework 4.0.
+A [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite o uso de um codec de compactação opcional (além dos padrões **Null** e **Deflate**). Este exemplo não implementa um codec totalmente novo como o Snappy (mencionado como um codec opcional com suporte na [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar a implementação do .NET Framework 4.5  do codec [**Deflate**][deflate-110], a qual oferece um algoritmo de compactação baseado na biblioteca de compactação [zlib](http://zlib.net/) melhor que a versão padrão do .NET Framework 4.0.
 
 
     // 
@@ -1355,12 +1369,12 @@ A [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#Requir
 
 <h3> <a name="Scenario6"></a> Exemplo 6: Usando o Avro para carregar dados para o serviço Microsoft Azure HDInsight</h3>
 
-O sexto exemplo ilustra algumas técnicas de programação relacionadas à interação com o serviço Microsoft Azure HDInsight. Uma amostra contendo o código para esse exemplo pode ser baixada no site [Exemplos de código do](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) Azure.
+O sexto exemplo ilustra algumas técnicas de programação relacionadas à interação com o serviço Microsoft Azure HDInsight. Uma amostra contendo o código para esse exemplo pode ser baixada no site [Exemplos de código do Azure](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3).
 
 O exemplo a seguir faz o seguinte:
 
 * Conecta-se a um cluster de serviço do HDInsight existente.
-* Serializa diversos arquivos CSV e carrega o resultado na Armazenamento de Blob do Azure. Os arquivos CSV são distribuídos juntos com o exemplo e representam amostras de dados históricos da Bolsa de Valores AMEX distribuídos pela [Infochimps](http://www.infochimps.com/) para o período de 1970 a 2010. O exemplo lê os dados dos arquivos CSV, converte os registros em instâncias da classe de **ações** e os serializa usando reflexão.A definição do tipo de ação é criada com base na esquema JSON usando o utilitário de geração de código da Biblioteca do Microsoft Avro.
+* Serializa diversos arquivos CSV e carrega o resultado na Armazenamento de Blob do Azure. Os arquivos CSV são distribuídos juntos com o exemplo e representam amostras de dados históricos da Bolsa de Valores AMEX distribuídos pela [Infochimps](http://www.infochimps.com/) para o período de 1970-2010. O exemplo lê os dados dos arquivos CSV, converte os registros em instâncias da classe de **Ações** e os serializa usando reflexão. A definição do tipo de ação é criada com base na esquema JSON usando o utilitário de geração de código da Biblioteca do Microsoft Avro.
 * Cria uma nova tabela externa chamada **Ações** no Hive a vincula aos dados carregados na etapa anterior.
 * Executa uma consulta usando o Hive na tabela **Ações**.
 
@@ -1378,7 +1392,7 @@ Todas as informações dos pré-requisitos devem ser inseridas no arquivo de con
 * Editar o arquivo app.config no diretório raiz do exemplo e compilar o exemplo ou 
 * Primeiro compilar o exemplo e editar o AvroHDISample.exe.config no diretório de compilação 
 
-Em ambos os casos, todas as edições devem ser realizadas na seção de configurações **<appSettings>**.Siga os comentários no arquivo.
+Em ambos os casos, todas as edições devem ser realizadas na seção de configurações **<appSettings>**. Siga os comentários no arquivo.
 O exemplo é executado na linha de comando ao realizar o seguinte comando (em que se pressupôs que o arquivo ZIP com o exemplo foi extraído para C:\AvroHDISample; caso contrário, use o caminho de arquivo relevante).
 
     AvroHDISample run C:\AvroHDISample\Data
@@ -1394,5 +1408,4 @@ Para realizar a limpeza do cluster, execute o seguinte comando:
 [deflate-110]: http://msdn.microsoft.com/pt-br/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

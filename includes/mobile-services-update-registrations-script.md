@@ -1,6 +1,6 @@
 ﻿
 
-1. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida, clique na tabela **Registro**. 
+1. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida, clique na tabela **Registros**. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
@@ -8,7 +8,7 @@
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-Isso exibirá a função invocada quando ocorrer uma inserção na tabela **Registros**.
+	Isso exibe a função que é chamada quando ocorre uma inserção na tabela **Registros**.
 
 3. Substitua a função de inserção pelo seguinte código e clique em **Salvar**:
 
@@ -28,3 +28,4 @@ Isso exibirá a função invocada quando ocorrer uma inserção na tabela **Regi
 
    Isso registra um novo script de inserção, que armazena as informações de registro na nova tabela.
 
+<!--HONumber=42-->

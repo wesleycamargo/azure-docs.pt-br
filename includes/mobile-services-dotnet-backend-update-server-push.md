@@ -1,5 +1,5 @@
 ﻿
-1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controllers** no projeto de serviço móvel. Abra TodoItemController.cs e atualize a definição do método `PostTodoItem` pelo seguinte código:  
+1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controllers** no projeto de serviço móvel. Abra TodoItemController.cs e atualize a definição do método  `PostTodoItem` pelo seguinte código:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -28,8 +28,9 @@
 
     Esse código envia uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada de log de erros que pode ser visualizada na guia **Logs** do serviço móvel no Portal de Gerenciamento.
 
-	>[WACOM.NOTE] Você pode usar notificações de modelo para enviar uma única notificação por push para os clientes em várias múltiplas. Para obter mais informações, consulte [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel](/pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service/#push).
+	>[AZURE.NOTE]  Você pode usar notificações de modelo para enviar uma única notificação por push para os clientes em várias múltiplas. Para obter mais informações, consulte [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel].(/pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service/#push).
 
 2. Republique o projeto de serviço móvel no Azure.
 
 
+<!--HONumber=42-->

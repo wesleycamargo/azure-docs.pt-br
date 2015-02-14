@@ -1,7 +1,7 @@
 ﻿
 ##<a name="add-select-images"></a>Atualizar o aplicativo cliente quickstart para capturar e carregar imagens
 
-Nesta seção, você atualizará o projeto do tutorial [Introdução aos Serviços Móveis] para tirar fotos e carregá-las no Armazenamento de Blob do Azure. Para capturar a imagem, este tutorial usa a [CameraCaptureTask] do namespace `Microsoft.Phone.Tasks`. Essa classe inicia a câmera da interface do usuário no dispositivo Windows Phone para capturar a foto e salva a imagem automaticamente no Álbum da Câmera no dispositivo Windows Phone. Se não desejar que as imagens sejam salvas no Álbum da Câmera, use a classe [PhotoCamera] no namespace `Microsoft.Devices`.
+Nesta seção, você atualizará o projeto do tutorial [Introdução aos Serviços Móveis] para tirar fotos e carregá-las no Armazenamento de Blob do Azure. Para capturar a imagem, este tutorial usa a [CameraCaptureTask] do namespace  `Microsoft.Phone.Tasks`. Essa classe inicia a câmera da interface do usuário no dispositivo Windows Phone para capturar a foto e salva a imagem automaticamente no Álbum da Câmera no dispositivo Windows Phone. Se não desejar que as imagens sejam salvas no Álbum da Câmera, use a classe [PhotoCamera] no namespace  `Microsoft.Devices`.
 
 1. No Gerenciador de Soluções para Visual Studio, sob o projeto, expanda **Propriedades**. Em seguida, abra o arquivo WMAppManifest.xml e, na guia **Recursos**, habilite a câmera clicando em **ID\_CAP\_ISV\_CAMERA**. Feche o arquivo para salvar as alterações.
 
@@ -44,7 +44,7 @@ Nesta seção, você atualizará o projeto do tutorial [Introdução aos Serviç
         </Grid>
 
 
-   	Isso adiciona um novo botão para iniciar a [CameraCaptureTask] e define uma imagem como o **ItemTemplate** e define sua origem de associação como a URI da imagem carregada no serviço de Armazenamento de Blob.
+   	Isso adiciona um novo botão para iniciar a [CameraCaptureTask] e define uma imagem como o **ItemTemplate** e define sua origem de associação como o URI da imagem carregada no serviço de Armazenamento de Blob.
 
 3. Abra o arquivo de projeto MainPage.xaml.cs e adicione o seguinte **usando** as instruções:
 	
@@ -99,7 +99,7 @@ Nesta seção, você atualizará o projeto do tutorial [Introdução aos Serviç
         }
 
 
-8. No arquivo de projeto MainPage.xaml.cs, atualize a classe MainPage. Substitua o método `InsertTodoItem` existente por este código:
+8. No arquivo de projeto MainPage.xaml.cs, atualize a classe MainPage. Substitua o método  `InsertTodoItem` existente por este código:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -146,7 +146,7 @@ Nesta seção, você atualizará o projeto do tutorial [Introdução aos Serviç
         }
 
 
-	Esse código envia uma solicitação para o serviço móvel para inserir um novo TodoItem, incluindo o nome do arquivo de imagem. A resposta contém a SAS, que será usada para inserir a imagem no armazenamento de Blob, e a URI da imagem para vinculação de dados.
+	Esse código envia uma solicitação para o serviço móvel para inserir um novo TodoItem, incluindo o nome do arquivo de imagem. A resposta contém a SAS, que será usada para inserir a imagem no armazenamento de Blob, e o URI da imagem para vinculação de dados.
 
 A etapa final consiste em testar o aplicativo e validar que os carregamentos sejam bem-sucedidos.
 		
@@ -176,9 +176,10 @@ A etapa final consiste em testar o aplicativo e validar que os carregamentos sej
 
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
-   >[WACOM.NOTE]A imagem será baixada automaticamente do serviço de Armazenamento de Blob quando a propriedade <code>imageUri</code> do novo item estiver vinculada ao controle <strong>Image</strong>.
+   >[AZURE.NOTE]A imagem é baixada automaticamente do serviço de Armazenamento de Blob quando a propriedade <code>imageUri</code> do novo item está vinculado ao controle <strong>Imagem</strong>.
 
 
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
 [CameraCaptureTask]: http://msdn.microsoft.com/pt-br/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/pt-br/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+<!--HONumber=42-->

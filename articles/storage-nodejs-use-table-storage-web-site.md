@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with Storage" pageTitle="Site do Node.js com armazenamento de tabela | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="Um tutorial que ensina a usar o serviço Tabela do Azure para armazenar dados de um aplicativo de nó hospedado em um site do Azure." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Site do Node.js com armazenamento de tabela | Microsoft Azure" 
+	description="Um tutorial que ensina a usar o serviço Tabela do Azure para armazenar dados de um aplicativo de nó hospedado em um site do Azure." 
+	services="web-sites, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -8,7 +22,7 @@
 
 # Aplicativo Web Node.js que usa o Serviço Tabela do Azure
 
-Este tutorial mostra como usar o serviço Tabela fornecido pelo Gerenciamento de Dados do Azure para armazenar e acessar dados em um aplicativo de [nó] hospedado no Azure. Este tutorial pressupõe que você tenha alguma experiência anterior usando nó e [Git].
+Este tutorial mostra como usar o serviço de Tabela fornecido pelo Gerenciamento de Dados do Azure para armazenar e acessar dados em um aplicativo de [nó] hospedado no Azure. Este tutorial pressupõe que você tenha alguma experiência anterior usando nó e [Git].
 
 Você aprenderá:
 
@@ -19,20 +33,20 @@ Você aprenderá:
 * Como usar a ferramenta de linha de comando do Azure para Mac e Linux para criar um site do Azure
 
 Seguindo este tutorial, você criará um aplicativo simples de gerenciamento de tarefas baseado na web que permite criar, recuperar e concluir tarefas. As tarefas são armazenadas no serviço Tabela.
- 
+
 Os arquivos do projeto deste tutorial serão armazenados em um diretório chamado **tasklist**, e o aplicativo completo terá um aspecto semelhante ao seguinte:
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-> [WACOM.NOTE] Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais.Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\node\tasklist**.
+> [AZURE.NOTE] Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\node\tasklist**.
 
-> [WACOM.NOTE] Muitas das etapas abaixo mencionam o uso da linha de comando. Para essas etapas, use a linha de comando de seu sistema operacional, como **cmd.exe** (Windows) ou **Bash** (Unix Shell).Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo Terminal.
+> [AZURE.NOTE] Muitas das etapas abaixo mencionam o uso da linha de comando. Para essas etapas, use a linha de comando de seu sistema operacional, como **cmd.exe** (Windows) ou **Bash** (Unix Shell). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo Terminal.
 
 ##Pré-requisitos
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
-* [node] versão 0.10.24 ou superior
+* Versão do [nó] 0.10.24 ou superior
 
 * [Git]
 
@@ -40,13 +54,13 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 * Um navegador da Web
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Criar uma conta de armazenamento
 
 Você pode criar uma conta de armazenamento seguindo essas etapas. Essa conta será usada em instruções subsequentes neste tutorial.
 
-1. Abra seu navegador da Web e vá ate o [Portal do Azure].Se solicitado, faça logon com as informações de assinatura do Azure.
+1. Abra seu navegador e vá ate o [Portal do Azure]. Se solicitado, faça logon com as informações de assinatura do Azure.
 
 2. Clique em **+ NOVO** na parte inferior da página e selecione **Conta de Armazenamento**.
 
@@ -54,19 +68,19 @@ Você pode criar uma conta de armazenamento seguindo essas etapas. Essa conta se
 
 	![storage account][portal-storage-account]
 
-3. Selecione **Criação Rápida** e depois insira a URL e Região/Afinidade para esta conta de armazenamento. Já que esse é um tutorial e não precisa ser replicado globalmente, desmarque **Habilitar Replicação Geográfica**.Por fim, clique em "Criar Conta de Armazenamento".
+3. Selecione **Criação Rápida** e depois insira a URL e Região/Afinidade para esta conta de armazenamento. Já que esse é um tutorial e não precisa ser replicado globalmente, desmarque **Habilitar Replicação Geográfica**. Por fim, clique em "Criar Conta de Armazenamento".
 
 	![quick create][portal-quick-create-storage]
 
 	Anote a URL que você digitar, pois ela será referenciada como o nome da conta, em etapas posteriores.
 
-4. Depois que a conta de armazenamento tiver sido criada, clique em **Gerenciar chaves** na parte inferior da página. Isso exibirá as teclas de acesso primário e secundário para esta conta de armazenamento.Copie e salve a chave de acesso primário e clique na marca de seleção.
+4. Depois que a conta de armazenamento tiver sido criada, clique em **Gerenciar chaves** na parte inferior da página. Isso exibirá as teclas de acesso primário e secundário para esta conta de armazenamento. Copie e salve a chave de acesso primário e clique na marca de seleção.
 
 	![access keys][portal-storage-access-keys]
 
 ##Instalar módulos e gerar scaffolding
 
-Nesta seção você criará um novo aplicativo de nó e usará o npm para adicionar pacotes de módulo. Para o aplicativo da lista de tarefas, você usará os módulos [Express] e [Azure].O módulo Express fornece uma estrutura de Controlador da Exibição do Modelo para o nó, enquanto que os módulos do Azure fornecem a conectividade ao serviço Tabela.
+Nesta seção você criará um novo aplicativo de nó e usará o npm para adicionar pacotes de módulo. Para o aplicativo da lista de tarefas, você usará os módulos [Express] e [Azure]. O módulo Express fornece uma estrutura de Controlador da Exibição do Modelo para o nó, enquanto que os módulos do Azure fornecem a conectividade ao serviço Tabela.
 
 ###Instalar o express e gerar scaffolding
 
@@ -76,7 +90,7 @@ Nesta seção você criará um novo aplicativo de nó e usará o npm para adicio
 
 		npm install express-generator@4.2.0 -g
 
-    > [WACOM.NOTE] Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de **Erro: EPERM, chmod '/usr/local/bin/express'** e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando **sudo** para executar o npm com um nível de privilégio mais elevado.
+    > [AZURE.NOTE] Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de **Erro: EPERM, chmod '/usr/local/bin/express'** e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando **sudo** para executar o npm com um nível de privilégio mais elevado.
 
     A saída desse comando deve ser semelhante ao seguinte:
 
@@ -84,7 +98,7 @@ Nesta seção você criará um novo aplicativo de nó e usará o npm para adicio
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [WACOM.NOTE] O parâmetro '-g' usado durante a instalação do módulo expresso o instala globalmente. Isso é feito para que possamos acessar o comando **express** para gerar o scaffolding do site sem precisar digitar informações adicionais de caminho.**
+	> [AZURE.NOTE] O parâmetro '-g' usado durante a instalação do módulo expresso o instala globalmente. Isso é feito para que possamos acessar o comando **express** para gerar o scaffolding do site sem precisar digitar informações adicionais de caminho.**
 
 4. Para criar o scaffolding que será usado para esse aplicativo, use o comando **express**:
 
@@ -120,7 +134,7 @@ Nesta seção você criará um novo aplicativo de nó e usará o npm para adicio
 
 ###Instalar módulos adicionais
 
-O arquivo **package.json** está localizado em um dos arquivos criados pelo comando **express**. Este arquivo contém uma lista dos módulos adicionais que são necessários para um aplicativo Express.Posteriormente, ao implantar esse aplicativo em um site do Azure, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para dar suporte ao seu aplicativo.
+O arquivo **package.json** está localizado em um dos arquivos criados pelo comando **express**. Este arquivo contém uma lista dos módulos adicionais que são necessários para um aplicativo Express. Posteriormente, ao implantar esse aplicativo em um site do Azure, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para dar suporte ao seu aplicativo.
 
 1. Na linha de comando, altere os diretórios para a pasta **tasklist** e digite o seguinte para instalar os módulos descritos no arquivo **package.json**:
 
@@ -175,7 +189,7 @@ O arquivo **package.json** está localizado em um dos arquivos criados pelo coma
 
 	Isso instala todos os módulos padrão de que o Express precisa.
 
-2. Em seguida, digite o seguinte comando para instalar os módulos [azure, ][node-uuid, ][nconf] e [async] localmente, bem como para salvar uma entrada para eles no arquivo **package.json**:
+2. Em seguida, digite o seguinte comando para instalar os módulos [azure], [node-uuid], [nconf] e [async] localmente, bem como para salvar uma entrada para eles no arquivo **package.json**:
 
 		npm install azure-storage node-uuid async nconf --save
 
@@ -207,7 +221,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 1. No diretório **tasklist**, crie um novo diretório chamado **models**.
 
-2. No diretório **models**, crie um novo arquivo chamado **task.js**.Esse arquivo vai conter o modelo para as tarefas criadas pelo seu aplicativo.
+2. No diretório **models**, crie um novo arquivo chamado **task.js**. Esse arquivo vai conter o modelo para as tarefas criadas pelo seu aplicativo.
 
 3. No início do arquivo **task.js**, adicione o seguinte código para fazer a referência às bibliotecas necessárias:
 
@@ -298,7 +312,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 		  this.task = task;
 		}
 
-2. Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados para **showTasks, ****addTask** e **completeTasks**:
+2. Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados para **showTasks**, **addTask** e **completeTasks**:
 
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
@@ -359,14 +373,14 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [WACOM.NOTE] nconf carregará os valores de configuração de uma das variáveis de ambiente ou o arquivo **config.json**, que será criado posteriormente.
+	> [AZURE.NOTE] nconf carregará os valores de configuração de uma das variáveis de ambiente ou o arquivo **config.json**, que será criado posteriormente.
 
 3. No arquivo app.js, role para baixo até onde for capaz de visualizar a seguinte linha:
 
 		app.use('/', routes);
 		app.use('/users', users);
 
-	Substitua as linhas acima pelo código mostrado abaixo. Isso inicializará uma instância da <strong>Tarefa</strong> com uma conexão à sua conta de armazenamento. Isso é enviado à <strong>TaskList</strong>, que o usará para comunicar-se com o serviço Tabela:
+	Substitua as linhas acima pelo código mostrado abaixo. Isso inicializará uma instância de <strong>Tarefa</strong> com uma conexão à sua conta de armazenamento. Isso é transmitido a <strong>TaskList</strong>, que a usará para se comunicar com o serviço de Tabela:
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -381,9 +395,9 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 ###Modificar a exibição de índice
 
-1. Altere os diretórios para o diretório **views** e abra o arquivo **index.jade** em um editor de texto.
+1. Mude os diretórios para o diretório **views** e abra o arquivo **index.jade** em um editor de texto.
 
-2. Substitua o conteúdo do arquivo **index.jade** pelo código abaixo.Isso define o modo de exibição das tarefas existentes, bem como um formulário para adicionar novas tarefas e marcar as tarefas existentes como concluídas.
+2. Substitua o conteúdo do arquivo **index.jade** pelo código abaixo. Isso define o modo de exibição das tarefas existentes, bem como um formulário para adicionar novas tarefas e marcar as tarefas existentes como concluídas.
 
 		extends layout
 
@@ -426,7 +440,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 ###Modificar o layout global
 
-O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar o [Bootstrap do Twitter](https://github.com/twbs/bootstrap), que é um kit de ferramentas que torna fácil projetar um site com um visual bonito.
+O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante.
 
 1. Baixe e extraia os arquivos para a [Twitter Bootstrap](http://getbootstrap.com/). Copie o arquivo **bootstrap.min.css** da pasta **bootstrap\\dist\\css** para o diretório **public\\stylesheets** de seu aplicativo de lista de tarefas.
 
@@ -448,7 +462,7 @@ O arquivo **layout.jade** no diretório **views** é usado como um modelo global
 
 ###Criar o arquivo de configuração
 
-O arquivo **config.json** contém a cadeia de conexão usada para se conectar ao Banco de Dados SQL e que é lida pelo aplicativo durante o tempo de execução.Execute as seguintes etapas para criar esse arquivo:
+O arquivo **config.json** contém a cadeia de caracteres de conexão usada para se conectar ao Banco de Dados SQL e que é lida pelo aplicativo durante o tempo de execução. Execute as seguintes etapas para criar esse arquivo:
 
 1. No diretório **tasklist**, crie um novo arquivo chamado **config.json** e abra-o em um editor de texto.
 
@@ -461,7 +475,7 @@ O arquivo **config.json** contém a cadeia de conexão usada para se conectar ao
 			"TABLE_NAME": "tasks"
 		}
 
-	Substitua o **nome da conta de armazenamento** pelo nome da conta de armazenamento criada anteriormente. Substitua a **chave de acesso de armazenamento** pela chave de acesso primário de sua conta de armazenamento.
+	Substitua o **nome da conta de armazenamento** pelo nome da conta de armazenamento criada anteriormente. Substitua a **chave de acesso do armazenamento** pela chave de acesso primário de sua conta de armazenamento.
 
 3. Salve o arquivo.
 
@@ -475,7 +489,7 @@ Execute as etapas a seguir para testar o aplicativo em seu computador local:
 
         npm start
 
-3. Abra um navegador da Web e navegue até http://127.0.0.1:3000. Isso deve exibir uma página da Web semelhante à seguinte:
+3.  Abra o navegador e acesse http://127.0.0.1:3000. Isso deve exibir uma página da Web semelhante à seguinte:
 
     ![A webpage displaying an empty tasklist][node-table-finished]
 
@@ -493,15 +507,15 @@ Execute as etapas a seguir para testar o aplicativo em seu computador local:
 
 As etapas desta seção usam as ferramentas de linha de comando do Azure para criar um novo site do Azure e, em seguida, usa o Git para implantar seu aplicativo. Para realizar essas etapas, você deve ter uma assinatura do Azure.
 
-> [WACOM.NOTE] Essas etapas também podem ser executadas com o uso do portal do Azure. Para obter as etapas sobre como usar o portal do Azure para implantar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure].
+> [AZURE.NOTE] Essas etapas também podem ser executadas com o uso do portal do Azure. Para obter as etapas sobre como usar o portal do Azure para implantar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure].
 
-> [WACOM.NOTE] Se este for o primeiro site do Azure que você criou, você deve usar o portal do Azure para implantar este aplicativo.
+> [AZURE.NOTE] Se este for o primeiro site do Azure que você criou, você deve usar o portal do Azure para implantar este aplicativo.
 
 ###Criar uma assinatura do Azure
 
-Se você não tiver uma conta do Azure, será possível se inscrever em uma [conta gratuita].Após a inscrição, siga estas etapas para continuar esse tutorial.
+Se você não tiver uma conta do Azure, será possível se inscrever em uma [conta gratuita]. Após a inscrição, siga estas etapas para continuar esse tutorial.
 
-[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
+[AZURE.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ###Instalar a ferramenta de linha de comando do Azure para Mac e Linux
 
@@ -509,9 +523,9 @@ Para instalar as ferramentas de linha de comando, use o seguinte comando:
 	
 	npm install azure-cli -g
 
-> [WACOM.NOTE] Para obter mais informações, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](/pt-br/documentation/articles/xplat-cli/);
+> [AZURE.NOTE] Para obter mais informações, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](/pt-br/documentation/articles/xplat-cli/);
 
-> [WACOM.NOTE] Enquanto as ferramentas de linha de comando foram criadas principalmente para usuários do Mac e do Linux, eles se baseiam em Node.js e devem funcionar em qualquer sistema capaz de executar nós.
+> [AZURE.NOTE] Enquanto as ferramentas de linha de comando foram criadas principalmente para usuários do Mac e do Linux, eles se baseiam em Node.js e devem funcionar em qualquer sistema capaz de executar nós.
 
 ###Importar configurações de publicação
 
@@ -533,15 +547,15 @@ Antes de usar as ferramentas de linha de comando com o Azure, você deve primeir
 		
 	Especifique o caminho e o nome do arquivo de configurações de publicação que você baixou na etapa anterior. Quando o comando for concluído, você verá uma saída semelhante à seguinte:
 	
-		info:   Executando comando account import
-		info:   Configurando o ponto de extremidade de serviço para: management.core.windows.net
-		info:   Configurando a porta de serviço para: 443
-		info:   Encontrada a assinatura: YourSubscription
-		info:   Configurando a assinatura padrão para: YourSubscription
-		warn:   O arquivo 'C:\users\username\downloads\YourSubscription-6-7-2012-credentials.publishsettings' contém informações confidenciais.
-		warn:   lembre-se de excluí-lo agora que foi importado.
-		info:   Configurações de publicação da conta importadas com sucesso
-		info:   comando account import OK
+		info:   Executing command account import
+		info:   Setting service endpoint to: management.core.windows.net
+		info:   Setting service port to: 443
+		info:   Found subscription: YourSubscription
+		info:   Setting default subscription to: YourSubscription
+		warn:   The 'C:\users\username\downloads\YourSubscription-6-7-2012-credentials.publishsettings' file contains sensitive information.
+		warn:   Remember to delete it now that it has been imported.
+		info:   Account publish settings imported successfully
+		info:   account import command OK
 
 4. Quando a importação for concluída, você deve excluir o arquivo de configurações de publicação, já que ele não é mais necessário e contém informações confidenciais sobre sua assinatura do Azure.
 
@@ -553,30 +567,30 @@ Antes de usar as ferramentas de linha de comando com o Azure, você deve primeir
 
 		azure site create --git
 		
-	Você será solicitado a fornecer o nome do site e o datacenter onde o site estará localizado. Forneça um nome exclusivo e selecione o datacenter geograficamente próximo à sua localidade.
+	Você será solicitado a fornecer o nome do site e o data center onde o site estará localizado. Forneça um nome exclusivo e selecione o data center geograficamente próximo à sua localidade.
 	
-	O parâmetro `--git` criará um repositório Git no Azure para este site. Ele também inicializará um repositório Git no diretório atual, se não houver nenhum. Isso também criará um [Git remoto] chamado 'azure', que será usado para publicar o aplicativo no Azure. Por fim, isso criará um arquivo **web.config**, que contém as configurações usadas pelo Azure para hospedar aplicativos de nó.
+	O parâmetro `--git` criará um repositório Git no Azure para este site. Ele também inicializará um repositório Git no diretório atual, se não houver nenhum. Isso também criará um [Git remoto] nomeado  'azure', que será usado para publicar o aplicativo no Azure. Por fim, isso criará um arquivo **web.config**, que contém as configurações usadas pelo Azure para hospedar aplicativos de nó.
 	
-	> [WACOM.NOTE] Se este comando for executado de um diretório que já contém um repositório Git, ele não inicializará novamente o diretório.
+	> [AZURE.NOTE] Se este comando for executado de um diretório que já contém um repositório Git, ele não inicializará novamente o diretório.
 	
-	> [WACOM.NOTE] Se o parâmetro `--git` for omitido, ainda que o diretório contenha um repositório Git, o 'azure' remoto ainda será criado.
+	> [AZURE.NOTE] Se o parâmetro '`--git`' for omitido, ainda que o diretório contenha um repositório Git, o 'azure' remoto ainda será criado.
 	
 	Quando este comando for concluído, você verá uma saída semelhante à seguinte. Observe que a linha que começa com **Site criado em** contém a URL para o site.
 	
-		info:   Executando o comando site create
-		help:   Precisa de um nome do site
-		Nome: TableTasklist
-		info:   Usando o local southcentraluswebspace
-		info:   Executando `git init`
-		info:   Criando o arquivo default .gitignore
-		info:   Criando um novo site
-		info:   Criado um site em tabletasklist.azurewebsites.net
-		info:   Inicializando o repositório
-		info:   Repositório inicializado
-		info:   Executando `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
-		info:   comando site create OK
+		info:   Executing command site create
+		help:   Need a site name
+		Name:   TableTasklist
+		info:   Using location southcentraluswebspace
+		info:   Executing `git init`
+		info:   Creating default .gitignore file
+		info:   Creating a new web site
+		info:   Created web site at  tabletasklist.azurewebsites.net
+		info:   Initializing repository
+		info:   Repository initialized
+		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
+		info:   site create command OK
 
-	> [WACOM.NOTE] Se este for o primeiro Site do Azure de sua assinatura, você será instruído a usar o portal para criar o site. Para obter mais informações, consulte [Criar e implantar um aplicativo Node.js em um site do Azure].
+	> [AZURE.NOTE] Se este for o primeiro Site do Azure de sua assinatura, você será instruído a usar o portal para criar o site. Para obter mais informações, consulte [Criar e implantar um aplicativo Node.js em um site do Azure].
 
 ###Publicar o aplicativo
 
@@ -587,7 +601,7 @@ Antes de usar as ferramentas de linha de comando com o Azure, você deve primeir
 		git add .
 		git commit -m "adding files"
 
-3. Ao enviar as alterações do repositório Git mais recentes para o Site do Azure, você deve especificar que a ramificação de destino é **master**, já que ele é usado para o conteúdo do site.
+3. Ao enviar as mudanças do repositório Git mais recentes para o Site do Azure, você deve especificar que a ramificação de destino é **master**, já que ela é usado para o conteúdo do site.
 
 		git push azure master
 	
@@ -596,11 +610,11 @@ Antes de usar as ferramentas de linha de comando com o Azure, você deve primeir
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
 
-4. Quando a operação de envio for concluída, vá até a URL do site retornada anteriormente pelo comando `azure create site` para exibir o seu aplicativo.
+4. Quando a operação de envio for concluída, vá até a URL do site retornada anteriormente pelo comando  `azure create site` para exibir o seu aplicativo.
 
 ###Alternar para uma variável de ambiente
 
-Anteriormente, implementamos um código que procura variáveis de ambiente ou carrega o valor do arquivo **config.json**.Nas etapas a seguir você criará pares de chave/valor na configuração de seu site, que o aplicativo real acessa por meio de uma variável de ambiente.
+Anteriormente, implementamos um código que procura variáveis de ambiente ou carrega o valor do arquivo **config.json**. Nas etapas a seguir você criará pares de chave/valor na configuração de seu site, que o aplicativo real acessa por meio de uma variável de ambiente.
 
 1. No Portal de Gerenciamento, clique em **Sites** e selecione seu site.
 
@@ -610,7 +624,7 @@ Anteriormente, implementamos um código que procura variáveis de ambiente ou ca
 
 	![configure link][web-configure]
 
-3. Na seção **configurações do aplicativo**, digite **STORAGE_NAME** no campo **CHAVE** e o nome da sua conta de armazenamento no campo **VALOR**. Clique na marca de seleção para mover para o próximo campo.Repita este processo para as chaves e os valores a seguir:
+3. Na seção **configurações do aplicativo**, digite **STORAGE_NAME** no campo **CHAVE** e o nome da sua conta de armazenamento no campo **VALOR**. Clique na marca de seleção para mover para o próximo campo. Repita este processo para as chaves e os valores a seguir:
 
 	* **STORAGE_KEY** - a chave de acesso de sua conta de armazenamento
 	
@@ -633,34 +647,34 @@ Anteriormente, implementamos um código que procura variáveis de ambiente ou ca
 
 		git push azure master
 
-Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo Web deverá continuar a funcionar como agora, lendo a cadeia de conexão na entrada **configurações do aplicativo**. Para verificar isso, altere o valor da entrada **SQL_CONN** em **configurações do aplicativo** para um valor inválido.Depois que você salvar esse valor, o site deverá falhar devido à configuração da chave de acesso de armazenamento inválida.
+Depois que as alterações tiverem sido implantadas no Azure, seu aplicativo da web deverá continuar a funcionar como agora, lendo a cadeia de conexão na entrada **configurações do aplicativo**. Para verificar isso, altere o valor da entrada **SQL_CONN** em **configurações do aplicativo** para um valor inválido. Depois que você salvar esse valor, o site deverá falhar devido à configuração da chave de acesso de armazenamento inválida.
 
 ##Próximas etapas
 
-Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazenar informações, você também pode usar o MongoDB. Consulte [Aplicativo Web Node.js com o MongoDB] para obter mais informações.
+Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazenar informações, você também pode usar o MongoDB. Consulte [Aplicativo da web Node.js com o MongoDB] para obter mais informações.
 
 ##Recursos adicionais
 
-[Ferramenta de Linha de Comando do Azure para Mac e Linux]    
-[Criar e implantar um aplicativo Node.js em Sites do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Publicando Sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
-[Centro de Desenvolvedores do Azure]: /pt-br/develop/nodejs/
+[Ferramenta de linha de comando do Azure para Mac e Linux]    
+[Create and deploy a Node.js application to Azure Web Sites]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publishing to Azure Web Sites with Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
+[Azure Developer Center]: /pt-br/develop/nodejs/
 
 
-[nó]: http://nodejs.org
+[node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
-[grátis]: http://windowsazure.com
-[Git remoto]: http://git-scm.com/docs/git-remote
+[for free]: http://windowsazure.com
+[Git remote]: http://git-scm.com/docs/git-remote
 
-[Aplicativo Web Node.js com MongoDB]: /pt-br/documentation/articles/web-sites-nodejs-store-data-mongodb/
-[Ferramenta de Linha de Comando do Azure para Mac e Linux]: /pt-br/documentation/articles/xplat-cli/
+[Aplicativo da web Node.js com o MongoDB]: /pt-br/documentation/articles/web-sites-nodejs-store-data-mongodb/
+[Ferramenta de linha de comando do Azure para Mac e Linux]: /pt-br/documentation/articles/xplat-cli/
 
-[Publicando Sites do Azure com o Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
+[Publishing to Azure Web Sites with Git]: /pt-br/documentation/articles/web-sites-publish-source-control/
 [azure]: https://github.com/Azure/azure-sdk-for-node
 
 
-[Portal do Azure]: http://windowsazure.com
+[Azure Portal]: http://windowsazure.com
 
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
@@ -676,6 +690,5 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
-<!--HONumber=35.1-->
+[Create and deploy a Node.js application to an Azure Web Site]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+<!--HONumber=42-->

@@ -23,7 +23,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
    	Isso cria uma representação de propriedade para a tabela de serviços móveis.
 
-4. No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+4. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
 
 5. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
 
@@ -131,3 +131,4 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
+<!--HONumber=42-->

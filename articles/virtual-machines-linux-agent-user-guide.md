@@ -1,7 +1,20 @@
+﻿<properties 
+	pageTitle="Guia do usuário do agente Linux para o Azure" 
+	description="Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<properties urlDisplayName="Linux Agent guide" pageTitle="Guia do usuário do agente Linux para o Azure" metaKeywords="" description="Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
-
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="szarkos"/>
 
 
 
@@ -30,7 +43,7 @@ O Agente Linux do Azure (waagent) gerencia a interação entre uma máquina virt
   - Configura NUMA virtual
   - Consome entropia de Hyper-V para /dev/random
   - Configura os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
-* **Diagnóstico**
+* **Diagnostics**
   - Redireciona o console para a porta serial
 * **Implantações SCVMM**
     - Detecta e inicializa o agente VMM para Linux quando executado em um ambiente de System Center Virtual Machine Manager 2012 R2
@@ -45,7 +58,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Você pode obter o agente mais recente do Linux diretamente de:
 
 - [Diferentes provedores de distribuição endossando o Linux no Azure](http://support.microsoft.com/kb/2805216)
-- ou do [Repositório de software livre do Github para o agente Linux Azure](https://github.com/WindowsAzure/WALinuxAgent)
+- ou o [Github abrir repositório de origem para o Azure agentes do Linux](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###Distribuições Linux com suporte
@@ -67,7 +80,7 @@ Outros sistemas com suporte:
 Waagent depende de alguns pacotes de sistema para funcionar corretamente:
 
 * Python 2.5+
-* OpenSSL 1.0 +
+* Openssl 1.0+
 * Openssh 5.3+
 * Utilitários de sistema de arquivos: sfdisk, fdisk, mkfs
 * Ferramentas de senha: chpasswd, sudo
@@ -100,15 +113,15 @@ Arquivo de log do agente é mantido em /var/log/waagent.log.
 - install: Instalação manual do agente
  * Verifica o sistema para dependências necessárias
 
- * Cria o script SysV init (/etc/init.d/waagent)para o arquivo de configuração logrotate (/etc/logrotate.d/waagent e configura a imagem para executar o script de inicialização na inicialização
+ * Cria o script de inicialização de SysV (/ etc/init.d/waagent), o arquivo de configuração do logrotate (/etc/logrotate.d/waagent) e configura a imagem para executar o script de inicialização na inicialização
 
  * Arquivo de configuração função Web de gravações para /etc/waagent.conf
 
  * Qualquer arquivo de configuração existente é movido para /etc/waagent.conf.old
 
- * Detectar a versão do kernel e aplica a solução VNUMA, se necessário
+ * Detecte a versão do kernel e aplique a solução VNUMA, se necessário
 
- * Move as regras udev que podem interferir na rede (/ lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) para/var/lib/waagent /  
+ * Mova as regras udev que podem interferir com a rede (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)para /var/lib/waagent/  
 
 - desinstalar: Remover waagent e arquivos associados
  * Cancela o registro do script de inicialização do sistema e o exclui
@@ -130,7 +143,7 @@ Arquivo de log do agente é mantido em /var/log/waagent.log.
 
  * Reinicia o nome de host para localdomain.localdomain
 
- **Aviso:**O desprovisionamento não garante que a imagem esteja limpa de todas as informações confidenciais e adequada para redistribuição.
+ **Aviso:** O desprovisionamento não garante que a imagem esteja limpa de todas as informações confidenciais e adequada para redistribuição.
 
 - deprovision+user: Executa tudo em - deprovision (acima) e também exclui a última conta de usuário provisionado (obtida de /var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
 
@@ -145,7 +158,7 @@ Arquivo de log do agente é mantido em /var/log/waagent.log.
 
 ##Configuração
 
-Um arquivo de configuração (/etc/waagent.conf) controla as ações do waagent. 
+Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent. 
 Uma amostra do arquivo de configuração é mostrada abaixo:
 	
 	#
@@ -193,7 +206,7 @@ Se um caminho para um programa executável for especificado, o programa é invoc
 Tipo: Cadeia de caracteres  
 Padrão: Nenhum
 
-Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
+Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). Um arquivo de exemplo é fornecido no Apêndice a. O local atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
@@ -251,14 +264,14 @@ Especifica o tipo de sistema de arquivos para o disco do recurso. Valores aceito
 Tipo: Cadeia de caracteres  
 Padrão: /mnt/resource 
 
-Especifica o caminho em que o disco do recurso é montado. Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada.
+Especifica o caminho em que o disco do recurso é montado. Observe que o disco de recurso é um disco  *temporary* e pode ser esvaziado quando a VM é desprovisionada.
 
 **ResourceDisk.EnableSwap:**
 
 Tipo: Booliano  
 Padrão: n 
 
-Se definido, um arquivo de permuta (/swapfile) é criado no disco recursos e adicionado ao espaço de troca de sistema.
+Se definir um arquivo de permuta (/ arquivo de permuta) é criado no disco recursos e adicionado ao espaço de troca de sistema.
 
 **ResourceDisk.SwapSizeMB:**
 
@@ -405,5 +418,4 @@ Isso pode ser usado para especificar um caminho alternativo para o openssl biná
 	    </Instance>
 	  </Instances>
 	</SharedConfig>
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Learn Azure Premium Storage for Disks" pageTitle="Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure" metaKeywords ="armazenamento do Azure, Premium, conta de armazenamento, blobs de página" description="Aprenda sobre o armazenamento Premium do Azure para discos. Saiba como criar uma conta de armazenamento Premium." metaCanonical="" services="storage" documentationCenter="" title="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads" authors="selcint" solutions="data-management" manager="adinah" editor="tysonn" />
+﻿<properties 
+	pageTitle="Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure" 
+	description="Saiba mais sobre o armazenamento Premium do Azure para discos. Saiba como criar uma conta de armazenamento Premium." 
+	services="storage" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="adinah" 
+	editor="tysonn"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="selcint" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/08/2014" 
+	ms.author="selcint"/>
 
 
 # Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure
@@ -11,7 +25,7 @@ Com a introdução do novo Armazenamento Premium, o Microsoft Azure agora oferec
 
 O Armazenamento Premium oferece suporte de disco de alto desempenho e baixa latência para cargas de trabalho intensivas para entradas e saídas em execução nas máquinas virtuais do Azure. Você pode anexar vários discos de Armazenamento Premium a uma máquina virtual (VM). Com o armazenamento Premium, seus aplicativos podem ter até 32 TB de armazenamento por VM e obter 50.000 IOPS (operações de entrada/saída por segundo) por VM com muito menos latências por operações de leitura. O Armazenamento Premium está disponível apenas para armazenamento de dados em discos usados por máquinas virtuais do Azure. 
 
-Para inscrever-se para a visualização do Armazenamento Premium do Azure, visite a [página de ]visualização do Azure(http://azure.microsoft.com/services/preview/).
+Para inscrever-se para a visualização do Armazenamento Premium do Azure, visite a [página de ](http://azure.microsoft.com/services/preview/)visualização do Azure.
 
 Este artigo fornece uma visão geral detalhada do Armazenamento Premium do Azure.
 
@@ -30,7 +44,7 @@ Este artigo fornece uma visão geral detalhada do Armazenamento Premium do Azure
 
 * [Preços e cobrança ao usar o Armazenamento Premium](#pricing)	
 
-* [Criando e usando a conta de Armazenamento Premium para discos](#howto1)	
+* [Criação e uso da conta de Armazenamento Premium para discos](#howto1)	
 
 * [Recursos adicionais](#see)
 
@@ -41,7 +55,7 @@ A seguir está uma lista de pontos importantes a considerar antes ou quando usar
 
 - Para usar o Armazenamento Premium, você precisa ter uma conta de armazenamento Premium. Para saber como criar uma conta de Armazenamento Premium, confira em [Criação e uso da conta de Armazenamento Premium para discos](#howto1).
 
-- O Armazenamento Premium está disponível no momento no [Portal de visualização do Microsoft Azure](https://portal.azure.com/), acessível por meio da [PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) versão 0.8.10 ou posterior, e da [API REST do Serviço de gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 01-10-2014 ou posterior. 
+- O Armazenamento Premium está disponível no momento no [Portal de visualização do Microsoft Azure](https://portal.azure.com/) e acessível através das seguintes bibliotecas SDK: [API de REST do armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; [API REST do serviço de gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior; e [PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) versão 0.8.10 ou posterior. 
 
 - O Armazenamento Premium está disponível para visualização limitada nas seguintes regiões: Oeste dos EUA, Leste dos EUA 2 e Europa Ocidental.
 
@@ -65,14 +79,15 @@ Você pode usar o Armazenamento Premium para discos de uma das seguintes maneira
 
 O Azure usa a conta de armazenamento como um contêiner para seu sistema operacional e discos de dados. Em outras palavras, se você cria uma VM do Azure da série DS e seleciona uma conta de Armazenamento Premium Azure, o sistema operacional e discos de dados são armazenados na conta de armazenamento.
 
-Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armazenamento Premium usando um tipo de conta * LRS Premium * primeiro. Para fazer isso, você pode usar o [Portal de visualização do Microsoft Azure](https://portal.azure.com/), [PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/), ou [API REST do serviço de gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obter instruções detalhadas, confira em [Criação e uso da conta de Armazenamento Premium para discos](#howto1).
+Para aproveitar os benefícios do armazenamento Premium, criar primeiro uma conta de armazenamento Premium usando um tipo de conta do  *Premium_LRS*. Para fazer isso, você pode usar o [Portal de visualização do Microsoft Azure](https://portal.azure.com/), [PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/), ou [API REST do serviço de gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obter instruções detalhadas, confira em [Criação e uso da conta de Armazenamento Premium para discos](#howto1).
 
 <h4>Observações importantes:</h4>
 
 - Para saber a capacidade e limites de visualização de largura de banda para contas de Armazenamento Premium, confira em [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#scale) . Se o seu aplicativo precisa exceder as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus dados através destas contas de armazenamento. Por exemplo, se você deseja anexar discos de 51 TB em uma quantidade de VMs, separe-as entre duas contas de armazenamento, já que o limite para uma única conta de armazenamento Premium é de 32 TB.
-- 	Por padrão, a política de cache de disco é "Somente leitura" para todos os discos Premium anexados à Máquina virtual. Esta definição de configuração é recomendável para atingir o desempenho ideal de leitura para entrada e saída dos seus aplicativos. Para discos de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.  
-- 	Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco. Para saber a largura de banda de disco disponível para cada tamanho de VM, confira em [Máquina Virtual e tamanhos de serviços em nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
--	Você pode usar tanto discos de armazenamento Premium quanto Standard na mesma VM da série DS.
+- Por padrão, a política de cache de disco é "Somente leitura" para todos os discos de dados Premium e "Leitura e gravação" para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leitura para entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
+- Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco. Para saber a largura de banda de disco disponível para cada tamanho de VM, confira em [Máquina Virtual e tamanhos de serviços em nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+- Você pode usar tanto discos de armazenamento Premium quanto Standard na mesma VM da série DS.
+- Com o armazenamento Premium, você pode provisionar uma máquina virtual da série DS e anexar vários discos de dados persistentes a uma máquina virtual. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. Se você distribuir os discos de dados do armazenamento Premium usando [Espaços de armazenamento](http://technet.microsoft.com/library/hh831739.aspx), você deve configurá-lo com uma coluna para cada disco que for usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Por padrão, a interface do usuário do Gerenciador de servidores (UI) permite que você configure colunas para até 8 discos. Mas se você tiver mais de 8 discos, você precisa usar o PowerShell para criar o volume e também especificar manualmente o número de colunas. Caso contrário, a UI do Gerenciador de servidores continuará a usar 8 colunas, mesmo que haja mais discos. Por exemplo, se você tiver 32 discos em um conjunto único de distribuição, você deve especificar 32 colunas. Você pode usar o *NumberOfColumns* parâmetro [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) do cmdlet do PowerShell para especificar o número de colunas usadas pelo disco virtual. Para obter mais informações, consulte [Visão geral dos Espaços de armazenamento](http://technet.microsoft.com/library/jj822938.aspx) e [Perguntas frequentes sobre Espaços de armazenamentos](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
 
 
 ###<a id="scale">Escalabilidade e metas de desempenho ao usar o Armazenamento Premium</a>
@@ -149,13 +164,13 @@ Seu aplicativo pode obter a latência menor quando ele é projetado para evitar 
 Os exemplos a seguir demonstram como calcular os níveis de limitação:
 
 <h4>Exemplo 1:</h4>
-O aplicativo fez 495 e/s de tamanho de disco de 16 KB (, que é igual a 495 unidades de e/s) em um segundo em um disco P10. Se você tentar uma e/s de 2 MB no mesmo segundo, o total de unidades de e/s é igual a 495 + 8. Isso ocorre porque a e/s de 2 MB resulta em unidades de e/s de 2048 KB/256 KB = 8 quando o tamanho da unidade de e/s é 256 KB. Como a soma de 495 + 8 excede o limite de 500 IOPS para o disco, a limitação ocorre e você obterá um erro. 
+O aplicativo fez 495 e/s de tamanho de disco de 16 KB (, que é igual a 495 unidades de e/s) em um segundo em um disco P10. Se você tentar uma e/s de 2 MB no mesmo segundo, o total de unidades de e/s é igual a 495 + 8. Isso ocorre porque a e/s de 2 MB resulta em unidades de e/s de 2048 KB/256 KB = 8 quando o tamanho da unidade de e/s é 256 KB. Como a soma de 495 + 8 excede o limite de 500 IOPS para o disco, a limitação ocorre. 
 
 <h4>Observação:</h4> 
 Todos os cálculos baseiam-se no tamanho da unidade de e/s de 256 KB.
 
 <h4>Exemplo 2:</h4>
-O aplicativo fez 400 entradas e saídas de tamanho de disco de 256 KB em um disco P10. A largura de banda total consumida é (400 * 256) / 1024 = 100 MB / seg. Observe que 100 MB por segundo é o limite de taxa de transferência de disco P10. Se o seu aplicativo tentar realizar mais e/s nesse segundo, ele é limitado porque excede o limite alocado.
+O aplicativo fez 400 entradas e saídas de tamanho de disco de 256 KB em um disco P10. A largura de banda total consumida é (400 * 256) / 1024 = 100 MB/seg. Observe que 100 MB por segundo é o limite de taxa de transferência de um disco P10. Se o seu aplicativo tentar realizar mais e/s nesse segundo, ele é limitado porque excede o limite alocado.
 
 <h4>Observação:</h4>
 Se o tráfego de disco consiste principalmente de tamanhos de e/s pequenos, é muito provável que seu aplicativo atingirá o limite de IOPS antes do limite de taxa de transferência. Por outro lado, se o tráfego de disco consiste principalmente de tamanhos de e/s grandes, é muito provável que seu aplicativo atingirá o limite de taxa de transferência em vez do limite de IOPS. Você pode maximizar o IOPS do seu aplicativo e a capacidade da taxa de transferência usando tamanhos de e/s ideais e também limitando o número de solicitações de e/s pendentes para o disco.
@@ -180,14 +195,14 @@ Ao usar o Armazenamento Premium, as seguintes considerações de cobrança se ap
 
 - A cobrança para um disco de Armazenamento Premium depende do tamanho do disco provisionado. O Azure mapeia o tamanho do disco (arredondado) para a opção mais próxima do disco de Armazenamento Premium conforme especificado na tabela fornecida na seção [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#scale) . A cobrança por qualquer disco provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS/taxa de transferência usados.
 - Instantâneos no Armazenamento Premium serão cobrados pela capacidade adicional usada pelos instantâneos. Para obter informações sobre instantâneos, confira em [Criação de um instantâneo de um Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
-- [Transferências de dados de saída](http://azure.microsoft.com/pricing/details/data-transfers/) (dados fora dos data center do Azure) acarretam a cobrança por uso de largura de banda.
+- [Transferências de dados de saída](http://azure.microsoft.com/pricing/details/data-transfers/) (dados fora dos data center do Azure) acarretam a cobrança por uso de largura de banda. 
 
 Para obter informações detalhadas sobre os preços para Armazenamento Premium e Máquinas virtuais da série DS, confira em:
 
 - [Preços de armazenamento do Azure](http://azure.microsoft.com/pricing/details/storage/)
 - [Preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/)
 
-###<a id="howto1">Criação e uso de conta de Armazenamento Premium para discos</a>
+###<a id="howto1">Criação e uso da conta de Armazenamento Premium para discos</a>
 Esta seção demonstra como criar uma conta de Armazenamento Premium usando o Portal de visualização do Azure e o Azure PowerShell. Além disso, ela demonstra um exemplo de caso de uso para contas de armazenamento Premium: criação de uma máquina virtual e anexação de um disco de dados a uma máquina virtual usando o armazenamento Premium.
 
 Nesta seção:
@@ -202,7 +217,7 @@ Esta seção mostra como criar uma conta de Armazenamento Premium usando o Porta
 1.	Entre no [Portal de visualização do Azure](https://portal.azure.com/). Confira a oferta [Avaliação Gratuita](http://www.windowsazure.com/pricing/free-trial/) caso você ainda não tenha uma assinatura. 
 
 
-    >[WACOM.NOTE] Se você efetuar o logon no Portal de gerenciamento do Azure, clique em seu endereço de email da conta no canto superior direito. Em seguida, clique em **Alternar para o novo portal**.
+    >[AZURE.NOTE] Se você efetuar logon no Portal de gerenciamento do Azure, clique em seu nome de conta de usuário no canto superior direito do portal. Em seguida, clique em **Alternar para o novo portal**.
         
 
 2.	No menu de Hub, clique em **Novo**.
@@ -218,7 +233,7 @@ Esta seção mostra como criar uma conta de Armazenamento Premium usando o Porta
 
 Para obter uma explicação passo a passo completa em um ambiente do Azure, confira em [Criação de uma Máquina Virtual executando o Windows no Portal de visualização do Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial-azure-preview/).
 
-###<a id="howto2">PowerShell do Azure: Criação de uma conta de Armazenamento Premium e usá-la para operações básicas de VM.</a>
+###<a id="howto2">PowerShell do Azure: Criar uma conta de Armazenamento Premium e usá-la para operações básicas de VM</a>
 Esta seção mostra como criar uma conta de Armazenamento Premium e como usá-la durante a criação de uma máquina virtual e anexação de um disco de dados a uma máquina virtual usando o PowerShell do Azure.
 
 1. Configuração do ambiente do seu PowerShell, seguindo as etapas fornecidas em [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
@@ -255,12 +270,11 @@ Esta seção mostra como criar uma conta de Armazenamento Premium e como usá-la
 
 [Criação de uma Máquina virtual executando o Windows](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial-azure-preview/)
 
-[Máquinas virtuais e Tamanhos de serviço de nuvem para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Máquinas virtuais e tamanhos de serviço de nuvem para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
 [Documentação de armazenamento](http://azure.microsoft.com/documentation/services/storage/)
 
 [Referência do MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
-[Imagem 1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
-
-<!--HONumber=35.2-->
+[Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
+<!--HONumber=42-->

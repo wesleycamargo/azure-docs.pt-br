@@ -36,11 +36,9 @@
 
 	Isso cria um novo método para manipular o processo de autenticação. O usuário é autenticado usando um logon do Google. Será exibida uma caixa de diálogo que exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o método <strong>logon</strong> acima para um dos seguintes: <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em> ou <em>windowsazureactivedirectory</em>.</p>
-    </div>
+    > [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o método **logon** acima para um dos seguintes: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
 
-3. No método **OnCreate**, adicione a seguinte linha de código após o código que instancia o objeto `MobileServiceClient`.
+3. No método **onCreate**, adicione a linha de código a seguir após o código que cria uma instância do objeto  `MobileServiceClient`.
 
 		authenticate();
 
@@ -66,4 +64,4 @@
 
 9. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com o provedor de identidade escolhido. 
 
-   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.<!--HONumber=42-->

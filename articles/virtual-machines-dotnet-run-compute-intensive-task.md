@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Tarefa .NET que requer muitos recursos computacionais em uma máquina virtual - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Saiba como implantar e executar aplicativos .NET que requerem muitos recursos computacionais em uma máquina virtual Azure e como usar filas de barramento de serviço para monitorar o progresso remotamente." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties 
+	pageTitle="Tarefa .NET que requer muitos recursos computacionais em uma máquina virtual - Azure" 
+	description="Saiba como implantar e executar aplicativos .NET que requerem muitos recursos computacionais em uma máquina virtual Azure e como usar filas de barramento de serviços para monitorar o progresso remotamente." 
+	services="virtual-machines" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="wpickett"/>
 
 # Como executar uma tarefa que exija muita computação no .NET em uma máquina virtual Azure
 
@@ -26,7 +40,7 @@ Este é um exemplo do aplicativo do .NET que monitora a tarefa que exige muita c
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>Para criar uma máquina virtual</h2>
 
@@ -36,15 +50,15 @@ Este é um exemplo do aplicativo do .NET que monitora a tarefa que exige muita c
 4. Clique em **Criação rápida**.
 5. Na tela **Criar uma máquina virtual**, insira um valor para **Nome DNS**.
 6. Na lista suspensa **Imagem**, selecione uma imagem, como **Windows Server 2012**.
-7. Digite um nome para o administrador no campo **Nome de Usuário**.Lembre-se do nome e da senha que você digitará a seguir, você vai usá-los ao fazer logon remotamente na máquina virtual.
+7. Digite um nome para o administrador no campo **Nome do Usuário**. Lembre-se do nome e da senha que você digitará a seguir, você vai usá-los ao fazer logon remotamente na máquina virtual.
 8. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**.
 9. Na lista suspensa **Local**, selecione o local do data center da máquina virtual.
-10. Clique em **Criar máquina virtual**. A máquina virtual começará a ser criada.Você pode monitorar o status na seção **Máquinas virtuais** do portal de gerenciamento. Quando o status for exibido como **Ativo**, você poderá fazer logon na máquina virtual.
+10. Clique em **Criar máquina virtual**. A máquina virtual começará a ser criada. Você pode monitorar o status na seção **Máquinas virtuais** do portal de gerenciamento. Quando o status for exibido como **Ativo**, você poderá fazer logon na máquina virtual.
 
 <h2>Para fazer logon remotamente na máquina virtual</h2>
 
 1. Faça logon no [Portal de Gerenciamento](https://manage.windowsazure.com).
-2. Clique em **Máquinas virtuais**.
+2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da máquina virtual na qual você deseja fazer logon.
 4. Clique em **Conectar**.
 5. Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
@@ -60,16 +74,15 @@ Para criar um namespace de serviço:
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.
 
     ![Create new service bus][create_service_bus]
-4.  Na caixa de diálogo **Criar um namespace**, digite um nome de namespace.O sistema verifica imediatamente se o nome está disponível, porque ele precisa ser um nome exclusivo.
+4.  Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema verifica imediatamente se o nome está disponível, porque ele precisa ser um nome exclusivo.
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  Depois de verificar se o nome do namespace está disponível, escolha a região em que o namespace deve ser hospedado (não se esqueça de usar a mesma região em que a máquina virtual está hospedada).
-    <div class="dev-callout">
-    <strong>Importante</strong>
-    <p>Escolha a **mesma região** que você usa ou pretende usar na máquina virtual.Isso lhe dará o melhor desempenho.</p>
-    </div>
+
+    > [AZURE.IMPORTANT]Escolha a **mesma região** que você usa ou pretende usar na máquina virtual. Isso lhe dará o melhor desempenho.
+
 6. Se você tiver mais de uma assinatura do Azure para a conta com a qual você fez logon, selecione a assinatura a ser usada no namespace. (Se tiver somente uma assinatura para a conta com a qual fez logon, você não verá uma lista suspensa contendo suas assinaturas.)
-7. Clique na marca de seleção. Agora, o sistema cria o seu namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+7. Clique na marca de seleção. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
 	![Click create screenshot][click_create]
 
@@ -79,7 +92,8 @@ O namespace que você criou aparece no Portal de Gerenciamento e demora algum te
 
 A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.
 
-1.   No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista dos namespaces disponíveis:   
+1.  No painel de navegação esquerdo, clique no nó do **Barramento de Serviço** para
+    exibir a lista de namespaces disponíveis:   
     ![Available namespaces screenshot][available_namespaces]
 2.  Selecione o namespace que você acabou de criar na lista abaixo:   
     ![Namespace list screenshot][namespace_list]
@@ -89,13 +103,13 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 <h2>Como criar um aplicativo do .NET que execute uma tarefa que exija muita computação</h2>
 
-1. No computador de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET](http://www.windowsazure.com/pt-br/develop/net/).
-2. Crie um aplicativo de console do .NET com o projeto chamado **TSPSolver**.  Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**).A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte:No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
+1. Na máquina de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET](http://www.windowsazure.com/pt-br/develop/net/).
+2. Crie um aplicativo de console do .NET com o projeto chamado **TSPSolver**. Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
 3. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
 4. Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPSolver**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
 5. Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
 6. Modifique os espaços reservados **your\_service\_bus\_namespace, ****your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace do barramento de serviço e os valores ****Emissor Padrão** e **Chave Padrão**, respectivamente.
-7. Compile o aplicativo. Isso criará **TSPSolver.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração).Você copiará esse executável e Microsoft.ServiceBus.dll para a máquina virtual depois.
+7. Compile o aplicativo. Isso criará **TSPSolver.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você copiará esse executável e Microsoft.ServiceBus.dll para a máquina virtual depois.
 
 <p/>
 
@@ -322,12 +336,12 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 <h2>Como criar um aplicativo do .NET que monitore o progresso da tarefa que exige muita computação</h2>
 
-1. No computador de desenvolvimento, crie um aplicativo de console do .NET usando **TSPClient** como o nome do projeto.  Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**).A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte:No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
-2. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
+1. Na máquina de desenvolvimento, crie um aplicativo de console do .NET usando **TSPClient** como o nome do projeto. Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
+2. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de soluções do Visual Studio, clique com botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, navegue até o SDK do .NET do Azure (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como uma referência.
 3. Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPClient**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
 4. Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
-5. Modifique os espaços reservados **your\_service\_bus\_namespace, ****your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace do barramento de serviço e os valores ****Emissor Padrão** e **Chave Padrão**, respectivamente.
-5. Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração).Você pode executar esse código no computador de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para um computador que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
+5. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace do barramento de serviço e os valores**, **Emissor Padrão** e **Chave Padrão**, respectivamente.
+5. Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você pode executar esse código no computador de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para um computador que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
 
 <p/>
 
@@ -446,8 +460,8 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 <h3>Como executar o aplicativo que exige muita computação</h3>
 
 1. Faça logon na máquina virtual.
-2. Crie uma pasta chamada **c:\TSP**.É onde você executará o aplicativo.
-3. Copie TSPSolver.exe e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPSolver, para **c:\TSP**.
+2. Crie uma pasta chamada **c:\TSP**. É onde você executará o aplicativo.
+3. Copie o TSPSolver.exe e Microsoft.ServiceBus.dll, ambos estão disponíveis na pasta **bin** do seu projeto do TSPSolver, para **c:\TSP**.
 4. Crie um arquivo chamado **c:\TSP\cities.txt** com o seguinte conteúdo:
 
 		City_1, 1002.81, -1841.35
@@ -514,19 +528,19 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 
 O solver será executado até terminar de examinar todas as rotas.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
  
 <h3>Como executar o aplicativo cliente de monitoramento</h3>
-1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar no mesmo computador executando o aplicativo **TSPSolver**, embora possa ser.
+1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPClient, para a pasta c:\TSP.
+3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos estão disponíveis na pasta **bin** do projeto TSPClient, para a pasta c:\TSP.
 4. Em um prompt de comando, altere os diretórios para c:\TSP.
 5. Execute o comando a seguir:
 
         TSPClient
 
-    Como opção, especifique o número de minutos de espera entre a verificação da fila, passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que será usado se nenhum argumento de linha de comando for passado para **TSPClient**.Se você quiser usar um valor diferente para o intervalo de suspensão, por exemplo, um minuto, execute:
+    Como opção, especifique o número de minutos de espera entre a verificação da fila, passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que será usado se nenhum argumento de linha de comando for passado para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, por exemplo, um minuto, execute:
 
 	    TSPClient 1
 
@@ -549,5 +563,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou exclu
 [click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

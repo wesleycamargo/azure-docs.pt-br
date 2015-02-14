@@ -1,6 +1,20 @@
-﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+<properties 
+	pageTitle="obrigatório" 
+	description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="tamram"/>
 
 #Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 Os aplicativos baseados na Internet modernos consistem normalmente em vários usuários exibindo e atualizando dados de forma simultânea. Isso exige que os desenvolvedores de aplicativos pensem cuidadosamente sobre como fornecer uma experiência previsível para os usuários finais, especialmente para cenários em que vários usuários podem atualizar os mesmos dados. Existem três estratégias de simultaneidade de dados principais que os desenvolvedores normalmente considerarão:  
@@ -29,10 +43,10 @@ A estrutura desse processo é a seguinte:
 1.	Recupere um blob do serviço de Armazenamento, a resposta inclui um valor de cabeçalho HTTP ETag que identifica a versão atual do objeto no serviço de Armazenamento.
 2.	Ao atualizar o blob, inclua o valor de ETag recebido na etapa 1 no cabeçalho condicional **If-Match** da solicitação enviada para o serviço.
 3.	O serviço compara o valor da ETag na solicitação com o valor da ETag atual do blob.
-4.	Se o valor da ETag atual do blob for uma versão diferente da ETag no cabeçalho condicional **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente.Isso indica para o cliente que outro processo atualizou o blob desde que ele o recuperou.
+4.	Se o valor da ETag atual do blob for uma versão diferente da ETag no cabeçalho condicional **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente. Isso indica para o cliente que outro processo atualizou o blob desde que ele o recuperou.
 5.	Se o valor atual de ETag do blob for a mesma versão de ETag no cabeçalho condicional **If-Match** na solicitação, o serviço realizará a operação solicitada e atualizará o valor da ETag atual do blob para mostrar que foi criada uma nova versão.  
 
-O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente.  Então usa o objeto **AccessCondition** quando está atualizando o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação.Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição).A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).  
+O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente. Então usa o objeto **AccessCondition** quando está atualizando o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação. Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição). A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).  
 
 	// Retrieve the ETag from the newly created blob
 	// Etag is already populated as UploadText should cause a PUT Blob call 
@@ -71,15 +85,15 @@ A tabela a seguir resume as operações de contêiner que aceitam cabeçalhos co
 
 Operação	|Retorna um valor ETag de contêiner|	Aceita cabeçalhos condicionais|
 ------------|-----------------------|------------------------------------|
-Create Container|	Sim|	Não|
-Get Container Properties|	Sim|	Não|
-Get Container Metadata|	Sim|	Não|
-Set Container Metadata|	Sim|	Sim|
-Get Container ACL|	Sim|	Não|
-Set Container ACL|	Sim|	Sim (*)|
-Delete Container|	Não|	Sim|
-Lease Container|	Sim|	Sim|
-List Blobs|	Não|	Não  
+Criar contêiner|	Sim|	Não|
+Obter propriedades de contêiner|	Sim|	Não|
+Obter metadados do contêiner|	Sim|	Não|
+Definir metadados do contêiner|	Sim|	Sim|
+Obter ACL do contêiner|	Sim|	Não|
+Definir ACL do contêiner|	Sim|	Sim (*)|
+Excluir contêiner|	Não|	Sim|
+Contêiner de concessão|	Sim|	Sim|
+Lista de blobs|	Não|	Não  
 
 (*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.  
 
@@ -87,22 +101,22 @@ A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicio
 
 Operação	|Retornam valor ETag	|Aceita cabeçalhos condicionais|
 -----------|-------------------|----------------------------|
-Put Blob|	Sim|	Sim|
-Get Blob|	Sim|	Sim|
-Get Blob Properties|	Sim|	Sim|
-Set Blob Properties|	Sim|	Sim|
-Get Blob Metadata|	Sim|	Sim|
-Set Blob Metadata|	Sim|	Sim|
-Lease Blob (*)|	Sim|	Sim|
-Snapshot Blob|	Sim|	Sim|
-Copy Blob|	Sim|	Sim (para blob de destino e de origem)|
-Abort Copy Blob|	Não|	Não|
-Delete Blob|	Não|	Sim|
-Put Block|	Não|	Não|
-Put Block List|	Sim|	Sim|
-Get Block List|	Sim|	Não|
-Put Page|	Sim|	Sim
-Get Page Ranges|	Sim|	Sim
+Colocar Blob|	Sim|	Sim|
+Obter Blob|	Sim|	Sim|
+Obter propriedades do Blob|	Sim|	Sim|
+Definir propriedades de Blob|	Sim|	Sim|
+Obter metadados de Blob|	Sim|	Sim|
+Definir metadados de Blob|	Sim|	Sim|
+Concessão de Blob (*)|	Sim|	Sim|
+Blob de instantâneo|	Sim|	Sim|
+Copiar Blob|	Sim|	Sim (para o blob de origem e destino)|
+Anular copiar Blob|	não|	Não|
+Excluir Blob|	não|	Sim|
+Colocar blocos|	Não|	Não|
+Colocar lista de blocos|	Sim|	Sim|
+Obter lista de blocos|	Sim|	Não|
+Colocar página|	Sim|	Sim|
+Obter intervalos de página|	Sim|	Sim
 
 (*) Lease Blob não altera a ETag em um blob.  
 
@@ -138,7 +152,7 @@ O trecho de C# a seguir mostra um exemplo de aquisição de uma concessão exclu
 	        throw;
 	}  
 
-Se você tentar realizar uma operação de gravação em um blob sob concessão sem enviar a ID de concessão, a solicitação falhará com um erro 412. Observe que se a concessão expirar antes de chamar o método **UploadText**, mas você ainda utilizar a ID de concessão, a solicitação também falhará com um erro **412**. Para obter mais informações sobre o gerenciamento de tempos de expiração de concessão e IDs de concessão, consulte a documentação de REST de [Lease Blob](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx) .  
+Se você tentar realizar uma operação de gravação em um blob sob concessão sem enviar a ID de concessão, a solicitação falhará com um erro 412. Observe que se a concessão expirar antes de chamar o método **UploadText**, mas você ainda utilizar a ID de concessão, a solicitação também falhará com um erro **412**. Para obter mais informações sobre o gerenciamento de tempos de expiração de concessão e IDs de concessão, consulte a documentação de REST de [Lease Blob](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx).  
 
 As operações de blob a seguir podem usar concessões para gerenciar a simultaneidade pessimista:  
 
@@ -155,9 +169,9 @@ As operações de blob a seguir podem usar concessões para gerenciar a simultan
 -	Get Block List
 -	Put Page
 -	Get Page Ranges
--	Snapshot Blob - ID de concessão opcional se existir uma concessão
+-	Blob de instantâneo - se existir uma concessão de concessão ID opcional
 -	Copy Blob - ID de concessão obrigatória se existir uma concessão no blob de destino
--	Abort Copy Blob - ID de concessão obrigatória se existir uma concessão infinita no blob de destino
+-	Anular copiar Blob - ID de concessão necessária se uma concessão infinita existe no blob de destino
 -	Lease Blob  
 
 ##Simultaneidade pessimista para contêineres
@@ -177,7 +191,7 @@ Para obter mais informações, consulte:
 
 - [Especificando cabeçalhos condicionais para operações do serviço Blob](http://msdn.microsoft.com/pt-br/library/azure/dd179371.aspx)
 - [Lease Container](http://msdn.microsoft.com/pt-br/library/azure/jj159103.aspx)
-- [Lease Blob ](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx) 
+- [Lease Blob](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx) 
 
 #Gerenciando a simultaneidade no serviço Tabela
 O serviço Tabela usa verificações de simultaneidade otimista como o comportamento padrão quando você está trabalhando com entidades, diferente do serviço Blob, em que é necessário escolher explicitamente realizar verificações de simultaneidade otimista. A outra diferença entre os serviços Tabela e Blob é que você pode gerenciar apenas o comportamento de simultaneidade de entidades, enquanto que com o serviço Blob é possível gerenciar a simultaneidade de contêineres e blobs.  
@@ -187,12 +201,12 @@ Para usar a simultaneidade otimista e verificar se outro processo modificou uma 
 1.	Recupere uma entidade do serviço de armazenamento de tabela, a resposta inclui um valor de ETag que identifica o identificador atual associado a essa entidade no serviço de Armazenamento.
 2.	Ao atualizar a entidade, inclua o valor da ETag recebido na etapa 1 no cabeçalho obrigatório **If-Match** da solicitação enviada para o serviço.
 3.	O serviço compara o valor da ETag na solicitação com o valor da ETag atual da entidade.
-4.	Se o valor da ETag atual da entidade for diferente da ETag no cabeçalho obrigatório **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente.Isso indica para o cliente que outro processo atualizou a entidade desde que ele a recuperou.
+4.	Se o valor da ETag atual da entidade for diferente da ETag no cabeçalho obrigatório **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente. Isso indica para o cliente que outro processo atualizou a entidade desde que ele a recuperou.
 5.	Se o valor da ETag atual da entidade for o mesmo da ETag no cabeçalho obrigatório **If-Match** na solicitação ou o cabeçalho **If-Match** contiver o caractere curinga (*), o serviço realizará a operação solicitada e atualizará o valor da ETag atual da entidade para mostrar que ela foi atualizada.  
 
 Observe que diferente do serviço Blob, o serviço Tabela exige que o cliente inclua um cabeçalho **If-Match** em solicitações de atualização. No entanto, é possível forçar uma atualização incondicional (estratégia último a gravar vence) e ignorar as verificações de simultaneidade se o cliente definir o cabeçalho **If-Match** com o caractere curinga (*) na solicitação.  
 
-O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição). A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).  
+O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição). A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	try
 	{
@@ -215,17 +229,17 @@ customer.ETag = "*";
 
 A tabela a seguir resume como as operações de entidade de tabela usam os valores de ETag:  
 
-Operação	|Retorna valor ETag	|Requer cabeçalho de solicitação If-Match|
+Operação	||Retorna valor ETag	||Requer cabeçalho de solicitação If-Match||
 ------------|-------------------|--------------------------------|
-Query Entities|	Sim|	Não|
-Insert Entity|	Sim|	Não|
-Update Entity|	Sim|	Sim|
-Merge Entity|	Sim|	Sim|
-Delete Entity|	Não|	Sim|
-Insert or Replace Entity|	Sim|	Não|
-Insert or Merge Entity|	Sim|	Não 
+Consultar entidades|	Sim|	Não|
+Inserir entidade|	Sim|	Não|
+Atualizar entidade|	Sim|	Sim|
+Mesclar entidade|	Sim|	Sim|
+Excluir entidade|	Não|	Sim|
+Inserir ou substituir entidade|	Sim|	Não|
+Inserir ou mesclar entidade|	Sim|	Não 
 
-Observe que as operações **Insert or Replace Entity** e **Insert or Merge Entity***não* realizam nenhuma verificação de simultaneidade, pois não enviam um valor de ETag para o serviço Tabela.  
+Observe que as operações **Insert or Replace Entity** e **Insert or Merge Entity** *não* realizam nenhuma verificação de simultaneidade, pois não enviam um valor de ETag para o serviço Tabela.  
 
 Em geral, os desenvolvedores usando tabelas devem recorrer à simultaneidade otimista ao desenvolver aplicativos escalonáveis. Se o bloqueio pessimista for necessário, uma abordagem que os desenvolvedores podem adotar ao acessar tabelas é atribuir um blob designado para cada tabela e tentar obter uma concessão no blob antes de operar na tabela. Essa abordagem exige que o aplicativo garanta que todos os caminhos de acesso de dados obtenham a concessão antes de operar na tabela. Você também deve observar que o tempo mínimo de concessão é de 15 segundos, o que exige uma consideração cuidadosa quanto à escalabilidade.  
 
@@ -262,9 +276,8 @@ Para encontrar o aplicativo de exemplo completo citado nesse blog:
 Para obter mais informações sobre Armazenamento do Azure, consulte:  
 
 - [Página inicial do Armazenamento do Microsoft Azure](http://azure.microsoft.com/pt-br/services/storage/)
-- [Introdução ao Armazenamento do Azure](http://azure.microsoft.com/pt-br/documentation/articles/storage-introduction/)
-- Introdução ao armazenamento para [Blob](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/), [Tabela](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/) e [Filas](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/)
-- Arquitetura de armazenamento - [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Introdução ao armazenamento do Azure](http://azure.microsoft.com/pt-br/documentation/articles/storage-introduction/)
+- Introdução ao Armazenamento para [Blob](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/)[Tabela](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/) e [Filas](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/)
+- Arquitetura de armazenamento - [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com consistência sólida](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

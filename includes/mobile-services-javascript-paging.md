@@ -29,7 +29,7 @@
 
    	Observe que o método **take(3)** foi convertido na opção de consulta **$top=3** no URI da consulta.
 
-5. Atualize o método **RefreshTodoItems** mais uma vez com o código a seguir:            
+5. Atualize o método **RefreshTodoItems** mais uma vez com o código a seguir:
             
         var refreshTodoItems = function () {
             // Define a filtered query that skips the first 3 items and 
@@ -46,13 +46,11 @@
 
    	Essa consulta ignora os três primeiros resultados e retorna os três seguintes. Essa é efetivamente a segunda "página" de dados, onde o tamanho da página é de três itens.
 
-    <div class="dev-callout"><b>Observação</b>
-    <p>Este tutorial usa um cenário simplificado passando valores de paginação embutidos em código para os métodos <strong>Take</strong> e <strong>Skip</strong>. Em um aplicativo do mundo real, você pode usar consultas semelhantes às mencionadas acima com um controle de paginação ou interface do usuário comparável para permitir que os usuários naveguem para páginas anteriores e posteriores.  Você também pode chamar o método <strong>includeTotalCount</strong> para obter a contagem total dos itens disponíveis no servidor, juntamente com os dados paginados.</p>
-    </div>
+    > [AZURE.NOTE] Este tutorial usa um cenário simplificado passando valores de paginação embutidos em código para os métodos **Take** e **Skip**. Em um aplicativo do mundo real, você pode usar consultas semelhantes às mencionadas acima com um controle de paginação ou interface do usuário comparável para permitir que os usuários naveguem para páginas anteriores e posteriores.  Você também pode chamar o método **includeTotalCount** para obter a contagem total dos itens disponíveis no servidor, juntamente com os dados paginados.
 
 6. (Opcional) Novamente, você pode ver o URI da solicitação enviada ao serviço móvel. 
 
-   	Observe que o método **skip(3)** foi convertido na opção de consulta **$skip=3** na URI da consulta.
+   	Observe que o método **skip(3)** foi convertido na opção de consulta **$skip=3** no URI da consulta.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->

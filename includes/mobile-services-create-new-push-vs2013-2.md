@@ -1,4 +1,4 @@
-1. No arquivo insert.js para a tabela **canais**, localize as seguintes linhas de código, comente-as ou remova-as do arquivo, e salve as alterações.
+﻿1. No arquivo insert.js para o **canais** tabela, localize as seguintes linhas de código, comente-os ou removê-las do arquivo, e salve as alterações.
 
 		sendNotifications(item.channelUri);
 
@@ -15,7 +15,7 @@
 		
 	Quando você salva as alterações para o arquivo insert.js, uma nova versão do script é carregada para o serviço móvel.
 
-2. No Gerenciador de Servidores, expanda a tabela TodoItem, abra o arquivo insert.js e substitua a função atual de inserção com o seguinte código, e salve as alterações: 
+2. No Server Explorer, expanda a tabela TodoItem, abra o arquivo insert.js e substitua a função atual de inserção com o seguinte código e salvar as alterações: 
 
 		function insert(item, user, request) {
 			request.execute({
@@ -43,4 +43,5 @@
 			}
 		}
 		
-	Agora, quando você insere uma nova TodoItem, uma notificação por push é enviada para todos os dispositivos registrados. 
+	Agora, quando você insere uma nova TodoItem, uma notificação por push é enviada para todos os dispositivos registrados.
+<!--HONumber=42-->

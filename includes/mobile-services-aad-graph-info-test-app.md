@@ -6,7 +6,8 @@ As instruções e capturas de tela abaixo se aplicam ao teste de um cliente da W
 
     ![](./media/mobile-services-aad-graph-info-test-app/bob-login.png)
 
-2.  API personalizada é executada, retornando as informações do diretório do usuário em uma saudação padrão. Neste exemplo, o usuário precisa ter *streetAddress*, *city*, *state* e *postalCode* para exibir o endereço do usuário.
+2. A API personalizada é executada, retornando as informações do diretório do usuário em uma saudação padrão. Neste exemplo, o usuário precisa ter  *streetAddress*, *city*, *state* e  *postalCode* para exibir o endereço do usuário.
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
+<!--HONumber=42-->

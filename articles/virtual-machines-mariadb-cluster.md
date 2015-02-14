@@ -1,6 +1,21 @@
-﻿<properties title="MariaDB (MySQL) cluster - Azure tutorial" pageTitle="Executando um cluster MariaDB (MySQL) no Azure" description="Criar um cluster do MySQL MariaDB + Galera nas máquinas virtuais do Azure" metaKeywords="mysql,mariadb,galera,cluster,azure virtual machines" services="virtual-machines" solutions="infrastructure,data-management" documentationCenter="infrastructure" authors="sabbour, rasquill" videoId="" scriptId="" manager="timlt" />
+<properties 
+	pageTitle="Executando um cluster MariaDB (MySQL) no Azure" 
+	description="Criar um cluster MariaDB + Galera MySQL nas máquinas virtuais do Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="sabbour" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="12/3/2014" ms.author="v-ahsab" ms.prod="azure" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure-services" 
+	ms.date="12/3/2014" 
+	ms.author="v-ahsab" 
+	ms.prod="azure"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Cluster MariaDB (MySQL) - tutorial do Azure
@@ -28,7 +43,7 @@ Este tópico executa as seguintes etapas:
 
 ![Architecture](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [WACOM.NOTE]  Este tópico usa as ferramentas da [CLI do Azure], certifique-se de baixá-las e conectá-las à sua assinatura do Azure de acordo com as instruções. Se você precisar de uma referência para os comandos disponíveis na CLI do Azure, confira este link para a [referência de comandos da CLI do Azure]. Você também precisará [criar uma chave SSH para autenticação] e anotar o **local do arquivo .pem**.
+> [AZURE.NOTE]  Este tópico usa as ferramentas da [CLI do Azure], certifique-se de baixá-las e conectá-las à sua assinatura do Azure de acordo com as instruções. Se você precisar de uma referência para os comandos disponíveis na CLI do Azure, confira este link para a [referência de comandos da CLI do Azure]. Você também precisará [criar uma chave SSH para autenticação] e anotar o **local do arquivo .pem**.
 
 
 ## Criação do modelo
@@ -70,21 +85,21 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
         
 2. Instale o suporte RAID:
 
-     - Install mdadm
+     - Instalar mdadm
         
         		yum install mdadm
                 
-     - Create the RAID0/stripe configuration with an EXT4 file system
+     - Criar a configuração RAID0/stripe com um sistema de arquivos EXT4
         
 				mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
 				mdadm --detail --scan >> /etc/mdadm.conf
 				mkfs -t ext4 /dev/md0
          
-     - Create the mount point directory
+     - Criar o diretório de ponto de montagem
          
 				mkdir /mnt/data
                 
-     - Retrieve the UUID of the newly created RAID device
+     - Recuperar o UUID do dispositivo RAID recém-criado
         
 				blkid | grep /dev/md0
     
@@ -92,21 +107,21 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
         
         		vi /etc/fstab
         
-     - Add the device in there to enable auto mouting on reboot replacing the UUID with the value obtained from the **blkid** command before
+     - Adicionar o dispositivo lá para habilitar a montagem automática na reinicialização, substituindo o UUID com o valor obtido do comando **blkid** antes
         
         		UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
         	
-     - Mount the new partition
+     - Monte a nova partição
         
         		mount /mnt/data
             
 3. Instale MariaDB:    
 		
-     - Create the MariaDB.repo file: 
+     - Criar o arquivo MariaDB.repo: 
         
               	vi /etc/yum.repos.d/MariaDB.repo
         
-     - Fill it with the below content      
+     - Preencha-o com o conteúdo abaixo      
         
 				[mariadb]
 				name = MariaDB
@@ -114,64 +129,64 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 				gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 				gpgcheck=1
     
-     - Remove existing postfix and mariadb-libs to avoid conflicts
+     - Remover o posfixo existente e mariadb-libs para evitar conflitos
     
     		yum remove postfix mariadb-libs-*
             
-     - Install MariaDB with Galera
+     - Instalar MariaDB com Galera
     
     		yum install MariaDB-Galera-server MariaDB-client galera
    
 4. Mova o diretório de dados MySQL para o dispositivo de blocos RAID
 
-     - Copy the current MySQL directory into its new location and remove the old directory
+     - Copie o diretório atual do MySQL para o novo local e remova o diretório antigo
     
     		cp -avr /var/lib/mysql /mnt/data  
     		rm -rf /var/lib/mysql
       
-     - Set permissions on new directory accordingly
+     - Definir as permissões no novo diretório adequadamente
         
         	chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/  
             
-     - Create a symlink pointing the old directory to the new location on the RAID partition
+     - Criar um symlink apontando o diretório antigo para o novo local na partição do RAID
     
     		ln -s /mnt/data/mysql /var/lib/mysql   
 
-5. Como [SELinux interferirá nas operações de cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), é necessário desabilitá-lo para a sessão atual (até que surja uma versão compatível). Edite '/ selinux/etc/config' para desativar nas reinicializações subsequentes:
+5. Como [SELinux interferirá nas operações de cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), é necessário desabilitá-lo para a sessão atual (até que surja uma versão compatível). Editar `/etc/selinux/config` para desabilitá-lo para reinicializações subsequentes:
     	
 	        setenforce 0
     
        then editing `/etc/selinux/config` to set `SELINUX=permissive`
        
-6. Validate MySQL runs
+6. Validar a execução do MySQL
 
-    - Start MySQL
+    - Iniciar o MySQL
     
     		service mysql start
             
-    - Secure the MySQL installation, set the root password, remove anonymous users, disabling remote root login and removing the test database
+    - Proteger a instalação do MySQL, definir a senha raiz, remova usuários anônimos, desabilitando o logon de raiz remoto e remover o banco de dados de teste
     		
             mysql_secure_installation
             
-    - Create a user on the database for cluster operations and optionally, your applications
+    - Criar um usuário no banco de dados para as operações de cluster e, opcionalmente, seus aplicativos
    
 			mysql -u root -p
 			GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
             exit
    
-   - Stop MySQL
+   - Parar o MySQL
    
 			service mysql stop
             
 7. Crie espaço reservado para configuração
 
-	- Edite a configuração do MySQL para criar um espaço reservado para as configurações de cluster. Não substitua o **'<Vairables>'** ou o remova agora. Isso acontecerá depois de criarmos uma VM com base neste modelo.
+	- Edite a configuração do MySQL para criar um espaço reservado para as configurações de cluster. Não substitua o **`<Vairables>`** ou o remova agora. Isso acontecerá depois de criarmos uma VM com base neste modelo.
 	
 			vi /etc/my.cnf.d/server.cnf
 			
-	- Edit the **[galera]** section and clear it out
+	- Edite a seção **[galera]** e limpe-a
 	
-	- Edit the **[mariadb]** section
+	- Edite a seção **[mariadb]**
 	
 			wsrep_provider=/usr/lib64/galera/libgalera_smm.so 
             binlog_format=ROW
@@ -192,7 +207,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
     - GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
     - GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
     - RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-    - Reload the firewall: `firewall-cmd --reload`
+    - Recarregue o firewall: `firewall-cmd --reload`
 	
 9.  Otimize o sistema para o desempenho. Consulte este artigo em [estratégia de ajuste de desempenho] para obter mais detalhes
 
@@ -202,7 +217,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 		
 	- Edite a seção **[mariadb]** e acrescente o seguinte
 	
-	> [WACOM.NOTE] É recomendável que o **innodb\_buffer\_pool_size** seja 70% da memória da VM. Ele foi definido como 2,45 GB aqui para a VM do Azure Médio com 3,5 GB de RAM.
+	> [AZURE.NOTE] É recomendável que o **innodb\_buffer\_pool_size** seja 70% da memória da VM. Ele foi definido como 2,45 GB aqui para a VM do Azure Médio com 3,5 GB de RAM.
 	
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -231,7 +246,7 @@ Crie 3 VMs a partir do modelo recém-criado e, em seguida, configure e inicie o 
 
 1. Crie a primeira VM do CentOS 7 a partir da imagem **mariadb-galera-image** da imagem que você criou, fornecendo o nome da rede virtual **mariadbvnet** e a sub-rede **mariadb**, tamanho da máquina **Médio**, passando o nome do Serviço de Nuvem para que seja **mariadbha** (ou qualquer nome que você desejar para ser acessado pelo mariadbha.cloudapp.net), configurando o nome dessa máquina para que seja **mariadb1** e o nome de usuário para **azureuser**, e habilitando o acesso SSH e passando o arquivo .pem do certificado SSH e substituindo **/path/to/key.pem** pelo caminho onde você armazenou chave SSH .pem gerada.
 
-	> [WACOM.NOTE] Os comandos a seguir são divididos em várias linhas para maior clareza, mas você deve inserir cada um como uma única linha.
+	> [AZURE.NOTE] Os comandos a seguir são divididos em várias linhas para maior clareza, mas você deve inserir cada um como uma única linha.
 
 		azure vm create 
         --virtual-network-name mariadbvnet
@@ -256,7 +271,7 @@ Crie 3 VMs a partir do modelo recém-criado e, em seguida, configure e inicie o 
 		--ssh 23
 		--vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-and for MariaDB3
+e para MariaDB3
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -334,12 +349,12 @@ Em seguida, crie um novo banco de dados e preencha-o com alguns dados
 Resultará na tabela abaixo
 
 	+----+--------+
-	| ID | valor |
+	| id | value  |
 	+----+--------+
 	|  1 | Value1 |
 	|  4 | Value2 |
 	+----+--------+
-	2 linhas no conjunto (0,00 seg)	
+	2 rows in set (0.00 sec)	
 	
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
@@ -359,12 +374,10 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 <!--Image references-->
 
 <!--Link references-->
-[CLI do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/
-[Referência de comando CLI do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/command-line-tools/
-[criar uma chave SSH para autenticação]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[estratégia de ajuste de desempenho]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Azure CLI]: http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/
+[Azure CLI command reference]: http://azure.microsoft.com/pt-br/documentation/articles/command-line-tools/
+[create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[performance tuning strategy]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [otimizar e testar o desempenho do MySQL nas VMs Linux do Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[emissão 1268 # na CLI do Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[outra maneira de clusterizar MySQL no Linux]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-mysql-cluster/
-
-<!--HONumber=35.2-->
+[issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[outra maneira de clusterizar o MySQL no Linux]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-mysql-cluster/<!--HONumber=42-->

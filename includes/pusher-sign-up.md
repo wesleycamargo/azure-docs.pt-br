@@ -1,6 +1,6 @@
 ﻿A primeira etapa é criar uma nova conta a ser usada para o tutorial. Você pode usar o plano GRATUITO de Área Restrita, ele é perfeito para este tutorial.
 
-###  Para inscrever-se em uma conta de Pusher
+### Para inscrever-se em uma conta de Pusher
 
 1. Faça logon no [Portal de Gerenciamento do Azure][].
 
@@ -14,9 +14,9 @@
 
 4. Na caixa de diálogo **Escolher um complemento**, selecione **Pusher** e clique na seta à direita.
 
-5. Na caixa de diálogo **Personalizar Complemento**, selecione o plano do **Pusher** no qual você deseja se inscrever.
+5. Na caixa de diálogo **Personalizar complemento**, selecione o plano **Pusher** no qual você deseja se inscrever.
 
-6. Digite um nome para identificar o serviço do **Pusher** nas suas configurações do Azure ou use o valor padrão de **Pusher**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
+6. Digite um nome para identificar o serviço de **Pusher** nas suas configurações do Azure ou use o valor padrão de **Pusher**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
 
 	![store-screen-1][store-screen-1]
 
@@ -42,15 +42,15 @@ Ao usar o Pusher, você precisará fornecer as configurações de conexão do ap
 
 ### Para localizar as configurações de conexão de Pusher ###
 
-1.  Clique em **Informações de Conexão**.
+1. Clique em **Informações de Conexão**.
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. Na caixa de diálogo *Informações de Conexão*, você verá sua ID do aplicativo, a chave e o segredo. Você usará esses valores posteriormente no tutorial, então copie-os para uso posterior.
+2. Na caixa de diálogo *Connection info*, você verá sua ID de aplicativo, a chave e o segredo. Você usará esses valores posteriormente no tutorial, então copie-os para uso posterior.
 
 	![pusher-connection-info][pusher-connection-info]
 
-Para obter mais informações sobre como começar a usar o Pusher, consulte [Noções básicas sobre o Pusher][].
+Para obter mais informações sobre como começar com o Pusher, consulte [Noções básicas sobre Pusher][].
 
 <!--images-->
 
@@ -66,6 +66,6 @@ Para obter mais informações sobre como começar a usar o Pusher, consulte [No�
 <!--Links-->
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-[Noções básicas sobre o Pusher]: http://pusher.com/docs
+[Noções básicas sobre Pusher]: http://pusher.com/docs
 
-
+<!--HONumber=42-->

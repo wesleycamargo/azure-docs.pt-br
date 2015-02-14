@@ -1,13 +1,27 @@
-﻿<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Acessar os Logs de aplicativo do HDInsight do Azure de forma pragmaticamente|" metaKeywords ="" description="Acesse os Logs do aplicativo HDInsight de forma programática." metaCanonical="" services="hdinsight" documentationCenter="" title="Access HDInsight Application Logs Programmatically" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Acessar os Logs de aplicativo do HDInsight programaticamente| Azure" 
+	description="Acessar os Logs de aplicativo do HDInsight programaticamente." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="bradsev"/>
 
 # Acessar os Logs de aplicativo do HDInsight programaticamente
 
 Este tópico explica como enumerar os aplicativos de YARN de forma programática que foram concluídos em um cluster Hadoop no HDInsight e como acessar os logs do aplicativo de forma programática sem a necessidade de RDP em seus clusters. Especificamente, foram adicionados um novo componente e uma nova API:
 
   1. O servidor de histórico de aplicativo genérico em clusters HDInsight foi habilitado. Ele é um componente dentro do Servidor de Linha do Tempo de YARN que manipula o armazenamento e recuperação de informações genéricas de aplicativos concluídos.
-  2. Novas APIs no HDInsight do Azure foram adicionadas para permitir que você enumere de forma programatica os aplicativos que foram executados em seus clusters e baixe o aplicativo relevante ou logs específicos do contêiner (em texto sem formatação) para ajudar na depuração de problemas de aplicativo que ocorrem.
+  2. Novas APIs no HDInsight do Azure foram adicionadas para permitir que você enumere de forma programática os aplicativos que foram executados em seus clusters e baixe o aplicativo relevante ou logs específicos do contêiner (em texto sem formatação) para ajudar na depuração de problemas de aplicativo que ocorrem.
 
 
 ## Pré-requisitos
@@ -50,15 +64,15 @@ Adicionamos novas APIs no SDK do HDInsight para .net para tornar mais fácil par
 
 ## <a name="YARNAppsAndLogs"></a>Logs e aplicativos do YARN
 
-YARN (um novo recurso negociador) oferece suporte a vários modelos de programação (sendo o MapReduce uma delas), separando o gerenciamento de recursos de agendamento/do monitoramento de aplicativos. Isso é feito por meio de um *Gerenciador de Recurso* (RM) global, por nó do operador *Gerenciadores de Nós* (NMs) e por aplicativo *Mestres de Aplicativo* (AMs). O aplicativo AM negocia recursos (CPU, memória, disco e rede) para executar o aplicativo com o Gerenciador de recurso. O RM funciona com NMs para conceder a esses recursos, que são concedidos como *Contêineres*. O AM é responsável por controlar o andamento dos contêineres atribuídos pelo RM. Um aplicativo pode exigir um número de contêineres dependendo da natureza do aplicativo. 
+YARN (um novo recurso negociador) oferece suporte a vários modelos de programação (sendo o MapReduce uma delas), separando o gerenciamento de recursos de agendamento/do monitoramento de aplicativos. Isso é feito por meio de um *Resource Manager* (RM) global, por cada nó de trabalho *Node Managers* (NMs) e por aplicativo *Application Masters* (AMs). O aplicativo AM negocia recursos (CPU, memória, disco e rede) para executar o aplicativo com o Gerenciador de recurso. O RM funciona com NMs para conceder a esses recursos, que são concedidos como *Containers*. O AM é responsável por controlar o andamento dos contêineres atribuídos pelo RM. Um aplicativo pode exigir um número de contêineres dependendo da natureza do aplicativo. 
 
-Além disso, cada aplicativo pode consistir em vários *tentativas de aplicativo* para concluir o aplicativo na presença de falhas ou devido à perda de comunicação entre um AM e um RM. Portanto, contêineres são concedidos a uma tentativa específica de um aplicativo. De certa forma, um contêiner fornece o contexto para a unidade básica de trabalho executado por um aplicativo de YARN e todo o trabalho é feito no contexto de que um contêiner é executado no nó único de trabalho no qual ele foi alocado. Consulte [Conceitos de YARN][YARN-concepts] para mais referências.
+Além disso, cada aplicativo pode consistir em várias *Application Attempts* para concluir o aplicativo na presença de falhas ou devido à perda de comunicação entre um AM e um RM. Portanto, contêineres são concedidos a uma tentativa específica de um aplicativo. De certa forma, um contêiner fornece o contexto para a unidade básica de trabalho executado por um aplicativo de YARN e todo o trabalho é feito no contexto de que um contêiner é executado no nó único de trabalho no qual ele foi alocado. Consulte [Conceitos de YARN][YARN-concepts] para mais referências.
 
 Os logs de aplicativos (e os logs de contêiner associado) são essenciais na depuração de aplicativos problemáticos do Hadoop. O YARN fornece uma estrutura legal para coleta, agregação e armazenamento dos logs de aplicativo com o recurso [Agregação de Log][log-aggregation]. O recurso de agregação de Log permite acessar logs de aplicativos mais determinista como ele agrega logs em todos os contêineres em um nó de trabalho e as armazena como um agregado arquivo de log por nó de trabalho no sistema de arquivos padrão após a conclusão de um aplicativo. O aplicativo deve usar centenas ou milhares de contêineres, mas logs para todos os contêineres executados em um nó único de trabalhado sempre serão agregados em um único arquivo, resultando em um arquivo de log por nó de trabalho usado pelo seu aplicativo. A agregação de log é habilitada como padrão em clusters HDInsight (versão 3.0 e versões posteriores) e logs agregados podem ser encontrados no contêiner padrão do cluster no seguinte local:
 
 	wasb:///app-logs/<user>/logs/<applicationId>
 
-onde "* user*" é o nome do usuário que iniciou o aplicativo, e "* applicationId *" é o identificador exclusivo de um aplicativo como atribuído pelo Resource Manager do YARN.
+onde "*user*" é o nome do usuário que iniciou o aplicativo, e "*applicationId*" é o identificador exclusivo de um aplicativo como atribuído pelo Resource Manager do YARN.
 
 Os logs agregados não são diretamente legíveis por serem gravados em um [TFile][T-file], [formato binário][binary-format] indexado pelo contêiner. O YARN fornece ferramentas CLI para despejar os logs como texto sem formatação para aplicativos ou contêineres de interesse. Você pode exibir esses logs como texto sem formatação, executando um dos seguintes comandos de YARN diretamente em nós de cluster (depois de se conectar a ele via RDP):
 
@@ -73,7 +87,7 @@ Para usar os exemplos de código a seguir, você deve atender aos pré-requisito
 
 O código a seguir ilustra como usar as novas APIs para enumerar os aplicativos e baixar os logs de aplicativos concluídos.
 
-> [WACOM.NOTE] As APIs abaixo só funcionam em clusters do Hadoop "Executando" com a versão 3.1.1.374 ou superior. Adicione as seguintes diretivas.
+> [AZURE.NOTE] As APIs abaixo só funcionam em clusters do Hadoop "Executando" com a versão 3.1.1.374 ou superior. Adicione as seguintes diretivas.
 
 	using Microsoft.Hadoop.Client;
 	using Microsoft.WindowsAzure.Management.HDInsight;
@@ -129,14 +143,14 @@ Essas referenciam as APIs recentemente definidas no código a seguir. O seguinte
 
 O código acima lista/localiza aplicativos interessantes usando o Cliente de Histórico do Aplicativo e, em seguida, baixa os logs para esses aplicativos em uma pasta local. 
 
-Como alternativa, o trecho de código abaixo baixa os logs para um aplicativo cujo "ApplicationId" (seu identificador exclusivo) é conhecido. O ApplicationId é um identificador global exclusivo de um aplicativo atribuído pelo Gerenciador de Recursos. Ele é construído usando a hora de início do Gerenciador de Recursos com um contador aumenta de forma monotônica para solicitações enviadas a ele. ApplicationId é da forma "application\_<RM-start-time>\_<Counter&gt". Observe que o ApplicationId e JobId são diferentes. A JobId é um conceito específico de estrutura MapReduce enquanto o ApplicationId é um conceito YARN independente do framework. No YARN, um JobId identifica um determinado MapReduce Job como manipulado pelo aplicativo mestre de um aplicativo MapReduce enviado para o Gerenciador de Recursos.
+Como alternativa, o trecho de código abaixo baixa os logs para um aplicativo cujo "ApplicationId" (seu identificador exclusivo) é conhecido. O ApplicationId é um identificador global exclusivo de um aplicativo atribuído pelo Gerenciador de Recursos. Ele é construído usando a hora de início do Gerenciador de Recursos com um contador aumenta de forma monotônica para solicitações enviadas a ele. ApplicationId é da forma "application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;". Observe que o ApplicationId e JobId são diferentes. A JobId é um conceito específico de estrutura MapReduce enquanto o ApplicationId é um conceito YARN independente do framework. No YARN, um JobId identifica um determinado MapReduce Job como manipulado pelo aplicativo mestre de um aplicativo MapReduce enviado para o Gerenciador de Recursos.
 
 	// Download application logs for an application whose application Id is known
 	string applicationId = "application_1416017767088_0028";
 	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
 	appHistoryClient.DownloadApplicationLogs(someApplication, downloadLocation);
 
-If needed, you can also download logs for each container (or any specific container) used by an application as shown below.
+Se necessário, você também pode baixar logs para cada contêiner (ou qualquer contêiner específico) usado por um aplicativo, conforme mostrado abaixo.
 
 	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
 	
@@ -163,5 +177,4 @@ If needed, you can also download logs for each container (or any specific contai
 [T-file]:https://issues.apache.org/jira/browse/HADOOP-3315
 [binary-format]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf 
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
-
-<!--HONumber=35.2-->
+<!--HONumber=42-->

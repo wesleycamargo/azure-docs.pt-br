@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Usar o Pig com Hadoop no HDInsight | Azure" metaKeywords="" description="Saiba como usar o Pig com HDInsight. Escreva instruções Pig Latin para analisar um arquivo de log do aplicativo e executar várias consultas nos dados para gerar saída para análise." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Usar o Pig do Hadoop no HDInsight | Azure" 
+	description="Saiba como usar o Pig com HDInsight. Escreva instruções Pig Latin para analisar um arquivo de log do aplicativo e executar várias consultas nos dados para gerar saída para análise." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="jgao"/>
 
 
 
 # Usar o Pig com Hadoop no HDInsight
 
-Neste tutorial, saiba como executar trabalhos do [Apache Pig][apachepig-home] no HDInsight para analisar arquivos de dados grandes. O Pig fornece uma linguagem de script para executar trabalhos *MapReduce* como uma alternativa a escrever código Java. Linguagem de scripts do pig é chamada *Pig Latin*.
+Neste tutorial, saiba como executar trabalhos do [Apache Pig][apachepig-home] no HDInsight para analisar arquivos de dados grandes. O Pig fornece uma linguagem de script para executar trabalhos *MapReduce* como uma alternativa a escrever código Java. A linguagem de scripts do pig é chamada *Pig Latin*.
 
 **Pré-requisitos**
 
@@ -14,9 +28,9 @@ Neste tutorial, saiba como executar trabalhos do [Apache Pig][apachepig-home] no
 
 * Você deve ter instalado e configurado o PowerShell do Azure em sua estação de trabalho. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure]. 
 
-**Tempo estimado para concluir:** 30 minutos
+**Tempo estimado para conclusão:** 30 minutos
 
-##Neste artigo
+## Neste artigo
 
 * [Por que usar o Pig?](#usage)
 * [O que eu faço neste tutorial?](#what)
@@ -26,7 +40,7 @@ Neste tutorial, saiba como executar trabalhos do [Apache Pig][apachepig-home] no
 * [Enviar trabalhos de Pig usando o SDK do .NET do HDInsight](#sdk)
 * [Próximas etapas](#nextsteps)
  
-##<a id="usage"></a>Por que usar o Pig?
+## <a id="usage"></a>Por que usar o Pig?
 Trabalhar com big data é difícil usando bancos de dados relacionais e pacotes de estatísticas/visualização. Devido às grandes quantidades de dados e à computação desses dados, software paralelo executado em dezenas, centenas ou até milhares de servidores é geralmente necessário para calcular os dados em tempo razoável. O Hadoop fornece uma estrutura *MapReduce* para escrever aplicativos que processam grandes quantidades de dados estruturados e não estruturados em paralelo em grandes clusters de computadores de uma maneira muito confiável e tolerante a falhas.
 
 ![HDI.Pig.Architecture][image-hdi-pig-architecture]
@@ -39,9 +53,9 @@ As instruções de Pig Latin seguem este fluxo geral:
 - **Transformar**: Manipular os dados 
 - **Despejar ou armazenar**: Dar saída nos dados para a tela ou para o armazenamento para processamento
 
-Para obter mais informações sobre o Pig Latin, consulte [Manual de referência do Pig Latin 1][piglatin-manual-1] e [Manual de referência do Pig Latin 2][piglatin-manual-2].
+Para obter mais informações sobre o Pig Latin, consulte [Manual de referência do Pig Latin 1][piglatin-manual-1]. e [Manual de referência do Pig Latin 2][piglatin-manual-2].
 
-##<a id="what"></a>O que eu faço neste tutorial?
+## <a id="what"></a>O que eu faço neste tutorial?
 Neste tutorial, você analisa o arquivo de log do Apache (*sample.log*) para determinar o número de níveis de log diferentes, como INFO, DEBUG, TRACE, etc. A representação visual do que você realizará neste artigo é mostrada nas duas figuras a seguir. A primeira figura mostra um fragmento do arquivo sample.log.
 
 ![Whole File Sample][image-hdi-log4j-sample]
@@ -52,7 +66,7 @@ A segunda figura ilustra o fluxo e a transformação dos dados à medida que voc
 
 O trabalho Pig criado neste tutorial segue o mesmo fluxo.
 
-##<a id="data"></a>Identificar dados a analisar
+## <a id="data"></a>Identificar dados a analisar
 
 O HDInsight usa o contêiner do armazenamento de Blob do Azure como o sistema de arquivos padrão para clusters do Hadoop. Alguns arquivos de dados de amostra são adicionados ao armazenamento de blob como parte do provisionamento de cluster. Você pode usar esses arquivos de dados de amostra para executar consultas do Hive no cluster. Se desejar, também é possível carregar seu próprio arquivo de dados para a conta de armazenamento de blob associada ao cluster. Consulte [Carregar dados para o HDInsight][hdinsight-upload-data] para obter instruções. Para obter mais informações sobre como o armazenamento de Blob do Azure é usado com HDInsight, consulte [Usar armazenamento de blob do Azure com HDInsight][hdinsight-storage].
 
@@ -60,7 +74,7 @@ A sintaxe para acessar os arquivos no armazenamento blob é:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] Somente a sintaxe *wasb://* tem suporte no cluster HDInsight versão 3.0. A sintaxe antiga *asv://* tem suporte nos clusters HDInsight 2.1 e 1.6, mas não tem suporte nos clusters HDInsight 3.0 e não terá suporte em versões posteriores.
+> [AZURE.NOTE] No cluster HDInsight versão 3.0, há suporte apenas para a sintaxe  *wasb://*. Há suporte para a sintaxe antiga *asv://* nos clusters HDInsight 2.1 e 1.6, mas esse suporte não existe nos clusters HDInsight 3.0 e não existirá em versões posteriores.
 
 Um arquivo armazenado no contêiner do sistema de arquivos padrão pode ser acessado no HDInsight usando qualquer um dos seguintes URIs também (usando sample.log como um exemplo.  Este arquivo é o arquivo de dados usado neste tutorial):
 
@@ -77,7 +91,7 @@ Este artigo usa um arquivo de exemplo *log4j* que vem com os clusters HDInsight 
 
 
 
-##<a id="understand"></a> Compreender o Pig Latin
+## <a id="understand"></a> Compreender o Pig Latin
 
 Nesta seção, você analisará algumas declarações do Pig Latin individualmente e seus resultados depois de executar as declarações. Nesta seção, você executará o PowerShell para executar as declarações Pig juntas para analisar o arquivo de log de amostra. As declarações Pig Latin individuais devem ser executadas diretamente no cluster do HDInsight.
 
@@ -87,7 +101,7 @@ Nesta seção, você analisará algumas declarações do Pig Latin individualmen
 
 		C:\apps\dist\hadoop-<version>> cd %pig_home%\bin
 
-3. No prompt de comando, digite *pig* e pressione ENTER para ir para o * shell *grunt*.
+3. No prompt de comando, digite *pig* e pressione ENTER para ir para o * shell *grunt* .
 
 		C:\apps\dist\pig-<version>\bin>pig
 		...
@@ -185,7 +199,7 @@ Nesta seção, você analisará algumas declarações do Pig Latin individualmen
 	 	(ERROR,6)
 		(FATAL,2)
 
-##<a id="powershell"></a>Enviar trabalhos de Pig usando o PowerShell
+## <a id="powershell"></a>Enviar trabalhos de Pig usando o PowerShell
 
 Esta seção fornece instruções sobre como usar os cmdlets do PowerShell. Antes de entrar nesta seção, você deve primeiro configurar o ambiente local e configurar a conexão ao Azure. Para obter detalhes, consulte [Introdução ao Azure HDInsight][hdinsight-get-started] e [Administrar o HDInsight usando o PowerShell][hdinsight-admin-powershell].
 
@@ -200,7 +214,7 @@ Esta seção fornece instruções sobre como usar os cmdlets do PowerShell. Ante
 
 	Será solicitado que você insira suas credenciais de conta do Azure. Esse método de adicionar uma conexão de assinatura expira e, depois de 12 horas, você precisará executar o cmdlet novamente. 
 
-	> [WACOM.NOTE] Se você tiver várias assinaturas do Azure e a assinatura padrão não é aquela que deseja usar, use o cmdlet <strong>Select-AzureSubscription</strong> para selecionar a assinatura atual.
+	> [AZURE.NOTE] Se você tiver várias assinaturas do Azure e a assinatura padrão não é aquela que deseja usar, use o cmdlet <strong>Select-AzureSubscription</strong> para selecionar a assinatura atual.
 2. Copie e cole as seguintes linhas no painel de scripts:
 
 		$clusterName = "<HDInsightClusterName>" 	#Specify the cluster name
@@ -242,7 +256,7 @@ Esta seção fornece instruções sobre como usar os cmdlets do PowerShell. Ante
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-	> [WACOM.NOTE] Um dos cmdlets Get-AzureHDInsightJobOut tem um comentário para encurtar a saída na tela a seguir.   
+	> [AZURE.NOTE] Um dos cmdlets Get-AzureHDInsightJobOut tem um comentário para encurtar a saída na tela a seguir.   
 
 7. Pressione **F5** para executar o script:
 
@@ -251,7 +265,7 @@ Esta seção fornece instruções sobre como usar os cmdlets do PowerShell. Ante
 	O trabalho Pig calcula as frequências de diferentes tipos de log.
 
 
-##<a id="sdk"></a>Enviar trabalhos de Pig usando o SDK do .NET do HDInsight
+## <a id="sdk"></a>Enviar trabalhos de Pig usando o SDK do .NET do HDInsight
 
 Siga as etapas aqui para enviar um trabalho do Pig usando um aplicativo C#.   Para obter instruções para criar um aplicativo C# para enviar trabalhos do Hadoop, consulte [Enviar trabalhos do Hadoop de forma programática][hdinsight-submit-jobs].
 
@@ -354,15 +368,15 @@ Siga as etapas aqui para enviar um trabalho do Pig usando um aplicativo C#.   Pa
 		    }
 		}
 
-##<a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 
 Embora o Pig permita que você execute a análise de dados, outras linguagens incluídas com o HDInsight também podem ser de seu interesse. O Hive fornece uma linguagem de consulta semelhante ao SQL que permite que você consulte facilmente dados armazenados no HDInsight, enquanto os trabalhos de MapReduce escritos em Java permitem que você execute análise de dados complexos. Para obter mais informações, consulte o seguinte:
 
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 * [Carregar dados no HDInsight][hdinsight-upload-data]
-* [Enviar trabalhos Hadoop de forma programática][hdinsight-submit-jobs]
-* [Use o hive com o HDInsight][hdinsight-use-hive]
+* [Enviar trabalhos Hadoop de modo programático][hdinsight-submit-jobs]
+* [Usar o hive com o HDInsight][hdinsight-use-hive]
 
 
 
@@ -390,4 +404,4 @@ Embora o Pig permita que você execute a análise de dados, outras linguagens in
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!--HONumber=35.2-->
+<!--HONumber=42-->

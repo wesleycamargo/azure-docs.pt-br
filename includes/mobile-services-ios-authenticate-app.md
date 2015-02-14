@@ -19,10 +19,8 @@
             }];
         }
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para <strong>loginWithProvider</strong> acima para um dos seguintes: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> ou <em>windowsazureactivedirectory</em>.</p>
-    </div>
+    > [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para **loginWithProvider** acima para um dos seguintes: _microsoftaccount_, _facebook_, _twitter_, _google_ ou _windowsazureactivedirectory_.
 		
 3. Pressione o botão **Executar** para compilar o projeto, iniciar o aplicativo no emulador do iPhone e fazer logon com o provedor de identidade escolhido.
 
-   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.<!--HONumber=42-->

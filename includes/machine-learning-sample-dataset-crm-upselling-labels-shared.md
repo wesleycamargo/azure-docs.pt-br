@@ -1,3 +1,3 @@
 ﻿Rótulos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling.labels</a>).
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

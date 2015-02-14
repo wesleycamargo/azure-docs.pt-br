@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Analisando dados do sensor usando o Hive e o Microsoft Azure HDInsight (Hadoop)" description="Saiba como usar o Hive e o Excel para analisar e visualizar dados do sensor com o HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Analisando dados do sensor usando o Hive e o Microsoft Azure HDInsight (Hadoop)" 
+	description="Saiba como usar o Hive e o Excel para analisar e visualizar dados do sensor com o HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #Analisando dados do sensor usando o Hive com HDInsight
 
@@ -17,24 +31,23 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 ##Pré-requisitos:
 
-* Um cluster HDInsight (Hadoop) - consulte [Provisionar clusters Hadoop no HDInsight](/pt-br/documentation/articles/hdinsight-provision-clusters/) para obter informações sobre como criar um cluster
+* Um cluster do HDInsight (Hadoop) - veja [Provisionar clusters do Hadoop no HDInsight](/pt-br/documentation/articles/hdinsight-provision-clusters/) para obter informações sobre como criar um cluster
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), que no momento está apenas disponível em Windows.
+	> [AZURE.NOTE] [WACOM.NOTE] O Microsoft Excel é usado para visualizar dados com o [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), que atualmente só está disponível no Windows.
 
 * [Driver ODBC do Microsoft Hive](http://www.microsoft.com/pt-br/download/details.aspx?id=40886)
 
 ##Para executar a amostra
 
-1. No Portal de Gerenciamento do Azure, clique no cluster no qual deseja executar a amostra e clique em **Console de Consulta** na parte inferior.Como alternativa, você pode abrir diretamente o Console de Consulta usando a seguinte URL
+1. No Portal de Gerenciamento do Azure, clique no cluster no qual deseja executar a amostra e depois clique em **Console de Consulta** na parte inferior. Como alternativa, você pode abrir diretamente o Console de Consulta usando a seguinte URL
 
 	 	https://<clustername>.azurehdinsight.net
 
 	Quando solicitado, faça a autenticação usando o nome de usuário e senha do administrador usados ao provisionar esse cluster.
 
-2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Amostras**; clique na amostra **Análise de log do site**.
+2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Amostras**, então clique na amostra **Análise de log do Website**.
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

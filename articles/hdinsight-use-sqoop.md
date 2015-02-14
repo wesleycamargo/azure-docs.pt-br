@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Use Hadoo Sqoop in HDInsight" pageTitle="Usar o Sqoop do Hadoop no HDInsight | Azure" metaKeywords="" description="Saiba como usar o PowerShell do Azure em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Hadoop Sqoop in HDInsight" authors="jgao" />
+﻿<properties 
+	pageTitle="Usar o Sqoop do Hadoop no HDInsight | Azure" 
+	description="Saiba como usar o PowerShell do Azure em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # Usar o Sqoop com Hadoop no HDInsight
  
 Saiba como usar o PowerShell do Azure e o SDK do .NET do HDInsight em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster HDInsight e um banco de dados SQL do Azure ou banco de dados do SQL Server.
 
-##Neste artigo
+## Neste artigo
 
 - [O que é o Sqoop?](#whatissqoop)
 - [Pré-requisitos](#prerequisites)
@@ -22,20 +36,20 @@ Saiba como usar o PowerShell do Azure e o SDK do .NET do HDInsight em uma estaç
 
 Embora o Hadoop seja uma opção natural para o processamento de dados semiestruturados e não estruturados, como logs e arquivos, também pode ser necessário processar dados estruturados armazenados em bancos de dados relacionais.
 
-O [Sqoop][sqoop-user-guide-1.4.4] é uma ferramenta desenvolvida para transferir dados entre clusters Hadoop e bancos de dados relacionais. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL ou MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS.Neste tutorial, você está usando um Banco de Dados SQL como seu banco de dados relacional.
+O [Sqoop][sqoop-user-guide-1.4.4] é uma ferramenta desenvolvida para transferir dados entre clusters Hadoop e bancos de dados relacionais. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL ou MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste tutorial, você está usando um Banco de Dados SQL como seu banco de dados relacional.
 
 Para obter as versões do Sqoop com suporte em clusters HDInsight, consulte [O que há de novo nas versões de clusters fornecidas pelo HDInsight?][hdinsight-versions].
 
 
 
 
-##<a id="prerequisites"></a>Pré-requisitos
+## <a id="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Estação de Trabalho** - Um computador com o PowerShell do Azure instalado e configurado.  Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][powershell-install].Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*.Consulte [Executar scripts do Windows PowerShell][powershell-script].
+- **Estação de Trabalho** - Um computador com o PowerShell do Azure instalado e configurado. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][powershell-install]. Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Executar scripts do Windows PowerShell][powershell-script].
 
-- **Cluster do Azure HDInsight**. Para obter informações sobre como provisionar um cluster, consulte [Introdução ao HDInsight][hdinsight-get-started] ou[Provisionar clusters HDInsight][hdinsight-provision].Você precisará dos seguintes dados para percorrer o tutorial:
+- **Cluster do Azure HDInsight**. Para obter informações sobre como provisionar um cluster, consulte [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border="1">
 	<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell</th><th>Valor</th><th>Descrição</th></tr>
@@ -44,7 +58,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o contêiner de armazenamento de blob do Azure usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
 	</table>
 
-- **Banco de dados SQL do Azure**.  Você deve configurar uma regra de firewall para o servidor do Banco de Dados SQL para permitir o acesso em sua estação de trabalho.Para obter instruções sobre como criar um Banco de Dados SQL e configurar o firewall, consulte [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started].Este artigo fornece um script do PowerShell para criar a tabela do Banco de Dados SQL necessária para este tutorial. 
+- **Banco de Dados SQL do Azure**. Você deve configurar uma regra de firewall para o servidor do Banco de Dados SQL para permitir o acesso em sua estação de trabalho. Para obter instruções sobre como criar um Banco de Dados SQL e configurar o firewall, consulte [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do PowerShell para criar a tabela do Banco de Dados SQL necessária para este tutorial. 
 
 	<table border="1">
 	<tr><th>Propriedade de banco de dados SQL</th><th>Nome de variável do PowerShell</th><th>Valor</th><th>Descrição</th></tr>
@@ -54,23 +68,23 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	<tr><td>Nome do banco de dados SQL</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou do qual ele importará os dados. </td></tr>
 	</table>
 
-	> [WACOM.NOTE] Por padrão, um Banco de Dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal de Gerenciamento do Azure. Para obter instruções sobre como criar um Banco de Dados SQL e configurar regras de firewall, consulte [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue]. 
+	> [AZURE.NOTE] Por padrão, um Banco de Dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal de Gerenciamento do Azure. Para obter instruções sobre como criar um Banco de Dados SQL e configurar regras de firewall, consulte [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue]. 
 
-* **SQL Server**. Se o cluster do HDInsight estiver na mesma rede virtual do Azure que um SQL Server, é possível usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.Para obter mais informações, consulte os seguintes artigos.
+* **SQL Server**. Se o cluster do HDInsight estiver na mesma rede virtual do Azure que um SQL Server, é possível usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server. Para obter mais informações, consulte os seguintes artigos.
 
-	> [WACOM.NOTE] > O Azure HDInsight dá suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupo de afinidade.
+	> [AZURE.NOTE] > O Azure HDInsight dá suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupo de afinidade.
 
 	* Para **criar e configurar uma rede virtual**, consulte [Tarefas de configuração de rede virtual](http://msdn.microsoft.com/pt-br/library/azure/jj156206.aspx).
 
-		* Ao usar o SQL Server **no seu datacenter**, é preciso configurar a rede virtual como *site a site* ou *ponto a site*.
+		* Ao usar o SQL Server **no datacenter**, é preciso configurar a rede virtual como *site-to-site* ou *point-to-site*.
 
-			> [WACOM.NOTE]  Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** da sua configuração da Rede virtual do Azure.
+			> [AZURE.NOTE] Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** da sua configuração da Rede virtual do Azure.
 
 		* Ao usar o SQL Server em uma **Máquina Virtual do Azure**, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
 
 	* Para **provisionar um cluster HDInsight em uma rede virtual**, consulte [Provisionar clusters Hadoop no HDInsight usando opções de personalização](/pt-br/documentation/articles/hdinsight-provision-clusters/)
 
-	> [WACOM.NOTE] O SQL Server também deve permitir Autenticação do SQL. Você deve usar o logon do SQL para as etapas neste artigo.
+	> [AZURE.NOTE] O SQL Server também deve permitir Autenticação do SQL. Você deve usar o logon do SQL para as etapas neste artigo.
 
 	<table border="1">
 	<tr><th>Propriedade de banco de dados SQL</th><th>Nome de variável do PowerShell</th><th>Valor</th><th>Descrição</th></tr>
@@ -81,7 +95,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	</table>
 
 
-> [WACOM.NOTE] Preencha os valores nas tabelas acima.  Isso poderá ser útil para percorrer este tutorial.
+> [AZURE.NOTE] Preencha os valores nas tabelas acima.  Isso poderá ser útil para percorrer este tutorial.
 
 ## <a id="scenario"></a>Compreender o cenário
 O cluster HDInsight é fornecido com alguns dados de exemplo. Você usará os dois seguintes:
@@ -114,18 +128,18 @@ Primeiro, você exportará o sample.log e a hivesampletable para o banco de dado
 
 	/tutorials/usesqoop/importeddata
 
-###Compreender o armazenamento do HDInsight
+### Compreender o armazenamento do HDInsight
 
-O HDInsight usa o Armazenamento de Blob do Azure para armazenamento de dados.  Ele é chamado *WASB* ou *Armazenamento do Azure - Blob*. O WASB é a implementação do HDFS da Microsoft no Armazenamento de Blob do Azure. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]. 
+O HDInsight usa o Armazenamento de Blob do Azure para armazenamento de dados.  Ele se chama *WASB* ou *Azure Storage - Blob*. O WASB é a implementação do HDFS da Microsoft no Armazenamento de Blob do Azure. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]. 
 
-Ao provisionar um cluster HDInsight, uma conta de Armazenamento do Azure e um contêiner de Armazenamento de Blob específico dessa conta são designados como o sistema de arquivos padrão, exatamente como no HDFS.  Além dessa conta de armazenamento, você pode adicionar mais contas de armazenamento da mesma assinatura do Azure ou de diferentes assinaturas do Azure durante o processo de provisionamento.  Para obter instruções sobre como adicionar mais contas de armazenamento, consulte [Provisionar clusters HDInsight][hdinsight-provision].Para simplificar o script do PowerShell usado neste tutorial, todos os arquivos são armazenados no contêiner do sistema de arquivos padrão, localizado em */tutorials/usesqoop*.Por padrão, esse contêiner tem o mesmo nome que o nome do cluster HDInsight. 
+Ao provisionar um cluster HDInsight, uma conta de Armazenamento do Azure e um contêiner de Armazenamento de Blob específico dessa conta são designados como o sistema de arquivos padrão, exatamente como no HDFS. Além dessa conta de armazenamento, você pode adicionar mais contas de armazenamento da mesma assinatura do Azure ou de diferentes assinaturas do Azure durante o processo de provisionamento. Para obter instruções sobre como adicionar mais contas de armazenamento, consulte [Provisionar clusters HDInsight][hdinsight-provision]. Para simplificar o script do PowerShell usado neste tutorial, todos os arquivos são armazenados no contêiner do sistema de arquivos padrão, localizado em */tutoriais/usesqoop*. Por padrão, esse contêiner tem o mesmo nome que o nome do cluster HDInsight. 
 A sintaxe do WASB é:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] Apenas a sintaxe *wasb://* tem suporte no cluster HDInsight versão 3.0. A sintaxe antiga *asv://* tem suporte nos clusters HDInsight 2.1 e 1.6, mas não tem suporte nos clusters HDInsight 3.0 e não terá suporte em versões posteriores.
+> [AZURE.NOTE] No cluster HDInsight versão 3.0, há suporte apenas para a sintaxe  *wasb://*. Há suporte para a sintaxe antiga *asv://* nos clusters HDInsight 2.1 e 1.6, mas esse suporte não existe nos clusters HDInsight 3.0 e não existirá em versões posteriores.
 
-> [WACOM.NOTE] O caminho WASB é um caminho virtual.  Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]. 
+> [AZURE.NOTE] O caminho WASB é um caminho virtual.  Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]. 
 
 Um arquivo armazenado no contêiner do sistema de arquivos padrão pode ser acessado no HDInsight usando qualquer um dos seguintes URIs (use o sample.log como um exemplo):
 
@@ -138,13 +152,13 @@ Se você desejar acessar o arquivo diretamente da conta de armazenamento, o nome
 	example/data/sample.log
 
 
-##<a id="prepare"></a>Preparar o tutorial
+## <a id="prepare"></a>Preparar o tutorial
 
 Você criará duas tabelas no banco de dados SQL ou no SQL Server. Elas são usadas pela exportação do Sqoop mais adiante neste tutorial. Você também precisará pré-processar os arquivos sample.log para que possam ser processados pelo Sqoop.
 
-###Criar tabelas SQL
+### Criar tabelas SQL
 
-**Para o Banco de Dados SQL do Azure**
+**Para o Banco de Dados SQL Azure**
 
 1. Abra o ISE do Windows PowerShell (na tela Iniciar do Windows 8, digite **PowerShell_ISE** e clique em **ISE do Windows PowerShell**. Consulte [Iniciar o Windows PowerShell no Windows 8 e no Windows][powershell-start]).
 
@@ -216,15 +230,15 @@ Você criará duas tabelas no banco de dados SQL ou no SQL Server. Elas são usa
 		Write-Host "Done" -ForegroundColor Green
 	
 5. Clique em **Executar Script** ou pressione **F5** para executar o script. 
-6. Use o [Portal de gerenciamento do Azure][azure-management-portal] para examinar as tabelas e os índices clusterizados.
+6. Use o [Portal de Gerenciamento do Azure][azure-management-portal] para examinar as tabelas e os índices clusterizados.
 
-**Para SQL Server**
+**Para o SQL Server**
 
 1. Abra o **SQL Server Management Studio** e conecte-se ao SQL Server.
 
 2. Crie um novo banco de dados chamado **sqoopdb**.
 
-3. Selecione o banco de dados **sqoopdb** e depois selecione**Nova consulta** na faixa de opções na parte superior do SQL Server Management Studio.
+3. Selecione o banco de dados **sqoopdb** e depois selecione **Nova consulta**, na faixa de opções na parte superior do SQL Server Management Studio.
 
 4. Insira o seguinte na janela de consulta.
 
@@ -250,13 +264,13 @@ Você criará duas tabelas no banco de dados SQL ou no SQL Server. Elas são usa
 		 [sessionid] [bigint],
 		 [sessionpagevieworder][bigint])
 
-5. Use a função**F5** ou selecione **! Execute** na faixa de opções para executar a consulta.A seguinte mensagem deve aparecer abaixo da consulta.
+5. Use a tecla de função **F5** ou selecione **! Execute** na faixa de opções para executar a consulta. A seguinte mensagem deve aparecer abaixo da consulta.
 
 		Command(s) completed successfully.
 
 6. Feche o SQL Server Management Studio.
 
-###Gerar dados
+### Gerar dados
 
 Neste tutorial, você exportará um arquivo de log log4j (um arquivo delimitado) e uma tabela Hive para o banco de dados SQL.  O arquivo delimitado é */example/data/sample.log*. No início do tutorial, você vê alguns exemplos de logs de log4j. No arquivo de log, há algumas linhas vazias e algumas outras linhas semelhantes a:
 
@@ -274,7 +288,7 @@ Isso está correto para outros exemplos que usam esses dados, mas é preciso rem
 
 	Será solicitado que você insira suas credenciais de conta do Azure. Esse método de adicionar uma conexão de assinatura expira e, depois de 12 horas, você precisará fazer logon novamente. 
 
-	> [WACOM.NOTE] Se você tiver várias assinaturas do Azure e a assinatura padrão não é aquela que deseja usar, use o cmdlet <strong>Select-AzureSubscription</strong> para selecionar a assinatura atual.
+	> [AZURE.NOTE] Se você tiver várias assinaturas do Azure e a assinatura padrão não é aquela que deseja usar, use o cmdlet <strong>Select-AzureSubscription</strong> para selecionar a assinatura atual.
 
 3. Copie o seguinte script no painel de scripts e, em seguida, defina as primeiras duas variáveis:
 		
@@ -339,17 +353,17 @@ Isso está correto para outros exemplos que usam esses dados, mas é preciso rem
 		$destBlob.UploadFromStream($memStream)
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.  
-6. Para examinar o arquivo de dados modificado, você pode usar o Portal de Gerenciamento do Azure ou uma ferramenta de Gerenciador de Armazenamento do Azure ou o PowerShell do Azure.  A [Introdução ao HDInsight][hdinsight-get-started] tem um exemplo de código sobre como usar o PowerShell para baixar um arquivo e exibir o conteúdo do arquivo.
+6. Para examinar o arquivo de dados modificado, você pode usar o Portal de Gerenciamento do Azure ou uma ferramenta de Gerenciador de Armazenamento do Azure ou o PowerShell do Azure.  A [Introdução ao HDInsight][hdinsight-get-started] tem um código de exemplo sobre como usar o PowerShell para baixar um arquivo e exibir o conteúdo do arquivo.
 
 
-##<a id="export"></a>Usar o PowerShell para executar a exportação do Sqoop
+## <a id="export"></a>Usar o PowerShell para executar a exportação do Sqoop
 
 Nesta seção, você usará o PowerShell do Azure para executar o comando de exportação do Sqoop para exportar uma tabela Hive e um arquivo de dados para um banco de dados SQL do Azure ou SQL Server. A próxima seção fornece um exemplo de .NET do HDInsight.
 
-> [WACOM.NOTE] Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
+> [AZURE.NOTE] Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
 > 
-> * **Configuração ponto a site da rede virtual do Azure** - Uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](http://msdn.microsoft.com/pt-br/library/azure/dn133792.aspx) para obter mais informações.
-> * **Azure HDInsight 3.1** - Consulte[Provisionar clusters Hadoop no HDInsight usando opções de personalização](/pt-br/documentation/articles/hdinsight-provision-clusters/) para obter informações sobre como criar um cluster em uma rede virtual
+> * **Configuração ponto a site da rede virtual do Azure** - uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](http://msdn.microsoft.com/pt-br/library/azure/dn133792.aspx) para obter mais informações.
+> * **Azure HDInsight 3.1** - consulte [Provisionar clusters Hadoop no HDInsight usando opções de personalização para obter informações sobre a criação de um cluster em uma rede virtual]/pt-br/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster on a Virtual Network
 > * **SQL Server 2014** - Configurado para permitir Autenticação SQL e execução do pacote de configuração do cliente VPN para se conectar com segurança à rede virtual
 
 **Para exportar o arquivo de log log4j**
@@ -401,7 +415,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Observe que o delimitador de campo é **\0x20**, que é o espaço. O delimitador é definido no script do PowerShell de pré-processamento do arquivo sample.log.Para obter informações sobre **-m 1**, consulte o [Guia do usuário do Sqoop][sqoop-user-guide-1.4.4].
+	Observe que o delimitador de campo é **\0x20**, que é o espaço. O delimitador é definido no  script PowerShell de pré-processamento do arquivo sample.log. Para obter informações sobre **-m 1**, consulte o [Guia do usuário do Sqoop][sqoop-user-guide-1.4.4].
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.  
 6. Use o [Portal de Gerenciamento do Azure][azure-management-portal] para examinar os dados exportados.
@@ -439,7 +453,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 		
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
 	
-	Para obter mais descrições das variáveis, consulte a seção [Pré-requisitos](#prerequisites) neste tutorial. 
+	For more descriptions of the variables, see the [Prerequisites](#prerequisites) section in this tutorial. 
 
 4. Acrescente o seguinte script no painel de scripts:
 		
@@ -459,7 +473,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 
 
 
-##<a id="export-sdk"></a>Usar o SDK do .NET do HDInsight para executar a exportação do Sqoop
+## <a id="export-sdk"></a>Usar o SDK do .NET do HDInsight para executar a exportação do Sqoop
 
 A seguir, um exemplo em C# usa o SDK do .NET do HDInsight para executar exportação do Sqoop. Para obter informações gerais sobre como usar o SDK do .NET do HDInsight, consulte [Enviar trabalhos Hadoop de forma programática][hdinsight-submit-jobs].
 
@@ -556,7 +570,7 @@ O arquivo de script deve estar localizado no WASB.
 
 
 
-##<a id="import"></a>Usar o PowerShell para executar a importação do Sqoop
+## <a id="import"></a>Usar o PowerShell para executar a importação do Sqoop
 
 Nesta seção, você importará os logs log4j (que você exportou para o banco de dados SQL) de volta no HDInsight.
 
@@ -607,15 +621,15 @@ Nesta seção, você importará os logs log4j (que você exportou para o banco d
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script. 
-6. Para examinar o arquivo de dados modificado, você pode usar o Portal de Gerenciamento do Azure ou uma ferramenta de Gerenciador de Armazenamento do Azure ou o PowerShell do Azure.  A [Introdução ao HDInsight][hdinsight-get-started] tem um exemplo de código sobre como usar o PowerShell para baixar um arquivo e exibir o conteúdo do arquivo.
+6. Para examinar o arquivo de dados modificado, você pode usar o Portal de Gerenciamento do Azure ou uma ferramenta de Gerenciador de Armazenamento do Azure ou o PowerShell do Azure.  A [Introdução ao HDInsight][hdinsight-get-started] tem um código de exemplo sobre como usar o PowerShell para baixar um arquivo e exibir o conteúdo do arquivo.
 
-##<a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 - [Usar o Oozie com o HDInsight][hdinsight-use-oozie]: use a ação do Sqoop no fluxo de trabalho do Oozie.
-- [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-data]:Use o Hive para analisar dados de atraso de voos e use o Sqoop para exportar dados para o banco de dados SQL.
-- [Carregar dados no HDInsight][hdinsight-upload-data]: localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
+- [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-data]: Use o Hive para analisar dados de atraso de voos e use o Sqoop para exportar dados para o banco de dados SQL.
+- [Carregar dados no HDInsight][hdinsight-upload-data]: localize outros métodos de carregamento de dados no HDInsight/Armazenamento de blob do Azure.
 
 
  
@@ -640,4 +654,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

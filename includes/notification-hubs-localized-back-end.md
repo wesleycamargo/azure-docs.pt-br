@@ -31,7 +31,7 @@ Vamos simplesmente modificar o método *SendNotificationAsync* enviando uma noti
                             {"News_Mandarin", "World News in Mandarin!"}};
     await hub.SendTemplateNotificationAsync(notification, "World");
 
-Observe que esta simples chamada fornecerá a notícia correta localizada para **todos** os seus dispositivos, independentemente da plataforma, à medida em que o Hub de Notificação desenvolve e fornece a carga nativa correta para todos os dispositivos inscritos em uma marca específica.
+Observe que esta simples chamada fornecerá a notícia correta localizada para **todos** os seus dispositivos, independentemente da plataforma, como o Hub de Notificação desenvolve e fornece a carga nativa correta para todos os dispositivos inscritos em uma marca específica.
 
 ### Serviços Móveis
 
@@ -51,3 +51,4 @@ No Agendador de Serviço Móvel, substitua seu script por:
 	});
 	
 Observe como nesse caso não é necessário enviar várias notificações para localidades e plataformas diferentes.
+<!--HONumber=42-->

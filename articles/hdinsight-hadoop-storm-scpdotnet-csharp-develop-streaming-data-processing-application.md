@@ -1,10 +1,24 @@
-﻿<properties title="Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight" pageTitle="Desenvolver aplicativos de processamento de dados de streaming com SCP.NET no Storm | Azure" description="Saiba como desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# no Storm no HDInsight." services="hdinsight" solutions="" documentationCenter="" authors="Qianlin Xia" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Desenvolver aplicativos de processamento de dados de streaming com SCP.NET no Storm | Azure" 
+	description="Saiba como desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# no Storm no HDInsight." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="weedqian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/15/2014" 
+	ms.author="qixia"/>
 
 #Desenvolver aplicativos de processamento de dados de streaming em C# com Stream Computing Platform e Storm no HDInsight
 
-O Stream Computing Platform (SCP) é uma plataforma para a criação em tempo real de aplicativos de processamento de dados confiáveis, distribuídos, consistentes e de alto desempenho usando .NET. A plataforma é criada sobre o [Apache Storm](http://storm.incubator.apache.org/) - um sistema de software livre para o processamentos de dados de fluxo em tempo real disponível no HDInsight.
+O Stream Computing Platform (SCP) é uma plataforma para a criação em tempo real de aplicativos de processamento de dados confiáveis, distribuídos, consistentes e de alto desempenho usando .NET. Ela é criada na parte superior do [Apache Storm](http://storm.incubator.apache.org/) -- um sistema de processamento de fluxo em tempo real com código-fonte aberto, que está disponível com o HDInsight.
 
 Neste artigo, você aprenderá:
 
@@ -14,13 +28,13 @@ Neste artigo, você aprenderá:
 
 * Como testar uma solução SCP
 
-* Como implantar uma solução SCP em um cluster HDInsight Storm
+* Como implantar uma solução de SCP em um cluster Storm no HDInsight
 
 ##Pré-requisitos
 
 * Uma assinatura do Azure
 
-* Um cluster HDInsight Storm
+* Um cluster Storm no HDInsight
 
 * Visual Studio 2010 ou 2013
 
@@ -30,11 +44,11 @@ Neste artigo, você aprenderá:
 
 ##<a id="scpandstorm"></a>SCP e Storm
 
-O Apache Storm é um sistema de computação distribuído executado em clusters Hadoop que permite a realização de processamento de dados em tempo real. Embora o Storm execute em Máquina Virtual Java (JVM), ele foi desenvolvido para que as soluções (conhecidas como **topologias**) possam ser implementadas em uma série de linguagens de programação.É possível criar uma topologia que seja uma combinação de componentes gravados em diversas linguagens.
+O Apache Storm é um sistema de computação distribuído executado em clusters Hadoop que permite a realização de processamento de dados em tempo real. Embora o Storm execute em Máquina Virtual Java (JVM), ele foi desenvolvido para que as soluções (conhecidas como **topologias**) possam ser implementadas em uma série de linguagens de programação. É possível criar uma topologia que seja uma combinação de componentes gravados em diversas linguagens.
 
-O SCP fornece as bibliotecas que facilitam a criação das soluções Storm usando .NET. Os clusters Azure HDInsight Storm incluem os componentes necessários do lado do servidor para executar as soluções SCP que você cria.
+O SCP fornece as bibliotecas que facilitam a criação das soluções Storm usando .NET. Os clusters Storm no HDInsight incluem os componentes necessários do lado do servidor para executar as soluções SCP que você cria.
 
-Para obter mais informações sobre o HDInsight Storm, consulte [Visão geral do HDInsight Storm](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-overview/).
+Para obter mais informações sobre Storm no HDInsight, consulte [Visão geral do Storm no HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-overview/).
 
 ###Criar uma solução SCP
 
@@ -55,11 +69,11 @@ Criar uma solução envolve o seguinte:
 
 ##Instalar o SDK do SCP
 
-O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluster HDInsight Storm](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-getting-started/), execute as seguintes etapas para baixar o SDK em seu ambiente de desenvolvimento local.
+O SDK do SCP é fornecido no cluster Storm no HDInsight. Depois de [criar um cluster Storm no HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-getting-started/), siga as seguintes etapas para baixar o SDK para seu ambiente de desenvolvimento local.
 
 1. Entre no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
-2. Clique em **HDINSIGHT** no painel esquerdo.Você verá uma lista de clusters HDInsight implantados.
+2. Clique em **HDINSIGHT** no painel esquerdo. Você verá uma lista de clusters HDInsight implantados.
 
 3. Clique no cluster HDInsight ao qual você deseja se conectar.
 
@@ -67,15 +81,15 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
 
 5. Na parte inferior da página, clique em **HABILITAR REMOTO**.
 
-6. No assistente Configurar Área de Trabalho Remota, digite um **nome de usuário** e uma **senha** para a área de trabalho remota. Insira uma data de validade na caixa de diálogo **EXPIRA EM** e clique no ícone de verificação.
+6. No assistente Configurar Área de Trabalho Remota, digite um **nome do usuário** e uma **senha** para a área de trabalho remota. Insira uma data de validade na caixa de diálogo **EXPIRA EM** e clique no ícone de verificação.
 
 7. Depois de habilitar a Área de Trabalho Remota, selecione **CONECTAR** na parte inferior da página e siga as instruções.
 
-8. Após conectar-se ao cluster pela Área de Trabalho Remota, abra o **Explorador de Arquivos** e digite **%storm_home%\examples** na barra de endereços.
+8. Após conectar-se ao cluster pela Área de Trabalho Remota, abra o **Gerenciador de Arquivos** e digite **%storm_home%\examples** na barra de endereços.
 
 9. Clique com o botão direito do mouse na pasta **SDK** e selecione **Copiar**.
 
-10. Em seu ambiente de desenvolvimento local, abra o **Explorador de Arquivos** e navegue até o local no qual você deseja armazenar o SDK. Clique com o botão direito do mouse e selecione **Colar**.
+10. Em seu ambiente de desenvolvimento local, abra o **Gerenciador de Arquivos** e navegue até o local no qual você deseja armazenar o SDK. Clique com o botão direito do mouse e selecione **Colar**.
 
 ##Criar uma solução SCP
 
@@ -83,13 +97,13 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
 
 2. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e selecione **Adicionar Referência**.
 
-3. Selecione o botão **Procurar** na parte inferior do **Gerenciador de Referências** e navegue até a pasta do SDK que você baixou antes. Selecione **Microsoft.SCP.dll** e **Microsoft.SCPLogger.dll** e clique em **Adicionar**. Clique em **OK** para fechar a janela do Gerenciador de Referências.
+3. Selecione o botão **Procurar** na parte inferior do **Gerenciador de Referências** e navegue até a pasta do SDK que você baixou antes. Selecione **Microsoft.SCPNet.dll** e **Microsoft.SCPLogger.dll** e clique em **Adicionar**. Clique em **OK** para fechar a janela do Gerenciador de Referências.
 
 ###Criar o spout
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **WordCount** e selecione **Adicionar | Novo item**. Selecione **Classe** e digite **WordSpout.cs** como o nome. Por fim, clique em **Adicionar**.
 
-2. Abra o arquivo **WordSpout.cs** e substitua o código existente pelo seguinte.Não se esqueça de ler os comentários para entender como esse código funciona.
+2. Abra o arquivo **WordSpout.cs** e substitua o código existente pelo seguinte. Não se esqueça de ler os comentários para entender como esse código funciona.
 
         using System;
         using System.Collections.Generic;
@@ -173,7 +187,7 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **WordCount** e selecione **Adicionar | Novo item**. Selecione **Classe** e digite **LocalTest.cs** como o nome. Por fim, clique em **Adicionar**.
 
-2. Abra o arquivo **LocalTest.cs** e substitua o código existente pelo seguinte.O código usado para testar o spout é muito semelhante ao código que será usado para testar os bolts.
+2. Abra o arquivo **LocalTest.cs** e substitua o código existente pelo seguinte. O código usado para testar o spout é muito semelhante ao código que será usado para testar os bolts.
 
         using Microsoft.SCP;
         using System;
@@ -248,12 +262,12 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
             }
         }
 
-3. Execute o aplicativo. Após a conclusão, examine o diretório **WordCount\bin\debug** em seu projeto do Visual Studio. Deve existir um arquivo chamado **spout.txt**, o qual conterá os dados emitidos pelo spout durante o teste.O conteúdo textual deve ser semelhante ao seguinte.
+3. Execute o aplicativo. Após a conclusão, examine o diretório **WordCount\bin\debug** em seu projeto do Visual Studio. Deve existir um arquivo chamado **spout.txt**, o qual conterá os dados emitidos pelo spout durante o teste. O conteúdo textual deve ser semelhante ao seguinte.
 
         {"__isset":{"streamId":true,"tupleId":true,"evt":true,"data":true},"StreamId":"default","TupleId":"","Evt":1000,"Data":[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]}
         {"__isset":{"streamId":true,"tupleId":true,"evt":true,"data":true},"StreamId":"default","TupleId":"","Evt":1000,"Data":[[116,104,101,32,99,111,119,32,106,117,109,112,101,100,32,111,118,101,114,32,116,104,101,32,109,111,111,110]]}
 
-    > [AZURE.NOTE] Nas linhas acima, "Data" é a cadeia de caracteres emitida pelo spout, mas que está armazenada como uma matriz de bytes. Por exemplo, `[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]` corresponde a "an apple a day keeps the doctor away".
+    > [AZURE.NOTE] Nas linhas acima, "Data" é a cadeia de caracteres emitida pelo spout, mas que está armazenada como uma matriz de bytes. Por exemplo, `[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]` é "uma maçã por dia é sinônimo de saúde".
 
 ###Criar os bolts
 
@@ -424,7 +438,7 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
 
 ###Adicionar código para executar em um cluster
 
-1. Abra **Program.cs** e substitua a linha `//Code to run on HDInsight cluster will go here` pelo seguinte e recompile o projeto
+1. Abra **Program.cs** e substitua a linha `//Code to run on HDInsight cluster will go here` pelo seguinte e, em seguida, recompile o projeto
 
         //The component to run
         string compName = args[0];
@@ -455,7 +469,7 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
             throw new Exception(string.Format("unexpected compName: {0}", compName));
         }
 
-4. Crie um novo arquivo chamado **WordCount.spec** e use o seguinte para o conteúdo. Isso define a topologia - os componentes, quantas instâncias devem ser criadas nos nós do cluster e como é o fluxo de dados entre eles.Isso é gravado usando a [linguagem de especificação da topologia](#spec).
+4. Crie um novo arquivo chamado **WordCount.spec** e use o seguinte para o conteúdo. Isso define a topologia - os componentes, quantas instâncias devem ser criadas nos nós do cluster e como é o fluxo de dados entre eles. Isso é gravado usando a [linguagem de especificação da topologia](#spec).
 
         {
           :name "WordCount"
@@ -517,7 +531,7 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
             }
         }
 
-4. Conecte-se ao cluster HDInsight Storm usando a Área de Trabalho Remota e copie a pasta **bin\debug** de seu projeto WordCount local em seu cluster HDInsight Storm. Por exemplo, copie-a na pasta **%storm_home%\examples** e a renomeie como **WordCount**.
+4. Conecte-se ao cluster Storm usando a Área de Trabalho Remota e copie a pasta **bin\debug** de seu projeto WordCount local em seu cluster Storm. Por exemplo, copie-a na pasta **%storm_home%\examples** e a renomeie como **WordCount**.
 
 3. Também copie **WordCount.spec** no servidor do HDInsight. Coloque o no diretório **%storm_home%\examples**.
 
@@ -533,7 +547,7 @@ O SDK do SCP é fornecido no cluster HDInsight Storm. Depois de [criar um cluste
 
 ##Resumo
 
-Nas etapas acima, você aprendeu como criar, testar e implantar uma topologia básica de contagem de palavras criada com o SCP. Para obter mais exemplos, consulte o diretório **%storm_home%\examples** em seu cluster HDInsight.Para obter informações mais detalhadas sobre o SCP, consulte as referências a seguir.
+Nas etapas acima, você aprendeu como criar, testar e implantar uma topologia básica de contagem de palavras criada com o SCP. Para obter mais exemplos, consulte o diretório **%storm_home%\examples** em seu cluster HDInsight. Para obter informações mais detalhadas sobre o SCP, consulte as referências a seguir.
 
 ##Referência do SCP
 
@@ -567,15 +581,15 @@ ISCPSpout é a interface para um spout não transacional.
 
 Quando `NextTuple()` é chamado, o código pode emitir uma ou mais tuplas. Se não houver nada a ser emitido, esse método deverá retornar sem emitir nada.
 
-`Ack()` e `Fail()` serão chamados apenas quando o reconhecimento está habilitado no arquivo de especificações. O `seqId` é usado para identificar a tupla reconhecida ou com falha. Se o reconhecimento for habilitado em uma topologia não transacional, a seguinte função de emissão deverá ser usada no spout:  
+`ACK()` e `Fail()` serão chamados somente quando ack está habilitado no arquivo de especificações. O `seqId` é usado para identificar a tupla reconhecida ou com falha. Se o reconhecimento for habilitado em uma topologia não transacional, a seguinte função de emissão deverá ser usada no spout:  
 
     public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-Se o reconhecimento não tiver suporte na topologia não transacional, `Ack()` e `Fail()` podem ser deixados como funções vazias.  
+Se não há suporte para o ack na topologia não transacional, `Ack()` e `Fail()` podem ser deixadas como funções vazias.  
 
 O parâmetro `parms` para essas funções é um objeto de dicionário vazio, o qual é reservado para uso futuro.  
 
-> [AZURE.NOTE] `NextTuple()`, `Ack()` e `Fail()` são chamados em um loop coeso em um único thread. Se não houver tuplas a emitir, considere usar `sleep` por um breve período de tempo (tal como 10 milissegundos) para conservar os ciclos da CPU.
+> [AZURE.NOTE] `NextTuple()`, `Ack()`, e `Fail()` são todos chamados em um loop estreito em um único thread. Se não houver tuplas a emitir, considere usar `sleep` por um breve período de tempo (tal como 10 milissegundos) para conservar os ciclos da CPU.
 
 ####ISCPTxSpout
 
@@ -588,13 +602,13 @@ ISCPTxSpout é a interface para um spout transacional.
         void Fail(long seqId, Dictionary<string, Object> parms);
     }  
 
-`NextTx()` é chamado para iniciar uma nova transação. O `seqId` é usado para identificar a transação, que também é usado em `Ack()` e `Fail()`. Os dados emitidos de `NextTx()` serão armazenados no ZooKeeper para dar suporte à reprodução. Como a capacidade do ZooKeeper é bastante limitada, você deve emitir somente metadados, e não dados em massa no spout transacional.  
+`NextTx()` é chamado para iniciar uma nova transação. O `seqId` é usado para identificar a transação, que também é usada em `Ack()` e `Fail()`. Os dados emitidos de `NextTx()` serão armazenados no ZooKeeper para dar suporte à reprodução. Como a capacidade do ZooKeeper é bastante limitada, você deve emitir somente metadados, e não dados em massa no spout transacional.  
 
 O Storm reproduzirá uma transação automaticamente se falhar, por isso, Fail() não deve ser normalmente chamado. No entanto, se o SCP puder verificar os metadados emitidos pelo spout transacional, ele pode chamar Fail() se os metadados forem inválidos.
 
 O parâmetro `parms` para essas funções é um objeto de dicionário vazio, o qual é reservado para uso futuro.
 
-> [AZURE.NOTE] `NextTx()`, `Ack()` e `Fail()` são chamados em um loop coeso em um único thread. Se não houver tuplas a emitir, considere usar `sleep` por um breve período de tempo (tal como 10 milissegundos) para conservar os ciclos da CPU.
+> [AZURE.NOTE] `NextTx()`, `Ack()`, e `Fail()` são todos chamados em um loop estreito em um único thread. Se não houver tuplas a emitir, considere usar `sleep` por um breve período de tempo (tal como 10 milissegundos) para conservar os ciclos da CPU.
 
 ####ISCPBolt
 
@@ -617,11 +631,11 @@ ISCPBatchBolt é a interface para bolt transacional.
         void FinishBatch(Dictionary<string, Object> parms);
     }  
 
-Quando uma nova tupla está disponível, a função `Execute()` é chamada para processá-la. `FinishBatch()` será chamado quando essa transação for concluída.
+Quando uma nova tupla estiver disponível, a função `Execute()` será chamada para processá-lo. `FinishBatch()` será chamada quando a transação foi encerrada.
 
 O parâmetro `parms` para essas funções é um objeto de dicionário vazio, o qual é reservado para uso futuro.
 
-> [AZURE.NOTE] Os bolts que implementam `ISCPBatchBolt` pode obter `StormTxAttempt` de `parms`. `StormTxAttempt` pode ser usado para determinar se uma tupla é a original ou uma tentativa de reprodução. Isso geralmente é feito no bolt de confirmação que é demonstrado no exemplo **HelloWorldTx**.  
+> [AZURE.NOTE] Bolts que implementam `ISCPBatchBolt` podem obter `StormTxAttempt` de `parms`. `StormTxAttempt` pode ser usado para determinar se uma tupla é a original ou uma tentativa de repetição. Isso geralmente é feito no bolt de confirmação, e é demonstrado no exemplo **HelloWorldTx**.  
 
 ###Modelo do objeto
 
@@ -629,7 +643,7 @@ O SCP.NET também oferece um conjunto simples de objetos chave para que os desen
 
 * `Context` - fornece informações sobre o ambiente em execução ao aplicativo
 
-* `StateStore` - oferece serviços de metadados, geração de sequência monotônica e coordenação sem espera. Abstrações de simultaneidade distribuídas de níveis mais altos podem ser baseadas no `StateStore`, incluindo bloqueios distribuídos, filas distribuídas, barreiras e serviços transacionais.
+* `StateStore` - oferece serviços de metadados, geração de sequência monotônica e coordenação sem espera. Abstrações de simultaneidade distribuídas de níveis mais altos podem ser baseadas no `StateStore`, incluindo bloqueios distribuídos, filas distribuídas, barreiras e serviços transacionais
 
 * `SCPRuntime` - inicializa o ambiente de tempo de execução e inicia os plug-ins ao executar uma solução no Storm
 
@@ -639,14 +653,14 @@ O SCP.NET também oferece um conjunto simples de objetos chave para que os desen
 
 Cada instância ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) possui uma instância de Contexto correspondente. A funcionalidade fornecida pelo Contexto pode ser dividida em duas partes
 
-* **Estática** - disponível no processo inteiro do C#
+* **Estática** -  disponível no processo inteiro do C#
 * **Dinâmica** - disponível para a instância específica  
 
 **Contexto estático**
 
-* `public static ILogger Logger = null;` - fornecido para fins de log  
+* `public static ILogger Logger = null;` - fornecido para fins de registro  
 
-* `public static SCPPluginType pluginType;` - obtém o tipo do plug-in do processo do C#. Se o processo do C# for executado no modo de teste local (sem Java), o tipo de plug-in é "SCP_NET_LOCAL"
+* `public static SCPPluginType pluginType;` - Obtém o tipo de plug-in do processo de c#. Se o processo do C# for executado no modo de teste local (sem Java), o tipo de plug-in é "SCP_NET_LOCAL"
 
         public enum SCPPluginType
         {
@@ -657,13 +671,13 @@ Cada instância ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) possui
             SCP_NET_BATCH_BOLT = 4
         }  
 
-* `public static Config Config { get; set; }` - obtém os parâmetros de configuração da JVM. Os parâmetros são transmitidos da JVM quando o plug-in é inicializado. `Config` contém dois dicionários
+* `public static Config Config { get; set; }` - Obtém os parâmetros de configuração da JVM. Os parâmetros são passados por meio da JVM quando o plug-in é inicializado. `Config` contém dois dicionários
 
     * `public Dictionary<string, Object> stormConf { get; set; }` - contém parâmetros definidos pelo Storm
 
     * `public Dictionary<string, Object> pluginConf { get; set; }` - contém parâmetros definidos pelo SCP
 
-* `public static TopologyContext TopologyContext { get; set; } ` - obtém o contexto da topologia. É mais útil para os componentes com vários paralelismos. O exemplo a seguir demonstra como acessar o contexto da topologia
+* `public static TopologyContext TopologyContext { get; set; } `  - Obtém o contexto de topologia. É mais útil para os componentes com vários paralelismos. O exemplo a seguir demonstra como acessar o contexto da topologia
 
         if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
         {
@@ -680,7 +694,7 @@ Cada instância ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) possui
 
 **Contexto dinâmico**
 
-* `public void DeclareComponentSchema(ComponentStreamSchema schema);` - declara o esquema de saída e de entrada para os fluxos. O exemplo a seguir declara um esquema de entrada que consiste em uma tupla de cadeia única e um esquema de saída que consiste em uma tupla de cadeia e uma tupla de números inteiros
+* `public void DeclareComponentSchema(ComponentStreamSchema schema);` - declara o esquema de entrada e saída para fluxos. O exemplo a seguir declara um esquema de entrada que consiste em uma tupla de cadeia única e um esquema de saída que consiste em uma tupla de cadeia e uma tupla de números inteiros
 
         this.ctx = context;
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
@@ -692,23 +706,23 @@ Cada instância ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) possui
 
         this.ctx.Emit(new Values(word, count));
 
-* `public abstract void Emit(string streamId, List<object> values);` - emite um ou mais tuplas para o fluxo especificado. O exemplo a seguir emite duas tuplas para o fluxo chamado 'mystream'
+* `public abstract void Emit(string streamId, List<object> values);` - emite uma ou mais tuplas para o fluxo especificado. O exemplo a seguir emite duas tuplas para o fluxo chamado 'mystream'
 
         this.ctx.Emit("mystream", new Values(word, count));
 
 Ao usar spouts e bolts não transacionais que têm o reconhecimento habilitado, use o seguinte.
 
-* `public abstract void Emit(string streamId, List<object> values, long seqId);` - emite uma ou mais tuplas e um identificador de sequência **de um spout** para o fluxo especificado.O exemplo a seguir emite uma tupla e um identificador de sequência para o fluxo padrão
+* `public abstract void Emit(string streamId, List<object> values, long seqId);` - emite uma ou mais tuplas e um identificador de sequência **por meio de um spout** para o fluxo especificado. O exemplo a seguir emite uma tupla e um identificador de sequência para o fluxo padrão
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(word), lastSeqId);
 
-* `public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);` - emite uma ou mais tuplas e um identificador de sequência **de um bolt** para o fluxo especificado. As tuplas emitidas são ancoradas às tuplas de entrada especificadas como `anchors`. Isso habilita os reconhecimentos a voltar o fluxo para o pipeline ao seguir a cadeia de tuplas de entrada/saída.O exemplo a seguir emite uma tupla e um identificador de sequência para o fluxo padrão e ancora as tuplas emitidas nas tuplas de entrada contidas em `tuple`
+* `public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);` - emite uma ou mais tuplas e um identificador de sequência **por meio de um bolt** para o fluxo especificado. As tuplas emitidas são ancoradas às tuplas de entrada especificadas como `anchors`. Isso habilita os reconhecimentos a voltar o fluxo para o pipeline ao seguir a cadeia de tuplas de entrada/saída. O exemplo a seguir emite uma tupla e um identificador de sequência para o fluxo padrão e ancora as tuplas emitidas nas tuplas de entrada contidas em `tuple`
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word));
 
 * `public abstract void Ack(SCPTuple tuple);` - reconhece uma tupla. Invoca a função `ISCPSpout.Ack` do spout que produziu originalmente a tupla
 
-* `public abstract void Fail(SCPTuple tuple);` - provoca a falha da tupla. Invoca a função `ISCPSpout.Fail` do spout que produziu originalmente a tupla
+* `public abstract void Fail(SCPTuple tuple);` - falha uma tupla. Invoca a função `ISCPSpout.Fail` do spout que produziu originalmente a tupla
 
 ####StateStore
 
@@ -716,50 +730,50 @@ Os aplicativos do SCP podem usar o objeto `State` para persistir algumas informa
 
 O objeto `StateStore` fornece os seguintes métodos.
 
-* `public static StateStore Get(string storePath, string connStr);` - obtém um `StateStore` para um determinado caminho e cadeia de conexão
+* `public static StateStore Get(string storePath, string connStr);` - obtém uma `StateStore` para a cadeia de conexão e o caminho fornecidos
 
-* `public State Create();` - cria um novo objeto `State` nessa instância de armazenamento de estado
+* `public State Create();`-cria um novo objeto `State` nesta instância do armazenamento de estado
 
-* `public IEnumerable<State> GetUnCommitted();` - obtém todos os objetos `State` não confirmados, excluindo os estados anulados
+* `public IEnumerable<State> GetUnCommitted();` - obtém todos os objetos `State` não confirmados, exceto estados anulados
 
-* `public IEnumerable<State> States();` - obtém todos os objetos 'State' em `StateStore`
+* `public IEnumerable<State> States();`-obtém todos os objetos 'State' na `StateStore`
 
 
 * `public T Get<T>(string info = null);` - obtém um objeto `State` ou `Registry`
 
-    * `info` - o nome do `Registry` a ser obtido. Usado apenas ao recuperar um objeto `Registry`
+    * `info` - o nome `Registry` a obter. Usado apenas ao recuperar um objeto `Registry`
 
     * `T` - tipo de `State` ou `Registry`
 
-* `public IEnumerable<Registry> Commited();` - obtém objetos `Registry` que contêm o `State` confirmado
+* `public IEnumerable<Registry> Commited();` - obtém objetos `Registry` que contêm `State` confirmado
 
-* `public IEnumerable<Registry> Aborted();` - obtém objetos `Registry` que contêm o `State` anulado
+* `public IEnumerable<Registry> Aborted();` - obtém objetos `Registry` que contêm `State` anulado
 
-* `public State GetState(long stateId)` - obtém o objeto `State` da ID do estado especificado
+* `public State GetState(long stateId)` - obtém o objeto `State` para a ID de estado especificada
 
-O **State** fornece os seguintes métodos.
+O **Estado** oferece os métodos a seguir.
 
-* `public void Commit(bool simpleMode = true);` - configura o status do objeto `State` como confirmar
+* `public void Commit(bool simpleMode = true);`-Define o status do objeto `State` a confirmar
 
     > [AZURE.NOTE] Quando `simpleMode` é configurado como true, ele simplesmente exclui o ZNode correspondente no ZooKeeper. Caso contrário, ele exclui o ZNode atual e adiciona um novo nó no `COMMITTED_PATH`.
 
-* `public void Abort();` - configura o status do objeto `State` como anular
+* `public void Abort();` - define o status do objeto `State` a anular
 
-* `public void PutAttribute<T>(string key, T attribute);` - configura um valor de atributo para uma determinada chave
+* `public void PutAttribute<T>(string key, T attribute);` - define um valor de atributo para a chave fornecida
 
-    * `key` - a chave configurada para o atributo
+    * `key` - a chave define o atributo para
 
     * `attribute` - o valor do atributo
 
-* `public T GetAttribute<T>(string key);` - obtém o valor do atributo para uma determinada chave
+* `public T GetAttribute<T>(string key);` - obtém o valor de atributo para a chave fornecida
 
 ####SCPRuntime
 
 SCPRuntime oferece os seguintes métodos.
 
-* `public static void Initialize();` - inicializa o ambiente de tempo de execução do SCP. Quando chamado, o processo do C# se conecta à JVM e obtém os parâmetros de configuração e o contexto da topologia.
+* `public static void Initialize();`-inicializa o ambiente de tempo de execução do SCP. Quando chamado, o processo do C# se conecta à JVM e obtém os parâmetros de configuração e o contexto da topologia
 
-* `public static void LaunchPlugin(newSCPPlugin pluginDelegate);` - inicia um loop de processamento de mensagem. Nesse loop, o plug-in do C# receberá mensagens da JVM (incluindo tuplas e sinais de controle) e as processará.
+* `public static void LaunchPlugin(newSCPPlugin pluginDelegate);` - inicia o circuito de processamento de mensagens. Nesse loop, o plug-in do C# receberá mensagens da JVM (incluindo tuplas e sinais de controle) e as processará
 
     * `pluginDelegate` - um representante que pode retornar um objeto que implementa ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt
 
@@ -768,54 +782,54 @@ SCPRuntime oferece os seguintes métodos.
 
 * `List<SCPTuple> RecvFromMsgQueue();` - recebe tuplas da fila
 
-* `void WriteMsgQueueToFile(string filepath, bool append = false);` - mantém as tuplas na fila
+* `void WriteMsgQueueToFile(string filepath, bool append = false);` - persiste tuplas para o arquivo
 
-* `void ReadFromFileToMsgQueue(string filepath);` - lê as tuplas do arquivo
+* `void ReadFromFileToMsgQueue(string filepath);` - faz a leitura de tuplas do arquivo
 
 
 ###<a id="spec"></a>Linguagem de especificação da topologia
 
-A Especificação da Topologia do SCP é uma linguagem específica do domínio para descrever e configurar as topologias do SCP. Ela é baseada na [DSL Clojure] do Storm(http://storm.incubator.apache.org/documentation/Clojure-DSL.html).  
+A Especificação da Topologia do SCP é uma linguagem específica do domínio para descrever e configurar as topologias do SCP. Ela é baseada na [DSL Clojure](http://storm.incubator.apache.org/documentation/Clojure-DSL.html) do Storm.  
 
 Use o seguinte para definir uma topologia:
 
 |Novas funções|	Parâmetros|	Descrição
 |-------------|-----------|-----------
-|**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	 Define uma topologia transacional com o nome da topologia, o mapa de definição de spouts e o mapa de definição de bolts
-|**scp-tx-spout**|	exec-name<br> args<br> fields|	Define um spout transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os ***fields*** são os campos de saída do spout
-|**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	Define um bolt em lote transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os Fields são os campos de saída do bolt.
-|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	Define um bolt confirmador transacional. Executará um aplicativo com o ***exec-name*** usando args.<br><br>Os ***fields*** são os campos de saída do bolt
-|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	 Define uma topologia não transacional com o nome da topologia, o mapa de definição de spouts e o mapa de definição de bolts
-|**scp-spout**|	exec-name<br>args<br>fields<br>parameters|	Define um spout não transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os ***fields*** são os campos de saída do spout<br><br>Os ***parameters*** são opcionais e usados para especificar alguns parâmetros, tais como "nontransactional.ack.enabled".
-|**scp-bolt**|	exec-name<br>args<br>fields<br>parameters|	Define um bolt não transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os ***fields*** são os campos de saída do bolt<br><br>Os ***parameters*** são opcionais e usados para especificar alguns parâmetros, tais como "nontransactional.ack.enabled".
+|**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	 Defina uma topologia transacional com o nome da topologia, o mapa de definição de spouts e o mapa de definição de bolts
+|**scp-tx-spout**|	exec-name<br> args<br> fields|	Defina um spout transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os ***fields*** são os campos de saída do spout
+|**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	Defina um bolt em lote transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os Fields são os campos de saída do bolt.
+|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	Defina um bolt confirmador transacional. Executará um aplicativo com o ***exec-name*** usando args.<br><br>Os ***fields*** são os campos de saída do bolt
+|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	Define uma topologia não transacional com o nome de topologia,  o mapa de definição dos spouts e o mapa de definição dos bolts
+|**scp-spout**|	exec-name<br>args<br>fields<br>parameters|	Defina um spout não transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os ***fields*** são os campos de saída do spout<br><br>O ***parameters*** é opcional, utilizando-o para especificar alguns parâmetros como "nontransactional.ack.enabled".
+|**scp-bolt**|	exec-name<br>args<br>fields<br>parameters|	Defina um bolt não transacional. Executará um aplicativo com o ***exec-name*** usando ***args***.<br><br>Os ***fields*** são os campos de saída do bolt<br><br>O ***parameters*** é opcional, utilizando-o para especificar alguns parâmetros como "nontransactional.ack.enabled".
 
 As seguintes são palavras-chave que podem ser usadas ao definir uma topologia
 
 |Palavras-chave|	Descrição
 |---------|------------
-|**:name**|	Define o nome da topologia
-|**:topology**|	Define a topologia usando as funções acima e as integradas.
-|**:p**|	Define a dica de paralelismo para cada spout ou bolt.
-|**:config**|	Define o parâmetro de configuração ou atualiza os existentes
-|**:schema**|	Define o esquema do fluxo.
+|**:name**|	Defina o nome da topologia
+|**:topology**|	Defina a Topologia usando as funções acima e as integradas.
+|**:p**|	Defina a dica de paralelismo para cada spout ou bolt.
+|**:config**|	Defina o parâmetro de configuração ou atualize os existentes
+|**:schema**|	Defina o esquema do fluxo.
 
 Parâmetros usados com frequência
 
 |Parâmetro|	Descrição
 |---------|------------
-|**"plugin.name"**|	nome do arquivo executável do plug-in do C#
-|**"plugin.args"**|	argumentos do plug-in
-|**"output.schema"**|	esquema de saída
-|**"nontransactional.ack.enabled"**|	Se o reconhecimento está habilitado para a topologia não transacional
+|**"plugin.name"**|	nome do arquivo exe do plugin do C#
+|**"plugin.args"**|	args do plugin
+|**"output.schema"**|	Esquema de saída
+|**"nontransactional.ack.enabled"**|	Se o reconhecimento está ativado para a topologia não transacional
 
-As especificações da topologia podem ser enviadas diretamente ao cluster Storm para execução por meio do comando ***runspec***, que está localizado no diretório **%storm_home%\bin** nos clusters HDInsight Storm.  
+As especificações da topologia podem ser enviadas diretamente ao cluster Storm para execução por meio do comando ***runspec***, que está localizado no diretório **%storm_home%\bin** nos clusters do Storm.  
 
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
      ex: runSpec examples\HelloWorld\HelloWorld.spec target examples\HelloWorld\Target
 
 > [AZURE.NOTE] O parâmetro ***resource-dir*** é opcional, você precisa especificá-lo quando quiser executar um aplicativo do C#, e esse diretório conterá o aplicativo, as dependências e as configurações.  
 
-O parâmetro ***classpath*** também é opcional.  Ele é usado para especificar o caminho de classe do Java se o arquivo de especificações contiver spout ou bolt do Java.  
+O parâmetro ***classpath*** também é opcional. Ele é usado para especificar o caminho de classe do Java se o arquivo de especificações contiver spout ou bolt do Java.  
 
 ###Recursos diversos
 
@@ -823,7 +837,7 @@ O parâmetro ***classpath*** também é opcional.  Ele é usado para especificar
 
 Ao chamar `Emit()`, a plataforma serializa a tupla em uma matriz de bytes e a transfere para a JVM. Em seguida, o Storm transfere essa tupla aos destinos. Os bolts recebem a tupla. Para os bolts C#, a tupla é recebida da JVM e convertida de volta ao tipo original.
 
-Para dar suporte à serialização e desserialização, você deve declarar o esquema das entradas e saídas. Essas são definidas como objetos `Dictionary<string, List<Type>`, em que a chave é a ID do fluxo e o valor é os `Types` das tuplas que serão emitidas. O componente pode declarar vários fluxos.
+Para dar suporte à serialização e desserialização, você deve declarar o esquema das entradas e saídas. Eles são definidos como objetos `Dictionary<string, List<Type>`, onde a chave é a ID do fluxo e o valor é o `Types` de tuplas que serão emitidas. O componente pode declarar vários fluxos.
 
     public class ComponentStreamSchema
     {
@@ -850,9 +864,9 @@ Você pode emitir vários fluxos ao fazer várias chamadas ao `Emit()`, especifi
 
 ####Agrupamento de campos
 
-A agrupamento de campos integrado no Storm não funciona adequadamente no SCP.NET. Ao usar um proxy de dados na JVM, todos os tipos de dados de campo são na verdade `byte[]` e o agrupamento de campos usa o código hash do objeto `byte[]` para realizar o agrupamento. O código hash do objeto `byte[]` é o endereço desse objeto na memória, de modo que o agrupamento será errado para dois objetos `byte[]` que compartilham o mesmo conteúdo, mas não o mesmo endereço.
+A agrupamento de campos integrado no Storm não funciona adequadamente no SCP.NET. Ao usar um proxy de dados na JVM, todos os tipos de dados de campo são na verdade `byte[]` e o agrupamento de campos usa o código hash do objeto  `byte[]` para realizar o agrupamento. O código hash do objeto `byte[]` é o endereço desse objeto na memória, de modo que o agrupamento será errado para dois objetos `byte[]` que compartilham o mesmo conteúdo, mas não o mesmo endereço.
 
-Para uma solução alternativa desse problema, use `scp-field-group` em sua especificação.   Isso usará o conteúdo do byte[] para realizar o agrupamento.A seguir, veja um exemplo de como usar isso em uma especificação.  
+Para solucionar esse problema, use `scp-field-group` em sua especificação. Isso utilizará o conteúdo do `byte[]` para realizar o agrupamento. A seguir, veja um exemplo de como usar isso em uma especificação.  
 
     (bolt-spec
         {
@@ -863,15 +877,15 @@ Para uma solução alternativa desse problema, use `scp-field-group` em sua espe
 
 Esse exemplo faz o seguinte.
 
-* `scp-field-group` - use o agrupamento personalizado  
-* `:tx` ou `:non-tx` - indica se é transacional ou não transacional
-* `[0,1]` - use um conjunto de hash de IDs de campos, iniciando do 0.  
+* `scp-field-group` - usar agrupamento personalizado  
+* `:tx` ou `:non-tx` - indica se isto é transacional ou não transacional
+* `[0,1]` - use um hashset de IDs de campo, começando por 0.  
 
 ####Topologia híbrida
 
-A maioria dos spouts, bolts e topologias nativas do Storm são implementadas em Java Para dar suporte à reutilização desses componentes nas soluções que usam os componentes do C#, o SCP permite a criação de topologias híbridas definidas na especialização.
+A maioria dos spouts, bolts e topologias nativas do Storm são implementadas em Java. Para dar suporte à reutilização desses componentes nas soluções que usam os componentes do C#, o SCP permite a criação de topologias híbridas definidas na especialização.
 
-* **Spout ou bolt do Java** - no arquivo de especificações `scp-spout` e `scp-bolt` também podem ser usados para especificar os spouts e bolts do Java.O exemplo a seguir demonstra a especificação de um spout do Java com um nome de classe `microsoft.scp.example.HybridTopology.Generator`
+* **Spout ou bolt do Java** - no arquivo de especificações, `scp-spout` e `scp-bolt` também podem ser usados para especificar os spouts e bolts do Java. O exemplo a seguir demonstra a especificação de um spout do Java com um nome de classe `microsoft.scp.example.HybridTopology.Generator`
 
         (spout-spec
           (microsoft.scp.example.HybridTopology.Generator.)
@@ -884,7 +898,7 @@ A maioria dos spouts, bolts e topologias nativas do Storm são implementadas em 
 
 * **Serialização e desserialização entre Java e C#** - Para serializar objetos entre Java e C#, use o `CustomizedInteropJSONSerializer`
 
-    > [WACOM.NOTE] No momento, o `CustomizedInteropJSONSerializer` dá suporte a apenas os **spouts do Java ** e os **bolts do C#**.
+    > [AZURE.NOTE] No momento, o `CustomizedInteropJSONSerializer` dá suporte apenas aos **spouts do Java ** e aos **bolts do C#**.
 
     * Especifique o serializador dos componentes Java no arquivo de especificações
 
@@ -921,7 +935,7 @@ A maioria dos spouts, bolts e topologias nativas do Storm são implementadas em 
 
 ###Modo de host do SCP
 
-O modo de host permite compilar o seu projeto em uma DLL e hospedá-la usando o **SCPHost.exe**. Essa é a maneira recomendada de hospedar a sua solução em um ambiente de produção.Ao usar o modo de host, o arquivo de especificações listará `SCPHost.exe` como o plug-in.
+O modo de host permite compilar o seu projeto em uma DLL e hospedá-la usando o **SCPHost.exe**. Essa é a maneira recomendada de hospedar a sua solução em um ambiente de produção. Ao usar o modo de host, o arquivo de especificações listará `SCPHost.exe` como o plug-in.
 
 A seguir, veja um exemplo de um arquivo de especificações que usou um modo de host para o exemplo HelloWorld.
 
@@ -939,17 +953,17 @@ A seguir, veja um exemplo de um arquivo de especificações que usou um modo de 
 
 ##Exemplos de programação do SCP
 
-Os aplicativos de exemplo a seguir gravados com o SCP podem ser encontrados em seu cluster HDInsight Storm em **%storm_home%\examples**.
+Os aplicativos de exemplo a seguir gravados com o SCP podem ser encontrados em seu cluster Storm no HDInsight em **%storm_home%\examples**.
 
-* **HelloWorld** - HelloWorld é um exemplo muito simples de SCP.Net e é semelhante ao exemplo de contagem de palavras usado anteriormente neste artigo. Ele usa uma topologia não transacional com um spout chamado **generator** e dois bolts chamados **splitter** e **counter**. O spout **generator** gerará algumas sentenças de modo aleatório e as emitirá ao **splitter**. O bolt **splitter** dividirá as sentenças em palavras e as emitirá ao bolt **counter**. O bolt **counter** usa um dicionário para registrar o número de ocorrências de cada palavra.
+* **HelloWorld** - HelloWorld é um exemplo muito simples de SCP.Net e é semelhante ao exemplo de contagem de palavras usado anteriormente neste artigo. Ele usa uma topologia não transacional com um spout chamado **generator** e dois bolts chamados **splitter** e **counter**. O spout **generator** gerará aleatoriamente algumas sentenças e emitirá essas sentenças ao **splitter**. O bolt **splitter** dividirá as sentenças em palavras e as emitirá ao bolt **counter**. O bolt **counter** usa um dicionário para registrar o número de ocorrências de cada palavra.
 
     Há dois arquivos de especificações, **HelloWorld.spec** e **HelloWorld_EnableAck.spec** para este exemplo. Ao usar o **HelloWorld_EnableAck.spec**, o exemplo reconhecerá as tuplas que passarem pelos bolts, no entanto, o **splitter** é desenvolvido para provocar de modo aleatório a falha de alguns bolts para demonstrar falhas de manipulação em topologias não transacionais.
 
-* **HelloWorldTx** - Um exemplo de como implementar uma topologia transacional.  Possui um spout chamado **generator**, um bolt de lote chamado **partial-count** e um bolt de confirmação chamado **count-sum**.Existem também três arquivos txt pré-criados para serem usados com essa topologia:**DataSource0.txt**, **DataSource1.txt** e **DataSource2.txt**.
+* **HelloWorldTx** - Um exemplo de como implementar uma topologia transacional. Possui um spout chamado **generator**, um bolt de lote chamado **partial-count** e um bolt de confirmação chamado **count-sum**. Existem também três arquivos txt pré-criados para serem usados com essa topologia: **DataSource0.txt**, **DataSource1.txt** e **DataSource2.txt**.
 
-    Em cada transação, o spout escolhe aleatoriamente dois arquivos e emite os dois nomes dos arquivos ao bolt **partial-count**. O bolt obtém o nome do arquivo da tupla recebida, depois, abre o arquivo e conta o número de palavras nesse arquivo.Por fim, emite o número de palavras ao bolt **count-sum**. O bolt **count-sum** resume a contagem total.  
+    Em cada transação, o spout escolhe aleatoriamente dois arquivos e emite os dois nomes dos arquivos ao bolt **partial-count**. O bolt obtém o nome do arquivo da tupla recebida, depois, abre o arquivo e conta o número de palavras nesse arquivo. Por fim, emite o número de palavras ao bolt **count-sum**. O bolt **count-sum** resume a contagem total.  
 
-    Para alcançar a semântica "exatamente uma vez", o bolt **count-sum** precisa determinar se está processando uma transação reproduzida ou não.  Neste exemplo, ele possui uma variável do membro estático:  
+    Para alcançar a semântica "exatamente uma vez", o bolt **count-sum** precisa determinar se está processando uma transação reproduzida ou não. Neste exemplo, ele possui uma variável do membro estático:  
 
         public static long lastCommittedTxId = -1;  
 
@@ -969,7 +983,7 @@ Os aplicativos de exemplo a seguir gravados com o SCP podem ser encontrados em s
             }
         }  
 
-    Quando `FinishBatch()` é chamado, `lastCommittedTxId` é atualizado se não for uma transação reproduzida.  
+    Quando `FinishBatch()` é chamado, `lastCommittedTxId` será atualizado se não for uma transação reproduzida.  
 
         public void FinishBatch(Dictionary<string, Object> parms)
         {
@@ -985,9 +999,8 @@ Os aplicativos de exemplo a seguir gravados com o SCP podem ser encontrados em s
             ... ...
         }  
 
-* **HybridTopology** - Essa topologia contém um spout do Java e um bolt do C#. Ela usa a implementação de serialização e desserialização padrão fornecida pelo SCP.Consulte **%storm_home%examples\HybridTopology\HybridTopology.spec** para obter detalhes e **SubmitTopology.bat** para saber como especificar o caminho de classe do Java ao enviar a topologia.  
+* **HybridTopology** - Essa topologia contém um spout do Java e um bolt do C#. Ela usa a implementação de serialização e desserialização padrão fornecida pelo SCP. Consulte **%storm_home%examples\HybridTopology\HybridTopology.spec** para obter detalhes e **SubmitTopology.bat** para saber como especificar o caminho de classe do Java ao enviar a topologia.  
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,10 +1,24 @@
-﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="Como usar o armazenamento de blob (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir blobs. Os exemplos de código são escritos em PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Como usar o armazenamento de blob (PHP) | Microsoft Azure" 
+	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir blobs. Os exemplos de código são escritos em PHP." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="tomfitz"/>
 
 #Como usar o serviço Blob do PHP
 
-Este guia mostra como executar cenários comuns usando o serviço Blob do Azure. Os exemplos são escritos em PHP e usam o [SDK do Azure para PHP][download]. Os cenários abrangidos incluem **carregar**, **listar**, **baixar** e **excluir** blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#NextSteps) .
+Este guia mostra como executar cenários comuns usando o serviço Blob do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][download]. os cenários abordados incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#NextSteps).
 
 ##Sumário
 
@@ -22,11 +36,11 @@ Este guia mostra como executar cenários comuns usando o serviço Blob do Azure.
 * [Como: Excluir um contêiner de blob](#DeleteContainer)
 * [Próximas etapas](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Criar uma conta de armazenamento do Azure</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Criar um aplicativo PHP</h2>
 
@@ -36,7 +50,7 @@ Neste guia, você usará recursos de serviços que podem ser chamados em um apli
 
 <h2><a id="GetClientLibrary"></a>Obter as bibliotecas de cliente do Azure</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>Configurar seu aplicativo para acessar o Serviço Blob</h2>
 
@@ -47,14 +61,14 @@ Para usar as APIs do serviço Blob do Azure, você precisa:
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
-> [WACOM.NOTE]
-> Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático 'WindowsAzure.php'.
+> [AZURE.NOTE]
+> Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao `WindowsAzure.php` arquivo de carregador automático.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-Nos exemplos abaixo, a instrução 'require_once' será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
 <h2><a id="ConnectionString"></a>Configurar uma conexão de armazenamento do Azure</h2>
 
@@ -69,7 +83,7 @@ Para acessar o armazenamento do emulador:
 	UseDevelopmentStorage=true
 
 
-Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder**.Você pode:
+Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
 * passar a cadeia de conexão diretamente para ele ou
 * usar o **CloudConfigurationManager (CCM)** para verificar várias origens externas para a cadeia de conexão:
@@ -86,7 +100,7 @@ Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
 <h2><a id="CreateContainer"></a>Como: Criar um contêiner</h2>
 
-O objeto **BlobRestProxy** permite que você crie um contêiner de blob com o método **createContainer**. Ao criar um contêiner, você pode definir opções no contêiner, mas fazer isso não é necessário.(O exemplo a seguir mostra como definir os metadados do contêiner e ACL do contêiner.)
+O objeto **BlobRestProxy** permite que você crie um contêiner de blob com o método **createContainer**. Ao criar um contêiner, você pode definir opções no contêiner, mas fazer isso não é necessário. (O exemplo a seguir mostra como definir os metadados do contêiner e ACL do contêiner.)
 
 	require_once 'vendor\autoload.php';
 
@@ -142,7 +156,7 @@ Para obter mais informações sobre códigos de erro de serviço Blob, consulte 
 
 <h2><a id="UploadBlob"></a>Como: Carregar um blob em um contêiner</h2>
 
-Para carregar um arquivo como um blob, use o método **BlobRestProxy->createBlockBlob**. Essa operação criará o blob, se ele não existir, ou o substituirá, se ele já existir.O exemplo de código a seguir pressupõe que o contêiner já foi criado e usa [fopen][fopen] para abrir o arquivo como um fluxo.
+Para carregar um arquivo como um blob, use o método **BlobRestProxy->createBlockBlob**. Essa operação criará o blob, se ele não existir, ou o substituirá, se ele já existir. O exemplo de código a seguir pressupõe que o contêiner já foi criado e usa [fopen][fopen] para abrir o arquivo como um fluxo.
 
 	require_once 'vendor\autoload.php';
 
@@ -169,11 +183,11 @@ Para carregar um arquivo como um blob, use o método **BlobRestProxy->createBloc
 		echo $code.": ".$error_message."<br />";
 	}
 
-Observe que o exemplo acima carrega um blob como um fluxo. No entanto, um blob também pode ser carregado como uma cadeia usando, por exemplo, a função [file\_get\_contents][file_get_contents].Para fazer isso, altere `$content = fopen("c:\myfile.txt", "r");` no exemplo acima para `$content = file_get_contents("c:\myfile.txt");`.
+Observe que o exemplo acima carrega um blob como um fluxo. No entanto, um blob também pode ser carregado como uma cadeia usando, por exemplo, a função [file\_get\_contents][file_get_contents]. Para fazer isso, altere `$content = fopen("c:\myfile.txt", "r");` no exemplo acima para `$content = file_get_contents("c:\myfile.txt");`.
 
 <h2><a id="ListBlobs"></a>Como: Listar os blobs em um contêiner</h2>
 
-Para listar os blobs em um contêiner, use o método **BlobRestProxy->listBlobs** com um loop **foreach** para executar um loop pelo resultado.O código a seguir exibe o nome de cada blob em um contêiner e seu URI para o navegador.
+Para listar os blobs em um contêiner, use o método **BlobRestProxy->listBlobs** com um loop **foreach** para executar um loop pelo resultado. O código a seguir exibe o nome de cada blob em um contêiner e seu URI para o navegador.
 
 	require_once 'vendor\autoload.php';
 
@@ -235,7 +249,7 @@ Observe que o exemplo acima obtém um blob como um recurso de fluxo (o comportam
 
 <h2><a id="DeleteBlob"></a>Como: Excluir um blob</h2>
 
-Para excluir um blob, passe o nome do contêiner e o nome do blob para **BlobRestProxy->deleteBlob**. 
+Para excluir um blob, passe o nome do contêiner e o nome do blob para **BlobRestProxy -> deleteBlob**. 
 
 	require_once 'vendor\autoload.php';
 
@@ -291,16 +305,15 @@ Agora que você aprendeu os conceitos básicos do serviço Blob do Azure, siga e
 
 - Consulte a referência de MSDN: [Armazenando e acessando dados no Azure] []
 - Visite o Blog da Equipe de Armazenamento do Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
-- Consulte o exemplo de blob de blocos PHP em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- Consulte o exemplo de blob de páginas PHP em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
+- Consulte o exemplo de blob de bloco PHP em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
+- Consulte o exemplo de blob de página PHP em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

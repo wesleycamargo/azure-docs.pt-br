@@ -1,14 +1,28 @@
-﻿<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="Analisando dados do sensor com o" description="do Apache Storm e Microsoft Azure HDInsight (Hadoop) Saiba como usar o Apache Storm para processar dados do sensor em tempo real com o HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Analisando dados do sensor com o Apache Storm e o HDInsight do Microsoft Azure (Hadoop)" 
+	description="Aprenda a usar  o Apache Storm para processar dados de sensor em tempo real com o HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
-#Analisando dados do sensor com o Storm e o HBase no HDInsight (Hadoop)
+# Analisando dados do sensor com o Storm e o HBase no HDInsight (Hadoop)
 
-Saiba como criar uma solução que use o cluster do HDInsight Storm para processar dados do sensor do hub de eventos do Azure. Durante o processamento, a topologia do Storm armazenará dados recebidos em um cluster HBase. A topologia também usará o SignalR para fornecer informações quase em tempo real por meio de um painel baseado na web hospedado em sites do Azure.
+Saiba como criar uma solução que use o cluster do Storm no HDInsight para processar dados do sensor do hub de eventos do Azure. Durante o processamento, a topologia do Storm armazenará dados recebidos em um cluster HBase. A topologia também usará o SignalR para fornecer informações quase em tempo real por meio de um painel baseado na web hospedado em sites do Azure.
 
 > [AZURE.NOTE] Uma versão completa desse projeto está disponível em [https://github.com/Blackmist/hdinsight-eventhub-example](https://github.com/Blackmist/hdinsight-eventhub-example).
 
-##Pré-requisitos
+## Pré-requisitos
 
 * Uma assinatura do Azure
 
@@ -20,33 +34,33 @@ Saiba como criar uma solução que use o cluster do HDInsight Storm para process
 
 * [Git](http://git-scm.com/)
 
-> [AZURE.NOTE] Java, JDK, Maven e Git também estão disponíveis por meio do gerenciador de pacotes [Chocolatey NuGet](http://chocolatey.org/) .
+> [AZURE.NOTE] Java, o JDK, Maven e Git também estão disponíveis por meio do gerenciador de pacotes [Chocolatey NuGet](http://chocolatey.org/).
 
-##Criar o painel
+## Criar o painel
 
-O painel é usado para exibir informações do sensor em tempo quase real. Nesse caso, o painel está em um aplicativo ASP.NET hospedado no site do Azure. O principal objetivo do aplicativo é servir como um hub [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) que recebe informações de topologia do Storm à medida que processa mensagens.
+O painel é usado para exibir informações do sensor em tempo quase real. Nesse caso, o painel está em um aplicativo ASP.NET hospedado no site do Azure. O principal objetivo do aplicativo é servir como um hub [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) que recebe informações da topologia do Storm conforme processa mensagens.
 
 O site também contém um arquivo index.html estático, que também se conecta ao SignalR e usa D3.js para representar em gráfico os dados transmitidos pela topologia do Storm.
 
-> [WACOM.NOTE] Você também pode usar WebSockets brutos em vez do SignalR, mas WebSockets não fornecem um mecanismo interno de escala, se você precisar escalar horizontalmente o site. O SignalR pode ser colocado em escala usando o Barramento de Serviço do Azure ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
+> [AZURE.NOTE] Você também pode usar WebSockets brutos em vez do SignalR, mas WebSockets não fornecem um mecanismo interno de escala, se você precisar escalar horizontalmente o site. O SignalR pode ser colocado em escala usando o Barramento de Serviço do Azure ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
 >
-> Para um exemplo de uso da topologia do Storm para comunicar-se com um site do Python usando WebSockets brutos, consulte o projeto [Visualização do Storm Tweet Sentiment D3](https://github.com/P7h/StormTweetsSentimentD3Viz) .
+> Para um exemplo de uso da topologia do Storm para comunicar-se com um site da Web Python usando WebSockets brutos, consulte o projeto [Visualização do Storm Tweet Sentiment D3](https://github.com/P7h/StormTweetsSentimentD3Viz).
 
-1. No Visual Studio, crie um novo aplicativo C# usando o modelo de projeto do **Aplicativo Web ASP.NET**. Atribua ao aplicativo o nome de **Painel**.
+1. No Visual Studio, crie um novo aplicativo C# usando o modelo de projeto de **Aplicativo Web ASP.NET**. Atribua ao aplicativo o nome de **Painel**.
 
-2. Na janela **Novo Projeto ASP.NET** selecione o modelo de aplicativo **Vazio** . Na seção**Windows Azure** selecione**Host na nuvem** e**Site**. Por fim, clique em **Ok**.
+2. Na janela **Novo Projeto ASP.NET**, selecione o modelo de aplicativo **Vazio**. Na seção**Windows Azure**, selecione **Host na nuvem** e **Site**. Por fim, clique em **Ok**.
 
 	> [AZURE.NOTE] Se solicitado, entre com a sua assinatura do Azure.
 
-3. Na caixa de diálogo**Configurar o Site do Windows Azure **, insira um**Nome de site** e**Região** para o seu site, e clique em **OK**.Isso criará o site do Azure que hospedará o painel.
+3. Na caixa de diálogo**Configurar o Site do Windows Azure**, insira um **Nome de site** e **Região** para o seu site, então clique em **OK**. Isso criará o site do Azure que hospedará o painel.
 
-3. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar | Classe do Hub SignalR (v2)**. Atribua à classe o nome **DashHub.cs** e adicione-a ao projeto.Isso conterá o hub do SignalR que é usado para comunicar dados entre o HDInsight e a página da Web do painel.
+4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar | Classe do Hub SignalR (v2)**. Atribua à classe o nome **DashHub.cs** e adicione-a ao projeto. Isso conterá o hub do SignalR que é usado para comunicar dados entre o HDInsight e a página da Web do painel.
 
-	> [AZURE.NOTE] Se você estiver usando o Visual Studio 2012, o modelo da **Classe de Hub do SignalR (v2)** não estará disponível. É possível adicionar uma **Classe** simples chamada DashHub em vez disso. Você também precisará instalar manualmente o pacote SignalR abrindo **Ferramentas | Gerenciador de Pacote de Biblioteca | Console do Gerenciador de Pacotes ** e executando o seguinte comando:
+	> [AZURE.NOTE] Se você estiver usando o Visual Studio 2012, o modelo da **Classe de Hub do SignalR (v2)** não estará disponível. É possível adicionar uma **Classe** simples chamada DashHub em vez disso. Você também precisará instalar manualmente o pacote SignalR abrindo **Ferramentas | Gerenciador de Pacote de Biblioteca | Console do Gerenciador de Pacotes** e executando o seguinte comando:
 	>
 	> `install-package Microsoft.AspNet.SignalR`
 
-4. Substitua o código em **DashHub.cs** pelo seguinte.
+5. Substitua o código em **DashHub.cs** pelo seguinte.
 
 		using System;
 		using System.Collections.Generic;
@@ -66,11 +80,11 @@ O site também contém um arquivo index.html estático, que também se conecta a
 		    }
 		}
 
-5. No **Gerenciador de Soluções**, clique com o botão direito no projeto e selecione **Adicionar | Classe de Inicialização do OWIN**. Nomeie a nova classe como **Startup.cs**.
+6. No **Gerenciador de Soluções**, clique com o botão direito no projeto e selecione **Adicionar | Classe de Inicialização do OWIN**. Atribua à nova classe o nome de **Startup.cs**.
 
 	> [AZURE.NOTE] Se você estiver usando o Visual Studio 2012, o modelo da **Classe de Inicialização OWIN** não estará disponível. É possível criar uma **Classe** chamada Startup, em vez disso.
 
-6. Substitua o conteúdo do **Startup.cs** pelo seguinte.
+7. Substitua o conteúdo de **Startup.cs** pelo seguinte.
 
 		using System;
 		using System.Threading.Tasks;
@@ -91,9 +105,9 @@ O site também contém um arquivo index.html estático, que também se conecta a
 		    }
 		}
 
-7. No **Gerenciador de Soluções**, clique com o botão direito no projeto e depois clique em **Adicionar | Página HTML**.  Atribua à nova página o nome de **index.html**.Essa página conterá o painel em tempo real para esse projeto.Ela receberá informações do DashHub e exibirá um gráfico usando D3.js.
+8. No **Gerenciador de Soluções**, clique com o botão direito no projeto e depois clique em **Adicionar | Página HTML**. Atribua à nova página o nome de **index.html**. Essa página conterá o painel em tempo real para esse projeto. Ela receberá informações do DashHub e exibirá um gráfico usando D3.js.
 
-8. No **Gerenciador de Soluções**, clique com o botão direito em **index.html** e selecione**Definir como Página Inicial**.
+9. Em **Gerenciador de Soluções**, clique com o botão direito em **index.html** e selecione **Definir como Página Inicial**.
 
 10. Substitua o código no arquivo **index.html** pelo seguinte.
 
@@ -290,9 +304,9 @@ O site também contém um arquivo index.html estático, que também se conecta a
 
 	> [AZURE.NOTE] Uma versão posterior dos scripts SignalR pode ser instalada pelo gerenciador de pacote. Verifique se as referências de script abaixo correspondem às versões dos arquivos de script no projeto (elas serão diferentes se você tiver adicionado SignalR usando NuGet, em vez de adicionar um hub.)
 
-11. No **Gerenciador de Soluções**, clique com o botão direito no projeto e depois clique em **Adicionar | Página HTML**. Atribua à nova página o nome de **test.html**.Essa página pode ser usada para testar o DashHub e o painel, enviando e recebendo mensagens.
+11. No **Gerenciador de Soluções**, clique com o botão direito no projeto e depois clique em **Adicionar | Página HTML**. Atribua à nova página o nome de **test.html**. Essa página pode ser usada para testar o DashHub e o painel, enviando e recebendo mensagens.
 
-11. Substitua o código no arquivo **test.html** pelo seguinte.
+12. Substitua o código no arquivo **test.html** pelo seguinte.
 
 		<!DOCTYPE html>
 		<html>
@@ -349,56 +363,56 @@ O site também contém um arquivo index.html estático, que também se conecta a
 		</body>
 		</html>
 
-11. **Salvar Tudo** para o projeto.
+13. **Salvar Tudo** para o projeto.
 
-12. No **Gerenciador de Soluções**, clique com o botão direito no projeto **Painel** e selecione **Publicar**. Selecione o site criado para esse projeto e clique em **Publicar**.
+14. No **Gerenciador de Soluções**, clique com o botão direito no projeto **Painel** e selecione **Publicar**. Selecione o site da Web criado para esse projeto e clique em **Publicar**.
 
-13. Quando o site tiver sido publicado, uma página da Web se abrirá exibindo uma linha do tempo móvel.
+15. Quando o site tiver sido publicado, uma página da Web se abrirá exibindo uma linha do tempo móvel.
 
-###Testar o painel
+### Testar o painel
 
-14. Para verificar se o SignalR está funcionando e se o painel exibirá linhas de gráfico para dados enviados ao SignalR, abra uma nova janela do navegador para a página **test.html** nete site. Por exemplo, **http://mydashboard.azurewebsites.net/test.html**.
+1. Para verificar se o SignalR está funcionando e se o painel exibirá linhas de gráfico para dados enviados ao SignalR, abra uma nova janela do navegador para a página **test.html** nesse site da Web. Por exemplo, **http://mydashboard.azurewebsites.net/test.html**.
 
-15. O painel espera dados formatados JSON, com uma **ID de dispositivo** e um **valor de** temperatura.  Por exemplo **{"device":0, "temperature":80}**.  Insira alguns valores de teste na página **test.html** usando os IDs de dispositivo 0 a 9, enquanto o painel está aberto em outra página. Observe que as linhas para cada ID de dispositivo são traçadas usando uma cor diferente.
+2. O painel espera dados formatados JSON, com uma **ID de dispositivo** e um valor de **temperatura**. Por exemplo **{"device":0, "temperature":80}**. Insira alguns valores de teste na página **test.html** usando os IDs de dispositivo 0 a 9, enquanto o painel está aberto em outra página. Observe que as linhas para cada ID de dispositivo são traçadas usando uma cor diferente.
 
-##Configurar o Hub de Eventos
+## Configurar o Hub de Eventos
 
 O Hub de Eventos é usado para receber mensagens (eventos) dos sensores. Use as seguintes etapas para criar um novo Hub de Eventos.
 
-1. No [Portal do Azure](https://manage.windowsazure.com), selecione **NOVO | Barramento de Serviço | Hub de Evento | Criação Personalizada**.
+1. No [Portal do Azure](https://manage.windowsazure.com), selecione **NOVO | Barramento de Serviço | Hub de Eventos | Criação Personalizada**.
 
-2. No diálogo **Adicionar um novo Hub de Eventos** insira um **Nome do Hub de Eventos**, selecione a **Região** na qual criar o hub e crie um novo namespace ou selecione um existente.  Por fim, clique na **Seta**.
+2. No diálogo **Adicionar um novo Hub de Eventos**, insira um **Nome do Hub de Eventos**, selecione a **Região** na qual criar o hub e crie um novo namespace ou selecione um existente. Por fim, clique na **Seta**.
 
-2. Na caixa de diálogo **Configurar o Hub de Eventos** insira os valores **Contagem de partição** e **Retenção de Mensagem** . Para este exemplo, use uma contagem de partições de 10 e uma retenção de mensagens de 1.
+3. No diálogo **Configurar o Hub de Eventos**, insira os valores de **Contagem de partições** e **Retenção de Mensagem**. Para este exemplo, use uma contagem de partições de 10 e uma retenção de mensagens de 1.
 
-3. Depois que o hub de eventos tiver sido criado, selecione o namespace e selecione **Hubs de Eventos**. Por fim, selecione o hub de eventos criado anteriormente.
+4. Depois que o hub de eventos tiver sido criado, selecione o namespace e selecione **Hubs de Eventos**. Por fim, selecione o hub de eventos criado anteriormente.
 
-4. Selecione **Configurar**, e crie duas novas políticas de acesso usando as seguintes informações.
+5. Selecione **Configurar**, e crie duas novas políticas de acesso usando as seguintes informações.
 
 	<table>
-	<tr><th>Name</th><th>Permissions</th></tr>
-	<tr><td>devices</td><td>Send</td></tr>
-	<tr><td>storm</td><td>Listen</td></tr>
+	<tr><th>Nome</th><th>Permissões</th></tr>
+	<tr><td>dispositivos</td><td>Enviar</td></tr>
+	<tr><td>storm</td><td>Escutar</td></tr>
 	</table>
 
 	Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria as políticas de acesso compartilhado que serão usadas para enviar mensagens ao hub e ler mensagens dele.
 
-5. Depois de salvar as políticas, use o**Gerador de chave de acesso compartilhado** na parte inferior da página para recuperar a chave para as políticas de**dispositivos** e**storm**. Salve-as, pois serão usadas mais tarde.
+6. Depois de salvar as políticas, use o **Gerador de chave de acesso compartilhado** na parte inferior da página para recuperar a chave para as políticas de **dispositivos** e **storm**. Salve-as, pois serão usadas mais tarde.
 
-###Enviar mensagens ao Hub de Eventos
+### Enviar mensagens ao Hub de Eventos
 
 Uma vez que não há um conjunto padrão e fácil de sensores disponível a todos, um aplicativo .NET é usado para gerar números aleatórios. O aplicativo .NET criado usando as etapas abaixo gerará eventos para 10 dispositivos a cada segundo, até que você interrompa o aplicativo pressionando uma tecla.
 
-1. No Visual Studio, crie um novo projeto do **Windows Desktop** e selecione o modelo de projeto **Aplicativo de Console**.  Atribua ao projeto o nome **SendEvents** e clique em **OK**.
+1. No Visual Studio, crie um novo projeto do **Windows Desktop** e selecione o modelo de projeto **Aplicativo de Console**. Atribua ao projeto o nome **SendEvents** e clique em **OK**.
 
 2. No **Gerenciador de Soluções**, clique com o botão direito em **SendEvents** e depois selecione **Gerenciar Pacotes NuGet**.
 
-3. Em **Gerenciar Pacotes NuGet Packages**, pesquise e instale os seguintes pacotes.
+3. Em **Gerenciar Pacotes NuGet**, pesquise e instale os seguintes pacotes.
 
 	* **Barramento de Serviço do Microsoft Azure**
 	* **JSON.Net**
 
-	Depois da instalação dos pacotes, **Fechar** o gerenciador de pacotes.
+	Depois da instalação dos pacotes, você deve **Fechar** o gerenciador de pacotes.
 
 4. Substitua os conteúdos de **Program.cs** pelo seguinte.
 
@@ -482,7 +496,7 @@ Uma vez que não há um conjunto padrão e fácil de sensores disponível a todo
 
 	Por enquanto, você receberá um aviso sobre linhas que fazem referência à classe do Evento. Ignore-o por enquanto.
 
-4. No arquivo **Program.cs** defina o valor das seguintes variáveis no início do arquivo para os valores correspondentes recuperados do seu Hub de Eventos no Portal de Gerenciamento do Azure.
+5. No arquivo **Program.cs**, defina o valor das seguintes variáveis no início do arquivo para os valores correspondentes recuperados do seu Hub de Eventos no Portal de Gerenciamento do Azure.
 
 	<table>
 	<tr><th>Defina isto...</th><th>Para fazer isto...</th></tr>
@@ -492,9 +506,9 @@ Uma vez que não há um conjunto padrão e fácil de sensores disponível a todo
 	<tr><td>sharedAccessPolicyKey</td><td>A chave para a política com acesso de envio.</td></tr>
 	</table>
 
-4. No **Gerenciador de Soluções**, clique com o botão direito em **SendEvents** e**Adicionar | Classe**.  Atribua à nova classe o nome **Event.cs**. Isso descreverá a mensagem enviada ao Hub de Eventos.
+6. No **Gerenciador de Soluções**, clique com o botão direito em **SendEvents** e**Adicionar | Classe**. Atribua à nova classe o nome **Event.cs**. Isso descreverá a mensagem enviada ao Hub de Eventos.
 
-5. Substitua o conteúdos de **Event.cs** pelo seguinte.
+7. Substitua o conteúdos de **Event.cs** pelo seguinte.
 
 		using System;
 		using System.Collections.Generic;
@@ -511,6 +525,8 @@ Uma vez que não há um conjunto padrão e fácil de sensores disponível a todo
 		    	[DataMember]
 		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
+		        public DateTime TimeStamp { get; set; }
+		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
 		        public int Temperature { get; set; }
@@ -519,9 +535,9 @@ Uma vez que não há um conjunto padrão e fácil de sensores disponível a todo
 
 	Essa classe descreve os dados que estamos enviando - o TimeStamp, um DeviceID e um valor de Temperatura.
 
-6. Selecione **Salvar Tudo** e execute o aplicativo para preencher o Hub de Eventos com mensagens.
+8. Selecione **Salvar Tudo** e execute o aplicativo para preencher o Hub de Eventos com mensagens.
 
-##Criar uma rede virtual do Azure
+## Criar uma rede virtual do Azure
 
 Para que a topologia em execução no Storm se comunique diretamente com o HBase, você deve provisionar ambos os servidores na Rede Virtual do Azure.
 
@@ -533,9 +549,9 @@ Para que a topologia em execução no Storm se comunique diretamente com o HBase
 
 	- **Nome**: O nome da sua rede virtual.
 	- **Espaço de endereço**: Escolha um nome de endereço para a rede virtual que seja grande o suficiente para fornecer endereços para todos os nós do cluster. Caso contrário, a provisão falhará.
-	- **Contagem máxima de VMsv**: Escolha uma das contagens máximas de VMs.
+	- **Contagem máxima de VMs**: Escolha uma das contagens máximas de VMs.
 	- **Local**: O local deve ser o mesmo que o do cluster do HBase que você criará.
-	- **Servidor DNS**:  Este artigo usa o servidor DNS interno fornecido pelo Azure, então, você pode selecionar**Nenhum**. Configurações de rede mais avançadas com servidores DNS personalizados também têm suporte. Para obter orientações detalhadas, consulte [http://msdn.microsoft.com/library/azure/jj156088.aspx](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **Servidor DNS**: Este artigo usa o servidor DNS interno fornecido pelo Azure, então, você pode selecionar **Nenhum**. Configurações de rede mais avançadas com servidores DNS personalizados também têm suporte. Para obter orientações detalhadas, consulte [http://msdn.microsoft.com/library/azure/jj156088.aspx](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 
 4. Clique em **Criar uma Rede Virtual**. O nome da nova rede virtual aparecerá na lista. Aguarde até que a coluna de Status exiba **Criado**.
 
@@ -547,15 +563,15 @@ Para que a topologia em execução no Storm se comunique diretamente com o HBase
 
 8. No topo da página, clique em **CONFIGURAR**.
 
-9. Na parte inferior da página, o nome da sub-rede padrão é **Sub-rede-1**.  Use o botão **adicionar sub-rede** para adicionar a **Sub-rede-2**. Essas sub-redes alojarão os clusters do Storm e do HBase.
+9. No final da página, o nome da sub-rede padrão é **Subnet-1**. Use o botão **adicionar sub-rede** para adicionar a **Sub-rede-2**. Essas sub-redes alojarão os clusters do Storm e do HBase.
 
-	> [WACOM.NOTE] Neste artigo, usaremos clusters com apenas um nó. Se estiver criando clusters de vários nós, verifique o **CIDR (CONTAGEM DE ENDEREÇOS)** da sub-rede que será usada para o cluster. A contagem de endereços deve ser maior que o número de nós de trabalho mais sete (Gateway: 2, Headnode: 2, Zookeeper: 3). Por exemplo, se você precisa de um cluster do HBase de 10 nós, a contagem de endereços da sub-rede deve ser maior que 17 (10+7). Caso contrário, a implantação falhará.
+	> [AZURE.NOTE] Neste artigo, usaremos clusters com apenas um nó. Se estiver criando clusters de vários nós, verifique o **CIDR (CONTAGEM DE ENDEREÇOS)** da sub-rede que será usada para o cluster. A contagem de endereços deve ser maior que o número de nós de trabalho mais sete (Gateway: 2, Headnode: 2, Zookeeper: 3). Por exemplo, se você precisa de um cluster do HBase de 10 nós, a contagem de endereços da sub-rede deve ser maior que 17 (10+7). Caso contrário, a implantação falhará.
 	>
 	> É altamente recomendado designar uma única sub-rede para um cluster.
 
 11. Clique em **Salvar** na parte inferior da página.
 
-##Criar o cluster HDInsight Storm
+## Criar o cluster Storm no HDInsight
 
 1. Entre no [Portal de Gerenciamento do Azure][azureportal]
 
@@ -565,59 +581,59 @@ Para que a topologia em execução no Storm se comunique diretamente com o HBase
 
 4. Na página **Detalhes do Cluster**, insira o nome do novo cluster e selecione **Storm** como o **Tipo de Cluster**. Clique na seta para continuar.
 
-5. Insira 1 para o número de **Nós de Dados** a usar para esse cluster.  Em**Região/Rede Virtual**, selecione a Rede Virtual do Azure criada anteriormente.  Em **Sub-redes da Rede Virtual**, selecione **Sub-rede-2**.
+5. Insira 1 para o número de **Nós de Dados** a usar para esse cluster. Em **Região/Rede Virtual**, selecione a Rede Virtual do Azure criada anteriormente. Em **Sub-redes da Rede Virtual**, selecione **Sub-rede-2**.
 
-	> [WACOM.NOTE] Para minimizar o custo do cluster usado neste artigo, reduza o **Tamanho do Cluster** para 1 e exclua o cluster após ter terminado de usá-lo.
+	> [AZURE.NOTE] Para minimizar o custo do cluster usado neste artigo, reduza o **Tamanho do Cluster** para 1 e exclua o cluster após ter terminado de usá-lo.
 
 6. Insira o **Nome de Usuário** e a **Senha** do administrador e selecione a seta para continuar.
 
-4. Em **Conta de Armazenamento**, selecione **Criar Novo Armazenamento** ou selecione uma conta de armazenamento existente.  Selecione ou insira o **Nome da Conta** e o **Contêiner padrão** a serem utilizados. Clique no ícone de seleção na parte inferior esquerda para criar o cluster do Storm.
+7. Em **Conta de Armazenamento**, selecione **Criar Novo Armazenamento** ou selecione uma conta de armazenamento existente. Selecione ou insira o **Nome da Conta** e o **Contêiner padrão** a utilizar. Clique no ícone de seleção na parte inferior esquerda para criar o cluster do Storm.
 
-##Criar o cluster do HDInsight HBase
+## Criar o cluster do HDInsight HBase
 
 1. Entre no [Portal de Gerenciamento do Azure][azureportal]
 
-2. Clique em **HDInsight** à esquerda e depois em **+NOVO no canto inferior esquerdo da página.
+2. Clique em **HDInsight** à esquerda e depois em **+NOVO** no canto inferior esquerdo da página.
 
 3. Clique no ícone HDInsight na segunda coluna e selecione **Personalizar**.
 
 4. Na página **Detalhes do Cluster**, insira o nome do novo cluster e selecione **HBase** como o **Tipo de Cluster**. Clique na seta para continuar.
 
-5. Insira 1 para o número de **Nós de Dados** a usar para esse cluster.  Em**Região/Rede Virtual**, selecione a Rede Virtual do Azure criada anteriormente.  Em **Sub-redes da Rede Virtual**, selecione **Sub-rede-1**.
+5. Insira 1 para o número de **Nós de Dados** a usar para esse cluster. Em **Região/Rede Virtual**, selecione a Rede Virtual do Azure criada anteriormente. Em **Sub-redes da Rede Virtual**, selecione **Sub-rede-1**.
 
-	> [WACOM.NOTE] Para minimizar o custo do cluster usado neste artigo, reduza o **Tamanho do Cluster** para 1 e exclua o cluster após ter terminado de usá-lo.
+	> [AZURE.NOTE] Para minimizar o custo do cluster usado neste artigo, reduza o **Tamanho do Cluster** para 1 e exclua o cluster após ter terminado de usá-lo.
 
 6. Insira o **Nome de Usuário** e a **Senha** do administrador e selecione a seta para continuar.
 
-4. Em **Conta de Armazenamento**, selecione **Criar Novo Armazenamento** ou selecione uma conta de armazenamento existente.  Selecione ou insira o **Nome da Conta** e o **Contêiner padrão** a serem utilizados. Clique no ícone de seleção na parte inferior esquerda para criar o cluster do Storm.
+7. Em **Conta de Armazenamento**, selecione **Criar Novo Armazenamento** ou selecione uma conta de armazenamento existente. Selecione ou insira o **Nome da Conta** e o **Contêiner padrão** a utilizar. Clique no ícone de seleção na parte inferior esquerda para criar o cluster do Storm.
 
-	> [WACOM.NOTE] Você deve usar um contêiner diferente do usado para o cluster do Storm.
+	> [AZURE.NOTE] Você deve usar um contêiner diferente do usado para o cluster do Storm.
 
-###Habilitar área de trabalho remota
+### Habilitar área de trabalho remota
 
 Para este tutorial, devemos usar a área de trabalho remota para acessar os clusters Storm e HBase. Use essas etapas para habilitar a área de trabalho remota em ambos.
 
 1. Entre no [Portal de Gerenciamento do Azure][azureportal].
 
-2. À esquerda, selecione **HDInsight** e depois selecione seu cluster Storm na lista.  Por fim, selecione **Configurar** na parte superior da página.
+2. À esquerda, selecione **HDInsight** e depois selecione seu cluster Storm na lista. Por fim, selecione **Configurar** na parte superior da página.
 
 3. Na parte inferior da página, selecione **Habilitar Remoto**. Quando solicitado, informe um nome de usuário, senha e data em que o acesso à área de trabalho remota expirará. Clique na marca de seleção para habilitar a área de trabalho remota.
 
 Depois de habilitar a área de trabalho remota, selecione **Conectar** na parte inferior da página. Siga os avisos pra conectar-se ao cluster.
 
-###Descobrir o sufixo DNS do HBase
+### Descobrir o sufixo DNS do HBase
 
 Para gravar no HBase usando o cluster Storm, é preciso usar o nome de domínio totalmente qualificado (FQDN) para o cluster HBase. Use as seguintes etapas para descobrir essas informações.
 
 1. Conecte-se ao cluster HBase usando a área de trabalho remota.
 
-2. Depois de se conectar ao cluster, abra a linha de comando do Hadoop e execute o comando **ipconfig** para obter o sufixo DNS.  O **Sufixo DNS específico da conexão** conterá o valor do sufixo.  Por exemplo, **mycluster.b4.internal.cloudapp.net**. Salve essas informações.
+2. Depois de se conectar ao cluster, abra a linha de comando do Hadoop e execute o comando **ipconfig** para obter o sufixo DNS. O **Sufixo DNS específico da conexão** conterá o valor do sufixo. Por exemplo, **mycluster.b4.internal.cloudapp.net**. Salve essas informações.
 
-##Desenvolver a topologia do Storm
+## Desenvolver a topologia do Storm
 
-> [WACOM.NOTE] As etapas nesta seção devem ser realizadas no ambiente de desenvolvimento local.
+> [AZURE.NOTE] As etapas nesta seção devem ser realizadas no ambiente de desenvolvimento local.
 
-###Baixar e criar dependências externas
+### Baixar e criar dependências externas
 
 Várias dependências usadas neste projeto devem ser baixadas e criadas individualmente, então instaladas no repositório Maven local no seu ambiente de desenvolvimento. Nesta seção, você vai baixar e instalar.
 
@@ -625,19 +641,19 @@ Várias dependências usadas neste projeto devem ser baixadas e criadas individu
 
 * O SDK do cliente Java do SignalR
 
-####Baixar e criar o spout do Hub de Eventos
+#### Baixar e criar o spout do Hub de Eventos
 
 Para receber dados do Hub de Eventos, usaremos o **eventhubs-storm-spout**.
 
-1. Use a Área de Trabalho Remota para se conectar ao cluster do Storm e copie o arquivo **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** em seu ambiente de desenvolvimento local.  Isso contém o **events-storm-spout**.
+1. Use a Área de Trabalho Remota para se conectar ao cluster do Storm e copie o arquivo **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** para seu ambiente de desenvolvimento local. Ele contém o **events-storm-spout**.
 
-6. Use o seguinte comando para instalar o pacote no armazenamento Maven local. Isso nos permitirá adicioná-lo facilmente como referência no projeto Storm em uma etapa posterior.
+2. Use o seguinte comando para instalar o pacote no armazenamento Maven local. Isso nos permitirá adicioná-lo facilmente como referência no projeto Storm em uma etapa posterior.
 
-		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-####Baixar e instalar o cliente SignalR
+#### Baixar e instalar o cliente SignalR
 
-Para enviar mensagens a um painel ASP.NET, use o [SDK do cliente SignalR para Java](https://github.com/SignalR/java-client).
+Para enviar mensagens ao painel ASP.NET, use o [SDK do cliente SignalR para Java](https://github.com/SignalR/java-client).
 
 1. Abra um prompt de comando.
 
@@ -652,22 +668,22 @@ Para enviar mensagens a um painel ASP.NET, use o [SDK do cliente SignalR para Ja
 		cd java-client\signalr-client-sdk
 		mvn package
 
-	> [WACOM.NOTE] Se você receber um erro dizendo que a dependência **gson** não pode ser baixada, remova as seguintes linhas do arquivo **java-client\signalr-client-sdk\pom.xml**.
-	> ```<repositories>
+	> [AZURE.NOTE] Se você receber um erro dizendo que a dependência **gson** não pode ser baixada, remova as seguintes linhas do arquivo **java-client\signalr-client-sdk\pom.xml**.
+	> 
 <repository>
 <id>central</id>
 <name>Central</name>
 <url>http://maven.eclipse.org/build</url>
 </repository>
 </repositories>
-```
-	> Remover essas linhas fará o Maven obter o arquivo do repositório central (o comportamento padrão). Para forçar o Maven a tentar acessar o repositório novamente, use o comando `-U`. Por exemplo:`mvn package -U`
 
-6. Use o seguinte comando para instalar o pacote no armazenamento Maven local. Isso nos permitirá adicioná-lo facilmente como referência no projeto Storm em uma etapa posterior.
+	> Remover essas linhas fará o Maven obter o arquivo do repositório central (o comportamento padrão). Para forçar o Maven a tentar acessar o repositório novamente, use o comando `-U`. Por exemplo, `mvn package -U`
 
-		mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+5. Use o seguinte comando para instalar o pacote no armazenamento Maven local. Isso nos permitirá adicioná-lo facilmente como referência no projeto Storm em uma etapa posterior.
 
-###Fazer scaffold do projeto de topologia do Storm
+		mvn install:install-file -Dfile=target/signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+
+### Fazer scaffold do projeto de topologia do Storm
 
 Agora que instalamos o spout do Hub de Eventos e o cliente SignalR no repositório local, use o Maven para criar o scaffolding para o projeto de topologia do Storm.
 
@@ -681,15 +697,15 @@ Agora que instalamos o spout do Hub de Eventos e o cliente SignalR no repositór
 
 	Esse comando vai...
 
-	* Crie um novo diretório usando o *artifactId* especificado. Neste caso, **Temperatura**.
+	* Crie um novo diretório usando o *artifactId* especificado. Neste caso, é **Temperatura**.
 	* Crie um arquivo **pom.xml**, que contém informações do Maven para esse projeto.
 	* Crie uma estrutura de diretório **src**, que contém alguns códigos e testes básicos.
 
-###Adicionar dependências e plug-ins
+### Adicionar dependências e plug-ins
 
 A seguir, modifique o **pom.xml** para fazer referência às dependências desse projeto, bem como os plug-ins do Maven a usar ao criar e empacotar.
 
-1. Usando um editor de texto, abra o arquivo **pom.xml** e adicione o seguinte à seção **<dependências>**. É possível adicioná-los ao fim da seção, depois da dependência para junit.
+1. Usando um editor de texto, abra o arquivo **pom.xml** e adicione o seguinte à seção **&lt;dependências>**. É possível adicioná-los ao fim da seção, depois da dependência para junit.
 
 		<dependency>
 	      <groupId>org.apache.storm</groupId>
@@ -746,9 +762,9 @@ A seguir, modifique o **pom.xml** para fazer referência às dependências desse
 	* storm-core - classes centrais para o Storm
 	* storm-hbase - classes que permitem gravar no HBase
 
-	> [WACOM.NOTE] Observe que algumas dependências estão marcadas com um escopo de **fornecido** para indicar que devem ser baixadas do repositório Maven e usadas para criar e testar o aplicativo localmente, mas também estão disponíveis no ambiente de tempo de execução e não precisam ser compiladas e incluídas no JAR criado por esse projeto.
+	> [AZURE.NOTE] Observe que algumas dependências estão marcadas com um escopo de **fornecido** para indicar que devem ser baixadas do repositório Maven e usadas para criar e testar o aplicativo localmente, mas também estão disponíveis no ambiente de tempo de execução e não precisam ser compiladas e incluídas no JAR criado por esse projeto.
 
-2. Ao fim do arquivo **pom.xml**, logo antes da entrada **</project>**, adicione o seguinte.
+2. Ao fim do arquivo **pom.xml**, logo antes da entrada **&lt;/project>**, adicione o seguinte.
 
 		  <build>
 		    <plugins>
@@ -814,19 +830,19 @@ A seguir, modifique o **pom.xml** para fazer referência às dependências desse
 
 	Isso diz ao Maven para fazer o seguinte ao criar o projeto:
 
-	* Inclua o arquivo de recurso**/conf/Config.properties**.Esse arquivo será criado mais tarde, mas conterá informações de configuração para conectar-se ao Hub de Eventos do Azure.
-	* Inclua o arquivo de recursos **/conf/hbase-site.xml**.Esse arquivo será criado mais tarde, mas conterá informações sobre como conectar-se ao HBase
+	* Inclua o arquivo de recursos **/conf/Config.properties**. Esse arquivo será criado mais tarde, mas conterá informações de configuração para conectar-se ao Hub de Eventos do Azure.
+	* Inclua o arquivo de recursos **/conf/hbase-site.xml**. Esse arquivo será criado mais tarde, mas conterá informações sobre como conectar-se ao HBase
 	* Use o **maven-compiler-plugin** para compilar o aplicativo.
-	* Use o **maven-shade-plugin** para criar um uberjar ou fat jar, que contém esse projeto e as dependências requeridas.
+	* Use o **maven-shade-plugin** para criar um uberjar ou fat jar, que contém esse projeto e quaisquer eventuais dependências requeridas.
 	* Use o **exec-maven-plugin**, que lhe permite executar o aplicativo localmente sem um cluster Hadoop.
 
-###Adicionar arquivos de configuração
+### Adicionar arquivos de configuração
 
-**eventhubs-storm-spout** lê informações de configuração de um arquivo **Config.properties**. Isso diz a que hub de eventos se conectar.Embora você possa especificar um arquivo de configuração ao iniciar a topologia em um cluster, incluir um no projeto fornece uma configuração padrão conhecida.
+O **eventhubs-storm-spout** lê informações de configuração de um arquivo **Config.properties**. Isso diz a que hub de eventos se conectar. Embora você possa especificar um arquivo de configuração ao iniciar a topologia em um cluster, incluir um no projeto fornece uma configuração padrão conhecida.
 
-1. No diretório **Temperatura** crie um novo diretório chamado **conf**.
+1. No diretório **TemperatureMonitor** crie um novo diretório chamado **conf**.
 
-2. No diretório **conf**, crie dois novos arquivo:
+2. No diretório **conf**, crie dois novos arquivos:
 
 	* **Config.properties** - contém as configurações para o hub de eventos
 	* **hbase-site.xml** - contém as configurações para conexão ao hbase
@@ -838,8 +854,8 @@ A seguir, modifique o **pom.xml** para fazer referência às dependências desse
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-		# The name of the event hub
-		eventhubspout.entitypath = temperature
+
+		eventhubspout.entitypath = <the event hub name>
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
@@ -850,9 +866,13 @@ A seguir, modifique o **pom.xml** para fazer referência às dependências desse
 
 		eventhub.receiver.credits = 1024
 
-	Substitua a **senha** pela chave da política do **storm** criada anteriormente no Hub de Eventos. Substitua **namespace** pelo namespace do seu Hub de Eventos.
+	Substitua a **senha** pela chave da política do **storm** criada anteriormente no Hub de Eventos.
+	
+	Substitua **namespace** pelo namespace do seu Hub de Eventos.
+	
+	Substitua o **entitpath** pelo nome de seu Hub de eventos.
 
-3. Use o seguinte como conteúdo para o arquivo **hbase-site.xml**.
+4. Use o seguinte como conteúdo para o arquivo **hbase-site.xml**.
 
 		<?xml version="1.0"?>
 		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
@@ -892,17 +912,17 @@ A seguir, modifique o **pom.xml** para fazer referência às dependências desse
 		  </property>
 		</configuration>
 
-3. No arquivo **hbase-site.xml**, substitua o valor do **sufixo** das entradas do zookeeper pelo sufixo DNS recuperado anteriormente para o HBase. Por exemplo, **zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.internal.cloudapp.net**.
+5. No arquivo **hbase-site.xml**, substitua o valor do **suffix** do sufixo das entradas do zookeeper pelo sufixo DNS recuperado anteriormente para o HBase. Por exemplo, **zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.internal.cloudapp.net**.
 
-3. Salve os arquivos.
+6. Salve os arquivos.
 
-###Adicionar auxiliares
+### Adicionar auxiliares
 
 Para dar suporte à serialização para e de JSON, precisamos de algumas classes auxiliares que definam a estrutura do objeto.
 
-1. No diretório **\temperaturemonitor\src\main\java\com\microsoft\examples** crie um novo diretório chamado **auxiliares**.
+1. No diretório **\temperaturemonitor\src\main\java\com\microsoft\examples**, crie um novo diretório chamado **auxiliares**.
 
-2. No diretório **auxiliares** crie dois novos arquivos:
+2. No diretório **auxiliares**, crie dois novos arquivos:
 
 	* **EventHubMessage.java** - define o formato de mensagem do hub de eventos
 
@@ -929,7 +949,7 @@ Para dar suporte à serialização para e de JSON, precisamos de algumas classes
 
 5. Salve e feche esses arquivos.
 
-###Adicionar bolts
+### Adicionar bolts
 
 Bolts fazem o processamento principal em uma topologia. Para esta topologia, há três bolts, embora um seja o hbase-bolt, que serão baixados automaticamente quando o projeto for criado.
 
@@ -940,7 +960,7 @@ Bolts fazem o processamento principal em uma topologia. Para esta topologia, há
 	* **ParserBolt.java** - analisa a mensagem recebida do Hub de Eventos em campos individuais, então emite dois fluxos
 	* **DashboardBolt.java** - registra em log informações para o painel da Web via SignalR
 
-2. Use o seguinte como conteúdo do arquivo **ParserBolt.java**.
+3. Use o seguinte como conteúdo do arquivo **ParserBolt.java**.
 
 		package com.microsoft.examples;
 
@@ -991,7 +1011,7 @@ Bolts fazem o processamento principal em uma topologia. Para esta topologia, há
 		  }
 		}
 
-3. Use o seguinte como conteúdo do arquivo **DashboardBolt.java**.
+4. Use o seguinte como conteúdo do arquivo **DashboardBolt.java**.
 
 		package com.microsoft.examples;
 
@@ -1086,15 +1106,15 @@ Bolts fazem o processamento principal em uma topologia. Para esta topologia, há
 		  }
 		}
 
-	Substitua`http://yourwebsiteaddress` pelo endereço do site do Azure em que você publicou o painel anteriormente. Por exemplo, http://mydashboard.azurewebsites.net.
+	Substitua`http://dashboard.azurewebsites.net/` pelo endereço do site do Azure em que você publicou o painel anteriormente. Por exemplo, http://mydashboard.azurewebsites.net.
 
-2. Salve e feche os arquivos.
+5. Salve e feche os arquivos.
 
-###Definir a topologia
+### Definir a topologia
 
 A topologia descreve como os dados fluem entre spouts e bolts em uma topologia, bem como o grau de paralelismo para a topologia e os componentes dentro dela.
 
-1. No diretório **\temperaturemonitor\src\main\java\com\microsoft\examples** crie um novo arquivo chamado**Temperature.java**.
+1. No diretório **\temperaturemonitor\src\main\java\com\microsoft\examples**, crie um novo arquivo chamado **Temperature.java**.
 
 2. Abra o arquivo **Temperature.java** e use o seguinte como conteúdo.
 
@@ -1240,9 +1260,9 @@ A topologia descreve como os dados fluem entre spouts e bolts em uma topologia, 
 		  }
 		}
 
-	> [AZURE.NOTE] Observe que as linhas para **HBaseBolt** têm comentários. Isso ocorre porque a próxima etapa é executar a topologia localmente. Uma vez que o HBaseBolt conversa diretamente com o HBase, isso retornará erros se estiver habilitado.A menos que você tenha configurado uma rede virtual com um servidor DNS e unido seu computador local à rede virtual também.
+	> [AZURE.NOTE] Observe que as linhas para **HBaseBolt** têm comentários. Isso ocorre porque a próxima etapa é executar a topologia localmente. Uma vez que o HBaseBolt conversa diretamente com o HBase, isso retornará erros se estiver habilitado. A menos que você tenha configurado uma rede virtual com um servidor DNS e unido seu computador local à rede virtual também.
 
-###Testar a topologia localmente
+### Testar a topologia localmente
 
 Para compilar e testar o arquivo no computador de desenvolvimento, use as seguintes etapas.
 
@@ -1250,22 +1270,22 @@ Para compilar e testar o arquivo no computador de desenvolvimento, use as seguin
 
 2. Abra um navegador da Web para o painel da web implantado anteriormente em um site da Web do Azure. Isso lhe permitirá ver o gráfico plotar os valores conforme eles fluem pela topologia
 
-2. Inicie a topologia localmente usando o seguinte comando
+3. Inicie a topologia localmente usando o seguinte comando
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 	Isso iniciará a topologia, lerá arquivos do Hub de Eventos e os enviará ao painel em execução nos sites da Websites do Azure. Você deve ver linhas aparecerem no painel da web.
 
-3. Depois de verificar se isso funciona, pare a topologia inserindo Ctrl-C. Para interromper o aplicativo SendEvent, selecione a janela e pressione qualquer tecla.
+4. Depois de verificar se isso funciona, pare a topologia inserindo Ctrl-C. Para interromper o aplicativo SendEvent, selecione a janela e pressione qualquer tecla.
 
-###Habilitar o HBaseBolt e preparar o HBase
+### Habilitar o HBaseBolt e preparar o HBase
 
-1. Abra o arquivo **Temperature.java** e remoca o comentário (//) das linhas a seguir:
+1. Abra o arquivo **Temperature.java** e remova o comentário (//) das seguintes linhas:
 
 		//topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
-    	//.fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+    	//  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
 
-	This enables the HBase bolt.
+	Isso habilita o bolt do HBase.
 
 2. Salve **Temperature.java**.
 
@@ -1286,9 +1306,9 @@ Para compilar e testar o arquivo no computador de desenvolvimento, use as seguin
 
 Deixe esse aviso aberto no shell do HBase por enquanto.
 
-##Empacotar e implantar a topologia no HDInsight
+## Empacotar e implantar a topologia no HDInsight
 
-No seu ambiente de desenvolvimento, use as seguintes etapas para executar a topologia Temperature no cluster Storm do HDInsight.
+No seu ambiente de desenvolvimento, use as seguintes etapas para executar a topologia Temperature no  cluster Storm.
 
 1. Use o seguinte comando para criar um pacote JAR do seu projeto.
 
@@ -1298,30 +1318,30 @@ No seu ambiente de desenvolvimento, use as seguintes etapas para executar a topo
 
 2. No computador de desenvolvimento local, inicie o aplicativo .NET **SendEvents** .NET de modo que haja alguns eventos a ler.
 
-1. Conecte-se ao cluster Storm do HDInsight usando a Área de Trabalho Remota e copie o arquivo **TemperatureMonitor-1.0-SNAPSHOT.jar** no diretório **c:\apps\dist\storm<version number>**.
+3. Conecte-se ao cluster Storm usando a Área de Trabalho Remota e copie o arquivo **TemperatureMonitor-1.0-SNAPSHOT.jar** no diretório **c:\apps\dist\storm&lt;número_da_versão>**.
 
-2. Use o ícone **Linha de Comando do HDInsight** na área de trabalho do cluster para abrir um novo prompt de comando e use os seguintes comandos para executar a topologia.
+4. Use o ícone **Linha de Comando do HDInsight** na área de trabalho do cluster para abrir um novo prompt de comando e use os seguintes comandos para executar a topologia.
 
 		cd %storm_home%
 		bin\storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature Temperature
 
-3. Quando a topologia tiver sido iniciada, pode levar alguns segundos antes de os itens começarem a aparecer no painel da Web.
+5. Quando a topologia tiver sido iniciada, pode levar alguns segundos antes de os itens começarem a aparecer no painel da Web.
 
-3. Depois de os itens aparecerem no painel, troque para a sessão da área de trabalho remota no cluster HBase.
+6. Depois de os itens aparecerem no painel, troque para a sessão da área de trabalho remota no cluster HBase.
 
-4. No shell HBase, insira o seguinte comando.
+7. No shell HBase, insira o seguinte comando.
 
 		scan 'SensorData'
 
 	Observe que ele agora retorna várias linhas de dados que foram gravadas pela topologia do Storm.
 
-5. Para interromper a topologia, acesse a sessão da área de trabalho remota com o cluster do Storm e insira o seguinte na Linha de Comando HDInsight.
+8. Para interromper a topologia, acesse a sessão da área de trabalho remota com o cluster do Storm e insira o seguinte na Linha de Comando HDInsight.
 
 		bin\storm kill Temperature
 
 	Depois de alguns segundos, a topologia parará.
 
-##Resumo
+## Resumo
 
 Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar dados no HBase e exibir informações do Storm em um painel externo usando SignalR e D3.js.
 
@@ -1333,8 +1353,7 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 * Para obter mais informações sobre D3.js, consulte [D3.js - Documentos Conduzidos por Dados](http://d3js.org/)
 
-* Para informações sobre a criação de topologias no .NET, consulte [Desenvolver aplicativos de dados de streaming com SCP.NET e C# no Storm no HDInsight](/pt-br/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
+* Para obter mais informações sobre o desenvolvimento com SCP, consulte [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# no Storm no HDInsight](/pt-br/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azure-portal]: https://manage.windowsazure.com/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

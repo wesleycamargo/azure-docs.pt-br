@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Aplicativo Java que requer muitos recursos computacionais em uma máquina virtual - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Saiba como criar uma máquina virtual do Azure que execute aplicativos Java que requerem muitos recursos computacionais e podem ser monitorados por outro aplicativo Java." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Aplicativo Java que requer muitos recursos computacionais em uma máquina virtual - Azure" 
+	description="Saiba como criar uma máquina virtual do Azure que execute aplicativos Java que requerem muitos recursos computacionais e podem ser monitorados por outro aplicativo Java." 
+	services="virtual-machines" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 
@@ -26,7 +40,7 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para criar uma máquina virtual
 
@@ -34,20 +48,33 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**.
 Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
-4. Clique em **Avançar**.
-4. Na caixa de diálogo **Configuração da máquina virtual**: Especifique um nome para a máquina virtual. Especifique o tamanho a ser usado para a máquina virtual. Digite um nome para o administrador no campo **Nome de Usuário**.Lembre-se do nome e da senha que você digitará a seguir, você vai usá-los ao fazer logon remotamente na máquina virtual. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**.Esta é a senha da conta do Administrador. Clique em **Avançar**.
-5. Na próxima caixa de diálogo **Configuração da máquina virtual**: Para **Serviço de nuvem**, use o padrão **Criar um novo serviço de nuvem**. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net.Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo. Especifique uma região, um grupo de afinidade ou uma rede virtual. Para o objetivo deste tutorial, especifique uma região, como **Oeste dos Estados Unidos**. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**. Para **Conjunto de Disponibilidade**, selecione **(Nenhuma)**. Clique em **Avançar**.
-5. Na caixa de diálogo **Configuração da máquina virtual** final: Aceite as entradas de ponto de extremidade padrão. Clique em **Concluído**.
+4. Clique em **Próximo**.
+4. Na caixa de diálogo **Configuração da máquina virtual**:
+    1. Especifique um nome para a máquina virtual.
+    2. Especifique o tamanho a ser usado para a máquina virtual.
+    3. Digite um nome para o administrador no campo **Nome do Usuário**. Lembre-se do nome e da senha que você digitará a seguir, você vai usá-los ao fazer logon remotamente na máquina virtual.
+    4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
+    5. Clique em **Próximo**.
+5. Na próxima caixa de diálogo **Configuração da máquina virtual**:
+    1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
+    2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
+    2. Especifique uma região, um grupo de afinidade ou uma rede virtual. Para o objetivo deste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
+    2. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
+    3. Para **Conjunto de Disponibilidade**, selecione **(Nenhuma)**.
+    4. Clique em **Próximo**.
+5. Na caixa de diálogo **Configuração da máquina virtual** final:
+    1. Aceite as entradas de ponto de extremidade padrão.
+    2. Clique em **Concluído**.
 
 ## Para fazer logon remotamente na máquina virtual
 
 1. Faça logon no [Portal de Gerenciamento](https://manage.windowsazure.com).
-2. Clique em **Máquinas virtuais**.
+2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da máquina virtual na qual você deseja fazer logon.
 4. Clique em **Conectar**.
 5. Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
 
-Observe que a funcionalidade do Barramento de Serviço do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no JRE usado por este tutorial.Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionando um certificado no repositório de certificados de autoridade de certificação Java][add_ca_cert] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
+Observe que a funcionalidade do Service Bus do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no JRE usado por este tutorial. Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionando um certificado no repositório de certificados de autoridade de certificação Java][add_ca_cert] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
 
 ## Como criar um namespace do barramento de serviço
 
@@ -55,36 +82,42 @@ Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um 
 
 Para criar um namespace de serviço:
 
-1.   Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+1.  Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2.  No painel de navegação esquerdo inferior do Portal de Gerenciamento, clique em **Barramento de Serviço, Cache e Controle de Acesso**.
-3.   No painel superior esquerdo do Portal de Gerenciamento, clique no nó do **Barramento de Serviço** e, em seguida, clique no botão **Novo**.  
+3.  No painel superior esquerdo do Portal de gerenciamento, clique em **Nó
+    do barramento do** serviço e, em seguida, clique no botão **Novo**.  
     ![Service Bus Node screenshot][svc_bus_node]
-4.   Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para certificar-se de que ele é exclusivo, clique no botão **Verificar disponibilidade**.  
+4.  Na caixa de diálogo **Criar um novo Namespace do Service**, insira um
+    **Namespace**e para ter certeza de que ele é exclusivo, clique no botão
+    **Verificar disponibilidade**.  
     ![Create a New Namespace screenshot][create_namespace]
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar o Namespace**.  
+5.  Depois de verificar se o nome do namespace está disponível, escolha o
+    país ou região na qual o namespace deve ser hospedado e, em seguida, clique no botão **Criar Namespace**.  
       
-    O namespace que você criou aparece no Portal de Gerenciamento e demora algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
+    O namespace que você criou aparecerá no Portal de Gerenciamento
+    e demorará um tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
-Para realizar operações de gerenciamento como a criação de uma fila, no
-novo namespace, você deve obter as credenciais de gerenciamento para o
-namespace.
+A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.
 
-1.   No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista dos namespaces disponíveis:   
+1.  No painel de navegação esquerdo, clique no nó do **Barramento de Serviço** para
+    exibir a lista de namespaces disponíveis:   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  Selecione o namespace que você acabou de criar na lista abaixo:   
     ![Namespace List screenshot][namespace_list]
 3.   O painel direito **Propriedades** listará as propriedades para o novo namespace:   
     ![Properties Pane screenshot][properties_pane]
-4.  A **Chave padrão** está oculta. Clique no botão **Exibição** para exibir as credenciais de segurança:   
+4.  A **Chave padrão** está oculta. Clique no botão **Exibição** para exibir as credenciais de segurança:
     ![Default Key screenshot][default_key]
-5.  Anote o **Emissor padrão** e a **Chave padrão**, pois você usará essas informações abaixo para executar operações com o namespace. 
+5.  Anote o **Emissor padrão** e a **Chave padrão** conforme você
+    usará essas informações abaixo para executar operações com o
+    namespace. 
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
-1. No seu computador de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://www.windowsazure.com/pt-br/develop/java/).
-2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace, ****your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace do barramento de serviço e os valores ****Emissor Padrão** e **Chave Padrão**, respectivamente.
+1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://www.windowsazure.com/pt-br/develop/java/).
+2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados do **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, e **your\_service\_bus\_key** para usar o barramento de serviço **namespace**, o **Emissor padrão** e os valores da **Chave padrão**, respectivamente.
 3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
 
 <p/>
@@ -274,7 +307,7 @@ namespace.
 
 ## Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva
 
-1. No seu computador de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos o **TSPClient.java** como o nome do arquivo Java. Como acima, modifique os espaços reservados **your\_service\_bus\_namespace, ****your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace do Barramento de Serviço, os valores do ****emissor padrão** e da **chave padrão**, respectivamente.
+1. No seu computador de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos o **TSPClient.java** como o nome do arquivo Java. Como acima, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do Service Bus, os valores do **emissor padrão** e da **chave padrão**, respectivamente.
 2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPClient.jar** como o nome do arquivo JAR gerado.
 
 <p/>
@@ -396,7 +429,7 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 
 1. Faça logon na máquina virtual.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPSolver.jar** em **c:\TSP**,
+3. Copie **TSPSolver. jar** para **c:\TSP**,
 4. Crie um arquivo chamado **c:\TSP\cities.txt** com o seguinte conteúdo:
 
 		City_1, 1002.81, -1841.35
@@ -462,20 +495,20 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 
  Se você não especificar um número, ele será executado para 10 cidades. Como localiza rotas atuais mais curtas, o solver as adicionará à fila.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
  
 ### Como executar o aplicativo cliente de monitoramento
-1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar no mesmo computador executando o aplicativo **TSPSolver**, embora possa ser.
+1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPClient.jar** em **c:\TSP**,
+3. Copie **TSPClient.jar** para **c:\TSP**,
 4. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
 5. Em um prompt de comando, altere os diretórios para c:\TSP.
 6. Execute o comando a seguir:
 
         java -jar TSPClient.jar
 
-    Como opção, especifique o número de minutos de espera entre a verificação da fila, passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que serve para que nenhum argumento de linha de comando seja passado para **TSPClient**.Se você quiser usar um valor diferente para o intervalo de suspensão, por exemplo, um minuto, execute:
+    Como opção, especifique o número de minutos de espera entre a verificação da fila, passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que serve para que nenhum argumento de linha de comando seja passado para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, por exemplo, um minuto, execute:
 
 	    java -jar TSPClient.jar 1
 
@@ -486,7 +519,7 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
     O solver será executado até terminar de examinar todas as rotas. 
 
 ## Como parar os aplicativos Java
-Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para sair se você quiser encerrar antes da conclusão normal.
+Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C**para sair se você quiser encerrar antes da conclusão normal.
 
 
 [solver_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png
@@ -500,5 +533,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [add_ca_cert]: ../java-add-certificate-ca-store
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

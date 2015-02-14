@@ -1,7 +1,7 @@
 ﻿## Enviar mensagens ao Hub de Eventos
 Nesta seção, você escreverá um aplicativo de console do Windows para enviar eventos para o hub de eventos.
 
-1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **aplicativo de Console.** Nomeie o projeto **Sender**.
+1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console.** Nomeie o projeto como **Remetente**.
 
    	![][7]
 
@@ -9,22 +9,22 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 	Isto mostra a caixa de diálogo Gerenciar Pacotes NuGet.
 
-3. Pesquise 'Barramento de serviço do Microsoft Azure', clique em **Instalar** e aceite os termos de uso. 
+3. Pesquise por `Microsoft Azure Service Bus`, clique em **Instalar** e aceite os termos de uso. 
 
 	![][8]
 
 	Ele faz o download, instala e adiciona uma referência ao <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet de biblioteca do barramento de serviço do Azure</a>.
 
-4. Adicione a seguinte instrução `using` no topo do arquivo **Program.cs**:
+4. Adicione a seguinte instrução `using` na parte superior do arquivo **Program.cs**:
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Adicione os seguintes campos 'static' à classe **Programa**, substituindo os valores com o nome do hub de eventos que você criou na seção anterior, e a cadeia de conexão com **direitos** de envio:
+5. Adicione os seguintes campos `static` à classe **Program**, substituindo os valores com o nome do hub de eventos que você criou na seção anterior, e a cadeia de conexão com direitos de **envio**:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
 
-6. Adicione o seguinte método à classe **Programa**:
+6. Adicionar o método a seguir à classe **Program**:
 
 		static async Task SendingRandomMessages()
         {
@@ -50,7 +50,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 	Esse método enviará continuamente os eventos ao seu hub de eventos com um atraso de 200 ms.
 
-7. Finalmente, adicione as seguintes linhas para ao método **Main**:
+7. Por fim, adicione as seguintes linhas ao método **Main**:
 
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
@@ -60,4 +60,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=42-->

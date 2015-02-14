@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Executar um exemplo de contagem de palavras de MapReduce do Hadoop no HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Execute um exemplo de contagem de palavras MapReduce em um cluster Hadoop no HDInsight. O programa, escrito em Java, contagens de ocorrências de palavras em um arquivo de texto." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
+﻿<properties 
+	pageTitle="Executar um exemplo de contagem de palavras de MapReduce do Hadoop no HDInsight | Azure" 
+	description="Execute um exemplo de contagem de palavras MapReduce em um cluster Hadoop no HDInsight. O programa, escrito em Java, contagens de ocorrências de palavras em um arquivo de texto." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 #Executar um exemplo de contagem de palavras de MapReduce em um cluster do Hadoop no HDInsight
  
@@ -15,13 +29,13 @@ Este tutorial mostra como executar um exemplo de contagem de palavras de MapRedu
 
 **Pré-requisitos**:	
 
-- Você deve ter uma conta do Azure. Para obter as opções de como se inscrever em uma conta, consulte a página [Testar o Azure gratuitamente](http://azure.microsoft.com/pt-br/pricing/free-trial/) .
+- Você deve ter uma conta do Azure. Para obter as opções de como inscrever-se em uma conta, consulte a página [Testar o Azure gratuitamente (a página pode estar em inglês)](http://azure.microsoft.com/pt-br/pricing/free-trial/).
 
-- Você deve ter provisionado um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Introdução ao Azure HDInsight][hdinsight-get-started] ou [Provisionar Clusters HDInsight](../hdinsight-provision-clusters/)
+- Você deve ter provisionado um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Introdução ao Azure HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight](../hdinsight-provision-clusters/)
 
 - Você deve ter instalado o PowerShell do Azure e o configurado para uso com sua conta. Para obter instruções sobre como fazer isso, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure]
 
-##Neste artigo	
+## Neste artigo	
 Este tópico mostra como executar o exemplo, apresenta o código Java do programa MapReduce, resume o que você aprendeu e descreve algumas das próximas etapas. Contém as seguintes seções.
 	
 1. [Executar o exemplo usando o PowerShell do Azure](#run-sample)	
@@ -33,23 +47,23 @@ Este tópico mostra como executar o exemplo, apresenta o código Java do program
 
 **Para enviar o trabalho MapReduce**
 
-1.	Abra o **PowerShell do Azure**. Para obter instruções sobre como abrir a janela do console do PowerShell do Azure, consulte[Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+1.	Abra o **PowerShell do Azure**. Para obter instruções sobre como abrir a janela do console do PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
-3. Defina as duas variáveis nos comandos a seguir e execute-as:
+2. Defina as duas variáveis nos comandos a seguir e execute-as:
 		
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 		
-5. Execute os seguintes comandos para criar uma definição de trabalho MapReduce:
+3. Execute os seguintes comandos para criar uma definição de trabalho MapReduce:
 
 		# Define the MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* é fornecido com os clusters do HDInsight versão 2.1. O arquivo foi renomeado como *hadoop-mapreduce.jar* em clusters do HDInsight versão 3.0.
+	> [AZURE.NOTE] *hadoop-examples.jar* é fornecido com clusters HDInsight versão 2.1. O arquivo foi renomeado para *hadoop-mapreduce.jar* em clusters HDInsight versão 3.0.
 	
 	O arquivo hadoop-examples.jar é fornecido com o cluster HDInsight. Existem dois argumentos para o trabalho de MapReduce. O primeiro é o nome do arquivo de origem e o segundo é o caminho do arquivo de saída. O arquivo de origem é fornecido com o cluster HDInsight, e o caminho do arquivo de saída será criado no tempo de execução.
 
-6. Execute o comando a seguir para enviar o trabalho MapReduce:
+4. Execute o comando a seguir para enviar o trabalho MapReduce:
 
 		# Submit the job
 		Select-AzureSubscription $subscriptionName
@@ -57,7 +71,7 @@ Este tópico mostra como executar o exemplo, apresenta o código Java do program
 
 	Além da definição do trabalho MapReduce, você também deve fornecer o nome do cluster HDInsight onde você deseja executar o trabalho MapReduce.
 
-8. Execute o seguinte comando para verificar qualquer erro com a execução do trabalho de MapReduce:	
+5. Execute o seguinte comando para verificar qualquer erro com a execução do trabalho de MapReduce:	
 	
 		# Get the job output
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError 
@@ -83,21 +97,21 @@ Este tópico mostra como executar o exemplo, apresenta o código Java do program
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-	O *Select-AzureSubscription* é usado para definir a assinatura atual caso você tenha várias assinaturas, e a assinatura padrão não seja a que está em uso. 
+	O *Select-AzureSubscription* é usado para definir a assinatura atual caso você tenha várias assinaturas e a assinatura padrão não é aquela para ser usada. 
 
 4. Execute o comando a seguir para baixar a saída do trabalho de MapReduce do contêiner de Blob para a estação de trabalho:
 
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	A pasta */example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho MapReduce. *part-r-00000* é o nome do arquivo padrão de saída do trabalho de MapReduce.  O arquivo será baixado na mesma estrutura de pasta na pasta local. Por exemplo, na seguinte captura de tela, a pasta atual é a pasta raiz de C.  O arquivo será baixado na pasta *C:\example\data\WordCountOutput* . 
+	A pasta */example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho MapReduce. *part-r-00000* é o nome do arquivo padrão da saída do trabalho MapReduce.  O arquivo será baixado na mesma estrutura de pasta na pasta local. Por exemplo, na seguinte captura de tela, a pasta atual é a pasta raiz de C.  O arquivo será baixado na pasta *C:\example\data\WordCountOutput*. 
 
 5. Execute o comando a seguir para imprimir o arquivo de saída do trabalho de MapReduce:
 
 		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
 
-	O trabalho de MapReduce produz um arquivo chamado *part-r-00000* com as palavras e as contagens.  O script usa o comando findstr para listar todas as palavras que contêm *"there"*.
+	O trabalho MapReduce produz um arquivo chamado *part-r-00000* com as palavras e as contagens.  O script usa o comando findstr para listar todas as palavras que contêm *"there"*.
 
 A saída do script WordCount deve aparecer na janela de comando:
 
@@ -188,11 +202,11 @@ Neste tutorial, você viu como executar um programa MapReduce que conta ocorrên
 Para obter tutoriais que executam outros exemplos e fornecem instruções sobre como usar trabalhos Pig, Hive e MapReduce no Azure HDInsight com o PowerShell do Azure, consulte os seguintes tópicos:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
-* [Amostra: GraySort de 10 GB][hdinsight-sample-10gb-graysort]
-* [Amostra: Vistoriador de Pi][hdinsight-sample-pi-estimator]
-* [Amostra: Steaming no C#][hdinsight-sample-cs-streaming]
+* [Exemplo: GraySort de 10 GB][hdinsight-sample-10gb-graysort]
+* [Exemplo: Vistoriador de Pi][hdinsight-sample-pi-estimator]
+* [Exemplo: Streaming no C#][hdinsight-sample-cs-streaming]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
-* [Usar o Hive com o HDInsight][hdinsight-use-hive]
+* [Usar o hive com o HDInsight][hdinsight-use-hive]
 * [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/pt-br/library/dn479185.aspx
@@ -212,5 +226,4 @@ Para obter tutoriais que executam outros exemplos e fornecem instruções sobre 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

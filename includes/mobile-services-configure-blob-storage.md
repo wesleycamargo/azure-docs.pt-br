@@ -19,7 +19,7 @@
 
 	A chave de acesso da conta de armazenamento é armazenada criptografada nas configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
 
-4. Clique na guia **Dados** e clique na tabela **TodoItem**. 
+4. Clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**. 
 
    	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
 
@@ -37,7 +37,7 @@
 		
 		    if ((typeof item.containerName !== "undefined") && (
 		    item.containerName !== null)) {
-		        // Set the BLOB store container name on the item, which must be lowercase.
+		        // Set the BLOB store container name on the item, que deve estar em minúsculas.
 		        item.containerName = item.containerName.toLowerCase();
 		
 		        // If it does not already exist, create the container 
@@ -80,9 +80,9 @@
 
  	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
 
-   	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade 'sasQueryString' do item devolvido. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do cliente.
+   	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade  `sasQueryString` do item devolvido. A propriedade  `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
 
-	>[WACOM.NOTE] Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando o mesmo SAS, você poderá chamar o método <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature</a> com um nome de recurso de blob vazio, assim: 
+	>[AZURE.NOTE]  Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando o mesmo SAS, você poderá chamar o método <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature</a> com um nome de recurso de blob vazio, assim: 
 	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalidade de carregamento de imagem usando a SAS gerada em Inserir.
@@ -94,3 +94,4 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 <!-- URLs. -->
 [Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
 [Configurações do aplicativo]: http://msdn.microsoft.com/pt-br/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+<!--HONumber=42-->

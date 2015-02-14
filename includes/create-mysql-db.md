@@ -1,21 +1,18 @@
 ﻿#Como criar um banco de dados MySQL no Azure
 
-Este guia vai mostrar-lhe como usar o [ClearDB]  para criar um banco de dados MySQL nda [Azure Store] e como criar um banco de dados MySQL como um recurso vinculado, quando você cria um [Azure Web Site][waws]. O [ClearDB] é um provedor de banco de dados como serviço tolerante a falhas que permite que você execute e gerencie bancos de dados MySQL em datacenters do Azure e conecte-os de qualquer aplicativo.  
+Este guia vai mostrar-lhe como usar o [ClearDB] para criar um banco de dados MySQL da [Azure Store] e como criar um banco de dados MySQL como um recurso vinculado, quando você cria um [Azure Web Site][waws]. [ClearDB] é um provedor de banco de dados como serviço tolerante a falhas que permite que você execute e gerencie bancos de dados MySQL em datacenters do Azure e conecte-os de qualquer aplicativo.  
 
 ##Sumário
 * [Como: criar um banco de dados MySQL na Azure Store](#CreateFromStore)
 * [Como: criar um banco de dados MySQL como um recurso vinculado para o Site do Azure](#CreateForWebSite)
 
-<div class="dev-callout"> 
-<b>Observação</b> 
-<p>Quando você cria um banco de dados MySQL como parte do processo de criação de Sites, você pode criar somente um banco de dados gratuito. Criar um banco de dados MySQL na Azure Store permite que você crie um banco de dados gratuito ou escolha uma das opções pagas.</p> 
-</div>
+> [AZURE.NOTE] Quando você cria um banco de dados MySQL como parte do processo de criação de Sites, você pode criar somente um banco de dados gratuito. Criar um banco de dados MySQL na Azure Store permite que você crie um banco de dados gratuito ou escolha uma das opções pagas.
 
 <h2><a id="CreateFromStore"></a>Como: criar um banco de dados MySQL na Azure Store</h2>
 
 Para criar um banco de dados MySQL na [Azure Store], faça o seguinte:
 
-1. Faça logon no [Portal de Gerenciamento do Azure][].
+1. Faça logon no [Portal de Gerenciamento do Azure][portal].
 2. Clique em **+NOVO** na parte inferior da página e selecione **STORE**.
 
 	![Select add-on from store](./media/create-mysql-db/select-store.png)
@@ -45,7 +42,7 @@ Para criar um banco de dados MySQL na [Azure Store], faça o seguinte:
 
 Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site do Azure][waws], faça o seguinte:
 
-1. Faça logon no [Portal de Gerenciamento do Azure][].
+1. Faça logon no [Portal de Gerenciamento do Azure][portal].
 2. Clique em **+NOVO** na parte inferior da página, em seguida, selecione **CALCULAR**, **SITE** e **CRIAR COM BANCO DE DADOS**.
 
 	![Create website with database](./media/create-mysql-db/custom_create.png)
@@ -54,7 +51,7 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 
 	![Provide website details](./media/create-mysql-db/provide-website-details.png) 
 
-4. Forneça um **NOME** de banco de dados, selecione a **REGIÃO** do banco de dados (esta deve ser a mesma região do seu site), concorde com os termos legais do ClearDB e, em seguida, clique em marca de seleção na parte inferior do quadro.
+4. Forneça um **NOME** ao banco de dados, selecione a **REGIÃO** do banco de dados (esta deve ser a mesma região do seu site), concorde com os termos legais do ClearDB e, em seguida, clique em marca de seleção na parte inferior do quadro.
 
 	![Provide MySQL details](./media/create-mysql-db/provide-mysql-details.png)
 
@@ -74,10 +71,11 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 
 	![Shown connection string](./media/create-mysql-db/shown-conn-string.png)
 
-> [WACOM.NOTE] As cadeias de conexão são acessíveis para o aplicativo do seu site pelo nome da cadeia de conexão. Em aplicativos .NET, cadeias de conexão estão disponíveis no objeto **connectionStrings**. Em outras linguagens de programação, cadeias de conexão são acessíveis como variáveis de ambiente. Para obter mais informações, consulte [Como configurar sites][configurar].
+> [AZURE.NOTE] As cadeias de conexão são acessíveis para o aplicativo do seu site pelo nome da cadeia de conexão. Em aplicativos .NET, cadeias de conexão estão disponíveis no **connectionStrings** objeto. Em outras linguagens de programação, cadeias de conexão são acessíveis como variáveis de ambiente. Para obter mais informações, consulte [Como configurar sites][configurar].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /pt-br/documentation/services/web-sites/
 [Azure Store]: /pt-br/gallery/store/
 [portal]: http://manage.windowsazure.com
 [configurar]: ../web-sites-configure/
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to create a LAMP Stack with Microsoft Azure" pageTitle="Como criar uma pilha LAMP com o Microsoft Azure"metaKeywords="VM da pilha LAMP do Azure, VM da pilha LAMP, Pilha LAMP do Azure" description="Aprenda como criar uma pilha LAMP com o Microsoft Azure usando máquinas virtuais do Azure (VMs) que executam o Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="ningk" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Como criar uma pilha LAMP com o Microsoft Azure" 
+	description="Saiba como criar uma pilha de LÂMPADA com o Microsoft Azure usando máquinas virtuais do Azure (VMs) que executam o Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Como criar uma pilha LAMP com o Microsoft Azure 
 
@@ -8,7 +22,7 @@ Uma pilha "LAMP" é um grupo de softwares livres que é tipicamente instalado em
 
 Neste guia, vamos obter uma pilha LAMP instalada em uma imagem do Linux e implantá-la no Microsoft Azure.  
 
-Você aprenderá a:  
+Você aprenderá:  
 
 -	Como criar uma máquina virtual do Azure.
 -	Como preparar a máquina virtual para a pilha LAMP.
@@ -88,7 +102,7 @@ Clique em **OK** para adicionar o ponto de extremidade à máquina virtual.
 ###Etapa 2: Conectar-se à imagem criada
 Você pode escolher qualquer ferramenta SSH para se conectar à nova máquina virtual. Neste exemplo, usamos Putty.  
 
-Primeiro, obtenha o nome DNS da máquina virtual a partir do Portal de Visualização do Azure. Clique em **Procurar -> Máquinas virtuais** nome da sua máquina virtual **-> Propriedades** e, em seguida, examine no campo **Nome do domínio** do título **Propriedades**. 
+Primeiro, obtenha o nome DNS da máquina virtual a partir do Portal de Visualização do Azure. Clique em **Procurar -> Máquinas virtuais ->** nome da sua máquina virtual **-> Propriedades** e, em seguida, examine no campo **Nome do domínio** do título **Propriedades**. 
 
 Obtenha o número da porta para conexões SSH a partir do campo **SSH**.   Aqui está um exemplo.  
 
@@ -135,7 +149,7 @@ Uma vez instalado, inicie o Apache com este comando:
 Para verificar se o Apache foi instalado com êxito, navegue até o nome DNS do seu servidor Apache (para a URL de exemplo neste artigo, http://lampdemo.cloudapp.net/). A página deve exibir as palavras "It works!"
 ![][14]
 
-####Solucionar problemas 
+####Solução de Problemas 
 Se o Apache estiver sendo executado, mas você não conseguir ver a página padrão do Apache acima, você precisará verificar o seguinte:  
 
 -	Endereço / porta de escuta do Serviço Web Apache
@@ -168,7 +182,7 @@ Se você pode ver a página padrão do Apache a partir do host local, então, o 
 
 	Certifique-se de que essas linhas estejam acima de todas as linhas que globalmente restringiriam o acesso, como as seguintes:  
 
-		-A INPUT -j REJECT --reject-with icmp-host-prohibited  
+		-A INPUT -j REJECT --reject-with icmp-host-proibido  
 
 	Para que as novas configurações tenham efeito, use o seguinte comando:  
 
@@ -295,7 +309,7 @@ Se o sistema operacional da máquina virtual é o Ubuntu, use o seguinte comando
 
 	sudo service apache2 restart  
 
-Conclua navegando até sua página de informações de php (para o servidor da web de exemplo neste tópico, a URL seria http://lampdemo.cloudapp.net/info.php).  
+Conclua navegando até sua página de informações de php (para o servidor da web de exemplo neste tópico, a URL seria http://lampdemo.cloudapp.net/info.php)).  
 
 O seu navegador deve ser semelhante a este:
  
@@ -338,7 +352,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup    
 
 	>[AZURE.NOTE] Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /. 
--	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**www/var/html** para publicar seu site.  
+-	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site.  
 ![][18]
 
  
@@ -453,5 +467,4 @@ Ao reiniciar o servidor Apache usando um dos seguintes comandos:
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
-
-<!--HONumber=35.2-->
+<!--HONumber=42-->

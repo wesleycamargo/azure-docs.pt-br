@@ -1,6 +1,20 @@
-<properties urlDisplayName="Azure Import/Export Service" pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" metaKeywords="" description="Saiba como criar trabalhos de importação e exportação no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+﻿<properties 
+	pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" 
+	description="Saiba como criar trabalhos de importação e exportação no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." 
+	authors="tamram" 
+	manager="adinah" 
+	editor="" 
+	services="storage" 
+	documentationCenter=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="tamram"/>
 
 
 # Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blob
@@ -18,7 +32,7 @@ Este artigo apresenta uma visão geral do serviço Importar/Exportar e descreve 
 
 ## Visão geral do serviço Importar/Exportar ##
 
-Para começar o processo de importação para o armazenamento de Blob ou de exportação desse armazenamento, primeiro crie um *trabalho*. Um trabalho pode ser um *trabalho de importação* ou um *trabalho de exportação*:
+Para começar o processo de importação para o armazenamento de Blob ou de exportação desse armazenamento, primeiro crie um *job*. Um trabalho pode ser um *import job* ou um *export job*:
 
 - Crie um trabalho de importação quando desejar transferir dados locais para blobs na sua conta de armazenamento do Azure.
 - Crie um trabalho de exportação quando desejar transferir os dados armazenados atualmente como blobs na sua conta de armazenamento para discos rígidos enviados a você.
@@ -27,21 +41,18 @@ Ao criar um trabalho, você notifica o serviço de Importação/Exportação de 
 
 Para preparar seu disco rígido para envio a um trabalho de importação, execute a **Ferramenta de Importação/Exportação do Microsoft Azure**, que facilita a cópia dos seus dados para a unidade, criptografando os dados na unidade com BitLocker e gerando os arquivos de diário de unidade, que serão discutidos a seguir.
 
-<div class="dev-callout">
-<strong>Observação</strong>
-<p>Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso protegerá os dados enquanto eles estiverem em trânsito. Em um trabalho de exportação, o serviço Importar/Exportar criptografa seus dados antes de enviar a unidade de volta para você.</p>
-</div>
+> [AZURE.NOTE] Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso protegerá os dados enquanto eles estiverem em trânsito. Em um trabalho de exportação, o serviço Importar/Exportar criptografa seus dados antes de enviar a unidade de volta para você.
 
-Ao criar um trabalho de importação ou de exportação, você também precisará da *ID da unidade*, que é o número de série atribuído pelo fabricante da unidade a um disco rígido específico. A ID de unidade é exibida na parte externa da unidade. 
+Ao criar um trabalho de importação ou de exportação, você também precisará da *drive ID*, que é o número de série atribuído pelo fabricante da unidade a um disco rígido específico. A ID de unidade é exibida na parte externa da unidade. 
 
 <h3>Requisitos e escopo</h3>
 
-1.	**Assinatura e contas de armazenamento:** Você deve ter uma assinatura do Azure e uma ou mais contas de armazenamento existentes para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um trabalho não pode se estender por várias contas de armazenamento.Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](../storage-create-storage-account/).
-2.	**Discos rígidos:** Somente discos rígidos SATA II de 3,5 polegadas dão suporte ao uso com o serviço Importar/Exportar. Não há suporte para discos rígidos com mais de 4 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS.Você pode anexar um disco SATA II/III externamente a maioria dos computadores usando um adaptador USB para SATA II/III.
-3.	**Criptografia BitLocker:**Todos os dados armazenados em discos rígidos devem ser criptografados usando o BitLocker com chaves de criptografia protegidas com senhas numéricas.
-4.	**Destinos de armazenamento de blob:** É possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs. 
-5.	**Número de trabalhos:**Um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
-6.	**Tamanho máximo de um trabalho:** O tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e a quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento.Cada trabalho pode conter, no máximo, 10 discos rígidos.
+1.	**Contas de assinatura e armazenamento:** você deve ter uma assinatura do Azure existente e uma ou mais contas de armazenamento para usar o serviço de importação/exportação. Cada trabalho pode ser usado para transferir dados para ou de apenas uma conta de armazenamento. Em outras palavras, um trabalho não pode abranger várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](../storage-create-storage-account/).
+2.	**Discos rígidos:** somente 3,5 polegadas SATA II ou III discos rígidos são suportados para uso com o serviço de importação/exportação. Não há suporte para discos rígidos maiores que 4TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II ou III externamente a maioria dos computadores usando um adaptador de USB SATA II ou III.
+3.	**Criptografia BitLocker:** todos os dados armazenados em discos rígidos devem ser criptografados usando o BitLocker com chaves de criptografia protegidas com senhas numéricas.
+4.	**Destinos de armazenamento de blob:** é possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs.
+5.	**Número de trabalhos:** um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
+6.	**Tamanho máximo de um trabalho:** o tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e a quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento. Cada trabalho pode conter no máximo 10 unidades de disco rígido.
 
 ## Criar um trabalho de importação no Portal de Gerenciamento ##
 
@@ -49,7 +60,7 @@ Crie um trabalho de importação para notificar o serviço Importar/Exportar de 
 
 <h3>Preparar suas unidades</h3>
 
-Antes de criar um trabalho de importação, prepare suas unidades com a Ferramenta de Importação/Exportação do Microsoft Azure. Para obter mais detalhes sobre como usar a Ferramenta de Importação/Exportação do Microsoft Azure, consulte a [Referência da Ferramenta de Importação/Exportação do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=329032). É possível baixar a [Ferramenta de Importação/Exportação do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) como um pacote independente.
+Antes de criar um trabalho de importação, prepare suas unidades com a Ferramenta de Importação/Exportação do Microsoft Azure. Para obter mais detalhes sobre como usar a Ferramenta de Importação/Exportação do Microsoft Azure, consulte a [Referência da Ferramenta de Importação/Exportação do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=329032). Você pode baixar a [Ferramenta de Importação/Exportação do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) como um pacote autônomo.
   
 Para preparar as unidades, siga estas três etapas: 
 
@@ -57,21 +68,21 @@ Para preparar as unidades, siga estas três etapas:
 2.	Identifique os blobs de destino de seus dados no serviço Blob do Azure.
 3.	Use a Ferramenta de Importação/Exportação do Microsoft Azure para copiar seus dados para um ou mais discos rígidos.
 
-A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de *diário de unidade* para cada unidade à medida que ela for preparada. O arquivo de diário de unidade é armazenado no seu computador local, e não na própria unidade. Você poderá carregar o arquivo de diário ao criar o trabalho de importação. Um arquivo de diário de unidade inclui a ID de unidade e a chave do BitLocker, bem como outras informações sobre a unidade.  
+A ferramenta de importação/exportação do Microsoft Azure gera um arquivo *drive journal* para cada unidade assim que for preparada. O arquivo de diário de unidade é armazenado no seu computador local, e não na própria unidade. Você poderá carregar o arquivo de diário ao criar o trabalho de importação. Um arquivo de diário de unidade inclui a ID de unidade e a chave do BitLocker, bem como outras informações sobre a unidade.  
 
 <h3>Criar o trabalho de importação</h3>
 
-1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal de Gerenciamento e exiba o 	Painel. Em <strong>Visão Rápida</strong>, clique em <strong>Criar um trabalho de importação</strong>. 
+1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal de Gerenciamento e exiba o 	Painel. Em <strong>Visão Rápida</strong>, clique em <strong>Criar um Trabalho de Importação</strong>. 
  
-2.	Na Etapa 1 do assistente, indique que você preparou a unidade e que o arquivo de diário de unidade está 	disponível.
+2.	Na Etapa 1 do assistente, indique que você preparou a unidade e que o arquivo de diário de unidade está disponível.
  
-3.	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de importação. Se desejar salvar os dados de log 	detalhado para o trabalho de importação, marque a opção para <strong>Salvar o log detalhado no meu contêiner de blob 	'waimportexport'</strong>.
+3.	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de importação. Se desejar salvar dados de log detalhados para o trabalho de importação, marque a opção para <strong>Salvar o log detalhado no meu 'waimportexport' contêiner de blob</strong>.
 
-4.	Na Etapa 3, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Você precisa 	carregar um arquivo para cada unidade preparada.
+4.	Na Etapa 3, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Você precisa carregar um arquivo para cada unidade preparada.
 
 	![Create import job - Step 3][import-job-03]
 
-5.	Na Etapa 4, digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente 	letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. 	Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
+5.	Na Etapa 4, digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. 	Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
 
 	Em seguida, selecione a região do data center na lista. A região do data center indica o data center e o endereço para o qual você deve enviar seu pacote. Consulte as Perguntas Frequentes abaixo para obter mais informações.
 
@@ -81,7 +92,7 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 	Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de importação após enviar meu pacote** e, em seguida, conclua o processo de importação.
 
-7. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**.Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
+7. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 
 	Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento. 
 
@@ -89,16 +100,16 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 Crie um trabalho de exportação para notificar o serviço Importar/Exportar que você enviará uma ou mais unidades vazias para o data center, para que os dados podem ser exportados de sua conta de armazenamento para as unidades e, em seguida, as unidades sejam enviadas para você.
 
-1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal de Gerenciamento e exiba o Painel. 	Em <strong>Visão Rápida</strong>, clique em <strong>Criar um trabalho de exportação</strong>e prossiga com o 	assistente.
+1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal de Gerenciamento e exiba o Painel. 	Em <strong>Visão Rápida</strong>, clique em <strong>Criar um Trabalho de Exportação</strong> e continue com o assistente.
 
-2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar os 	dados de log detalhado para o trabalho de exportação, marque a opção para <strong>Salvar o log detalhado no meu contêiner de blob 	'waimportexport'</strong>.
+2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados 	de log detalhados para o trabalho de exportação, marque a opção para <strong>Salvar o log detalhado no meu 'waimportexport' contêiner de blob</strong>.
 
-3.	Na Etapa 3, especifique quais dados de blob deseja exportar da sua conta de armazenamento para as 	unidades em branco. Você pode optar por exportar todos os dados de blob na conta de armazenamento ou especificar quais blobs 	ou 	conjuntos de blobs serão exportados.
+3.	Na Etapa 3, especifique quais dados de blob deseja exportar da sua conta de armazenamento para as 	unidades em branco. Você pode optar por exportar todos os dados de blob na conta de armazenamento ou especificar quais blobs ou conjuntos de blobs serão exportados.
 
 	![Create export job - Step 3][export-job-03]
 
-	- Para especificar um blob para exportação, use o seletor **Igual a** e especifique o caminho relativo do blob, começando pelo nome do contêiner.Use *$root* para especificar o contêiner raiz.
-	- Para especificar todos os blob que começam com um prefixo, use o seletor **Começa com** e especifique o prefixo, começando com uma barra '/'.O prefixo pode ser do nome do contêiner, o nome do contêiner completo ou o nome do contêiner completo seguido do prefixo do nome do blob.
+	- Para especificar um blob para exportação, use o seletor **Igual a** e especifique o caminho relativo do blob, começando pelo nome do contêiner. Use *$root* para especificar o contêiner raiz.
+	- Para especificar todos os blob que começam com um prefixo, use o seletor **Começa com** e especifique o prefixo, começando com uma barra '/'. O prefixo pode ser do nome do contêiner, o nome do contêiner completo ou o nome do contêiner completo seguido do prefixo do nome do blob.
 
 	A tabela mostra exemplos de caminhos de blob válidos:
 
@@ -132,7 +143,7 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 			<tr>
 				<td>Começa com</td>
 				<td>/music/love</td>
-				<td>Exporta todos os blobs no contêiner <strong>music</strong> que começam com o prefixo <strong>love</strong></td>
+				<td>Exporta todos os blobs no contêiner <strong>music</strong> que comecem com o prefixo <strong>love</strong></td>
 			</tr>
 			<tr>
 				<td>Igual a</td>
@@ -156,16 +167,16 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
 	Se tiver um número de acompanhamento, selecione a transportadora na lista e insira o número de acompanhamento. 
 
-	Se você ainda não tiver um número de rastreamento, escolha <strong>Eu fornecerei as informações de envio para esse trabalho de exportação quando tiver enviado meu pacote</strong>, então conclua o processo de exportação.
+	Se ainda não tiver um número de controle, escolha <strong>Fornecerei minhas informações de remessa para este trabalho de exportação após enviar meu pacote</strong> e, em seguida, conclua o processo de exportação.
 
-6. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**.Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
+6. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 
 	Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento. 
 
 
-## Acompanhar o status do trabalho No Portal de Gerenciamento##
+## Acompanhar o status do trabalho No Portal de Gerenciamento ##
 
-Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal de Gerenciamento.  No Portal de Gerenciamento, navegue até a sua conta de armazenamento e clique na guia **Importar/Exportar**.Uma lista dos seus trabalhos será exibida na página.Você pode filtrar a lista por status do trabalho, nome do trabalho, tipo de trabalho ou número de controle.
+Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal de Gerenciamento. No Portal de Gerenciamento, navegue até a sua conta de armazenamento e clique na guia **Importar/Exportar**. Uma lista dos seus trabalhos será exibida na página. Você pode filtrar a lista por status do trabalho, nome do trabalho, tipo de trabalho ou número de controle.
 
 A tabela descreve o que significa cada designação de status do trabalho:
 
@@ -200,7 +211,7 @@ A tabela descreve o que significa cada designação de status do trabalho:
 
 ## Exibir Chaves do BitLocker para um trabalho de exportação ##
 
-Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocker geradas pelo serviço para a sua unidade, para poder descriptografar os dados exportados ao receber as unidades do data center do Azure. No Portal de Gerenciamento, navegue até a sua conta de armazenamento e clique na guia **Importar/Exportar**. Selecione o trabalho de exportação na lista e clique no botão **Exibir Chaves**.As chaves do BitLocker serão exibidas desta forma:
+Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocker geradas pelo serviço para a sua unidade, para poder descriptografar os dados exportados ao receber as unidades do data center do Azure. No Portal de Gerenciamento, navegue até a sua conta de armazenamento e clique na guia **Importar/Exportar**. Selecione o trabalho de exportação na lista e clique no botão **Exibir Chaves**. As chaves do BitLocker serão exibidas desta forma:
 
 ![View BitLocker keys for export job][export-job-bitlocker-keys]
 
@@ -210,7 +221,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 **Qual é o preço do serviço Importar/Exportar?**
 
-- Consulte a [página de preço](http://go.microsoft.com/fwlink/?LinkId=329033) para informações sobre preço.
+- Consulte a [página de preços](http://go.microsoft.com/fwlink/?LinkId=329033) para obter informações sobre preços.
 
 **Quanto tempo levará para importar ou exportar meus dados?**
 
@@ -223,7 +234,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE 
 
-> [WACOM.NOTE] Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Microsoft Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
+> [AZURE.NOTE] Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Microsoft Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
 
 **Se eu quiser importar ou exportar mais de 10 unidades, o que devo fazer?**
 
@@ -261,16 +272,13 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - As regiões dos EUA e Europa só dão suporte ao serviço [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos os pacotes serão retornados via FedEx Ground ou Fedex International Economy.
 
-- Para regiões na Ásia, há suporte apenas para [DHL](http://www.dhl-welcome.com/Tutorial/) . Todos os pacotes serão retornados via DHL Express Worldwide.
+- As regiões na Ásia só dão suporte ao serviço [DHL](http://www.dhl-welcome.com/Tutorial/). Todos os pacotes serão retornados via DHL Express Worldwide.
 
-	<div class="dev-callout">
-	<strong>Importante</strong>
-	<p>Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.</p>
-	</div>
+	> [AZURE.IMPORTANT] Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
 
 **Existe algum custo associado à remessa de retorno?**
 
-- A Microsoft utiliza o número da conta da transportadora fornecida no momento da criação do trabalho para enviar as unidades para seu endereço de devolução do data center. Certifique-se de fornecer um número de conta de transportadora válido para a transportadora com suporte na região do data center. É possível criar uma conta de transportadora da [FedEx](http://www.fedex.com/us/oadr/) (para EUA e Europa) ou da [DHL](http://www.dhl-welcome.com/Tutorial/) (Ásia) se você não tiver uma.
+- A Microsoft utiliza o número da conta da transportadora fornecida no momento da criação do trabalho para enviar as unidades para seu endereço de devolução do data center. Certifique-se de fornecer um número de conta de transportadora válido para a transportadora com suporte na região do data center. Você pode criar uma conta de transportadora da [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou da [DHL](http://www.dhl-welcome.com/Tutorial/) (Ásia) se não tiver uma.
 
 - A taxa de remessa de retorno é cobrada na conta da sua transportadora e depende da transportadora.
 
@@ -288,10 +296,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Você receberá um endereço de remessa na região onde sua conta de armazenamento está localizada. Por exemplo, se morar nos EUA e sua conta de armazenamento estiver no data center da Europa Ocidental, você receberá um endereço de remessa na Europa para envio das unidades.
 
-	<div class="dev-callout">
-	<strong>Importante</strong>
-	<p>Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.</p>
-	</div>
+	> [AZURE.IMPORTANT] Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
 
 - Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](http://azure.microsoft.com/pt-br/support/legal/services-terms/). 
 
@@ -308,5 +313,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

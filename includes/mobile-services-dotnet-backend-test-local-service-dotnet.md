@@ -15,6 +15,6 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 	Isso inicia o aplicativo que se conecta à instância local do serviço móvel.	
 
-4. No aplicativo, digite um texto significativo, como _Complete o tutorial_ em **Inserir um TodoItem** e clique em **Salvar**.
+4. No aplicativo, digite um texto significativo, como _Complete the tutorial_ em **inserir um TodoItem** e clique em **Salvar**.
 
-	Isso envia uma solicitação POST ao serviço móvel local. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
+	Isso envia uma solicitação POST ao serviço móvel local. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.<!--HONumber=42-->

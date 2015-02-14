@@ -1,6 +1,20 @@
-﻿<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Injetando dados personalizados em máquinas virtuais do Azure" description="Este tópico descreve como injetar dados personalizados em uma máquina virtual do Azure quando a instância é criada e como localizar os dados personalizados no Windows ou Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Injetando dados personalizados em máquinas virtuais do Azure" 
+	description="Este tópico descreve como injetar dados personalizados em uma máquina virtual do Azure quando a instância é criada e como localizar os dados personalizados no Windows ou Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/1/2014" 
+	ms.author="rasquill"/>
 
 
 
@@ -14,7 +28,7 @@ Injetar um script ou de outros dados em uma Máquina Virtual do Azure quando pro
 
 - Usar ferramentas especiais em alguns sistemas para detectar e identificar dados personalizados automaticamente.
 
-> [WACOM.NOTE] Este tópico se expande sobre [esta postagem no blog do Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) sobre esse recurso e será mantido atualizado conforme mais funcionalidades surgirem.
+> [AZURE.NOTE] Este tópico estende-se [nesta publicação do blog Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) sobre este recurso e será mantido atualizado conforme apareçam mais funcionalidades.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 Neste tópico:
@@ -28,7 +42,7 @@ Neste tópico:
 
 ## <a id="injectingCustomData"></a>Injetando os dados personalizados na Máquina Virtual do Azure
 
-Esse recurso é compatível no momento apenas na [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Embora você possa usar qualquer uma das opções para o comando `azure vm create`, a abordagem a seguir demonstra uma abordagem muito básica. 
+Esse recurso é compatível no momento apenas na [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Embora você possa usar qualquer uma das opções para o comando  `azure vm create`, a abordagem a seguir demonstra uma abordagem muito básica. 
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -41,9 +55,9 @@ Esse recurso é compatível no momento apenas na [Interface de linha de comando 
 
 ## <a id="usingCustomData"></a>Usando dados personalizados na Máquina Virtual
  
-+ Se a Máquina Virtual do Azure for uma Máquina Virtual do Windows, o arquivo de dados personalizado será salvo em `%SYSTEMDRIVE%\AzureData\CustomData.bin` e, embora tenha sido codificado com base-64 para transferência do computador local para a nova Máquina Virtual, ele é decodificado automaticamente e pode ser aberto imediatamente. 
++ Se a Máquina Virtual do Azure for uma Máquina Virtual do Windows, o arquivo de dados personalizado será salvo em  `%SYSTEMDRIVE%\AzureData\CustomData.bin` e, embora tenha sido codificado com base-64 para transferência do computador local para a nova Máquina Virtual, ele é decodificado automaticamente e pode ser aberto imediatamente. 
 
-   > [WACOM.NOTE] Se já existir, o arquivo será substituído. A segurança no diretório é definida como **System:Full Control** e **Administrators:Full Control**.
+   > [AZURE.NOTE] Se já existir, o arquivo será substituído. A segurança no diretório é definida como **System:Full Control** e **Administrators:Full Control**.
 
 + Se a Máquina Virtual do Azure for uma Máquina Virtual do Linux, o arquivo de dados personalizados estará nos dois lugares a seguir, mas como os dados serão codificados como base-64, você precisará decodificar os dados primeiro.
 
@@ -60,5 +74,4 @@ Se a Máquina Virtual do Azure for uma imagem do Ubuntu, será possível usar cl
 
 [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

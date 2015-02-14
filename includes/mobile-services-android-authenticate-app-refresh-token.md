@@ -11,7 +11,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. Adicione os seguintes membros à classe `ToDoActivity`. 
+2. Adicione os seguintes membros à classe  `ToDoActivity`. 
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
@@ -74,7 +74,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
     	}
 
 
-5. No arquivo ToDoActivity.java, atualize o método `authenticate` da classe ToDoActivity para que ele aceite um parâmetro booliano, permitindo que a atualização do token e do cache de token seja forçada. Nós também precisamos notificar os threads bloqueados quando a autenticação for concluída para que eles possam obter o novo token.
+5. No arquivo ToDoActivity.java, atualize o método  `authenticate` da classe ToDoActivity para que ela aceite um parâmetro booliano, permitindo que a atualização do token e do cache de token seja forçada. Nós também precisamos notificar os threads bloqueados quando a autenticação for concluída para que eles possam obter o novo token.
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
 
 
 
-6. No arquivo ToDoActivity.java, adicione este código para uma nova classe `RefreshTokenCacheFilter` na classe ToDoActivity:
+6. No arquivo ToDoActivity.java, adicione este código para uma nova classe  `RefreshTokenCacheFilter` na classe ToDoActivity:
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -206,7 +206,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
 
     Este filtro de serviço verificará cada resposta para o código de status HTTP 401, "Não autorizado". Se um 401 for encontrado, um novo login solicita a obtenção de um novo token, que será configurado no thread de IU. Outras chamadas serão bloqueadas até que o logon seja concluído ou até 5 tentativas falharem. Quando o novo token é obtido, a solicitação que desencadeou o 401 será realizada novamente com o novo token e quaisquer chamadas bloqueadas serão realizadas novamente com o novo token. 
 
-7. No arquivo ToDoActivity.java, atualize o método `onCreate` como a seguir:
+7. No arquivo ToDoActivity.java, atualize o método `onCreate` da seguinte maneira:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,6 +237,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
 	    }
 
 
-       Nesse código, `RefreshTokenCacheFilter` é usado em conjunto com `ProgressFilter`. Também durante o `onCreate`, queremos carregar o cache de token. Então, `false` é passado para o método `authenticate`.
+       Nesse código, `RefreshTokenCacheFilter` é usado além do `ProgressFilter`. Também durante  `onCreate`, queremos carregar o cache de token. Então `false` é passado para o método `authenticate`.
 
 
+<!--HONumber=42-->

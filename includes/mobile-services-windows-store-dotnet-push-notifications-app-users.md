@@ -5,7 +5,7 @@ Em seguida, você precisa alterar a maneira que as notificações por push são 
 
 Neste método, o assistente gera um arquivo novo push.register.cs no seu projeto.
 
->[WACOM.NOTE]O assistente para adicionar notificações por push atualmente só tem suporte para um serviço móvel de back-end do .NET.
+>[AZURE.NOTE]O assistente para adicionar notificações por push atualmente só tem suporte para um serviço móvel de back-end do .NET.
 
 1. No Gerenciador de Soluções do Visual Studio, abra o arquivo de projeto app.xaml e no manipulador de eventos **OnLaunched** comente ou exclua a chamada para o método **UploadChannel**. 
 
@@ -40,7 +40,7 @@ Neste método, o assistente gera um arquivo novo push.register.cs no seu projeto
             RefreshTodoItems();
         }
 
-Neste código, você deve substituir o nome de classe do push gerado (`todolistPush`) com o nome da classe gerado pelo assistente, usualmente no formato <code><em>mobile_service</em>Push</code>.
+	Neste código, você deve substituir o nome da classe do push gerado (`todolistPush`) com o nome da classe gerado pelo assistente, usualmente no formato por push <code><em>mobile_service</em></code>.
 
 ###Notificações por push habilitadas manualmente		
 
@@ -48,7 +48,7 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
 
 1. No Gerenciador de Soluções do Visual Studio, abra o arquivo de projeto app.xaml e no manipulador de eventos **OnLaunched** comente ou exclua a chamada para o método **InitNotificationsAsync**. 
  
-2. Altere a acessibilidade do método **InitNotificationsAsync** de 'privada' para 'public' e adicione o modificador 'static'. 
+2. Alterar a acessibilidade do método **InitNotificationsAsync** de  `private` para  `public` e adicione o modificador  `static`. 
 
 3. Abra o arquivo de projeto MainPage.xaml.cs, e substitua o método **OnNavigatedTo** existente pelo seguinte:
 
@@ -57,4 +57,4 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
             await AuthenticateAsync();            
             App.InitNotificationsAsync();
             RefreshTodoItems();
-        }
+        }<!--HONumber=42-->

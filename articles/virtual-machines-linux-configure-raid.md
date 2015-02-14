@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="Configurar o software RAID em uma máquina virtual que executa Linux no Azure" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="Saiba como usar mdadm para configurar o RAID no Linux no Azure." metaCanonical="http://www.windowsazure.com/pt-br/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+﻿<properties 
+	pageTitle="Configurar o software RAID em uma máquina virtual que executa Linux no Azure" 
+	description="Saiba como usar mdadm para configurar o RAID no Linux no Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	writer="szark" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -11,7 +26,7 @@
 ## Anexando discos de dados
 Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID.  Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux.  Consulte o artigo do Microsoft Azure [anexar um disco](http://www.windowsazure.com/pt-br/documentation/articles/storage-windows-attach-disk/#attachempty) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
 
->[WACOM.NOTE] O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual.  Consulte [Tamanhos de máquina virtual e serviço de nuvem para o Microsoft Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/dn197896.aspx) para informações detalhadas sobre tamanhos de máquina virtual e o número aceito de discos de dados.
+>[AZURE.NOTE] O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual.  Consulte [tamanhos de máquinas virtuais e de serviços de nuvem para o Microsoft Azure (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/windowsazure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
 
 
 ## Instalar o utilitário mdadm
@@ -21,7 +36,7 @@ Dois ou mais discos de dados vazios geralmente serão necessários para configur
 		# sudo apt-get update
 		# sudo apt-get install mdadm
 
-- **CentOS e Oracle Linux**
+- **CentOS & Oracle Linux**
 
 		# sudo yum install mdadm
 
@@ -70,7 +85,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- Em seguida, altere a ID e o **t**ipo da partição da ID padrão '83' (Linux) para a ID 'fd' (Raid automático do Linux):
+- Em seguida, altere a ID e o **d**igite a partição da ID padrão '83' (Linux) para a ID  'fd' (Raid automático do Linux):
 
 		Command (m for help): t
 		Selected partition 1
@@ -89,7 +104,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado.Observe também que se, anteriormente, esses discos de dados faziam parte de outro conjunto de RAID desabilitado, poderá ser necessário adicionar o parâmetro `--force` parameter to the `mdadm`.
+Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que se, anteriormente, esses discos de dados faziam parte de outro conjunto de RAID desabilitado, poderá ser necessário adicionar o parâmetro `--force` ao comando  `mdadm`.
 
 
 2. Criar o sistema de arquivos no novo dispositivo RAID
@@ -107,18 +122,18 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[WACOM.NOTE] Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE.
+	>[AZURE.NOTE] Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE.
 
 
 ## Adicionar o novo sistema de arquivos a /etc/fstab
 
-**Cuidado:** Edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente.Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
+**Cuidado:** a edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editar esse arquivo adequadamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
 
 1. Crie o ponto de montagem desejado para o novo sistema de arquivos, por exemplo:
 
 		# sudo mkdir /data
 
-2. Ao editar o /etc/fstab, a **UUID** deve ser usada para fazer referência ao sistema de arquivos em vez do nome do dispositivo.Use o utilitário `blkid` para determinar a UUID do novo sistema de arquivos:
+2. Ao editar o /etc/fstab, a **UUID** deve ser usada para fazer referência ao sistema de arquivos em vez do nome do dispositivo.  Use o utilitário  `blkid` para determinar a UUID do novo sistema de arquivos:
 
 		# sudo /sbin/blkid
 		...........
@@ -132,7 +147,7 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
-	Then, save and close /etc/fstab.
+	Em seguida, salve e feche o /etc/fstab.
 
 4. Testar se a entrada /etc/fstab está correta:
 
@@ -140,7 +155,7 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 	Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo /etc/fstab.
 
-	Em seguida, executar o comando `mount` para garantir que o sistema de arquivos esteja montado:
+	Em seguida, executar o comando  `mount` para garantir que o sistema de arquivos esteja montado:
 
 		# mount
 		.................
@@ -148,7 +163,7 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 5. Parâmetros opcionais
 
-	Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+	Muitas distribuições incluem os parâmetros  `nobootwait` ou  `nofail` de mount que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 	Exemplo (Ubuntu):
 
@@ -156,7 +171,6 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 	Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema inicialize, mesmo que seja detectado que o RAID está danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
 
-	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` no "/etc/default/grub".
+	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável  `GRUB_CMDLINE_LINUX_DEFAULT` no "/etc/default/grub".
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

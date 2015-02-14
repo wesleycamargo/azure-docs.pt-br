@@ -2,7 +2,7 @@
 
 Agora que a autenticação é obrigatória para acessar dados na tabela TodoItem, é possível usar o valor userID atribuído por Serviços Móveis para filtrar dados retornados.
 
->[WACOM.NOTE]Os métodos abaixo devem ter o atributo **AuthorizeLevel** aplicado ao **Authorizationlevel** do **Usuário**.Isso restringe o acesso de tabela apenas a usuários autenticados.
+>[AZURE.NOTE]Os métodos abaixo devem ter o atributo **AuthorizeLevel** aplicado ao **Authorizationlevel** do **Usuário**. Isso restringe o acesso de tabela apenas a usuários autenticados.
 
 1. No Visual Studio 2013, abra o projeto do serviço móvel, expanda a pasta DataObjects e abra o arquivo de projeto TodoItem.cs.
 
@@ -12,7 +12,7 @@ Agora que a autenticação é obrigatória para acessar dados na tabela TodoItem
 
 		public string UserId { get; set; }
 
-	>[WACOM.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
 
 3. No Gerenciador de Soluções, expanda a pasta Controllers, abra o arquivo de projeto TodoItemController.cs e adicione a seguinte instrução **using**:
 
@@ -41,5 +41,4 @@ Agora que a autenticação é obrigatória para acessar dados na tabela TodoItem
    	Essa consulta filtra os objetos de TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele. 
 
 6. Republique o projeto de serviço móvel no Azure.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

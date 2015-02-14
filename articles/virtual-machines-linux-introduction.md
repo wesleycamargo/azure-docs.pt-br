@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Intro to Linux" pageTitle="Introdução ao Linux no Azure - Tutorial do Azure" metaKeywords="Azure Linux vm, Linux vm" description="Saiba como usar máquinas virtuais Linux no Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿<properties 
+	pageTitle="Introdução ao Linux no Azure - Tutorial do Azure" 
+	description="Saiba como usar máquinas virtuais Linux no Azure." 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/13/2014" 
+	ms.author="szark"/>
 
 
 
@@ -22,7 +36,7 @@ Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas v
 
 ## <a id="authentication"></a>Autenticação: Nomes de usuário, senhas e chaves SSH
 
-Ao criar uma máquina virtual Linux usando o Portal de Gerenciamento do Azure, você deve fornecer um nome de usuário, uma senha e (como opção) uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
+Ao criar uma máquina virtual Linux usando o Portal de Gerenciamento do Azure, você deve fornecer um nome de usuário, uma senha e (como opção) uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos,  'root' por exemplo.
 
  - Consulte [Como usar SSH com Linux no Azure](../linux-use-ssh-key/)
 
@@ -41,11 +55,11 @@ A versão atual do Portal de Gerenciamento aceita apenas chaves públicas SSH en
 
 		chmod 600 myPrivateKey.key
 
-3. Converta `myCert.pem` para `myCert.cer` (certificado X509 codificado em DER)
+3. Converter o  `myCert.pem` em  `myCert.cer` (certificado X509 codificado em DER)
 
 		openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4. Carregue o `myCert.cer` ao criar a máquina virtual Linux. O processo de provisionamento instalará automaticamente a chave pública nesse certificado no arquivo `~/.ssh/authorized_keys` para o usuário especificado na máquina virtual.
+4. Carregue o  `myCert.cer` ao criar a máquina virtual Linux. O processo de provisionamento instalará automaticamente a chave pública nesse certificado no arquivo `~/.ssh/authorized_keys` para o usuário especificado na máquina virtual.
 
 5. Conecte-se à máquina virtual Linux usando o ssh.
 
@@ -63,16 +77,16 @@ A versão atual do Portal de Gerenciamento aceita apenas chaves públicas SSH en
 ### Gerar uma chave com base em uma chave compatível com OpenSSH existente
 O exemplo anterior descreve como criar uma nova chave a ser usada com o Microsoft Azure. Em alguns casos, os usuários talvez já tenham um par de chaves OpenSSH pública e privada compatíveis existente e queira usar as mesmas chaves com o Microsoft Azure.
 
-As chaves privadas OpenSSH são diretamente legíveis pelo utilitário `openssl`. O seguinte comando usará uma chave privada SSH existente (id_rsa no exemplo abaixo) e criará a chave pública `.pem` necessária ao Microsoft Azure:
+As chaves privadas OpenSSH são diretamente legíveis pelo utilitário  `openssl`. O seguinte comando usará uma chave privada SSH existente (id_rsa no exemplo abaixo) e criará a chave pública  `.pem` necessária ao Microsoft Azure:
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar uma máquina virtual Linux no Microsoft Azure.Durante o provisionamento, o arquivo `.pem`será convertido em uma chave pública `openssh` compatível e colocado em `~/.ssh/authorized_keys`.
+O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar uma máquina virtual Linux no Microsoft Azure. Durante o provisionamento, o arquivo  `.pem` será convertido em uma  `openssh`chave pública compatível e colocada em `~/.ssh/authorized_keys`.
 
 
 ## <a id="superuserprivileges"></a>Obtendo privilégios de superusuário usando `sudo`
 
-A conta de usuário especificada durante a implantação da instância de máquina virtual no Azure é uma conta privilegiada. Essa conta é configurada pelo Agente Linux do Azure para poder elevar privilégios para raiz (conta de superusuário) usando o utilitário `sudo`. Depois de fazer logon usando essa conta de usuário, você poderá executar comandos como raiz usando a sintaxe de comando.
+A conta de usuário especificada durante a implantação da instância de máquina virtual no Azure é uma conta privilegiada. Essa conta é configurada pelo Agente Linux do Azure para poder elevar privilégios para raiz (conta de superusuário) usando o utilitário  `sudo`. Depois de fazer logon usando essa conta de usuário, você poderá executar comandos como raiz usando a sintaxe de comando.
 
 	# sudo <COMMAND>
 
@@ -87,7 +101,7 @@ O Azure fornece um filtro de pacote de entrada que restringe a conectividade a p
 
  - Consulte: [Como instalar pontos de extremidade em uma máquina virtual](../virtual-machines-set-up-endpoints/)
 
-As imagens do Linux na Galeria do Azure não habilitam o firewall *iptables* por padrão. Se desejado, o firewall poderá ser configurado para fornecer filtragem adicional.
+As imagens do Linux na Galeria do Azure não habilitam o firewall  *iptables* por padrão. Se desejado, o firewall poderá ser configurado para fornecer filtragem adicional.
 
 
 ## <a id="hostnamechanges"></a>Alterações de nome do host
@@ -116,22 +130,21 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
 
 2. Desligue a máquina virtual.
 
-3. Clique em *Capturar* no Portal de Gerenciamento ou use o PowerShell ou as ferramentas de CLI para capturar a máquina virtual como uma imagem.
+3. Clique em *Capture* no Portal de Gerenciamento ou use o PowerShell ou as ferramentas de CLI para capturar a máquina virtual como uma imagem.
 
  - Consulte: [Como capturar uma máquina virtual Linux para ser usada como um modelo](../virtual-machines-linux-capture-image/)
 
 
 ## <a id="attachingdisks"></a>Anexando discos
 
-Cada máquina virtual tem um *disco de recursos* anexado. Devido aos dados em um disco de recurso poderem não ser duráveis entre as reinicializações, geralmente ele é usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e **temporário**.Ele também é usado para armazenar páginas ou trocar arquivos para o sistema operacional.
+Cada máquina virtual tem um  *disco de recursos* local temporário anexado. Devido aos dados em um disco de recurso poderem não ser duráveis entre as reinicializações, geralmente ele é usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e **temporário**. Ele também é usado para armazenar páginas ou trocar arquivos para o sistema operacional.
 
 No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu).
 
-	>[WACOM.NOTE] Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a máquina virtual reinicializada.
+	>[AZURE.NOTE] Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a máquina virtual reinicializada.
 
-No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados à máquina virtual](../virtual-machines-linux-how-to-attach-disk/).
+No Linux, o disco de dados pode ser nomeado pelo kernel como  `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados à máquina virtual](../virtual-machines-linux-how-to-attach-disk/).
 
  - Consulte também: [Configurar RAID de software no Linux](../virtual-machines-linux-configure-raid/)
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

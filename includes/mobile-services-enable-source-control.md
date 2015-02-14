@@ -8,7 +8,7 @@
 	![Set up source control](./media/mobile-services-enable-source-control/mobile-setup-source-control.png)
 
 
-3. Forneça um **Nome de usuário, uma ****Nova senha**, confirme a senha e clique no botão de seleção. 
+3. Forneça um **Nome do usuário**, uma **Nova senha**, confirme a senha e clique no botão de seleção. 
 
 	![Set source control credentials](./media/mobile-services-enable-source-control/mobile-source-control-credentials.png)
 
@@ -21,6 +21,4 @@
 	A URL do repositório Git é exibida. Você usará essa URL para clonar o repositório para o computador local.
 
 Com o controle do código-fonte habilitado em seu serviço móvel, você poderá usar o Git para clonar o repositório para o computador local.
- 
-
-<!--HONumber=35.1-->
+ <!--HONumber=42-->

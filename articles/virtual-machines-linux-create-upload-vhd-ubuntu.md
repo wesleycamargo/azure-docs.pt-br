@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Criar e carregar um VHD do Ubuntu Linux no Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Saiba como criar e carregar um disco rígido virtual (VHD) do Azure que contém o sistema operacional Ubuntu Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Ubuntu Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Criar e carregar um VHD do Ubuntu Linux no Azure" 
+	description="Saiba como criar e carregar um disco rígido virtual (VHD) do Azure que contém o sistema operacional Ubuntu Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 
 # Preparar uma máquina virtual do Ubuntu para o Azure
@@ -20,11 +34,11 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 - Todos os VHDs devem ter tamanhos que são múltiplos de 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
+## <a id="ubuntu"> </a>Ubuntu 12.04 e versões posteriores ##
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 
-2. Clique em **Conectar** para abrir a janela para a máquina virtual.
+2. Clique em **Conectar** para abrir a janela da máquina virtual.
 
 3.	Substitua os repositórios atuais na imagem para usar os repositórios do Azure no Ubuntu. As etapas variam um pouco dependendo da versão do Ubuntu.
 
@@ -79,13 +93,13 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 	a) Abra o arquivo /etc/grub.d/00_header.
 
-	b) Na função **make_timeout()**, pesquise por **if ["\${recordfail}" = 1 ]; então**
+	b) Na função **make_timeout()**, procure por **se ["\${recordfail}" = 1 ]; então**
 
 	c) Altere a instrução abaixo desta linha para **set timeout=5**.
 
-	d) Execute 'sudo update-grub'.
+	d) Executar 'sudo update-grub'.
 
-6. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /etc/default/grub em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
+6. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /etc/default/grub em um editor de texto, localize a variável chamada  `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
@@ -98,7 +112,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	Observe que a instalação do pacote 'walinuxagent' removerá o 'NetworkManager' e os pacotes 'NetworkManager-gnome', se estiverem instalados.
+	Observe que a instalação do pacote  `walinuxagent` removerá os pacotes  `NetworkManager` e  `NetworkManager-gnome`, se estiverem instalados.
 
 10.	Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
@@ -106,8 +120,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# export HISTSIZE=0
 		# logout
 
-11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V.Agora, seu VHD Linux está pronto para ser carregado no Azure.
+11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

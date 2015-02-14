@@ -13,7 +13,8 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-Isso envia uma solicitação de POST ao novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
+   	Isso envia uma solicitação de POST ao novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
-	>[WACOM.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.m.</p> 
+	>[AZURE.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.m.</p> 
  	</div>
+<!--HONumber=42-->

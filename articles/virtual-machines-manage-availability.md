@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Manage Availability of VMs" pageTitle="Gerenciar a disponibilidade de máquinas virtuais - Azure" metaKeywords="" description="Saiba como usar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
+<properties 
+	pageTitle="Gerenciar a disponibilidade de máquinas virtuais - Azure" 
+	description="Saiba como usar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kenazk" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="kenazk"/>
 
 #Gerenciar a disponibilidade de máquinas virtuais
 
@@ -14,10 +28,10 @@ Há dois tipos de eventos de plataforma do Azure que podem afetar a disponibilid
 ## Siga as práticas recomendadas ao projetar seu aplicativo para alta disponibilidade
 Para reduzir o impacto do tempo de inatividade devido a um ou mais desses eventos, sugerimos que siga as práticas recomendadas de alta disponibilidade para suas máquinas virtuais:
 
-* [Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância] 
-* [Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados] 
-* [Combine o Balanceador de Carga com os Conjuntos de Disponibilidade] 
-* [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade] 
+* [Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância]
+* [Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados]
+* [Combine o Balanceador de Carga com os Conjuntos de Disponibilidade]
+* [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]
 
 ### Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância 
 Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um Conjunto de Disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para obter mais informações sobre contratos de nível de serviço, consulte a seção "Serviços de nuvem, Máquinas Virtuais e Rede Virtual" em [Contratos de Nível de Serviço](../../../support/legal/sla/). 
@@ -29,7 +43,7 @@ FDs definem o grupo de máquinas virtuais que compartilham uma fonte de energia 
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[WACOM.NOTE] Para obter instruções, consulte [Como configurar um conjunto de disponibilidade para máquinas virtuais][].
+>[AZURE.NOTE] Para obter instruções, consulte [Como configurar um conjunto de disponibilidade para máquinas virtuais][].
 
 ### Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados
 Nas máquinas virtuais, no seu conjunto de disponibilidade são todas quase idênticas e servem para o mesmo propósito para o seu aplicativo, recomendamos que configure o seu Conjunto de Disponibilidade de cada camada do seu aplicativo.  Se você colocar em duas camadas diferentes no mesmo Conjunto de Disponibilidade, todas as máquinas virtuais na mesma camada de aplicativo podem ser reinicializadas ao mesmo tempo. Ao configurar ao menos duas máquinas virtuais no Conjunto de Disponibilidade de cada camada, você garante que ao menos uma máquina virtual de cada camada estará disponível.   
@@ -58,5 +72,4 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Como configurar um conjunto de disponibilidade para máquinas virtuais]: ../virtual-machines-how-to-configure-availability
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

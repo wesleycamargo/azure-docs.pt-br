@@ -1,7 +1,7 @@
+﻿
+O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o serviço móvel sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma melhor abordagem é armazenar em cache o token de autorização retornado pelos Serviços Móveis e tentar usá-lo antes de usar a entrada baseada no provedor. 
 
-O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o serviço móvel sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma melhor abordagem é armazenar em cache o token de autorização retornado pelos Serviços Móveis e tentar usá-lo antes de utilizar a entrada baseada no provedor.
-
->[WACOM.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
+>[AZURE.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
 
 1. No arquivo de projeto MainPage.xaml.cs, adicione o seguinte **usando** as instruções:
 
@@ -85,10 +85,10 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
             }
         }
 
-    Nesta versão do **AuthenticateAsync**, o aplicativo tenta usar as credenciais criptografadas armazenadas no armazenamento local para acessar o serviço móvel. Uma consulta simples é enviada para verificar que o token armazenado não tenha expirado. Se um 401 for retornado, tenta-se um registro normal baseado no provedor. Também é realizado um registro normal quando não há uma credencial armazenada.	
+	Nesta versão do **AuthenticateAsync**, o aplicativo tenta usar as credenciais criptografadas armazenadas no armazenamento local para acessar ao serviço móvel. Uma consulta simples é enviada para verificar que o token armazenado não tenha expirado. Se um 401 for retornado, tenta-se um registro normal baseado no provedor. Também é realizado um registro normal quando não há uma credencial armazenada.	
 
-	>[WACOM.NOTE]Este aplicativo testa tokens expirados durante o logon, mas a expiração do token pode ocorrer após a autenticação quando o aplicativo estiver em uso. Para solucionar como lidar com erros de autorização relacionados a tokens expirados, consulte a postagem [Armazenagem em cache e manipulação de tokens expirados no SDK gerenciado pelos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+	>[AZURE.NOTE]Este aplicativo testa tokens expirados durante o logon, mas a expiração do token pode ocorrer após a autenticação quando o aplicativo estiver em uso. Para solucionar como lidar com erros de autorização relacionados a tokens expirados, consulte a postagem [Armazenagem em cache e manipulação de tokens expirados no SDK gerenciado pelos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
 	
 3. Reiniciar o aplicativo.
 
-	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. 
+	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. <!--HONumber=42-->

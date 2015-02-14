@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Amostra Hadoop de contagem de palavras de streaming em C# no HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="Saiba como executar um TBD de amostra." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
+﻿<properties 
+	pageTitle="Amostra de Wordcount Hadoop de streaming em C# no HDInsight | Azure" 
+	description="Como escrever programas MapReduce em C# que usam a interface de streaming do Hadoop e como executar os programas no HDInsight usando cmdlets do PowerShell." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
-# Amostra Hadoop de contagem de palavras de streaming em C# no HDInsight
+# A amostra de MapReduce WordCount de streaming C# em Hadoop no HDInsight 
  
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapa e redução em outras linguagens além do Java. Este tutorial mostra como escrever programas MapReduce em C# que usam a interface de streaming do Hadoop e como executar os programas no Azure HDInsight usando cmdlets do PowerShell do Azure. 
 
-No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr].O programa conta todas as palavras do texto.
+No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
 
-Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado.  À medida que a tarefa do mapeador é executada, ele converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo. Enquanto isso, o mapeador coleta as saídas orientadas a linhas do stdout do processo e converte cada linha em um par de chave/valor, que é coletado como a saída do mapeador. Por padrão, o prefixo de uma linha até o primeiro caractere de tabulação é a chave, e o restante da linha (exceto o caractere de tabulação) é o valor.Se não houver nenhum caractere de tabulação na linha, toda a linha será considerada como chave e o valor será nulo. 
+Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado. À medida que a tarefa do mapeador é executada, ele converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo. Enquanto isso, o mapeador coleta as saídas orientadas a linhas do stdout do processo e converte cada linha em um par de chave/valor, que é coletado como a saída do mapeador. Por padrão, o prefixo de uma linha até o primeiro caractere de tabulação é a chave, e o restante da linha (exceto o caractere de tabulação) é o valor. Se não houver nenhum caractere de tabulação na linha, toda a linha será considerada como chave e o valor será nulo. 
 
-Quando um executável é especificado para **reducers**, cada tarefa do redutor inicia o executável como um processo separado quando o redutor é inicializado.  À medida que a tarefa do redutor é executada, ele converte seus pares de chave/valor de entrada em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo. Enquanto isso, o redutor coleta as saídas orientadas a linhas do [stdout][stdin-stdout-stderr] do processo e converte cada linha em um par de chave/valor, que é coletado como a saída do redutor.Por padrão, o prefixo de uma linha até o primeiro caractere de tabulação é a chave, e o restante da linha (exceto o caractere de tabulação) é o valor. 
+Quando um executável é especificado para **reducers**, cada tarefa do redutor inicia o executável como um processo separado quando o redutor é inicializado. À medida que a tarefa do redutor é executada, ele converte seus pares de chave/valor de entrada em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo. Enquanto isso, o redutor coleta as saídas orientadas a linhas do [stdout][stdin-stdout-stderr] do processo e converte cada linha em um par de chave/valor, que é coletado como a saída do redutor. Por padrão, o prefixo de uma linha até o primeiro caractere de tabulação é a chave, e o restante da linha (exceto o caractere de tabulação) é o valor. 
 
 Para obter mais informações sobre a interface de streaming do Hadoop, consulte [Streaming do Hadoop][hadoop-streaming]. 
  
@@ -22,14 +36,14 @@ Para obter mais informações sobre a interface de streaming do Hadoop, consulte
 
 **Pré-requisitos**:	
 
-- Você deve ter uma conta do Azure. Para obter as opções de como se inscrever em uma conta, consulte a página [Testar o Azure gratuitamente](http://azure.microsoft.com/pt-br/pricing/free-trial/) .
+- Você deve ter uma conta do Azure. Para obter as opções de como inscrever-se em uma conta, consulte a página [Testar o Azure gratuitamente (a página pode estar em inglês)](http://azure.microsoft.com/pt-br/pricing/free-trial/).
 
 - Você deve ter provisionado um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Provisionar clusters HDInsight](../hdinsight-provision-clusters/)
 
-- Você deve ter instalado o PowerShell do Azure e o configurado para uso com sua conta. Para obter instruções sobre como fazer isso, consulte[Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+- Você deve ter instalado o PowerShell do Azure e o configurado para uso com sua conta. Para obter instruções sobre como fazer isso, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
 
-##Neste artigo
+## Neste artigo
 Este tópico mostra como executar o exemplo, apresenta o código Java do programa MapReduce, resume o que você aprendeu e descreve algumas das próximas etapas. Contém as seguintes seções.
 	
 1. [Executar o exemplo com o PowerShell do Azure](#run-sample)	
@@ -41,22 +55,22 @@ Este tópico mostra como executar o exemplo, apresenta o código Java do program
 
 **Para executar o trabalho MapReduce**
 
-1.	Abra o **PowerShell do Azure**. Para obter instruções sobre como abrir a janela do console do PowerShell do Azure, consulte[Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+1.	Abra o **PowerShell do Azure**. Para obter instruções sobre como abrir a janela do console do PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
-3. Defina as duas variáveis nos comandos a seguir e execute-as:
+2. Defina as duas variáveis nos comandos a seguir e execute-as:
 		
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 
 
-2. Execute o comando a seguir para definir o trabalho MapReduce.
+3. Execute o comando a seguir para definir o trabalho MapReduce.
  
 		# Create a MapReduce job definition for the streaming job.
 		$streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
 
 	Os parâmetros especificam as funções do mapeador e do redutor e os arquivos de entrada e de saída.
                  
-5. Execute os seguintes comandos para executar o trabalho MapReduce, aguarde a conclusão do trabalho e imprima o erro padrão:
+4. Execute os seguintes comandos para executar o trabalho MapReduce, aguarde a conclusão do trabalho e imprima o erro padrão:
 
 		# Run the C# Streaming MapReduce job.
 		# Wait for the job to complete.
@@ -64,7 +78,7 @@ Este tópico mostra como executar o exemplo, apresenta o código Java do program
 		Select-AzureSubscription $subscriptionName
 		$streamingWC | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
 
-6. Execute os seguintes comandos para exibir os resultados da contagem de palavras.
+5. Execute os seguintes comandos para exibir os resultados da contagem de palavras.
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
@@ -149,7 +163,7 @@ O código do mapeador no arquivo cat.cs usa um objeto StreamReader para ler os c
 	}
 
 
-O código do redutor no arquivo wc.cs usa um objeto [StreamReader][streamreader] para ler os caracteres do fluxo de entrada padrão que produziu a saída do mapeador cat.exe. À medida que lê os caracteres com o método [Console.Writeline][console-writeline], ele conta as palavras contando caracteres de espaços e de fim de linha no final de cada palavra e, em seguida, grava o total no fluxo de saída padrão com o método [Console.Writeline][console-writeline]. 
+O código do redutor no arquivo wc.cs usa um objeto [StreamReader][streamreader]   para ler os caracteres do fluxo de entrada padrão que produziu a saída do mapeador cat.exe. À medida que lê os caracteres com o método [Console.Writeline][console-writeline], ele conta as palavras contando caracteres de espaços e de fim de linha no final de cada palavra e, em seguida, grava o total no fluxo de saída padrão com o método [Console.Writeline][console-writeline]. 
 
 <h2><a id="summary"></a>Resumo</h2>
 
@@ -160,11 +174,11 @@ Neste tutorial, você viu como implantar um trabalho MapReduce no HDInsight usan
 Para obter tutoriais que executam outros exemplos e fornecem instruções sobre como usar trabalhos Pig, Hive e MapReduce no Azure HDInsight com o PowerShell do Azure, consulte os seguintes tópicos:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
-* [Amostra: Vistoriador de Pi][hdinsight-sample-pi-estimator]
-* [Amostra: Contagem de palavras][hdinsight-sample-wordcount]
-* [Amostra: GraySort de 10 GB][hdinsight-sample-10gb-graysort]
+* [Exemplo: Vistoriador de Pi][hdinsight-sample-pi-estimator]
+* [Exemplo: Contagem de palavras][hdinsight-sample-wordcount][
+* [Exemplo: GraySort de 10 GB][hdinsight-sample-10gb-graysort]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
-* [Usar o Hive com o HDInsight][hdinsight-use-hive]
+* [Usar o hive com o HDInsight][hdinsight-use-hive]
 * [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/pt-br/library/dn479185.aspx
@@ -188,5 +202,4 @@ Para obter tutoriais que executam outros exemplos e fornecem instruções sobre 
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

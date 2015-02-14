@@ -1,37 +1,38 @@
-Esta seção mostra como enviar notificações a partir de um aplicativo de console .NET e qualquer outro.
-Se você utiliza Serviços Móveis, consulte os tutoriais [Introdução ao Push][Introdução ao Push]. Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação a partir de Java/PHP][Como utilizar Hubs de Notificação a partir de Java/PHP]. Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação][interface REST de Hubs de notificação].
 
-O código a seguir envia notificações à Windows Store, Windows Phone, iOS e dispositivos Android.
+Esta seção mostra como enviar notificações por meio de um aplicativo de console .NET e de qualquer outro.
+Se você estiver usando os serviços móveis, consulte os tutoriais [Introdução ao Push](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação por meio de Java/PHP](/pt-br/documentation/articles/notification-hubs-java-backend-how-to/). Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
 
-Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando concluído [começar com Hubs de notificação][começar com Hubs de notificação].
+O código a seguir envia notificações à Windows Store, Windows Phone, iOS e dispositivos Android. 
 
-1.  No Visual Studio, crie um novo aplicativo de console em Visual C\#:
+Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando concluído [Introdução aos Hubs de notificação][get-started].
 
-    ![][0]
+1. No Visual Studio, crie um novo aplicativo de console em Visual C#: 
 
-2.  No menu principal do Visual Studio, clique em **ferramentas**, **do Gerenciador de Pacotes de biblioteca**, e **Console do Gerenciador de Pacotes**, em seguida, na janela do console digite o seguinte e pressione **Enter**:
+   	![][13]
+
+2. No menu principal do Visual Studio, clique em **ferramentas**, **do Gerenciador de Pacotes de biblioteca**, e **Console do Gerenciador de Pacotes**, em seguida, na janela do console digite o seguinte e pressione **Enter**:
 
         Install-Package WindowsAzure.ServiceBus
+ 	
+	Isso adiciona uma referência ao Azure Service Bus SDK usando o pacote do <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
 
-    Isso adiciona uma referência ao Azure Service Bus SDK usando o [pacote do WindowsAzure.ServiceBus NuGet][pacote do WindowsAzure.ServiceBus NuGet].
-
-3.  Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
+3. Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
 
         using Microsoft.ServiceBus.Notifications;
 
-4.  Na classe `Program`, adicione o seguinte método ou substitua-o, se ele já existir:
+4. Na classe `Program`, adicione o seguinte método ou substitua-o, se ele já existir:
 
         private static async void SendNotificationAsync()
         {
-            // Define the notification hub.
-            NotificationHubClient hub = 
-                NotificationHubClient.CreateClientFromConnectionString(
-                    "<connection string with full access>", "<hub name>");
-
-            // Create an array of breaking news categories.
-            var categories = new string[] { "World", "Politics", "Business", 
-                "Technology", "Science", "Sports"};
-
+			// Define the notification hub.
+		    NotificationHubClient hub = 
+				NotificationHubClient.CreateClientFromConnectionString(
+					"<connection string with full access>", "<hub name>");
+		
+		    // Create an array of breaking news categories.
+		    var categories = new string[] { "World", "Politics", "Business", 
+		        "Technology", "Science", "Sports"};
+		
             foreach (var category in categories)
             {
                 try
@@ -56,7 +57,7 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
                     var alert = "{\"aps\":{\"alert\":\"Breaking " + category + " News!\"}}";
                     await hub.SendAppleNativeNotificationAsync(alert, category);
 
-                    // Define an Android notification.
+					// Define an Android notification.
                     var notification = "{\"data\":{\"msg\":\"Breaking " + category + " News!\"}}";
                     await hub.SendGcmNativeNotificationAsync(notification, category);
                 }
@@ -66,28 +67,37 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
                     // registered for the iOS, Windows Store, or Windows Phone platform. 
                 }
             }
-         }
+		 }
 
-    Este código envia notificações para cada uma das seis marcas na matriz de cadeia de caracteres para a Windows Store, dispositivos com iOS e Windows Phone. O uso de marcas certifica-se de que dispositivos recebam notificações somente para as categorias de marcas.
+	Este código envia notificações para cada uma das seis marcas na matriz de cadeia de caracteres para a Windows Store, dispositivos com iOS e Windows Phone. O uso de marcas certifica-se de que dispositivos recebam notificações somente para as categorias de marcas.
+	
+	> [AZURE.NOTE] Esse código de back-end oferece suporte a Windows Store, clientes de iOS, Windows Phone e Android. Envie métodos retornam uma resposta de erro quando o hub de notificação ainda não foi configurado para uma plataforma de cliente específico. 
 
-    <div class="dev-callout"><strong>Observa&ccedil;&atilde;o</strong> 
-    <p>Esse c&oacute;digo de back-end oferece suporte a Windows Store, clientes de iOS, Windows Phone e Android. Envie m&eacute;todos retornam uma resposta de erro quando o hub de notifica&ccedil;&atilde;o ainda n&atilde;o foi configurado para uma plataforma de cliente espec&iacute;fico. </p>
-</div>
+6. No código acima, substitua os espaços reservados `<nome do hub>` e `<cadeia de conexão com acesso de escuta>` pelo nome do hub de notificação e a cadeia de conexão por  *DefaultFullSharedAccessSignature*, que você obteve anteriormente.
 
-5.  No código acima, substitua os espaços reservados `<hub name>` e `<connection string with full access>` pelo nome do hub de notificação e a cadeia de conexão por *DefaultFullSharedAccessSignature* que você tiver obtido anteriormente.
-
-6.  Adicione as seguintes linhas no método **Main**:
+7. Adicione as seguintes linhas no método **Main**:
 
          SendNotificationAsync();
-         Console.ReadLine();
+		 Console.ReadLine();
 
 <!-- Anchors -->
+[A partir de um aplicativo de console]: #console
+[A partir de serviços móveis]: #mobile-services
+[Executar o aplicativo e gerar notificações]: #test-app
 
+<!-- Images. -->
+[13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
 
+[15]: ./media/notification-hubs-back-end/notification-hub-scheduler1.png
+[16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
-  [Introdução ao Push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Como utilizar Hubs de Notificação a partir de Java/PHP]: /pt-br/documentation/articles/notification-hubs-java-backend-how-to/
-  [interface REST de Hubs de notificação]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
-  [começar com Hubs de notificação]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [0]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
-  [pacote do WindowsAzure.ServiceBus NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
+<!-- URLs. -->
+[get-started]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Usar os Hubs de notificação para enviar notificações aos usuários]: ../notificationhubs/tutorial-notify-users-mobileservices.md
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
+[Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/pt-br/library/jj927172.aspx
+[Interface REST de Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
+<!--HONumber=42-->

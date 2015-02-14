@@ -1,6 +1,20 @@
-﻿<properties linkid="collect heap dumps" urlDisplayName="Collect Heap Dumps for Debugging and Analysis" pageTitle="Coletar despejos de heap para Depuração e Análise| Azure" metaKeywords ="" description="Coletar despejos de heap para Depuração e Análise" metaCanonical="" services="hdinsight" documentationCenter="" title="Collect Heap Dumps for Debugging and Analysis" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Coletar despejos de heap para Depuração e Análise| Azure" 
+	description="Coletar despejos de heap para Depuração e Análise" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/08/2014" 
+	ms.author="bradsev"/>
 
 # Coletar despejos de heap para Depuração e Análise
 
@@ -57,5 +71,4 @@ Usando o sdk do c#:
 
 
 
-
-<!--HONumber=35.2-->
+<!--HONumber=42-->

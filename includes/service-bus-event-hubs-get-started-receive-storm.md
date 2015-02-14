@@ -1,4 +1,4 @@
-﻿## Receber mensagens com Apache Storm
+## Receber mensagens com Apache Storm
 
 O [**Apache Storm**](https://storm.incubator.apache.org) é um sistema de computação distribuída em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout de Hubs de Eventos do Storm para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
 
@@ -6,21 +6,21 @@ Para obter mais informações sobre os padrões de recebimento dos Hubs de Event
 
 Este tutorial usa uma instalação do [HDInsight Storm], que acompanha o spout de Hubs de Eventos já disponível.
 
-1. Siga o procedimento [HDInsight Storm - Get Started](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-getting-started/) para criar um novo cluster HDInsight e conectá-lo por meio da área de trabalho remota.
+1. Siga o procedimento [HDInsight Storm - Guia de Introdução](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-getting-started/) para criar um novo cluster HDInsight e conectá-lo por meio da área de trabalho remota.
 
-2. Copie o arquivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` ao seu ambiente de desenvolvimento local. Ele contém o events-storm-spout.
+2. Copie o arquivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` para seu ambiente de desenvolvimento local. Ele contém o events-storm-spout.
 
 3. Use o seguinte comando para instalar o pacote no armazenamento Maven local. Isso permite que você adicione-o como uma referência no projeto Storm em uma etapa posterior.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. No Eclipse, crie um novo projeto Maven (clique em **File**, **Novo** e **Projeto**).
+4. No Eclipse, crie um novo projeto Maven (clique em **Arquivo**, **Novo** e **Projeto**).
 
    	![][12]
 
-5. Selecione **Uso do local de espaço de trabalho padrão** e clique em **Avançar**
+5. Selecione **Uso do local de espaço de trabalho padrão ** e clique em **Avançar**
 
-6. Selecione o arquétipo **maven-archetype-quickstart** e clique em **Avançar**
+6. Selecione o arquétipo **maven-archetype-quickstart**, então clique em **Avançar**
 
 7. Insira um **GroupId** e **ArtifactId** e clique em **Concluir**
 
@@ -73,7 +73,7 @@ Este tutorial usa uma instalação do [HDInsight Storm], que acompanha o spout d
 		
 		eventhub.receiver.credits = 10
 
-O valor para **eventhub.receiver.credits** determina quantos eventos são divididos em lotes antes de liberá-los para o pipeline do Storm. Para simplificar, este exemplo define esse valor como 10. Em produção, ele normalmente deve ser definido para valores mais altos. Por exemplo, 1024.
+	O valor para **eventhub.receiver.credits** determina quantos eventos são divididos em lotes antes de liberá-los para o pipeline do Storm. Para simplificar, este exemplo define esse valor como 10. Em produção, ele normalmente deve ser definido para valores mais altos; por exemplo, 1024.
 
 10. Crie uma nova classe chamada **LoggerBolt** com o seguinte código:
 
@@ -112,7 +112,7 @@ O valor para **eventhub.receiver.credits** determina quantos eventos são dividi
 		
 		}
 
-Este bolt do Storm registra o conteúdo dos eventos recebidos. Isso pode ser estendido facilmente para armazenar tuplas em um serviço de armazenamento. O [tutorial de análise de sensor HDInsight] usa essa mesma abordagem para armazenar dados em HBase.
+	Este bolt do Storm registra o conteúdo dos eventos recebidos. Isso pode ser estendido facilmente para armazenar tuplas em um serviço de armazenamento. O [tutorial de análise de sensor HDInsight] usa essa mesma abordagem para armazenar dados em HBase.
 
 11. Crie uma classe chamada **LogTopology** com o seguinte código:
 
@@ -217,15 +217,15 @@ Este bolt do Storm registra o conteúdo dos eventos recebidos. Isso pode ser est
 		}
 
 
-Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
+	Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
 
 <!-- Links -->
-[Visão geral de Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/azure/dn821413.aspx
+[Visão geral dos Hubs de Eventos]: http://msdn.microsoft.com/pt-br/library/azure/dn821413.aspx
 [HDInsight Storm]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-overview/
-[Tutorial de análise de sensor do HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[tutorial de análise de sensor HDInsight]: http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

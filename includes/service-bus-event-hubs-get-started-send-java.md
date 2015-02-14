@@ -1,17 +1,17 @@
 ﻿## Enviar mensagens ao Hub de Eventos
-Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos para o seu hub de eventos. Usaremos o provedor JMS AMQP do projeto [Apache Qpid](http://qpid.apache.org/). Isso é análogo a usar tópicos e filas do barramento de serviço com AMQP por meio de Java, como mostrado [aqui](http://azure.microsoft.com/pt-br/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Para obter mais informações, consulte a documentação do [Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e o [serviço de mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
+Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos para o seu hub de eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é análogo a usar tópicos e filas do barramento de serviço com AMQP por meio de Java, como mostrado [aqui](http://azure.microsoft.com/pt-br/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Para obter mais informações, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e [serviço de mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
-1. No Eclipse, crie um novo projeto Java chamado **Sender**.
+1. No Eclipse, crie um novo projeto Java chamado **Remetente**.
 
 2. Baixe a versão mais recente da biblioteca **Qpid JMS AMQP 1.0** [daqui](http://qpid.apache.org/components/qpid-jms/index.html).
 
-3. Extraia os arquivos do arquivo morto e copie os seguintes jars do diretório `qpid-amqp-1-0-client-jms\<version>\lib` do arquivo em seu projeto Eclipse **Sender**.
+3. Extraia os arquivos do arquivo morto e copie os seguintes jars do diretório `qpid-amqp-1-0-client-jms\<version>\lib`do arquivo morto em seu projeto Eclipse **Remetente**.
 
-4. No Gerenciador de Pacotes do Eclipse, clique com botão direito do mouse no projeto **Sender** e selecione **Propriedades**. No painel esquerdo da caixa de diálogo, clique em **Caminho de compilação Java**, clique na guia **Bibliotecas** e, em seguida, no botão **Adicionar JARs**. Selecione todos os jars anteriormente copiados e, em seguida, clique em **OK**.
+4. No Gerenciador de Pacotes do Eclipse, clique com botão direito do mouse no projeto **Remetente** e selecione **Propriedades**. No painel esquerdo da caixa de diálogo, clique em **Caminho de compilação Java**, clique na guia **Bibliotecas** e, em seguida, no botão **Adicionar JARs**. Selecione todos os jars anteriormente copiados e, em seguida, clique em **OK**.
 
 	![][8]
 
-5. Crie um arquivo chamado **servicebus.properties** na raiz do projeto **Sender**, com o seguinte conteúdo. Lembre-se de substituir o valor para o nome do hub de evento e o nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar a URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Crie um arquivo chamado **servicebus.properties** na raiz do projeto **Remetente**, com o seguinte conteúdo. Lembre-se de substituir o valor para o nome do Hub de Evento e o nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar a URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		# servicebus.properties - sample JNDI configuration
 
@@ -24,7 +24,7 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
 
-5. Crie uma nova classe chamada **Sender**. Adicione as seguintes declarações `import`:
+5. Crie uma nova classe chamada **Remetente**. Adicione as instruções `import` a seguir:
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -92,4 +92,4 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png<!--HONumber=42-->

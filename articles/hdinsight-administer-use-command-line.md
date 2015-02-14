@@ -1,21 +1,35 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="Gerenciar clusters do Hadoop usando a Linha de comando de plataforma cruzada | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Saiba como usar o Cross-Platform Command-Line Interface para gerenciar clusters Hadoop no HDIsight em qualquer plataforma com suporte ao Node.js, incluindo Windows, Mac e Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties 
+	pageTitle="Gerenciar clusters do Hadoop usando a Linha de comando de plataforma cruzada | Azure" 
+	description="Saiba como usar o Cross-Platform Command-Line Interface para gerenciar clusters Hadoop no HDIsight em qualquer plataforma com suporte ao Node.js, incluindo Windows, Mac e Linux." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
-# Gerenciar clusters do Hadoop no HDInsight usando a Interface de Linha de comando de plataforma cruzada
+# Gerenciar clusters Hadoop no HDInsight Usando a interface de linha de comando da plataforma cruzada
 
 Neste artigo, você aprenderá como usar a Interface de Linha de comando de plataforma cruzada para gerenciar clusters do Hadoop no HDInsight. A ferramenta de linha de comando é implementada no Node.js. Ela pode ser usada em qualquer plataforma que ofereça suporte ao Node.js, incluindo Windows, Mac e Linux. 
 
 A ferramenta de linha de comando é um software livre.  O código-fonte é gerenciado no GitHub em <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 
-Este artigo aborda apenas o uso da interface de linha de comando do Windows. Para obter um guia geral de como usar a interface de linha de comando, consulte [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][azure-command-line-tools]. Para obter uma documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][azure-command-line-tool].
+Este artigo aborda apenas o uso da interface de linha de comando do Windows. Para obter um guia geral de como usar a interface de linha de comando, consulte [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][azure-command-line-tools]. Para obter documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][azure-command-line-tool].
 
 
 **Pré-requisitos:**
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-- **Assinatura do Azure**. O Azure é uma plataforma baseada em assinatura.Para obter mais informações sobre como obter uma assinatura, consulte [Opções de Compra, ][azure-purchase-options][Ofertas para Membros][azure-member-offers] ou [Avaliação Gratuita][azure-free-trial].
+- **Assinatura do Azure**. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra][azure-purchase-options], [Ofertas para membros][azure-member-offers] ou [Avaliação gratuita][azure-free-trial].
 
 ##Neste artigo
 
@@ -28,18 +42,18 @@ Antes de começar este artigo, você deve ter o seguinte:
 * [Próximas etapas](#nextsteps)
 
 ##<a id="installation"></a> Instalação
-A interface de linha de comando pode ser instalada usando o *NPM (Gerenciador de Pacotes do Node.js)* ou o Windows Installer.
+A interface de linha de comando pode ser instalada usando o *Node.js Package Manager (NPM)* ou o Windows Installer.
 
 **Para instalar a interface de linha de comando usando o NPM**
 
-1.	Navegue até **www.nodejs.org**.
+1.	Procure o **www.nodejs.org**.
 2.	Clique em **INSTALAR** e siga as instruções usando as configurações padrão.
-3.	Abra o **Prompt de Comando** (ou o *Prompt de Comando do Azure* ou o *Prompt de Comando do Desenvolvedor para VS2012*) em sua estação de trabalho.
+3.	Abra o **Prompt de comando** (ou *Azure Command Prompt*, ou *Developer Command Prompt for VS2012*) em sua estação de trabalho.
 4.	Execute o seguinte comando na janela de prompt de comando.
 
 		npm install -g azure-cli
 
-	> [WACOM.NOTE] Se você receber um erro informando que o comando NPM não foi encontrado, verifique se os caminhos a seguir estão na variável de ambiente PATH: <i>C:\Arquivos de Programas (x86)\nodejs;C:\Usuários\[nome_usuário]\AppData\Roaming\npm</i> ou <i>C:\Arquivos de Programas\nodejs;C:\Usuários\[nome_usuário]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE] Se você receber um erro informando que o comando NPM não foi encontrado, verifique se os caminhos a seguir estão na variável de ambiente PATH: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> ou <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
 
 5.	Execute o comando a seguir para verificar a instalação:
@@ -56,13 +70,13 @@ A interface de linha de comando pode ser instalada usando o *NPM (Gerenciador de
 **Para instalar a interface de linha de comando usando o Windows Installer**
 
 1.	Navegue até **http://azure.microsoft.com/pt-br/downloads/**.
-2.	Role para baixo até a seção **Ferramentas de linha de comando** e clique em **Interface de Linha de Comando de Plataforma Cruzada** e siga o assistente do Web Platform Installer.
+2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando entre Plataformas** e siga o assistente do Web Platform Installer.
 
 ##<a id="importsettings"></a> Baixar e importar o arquivo publishsettings da conta do Azure
 
 Antes de usar a interface de linha de comando, você deve configurar a conectividade entre a estação de trabalho e o Azure. As informações da assinatura do Azure são usadas pela interface de linha de comando para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo publishsettings. O arquivo publishsettings pode ser importado como uma definição de configuração local persistente que a interface de linha de comando usará para operações subsequentes. Você precisa importar as publishsettings somente uma vez.
 
-> [WACOM.NOTE] O arquivo publishsettings contém informações confidenciais. É recomendável excluir o arquivo ou executar etapas adicionais para criptografar a pasta de usuário que contém o arquivo. No Windows, modifique as propriedades da pasta ou use o BitLocker.
+> [AZURE.NOTE] O arquivo publishsettings contém informações confidenciais. É recomendável excluir o arquivo ou executar etapas adicionais para criptografar a pasta de usuário que contém o arquivo. No Windows, modifique as propriedades da pasta ou use o BitLocker.
 
 
 **Para baixar e importar as publishsettings**
@@ -87,7 +101,7 @@ Antes de usar a interface de linha de comando, você deve configurar a conectivi
 
 ##<a id="provision"></a> Provisionar um cluster HDInsight
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 
 O HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Uma conta de Armazenamento do Azure é necessária para que seja possível criar um cluster HDInsight. 
@@ -97,7 +111,7 @@ Depois de importar o arquivo publishsettings, você pode usar o seguinte comando
 	azure account storage create [options] <StorageAccountName>
 
 
-> [WACOM.NOTE] A conta de armazenamento deve ser posicionada no mesmo datacenter. No momento, você só poderá provisionar clusters do HDInsight nos seguintes datacenters:
+> [AZURE.NOTE] A conta de armazenamento deve ser posicionada no mesmo datacenter. No momento, você só poderá provisionar clusters do HDInsight nos seguintes datacenters:
 
 ><ul>
 <li>Sudeste Asiático</li>
@@ -119,7 +133,7 @@ Se já tiver uma conta de armazenamento, mas não souber o nome e a chave da con
 	-- Lists the keys for a storage account
 	azure account storage keys list <StorageAccountName>
 
-Para obter detalhes sobre como obter informações usando o portal de gerenciamento, consulte a seção *Como: Exibir, copiar e regenerar chaves de acesso de armazenamento* em [Como criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storageaccount].
+Para obter detalhes de como obter informações usando o portal de gerenciamento, consulte a seção *Como: Exibir, copiar e regenerar chaves de acesso de armazenamento* de [Como criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storageaccount].
 
 
 O comando *azure hdinsight cluster create* cria o contêiner caso ele não exista. Se você optar por criar o contêiner com antecedência, poderá usar o seguinte comando:
@@ -195,7 +209,7 @@ Neste artigo, você aprendeu a executar diferentes tarefas administrativas de cl
 * [Administrar o HDInsight usando o PowerShell][hdinsight-admin-powershell]
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 * [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux][azure-command-line-tools]
-* [Ferramenta de Linha de Comando do Azure para Mac e Linux][azure-command-line-tool]
+* [Ferramenta de linha de comando do Azure para Mac e Linux][azure-command-line-tool]
 
 
 [azure-command-line-tools]: ../xplat-cli/
@@ -214,5 +228,4 @@ Neste artigo, você aprendeu a executar diferentes tarefas administrativas de cl
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

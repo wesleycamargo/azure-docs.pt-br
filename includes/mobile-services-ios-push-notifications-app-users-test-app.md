@@ -1,11 +1,11 @@
 ﻿
-1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS. Em seguida, clique em **OK** para aceitar as notificações por push. Verifique se o logon e a autenticação foram bem-sucedidos.
+1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS. Em seguida, clique em **OK** para aceitar as notificações por push. Verificar que o logon e a autenticação sejam bem sucedidos.
 
   	![][23]
 
-    > [WACOM.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+    > [AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite um texto significativo, como _Uma nova tarefa de Serviços Móveis_, e clique no ícone de adição (**+**).
+2. No aplicativo, digite um texto significativo, por exemplo, _Uma nova tarefa de Serviços Móveis_, e clique no ícone de adição (**+**).
 
   	![][24]
 
@@ -24,3 +24,4 @@ Este tutorial foi concluído com êxito.
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
 
+<!--HONumber=42-->

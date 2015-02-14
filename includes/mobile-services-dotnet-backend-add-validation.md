@@ -1,5 +1,5 @@
 ﻿
-É sempre uma boa prática validar o tamanho dos dados enviados pelos usuários. Nesta seção, você adicionará um código ao serviço móvel que valida o tamanho dos dados da cadeia de caracteres enviados para o serviço móvel e rejeita as cadeias de caracteres que são muito longas, neste caso, mais de 10 caracteres.
+É sempre uma boa prática validar o tamanho dos dados enviados pelos usuários. Nesta seção, você adicionará um código ao serviço móvel que valida o tamanho dos dados da cadeia de caracteres enviados para o serviço móvel e rejeita as cadeias de caracteres que são muito longas, neste caso mais de 10 caracteres.
 
 1. Inicie o Visual Studio com a opção **Executar como administrador** e abra a solução contendo o projeto de serviço móvel com que você trabalhou no tutorial [Introdução] ou [Introdução aos dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
 
@@ -7,7 +7,7 @@
 
    	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png)
 
-3. Substitua o método `PostTodoItem` pelo seguinte método que validará se a cadeia de caracteres de texto não é maior que 10 caracteres. Para itens que tenham um tamanho de texto maior que 10 caracteres, o método retorna um código de status HTTP Solicitação Inválida 400 com uma mensagem descritiva incluída como conteúdo.
+3. Substitua o método  `PostTodoItem` pelo seguinte método que validará se a cadeia de caracteres de texto não é maior que 10 caracteres. Para itens que tenham um tamanho de texto maior que 10 caracteres, o método retorna um código de status HTTP Solicitação Inválida 400 com uma mensagem descritiva incluída como conteúdo.
 
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -31,7 +31,7 @@
 
 5. Clique com o botão direito do mouse no projeto do serviço e clique em **Publicar**. Publique o serviço móvel na conta do Microsoft Azure usando as configurações de publicação utilizadas anteriormente no tutorial [Introdução] ou [Introdução aos dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
  
-     >[WACOM.NOTE]  Também é possível testar usando o serviço hospedado localmente no IIS Express. Para obter mais informações, consulte o tutorial [Introdução aos dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+     >[AZURE.NOTE]  Também é possível testar usando o serviço hospedado localmente no IIS Express. Para obter mais informações, consulte o tutorial [Introdução aos dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 
@@ -41,3 +41,4 @@
 
 <!-- URLs. -->
 [Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+<!--HONumber=42-->

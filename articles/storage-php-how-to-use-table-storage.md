@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Como usar o armazenamento de tabela (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Saiba como usar o serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="tamram" solutions="" manager="adinah" editor="" />
+<properties 
+	pageTitle="Como usar o armazenamento de tabela (PHP) | Microsoft Azure" 
+	description="Saiba como usar o serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela." 
+	services="storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="tomfitz"/>
 
 # Como usar o serviço Tabela do PHP
 
@@ -25,11 +39,11 @@ Este guia mostrará como executar cenários comuns usando o serviço Tabela do A
 * [Como: Excluir uma tabela](#DeleteTable)
 * [Próximas etapas](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a id="CreateAccount"></a>Criar uma conta de armazenamento do Azure
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ##<a id="CreateApplication"></a>Criar um aplicativo PHP
 
@@ -39,7 +53,7 @@ Neste guia, você usará os recursos de serviço Tabela que podem ser chamados d
 
 ##<a id="GetClientLibrary"></a>Obter as bibliotecas de cliente do Azure
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureStorage"></a>Configurar seu aplicativo para acessar o serviço Tabela
 
@@ -50,14 +64,14 @@ Para usar as APIs do serviço Tabela do Azure, você precisa:
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
-> [WACOM.NOTE]
-> Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático <code>WindowsAzure.php</code> .
+> [AZURE.NOTE]
+> Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático <code>WindowsAzure.php</code>.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-Nos exemplos abaixo, a instrução 'require_once' será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
 ##<a id="ConnectionString"></a>Configurar uma conexão de armazenamento do Azure
 
@@ -72,7 +86,7 @@ Para acessar o armazenamento do emulador:
 	UseDevelopmentStorage=true
 
 
-Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder**.Você pode:
+Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
 * passar a cadeia de conexão diretamente para ele ou
 * usar o **CloudConfigurationManager (CCM)** para verificar várias origens externas para a cadeia de conexão:
@@ -88,9 +102,9 @@ Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-##<a id="CreateTable"></a>Como criar uma tabela
+##<a id="CreateTable"></a>Como: criar uma tabela
 
-O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela.(Para obter mais informações sobre o tempo de limite do serviço Tabela, consulte [Tempos limite de configuração para as operações do serviço Tabela][table-service-timeouts].)
+O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo de limite do serviço Tabela, consulte [Tempos limite de configuração para as operações do serviço Tabela][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
@@ -116,7 +130,7 @@ Para obter informações sobre restrições em nomes de tabelas, consulte [Noç�
 
 ##<a id="AddEntity"></a>Como: Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e passá-lo para **TableRestProxy->insertEntity**. Observe que quando você criar uma entidade, você deve especificar uma 'PartitionKey' e uma 'RowKey'. Estes são os identificadores exclusivos para uma entidade e são os valores que podem ser consultados muito mais rápido que as outras propriedades da entidade. O sistema usa 'PartitionKey' para distribuir automaticamente as entidades das tabelas por vários nós de armazenamento. As entidades com a mesma 'PartitionKey' são armazenadas no mesmo nó. (Executarão operações em várias entidades armazenadas no mesmo nó melhor do que em entidades armazenadas em nós diferentes.)A 'RowKey' é a ID exclusiva de uma entidade dentro de uma partição.
+Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e passá-lo para **TableRestProxy->insertEntity**. Observe que quando você criar uma entidade, você deve especificar um  `PartitionKey` e  `RowKey`. Estes são os identificadores exclusivos para uma entidade e são os valores que podem ser consultados muito mais rápido que as outras propriedades da entidade. O sistema usa a  `PartitionKey` para distribuir automaticamente as entidades das tabelas por vários nós de armazenamento. As entidades com a mesma  `PartitionKey` são armazenadas no mesmo nó. (Executarão operações em várias entidades armazenadas no mesmo nó melhor do que em entidades armazenadas em nós diferentes.) O  `RowKey` é o ID exclusivo de uma entidade dentro de uma partição.
 
 	require_once 'vendor\autoload.php';
 
@@ -150,7 +164,7 @@ Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e pas
 
 Para obter informações sobre tipos e propriedades de tabelas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][table-data-model].
 
-A classe **TableRestProxy** oferece dois métodos alternativos para inserir entidades:   **insertOrMergeEntity** e **insertOrReplaceEntity**.  Para usar esses métodos, crie uma nova **Entidade** e passe-a como um parâmetro para qualquer método. Cada método vai inserir a entidade se ela não existir.Se a entidade já existir, **insertOrMergeEntity** atualizará valores de propriedade, se as propriedades já existem e adicionar novas propriedades se elas não existirem, enquanto **insertOrReplaceEntity** substitui completamente uma entidade existente. O exemplo a seguir mostra como usar o **insertOrMergeEntity**.Se a entidade com 'PartitionKey' "tasksSeattle" e 'RowKey' "1" ainda não existir, ela será inserida.No entanto, se ela tiver sido inserida anteriormente (conforme mostrado no exemplo acima), a propriedade 'DueDate' será atualizada e a propriedade 'Status' será adicionada.As propriedades '`Description` e `Location` também são atualizadas, mas com valores que efetivamente as deixam inalteradas.Se essas duas últimas propriedades não foram adicionadas conforme mostrado no exemplo, mas existia na entidade de destino, seus valores existentes permaneceriam inalterados.
+A classe **TableRestProxy** oferece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para usar esses métodos, crie uma nova **Entidade** e passe-a como um parâmetro para qualquer método. Cada método vai inserir a entidade se ela não existir. Se a entidade já existe, **insertOrMergeEntity** irá atualizar valores de propriedade, se as propriedades já existem e adicionar novas propriedades se elas não existirem, enquanto **insertOrReplaceEntity** substitui completamente uma entidade existente. O exemplo a seguir mostra como usar o **insertOrMergeEntity**. Se a entidade com  `PartitionKey` "tasksSeattle" e  `RowKey` "1" ainda não existir, ela será inserida. No entanto, se ela tiver sido inserida anteriormente (conforme mostrado no exemplo acima), a propriedade  `DueDate` será atualizada e a propriedade  `Status` será adicionada. As propriedades  `Description` e  `Location` também são atualizadas, mas com valores que efetivamente as deixam inalteradas. Se essas duas últimas propriedades não foram adicionadas conforme mostrado no exemplo, mas existia na entidade de destino, seus valores existentes permaneceriam inalterados.
 
 	require_once 'vendor\autoload.php';
 
@@ -193,7 +207,7 @@ A classe **TableRestProxy** oferece dois métodos alternativos para inserir enti
 
 ##<a id="RetrieveEntity"></a>Como: Recuperar uma única entidade
 
-O método **TableRestProxy->getEntity** permite que você recupere uma única entidade consultando seu 'PartitionKey' e 'RowKey'. No exemplo abaixo, a chave da partição 'tasksSeattle' e a chave de linha '1' são passadas para o método **getEntity**.
+O método **TableRestProxy->getEntity** permite que você recupere uma única entidade consultando seu  `PartitionKey` e  `RowKey`. No exemplo abaixo, a chave da partição `tasksSeattle` e a chave de linha `1` são passadas para o método **getEntity**.
 
 	require_once 'vendor\autoload.php';
 
@@ -221,7 +235,7 @@ O método **TableRestProxy->getEntity** permite que você recupere uma única en
 
 ##<a id="RetEntitiesInPartition"></a>Como: Recuperar todas as entidades em uma partição
 
-As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *partition_name*".O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities**.
+As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *partition_name*". O exemplo a seguir mostra como recuperar todas as entidades na partição  `tasksSeattle` passando um filtro para o método **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
@@ -253,7 +267,7 @@ As consultas de entidades são construídas usando filtros (para obter mais info
 
 ##<a id="RetrieveSubset"></a>Como: Recuperar um subconjunto de entidades em uma partição
 
-O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recuperar será determinado pelo filtro que você usar (para obter mais informações, consulte [Consultar tabelas e entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um determinado `Location` e uma `DueDate`menor do que uma data especificada.
+O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recuperar será determinado pelo filtro que você usar (para obter mais informações, consulte [Consultar tabelas e entidades][filtros]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades em um determinado `Location` e uma `DueDate` menor do que uma data especificada.
 
 	require_once 'vendor\autoload.php';
 
@@ -285,7 +299,7 @@ O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer
 
 ##<a id="RetPropertiesSubset"></a>Como: Recuperar um subconjunto de propriedades da entidade
 
-Uma consulta pode recuperar um subconjunto de propriedades da entidade.  Essa técnica, chamada *projeção*, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Para especificar uma propriedade a ser recuperada, passe o nome da propriedade para o método **Consulta->addSelectField**.Você pode chamar esse método várias vezes para adicionar mais propriedades.Depois da execução de **TableRestProxy->queryEntities**, as entidades retornadas somente terão as propriedades selecionadas.(Se você desejar retornar um subconjunto de entidades de tabela, use um filtro conforme as consultas acima.)
+Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa técnica, chamada  *projeção*, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Para especificar uma propriedade a ser recuperada, passe o nome da propriedade para o método **Consulta->addSelectField**. Você pode chamar esse método várias vezes para adicionar mais propriedades. Depois da execução de **TableRestProxy->queryEntities**, as entidades retornadas somente terão as propriedades selecionadas. (Se você desejar retornar um subconjunto de entidades de tabela, use um filtro conforme as consultas acima.)
 
 	require_once 'vendor\autoload.php';
 
@@ -323,7 +337,7 @@ Uma consulta pode recuperar um subconjunto de propriedades da entidade.  Essa t�
 
 ##<a id="UpdateEntity"></a>Como: Atualizar uma entidade
 
-Uma entidade existente pode ser atualizada usando os métodos **Entidade->setProperty** e **Entidade->addProperty** na entidade e, em seguida, chamando **TableRestProxy->updateEntity**. O exemplo a seguir recupera uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade.Observe que a remoção de uma propriedade é feita definindo seu valor como **nulo**. 
+Uma entidade existente pode ser atualizada usando os métodos **Entidade->setProperty** e **Entidade->addProperty** na entidade e, em seguida, chamando **TableRestProxy->updateEntity**. O exemplo a seguir recupera uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade. Observe que a remoção de uma propriedade é feita definindo seu valor como **nulo**. 
 
 	require_once 'vendor\autoload.php';
 	
@@ -359,7 +373,7 @@ Uma entidade existente pode ser atualizada usando os métodos **Entidade->setPro
 
 ##<a id="DeleteEntity"></a>Como: Excluir uma entidade
 
-Para excluir uma entidade, passe o nome da tabela e a `PartitionKey` e `RowKey` da entidade para o método **TableRestProxy->deleteEntity**.
+Para excluir uma entidade, passe o nome da tabela e a  `PartitionKey` e  `RowKey` da entidade para o método **TableRestProxy->deleteEntity**.
 
 	require_once 'vendor\autoload.php';
 
@@ -472,7 +486,7 @@ Agora que você aprendeu os conceitos básicos do Serviço Tabela do Azure, siga
 - Consulte a referência de MSDN: [Armazenando e acessando dados no Azure] []
 - Visite o Blog da Equipe de Armazenamento do Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[baixar]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894042.aspx
@@ -480,5 +494,4 @@ Agora que você aprendeu os conceitos básicos do Serviço Tabela do Azure, siga
 [table-data-model]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894038.aspx
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

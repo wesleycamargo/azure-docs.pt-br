@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Como usar o serviço Fila (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Como usar o serviço Fila (Node.js) | Microsoft Azure" 
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js." 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -8,16 +22,20 @@
 
 # Como usar o serviço Fila do Node.js
 
-Este guia mostra como executar cenários comuns usando o serviço Fila do Microsoft Azure. As amostras são gravadas usando a API do Node.js. Os cenários abordados incluem **inserir, ****espiar, ****obter**e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
+Este guia mostra como executar cenários comuns usando o serviço
+Serviço de fila do Azure. Os exemplos são escritos usando a Node.js
+API. Os cenários abordados incluem mensagens das filas de **inserção**, **inspeção**,
+**obtendo**, e **excluindo** mensagens da fila, bem como **criando e
+excluindo filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas][].
 
 ## Sumário
 
 * [O que é o serviço Fila?][]   
-* [Conceitos][]   
-* [Criar uma conta de armazenamento do Azure][]  
-* [Criar um aplicativo do Node.js][]   
-* [Configurar seu aplicativo para acessar o armazenamento][]   
-* [Configurar uma cadeia de conexão de armazenamento do Azure][]   
+* [Conceitos][]
+* [Criar uma conta de armazenamento do Azure][]
+* [Criar um aplicativo Node.js][]
+* [Configurar seu aplicativo para acessar o armazenamento][]
+* [Configurar uma cadeia de conexão de armazenamento do Azure][]
 * [Como: Criar uma fila][]   
 * [Como: Inserir uma mensagem em uma fila][]   
 * [Como: Espiar a próxima mensagem][]   
@@ -29,25 +47,27 @@ Este guia mostra como executar cenários comuns usando o serviço Fila do Micros
 * [Como: Trabalhando com assinaturas de acesso compartilhado][]
 * [Próximas etapas][]
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 <h2><a name="create-account"></a>Criar uma conta de Armazenamento do Azure</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="create-app"> </a>Criar um aplicativo do Node.js
+## <a name="create-app"></a>Criar um aplicativo do Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure, ][Serviço de Nuvem do Node.js][Node.js Cloud Service] (usando o Windows PowerShell) ou [Site com o WebMatrix].
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure], [Serviço em Nuvem Node.js][Serviço em Nuvem Node.js] (usando o Windows PowerShell) ou [site com WebMatrix].
 
-## <a name="configure-access"> </a>Configurar seu aplicativo para acessar o armazenamento
+## <a  name="configure-access"></a>Configurar seu aplicativo para acessar o armazenamento
 
-Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
+Para usar o armazenamento do Azure, você precisa do SDK de armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que
+se comunicam com os serviços REST do armazenamento.
 
 ### Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 
-1.  Use uma interface de linha de comando, como **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix), e vá até a pasta onde você criou o aplicativo de exemplo.
+1.  Use uma interface de linha de comando, como o **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix), e vá até a pasta onde você criou a amostra do aplicativo.
 
-2.  Digite **npm install azure-storage** na janela de comando, que deve resultar na seguinte saída:
+2.  Digite **npm install azure-storage** na janela de comando, que deve
+    resultar na seguinte saída:
 
         azure-storage@0.1.0 node_modules\azure-storage
 		├── extend@1.2.1
@@ -59,27 +79,34 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **nó\ módulos** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
+3.  Você pode executar manualmente o comando **ls** para verificar se uma pasta
+    **node\_modules** foi criada. Dentro dessa pasta você irá
+    localizar o pacote **azure-storage** que contém as bibliotecas necessárias para
+    acessar o armazenamento.
 
 ### Importar o pacote
 
-Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte superior do arquivo**server.js** do aplicativo no qual pretende usar o armazenamento:
+Usando o bloco de notas ou outro editor de texto, adicione o seguinte à parte superior do
+arquivo **server.js** do aplicativo onde você pretende usar o armazenamento:
 
     var azure = require('azure-storage');
 
-## <a name="setup-connection-string"> </a>Configurar uma conexão de armazenamento do Azure
+## <a name="setup-connection-string"></a>Configurar uma conexão de armazenamento do Azure
 
-O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
+O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
 
-Para obter um exemplo de como definir as variáveis de ambiente no portal de gerenciamento para um Site do Azure, consulte [Aplicativo Web do Node.js com Armazenamento]
+Para obter um exemplo de como definir as variáveis de ambiente no portal de gerenciamento para um Site do Azure, confira [Aplicativo da Web do Node.js com Armazenamento].
 
 ## <a name="create-queue"> </a>Como: Criar uma fila
 
-O código a seguir cria o objeto **QueueService**, permitindo que você trabalhe com filas.
+O código a seguir cria um objeto **QueueService** objeto, que permite que você
+trabalhe com filas.
 
     var queueSvc = azure.createQueueService();
 
-Use o método **createQueueIfNotExists**, que retorna a fila especificada, se já existente, ou cria uma nova fila com o nome especificado, se ele ainda não existir.
+Use o método **createQueueIfNotExists**, que retorna a
+fila especificada, se ela já existe, ou cria uma nova fila com nome especificado
+se ele ainda não existir.
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
       if(!error){
@@ -87,11 +114,11 @@ Use o método **createQueueIfNotExists**, que retorna a fila especificada, se j�
 	  }
 	});
 
-Se a fila for criada, 'result' é verdadeiro. Se a fila existir, `result` é falso.
+Se a fila for criada,  `result` é verdadeiro. Se a fila existir,  `result` é falso.
 
 ###Filtros
 
-É possível aplicar operações de filtragem opcionais às operações executadas usando **QueueService**.As operações de filtragem podem incluir log, repetição automática etc. Os filtros são objetos que implementam um método com a assinatura:
+É possível aplicar operações de filtragem opcionais às operações executadas usando **QueueService**. As operações de filtragem podem incluir log, repetição automática etc. Os filtros são objetos que implementam um método com a assinatura:
 
 		function handle (requestOptions, next)
 
@@ -108,7 +135,8 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 ## <a name="insert-message"> </a>Como: Inserir uma mensagem em uma fila
 
-Para inserir uma mensagem em uma fila, use o método **createMessage** paracriar uma nova mensagem e adicione-a à fila.
+Para inserir uma mensagem em uma fila, use o método **createMessage** para
+criar uma nova mensagem e adicioná-la à fila.
 
 	queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
 	  if(!error){
@@ -118,7 +146,9 @@ Para inserir uma mensagem em uma fila, use o método **createMessage** paracriar
 
 ## <a name="peek-message"> </a>Como: Espiar a próxima mensagem
 
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peekMessages**. Por padrão, **peekMessages** inspeciona uma única mensagem.
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la
+da fila chamando o método **PeekMessage**. Por padrão,
+**peekMessages** inspeciona uma única mensagem.
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -126,9 +156,9 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 	  }
 	});
 
-O 'result' contém a mensagem.
+O `result` contém a mensagem.
 
-> [WACOM.NOTE] Usando **getMessages** quando não existem mensagens na fila não retornará um erro, no entanto, nenhuma mensagem será retornada.
+> [AZURE.NOTE] Usando **peekMessages** quando não existem mensagens na fila não retornará um erro, no entanto, nenhuma mensagem será retornada.
 
 ## <a name="get-message"> </a>Como: Remover a próxima mensagem da fila
 
@@ -138,7 +168,7 @@ O processamento de uma mensagem é um processo de duas fases:
 
 2. Excluir a mensagem.
 
-Para remover uma mensagem da fila, use **getMessage**. Isso torna a mensagem invisível na fila, para que outros clientes não possam processá-la.Depois que seu aplicativo processar a mensagem, chame **deleteMessage** para excluí-la da fila.O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
+Para remover uma mensagem da fila, use **getMessage**. Isso torna a mensagem invisível na fila, para que outros clientes não possam processá-la. Depois que seu aplicativo processar a mensagem, chame **deleteMessage** para excluí-la da fila. O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
@@ -152,14 +182,14 @@ Para remover uma mensagem da fila, use **getMessage**. Isso torna a mensagem inv
 	  }
 	});
 
-> [WACOM.NOTE] Por padrão, uma mensagem só é oculta por 30 segundos; depois disso, fica visível para os outros clientes. Você pode especificar um valor diferente usando 'options.visibilityTimeout' com **getMessages**.
+> [AZURE.NOTE] Por padrão, uma mensagem só é oculta por 30 segundos; depois disso, fica visível para os outros clientes. Você pode especificar um valor diferente usando  `options.visibilityTimeout` com **getMessages**.
 
-> [WACOM.NOTE]
-> Usar <b>getMessages</b> quando não houver nenhuma mensagem na fila não retornará um erro, mas nenhuma mensagem será retornada.
+> [AZURE.NOTE]
+> Usando <b>getMessages</b> quando não existem mensagens na fila não retornará um erro, no entanto, nenhuma mensagem será retornada.
 
 ## <a name="change-contents"> </a>Como: Alterar o conteúdo de uma mensagem na fila
 
-Você pode alterar o conteúdo de uma mensagem na fila usando **updateMessage**.O exemplo a seguir atualiza o texto de uma mensagem:
+Você pode alterar o conteúdo de uma mensagem na fila usando **updateMessage**. O exemplo a seguir atualiza o texto de uma mensagem:
 
     queueSvc.getMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -177,10 +207,10 @@ Você pode alterar o conteúdo de uma mensagem na fila usando **updateMessage**.
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila:
 
-* 'options.numOfMessages' - Recuperar um lote de mensagens (até 32).
-* 'options.visibilityTimeout' - Definir um tempo limite de invisibilidade mais longo ou mais curto.
+* `options.numOfMessages`- Recuperar um lote de mensagens (até 32.)
+* `options.visibilityTimeout`- Definir um tempo limite de invisibilidade mais longo ou mais curto.
 
-O seguinte exemplo usa o método **getMessages** para receber 15 mensagens em uma chamada.Em seguida, ele processa
+O seguinte exemplo usa o método **getMessages** para receber 15 mensagens em uma chamada. Em seguida, ele processa
 cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem retornada por este método.
 
     queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
@@ -218,7 +248,7 @@ Para recuperar uma lista de filas, use **listQueuesSegmented**. Para recuperar u
 	  }
 	});
 
-Se todas as filas não puderem ser retornadas, result.continuationToken poderá ser usado como o primeiro parâmetro de **listQueuesSegmented** ou o segundo parâmetro de **listQueuesSegmentedWithPrefix** para recuperar mais resultados.
+Se todas as filas não puderem ser retornadas,  `result.continuationToken` poderá ser usado como o primeiro parâmetro de **listQueuesSegmented** ou o segundo parâmetro de **listQueuesSegmentedWithPrefix** para recuperar mais resultados.
 
 ## <a name="delete-queue"> </a>Como: Excluir uma fila
 
@@ -237,7 +267,7 @@ Para limpar todas as mensagens de uma fila sem excluí-la, use **clearMessages**
 
 Assinaturas de Acesso Compartilhado (SAS) são uma forma segura de fornecer acesso granular a filas sem fornecer o nome ou as chaves da conta de armazenamento. As SAS são muitas vezes usadas para fornecer acesso limitado às filas, como permitir que um aplicativo móvel envie mensagens.
 
-Um aplicativo confiável, como um serviço baseado em nuvem, gera uma SAS usando **generateSharedAccessSignature** de **QueueService**, e o oferece a um aplicativo não confiável ou semiconfiável. Por exemplo, um aplicativo móvel.A SAS é gerada utilizando uma política que descreve as datas inicial e final durante as quais a SAS é válida, assim como o nível de acesso concedido ao titular da SAS.
+Um aplicativo confiável, como um serviço baseado em nuvem, gera uma SAS usando **generateSharedAccessSignature** de **QueueService**, e o oferece a um aplicativo não confiável ou semiconfiável. Por exemplo, um aplicativo móvel. A SAS é gerada utilizando uma política que descreve as datas inicial e final durante as quais a SAS é válida, assim como o nível de acesso concedido ao titular da SAS.
 
 O exemplo a seguir gera uma nova política de acesso compartilhado que permitirá que o titular da SAS adicione mensagens à fila e expira 100 minutos após o momento em que é criado.
 
@@ -259,7 +289,7 @@ O exemplo a seguir gera uma nova política de acesso compartilhado que permitir�
 
 Observe que também devem ser fornecidas as informações do host, já que são necessárias quando o titular da SAS tenta acessar a fila.
 
-O aplicativo cliente usa a SAS com **QueueServiceWithSAS** para executar operações na fila.O exemplo a seguir conecta à fila e cria uma mensagem.
+O aplicativo cliente usa a SAS com **QueueServiceWithSAS** para executar operações na fila. O exemplo a seguir conecta à fila e cria uma mensagem.
 
 	var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 	sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
@@ -274,7 +304,7 @@ Como a SAS foi gerada com acesso para adição, se for feita uma tentativa de le
 
 Você também pode usar uma ACL (Lista de Controle de Acesso) para definir a política de acesso para uma SAS. Isso é útil se você quiser permitir que vários clientes acessem a fila, mas oferece diferentes políticas de acesso para cada cliente.
 
-Uma ACL é implementada através de um conjunto de políticas de acesso, com uma ID associada a cada política. O exemplo a seguir define duas políticas; uma para 'user1' e um para 'user2':
+Uma ACL é implementada através de um conjunto de políticas de acesso, com uma ID associada a cada política. O exemplo a seguir define duas políticas; uma para 'user1' e uma para 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -295,7 +325,7 @@ Uma ACL é implementada através de um conjunto de políticas de acesso, com uma
 	  }
 	];
 
-O exemplo a seguir obtém a ACL atual para **myqueue**, em seguida, adiciona as novas políticas usando **ssetQueueAcl**.Essa abordagem permite:
+O exemplo a seguir obtém a ACL atual para **myqueue**, em seguida, adiciona as novas políticas usando **ssetQueueAcl**. Essa abordagem permite:
 
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
@@ -313,21 +343,21 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 
 	queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links
 para saber como fazer tarefas mais complexas de armazenamento.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][].
--   Visite o [Blog da equipe do Armazenamento do Azure][].
+-   Visite o Blog da equipe do [Armazenamento do Azure][].
 -   Visite o repositório [SDK de armazenamento do Azure para nó][] no GitHub.
 
-  [SDK de armazenamento do Azure para o nó]: https://github.com/Azure/azure-storage-node
+  [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node
   [Próximas etapas]: #next-steps
   [O que é o serviço Fila?]: #what-is
   [Conceitos]: #concepts
   [Criar uma conta de armazenamento do Azure]: #create-account
-  [Criar um aplicativo do Node.js]: #create-app
+  [Criar um aplicativo Node.js]: #create-app
   [Configurar seu aplicativo para acessar o armazenamento]: #configure-access
   [Configurar uma cadeia de conexão de armazenamento do Azure]: #setup-connection-string
   [Como: Criar uma fila]: #create-queue
@@ -339,11 +369,11 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Como: Obter o tamanho da fila]: #get-queue-length
   [Como: Excluir uma fila]: #delete-queue
   [Como: Trabalhando com assinaturas de acesso compartilhado]: #sas
-  [usando a API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx
-  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [using the REST API]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Serviço de Nuvem do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Aplicativo Web Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Node.js Cloud Service with Storage]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Aplicativo da Web do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -352,9 +382,8 @@ para saber como fazer tarefas mais complexas de armazenamento.
   
   
   
-  [Serviço de Nuvem do Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Serviço em Nuvem Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Site com WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
-
-<!--HONumber=35.1-->
+  [Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+ [site com WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
+<!--HONumber=42-->

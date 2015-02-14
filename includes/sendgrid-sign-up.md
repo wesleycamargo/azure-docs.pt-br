@@ -1,4 +1,4 @@
-﻿Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a todas as APIs (Web, SMTP, Evento, Análise, Subsistema de usuário). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
+Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a [todas as APIs][] (Web, SMTP, Evento, Análise, Subsistema de usuário). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
 
 ### Para se inscrever em uma conta do SendGrid
 
@@ -8,15 +8,15 @@
 
 	![command-bar-new][command-bar-new]
 
-3. Clique em **Repositório**.
+3. Clique em **Marketplace**.
 
 	![sendgrid-store][sendgrid-store]
 
-4. Na caixa de diálogo **Escolher um complemento**, selecione **SendGrid** e clique na seta à direita.
+4. Na caixa de diálogo **Escolher um aplicativo e serviço**, selecione **SendGrid** e clique na seta à direita.
 
-5. Na caixa de diálogo **Personalizar Complemento**, selecione o plano do **SendGrid** no qual você deseja se inscrever.
+5. Na caixa de diálogo **Personalizar aplicativo e serviço**, selecione o plano do **SendGrid** no qual você deseja se inscrever.
 
-6. Digite um nome para identificar o serviço do **SendGrid** nas suas configurações do Azure ou use o valor padrão de **SendGrid**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
+6. Digite um nome para identificar o serviço de **SendGrid** nas suas configurações do Azure ou use o valor padrão de **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
 
 	![store-screen-2][store-screen-2]
 
@@ -24,7 +24,7 @@
 
 8. Clique na seta à direita.
 
-9. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que clicar na marca de seleção, sua conta do SendGrid iniciará o [processo de provisionamento].
+9. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que clicar na marca de seleção, sua conta do SendGrid iniciará o [processo de provisionamento do SendGrid].
 
 	![store-screen-3][store-screen-3]
 
@@ -32,9 +32,9 @@
 
 	![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
-Sua conta do SendGrid será provisionada imediatamente e você verá a mensagem **SendGrid de complemento adquirido com êxito**. Sua conta e as credenciais serão criadas agora. Você está pronto para enviar emails neste ponto. 
+	Sua conta do SendGrid será provisionada imediatamente e você verá a mensagem **SendGrid de complemento adquirido com êxito**. Sua conta e as credenciais serão criadas agora. Você está pronto para enviar emails neste ponto. 
 
-	Para modificar o plano de assinatura ou consultar as configurações de contato do SendGrid, clique no nome do serviço do SendGrid para abrir o painel de complementos do SendGrid. 
+	Para modificar o plano de assinatura ou consultar as configurações de contato do SendGrid, clique no nome do serviço do SendGrid para abrir o painel SendGrid Marketplace. 
 
 	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
@@ -42,19 +42,19 @@ Sua conta do SendGrid será provisionada imediatamente e você verá a mensagem 
 
 ### Para localizar suas credenciais do SendGrid ###
 
-1.  Clique em **Informações de Conexão**.
+1. Clique em **Informações de Conexão**.
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2. Na caixa de diálogo *Informações de conexão*, copie a **Senha** e o nome de usuário para usar neste tutorial posteriormente.
+2. Na caixa de diálogo *Connection info*, copie a **Senha** e o Nome de usuário para usar neste tutorial posteriormente.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-Para definir suas configurações de entrega de email, clique no botão **Gerenciar**. Isso abrirá a interface da Web do Sendgrid.com, onde você poderá fazer logon e abrir o Painel de Controle do SendGrid. 
+	Para definir suas configurações de entrega de email, clique no botão **Gerenciar**. Isso abrirá a interface da Web do Sendgrid.com, onde você poderá fazer logon e abrir o Painel de Controle do SendGrid. 
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
-Para obter mais informações sobre como começar a usar o SendGrid, consulte [Começar com o SendGrid][].
+	Para obter mais informações sobre como começar com o SendGrid, consulte [Começar com o SendGrid][].
 
 <!--images-->
 
@@ -72,7 +72,8 @@ Para obter mais informações sobre como começar a usar o SendGrid, consulte [C
 
 [Recursos do SendGrid]: http://sendgrid.com/features
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-[Guia de Introdução do SendGrid]: http://sendgrid.com/docs
-[Processo de provisionamento do SendGrid]: https://support.sendgrid.com/hc/pt-br/articles/200181628-Why-is-my-account-being-provisioned-
+[Começar com o SendGrid]: http://sendgrid.com/docs
+[processo de provisionamento do SendGrid]: https://support.sendgrid.com/hc/pt-br/articles/200181628-Why-is-my-account-being-provisioned-
+[todas as APIs]: https://sendgrid.com/docs/API_Reference/index.html
 
-
+<!--HONumber=42-->

@@ -1,17 +1,33 @@
-﻿<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Criar uma máquina virtual com Windows no Portal de visualização do Azure" metaKeywords="Azure image gallery vm" description="Saiba como criar uma máquina virtual (VM) do Azure executando o Windows, usando a Galeria de VMs do Portal de Visualização do Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Create a Virtual Machine Running Windows in the Azure Preview Portal" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
+<properties 
+	pageTitle="Criar uma máquina virtual executando o Windows no Portal de Visualização do Azure" 
+	description="Saiba como criar uma máquina virtual do Azure (VM) executando o Windows, usando o Azure Marketplace no Portal de visualização do Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="danlep,kathydav,rasquill" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="danlep,kathydav,rasquill"/>
 
 <!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
+-->
+
+<!-- Preview portal screenshots getting a little out of date. Please refresh at next update.
 -->
 
 # Criar uma Máquina Virtual no Portal de visualização do Azure#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Portal do Azure</a><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Portal de visualização do Azure</a></div>
 
-Este tutorial mostra como é fácil criar uma máquina virtual (VM) no Azure executando o Windows, usando como exemplo uma imagem do Windows Server da Galeria de Imagens no Portal de Visualização do Azure. A Galeria oferece várias imagens, inclusive sistema operacionais Windows, sistemas operacionais baseados em Linux e imagens de aplicativos. 
+Este tutorial mostra como é fácil criar uma máquina virtual (VM) no Azure executando o Windows, usando como exemplo uma imagem do Windows Server do Azure Marketplace no Portal de visualização do Azure. O Marketplace oferece uma variedade de imagens, incluindo os sistemas operacionais do Windows, sistemas operacionais baseados em Linux e imagens de aplicativos. 
 
-> [WACOM.NOTE] Não é necessária nenhuma experiência com VMs do Azure para concluir este tutorial. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] Não é necessário nenhuma experiência com VMs do Azure para concluir este tutorial. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/). 
 
 Este tutorial mostra:
 
@@ -25,7 +41,7 @@ Para saber mais, consulte [Máquinas Virtuais](http://go.microsoft.com/fwlink/p/
 
 Esta seção mostra como usar o Portal de visualização para criar uma máquina virtual usando o Windows Server 2012 R2 Datacenter como exemplo. É possível usar as configurações padrão do Azure na maior parte da configuração e criar a VM em questão de minutos.
 
-> [WACOM.NOTE] As imagens disponíveis para você dependem da sua assinatura. Este tutorial usa uma imagem do Windows Server, mas uma assinatura do MSDN pode oferecer imagens adicionais, incluindo imagens da área de trabalho. 
+> [AZURE.NOTE] As imagens disponíveis para você dependem da sua assinatura. Este tutorial usa uma imagem do Windows Server, mas uma assinatura do MSDN pode oferecer imagens adicionais, incluindo imagens da área de trabalho. 
  
 
 1. Entre no [Portal de visualização do Azure](https://portal.azure.com). Confira a oferta [Avaliação Gratuita](http://www.windowsazure.com/pt-br/pricing/free-trial/) caso você ainda não tenha uma assinatura.
@@ -38,9 +54,9 @@ Esta seção mostra como usar o Portal de visualização para criar uma máquina
 
 	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
 	
-4. Na faixa **Criar VM**, preencha o **Nome de Host** desejado para a VM, o **Nome de Usuário** administrativo e uma **Senha** forte.  
+4. Na faixa **Criar VM**, preencha o **Nome de Host** desejado para a VM, o **Nome de Usuário** administrativo e uma **Senha** forte.
 
-	>[WACOM.NOTE] **O Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha exclusiva para essa conta e não se esqueça dela. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
+	>[AZURE.NOTE] **O Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha exclusiva para essa conta e não se esqueça dela. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
 	
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_name_pwd_preview_portal.png)
@@ -48,7 +64,7 @@ Esta seção mostra como usar o Portal de visualização para criar uma máquina
 	
 5. Revise as configurações padrão, como **Camada de Preços**, **Configuração Opcional**, e **local**. Essas opções afetam o tamanho da VM, bem como as opções de rede, tais como a associação do domínio. Por exemplo, para testar o Armazenamento Premium em uma máquina virtual, você precisará escolher uma região e o tamanho que dá suporte a ela. 
 
-	>[WACOM.NOTE] O Armazenamento Premium está em Visualização, disponível para máquinas virtuais de série DS em determinadas regiões. Para obter detalhes, consulte [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de Máquina Virtual do Azure](http://azure.microsoft.com/pt-br/documentation/articles/storage-premium-storage-preview-portal/).
+	>[AZURE.NOTE] O Armazenamento Premium está em Visualização, disponível para máquinas virtuais de série DS em determinadas regiões. Para obter detalhes, consulte [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](http://azure.microsoft.com/pt-br/documentation/articles/storage-premium-storage-preview-portal/).
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
 	
@@ -58,11 +74,11 @@ Esta seção mostra como usar o Portal de visualização para criar uma máquina
 
 	![VM appears on the Startboard](./media/virtual-machines-windows-tutorial-azure-preview/vm_startboard_preview_portal.png)
 
-## <a id="logon"> </a>Como fazer o logon na máquina virtual após criá-la ##
+## <a id="logon"> </a>Como fazer o logon na máquina virtual após você criá-la ##
 
 Esta seção mostra como fazer logon na VM de forma que você possa gerenciar as configurações e os aplicativos que serão executados nela.
 
->[WACOM.NOTE] Para mais dicas de requisitos e solução de problemas, consulte [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
+>[AZURE.NOTE] Para mais dicas de requisitos e solução de problemas, consulte [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
 1. Se você ainda não fez isso, entre no [Portal de Visualização do Azure](https://portal.azure.com).
 
@@ -70,19 +86,23 @@ Esta seção mostra como fazer logon na VM de forma que você possa gerenciar as
 
 	![Browse to find the VM](./media/virtual-machines-windows-tutorial-azure-preview/browse_vm_preview_portal.png)
 
-3. Na faixa da VM, clique em **Conectar** na parte superior.
+3. Em seguida, selecione sua VM na lista. 
+
+	![Select your VM name from the list](./media/virtual-machines-windows-tutorial-azure-preview/vm_select_preview_portal.png)
+
+4. Na faixa da VM, clique em **Conectar** na parte superior.
 
 	![Log on to the virtual machine](./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png)
 
-4. Clique em **Abrir** para usar o arquivo do protocolo RDP criado automaticamente para a máquina virtual.
+5. Clique em **Abrir** para usar o arquivo do protocolo RDP criado automaticamente para a máquina virtual.
 	
-5. Clique em **Conectar** para prosseguir com o processo de conexão.
+6. Clique em **Conectar** para prosseguir com o processo de conexão.
 
 	![Continue with connecting](./media/virtual-machines-log-on-windows-server/connectpublisher.png)
 
-6. Digite o nome do usuário e a senha da conta administrativa na máquina virtual e, em seguida, clique em **OK**.
+7. Digite o nome do usuário e a senha da conta administrativa na máquina virtual e, em seguida, clique em **OK**.
 	
-7. Clique em **Sim** para verificar a identidade da máquina virtual.
+8. Clique em **Sim** para verificar a identidade da máquina virtual.
 
 	![Verify the identity of the machine](./media/virtual-machines-log-on-windows-server/connectverify.png)
 
@@ -92,7 +112,7 @@ Esta seção mostra como fazer logon na VM de forma que você possa gerenciar as
 
 Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure, consulte os seguintes artigos:
 
-[Como conectar máquinas virtuais em um serviço de nuvem](http://www.windowsazure.com/pt-br/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/pt-br/documentation/articles/cloud-services-connect-virtual-machine/)
 
 [Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server](http://www.windowsazure.com/pt-br/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
@@ -104,5 +124,4 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 
 [Como criar a máquina virtual]: #custommachine
 [Como fazer o logon na máquina virtual após você criá-la]: #logon
-
-<!--HONumber=35.2-->
+<!--HONumber=42-->
