@@ -118,4 +118,5 @@ A tabela também inclui um link para o [patch de compatibilidade do kernel Linux
 	</tr>
 </table>
 
+
 <!--HONumber=42-->

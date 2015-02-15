@@ -58,4 +58,5 @@
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

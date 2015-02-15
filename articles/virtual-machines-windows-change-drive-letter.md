@@ -60,4 +60,5 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 [Sobre contas de armazenamento do Azure]: ../storage-whatis-account/
 
 
+
 <!--HONumber=42-->

@@ -8,4 +8,5 @@
    	Observe que, após a inserção, o aplicativo receberá uma notificação por push do GCM.
 
 4. (Opcional) Repedir as etapas 1-3 no dispositivo de um cliente diferente usando uma conta diferente ao fazer logon. Verificar que a notificação seja recebida apenas por dispositivos se autenticando com a mesma conta de usuário. 
+
 <!--HONumber=42-->

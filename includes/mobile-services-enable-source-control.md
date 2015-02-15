@@ -21,4 +21,5 @@
 	A URL do repositório Git é exibida. Você usará essa URL para clonar o repositório para o computador local.
 
 Com o controle do código-fonte habilitado em seu serviço móvel, você poderá usar o Git para clonar o repositório para o computador local.
- <!--HONumber=42-->
+ 
+<!--HONumber=42-->

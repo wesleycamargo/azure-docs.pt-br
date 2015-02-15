@@ -30,4 +30,5 @@ Na barra de comandos, clique em **Novo**.
 15.  Em **Agente de VM**, veja as extensões disponíveis. Essas extensões oferecem diversos recursos que facilitam o uso e o gerenciamento de uma máquina virtual. Para obter detalhes, consulte [Extensões de VM do Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 
 
-Após a criação da máquina virtual e do serviço de nuvem, o Portal de Gerenciamento lista a nova máquina virtual em **Máquinas Virtuais** e lista o serviço de nuvem em **Serviços de Nuvem**. A máquina virtual e o serviço de nuvem são iniciados automaticamente.<!--HONumber=42-->
+Após a criação da máquina virtual e do serviço de nuvem, o Portal de Gerenciamento lista a nova máquina virtual em **Máquinas Virtuais** e lista o serviço de nuvem em **Serviços de Nuvem**. A máquina virtual e o serviço de nuvem são iniciados automaticamente.
+<!--HONumber=42-->

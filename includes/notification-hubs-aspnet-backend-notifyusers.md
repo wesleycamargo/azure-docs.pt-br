@@ -298,4 +298,5 @@ Siga as etapas abaixo para criar um novo back-end de WebAPI do ASP.NET para aute
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+
 <!--HONumber=42-->

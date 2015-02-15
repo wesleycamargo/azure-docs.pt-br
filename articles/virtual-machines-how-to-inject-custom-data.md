@@ -74,4 +74,5 @@ Se a Máquina Virtual do Azure for uma imagem do Ubuntu, será possível usar cl
 
 [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
+
 <!--HONumber=42-->

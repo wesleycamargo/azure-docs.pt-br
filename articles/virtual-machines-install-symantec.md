@@ -80,4 +80,5 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 
 [Gerenciar extensões]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
+
 <!--HONumber=42-->

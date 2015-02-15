@@ -72,4 +72,5 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Como configurar um conjunto de disponibilidade para máquinas virtuais]: ../virtual-machines-how-to-configure-availability
 
 
+
 <!--HONumber=42-->

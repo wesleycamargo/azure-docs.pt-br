@@ -32,4 +32,5 @@ O serviço Tabela contém os seguintes componentes:
   
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
+
 <!--HONumber=42-->

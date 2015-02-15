@@ -124,4 +124,5 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 
 [Como criar a máquina virtual]: #custommachine
 [Como fazer o logon na máquina virtual após você criá-la]: #logon
+
 <!--HONumber=42-->

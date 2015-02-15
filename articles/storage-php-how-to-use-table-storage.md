@@ -494,4 +494,5 @@ Agora que você aprendeu os conceitos básicos do Serviço Tabela do Azure, siga
 [table-data-model]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894038.aspx
+
 <!--HONumber=42-->

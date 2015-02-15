@@ -84,4 +84,5 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 5. Se o aplicativo fizer uma solicitação para seu Serviço Móvel que deva passar porque o usuário é autenticado e você recebe uma resposta 401 (erro de não autorizado), significa que o token do usuário que você estiver passando já expirou. No manipulador de conclusão, para cada método que tivermos que interaja com nosso Serviço Móvel, podemos verificar uma resposta 401, ou podemos lidar com a situação em um lugar: o método handleRequest do MSFilter.  Para ver como lidar com este cenário, consulte [esta postagem de blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
+
 <!--HONumber=42-->

@@ -116,4 +116,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
   [Como: Carregar e baixar blobs grandes]: #large-blobs
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

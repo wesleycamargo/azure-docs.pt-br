@@ -178,4 +178,5 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 13. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
+
 <!--HONumber=42-->

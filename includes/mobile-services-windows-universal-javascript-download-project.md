@@ -19,4 +19,5 @@ Este tutorial se baseia no [aplicativo GetStartedWithMobileServices](http://go.m
 
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
-7. Repita as etapas 3 e 4 para verificar se o exemplo se comporta da mesma maneira.<!--HONumber=42-->
+7. Repita as etapas 3 e 4 para verificar se o exemplo se comporta da mesma maneira.
+<!--HONumber=42-->

@@ -170,4 +170,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
   [Como: Excluir uma tabela]: #delete-table
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Visite o Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

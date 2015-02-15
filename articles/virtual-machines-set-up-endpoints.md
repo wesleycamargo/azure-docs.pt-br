@@ -85,4 +85,5 @@ A lista de controle de acesso (ACL) em um ponto de extremidade de rede pode rest
     ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
 
 6. Use linhas na lista para adicionar, excluir ou editar regras de uma ACL. O valor de sub-rede remota corresponde ao intervalo de endereços IP que você pode permitir ou negar como uma regra. As regras são avaliadas em ordem, começando com a primeira regra e terminando com a última regra. Isso significa que as regras devem ser listadas de menos restritiva a mais restritiva. Para obter exemplos e mais informações, consulte [Sobre listas de controle de acesso de rede](http://go.microsoft.com/fwlink/p/?LinkId=303816).
+
 <!--HONumber=42-->

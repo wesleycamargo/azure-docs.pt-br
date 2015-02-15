@@ -51,4 +51,5 @@ No Agendador de Serviço Móvel, substitua seu script por:
 	});
 	
 Observe como nesse caso não é necessário enviar várias notificações para localidades e plataformas diferentes.
+
 <!--HONumber=42-->

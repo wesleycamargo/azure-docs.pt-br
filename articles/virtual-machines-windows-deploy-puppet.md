@@ -44,4 +44,5 @@ Para obter instruções, baixe o "Guia de introdução" disponível na página [
 [Recursos e extensões de VM do Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
+
 <!--HONumber=42-->

@@ -48,4 +48,5 @@ Este processo de duas etapas de remover uma mensagem garante que se o código n�
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx).
 
+
 <!--HONumber=42-->

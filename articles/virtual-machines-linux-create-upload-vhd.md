@@ -144,4 +144,5 @@ Faça uma das opções a seguir:
 [Etapa 3: Preparar a conexão com o Azure]: #connect
 [Etapa 4: Carregar a imagem no Azure]: #upload
 
+
 <!--HONumber=42-->

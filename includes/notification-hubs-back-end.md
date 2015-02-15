@@ -100,4 +100,5 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/pt-br/library/jj927172.aspx
 [Interface REST de Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
+
 <!--HONumber=42-->

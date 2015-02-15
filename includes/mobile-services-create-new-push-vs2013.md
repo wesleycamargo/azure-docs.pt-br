@@ -30,4 +30,5 @@
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
 [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Importe o arquivo publishsettings no Visual Studio 2013]: /pt-br/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
 <!--HONumber=42-->

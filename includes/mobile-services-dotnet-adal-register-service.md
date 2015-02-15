@@ -37,4 +37,5 @@ Nesta seção, você registrará seu serviço móvel com o Active Directory do A
 
 <!-- URLs. -->
 [Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

@@ -23,4 +23,5 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
     Se você deseja recusar a sincronização incremental, passe `null` como a ID da consulta. Nesse caso, todos os registros serão recuperados em cada chamada de `PullAsync`, que é potencialmente ineficiente.
 
 * Para remover registros de armazenamento local do dispositivo quando elas foram excluídas do banco de dados do serviço móvel, você deve habilitar [excluir software]. Caso contrário, seu aplicativo deve chamar periodicamente `IMobileServiceSyncTable.PurgeAsync()` para limpar o armazenamento local.
+
 <!--HONumber=42-->

@@ -2,4 +2,5 @@
 
 Para obter mais informações sobre os modos de site, inclusive sobre como alterar o modo do site, consulte [Como dimensionar sites](/pt-br/documentation/articles/web-sites-scale/).
 
+
 <!--HONumber=42-->

@@ -26,4 +26,5 @@ No HDInsight, você pode trabalhar com grandes volumes de dados na nuvem no Hado
 
 
 
+
 <!--HONumber=42-->

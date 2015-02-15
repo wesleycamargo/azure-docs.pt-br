@@ -69,4 +69,5 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
 
+
 <!--HONumber=42-->

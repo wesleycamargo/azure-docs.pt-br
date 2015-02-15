@@ -401,4 +401,5 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 [Image31]: ./media/virtual-machines-provision-sql-server/31VM-Connect.png
 [Image32]: ./media/virtual-machines-provision-sql-server/32DNS-Name.png
 [Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
+
 <!--HONumber=42-->

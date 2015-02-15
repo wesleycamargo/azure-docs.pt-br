@@ -1364,4 +1364,5 @@ Neste tutoria, aprendemos como obter tweets, analisar o sentimento dos tweets, s
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
+
 <!--HONumber=42-->

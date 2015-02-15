@@ -386,4 +386,5 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  [site com WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
+
 <!--HONumber=42-->

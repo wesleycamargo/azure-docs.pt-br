@@ -295,4 +295,5 @@ Os principais recursos do IPython também estão disponíveis no Visual Studio p
 
 [portal-vm-windows]: /pt-br/manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /pt-br/manage/linux/tutorials/virtual-machine-from-gallery/
+
 <!--HONumber=42-->

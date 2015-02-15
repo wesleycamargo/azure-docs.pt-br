@@ -123,4 +123,5 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
+
 <!--HONumber=42-->

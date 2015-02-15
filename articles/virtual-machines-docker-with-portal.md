@@ -147,4 +147,5 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 
 [Execução do Docker com https]: http://docs.docker.com/articles/https/
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
+
 <!--HONumber=42-->

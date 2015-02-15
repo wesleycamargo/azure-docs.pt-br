@@ -21,4 +21,5 @@
 
 
 [AZURE.INCLUDE [load-balancing-vms](../includes/load-balancing-vms.md)]
+
 <!--HONumber=42-->

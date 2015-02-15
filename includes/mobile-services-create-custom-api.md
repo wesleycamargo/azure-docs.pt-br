@@ -51,4 +51,5 @@ Em seguida, você modificará o aplicativo quickstart para adicionar um novo bot
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto mssql]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554212.aspx
+
 <!--HONumber=42-->

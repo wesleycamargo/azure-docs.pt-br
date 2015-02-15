@@ -28,4 +28,5 @@ A URL a seguir endereça uma das filas no diagrama:
 - **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB.
 
 
+
 <!--HONumber=42-->

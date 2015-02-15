@@ -141,4 +141,5 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 	>[AZURE.NOTE]  Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta é uma ocorrência comum, então a maioria das distribuições fornecem tanto as opções  `nofail` e/ou  `nobootwait` fstab que permitirão que o sistema inicialize mesmo se o disco falhar montagem no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 [logonlinux]: ../virtual-machines-linux-how-to-log-on/
+
 <!--HONumber=42-->

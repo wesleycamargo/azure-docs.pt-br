@@ -17,4 +17,5 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	>[AZURE.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.m.</p> 
  	</div>
+
 <!--HONumber=42-->

@@ -124,4 +124,5 @@ Aqui estão os detalhes da configuração:
 [Farm do SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+
 <!--HONumber=42-->

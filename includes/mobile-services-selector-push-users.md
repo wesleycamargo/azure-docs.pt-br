@@ -9,4 +9,5 @@
 - [(Windows Phone | Javascript)](/pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)
 - [(Android | .NET)](/pt-br/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/)
 - [(Android | JavaScript)](/pt-br/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)
+
 <!--HONumber=42-->

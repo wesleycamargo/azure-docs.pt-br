@@ -29,4 +29,5 @@
 O seu serviço móvel agora está configurado no AAD para receber logons únicos do seu aplicativo.
 
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

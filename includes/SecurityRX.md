@@ -466,4 +466,5 @@ Todos os cenários e as soluções descritos neste tópico são válidos quando 
 
 [Design de SSO Web]: http://technet.microsoft.com/pt-br/library/dd807033(WS.10).aspx
 [Design de SSO Web federado]: http://technet.microsoft.com/pt-br/library/dd807050(WS.10).aspx
+
 <!--HONumber=42-->

@@ -4,4 +4,5 @@
 - [(Windows Phone | .NET)](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/)
 - [(Windows Phone | Javascript)](/pt-br/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage/)
 
+
 <!--HONumber=42-->

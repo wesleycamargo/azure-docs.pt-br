@@ -12,4 +12,5 @@ Em seguida, você deve fazer alterações ao se registrar para notificações po
             await AuthenticateAsync();            
             App.AcquirePushChannel();
             RefreshTodoItems();
-        }<!--HONumber=42-->
+        }
+<!--HONumber=42-->

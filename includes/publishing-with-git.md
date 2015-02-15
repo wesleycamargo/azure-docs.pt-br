@@ -334,4 +334,5 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Início rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
 [Envio contínuo ao Azure por meio do Visual Studio Online]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/publishing-with-tfs/
+
 <!--HONumber=42-->

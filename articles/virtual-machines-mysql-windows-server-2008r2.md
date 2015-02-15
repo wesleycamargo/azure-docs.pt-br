@@ -155,4 +155,5 @@ Para obter informações sobre o MySQL, consulte a [Documentação do MySQL](htt
 [MySQLConfig9]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png
 [MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
 
+
 <!--HONumber=42-->

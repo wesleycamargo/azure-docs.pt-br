@@ -173,4 +173,5 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável  `GRUB_CMDLINE_LINUX_DEFAULT` no "/etc/default/grub".
 
+
 <!--HONumber=42-->

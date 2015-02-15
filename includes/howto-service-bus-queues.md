@@ -78,4 +78,5 @@ Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
+
 <!--HONumber=42-->

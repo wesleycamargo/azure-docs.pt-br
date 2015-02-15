@@ -68,4 +68,5 @@
 
 	Isso envia uma atualização de item para o serviço móvel. 
 
-Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.<!--HONumber=42-->
+Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
+<!--HONumber=42-->

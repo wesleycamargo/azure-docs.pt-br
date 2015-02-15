@@ -380,4 +380,5 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 [performance tuning strategy]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [otimizar e testar o desempenho do MySQL nas VMs Linux do Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[outra maneira de clusterizar o MySQL no Linux]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-mysql-cluster/<!--HONumber=42-->
+[outra maneira de clusterizar o MySQL no Linux]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-mysql-cluster/
+<!--HONumber=42-->

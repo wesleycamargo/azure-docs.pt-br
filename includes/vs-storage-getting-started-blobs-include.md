@@ -94,4 +94,5 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx).
 
+
 <!--HONumber=42-->

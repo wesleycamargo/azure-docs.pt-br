@@ -76,4 +76,5 @@ Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.0
 [processo de provisionamento do SendGrid]: https://support.sendgrid.com/hc/pt-br/articles/200181628-Why-is-my-account-being-provisioned-
 [todas as APIs]: https://sendgrid.com/docs/API_Reference/index.html
 
+
 <!--HONumber=42-->

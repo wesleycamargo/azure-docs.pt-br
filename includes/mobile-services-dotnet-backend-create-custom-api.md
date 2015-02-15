@@ -64,4 +64,5 @@
 
 Em seguida, você modificará o aplicativo quickstart para adicionar um novo botão e o código que chama assincronamente a nova API personalizada.
 
+
 <!--HONumber=42-->

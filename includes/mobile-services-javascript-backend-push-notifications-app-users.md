@@ -44,4 +44,5 @@
 
 	Isso adiciona uma marca ao registro que seja a ID do usuário conectado. As marcas fornecidas são validadas para impedir que um usuário se registre para outra ID de usuário. Quando uma notificação é enviada para esse usuário, ela é recebida por este e qualquer outro dispositivo registrado pelo usuário.
 
-4. Clique na seta para voltar, clique na guia **Dados**, clique em **TodoItem**, clique no **Script** e selecione **Inserir**. <!--HONumber=42-->
+4. Clique na seta para voltar, clique na guia **Dados**, clique em **TodoItem**, clique no **Script** e selecione **Inserir**. 
+<!--HONumber=42-->

@@ -31,4 +31,5 @@
 
 	Você usará esse valor de chave de API para habilitar os Serviços Móveis para autenticar com o GCM e enviar notificações por push em nome do seu aplicativo.
 
+
 <!--HONumber=42-->

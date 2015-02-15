@@ -412,4 +412,5 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Node.js Cloud Service]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

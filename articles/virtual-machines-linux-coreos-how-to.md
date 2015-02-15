@@ -219,4 +219,5 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Deste ponto, voc
 [Tutorial de CoreOS de Patrick Chanezon]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
+
 <!--HONumber=42-->

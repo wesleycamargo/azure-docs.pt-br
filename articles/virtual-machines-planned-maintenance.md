@@ -70,4 +70,5 @@ Apenas para máquinas virtuais de configuração de instância única, o Azure e
 <!--Link references-->
 [Disponibilidade de gerenciar máquinas virtuais]: ../virtual-machines-windows-tutorial/
 [Compreender manutenção planejada X manutenção não planejada]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
+
 <!--HONumber=42-->

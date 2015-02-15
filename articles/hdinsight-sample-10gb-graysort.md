@@ -443,4 +443,5 @@ Para obter tutoriais que executam outros exemplos e fornecem instruções sobre 
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
+
 <!--HONumber=42-->

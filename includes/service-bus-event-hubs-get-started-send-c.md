@@ -106,4 +106,5 @@ Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hu
 
 > [AZURE.NOTE] No código acima, usamos uma janela de saída de 1 para forçar as mensagens enviadas assim que possível. Em geral, o aplicativo deve tentar mensagens em lote para aumentar a taxa de transferência. Consulte a página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obter mais informações sobre como usar a biblioteca Qpid Proton neste e em outros ambientes e de plataformas para as quais associações são fornecidas (atualmente Perl, PHP, Python e Ruby).
 
+
 <!--HONumber=42-->

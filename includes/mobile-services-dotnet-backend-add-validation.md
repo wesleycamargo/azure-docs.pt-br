@@ -41,4 +41,5 @@
 
 <!-- URLs. -->
 [Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+
 <!--HONumber=42-->

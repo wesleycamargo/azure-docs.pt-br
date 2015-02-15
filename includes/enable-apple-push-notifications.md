@@ -129,4 +129,5 @@ Posteriormente, você usará esse certificado para gerar um arquivo. p12 e carre
 9. Em **Destinos**, clique em **Quickstart**, expanda **Identidade de Assinatura de Código** e, em seguida, selecione o novo perfil em **Depurar**. Isso garantirá que o projeto Xcode use o novo perfil para a assinatura de código. Em seguida, carregue o certificado no Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
+
 <!--HONumber=42-->

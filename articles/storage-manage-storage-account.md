@@ -98,4 +98,5 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 	Clique no nome da conta de armazenamento para abrir o painel e, em seguida, clique em **Excluir**.
 
 3. Clique em **Sim** para confirmar que deseja excluir a conta de armazenamento.
+
 <!--HONumber=42-->

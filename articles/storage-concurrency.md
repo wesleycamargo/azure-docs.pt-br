@@ -280,4 +280,5 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 - Introdução ao Armazenamento para [Blob](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/)[Tabela](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/) e [Filas](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Arquitetura de armazenamento - [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com consistência sólida](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+
 <!--HONumber=42-->

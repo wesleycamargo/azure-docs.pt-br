@@ -715,4 +715,5 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+
 <!--HONumber=42-->

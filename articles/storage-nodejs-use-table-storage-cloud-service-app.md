@@ -405,4 +405,5 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
   [aplicativo Web do Node.js]: http://www.windowsazure.com/pt-br/develop/nodejs/tutorials/getting-started/
  
+
 <!--HONumber=42-->

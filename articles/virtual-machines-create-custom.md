@@ -30,4 +30,5 @@ Uma máquina virtual  *personalizada* é simplesmente uma máquina virtual que v
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 
+
 <!--HONumber=42-->

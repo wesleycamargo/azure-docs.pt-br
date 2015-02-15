@@ -32,4 +32,5 @@ Em seguida, você precisa alterar a maneira que as notificações por push são 
 		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 		}
+
 <!--HONumber=42-->

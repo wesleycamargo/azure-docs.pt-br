@@ -150,4 +150,5 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
+
 <!--HONumber=42-->

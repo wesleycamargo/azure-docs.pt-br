@@ -64,4 +64,5 @@ Se você quiser personalizar os scripts de publicação criados, veja informaç�
 [2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
 [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
 [4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
+
 <!--HONumber=42-->

@@ -139,4 +139,5 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 [Como fazer o logon na máquina virtual após você criá-la]: #logon
 [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
 [Como configurar a comunicação com a máquina virtual]: #endpoints
+
 <!--HONumber=42-->

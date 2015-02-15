@@ -159,4 +159,5 @@ Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando u
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+
 <!--HONumber=42-->

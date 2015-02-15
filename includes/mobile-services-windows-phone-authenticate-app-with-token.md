@@ -91,4 +91,5 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 	
 3. Reiniciar o aplicativo.
 
-	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. <!--HONumber=42-->
+	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. 
+<!--HONumber=42-->

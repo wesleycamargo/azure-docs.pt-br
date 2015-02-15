@@ -41,4 +41,5 @@ Além disso, o pacote NuGet **Microsoft.Framework.ConfigurationModel.Json** foi 
 ##### Cadeia de conexão do Armazenamento do Azure adicionada 
 No arquivo config.json do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
 
-Para obter mais informações, consulte [ASP.NET 5](http://www.asp.net/vnext).<!--HONumber=42-->
+Para obter mais informações, consulte [ASP.NET 5](http://www.asp.net/vnext).
+<!--HONumber=42-->

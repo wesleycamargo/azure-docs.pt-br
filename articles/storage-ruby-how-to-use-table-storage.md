@@ -179,4 +179,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
 * Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx)
 * Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visite o repositório [SDK do Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
+
 <!--HONumber=42-->

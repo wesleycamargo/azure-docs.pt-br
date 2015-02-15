@@ -363,4 +363,5 @@ Agora que você aprendeu as noções básicas de criação de máquinas virtuais
 * Visite a página de recursos [Máquinas virtuais](http://www.windowsazure.com/pt-br/documentation/services/virtual-machines/)
 *  Consulte a referência de MSDN: [Máquinas Virtuais](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156003.aspx)
 * Saiba como hospedar um [Ruby no aplicativo Rails em uma máquina virtual](http://www.windowsazure.com/pt-br/develop/ruby/tutorials/web-app-with-linux-vm/)
+
 <!--HONumber=42-->

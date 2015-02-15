@@ -45,4 +45,5 @@ Para instalar o cliente do Chef em uma máquina virtual do Azure, você tem esta
 [Gerenciar extensões]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
+
 <!--HONumber=42-->

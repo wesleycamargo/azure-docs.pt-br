@@ -46,4 +46,5 @@ Faça logon na máquina virtual Linux usando autenticação de chave SSH, em seg
 
 Nesse caso, o usuário **não** será solicitado para uma senha. Depois de pressionar `<enter,>` `sudo` executará o comando com  `root` privilégios.
 
+
 <!--HONumber=42-->

@@ -88,4 +88,5 @@ O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](http://azure.microsoft.com/pt-br/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+
 <!--HONumber=42-->

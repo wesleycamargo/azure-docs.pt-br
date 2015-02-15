@@ -33,4 +33,5 @@ criar uma conta de armazenamento usando a biblioteca de cliente de gerenciamento
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+
 <!--HONumber=42-->

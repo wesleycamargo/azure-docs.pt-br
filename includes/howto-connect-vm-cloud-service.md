@@ -26,4 +26,5 @@ Após criar uma máquina virtual, é uma boa ideia incluir um disco de dados par
 [Como anexar um disco de dados a uma máquina virtual Windows](http://azure.microsoft.com/pt-br/documentation/articles/storage-windows-attach-disk/)
 
 
+
 <!--HONumber=42-->

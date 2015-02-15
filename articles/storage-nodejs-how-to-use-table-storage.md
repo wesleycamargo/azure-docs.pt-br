@@ -444,4 +444,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
   [Node.js Cloud Service with Storage]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Aplicativo da Web do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=42-->

@@ -137,4 +137,5 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
   [Caixa de diálogo Validar Domínio Personalizado]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [Como mapear o conteúdo da CDN para um domínio personalizado]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png
+<!--HONumber=42-->

@@ -182,4 +182,5 @@ Este artigo, ensinou como conectar aos clusters HDInsight do Visual Studio e exe
 [hdinsight.analyze.twitter.data]: ../hdinsight-analyze-twitter-data/
 
 
-[apache.hive]: http://hive.apache.org<!--HONumber=42-->
+[apache.hive]: http://hive.apache.org
+<!--HONumber=42-->

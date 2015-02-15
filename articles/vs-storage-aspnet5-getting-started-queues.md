@@ -103,4 +103,5 @@ Este processo de duas etapas de remover uma mensagem garante que se o código n�
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+
 <!--HONumber=42-->

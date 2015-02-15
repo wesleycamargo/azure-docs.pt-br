@@ -38,4 +38,5 @@
 
 5. Recompile o projeto de serviço de back-end do .NET da lista de tarefas e verifique se não há erros de compilação. 
 
-Em seguida, você atualizará o aplicativo cliente para exibir os novos dados de **CompleteDate**.<!--HONumber=42-->
+Em seguida, você atualizará o aplicativo cliente para exibir os novos dados de **CompleteDate**.
+<!--HONumber=42-->

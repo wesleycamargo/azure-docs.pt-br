@@ -131,4 +131,5 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
+
 <!--HONumber=42-->

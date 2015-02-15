@@ -122,4 +122,5 @@ Abra uma sessão do PowerShell do Azure e execute o comando a seguir. Não se es
 [Como conectar máquinas virtuais em um serviço de nuvem]: ../virtual-machines-connect-cloud-service
 [Sobre as definições de configuração da VM do Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn763935.aspx
 
+
 <!--HONumber=42-->

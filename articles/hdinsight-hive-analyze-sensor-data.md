@@ -50,4 +50,5 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Amostras**, então clique na amostra **Análise de log do Website**.
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
+
 <!--HONumber=42-->

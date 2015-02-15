@@ -43,4 +43,5 @@ Antes de poder realizar qualquer coisa com a fila, será necessário obter a cad
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-Para obter mais informações, consulte [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->

@@ -383,4 +383,5 @@ Usar o serviço de armazenamento de Blob do Java].
   [Como criar uma conta de armazenamento]: http://www.windowsazure.com/pt-br/manage/services/storage/how-to-create-a-storage-account/
   [Como gerenciar contas de armazenamento]: http://www.windowsazure.com/pt-br/manage/services/storage/how-to-manage-a-storage-account/
   [Como Usar o serviço de armazenamento de Blob do Java]: http://www.windowsazure.com/pt-br/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

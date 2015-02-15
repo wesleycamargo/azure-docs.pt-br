@@ -138,4 +138,5 @@ Isso pode acontecer se você usou o Portal de Gerenciamento para criar a VM do L
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/pt-br/library/azure/dn535788.aspx
 
+
 <!--HONumber=42-->

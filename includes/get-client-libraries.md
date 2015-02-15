@@ -45,4 +45,5 @@ Para obter mais informações sobre como instalar as Bibliotecas de Clientes PHP
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-SDK-PHP]: ../php-download-sdk/
 [composer-phar]: http://getcomposer.org/composer.phar
+
 <!--HONumber=42-->

@@ -78,4 +78,5 @@ Para obter uma lista completa, consulte [Extensões de VM do Azure](http://msdn.
 [Contêineres Docker e Linux]: #Docker-and-Linux-Containers
 [Como usar a Extensão de VM Docker com o Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensões de máquina virtual para Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+
 <!--HONumber=42-->

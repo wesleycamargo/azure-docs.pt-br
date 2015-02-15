@@ -307,4 +307,5 @@ Para saber como usar o Azure SDK do Ruby para acessar os serviços do Azure de s
 
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
+
 <!--HONumber=42-->

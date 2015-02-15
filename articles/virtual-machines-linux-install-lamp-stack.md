@@ -121,4 +121,5 @@ Configurando
 Há muitos recursos para configurar uma pilha de LÂMPADA no Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+
 <!--HONumber=42-->

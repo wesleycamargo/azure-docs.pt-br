@@ -400,4 +400,5 @@ Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga e
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+
 <!--HONumber=42-->

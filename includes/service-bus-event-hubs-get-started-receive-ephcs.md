@@ -120,4 +120,5 @@ Para usar o [EventProcessorHost], você deve ter uma [conta de armazenamento do 
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guia do desenvolvedor de Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/azure/dn789972.aspx<!--HONumber=42-->
+[Guia do desenvolvedor de Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/azure/dn789972.aspx
+<!--HONumber=42-->

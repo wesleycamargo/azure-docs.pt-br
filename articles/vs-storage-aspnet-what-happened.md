@@ -39,4 +39,5 @@ Esse pacote adiciona as referências de .NET a seguir:
 ##### Cadeia de conexão do Armazenamento do Azure adicionada 
 No arquivo web.config do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
 
-Para obter mais informações, consulte [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->
