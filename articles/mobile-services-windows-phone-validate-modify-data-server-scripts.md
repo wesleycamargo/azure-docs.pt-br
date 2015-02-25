@@ -1,17 +1,31 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Usar scripts de servidor para validar dados (Windows Phone) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo do Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Usar scripts de servidor para validar dados (Windows Phone) | Centro de desenvolvimento de Serviços Móveis" 
+	description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo do Windows Phone." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Validar e modificar dados em Serviços Móveis usando scripts de servidor
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Este tópico mostra como utilizar scripts de servidor nos Serviços Móveis do Azure. Os scripts de servidor são registrados em um serviço móvel e podem ser usados para executar um grande intervalo de operações nos dados que estão sendo inseridos e atualizados, incluindo validação e modificação de dados. Neste tutorial, você irá definir e registrar scripts de servidor que validam e modificam dados. Como o comportamento de scripts do lado do servidor geralmente afeta o cliente, você também irá atualizar o aplicativo do Windows Phone 8 para tirar proveito desses novos comportamentos.</p>
+<p>Este tópico mostra como utilizar scripts de servidor nos Serviços Móveis do Azure. Os scripts de servidor são registrados em um serviço móvel e podem ser usados para executar um grande intervalo de operações nos dados que estão sendo inseridos e atualizados, incluindo validação e modificação de dados. Neste tutorial, você vai definir e registrar scripts de servidor que validam e modificam dados. Como o comportamento de scripts do lado do servidor geralmente afeta o cliente, você também irá atualizar o aplicativo do Windows Phone 8 para tirar proveito desses novos comportamentos.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-validate-modify-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir vídeo</span></a> <span class="time">11:36</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="label">assista o tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-validate-modify-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a> <span class="time">11:36</span></div>
 </div>
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
@@ -21,21 +35,21 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 3. [Adicionar um carimbo de data/hora na inserção]
 4. [Atualizar o cliente para exibir o carimbo de data/hora]
 
-Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve primeiro concluir o tutorial atual.  
+Este tutorial baseia-se nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve primeiro concluir o tutorial atual.  
 
 ## <a name="string-length-validation"></a>Adicionar validação
 
 É sempre uma boa prática validar o tamanho dos dados enviados pelos usuários. Primeiro, você registra um script que valida o tamanho dos dados enviados ao serviço móvel e rejeita as cadeias de caracteres muito longas, neste caso mais de 10 caracteres.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo. 
+1. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo. 
 
 	![][0]
 
-2. Clique na guia **Dados** e na tabela **TodoItem**.
+2. Clique na guia **Dados** e clique na tabela **TodoItem**.
 
 	![][1]
 
-3. Clique em **Script** e selecione a operação **Insert**.
+3. Clique em **Script** e selecione a operação **Inserir**.
 
 	![][2]
 
@@ -51,9 +65,7 @@ Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
 
     Esse script verifica o tamanho da propriedade **TodoItem.text** e envia uma resposta de erro quando o tamanho excede 10 caracteres. Caso contrário, o método **execute** será chamado para concluir a inserção.
 
-    <div class="dev-callout"> 
-	<b>Observação</b> 
-	<p>Você pode remover um script registrado na guia <strong>Script</strong> clicando em <strong>Limpar</strong> e depois em <strong>Salvar</strong>.</p></div>	
+    > [AZURE.DICA] Você pode remover um script registrado na guia **Script** clicando em **Limpar** e depois em **Salvar**.	
 
 ## <a name="update-client-validation"></a>Atualizar o cliente
 
@@ -63,7 +75,7 @@ Agora que o serviço móvel está validando dados e enviando respostas de erros,
 
 2. Pressione a tecla **F5** para executar o aplicativo e, em seguida, digite texto com mais de 10 caracteres na caixa de texto e clique em **Salvar**.
 
-   	Observe que o aplicativo gera um **MobileServiceInvalidOperationException** não tratado como resultado da resposta 400 (solicitação incorreta) retornada pelo serviço móvel.
+   	Observe que o aplicativo gera uma **MobileServiceInvalidOperationException** não tratada como resultado da resposta 400 (solicitação incorreta) retornada pelo serviço móvel.
 
 6. 	Abra o arquivo MainPage.xaml.cs e substitua o método **InsertTodoItem** existente pelo seguinte:
 
@@ -87,20 +99,19 @@ Agora que o serviço móvel está validando dados e enviando respostas de erros,
             }
         }
 
-   	Esta versão do método inclui tratamento de erro para o **MobileServiceInvalidOperationException** que exibe a resposta de erro em uma MessageBox.
+   	Essa versão do método inclui tratamento de erro para a **MobileServiceInvalidOperationException** que exibe a resposta de erro em uma caixa de mensagem.
 
 ## <a name="add-timestamp"></a>Adicionar um carimbo de data/hora
 
 As tarefas anteriores validaram uma inserção e a aceitaram ou rejeitaram. Agora, você atualizará os dados inseridos usando um script de servidor que adiciona uma propriedade de carimbo de data/hora ao objeto antes que ele seja inserido.
 
-<div class="dev-callout"><b>Observação</b>
-<p>A propriedade de carimbo de data/hora <b>createdAt</b> demonstrada aqui agora é redundante. Os Serviços Móveis criam automaticamente uma propriedade do sistema <b>__createdAt</b> para cada tabela. Você pode usar essa propriedade do sistema em seu aplicativo bastando adicionar o seguinte membro à classe TodoItem</p>
+> [AZURE.NOTE] A propriedade **createdAt** do carimbo de data/hora, demonstrada aqui, agora é redundante. Os Serviços Móveis criam automaticamente uma propriedade do sistema **__createdAt** para cada tabela. Você pode usar essa propriedade do sistema em seu aplicativo bastando adicionar o seguinte membro à classe TodoItem  
+> 
+`````
 <pre><code>
 [JsonProperty(PropertyName = "__createdAt")]
 public DateTime createdAt { set; get; }
-</code></pre>
-</div>
-
+`````
 
 
 1. Na guia **Scripts** no [Portal de Gerenciamento], substitua o script **Insert** atual pela função a seguir e clique em **Salvar**.
@@ -114,11 +125,9 @@ public DateTime createdAt { set; get; }
             }
         }
 
-    Essa função aumenta o script de inserção anterior adicionando uma nova propriedade de carimbo de data/hora **createdAt** ao objeto antes que ele seja inserido pela chamada em **request**.**execute**. 
+    Essa função aumenta o script de inserção anterior adicionando uma nova propriedade de carimbo de data/hora **createdAt** ao objeto antes que ele seja inserido pela chamada para **request**.**execute**. 
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna <strong>createdAt</strong> à tabela <strong>TodoItem</strong> na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Phone Store.</p>
-    </div>
+    > [AZURE.IMPORTANTE] O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna **createdAt** à tabela **TodoItem** na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Phone Store.
 
 2. No Visual Studio, pressione a tecla **F5** para executar o aplicativo e, em seguida, digite texto (menor do que 10 caracteres) na caixa de texto e clique em **Salvar**.
 
@@ -126,7 +135,7 @@ public DateTime createdAt { set; get; }
 
 3. De volta ao Portal de Gerenciamento, clique na guia **Procurar** na tabela **todoitem**.
    
-   	Observe que agora há uma coluna **createdAt** e o novo item inserido tem um valor de carimbo de data/hora.
+   	Observe que agora há uma coluna **createdAt**, e o novo item inserido tem um valor de carimbo de data/hora.
   
 Em seguida, você precisa atualizar o aplicativo do Windows Phone para exibir essa nova coluna.
 
@@ -152,11 +161,9 @@ O cliente do Serviço Móvel ignorará todos os dados em uma resposta que ele n�
 	
     Essa nova definição de classe inclui a nova propriedade de carimbo de data/hora, como um tipo DateTime anulável.
   
-    <div class="dev-callout"><b>Observação</b>
-	<p>O <strong>DataMemberAttribute</strong> informa ao cliente para mapear a nova propriedade <strong>CreatedAt</strong> no aplicativo para a coluna <strong>createdAt</strong> definida na tabela TodoItem, que tem maiúsculas e minúsculas diferentes. Usando esse atributo, seu aplicativo pode ter nomes de propriedades em objetos que são diferentes dos nomes das colunas no Banco de Dados SQL. Sem esse atributo, ocorre um erro devido às diferenças de maiúsculas e minúsculas.</p>
-    </div>
+    > [AZURE.NOTE] O **DataMemberAttribute** informa ao cliente para mapear a nova propriedade **CreatedAt** no aplicativo para a coluna **createdAt** definida na tabela TodoItem, que tem maiúsculas e minúsculas diferentes. Usando esse atributo, seu aplicativo pode ter nomes de propriedades em objetos que são diferentes dos nomes das colunas no Banco de Dados SQL. Sem esse atributo, ocorre um erro devido às diferenças de maiúsculas e minúsculas.
 
-5. Adicione o seguinte elemento XAML imediatamente abaixo do elemento **CheckBoxComplete** no arquivo MainPage.xaml:	      
+5. Adicione o seguinte elemento XAML imediatamente abaixo do elemento **CheckBoxComplete** no arquivo MainPage.xaml:
 	      
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
@@ -218,12 +225,13 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
-[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-wp8
-[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8
-[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-wp8
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-wp8
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8
+[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8
+[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
+[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
+[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+\n<!--HONumber=42-->

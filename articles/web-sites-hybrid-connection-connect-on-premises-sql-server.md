@@ -1,6 +1,20 @@
-﻿<properties title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="Conexões Híbridas passo a passo: Conectar-se a um SQL Server local por meio de um Site do Azure" description="Crie um site no Microsoft Azure e conecte-o a um banco de dados do SQL Server local" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Conexões Híbridas passo a passo: Conectar-se a um SQL Server local por meio de um Site do Azure" 
+	description="Crie um site no Microsoft Azure e conecte-o a um banco de dados do SQL Server local" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Conectar-se a um SQL Server local por meio de um Site do Azure usando Conexões Híbridas
 
@@ -9,7 +23,7 @@ As Conexões Híbridas podem conectar sites do Microsoft Azure websites a recurs
 
 Neste tutorial, você aprenderá como criar um site no Portal de Visualização do Azure, conectar o site a seu banco de dados local de SQL Server utilizando o novo recurso de Conexão Híbrida, crie um aplicativo Web ASP.NET simples que utilizará a conexão híbrida e implantará o aplicativo no Site do Azure. O site completo no Azure armazena credenciais de usuário em um banco de dados de associação local. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure nem com o ASP.NET.
 
-> [WACOM.NOTE] A porção Sites do recurso Conexões Híbridas está disponível somente no [portal Visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] A porção Sites do recurso Conexões Híbridas está disponível somente no [portal Visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Pré-requisitos##
 Para concluir este tutorial, você precisará dos produtos a seguir. Todos estão disponíveis em versões gratuitas, portanto, é possível começar a desenvolver para o Azure de maneira totalmente gratuita.
@@ -40,7 +54,7 @@ O computador no qual você instala o agente do Hybrid Connection Manager local:
     </tr>
     <tr>
         <td>80</td>
-        <td><strong>Obrigatório</strong> para porta HTTP para validação de certificado e, opcionalmente, para conectividade de dados.</td>
+        <td><strong>Necessário</strong> para porta HTTP para validação de certificado e, opcionalmente, para conectividade de dados.</td>
     </tr>
     <tr>
         <td>443</td>
@@ -48,11 +62,11 @@ O computador no qual você instala o agente do Hybrid Connection Manager local:
     </tr>
 	<tr>
         <td>5671 e 9352</td>
-        <td><strong>Recomendadas</strong> , mas Opcional para conectividade de dados. Observe que esse modo costuma produzir uma taxa de transferência maior. Se a conectividade de saída para essas portas estiver indisponível, a porta TCP 443 é usada.</td>
+        <td><strong>Recomendado</strong> mas opcional para conectividade de dados. Observe que esse modo costuma produzir uma taxa de transferência maior. Se a conectividade de saída para essas portas estiver indisponível, a porta TCP 443 é usada.</td>
 	</tr>
 </table>
 
-- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
+- Deve ser capaz de alcançar o *hostname*:* portnumber* do recurso local. 
 
 As etapas neste artigo pressupõem que você está utilizando o navegador no computador que hospedará o agente local de conexão híbrida.
 
@@ -78,7 +92,7 @@ Esta seção mostra a você como instalar o SQL Server Express, habilitar TCP/IP
 
 ###Instalar SQL Server Express###
 
-1. Para instalar o SQL Server Express, execute o arquivo **SQLEXPRWT_x64_ENU.exe** ou **SQLEXPR_x86_ENU.exe** que você baixou.O assistente do Centro de Instalação do SQL Server é exibido.
+1. Para instalar o SQL Server Express, execute o arquivo **SQLEXPRWT_x64_ENU.exe** ou **SQLEXPR_x86_ENU.exe** que você baixou. O assistente do Centro de Instalação do SQL Server é exibido.
 	
 	![SQL Server Install][SQLServerInstall]
 	
@@ -130,9 +144,9 @@ Seu aplicativo Web do Visual Studio exige um banco de dados de associação que 
 <a name="CreateSite"></a>
 ## B. Criar um site no Portal de Visualização do Azure ##
 
-> [WACOM.NOTE] Se você já criou um site no Portal de Visualização do Azure que você deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e continuar dali.
+> [AZURE.NOTE] Se você já criou um site no Portal de Visualização do Azure que você deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e continuar dali.
 
-1. No canto inferior esquerdo do [Portal de visualização do Azure](https://portal.azure.com), clique em **Novo** e escolha **Site**.
+1. No canto inferior esquerdo do [Portal de Visualização do Azure](https://portal.azure.com), clique em **Novo**, depois selecione **Site**.
 	
 	![New button][New]
 	
@@ -203,7 +217,7 @@ Nesse ponto, você concluiu uma parte importante da infraestrutura de conexão h
 	
 	![Hybrid connections icon][HCIcon]
 	
-2. Na lâmina **Conexões Híbridas** a coluna **Status** para o ponto de extremidade adicionado recentemente exibe **Não conectado**.Clique na conexão para configurá-la.
+2. Na lâmina **Conexões Híbridas** a coluna **Status** para o ponto de extremidade adicionado recentemente exibe **Não conectado**. Clique na conexão para configurá-la.
 	
 	![Not connected][NotConnected]
 	
@@ -265,7 +279,7 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 
 Nessa etapa, você edita a cadeia de conexão que diz a seu aplicativo onde encontrar seu banco de dados SQL Server Express local. A cadeia de conexão está no arquivo Web.config do aplicativo, que contém informações de configuração para o aplicativo. 
 
-> [WACOM.NOTE] Para assegurar que seu aplicativo utilize o banco de dados que você criou no SQL Server Express, mas não naquele presente no LocalDB padrão do Visual Studio, é importante que você complete essa etapa antes de executar o seu projeto.
+> [AZURE.NOTE] Para assegurar que seu aplicativo utilize o banco de dados que você criou no SQL Server Express, mas não naquele presente no LocalDB padrão do Visual Studio, é importante que você complete essa etapa antes de executar o seu projeto.
 
 1. No Gerenciador de Soluções, clique duas vezes no arquivo Web.config.
 	
@@ -299,7 +313,7 @@ Nessa etapa, você edita a cadeia de conexão que diz a seu aplicativo onde enco
 	
 	![Enter user name and password][HCVSCreateNewAccount]
 	
-	Isso cria automaticamente um banco de dados em seu SQL Server local, que contém as informações de associação para seu aplicativo. Uma das tabelas (**dbo.AspNetUsers**) contém credenciais de usuário de site, como aquelas que você acabou de inserir.Você verá essa tabela posteriormente no tutorial.
+	Isso cria automaticamente um banco de dados em seu SQL Server local, que contém as informações de associação para seu aplicativo. Uma das tabelas (**dbo.AspNetUsers**) contém credenciais de usuário de site, como aquelas que você acabou de inserir. Você verá essa tabela posteriormente no tutorial.
 	
 4. Feche a janela de navegador da página da Web padrão. Isso interrompe o aplicativo em Visual Studio.
 
@@ -434,4 +448,5 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [HCTestSSMSTree]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

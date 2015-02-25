@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Crie aplicativos em tempo real com o Pusher (iOS) - Serviços Móveis" metaKeywords="" description="Aprenda a usar o Pusher para enviar notificações para seu aplicativo do Serviços de Mídia do Azure no iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Crie aplicativos em tempo real com o Pusher (iOS) - Serviços Móveis" 
+	description="Aprenda a usar o Pusher para enviar notificações para seu aplicativo do Serviços de Mídia do Azure no iOS." 
+	services="" 
+	documentationCenter="ios" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="donnam"/>
 
 
 # Crie aplicativos em tempo real com os Serviços Móveis e o Pusher
@@ -10,22 +24,22 @@
 
 Este tópico mostra como adicionar funcionalidade em tempo real a seu aplicativo baseado nos Serviços Móveis do Azure. Ao concluir, os dados da TodoList estarão sincronizados, em tempo real, em todas as instâncias em execução de seu aplicativo.
 
-O tutorial [Enviar notificações por push a usuários][] mostra como usar notificações por push para informar os usuários sobre novos itens na lista de tarefas pendentes. As notificações por push são uma excelente maneira de mostrar alterações ocasionais. No entanto, às vezes, um aplicativo precisa de notificações frequentes em tempo real. As notificações em tempo real podem ser adicionadas a seu serviço móvel usando a API Pusher. Neste tutorial, usamos o Pusher com os Serviços Móveis para manter uma lista de Tarefas Pendentes sincronizadas quando são feitas alterações em qualquer instância em execução do aplicativo.
+O tutorial [Enviar notificações por push a usuários][] mostra como usar notificações por push para informar os usuários sobre novos itens na lista ToDo. As notificações por push são uma excelente maneira de mostrar alterações ocasionais. No entanto, às vezes, um aplicativo precisa de notificações frequentes em tempo real. As notificações em tempo real podem ser adicionadas a seu serviço móvel usando a API Pusher. Neste tutorial, usamos o Pusher com os Serviços Móveis para manter uma lista ToDo sincronizada quando são feitas alterações em qualquer instância em execução do aplicativo.
 
 O Pusher é um serviço baseado em nuvem que, como os Serviços Móveis, facilita incrivelmente a criação de aplicativos em tempo real. Você pode usar o Pusher para criar rapidamente pesquisas ao vivo, salas de chat, jogos com vários participantes, aplicativos de colaboração, para transmissão de dados e conteúdo ao vivo e isso é só o começo! Para obter mais informações, consulte [http://pusher.com](http://pusher.com).
 
-Este tutorial explica as etapas básicas para adicionar colaboração em tempo real ao aplicativo de lista de tarefas pendentes:
+Este tutorial explica as etapas básicas para adicionar colaboração em tempo real ao aplicativo de lista ToDo:
 
-1. [Criar uma conta no Pusher][]
+1. [Criar uma conta de Pusher][]
 2. [Atualizar seu aplicativo][]
 3. [Instalar scripts de servidor][]
 4. [Testar seu aplicativo][]
 
-Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][].
+Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis][].
 
-## <a name="sign-up"></a>Criar uma nova conta no Pusher
+## <a name="sign-up"></a>Criar uma nova conta de Pusher
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[AZURE.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Atualizar seu aplicativo
 
@@ -39,19 +53,19 @@ A biblioteca [libPusher][] permite acessar o Pusher no iOS.
 
 2. Crie um grupo chamado _libPusher_ em seu projeto.
 
-3. No Localizador, descompacte o arquivo zip baixado, selecione as pastas **libPusher-combined.a** e **/headers** e arraste esses itens para o grupo **libPusher** de seu projeto.
-
+3. No localizador, descompacte o arquivo zip baixado, selecione as pastas **libPusher-combined.a** e **/headers** e arraste esses itens para o grupo **libPusher** em seu projeto.
+	
 4. Selecione **Copiar itens na pasta do grupo de destino** e, em seguida, clique em **Concluir**.
 
 	![][add-files-to-group]
 
    Isso copiará os arquivos do libPusher em seu projeto.
 
-5. Na raiz do projeto no Gerenciador de Projetos, clique em **Fases de Criação** e, em seguida, clique em **Adicionar Fase de Criação** e **Adicionar Fase de Criação**.
+5. Na raiz do projeto no Gerenciador de Projetos, clique em **Fases de Compilação** e, em seguida, clique em **Adicionar Fase de Compilação** e **Adicionar Fase de Compilação**.
 
 6. Arraste o arquivo **libPusher-combined.a** do Gerenciador de Projetos para a nova fase de criação.
 
-7. Alterar o **Destino** para **Estruturas** e clique em **Copiar somente ao instalar**.
+7. Altere o **Destino** para **Estruturas** e clique em **Copiar somente ao instalar**.
 
 	![][add-build-phase]
 
@@ -66,7 +80,7 @@ A biblioteca [libPusher][] permite acessar o Pusher no iOS.
 
 	![][add-linker-flag]
 
-	Isto mostra o sinalizador **-all_load** definida para o destino de Depurar compilação.
+	Isto mostra o sinalizador **-all_load** definido para o destino de Depurar compilação.
 
 A biblioteca agora está instalada e pronta para uso.
 
@@ -131,9 +145,9 @@ A biblioteca agora está instalada e pronta para uso.
 		    return index;
 		}
 
-	O QSTodoService agora permite que você localize itens pela **id** e adicione e preencha itens localmente sem enviar solicitações explícitas ao serviço remoto.
+	O QSTodoService agora permite que você localize itens pela **id** e adicione e preencha itens localmente, sem enviar solicitações explícitas ao serviço remoto.
 
-4. Substitua os métodos **addItem** e **completeItem** existentes pelo seguinte código:
+4. Substituir os métodos **addItem** e **completeItem** pelo código a seguir:
 
 		-(void) addItem:(NSDictionary *)item
 		{
@@ -165,7 +179,7 @@ A biblioteca agora está instalada e pronta para uso.
 		#import "PTPusherEvent.h"
 		#import "PTPusherChannel.h"
 
-6. Modifique a declaração da interface para adicionar **PTPusherDelegate** para que seja semelhante ao seguinte:
+6. Modifique a declaração de interface para adicionar **PTPusherDelegate**, para que seja semelhante ao seguinte:
 
 		@interface QSTodoListViewController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
 
@@ -226,9 +240,9 @@ A biblioteca agora está instalada e pronta para uso.
 		    }];
 		}
 
-11. Substitua o espaço reservado `**chave_do_aplicativo**` pelo valor app_key copiado na caixa de diálogo Informações de Conexão anteriormente.
+11. Substitua o espaço reservado `**your_app_key**` pelo valor app_key copiado na caixa de diálogo Informações de Conexão anteriormente.
 
-12. Substitua o método **onAdd** pelo código a seguir:
+12. Substitua o método **onAdd** pelo seguinte código:
 
 		- (IBAction)onAdd:(id)sender
 		{
@@ -254,7 +268,7 @@ A biblioteca agora está instalada e pronta para uso.
 		// Ask the todoService to set the item's complete value to YES
 	    [self.todoService completeItem:item];
 
-O aplicativo agora pode receber eventos do Pusher e atualizar a lista de tarefas pendentes adequadamente.
+O aplicativo agora pode receber eventos do Pusher e atualizar a lista itens ToDo adequadamente.
 
 
 
@@ -266,10 +280,10 @@ Só falta configurar seus scripts de servidor. Podemos inserir um script para qu
 
 
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e depois no serviço móvel.
+1. Entre no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis**, e, em seguida, clique em seu serviço móvel.
 
 
-2. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+2. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
 	![][1]
 
@@ -320,9 +334,9 @@ Só falta configurar seus scripts de servidor. Podemos inserir um script para qu
 
 5. Substitua os espaços reservados no script acima pelos valores copiados na caixa de diálogo Informações de Conexão anteriormente:
 
-	- **`**id_do_aplicativo**`**: o valor da id do aplicativo
-	- **`**chave_do_aplicativo**`**: o valor da chave do aplicativo
-	- **`**segredo_da_chave_do_aplicativo**`**: o segredo da chave do aplicativo
+	- **`**your_app_id**`**: o app&#95;id value
+	- **`**your_app_key**`**: o app&#95;key value
+	- **`**your_app_key_secret**`**: o app&#95;key&#95;secret
 
 
 6. Clique no botão **Salvar**. Você configurou um script para publicar um evento no Pusher sempre que um novo item for inserido na tabela **TodoItem**.
@@ -377,7 +391,7 @@ Só falta configurar seus scripts de servidor. Podemos inserir um script para qu
 
 Para testar o aplicativo, você precisará executar duas instâncias. Você pode executar uma instância em um dispositivo iOS e outra no simulador de iOS.
 
-1. Conecte o dispositivo iOS, pressione o botão **Executar** (ou a tecla Control+R) para iniciar o aplicativo no dispositivo e, em seguida, interrompa a depuração.
+1. Conecte o dispositivo iOS, pressione o botão **Executar** (ou a tecla Command+R) para iniciar o aplicativo no dispositivo e, em seguida, interrompa a depuração.
 
 	Agora você tem o aplicativo instalado no dispositivo.
 
@@ -385,17 +399,17 @@ Para testar o aplicativo, você precisará executar duas instâncias. Você pode
 
 	Agora, você tem duas instâncias do aplicativo em execução.
 
-3. Adicione um novo item de tarefa pendente em uma das instâncias do aplicativo.
+3. Adicione um novo item ToDo em uma das instâncias do aplicativo.
 
 	Verifique se o item adicionado aparece na outra instância.
 
-4. Selecione um item de tarefa pendente para marcá-lo como concluído em uma instância do aplicativo.
+4. Selecione um item ToDo para marcá-lo como concluído em uma instância do aplicativo.
 
 	Verifique se o item desaparece da outra instância.
 
 Parabéns, você configurou com êxito o aplicativo de seu serviço móvel para sincronização em tempo real em todos os clientes.
 
-## <a name="nextsteps"> </a>Próximas etapas
+## <a name="nextsteps"> </a>Próximas Etapas
 
 Agora que você já viu como é fácil usar o serviço Pusher com os Serviços Móveis, siga estes links para obter mais informações sobre o Pusher.
 
@@ -405,7 +419,7 @@ Agora que você já viu como é fácil usar o serviço Pusher com os Serviços M
 Para obter mais informações sobre como registrar e usar scripts de servidor, consulte [Referência de script do servidor de Serviços Móveis].
 
 <!-- Anchors. -->
-[Criar uma conta no Pusher]: #sign-up
+[Criar uma conta de Pusher]: #sign-up
 [Atualizar seu aplicativo]: #update-app
 [Instalar scripts de servidor]: #install-scripts
 [Testar seu aplicativo]: #test-app
@@ -419,8 +433,8 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [add-linker-flag]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Enviar notificações por push a usuários]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
+[Notificações por push a usuários]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
+[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
@@ -428,3 +442,4 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+\n<!--HONumber=42-->

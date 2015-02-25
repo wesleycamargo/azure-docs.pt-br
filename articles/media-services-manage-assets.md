@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Como gerenciar ativos nos Serviços de Mídia - Azure" metaKeywords="" description="Saiba como gerenciar ativos em Serviços de Mídia. Você também pode gerenciar trabalhos, tarefas, políticas de acesso, localizadores e muito mais. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Como gerenciar ativos nos Serviços de Mídia - Azure" description="Saiba como gerenciar ativos em Serviços de Mídia. Você também pode gerenciar trabalhos, tarefas, políticas de acesso, localizadores e muito mais. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -80,6 +80,7 @@ Para obter mais informações sobre como gerenciar ativos, consulte:
 
 
 <h2>Próximas etapas</h2>
-Agora que você sabe como gerenciar ativos, visite o tópico[Como entregar um ativo por download](../media-services-deliver-asset-download/) .
+Agora que você sabe como gerenciar ativos, visite o tópico [Como entregar um ativo por download](../media-services-deliver-asset-download/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,14 +1,28 @@
-﻿<properties urlDisplayName="New Relic" pageTitle="Usando o New Relic com o Azure - guias de recursos do Azure" metaKeywords="" description="Saiba como usar o serviço New Relic para gerenciar e monitorar seu aplicativo do Azure." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="carolz" editor="" />
+<properties 
+	pageTitle="Usando o New Relic com o Azure - guias de recursos do Azure" 
+	description="Saiba como usar o serviço New Relic para gerenciar e monitorar seu aplicativo do Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
 #Gerenciamento de desempenho do aplicativo New Relic no Azure
 
-Este guia descreve como adicionar o monitoramento de desempenho de classe mundial do New Relic aos seus aplicativos hospedados no Windows Azure. Abordaremos o processo simples e rápido para adicionar New Relic ao seu aplicativo e apresentar alguns dos recursos do New Relic. Para obter mais informações sobre como usar o New Relic, consulte [Usando o New Relic](#using-new-relic).
+Este guia descreve como adicionar o monitoramento de desempenho de classe mundial do New Relic aos seus aplicativos hospedados no Microsoft Azure. Abordaremos o processo simples e rápido para adicionar New Relic ao seu aplicativo e apresentar alguns dos recursos do New Relic. Para obter mais informações sobre como usar o New Relic, consulte [Usando o New Relic](#using-new-relic).
 
-O que há de novo Relíquia?
+O que é New Relic?
 --
 
 O New Relic é uma ferramenta focada no desenvolvedor que monitora seus aplicativos de produção e fornece informações detalhadas sobre seu desempenho e confiabilidade. Ele foi projetado para economizar tempo ao identificar e diagnosticar problemas de desempenho, e ele coloca as informações necessárias para solucionar esses problemas em suas mãos.
@@ -23,10 +37,7 @@ Nova Relíquia Pro é oferecido com base no tamanho da instância para os servi�
 
 Para obter informações sobre preços, consulte a [página do New Relic na Azure Store](http://www.windowsazure.com/pt-br/gallery/store/new-relic/new-relic/).
 
-<div class="dev-callout"> 
-<strong>Observação:</strong>
-<p>Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10 entre em contato com o novo Relíquia (sales@newrelic.com) para o preço por volume.</p>
-</div>
+> [AZURE.NOTE] Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10 entre em contato com o novo Relíquia (sales@newrelic.com) para o preço por volume.
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
@@ -55,8 +66,7 @@ Para inscrever-se para nova Relíquia diretamente do armazenamento do Azure, sig
 
 ### Etapa 2. Instalar o pacote NuGet.
 
-1. Abra a solução do Visual Studio ou crie uma nova selecionando
-   **Arquivo > Novo > Projeto**.
+1. Abrir sua solução do Visual Studio ou criar um novo selecionando **arquivo > Novo > projeto**.
 
 	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
@@ -68,8 +78,7 @@ Para inscrever-se para nova Relíquia diretamente do armazenamento do Azure, sig
 
 	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
-4. No prompt de comando do Gerenciador de Pacotes, digite `Install-Package
-   NewRelicWindowsAzure` e pressione **Enter**.
+4. No prompt de comando do Gerenciador de Pacotes, digite  `Install-Package NewRelicWindowsAzure` e pressione **Enter**.
 
 	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
@@ -86,7 +95,8 @@ Para inscrever-se para nova Relíquia diretamente do armazenamento do Azure, sig
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Observação:** se esta for a primeira vez que implantar esse aplicativo no Azure, será solicitado que você insira suas credenciais do Azure. Para mais informações, consulte <a href="/pt-br/develop/net/tutorials/get-started/">Implantando um aplicativo Web ASP.NET em um site do Azure</a>.
+**Observação:** se esta for a primeira vez que implanta esse aplicativo no Azure, será solicitado que você insira suas 
+credenciais do Azure. Para obter mais informações, consulte <a href="/pt-br/develop/net/tutorials/get-started/">Implantando um aplicativo web ASP.NET em um site do Azure</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -106,9 +116,9 @@ Para exibir o painel novo Relíquia:
 
 ### <a id="using-new-relic"></a>Usando o nova Relíquia
 
-Depois de selecionar um aplicativo a partir da lista no menu Aplicativos, o painel Visão Geral mostra informações atuais de servidor de aplicativos e do navegador. Para alternar entre dois modos de exibição, clique o **o servidor de aplicativo** ou **navegador** botão.
+Depois de selecionar um aplicativo na lista no menu Aplicativos, o painel Visão Geral mostra informações atuais de servidor de aplicativos e do navegador. Para alternar entre dois modos de exibição, clique o **o servidor de aplicativo** ou **navegador** botão.
 
-Além das funções detalhadas da <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">IU padrão do New Relic</a> e <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">do painel</a> , o painel Visão Geral dos Aplicativos possui funções adicionais.
+Além da <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">Relíquia novo padrão de interface de usuário</a> e <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">painel drill-down</a> funções, o painel de visão geral de aplicativos tem funções adicionais.
 
 <table border="1">
   <thead>
@@ -120,23 +130,23 @@ Além das funções detalhadas da <a href="https://newrelic.com/docs/site/the-ne
   <tbody>
     <tr>
        <td>Mostrar informações do painel para o servidor ou navegador de app&#39;s selecionado</td>
-       <td>Clique no botão <b>Servidor de aplicativo</b> ou <b>Navegador</b> .</td>
+       <td>Clique o <b>Aplicativo servidor</b> ou <b>navegador</b> botão.</td>
     </tr>
-     <tr>
-       <td>Exibir os níveis de limite da <a href="https://newrelic.com/docs/site/apdex" target="_blank">pontuação Apdex</a> para seu app&#39;s</td>
-       <td>Aponte para o resultado de Apdex <b>?<b> ícone.</b></b></td>
+<tr>
+<td>Exibir níveis de limite para o resultado do <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> do seu aplicativo</td>
+       <td>Aponte para o resultado de Apdex <b>?<b> icon.</b></b></td>
     </tr>
     <tr>
        <td>Exibir detalhes de Apdex em todo o mundo</td>
-       <td>A partir da Overview&#39;s <b>Navegador</b> , aponte em qualquer lugar no mapa Apdex Global.<br /><b>Dica:</b> Para ir diretamente ao <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">painel Geografia do app&#39;s selecionado</a>, clique no título <b>Apdex Global</b> , ou clique em qualquer lugar no mapa Apdex Global.</td>
+       <td>Da exibição do <b>navegador</b>de Overview&#39;s, aponte para qualquer local do mapa de Apdex global. < br / ><b>Dica:</b> Para ir diretamente para o painel de controle <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">geografia</a> do app&#39;s selecionado, clique no título <b>Apdex global</b> ou clique em qualquer lugar no mapa Apdex Global.</td>
     </tr>
     <tr>
-       <td>Exibir <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">o</a> painel Transações da Web</td>
-       <td>Clique na tabela de transações na Web no painel Visão geral de aplicativos. Ou, para exibir detalhes sobre uma transação da Web específica (incluindo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Transações de chave</a>), clique em seu nome.</td>
+       <td>Exibir o <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web transações</a> painel de controle</td>
+       <td>Clique na tabela de transações na Web no painel Visão geral de aplicativos. Ou, para exibir detalhes sobre uma transação web específica (incluindo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Chave transações</a>), clique em seu nome.</td>
     </tr>
     <tr>
-       <td>Exibir <a href="https://newrelic.com/docs/site/errors" target="_blank">o</a> painel Erros</td>
-       <td>Clique no título chart&#39;s de taxa de erro no painel Visão geral dos aplicativos.<br /><b>Dica:</b> Você também pode exibir o painel de erros a partir de <b>Aplicativos</b> > (seu aplicativo) > Eventos > Erros.</td>
+       <td>Modo de exibição de <a href="https://newrelic.com/docs/site/errors" target="_blank">erros</a> painel de controle</td>
+       <td>Clique no título do chart&#39;s de taxa de erro no painel de Visão geral dos aplicativos.<br /><b>Dica:</b> Você também pode exibir o painel de Erros em<b>Aplicativos</b>&gt; (seu aplicativo) &gt; Eventos &gt; Erros.</td>
     </tr>
     <tr>
        <td>Exibir detalhes do servidor de app&#39;s</td>
@@ -149,7 +159,7 @@ Além das funções detalhadas da <a href="https://newrelic.com/docs/site/the-ne
         </ul>
        </p></p></td>
     </tr>
-  </tbody>
+</tbody>
 </table>
 
 Abaixo está um exemplo do painel de visão geral de aplicativos quando você selecionar o modo de exibição do navegador.
@@ -168,4 +178,5 @@ Visão geral da nova Relíquia UI, definir direitos de usuário e perfis, usando
  * [Monitoramento do Usuário Real](https://newrelic.com/docs/features/real-user-monitoring): Visão geral de como RUM detalha o tempo que os navegadores de seus usuários levam para carregar suas páginas da Web, de onde eles vêm, e quais navegadores usam
  * [Encontrar Ajuda](https://newrelic.com/docs/site/finding-help): Recursos disponibilizados pelo centro de ajuda on-line do New Relic
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

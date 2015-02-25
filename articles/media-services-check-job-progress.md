@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Check Job Progress" pageTitle="Como verificar o andamento do trabalho nos Serviços de Mídia - Azure" metaKeywords="" description="Saiba como usar o código do manipulador de eventos para acompanhar o andamento do trabalho e enviar atualizações de status. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Como verificar o andamento do trabalho nos Serviços de Mídia - Azure" description="Saiba como usar o código do manipulador de eventos para acompanhar o andamento do trabalho e enviar atualizações de status. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -88,6 +88,7 @@ private static string JobIdAsFileName(string jobID)
 }
 </code></pre>
 <h2>Próximas etapas</h2>
-Agora que você sabe como criar um trabalho e acompanhar seu andamento, a próxima etapa é proteger os ativos. Para obter mais informações, consulte [Como proteger um ativo com os Serviços de Mídia do Azure](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
+Agora que você sabe como criar um trabalho e acompanhar seu andamento, a próxima etapa é proteger os ativos. Para obter mais informações, consulte [Como proteger um ativo com os Serviços de Mídia do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

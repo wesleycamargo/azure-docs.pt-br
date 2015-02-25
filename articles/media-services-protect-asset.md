@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Como criptografar ativos em Serviços de Mídia - Azure" metaKeywords="" description="Saiba como usar a Proteção do Microsoft PlayReady para criptografar um ativo nos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Como criptografar ativos em Serviços de Mídia - Azure" description="Saiba como usar a Proteção do Microsoft PlayReady para criptografar um ativo nos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -14,7 +14,7 @@ Nos Serviços de Mídia do Azure, você pode enviar um trabalho que se integra c
 
 O exemplo a seguir mostra como criar um trabalho simples para fornecer a proteção do PlayReady.
 
-   1. Recupere os dados da configuração. Você pode obter um arquivo de configuração de exemplo no tópico [Predefinição de tarefa para o criptografador de mídia do Azure ](http://msdn.microsoft.com/pt-br/library/hh973610.aspx) .
+   1. Recupere os dados da configuração. Você pode obter um arquivo de configuração de exemplo no tópico [Cadeias de caracteres predefinidas da tarefa para o Codificador de Mídia do Azure (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/hh973610.aspx).
    2. Carregar um arquivo de entrada MP4
    3. Converte o arquivo MP4 em um ativo de Smooth Streaming
    4. Criptografa o ativo com o PlayReady
@@ -78,7 +78,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -114,6 +114,7 @@ Para obter mais informações sobre a Proteção do PlayReady, consulte:
 </ul>
 
 <h2>Próximas etapas</h2>
-Agora que você sabe como proteger ativos com os Serviços de Mídia, visite o tópico [Como gerenciar ativos](../media-services-manage-assets/) .
+Agora que você sabe como proteger ativos com os Serviços de Mídia, visite o tópico [Como gerenciar ativos (a página pode estar em inglês)](../media-services-manage-assets/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

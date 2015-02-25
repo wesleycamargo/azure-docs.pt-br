@@ -1,6 +1,20 @@
-<properties urlDisplayName="Get started with Azure" pageTitle="Introdução aos sites do Microsoft Azure usando Java" metaKeywords="" description="Este tutorial mostra como implantar um site da Web Java no Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Introdução aos sites do Microsoft Azure usando Java" 
+	description="Este tutorial mostra como implantar um site Java no Microsoft Azure." 
+	services="web-sites" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Introdução aos Sites do Azure e Java
 
@@ -8,9 +22,9 @@ Este tutorial mostra como criar um site no Microsoft Azure usando Java, usando a
 
 Se você não quiser usar nenhuma dessas técnicas, por exemplo, se você desejar personalizar seu contêiner de aplicativos, consulte [Carregar um site Java personalizado no Azure](../web-sites-java-custom-upload).
 
-> [WACOM.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se você não tiver uma conta, você pode <a href="/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">ativar os benefícios de assinante do MSDN</a> ou <a href="/pt-br/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">inscrever-se para uma avaliação gratuita</a>. 
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá <a href="/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">ativar os benefícios de assinante MSDN</a> ou <a href="/pt-br/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">inscrever-se para uma avaliação gratuita</a>. 
 > 
-> Se você deseja uma introdução aos Sites do Azure antes de criar uma conta, vá para <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, onde você pode imediatamente criar um site de introdução ao ASP.NET de curta duração nos Sites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser iniciar com Websites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um site de iniciante ASP.NET de vida curta nos Websites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
 # Criar um site Java usando a galeria de aplicativos do Azure
 
@@ -45,8 +59,7 @@ Estas informações mostram como usar a interface do usuário de configuração 
 3. Especifique o nome da URL.
 4. Selecione uma região. Por exemplo, **West US**.
 5. Clique em **Concluído**. Em poucos instantes, o site será criado. Para exibir o site, no Portal de Gerenciamento do Azure, na exibição **Sites**, aguarde até que o status seja mostrado como **Executando** e, em seguida, clique na URL do site.
-6. Ainda no Portal de Gerenciamento do Azure, na exibição **Sites**, clique no nome do site para abrir o. 
-painel.
+6. Ainda no Portal de Gerenciamento do Azure, na exibição **Sites**, clique no nome do site para abrir opainel.
 7. Clique em **Configurar**.
 8. Na seção **Geral**, habilite o **Java** clicando na versão disponível.
 9. As opções para o contêiner da web são exibidas, por exemplo, Tomcat e Jetty. Selecione o contêiner da web que você deseja usar. 
@@ -58,6 +71,7 @@ Agora que você criou o site com um contêiner de aplicativos, consulte a seçã
 
 # Próximas etapas
 
-Neste ponto, você tem um servidor de aplicativos Java executando como seu site Java no Azure. Para adicionar em seu próprio aplicativo ou página da web, consulte [Adicionar um aplicativo ou página da web ao seu site Java](../web-sites-java-add-app).
+Neste ponto, você tem um servidor de aplicativos Java executando como seu site Java no Azure. Para adicionar em seu próprio aplicativo ou página da Web, consulte [Adicionar um aplicativo ou página da Web ao seu site Java](../web-sites-java-add-app).
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

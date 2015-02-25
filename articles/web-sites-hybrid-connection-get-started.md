@@ -1,12 +1,26 @@
-﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Conexão híbrida: Conectar um site do Azure a um recurso local" description="Crie uma conexão entre um site do Azure e um recurso local que usa uma porta TCP estática" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Conexão híbrida: Conectar um site do Azure a um recurso local" 
+	description="Crie uma conexão entre um site do Azure e um recurso local que usa uma porta TCP estática" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Conectar um site do Azure a um recurso local usando Conexões Híbridas
 
 Você pode conectar um site no Microsoft Azure a qualquer recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs da web HTTP, Serviços Móveis e os serviços Web mais personalizados. Esse artigo mostra como você pode criar uma conexão híbrida entre um site do Azure e um banco de dados local de SQL Server.
 
-> [WACOM.NOTE] A porção Sites do recurso Conexões Híbridas está disponível somente no [portal Visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] A porção Sites do recurso Conexões Híbridas está disponível somente no [portal Visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Pré-requisitos
 - Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/). 
@@ -16,9 +30,9 @@ Você pode conectar um site no Microsoft Azure a qualquer recurso local que util
 - O computador no qual você instala o agente do Hybrid Connection Manager local, descrito posteriormente neste artigo:
 
 	- Precisa ser capaz de conectar-se ao Azure pela porta 5671
-	- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
+	- Deve ser capaz de alcançar o *hostname*:* portnumber* do recurso local. 
 
-> [WACOM.NOTE] As etapas neste artigo pressupõem que você está utilizando o navegador no computador que hospedará o agente local de conexão híbrida.
+> [AZURE.NOTE] As etapas neste artigo pressupõem que você está utilizando o navegador no computador que hospedará o agente local de conexão híbrida.
 
 
 ##Neste artigo##
@@ -35,9 +49,9 @@ Você pode conectar um site no Microsoft Azure a qualquer recurso local que util
 
 ## Criar um site no Portal de Visualização do Azure ##
 
-> [WACOM.NOTE] Se você já criou um site no Portal de Visualização do Azure que você deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e começar dali.
+> [AZURE.NOTE] Se você já criou um site no Portal de Visualização do Azure que você deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e começar a partir dali.
 
-1. No canto inferior esquerdo do [Portal de visualização do Azure](https://portal.azure.com), clique em **Novo** e escolha **Site**.
+1. No canto inferior esquerdo do [Portal de Visualização do Azure](https://portal.azure.com), clique em **Novo**, depois selecione **Site**.
 	
 	![New button][New]
 	
@@ -108,7 +122,7 @@ Nesse ponto, você concluiu uma parte importante da infraestrutura de conexão h
 	
 	![Hybrid connections icon][HCIcon]
 	
-2. Na lâmina **Conexões Híbridas** a coluna **Status** para o ponto de extremidade adicionado recentemente exibe **Não conectado**.Clique na conexão para configurá-la.
+2. Na lâmina **Conexões Híbridas** a coluna **Status** para o ponto de extremidade adicionado recentemente exibe **Não conectado**. Clique na conexão para configurá-la.
 	
 	![Not connected][NotConnected]
 	
@@ -142,7 +156,7 @@ Nesse ponto, você concluiu uma parte importante da infraestrutura de conexão h
 	
 	Na lâmina **Conexões Híbridas**, a coluna **Status** agora exibe **Conectado**. 
 	
-	![Connected Status][HCStatusConnected]
+	![Status Conectado][HCStatusConnected]
 
 Agora que a infraestrutura de conexão híbrida está concluída, você criará um aplicativo híbrido que a utilize. 
 
@@ -192,4 +206,5 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

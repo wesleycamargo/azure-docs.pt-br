@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to create" pageTitle="Como criar sites - gerenciamento de serviços do Azure" metaKeywords="Azure creating website, Azure deleting website" description="Aprenda a criar um site usando o Portal de gerenciamento do Azure." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Como criar sites - gerenciamento de serviços do Azure" 
+	description="Aprenda a criar um site usando o Portal de gerenciamento do Azure." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Como criar um site
 
@@ -10,9 +24,9 @@ Para obter informações sobre como implantar o conteúdo em um Site no Azure qu
 
 ## Sumário ##
 
-- [Como: Criar um site usando o Portal de Gerenciamento](#createawebsiteportal)
-- [Como: Criar um site na galeria](#howtocreatefromgallery)
-- [Como: Excluir um site](#deleteawebsite)
+- [Como: criar um site usando o Portal de Gerenciamento](#createawebsiteportal)
+- [Como: criar um site na galeria](#howtocreatefromgallery)
+- [Como: excluir um site](#deleteawebsite)
 - [Próximas etapas](#nextsteps)
 
 ##<a name="createawebsiteportal"></a>Como: criar um site usando o Portal de Gerenciamento
@@ -25,7 +39,7 @@ Siga essas etapas para criar um site no Azure.
 
 3. Clique no ícone **Site**, clique no ícone **Criação Rápida**, digite um valor para a URL e clique na marca de verificação ao lado de **Criar Site** no canto inferior direito da página.
 
-4. Quando o website tiver sido criado, você verá o texto **Criando Website <*nome do site*> com sucesso**. Você pode navegar até o site clicando em **Procurar** na parte inferior da página do portal.
+4. Quando o site tiver sido criado, você verá o texto **Criando site <*nome do site*> bem-sucedido**. Você pode navegar até o site clicando em **Procurar** na parte inferior da página do portal.
 
 5. No portal, clique no nome do site exibido na lista de sites para abrir a página de gerenciamento **Início Rápido** do site.
 
@@ -37,13 +51,13 @@ Siga essas etapas para criar um site no Azure.
 	- Associações SSL
 	- nomes de domínio personalizados
 	- opções de registro em log
-	- configurações do aplicativo para o ambiente do Azure (substituindo <appSettings> na Web.config do seu ambiente de desenvolvimento, por exemplo)
-	- configurações de conexão (substituindo <connectionStrings> na Web.config do seu ambiente de desenvolvimento, por exemplo)
+	- configurações do aplicativo para o ambiente do Azure (substituindo <appSettings> no Web.config do seu ambiente de desenvolvimento, por exemplo)
+	- cadeias de conexão (substituindo <connectionStrings> no Web.config do seu ambiente de desenvolvimento, por exemplo)
 	- processadores de script para extensões de arquivo específicas, como *.php
 
 ##<a name="howtocreatefromgallery"></a>Como: criar um site na galeria
 
-[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
+[AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="deleteawebsite"></a>Como: excluir um site
 Os sites são excluídos usando o ícone **Excluir** no Portal de Gerenciamento do Azure. O ícone **Excluir** está disponível no Portal do Azure, quando você clica em **Sites** para listar todos os seus sites e, na parte inferior de cada uma das páginas de gerenciamento de site.
@@ -52,4 +66,5 @@ Os sites são excluídos usando o ícone **Excluir** no Portal de Gerenciamento 
 
 Para obter mais informações, consulte [Sites do Azure](/pt-br/documentation/services/web-sites/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Site do .NET com o WebMatrix - tutoriais do Azure"metaKeywords ="Azure do WebMatrix, Azure do WebMatrix, site do Azure WebMatrix, site do Azure WebMatrix, Azure do WebMatrix, Azure do WebMatrix" description="Aprenda como desenvolver e implantar um site da Web do Azure com o WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Site do .NET com o WebMatrix - tutoriais do Azure" 
+	description="Aprenda a desenvolver e implantar um site do Azure com o WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -9,20 +23,20 @@
 #Criar e implantar um site com o Microsoft WebMatrix
 Este guia descreve como usar o Microsoft WebMatrix para criar e implantar um site da web para o Azure.  Você usará um aplicativo de exemplo de um modelo de site do WebMatrix.
 
-Você aprenderá a:
+Você aprenderá:
 
 * Como se inscrever no Azure do WebMatrix
 * Como criar um site usando um modelo com o WebMatrix 
 * Como implantar o site personalizado diretamente do WebMatrix para o Azure.
 
-> [WACOM.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Você pode <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/">ativar os benefícios de assinante do MSDN</a> ou <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/">inscrever-se para uma avaliação gratuita</a>.
-> Se você deseja uma introdução aos Sites do Azure antes de criar uma conta, vá para <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, onde você pode imediatamente criar um site de introdução ao ASP.NET de curta duração nos Sites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Você pode <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/">ativar os benefícios de assinante do MSDN</a> ou <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/">se inscrever para fazer uma avaliação gratuita</a>.
+> Se você quiser iniciar com Websites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um site de iniciante ASP.NET de vida curta nos Websites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Entrar no Azure
 
 1. Inicie o WebMatrix.
-2. Se essa for a primeira vez em que tive usado o WebMatrix 3, você receberá uma solicitação iniciar sessão no Azure.  Caso contrário, você pode clicar na **Sign In** botão e escolha **adicionar conta**  Optar por **entrar** usando sua conta da Microsoft.
+2. Se essa for a primeira vez em que tive usado o WebMatrix 3, você receberá uma solicitação iniciar sessão no Azure.  Caso contrário, você pode clicar na **Entrar** botão e escolha **Adicionar Conta**.  Optar por **Entrar** usando sua conta da Microsoft.
 
 	![Add Account][addaccount]
 
@@ -37,7 +51,7 @@ Você aprenderá a:
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. A Galeria de modelos mostrará uma lista de modelos disponíveis que podem ser executados localmente ou no Azure.  Selecione **confeitaria** da lista de modelos, digite **bakerysample** para o **nome do Site**e clique em **próximo**.
+2. A Galeria de modelos mostrará uma lista de modelos disponíveis que podem ser executados localmente ou no Azure.  Selecione **confeitaria** da lista de modelos, digite **bakerysample** para o **nome do Site** e clique em **próximo**.
 
 	![Create Site from Template][sitefromtemplatedetails]
 
@@ -74,7 +88,7 @@ O exemplo de confeitaria inclui um formulário de pedido simulado que envia uma 
 4. Na parte superior do arquivo, adicione o seguinte código:
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. Localize o comentário que diz //SMTP Configuration for Hotmail e exclua ou comente todos os códigos para o uso do WebMail.
 
@@ -162,7 +176,7 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente ao web
 
 1. Abra a página *Order.cshtml*.
 
-2. Localize a definição de formulário de classe "shiping". Insira o seguinte código logo após o bloco <li>.
+2. Localize a definição de formulário de classe "shiping". Insira o código a seguir logo após o bloco &lt;li&gt;.
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -173,7 +187,7 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente ao web
 
 	![][modify5]
 
-3. Localize a linha "var shipping = Request["orderShipping"];" no arquivo e insira a seguinte linha de código logo após a mesma.
+3. Localize a linha "var shipping = Request["orderShipping"];"no arquivo e insira a seguinte linha de código logo a seguir.
 
 		var gift = Request["isGift"];
 
@@ -183,7 +197,7 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente ao web
 			body += "This is a gift." + "<br/>";
 		}
 
-	O arquivo *order.cshtml* deve ser semelhante a esta imagem.
+	O seu arquivo *order.cshtml* deve ser semelhante à imagem a seguir.
 
 	![][modify6]
 
@@ -199,7 +213,7 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente ao web
 
 # Próximas etapas
 
-Você viu como criar e implantar um site a partir do WebMatrix para o Azure. Para saber mais sobre o WebMatrix, verifique estes recursos:
+Você viu como criar e implantar um site por meio do WebMatrix para o Azure. Para saber mais sobre o WebMatrix, veja estes recursos:
 
 * [WebMatrix para Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
@@ -236,4 +250,5 @@ Você viu como criar e implantar um site a partir do WebMatrix para o Azure. Par
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/pt-br/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

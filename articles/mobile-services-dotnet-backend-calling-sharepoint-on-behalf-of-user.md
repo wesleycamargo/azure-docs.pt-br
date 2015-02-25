@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Acessar o SharePoint em nome do usuário | Mobile Dev Center" metaKeywords="" description="Saiba como fazer chamadas para o SharePoint em nome do usuário" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+﻿<properties 
+	pageTitle="Acessar o SharePoint em nome do usuário | Centro de Desenvolvimento de Serviços Móveis" 
+	description="Saiba como fazer chamadas para o SharePoint em nome do usuário" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Acessar o SharePoint em nome do usuário
 
@@ -9,7 +23,7 @@
 <p>Este tópico mostra como acessar as APIs do SharePoint em nome do usuário registrado atualmente.</p>
 <p>Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapas deste tutorial. No vídeo, Mat Velloso explica como atualizar um aplicativo da Windows Store para interagir com o SharePoint Online.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a> <span class="time">12:51:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a> <span class="time">12:51</span></div>
 </div>
 
 Neste tutorial, você atualizará o aplicativo por meio do tutorial Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory, para criar um documento do Word no SharePoint Online quando um novo TodoItem for adicionado.
@@ -25,7 +39,7 @@ Este tutorial explica estas etapas básicas para habilitar o acesso em nome de o
 Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1
-* Uma assinatura ativa do [SharePoint Online]
+* Uma assinatura ativa do [SharePoint Online] 
 * Conclusão do tutorial [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
 
 ## <a name="configure-permissions"></a>Configurar seu aplicativo para acesso delegado ao SharePoint
@@ -35,7 +49,7 @@ Por padrão, o token que você recebe do AAD tem permissões limitadas. Para ace
 
     ![][0]
 
-2. Na guia **Configurar**, role a página para baixo para obter as permissões para outra seção de aplicativos. Selecione **Office 365 SharePoint Online** e conceda a permissão delegada para **Editar e excluir arquivos dos usuários**. Em seguida, clique em **Salvar**.
+2. Na guia **Configurar** guia, role a página para baixo para obter as permissões para outra seção de aplicativos. Selecione **Office 365 SharePoint Online** e conceda a permissão delegada **Editar ou excluir arquivos de usuários**. Em seguida, clique em **Salvar**.
 
     ![][1]
 
@@ -59,7 +73,7 @@ Para fazer uma chamada para o SharePoint, é necessário especificar os pontos d
 
 5. Configure SP_ClientSecret para ser o valor do segredo do cliente que você obteve anteriormente.
 
-6. Configure SP_SharePointURL para ser a URL de seu site do SharePoint. Ela deve estar no formulário https://contoso-my.sharepoint.com
+6. Configure SP_SharePointURL para ser a URL de seu site do SharePoint. Ele estará no formulário https://contoso-my.sharepoint.com
 
 Você poderá obter esses valores novamente em seu código, usando ApiServices.Settings.
 
@@ -69,7 +83,7 @@ Para acessar o SharePoint, é necessário ter um token de acesso especial com o 
 
 1. Abra o seu projeto de back-end de Serviços Móveis no Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 2. Em seu projeto de back-end de Serviços Móveis, crie uma nova classe chamada SharePointUploadContext. Nela, adicione o seguinte:
 
@@ -93,7 +107,7 @@ Para acessar o SharePoint, é necessário ter um token de acesso especial com o 
         {
             //Call ADAL and request a token to SharePoint with the access token
             AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new UserAssertion(userToken), new ClientCredential(clientId, clientSecret));
+            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
             mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
@@ -201,5 +215,5 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/pt-br/sharepoint/
-[Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory]: http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
+[Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/\n<!--HONumber=42-->

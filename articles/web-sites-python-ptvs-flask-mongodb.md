@@ -1,6 +1,20 @@
-<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask e MongoDB no Azure com Python Tools 2.1 para Visual Studio" description="Aprenda a usar o Python Tools for Visual Studio para criar um aplicativo Flask que armazena dados em uma instância de banco de dados MongoDB e pode ser implantado em um website." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Flask e MongoDB no Azure com Python Tools 2.1 for Visual Studio" 
+	description="Saiba como usar as ferramentas do Python para o Visual Studio para criar um aplicativo de Garrafa que armazena dados em uma instância do banco de dados MongoDB e pode ser implantado em um site da Web"." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -13,7 +27,7 @@ O aplicativo de pesquisas define uma abstração para seu repositório, para que
 
 Aprenderemos como usar um dos serviços MongoDB hospedados no Azure, como configurar o aplicativo para usar o MongoDB e como publicar o aplicativo em um website do Azure.
 
-Consulte o [Python Developer Center][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
+Consulte o [Centro de desenvolvedores do Python][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
 
 + [Pré-requisitos](#prerequisites)
 + [Criar o projeto](#create-the-project)
@@ -24,18 +38,18 @@ Consulte o [Python Developer Center][] para obter mais artigos que abrangem o de
 + [Configurar Site do Azure](#configure-the-azure-website)
 + [Próximas etapas](#next-steps)
 
-## <a name="prerequisites"></a>Pré-requisitos
+##<a name="prerequisites"></a>Pré-requisitos
 
  - Visual Studio 2012 ou 2013
  - [Python Tools 2.1 para Visual Studio][]
  - [Python Tools 2.1 para Visual Studio Samples VSIX][]
  - [Ferramentas do SDK do Azure para VS 2013][] ou [Ferramentas do SDK do Azure para VS 2012][]
- - [Python 2.7 de 32 bits][] ou [Python 3.4 de 32 bits][]
+ - [Python 2.7 32-bit][] ou [Python 3,4 32-bit][]
  - [RoboMongo][] (opcional)
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-## <a name="create-the-project"></a>Criar o projeto
+##<a name="create-the-project"></a>Criar o projeto
 
 Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra.  Criaremos um ambiente virtual e instalaremos pacotes necessários.  Em seguida, executaremos o aplicativo localmente usando o repositório da memória padrão.
 
@@ -59,7 +73,7 @@ Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra.  
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
-## <a name="create-a-mongodb-database"></a>Criar o banco de dados MongoDB
+##<a name="create-a-mongodb-database"></a>Criar o banco de dados MongoDB
 
 Para o banco de dados, criaremos um banco de dados MongoLab hospedado no Azure.
 
@@ -85,7 +99,7 @@ Você pode criar uma avaliação gratuita com MongoLab seguindo estas etapas.
 
 1.  Clique em **COMPRA**.
 
-## <a name="configure-the-project"></a>Configurar o projeto
+##<a name="configure-the-project"></a>Configurar o projeto
 
 Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoDB que acabamos de criar.  Veremos como obter configurações de conexão no portal do Azure.  Em seguida, executaremos o aplicativo localmente.
 
@@ -117,21 +131,21 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoD
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
-## <a name="explore-the-mongodb-database"></a>Explorar o banco de dados MongoDB
+##<a name="explore-the-mongodb-database"></a>Explorar o banco de dados MongoDB
 
-É possível usar um aplicativo como [RoboMongo][] para consultar e fazer edições em um banco de dados MongoDB.Nesta seção, usaremos o RoboMongo para visualizar o conteúdo do banco de dados de aplicativo de pesquisas.
+É possível usar um aplicativo como [RoboMongo][] para consultar e fazer edições em um banco de dados MongoDB.  Nesta seção, usaremos o RoboMongo para visualizar o conteúdo do banco de dados de aplicativo de pesquisas.
 
 1.  Crie uma nova conexão.  Será necessário o **MONGOLAB\_URI** recuperado na seção anterior.
 
-    Note the format of the URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
+    Observe o formato da URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     O nome corresponde ao nome inserido quando criou o serviço com Azure.  É usado para ambos os nomes do banco de dados e de usuário.
 
-1.  Na página de conexão, configure o **Nome** para qualquer nome que gostaria para a conexão.  Configure os campos **Endereço** e **Porta** para *address* e *port* de**MONGOLAB\_URI**.
+1.  Na página de conexão, configure o **Nome** para qualquer nome que gostaria para a conexão.  Configure também os campos **Endereço** e **Porta** para  *address* e *port* de **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  Na página de autenticação, configure o **Banco de dados** e **Nome de usuário** para o *name* de **MONGOLAB\_URI**.  Também configure a **Senha** para a *password* de **MONGOLAB\_URI**.
+1.  Na página autenticação, defina o **banco de dados** e **nome de usuário** para o *name* de **MONGOLAB\_URI**.  Também configure a **Senha** para a  *password* de **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -139,7 +153,7 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoD
 
   	![RoboMongo Query Results](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-## <a name="publish-to-an-azure-website"></a>Publicar para um website do Azure
+##<a name="publish-to-an-azure-website"></a>Publicar para um website do Azure
 
 O PTVS fornece uma forma fácil de implantar seu aplicativo Web para um website do Azure.
 
@@ -161,7 +175,7 @@ O PTVS fornece uma forma fácil de implantar seu aplicativo Web para um website 
 
     Isso é porque as variáveis de ambiente não estão configuradas no Website do Azure, portanto, ele usa os valores padrão especificados em **settings.py**.
 
-## <a name="configure-the-azure-website"></a>Configurar Site do Azure
+##<a name="configure-the-azure-website"></a>Configurar Site do Azure
 
 Nesta seção, configuraremos variáveis do ambiente para o site.
 
@@ -185,23 +199,23 @@ Nesta seção, configuraremos variáveis do ambiente para o site.
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
-## <a name="next-steps"></a>Próximas etapas
+##<a name="next-steps"></a>Próximas etapas
 
 Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Flask e MongoDB.
 
 - [Documentação do Python Tools para Visual Studio][]
   - [Projetos da Web][]
-  - [Projetos de serviço de nuvem][]
+  - [Projetos de serviços de nuvem][]
   - [Depuração remota no Microsoft Azure][]
 - [Documentação do Flask][]
 - [MongoDB][]
-- [Documentação do PyMongo][]
+- [Documentação do PyMongo][PyMongo Documentation]
 - [PyMongo][]
 
 
 <!--Link references-->
-[Python Developer Center]: /pt-br/develop/python/
-[Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs/
+[Centro de desenvolvedores do Python]: /pt-br/develop/python/
+[Serviços de nuvem do Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
@@ -210,15 +224,16 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Fl
 [Python Tools 2.1 para Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Ferramentas do SDK do Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3,4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentação do Flask]: http://flask.pocoo.org/
 [MongoDB]: http://www.mongodb.org/
-[Documentação do PyMongo]: http://api.mongodb.org/python/current/
+[PyMongo Documentation]: http://api.mongodb.org/python/current/
 [PyMongo]: https://github.com/mongodb/mongo-python-driver
 [Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projetos de serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Projetos de serviços de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

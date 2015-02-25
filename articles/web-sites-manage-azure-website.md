@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure website" pageTitle="Gerenciar um site do Azure" description="Links para recursos para gerenciar um site do Microsoft Azure." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Gerenciar um site do Azure" 
+	description="Links para recursos para gerenciar um site do Microsoft Azure." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/16/2014" 
+	ms.author="mwasson"/>
 
 # Gerenciar um site do Azure
 
@@ -34,10 +48,10 @@ Use o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/) para 
 
 Além desta definições de configurações básicas, talvez você queira configurar o seguinte:
 
-A criptografia - **Secure Socket Layer (SSL)**. Para usar a SSL com um nome de domínio personalizado, você deve solicitar um certificado SSL e configurar seu site para usá-lo. Consulte [Habilitar HTTPS para um site do Azure](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/).
+- A criptografia **Secure Socket Layer (SSL)**. Para usar a SSL com um nome de domínio personalizado, você deve solicitar um certificado SSL e configurar seu site para usá-lo. Consulte [Habilitar HTTPS para um site do Azure](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/).
 - **Nome de domínio personalizado.** O seu site tem automaticamente um subdomínio em azurewebsites.net. Você pode associar um nome de domínio personalizado, como contoso.com. Consulte [Configurar um nome de domínio personalizado](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-custom-domain-name/).
 
-Configuração específica de idioma:
+Configuração de idioma específico:
 
 - **PHP**: [Como configurar o PHP nos sites do Azure](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-php-configure/).
 - **Python**: [Configurar o Python com os Sites do Azure](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-python-configure/)
@@ -51,14 +65,14 @@ Enquanto seu site está executando, você deseja se certificar que ele esteja di
 
 - Por meio do Portal de Gerenciamento, você pode [adicionar métricas de desempenho](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-monitor) como uso da CPU e número de solicitações de cliente.
 - Para uma percepção mais aprofundada, use o New Relic para monitorar e gerenciar o desempenho. Consulte [Gerenciamento de desempenho do aplicativo New Relic nos sites do Azure](http://azure.microsoft.com/pt-br/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/).
-- [Dimensione seu site](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-scale/) em resposta ao tráfego. Dependendo da sua faixa, você pode reduzir o número de VMs e/ou o tamanho das instâncias da VM. No Plano Padrão, você também pode configurar a autoescala, para que seu site dimensione automaticamente, em uma programação fixa ou em resposta ao carregamento. 
+- [Dimensione seu site](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-scale/) em resposta ao tráfego. Dependendo da sua faixa, você pode reduzir o número de VMs e/ou o tamanho das instâncias da VM. No Plano Padrão, você também pode configurar a autoescala, para que seu site dimensione automaticamente, em uma programação fixa ou em resposta ao carregamento.  
  
 ### Backups
 
 - Definir [backups automáticos](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-backup/) do seu site. Saiba mais sobre backups [neste vídeo](http://azure.microsoft.com/pt-br/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Saiba sobre as opções para a [recuperação de banco de dados](http://msdn.microsoft.com/pt-br/library/azure/hh852669.aspx) no banco de dados SQL do Azure.
 
-### Solucionar problemas
+### Solução de problemas
 
 - Se algo der errado, você pode [solucionar no Visual Studio](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug), usando os logs de diagnóstico e depuração ao vivo na nuvem. 
 - Fora do Visual Studio, há várias maneiras de coletar os logs de diagnóstico. Consulte [Habilitar o log de diagnóstico para os sites do Azure](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-enable-diagnostic-log/).
@@ -90,3 +104,5 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 [Quando você atualiza seu site]: #when-you-update-your-website
 
  
+
+<!--HONumber=42-->

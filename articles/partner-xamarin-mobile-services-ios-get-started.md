@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Introdução aos Serviços Móveis para aplicativos iOS do Xamarin" metaKeywords="" description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento do Xamarin iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Introdução aos Serviços Móveis para aplicativos iOS do Xamarin" 
+	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento do Xamarin iOS." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="conceptdev" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/22/2014" 
+	ms.author="craig.dunn@xamarin.com"/>
 
-# <a name="getting-started"> </a>Introdução aos Serviços Móveis
+# <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin.iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples de <em>Lista de pendências</em> que armazena dados do aplicativo no novo serviço móvel.
+Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin.iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples <em>To do list</em> que armazena dados do aplicativo no novo serviço móvel.
 
 Se você preferir assistir a um vídeo, o clipe abaixo segue as mesmas etapas deste tutorial.
 
@@ -20,13 +34,13 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 ![][0]
 
-A conclusão deste tutorial requer o XCode e o [Xamarin Studio] para OS X ou o plug-in Xamarin Visual Studio para Visual Studio no Windows.A amostra será executada no iOS 5.0 e mais recentes.
+A conclusão deste tutorial requer o XCode e o [Xamarin Studio] para OS X ou o plug-in Xamarin Visual Studio para Visual Studio no Windows. A amostra será executada no iOS 5.0 e mais recentes.
 
-<div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Avaliação gratuita do Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank).
 
-## <a name="create-new-service"> </a>Criar um novo serviço móvel
+## <a name="create-new-service"></a>Criar um novo serviço móvel
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Criar um noco aplicativo Xamarin.iOS</h2>
 
@@ -34,7 +48,7 @@ Depois de criar seu serviço móvel, você poderá seguir um quickstart fácil n
 
 Nesta seção você criará um novo aplicativo Xamarin.iOS que está conectado ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+1.  No Portal de Gerenciamento, clique em **Serviços Móveise**, em seguida, clique no serviço móvel que você acabou de criar.
 
 2. Na guia de início rápido, clique em **Xamarin.iOS** em **Escolher Plataforma** e expanda **Criar um novo aplicativo Xamarin.iOS**.
 
@@ -48,7 +62,7 @@ Nesta seção você criará um novo aplicativo Xamarin.iOS que está conectado a
 
 4. Clique em **Criar tabela TodoItems** para criar uma tabela para armazenar dados do aplicativo.
 
-5. Em **Baixar e executar o aplicativo**, clique em **Baixar**. 
+5. Em **Baixe e execute o aplicativo**, clique em **Baixar**. 
 
 	Isso baixa o projeto para o aplicativo _To do list_ que está conectado a seu serviço móvel e faz referência ao componente dos Serviços Móveis do Azure para Xamarin.iOS. Salve o arquivo de projeto compactado em seu computador local e anote onde ele foi salvo.
 
@@ -68,14 +82,11 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	![][10]
 
-	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
+	Isso envia uma solicitação de POST ao novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
-	<div class="dev-callout"> 
-	<b>Observação</b> 
-   	<p>Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.cs C#.</p> 
- 	</div>
+	> [AZURE.NOTE] Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.cs C#.
 
-4. No Portal de Gerenciamento, clique na guia **Dados** e na tabela **TodoItems**.
+4. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
 
 	![][11]
 
@@ -83,21 +94,20 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	![][12]
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
 
-* [Introdução aos dados]
-  <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
+## Próximas etapas
+Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
 
 * [Introdução à sincronização de dados offline]
-  <br/>Saiba como usar a sincronização de dados offline para tornar seu aplicativo ágil e robusto.
+  <br/>Saiba como o quickstart utiliza a sincronização de dados offline para tornar o aplicativo robusto e responsivo.
 
 * [Introdução à autenticação]
   <br/>Aprenda a autenticar usuários do aplicativo com um provedor de identidade.
 
 * [Introdução às notificações por push] 
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
-
 
 <!-- Anchors. -->
 [Introdução aos Serviços Móveis]:#getting-started
@@ -123,8 +133,9 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Xamarin Studio]: http://xamarin.com/download
-[SDK de iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

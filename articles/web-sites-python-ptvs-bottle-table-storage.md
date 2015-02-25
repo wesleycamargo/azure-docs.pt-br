@@ -1,6 +1,20 @@
-﻿<properties linkid="web-sites-python-ptvs-bottle-table-storage" title="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Bottle e Armazenamento de Tabela do Azure com Python Tools 2.1 para Visual Studio" description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bottle que armazena dados no Armazenamento de tabela do Azure e pode ser implantado em um website." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Bottle e Armazenamento de Tabela do Azure com Python Tools 2.1 para Visual Studio" 
+	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bulbo que armazena dados no armazenamento de tabelas do Azure e pode ser implantado em um site. 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -13,7 +27,7 @@ O aplicativo de pesquisas define uma abstração para seu repositório, para que
 
 Aprenderemos como criar uma conta de Armazenamento do Azure, como configurar o aplicativo para usar o Armazenamento de Tabela do Azure e como publicar o aplicativo em um website do Azure.
 
-Consulte o [Python Developer Center][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
+Consulte o [Centro de desenvolvedores do Python][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
 
 + [Pré-requisitos](#prerequisites)
 + [Criar o projeto](#create-the-project)
@@ -30,9 +44,9 @@ Consulte o [Python Developer Center][] para obter mais artigos que abrangem o de
  - [Python Tools 2.1 para Visual Studio][]
  - [Python Tools 2.1 para Visual Studio Samples VSIX][]
  - [Ferramentas do SDK do Azure para VS 2013][] ou [Ferramentas do SDK do Azure para VS 2012][]
- - [Python 2.7 de 32 bits][] ou [Python 3.4 de 32 bits][]
+ - [Python 2.7 32-bit][] ou [Python 3,4 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Criar o projeto
 
@@ -68,7 +82,7 @@ Para usar as operações de armazenamento, você precisa de uma conta de armazen
 
   	![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png)
 
-1.  Clique em **SERVIÇOS DE DADOS**, depois em **ARMAZENAMENTO** e, por fim, clique em **CRIAÇÃO RÁPIDA**.
+1.  Clique em **SERVIÇOS DE DADOS**, **ARMAZENAMENTO** e em **CRIAÇÃO RÁPIDA**.
 
   	![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
 
@@ -116,7 +130,7 @@ Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenament
 
 É fácil visualizar e editar tabelas de armazenamento usando o Gerenciador de Servidores no Visual Studio.  Nesta seção, usaremos o Gerenciador de Servidores para visualizar o conteúdo das tabelas do aplicativo de pesquisas.
 
-> [WACOM.NOTE] Isso requer que o Microsoft Azure Tools seja instalado, disponível como parte do [SDK do Azure para .NET][].
+> [AZURE.NOTE] Isso requer que o Microsoft Azure Tools seja instalado, disponível como parte do [SDK do Azure para .NET][].
 
 1.  Abra **Gerenciador de Servidores**.  Expanda **Azure**, **Armazenamento**, sua conta de armazenamento, em seguida, **Tabelas**.
 
@@ -178,7 +192,7 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 
 - [Documentação do Python Tools para Visual Studio][]
   - [Projetos da Web][]
-  - [Projetos de serviço de nuvem][]
+  - [Projetos de serviços de nuvem][]
   - [Depuração remota no Microsoft Azure][]
 - [Documentação do Bottle][]
 - [Armazenamento do Azure][]
@@ -187,7 +201,7 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 
 
 <!--Link references-->
-[Python Developer Center]: /pt-br/develop/python/
+[Centro de desenvolvedores do Python]: /pt-br/develop/python/
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs/
 [documentação]: ../storage-python-how-to-use-table-storage/
 [Como usar o serviço de armazenamento de tabela por meio do Python]: ../storage-python-how-to-use-table-storage/
@@ -199,14 +213,15 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [Python Tools 2.1 para Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Ferramentas do SDK do Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3,4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
 [Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projetos de serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Projetos de serviços de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Armazenamento do Azure]: http://azure.microsoft.com/pt-br/documentation/services/storage/
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

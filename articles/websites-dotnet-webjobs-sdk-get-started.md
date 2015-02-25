@@ -1,16 +1,30 @@
-﻿<properties pageTitle="Introdução ao SDK dos trabalhos Web do Azure" metaKeywords="tutorial do Azure, tutorial de trabalhos Web do Azure, tutorial de várias camada do Azure, tutorial do MVC, tutorial de blobs do Azure, tutorial de filas do Azure, tutorial de armazenamento do Azure" description="Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O front-end é executado em um site da Web, e o back-end é executado como um Trabalho Web. O aplicativo usa o Entity Framework, o Banco de Dados SQL e filas e blobs de armazenamento do Azure." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Get Started with the Azure WebJobs SDK" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Introdução ao SDK de Trabalhos Web do Azure" 
+	description="Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O front-end é executado em um site e o back-end é executado como um trabalho de Web. O aplicativo usa o Entity Framework, banco de dados SQL e filas do armazenamento do Azure e blobs." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="tdykstra"/>
 
 # Introdução ao SDK de Trabalhos Web do Azure
 
-Este tutorial mostra como criar um aplicativo ASP.NET MVC de várias camadas que usa o SDK de trabalhos Web para trabalhar com as [filas do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e os [blobs do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) em um [site do Azure](/pt-br/documentation/services/websites/). O aplicativo também usa o [Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279). 
+Este tutorial mostra como criar um aplicativo ASP.NET MVC de várias camadas que utiliza o SDK de Trabalhos Web para trabalhar com [filas do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e [blobs do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) em um [Site do Azure](/pt-br/documentation/services/websites/). O aplicativo também usa o [Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279). 
 
 O aplicativo de exemplo é um boletim informativo de anúncio. Os usuários criam um anúncio inserindo texto e carregando uma imagem. Eles podem ver uma lista de anúncios com imagens em miniatura e podem ver a imagem em tamanho total ao selecionar um anúncio para ver os detalhes. Esta é uma captura de tela:
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-Você pode [baixar o projeto do Visual Studio][download] na Galeria de Códigos do MSDN. 
+É possível [baixar o projeto do Visual Studio][na]Galeria de Códigos do MSDN. 
 
 [baixar]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
 
@@ -32,11 +46,12 @@ O tutorial pressupõe que você saiba como trabalhar com projetos [ASP.NET MVC](
 As instruções do tutorial funcionam com os seguintes produtos:
 
 * Visual Studio 2013
+* Comunidade do Visual Studio 2013
 * Visual Studio 2013 Express para Web
 
 Se não tiver nenhum desses produtos, o Visual Studio 2013 Express para Web será instalado automaticamente quando você instalar o SDK do Azure.
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <a id="learn"></a>O que você vai aprender
 
@@ -51,9 +66,9 @@ O tutorial mostra como executar as seguintes tarefas:
 
 ## <a id="contosoads"></a>Arquitetura do aplicativo
 
-O aplicativo de exemplo usa o [padrão de trabalho centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho com uso intensivo da CPU de criar miniaturas para um processo back-end. 
+O aplicativo de exemplo usa o [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para aliviar o trabalho de uso intensivo de CPU de criação de miniaturas para um processo de back-end. 
 
-O aplicativo armazena anúncios em um banco de dados SQL usando Entity Framework Code First para criar as tabelas e acessar os dados. Para cada anúncio o banco de dados armazena duas URLs, uma para a imagem em tamanho total e outra para a miniatura.
+O aplicativo armazena anúncios em um banco de dados SQL utilizando o Entity Framework Code First para criar as tabelas e acessar os dados. Para cada anúncio o banco de dados armazena duas URLs, uma para a imagem em tamanho total e outra para a miniatura.
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
@@ -61,18 +76,18 @@ Quando um usuário carrega uma imagem, o site front-end armazena a imagem em um 
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### Arquitetura alternativa
+### Alternative architecture
 
 Trabalhos Web são executados no contexto de um site e não são escalonáveis separadamente. Por exemplo, se tiver uma instância de site Padrão, você só pode ter 1 instância do processo em segundo plano em execução e ela está usando parte dos recursos do servidor (CPU, memória etc.) que, de outra forma, estariam disponíveis para atender ao conteúdo da Web. 
 
-Se o tráfego variar de acordo com a hora do dia ou o dia da semana e se for possível esperar o processamento back-end necessário, você pode agendar os Trabalhos Web para serem executados nos horários de menos tráfego. Se ainda assim a carga for muito grande para essa solução, você pode levar em consideração ambientes alternativos para o programa back-end, como os seguintes:
+Se o tráfego variar de acordo com a hora do dia ou o dia da semana e se for possível esperar o processamento back-end necessário, é possível agendar os Trabalhos Web para serem executados nos horários de menos tráfego. Se ainda assim a carga for muito grande para essa solução, você pode levar em consideração ambientes alternativos para o programa back-end, como os seguintes:
 
 * Executar o programa como um Trabalho Web em um site à parte dedicado a essa finalidade. Assim, é possível dimensionar o site back-end independentemente do site front-end.
 * Executar o programa em uma função de trabalho Serviço de Nuvem do Azure. Se escolher essa opção, você pode executar o front-end em uma função web Serviço de Nuvem ou Site.
 
-Este tutorial mostra como executar o front-end em um site e o back-end como um Trabalho Web no mesmo site. Para obter informações sobre como escolher o melhor ambiente para o cenário, consulte [Comparação entre Sites do Azure, Serviços de Nuvem e Máquinas Virtuais].(/pt-br/documentation/articles/choose-web-site-cloud-service-vm/).
+Este tutorial mostra como executar o front-end em um site e o back-end como um Trabalho Web no mesmo site. Para obter informações sobre como escolher o melhor ambiente para o cenário, consulte [Comparação entre Sites do Azure, Serviços de Nuvem e Máquinas Virtuais](/pt-br/documentation/articles/choose-web-site-cloud-service-vm/).
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 As instruções do tutorial foram gravadas usando a próxima versão de teste do [Visual Studio 2013 Atualização 4](http://go.microsoft.com/fwlink/?LinkID=510328). A única diferença com o Visual Studio 2013 Atualização 3 está na seção create-from-scratch em que você cria o projeto de trabalho Web: com a Atualização 4, os pacotes SDK de trabalhos Web são incluídos automaticamente no projeto; sem a Atualização 4, você precisa instalar os pacotes manualmente.
 
@@ -126,11 +141,11 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 3. No **Gerenciador de Soluções**, verifique se **ContosoAdsWeb** está selecionado como o projeto inicial.
 
-## <a id="configurestorage"></a>Configurar o aplicativo para usar a conta de armazenamento
+## <a id="configurestorage"></a>Configurar o aplicativo para utilizar a conta de armazenamento
 
-2. Abra o arquivo *Web.config* do aplicativo no projeto ContosoAdsWeb.
+2. Abra o arquivo do aplicativo *Web.config* no projeto ContosoAdsWeb.
  
-	O arquivo contém uma cadeia de conexão SQL e uma cadeia de conexão de armazenamento do Azure para trabalhar com blobs e filas. 
+	O arquivo contém uma cadeia de conexão SQL e uma cadeia de caracteres de conexão de armazenamento do Azure para trabalhar com blobs e filas. 
 
 	A cadeia de conexão SQL aponta para um banco de dados [SQL Server Express LocalDB](http://msdn.microsoft.com/pt-br/library/hh510202.aspx).
  
@@ -155,11 +170,11 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 	![Storage Account Keys dialog](./media/websites-dotnet-webjobs-sdk-get-started/cpak.png)	
 
-8. Substitua a cadeia de conexão de armazenamento no arquivo *Web.config* com a cadeia de conexão que você acabou de copiar. Certifique-se de selecionar tudo dentro das aspas, mas não inclua as aspas antes de colar.
+8. Substitua a cadeia de conexão de armazenamento no arquivo  *Web.config* com a cadeia de conexão que você acabou de copiar. Certifique-se de selecionar tudo dentro das aspas, mas não inclua as aspas antes de colar.
 
 4. Abra o arquivo *App.config* no projeto ContosoAdsWebJob.
 
-	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves da conta de armazenamento.
+	Esse arquivo tem duas cadeias de caracteres de conexão de armazenamento, uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves da conta de armazenamento.
   	<pre class="prettyprint">&lt;configuration&gt;
     &lt;connectionStrings&gt;
         &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
@@ -171,7 +186,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
-	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o objeto `JobHost`](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).
+	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o `JobHost` objeto](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).
 
 1. Substitua ambas as cadeias de conexão de armazenamento com a cadeia de conexão que você copiou anteriormente.
 
@@ -286,7 +301,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	É possível ignorar o aviso sobre a não publicação de nenhum banco de dados. O Entity Framework Code First criará o banco de dados. Ele não precisa ser publicado.
 
-	a janela Visualizar mostra que os binários e os arquivos de configuração do projeto Trabalho Web serão copiados para a pasta *app_data\jobs\continuous* do site.
+	a janela de visualização mostra que os binários e os arquivos de configuração do projeto WebJob serão copiados para a pasta  *app_data\jobs\continuous* do site.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)	
 
@@ -308,7 +323,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	O Azure criou essa cadeia de conexão automaticamente quando você criou o site com um banco de dados associado. Assim, ele já tem o valor da cadeia de conexão certo. Você está apenas alterando o nome para aquilo que o código está procurando.
 
-9. Adicione duas novas cadeias de conexão, chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Defina o tipo como Personalizado e o valor da cadeia de conexão com o mesmo valor usado anteriormente por você para os arquivos *Web.config* e *App.config*. (Não se esqueça de incluir toda a cadeia de conexão, não apenas a chave de acesso, e as aspas.)
+9. Adicione duas novas cadeias de conexão, chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Defina o tipo personalizado e defina o valor de cadeia de caracteres de conexão com o mesmo valor que você usou anteriormente para os arquivos *Web.config* e *App.config*. (Não se esqueça de incluir toda a cadeia de conexão, não apenas a chave de acesso, e as aspas.)
 
 	Essas cadeias de conexão são usadas pelo SDK de Trabalhos Web, uma para dados do aplicativo e outra para registro em log. Como visto anteriormente, a dos dados do aplicativo também é usada pelo código front-end Web.
 	
@@ -355,7 +370,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	O botão **Função de Repetição**, nesta página, faz a estrutura do SDK de Trabalhos Web chamar a função novamente e dá uma chance de primeiro alterar os dados passados para a função.
 
->[WACOM.NOTE] Quando terminar os testes, exclua o site e a instância do Banco de Dados SQL. O site é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o site em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal de gerenciamento do Azure, vá até a guia **Painel** do site e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE] Quando terminar os testes, exclua o site e a instância do Banco de Dados SQL. O site é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o site em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal de gerenciamento do Azure, vá até a guia **Painel** do site e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ### Habilite o AlwaysOn para processos de longa duração
 
@@ -405,9 +420,9 @@ Nesta seção, você executará as seguintes tarefas:
 
 11. Na caixa de diálogo **Adicionar Novo Projeto**, escolha o modelo **Visual C#** > **Área de Trabalho do Windows** > **Biblioteca de Classes**.  
 
-10. Nomeie o projeto *ContosoAdsCommon*, e depois clique em **OK**.
+10. Nomeie o projeto *ContosoAdsCommon*e, em seguida, clique em **OK**.
 
-	Esse projeto conterá o contexto do Entity Framework e o modelo de dados que o front-end e o back-end vão usar. Como alternativa, você pode definir as classes relacionadas ao EF no projeto Web e referenciar esse projeto pelo projeto Trabalho Web. Assim porém, o projeto WebJob teria uma referência desnecessária a assemblies da Web.
+	Esse projeto conterá o contexto do Entity Framework e o modelo de dados que o front-end e o back-end utilizarão. Como alternativa, você pode definir as classes relacionadas ao EF no projeto Web e referenciar esse projeto pelo projeto Trabalho Web. Assim porém, o projeto WebJob teria uma referência desnecessária a assemblies da Web.
 
 ### Adicionar um projeto de Aplicativo do Console com a implantação de Trabalhos Web habilitada
 
@@ -421,8 +436,8 @@ Nesta seção, você executará as seguintes tarefas:
   
 	O Visual Studio cria um aplicativo de console configurado para ser implantado como um Trabalho Web sempre que você implantar o projeto Web. Para isso, ele realizou as seguintes tarefas após a criação do projeto:
 
-	* Adicionou um arquivo *webjob-publish-settings.json* na pasta Propriedades do projeto Trabalho Web.
-	* Adicionou um arquivo *webjobs-list.json* na pasta Propriedades do projeto Web.
+	* Adicionou um arquivo *webjob-publish-settings.json* na pasta de propriedades do projeto WebJob.
+	* Adicionou um arquivo *webjobs-list.json* na pasta de propriedades do projeto da web.
 	* Instalou o pacote Microsoft.Web.WebJobs.Publish NuGet no projeto Trabalho Web.
 	 
 	Para obter mais informações sobre essas alterações, consulte [Como implantar Trabalhos Web usando o Visual Studio](/pt-br/documentation/articles/websites-dotnet-deploy-webjobs/).
@@ -437,7 +452,7 @@ Uma das dependências do SDK de Trabalhos Web que é instalada automaticamente n
 
 12. No painel à esquerda, selecione **Pacotes instalados**.
    
-13. Encontre o pacote *Armazenamento do Azure* e clique em **Gerenciar**.
+13. Encontre o pacote *Azure Storage*, em seguida, clique em **Gerenciar**.
 
 13. Na caixa **Projetos Selecionados**, marque a caixa de seleção **ContosoAdsWeb** e clique em **OK**. 
 
@@ -445,7 +460,7 @@ Todos os três projetos usam o Entity Framework para trabalhar com dados no Banc
 
 12. No painel esquerdo, selecione **Online**.
    
-16. Encontre o pacote NuGet do *EntityFramework* e instale-o em todos os três projetos.
+16. Encontre o pacote do NuGet *EntityFramework* e instale-o em todos os três projetos.
 
 
 ### Definir referências de projeto
@@ -458,7 +473,7 @@ Ambos os projetos Web e Trabalho Web funcionarão com o banco de dados SQL, logo
 
 O projeto Trabalho Web precisa de referências para trabalhar com imagens e acessar cadeias de conexão.
 
-11. No projeto ContosoAdsWebJob, defina uma referência para `System.Drawing` e `System.Configuration`.
+11. No projeto ContosoAdsWebJob, defina uma referência como  `System.Drawing` e  `System.Configuration`.
 
 ### Adicionar código e arquivos de configuração
 
@@ -476,14 +491,14 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- Na pasta *Controllers*: *AdController.cs* 
-	- Na pasta *Views\Shared*: <em>_Layout.cshtml.</em> . 
-	- Na pasta *Views\Home*: *Index.cshtml*. 
-	- Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
+	- In the *Controllers* folder: *AdController.cs* 
+	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file. 
+	- In the *Views\Home* folder: *Index.cshtml*. 
+	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
 
-	- *App.config* (altere o filtro do tipo de arquivo para **Todos os Arquivos**)
+	- *App.config* (change the file type filter to **All Files**)
 	- *Program.cs*
 	- *Functions.cs*
 
@@ -556,7 +571,7 @@ A classe possui dois construtores. O primeiro deles é usado pelo projeto Web e 
 
 ### ContosoAdsCommon - BlobInformation.cs
 
-A classe `BlobInformation` é usada para armazenar informações sobre um blob de imagem em uma mensagem da fila.
+A classe  `BlobInformation` é usada para armazenar informações sobre um blob de imagem em uma mensagem da fila.
 
 		public class BlobInformation
 		{
@@ -582,14 +597,14 @@ A classe `BlobInformation` é usada para armazenar informações sobre um blob d
 
 ### ContosoAdsWeb - Global.asax.cs
 
-O código que é chamado do método `Application_Start` cria um contêiner de blog *images* e uma fila *images*, se ainda não existir. Isso garante que, sempre que você começar a usar uma nova conta de armazenamento, o contêiner do blob e a fila obrigatórios serão criados automaticamente.
+Código que é chamado a partir do método `Application_Start` cria um *images* contêiner de blob e ua fila *images* se eles ainda não existirem. Isso garante que, sempre que você começar a usar uma nova conta de armazenamento, o contêiner do blob e a fila obrigatórios serão criados automaticamente.
 
 O código obtém acesso à conta de armazenamento usando a cadeia de conexão de armazenamento do arquivo *Web.config* ou do ambiente de execução do Azure.
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
 
-Em seguida, ele obtém uma referência para o contêiner do blob *images*, cria o contêiner se ele ainda não existe e define permissões de acesso no novo contêiner. Por padrão, os novos contêineres somente permite que os clientes com credenciais da conta de armazenamento acessem os blobs. O site precisa que os blobs para o público para poder exibir imagens usando URLs que apontam para os blobs de imagem.
+Em seguida, ele obtém uma referência para o contêiner do blob  *images*, cria o contêiner se ele ainda não existe e define permissões de acesso no novo contêiner. Por padrão, os novos contêineres somente permite que os clientes com credenciais da conta de armazenamento acessem os blobs. O site precisa que os blobs para o público para poder exibir imagens usando URLs que apontam para os blobs de imagem.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -602,7 +617,7 @@ Em seguida, ele obtém uma referência para o contêiner do blob *images*, cria 
 		        });
 		}
 
-Um código semelhante obtém uma referência para a fila *blobnamerequest* e cria uma nova fila. Nesse caso, nenhuma alteração de permissão é necessária. A seção [ResolveBlobName](#resolveblobname) , mais adiante no tutorial, explica por que a fila na qual o aplicativo Web escreve é usada apenas para obter nomes de blob e não para gerar miniaturas.
+Um código semelhante obtém uma referência para a fila  *blobnamerequest* e cria uma nova fila. Nesse caso, nenhuma alteração de permissão é necessária. A seção [ResolveBlobName](#resolveblobname) , mais adiante no tutorial, explica por que a fila na qual o aplicativo Web escreve é usada apenas para obter nomes de blob e não para gerar miniaturas.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
@@ -614,7 +629,7 @@ O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodap�
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
-O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página de índice de Anúncios.
+O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração  `Category` em uma variável querystring para a página Índice de anúncio.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -623,9 +638,9 @@ O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os li
 
 ### ContosoAdsWeb - AdController.cs
 
-No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas. 
+No arquivo  *AdController.cs*, o construtor chama o método  `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas. 
 
-Em seguida, o código obtém uma referência para o contêiner do blob *images* como visto anteriormente em *Global.asax.cs*. Ao fazer isso, ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
+Em seguida, o código obtém uma referência para o *images* contêiner de blob, como você viu anteriormente na *Global.asax.cs*. Ao fazer isso, ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -637,7 +652,7 @@ Um código semelhante obtém uma referência para a fila *images*.
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework usando uma classe DbContext. Uma exceção é o método `Create` HttpPost, que atualiza um arquivo e o salva no armazenamento do blob. O associador de modelo fornece um objeto [HttpPostedFileBase](http://msdn.microsoft.com/pt-br/library/system.web.httppostedfilebase.aspx) para o método.
+A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework utilizando uma classe DbContext. Uma exceção é o método HttpPost  `Create`, que atualiza um arquivo e o salva no armazenamento do blob. O associador de modelo fornece um objeto [HttpPostedFileBase](http://msdn.microsoft.com/pt-br/library/system.web.httppostedfilebase.aspx) para o método.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -653,7 +668,7 @@ Se o usuário selecionou um arquivo para carregamento, o código carrega o arqui
 		    ad.ImageURL = blob.Uri.ToString();
 		}
 
-O código que faz o carregamento está no método `UploadAndSaveBlobAsync`. Ele cria um nome de GUID para o blob, carrega e salva o arquivo e retorna uma referência para o blob salvo.
+O código que não é carregado está no método  `UploadAndSaveBlobAsync`. Ele cria um nome de GUID para o blob, carrega e salva o arquivo e retorna uma referência para o blob salvo.
 
 		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
 		{
@@ -666,13 +681,13 @@ O código que faz o carregamento está no método `UploadAndSaveBlobAsync`. Ele 
 		    return imageBlob;
 		}
 
-Depois de carregar um blob e atualizar o banco de dados, o método `Create` HttpPost criará uma mensagem da fila para informar o processo back-end que uma imagem está pronta para conversão em miniatura.
+Depois de carregar um blob e atualizar o banco de dados, o método HttpPost  `Create` criará uma mensagem da fila para informar o processo back-end que uma imagem está pronta para conversão em miniatura.
 
 		BlobInformation blobInfo = new BlobInformation() { AdId = ad.AdId, BlobUri = new Uri(ad.ImageURL) };
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		await thumbnailRequestQueue.AddMessageAsync(queueMessage);
 
-O código do método `Edit` HttpPost é parecido, exceto pelo fato de que se o usuário selecionar um novo arquivo de imagem, qualquer blob já existente para esse anúncio deverá ser excluído.
+O código do método HttpPost  `Edit` é parecido, exceto pelo fato de que se o usuário selecionar um novo arquivo de imagem, qualquer blob já existente para esse anúncio deverá ser excluído.
  
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -703,19 +718,19 @@ Este é o código que exclui os blobs quando você exclui um anúncio:
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
 
-O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio:
+O arquivo *Index.cshtml* exibe miniaturas com os outros dados do anúncio:
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-O arquivo *Details.cshtml* exibe a imagem em tamanho real:
+O arquivo *Details.cshtml* exibe a imagem em tamanho normal:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml and Edit.cshtml
 
-Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
+Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação do formulário que permitem que o controlador obtenha o objeto `HttpPostedFileBase`.
 
 		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
@@ -725,7 +740,7 @@ Um elemento `<input>` informa o navegador para fornecer uma caixa de diálogo de
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-Quando o Trabalho Web começa, o método `Main` chama `Initialize` para criar uma instância do contexto do banco de dados do Entity Framework. Em seguida, ele chama o método `JobHost.RunAndBlock` do SDK de Trabalhos Web para começar a execução do thread atual.
+Quando o Trabalho Web começa, o método  `Main` chama  `Initialize` para criar uma instância do contexto do banco de dados do Entity Framework. Em seguida, ele chama o método  `JobHost.RunAndBlock` do SDK de Trabalhos Web para começar a execução do thread atual.
 
 		static void Main(string[] args)
 		{
@@ -740,9 +755,9 @@ Quando o Trabalho Web começa, o método `Main` chama `Initialize` para criar um
 		    db = new ContosoAdsContext();
 		}
 
-### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - método GenerateThumbnail
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
 
-O SDK de Trabalhos Web chama esse método quando uma mensagem da fila é recebida. O método cria uma miniatura e coloca a URL da miniatura no banco de dados.
+O SDK de Trabalhos Web chama esse método quando uma mensagem de fila é recebida. O método cria uma miniatura e coloca a URL da miniatura no banco de dados.
 
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
@@ -765,29 +780,36 @@ O SDK de Trabalhos Web chama esse método quando uma mensagem da fila é recebid
 		    Program.db.SaveChanges();
 		}
 
-* O atributo `QueueTrigger` direciona o SDK de Trabalhos Web para chamar esse método quando uma nova mensagem é recebida na fila thumbnailrequest.
+* O atributo  `QueueTrigger` direciona o SDK de Trabalhos Web para chamar esse método quando uma nova mensagem é recebida na fila thumbnailrequest.
 
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 
-	O objeto `BlobInformation` na mensagem da fila é desserializado automaticamente no parâmetro `blobInfo`. Quando o método é concluído, a mensagem da fila é excluída. Se o método falhar antes da conclusão, a mensagem da fila não será excluída. Depois de uma concessão de 10 minutos, a mensagem será liberada para ser novamente retirada e processada. Essa sequência não será repetida indefinidamente se uma mensagem sempre causar uma exceção. Depois de 5 tentativas malsucedidas de processar uma mensagem, a mensagem será movida para uma fila chamada {queuename}-poison. O número máximo de tentativas é configurável. 
+	O objeto  `BlobInformation` na mensagem da fila é desserializado automaticamente no parâmetro  `blobInfo`. Quando o método é concluído, a mensagem da fila é excluída. Se o método falhar antes da conclusão, a mensagem da fila não será excluída. Depois de uma concessão de 10 minutos, a mensagem será liberada para ser novamente retirada e processada. Essa sequência não será repetida indefinidamente se uma mensagem sempre causar uma exceção. Depois de 5 tentativas malsucedidas de processar uma mensagem, a mensagem será movida para uma fila chamada {queuename}-poison. O número máximo de tentativas é configurável. 
 
-* Os dois atributos 'Blob' fornecem objetos vinculados a blobs: um para o blob de imagem existente e outro para um novo blob de miniatura que o método cria. 
+* Os dois atributos `Blob` fornecem objetos vinculados a blobs: um para o blob de imagem existente e outro para um novo blob de miniatura que o método cria. 
 
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	Os nomes dos blobs vêm das propriedades do objeto `BlobInformation` recebidas na mensagem da fila (`BlobName` e `BlobNameWithoutExtension`). Para obter toda a funcionalidade da SCL, é possível usar a classe `CloudBlockBlob` para trabalhar com blobs. Se você quiser reutilizar o código que foi escrito para trabalhar com objetos `Stream`, você pode usar a classe `Stream`. 
+	Os nomes dos blobs vêm de propriedades do objeto  `BlobInformation` recebidas na mensagem da fila (`BlobName` e  `BlobNameWithoutExtension`). Para obter toda a funcionalidade da SCL, é possível usar a classe  `CloudBlockBlob` para trabalhar com blobs. Se quiser reutilizar código escrito para funcionar com objetos  `Stream`, você pode usar a classe  `Stream`. 
 
->[WACOM.NOTE] 
+Para obter mais informações sobre como escrever funções que usam atributos SDK do WebJobs, consulte os seguintes recursos:
+
+* [Como usar o armazenamento de fila do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [Como usar o armazenamento de blobs do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [Como usar o armazenamento de tabela do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [Como usar o barramento de serviço do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-service-bus)
+
+>[AZURE.NOTE] 
 >* Se o site for executado em várias VMs, esse programa será executado em todos os computadores e cada computador aguardará os gatilhos e tentará executar as funções. Em alguns cenários, isso pode fazer com que algumas funções processem os mesmos dados duas vezes. Assim, as funções devem ser idempotentes (escritas de forma que chamá-las repetidamente com os mesmos dados de entrada não produza resultados duplicados).
 >* Para obter informações sobre como implementar o desligamento normal, consulte [Desligamento normal](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
->* O código no método `ConvertImageToThumbnailJPG` (não mostrado) usa classes no namespace `System.Drawing` para manter a simplicidade. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET.
+>* O código no método  `ConvertImageToThumbnailJPG` (não mostrado) usa classes no namespace  `System.Drawing` por uma questão de simplicidade. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET.
 
 ### SDK de Trabalhos Web em comparação com a função de trabalho de Serviço de Nuvem sem o SDK de Trabalhos Web
 
-Se você comparar a quantidade de códigos no método `GenerateThumbnails` neste aplicativo de exemplo com os códigos da função de trabalho na [versão de Serviço de Nuvem do aplicativo](/pt-br/documentation/articles/cloud-services-dotnet-get-started/), poderá ver quanto trabalho o SDK de Trabalhos Web está fazendo para você. A vantagem é maior do que parece, porque o aplicativo de exemplo de Serviço de Nuvem não faz todas as coisas (como a manipulação de mensagens suspeitas) que você faria em um aplicativo em produção, algo que o SDK de Trabalhos Web faz para você.
+Ao comparar a quantidade de código no método  `GenerateThumbnails` desse aplicativo de exemplo com o código da função de trabalho na [versão de Serviço de Nuvem do aplicativo](/pt-br/documentation/articles/cloud-services-dotnet-get-started/), você pode ver quanto trabalho o SDK de Trabalhos Web está fazendo por você. A vantagem é maior do que parece, porque o aplicativo de exemplo de Serviço de Nuvem não faz todas as coisas (como a manipulação de mensagens suspeitas) que você faria em um aplicativo em produção, algo que o SDK de Trabalhos Web faz para você.
 
-Na versão de Serviço de Nuvem do aplicativo, a ID de registro é a única informação na mensagem da fila e o processo em segundo plano obtém a URL da imagem do banco de dados. Na versão do SDK de Trabalhos Web do aplicativo, a mensagem da fila inclui a URL da imagem para que ela possa ser fornecida aos atributos `Blob`. Se a mensagem da fila não tivesse a URL de blob, você poderia [usar o atributo de Blob no corpo do método em vez da assinatura do método](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
+Na versão de Serviço de Nuvem do aplicativo, a ID de registro é a única informação na mensagem da fila e o processo em segundo plano obtém a URL da imagem do banco de dados. Na versão do SDK de Trabalhos Web do aplicativo, a mensagem da fila inclui a URL da imagem de forma que ela possa ser fornecida aos atributos  `Blob`. Se a mensagem da fila não tivesse a URL de blob, você poderia [usar o atributo de Blob no corpo do método em vez da assinatura do método](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
 
 ### Usando o SDK de Trabalhos Web fora de Trabalhos Web
 
@@ -795,8 +817,9 @@ Um programa que usa o SDK de Trabalhos Web não precisa ser executado no Azure e
 
 ## Próximas etapas
 
-Neste tutorial, você viu um aplicativo multicamadas simples que usa o SDK de Trabalhos Web no processamento back-end. O aplicativo foi mantido simples para um tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou os [padrões de unidade de trabalho e repositório](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
+Neste tutorial, você viu um aplicativo multicamadas simples que utiliza o SDK de Trabalhos Web no processamento back-end. O aplicativo foi mantido simples para um tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou os [padrões de unidade de trabalho e repositório](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
 
 Para obter mais informações, consulte [Recursos recomendados para Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

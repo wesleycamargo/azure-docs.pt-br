@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="" pageTitle="Usar scripts de servidor para validar e modificar dados (Xamarin iOS) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como validar e modificar dados enviados usando scripts de servidor de seu aplicativo iOS Xamarin." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Usar scripts de servidor para validar e modificar dados (Xamarin iOS) | Centro de desenvolvimento móvel" 
+	description="Saiba como validar e modificar dados enviados usando scripts de servidor de seu aplicativo iOS Xamarin." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # Validar e modificar dados em Serviços Móveis usando scripts de servidor
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 Este tópico mostra como utilizar scripts de servidor nos Serviços Móveis do Azure. Os scripts de servidor são registrados em um serviço móvel e podem ser usados para executar um grande intervalo de operações nos dados que estão sendo inseridos e atualizados, incluindo validação e modificação de dados. Neste tutorial, você irá definir e registrar scripts de servidor que validam e modificam dados. Como o comportamento de scripts do lado do servidor geralmente afeta o cliente, você também irá atualizar o aplicativo iOS para tirar proveito desses novos comportamentos. O código concluído está disponível no exemplo do [aplicativo ValidateModifyData][GitHub].
 
@@ -15,21 +29,21 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 3. [Adicionar um carimbo de data/hora na inserção]
 4. [Atualizar o cliente para exibir o carimbo de data/hora]
 
-Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados]. Antes de começar este tutorial, você deve primeiro concluir a [Introdução a dados].  
+Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados]. Para começar este tutorial, primeiro conclua a [Introdução aos dados].  
 
 ## <a name="string-length-validation"></a>Adicionar validação
 
 É sempre uma boa prática validar o tamanho dos dados enviados pelos usuários. Primeiro, você registra um script que valida o tamanho dos dados enviados ao serviço móvel e rejeita as cadeias de caracteres muito longas, neste caso mais de 10 caracteres.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo. 
+1. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo. 
 
 	![][0]
 
-2. Clique na guia **Dados** e na tabela **TodoItem**.
+2. Clique na guia **Dados** e clique na tabela **TodoItem**.
 
    	![][1]
 
-3. Clique em **Script** e selecione a operação **Insert**.
+3. Clique em **Script** e selecione a operação **Inserir**.
 
    	![][2]
 
@@ -43,11 +57,9 @@ Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
             }
         }
 
-    Esse script verifica o comprimento da propriedade **text** e envia uma resposta de erro quando o comprimento excede 10 caracteres. Caso contrário, o método **execute** será chamado para concluir a inserção.
+    Esse script verifica o comprimento da propriedade **text** e envia uma resposta de erro quando o comprimento exceder 10 caracteres. Caso contrário, o método **execute** será chamado para concluir a inserção.
 
-    <div class="dev-callout"> 
-	<b>Observação</b> 
-	<p>Você pode remover um script registrado na guia <strong>Script</strong> clicando em <strong>Limpar</strong> e, em seguida, em <strong>Salvar</strong>.</p></div>
+    > [AZURE.NOTE] Você pode remover um script registrado na guia **Script** clicando em **Limpar** e depois em **Salvar**.
 
 ## <a name="update-client-validation"></a>Atualizar o cliente
 
@@ -57,11 +69,11 @@ Agora que o serviço móvel está validando dados e enviando respostas de erros,
 
 2. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo, digite um texto com mais de 10 caracteres na caixa de texto e clique no ícone de sinal de adição (**+**).
 
-Observe que o aplicativo gera um erro não tratado como resultado da resposta 400 (solicitação incorreta) retornada pelo serviço móvel.	
+	Observe que o aplicativo gera um erro não tratado como resultado da resposta 400 (solicitação incorreta) retornada pelo serviço móvel.	
 
-3. No arquivo TodoService.cs, localize o tratamento de exceções <code>try/catch</code> no método **InsertTodoItemAsync** e substitua <code>catch</code> por:
+3. No arquivo TodoService.cs, localize a exceção <code>try/catch</code> atual tratando as exceções no método **InsertTodoItemAsync** e substitua <code>catch</code> com:
     
-    catch (Exception ex) {
+        catch (Exception ex) {
         var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
         Console.WriteLine(exDetail.Message);
                                 
@@ -75,15 +87,15 @@ Observe que o aplicativo gera um erro não tratado como resultado da resposta 40
         return -1;
 		}
 
-Isso abrirá uma janela pop-up que exibe o erro ao usuário. 
+	Isso abrirá uma janela pop-up que exibe o erro ao usuário. 
 
-4. Localize o método **OnAdd** em **TodoListViewController.cs**. Atualize o método para se certificar de que o <code>index</code> não seja <code>-1</code> como é retornado no tratamento de exceções em **InsertTodoItemAsync**. Nesse caso, não desejamos adicionar uma nova linha a <code>TableView</code>.
+4. Localize o método **OnAdd** em **TodoListViewController.cs**. Atualize o método para verificar se o índice/code> retornado não é <code>-1</code> como é retornado no tratamento de exceções em **InsertTodoItemAsync**. Nesse caso, não desejamos adicionar uma nova linha a <code>TableView</code>.
 
-    if (index != -1) {
-        TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
+        if (index != -1) {
+          TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
             UITableViewRowAnimation.Top);
-        itemText.Text = "";
-    }
+          itemText.Text = "";
+        }
 
 
 5. Recrie e inicie o aplicativo. 
@@ -93,7 +105,7 @@ Isso abrirá uma janela pop-up que exibe o erro ao usuário.
 	Observe que o erro é tratado e a mensagem de erro é exibida para o usuário.
 
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você concluiu este tutorial, considere continuar com o tutorial final da série de dados: [Refinar consultas com paginação].
 
@@ -134,3 +146,6 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+<!--HONumber=42-->

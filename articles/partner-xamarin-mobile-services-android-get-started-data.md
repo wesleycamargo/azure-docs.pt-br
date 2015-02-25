@@ -1,48 +1,60 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introdução aos dados (Xamarin.Android) - Serviços Móveis do Azure" metaKeywords="dados do Xamarin.Android do Azure, dados de serviços móveis do Azure" description="Saiba como armazenar e acessar dados do seu aplicativo Android Xamarin de serviços móveis do Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" services="mobile-services" />
+<properties 
+	pageTitle="Introdução aos dados (Xamarin.Android) - serviços móveis do Azure" 
+	description="Saiba como armazenar e acessar dados do seu aplicativo Android Xamarin de serviços móveis do Azure." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="donnam"/>
 
-# Adicionar Serviços Móveis a um aplicativo existente
+# Adicionar os Serviços Móveis a um aplicativo existente
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]	
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]	
 
-<p>Este tópico mostra como usar os Serviços Móveis do Azure para utilizar dados em um aplicativo Xamarin.Android. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criar[a um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.</p>
+<p>Este tópico mostra como usar os Serviços Móveis do Azure para utilizar os dados em um aplicativo Xamarin.Android. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.</p>
 
-<div class="dev-callout"><b>Observação</b>
-<p>O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo Xamarin.Android. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-xamarin-android">Introdução aos Serviços Móveis</a>.</p>
-</div>
+> [AZURE.NOTE] O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo Xamarin.Android. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis](/pt-br/develop/mobile/tutorials/get-started-xamarin-android).
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
 1. [Baixar o projeto do aplicativo Xamarin.Android][GitHub] 
 2. [Criar o serviço móvel]
 3. [Adicionar uma tabela de dados para armazenamento]
-4. [Atualizar o aplicativo para usar Serviços Móveis]
+4. [Atualizar o aplicativo para usar os Serviços Móveis]
 5. [Testar o aplicativo com os Serviços Móveis]
 
-<div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisará de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Avaliação gratuita do Azure</a>.</p></div> 
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 Este tutorial requer o [Componente dos Serviços Móveis do Azure], [Xamarin.Android] e Android SDK 4.2 ou uma versão posterior. 
 
-<div class="dev-callout"><b>Observação</b>
-<p>O projeto GetStartedWithData baixado requer o Android 4.2 ou uma versão posterior. No entanto, o SDK dos Serviços Móveis requer apenas o Android 2.2 ou uma versão posterior.</p>
-</div>
+> [AZURE.NOTE] O projeto GetStartedWithData baixado requer o Android 4.2 ou uma versão mais recente. No entanto, o SDK dos Serviços Móveis requer apenas o Android 2.2 ou uma versão mais recente.
 
 <h2><a name="download-app"></a>Baixar o projeto GetStartedWithData</h2>
 
 Este tutorial é baseado no [aplicativo GetStartedWithData][GitHub], que é um aplicativo Xamarin.Android. A interface do usuário desse aplicativo é idêntica a do aplicativo gerado pelo início rápido dos Serviços Móveis Android, com a exceção de que os itens são armazenados localmente na memória. 
 
-1. Baixe o aplicativo de exemplo `GetStartedWithData` e extraia os arquivos em seu computador. 
+1. Baixe o aplicativo de exemplo  `GetStartedWithData` e extraia os arquivos no seu computador. 
 
 2. No Xamarin Studio, clique em **Arquivo** e em **Abrir**, navegue até o local onde você extraiu o projeto de exemplo GetStartedWithData, selecione **XamarinTodoQuickStart.Android.sln** e abra-o.
 
 3. Localize e abra a classe **TodoActivity**
 
-   	Observe que há comentários `// TODO::` que especificam as etapas necessárias para fazer com que esse aplicativo funcione com o serviço móvel.
+   	Observe que há comentários '// TODO::' que especificam as etapas necessárias para fazer com que esse aplicativo funcione com o serviço móvel.
 
 5. No menu **Executar**, clique em **Iniciar sem Depurar**. Em seguida, você receberá uma solicitação para escolher um emulador ou um dispositivo USB Android conectado.
 
-	<div class="dev-callout"><strong>Observação</strong> <p>Você pode executar esse projeto usando um telefone Android ou o emulador Android. A execução com um telefone Android exige que você baixe um driver USB específico de telefone.</p> <p>Para executar o projeto no emulador Android, você deve definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador AVD para criar e gerenciar esses dispositivos.</p></div>
+	> [AZURE.IMPORTANT] É possível executar este projeto usando um telefone Android ou o emulador Android. A execução com um telefone Android exige que você baixe um driver USB específico de telefone.
+	> 
+	> Para executar o projeto no emulador Android, deve-se definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
 
 6. No aplicativo, digite um texto significativo, como _Complete the tutorial_ e clique em **Adicionar**.
 
@@ -52,30 +64,27 @@ Este tutorial é baseado no [aplicativo GetStartedWithData][GitHub], que é um a
 
 <h2><a name="create-service"></a>Criar um novo serviço móvel no Portal de Gerenciamento</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>Adicionar uma nova tabela ao serviço móvel</h2>
 
 Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeiro você deve criar uma nova tabela.  
 
-1. No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+1. No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
 
-2. Clique na guia **Dados** e clique em **+Criar**.
+2. Clique na guia **Dados** e, em seguida, clique em **+Criar**.
 
    	![][5]
 
    	Isso exibe a caixa de diálogo **Criar uma nova tabela**.
 
-3. Em **Nome da tabela**, digite _TodoItem_ e clique no botão de seleção.
+3. Em **Nome da tabela** digite _TodoItem_ e, em seguida, clique no botão de seleção.
 
   	![][6]
 
-  	Isso cria uma nova tabela de armazenamento **TodoItem** com o conjunto de permissões padrão, o que significa que qualquer usuário do aplicativo pode acessar e alterar dados na tabela. 
+  	Isso cria uma nova tabela de armazenamento **TodoItem** com o conjunto de permissões padrão, o que significa que qualquer usuário do aplicativo pode acessar e modificar dados na tabela. 
 
-    <div class="dev-callout"> 
-	<b>Observação</b> 
-	<p>O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso servirá para evitar colisões de dados quando vários serviços móveis usarem o mesmo banco de dados.</p> 
-	</div>
+    > [AZURE.NOTE] O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso é para evitar colisões de dados quando vários serviços móveis usam o mesmo banco de dados.
 
 4. Clique na nova tabela **TodoItem** e verifique se não há linhas de dados.
 
@@ -83,9 +92,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
   	Este é o requisito mínimo para uma tabela nos Serviços Móveis. 
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.</p>
-    </div>
+    > [AZURE.NOTE] Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
@@ -111,14 +118,14 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 		public List<TodoItem> todoItemList = new ArrayList<TodoItem>();
 
-5. Quando a etapa anterior estiver concluída, o projeto indicará erros de compilação. Pesquise os três locais restantes onde a variável `todoItemList` é usada e comente as seções indicadas. 
+5. Quando a etapa anterior estiver concluída, o projeto indicará erros de compilação. Pesquise os três locais restantes onde a variável  `todoItemList` é usada e comente as seções indicadas. 
 
 6. Agora adicionamos o nosso serviço móvel. Remova os comentários das seguintes linhas de código:
 
         private MobileServiceClient client; // Mobile Service Client references
         private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
 
-7. No Portal de Gerenciamento, clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+7. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
 
 8. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
 
@@ -144,7 +151,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 		// Get the Mobile Service Table instance to use
 		todoTable = client.GetTable<TodoItem>();    
 
-  	Isso cria uma nova instância de MobileServiceClient que é usada para acessar seu serviço móvel. Também cria a instância MobileServiceTable que é usada para armazenamento de dados de proxy no serviço móvel.
+  	Isso criará uma nova instância de MobileServiceClient que é usada para acessar seu serviço móvel. Também cria a instância MobileServiceTable que é usada para armazenamento de dados de proxy no serviço móvel.
 
 12. Localize a classe ProgressFilter na parte inferior do arquivo e remova os comentários dela. Essa classe exibe um indicador 'loading' enquanto o MobileServiceClient está executando operações de rede.
 
@@ -193,7 +200,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 			CreateAndShowDialog(e, "Error");
 		}
 
-	Isso consulta o serviço móvel e retorna todos os itens que não estão marcados como concluídos. Os itens são adicionados ao adaptador para associação.
+	Isso consulta o serviço móvel e retorna todos os itens que não estão marcados como concluídos. Os itens são adicionados ao adaptador para vinculação.
 		
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
@@ -204,13 +211,13 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 	Isso executa seu aplicativo criado com Xamarin.Android que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
 
-5. Como feito anteriormente, digite um texto significativo e clique em **Adicionar**.
+5. Como antes, digite texto significativo e clique em **Adicionar**.
 
    	Isso envia um novo item como uma inserção no serviço móvel.
 
-3. No [Portal de Gerenciamento], clique em **Serviços Móveis** e clique no seu serviço móvel.
+3. No [Portal de Gerenciamento], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-4. Clique na guia **Dados** e clique em **Procurar**.
+4. Clique na guia **Dados** e, em seguida, clique em **Procurar**.
 
    	![][9]
   
@@ -221,14 +228,14 @@ Isso conclui o tutorial **Introdução aos dados** para Xamarin.Android.
 ## Obtenha o exemplo concluído
 Baixe o [projeto de exemplo concluído]. Lembre-se de atualizar as variáveis **applicationURL** e **applicationKey** com suas próprias configurações do Azure. 
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Xamarin.Android para trabalhar com dados nos Serviços Móveis. 
 
 Em seguida, considere fazer um dos seguintes tutoriais com base no aplicativo GetStartedWithData que você criou neste tutorial:
 
 * [Validar e modificar dados com scripts]
-  <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar dados enviados do seu aplicativo.
+  <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
 
 * [Refinar consultas com paginação]
   <br/>Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
@@ -246,7 +253,7 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Baixar o aplicativo da Windows Store]: #download-app
 [Criar o serviço móvel]: #create-service
 [Adicionar uma tabela de dados para armazenamento]: #add-table
-[Atualizar o aplicativo para usar Serviços Móveis]: #update-app
+[Atualizar o aplicativo para usar os Serviços Móveis]: #update-app
 [Testar o aplicativo com os Serviços Móveis]: #test-app
 [Próximas etapas]:#next-steps
 
@@ -262,7 +269,7 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [9]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
 [13]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
 
-<!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->
+<!-- URLs. TODO:: atualize 'Download the Android app project' link de download, 'GitHub', projeto concluído, etc. -->
 [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
 [Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-android
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-xamarin-android
@@ -278,3 +285,6 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+
+
+<!--HONumber=42-->

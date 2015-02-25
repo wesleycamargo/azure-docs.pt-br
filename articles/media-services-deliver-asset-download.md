@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Delivering Media Assets" pageTitle="Como fornecer ativos de mídia - Azure" metaKeywords="" description="Saiba quais são as opções para entregar ativos de mídia que foram carregados nos Serviços de Mídia no Azure. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Como fornecer ativos de mídia - Azure" description="Saiba quais são as opções para entregar ativos de mídia que foram carregados nos Serviços de Mídia no Azure. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -11,7 +11,7 @@ Este artigo faz parte de uma série de introdução à programação dos Serviç
 
 Este tópico descreve as opções para a entrega de ativos de mídia carregados nos Serviços de Mídia. Você pode entregar conteúdo dos Serviços de Mídia em vários cenários de aplicativos. Você pode baixar ativos de mídia ou acessá-los usando um localizador. Você pode enviar conteúdo de mídia para outro aplicativo ou para outro provedor de conteúdo. Para obter melhor desempenho e escalabilidade, você também pode entregar conteúdo usando uma CDN (Rede de Distribuição de Conteúdo), como a CDN do Azure.
 
-Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia. O código consulta os trabalhos associados à conta dos Serviços de Mídia por ID do trabalho e acessa sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de mídia de saída que resulta da execução de um trabalho).Este exemplo mostra como baixar os ativos de mídia da saída de um trabalho, mas você pode aplicar a mesma abordagem para baixar outros ativos.
+Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia. O código consulta os trabalhos associados à conta dos Serviços de Mídia por ID do trabalho e acessa sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de mídia de saída que resulta da execução de um trabalho). Este  exemplo mostra como baixar os ativos de mídia da saída de um trabalho, mas você pode aplicar a mesma abordagem para baixar outros ativos.
 
 <pre><code> 
 // Download the output asset of the specified job to a local folder.
@@ -38,7 +38,7 @@ static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
         ParallelTransferThreadCount = 20
     };
 
-    var downloadTasks = new List<Task>();
+    var downloadTasks = new List&lt;Task&gt;();
     foreach (IAssetFile outputFile in outputAsset.AssetFiles)
     {
         // Use the following event handler to check download progress.
@@ -71,6 +71,7 @@ Para obter mais informações sobre como fornecer ativos, consulte:
 </ul>
 
 <h2>Próximas etapas</h2>
-Este tópico explicou como baixar um ativo do Armazenamento do Azure. Para obter informações sobre outras maneiras de entregar ativos, vá para o tópico [Como entregar conteúdo de streaming](../media-services-deliver-streaming-content/) .
+Este tópico explicou como baixar um ativo do Armazenamento do Azure. Para obter informações sobre outras maneiras de entregar ativos, vá para o tópico [Como entregar conteúdo de streaming](../media-services-deliver-streaming-content/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

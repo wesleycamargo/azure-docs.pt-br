@@ -1,6 +1,20 @@
-﻿<properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Funcionalidade do sistema operacional disponível para aplicativos em Sites do Azure" description="Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos da web em sites do Azure" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Funcionalidade do sistema operacional disponível para aplicativos em Sites do Azure" 
+	description="Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos da web em sites do Azure" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="cephalin"/>
 
 # Funcionalidade do sistema operacional disponível para aplicativos em Sites do Azure #
 
@@ -22,7 +36,7 @@ Este artigo descreve a funcionalidade do sistema operacional de linha de base co
 
 <a id="websitemodes"></a>
 <h2>Modos de sites</h2>
-Os Sites do Azure executam sites de clientes em um ambiente de hospedagem multilocatário. Os sites implantados nos modos de colocação em escala do site Disponível e Compartilhado são executados em processos de trabalho em máquinas virtuais compartilhadas, enquanto os sites implantados no modo de colocação em escala do site Padrão são executados em máquinas virtuais dedicadas especificamente aos sites associados a um único cliente.
+Os Sites do Azure executam sites de clientes em um ambiente de hospedagem multilocatário. Os sites implantados nos modos de colocação em escala do site Disponível e Compartilhado são executados em processos de trabalho em máquinas virtuais compartilhadas, e os sites implantados no modo de colocação em escala do site Padrão são executados em máquinas virtuais dedicadas especificamente aos sites associados a um único cliente.
 
 Como os Sites do Azure fornecem suporte a uma experiência de colocação em escala perfeita entre modos diferentes, a configuração de segurança imposta para sites permanece a mesma. Isso garante que os aplicativos Web não se comportem inesperadamente de maneira diferente, falhando de maneiras inesperadas, quando um site alterna um modo de site e outro.
 
@@ -53,7 +67,7 @@ Um dos aspectos exclusivos dos Sites do Azure que simplifica a implantação e a
 
 Dentro dos Sites do Azure existem vários compartilhamentos UNC criados em cada data center. Uma porcentagem do conteúdo do usuário para todos os clientes em cada data center é alocada para cada compartilhamento UNC. Além disso, todo o conteúdo de arquivo de uma assinatura do cliente única é sempre colocado no mesmo compartilhamento UNC. 
 
-Por conta da maneira como os serviços de nuvem funcionam, a máquina virtual específica responsável por hospedar um compartilhamento UNC mudará com o passar do tempo. Existe a garantia de que compartilhamentos UNC serão montados por máquinas virtuais diferentes à medida que elas forem ligadas e desligadas durante o curso normal das operações em nuvem. Por esse motivo, aplicativos Web jamais devem fazer pressuposições codificadas de que as informações da máquina em um caminho de arquivo UNC permanecerão estáveis com o passar do tempo. Em vez disso, eles devem utilizar o caminho absoluto *faux* prático **D:\home\site** fornecido pelos Sites do Azure. Esse caminho absoluto faux oferece um método portátil, independente do site e do usuário, para se referir ao próprio site. Utilizando **D:\home\site**, uma pessoa pode transferir arquivos compartilhados de um site para outro sem que seja necessário configurar um novo caminho absoluto para cada transferência.
+Por conta da maneira como os serviços de nuvem funcionam, a máquina virtual específica responsável por hospedar um compartilhamento UNC mudará com o passar do tempo. Existe a garantia de que compartilhamentos UNC serão montados por máquinas virtuais diferentes à medida que elas forem ligadas e desligadas durante o curso normal das operações em nuvem. Por esse motivo, aplicativos Web jamais devem fazer pressuposições codificadas de que as informações da máquina em um caminho de arquivo UNC permanecerão estáveis com o passar do tempo. Em vez disso, eles devem usar o *faux* caminho absoluto **D:\home\site** que os Websites do Azure fornecem. Esse caminho absoluto faux oferece um método portátil, independente do site e do usuário, para se referir ao próprio site. Usando **D:\home\site**, uma pessoa pode transferir arquivos compartilhados de um site para outro sem que seja necessário configurar um novo caminho absoluto para cada transferência.
 
 <a id="TypesOfFileAccess"></a>
 <h3>Tipos de acesso a arquivos concedido a um aplicativo Web</h3>
@@ -62,7 +76,7 @@ A assinatura de cada cliente tem uma estrutura de diretório reservado em um com
 
 Nas unidades locais anexadas à máquina virtual que executa um site, os Sites do Azure reservam uma parte do espaço na unidade C:\ para armazenamento local temporário específico do site. Embora um site tenha acesso de leitura/gravação completo em seu próprio armazenamento local temporário, esse armazenamento não se destina, de fato, a ser usado diretamente pelo código do aplicativo. Em vez disso, o objetivo é fornecer um armazenamento de arquivo temporário para o IIS e para as estruturas do aplicativo Web. Os Sites do Azure também limitam a quantidade de armazenamento local temporário disponível a cada site para evitar que sites individuais consumam quantidades excessivas de armazenamento de arquivo local.
 
-Dois exemplos de como os Sites do Azure utilizam armazenamento local temporário são o diretório para arquivos do ASP.NET temporários e o diretório para arquivos compactados do IIS. O sistema de compilação do ASP.NET usa o diretório "Arquivos do ASP.NET Temporários" como um local de cache de compilação temporária. O IIS usa o diretório "Arquivos Compactados Temporários do IIS" para armazenar a saída de resposta compactada. Os usos desses tipos de arquivo (bem como outros) são remapeados nos Sites do Azure para o armazenamento local temporário por site. Esse remapeamento garante que a funcionalidade continue conforme esperado.
+Dois exemplos de como os Sites do Azure utilizam armazenamento local temporário são o diretório para arquivos do ASP.NET temporários e o diretório para arquivos compactados do IIS. O sistema de compilação do ASP.NET usa o diretório "Arquivos do ASP.NET Temporários" como um local de cache de compilação temporária. O IIS usa o diretório "Arquivos Compactados Temporários do IIS" para armazenar a saída de resposta compactada. Os usos desses tipos de arquivo (bem como outros) são remapeados nos Sites do Azure para o armazenamento local temporário por site. Esse remapeamento garante que a funcionalidade continua conforme esperado.
 
 Cada site nos Sites do Azure é executado como uma identidade de processo trabalhador aleatório com poucos privilégios exclusiva chamada de "identidade pool de aplicativos", descrita mais detalhadamente aqui: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). O código do aplicativo usa essa identidade no acesso somente leitura básico à unidade do sistema operacional (a unidade D:\). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco mais amplo, os mesmos diretórios e arquivos permanecem acessíveis quando você provisiona uma função de trabalho em um serviço hospedado do Azure e ler o conteúdo da unidade. 
 
@@ -73,7 +87,7 @@ O diretório base apresenta o conteúdo de um site e os aplicativos Web podem gr
 
 <a id="NetworkAccess"></a>
 <h2>Acesso à rede</h2>
-O código do aplicativo pode usar protocolos com base em TCP/IP e UDP para estabelecer conexões de rede de saída com pontos de extremidade acessíveis pela Internet que expõem serviços externos. Os aplicativos podem utilizar esses mesmos protocolos para se conectar aos serviços dentro do Azure&#151; por exemplo, estabelecendo conexões HTTPS com o SQL do Azure.
+O código do aplicativo pode usar protocolos com base em TCP/IP e UDP para estabelecer conexões de rede de saída com pontos de extremidade acessíveis pela Internet que expõem serviços externos. Os pplicativos podem usar esses mesmos protocolos para se conectar aos serviços dentro do Azure&#151;por exemplo, ao estabelecer conexões HTTPS para o SQL do Azure.
 
 Também existe uma capacidade limitada para que aplicativos estabeleçam uma conexão de loopback local e um aplicativo escute nesse soquete de loopback local. Esse recurso existe principalmente para permitir que os aplicativos escutem em soquetes de loopback locais como parte de sua funcionalidade. Observe que o aplicativo de cada cliente vê uma conexão de loopback "particular"; o aplicativo "A" não pode escutar um soquete de loopback local estabelecido pelo aplicativo "B".
 
@@ -84,9 +98,9 @@ Os pipes nomeados também são compatíveis como um mecanismo de comunicação e
 <h2>Execução de código, processos e memória</h2>
 Conforme observado anteriormente, os sites são executados dentro de processos de trabalho com poucos privilégios usando uma identidade de pool de aplicativos aleatória. O código do aplicativo tem acesso ao espaço da memória associado ao processo de trabalho, bem como a todos os processos filho que possam ter sido gerados por processos CGI ou outros aplicativos. No entanto, aplicativos de um site não podem acessar a memória ou os dados do site de outro cliente, mesmo que ele esteja na mesma máquina virtual.
 
-Os aplicativos podem executar scripts ou páginas gravadas com estruturas de desenvolvimento de aplicativos Web compatíveis. Os Sites do Azure não definem configurações de estrutura do aplicativo Web como modos mais restritos. Por exemplo, sites do ASP.NET em execução nos sites do Azure são executados com confiança "total", e não como um modo de confiança mais restrito. As estruturas de aplicativo, inclusive o ASP clássico e o ASP.NET, podem chamar componentes COM em processo (mas não componentes COM fora de processo) como ADO (ActiveX Data Objects) que são registrados por padrão no sistema operacional Windows.
+Os aplicativos podem executar scripts ou páginas gravadas com estruturas de desenvolvimento de aplicativos Web compatíveis. Os Sites do Azure não definem configurações de estrutura do aplicativo Web como modos mais restritos. Por exemplo, sites do ASP.NET em execução nos sites do Azure são executados com confiança "total", e não como um modo de confiança mais restrito. As estruturas de aplicativo, inclusive o ASP clássico e o ASP.NET, podem chamar componentes COM em processo (mas não componentes COM fora de processo) como ADO (ActiveX Data Objects) registrados por padrão no sistema operacional Windows.
 
-Os aplicativos Web podem gerar e executar códigos arbitrários. É aceitável que um aplicativo Web faça coisas como gerar um shell de comando ou executar um script do PowerShell. No entanto, embora códigos e processos arbitrários possam ser gerados com base em um aplicativo Web, programas executáveis e scripts continuam restritos aos privilégios concedidos ao pool de aplicativos pai. Por exemplo, um site pode gerar um executável que faz uma chamada HTTP de saída, mas esse mesmo executável não pode tentar desassociar o endereço IP de uma máquina virtual de seu NIC. Fazer uma chamada de rede de saída é permitido para um código com poucos privilégios, mas tentar redefinir as configurações de rede em uma máquina virtual exige privilégios administrativos.
+Os aplicativos Web podem gerar e executar códigos arbitrários. É aceitável que um aplicativo Web faça coisas como gerar um shell de comando ou executar um script do PowerShell. No entanto, embora códigos e processos arbitrários possam ser gerados com base em um aplicativo Web, programas executáveis e scripts continuam restritos aos privilégios concedidos ao pool de aplicativos pai. Por exemplo, um site pode gerar um executável que faz uma chamada HTTP de saída, mas esse mesmo executável não pode tentar desassociar o endereço IP de uma máquina virtual de seu NIC. Fazer uma chamada de rede de saída é permitido para código com poucos privilégios, mas tentar redefinir as configurações de rede em uma máquina virtual exige privilégios administrativos.
 
 
 <a id="Diagnostics"></a>
@@ -101,6 +115,9 @@ As áreas de registro em log de diagnóstico e rastreamento que não estão disp
 
 <a id="RegistryAccess"></a>
 <h2>Acesso ao Registro</h2>
-Os aplicativos têm acesso somente leitura a grande parte (mas nem todo) do Registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do Registro que permitem acesso somente leitura ao grupo Usuários local são acessíveis por aplicativos Web. Uma área do Registro que atualmente não é compatível com acesso de leitura ou gravação é o hive HKEY\_CURRENT\_USER.
+Os aplicativos têm acesso somente leitura a grande parte (mas nem todo) do Registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do Registro que permitem acesso somente leitura ao grupo Usuários local são acessíveis por aplicativos Web. Uma área do Registro que atualmente não é compatível com acesso de leitura ou gravação é a seção HKEY\_CURRENT\_USER.
 
 O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave do Registro por usuário. Do ponto de vista de um aplicativo, o acesso de gravação ao Registro jamais deve ser usado em um ambiente de nuvem porque os aplicativos podem (e vão) ser migrados entre máquinas virtuais diferentes. O único armazenamento gravável persistente que pode ser usado por um aplicativo Web é a estrutura do diretório de conteúdo do site armazenada nos compartilhamentos UNC dos Sites do Azure. 
+
+
+<!--HONumber=42-->

@@ -1,26 +1,40 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definir uma API personalizada que ofereça suporte a notificações por pull - Serviços Móveis do Azure" metaKeywords="" description="Saiba como definir uma API personalizada que dá suporte a notificações periódicas em aplicativos da Windows Store que usam serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Definir uma API personalizada que ofereça suporte a notificações por pull - Serviços Móveis do Azure" 
+	description="Saiba como definir uma API personalizada que dá suporte a notificações periódicas em aplicativos da Windows Store que usam serviços móveis do Azure." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Definir uma API personalizada que dá suporte a notificações periódicas
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">JavaScript da Windows Store</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">C# da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">JavaScript da Windows Store</a>
 </div>
 
-Este tópico mostra como usar uma API personalizada para dar suporte a notificações periódicas em um aplicativo da Windows Store. Com as notificações periódicas habilitadas, o Windows acessará periodicamente o ponto de extremidade da API personalizada e usará o XML retornado em um formato específico de bloco para atualizar o bloco do aplicativo no menu Iniciar. Para obter mais informações, consulte [Notificações periódicas]. 
+Este tópico mostra como usar uma API personalizada para oferecer suporte a notificações periódicas em um aplicativo da Windows Store. Com as notificações periódicas habilitadas, o Windows acessará periodicamente o ponto de extremidade da API personalizada e usará o XML retornado em um formato específico de bloco para atualizar o bloco do aplicativo no menu Iniciar. Para obter mais informações, consulte [Notificações periódicas]. 
 
-Você adicionará essa funcionalidade ao aplicativo que criou quando concluiu os tutoriais [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente].Para fazer isso, você executará as seguintes etapas:
+Você adicionará essa funcionalidade ao aplicativo que criou quando concluiu um dos tutoriais [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente]. Para fazer isso, você executará as seguintes etapas:
 
 1. [Definir a API personalizada]
 2. [Atualizar o aplicativo para ativar notificações periódicas]
-3. [Testar o aplicativo] 
+3. [Testar o aplicativo]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir os tutorias [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente].  
+Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir um dos tutoriais [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente].  
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
+1. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo.
 
    	![][0]
 
@@ -30,7 +44,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 	Isso exibe a caixa de diálogo **Criar uma nova API personalizada**.
 
-3. Altere **Obter permissão** para **Todos**, digite _organizar lado a lado_ em **Nome da API** e clique no botão de seleção.
+3. Altere a **Permissão de GET** para **Todos**, digite _blocos_ em **Nome da API** e clique no botão de seleção.
 
    	![][2]
 
@@ -67,26 +81,24 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 		    }
 		};
 
-	Esse código retorna os três primeiros itens não concluídos da tabela TodoItem e os carrega em um objeto JSON passado para a função **wns.****createTileSquareText01**.Essa função retorna o seguinte XML do modelo de bloco:
+	Esse código retorna os três primeiros itens não concluídos da tabela TodoItem e os carrega em um objeto JSON passado para a função **wns**.**createTileSquareText01**. Essa função retorna o seguinte XML do modelo de bloco:
 
 		<tile>
 			<visual>
 				<binding template="TileSquareText01">
-
-
-
-
+					<text id="1">My todo list</text>
+					<text id="2">Task 1</text>
+					<text id="3">Task 2</text>
+					<text id="4">Task 3</text>
 				</binding>
 			</visual>
 		</tile>
 
-	A função **exports.get** é usada porque o cliente envia uma solicitação de GET para acessar o modelo do bloco.
+	A função **exports.get** é usada porque o cliente envia uma solicitação de GET para acessar o modelo tile.
 
-   	<div class="dev-callout"><b>Observação</b>
-   		<p>Este script de API usa p módulo wns <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">Node.js</a>, que é referido utilizando a <strong>função</strong> require. Este módulo é diferente do <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">objeto wns</a> retornado pelo <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj554217.aspx">objeto push</a>, que é usado para enviar notificações por push de scripts do servidor.</p>
-   	</div>
+   	> [AZURE.NOTE] Este script da API personalizada usa o [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) do Node.js, que é referenciado usando a função **require**. Esse módulo é diferente do [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) retornado pelo [objeto push](http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx), que é usado para enviar notificações por push de scripts de servidor.
 
-Em seguida, você modificará o aplicativo quickstart para iniciar notificações periódicas que atualizam o bloco ativo solicitando a nova API personalizada.
+Em seguida, você modificará o aplicativo de início rápido para iniciar notificações periódicas que atualizam o bloco ativo solicitando a nova API personalizada.
 
 <h2><a name="update-app"></a>Atualizar o aplicativo para ativar notificações periódicas</h2>
 
@@ -105,7 +117,7 @@ Em seguida, você modificará o aplicativo quickstart para iniciar notificaçõe
             PeriodicUpdateRecurrence.Hour
         );
 
-	Esse código ativa as notificações periódicas para solicitar dados do modelo de bloco por meio da nova API personalizada de**blocos**. Selecione um valor de [PeriodicUpdateRecurrance] que coincida com a frequência de atualização de seus dados.
+	Esse código ativa as notificações periódicas para solicitar dados do modelo tile por meio da nova API personalizada **tile**. Selecione um valor de [PeriodicUpdateRecurrance] que coincida com a frequência de atualização de seus dados.
 
 ## <a name="test-app"></a>Testar o aplicativo
 
@@ -147,14 +159,13 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 [Notificações por push e Live Connect do Windows]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
+[Adicionar Serviços Móveis a um aplicativo existente]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
+[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Notificações periódicas]: http://msdn.microsoft.com/pt-br/library/windows/apps/jj150587.aspx
+[Notificações periódicas]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-
-<!--HONumber=35.1-->
+\n<!--HONumber=42-->

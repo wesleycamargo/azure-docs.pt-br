@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website from Gallery" pageTitle="Criar um site Orchard CMS da galeria no Azure" metaKeywords="Azure, criar site, gerenciamento de site do Azure" description="Um tutorial que ensina a criar um novo site no Azure. Saiba também como iniciar e gerenciar seu site usando o Portal de gerenciamento." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Criar um site do Orchard CMS da galeria no Azure" 
+	description="Um tutorial que ensina a criar um novo site no Azure. Saiba também como iniciar e gerenciar seu site usando o Portal de gerenciamento." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 # Criar um site do Orchard CMS da galeria no Azure
 
@@ -12,11 +26,11 @@ Neste tutorial, você aprenderá:
 
 - Como iniciar e gerenciar seu site do Portal de Gerenciamento
  
-Você criará um site do Orchard CMS que utiliza um modelo padrão. [Orchard](http://www.orchardproject.net/) é um gratuito, de código aberto.Aplicativo baseado em NET do CMS que permite que você crie sites personalizados e orientados por conteúdo. O Orchard CMS inclui uma estrutura de extensibilidade por meio da qual você pode [fazer o download de outros módulos e temas](http://gallery.orchardproject.net/) para personalizar seu site. A ilustração a seguir mostra o site Orchard CMS que você criará.
+Você criará um site do Orchard CMS que utiliza um modelo padrão. [Orchard](http://www.orchardproject.net/) é um gratuito, de código aberto.Aplicativo baseado em NET do CMS que permite que você crie sites personalizados e orientados por conteúdo. O Orchard CMS inclui uma estrutura de extensibilidade por meio da qual você pode [fazer o download de outros módulos e temas](http://gallery.orchardproject.net/) para personalizar seu site. A ilustração a seguir mostra o site pomar CMS que você criará.
 
 ![Orchard blog][13]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2>Criar um site do Orchard da galeria</h2>
 
@@ -30,7 +44,7 @@ Você criará um site do Orchard CMS que utiliza um modelo padrão. [Orchard](ht
 	
 	![Create From Gallery][2]
 
-4. Localize e clique no ícone **Orchard CMS** na lista e, em seguida, clique na seta para continuar.
+4. Localize e clique no **pomar CMS** ícone na lista e, em seguida, clique na seta para continuar.
 	
 	![Orchard from list][3]
 
@@ -64,7 +78,7 @@ Azure iniciará a construção e implantação das operações. Enquanto o site 
 3. Siga os detalhes na [Documentação do Orchard](http://docs.orchardproject.net/) para saber mais sobre o Orchard e configurar o novo site.
 
 <h2>Próxima etapa</h2>
-* [Desenvolver e implantar um site da web com o Microsoft WebMatrix](/pt-br/develop/net/tutorials/website-with-webmatrix/)- Saiba como editar um site Azure no WebMatrix. 
+* [Desenvolver e implantar um site da web com o Microsoft WebMatrix](/pt-br/develop/net/tutorials/website-with-webmatrix/) - Saiba como editar um site Azure no WebMatrix.
 * [Implantar um aplicativo de segurança ASP.NET MVC com associação, OAuth e banco de dados SQL para um Site do Azure](/pt-br/develop/net/tutorials/web-site-with-sql-database/)- Saiba como criar um novo site do Visual Studio.
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
@@ -77,3 +91,6 @@ Azure iniciará a construção e implantação das operações. Enquanto o site 
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+
+
+<!--HONumber=42-->

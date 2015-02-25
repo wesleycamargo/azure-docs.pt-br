@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="Como configurar sites - gerenciamento de serviços do Azure" metaKeywords="sites do Azure, configurando sites do Azure, banco de dados SQL do Azure, MySQL do Azure" description="Saiba como configurar sites no Azure, incluindo como configurar um site para usar um banco de dados SQL ou MySQL." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Como configurar sites - gerenciamento de serviços do Azure" 
+	description="Saiba como configurar sites no Azure, incluindo como configurar um site para usar um banco de dados SQL ou MySQL." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="mwasson"/>
 
 
 # Como configurar sites #
@@ -44,16 +58,16 @@ Por razões técnicas, a habilitação do Java para seu site desabilita as opç�
 
 <strong>Web Sockets</strong>. Configurar **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu site utiliza [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-nodejs-chat-app-socketio/).
 
-<strong>Sempre Ativado</strong>. Por padrão, os sites serão descarregados se estiverem ociosos durante um determinado período de tempo. Isso permite que o sistema conservar os recursos. No modo Básico ou Padrão, você pode habilitar <strong>Sempre Ativado</strong> para manter o site carregado o tempo todo. Se seu site executar continuamente Trabalhos Web, você deve habilitar **Sempre Ativado** ou é possível que os Trabalhos Web não sejam executados de forma segura
+<strong>Sempre ativo</strong>. Por padrão, os sites serão descarregados se estiverem ociosos durante um determinado período de tempo. Isso permite que o sistema conservar os recursos. No modo Básico ou Padrão, você pode habilitar <strong>Sempre Ativado</strong> para manter o site carregado o tempo todo. Se seu site executar continuamente Trabalhos Web, você deve habilitar **Sempre Ativado** ou é possível que os Trabalhos Web não sejam executados de forma segura
 
-<strong>Editar no Visual Studio Online</strong>. Habilita a edição do código ativo com o Visual Studio Online. Se for habilitado, a guia do Painel exibirá um link chamado <strong>Editar no Visual Studio Online</strong>, na seção <strong>Visão Rápida</strong>. Clique neste link para editar o seu site diretamente online. Se você precisar autenticar, poderá utilizar suas credenciais de implantação básica.
+<strong>Editar no Visual Studio Online</strong>. Habilita a edição do código ativo com o Visual Studio Online. Se for habilitado, a guia do Painel exibirá um link chamado <strong>Editar no Visual Studio Online</strong>, na seção <strong>Visão Rápida</strong>. Clique neste link para editar o seu site diretamente online. Se precisar autenticar, você poderá usar suas credenciais de implantação básica.
 
 Observação: se você habilitar a implantação do controle do código-fonte, será possível que uma implantação substitua as alterações feitas no editor Visual Studio Online. 
 
 
 ### Certificados
 
-No modo Básico ou Padrão, é possível carregar certificados SSL para domínios personalizados. Para obter mais informações, consulte [Habilitar HTTPS para um site do Azure](href="http://www.windowsazure.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/). 
+No modo Básico ou Padrão, é possível carregar certificados SSL para domínios personalizados. Para obter mais informações, consulte [Habilitar HTTPS para um site do Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 Seus certificados carregados estão listados aqui. Após carregar um certificado, você poderá atribuí-lo a qualquer site na sua assinatura e região. Os certificados Wildcard podem ser usados para qualquer site dentro do domínio para o qual for válido. Um certificado pode ser excluído apenas se não houver associações para esse certificado.
 
@@ -63,14 +77,14 @@ Exibir ou adicionar nomes de domínio para o site. Para obter mais informações
 
 ### Associações SSL
 
-Se você tiver carregado certificados SSL, é possível associá-los para nomes personalizados de domínio. Para obter mais informações, consulte [Habilitar HTTPS para um site do Azure](href="http://www.windowsazure.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/)
+Se você tiver carregado certificados SSL, é possível associá-los para nomes personalizados de domínio. Para obter mais informações, consulte [Habilitar HTTPS para um site do Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/)
 
 ### Implantações
 
-Esta seção é exibida somente se você tiver habilitado a implantação do controle do código-fonte. Utilize essas configurações para definir implantações.
+Esta seção é exibida somente se você tiver habilitado a implantação do controle do código-fonte. Use essas configurações para definir implantações.
 
-- <strong>URL do Git</strong>. Se você tiver criado um repositório do Git para seu site do Azure, esta é a URL para onde enviar seu conteúdo por push.
-- <strong>URL do gatilho da implantação</strong>. Esta URL pode ser definida em um GitHub, CodePlex, Bitbucket ou outro repositório para disparar a implantação quando uma confirmação é enviada para o repositório.
+- <strong>URL do Git</strong>. Se você tiver criado um repositório do Git para seu site do Azure, esta é a URL onde você envia seu conteúdo por push.
+- <strong>URL do gatilho da implantação</strong>. Esta URL pode ser definida em um GitHub, CodePlex, Bitbucket ou outro repositório para acionar a implantação quando uma confirmação é enviada para o repositório.
 - <strong>Ramificação a ser implantada</strong>. Especifica a ramificação que será implantada quando você enviar o conteúdo por push.
 
 Para configurar a implantação do controle do código-fonte, exiba a guia **Painel** e clique em **Configurar a implantação do controle de origem**. 
@@ -83,25 +97,25 @@ Opções para gravar os logs de diagnóstico de um aplicativo Web que forneça s
 - <strong>Armazenamento de tabela</strong>. Grava logs no armazenamento da tabela do Azure. Não há limite de tempo, e o registro em log fica habilitado até que você o desabilite. 
 - <strong>Armazenamento de Blob</strong>. Grava logs no armazenamento de blob do Azure. Não há limite de tempo, e o registro em log fica habilitado até que você o desabilite.
 
-<strong>Nível de log</strong>. Quando o registro estiver habilitado, esta opção especifica a quantidade de informações que serão gravadas (erro, aviso, informações ou detalhado).
+<strong>Nível de log</strong>. Quando o registro estiver ativado, esta opção especifica a quantidade de informações que serão gravadas (erro, aviso, informações ou detalhado).
 
 **Gerenciar armazenamento da tabela**. Quando o armazenamento de tabela for habilitado, clique neste botão para configurar a conta de armazenamento e o nome da tabela.
 
-**Gerenciar armazenamento do blob.** Quando o armazenamento de blob for habilitado, clique neste botão para configurar a conta de armazenamento e o nome do blob.
+**Gerenciar armazenamento em blob.**Quando o armazenamento de blob for habilitado, clique neste botão para configurar a conta de armazenamento e o nome do blob.
 
 ### Diagnóstico de site
 
 Opções para coleta de informações de diagnóstico para seu site.
 
-<strong>Logs de servidor da Web</strong>. Habilita o log de servidor web. Os logs são salvos no formato W3C estendido de arquivo de log. É possível salvar os logs no sistema de arquivos do site ou no armazenamento do Azure.
+<strong>Logs de servidor da Web</strong>. Habilita o log de servidor web. Os logs são salvos no formato W3C estendido de arquivo de log. Você pode salvar os logs no sistema de arquivos do site ou no Armazenamento do Azure.
  
-- Se você selecionar <strong>Sistema de arquivos</strong>, os logs serão salvos no site FTP listado em "Logs de diagnóstico de FTP" na página Painel. (Consulte [Credenciais FTP](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-manage#ftp-credentials)) 
-- Se você escolher **Sistema de arquivos**, utilize a caixa <strong>Cota</strong> para definir a quantidade máxima de espaço em disco para os arquivos log. O mínimo é 25 MB e o máximo é 100 MB. O padrão é 35MB. Quando a cota for atingida, os arquivos mais antigos serão substituídos sucessivamente pelos mais recentes. Se for necessário manter mais histórico que 100 MB, utilize o Armazenamento do Azure, que tem uma capacidade de armazenamento muito maior.
+- Se você selecionar <strong>Sistema de arquivos</strong>, os logs serão salvos no site FTP listado em "Logs de diagnóstico de FTP" na página Painel. (Consulte [Credenciais FTP](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-manage#ftp-credentials).) 
+- Se você escolher **Sistema de arquivos**, utilize a caixa <strong>Cota</strong> para definir a quantidade máxima de espaço em disco para os arquivos log. O mínimo é 25 MB e o máximo é 100 MB. O padrão é 35MB. Quando a cota for atingida, os arquivos mais antigos serão substituídos sucessivamente pelos mais recentes. Se for necessário manter mais histórico que 100MB, use o Armazenamento do Azure, que tem uma capacidade de armazenamento muito maior.
 - Opcionalmente, clique em <strong>Definir retenção</strong> para excluir automaticamente os arquivos após um período de tempo. Por padrão, os logs nunca são excluídos.   
 
 <strong>Mensagens Detalhados de Erro</strong>. Se estiver habilitado, as mensagens detalhadas de erro serão salvas como arquivos .htm. Para visualizar os arquivos, vá para o site FTP listado em "Logs de diagnóstico FTP" na página do Painel. Os arquivos são salvos em /LogFiles/DetailedErrors no site FTP. (Consulte [Credenciais FTP](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-manage#ftp-credentials).)
 
-<strong>Rastreamento de Solicitação Falha</strong>. Se estiver habilitada, as solicitações com falha são armazenadas em log em arquivos XML. Para visualizar os arquivos, vá para o site FTP listado em "Logs de diagnóstico FTP" na página do Painel. (Consulte [Credenciais FTP](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-manage#ftp-credentials)) Os arquivos são salvos em /LogFiles/W3SVC*xxx*, onde xxx é um identificador único. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Certifique-se de baixar o arquivo XSL, porque ele fornece funcionalidade para formatar e filtrar os conteúdos dos arquivos XMl.
+<strong>Rastreamento de Solicitação Falha</strong>. Se estiver habilitada, as solicitações com falha são armazenadas em log em arquivos XML. Para visualizar os arquivos, vá para o site FTP listado em "Logs de diagnóstico FTP" na página do Painel. (Consulte [Credenciais FTP](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-manage#ftp-credentials).) Os arquivos são salvos em /LogFiles/W3SVC*xxx*, onde xxx é um identificador único. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Certifique-se de baixar o arquivo XSL, porque ele fornece funcionalidade para formatar e filtrar os conteúdos dos arquivos XMl.
 
 <strong>Depuração remota</strong> Habilita a depuração remota. Quando estiver habilitado, você pode usar o depurador remoto no Visual Studio para conectar-se diretamente com seu site do Azure. A depuração remota permanecerá habilitada por 48 horas.
 
@@ -111,7 +125,7 @@ Opções para coleta de informações de diagnóstico para seu site.
 
 No modo Básico ou Padrão, você pode testar a disponibilidade dos pontos de extremidade HTTP ou HTTPs, de até três locais geograficamente distribuídos. Um teste de monitoramento falhará se o código de resposta HTTP for um erro (4xx ou 5xx) ou se a resposta demorar mais de 30 segundos. Um ponto de extremidade será considerado disponível caso os testes de monitoramento tenham êxito a partir de todos os locais especificados. 
 
- Para obter mais informações, consulte [Como: monitorar o status de ponto de extremidade da Web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
+Para obter mais informações, consulte [Como: monitorar o status de ponto de extremidade da Web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
 
 
 ### Análise para o desenvolvedor
@@ -134,16 +148,16 @@ Cadeia de conexão para recursos vinculados.
 
 Para sites .NET, essas cadeias de conexão serão injetadas em suas configurações connectionStrings do .NET em tempo de execução substituindo as entradas existentes onde a chave é igual ao nome do banco de dados vinculado. 
 
-Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponíveis como variáveis de ambiente em tempo de execução, antecedidas com o tipo de conexão. Os prefixos das variáveis de ambiente são os seguintes:  
+Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponíveis como variáveis de ambiente em tempo de execução, antecedidas com o tipo de conexão. Os prefixos das variáveis de ambiente são os seguintes: 
 
 - SQL Server: SQLCONNSTR_
 - MySQL: MYSQLCONNSTR_
 - Banco de dados SQL: SQLAZURECONNSTR_
 - Personalizado: CUSTOMCONNSTR_
 
-Por exemplo, se uma cadeia de conexão MySql fosse nomeada connectionstring1, ela seria acessada pela variável de ambiente <code>MYSQLCONNSTR_connectionString1</code>.
+Por exemplo, se uma cadeia de conexão MySql fosse nomeado connectionstring1, ela seria acessada pela variável de ambiente <code>MYSQLCONNSTR_connectionString1</code>.
 
-<strong>Observação</strong>: As cadeias de conexão também são criadas quando você vincula um recurso de banco de dados a um site. As cadeias de conexão criadas desta maneira são lidas apenas quando são visualizadas na 
+<strong>Observação:</strong> As cadeias de conexão também são criadas quando você vincula um recurso de banco de dados a um site. As cadeias de conexão criadas desta maneira são lidas apenas quando são visualizadas na 
 página de gerenciamento de configuração.
 
 ### Documentos padrão
@@ -157,7 +171,7 @@ Os aplicativos Web podem utilizar módulos que rotearão na URL, em vez de atend
 Utilize essa área para adicionar processadores de script personalizados para manipular solicitações de extensões de arquivo específicas. 
 
 - **Extensões**. A extensão do arquivo a ser manipulada, como *.php ou handler.fcgi. 
-- **Caminho do Processador de script**. O caminho absoluto do processador de script. As solicitações para arquivos que correspondam a extensão do arquivo serão processadas pelo processador de script. Use o caminho<code>D:\home\site\wwwroot</code> para se referir ao diretório raiz do site.
+- **Caminho do Processador de script**. O caminho absoluto do processador de script. As solicitações para arquivos que correspondam a extensão do arquivo serão processadas pelo processador de script. Usar o caminho <code>D:\home\site\wwwroot</code> para se referir ao diretório raiz do seu site.
 - **Argumentos adicionais**. Argumentos da linha de comando opcionais para o processador de script 
 
 
@@ -168,7 +182,7 @@ Para configurar os aplicativos e diretórios virtuais associados com seu site, e
 	
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A SQL DATABASE -->
-##<a name="howtoconfigSQL"></a>Como: configurar um site para utilizar um banco de dados SQL
+##<a name="howtoconfigSQL"></a>Como: configurar um site para usar um banco de dados SQL
 
 Siga estas etapas para vincular um site a um Banco de Dados SQL:
 
@@ -176,20 +190,20 @@ Siga estas etapas para vincular um site a um Banco de Dados SQL:
 
 2. Selecione um site da lista de sites para abrir as páginas de **Gerenciamento** do site.
 
-3. Clique na guia **Recursos vinculados** e uma mensagem será exibida na página **Recursos vinculados** indicando **Você não tem recursos vinculados**.
+3. Clique na guia **Recursos Vinculados** e uma mensagem será exibida na página **Recursos Vinculados** indicando **Você não tem recursos vinculados**.
 
-4. Clique em **Vincular um recurso** para abrir o assistente **Vincular um recurso**.
+4. Clique em **Vincular um Recurso** para abrir o assistente **Vincular um Recurso**.
 
 5. Clique em **Criar um novo recurso** para exibir uma lista de tipos de recursos que podem ser vinculados ao seu site.
 
-6. Clique em **Banco de dados SQL** para exibir o assistente **Vincular banco de dados**.
+6. Clique em **Banco de Dados SQL** para exibir o assistente **Vincular Banco de Dados**.
 
-7. Conclua os campos obrigatórios nas páginas 3 e 4 do assistente **Vincular banco de dados** e, em seguida, clique na marca de seleção **Concluir** na página 4.
+7. Conclua os campos obrigatórios nas páginas 3 e 4 do assistente **Vincular Banco de Dados** e, em seguida, clique na marca de seleção **Concluir** na página 4.
 
 O Azure criará um Banco de Dados SQL com os parâmetros especificados e vinculará o banco de dados ao site.
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A MYSQL DATABASE -->
-##<a name="howtoconfigMySQL"></a>Como: configurar um site para utilizar um banco de dados MySQL##
+##<a name="howtoconfigMySQL"></a>Como: configurar um site para usar um banco de dados MySQL##
 Para configurar um site para utilizar um banco de dados MySQL, siga as mesmas etapas de uso do banco de dados SQL, mas no assistente **Vincular um recurso**, selecione **Banco de dados MySQL** em vez de **Banco de dados SQL**. 
 
 Alternativamente, é possível criar o site com a opção **Criação personalizada**. Na lista suspensa **Banco de Dados**, selecione **Criar um novo banco de dados MySQL** ou **Usar um banco de dados MySQL existente**. 
@@ -198,7 +212,7 @@ Alternativamente, é possível criar o site com a opção **Criação personaliz
 
 Para obter informações sobre a configuração do seu site para utilizar um nome de domínio personalizado, consulte [Configurando um nome de domínio personalizado para Sites do Azure ](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-custom-domain-name/).
 
-##<a name="howtoconfigSSL"></a>Como: configurar um site para utilizar SSL##
+##<a name="howtoconfigSSL"></a>Como: configurar um site para usar SSL##
 
 Para obter informações sobre a configuração de SSL para um domínio personalizado no Azure, consulte [Habilitar HTTPS para um site do Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/). 
 
@@ -208,3 +222,6 @@ Para obter informações sobre a configuração de SSL para um domínio personal
 
 * [Como monitorar Sites](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-monitor/)
 
+
+
+<!--HONumber=42-->

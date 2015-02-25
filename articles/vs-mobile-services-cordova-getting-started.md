@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Introdução](/documentation/articles/vs-mobile-services-cordova-getting-started/)
@@ -14,7 +28,7 @@ Para obter um serviço móvel de back-end JavaScript, crie uma tabela chamada To
 
 Se ao invés de você ter um serviço móvel de back-end .NET, já houver uma tabela TodoItem no modelo do projeto padrão que o Visual Studio criou para você, será necessário publicá-lo no Azure. Para publicá-lo, abra o menu de contexto do projeto de serviço móvel no Gerenciador de servidores e escolha **Publicar na Web**. Aceite os padrões e escolha o botão **Publicar**.
   
->[WACOM.NOTE]**Aplique essa [solução](http://go.microsoft.com/fwlink/?LinkId=518765) para trabalhar com os Serviços Móveis em projetos Cordova.**
+>[AZURE.NOTE] **Em projetos de Cordova que são criados usando o Visual Studio 2015 Preview, use [solução](http://go.microsoft.com/fwlink/?LinkId=518765) para trabalhar com serviços móveis do Azure. A solução não é necessária para projetos que usam versões mais recentes do Visual Studio 2015.**
 
 #####Obtenha referência para uma tabela
 
@@ -58,7 +72,7 @@ Você pode usar o onde o método deverá modificar a consulta. Veja um exemplo q
                 items = results.slice();
              });
 
-Para ver mais exemplos de consultas que podem ser usadas, consulte o objeto [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)).
+Para ver mais exemplos de consultas que podem ser usadas, consulte o objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Atualizar entrada
 
@@ -78,3 +92,5 @@ Excluir uma linha em uma tabela de dados usando o método **del**. Chame o méto
 	});
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

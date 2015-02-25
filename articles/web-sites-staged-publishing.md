@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Preparação de implantação nos sites do Microsoft Azure" metaKeywords="Sites do Microsoft Azure, implantação de preparo, slots de site" description="Saiba como usar a publicação de preparação nos sites do Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+<properties 
+	pageTitle="Implantação de preparo em Sites do Microsoft Azure" 
+	description="Saiba como usar a publicação de preparação nos sites do Microsoft Azure." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/9/2014" 
+	ms.author="cephalin"/>
 
 <a name="Overview"></a>
 #Implantação de preparo em sites do Microsoft Azure#
@@ -10,7 +25,7 @@ Ao implantar seu aplicativo nos sites do Azure, você pode implantar em um slot 
 
 - Depois da permuta, o slot com o antigo site de preparo tem agora o antigo site de produção. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o "último site bom" de volta. 
  
-- Implantar um site em um slot inicial e depois permutá-lo para produção garante que todas as instâncias do slot estejam prontas antes de serem permutadas para produção. Isso elimina o tempo de inatividade quando você for implantar seu site. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. 
+- Implantar um site em um slot inicial e depois permutá-lo para produção garante que todas as instâncias do slot estejam prontas antes de ser permutadas para produção. Isso elimina o tempo de inatividade quando você for implantar seu site. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. 
 
 O plano **Padrão** dá suporte a quatro slots de implantação para cada site, além o slot de produção. 
 
@@ -32,14 +47,14 @@ O site deve estar sendo executado no plano de hospedagem **Padrão** para habili
 	
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 	
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> Se o site ainda não estiver no modo **Padrão**, você receberá a mensagem **Você deve estar em modo padrão para habilitar a publicação de preparação**. Neste momento, você tem a opção de selecionar **Atualizar** e navegar para a guia **Escala** do site antes de continuar.
 	
 2. Na caixa de diálogo **Adicionar novo slot de implantação**, nomeie o slot e, se quiser, selecione clonar a configuração de site de outro slot de implantação existente. Clique na marca de seleção para continuar. 
 	
 	![Configuration Source][ConfigurationSource1]
 	
-Na primeira vez em que você criar um slot, só haverá duas opções: clonar a configuração de slot padrão em produção ou não. 
+	Na primeira vez que criar um slot, você terá apenas duas opções: configuração de clone do slot padrão na produção ou não. 
 	
 	Se já tiver criado vários slots, você poderá clonar a configuração de um slot diferente do que estiver em produção:
 	
@@ -49,7 +64,7 @@ Na primeira vez em que você criar um slot, só haverá duas opções: clonar a 
 	
 	![Site List with Deployment Slot][SiteListWithStagedSite]
 	
-4. Quando você clica no nome do slot do site de implantação, uma página é aberta com um conjunto de guias, exatamente como em qualquer site. O <strong><i>nome-de-seu-site</i>(<i>nome-do-slot-de-implantação</i>)</strong> aparecerá na parte superior da página do portal para lembrá-lo de que você está visualizando o slot do site de implantação.
+4. Quando você clicar no nome do slot do site de implantação, uma página será aberta com um conjunto de guias, exatamente como qualquer outro site. <strong><i>your-website-name</i> (<i>nome do slot de implantação</i>)</strong> aparecerá na parte superior da página do portal para lembrá-lo que você está visualizando o slot do site de implantação.
 	
 	![Deployment Slot Title][StagingTitle]
 	
@@ -85,7 +100,7 @@ Quando você clona a configuração de outro slot de implantação, a configura�
 
 - Um slot que você pretenda permutar para a produção precisa ser configurado exatamente como desejado para quando estiver em produção.
 
-- Por padrão, um slot de implantação irá apontar para o mesmo banco de dados que o site de produção. No entanto, você pode configurar o slot de implantação para apontar para um banco de dados alternativo alterando a(s) cadeia(s) de conexão do banco de dados para o slot de implantação. Em seguida, você pode restaurar a(s) cadeia(s) de conexão de banco de dados original no slot de implantação antes de permutá-la(s) para a produção.
+- Por padrão, um slot de implantação irá apontar para o mesmo banco de dados que o site de produção. No entanto, você pode configurar o slot de implantação para apontar para um banco de dados alternativo alterando a(s) cadeia(s) de conexão do banco de dados para o slot de implantação. Em seguida, você pode restaurar a(s) cadeia(s) de conexão do banco de dados original no slot de implantação antes de permutá-la(s) para a produção.
 
 
 <a name="Swap"></a>
@@ -123,7 +138,7 @@ Na barra de comando na parte inferior do portal de sites do Azure, clique em **E
 
 - Atualmente, seus slots de implantação (sites) compartilham os mesmos recursos que seus slots de produção (sites) e são executados nas mesmas VMs. Se executar teste de estresse em um slot de preparo, seu ambiente de produção experimentará uma carga comparável de estresse. 
 	
-	> [WACOM.NOTE] No [Portal de visualização do Azure](https://portal.azure.com), e só nele, você pode evitar este possível impacto a um slot de produção. Basta mover temporariamente o slot de não produção para um Plano de hospedagem na Web diferente. Observe que os slots de teste e produção devem, mais uma vez, compartilhar o mesmo plano de hospedagem na Web antes que você possa permutar o slot de teste com o de produção.
+	> [AZURE.NOTE]  No [Portal de visualização do Azure](https://portal.azure.com), e só nele, você pode evitar este possível impacto a um slot de produção. Basta mover temporariamente o slot de não produção para um Plano de hospedagem na Web diferente. Observe que os slots de teste e produção devem, mais uma vez, compartilhar o mesmo Plano de hospedagem na Web antes que você possa permutar o slot de teste com o de produção.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -132,9 +147,9 @@ Na barra de comando na parte inferior do portal de sites do Azure, clique em **E
 
 O PowerShell do Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte para gerenciamento de slots de implantação para sites do Azure. 
 
-- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Windows Azure, consulte [Como instalar e configurar o PowerShell do Windows Azure](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell).  
+- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Microsoft Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell).  
 
-- Para listar os cmdlets disponíveis para sites do Azure no PowerShell, chame `help AzureWebsite`. 
+- Para listar os cmdlets disponíveis para sites do Azure no PowerShell, chame  `help AzureWebsite`. 
 
 ----------
 
@@ -189,7 +204,7 @@ A Interface de linha de comando entre plataformas do Azure (xplat-cli) fornece c
 
 - Para obter instruções sobre como instalar e configurar a xplat-cli, incluindo informações sobre como conectar a xplat-cli com sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://www.windowsazure.com/pt-br/documentation/articles/xplat-cli). 
 
--  Para listar os comandos disponíveis para sites do Azure na xplat-cli, chame `azure site -h`. 
+-  Para listar os comandos disponíveis para Sites do Azure na xplat-cli, chame  `azure site -h`. 
 
 ----------
 ###azure site list
@@ -215,12 +230,12 @@ Para tornar o slot de implantação atualizado no site de produção, use o coma
 
 ----------
 ###excluir site do azure
-Para excluir um slot de implantação que não seja mais necessário, use o comando **azure site delete**, como no exemplo a seguir.
+Para excluir um slot de implantação que não seja mais necessário, use o comando **excluir de site azure**, como no exemplo a seguir.
 
 `azure site delete siteslotstest --slot staging`
 
 ----------
-## Próximas etapas ##
+## Próximas Etapas ##
 [Sites do Azure - bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
 [Avaliação gratuita do Microsoft Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/)
@@ -237,3 +252,6 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
 [DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
 [SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
+
+
+<!--HONumber=42-->

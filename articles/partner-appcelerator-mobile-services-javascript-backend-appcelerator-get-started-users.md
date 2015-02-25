@@ -1,10 +1,24 @@
-<properties pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" 
+	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # Introdução à autenticação dos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Microsoft Azure do seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.
 
@@ -18,13 +32,13 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1 ou versões posteriores e o iOS 7.0 e/ou versões posteriores e o Android 4.3 ou versões posteriores.
 
-## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-## <a name="permissions"></a> Restringir as permissões aos usuários autenticados
+##<a name="permissions"></a> Restringir permissões a usuários autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 3.	No Appcelerator Titanium Studio, abra o projeto que você criou ao concluir o tutorial [Introdução aos Serviços Móveis].
 
@@ -34,7 +48,7 @@ Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
 1.	Abra o arquivo de projeto index.js e no método Ouvinte de eventos da tabela, procure por `case 2:`
 
@@ -42,16 +56,16 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 2.	Para fornecer todos os provedores de identidade disponíveis, use o código a seguir:
 
-        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        var appName = 'appctest';
-        azureMobileServices.setAppName(appName);
-        var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
-        var dialog = Ti.UI.createOptionDialog({
+            var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+            var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+            var appName = 'appctest';
+            azureMobileServices.setAppName(appName);
+            var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
+            var dialog = Ti.UI.createOptionDialog({
             options : authenticationClients,
             title : 'Select a client'
-        });
-        dialog.addEventListener('click', function(evt) {
+            });
+            dialog.addEventListener('click', function(evt) {
             if (evt.index == 0 || evt.index == 1 || evt.index == 2 || evt.index == 3 || evt.index == 4) {
                 var str = authenticationClients[evt.index];
                 str = str.replace(/ /g, '');
@@ -65,22 +79,22 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
             } else {
                 dialog.hide();
             }
-        });
-        dialog.show();
+            });
+            dialog.show();
 
 3.	Para fornecer um provedor de identidade específico, use o código a seguir:
 
-        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        var authorizeClient = "Google"; //Replace "Google" with identity provider.
-        authorizeClient = authorizeClient.toLowerCase();
-        azureMobileServices.authorizeClient(authorizeClient, function(result) {
+            var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+            var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+            var authorizeClient = "Google"; //Replace "Google" with identity provider.
+            authorizeClient = authorizeClient.toLowerCase();
+            azureMobileServices.authorizeClient(authorizeClient, function(result) {
             if (result == 'true') {
                 Alloy.createController('TableData');
             }
-        });
+            });
 
->[WACOM.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes:*microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes: *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
 4.	Pressione o botão Executar para criar o projeto, inicie o aplicativo no simulador do iPhone ou em um emulador do Android e clique na opção Com Logon para fazer logon no provedor de identidade.
 
@@ -98,4 +112,4 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

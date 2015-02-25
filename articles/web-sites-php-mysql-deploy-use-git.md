@@ -1,10 +1,24 @@
-<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Site PHP com MySQL e Git - Tutorial do Azure" metaKeywords="" description="Um tutorial que demonstra como criar um site do PHP que armazena dados no MySQL e usar implantação Git no Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Site PHP com MySQL e Git - Tutorial do Azure" 
+	description="Um tutorial que demonstra como criar um site do PHP que armazena dados no MySQL e usar implantação Git no Azure." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="tomfitz"/>
 
-# Criar um Site do Azure PHP-MySQL e implantar usando o Git
+#Criar um Site do Azure PHP-MySQL e implantar usando o Git
 
-Este tutorial mostra como criar um Site do Azure PHP-MySQL e como implantá-lo usando o Git.  Você usará [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados no seu computador.As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux.Após a conclusão deste guia, você terá um site do PHP/MySQL em execução no Azure.
+Este tutorial mostra como criar um Site do Azure PHP-MySQL e como implantá-lo usando o Git. Você usará o [PHP][install-php], a ferramenta de linha de comando do MySQL (parte da instalação do [MySQL][install-mysql]), um servidor Web e [Git][install-git] instalado no computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um site do PHP/MySQL em execução no Azure.
  
 Você aprenderá:
 
@@ -15,23 +29,23 @@ Seguindo este tutorial, você criará um aplicativo Web de registro simples no P
 
 ![Azure PHP web site][running-app]
 
-> [WACOM.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Sites do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Avaliação gratuita do Azure</a>.
+> [AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Sites do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Avaliação gratuita do Azure</a>.
 > 
-> Se quiser conhecer os Sites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, onde é possível criar imediatamente um site ASP.NET de vida curta nos Sites do Azure gratuitamente. Nenhum cartão de crédito necessário, nenhum compromisso.
+> Se você quiser iniciar com Websites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um site de iniciante ASP.NET de vida curta nos Websites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
-## Configurar o ambiente de desenvolvimento
+##Configurar o ambiente de desenvolvimento
 
-Este tutorial pressupõe que você tenha o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados em seu computador.
+Este tutorial presume que você tenha [PHP][install-php], a ferramenta de linha de comando do MySQL (parte do [MySQL][install-mysql]), um servidor web, e [Git][install-git] instalado em seu computador.
 
-> [WACOM.NOTE]
-> Se você estiver executando este tutorial no Windows, poderá configurar seu computador para o PHP e configurar automaticamente o IIS (o servidor Web interno do Windows) instalando o <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK do Azure para PHP.
+> [AZURE.NOTE]
+> Se você estiver executando este tutorial no Windows, poderá configurar sua máquina para o PHP e configurar automaticamente o IIS (o servidor Web interno do Windows) instalando o <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK do Azure para PHP</a>.
 
-## <a id="create-web-site-and-set-up-git"></a>Criar um site do Azure e configurar a publicação Git
+##<a id="create-web-site-and-set-up-git"></a>Criar um Site do Azure e configurar a publicação do Git
 
 Siga estas etapas para criar um Site do Azure e um banco de dados MySQL:
 
-1. Faça logon no [Portal de gerenciamento do Azure][management-portal].
+1. Faça logon no [Portal de Gerenciamento do Azure][management-portal].
 2. Clique no ícone **Novo** na parte inferior esquerda do portal.
 
 	![Create New Azure web site][new-website]
@@ -40,15 +54,15 @@ Siga estas etapas para criar um Site do Azure e um banco de dados MySQL:
 
 	![Custom Create a new web site][custom-create]
 	
-	Insira um valor para a **URL**, selecione **Criar Novo Banco de Dados MySQL** na lista suspensa **Banco de dados** e selecione o data center para seu site na lista suspensa **Região**. Clique na seta na parte inferior da caixa de diálogo.
+	Insira um valor para a **URL**, selecione **Criar Novo Banco de Dados MySQL** a partir da lista suspensa **Base de dados** e selecione o datacenter para seu site na lista suspensa **Região**. Clique na seta na parte inferior da caixa de diálogo.
 
 	![Fill in web site details][website-details]
 
-4. Insira um valor para o **Nome** do banco de dados, selecione o data center para seu banco de dados na lista suspensa **Região** e marque a caixa que indica que você concorda com os termos legais. Clique na marca de seleção na parte inferior da caixa de diálogo.
+4. Insira um valor para o **Nome** do seu banco de dados, selecione o data center para seu banco de dados na lista suspensa **Região** e marque a caixa indicando que você concorda com os termos legais. Clique na marca de seleção na parte inferior da caixa de diálogo.
 
 	![Create new MySQL database][new-mysql-db]
 
-	Quando o site for criado, você verá o texto **Criação do site '[NOME DO SITE]' concluído com êxito**. Agora, você pode habilitar a publicação do Git.
+	Quando o website tiver sido criado, você verá o texto **Criação do Website '[SITENAME]' concluído com sucesso**. Agora, você pode habilitar a publicação do Git.
 
 6. Clique no nome do site exibido na lista de sites para abrir o painel **Início Rápido** do site.
 
@@ -69,7 +83,7 @@ Siga estas etapas para criar um Site do Azure e um banco de dados MySQL:
 
 	![Git instructions][git-instructions]
 
-## Obter informações da conexão MySQL remota
+##Obter informações da conexão MySQL remota
 
 Para conectar-se ao do Banco de Dados SQL que está em execução nos Sites do Azure, você precisará das informações da conexão. Para obter informações sobre a conexão MySQL, siga estas etapas:
 
@@ -77,9 +91,9 @@ Para conectar-se ao do Banco de Dados SQL que está em execução nos Sites do A
 
 	![Get database connection information][connection-string-info]
 	
-2. Anote os valores de `Banco de Dados`, `Fonte de Dados`, `ID do Usuário` e `Senha`.
+2. Anote os valores de  `Database`,  `Data Source`,  `User Id` e  `Password`.
 
-## Criar e testar o aplicativo localmente
+##Criar e testar o aplicativo localmente
 
 Agora que criou um Site do Azure, você pode desenvolver seu aplicativo localmente e implantá-lo após o teste. 
 
@@ -87,9 +101,9 @@ O aplicativo Registro é um aplicativo simples do PHP que permite que você se r
 
 * **index.php**: Exibe um formulário de registro e uma tabela que contém informações de registro.
 
-Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas presumem que o PHP, a ferramenta de linha de comando do MySQL (parte do MySQL) e um servidor Web estão configurados no seu computador local e que você habilitou a [extensão PDO para MySQL][pdo-mysql].
+Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas presumem que o PHP, a ferramenta de linha de comando do MySQL (parte do MySQL) e um servidor Web estão configuradas no seu computador local e que você habilitou a [extensão PDO para MySQL][pdo-mysql].
 
-1. Conecte-se ao servidor MySQL remoto usando os valores para `Fonte de dados`, `Id do usuário`, Senha' e `Banco de dados` recuperados anteriormente:
+1. Conecte-se ao servidor MySQL remoto usando os valores de  `Data Source`,  `User Id`,  `Password` e  `Database` que você recuperou anteriormente:
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
@@ -97,11 +111,11 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 
 		mysql>
 
-3. Cole no seguinte comando `CREATE TABLE` para criar a tabela `registration_tbl` em seu banco de dados:
+3. Cole no seguinte comando  `CREATE TABLE` para criar a tabela  `registration_tbl` em seu banco de dados:
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. No diretório raiz do servidor Web, crie uma pasta chamada `Registration` e crie um arquivo chamado `index.php`.
+4. No diretório raiz do servidor web, crie uma pasta chamada  `registration` e crie um arquivo chamado  `index.php`.
 
 5. Abra o arquivo **index.php** em um editor de texto ou IDE, adicione o código a seguir e conclua as alterações necessárias marcadas com os comentários `//TODO:`.
 
@@ -190,21 +204,21 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 		</body>
 		</html>
 
-Agora é possível navegar até **http://localhost/registration/index.php** para testar o aplicativo.
+Agora você pode navegar para **http://localhost/registration/index.php** para testar o aplicativo.
 
 
-## Publicar seu aplicativo
+##Publicar seu aplicativo
 
 Depois de testar o aplicativo localmente, você poderá publicá-lo no Site do Azure usando Git. Você inicializara seu repositório local do Git e publicará o aplicativo.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Estas são as mesmas etapas mostradas no portal no final da seção Criar um Site do Azure e Configurar a publicação do Git acima.
 
 1. (Opcional) Se você tiver esquecido a URL de seu repositório remoto do Git, navegue até a guia Implantação no portal.
 	
 	![Get Git URL][git-instructions]
 
-1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+1. Abra GitBash (ou um terminal, se o Git estiver em seu  `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
 
 		git init
 		git add .
@@ -222,12 +236,12 @@ Depois de testar o aplicativo localmente, você poderá publicá-lo no Site do A
 
 Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
 
-## Publicar alterações em seu aplicativo
+##Publicar alterações em seu aplicativo
 
 Para publicar alterações no aplicativo, siga estas etapas:
 
 1. Faça alterações em seu aplicativo localmente.
-2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+2. Abra GitBash (ou um terminal, se o Git estiver em seu  `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
 
 		git add .
 		git commit -m "comment describing changes"
@@ -241,7 +255,7 @@ Para publicar alterações no aplicativo, siga estas etapas:
 
 	![Azure PHP web site][running-app]
 
-4. Você também pode ver a nova implantação na guia 'Implantações' no Portal de Gerenciamento do Azure:
+4. Você também pode ver a nova implantação na guia  'Deployments' no Portal de Gerenciamento do Azure:
 
 	![List of web site deployments][deployments-list]
 
@@ -269,4 +283,5 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

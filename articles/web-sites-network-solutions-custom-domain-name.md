@@ -1,19 +1,33 @@
-﻿<properties title="Learn how to configure an Azure website to use a domain name registered with Network Solutions" pageTitle="Configurar um nome de domínio da Network Solutions para um site do Azure" metaKeywords="Azure, sites do Azure, nome de domínio" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+﻿<properties 
+	pageTitle="Configurar um nome de domínio da Network Solutions para um WebSite do Azure" 
+	description="Saiba como usar um nome de domínio da Network Solutions com WebSites do Azure" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr, jroth"/>
 
 #Configurando um nome de domínio personalizado para um site do Azure (Network Solutions)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Domínio personalizado</a><a href="/pt-br/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Soluções de rede</a><a href="/pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/pt-br/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/pt-br/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/pt-br/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/pt-br/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/pt-br/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Domínio personalizado</a><a href="/pt-br/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">soluções de rede</a><a href="/pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/pt-br/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/pt-br/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/pt-br/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/pt-br/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/pt-br/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name/" title="Websites" class="current">Site</a> | <a href="/pt-br/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Site usando o Gerenciador de Tráfego</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+[AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
 Este artigo fornece instruções sobre como usar o nome de domínio personalizado comprado da [Network Solutions](https://www.networksolutions.com) com sites do Azure.
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Neste artigo:
 
@@ -24,11 +38,11 @@ Neste artigo:
 
 <h2><a name="understanding-records"></a>Compreendendo os registros DNS</h2>
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 <h2><a name="bkmk_configsharedmode"></a>Configurar seus sites para modo básico, compartilhado ou padrão</h2>
 
-[WACOM.INCLUDE [modos](../includes/custom-dns-web-site-modes.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a><h2>Adicionar um registro DNS a seu domínio personalizado</h2>
 
@@ -53,19 +67,19 @@ Para associar seu domínio personalizado a um site do Azure, você deve adiciona
 
 5. Ao clicar no botão **Editar**, você verá um formulário que pode usar para modificar registros existentes ou adicionar novos. 
 
-	> [WACOM.NOTE] Antes de adicionar novas entradas, observe que a Network Solutions já criou alguns registros DNS padrão para coisas como o domínio raiz (' @') e um registro curinga ('*') para subdomínios. Se o registro que você deseja usar já existir, modifique-o em vez de criar um novo.
+	> [AZURE.NOTE] Antes de adicionar novas entradas, observe que a Network Solutions já criou alguns registros DNS padrão para coisas como o domínio raiz (' @') e um registro curinga ('*') para subdomínios. Se o registro que você deseja usar já existir, modifique-o em vez de criar um novo.
 
-	*  Ao adicionar um registro CNAME, você deve definir o campo **Alias** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve selecionar o campo circular ao lado do campo **Outro host** e definir **Outro host** como o nome de domínio **.azurewebsites.net** do site do Azure. Por exemplo, **contoso.azurwebsites.net**. Deixe o **Refere-se ao Nome do Host** como **Selecionar**, pois esse campo não é obrigatório durante a criação de um registro CNAME a ser usado com sites do Azure.
+	* Ao adicionar um registro CNAME, você deve definir o campo **Alias** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve selecionar o campo circular ao lado do campo **Outro host** e definir **Outro host** como o nome de domínio **.azurewebsites.net** do Website do Azure. Por exemplo, **contoso.azurwebsites.net**. Deixe o **Refere-se ao Nome do Host** como **Selecionar**, pois esse campo não é obrigatório durante a criação de um registro CNAME a ser usado com sites do Azure.
 	
 		![cname form](./media/web-sites-custom-domain-name/ns-cname.png)
 
-		> [WACOM.NOTE] Se estiver usando um registro A, você também deverá adicionar um registro CNAME com uma das seguintes configurações:
+		> [AZURE.NOTE] Se estiver usando um registro A, você também deverá adicionar um registro CNAME com uma das seguintes configurações:
 		> 
-		> * Um valor de **Alias** de **www** com um valor de **outro host** de **&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> * Um valor **Alias** do **www** com um valor de **outro host** do**&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> OU
 		> 
-		> * Um valor de **Alias** de **awverify.www** com um valor de **outro host** de **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+		> * Um valor **Alias** do**awverify.www** com um valor de **outro host** de **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
 		> Esse registro CNAME é usado pelo Azure para validar que você possui o domínio descrito pelo registro A.
 
@@ -77,4 +91,7 @@ Para associar seu domínio personalizado a um site do Azure, você deve adiciona
 
 <h2><a name="enabledomain"></a>Habilitar o nome do domínio no seu site</h2>
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+
+
+<!--HONumber=42-->

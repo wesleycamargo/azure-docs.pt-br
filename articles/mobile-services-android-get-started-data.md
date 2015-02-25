@@ -1,10 +1,24 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Introdução aos dados (Android) | Centro de Desenvolvimento Móvel" metaKeywords ="dados android do Azure, dados de serviços móveis do Azure, windows droid, windows android, microsoft droid, microsoft android" description="Saiba como começar a usar os Serviços Móveis para utilizar dados em seu aplicativo Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introdução aos dados (Android) | Centro de Desenvolvimento de Serviços Móveis" 
+	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo Android." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
-# Adicionar os Serviços Móveis em um aplicativo existente
+# Adicionar Serviços Móveis a um aplicativo existente
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -15,11 +29,10 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a><span class="time">15:32</span></div>
 </div>
 
-<div class="dev-callout"><b>Observação</b>
-<p>O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo Android. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-android">Introdução aos Serviços Móveis</a>.</p>
-<p>Se você gostaria de ver o código-fonte do aplicativo concluído, clique <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">aqui</a>.
-</p>
-</div>
+> [AZURE.NOTE] O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo Android. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis](/en-us/develop/mobile/tutorials/get-started-android).
+> 
+> Para ver o código-fonte do aplicativo concluído, clique [aqui](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
+
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
@@ -29,13 +42,11 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 4. [Atualizar o aplicativo para usar os Serviços Móveis]
 5. [Testar o aplicativo com os Serviços Móveis]
 
-<div class="dev-callout"><strong>Observação</strong> <p>Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação gratuita do Azure</a>.</p></div> 
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
 
-Este tutorial requer o [SDK de Serviços Móveis para Android], o <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">SDK para Android</a> que inclui o IDE (ambiente de desenvolvimento integrado) Eclipse e o plug-in Android Developer Tools (ADT); e o Android 4.2 ou a versão mais recente.  
+Este tutorial requer o [SDK de Serviços Móveis para Android], o <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">SDK para Android</a> que inclui o IDE (ambiente de desenvolvimento integrado) Eclipse e o plug-in Android Developer Tools (ADT); e o Android 4.2 ou a versão mais recente. 
 
-<div class="dev-callout"><b>Observação</b>
-<p>Este tutorial fornece instruções para instalar o SKD para Android e o SDK para Android de Serviços Móveis. O projeto GetStartedWithData baixado requer o Android 4.2 ou uma versão posterior. No entanto, o SDK dos Serviços Móveis requer apenas o Android 2.2 ou uma versão mais recente.</p>
-</div>
+> [AZURE.NOTE] Este tutorial fornece instruções para instalar o SKD para Android e o SDK para Android de Serviços Móveis. O projeto GetStartedWithData baixado requer o Android 4.2 ou uma versão posterior. No entanto, o SDK dos Serviços Móveis requer apenas o Android 2.2 ou uma versão mais recente.
 
 >[AZURE.NOTE] Este tutorial usa a versão mais recente do SDK de Serviços Móveis. Você pode encontrar uma versão anterior dele <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126">aqui</a> para fins de compatibilidade com versões anteriores, mas o código contido nesses tutoriais não funciona com ele.
 
@@ -43,28 +54,28 @@ Este tutorial requer o [SDK de Serviços Móveis para Android], o <a href="https
 
 ###Obter o código de amostra
 
-[WACOM.INCLUDE [download-android-sample-code](../includes/download-android-sample-code.md)]
+[AZURE.INCLUDE [download-android-sample-code](../includes/download-android-sample-code.md)]
 
 ###Verificar Versão de SDK do Android
 
-[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+[AZURE.INCLUDE [Verificar o SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
 ###Inspecionar e executar o código de amostra
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
 <h2><a name="create-service"></a>Criar um novo serviço móvel no Portal de Gerenciamento</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>Adicionar uma nova tabela ao serviço móvel</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 <h2><a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel para acesso a dados</h2>
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
 
 
 <h2><a name="test-app"></a>Testar o aplicativo com seu novo serviço móvel</h2>
@@ -89,9 +100,9 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 Isso conclui o tutorial **Introdução aos dados** para Android.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"> </a>Próximas etapas
 
-Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Android para trabalhar com dados nos Serviços Móveis.  
+Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Android para trabalhar com dados nos Serviços Móveis. 
 
 Em seguida, considere fazer um dos seguintes tutoriais com base no aplicativo GetStartedWithData que você criou neste tutorial:
 
@@ -110,7 +121,7 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
 
 <!-- Anchors. -->
-[Baixar o projeto do aplicativo Android] : #download-app
+[Baixar o projeto do aplicativo Android]: #download-app
 [Criar o serviço móvel]: #create-service
 [Adicionar uma tabela de dados para armazenamento]: #add-table
 [Atualizar o aplicativo para usar os Serviços Móveis]: #update-app
@@ -127,17 +138,16 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-android
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-android
-[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
+[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-android
+[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-android
+[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-android
+[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-android
+[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK para Android de Serviços Móveis]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
-[SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-
-<!--HONumber=35.2-->
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+\n<!--HONumber=42-->

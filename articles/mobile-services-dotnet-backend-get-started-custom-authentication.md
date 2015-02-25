@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="Introdução à autenticação personalizada | Mobile Dev Center" metaKeywords="" description="Saiba como autenticar usuários com um nome de usuário e senha." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
+﻿<properties 
+	pageTitle="Introdução à autenticação personalizada | Centro de Desenvolvimento de Serviços Móveis" 
+	description="Saiba como autenticar usuários com um nome de usuário e senha." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Introdução à autenticação personalizada
 
 Este tópico mostra como autenticar usuários no back-end do .NET dos Serviços Móveis do Azure emitindo seu próprio token de autenticação dos Serviços Móveis. Neste tutorial, você adiciona autenticação ao projeto de Início rápido usando um nome de usuário e senha personalizados para seu aplicativo.
 
->[WACOM.NOTE] Este tutorial demonstra um método avançado de autenticação de seus Serviços Móveis com credenciais personalizadas. Muitos aplicativos serão melhor ajustados para, em vez de usarem os provedores de identidade social integrados, permitirem que os usuários façam logon via Facebook, Twitter, Google, conta da Microsoft e Azure Active Directory. Se essa for a sua primeira experiência com autenticação em Serviços Móveis, consulte o tutorial [Introdução aos Usuários].
+>[AZURE.NOTE] Este tutorial demonstra um método avançado de autenticação de seus Serviços Móveis com credenciais personalizadas. Muitos aplicativos serão melhor ajustados para, em vez de usarem os provedores de identidade social integrados, permitirem que os usuários façam logon via Facebook, Twitter, Google, conta da Microsoft e Azure Active Directory. Se essa for a sua primeira experiência com autenticação em Serviços Móveis, consulte o tutorial [Introdução aos Usuários].
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
@@ -14,19 +28,19 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 2. [Criar o ponto de extremidade do registro]
 3. [Criar o LoginProvider]
 4. [Criar o ponto de extremidade de logon]
-5. [Configurar o serviço móvel para requerer autenticação]
+5. [Configurar o serviço móvel para exigir autenticação]
 6. [Testar o fluxo de logon usando o cliente de teste]
 
-Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
 
->[WACOM.NOTE] A finalidade deste tutorial é mostrar como emitir um token de autenticação para Serviços Móveis. Ele não deve ser usado como diretrizes de segurança. Ao desenvolver seu aplicativo, é necessário estar atento às implicações de segurança do armazenamento de senha, e pode ser necessário ter uma estratégia para gerenciar ataques de força bruta.
+>[AZURE.NOTE] A finalidade deste tutorial é mostrar como emitir um token de autenticação para Serviços Móveis. Ele não deve ser usado como orientação de segurança. Ao desenvolver seu aplicativo, é necessário estar atento às implicações de segurança do armazenamento de senha, e pode ser necessário ter uma estratégia para gerenciar ataques de força bruta.
 
 
 ## <a name="table-setup"></a>Configurar a tabela de contas
 
 Como você está usando autenticação personalizada e não conta com outro provedor de identidade, será necessário armazenar suas informações de logon dos usuários. Nesta seção, você criará uma tabela para suas contas e configurará os mecanismos de segurança básicos. A tabela de contas incluirá os nomes de usuário e as senhas salt e hash, e você também poderá incluir informações adicionais de usuário, se necessário.
 
-1. Na pasta `DataObjects` do seu projeto de back-end, crie uma nova entidade chamada `Conta`:
+1. Na pasta `DataObjects` de seu projeto de back-end, crie uma nova entidade chamada `Account`:
 
             public class Account : EntityData
             {
@@ -37,7 +51,7 @@ Como você está usando autenticação personalizada e não conta com outro prov
     
     Essa entidade representará uma linha em nossa nova tabela, e terá o nome de usuário, aquele valor salt do usuário e a senha armazenada com segurança.
 
-2. Na pasta `Models` você encontrará uma classe `DbContext`, que leva o nome de seu Serviço Móvel. O restante deste tutorial usará `todoContext` como um exemplo, e você precisará atualizar os trechos do código adequadamente. Abra seu contexto e adicione a tabela de contas em seu modelo de dados, incluindo o seguinte:
+2. Na pasta `Models` você encontrará uma classe `DbContext` denominada conforme seu Serviço Móvel. O restante deste tutorial usará `todoContext` como um exemplo, e você precisará atualizar os trechos do código adequadamente. Abra seu contexto e adicione a tabela de contas em seu modelo de dados, incluindo o seguinte:
 
         public DbSet<Account> Accounts { get; set; }
 
@@ -105,7 +119,7 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
                 {
                     return this.Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid password (at least 8 chars required)");
                 }
-
+	
                 todoContext context = new todoContext();
                 Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
                 if (account != null)
@@ -156,9 +170,9 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
 
         }
 
-       `LoginProvider` has three other abstract methods which you will implement later.
+       `LoginProvider` tem três outros métodos abstratos que você implementará posteriormente.
 
-2. Crie uma nova classe chamada `CustomLoginProviderCredentials`. Ela representa as informações sobre o seu usuário e ficará disponível para você no back-end via `ServiceUser.getIdentitiesAsync()`. Se estiver adicionando declarações personalizadas, certifique-se de que elas sejam capturadas nesse objeto.
+2. Criar uma nova classe denominada `CustomLoginProviderCredentials`. Isso representa informações sobre o usuário e estarão disponível para você no back-end por meio de `ServiceUser.getIdentitiesAsync()`. Se estiver adicionando declarações personalizadas, certifique-se de que elas sejam capturadas nesse objeto.
 
         public class CustomLoginProviderCredentials : ProviderCredentials
         {
@@ -168,7 +182,7 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
             }
         }
 
-3. Adicione a seguinte implementação do método abstrato `ConfigureMiddleware` a `CustomLoginProvider`. Esse método é um no-op aqui, já que `CustomLoginProvider` não está se integrando com o pipeline de autenticação.
+3. Adicione a seguinte implementação do método abstrato `ConfigureMiddleware` a `CustomLoginProvider`. Esse método é um no-op aqui, já que `CustomLoginProvider` não se integra ao pipeline de autenticação.
 
         public override void ConfigureMiddleware(IAppBuilder appBuilder, ServiceSettingsDictionary settings)
         {
@@ -209,7 +223,7 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
 
 ## <a name="login-endpoint"></a>Criar o ponto de extremidade de logon
 
-Em seguida, você criará um ponto de extremidade para seus usuários fazerem logon. O nome de usuário e a senha que você receber serão verificados com relação ao banco de dados, aplicando primeiro a senha salt e hash do usuário e verificando se o valor recebido corresponde ao armazenado no banco de dados. Se corresponder, você poderá criar um `ClaimsIdentity` e transmiti-lo ao `CustomLoginProvider`. O aplicativo cliente receberá uma ID de usuário e um token de autenticação para outro processo em seu serviço móvel.
+Em seguida, você criará um ponto de extremidade para seus usuários fazerem logon. O nome de usuário e a senha que você receber serão verificados com relação ao banco de dados, aplicando primeiro a senha salt e hash do usuário e verificando se o valor recebido corresponde ao armazenado no banco de dados. Se corresponder, você poderá criar um `ClaimsIdentity` e transmiti-lo para o `CustomLoginProvider`. O aplicativo cliente receberá uma ID de usuário e um token de autenticação para outro processo em seu serviço móvel.
 
 1. Em seu projeto de back-end de Serviços Móveis, crie um objeto para representar uma tentativa de logon:
 
@@ -252,20 +266,20 @@ Em seguida, você criará um ponto de extremidade para seus usuários fazerem lo
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[WACOM.NOTE] Seu `CustomLoginController` para uso na produção também deve conter uma estratégia de detecção de força bruta. Caso contrário, sua solução de logon poderá estar vulnerável a ataques.
+>[AZURE.NOTE] Seu `CustomLoginController` para uso na produção também deve conter uma estratégia de detecção de força bruta. Caso contrário, sua solução de logon poderá estar vulnerável a ataques.
 
-## <a name="require-authentication"></a>Configurar o serviço móvel para requerer autenticação
+## <a name="require-authentication"></a>Configurar o serviço móvel para exigir autenticação
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 
 ## <a name="test-login"></a>Testar o fluxo de logon usando o cliente de teste
 
 Em seu aplicativo cliente, será necessário desenvolver uma tela de logon personalizada que obtenha os nomes de usuário e senhas e os envie a uma carga JSON para seus pontos de extremidade de registro e logon. Para concluir este tutorial, será necessário apenas usar o cliente de teste integrado para o back-end do .NET dos Serviços Móveis.
 
->[WACOM.NOTE] Os SDKs de Serviços Móveis se comunicarão com o serviço por HTTPS. Se você pretende acessar esse ponto de extremidade via chamada REST direta, deve certificar-se de usar HTTPS para chamar seu serviço móvel, já que as senhas estão sendo enviadas como texto não criptografado.
+>[AZURE.NOTE] Os SDKs de Serviços Móveis se comunicarão com o serviço por HTTPS. Se você pretende acessar esse ponto de extremidade via chamada REST direta, deve certificar-se de usar HTTPS para chamar seu serviço móvel, já que as senhas estão sendo enviadas como texto não criptografado.
 
-1. No Visual Studio, inicie uma nova instância de depuração de seu projeto de back-end dos Serviços Móveis clicando com o botão direito do mouse no projeto e selecionando **Depurar->Iniciar Nova Instância**
+1. No Visual Studio, inicie uma nova instância de depuração de seu projeto de back-end dos Serviços Móveis clicando com o botão direito do mouse no projeto e selecionando **Depurar->Iniciar nova instância**
 
     ![][0]
 
@@ -277,7 +291,7 @@ Em seu aplicativo cliente, será necessário desenvolver uma tela de logon perso
 
     ![][2]
 
-4. No corpo, substitua as cadeias de caracteres de exemplo pelo nome de usuário e senha que atendem aos critérios que você especificou antes. Em seguida, clique em **Enviar**. A resposta deve ser **201/Criado**.
+4. No corpo, substitua as cadeias de caracteres de exemplo pelo nome de usuário e senha que atendem aos critérios que você especificou antes. Depois clique em **Enviar**. A resposta deve se **201/Criado**.
 
     ![][3]
 
@@ -291,7 +305,7 @@ Em seu aplicativo cliente, será necessário desenvolver uma tela de logon perso
 [Criar o ponto de extremidade do registro]: #register-endpoint
 [Criar o LoginProvider]: #login-provider
 [Criar o ponto de extremidade de logon]: #login-endpoint
-[Configurar o serviço móvel para requerer autenticação]: #require-authentication
+[Configurar o serviço móvel para exigir autenticação]: #require-authentication
 [Testar o fluxo de logon usando o cliente de teste]: #test-login
 
 
@@ -304,5 +318,5 @@ Em seu aplicativo cliente, será necessário desenvolver uma tela de logon perso
 
 
 <!-- URLs. -->
-[Introdução aos Usuários]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Introdução aos usuários]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started\n<!--HONumber=42-->

@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="Website" pageTitle="Criar um site do Node.js no Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Aprenda a criar e implantar um site da Web Node.js no Azure. Código de exemplo é escrito em Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Criar um site do Node. js no Mac - tutoriais do Azure" 
+	description="Aprenda a criar e implantar um site do Node.js no Azure. Código de exemplo é escrito em Java." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
 
 
 
-# Compilar e implantar um site do node.js no Azure.
+# Compilar e implantar um site do node.js no Azure
 
-Este tutorial mostra como criar um aplicativo [nodejs.org]de[Nó] e implantá-lo em um Site do Azure usando o [Git]. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o nó.
+Este tutorial mostra como criar um aplicativo [Nó][nodejs.org] e implantá-lo em um Website do Azure usando [Git]. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o nó.
 
 Se você preferir assistir a este tutorial como um vídeo, o clipe a seguir mostra etapas semelhantes:
 [AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
@@ -22,14 +36,14 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 Siga estas etapas para criar um Site do Azure e habilitar a publicação Git para o site.
 
-> [WACOM.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação gratuita do Azure</a>.
+> [AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação gratuita do Azure</a>.
 > 
-> Se você deseja uma introdução aos Sites do Azure antes de criar uma conta, vá para <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, onde você pode imediatamente criar um site de introdução ao ASP.NET de curta duração nos Sites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser iniciar com Websites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um site de iniciante ASP.NET de vida curta nos Websites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
 1. Faça logon no [Portal de Gerenciamento do Azure].
 
-2. Clique no ícone **+ NOVO** na parte inferior esquerda do portal.
+2. Clique no ícone **+ NOVO** na parte inferior esquerda do portal
 
     ![The Azure Portal with the +NEW link highlighted.][portal-new-website]
 
@@ -53,13 +67,13 @@ Siga estas etapas para criar um Site do Azure e habilitar a publicação Git par
 
 	![The dialog prompting for user name and password.][portal-git-username-password]
 
-8. Quando o repositório Git estiver pronto, você receberá instruções sobre os comandos Git a serem usados para configurar um repositório local e enviar os arquivos ao Azure.
+8. Quando o repositório Git estiver pronto, você receberá instruções sobre os comandos Git a serem usados para configurar um repositório local e enviar por push os arquivos ao Azure.
 
 	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
 
 ##Criar e testar o aplicativo localmente
 
-Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello world' do [nodejs.org]. Este exemplo foi modificado a partir do exemplo original adicionando process.env.PORT como a porta de escuta ao executar em um Site do Azure.
+Nesta seção, você criará um arquivo **Server. js** contendo o exemplo 'hello world' do [nodejs.org]. Este exemplo foi modificado a partir do exemplo original adicionando process.env.PORT como a porta de escuta ao executar em um Site do Azure.
 
 1. Usando um editor de texto, crie um novo arquivo chamado **server.js** no diretório **helloworld**. Se o diretório **helloworld** não existir, crie-o.
 2. Adicione o seguinte como o conteúdo do arquivo **server.js** e salve-o:
@@ -85,9 +99,8 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 		git init
 
-	<div class="dev-callout"><strong>Comando Git indisponível?</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a> é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Para obter instruções de instalação para sua plataforma, consulte <a href="http://git-scm.com/download" target="_blank">a página de download do Git</a>.</p>
-	</div>
+	> [AZURE.NOTE] **Comando Git indisponível?**
+	[Git](http://git-scm.com/%20target="_blank) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Para obter instruções de instalação para sua plataforma, consulte [a página de download do Git](http://git-scm.com/download%20target="_blank").
 
 2. Use os comandos a seguir para adicionar arquivos ao repositório:
 
@@ -129,7 +142,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 ##Publicar alterações em seu aplicativo
 
-1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\n' para 'Hello Azure\n'. Salve o arquivo.
+1. Abra o arquivo **server.js** em um editor de texto e altere 'Hello World\n' para 'Hello Azure\n'. Salve o arquivo.
 2. Na linha de comando, altere para o diretório **helloworld** e execute os seguintes comandos:
 
 		git add .
@@ -148,19 +161,19 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 ##Próximas etapas
 
-Embora as etapas deste artigo usem o Portal do Azure para criar um site, você também pode usar as [Ferramentas de Linha de Comando do Azure para Mac e Linux] para executar as mesmas operações.
+Embora as etapas deste artigo usem o Portal do Azure para criar um site, você também pode usar as [Ferramenta de Linha de Comando do Azure para Mac e Linux] para executar as mesmas operações.
 
 O Node.js fornece um rico ecossistema de módulos que podem ser usadas por seus aplicativos. Para saber como os Sites do Azure funcionam com módulos, consulte [Usando módulos do Node.js com aplicativos do Azure](/pt-br/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
 Para saber mais sobre as versões do Node.js que são fornecidas com o Azure e como especificar a versão a ser usada com seu aplicativo, consulte [Especificando uma versão do Node.js em um aplicativo do Azure](/pt-br/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azure, consulte [Como depurar um aplicativo Node.js nos Sites do Azure](/pt-br/documentation/articles/web-sites-nodejs-debug/) para obter informações sobre como diagnosticar o problema.
+Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azure, consulte [Como depurar um aplicativo Node.js nos Sites do Azure](/pt-br/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
 
 
 ##Recursos adicionais
 
 * [PowerShell do Azure]
-* [Ferramenta de linha de comando do Azure para Mac e Linux]
+* [Ferramenta de Linha de Comando do Azure para Mac e Linux] 
 
 [PowerShell do Azure]: /pt-br/documentation/articles/install-configure-powershell/
 
@@ -168,7 +181,7 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [Git]: http://git-scm.com
 
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-[Ferramenta de linha de comando do Azure para Mac e Linux]: /pt-br/documentation/articles/xplat-cli/
+[Ferramenta de Linha de Comando do Azure para Mac e Linux]: /pt-br/documentation/articles/xplat-cli/
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
@@ -185,4 +198,5 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

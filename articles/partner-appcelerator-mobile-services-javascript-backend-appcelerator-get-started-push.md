@@ -1,6 +1,20 @@
-<properties pageTitle="Introdução às notificações por push (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" metaKeywords="" description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Introdução às notificações por push (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" 
+	description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo Appcelerator." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # Introdução às notificações por push nos Serviços Móveis (envio herdado)
 <div class="dev-center-tutorial-selector sublanding">
@@ -16,7 +30,7 @@
 
 Este tópico mostra como usar os Serviços Móveis do Microsoft Azure para enviar notificações por push para aplicativos iOS e Android desenvolvidos por meio do Appcelerator Titanium Studio. Neste tutorial, você adicionará notificações por push usando o Serviço de Notificação por Push da Apple (APNS) e o sistemas de Mensagens em Nuvem do Google para o projeto do QuickStart. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
->[WACOM.NOTE] Os Serviços Móveis integram-se aos Hubs de Notificação do Azure para dar suporte à funcionalidade de notificação por push, como modelos, várias plataformas e escala aprimorada. Este tópico dá suporte aos serviços móveis existentes que ainda não foram atualizados para usar a integração dos Hubs de Notificação. Quando você cria um novo serviço móvel, essa funcionalidade integrada é habilitada automaticamente. Você deve atualizar seu serviço para usar os Hubs de Notificação quando possível. **Trabalharemos para disponibilizar um tutorial para push dos Hubs de Notificação com o Appcelerator em breve.**
+>[AZURE.NOTE] Os Serviços Móveis integram-se aos Hubs de Notificação do Azure para dar suporte à funcionalidade de notificação por push, como modelos, várias plataformas e escala aprimorada. Este tópico dá suporte aos serviços móveis existentes que ainda não foram atualizados para usar a integração dos Hubs de Notificação. Quando você cria um novo serviço móvel, essa funcionalidade integrada é habilitada automaticamente. Você deve atualizar seu serviço para usar os Hubs de Notificação quando possível. **Trabalharemos para disponibilizar um tutorial para push dos Hubs de Notificação com o Appcelerator em breve.**
 
 1.	[Gerar a solicitação de assinatura de certificado]
 2.	[Registrar o aplicativo e habilitar notificações por push]
@@ -36,17 +50,17 @@ Este tutorial exige o seguinte:
 * Associação no Programa de Desenvolvedores de iOS
 * Uma conta ativa do Google
 
-> [WACOM.NOTE] Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
+> [AZURE.NOTE] Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a[Introdução aos Serviços Móveis].
+Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis].
 
-[WACOM.INCLUDE [Habilitar notificação por push da Apple](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Habilitar notificação por push da Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Habilitar o sistema de mensagens de nuvem do Google
 
->[WACOM.NOTE]Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE] Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-[WACOM.INCLUDE [Habilitar o GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Habilite o GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##  <a name="gcm-module"></a>Criar o módulo do GCM para Titanium
@@ -55,7 +69,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 Se você for criar módulos para Android, precisará instalar suporte a Java no Appcelerator Titanium Studio. Consulte [Instalando as ferramentas de desenvolvimento de Java] para obter etapas rápidas caso ainda não tenha feito isso.
 
-Você precisará instalar o NDK do Android. Baixe o arquivo .zip adequado de [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) e extraia-o para algum local no disco. Lembre-se desse local. 
+Você precisará instalar o NDK do Android. Baixe o arquivo. zip apropriado de [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) e o extraia em um local no disco. Lembre-se desse local. 
 
 ### Criando um novo módulo
 
@@ -67,13 +81,13 @@ Você precisará instalar o NDK do Android. Baixe o arquivo .zip adequado de [ht
 
 3. Na janela seguinte, insira os dados das configurações do projeto: 
 
-    * **Nome do projeto:** Em nosso caso, usamos &quot;notificationhub&quot; (pode ser o mesmo).
+    * **Nome do projeto:** em nosso caso, usamos &quot;notificationhub&quot; (pode ser o mesmo).
 
-    * **ID do Módulo:** Em nosso caso, usamos &quot;com.winwire.notificationhub&quot;. Ele também deve corresponder à "ID do aplicativo".
+    * **ID do módulo:** em nosso caso, usamos &quot;com.winwire.notificationhub&quot;. Além disso, isso deve corresponder com nossa "ID de aplicativo".
 
-    * **Metas de implantação:** Nesse caso, selecionamos Android.
+    * **Destinos de implantação:** nesse caso, selecionamos o Android.
 
-    > [WACOM.NOTE] É importante que o nome do WorkSpace não contenha espaços, caso contrário, teremos problemas ao criar a compilação.
+    > [AZURE.NOTE] É importante que o nome do WorkSpace não contenha espaços, caso contrário, teremos problemas ao criar a compilação.
 
     ![][1]
 
@@ -123,13 +137,13 @@ Você precisará instalar o NDK do Android. Baixe o arquivo .zip adequado de [ht
 
 
 
-> [WACOM.NOTE] No código acima, você deve substituir todas as instâncias do texto *com.winwire.notificationhub* pelo nome do pacote do seu aplicativo (ID do módulo).
+> [AZURE.NOTE] No código acima, você deve substituir todas as instâncias do texto  *com.winwire.notificationhub* pelo nome do pacote do seu aplicativo (ID do módulo).
 
-7. No módulo do Hub de Notificação, clique com o botão direito do mouse na pasta &quot;src&quot; e vá para &quot;Novo&quot; e selecione &quot;pasta&quot;. Insira o nome da pasta como com.google.android.gcm.
+7. No módulo do Hub de Notificação, clique com o botão direito do mouse na pasta &quot;src&quot; e vá para &quot;Novo&quot; e selecione &quot;Pasta&quot;. Insira o nome da pasta como com.google.android.gcm.
 
-> [WACOM.NOTE] Se não conseguir ver a opção &quot;Pasta&quot; em &quot;Novo&quot; selecione &quot;Outro&quot;, expanda Geral e selecione &quot;Pasta&quot;.
+> [AZURE.NOTE] Se não conseguir ver a pasta&quot; &quot;nas opções em &quot;Novo&quot;, selecione &quot;Outro&quot;, expanda Geral e selecione &quot;Pasta&quot;.
 
-8. Agora baixe os arquivos &quot;.java&quot; (gcm.zip) daqui e copie esses arquivos na pasta recém-criada (com.google.android.gcm).
+8. Agora, baixe os arquivos &quot;.java&quot; (gcm.zip) daqui e copie esses arquivos na pasta recém-criada (com.google.android.gcm).
 
 9. Encontre a pasta com o mesmo nome de seu ID de módulo e a expanda. Nessa pasta, você pode ver a lista de arquivos ".java". Nesses arquivos, abra o arquivo com o nome do projeto+module.java (por exemplo, se seu nome de projeto for notificationhub, o nome do arquivo será &quot;NotificationhubModule.java&quot;) e adicione as linhas de código abaixo na parte superior.
 
@@ -202,7 +216,7 @@ Você precisará instalar o NDK do Android. Baixe o arquivo .zip adequado de [ht
 
 12. Agora, baixe module.zip e copie os arquivos na pasta com a ID do módulo como seu mesmo nome.
 
-> [WACOM.NOTE] No código acima, você deve substituir todas as instâncias do texto *com.winwire.notificationhub* pelo nome do pacote do seu aplicativo (ID do módulo). Além disso, substitua &quot;NotificationhubModule&quot; pelo ProjectName+Módulo (p. ex., "NotificationhubModule").
+> [AZURE.NOTE] No código acima, você deve substituir todas as instâncias do texto  *com.winwire.notificationhub* pelo nome do pacote do seu aplicativo (ID do módulo). Além disso, substitua &quot;NotificationhubModule&quot; por ProjectName+Module (p. ex., &quot;NotificationhubModule&quot;).
 
 ### Criando/empacotando um módulo
 
@@ -221,7 +235,7 @@ Você pode então escolher implantar o módulo para todos os projetos ou para um
 ## <a name="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
 
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 5.	Insira o valor da Chave de API obtido do GCM no procedimento anterior e clique em Salvar.
 
@@ -235,12 +249,12 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
 
         <modules>
             <module platform="android">ModuleId</module>
-        </modules>
-        <property name="ApplicationId.sender_id" type="string">Provide your GCM sender ID</property>
-        <property name="ApplicationId.icon type="int">2130837504</property>
-        <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
+            </modules>
+            <property name="ApplicationId.sender_id" type="string">Provide your GCM sender ID</property>
+            <property name="ApplicationId.icon type="int">2130837504</property>
+            <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
 
->[WACOM.NOTE] No código acima, você precisa substituir **ModuleId e ****ApplicationId**. Seu ID do Módulo, o qual você forneceu no momento da criação do Módulo do GCM, e a ID do Aplicativo, que é inserido no momento da criação do projeto.  Além disso, verifique se **ModuleId** e **ApplicationId** são iguais.  Também é preciso alterar **ApplicationId.AppNameActivity**. Ele deve ser parecido com com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
+>[AZURE.NOTE] No código acima, você precisa substituir **ModuleId e ****ApplicationId**. Seu ID do Módulo, o qual você forneceu no momento da criação do Módulo do GCM, e a ID do Aplicativo, que é inserido no momento da criação do projeto.  Além disso, verifique se **ModuleId** e **ApplicationId** são iguais. Também é preciso alterar **ApplicationId.AppNameActivity**. Ele deve ser parecido com com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
 
 
 2.	Copie o módulo do GCM criado anteriormente e coloque-o no local abaixo.	
@@ -248,16 +262,16 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
     <table><tr>
     <td>OSX
     </td>
-    <td>/Library/Application Support/Titanium or  ~/Library/Application Support/Titanium
+    <td>/Library/Application Support/Titanium ou ~/Library/Application Support/Titanium
     </td>
     </tr>
     <td>Windows 7
     </td>
-    <td>C:\Users\username\AppData\Roaming (or C:\ProgramData\Titanium on Titanium Studio 1.0.1 and earlier)
+    <td>C:\Users\username\AppData\Roaming (ou C:\ProgramData\Titanium no Titanium Studio 1.0.1 e em versões anteriores)
     </td>
     </tr><td>Windows XP
     </td>
-    <td>C:\Documents and Settings\username\Application Data (or C:\Documents and Settings\All Users\Application Data\Titanium on Titanium Studio 1.0.1 and earlier)
+    <td>C:\Documents and Settings\username\Application Data (ou C:\Documents and Settings\All Users\Application Data\Titanium no Titanium Studio 1.0.1 e em versões anteriores)
     </td>
     </tr><td>Linux
     </td>
@@ -268,7 +282,7 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
     
     </table>
 
->[WACOM.NOTE]  No Mac OS, a Biblioteca é uma pasta oculta. Para torná-la visível, você precisa executar o comando a seguir e iniciar o Localizador novamente: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
+>[AZURE.NOTE]  No Mac OS, a Biblioteca é uma pasta oculta. Para torná-la visível, você precisa executar o comando a seguir e iniciar o Localizador novamente: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
 3.	No Appcelerator Titanium Studio, abra o arquivo index.js e adicione o código a seguir na parte inferior. Esse código registrará seu dispositivo para notificações por push.
 
@@ -358,11 +372,11 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
 
 5.	Para Android, substitua o código acima pelo seguinte código:
 
-           var request = {
-    	    'text' : alertTextField.getValue(),
-    	    'complete' : false,
-    	    'handle' : Alloy.Globals.tempRegId
-           }; 
+       var request = {
+    	'text' : alertTextField.getValue(),
+    	'complete' : false,
+    	'handle' : Alloy.Globals.tempRegId
+    }; 
     
     
 
@@ -377,11 +391,11 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS e o GCM.
 
 7.	Para iOS, substitua o código acima pelo seguinte código:
 
-           var request = {
-    	    'text' : alertTextField.getValue(),
-    	    'complete' : false,
-    	    'deviceToken' : Alloy.Globals.tempRegId
-           };
+       var request = {
+    	'text' : alertTextField.getValue(),
+    	'complete' : false,
+    	'deviceToken' : Alloy.Globals.tempRegId
+    };
     
  
 Seu aplicativo foi atualizado para dar suporte a notificações por push nas plataformas iOS e Android.
@@ -399,7 +413,7 @@ Seu aplicativo foi atualizado para dar suporte a notificações por push nas pla
 
     Isso exibe a função que é chamada quando ocorre uma inserção na tabela TodoItem.
 
-3.	Substitua a função insert pelo seguinte código e clique em **Salvar**:
+3.	Substitua a função de inserção pelo seguinte código e clique em **Salvar**:
 
 **Para iOS:**
 
@@ -417,7 +431,7 @@ Seu aplicativo foi atualizado para dar suporte a notificações por push nas pla
             }, 2500);
         }
   
-   	> [WACOM.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação por push.  
+   	> [AZURE.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação por push.  
 
 **Para Android:**
 
@@ -466,7 +480,8 @@ Isso registra um novo script insert, o qual usa o [objeto de push dos Serviços 
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 [Usando módulos do Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
 [Portal de Gerenciamento do Microsoft Azure]: https://manage.windowsazure.com/
-[objeto de push dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
-[Instalando as ferramentas de desenvolvimento de Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
+[Objeto de push dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[Instalando ferramentas de desenvolvimento Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Como dimensionar um serviço de mídia | Documentação do Azure" metaKeywords="" description="Saiba como dimensionar os Serviços de Mídia especificando o número de Unidades Reservadas para Streaming por Demanda e Unidades Reservadas para Codificação com as quais você deseja provisionar sua conta." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Como dimensionar um serviço de mídia | Documentação do Azure" description="Saiba como dimensionar os Serviços de Mídia especificando o número de Unidades Reservadas para Streaming por Demanda e Unidades Reservadas para Codificação com as quais você deseja provisionar sua conta." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-#Como dimensionar um Serviço de Mídia  
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+
+# Como dimensionar um Serviço de Mídia  
+
+[AZURE.INCLUDE [isenção de responsabilidade](../includes/disclaimer.md)]
 
 
 Você pode dimensionar os Serviços de Mídia especificando o número de **Unidades Reservadas para Streaming por Demanda** e **Unidades Reservadas para Codificação** com as quais você deseja provisionar sua conta. 
@@ -16,11 +16,11 @@ Você pode dimensionar os Serviços de Mídia especificando o número de **Unida
 
 <h2>Unidades reservadas para streaming por demanda</h2>
 
-As unidades reservadas para Streaming por Demanda fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que, atualmente, inclui [recursos de empacotamento dinâmico].(http://go.microsoft.com/fwlink/?LinkId=276874). Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda. 
+Unidades reservadas de streaming sob demanda fornecem a você tanto capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps quanto  funcionalidade adicional que atualmente inclui [recursos de empacotamento dinâmico](http://go.microsoft.com/fwlink/?LinkId=276874). Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda. 
 
 Para alterar o número de unidades reservadas para streaming por demanda, faça o seguinte:
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**.Em seguida, clique no nome do serviço de mídia.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
 2. Selecione a página de PONTOS DE EXTREMIDADE DE STREAMING. Então, clique no ponto de extremidade que deseja modificar.
 
@@ -36,7 +36,7 @@ Para alterar o número de unidades reservadas para streaming por demanda, faça 
 	 
 	>[Azure.Note] No momento, mudar de qualquer valor positivo de unidades de streaming por demanda para nenhum pode desabilitar o streaming por demanda por até uma hora.
 
-	>[Azure.Note] O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte[Detalhes de preços dos Serviços de Mídia.](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[Azure.Note] O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 <h2>Codificando unidades reservadas</h2>
 
@@ -44,7 +44,7 @@ O número de unidades reservadas para codificação provisionadas é igual ao n�
 
 Para alterar o número de unidades reservadas para codificação, faça o seguinte:
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**.Em seguida, clique no nome do serviço de mídia.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
 2. Selecione a página CODIFICAÇÃO. 
 	
@@ -93,4 +93,5 @@ Para abrir um tíquete de suporte, faça o seguinte:
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

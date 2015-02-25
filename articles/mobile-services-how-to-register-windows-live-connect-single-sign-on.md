@@ -1,16 +1,28 @@
-<properties pageTitle="Registrar-se para logon único - Serviços Móveis do Azure" metaKeywords="" description="Saiba como registrar-se para autenticação de logon único em seu aplicativo de serviços móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Registrar-se para logon único - Serviços Móveis do Azure" 
+	description="Saiba como se registrar para autenticação de logon único em seu aplicativo de Serviços Móveis do Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Registrar seus aplicativos da Windows Store para usar o logon único no Windows Live Connect
 
 Este tópico mostra como registrar seu aplicativo da Windows Store para usar o logon único do Live Connect como o provedor de identidade dos Serviços Móveis do Azure. Esta etapa também é necessária para usar notificações por push.
 
-<div class="dev-callout"><b>Observação</b>
-<p>Não é necessário registrar seu aplicativo da Windows Store para usar a Conta da Microsoft para autenticação antes de publicar seu aplicativo. Quando seu aplicativo da Windows Store não exigir logon único para notificações por push, você pode registrá-lo no Live Connect para usar um logon de Conta da Microsoft.  Para obter mais informações, consulte <a href="/pt-br/develop/mobile/how-to-guides/register-for-microsoft-authentication">Registrar seus aplicativos da Windows Store para usar um logon de Conta da Microsoft</a>.</p>
-</div>
+> [AZURE.IMPORTANT] Não é necessário registrar seu aplicativo da Windows Store para usar a Conta da Microsoft para autenticação antes de publicar seu aplicativo. Quando seu aplicativo da Windows Store não exigir logon único para notificações por push, você pode registrá-lo no Live Connect para usar um logon de Conta da Microsoft.  Para obter mais informações, consulte [Registrar seus aplicativos da Windows Store para usar um logon de Conta da Microsoft](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication).
 
-1. Se você não tiver registrado seu aplicativo, navegue até [Enviar uma página do aplicativo] no Centro de Desenvolvimento de aplicativos da Windows Store, faça logon com sua Conta da Microsoft e, em seguida, clique em **Nome do Aplicativo**.
+1. Se você não tiver registrado seu aplicativo, navegue até [Enviar uma página do aplicativo] no Centro de Desenvolvimento de aplicativos da Windows Store, entre com sua Conta da Microsoft e, em seguida, clique em **Nome do Aplicativo**.
 
    	![][0]
 
@@ -22,31 +34,29 @@ Este tópico mostra como registrar seu aplicativo da Windows Store para usar o l
 
 3. No Visual Studio 2012 Express para Windows 8, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis].
 
-4. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto, clique em**Loja**, e clique em **Associar Aplicativo com a Loja...**. 
+4. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto, clique em **Loja**, e clique em **Associar Aplicativo com a Loja...**. 
 
   	![][2]
 
-   	Isso exibe o Assistente de **Associar o Aplicativo com a Windows Store**.
+   	Isso exibe o assistente **Associar seu aplicativo à Windows Store**.
 
-5. No assistente, clique em **Entrar** e, em seguida, faça logon com sua conta da Microsoft.
+5. No assistente, clique em **Entrar** e, em seguida, faça login com sua conta da Microsoft.
 
-6. Selecione o aplicativo que você registrou na etapa 2, clique em **Avançar**, e depois clique em **Associar**.
+6. Selecione o aplicativo que você registrou na etapa 2, clique em **Próximo**e, em seguida, clique em **Associar**.
 
    	![][3]
 
    	Isso adiciona as informações de registro necessárias da Windows Store para o manifesto do aplicativo.    
 
-9. Navegue até a página [Meus Aplicativos] na Central de Desenvolvedores do Live Connect e clique em seu aplicativo na lista**Meus aplicativos**.
+9. Navegue até a página [Meus Aplicativos] na Central de Desenvolvedores do Live Connect e clique em seu aplicativo na lista **Meus aplicativos**.
 
    	![][6] 
 
-10. Clique na página **Editar configurações**, em seguida, em **Configurações da API** e anote o valor de **Segredo do cliente**. 
+10. Clique em **Editar configurações**, em seguida, em **Configurações da API** e anote o valor de **Segredo do cliente**. 
 
    	![][7]
 
-    <div class="dev-callout"><b>Observação de Segurança</b>
-	<p>O segredo do cliente é uma credencial de segurança importante. Não compartilhe o segredo do cliente com ninguém nem o distribua com seu aplicativo.</p>
-    </div>
+    > [AZURE.NOTE] O segredo do cliente é uma credencial de segurança importante. Não compartilhe o segredo do cliente com ninguém nem o distribua com seu aplicativo.
 
 11. Em **Domínio de redirecionamento**, digite a URL do seu serviço móvel da Etapa 8 e, em seguida, clique em **Salvar**.
 
@@ -54,7 +64,7 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 
    - Logon único para aplicativos da Windows Store. Nesse método, os usuários só precisam autorizar a autenticação em seu aplicativo uma vez usando o Live Connect e, em seguida, as credenciais são gerenciadas pelo Windows, com base nas preferências do usuário. Para obter mais informações, consulte [Logon único para aplicativos da Windows Store usando o Live Connect].
 
-   - Autenticação básica. Esse método, que dá suporte a vários provedores de autenticação, requer que os usuários façam logon sempre que seu aplicativo é iniciado. Para obter mais informações, consulte [Comece a usar a autenticação].
+   - Autenticação básica. Esse método, que dá suporte a vários provedores de autenticação, requer que os usuários façam logon sempre que seu aplicativo é iniciado. Para obter mais informações, consulte [Introdução à autenticação].
 
 <!-- Anchors. -->
 
@@ -71,14 +81,13 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 
 
 <!-- URLs. -->
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Logon único para aplicativos da Windows Store usando o Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
-[Comece a usar a autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
+[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
+[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript e HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-<!--HONumber=35.1-->
+\n<!--HONumber=42-->

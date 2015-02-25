@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="Migrar os sites do IIS para Sites do Azure usando o Assistente de Migração" metaKeywords="Azure Websites,solution" description="Mostra como usar sites do Azure para criar soluções de site corporativo para o seu negócio" metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties 
+	pageTitle="Migrar os sites do IIS para Sites do Azure usando o Assistente de Migração" 
+	description="Mostra como usar sites do Azure para criar soluções de site corporativo para o seu negócio" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="cephalin"/>
 
 # Ofertas de Sites do Azure para white paper do Enterprise #
 
@@ -34,7 +49,7 @@ O Sites do Microsoft Azure é uma boa opção para hospedar esses aplicativos, o
 Uma abordagem alternativa é fazer uso de seu investimento existente no local. No cenário de exemplo, um sistema de despesas de funcionários, você pode desejar manter seu armazenamento de dados em sua própria infraestrutura interna. Isso pode ser para integração com sistemas internos (relatórios, folha de pagamento, cobrança etc.) ou para satisfazer um requisito de governança de TI.  O Sites do Microsoft Azure fornece dois métodos para permitir que você se conecte a sua infraestrutura local:
 
 - [Conexões híbridas](http://aka.ms/hybridconnections) - As conexões híbridas são um recurso dos Serviços BizTalk do Microsoft Azure e permitem que os Sites do Azure se conectem a recursos locais com segurança, por exemplo, SQL Server, MySQL, APIs da Web e serviços Web personalizados. 
-- [Integração de Rede Virtual](http://aka.ms/websitesvnet) - A Integração de Rede Virtual dos Sites do Azure permite que você conecte seu site a uma Rede Virtual do Azure que, por sua vez, pode ser conectado a sua infraestrutura local através de uma VPN site a site. 
+- [Integração de Rede Virtual](http://aka.ms/websitesvnet)- A Integração de Rede Virtual dos Sites do Azure permite que você conecte seu site a uma Rede Virtual do Azure que, por sua vez, pode ser conectado a sua infraestrutura local através de uma VPN site a site. 
 
 O diagrama a seguir é uma solução de alto nível de exemplo com as opções de conectividade para recursos locais.
 
@@ -66,7 +81,7 @@ O Sites do Azure fornece uma plataforma estável e confiável que é comprovadam
 
 A Plataforma Microsoft Azure permite que controles de autorização com base em função, possibilitando níveis corporativos de controle de recursos em sites do Azure. O RBAC proporciona às empresas a capacidade de implementar suas próprias políticas de gerenciamento de acesso para todos os seus ativos no ambiente do Azure, atribuindo usuários a grupos e, por sua vez, atribuindo as permissões necessárias para esses grupos em relação ao ativo, como um site do Azure. Para obter mais informações sobre o RBAC no Azure, consulte [http://aka.ms/azurerbac](http://aka.ms/azurerbac). Ao utilizar os sites do Azure você pode ter certeza de seus aplicativos Web serão implantados em um ambiente seguro e você terá controle total para a região que os ativos são implantados. 
 
-Além disso, o Sites do Azure também é capaz de fazer uso integral de seus investimentos no local, oferecendo a capacidade de se conectar novamente a seus recursos internos, como o data warehouse ou o ambiente do SharePoint. Como discutido em [Solução de alto nível](#highlevel), você pode usar conexões híbridas e conectividade de rede virtual para estabelecer conexões com a infraestrutura local e serviços.
+Além disso, o Sites do Azure também é capaz de fazer uso integral de seus investimentos no local, oferecendo a capacidade de se conectar novamente a seus recursos internos, como o data warehouse ou o ambiente do SharePoint. Conforme discutido em [solução de alto nível](#highlevel) você pode fazer uso de conexões híbridas e conectividade de rede Virtual para estabelecer conexões com a infraestrutura local e serviços.
 
 ### Escala global ###
 
@@ -88,7 +103,7 @@ A etapa um da solução geral para mover um aplicativo de linha de negócios par
 
 #### Itens a serem considerados ####
 
-Ao migrar um aplicativo de um ambiente local, convém ter em mente algumas restrições do Sites do Azure. Aqui estão alguns tópicos importantes a serem considerados ao fazer a migração de aplicativos Web para Sites do Azure ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)):
+Ao migrar um aplicativo de um ambiente local, convém ter em mente algumas restrições do Sites do Azure. Aqui estão alguns tópicos importantes a serem considerados ao fazer a migração de aplicativos Web para Websites do Azure ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)):
 
 -	Associações de porta - Os sites do Azure dão suporte apenas à porta 80 para HTTP e à porta 443 para tráfego HTTPS, se seu aplicativo ou site usar qualquer outra porta, então, depois da migração, o aplicativo ou site usará a porta 80 para HTTP e a porta 443 para tráfego HTTPS. Isso geralmente não é um grande problema, pois é comum em implantações locais para fazer uso de portas diferentes para superar o uso de nomes de domínio, especialmente em ambientes de desenvolvimento e teste
 -	Autenticação - Os Sites do Azure dão suporte à autenticação anônima por padrão e autenticação de formulários como identificado por um aplicativo. O Sites do Azure pode oferecer autenticação do Windows quando o aplicativo ou o site estiver integrado apenas ao Active Directory do Azure e ADFS. Esse é um recurso que é abordado em mais detalhes [aqui](http://aka.ms/azurebizapp) 
@@ -131,4 +146,7 @@ Além da flexibilidade de dimensionamento do Sites do Microsoft Azure, a platafo
 O Sites do Microsoft Azure oferece uma solução flexível, econômica e responsiva para as necessidades dinâmicas de uma empresa em um ambiente em rápida evolução. As empresas usam o Sites do Azure para aumentar a produtividade e eficiência fazendo uso de uma plataforma gerenciada com recursos de DevOps modernos e gerenciamento prático reduzo, ao mesmo tempo fornecendo recursos corporativos em escala, resiliência, segurança e integração com ativos locais.
 
 ## Plano de ação ##
-Para obter mais informações sobre o serviço Sites do Microsoft Azure, acesse [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites), no qual mais informações podem ser obtidas, e se inscreva para uma versão de avaliação hoje mesmo em [http://aka.ms/azuretrial](http://aka.ms/azuretrial) para avaliar o serviço e descobrir os benefícios para sua empresa.
+Para obter mais informações sobre o serviço de Websites do Microsoft Azure, acesse [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites), no qual mais informações podem ser obtidas, e se inscreva para uma versão de avaliação hoje mesmo em [http://aka.ms/azuretrial](http://aka.ms/azuretrial) para avaliar o serviço e descobrir os benefícios para sua empresa.
+
+
+<!--HONumber=42-->

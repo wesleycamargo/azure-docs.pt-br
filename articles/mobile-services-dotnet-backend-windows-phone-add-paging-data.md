@@ -1,24 +1,38 @@
-<properties pageTitle="Adicionar paginação aos dados (Windows Phone) | Centro de desenvolvimento móvel" metaKeywords="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornados a seu aplicativo Windows Phone dos serviços móveis." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Adicionar paginação aos dados (Windows Phone) | Centro de Desenvolvimento Móvel" 
+	description="Saiba como usar paginação para gerenciar a quantidade de dados retornados a seu aplicativo Windows Phone dos serviços móveis." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/11/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/11/2014" 
+	ms.author="glenga"/>
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
-[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 Este tópico mostra como usar a paginação para gerenciar a quantidade de dados retornada a seu aplicativo Windows Phone dos Serviços Móveis do Azure. Neste tutorial, você usará os métodos de consulta **Take** e **Skip** no cliente para solicitar "páginas" de dados específicas.
 
->[WACOM.NOTE]Para evitar estouro de dados em clientes de dispositivos móveis, os Serviços Móveis implementam um limite automático de página que tem como padrão um máximo de 50 itens em uma resposta. Ao especificar o tamanho da página, você pode solicitar explicitamente até 1.000 itens na resposta.
+>[AZURE.NOTE]Para evitar estouro de dados em clientes de dispositivos móveis, os Serviços Móveis implementam um limite automático de página que tem como padrão um máximo de 50 itens em uma resposta. Ao especificar o tamanho da página, você poderá explicitamente solicitar até 1.000 itens na resposta.
 
-Este tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve concluir o tutorial atual. 
+Este tutorial baseia-se nas etapas e no aplicativo de exemplo do tutorial anterior, [Adicionar Serviços Móveis a um aplicativo existente](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Antes de iniciar esse tutorial, você deve concluir o tutorial atual. 
 
-## Define o tamanho da página do servidor
+##Define o tamanho da página do servidor
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
+[AZURE.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"> </a>Próximas Etapas
 
-Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
+Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Saiba mais sobre os seguintes tópicos de Serviços Móveis:
 
 * [Introdução à autenticação]
   <br/>Saiba como autenticar os usuários do seu aplicativo com uma conta do Windows.
@@ -34,10 +48,11 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
+\n<!--HONumber=42-->

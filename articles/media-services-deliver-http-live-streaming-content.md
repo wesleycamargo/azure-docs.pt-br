@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Como fornecer o HTTP Live Streaming (HLS) da Apple - Azure" metaKeywords="" description="Saiba como criar um localizador para o conteúdo do HTTP Live Stream (HLS) da Apple no servidor de origem dos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Como fornecer o HTTP Live Streaming (HLS) da Apple - Azure" description="Saiba como criar um localizador para o conteúdo do HTTP Live Stream (HLS) da Apple no servidor de origem dos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -12,7 +12,7 @@ Este artigo faz parte de uma série de introdução à programação dos Serviç
 
 Este tópico mostra como criar um localizador para conteúdo HTTP Live Streaming (HLS) da Apple em um servidor de origem dos Serviços de Mídia. Com essa abordagem, é possível criar uma URL para conteúdo de HLS da Apple e fornecê-la aos dispositivos do Apple iOS para reprodução. A abordagem básica para a criação da URL do localizador URL é a mesma. Crie um localizador para o caminho do ativo de streaming HLS da Apple em um servidor de origem e, em seguida, crie uma URL completa que se vincule com o manifesto para o conteúdo de streaming.
 
-O exemplo de código a seguir pressupõe que você já obteve uma referência para um ativo de streaming HLS e que a variável chamada **assetToStream** está referenciada no código.Depois de executar esse código para gerar um localizador de origem no ativo, você pode usar a URL resultante para reproduzir o conteúdo de streaming em um dispositivo iOS, como um iPad ou um iPhone.
+O exemplo de código a seguir pressupõe que você já obteve uma referência para um ativo de streaming HLS e que a variável chamada **assetToStream** está referenciada no código. Depois de executar esse código para gerar um localizador de origem no ativo, você pode usar a URL resultante para reproduzir o conteúdo de streaming em um dispositivo iOS, como um iPad ou um iPhone.
 
 Para criar um localizador para conteúdo de streaming HLS da Apple:
 
@@ -85,6 +85,7 @@ Este tópico conclui os tópicos Usando os Serviços de Mídia do Azure. Abordam
 [Introdução ao SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Criando aplicativos com a API REST dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=252967
 [Criando aplicativos com o SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/pt-br/MediaServices/threads
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

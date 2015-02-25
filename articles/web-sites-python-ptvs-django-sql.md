@@ -1,6 +1,20 @@
-﻿<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django e o banco de dados SQL no Azure com Python Tools 2.1 para Visual Studio" description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância do banco de dados SQL e pode ser implantado em um website." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Django e banco de dados SQL no Azure com Python Tools 2.1 para Visual Studio" 
+	description="Aprenda a usar as ferramentas do Python para Visual Studio para criar um aplicativo Django que armazena dados em uma instância de banco de dados MySQL e pode ser implantado em um site." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -11,7 +25,7 @@ Neste tutorial, criaremos um aplicativo de pesquisas simples usando um dos model
 
 Aprenderemos como usar um banco de dados SQL hospedado no Azure, como configurar o aplicativo para usar um banco de dados SQL e como publicar o aplicativo em um website do Azure.
 
-Consulte o [Python Developer Center][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
+Consulte o [Centro de desenvolvedores do Python][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
 
 + [Pré-requisitos](#prerequisites)
 + [Criar o projeto](#create-the-project)
@@ -26,9 +40,9 @@ Consulte o [Python Developer Center][] para obter mais artigos que abrangem o de
  - [Python Tools 2.1 para Visual Studio][]
  - [Python Tools 2.1 para Visual Studio Samples VSIX][]
  - [Ferramentas do SDK do Azure para VS 2013][] ou [Ferramentas do SDK do Azure para VS 2012][]
- - [Python 2.7 32 bits][]
+ - [Python 2.7 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Criar o projeto
 
@@ -106,7 +120,7 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados SQL qu
 
   	![Manage Button](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlManage.png)
 
-1.  Você será solicitado a atualizar as regras de firewall. Clique em **SIM**.Isso permitirá conexões ao servidor de banco de dados em seu computador de desenvolvimento.
+1.  Você será solicitado a atualizar as regras de firewall. Clique em **SIM**.  Isso permitirá conexões ao servidor de banco de dados em seu computador de desenvolvimento.
 
   	![Allow Connections](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlUpdateFirewall.png)
 
@@ -114,11 +128,11 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados SQL qu
 
 1.  Nesta página, você verá o endereço IP de cada computador que tem permissão para se conectar ao servidor de banco de dados.  Você deve ver o endereço IP de seu computador.
 
-    Abaixo, em **serviços permitidos**, assegure-se de que os serviços do Azure tenham acesso permitido ao servidor.  Quando o aplicativo estiver executando em um website do Azure (que faremos na próxima seção deste tutorial), será permitido se conectar ao banco de dados.Clique em **SALVAR** para aplicar a mudança.
+    Abaixo, em **serviços permitidos**, assegure-se de que os serviços do Azure tenham acesso permitido ao servidor.  Quando o aplicativo estiver executando em um website do Azure (que faremos na próxima seção deste tutorial), será permitido se conectar ao banco de dados.  Clique em **SALVAR** para aplicar a mudança.
 
   	![Allowed Services](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
 
-1.  No Visual Studio, abra **settings.py**, na pasta *ProjectName*.Edite a definição de `DATABASES`.
+1.  No Visual Studio, abra **settings.py**, da pasta *ProjectName*. Edite a definição de `DATABASES`.
 
         DATABASES = {
             'default': {
@@ -135,9 +149,9 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados SQL qu
             }
         }
 
-    `<DatabaseName>`, `<User>` e `<Password>` são os valores especificados quando você criou o banco de dados e o servidor.
+    `<DatabaseName>`, `<User>` e `<Password>` são os valores que você especificou quando criou o banco de dados e o servidor.
 
-    Os valores para `<ServerName>` e `<ServerPort>` são gerados pelo Azure quando o servidor for criado e podem ser localizados na seção **Conectar-se ao seu banco de dados**.
+    Os valores para `<ServerName>` e `<ServerPort>` são gerados pelo Azure quando o servidor é criado e podem ser encontrados sob a seção **Conectar-se ao banco de dados**.
 
 1.  No Gerenciador de Soluções, em **Ambientes Python**, clique com o botão direito no ambiente virtual e selecione **Instalar pacote Python**.
 
@@ -188,14 +202,14 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 
 - [Documentação do Python Tools para Visual Studio][]
   - [Projetos da Web][]
-  - [Projetos de serviço de nuvem][]
+  - [Projetos de serviços de nuvem][]
   - [Depuração remota no Microsoft Azure][]
 - [Documentação do Django][]
-- [Banco de dados SQL][]
+- [Banco de Dados SQL][]
 
 
 <!--Link references-->
-[Python Developer Center]: /pt-br/develop/python/
+[Centro de desenvolvedores do Python]: /pt-br/develop/python/
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
@@ -204,12 +218,13 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Python Tools 2.1 para Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Ferramentas do SDK do Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projetos de serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Projetos de serviços de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Documentação do Django]: https://www.djangoproject.com/
-[Banco de dados SQL]: /pt-br/documentation/services/sql-database/
+[Banco de Dados SQL]: /pt-br/documentation/services/sql-database/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

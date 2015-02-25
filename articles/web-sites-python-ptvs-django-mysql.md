@@ -1,6 +1,20 @@
-﻿<properties linkid="web-sites-python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django e MySQL no Azure com Python Tools 2.1 para Visual Studio" description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância de banco de dados MySQL e pode ser implantado em um site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Django e MySQL no Azure com Python Tools 2.1 para Visual Studio" 
+	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância de banco de dados MySQL e pode ser implantado em um site." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -11,7 +25,7 @@ Neste tutorial, criaremos um aplicativo de pesquisas simples usando um dos model
 
 Aprenderemos como usar um serviço MySQL hospedado no Azure, como configurar o aplicativo para usar o MySQL e como publicar o aplicativo em um website do Azure.
 
-Consulte o [Python Developer Center][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
+Consulte o [Centro de desenvolvedores do Python][] para obter mais artigos que abrangem o desenvolvimento de websites do Azure com PTVS usando estruturas da web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL.  Embora este artigo foque nos websites do Azure, as etapas são semelhantes ao desenvolvimento de [Serviços de nuvem do Azure][].
 
 + [Pré-requisitos](#prerequisites)
 + [Criar o projeto](#create-the-project)
@@ -26,12 +40,12 @@ Consulte o [Python Developer Center][] para obter mais artigos que abrangem o de
  - [Python Tools 2.1 para Visual Studio][]
  - [Python Tools 2.1 para Visual Studio Samples VSIX][]
  - [Ferramentas do SDK do Azure para VS 2013][] ou [Ferramentas do SDK do Azure para VS 2012][]
- - [Python 2.7 32 bits][]
+ - [Python 2.7 32-bit][]
 
-> [WACOM.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Você pode <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/">ativar seus benefícios de assinante MSDN</a> ou <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/">inscrever-se para uma avaliação gratuita</a>.
+> [AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Você pode <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/">ativar os benefícios de assinante do MSDN</a> ou <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/">se inscrever para fazer uma avaliação gratuita</a>.
 > 
-> Se quiser conhecer os Sites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, onde é possível criar imediatamente um site ASP.NET de vida curta nos Sites do Azure gratuitamente. Nenhum cartão de crédito necessário, nenhum compromisso.
+> Se você quiser iniciar com Websites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um site de iniciante ASP.NET de vida curta nos Websites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##<a name="create-the-project"></a>Criar o projeto
 
@@ -115,7 +129,7 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MySQL 
 
   	![Connection Info Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLConnectionInfo.png)
 
-1.  No Visual Studio, abra **settings.py**, na pasta *ProjectName*.  Cole temporariamente a cadeia de conexão obtida no editor.A cadeia de conexão está neste formato:
+1.  No Visual Studio, abra **settings.py**, da pasta *ProjectName*.  Cole temporariamente a cadeia de conexão obtida no editor.  A cadeia de conexão está neste formato:
 
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
@@ -177,14 +191,14 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 
 - [Documentação do Python Tools para Visual Studio][]
   - [Projetos da Web][]
-  - [Projetos de serviço de nuvem][]
+  - [Projetos de serviços de nuvem][]
   - [Depuração remota no Microsoft Azure][]
 - [Documentação do Django][]
 - [MySQL][]
 
 
 <!--Link references-->
-[Python Developer Center]: /pt-br/develop/python/
+[Centro de desenvolvedores do Python]: /pt-br/develop/python/
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
@@ -193,12 +207,13 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Python Tools 2.1 para Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Ferramentas do SDK do Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projetos de serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Projetos de serviços de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Documentação do Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

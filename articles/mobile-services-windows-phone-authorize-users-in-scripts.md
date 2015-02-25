@@ -1,19 +1,33 @@
-﻿<properties pageTitle="Autorização do lado do serviço (Windows Phone) | Centro de desenvolvimento móvel "metaKeywords="" description="Saiba como autorizar usuários no back-end JavaScript dos Serviços Móveis do Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Autorização no lado do serviço (Windows Phone) | Centro de desenvolvimento de Serviços Móveis" 
+	description="Saiba como autorizar usuários no back-end do JavaScript dos Serviços Móveis do Azure." 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
 
-# Autorização do lado do serviço para usuários dos Serviços Móveis
+# Autorização de atendimento a usuários dos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Este tópico mostra como usar scripts de servidor para autorizar usuários autenticados a acessar dados nos Serviços Móveis do Azure a partir de um aplicativo do Windows Phone 8. Neste tutorial, você registra scripts nos Serviços Móveis para filtrar consultas com base na userId de um usuário autenticado, garantindo que cada usuário possa ver apenas seus próprios dados.</p>
-<p>Este tutorial baseia-se no quickstart dos Serviços Móveis e se baseia no tutorial anterior <a href="/pt-br/develop/mobile/tutorials/get-started-with-users-wp8">Introdução à autenticação</a>. Antes de iniciar este tutorial, você deve primeiro concluir <a href="/pt-br/develop/mobile/tutorials/get-started-with-users-wp8">Introdução à autenticação</a>.</p>
+<p>Este tópico mostra como usar scripts de servidor para autorizar usuários autenticados a acessar dados nos Serviços Móveis do Azure por meio de um aplicativo do Windows Phone 8. Neste tutorial, você registra scripts nos Serviços Móveis para filtrar consultas com base na userId de um usuário autenticado, garantindo que cada usuário possa ver apenas seus próprios dados.</p>
+<p>Este tutorial baseia-se no início rápido dos Serviços Móveis e no tutorial anterior <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">Introdução à autenticação</a>. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">Introdução à autenticação</a>.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a> <span class="time">15:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">assista ao tutorial</a><a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a> <span class="time">15:00</span></div>
 </div> 
 
 ## <a name="register-scripts"></a>Registrar scripts
@@ -38,14 +52,12 @@ Como o aplicativo Guia de início rápido lê e insere dados, você precisa regi
           request.execute();
         }
 
-    Este script adiciona um valor de userId para o item que é a ID do usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
+    Este script adiciona um valor de userId ao item que é a ID de usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os serviços móveis automaticamente adicionam o <strong>userId</strong> coluna a <strong>TodoItem</strong> tabela na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Phone Store.</p>
-    </div>
+    > [AZURE.NOTE] O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna **userId** à tabela **TodoItem** na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Phone Store.
 
 
-5. Repita as etapas 3 e 4 para substituir a operação **Ler** por esta função:
+5. Repita as etapas 3 e 4 para substituir a operação **Ler** pela função a seguir:
 
         function read(query, user, request) {
            query.where({ userId: user.userId });    
@@ -68,7 +80,7 @@ Como o aplicativo Guia de início rápido lê e insere dados, você precisa regi
 
    	Isso insere o texto e a userId na tabela TodoItem no serviço móvel. Como o novo item tem o valor correto de userId, o mesmo é retornado pelo serviço móvel.
 
-5. Na tabela **todoitem** no [Portal de Gerenciamento][Azure Management Portal], clique em **Procurar** e verifique se cada item recém-adicionado agora tem um valor de userId associado.
+5. De volta à tabela **todoitem** no [Portal de Gerenciamento][Portal de Gerenciamento do Azure], clique em **Procurar** e verifique se cada item recém-adicionado agora tem um valor de userId associado.
 
 ## Próximas etapas
 
@@ -96,11 +108,10 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
-[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-wp8
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-wp8
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8
+[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
+[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-<!--HONumber=35.2-->
+\n<!--HONumber=42-->

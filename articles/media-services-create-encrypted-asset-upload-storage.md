@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Criar um ativo criptografado e carregar no Armazenamento do Azure" metaKeywords="" description="Saiba como obter conteúdo de mídia nos Serviços de Mídia criando e carregando um ativo criptografado." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Criar um ativo criptografado e carregar no Armazenamento do Azure" description="Saiba como obter conteúdo de mídia nos Serviços de Mídia criando e carregando um ativo criptografado." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -12,11 +12,11 @@ Para obter conteúdo de mídia nos Serviços de Mídia, primeiro crie um ativo e
 
 Quando cria ativos, você pode especificar três opções diferentes para criptografia. 
 
-- **AssetCreationOptions.None**: sem criptografia.Se desejar criar um ativo não criptografado, você deve definir essa opção.
-- **AssetCreationOptions.CommonEncryptionProtected**: para arquivos CENC (Protegidos por Criptografia Comum). Um exemplo é um conjunto de arquivos já criptografados por PlayReady. 
-- **AssetCreationOptions.StorageEncrypted**: criptografia de armazenamento.Criptografa um arquivo de entrada limpo antes de ele ser carregado no armazenamento do Azure.
+- **AssetCreationOptions.None**: sem criptografia. Se desejar criar um ativo não criptografado, você deve definir essa opção.
+- **AssetCreationOptions.CommonEncryptionProtected**: para arquivos CENC (protegidos por criptografia comum). Um exemplo é um conjunto de arquivos já criptografados por PlayReady. 
+- **AssetCreationOptions.StorageEncrypted**: criptografia de armazenamento. Criptografa um arquivo de entrada limpo antes de ele ser carregado no armazenamento do Azure.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Os Serviços de Mídia fornecem criptografia para armazenamento em disco para seus ativos, não por conexão, como o DRM (Gerenciador de Direitos Digitais).
 
 O código de exemplo a seguir faz o seguinte: 
@@ -85,7 +85,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -118,8 +118,9 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 </code></pre>
 
 <h2>Próximas etapas</h2>
-Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico[Como obter um processador de mídia][].
+Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][].
 
 [Como obter um processador de mídia]: ../media-services-get-media-processor/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

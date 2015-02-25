@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="Website PHP com banco de dados SQL e WebMatrix - Tutorial do Azure" metaKeywords="" description="Um tutorial que demonstra como usar o WebMatrix IDE gratuito para criar e implantar um site do PHP que armazena dados no banco de dados SQL." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Website PHP com banco de dados SQL e WebMatrix - Tutorial do Azure" 
+	description="Um tutorial que demonstra como usar o WebMatrix IDE gratuito para criar e implantar um site do PHP que armazena dados no banco de dados SQL." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -10,7 +24,7 @@
 
 Este tutorial mostra como usar o WebMatrix para desenvolver e implantar um aplicativo PHP que utilize um Banco de Dados SQL Azure para um Site do Azure. O WebMatrix é uma ferramenta gratuita de desenvolvimento da Web da Microsoft que inclui tudo que você precisa para o desenvolvimento de sites. O WebMatrix dá suporte ao PHP e inclui o IntelliSense para desenvolvimento de PHP. 
 
-Este tutorial presume que você tenha o [SQL Server Express][install-SQLExpress] instalado em seu computador para que possa testar um aplicativo localmente. No entanto, você pode concluir o tutorial sem ter o SQL Server Express instalado.Em vez disto, você pode implantar seu aplicativo diretamente com os Sites do Azure.
+Este tutorial presume que você tenha o [SQL Server Express][install-SQLExpress] instalado em seu computador para que possa testar um aplicativo localmente. No entanto, você pode concluir o tutorial sem ter o SQL Server Express instalado. Em vez disto, você pode implantar seu aplicativo diretamente com os Sites do Azure.
 
 Após a conclusão deste guia, você terá um Banco de Dados SQL do PHP em execução no Azure.
  
@@ -24,24 +38,24 @@ Seguindo este tutorial, você criará um simples aplicativo Web Lista de Tarefas
 
 ![Azure PHP Web Site][running-app]
 
-> [WACOM.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Você pode <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/">ativar seus benefícios de assinante MSDN</a> ou <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/">inscrever-se para uma avaliação gratuita</a>.
+> [AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Você pode <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/">ativar os benefícios de assinante do MSDN</a> ou <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/">se inscrever para fazer uma avaliação gratuita</a>.
 > 
-> Se quiser conhecer os Sites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, onde é possível criar imediatamente um site ASP.NET de vida curta nos Sites do Azure gratuitamente. Nenhum cartão de crédito necessário, nenhum compromisso.
+> Se você quiser iniciar com Websites do Azure antes de assinar uma conta, acesse <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um site de iniciante ASP.NET de vida curta nos Websites do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Pré-requisitos
 
-1. [Baixe][tasklist-sqlazure-download] os arquivos do aplicativo Lista de Tarefas. O Lista de Tarefas é um simples aplicativo PHP que permite que você adicione, marque como concluídos e exclua itens de uma lista de tarefas. Itens de lista de tarefas são armazenadas em um Banco de Dados SQL (SQL Server Express para locais de teste).O aplicativo consiste destes arquivos:
+1. [Baixe][tasklist-sqlazure-download] os arquivos do aplicativo Lista de Tarefas. O Lista de Tarefas é um simples aplicativo PHP que permite que você adicione, marque como concluídos e exclua itens de uma lista de tarefas. Itens de lista de tarefas são armazenadas em um Banco de Dados SQL (SQL Server Express para locais de teste). O aplicativo consiste destes arquivos:
 
-	* **index.php**:exibe tarefas e fornece um formulário para adicionar um item à lista.
-	* **additem.php**:adiciona um item à lista.
-	* **getitems.php**:obtém todos os itens no banco de dados.
-	* **markitemcomplete.php**:altera o status de um item para concluir.
-	* **deleteitem.php**:exclui um item.
-	* **taskmodel.php**:contém funções que adicionam, obtém, atualizam e excluem itens do banco de dados.
-	* **createtable.php**: Cria a tabela de banco de dados SQL para o aplicativo.Este arquivo será chamado apenas uma vez.
+	* **index.php**: exibe tarefas e fornece um formulário para adicionar um item à lista.
+	* **additem.php**: adiciona um item à lista.
+	* **getitems.php**: obtém todos os itens no banco de dados.
+	* **markitemcomplete.php**: altera o status de um item para concluir.
+	* **deleteitem.php**: exclui um item.
+	* **taskmodel.php**: contém funções que adicionam, obtém, atualizam e excluem itens do banco de dados.
+	* **createtable.php**: Cria a tabela de banco de dados SQL para o aplicativo. Este arquivo será chamado apenas uma vez.
 
-2. Crie um Banco de Dados SQL Server chamado `tasklist`. Você pode fazer isso por meio do prompt de comando `sqlcmd` com estes comandos:
+2. Crie um Banco de Dados SQL chamado  `tasklist`. Você pode fazer isso a partir do comando  `sqlcmd` com estes comandos:
 
 		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
 		1> create database tasklist
@@ -52,7 +66,7 @@ Seguindo este tutorial, você criará um simples aplicativo Web Lista de Tarefas
 ## Criar um site e banco de dados SQL
 
 1. Faça logon no [Portal de Gerenciamento][preview-portal].
-2. Clique no ícone **+ New** na parte inferior esquerda do portal.
+2. Clique no ícone **+ Novo** na parte inferior esquerda do portal.
 
 	![Create New Azure Web Site][NewWebSite1]
 
@@ -60,17 +74,17 @@ Seguindo este tutorial, você criará um simples aplicativo Web Lista de Tarefas
 
 	![Custom Create a new Web Site][NewWebSite2]
 
-	Insira um valor para a **URL**, selecione **Criar Novo Banco de Dados SQL** na lista suspensa **BASE DE DADOS** e selecione o datacenter para seu site na lista suspensa **REGIÃO**.Clique na seta na parte inferior da caixa de diálogo.
+	Insira um valor para a **URL**, selecione **Criar Novo Banco de Dados SQL** a partir da lista suspensa **BASE DE DADOS** e selecione o datacenter para seu site na lista suspensa **REGIÃO**. Clique na seta na parte inferior da caixa de diálogo.
 
 	![Fill in web site details][NewWebSite3_SQL]
 
-4. Insira um valor para o **NOME** de banco de dados e selecione **NOVO servidor do banco de dados SQL**.Digite um nome de logon do servidor e a senha (e confirme a senha). Escolha a região em que o novo servidor do Banco de Dados SQL será criado.
+4. Insira um valor para o **nome** de banco de dados e selecione **servidor do novo banco de dados do SQL**. Digite um nome de logon do servidor e a senha (e confirme a senha). Escolha a região em que o novo servidor do Banco de Dados SQL será criado.
 
 	![Fill in SQL Database settings][NewWebSite4_SQL]
 
-	Quando o website tiver sido criado, você verá o texto **Criando Website '[SITENAME]' com sucesso**.Em seguida, você deverá obter as informações para conexão de banco de dados.
+	Quando o website tiver sido criado, você verá o texto **Criando Website '[SITENAME]' com sucesso**. Em seguida, você deverá obter as informações para conexão de banco de dados.
 
-5. Clique em **RECURSOS VINCULADOS**, em seguida, o nome do banco de dados.
+5. Clique em **recursos vinculados**, em seguida, o nome do banco de dados.
 
 	![Linked Resources][NewWebSite6_SQL]
 
@@ -78,7 +92,7 @@ Seguindo este tutorial, você criará um simples aplicativo Web Lista de Tarefas
 
 	![Connection string][NewWebSite7]
 	
-Na seção **PHP** da caixa de diálogo resultante, anote os valores de UID, PWD, Database e $serverName.Você usará essas informações posteriormente.
+Na seção **PHP** da caixa de diálogo resultante, anote os valores de  `UID`,  `PWD`,  `Database` e`$serverName`. Você usará essas informações posteriormente.
 
 ##Instalar o WebMatrix
 
@@ -90,13 +104,13 @@ Você pode instalar o WebMatrix por meio do [Portal de Gerenciamento][preview-po
 
 	Siga os prompts para instalar o WebMatrix.
 
-2. Depois que o WebMatrix estiver instalado, este tentará abrir o seu site como um projeto WebMatrix. Você pode escolher editar diretamente o seu site ativo ou baixar uma cópia local. Para este tutorial, selecione 'Editar cópia local'. 
+2. Depois que o WebMatrix estiver instalado, este tentará abrir o seu site como um projeto WebMatrix. Você pode escolher editar diretamente o seu site ativo ou baixar uma cópia local. Para este tutorial, selecione 'Edit local copy'. 
 
-3. Ao ser solicitado a baixar seu site, escolha **Sim, instalar por meio da Galeria de Modelos**.
+3. Ao ser solicitado a baixar seu site, escolha **Sim, instalar a partir da Galeria de Modelos**.
 
 	![Download web site][download-site]
 
-4. Nos modelos disponíveis, escolha **PHP**.
+4. A partir dos modelos disponíveis, escolha **PHP**.
 
 	![Site from template][site-from-template]
 
@@ -110,13 +124,13 @@ Seu site será aberto no WebMatrix com alguns arquivos padrão estabelecidos.
 
 Nas próximas etapas, você desenvolverá o aplicativo Lista de Tarefas ao adicionar os arquivos baixados anteriormente, fazendo algumas modificações. Você pode, no entanto, adicionar seus arquivos existentes ou criar novos arquivos.
 
-1. Com seu site aberto no WebMatrix, adicione os arquivos do aplicativo, clicando em **Adicionar Existente**:
+1. Com seu site aberto no WebMatrix, adicione os arquivos do aplicativo, clicando em **Add Existing**:
 
 	![WebMatrix - Add existing files][edit_addexisting]
 
-	Na caixa de diálogos resultante, navegue para os arquivos que você baixou anteriormente, selecione todos eles e clique em Abrir. Quando solicitado, escolha substituir o arquivo index.php. 
+	Na caixa de diálogos resultante, navegue para os arquivos que você baixou anteriormente, selecione todos eles e clique em Abrir. Quando solicitado, escolha substituir o arquivo  `index.php`. 
 
-2. Em seguida, você deverá adicionar as informações para conexão de seu Banco de Dados SQL Server local ao arquivo taskmodel.php. Abra o arquivo `taskmodel.php` clicando nele duas vezes e atualize as informações para conexão de banco de dados na função `connect`. (**Observação**: Pule para [Publicar seu aplicativo](#Publish) se você não quiser testar seu aplicativo localmente e, em vez disto, quiser publicá-lo diretamente nos Sites do Azure.)
+2. Em seguida, você deverá adicionar as informações para conexão do seu banco de dados SQL Server local ao arquivo  `taskmodel.php`. Abra o arquivo  `taskmodel.php` clicando nele duas vezes e atualize as informações para conexão do banco de dados na função  `connect`. (**Observação**: Pule para [Publicar seu aplicativo](#Publish) se você não quiser testar seu aplicativo localmente e, em vez disto, quiser publicá-lo diretamente nos Sites do Azure.)
 
 		// DB connection info
 		$host = "localhost\sqlexpress";
@@ -124,20 +138,20 @@ Nas próximas etapas, você desenvolverá o aplicativo Lista de Tarefas ao adici
 		$pwd = "your password";
 		$db = "tasklist";
 
-	Salve o arquivo `taskmodel.php`.
+	Salve o arquivo  `taskmodel.php`.
 
-3. Para que o aplicativo seja executado, a tabela `itens` deverá ser criada. Clique no arquivo createtable.php com o botão direito do mouse e selecione **Iniciar no navegador**.Isto iniciará o createtable.php no seu navegador e executará o código que cria a tabela items no banco de dados `tasklist`.
+3. Para que o aplicativo seja executado, a tabela  `items` deverá ser criada. Clique no arquivo  `createtable.php` com o botão direito do mouse e selecione **Iniciar no navegador**. Isto iniciará o  `createtable.php` no seu navegador e executará o código que cria a tabela  `items` no banco de dados  `tasklist`.
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-4. Agora você pode testar o aplicativo localmente.    Clique no arquivo index.php com o botão direito do mouse e selecione **Iniciar no navegador**.Teste o aplicativo ao adicionar, marcar como concluídos e excluir itens.   
+4. Agora você pode testar o aplicativo localmente. Clique no arquivo  `index.php` com o botão direito do mouse e selecione **Iniciar no navegador**. Teste o aplicativo ao adicionar, marcar como concluídos e excluir itens.   
 
 
 <h2><a id="Publish"></a>Publicar seu aplicativo</h2>
 
-Antes de publicar seu aplicativo nos Sites do Azure, as informações para conexão de banco de dados no `taskmodel.php` precisam ser atualizadas com as informações para conexão que você obteve anteriormente (na seção [Criar Site do Azure e Banco de dados SQL])(#CreateWebsite) .
+Antes de publicar seu aplicativo nos Sites do Azure, as informações para conexão do banco de dados no  `taskmodel.php` precisam ser atualizadas com as informações para conexão que você obteve anteriormente (na seção [Criar Site do Azure e Banco de dados SQL](#CreateWebsite) ).
 
-1. Abra o arquivo `taskmodel.php` clicando nele duas vezes e atualize as informações para conexão de banco de dados na função `connect`.
+1. Abra o arquivo  `taskmodel.php` clicando nele duas vezes e atualize as informações para conexão do banco de dados na função  `connect`.
 
 		// DB connection info
 		$host = "value of $serverName";
@@ -147,22 +161,22 @@ Antes de publicar seu aplicativo nos Sites do Azure, as informações para conex
 	
 	Save the `taskmodel.php` file.
 
-2. Clique em **Publicar** no WebMatrix e, em seguida, clique em **Continuar** na caixa de diálogo **Visualizar Publicação**.
+2. Clique em **Publicar** no WebMatrix e, em seguida, clique em **Continuar** na caixa de diálogos **Visualizar Publicação**.
 
 	![WebMatrix - Publish][edit_publish]
 
-3. Navegue para http://[nome do site].azurewebsites.net/createtable.php para criar a tabela itens.
+3. Navegue até http://[nome do site].azurewebsites.net/createtable.php para criar a tabela  `items`.
 
-4. Por fim, navegue para http://[nome do site].azurewebsites.net/index.php para iniciar o aplicativo.
+4. Por último, navegue para http://[nome do site].azurewebsites.net/index.phppara iniciar o aplicativo.
 	
 ##Modificar e republicar seu aplicativo
 
-Você pode facilmente modificar seu aplicativo editando a cópia local do site que você baixou anteriormente e republicar ou pode editar diretamente em modo Remoto. Aqui você fará uma simples alteração no cabeçalho do arquivo index.php e o salvará diretamente no site ativo.
+Você pode facilmente modificar seu aplicativo editando a cópia local do site que você baixou anteriormente e republicar ou pode editar diretamente em modo Remoto. Aqui você fará uma simples alteração no cabeçalho do arquivo  `index.php` e o salvará diretamente no site ativo.
 
-1. Clique na guia Remoto do seu site no WebMatrix e selecione **Abrir Exibição Remota**.Isto abrirá seu site remoto para edição direta.
+1. Clique na guia Remoto do seu site no WebMatrix e selecione **Abrir Exibição Remota**. Isto abrirá seu site remoto para edição direta.
 	 ![WebMatrix - Open Remote View][OpenRemoteView]
  
-2. Abra o arquivo index.php clicando nele duas vezes.
+2. Abra o arquivo  `index.php` clicando nele duas vezes.
 	![WebMatrix - Open index file][Remote_editIndex]
 
 3. Altere **Minha Lista ToDo** para **Minha Lista de Tarefas** nas marcas **título** e **h1** e salve o arquivo.
@@ -179,7 +193,7 @@ Você viu como criar e implantar um site por meio do WebMatrix para o Azure. Par
 
 * [WebMatrix para Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [Website do WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [Site do WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
 
@@ -237,4 +251,5 @@ Você viu como criar e implantar um site por meio do WebMatrix para o Azure. Par
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

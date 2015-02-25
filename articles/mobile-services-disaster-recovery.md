@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recuperar o serviço móvel em caso de desastre - Serviços Móveis do Azure" metaKeywords="" description="Saiba como recuperar o serviço móvel em caso de desastre." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="brettsam" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Recuperar o serviço móvel em caso de desastre - Serviços Móveis do Azure" 
+	description="Saiba como recuperar o serviço móvel em caso de desastre." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # Recuperar o serviço móvel em caso de desastre
 
@@ -13,18 +27,18 @@ Para facilitar a recuperação em caso de um problema de disponibilidade, você 
 + **Fazer backup dos dados no Banco de Dados SQL do serviço móvel do Azure**
 	<br/>Os dados do aplicativo de seu serviço móvel são armazenados em um Banco de Dados SQL do Azure. Recomendamos fazer o backup conforme indicado em [Diretrizes para a continuidade dos negócios para o Banco de Dados SQL].
 + **Fazer backup de seus scripts do serviço móvel**
-	<br/>É recomendável armazenar armazene seus scripts do serviço móvel em um sistema de controle de código-fonte, como o [Team Foundation Service] ou o [GitHub] e não depender somente das cópias no próprio serviço móvel. Você pode baixar os scripts por meio do portal do Azure usando o [recurso de controle de código-fonte] dos Serviços Móveis ou [usando a ferramenta de linha de comando do Azure]. Preste atenção aos recursos rotulados como "visualização" no portal, pois a recuperação desses scripts não é garantida, e você pode precisar recuperá-los de seu próprio controle do código-fonte original.
+	<br/>É recomendável armazenar seus scripts do serviço móvel em um sistema de controle de código-fonte, como o [Team Foundation Service] ou [GitHub] e não depender somente das cópias no próprio serviço móvel. Você pode baixar os scripts por meio do portal do Azure usando o [recurso de controle de código-fonte]dos Serviços Móveis ou [usando a ferramenta de linha de comando do Azure]. Preste atenção aos recursos rotulados como "visualização" no portal, pois a recuperação desses scripts não é garantida, e você pode precisar recuperá-los de seu próprio controle do código-fonte original.
 + **Reservar um serviço móvel secundário**
 	<br/>No caso se um problema de disponibilidade com o serviço móvel, você poderá precisar reimplantá-lo em uma região alternativa do Azure. Para garantir que a capacidade esteja disponível (por exemplo, em raras circunstâncias, como a perda de toda a região), é recomendável criar um serviço móvel secundário em sua região alternativa e definir seu modo igual como maior do que o modo do serviço primário. (Se o serviço primário estiver em modo de compartilhamento, você poderá tornar o serviço secundário compartilhado ou reservado. Mas se o primário for reservado, o secundário também deverá ser reservado.)
 
 
-<h2><a name="watch"></a>Procurar por sinais de um problema</h2>
+<h2><a name="watch"></a>Observar os sinais de um problema</h2>
 
 Estas circunstâncias indicam um problema que pode exigir uma operação de recuperação:
 
 + Os aplicativos conectados ao serviço móvel não podem se comunicar com ele por um longo período de tempo.
-+ O status do serviço móvel é exibido como **Não íntegro** no [portal do Azure].
-+ Uma faixa com o texto **Não íntegro** aparece na parte superior de cada guia do serviço móvel no portal do Azure, e as operações de gerenciamento produzem mensagens de erro.
++ O status do serviço móvel é exibido como **Não Íntegro** no [portal do Azure].
++ Uma faixa com o texto **Não Íntegro** aparece na parte superior de cada guia do serviço móvel no portal do Azure e operações de gerenciamento produzem mensagens de erro.
 + O [Painel de Serviços do Azure] indica que há um problema de disponibilidade.
 
 <h2><a name="recover"></a>Recuperar-se de um desastre</h2>
@@ -35,7 +49,7 @@ Se for solicitado pelo Painel de Serviços, execute as seguintes etapas para res
 
 Para recuperar o serviço móvel após uma interrupção:
 
-1. No portal do Azure, certifique-se de que o status do serviço esteja relatado como **Não íntegro**.
+1. No portal do Azure, certifique-se de que o status do serviço esteja relatado como **Não Íntegro**.
 
 2. Se você já reservou um serviço móvel secundário, poderá ignorar esta etapa.
 
@@ -45,10 +59,8 @@ Para recuperar o serviço móvel após uma interrupção:
 
 4. Agora você pode usar o serviço secundário para recuperar o primário.
 
-    <div class="dev-callout"><b>Importante</b>
-	<p>Quando você executar o comando desta etapa, o serviço secundário será excluído para que sua capacidade possa ser usada para recuperar o serviço primário. É recomendável que você faça backup de seus scripts e configurações antes de executar o comando, se desejar mantê-los.</p>
-    </div>
-
+    > [AZURE.IMPORTANT] Quando você executar o comando desta etapa, o serviço secundário será excluído para que sua capacidade possa ser usada para recuperar o serviço primário. É recomendável que você faça backup de seus scripts e configurações antes de executar o comando, se desejar mantê-los.
+    
    Quando estiver pronto, execute o comando:
 
 		azure mobile recover PrimaryService SecondaryService
@@ -60,9 +72,7 @@ Para recuperar o serviço móvel após uma interrupção:
 		info:    mobile recover command OK
 
 
-	<div class="dev-callout"><b>Observação</b>
-	<p>Pode levar alguns minutos para ver as alterações no portal depois que o comando é concluído.</p>
-    </div>
+	> [AZURE.NOTE] Pode levar alguns minutos para ver as alterações no portal depois que o comando é concluído.
 
 5. Verifique se todos os scripts foram recuperados corretamente comparando-os com seus originais no controle do código-fonte. Na maioria dos casos, os scripts são recuperados automaticamente sem perda de dados, mas, se encontrar uma discrepância, você poderá recuperar esse script manualmente.
 
@@ -77,11 +87,12 @@ Agora você deve estar em um estado onde o serviço móvel foi recuperado para u
 <!-- Images. -->
 
 <!-- URLs. -->
-[Diretrizes para a continuidade dos negócios com o Banco de Dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh852669.aspx
+[Diretrizes para a continuidade dos negócios com o Banco de Dados SQL]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[recurso de controle de código-fonte]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/store-scripts-in-source-control/
-[usando a ferramenta de linha de comando do Azure]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/command-line-administration/
+[recurso de controle de código-fonte]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
+[usando a ferramenta de linha de comando do Azure]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
 [Portal do Azure]: http://manage.windowsazure.com/
-[Painel de Serviços do Azure]: http://www.windowsazure.com/pt-br/support/service-dashboard/
-[Automatizar os serviços móveis com ferramentas de linha de comando]: http://www.windowsazure.com/pt-br/develop/mobile/tutorials/command-line-administration/
+[Painel de Serviços do Azure]: http://www.windowsazure.com/en-us/support/service-dashboard/
+[Automatizar os serviços móveis com ferramentas de linha de comando]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+\n<!--HONumber=42-->

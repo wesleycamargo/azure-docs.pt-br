@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Recursos recomendados de WebJobs do Azure"metaKeywords ="WebJobs do Azure, SDK de WebJobs do Azure, armazenamento do Azure, filas do Azure, tabelas do Azure, barramento de serviço do Azure" description="Recursos recomendados para aprender a usar os WebJobs do Azure e o SDK WebJobs do Azure." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Recursos recomendados de Trabalhos Web do Azure" 
+	description="Recursos recomendados para aprender a usar os WebJobs do Azure e o SDK WebJobs do Azure." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tdykstra"/>
 
 #Recursos recomendados de Trabalhos Web do Azure
 
@@ -30,14 +44,18 @@ O painel de WebJobs no portal de gerenciamento do Azure fornece recursos de gere
 * [O que é o SDK de WebJobs do Azure](../websites-dotnet-webjobs-sdk/)
 * [Anunciando o RTM 1.0.0 do SDK de WebJobs do Microsoft Azure](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
 * [Introdução ao SDK de Trabalhos Web do Azure](../websites-dotnet-webjobs-sdk-get-started/)
-* [Como trabalhar com armazenamento de fila do Azure utilizando o SDK de Trabalhos Web](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [Como usar o armazenamento de fila do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [Como usar o armazenamento de blobs do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [Como usar o armazenamento de tabela do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [Como usar o barramento de serviço do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-service-bus)
+* [Referência rápida do SDK do WebJobs do Azure (download do PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * Vídeos
 	* [WebJobs e SDK de WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 	* [Série de vídeos de WebJobs do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 	* [Apresentando as ferramentas de WebJobs do Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Ferramentas de WebJobs e depuração remota](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster)
 
-Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy) e [Teste e depuração de WebJobs](#debug).
+Consulte também as seguintes seções em [Implantação de WebJobs](#deploy) e [teste e depuração de WebJobs](#debug).
 
 ##<a name="deploy"></a>Implantação dos WebJobs
 
@@ -51,7 +69,8 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 
 ##<a name="debug"></a>Testando e depurando os WebJobs
 
-* [Solucionando problemas de sites do Azure no Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/).
+* [Novo desenvolvedor e recursos de depuração para WebJobs do Azure no Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
+* [Solucionando problemas de sites do Azure no Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/)
 * [Quem criou esse blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Código de hospedagem interativo na nuvem](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Obtendo um painel para o desenvolvimento local com o SDK de Trabalhos Web](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
@@ -83,7 +102,7 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 	* [Blobs](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)
 	* [Filas](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx)
 	* [Tabelas](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx)
-* [Como funciona o [BlobTrigger]?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
+* [Como funciona o [BlobTrigger]?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx)
 * [Associações avançadas com o SDK de trabalhos Web do Azure](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [WebJob para carregar arquivos FREB no armazenamento do Azure usando o SDK de WebJobs](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Hospedando webjobs do Azure fora do Azure com os benefícios de log do webjob hospedado no Azure](http://bypassion.dk/?p=510)
@@ -100,7 +119,7 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 ##<a name="blogs"></a>Blogs
 
 * [Blog do Azure](/blog)
-* [Amit Apple's blog](http://blog.amitapple.com/). Foco em WebJobs (não o SDK).
+* [Blog de Amit da Apple](http://blog.amitapple.com/). Foco em WebJobs (não o SDK).
 * [Blog de Magnus Mårtensson](http://magnusmartensson.com/)
 
 ##<a name="gethelp"></a>Obtendo ajuda com WebJobs
@@ -111,3 +130,6 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 * [Fórum de sites do Azure](http://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)
 * [Site de voz do usuário de sites do Azure](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Use a hashtag #AzureWebJobs.
+
+
+<!--HONumber=42-->

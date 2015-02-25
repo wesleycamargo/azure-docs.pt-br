@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Compilar um serviço usando um armazenamento de dados não relacionais - Serviços Móveis do Azure" metaKeywords="" description="Aprenda a usar um armazenamento de dados não relacionais, como o MongoDB ou armazenamento de tabela do Azure com seu serviço móvel baseado em .NET" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties 
+	pageTitle="Compilar um serviço usando um armazenamento de dados não relacionais - Serviços Móveis do Azure" 
+	description="Aprenda a usar um armazenamento de dados não relacionais, como o MongoDB ou armazenamento de tabela do Azure com seu serviço móvel baseado em .NET" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Compilar um Serviço Usando o MongoDB como o armazenamento de dados com o back-end do .NET
 
@@ -18,7 +32,7 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
 
 1. No [Portal de Gerenciamento do Azure], clique em **Novo** e selecione **Armazenamento**.
 
-2. Selecione o suplemento **MongoLab** e navegue pelo assistente para se inscrever em uma conta. Para saber mais sobre o MongoLab, consulte a [Página do Suplemento MongoLab].
+2. Selecione o suplemento **MongoLab**, e navegue pelo assistente para se inscrever em uma conta. Para saber mais sobre o MongoLab, consulte a [Página do Suplemento MongoLab].
 
     ![][0]
 
@@ -26,11 +40,11 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
 
 3. Navegue até a seção de Serviços Móveis do portal e selecione a guia **Configurar**.
 
-4. Em **Configurações do aplicativo**, insira sua cadeia de conexão com a chave "MongoConnectionString" e clique em **Salvar**.
+4. Em **Configurações do Aplicativo**, insira a cadeia de conexão com a chave "MongoConnectionString" e clique em **Salvar**.
 
     ![][1]
 
-2. Adicione o seguinte código ao `TodoItemController`:
+2. Adicione o seguinte em `TodoItemController`:
 
         static bool connectionStringInitialized = false;
 
@@ -48,15 +62,15 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
             }
         }
     
-    Esse código carregará a configuração de aplicativo e dirá ao serviço móvel para tratá-lo como uma conexão que pode ser usada por um `TableController`. Em seguida, é possível chamar esse método quando o `TodoItemController` for chamado.
+    Esse código carregará a configuração do aplicativo e instruir o serviço móvel para tratá-lo como uma conexão que pode ser usada por um `TableController`. Posteriormente, você chamará esse método quando o `TodoItemController` for invocado.
 
 
 
 ## <a name="modify-service"></a>Modificar dados e controladores
 
-1. Instale o pacote NuGet do **WindowsAzure.MobileServices.Backend.Mongo**.
+1. Instalar o pacote NuGet **WindowsAzure.MobileServices.Backend.Mongo**.
 
-2. Modifique `TodoItem` para que seja derivado de `DocumentData` em vez de `EntityData`.
+2. Modificar `TodoItem` para derivar de `DocumentData` em vez de `EntityData`.
 
         public class TodoItem : DocumentData
         {
@@ -65,7 +79,7 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
             public bool Complete { get; set; }
         }
 
-3. No `TodoItemController`, substitua o método `Initialize` pelo seguinte:
+3. Em `TodoItemController`, substitua o método `Initialize` pelo seguinte:
 
         protected override async void Initialize(HttpControllerContext controllerContext)
         {
@@ -77,7 +91,7 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. No código para o método `Initialize` acima, substitua **SEU-NOME-DO-BANCO-DE-DADOS** pelo nome escolhido por você ao fornecer o suplemento MongoLab.
+4. No código para o método `Initialize` acima, substitua **YOUR-DATABASE-NAME** pelo nome escolhido quando você provisionou o suplemento MongoLab.
 
 
 ## <a name="test-application"></a>Testar o aplicativo
@@ -101,8 +115,8 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Introdução aos Dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[O que é o serviço Tabela]: /pt-br/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[Página de suplemento MongoLab]: /pt-br/gallery/store/mongolab/mongolab
+[O que é o serviço Tabela]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
+[Página do suplemento MongoLab]: /en-us/gallery/store/mongolab/mongolab\n<!--HONumber=42-->

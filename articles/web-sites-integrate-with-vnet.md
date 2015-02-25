@@ -1,6 +1,20 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Integrar o site do Azure com a VNet do Azure" description="Mostra como conectar um site do Azure a uma rede de virtual do Azure nova ou existente" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Integrar o site do Azure com a VNet do Azure" 
+	description="Mostra como conectar um site do Azure a uma rede de virtual do Azure nova ou existente" 
+	services="web-sites, virtual-network" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="cephalin"/>
 
 # Integrar seu site do Azure com uma Rede virtual do Azure #
 Este documento descreve o recurso de visualização de integração da rede virtual e mostra como configurá-lo com o site do Azure.  Se você não está familiarizado como as Redes virtuais do Azure, esta é uma capacidade que permitirá que você desenvolva soluções híbridas com seus recursos locais e do Azure.  
@@ -12,7 +26,7 @@ Para obter mais detalhes sobre as Redes virtuais do Azure consulte a Visão gera
 ## Introdução ##
 Veja aqui algumas coisas para se ter em mente antes de conectar seu site a uma rede virtual.
 
-1.	Os sites podem apenas ser conectados a uma rede virtual se estão executando em um plano de hospedagem na web que esteja na faixa de preço 'Padrão'.  Os sites gratuitos, compartilhados e básicos não podem se conectar a uma rede virtual.
+1.	Os sites podem apenas ser conectados a uma rede virtual se estão executando em um plano de hospedagem na Web que esteja na faixa de preço 'Padrão'.  Os sites gratuitos, compartilhados e básicos não podem se conectar a uma rede virtual.
 2.	Se a sua rede virtual de destino já existe, você deve ter o ponto a site habilitado com o gateway de roteamento dinâmico antes de conectá-la a um site.  Não é possível habilitar a VPN ponto a site se o seu gateway está configurado com o roteamento estático.
 3.	Você pode ter apenas 5 redes configuradas no seu plano de hospedagem na Web.  Um site pode somente estar conectado a um rede de cada vez.  Estas 5 redes podem ser usadas por qualquer número de sites da Web no mesmo plano de hospedagem na Web.  
 
@@ -23,9 +37,9 @@ Se seu site não estiver na faixa Padrão então a interface de usuário o infor
 ![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png) 
 
 ## Como o sistema funciona ##
-	De modo oculto, este recurso utiliza a tecnologia VPN Ponto a site para se conectar ao site do Azure para sua VNET.  A arquitetura do sistema de sites do Azure tem vários locatários por natureza o que impede o provisionamento de sites diretamente em uma VNET como é feito com as máquinas virtuais.  Ao desenvolver uma tecnologia ponto a site limitamos o acesso à rede para apenas a máquina virtual que está hospedando o site.  O acesso à rede é ainda mais limitado nestes hosts do site assim seus sites podem apenas acessar as redes que você configurar para eles acessarem.  
+De modo oculto, este recurso utiliza a tecnologia VPN Ponto a site para se conectar ao site do Azure para sua VNET.  A arquitetura do sistema de sites do Azure tem vários locatários por natureza o que impede o provisionamento de sites diretamente em uma VNET como é feito com as máquinas virtuais.  Ao desenvolver uma tecnologia ponto a site limitamos o acesso à rede para apenas a máquina virtual que está hospedando o site.  O acesso à rede é ainda mais limitado nestes hosts do site assim seus sites podem apenas acessar as redes que você configurar para eles acessarem.  
 
-O trabalho exigido para proteger suas redes para somente os sites que precisam de acesso impede a capacidade de criar conexões SMB.  Embora seja possível acessar recursos remotos, isto não inclui ser capaz de montar uma unidade remota.
+O trabalho exigido para proteger suas redes para somente os sites que precisam de acesso impede a capacidade de criar conexões SMB.  Enquanto você pode acessar recursos remotos, isto não inclui ser capaz de montar uma unidade remota.
 
 ![](./media/web-sites-integrate-with-vnet/how-it-works.png)
  
@@ -49,7 +63,7 @@ A criação da nova rede virtual com gateways configurados pode levar até 30 mi
 
 ![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
-Assim que a rede tiver ingressado no site, o site terá acesso aos recursos naquela VNET sobre o TCP ou UDP.  Se você deseja acessar recursos no seu sistema local que estão disponíveis por meio da VPN site a site para sua VNET, então será necessário adicionar rotas para sua própria rede corporativa para permitir que o tráfego vá de sua rede para os endereços ponto a site configurados na sua VNET.
+Assim que a rede tiver ingressado no site, o site terá acesso aos recursos naquela VNET sobre o TCP ou UDP.  Se você deseja acessar recursos no seu sistema local que estão disponíveis por meio da VPN site a site para sua VNET então será necessário adicionar rotas para sua própria rede corporativa para permitir que o tráfego vá de sua rede para os endereços ponto a site configurados na sua VNET.
 
 Depois de concluir com êxito a integração, o portal exibirá informações básicas sobre a conexão, fornecerá uma maneira de desconectar o site da rede e também fornecerá a você uma maneira de sincronizar os certificados usados para autenticar a conexão.  A sincronização pode ser necessária se um certificado expirou ou foi revogado.  
 
@@ -58,12 +72,12 @@ Depois de concluir com êxito a integração, o portal exibirá informações b�
 Gerenciando a conexão de rede virtual
 Você pode ver um lista de todas as redes virtuais atualmente associadas aos sites em um plano de hospedagem na Web visitando a lâmina do plano de hospedagem na Web.  Você pode ter no máximo 5 redes associadas a um plano de hospedagem na Web padrão.
 
-Caso o plano de hospedagem da Web seja reduzido a um plano inferior como o Gratuito, Compartilhado ou Básico, então as conexões de rede virtual que são usadas pelos sites naquele plano serão desabilitadas.  Caso o plano seja reduzido de volta para um plano Padrão, então estas conexões de rede serão reestabelecidas.
+Caso o plano de hospedagem da Web seja reduzido a um plano inferior como o Gratuito, Compartilhado ou Básico, então as conexões de rede virtual que são usadas pelos sites naquele plano serão desabilitadas.  Caso o plano seja reduzido de volta para um plano Padrão então estas conexões de rede serão reestabelecidas.
 
 Neste momento não é possível, no Azure, pegar uma máquina virtual existente e movê-la para um rede virtual.  A máquina virtual precisa ser fornecida para aquela rede virtual durante a criação.  
 
 ## Acessando recursos locais ##
-Ao trabalhar com uma VNET que foi configurada com o VPN site a site, há uma etapa adicional necessária para fornecer acesso aos seus recursos locais por meio do site do Azure.  Será necessário adicionar rotas para sua rede local para permitir que o tráfego vá de sua rede para os endereços ponto a site configurados na sua VNET.  Para ver o intervalo IP para sua conectividade ponto a site, vá para a área de Redes no portal atual, como exibido aqui.
+Ao trabalhar com uma VNET que foi configurada com o VPN site a site, há uma etapa adicional necessária para fornecer acesso aos seus recursos locais por meio do site do Azure.  Será necessário adicionar rotas para sua rede local para permitir que o tráfego vá de sua rede para os endereços ponto a site configurados na sua VNET.  Para ver o intervalo IP para sua conectividade ponto a site vá para a para a área de Redes no portal atual como exibido aqui.
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
 
@@ -72,7 +86,7 @@ Para estabelecer uma conexão segura com sua VNET, há uma troca de certificados
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png)
 
-Se os certificados saem fora de sincronização por algum motivo, como exclusão acidental do portal de Redes, então a conectividade será interrompida.  Para corrigir, há uma ação de conexão síncrona na interface de usuário de rede virtual dos sites que reestabelecerá a conexão.
+Se os certificados saem fora de sincronização por algum motivo, como exclusão acidental do portal de Redes, então a conectividade será interrompida.  Para corrigir as coisas há uma ação de conexão síncrona na interface de usuário de rede virtual dos sites que reestabelecerá a conexão.
 
 Esta ação deve ser usada se você adicionar um DNS à sua rede virtual ou se você adicionar o VPN site a site à sua rede.  
 
@@ -84,3 +98,6 @@ Há outro recurso oferecido pelos sites do Azure chamado de Conexões Híbridas 
 Outra diferença é que você precisa instalar um agente de retransmissão para as Conexões Híbridas funcionarem.  Este agente precisa executar em uma instância do Windows Server.  Com o recurso da Rede Virtual não há nada para instalar e ele habilita o aceso aos recursos remotos independentemente dos sistemas operacionais hospedados.  
 
 Há também diferenças na faixa de preço neste momento entre os dois recursos.  Isto ocorre porque no nível menos dispendioso o recurso Conexões Híbridas é extremamente útil para cenários de desenvolvimento e teste e somente fornece acesso a um pequeno número de pontos de extremidade.  O recurso de rede virtual fornece a você acesso a tudo na VNET ou ao que está conectado a ela.  
+
+
+<!--HONumber=42-->

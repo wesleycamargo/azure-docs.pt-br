@@ -1,10 +1,24 @@
-<properties urlDisplayName="Web w/ Storage" pageTitle="Website PHP com armazenamento de tabelas - Tutorial do Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="Este tutorial mostra como criar um site PHP e usar o serviço de armazenamento de tabelas do Azure no back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Website PHP com armazenamento de tabelas - Tutorial do Azure" 
+	description="Este tutorial mostra como criar um site PHP e usar o serviço de armazenamento de tabelas do Azure no back-end." 
+	services="web-sites, storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 #Criar um site PHP usando armazenamento do Azure
 
-Este tutorial mostra como criar um site PHP e usar o serviço de armazenamento de tabelas do Azure no back-end.  Este tutorial presume que você tenha [PHP][install-php] e um servidor Web instalado em seu computador.As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux.Ao completar este guia, você terá um site PHP em execução no Azure e o acesso ao serviço de armazenamento de tabela.
+Este tutorial mostra como criar um site PHP e usar o serviço de armazenamento de tabelas do Azure no back-end. Este tutorial presume que você tenha [PHP][install-php] e um servidor Web instalado em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Ao completar este guia, você terá um site PHP em execução no Azure e o acesso ao serviço de armazenamento de tabela.
  
 Você aprenderá:
 
@@ -17,7 +31,7 @@ Você criará um aplicativo Web simples Tasklist no PHP. A seguinte é uma captu
 
 ![Azure PHP web site][ws-storage-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Instalar as bibliotecas de cliente do Azure
 
@@ -25,7 +39,7 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 
 1. [Instalar o Git][install-git]
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> No Windows, você também precisará adicionar o executável do Git à variável de ambiente PATH.
 
 2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código nele:
@@ -43,7 +57,7 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 			"minimum-stability": "dev"
 		}
 
-3. Baixe o **[composer.phar][composer-phar]** na raiz do seu projeto.
+3. Baixe **[composer.phar][composer-phar]** na raiz do seu projeto.
 
 4. Abra um prompt de comando e execute esta função na raiz do projeto
 
@@ -61,11 +75,11 @@ Há quatro etapas básicas que devem ser executadas antes de fazer uma chamada p
 	
 * Inclua os namespaces que você usará.
 
-	Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder**:
+	Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**:
 
 		use WindowsAzure\Common\ServicesBuilder;
 
-	Para capturar exceções produzidas por qualquer chamada à API, é necessário a classe **ServiceException**:
+	Para capturar exceções produzidas por qualquer chamada de API é necessário a classe **ServiceException**:
 
 		use WindowsAzure\Common\ServiceException;
 	
@@ -79,7 +93,7 @@ Há quatro etapas básicas que devem ser executadas antes de fazer uma chamada p
 	
 		UseDevelopmentStorage=true
 
-* Use o método de fábrica `ServicesBuilder::createTableService` para instanciar um invólucro em torno das chamadas de serviço Tabela.
+* Use o método de fábrica  `ServicesBuilder::createTableService` para instanciar um invólucro em torno das chamadas de serviço da tabela.
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
@@ -140,7 +154,7 @@ A home page do aplicativo Tasklist deve listar todas as tarefas existentes e per
 		<?php		
 		require_once "init.php";
 
-* Para consultar tabelas do Azure para **todas as entidades** armazenadas na tabela *tarefas*, você chamará o método *queryEntities* passando apenas o nome da tabela. Na seção **Atualizar uma entidade** abaixo, você também verá como passar um filtro de consulta para uma entidade específica.
+* Para consultar tabelas do Azure para **todas as entidades** armazenadas na tabela *tasks*, você chama o método *queryEntities* passando apenas o nome da tabela. Na seção **Atualizar uma entidade** abaixo, você também verá como passar um filtro de consulta para uma entidade específica.
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -157,7 +171,7 @@ A home page do aplicativo Tasklist deve listar todas as tarefas existentes e per
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* Uma vez que obtiver uma `Entity`, o modelo para ler dados será `Entity->getPropertyValue('[name]')`:
+* Depois que você obtiver uma  `Entity`, o modelo para leitura de dados é  `Entity->getPropertyValue('[name]')`:
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -189,7 +203,7 @@ A home page do aplicativo Tasklist deve listar todas as tarefas existentes e per
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Por fim, você deve inserir o formulário que fornece dados para o script de inserção de tarefa e concluir o HTML:
+* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -225,7 +239,7 @@ Seu aplicativo pode ler todos os itens armazenados na tabela. Desde que não haj
 		use WindowsAzure\Table\Models\Entity;
 		use WindowsAzure\Table\Models\EdmType;		
 
-* A primeira etapa para inserir uma entidade é instanciar um objeto `Entity` e configurar as propriedades nele:
+* A primeira etapa para inserir uma entidade é instanciar um objeto  `Entity` e configurar as propriedades nele:
 		
 		$entity = new Entity();
 		$entity->setPartitionKey('p1');
@@ -235,7 +249,7 @@ Seu aplicativo pode ler todos os itens armazenados na tabela. Desde que não haj
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* Em seguida, você pode passar a `$entity` que acabou de criar ao método `insertEntity`:
+* Em seguida, você pode passar a `$entity` que acabou de criar ao método  `insertEntity`:
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -253,7 +267,7 @@ Seu aplicativo pode ler todos os itens armazenados na tabela. Desde que não haj
 	
 ## Atualizando uma entidade
 
-O aplicativo de lista de tarefas tem a capacidade de marcar um item como concluído, bem como desmarcá-lo. A home page passa o *RowKey* e *PartitionKey* de uma entidade e o estado de destino (marcado==1, desmarcado==0).
+O aplicativo de lista de tarefas tem a capacidade de marcar um item como concluído, bem como desmarcá-lo. A home page passa o *RowKey* e *PartitionKey* de uma entidade e o estado de destino (marked==1, unmarked==0).
 
 * Crie um arquivo chamado **markitem.php** e adicione a parte de inicialização:
 
@@ -273,7 +287,7 @@ O aplicativo de lista de tarefas tem a capacidade de marcar um item como conclu�
 
 		$entity->setPropertyValue('complete', ($_GET['complete'] == 'true') ? true : false);
 
-* E o método `updateEntity` executa a atualização:
+* E o método  `updateEntity` executa a atualização:
 
 		try{
 			$result = $tableRestProxy->updateEntity('tasks', $entity);
@@ -292,7 +306,7 @@ O aplicativo de lista de tarefas tem a capacidade de marcar um item como conclu�
 
 ## Excluindo uma entidade
 
-A exclusão de um item é realizada por uma única chamada para `deleteItem`. Os valores passados são **PartitionKey** e **RowKey**, que juntos formam a chave primária da entidade. Crie um arquivo chamado **deleteitem.php** e insira o seguinte código:
+A exclusão de um item é realizada por uma única chamada para  `deleteItem`. Os valores passados são **PartitionKey** e **RowKey**, que juntos formam a chave primária da entidade. Crie um arquivo chamado **deleteitem.php** e insira o seguinte código:
 
 		<?php
 		
@@ -305,15 +319,15 @@ A exclusão de um item é realizada por uma única chamada para `deleteItem`. Os
 
 ## Criar uma conta de armazenamento do Azure
 
-Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar uma conta de armazenamento no Azure e, em seguida, passar as informações de autenticação adequadas para a classe *Configuração*.
+Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar uma conta de armazenamento no Azure e, em seguida, passar as informações de autenticação adequadas para a classe  *Configuration*.
 
 1. Faça logon no [Portal de Gerenciamento do Azure][management-portal].
 
-2. Clique no ícone **+ New** na parte inferior esquerda do portal.
+2. Clique no ícone **+ Novo** na parte inferior esquerda do portal.
 
 	![Create New Azure web site][new-website]
 
-3. Clique em **Serviços de Dados, ****Armazenamento**, depois em **Criação Rápida**.
+3. Clique em **Serviços de Dados**, **Armazenamento**, depois em **Criação Rápida**.
 
 	![Custom Create a new web site][storage-quick-create]
 	
@@ -333,7 +347,7 @@ Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar
 
 	![Select Manage Keys][storage-access-keys]
 
-7. Abra **init.php** e substitua `[NOME DA SUA CONTA DE ARMAZENAMENTO]` e `[NOME DA SUA CHAVE DE CONTA DE ARMAZENAMENTO]` com o nome da conta e a chave que você anotou na última etapa.Salve o arquivo.
+7. Abra **init.php**init.php e substitua `[YOUR_STORAGE_ACCOUNT_NAME]` e `[YOUR_STORAGE_ACCOUNT_KEY]` com o nome da conta e a chave você anotou na última etapa. Salve o arquivo.
 
 
 ## Criar um site do Azure e configurar a publicação Git
@@ -341,7 +355,7 @@ Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar
 Siga estas etapas para criar um site do Azure:
 
 1. Faça logon no [Portal de Gerenciamento do Azure][management-portal].
-2. Clique no ícone **+ New** na parte inferior esquerda do portal.
+2. Clique no ícone **+ Novo** na parte inferior esquerda do portal.
 
 	![Create New Azure Web Site][new-website]
 
@@ -353,18 +367,18 @@ Siga estas etapas para criar um site do Azure:
 
 	![Fill in web site details][website-quick-create-details]
 
-	Quando o website tiver sido criado, você verá o texto **Criação do Website '[SITENAME]' concluído com sucesso**.Agora, você pode habilitar a publicação do Git.
+	Quando o website tiver sido criado, você verá o texto **Criação do Website '[SITENAME]' concluído com sucesso**. Agora, você pode habilitar a publicação do Git.
 
 5. Clique no nome do site exibido na lista de sites para abrir o painel **INÍCIO RÁPIDO** do site.
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-6. Na parte inferior direita da página Quickstart, selecione **Configurar a implantação no controle do código-fonte**.
+6. Na parte inferior direita da página Quickstart, selecione **Configurar a implantação a partir do controle de origem**.
 
 	![Set up Git publishing][setup-git-publishing]
 
-6. Quando receber a pergunta "Onde está seu código-fonte?", selecione **Repositório Git Local** e, em seguida, clique na seta.
+6. Quando receber a pergunta "Onde está seu código-fonte?" selecionar **Repositório Git Local** e, em seguida, clique na seta.
 
 	![where is your source code][where-is-code]
 
@@ -391,7 +405,7 @@ Para publicar o aplicativo com Git, siga as etapas abaixo.
 			
 	Quando o Gerenciador de pacotes do Composer baixa as bibliotecas de cliente Azure e suas dependências, ele faz isso por meio da clonagem de repositório GitHub em que reside. Na próxima etapa, o aplicativo será implantado por meio do Git através da criação de um repositório fora da pasta raiz do aplicativo. O Git ignorará o repositório sub onde as bibliotecas de cliente residem, a menos que os arquivos específicos do repositório são removidos.
 
-2. Abra GitBash (ou um terminal, se o Git está no seu `PATH`), altere os diretórios para o diretório raiz do seu aplicativo e execute os seguintes comandos (**Observação:** estas são as mesmas etapas indicadas no final da seção **Criar um Site do Azure e configurar a publicação Git**):
+2. Abra GitBash (ou um terminal, se o Git está no seu  `PATH`), altere os diretórios para o diretório raiz do seu aplicativo e execute os seguintes comandos (**Observação:** estas são as mesmas etapas indicadas no final da seção **Criar um Site do Azure e configurar a publicação Git**):
 
 		git init
 		git add .
@@ -401,8 +415,8 @@ Para publicar o aplicativo com Git, siga as etapas abaixo.
 
 	Será solicitada a senha que você criou anteriormente.
 
-3. Vá para **http://[domínio do seu site]/createtable.php** para criar a tabela para o aplicativo.
-4. Vá para **http://[domínio do seu site]/index.php** para começar a usar o aplicativo.
+3. Navegue até **http://[seu domínio do site]/createtable.php** para criar a tabela para o aplicativo.
+4. Navegue até **http://[seu domínio do site]/index.php** para começar a usar o aplicativo.
 
 Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
 
@@ -411,7 +425,7 @@ Depois de ter publicado seu aplicativo, você pode começar a fazer alterações
 Para publicar alterações no aplicativo, siga estas etapas:
 
 1. Faça alterações em seu aplicativo localmente.
-2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+2. Abra GitBash (ou um terminal, se o Git estiver em seu  `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
 
 		git add .
 		git commit -m "comment describing changes"
@@ -419,7 +433,7 @@ Para publicar alterações no aplicativo, siga estas etapas:
 
 	Será solicitada a senha que você criou anteriormente.
 
-3. Vá para **http://[domínio do seu site]/index.php** para ver suas alterações. 
+3. Navegue até **http://[seu domínio do site]/index.php** para ver suas alterações. 
 
 [install-php]: http://www.php.net/manual/en/install.php
 
@@ -451,4 +465,5 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
 [where-is-code]: ./media/web-sites-php-storage/where_is_code.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,19 +1,33 @@
-﻿<properties urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="Autorizar usuários em scripts (Xamarin.iOS) - Serviços Móveis do Azure" metaKeywords="usuário de autorização do Azure, autorização de scripts do Xamarin.iOS, autorizar serviços móveis" description="Saiba como autorizar usuários com scripts em seu aplicativo de serviços móveis do Azure para iOS Xamarin." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
+<properties 
+	pageTitle="Autorizar usuários em scripts (Xamarin.iOS) - serviços móveis do Azure" 
+	description="Saiba como autorizar usuários com scripts em seu aplicativo de serviços móveis do Azure para iOS Xamarin." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
 # Usar scripts para autorizar usuários nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 Este tópico mostra como usar scripts de servidor para autorizar usuários autenticados a acessar dados nos Serviços Móveis do Azure de um aplicativo Xamarin.iOS.  Neste tutorial, você registra scripts nos Serviços Móveis para filtrar consultas com base na userId de um usuário autenticado, garantindo que cada usuário possa ver apenas seus próprios dados.
 
-Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis e no tutorial anterior [Introdução à autenticação]. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução à autenticação].  
+Este tutorial baseia-se no início rápido dos Serviços Móveis e no tutorial anterior [Introdução à autenticação]. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução à autenticação].  
 
 ## <a name="register-scripts"></a>Registrar scripts
 Como o aplicativo Guia de início rápido lê e insere dados, você precisa registrar scripts para essas operações com base na tabela TodoItem.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e no aplicativo. 
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo. 
 
    	![][0]
 
@@ -32,21 +46,19 @@ Como o aplicativo Guia de início rápido lê e insere dados, você precisa regi
           request.execute();
         }
 
-Este script adiciona um valor de userId para o item que é a ID do usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
+    Este script adiciona um valor de userId ao item que é a ID de usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna <strong>userId</strong> à tabela <strong>TodoItem</strong> na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Store.</p>
-    </div>
+    > [AZURE.NOTE] O esquema dinâmico deve ser habilitado na primeira vez que esse script insert for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna **userId** à tabela **TodoItem** na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Store.
 
 
-5. Repita as etapas 3 e 4 para substituir a operação **Ler** por esta função:
+5. Repita as etapas 3 e 4 para substituir a operação **Ler** existente pela seguinte função:
 
         function read(query, user, request) {
            query.where({ userId: user.userId });    
            request.execute();
         }
 
-   	Esse script filtra os objetos TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele.
+   Esse script filtra os objetos TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele.
 
 ## Testar o aplicativo
 
@@ -54,13 +66,13 @@ Este script adiciona um valor de userId para o item que é a ID do usuário aute
 
 2. Pressione o botão **Executar** para compilar o projeto, iniciar o aplicativo no emulador do iPhone e fazer logon com o provedor de identidade escolhido. 
 
-Observe que, desta vez, embora já existam itens na tabela TodoItem de tutoriais anteriores, nenhum item é retornado. Isso acontece porque os itens anteriores foram inseridos sem a coluna userId e agora têm valores nulos.
+   	Observe que, desta vez, embora já existam itens na tabela TodoItem de tutoriais anteriores, nenhum item é retornado. Isso acontece porque os itens anteriores foram inseridos sem a coluna userId e agora têm valores nulos.
 
-3. No aplicativo, insira texto em **Inserir um TodoItem** e clique em **Salvar**.
+3. No aplicativo, insira o texto em **Inserir um TodoItem** e clique em **Salvar**.
 
    	![][3]
 
-Isso insere o texto e a userId na tabela TodoItem no serviço móvel. Como o novo item tem o valor de userId correto, ele é retornado pelo serviço móvel e exibido na segunda coluna.
+   Isso insere o texto e a userId na tabela TodoItem no serviço móvel. Como o novo item tem o valor de userId correto, ele é retornado pelo serviço móvel e exibido na segunda coluna.
 
 5. Na tabela **todoitem** no [Portal de Gerenciamento][Portal de Gerenciamento do Azure], clique em **Procurar** e verifique se cada item recém-adicionado agora tem um valor de userId associado.
 
@@ -100,3 +112,6 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 [Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

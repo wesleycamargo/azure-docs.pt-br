@@ -1,50 +1,65 @@
-﻿<properties  pageTitle="Agendar tarefas de back-end com o Agendador - Serviços Móveis" metaKeywords="" description="Use o Agendador de Serviços Móveis do Microsoft Azure para agendar trabalhos para seu aplicativo móvel." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
+﻿<properties 
+	pageTitle="Agendar tarefas de back-end com o Agendador - Serviços Móveis" 
+	description="Use o Agendador de Serviços Móveis do Microsoft Azure para agendar trabalhos para seu aplicativo móvel." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	writer="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Agendar trabalhos recorrentes nos Serviços Móveis 
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">Back-end do .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">Back-end .NET</a> | <a href="/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
 </div>
  
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Portal de Gerenciamento para definir o código de script que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
 
-+ Archiving old or duplicate data records.
-+ Requesting and storing external data, such as tweets, RSS entries, and location information.
-+ Processing or resizing stored images.
++ Arquivamento de registros de dados duplicados ou antigos.
++ Solicitação e armazenamento de dados externos, como tweets, entradas RSS e informações sobre local.
++ Processamento ou redimensionamento de imagens armazenadas.
 
-This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
+Este tutorial explica as etapas de como usar o agendador de trabalhos para criar um trabalho agendado que solicita dados de tweet do Twitter e armazena os tweets em uma nova tabela de atualizações:
 
-+ [Register for Twitter access and store credentials]
-+ [Download and install the LINQ to Twitter library]
-+ [Create the new Updates table]
-+ [Create a new scheduled job]
-+ [Test the scheduled job locally]
-+ [Publish the service and register the job]
++ [Registrar-se para acesso ao Twitter e armazenar as credenciais
++ [Baixar e instalar o LINQ na biblioteca do Twitter]
++ [Criar a nova tabela de Atualizações]
++ [Criar um novo trabalho agendado]
++ [Testar o trabalho agendado localmente]
++ [Publicar o serviço e registrar o trabalho]
 
->[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
+>[AZURE.NOTE]Este tutorial usa o LINQ para a biblioteca do Twitter de terceiros para simplificar o acesso de OAuth 2.0 às APIs do Twitter v1.1. Você deve baixar e instalar o Pacote NuGet do LINQ para Twitter para concluir este tutorial. Para obter mais informações, consulte o [LINQ para projeto CodePlex do Twitter].
 
 ##<a name="get-oauth-credentials"></a>Registrar-se para acesso às APIs do Twitter v1.1 e armazenar as credenciais
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 <ol start="7">
-<li><p>No Gerenciador de Soluções do Visual Studio, abra o arquivo web config do projeto do serviço móvel, localize as configurações de aplicativo <strong>MS_TwitterConsumerKey</strong> e <strong>MS_TwitterConsumerSecret</strong> e substitua os valores dessas chaves pelos valores do segredo do consumidor e chave de consumidor do Twitter que você definiu no portal.</p></li>
+<li><p>No Gerenciador de Soluções no Visual Studio, abra o arquivo web.config do projeto de serviço móvel, localize as configurações de aplicativo <strong>MS_TwitterConsumerKey</strong> e <strong>MS_TwitterConsumerSecret</strong> e substitua os valores dessas chaves pelas chaves e valores secretos do consumidor do Twitter que você definiu no portal.</p></li>
 
 <li><p>Na mesma seção, adicione as seguintes novas configurações do aplicativo, substituindo os espaços reservados pelos valores do token de acesso e do segredo do token de acesso do Twitter que você definiu como configurações do aplicativo no portal:</p>
 
-<pre><code><add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" /&gt;
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /&gt;</code></pre>
 
 <p>O serviço móvel usa essas configurações armazenadas quando é executado no computador local, o que permite testar o trabalho agendado antes de publicá-lo. Ao executar no Azure, o serviço móvel usa o conjunto de valores no portal e ignora essas configurações do projeto.  </p></li>
 </ol>
 
-##<a name="install-linq2twitter"></a>Baixar e instalar o LINQ para a biblioteca do Twitter
+##<a name="install-linq2twitter"></a>Baixar e instalar o LINQ na biblioteca do Twitter
 
 1. No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no nome do projeto e selecione **Gerenciar Pacotes NuGet**.
 
-2. No painel esquerdo, selecione a categoria **Online**, pesquise por `linq2twitter`, clique em **Instalar** no pacote **linqtotwitter**, então leia e aceite os contratos de licença. 
+2. No painel esquerdo, selecione a categoria **Online**, procure por `linq2twitter`, clique em **Instalar** no pacote **linqtotwitter** e leia e aceite os contratos de licença. 
 
   	![][1]
 
@@ -52,14 +67,14 @@ This tutorial walks you through the following steps of how to use the job schedu
 
 Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 
-##<a name="create-table"></a>Criar a nova tabela Updates
+##<a name="create-table"></a>Criar a nova tabela de Atualizações
 
-1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse na pasta DataObjects, expanda **Adicionar**, clique em **Classe**, digite `Updates` para **Nome** e, por fim, clique em **Adicionar**.
+1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse na pasta DataObjects, expanda **Adicionar**, clique em **Classe**, digite `Updates` para **Nome**, e clique em **Adicionar**.
 
 	Isso cria um novo arquivo de projeto para a classe Updates.
 
-2. Clique com o botão direito do mouse em **Referências**, clique em **Adicionar Referência...**, selecione **Framework** em **Assemblies**, marque **System.ComponentModel.DataAnnotations** e, por fim, clique em **OK**.
-
+2. Clique com o botão direito do mouse em **Referências**, clique em **Adicionar Referência...**, selecione **Estrutura** em **Assemblies**, marque **System.ComponentModel.DataAnnotations**, e clique em **OK**.
+	
 	![][7]
 
 	Isto adiciona uma nova referência de assembly.
@@ -81,13 +96,13 @@ Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expanda a pasta Models, abra o arquivo de contexto do modelo de dados (denominado <em>service_name</em>Context.cs) e adicione a seguinte propriedade que retorna um **DbSet** tipado:
+4. Expanda a pasta Modelos, abra o arquivo de contexto do modelo de dados (denominada <em>service_name</em>Context.cs) e adicione a seguinte propriedade que retorna um tipo **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
 	A tabela Updates, que é criada no banco de dados quando o DbSet é acessado pela primeira vez, é usada pelo serviço para armazenar dados de tweet.  
 
-	>[WACOM.NOTE]  Ao usar o inicializador de banco de dados padrão, o Entity Framework irá descartar e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
+	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
 
 Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena dados de tweet na nova tabela Updates.
 
@@ -190,7 +205,7 @@ Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena
 		                        Author = tweet.User.Name,
 		                        Date = tweet.CreatedAt
 		                    };
-		
+			
 		                context.Updates.Add(newTweet);
 		            }
 		
@@ -219,23 +234,23 @@ Trabalhos agendados podem ser testados localmente antes de sua publicação no A
 
 	Isso inicia o projeto do serviço móvel e exibe uma nova janela do navegador com a página de boas-vindas.
 
-2. Clique em **experimentar** e depois clique em **POST jobs/{jobName}**.
+2. Clique em **Experimentar**, e depois clique em **trabalhos de POST /{jobName}**.
 
 	![][8]
  
-4. Clique em **experimentar**, digite `Sample` como o valor do parâmetro **{jobName}** e clique em **Enviar**.
+4. Clique em **Experimentar**, digite `Sample` como valor de parâmetro **{jobName}** e clique em **Enviar**.
 
 	![][9]
 
 	Isso envia uma nova solicitação POST ao ponto de extremidade de trabalho de exemplo. No serviço local, o método **ExecuteAsync** é iniciado. É possível definir um ponto de divisão neste método para depurar o código.
 
-3. No Gerenciador de Servidores, expanda **Conexões de Dados**, **MSTableConnectionString** e **tabelas**; clique com o botão direito do mouse em **Updates** e clique em **Mostrar Dados da Tabela**.
+3. No Gerenciador de Servidores, expanda **Conexões de Dados**, **MSTableConnectionString**, e **tabelas**; clique com o botão direito do mouse em **Atualizações** e depois em **Mostrar Dados da Tabela**.
 
 	Os novos tweets são inseridos como linhas na tabela de dados.
 
 ##<a name="register-job"></a>Publicar o serviço e registrar o novo trabalho 
 
-O trabalho deve ser registrado na guia **Agendador**, para que os Serviços Móveis possam executá-lo na agenda que você definir.
+O trabalho deve ser registrado na guia **Agendador** para que os Serviços Móveis possam executá-lo na agenda que você definir.
 
 3. Republique o projeto de serviço móvel no Azure.
 
@@ -247,27 +262,27 @@ O trabalho deve ser registrado na guia **Agendador**, para que os Serviços Móv
 
    	![][3]
 
-    >[WACOM.NOTE]Quando executa seu serviço móvel na camada <em>Gratuita</em>, você pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados ao mesmo tempo.
+    >[AZURE.NOTE]Quando executa seu serviço móvel na camada <em>Gratuita</em> pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados ao mesmo tempo.
 
-3. Na caixa de diálogo Agendador, digite _SampleJob_ para o **Nome do Trabalho**, defina o intervalo e as unidades do agendamento e clique no botão de seleção. 
+3. Na caixa de diálogo Agendador, digite _Sample_ para o **Nome do Trabalho**, defina o intervalo e as unidades do agendamento e clique no botão de seleção. 
    
    	![][4]
 
-   	Isso cria um novo trabalho chamado **SampleJob**. 
+   	Isso cria um novo trabalho chamado **Amostra**. 
 
-4. Clique no novo trabalho que você acabou de criar e clique em **Executar uma vez** para testar o script. 
+4. Clique no novo trabalho que você acabou de criar e clique em **Executar Uma Vez** para testar o script. 
 
   	![][5]
 
    	Isso executa o trabalho enquanto ele permanece desabilitado no Agendador. Nessa página, você pode habilitar o trabalho e alterar sua agenda a qualquer momento.
 
-	>[WACOM.NOTE]Uma solicitação POST ainda pode ser usada para iniciar o trabalho agendado. No entanto, a autorização padroniza para o usuário, o que significa que a solicitação deve incluir a chave do aplicativo no cabeçalho.
+	>[AZURE.NOTE]Uma solicitação POST ainda pode ser usada para iniciar o trabalho agendado. No entanto, a autorização padroniza para o usuário, o que significa que a solicitação deve incluir a chave do aplicativo no cabeçalho.
 
-4. (Opcional) No [Portal de Gerenciamento do Azure], clique em gerenciar para o banco de dados associado ao serviço móvel.
+4. (Opcional) No [Portal de Gerenciamento do Azure], clique em gerenciar para o banco de dados associado ao seu serviço móvel.
 
     ![][6]
 
-5. No Portal de Gerenciamento, execute uma consulta para exibir as alterações feitas pelo aplicativo. Sua consulta será semelhante à consulta a seguir, mas use o nome do serviço móvel como nome do esquema, em vez de `todolist`.
+5. No Portal de Gerenciamento, execute uma consulta para exibir as alterações feitas pelo aplicativo. Sua consulta será semelhante à consulta a seguir, mas use o nome do seu serviço móvel como o nome do esquema, em vez de `todolist`.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -275,8 +290,8 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 
 <!-- Anchors. -->
 [Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
-[Baixar e instalar o LINQ para a biblioteca do Twitter]: #install-linq2twitter
-[Criar a nova tabela Updates]: #create-table
+[Baixar e instalar o LINQ na biblioteca do Twitter]: #install-linq2twitter
+[Criar a nova tabela de Atualizações]: #create-table
 [Criar um novo trabalho agendado]: #add-job
 [Testar o trabalho agendado localmente]: #run-job-locally
 [Publicar o serviço e registrar o trabalho]: #register-job
@@ -295,7 +310,7 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Registrar seus aplicativos para logon no Twitter com os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Registrar seus aplicativos para logon no Twitter com os Serviços Móveis]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configurações do aplicativo]: http://msdn.microsoft.com/pt-br/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-[LINQ para projeto CodePlex Twitter]: http://linqtotwitter.codeplex.com/
+[Configurações do aplicativo]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/\n<!--HONumber=42-->

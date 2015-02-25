@@ -1,17 +1,17 @@
-﻿<properties urlDisplayName="How to Encode an Asset" pageTitle="Como codificar um ativo para Serviços de Mídia - Azure" metaKeywords="" description="Saiba como usar o Codificador de Mídia do Azure para codificar conteúdo de mídia nos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Como codificar um ativo para Serviços de Mídia - Azure" description="Saiba como usar o Codificador de Mídia do Azure para codificar conteúdo de mídia nos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Como: Codificar um ativo
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Obter um processador de mídia].(../media-services-get-media-processor/).
+# Como: Codificar um ativo
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure. O tópico anterior era [Como: Obter um processador de mídia](../media-services-get-media-processor/).
 
-Para conteúdo de mídia no servidor, você pode codificar o conteúdo com várias codificações e formatos de mídia usando o Codificador de Mídia do Azure. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Codificadores de terceiros estão disponíveis por meio do [Azure Marketplace][]. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres de[Predefinição do Codificador][] ou por meio de arquivos de configuração. 
+Para conteúdo de mídia no servidor, você pode codificar o conteúdo com várias codificações e formatos de mídia usando o Codificador de Mídia do Azure. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Codificadores de terceiros estão disponíveis por meio do [Azure Marketplace][]. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres da [Predefinição do Codificador][], ou por meio de arquivos de configuração. 
 
-##Codificando para conjunto adaptável de taxas de bit de MP4
-Recomenda-se codificar seu arquivo mezanino para conjuntos adaptáveis de taxa de bits de MP4 e, em seguida, usar a embalagem Dinâmica para entregar o conteúdo. Para obter mais informações, consulte [Criando um trabalho de codificação com o SDK dos Serviços de Mídia para .NET].(http://msdn.microsoft.com/pt-br/library/azure/dn282273.aspx), [Empacotamento dinâmico](http://msdn.microsoft.com/pt-br/library/azure/jj889436.aspx), e[Conteúdo da entrega](http://msdn.microsoft.com/pt-br/library/azure/hh973618.aspx).
+## Codificando para conjunto adaptável de taxas de bit de MP4
+Recomenda-se codificar seu arquivo mezanino para conjuntos adaptáveis de taxa de bits de MP4 e, em seguida, usar a embalagem Dinâmica para entregar o conteúdo. Para obter mais informações, consulte [Criando um trabalho de codificação com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/pt-br/library/azure/hh973618.aspx), [Empacotamento dinâmico](http://msdn.microsoft.com/pt-br/library/azure/jj889436.aspx) e [Distribuindo conteúdo](http://msdn.microsoft.com/pt-br/library/azure/hh973618.aspx).
 
-##Codificando para MP4
+## Codificando para MP4
 O método a seguir carrega um único ativo e cria um trabalho para codificar o ativo para MP4 usando a predefinição "H264 Broadband 720p", que criará um único MP4 usando codificação H264 em resolução 720p:
 <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
@@ -108,9 +108,9 @@ Para codificar um vídeo para smooth streaming, você tem duas opções:
 <li> Codificar para MP4 e, em seguida, converter em Smooth Streaming</li>
 </ul>
 
-Para codificar diretamente para Smooth Streaming, use o código mostrado acima, mas use uma das predefinições de codificador de Smooth Streaming. Para obter uma lista completa das predefinições do codificador, consulte [Cadeias de predefinição de tarefa para o codificador de mídia do Azure.](http://msdn.microsoft.com/pt-br/library/jj129582.aspx). 
+Para codificar diretamente para Smooth Streaming, use o código mostrado acima, mas use uma das predefinições de codificador de Smooth Streaming. Para obter uma lista completa das predefinições do codificador, consulte [Cadeias de caracteres de predefinição de tarefa para o Codificador de Mídia do Azure](http://msdn.microsoft.com/pt-br/library/jj129582.aspx). 
 
-Para converter um MP4 para Smooth Streaming, use o Empacotador de Mídia do Azure.  O Gerenciador de mídia do Azure não dá suporte a predefinições de cadeias de caracteres, portanto, você deve especificar opções de configuração em XML.  O XML necessário para converter MP4 em Smooth Streaming pode ser encontrado em[Predefinição de tarefa para o empacotador de mídia do Azure][]. Copie e cole o XML em um arquivo chamado MediaPackager_MP4ToSmooth.xml em seu projeto.O código a seguir ilustra como converter um ativo MP4 em Smooth Streaming.O método abaixo usa um ativo existente e o converte. 
+Para converter um MP4 para Smooth Streaming, use o Empacotador de Mídia do Azure. O Gerenciador de mídia do Azure não dá suporte a predefinições de cadeias de caracteres, portanto, você deve especificar opções de configuração em XML. O XML necessário para converter MP4 em Smooth Streaming pode ser encontrado em [Predefinição de tarefa para o Empacotador de Mídia do Azure][]. Copie e cole o XML em um arquivo chamado MediaPackager_MP4ToSmooth.xml em seu projeto. O código a seguir ilustra como converter um ativo MP4 em Smooth Streaming. O método abaixo usa um ativo existente e o converte. 
 <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
  {
@@ -155,15 +155,16 @@ Para obter mais informações sobre como processar ativos, consulte:
 <li><a href="http://msdn.microsoft.com/pt-br/library/jj129574.aspx">Processar ativos com a API REST dos Serviços de Mídia</a></li>
 </ul>
 
-##Próximas etapas
-Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico[Como verificar o andamento do trabalho com os Serviços de Mídia.](../media-services-check-job-progress/) .
+## Próximas etapas
+Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](../media-services-check-job-progress/).
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Predefinição do codificador]: http://msdn.microsoft.com/pt-br/library/dn619392.aspx
-[Como: Obter uma instância do processador de mídia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Como: Carregar um ativo criptografado]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Como: Fornecer um ativo por download]:http://go.microsoft.com/fwlink/?LinkId=301734
+[Predefinição do Codificador]: http://msdn.microsoft.com/pt-br/library/dn619392.aspx
+[Como: obter uma instância do processador de mídia]:http://go.microsoft.com/fwlink/?LinkId=301732
+[Como: carregar um ativo criptografado]:http://go.microsoft.com/fwlink/?LinkId=301733
+[Como: fornecer um ativo por download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Como verificar o andamento do trabalho]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Predefinição de tarefa para o Empacotador de Mídia do Azure]:http://msdn.microsoft.com/pt-br/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

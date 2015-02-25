@@ -1,22 +1,36 @@
-﻿<properties pageTitle="Adicionar paginação aos dados (JavaScript) - Serviços Móveis do Azure"metaKeywords ="" description="Saiba como usar paginação para gerenciar a quantidade de dados retornados ao seu aplicativo JavaScript da Windows Store dos serviços móveis." metaCanonical="http://www.windowsazure.com/pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Adicionar paginação aos dados (JavaScript) - Serviços Móveis do Azure" 
+	description="Saiba como usar paginação para gerenciar a quantidade de dados retornados ao seu aplicativo JavaScript da Windows Store dos serviços móveis." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 
 # Refinar as consultas dos Serviços Móveis com paginação
 
-[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 
 Este tópico mostra como usar a paginação para gerenciar a quantidade de dados retornada ao seu aplicativo de Serviços Móveis do Azure da Windows Store. Neste tutorial, você usará os métodos de consulta **Take** e **Skip** no cliente para solicitar "páginas" de dados específicas.
 
->[WACOM.NOTE]Para evitar estouro de dados em clientes de dispositivos móveis, os Serviços Móveis implementam um limite automático de página que tem como padrão um máximo de 50 itens em uma resposta. Ao especificar o tamanho da página, você pode solicitar explicitamente até 1.000 itens na resposta.
+>[AZURE.NOTE]Para evitar estouro de dados em clientes de dispositivos móveis, os Serviços Móveis implementam um limite automático de página que tem como padrão um máximo de 50 itens em uma resposta. Ao especificar o tamanho da página, você poderá explicitamente solicitar até 1.000 itens na resposta.
 
-Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados]. Antes de iniciar este tutorial, você deve concluir ao menos o primeiro tutorial na série sobre como trabalhar com dados [Introdução aos dados]. 
+Este tutorial se baseia nas etapas e o aplicativo de exemplo do tutorial anterior, [Introdução aos dados]. Antes de começar este tutorial, você deve concluir pelo menos o primeiro tutorial sobre como trabalhar com a série de dados, [Introdução aos dados]. 
 
-[WACOM.INCLUDE [mobile-services-javascript-paging](../includes/mobile-services-javascript-paging.md)]
+[AZURE.INCLUDE [mobile-services-javascript-paging](../includes/mobile-services-javascript-paging.md)]
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"> </a>Próximas Etapas
 
 Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre como trabalhar com Serviços Móveis. Considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
 
@@ -34,9 +48,10 @@ Isso conclui o grupo de tutoriais que demonstram os conceitos básicos sobre com
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
+\n<!--HONumber=42-->

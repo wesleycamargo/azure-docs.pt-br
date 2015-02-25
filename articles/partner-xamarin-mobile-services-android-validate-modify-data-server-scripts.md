@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Usar scripts de servidor para validar e modificar dados (Xamarin Android) | Centro de desenvolvimento móvel" metaKeywords="acessar e alterar dados, Serviços Móveis do Azure, dispositivos móveis, Azure, móvel, Xamarin.Android" description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo Android Xamarin." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Usar scripts de servidor para validar e modificar dados (Xamarin Android) | Centro de desenvolvimento móvel" 
+	description="Saiba como validar e modificar dados enviados usando scripts de servidor em seu aplicativo Android Xamarin." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # Validar e modificar dados em Serviços Móveis usando scripts de servidor
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 Este tópico mostra como utilizar scripts de servidor nos Serviços Móveis do Azure. Os scripts de servidor são registrados em um serviço móvel e podem ser usados para executar um grande intervalo de operações nos dados que estão sendo inseridos e atualizados, incluindo validação e modificação de dados. Neste tutorial, você irá definir e registrar scripts de servidor que validam e modificam dados. Como o comportamento de scripts do lado do servidor geralmente afeta o cliente, você também irá atualizar o aplicativo Android para tirar proveito desses novos comportamentos. O código concluído está disponível no exemplo do [aplicativo ValidateModifyData][GitHub].
 
@@ -15,21 +29,21 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 3. [Adicionar um carimbo de data/hora na inserção]
 4. [Atualizar o cliente para exibir o carimbo de data/hora]
 
-Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados]. Antes de começar este tutorial, você deve primeiro concluir a [Introdução a dados].  
+Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados]. Para começar este tutorial, primeiro conclua a [Introdução aos dados].  
 
 ## <a name="string-length-validation"></a>Adicionar validação
 
 É sempre uma boa prática validar o tamanho dos dados enviados pelos usuários. Primeiro, você registra um script que valida o tamanho dos dados enviados ao serviço móvel e rejeita as cadeias de caracteres muito longas, neste caso mais de 10 caracteres.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo. 
+1. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo. 
 
 	![][0]
 
-2. Clique na guia **Dados** e na tabela **TodoItem**.
+2. Clique na guia **Dados** e clique na tabela **TodoItem**.
 
 	![][1]
 
-3. Clique em **Script** e selecione a operação **Insert**.
+3. Clique em **Script** e selecione a operação **Inserir**.
 
 	![][2]
 
@@ -43,11 +57,9 @@ Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anteri
             }
         }
 
-        Esse script verifica o comprimento da propriedade **text** e envia uma resposta de erro quando o comprimento excede 10 caracteres. Caso contrário, o método **execute** será chamado para concluir a inserção.
+    Esse script verifica o comprimento da propriedade **text** e envia uma resposta de erro quando o comprimento exceder 10 caracteres. Caso contrário, o método **execute** será chamado para concluir a inserção.
 
-    <div class="dev-callout"> 
-	<b>Observação</b> 
-	<p>Você pode remover um script registrado na guia <strong>Script</strong> clicando em <strong>Limpar</strong> e, em seguida, em <strong>Salvar</strong>.</p></div>
+    > [AZURE.TIP] Você pode remover um script registrado na guia **Script** clicando em **Limpar** e depois em **Salvar**.
 
 ## <a name="update-client-validation"></a>Atualizar o cliente
 
@@ -82,13 +94,11 @@ As tarefas anteriores validaram uma inserção e a aceitaram ou rejeitaram. Agor
             }
         }
 
-    Essa função aumenta o script de inserção anterior adicionando uma nova propriedade de carimbo de data/hora **createdAt** ao objeto antes que ele seja inserido pela chamada em **request**.**execute**. 
+    Essa função aumenta o script de inserção anterior adicionando uma nova propriedade de carimbo de data/hora **createdAt** ao objeto antes que ele seja inserido pela chamada para **request**.**execute**. 
 
-    <div class="dev-callout"><b>Observação</b>
-	<p>O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna <strong>createdAt</strong> à tabela <strong>TodoItem</strong> na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado.</p>
-    </div>
+    > [AZURE.IMPORTANT] O esquema dinâmico deve ser habilitado na primeira vez que esse script insert for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna **createdAt** à tabela **TodoItem** na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado.
 
-2. No menu **Executar**, clique em **Executar** para iniciar o aplicativo, digite um texto (com menos de 10 caracteres) na caixa de texto e clique em **Adicionar**.
+2. No menu **Executar**, clique em **Executar** para iniciar o aplicativo, digite texto (com menos de 10 caracteres) na caixa de texto e clique no botão **Adicionar**.
 
    	Observe que o novo carimbo de data/hora não aparece na interface do usuário do aplicativo.
 
@@ -107,9 +117,7 @@ O cliente do Serviço Móvel ignorará todos os dados em uma resposta que ele n�
         [DataMember(Name = "createdAt")]
         public DateTime? CreatedAt { get; set; }
   
-    <div class="dev-callout"><b>Observação</b>
-	<p>A anotação <code>DataMember's Name</code> informa ao cliente para mapear a nova propriedade <code>CreatedAt</code> no aplicativo para a coluna <code>createdAt</code> definida na tabela TodoItem, que tem outro nome. Usando essa anotação, seu aplicativo pode ter nomes de propriedades em objetos que são diferentes dos nomes das colunas no Banco de Dados SQL. Sem essa anotação, ocorre um erro devido às diferenças de maiúsculas e minúsculas.</p>
-    </div>
+    > [AZURE.NOTE] A anotação  `DataMember's Name` informa ao cliente para mapear a nova propriedade  `CreatedAt` no aplicativo para a coluna  `createdAt` definida na tabela TodoItem, que tem um nome diferente. Usando essa anotação, seu aplicativo pode ter nomes de propriedades em objetos que são diferentes dos nomes das colunas no Banco de Dados SQL. Sem essa anotação, ocorre um erro devido às diferenças de maiúsculas e minúsculas.
 
 2. No método GetView, adicione o seguinte código acima do local onde o código atual que define <code>checkBox.Text</code> como <code>currentItem.Text</code>:
 
@@ -119,7 +127,7 @@ O cliente do Serviço Móvel ignorará todos os dados em uma resposta que ele n�
 
    	Isso cria uma sequência de caracteres de data formatada quando existir um valor de carimbo de data/hora. 
 
-3. Localize o código `checkBox.Text = currentItem.Text` novamente e substitua essa linha de código pelo seguinte:
+3. Localize o código  `checkBox.Text = currentItem.Text` novamente e substitua essa linha de código pelo seguinte:
 
 		checkBox.Text = string.Format("{0} - {1}", currentItem.Text, displayDate);
 
@@ -143,7 +151,7 @@ O cliente do Serviço Móvel ignorará todos os dados em uma resposta que ele n�
 
 Você concluiu isso trabalhando com o tutorial de dados.
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você concluiu este tutorial, considere continuar com o tutorial final da série de dados: [Refinar consultas com paginação].
 
@@ -184,3 +192,6 @@ Scripts de servidor também são usados ao autorizar usuários e para enviar not
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+<!--HONumber=42-->

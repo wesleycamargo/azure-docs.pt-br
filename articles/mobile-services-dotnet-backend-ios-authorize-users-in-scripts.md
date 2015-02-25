@@ -1,29 +1,43 @@
-﻿<properties pageTitle="Autorização no lado do serviço (iOS) | Mobile Dev Center" metaKeywords="" description="Saiba como autorizar usuários no back-end .NET dos Serviços Móveis do Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Autorização de serviço (iOS) | Centro de Desenvolvimento de Serviços Móveis" 
+	description="Saiba como autorizar usuários no back-end .NET dos Serviços Móveis do Azure." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
-# Autorização do lado do serviço para usuários dos Serviços Móveis
+# Autorização de serviço a usuários dos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
 Este tópico mostra como autorizar usuários autenticados a acessar dados nos Serviços Móveis do Azure de um aplicativo iOS. Neste tutorial, você adiciona código aos métodos de acesso a dados em seu controlador que filtra consultas com base na userId de um usuário autenticado, garantindo que cada usuário possa ver apenas seus próprios dados.
 
-Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis e no tutorial anterior [Introdução à autenticação]. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução à autenticação].  
+Este tutorial baseia-se no início rápido dos Serviços Móveis e no tutorial anterior [Introdução à autenticação]. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução à autenticação].  
 
 ## <a name="register-scripts"></a>Modificar os métodos de acesso a dados
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
 
 
 ## Testar o aplicativo
 
-1. Em Xcode, abra o projeto que você modificou quando concluiu o tutorial [Introdução à autenticação].
+1. No Xcode, abra o projeto que você modificou quando concluiu o tutorial [Introdução à autenticação].
 
 2. Pressione o botão **Executar** para compilar o projeto, iniciar o aplicativo no emulador do iPhone e fazer logon com o provedor de identidade escolhido.
 
    	Observe que, desta vez, embora já existam itens na tabela TodoItem de tutoriais anteriores, nenhum item é retornado. Isso acontece porque os itens anteriores foram inseridos sem a coluna userId e agora têm valores nulos.
 
-3. No aplicativo, insira texto em **Inserir um TodoItem** e clique em **Salvar**.
+3. No aplicativo, insira o texto em **Inserir um TodoItem** e clique em **Salvar**.
 
    	![][3]
 
@@ -33,18 +47,18 @@ Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis e no tu
 
 6. (Opcional) Se tiver contas de logon adicionais, você poderá verificar se os usuários podem ver apenas seus próprios dados fechando o aplicativo e, em seguida, executando-o novamente. Quando a caixa de diálogo de credenciais de logon for exibida, insira um logon diferente e, em seguida, verifique se os itens inseridos na conta anterior não são exibidos.
 
-<!--## Next steps
+<!--## Próximas etapas
 
-This concludes the tutorials that demonstrate the basics of working with authentication. Consider finding out more about the following Mobile Services topics:
+Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar com autenticação. Considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
 
-* [Get started with data]
+* [Introdução aos dados]
   <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
 
 * [Introdução às notificações por push]
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
 * [Referência conceitual do tutorial do .NET de Serviços Móveis]
-  <br/>Saiba mais sobre como usar os Serviços Móveis com .NET.
+  <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
 -->
 
 <!-- Anchors. -->
@@ -56,9 +70,10 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
+[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
+[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+\n<!--HONumber=42-->
