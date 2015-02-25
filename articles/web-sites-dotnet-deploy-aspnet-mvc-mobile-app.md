@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Site móvel do .NET ASP.NET MVC 5 - Tutoriais do Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Um tutorial que ensina como implantar um aplicativo Web em um site do Azure usando recursos móveis no aplicativo Web ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Site móvel do .NET ASP.NET MVC 5 - Tutoriais do Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Um tutorial que ensina como implantar um aplicativo Web em um site do Azure usando recursos móveis no aplicativo Web ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -137,7 +137,8 @@ Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App\
               "~/Content/site.css"));
 
 Pressione `Ctrl+F5` para executar o aplicativo.
- Observe que a barra de navegação recolhível é agora apenas uma lista simples e desordenada. Clique em **Procurar por marca** novamente, então clique em **ASP.NET**.No modo de exibição do emulador do navegador móvel, é possível ver que ele já não se ajusta à tela, e você precisa rolar para os lados para conseguir vero lado direito da tabela.
+
+Observe que a barra de navegação recolhível é agora apenas uma lista simples e desordenada. Clique em **Procurar por marca** novamente, então clique em **ASP.NET**.No modo de exibição do emulador do navegador móvel, é possível ver que ele já não se ajusta à tela, e você precisa rolar para os lados para conseguir vero lado direito da tabela.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -556,7 +557,7 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
 Consulte também
 --------
 
--   [9 princípios básicos do design da Web responsivo][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
+-   [9 princípios básicos do design da Web responsivo](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   Site do [Bootstrap][BootstrapSite]
 -   [Blog oficial do Bootstrap][]
 -   [Tutorial do Twitter Bootstrap do Tutorial Republic][]

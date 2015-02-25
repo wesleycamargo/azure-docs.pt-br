@@ -28,6 +28,7 @@ Este guia demonstrará como executar cenários comuns usando o Bloco de Aplicati
 O Bloco de Aplicativos de Dimensionamento Automático pode dimensionar seu aplicativo do Microsoft Azure automaticamente com base nas regras que você definir especificamente para seu aplicativo. Você pode usar essas regras para ajudar seu aplicativo do Azure a manter sua taxa de transferência em resposta a alterações em sua carga de trabalho e, ao mesmo tempo, controlar os custos associados à hospedagem de seu aplicativo no Azure. Junto com o dimensionamento, aumentando ou diminuindo o número de instâncias de função de seu aplicativo, o bloco também permite que você use outras ações de dimensionamento, como a limitação de determinada funcionalidade dentro de seu aplicativo ou o uso de ações personalizadas.
 
 Você pode optar por hospedar o bloco em uma função do Azure ou em um aplicativo local. 
+
 O Bloco de Aplicativos de Dimensionamento Automático faz parte do [Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure][Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure].
 
 ## <a id="Concepts"> </a>Conceitos
@@ -281,7 +282,7 @@ Por padrão, o Bloco de Aplicativos de Dimensionamento Automático espera que as
 2.   No menu **Blocos**, clique em **Adicionar Configurações de Dimensionamento Automático**:  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
-3.  Expanda as **Configurações de Dimensionamento Automático** e, em seguida, clique nas reticências (...)     ao lado de **Conta de Armazenamento do Repositório de Pontos de Dados**, adicione o **Nome da conta** e a **Chave da conta** da conta de armazenamento do Azure na qual o bloco armazenará os pontos que coletar (consulte [Como: Defina seu modelo de serviço][Como: Defina seu modelo de serviço] se não tiver certeza quanto a onde localizar esses valores) e, em seguida, clique em **OK**:  
+3.  Expanda as **Configurações de Dimensionamento Automático** e, em seguida, clique nas reticências (...)     ao lado de **Conta de Armazenamento do Repositório de Pontos de Dados**, adicione o **Nome da conta** e a **Chave da conta** da conta de armazenamento do Azure na qual o bloco armazenará os pontos que coletar (consulte [Como: Defina seu modelo de serviço][Como: Definir seu modelo de serviço] se não tiver certeza quanto a onde localizar esses valores) e, em seguida, clique em **OK**:  
 
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
@@ -373,8 +374,7 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
 -   [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático][Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]
 -   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com o dimensionamento automático no Azure][Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com o dimensionamento automático no Azure]
 
-  [Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure]:
-    http://go.microsoft.com/fwlink/?LinkID=235134
+  [Pacote de Integração do Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
   [Próximas etapas]: #NextSteps
   [O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs
   [Conceitos]: #Concepts
@@ -398,5 +398,5 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
   [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]: http://msdn.microsoft.com/pt-br/library/jj838716(PandP.50).aspx
   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com o dimensionamento automático no Azure]: http://msdn.microsoft.com/pt-br/library/jj838718(PandP.50).aspx
   [Como: Definir suas regras de dimensionamento automático]: #DefineAutoscalingRules
-
+  [Armazenando seus dados de informações de serviço]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
 <!--HONumber=35.1-->

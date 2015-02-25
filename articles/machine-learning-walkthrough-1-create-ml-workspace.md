@@ -1,11 +1,11 @@
-﻿<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Etapa 1: Criar um espaço de trabalho de Aprendizado de Máquina | Azure" description="Etapa 1: Criar um novo espaço de trabalho do Azure Studio de aprendizado de máquina" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Etapa 1: Criar um espaço de trabalho de Aprendizado de Máquina | Azure" description="Etapa 1: Criar um novo espaço de trabalho do Azure Studio de aprendizado de máquina" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 
 Esta é a primeira etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][develop]:
 
-[desenvolver]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 1.	**Criar um espaço de trabalho do AM**
 2.	[Fazer upload de dados existentes][upload-data]
@@ -15,11 +15,11 @@ Esta é a primeira etapa do passo a passo, [Desenvolvendo uma Solução Preditiv
 6.	[Acessar o serviço Web][access-ws]
 
 [criar espaço de trabalho]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[carregar dados]: ../machine-learning-walkthrough-2-upload-data/
-[criar novo]: ../machine-learning-walkthrough-3-create-new-experiment/
-[treinar modelos]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publicar]: ../machine-learning-walkthrough-5-publish-web-service/
-[acesso ws]: ../machine-learning-walkthrough-6-access-web-service/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
@@ -27,7 +27,7 @@ Esta é a primeira etapa do passo a passo, [Desenvolvendo uma Solução Preditiv
 
 Para usar o Estúdio AM, é necessário ter um espaço de trabalho de AM. Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.  
 
-##Para criar um espaço de trabalho  
+## Para criar um espaço de trabalho  
 
 1.	Entre na sua conta Microsoft Azure.
 2.	No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.  

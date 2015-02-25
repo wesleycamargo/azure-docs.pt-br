@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Tutorial de últimas notícias localizadas dos Hubs de Notificação" metaKeywords="" description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações de últimas notícias." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="Tutorial de últimas notícias localizadas dos Hubs de Notificação" metaKeywords="" description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações de últimas notícias." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # Usar Hubs de Notificação para enviar últimas notícias localizadas
@@ -25,7 +25,7 @@ Há duas partes que compõem esse cenário:
 
 
 
-##Pré-requisitos ##
+## Pré-requisitos ##
 
 Você já deve ter concluído o tutorial [Usar Hubs de Notificação para envio de últimas notícias] e ter o código disponível, porque este tutorial se baseia diretamente no código. 
 
@@ -205,7 +205,7 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 [Notificar usuários com Hubs de Notificação: ASP.NET]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
 [Notificar usuários com Hubs de Notificação: Serviços Móveis]: /pt-br/manage/services/notification-hubs/notify-users
 [Usar Hubs de Notificação para envio de últimas notícias]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet 
-
+[Usar Hubs de Notificação para enviar últimas notícias]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet 
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

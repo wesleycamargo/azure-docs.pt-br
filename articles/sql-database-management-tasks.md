@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Como gerenciar o Banco de Dados SQL" metaKeywords="banco de dados SQL do Azure, banco de dados SQL, gerenciar o banco de dados sql, adicionar logons, conectar-se ao banco de dados sql" description="Saiba como gerenciar o banco de dados SQL do Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties umbracoNaviHide="0" pageTitle="Como gerenciar o Banco de Dados SQL" metaKeywords="banco de dados SQL do Azure, banco de dados SQL, gerenciar o banco de dados sql, adicionar logons, conectar-se ao banco de dados sql" description="Saiba como gerenciar o banco de dados SQL do Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -7,7 +7,7 @@
 
 Esta documentação mostra como executar tarefas de gerenciamento simples no Banco de Dados SQL do Azure. 
 
-##Sumário##
+## Sumário##
 
 * [Como: conectar-se ao Banco de Dados SQL no Azure usando o Management Studio](#connect)
 * [Como: adicionar logons e usuários ao Banco de Dados SQL no Azure](#addlogins)
@@ -23,7 +23,7 @@ Na etapa seguinte, você usará o Management Studio para se conectar a um servid
 
 Antes de você se conectar, às vezes, é necessário criar uma exceção de firewall que permita as solicitações de saída na porta 1433 no seu sistema local. Os computadores que, por padrão, estejam protegidos normalmente não têm a porta 1433 aberta. 
 
-##Configurar o firewall para um servidor local
+## Configurar o firewall para um servidor local
 
 1. No Firewall do Windows com Segurança Avançada, crie uma nova regra de saída.
 
@@ -32,7 +32,7 @@ Antes de você se conectar, às vezes, é necessário criar uma exceção de fir
 3. Atribua um nome significativo, como *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
 
 
-##Conectar-se a um servidor lógico
+## Conectar-se a um servidor lógico
 
 1. No Management Studio, em Conectar-se ao Servidor, certifique-se de que o Mecanismo de Banco de Dados esteja selecionado e, em seguida, insira o nome do servidor lógico neste formato: *servername*.database.widnows.net
 
@@ -45,7 +45,7 @@ Antes de você se conectar, às vezes, é necessário criar uma exceção de fir
 4. Em Conectar-se ao banco de dados, especifique **mestre**.
 
 
-##Conectar-se a um servidor local
+## Conectar-se a um servidor local
 
 1. No Management Studio, em Conectar-se ao Servidor, certifique-se de que o Mecanismo de Banco de Dados esteja selecionado e, em seguida, insira o nome de uma instância local neste formato: *servername*\\*instancename*. Se o servidor for local e uma instância padrão, digite *localhost*.
 
@@ -62,7 +62,7 @@ Os logons que você criar devem ser de autenticação do SQL Server. Se você j�
 
 O segundo script atribui permissões de usuário do banco de dados. Para esse script, você se conectará a um banco de dados já carregado no Azure.
 
-##Criar logons
+## Criar logons
 
 1. No Management Studio, conecte-se a um servidor lógico no Azure, expanda a pasta Databases, clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**.
 
@@ -82,7 +82,7 @@ O segundo script atribui permissões de usuário do banco de dados. Para esse sc
 </pre></div>
 
 
-##Criar usuários de banco de dados
+## Criar usuários de banco de dados
 
 1. Expanda a pasta Databases, clique com o botão do mouse em **school** e selecione **Nova Consulta**.
 
@@ -104,7 +104,7 @@ O segundo script atribui permissões de usuário do banco de dados. Para esse sc
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##Exibir e testar logons
+## Exibir e testar logons
 
 1. Em uma nova janela de consulta, conecte-se a **mestre** e execute a seguinte instrução: 
 
@@ -125,9 +125,9 @@ O segundo script atribui permissões de usuário do banco de dados. Para esse sc
 
 Agora você criou e testou vários logons. Para obter mais informações, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL][] e [Monitorando o Banco de Dados SQL usando as exibições de gerenciamento dinâmico][].
 
-[Gerenciamento de bancos de dados e logons no banco de dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336235.aspx
-[Monitorando o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff394114.aspx
-[Gerenciamento de Banco de Dados SQL usando o Management Studio]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/sql-azure-management/
+[Gerenciando bancos de dados e logons no Banco de Dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336235.aspx
+[Monitorando o Banco de Dados SQL usando as exibições de gerenciamento dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff394114.aspx
+[Gerenciando o Banco de Dados SQL usando o Management Studio]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/sql-azure-management/
 
 
 

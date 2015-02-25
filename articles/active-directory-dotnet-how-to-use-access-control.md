@@ -215,15 +215,15 @@ Nesta seção, vamos modificar o aplicativo para exibir as declarações enviada
 
 2.  Na classe HomeController, adicione o método *Declarações*:
 
-    público ActionResult Claims()
-    {
-     ViewBag.Message = "Sua página de declarações.";
+    	público ActionResult Claims()
+    	{
+     	ViewBag.Message = "Sua página de declarações.";
 
-        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+        	ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
-        return View();
+        	return View();
 
-    }
+    	}
 
 3.  Clique com o botão direito do mouse no método *Declarações* e selecione **Adicionar Exibição**.
 
@@ -359,6 +359,7 @@ Você também pode adicionar regras para seu namespace que determinam quais decl
 
 Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
+  [O que é ACS?]: #what-is
   [Conceitos]: #concepts
   [Pré-requisitos]: #pre
   [Criar um espaço reservado do Access Control]: #create-namespace
@@ -368,6 +369,7 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [Exibir declarações enviadas pelo ACS]: #bkmk_viewClaims
   [Exibir o aplicativo no Portal de Gerenciamento do ACS]: #bkmk_VP
   [Adicionar um provedor de identidade]: #add-IP
+  [E agora?]: #whats-next
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [Identidade e ferramenta de acesso]: http://go.microsoft.com/fwlink/?LinkID=245849

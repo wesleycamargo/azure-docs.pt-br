@@ -1,10 +1,10 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Etapa 2: Carregar dados em um teste de aprendizado de máquina | Azure" description="Etapa 2: Carregar dados públicos existentes em Studio de aprendizado de máquina do Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Etapa 2: Carregar dados em um teste de aprendizado de máquina | Azure" description="Etapa 2: Carregar dados públicos existentes em Studio de aprendizado de máquina do Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 Esta é a segunda etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][develop]:
 
-[desenvolver]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
 1.	[Criar um espaço de trabalho do AM][create-workspace]
@@ -14,16 +14,16 @@ Esta é a segunda etapa do passo a passo, [Desenvolvendo uma Solução Preditiva
 5.	[Publicar o serviço Web][publish]
 6.	[Acessar o serviço Web][access-ws]
 
-[criar espaço de trabalho]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
 [carregar dados]: ../machine-learning-walkthrough-2-upload-data/
-[criar novo]: ../machine-learning-walkthrough-3-create-new-experiment/
-[treinar modelos]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publicar]: ../machine-learning-walkthrough-5-publish-web-service/
-[acesso ws]: ../machine-learning-walkthrough-6-access-web-service/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
-#Etapa 2: Carregar dados existentes no experimento de Aprendizado de Máquina do Azure  
+# Etapa 2: Carregar dados existentes no experimento de Aprendizado de Máquina do Azure  
 
 Para desenvolver um modelo preditivo para risco de crédito, usaremos o "Conjunto de Dados Statlog (Dados de Crédito Alemão) UCI" do repositório de Aprendizado de Máquina UCI. Você pode encontrar mais informações aqui:  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -38,7 +38,7 @@ Usaremos estes dados para treinar um modelo analítico preditivo. Quando tivermo
 
 Aqui está uma mudança interessante. A descrição do conjunto de dados explica que a classificação incorreta de uma pessoa como um risco de crédito baixo quando, na verdade, são um risco de crédito alto, é 5 vezes mais onerosa à instituição financeira do que a classificação incorreta de um risco de crédito baixo como alto. Uma forma simples de considerar isto em nosso experimento é duplicando (5 vezes) essas entradas que representam alguém com um risco de crédito alto. Então, se o modelo classificar incorretamente um risco de crédito alto como baixo, ele fará essa classificação incorreta 5 vezes, uma para cada duplicado. Isso aumentará o custo deste erro nos resultados de treinamento.  
 
-##Converter o formato do conjunto de dados
+## Converter o formato do conjunto de dados
 O conjunto de dados original usa um formato separado por espaço em branco. O Estúdio AM trabalha melhor com um arquivo separado por vírgulas (CSV), então converteremos o conjunto de dados substituindo espaços por vírgulas.  
 
 Podemos fazer isso usando o comando Windows PowerShell a seguir:   
@@ -49,7 +49,7 @@ Também podemos fazer isso usando o comando Unix sed:
 
 	sed 's/ /,/g' german.data > german.csv  
 
-##Fazer upload do conjunto de dados no Estúdio AM
+## Fazer upload do conjunto de dados no Estúdio AM
 
 Uma vez que os dados tiverem sido convertidos para o formato CSV, precisaremos fazer upload deles no Estúdio AM.  
 

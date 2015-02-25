@@ -1,11 +1,11 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Etapa 3: Criar um novo teste de Aprendizado de Máquina | Azure" description="Etapa 3: Criar uma nova experiência de treinamento no Azure Studio de aprendizado de máquina" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Etapa 3: Criar um novo teste de Aprendizado de Máquina | Azure" description="Etapa 3: Criar uma nova experiência de treinamento no Azure Studio de aprendizado de máquina" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 
 Esta é a quarta etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][develop]:
 
-[desenvolver]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
 1.	[Criar um espaço de trabalho do AM][create-workspace]
@@ -15,12 +15,12 @@ Esta é a quarta etapa do passo a passo, [Desenvolvendo uma Solução Preditiva 
 5.	[Publicar o serviço Web][publish]
 6.	[Acessar o serviço Web][access-ws]
 
-[criar espaço de trabalho]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[carregar dados]: ../machine-learning-walkthrough-2-upload-data/
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
 [criar novo]: ../machine-learning-walkthrough-3-create-new-experiment/
-[treinar modelos]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publicar]: ../machine-learning-walkthrough-5-publish-web-service/
-[acesso ws]: ../machine-learning-walkthrough-6-access-web-service/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
@@ -33,7 +33,7 @@ Precisamos criar um novo teste no Estúdio AM que use o conjunto de dados que ca
 3.	Na paleta do módulo à esquerda das telas de teste, expanda **Conjuntos de dados salvos**.
 4.	Localize o conjunto de dados que você criou e arraste-o nas telas. Você também pode localizar o conjunto de dados inserindo o nome na caixa **Pesquisar** acima da paleta.  
 
-##Preparar os dados
+## Preparar os dados
 É possível exibir as 100 primeiras linhas dos dados, e algumas informações estatísticas de todo o conjunto de dados, clicando com o botão direito do mouse na porta de saída do conjunto de dados e selecionando **Visualizar**. Observe que o Estúdio AM já identificou o tipo de dados de cada coluna. Ele também já colocou títulos genéricos nas colunas, já que o arquivo de dados não veio com títulos nas colunas.  
 
 Os títulos de coluna não são essenciais, mas facilitam o trabalho com os dados no modelo. Também, quando eventualmente publicarmos esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.  
@@ -59,7 +59,7 @@ O teste deve se parecer como o seguinte:
 
 ![Adding Metadata Editor][2]
  
-##Criar conjuntos de dados de treinamento e teste
+## Criar conjuntos de dados de treinamento e teste
 A próxima etapa do teste é gerar conjuntos de dados separados que serão utilizados para treinamento e teste de nosso modelo. Para isso, usamos o módulo **Dividir**.  
 
 1.	Localize o módulo **Dividir**, arraste-o para a tela e conecte-o ao último módulo do **Editor de metadados**.

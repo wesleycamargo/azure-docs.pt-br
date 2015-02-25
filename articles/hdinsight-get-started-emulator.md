@@ -1,21 +1,6 @@
-﻿<properties 
-	pageTitle="Introdução ao emulador do HDInsight | Azure" 
-	description="Saiba como usar o emulador do HDInsight para Azure." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	author="nitinme" 
-	authors="nitinme" 
-	documentationCenter=""/>
+<properties pageTitle="Introdução ao emulador do HDInsight | Azure" description="Saiba como usar o emulador do HDInsight para Azure." editor="cgronlun" manager="paulettm" services="hdinsight" author="nitinme" authors="nitinme" documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/06/2015" 
-	ms.author="nitinme"/>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="nitinme"/>
 
 # Introdução ao emulador do HDInsight 
 
@@ -84,7 +69,7 @@ A instalação deve ter inserido três ícones na área de trabalho. Os três í
 
 A instalação também deve ter instalado vários serviços locais. Esta é uma captura de tela da janela Serviços:
 
-![HDI.Emulator.Services][0]
+![HDI.Emulator.Services][image-hdi-emulator-services]
 
 Os serviços relacionados ao Emulador do HDInsight não são iniciados por padrão. Para iniciar os serviços, na linha de comando do Hadoop, execute **start\_local\_hdp_services.cmd** em <system drive\>\hdp. Para iniciar automaticamente os serviços após o reinício do computador, execute **set-onebox-autostart.cmd**.  
 
@@ -469,7 +454,7 @@ Neste tutorial, você instalará um Emulador do HDInsight e executará alguns tr
 - [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 - [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-deploy-streaming]
 - [Notas de versão do emulador do HDInsight][hdinsight-emulator-release-notes]
-- [Fórum do MSDN para discussão do HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
+- [Fórum do MSDN para discussão do HDInsight](http://social.msdn.microsoft.com/Forums/pt-br/hdinsight)
 
 
 

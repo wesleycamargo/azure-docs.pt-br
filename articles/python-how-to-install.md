@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="Instalar o Python e o SDK - Azure" metaKeywords="Azure Python SDK" description="Saiba como instalar o Python e o SDK para usar com o Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Install Python" pageTitle="Instalar o Python e o SDK - Azure" metaKeywords="Azure Python SDK" description="Saiba como instalar o Python e o SDK para usar com o Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 
@@ -173,9 +173,9 @@ Para obter informações sobre como configurar uma VM com Linux, consulte a [se�
 [Projeto Django - Uma estrutura de web/CMS madura]: http://www.djangoproject.com 
 [IPython - Um REPL/Notebook avançado para o Python]: http://ipython.org
 [IPython Notebook no Azure]: /pt-br/documentation/articles/virtual-machines-python-ipython-notebook
-[implantação a Serviços de Nuvem e Sites]: /pt-br/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
+[implementação a Serviços de Nuvem e Sites]: /pt-br/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
 [Python Tools para Visual Studio no CodePlex]: http://pytools.codeplex.com 
-[Índice de Pacote do Python (PyPI)]: http://pypi.python.org/pypi
+[Python Package Index (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 
 [Microsoft Azure SDK para Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 [Microsoft Azure SDK para Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409

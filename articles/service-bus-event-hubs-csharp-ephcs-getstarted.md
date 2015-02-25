@@ -78,7 +78,6 @@ Agora você está pronto para executar os aplicativos.
 
 <!-- Links -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Host de processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/azure/dn836025.aspx
 

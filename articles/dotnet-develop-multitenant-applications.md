@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Padrão de aplicativo Web multilocatário - arquitetura do Azure" metaKeywords="" description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Padrão de aplicativo Web multilocatário - arquitetura do Azure" metaKeywords="" description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -104,7 +104,6 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 	- 	Cópia de um banco de dados mestre de referência 
 	- 	Uso de importação e exportação de banco de dados para provisionar novos bancos de dados de um arquivo. 
 
-][].
 
 <!--links-->
 

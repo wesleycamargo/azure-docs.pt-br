@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Como usar o serviço de email SendGrid (Node. js) - Azure" metaKeywords ="SendGrid do Azure, serviço de email do Azure, Node. js SendGrid do Azure, email do Azure Node. js" description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Como usar o serviço de email SendGrid (Node. js) - Azure" metaKeywords ="SendGrid do Azure, serviço de email do Azure, Node. js SendGrid do Azure, email do Azure Node. js" description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -231,8 +231,8 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [Como: Criar um email]: #createemail
   [Como: Enviar um email]: #sendemail
   [Como: Adicionar um anexo]: #addattachment
-  [Como: Usar filtros para habilitar rodapés, rastreamento e análise]: #usefilters
-  [Como: Atualizar as propriedades do e-mail]: #updateproperties
+  [Como: Usar filtros para habilitar rodapés, acompanhamento e análise]: #usefilters
+  [Como: Atualizar as propriedades do email]: #updateproperties
   [Como: Usar serviços adicionais do SendGrid]: #useservices
   [1]: #nextsteps
 
@@ -242,9 +242,9 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   
   
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [SMTP vs. API da Web]: https://sendgrid.com/docs/Integrate/index.html
   
-  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API documentation]: https://sendgrid.com/docs
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [Configurações de filtro]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [documentação da API do SendGrid]: https://sendgrid.com/docs
+  [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
+  [entrega de email transacional]: https://sendgrid.com/transactional-email

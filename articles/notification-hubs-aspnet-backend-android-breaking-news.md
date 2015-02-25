@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="Tutorial de últimas notícias de Hubs de Notificação - Android" metaKeywords="" description="Aprenda a usar Hubs de notificação do barramento de serviço do Azure para enviar notificações de últimas notícias a dispositivos com Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Breaking News" pageTitle="Tutorial de últimas notícias de Hubs de Notificação - Android" metaKeywords="" description="Aprenda a usar Hubs de notificação do barramento de serviço do Azure para enviar notificações de últimas notícias a dispositivos com Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
@@ -22,7 +22,7 @@ Este tutorial explicará estas etapas básicas a serem seguidas para habilitar e
 
 Este tópico baseia-se no aplicativo criado em [Introdução aos Hubs de Notificação][get-started]. Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução aos Hubs de Notificação][get-started].
 
-##<a name="adding-categories"></a>Adicionar a seleção de categorias ao aplicativo
+## <a name="adding-categories"></a>Adicionar a seleção de categorias ao aplicativo
 
 A primeira etapa é adicionar os elementos da interface do usuário na atividade principal existente, o que permite ao usuário selecionar categorias para o registro. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos. 
 
@@ -209,7 +209,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 
 Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo e registrar com o hub de notificação, sempre que o usuário alterar a seleção de categorias. 
 
-##<a name="register"></a>Registrar-se para receber notificações
+## <a name="register"></a>Registrar-se para receber notificações
 
 Estas etapas registram com o hub de notificação na inicialização, usando as categorias que foram armazenadas no armazenamento local. 
 
@@ -262,7 +262,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Executar o aplicativo e gerar notificações
+## <a name="test-app"></a>Executar o aplicativo e gerar notificações
 
 1. No Eclipse, crie o aplicativo e o inicie em um dispositivo ou emulador.
 	

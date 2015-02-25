@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="View ACS SAML" pageTitle="Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)" metaKeywords="" description="Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="View ACS SAML" pageTitle="Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)" metaKeywords="" description="Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -186,6 +186,6 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofis
 [Adicionar a biblioteca JspWriter a seu caminho de compilação e assembly de implantação]: #add_library
 [Executar o aplicativo]: #run_application
 [Próximas etapas]: #next_steps
-[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+[Serviço de Controle de Acesso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png

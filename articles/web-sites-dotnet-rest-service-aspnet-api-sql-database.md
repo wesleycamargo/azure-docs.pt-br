@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="Serviço REST .NET usando a API da Web API - Tutorial do Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um site do Azure usando o Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="REST service using Web API" pageTitle="Serviço REST .NET usando a API da Web API - Tutorial do Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um site do Azure usando o Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
@@ -879,9 +879,8 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Add XSRF Protection]: #xsrf
+[Adicionar proteção XSRF]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png

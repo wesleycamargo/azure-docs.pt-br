@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Introdução aos Hubs de Notificação do Azure" metaKeywords="" description="Saiba como usar os Hubs de notificação do Azure para enviar notificações por push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Introdução aos Hubs de Notificação do Azure" metaKeywords="" description="Saiba como usar os Hubs de notificação do Azure para enviar notificações por push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,7 +14,7 @@ Este tutorial exige o seguinte:
 + O SDK do Android (pressupõe-se que você usará o Eclipse), que pode ser baixado <a href="http://go.microsoft.com/fwlink/?LinkId=389797">aqui</a>.
 + Siga as etapas <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">aqui</a> para configurar o ambiente de desenvolvimento para Kindle.
 
-##Adicionar um novo aplicativo ao portal do desenvolvedor
+## Adicionar um novo aplicativo ao portal do desenvolvedor
 
 1. Primeiro, crie um aplicativo no [portal do desenvolvedor].
 
@@ -57,7 +57,7 @@ No portal, adicione o segredo do cliente e a id do cliente à guia **Configurar*
 
 ## Configurar o aplicativo
 
-<div class="dev-callout"><b>Observação</b>
+   <div class="dev-callout"><b>Observação</b>
     <p>Ao criar um aplicativo, use pelo menos API de nível 17.</p>
     </div>
 
@@ -256,7 +256,7 @@ Para enviar uma mensagem usando o .NET:
 
 <!-- URLs. -->
 [portal do desenvolvedor]: https://developer.amazon.com/home.html
-[baixar o SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
+[baixe o SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
