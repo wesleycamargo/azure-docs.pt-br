@@ -313,4 +313,5 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [Registrar seus aplicativos para logon no Twitter com os Serviços Móveis]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configurações do aplicativo]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-[LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/\n<!--HONumber=42-->
+[LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
+\n<!--HONumber=42-->

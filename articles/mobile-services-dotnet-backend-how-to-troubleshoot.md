@@ -152,4 +152,6 @@ As migrações podem ser complexas e exigir que o estado do banco de dados seja 
 [LogsOutputWindow]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/11.png
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
-[HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png\n<!--HONumber=42-->
+[HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
+
+\n<!--HONumber=42-->

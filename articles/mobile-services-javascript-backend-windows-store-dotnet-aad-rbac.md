@@ -291,4 +291,5 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [Registrar-se para usar um logon do Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [API gráfica]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Referência de erros de API gráfica]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx\n<!--HONumber=42-->
+[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+\n<!--HONumber=42-->

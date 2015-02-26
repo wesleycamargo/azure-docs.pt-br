@@ -319,4 +319,5 @@ Em seu aplicativo cliente, será necessário desenvolver uma tela de logon perso
 
 <!-- URLs. -->
 [Introdução aos usuários]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started\n<!--HONumber=42-->
+[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+\n<!--HONumber=42-->

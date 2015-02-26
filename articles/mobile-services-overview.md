@@ -28,4 +28,5 @@
 [@AzureMobile]: https://twitter.com/AzureMobile
 [Fóruns]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
-[postagem no blog]: http://azure.microsoft.com/blog/2014/07/11/azure-mobile-services-why-should-asp-net-developers-care/\n<!--HONumber=42-->
+[postagem no blog]: http://azure.microsoft.com/blog/2014/07/11/azure-mobile-services-why-should-asp-net-developers-care/
+\n<!--HONumber=42-->

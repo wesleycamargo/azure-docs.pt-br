@@ -27,4 +27,5 @@
 Saiba como autenticar seu aplicativo e acessar recursos usando o Active Directory com o tutorial de Chris Risner [Acessando recursos protegidos pelo Active Directory do Azure com iOS e Android].
 
 <!-- URLs. -->
-[Acessando recursos protegidos pelo Active Directory do Azure com iOS e Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android\n<!--HONumber=42-->
+[Acessando recursos protegidos pelo Active Directory do Azure com iOS e Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
+\n<!--HONumber=42-->

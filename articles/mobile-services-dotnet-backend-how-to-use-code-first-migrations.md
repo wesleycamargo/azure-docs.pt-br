@@ -11,8 +11,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/27/2014" 
 	ms.author="glenga"/>
@@ -156,4 +156,5 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate] para adicionar 
 [Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx\n<!--HONumber=42-->
+[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+\n<!--HONumber=42-->

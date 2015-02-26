@@ -119,4 +119,5 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
 [Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [O que é o serviço Tabela]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[Página do suplemento MongoLab]: /en-us/gallery/store/mongolab/mongolab\n<!--HONumber=42-->
+[Página do suplemento MongoLab]: /en-us/gallery/store/mongolab/mongolab
+\n<!--HONumber=42-->
