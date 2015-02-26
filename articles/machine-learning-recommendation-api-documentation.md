@@ -1,9 +1,21 @@
-﻿<properties title="Azure Machine Learning Recommendations - 
-API documentation" pageTitle="Recomendações de Aprendizado de Máquina do Azure -  
-Documentação da API" description="Recomendações de aprendizado de máquina do Azure - 
-documentação do API" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
-
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="AharonGumnik" />
+﻿<properties 
+	pageTitle="Recomendações de Aprendizado de Máquina do Azure -  
+Documentação da API" 
+	description="Recomendações de aprendizado de máquina do Azure - 
+documentação do API" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="AharonGumnik"/>
 
 #Recomendações de Aprendizado de Máquina do Azure - <br>Documentação da API
 
