@@ -150,4 +150,4 @@ Este tutorial exige o seguinte:
 [Extensão Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-\n<!--HONumber=42-->
+<!--HONumber=42-->
