@@ -27,7 +27,7 @@ Taxa de transferência de e/s de disco e tempo de resposta de e/s no Azure podem
 
 Além de e/s de disco, o desempenho do MySQL melhora quando você aumenta o nível do RAID.  Consulte o [Apêndice B](#AppendixB) para obter detalhes.  
 
-Você talvez queira considerar o tamanho da parte. Em geral quando você tem um grande parte, você obterá uma sobrecarga mais baixa, especialmente para grandes gravações. No entanto, quando o tamanho da parte for muito grande, ela pode adicionar uma sobrecarga adicional e você não pode tirar proveito do RAID. O tamanho atual do padrão é 512KB, que provou ser ideal para ambientes de produção mais gerais. Consulte o [Apêndice C](#AppendixC) para obter detalhes.   
+Você talvez queira considerar o tamanho da parte. Em geral quando você tem um grande parte, você obterá uma sobrecarga mais baixa, especialmente para grandes gravações. No entanto, quando o tamanho da parte for muito grande, ela pode adicionar uma sobrecarga adicional e você não pode tirar proveito do RAID. O tamanho atual do padrão é 512 KB, que provou ser ideal para ambientes de produção mais gerais. Consulte o [Apêndice C](#AppendixC) para obter detalhes.   
 
 Observe que há limites em quantos discos que você pode adicionar para diferentes tipos de máquinas virtuais. Esses limites são detalhados em [Tamanhos de máquinas virtuais e serviço de nuvem para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Você precisará de 4 discos de dados anexados para seguir o exemplo do RAID neste artigo, embora você possa optar por configurar o RAID com menos discos.  
 
@@ -67,7 +67,7 @@ Você pode ver as unidades adicionadas na máquina virtual, observando o log de 
 ####Etapa 2: Criar o RAID com os discos adicionais
 Siga este artigo para obter as etapas detalhadas de configuração do RAID:  
 
-[http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] Se você estiver usando o sistema de arquivos XFS, siga as etapas abaixo após ter criado o RAID.
 
@@ -108,13 +108,13 @@ Você pode selecionar diferentes agendadores de e/s em cenários diferentes para
 
 Para o SSD e outros equipamentos, usando o NOOP ou o prazo é possível obter um desempenho melhor que o agendador padrão.   
 
-Do kernel 2.5, o algoritmo de agendamento de e/s padrão é o prazo final. A partir do kernel 2.6.18, o CFQ tornou-se o algoritmo de agendamento de e/s padrão.  Você pode especificar essa configuração no momento da inicialização do Kernel ou modificar essa configuração dinamicamente quando o sistema está em execução.  
+Do kernel 2.5, o algoritmo de agendamento de e/s padrão é o prazo final. Começando no kernel 2.6.18, o CFQ tornou-se o algoritmo de agendamento de e/s padrão.  Você pode especificar essa configuração no momento da inicialização do Kernel ou modificar essa configuração dinamicamente quando o sistema está em execução.  
 
 O exemplo a seguir demonstra como verificar e definir o agendador padrão para o algoritmo NOOP.  
 
 Para a família de distribuição do Debian:
 
-###Etapa 1.Exibir o agendador de e/s atual.
+###Etapa 1.Exibir o agendador de e/s atual
 Use o seguinte comando:  
 
 	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
@@ -150,11 +150,11 @@ Para a família de distribuição Redhat, só é necessário o seguinte comando:
 	echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ##Definir as configurações de operações de arquivos do sistema
-Uma prática recomendada é desativar o recurso de log no sistema de arquivos. Atime é a hora do último acesso ao arquivo. Sempre que um arquivo é acessado, o sistema de arquivos registra o carimbo de hora no log. No entanto, essas informações raramente são usadas. Você pode desabilitá-lo se não precisar dele, o que reduzirá o tempo de acesso total do disco.  
+Uma prática recomendada é desabilitar o recurso de log no sistema de arquivos. Atime é a hora do último acesso ao arquivo. Sempre que um arquivo é acessado, o sistema de arquivos registra o carimbo de data/hora no log. No entanto, essas informações raramente são usadas. Você pode desabilitá-lo se não precisar dele, o que reduzirá o tempo de acesso total do disco.  
  
 Para desabilitar o log atime, você precisa modificar o arquivo de configuração do sistema de arquivos /etc/ fstab e adicionar a opção **noatime**.  
 
-Por exemplo, edite o arquivo vim /etc/fstab, adicionando o noatime conforme mostrado abaixo.  
+Por exemplo, edite  o arquivo vim /etc/fstab, adicionando o noatime conforme mostrado abaixo.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -180,7 +180,7 @@ Depois do exemplo:
 O MySQL é o banco de dados de alta simultaneidade. O número de manipuladores simultâneos é 1024 para Linux, que nem sempre é suficiente. **Use as etapas a seguir para aumentar os manipuladores simultâneos máximos do sistema para dar suporte à alta simultaneidade do MySQL**.
 
 ###Etapa 1: Modificar o arquivo limits.conf
-Adicione as seguintes quatro linhas no arquivo /etc/security/limits.conf para aumentar o máximo de manipuladores simultâneos permitido. Observe que 65536 é o número máximo que o sistema pode suportar.   
+Adicione as seguintes quatro linhas no arquivo /etc/security/limits.conf para aumentar o máximo de manipuladores simultâneos permitido. Observe que 65536 é o número máximo ao qual o sistema pode dar suporte.   
 
 	* soft nofile 65536
 	* hard nofile 65536
@@ -200,25 +200,25 @@ Colocar os seguintes comandos de inicialização no arquivo /etc/rc.local para q
 	echo "ulimit -SHu 65536" >>/etc/rc.local
 
 ##Otimização de banco de dados do MySQL 
-Você pode usar a mesma estratégia de ajuste de desempenho para configurar o MySQL no Azure como em uma máquina local.  
+Você pode usar a mesma estratégia de ajuste de desempenho para configurar o MySQL no Azure como em um computador local.  
 
 As principais regras de otimização de e/s são:   
 
--	Increase the cache size.
--	Reduce I/O response time.  
+-	Aumente o tamanho do cache.
+-	Reduza o tempo de resposta de E/S.  
 
 Para otimizar as configurações do servidor MySQL, você pode atualizar o arquivo my.cnf, que é o arquivo de configuração padrão para computadores cliente e servidor.  
 
 Os seguintes itens de configuração são os principais fatores que afetam o desempenho do MySQL:  
 
 -	**innodb_buffer_pool_size**: O pool de buffers contém dados armazenados em buffer e o índice. Isto é geralmente definido como 70% da memória física.
--	**innodb_log_file_size**: Este é o tamanho do log de refazer. Você pode usar os logs de refazer para garantir que as operações de gravação sejam rápidas, confiáveis e recuperáveis após uma falha. Isto é definido para 512MB, o que lhe dará bastante espaço para operações de gravação em log.
+-	**innodb_log_file_size**: Este é o tamanho do log de refazer. Você pode usar os logs de refazer para garantir que as operações de gravação sejam rápidas, confiáveis e recuperáveis após uma falha. Isto é definido para 512 MB, o que lhe dará bastante espaço para operações de gravação em log.
 -	**max_connections**: Às vezes, os aplicativos não fecham as conexões corretamente. Um valor maior oferece ao servidor mais tempo para reciclar conexões ociosas. O número máximo de conexões é 10000, mas o máximo recomendado é 5000.
 -	**Innodb_file_per_table**: Esta configuração habilita ou desabilita a capacidade de InnoDB para armazenar as tabelas em arquivos separados. Ativar a opção garantirá que várias operações de administração avançada possam ser aplicadas com eficiência. Do ponto de vista de desempenho, ela pode acelerar a transmissão de espaço de tabela e otimizar o desempenho do gerenciamento de resíduos. Portanto, a configuração recomendada para esta opção é Ativada.</br>
 	No MySQL 5.6, a configuração padrão é Ativada. Portanto, nenhuma ação é necessária. Para outras versões, que sejam anteriores a 5.6, as configurações padrão estão Desativadas. É necessário ativá-las. E deve aplicá-la antes do carregamento de dados, porque apenas as tabelas criadas recentemente são afetadas.
--	**innodb_flush_log_at_trx_commit**: O valor padrão é 1, com o escopo definido como 0~2. O valor padrão é a opção mais adequada para o banco de dados do MySQL autônomo. A configuração de 2 permite mais integridade de dados e é adequada para mestre no cluster do MySQL. A configuração de 0 permite a perda de dados, que pode afetar a confiabilidade, em alguns casos com melhor desempenho e é adequada para o escravo no cluster do MySQL.
+-	**innodb_flush_log_at_trx_commit**: O valor padrão é 1, com o escopo definido como 0~2. O valor padrão é a opção mais adequada para o banco de dados do MySQL autônomo. A configuração de 2 habilita mais integridade de dados e é adequada para mestre no cluster do MySQL. A configuração de 0 permite a perda de dados, que pode afetar a confiabilidade, em alguns casos com melhor desempenho e é adequada para o subordinado no cluster do MySQL.
 -	**Innodb_log_buffer_size**: O buffer de log permite que as transações sejam executados sem ter que liberar o log no disco antes que as transações sejam confirmadas. No entanto, se houver objetos binários grandes ou campo de texto, o cache será consumido rapidamente e a e/s de disco frequente será disparada. É melhor aumentar o tamanho do buffer se a variável de estado Innodb_log_waits não é 0.
--	**query_cache_size**: A melhor opção é desabilitá-lo desde o início. Defina query_cache_size como 0 (este agora é a configuração padrão no MySQL 5.6) e use outros métodos para agilizar as consultas.  
+-	**query_cache_size**:  A melhor opção é desabilitá-lo desde o início. Defina query_cache_size como 0 (este agora é a configuração padrão no MySQL 5.6) e use outros métodos para agilizar as consultas.  
   
 Consulte o [Apêndice D](AppendixD) para comparar o desempenho após a otimização.
 
@@ -253,19 +253,20 @@ Neste exemplo, você pode ver que o recurso de consulta lenta foi ativado. Você
 
 Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente de laboratório de destino, eles oferecem informações gerais sobre a tendência de dados de desempenho com abordagens de ajuste diferentes, no entanto, os resultados podem variar em versões de produto ou ambiente diferentes. 
 
-<a name="AppendixA"></a>Apêndice A: **Desempenho de disco (IOPS) com níveis de RAID diferentes** 
+<a name="AppendixA"></a>Apêndice A:  
+**Desempenho de disco (IOPS) com níveis de RAID diferentes** 
 
 
 ![][9]
  
-**Comandos de teste:** 
+**Comandos de teste:**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
 >AZURE.NOTE: A carga de trabalho deste teste usa 64 threads, tentando alcançar o limite superior do RAID.
 
-<a name="AppendixB"></a>Apêndice B:   
-**Comparação de desempenho do MySQL (taxa de transferência) com níveis de RAID diferentes** 
+<a name="AppendixB"></a>Apêndice B:  
+**Comparação de desempenho do MySQL (taxa de transferência) com níveis de RAID diferentes**   
 (Sistema de arquivos XFS)
 
  
@@ -276,21 +277,21 @@ Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write -engine=innodb
 
-**Comparação de desempenho (OLTP) do MySQL com níveis de RAID diferentes**
+**Comparação de desempenho (OLTP) do MySQL com níveis de RAID diferentes**  
 ![][12]
 
 **Comandos de teste:**
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Apêndice C: 
-**Comparação de desempenho de disco (IOPS) para tamanhos de partes diferentes** 
+<a name="AppendixC"></a>Apêndice C:   
+**Comparação de desempenho de disco (IOPS) para tamanhos de partes diferentes**  
 (Sistema de arquivos XFS)
 
  
 ![][13]
 
-**Comandos de teste:** 
+**Comandos de teste:**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=30G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=1G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite  
@@ -298,8 +299,8 @@ Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente
 Observe que o tamanho do arquivo usado para esse teste é 30GB e 1GB respectivamente, com o RAID 0(4 discos) sistema de arquivos XFS.
 
 
-<a name="AppendixD"></a>Apêndice D: 
-**Comparação de desempenho do MySQL (taxa de transmissão) antes e depois da otimização** 
+<a name="AppendixD"></a>Apêndice D:   
+**Comparação de desempenho do MySQL (taxa de transferência) antes e depois da otimização**  
 (Sistema de arquivos XFS)
 
   
@@ -328,7 +329,7 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
-**Ambiente de teste** 
+**Ambiente de teste**  
 
 |Hardware	|Detalhes
 |-----------|-------
@@ -354,4 +355,4 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

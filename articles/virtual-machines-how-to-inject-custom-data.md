@@ -42,7 +42,7 @@ Neste tópico:
 
 ## <a id="injectingCustomData"></a>Injetando os dados personalizados na Máquina Virtual do Azure
 
-Esse recurso é compatível no momento apenas na [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Embora você possa usar qualquer uma das opções para o comando  `azure vm create`, a abordagem a seguir demonstra uma abordagem muito básica. 
+No momento, esse recurso tem suporte apenas na [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Embora você possa usar qualquer uma das opções para o comando `azure vm create`, a abordagem a seguir demonstra uma abordagem muito básica. 
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -55,7 +55,7 @@ Esse recurso é compatível no momento apenas na [Interface de linha de comando 
 
 ## <a id="usingCustomData"></a>Usando dados personalizados na Máquina Virtual
  
-+ Se a Máquina Virtual do Azure for uma Máquina Virtual do Windows, o arquivo de dados personalizado será salvo em  `%SYSTEMDRIVE%\AzureData\CustomData.bin` e, embora tenha sido codificado com base-64 para transferência do computador local para a nova Máquina Virtual, ele é decodificado automaticamente e pode ser aberto imediatamente. 
++ Se a Máquina Virtual do Azure for uma Máquina Virtual do Windows, o arquivo de dados personalizado será salvo em `%SYSTEMDRIVE%\AzureData\CustomData.bin` e, embora tenha sido codificado com base-64 para transferência do computador local para a nova Máquina Virtual, ele é decodificado automaticamente e pode ser aberto imediatamente. 
 
    > [AZURE.NOTE] Se já existir, o arquivo será substituído. A segurança no diretório é definida como **System:Full Control** e **Administrators:Full Control**.
 
@@ -75,4 +75,4 @@ Se a Máquina Virtual do Azure for uma imagem do Ubuntu, será possível usar cl
 [Interface de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

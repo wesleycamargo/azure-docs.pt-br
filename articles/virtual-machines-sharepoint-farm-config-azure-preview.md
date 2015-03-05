@@ -40,7 +40,7 @@ Aqui estão os detalhes da configuração:
 -	Nomes de Domínio do Azure (também conhecidos como serviços de nuvem): Nomes de Domínio do Azure são criados automaticamente para cada máquina virtual.
 -	Conta de armazenamento: Especificada durante a configuração inicial.
 -	Rede virtual 	
-	-   Tipo: Somente nuvem	
+	-   Digite: Somente nuvem	
     -	Espaço de endereço: 192.168.16.0/26    
 
 - Máquinas virtuais
@@ -83,7 +83,7 @@ Aqui estão os detalhes da configuração:
 -	Nomes de Domínio do Azure (também conhecidos como serviços de nuvem): Nomes de domínio separados são criados de acordo com a figura acima.
 -	Conta de armazenamento: Especificada durante a configuração inicial.
 -	Rede virtual	
-	-	Tipo: Somente nuvem
+	-	Digite: Somente nuvem
 	-	Espaço de endereço: 192.168.16.0/26	
 
 -	Máquinas virtuais
@@ -125,4 +125,4 @@ Aqui estão os detalhes da configuração:
 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

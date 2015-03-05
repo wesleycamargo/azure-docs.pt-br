@@ -24,7 +24,7 @@
 
 ##Pré-requisitos##
 
-Este artigo pressupõe que você já instalou um sistema operacional SUSE ou openSUSE Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+Este artigo pressupõe que você já instalou um sistema operacional SUSE ou openSUSE Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
 
 **Notas de instalação do SLES / openSUSE**
@@ -43,7 +43,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 - Todos os VHDs devem ter tamanhos que são múltiplos de 1 MB.
 
 
-## <a id="sles11"></a>Preparar o SUSE Linux Enterprise Server 11 SP3 ##
+## <a id="sles11"> </a>Preparar o SUSE Linux Enterprise Server 11 SP3 ##
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 
@@ -65,7 +65,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração.
 
-7.	É recomendável editar o arquivo "/etc/sysconfig/network/dhcp" e alterar o parâmetro  `DHCLIENT_SET_HOSTNAME` para o seguinte:
+7.	É recomendável editar o arquivo "/etc/sysconfig/network/dhcp" e alterar o parâmetro `DHCLIENT_SET_HOSTNAME` para o seguinte:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -78,7 +78,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 10.	Não crie espaço swap no disco do sistema operacional
 
-	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco  *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporary* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -97,7 +97,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 ----------
 
-## <a id="osuse"></a>Preparar o openSUSE 13.1+ ##
+## <a id="osuse"> </a>Preparar o openSUSE 13.1+ ##
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual
 
@@ -119,7 +119,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	Em seguida, você pode verificar se os repositórios foram adicionados executando novamente o comando '`zypper lr`'. Caso um dos repositórios de atualização relevantes não estiver habilitado, habilite-o com o comando a seguir:
+	Em seguida, você pode verificar se os repositórios foram adicionados executando novamente o comando '`zypper lr`'. Caso um dos repositórios de atualização relevantes não esteja habilitado, habilite-o com o comando a seguir:
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -128,7 +128,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 		# sudo zypper up kernel-default
 
-	Ou para atualizar o sistema com todos os patches mais recentes:
+	Or to update the system with all the latest patches:
 
 		# sudo zypper update
 
@@ -144,7 +144,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	É recomendável editar o arquivo "/etc/sysconfig/network/dhcp" e alterar o parâmetro  `DHCLIENT_SET_HOSTNAME` para o seguinte:
+7.	É recomendável editar o arquivo "/etc/sysconfig/network/dhcp" e alterar o parâmetro `DHCLIENT_SET_HOSTNAME` para o seguinte:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -157,7 +157,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 10.	Não crie espaço swap no disco do sistema operacional
 
-	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco  *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporary* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -179,4 +179,4 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

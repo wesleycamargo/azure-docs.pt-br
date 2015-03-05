@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure" 
 	description="Descreve como instalar e configurar o Symantec Endpoint Protection em uma máquina virtual no Azure" 
 	services="virtual-machines" 
@@ -47,7 +47,7 @@ Antes de começar, você precisará do seguinte:
 
 - Módulo PowerShell do Azure, versão 0.8.2 ou mais nova. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o PowerShell do Azure](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
 
-- O Agente de VM. Para obter instruções e um link para o download, consulte a postagem no blog [VM Agent and Extensions - Part 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+- O Agente de VM. Para obter instruções e um link para o download, consulte a postagem no blog [VM Agent and Extensions - Part 2 (Agente de VM e extensões - Parte 2)](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Para instalar a extensão de segurança Symantec em uma máquina virtual existente:
 
@@ -58,7 +58,7 @@ Para instalar a extensão de segurança Symantec em uma máquina virtual existen
 <p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
 <p>`Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection`
 
-2.	Na exibição do comando Get-AzureVMAvailableExtension, observe o número da versão para a propriedade da versão e, em seguida, execute estes comandos:
+2.	Na exibição do comando Get-AzureVMAvailableExtension, observe o número de versão para a propriedade da versão e, em seguida, execute estes comandos:
 
 	<p>`$ver=<version number from the Version property>`
 <p>`Set-AzureVMExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection -Version $ver -VM $vm.VM`
@@ -81,4 +81,4 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 [Gerenciar extensões]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

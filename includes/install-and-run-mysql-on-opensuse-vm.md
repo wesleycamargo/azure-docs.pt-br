@@ -1,4 +1,4 @@
-
+﻿
 1. Para escalonar privilégios, execute:
 
 		sudo -s
@@ -66,7 +66,7 @@
 	![Endpoints][Image8]
 
 13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e as portas**Pública** e **Privada** configuradas para "3306". Isso permite o acesso remoto a MySQL.
-	![Endpoints][Imagem 9]
+	![Endpoints][Image9]
 
 14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Azure, execute o seguinte comando no computador local:
 
@@ -81,6 +81,6 @@
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
-[Imagem 9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
+[Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

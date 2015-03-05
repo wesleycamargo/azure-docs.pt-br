@@ -22,9 +22,9 @@
 
 #Linux em distribuições endossadas pelo Azure
 
-As imagens de distribuição na Galeria do Azure são fornecidas pelos parceiros a seguir, e estamos trabalhando junto a diversas comunidades Linux para trazer ainda mais distribuições endossadas. Enquanto isso, para distribuidores não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [desta página](../virtual-machines-linux-create-upload-vhd/).
+As imagens de distribuição na Galeria do Azure são fornecidas pelos parceiros a seguir, e estamos trabalhando junto a diversas comunidades Linux para trazer ainda mais distribuições endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](../virtual-machines-linux-create-upload-vhd/).
 
-## Canônico ##
+## Canonical ##
  
 [http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 
@@ -51,7 +51,7 @@ O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece co
 
 ## Versões com suporte ##
 
-A tabela a seguir mostra as versões de distribuição diferentes, os drivers LIS (Serviços de Integração do Linux) e as versões do Agente Linux do Azure cujo funcionamento foi testado no Azure. Os drivers LIS são inseridos no kernel da distribuição por padrão ou permanecem disponíveis [aqui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). As versões do Agente Linux estão disponíveis no repositório do pacote de distribuição ou em [Github](https://github.com/azure/walinuxagent).
+A tabela a seguir mostra as versões de distribuição diferentes, os drivers LIS (Serviços de Integração do Linux) e as versões do Agente Linux do Azure cujo funcionamento foi testado no Azure. Os drivers LIS já se encontram no kernel da distribuição por padrão ou estão disponíveis [aqui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). As versões do Agente Linux estão disponíveis no repositório do pacote de distribuição ou em [Github](https://github.com/azure/walinuxagent).
 
 A tabela também inclui um link para o [patch de compatibilidade do kernel Linux](http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409) exigido por algumas versões de distribuição/kernel para funcionar da maneira ideal no Azure.
 
@@ -74,12 +74,11 @@ A tabela também inclui um link para o [patch de compatibilidade do kernel Linux
 	<tr>
 		<th> CentOS by OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Drivers LIS</a>; Drivers centOS 6.4 e versões posteriores: no Kernel</td>
+	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Drivers LIS</a>; drivers CentOS 6.4+: em Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Necessário apenas para 6.3</a></td>
-		<td>Pacote: No <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">repositório de pacotes do Open, </a> em walinuxagent<br />
+		<td>Pacote:Entrada <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Repositório do pacote Open Logic </a> em walinuxagent<br />
 			Origem: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
-
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
@@ -103,8 +102,8 @@ A tabela também inclui um link para o [patch de compatibilidade do kernel Linux
 		<td> SLES 11 SP3+</td>
         <td>No kernel</td>
 		<td>N/D</td>
-		<td>Pacote: Em<a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, nome: WALinuxAgent<br />
-			Software livre:  <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</a></td>
+		<td>Pacote: No repositório <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools,</a> nome: WALinuxAgent<br />
+			Código-fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -112,11 +111,11 @@ A tabela também inclui um link para o [patch de compatibilidade do kernel Linux
 		<td> openSUSE 13.1+</td>
 		<td>No kernel</td>
 		<td>N/D</td>
-		<td>Pacote: Em<a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, nome: WALinuxAgent<br />
+		<td>Pacote: No repositório <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools,</a> nome: WALinuxAgent<br />
 			Código-fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

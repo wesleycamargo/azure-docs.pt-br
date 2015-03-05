@@ -18,7 +18,7 @@
 
 #Como criar uma máquina virtual personalizada
 
-Uma máquina virtual  *personalizada* é simplesmente uma máquina virtual que você criou usando a opção **From Gallery** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
+Uma máquina virtual *custom* é simplesmente uma máquina virtual que você criou usando a opção **Da Galeria** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
 
 - Conectar a VM a uma rede virtual
 - Instalar o Agente de VM e as extensões, tais como para antimalware 
@@ -31,4 +31,4 @@ Uma máquina virtual  *personalizada* é simplesmente uma máquina virtual que v
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

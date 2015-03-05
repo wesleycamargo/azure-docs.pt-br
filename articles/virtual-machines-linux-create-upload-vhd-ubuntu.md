@@ -21,20 +21,20 @@
 
 ##Pré-requisitos##
 
-Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
 **Notas de instalação do Ubuntu**
 
 - Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
 
-- Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso evitará conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas.  LVM ou [RAID](../virtual-machines-linux-configure-raid) pode ser usado em discos de dados, se preferir.
+- Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso evitará conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas.  Se você preferir, é possível usar LVM ou [RAID](../virtual-machines-linux-configure-raid) em discos de dados.
 
 - Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários.  Verifique as etapas a seguir para obter mais informações a esse respeito.
 
 - Todos os VHDs devem ter tamanhos que são múltiplos de 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 e versões posteriores ##
+## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 
@@ -93,13 +93,13 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 	a) Abra o arquivo /etc/grub.d/00_header.
 
-	b) Na função **make_timeout()**, procure por **se ["\${recordfail}" = 1 ]; então**
+	b) Na função **make_timeout()**, pesquise **if ["\${recordfail}" = 1 ]; then**
 
 	c) Altere a instrução abaixo desta linha para **set timeout=5**.
 
-	d) Executar 'sudo update-grub'.
+	d) Execute 'sudo update-grub'.
 
-6. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra /etc/default/grub em um editor de texto, localize a variável chamada  `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
+6. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
@@ -112,7 +112,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	Observe que a instalação do pacote  `walinuxagent` removerá os pacotes  `NetworkManager` e  `NetworkManager-gnome`, se estiverem instalados.
+	Observe que a instalação do pacote `walinuxagent` removerá os pacotes `NetworkManager` e `NetworkManager-gnome`, se estiverem instalados.
 
 10.	Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
@@ -124,4 +124,4 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

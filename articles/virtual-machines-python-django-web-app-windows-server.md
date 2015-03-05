@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Tutorial sobre aplicativo Web com Django - Azure" 
 	description="Um tutorial que ensina como hospedar um site da web baseado em Django no Azure usando uma máquina virtual Windows Server 2012 R2 Datacenter." 
 	services="virtual-machines" 
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
 
 
-# Aplicativo Web Django Hello World
+# Aplicativo Web Django Hello World (a página pode estar em inglês)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/pt-br/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
@@ -43,29 +43,28 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 ## Crie e configure uma máquina virtual do Azure para hospedar o Django
 
-1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição *Windows Server 2012 R2 Datacenter*.
+1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição do *Windows Server 2012 R2 Datacenter*.
 
 1. Instrua o Azure para direcionar o tráfego da porta **80** da web para a porta **80** na máquina virtual:
- - Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia *PONTOS DE EXTREMIDADE*.
- - Clique no botão *ADICIONAR* na parte inferior da tela.
-	![adicionar ponto de extremidade](. / media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
+ - Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia *ENDPOINTS*.
+ - Clique no botão *ADD* na parte inferior da tela.
+	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- - Abra a *PORTA PÚBLICA 80* do protocolo *TCP* como *PORTA PRIVADA 80*.
+ - Abra a *PUBLIC PORT 80* e a *PRIVATE PORT 80* do protocolo *TCP*.
 ![][port80]
-1. Na guia *PAINEL*, clique em *CONECTAR* para usar a *Área de Trabalho Remota* para fazer logon remotamente na máquina virtual recém-criada do Azure.  
+1. Na guia *DASHBOARD*, clique em *CONNECT* para usar a *Remote Desktop* para fazer logon remotamente na máquina virtual recém-criada do Azure.  
 
-**Observação importante:** todas as instruções abaixo pressupõem que você se conectou corretamente à máquina virtual e está emitindo comandos lá, em vez de sua máquina local! 
+**Observação importante:** todas as instruções abaixo pressupõem que você se conectou corretamente à máquina virtual e está emitindo comandos lá, em vez de seu computador local! 
 
 ## <a id="setup"> </a>Configurando Python e Django
 
-**Observação:** Para fazer o download usando o Internet Explorer, é necessário definir as configurações do IE ESC (Iniciar/Ferramentas Administrativas/Gerenciador de Servidores/Servidor Local e, em seguida, clique em **Configuração de Segurança Aprimorada do IE**, definindo-a para Desativado).
+**Observação:** Para baixar usando o Internet Explorer, é necessário definir as configurações do IE ESC (Iniciar/Ferramentas Administrativas/Gerenciador do Servidor/Servidor Local, em seguida clique em **Configuração de Segurança Aprimorada do IE** e defina como Desativado).
 
 1. Instale o [Web Platform Installer][].
 1. Instale o Python e o WFastCGI usando o Web Platform Installer.  Isso instalará o wfastcgi.py na sua pasta de scripts Python.
 	1. Inicie o Web Platform Installer.
 	1. Digite WFastCGI na barra de pesquisa. 
 	1. Selecione a entrada WFactCGI correspondente à versão de Python que você deseja usar (2.7 ou 3.4).  Observe que essa ação instalará o Python como uma dependência do WFastCGI. 
-1. Se você tiver instalado o Python 2.7, [siga estas instruções para instalar manualmente o pip](https://pip.pypa.io/en/latest/installing.html) (o Python 3.4 vem com o pip já instalado).
 1. Instale o Django usando o pip.
 
     Python 2.7:
@@ -119,7 +118,7 @@ Execute estes comando somente se estiver usando o Python 2.7.
 
 ### Python 3.4
 
-Run these commands only if you are using Python 3.4.
+Execute estes comando somente se estiver usando o Python 3.4.
 
 1. Instale o manipulador Fast CGI Python.
 
@@ -153,7 +152,7 @@ Run these commands only if you are using Python 3.4.
 ## Criando um novo aplicativo Django
 
 
-1.  A partir de  *C:\inetpub\wwwroot*, digite o seguinte comando para criar um novo projeto de Django:
+1.  Em *C:\inetpub\wwwroot*, digite o seguinte comando para criar um novo projeto de Django:
 
     Python 2.7:
 
@@ -173,7 +172,7 @@ Run these commands only if you are using Python 3.4.
 
 
 
-1.  Criar um novo arquivo chamado **views.py** no diretório  *C:\inetpub\wwwroot\helloworld\helloworld*. Isso irá conter o modo de exibição que processa a página "hello world". Inicie o editor e digite o seguinte:
+1.  Criar um novo arquivo chamado **views.py** no diretório *C:\inetpub\wwwroot\helloworld\helloworld*. Isso conterá o modo de exibição que processa a página "hello world". Inicie o editor e digite o seguinte:
 		
 		from django.http import HttpResponse
 		def home(request):
@@ -187,7 +186,7 @@ Run these commands only if you are using Python 3.4.
 			url(r'^$', 'helloworld.views.home', name='home'),
 		)
 
-1. Por fim, carregue a página da web no seu navegador.
+1. Por fim, carregue a página da Web no seu navegador.
 
 ![A browser window displaying the hello world page on Azure][1]
 
@@ -204,4 +203,4 @@ Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtu
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Criar uma máquina virtual que executa o Windows no Azure" 
 	description="Aprenda a criar a máquina virtual do Windows (VM) no Azure, em seguida, faça logon e anexe um disco de dados" 
 	services="virtual-machines" 
@@ -24,7 +24,7 @@
 
 Este tutorial mostra como é fácil criar uma máquina virtual do Azure (VM). Ele usa uma imagem do Windows Server, mas isso é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens sistemas operacionais do Windows, sistemas operacionais baseados em Linux e aplicativos pré-instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
-> [AZURE.NOTE] Não é necessário qualquer experiência com VMs do Azure para concluir este tutorial, mas você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] Não é necessário qualquer experiência com VMs do Azure para concluir este tutorial, mas você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 Este tutorial mostra:
 
@@ -39,7 +39,7 @@ Para saber mais, consulte [Máquinas Virtuais](http://go.microsoft.com/fwlink/p/
 
 Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciamento para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar ingressar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE] Você também pode experimentar o [Portal de visualização do Azure](https://portal.azure.com) mais avançado e customizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.  
+> [AZURE.NOTE] Você também pode experimentar o [Portal de Visualização do Azure](https://portal.azure.com), mais avançado e personalizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e muito mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.  
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -51,7 +51,7 @@ Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciament
 
 ## <a id="attachdisk"> </a>Como anexar um disco de dados à nova máquina virtual ##
 
-Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [Anexe um tutorial de disco de dados](http://www.windowsazure.com/pt-br/documentation/articles/storage-windows-attach-disk/) para obter mais informações, incluindo como anexar os discos existentes.
+Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [tutorial Anexar um disco de dados](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/) para obter mais informações, inclusive como anexar discos existentes.
 
 1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
@@ -74,7 +74,7 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 	![Specify the size of the empty disk](./media/virtual-machines-windows-tutorial/emptydisksize.png)	
 	
-	>[AZURE.NOTE] Os arquivos .vhd são armazenados como blobs de página no armazenamento do Azure. Fora do Azure, os discos rígidos virtuais podem usar um formato VHD ou VHDX. Eles também podem ser fixos, ter expansão dinâmica ou diferenciação. O Azure é compatível com discos fixos de formato VHD. Para obter mais detalhes, consulte [Sobre VHDs no Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790344.aspx)  
+	>[AZURE.NOTE] Os arquivos .vhd são armazenados como blobs de página no armazenamento do Azure. Fora do Azure, os discos rígidos virtuais podem usar um formato VHD ou VHDX. Eles também podem ser fixos, ter expansão dinâmica ou diferenciação. O Azure é compatível com discos fixos de formato VHD. Para obter mais detalhes, consulte [Sobre VHDs no Azure](http://msdn.microsoft.com/library/azure/dn790344.aspx)  
 
 6. Volte para o painel para verificar se o disco vazio foi anexado com sucesso à máquina virtual. Ele deve aparecer na lista **Discos** depois do Disco de OS.
 
@@ -112,25 +112,25 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure, consulte:
 
-[Como conectar máquinas virtuais em um serviço de nuvem](http://www.windowsazure.com/pt-br/documentation/articles/cloud-services-connect-virtual-machine/)
+[Como conectar máquinas virtuais em um serviço de nuvem](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server](http://www.windowsazure.com/pt-br/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Gerenciar a disponibilidade de máquinas virtuais](http://www.windowsazure.com/pt-br/documentation/articles/manage-availability-virtual-machines/)
+[Gerenciar a disponibilidade de máquinas virtuais](http://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/)
 
 [Sobre as definições de configuração da VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-[VÍDEO: Introdução aos VHDs - O que realmente está acontecendo](http://azure.microsoft.com/pt-br/documentation/videos/getting-started-with-azure-virtual-machines)
+[VÍDEO: Introdução aos VHDs - O que realmente está acontecendo](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-virtual-machines)
 
-[VÍDEO: Perguntas frequentes com Mark Russinovich - O Microsoft Azure executa o Windows?](http://azure.microsoft.com/pt-br/documentation/videos/mark-russinovich-windows-on-azure)
+[VÍDEO: Perguntas frequentes com Mark Russinovich - O Microsoft Azure executa o Windows?](http://azure.microsoft.com/documentation/videos/mark-russinovich-windows-on-azure)
 
-[VÍDEO: Adicionando uma nova máquina virtual a um Web Farm criando imagens reutilizáveis](http://azure.microsoft.com/pt-br/documentation/videos/adding-virtual-machines-web-farm)
+[VÍDEO: Adicionando uma nova máquina virtual a um Web Farm criando imagens reutilizáveis](http://azure.microsoft.com/documentation/videos/adding-virtual-machines-web-farm)
 
-[VÍDEO: Adicionando discos rígidos virtuais, contas de armazenamento e dimensionando máquinas virtuais](http://azure.microsoft.com/pt-br/documentation/videos/adding-drives-scaling-virtual-machines)
+[VÍDEO: Adicionando discos rígidos virtuais, contas de armazenamento e dimensionando máquinas virtuais](http://azure.microsoft.com/documentation/videos/adding-drives-scaling-virtual-machines)
 
-[VÍDEO: Scott Guthrie começa com as máquinas virtuais](http://azure.microsoft.com/pt-br/documentation/videos/virtual-machines-scottgu)
+[VÍDEO: Scott Guthrie começa com as máquinas virtuais](http://azure.microsoft.com/documentation/videos/virtual-machines-scottgu)
 
-[VÍDEO: Princípios fundamentais de armazenamento e disco para máquinas virtuais do Azure](http://azure.microsoft.com/pt-br/documentation/videos/storage-and-disks-virtual-machines)
+[VÍDEO: Princípios fundamentais de armazenamento e disco para máquinas virtuais do Azure](http://azure.microsoft.com/documentation/videos/storage-and-disks-virtual-machines)
 
 
 
@@ -140,4 +140,4 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
 [Como configurar a comunicação com a máquina virtual]: #endpoints
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,11 +1,11 @@
 ﻿<properties writer="kathydav" editor="tysonn" manager="timlt" /> 
 
-**Importante**: Se deseja que sua máquina virtual use uma rede virtual, você deve especificar a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual.Para mais informações sobre redes virtuais, consulte [Visão geral da Rede Virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Importante**: Se deseja que sua máquina virtual use uma rede virtual, você deve especificar a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual. Para mais informações sobre redes virtuais, consulte [Visão geral da rede virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 
-1. Faça logon no [Portal de Gerenciamento do Azure][AzurePreviewPortal] usando sua conta do Azure.
+1. Faça logon no [Portal de gerenciamento do Azure][AzurePreviewPortal] utilizando sua conta do Azure.
 
-2. No Portal de gerenciamento, na parte inferior esquerda da página da Web, clique em **+Novo**, clique em **Máquina Virtual** e clique em **Da Galeria**.
+2. No Portal de Gerenciamento, na parte inferior esquerda da página da Web, clique em **+Novo**, clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
 
 	![Create a New Virtual Machine][Image1]
 
@@ -14,16 +14,16 @@
 
 4. Na primeira página **Configuração de máquina virtual**, preencha ou verifique as configurações:
 
-	- Digite um **Nome da Máquina Virtual**, como "testlinuxvm".
-	- Verifique a **Camada** e escolha um **Tamanho**.A camada determina os tamanhos que você pode escolher.
+	- Digite um **Nome da máquina virtual**, como "testlinuxvm".
+	- Verifique a **Camada** e escolha um **Tamanho**. A camada determina os tamanhos que você pode escolher.
 	- Digite um **Novo nome de usuário**, como "newuser", que será adicionado ao arquivo de lista Sudoers.
-	- Decide que tipo de **Autenticação** usar. Para obter diretrizes gerais de senha, consulte [Senhas fortes](http://msdn.microsoft.com/pt-br/library/ms161962.aspx).
+	- Decide que tipo de **Autenticação** usar. Para obter diretrizes gerais de senha, consulte [Senhas fortes](http://msdn.microsoft.com/library/ms161962.aspx).
 
 
 5. Na próxima página **Configuração de máquina virtual**, preencha ou verifique as configurações:
 	- Use o padrão **Criar um novo serviço de nuvem**.
 	- Na caixa **Nome de DNS**, digite um nome de DNS válido para usar como parte do endereço, como "testlinuxvm".
-	- Na caixa **Região/Grupo de afinidade/Rede Virtual**, selecione uma região em que esta imagem virtual será hospedada.
+	- Na caixa **Região/Grupo de afinidade/Rede virtual**, selecione uma região em que esta imagem virtual será hospedada.
 
 6.	Clique na seta de avanço para concluir, depois aguarde enquanto o Azure prepara sua máquina virtual e a inicia.
 
@@ -34,11 +34,11 @@ Você usará SSH ou PuTTY para conectar-se à máquina virtual, dependendo do si
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 	
-	Type the user's password.
+	Digite a senha do usuário.
 
-- Se estiver usando um computador Windows para conectar-se à máquina virtual, use PuTTY. É possível baixar PuTTY na[Página de Download do PuTTY][PuTTYDownLoad]. 
+- Se estiver usando um computador Windows para conectar-se à máquina virtual, use PuTTY. É possível baixar o PuTTY na [Página de Download do PuTTY][PuTTYDownLoad]. 
 
-	Faça o download e salve **putty.exe** em um diretório em seu computador. Abra um prompt de comando, navegue até a pasta e execute **putty.exe**.
+	Faça o download e salve o **putty.exe** em um diretório no seu computador. Abra um prompt de comando, navegue até essa pasta e execute o **putty.exe**.
 
 	Digite o nome do host, como "testlinuxvm.cloudapp.net" e digite "22" para a **Porta**.
 
@@ -49,9 +49,9 @@ Você usará SSH ou PuTTY para conectar-se à máquina virtual, dependendo do si
 
 	`$ sudo zypper update`
 
-2. Selecione **Software**, em seguida, **Atualização Online** para listar atualizações disponíveis. Selecione **Aceitar** para iniciar a instalação e aplique todas as novas correções disponíveis (exceto as opcionais). 
+2. Selecione **Software**, em seguida, **Atualização online** para listar atualizações disponíveis. Selecione **Aceitar** para iniciar a instalação e aplique todas as novas correções disponíveis (exceto as opcionais). 
 
-3. Após a instalação ser concluída, selecione **Concluir**.O sistema agora está atualizado.
+3. Após a instalação ser concluída, selecione **Concluir**.  O sistema agora está atualizado.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 [AzurePreviewPortal]: http://manage.windowsazure.com
@@ -60,4 +60,4 @@ Você usará SSH ou PuTTY para conectar-se à máquina virtual, dependendo do si
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

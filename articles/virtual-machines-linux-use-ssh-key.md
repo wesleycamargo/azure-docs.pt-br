@@ -20,9 +20,9 @@
 
 A versão atual do Portal de Gerenciamento do Azure aceita apenas chaves públicas SSH encapsuladas em um certificado X509. Siga as etapas abaixo para gerar e usar chaves SSH com o Azure.
 
-## Gerar chaves compatíveis do Microsoft Azure no Linux ##
+## Gerar chaves compatíveis com Microsoft Azure no Linux ##
 
-1. Instale o utilitário  `openssl`, se necessário:
+1. Instale o utilitário `openssl`, se necessário:
 
 	**CentOS / Oracle Linux**
 
@@ -37,7 +37,7 @@ A versão atual do Portal de Gerenciamento do Azure aceita apenas chaves públic
 		# sudo zypper install openssl
 
 
-2. Use  `openssl` para gerar um certificado X509 com um par de chaves RSA de 2048 bits. Responda a algumas perguntas feitas pelo  `openssl` (ou você pode deixá-las em branco). O conteúdo desses campos não é usado pela plataforma:
+2. Use `openssl` para gerar um certificado X509 com um par de chaves RSA de 2048 bits. Responda a algumas perguntas feitas pelo `openssl` (ou você pode deixá-las em branco). O conteúdo desses campos não é usado pela plataforma:
 
 		# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
@@ -45,9 +45,9 @@ A versão atual do Portal de Gerenciamento do Azure aceita apenas chaves públic
 
 		# chmod 600 myPrivateKey.key
 
-4.	Carregue o  `myCert.pem` ao criar a máquina virtual Linux. O processo de provisionamento instalará automaticamente a chave pública nesse certificado no arquivo  `authorized_keys` para o usuário especificado na máquina virtual.
+4.	Carregue o `myCert.pem` ao criar a máquina virtual Linux. O processo de provisionamento instalará automaticamente a chave pública nesse certificado no arquivo `authorized_keys` para o usuário especificado na máquina virtual.
 
-5.	Se você pretende usar a API diretamente e não usar o Portal de Gerenciamento, converta  `myCert.pem` em  `myCert.cer` (certificado X509 codificado em DER) usando o seguinte comando:
+5.	Se você pretende usar a API diretamente e não usar o Portal de Gerenciamento, converta `myCert.pem` em `myCert.cer` (certificado X509 codificado em DER) usando o seguinte comando:
 
 		# openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
@@ -55,29 +55,29 @@ A versão atual do Portal de Gerenciamento do Azure aceita apenas chaves públic
 ## Gerar uma chave com base em uma chave compatível com OpenSSH existente
 O exemplo anterior descreve como criar uma nova chave a ser usada com o Microsoft Azure. Em alguns casos, talvez você já tenha um par de chaves OpenSSH públicas e privadas compatíveis existentes e queira usar as mesmas chaves com o Microsoft Azure.
 
-As chaves privadas OpenSSH são diretamente legíveis pelo utilitário  `openssl`. O seguinte comando usará uma chave privada SSH existente (id_rsa no exemplo abaixo) e criará a chave pública  `.pem` necessária ao Microsoft Azure:
+As chaves privadas OpenSSH são diretamente legíveis pelo utilitário `openssl`. O seguinte comando usará uma chave privada SSH existente (id_rsa no exemplo abaixo) e criará a chave pública `.pem` necessária para o Microsoft Azure:
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar uma máquina virtual Linux no Microsoft Azure. Durante o provisionamento, o arquivo  `.pem` será convertido em uma chave pública  `openssh` compatível e colocada em `~/.ssh/authorized_keys`..
+O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar uma máquina virtual Linux no Microsoft Azure. Durante o provisionamento, o arquivo `.pem` será convertido em uma chave pública compatível com `openssh` e colocada em `~/.ssh/authorized_keys`.
 
 
 ## Conectar a uma máquina virtual do Microsoft Azure do Linux
 
 1. Em alguns casos, o ponto de extremidade SSH para uma máquina virtual Linux pode ser configurado para uma porta que não a porta 22 padrão. Você pode encontrar o número da porta correto no Painel para a máquina virtual no Portal de gerenciamento (em "Detalhes de SSH").
 
-2.	Conecte-se à máquina virtual Linux usando o  `ssh`. Você será solicitado a aceitar a impressão digital da chave pública do host na primeira vez que você fizer o logon.
+2.	Conecte-se à máquina virtual Linux usando o `ssh`. Você será solicitado a aceitar a impressão digital da chave pública do host na primeira vez que você fizer o logon.
 
 		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 
-3.	(Opcional) Você pode copiar `myPrivateKey.key` para `~/.ssh/id_rsa` para que seu cliente OpenSSH possa selecionar automaticamente isso sem o uso da opção `-i`.
+3.	(Opcional) Você pode copiar `myPrivateKey.key` para `~/.ssh/id_rsa` de forma que o cliente OpenSSH possa selecioná-la automaticamente sem o uso da opção `-i`.
 
 ## Obter o OpenSSL no Windows ##
 ### Usar msysgit ###
 
 1.	Baixe e instale msysgit do seguinte local: [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Executar `msys` no diretório instalado (exemplo: c:\msysgit\msys.exe)
-3.	Mude para o diretório  `bin` digitando `cd bin`
+2.	Execute `msys` no diretório instalado (exemplo: c:\msysgit\msys.exe)
+3.	Mude para o diretório `bin` digitando `cd bin`
 
 ###Usar GitHub para Windows###
 
@@ -92,7 +92,7 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 
 ## Criar uma chave privada no Windows ##
 
-1.	Siga um dos conjuntos de instruções acima para poder executar `openssl.exe`
+1.	Siga um dos conjuntos de instruções acima para poder executar o `openssl.exe`.
 2.	Digite o seguinte comando:
 
 		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
@@ -103,7 +103,7 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 
 4.	Responda às perguntas feitas.
 5.	Ele criaria dois arquivos: `myPrivateKey.key` e `myCert.pem`.
-6.	Se você pretende usar a API diretamente e não usar o Portal de Gerenciamento, converta  `myCert.pem` em  `myCert.cer` (certificado X509 codificado em DER) usando o seguinte comando:
+6.	Se você pretende usar a API diretamente e não usar o Portal de Gerenciamento, converta `myCert.pem` em `myCert.cer` (certificado X509 codificado em DER) usando o seguinte comando:
 
 		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
@@ -122,7 +122,7 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 
 4. Clique no menu: Arquivo > Carregar uma Chave Privada
 
-5. Encontre a chave privada, que chamamos de  `myPrivateKey_rsa` acima. Você precisará alterar o filtro de arquivo para mostrar **Todos os arquivos (\*.\*)**
+5. Encontre a chave privada, que chamamos de `myPrivateKey_rsa` acima. Você precisará alterar o filtro de arquivo para mostrar **Todos os arquivos (\*.\*)**
 
 6. Clique em **Abrir**. Você receberá um prompt que deverá ter esta aparência:
 
@@ -151,4 +151,4 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

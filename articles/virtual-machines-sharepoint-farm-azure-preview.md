@@ -32,13 +32,13 @@ O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais
 
 É possível usar esta configuração de farm para testar cargas de clientes maiores, alta disponibilidade do site externo do SharePoint e o SQL Server AlwaysOn para um farm do SharePoint. Também é possível usar esta configuração para a implementação do aplicativo SharePoint em um ambiente de alta disponibilidade.
  
-Para os detalhes de configuração de ambos os farms, consulte [Detalhes de configuração de farm no SharePoint Server](../virtual-machines-sharepoint-farm-config-azure-preview/).
+Para os detalhes de configuração de ambos os farms, consulte [Detalhes da configuração do Farm do SharePoint Server](../virtual-machines-sharepoint-farm-config-azure-preview/).
 
 ##Percorrendo a configuração##
 
 Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server, faça o seguinte:
 
-1. No [Portal de visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Farm do SharePoint Server**.
+1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Farm do SharePoint Server**.
 2. No painel **Criar um farm do SharePoint**, digite o nome de um grupo de recursos.
 3. Digite um nome de usuário e uma senha para uma conta de administrador local em cada máquina virtual em seu farm. Escolha um nome e uma senha difícil de adivinhar, grave-a e armazene-a em um local seguro.
 4. Se desejar um farm de alta disponibilidade, clique em **Habilitar alta disponibilidade**.
@@ -81,12 +81,12 @@ Observações:
 
 ##Gerenciador de Recursos do Azure##
 
-O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/).
+O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 ##Recursos adicionais
 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](http://azure.microsoft.com/pt-br/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

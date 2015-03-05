@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Aplicativo Web Ruby on Rails no Azure usando máquinas virtuais do Linux" 
 	description="Hospedar um site da Web baseado no Ruby on Rails no Azure usando uma máquina virtual do Linux." 
 	services="virtual-machines" 
@@ -58,11 +58,11 @@ Esta é uma captura de tela do aplicativo concluído:
 
 1. Instale o Ruby em seu ambiente de desenvolvimento. Dependendo do sistema operacional, as etapas podem ser diferentes.
 
-	* **Apple OS X** - Há várias distribuições do Ruby para o OS X. Este tutorial foi validado no OS X usando o [Homebrew](http://brew.sh/) para instalar **rbenv** e **ruby-build**. As informações da instalação podem ser encontradas em [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - há várias distribuições do Ruby para o OS X. Este tutorial foi validado no OS X com o [Homebrew](http://brew.sh/) para instalar **rbenv** e **ruby-build**. As informações da instalação encontram-se em [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux** - Use o sistema de gerenciamento de pacotes de distribuições. Este tutorial foi validado no Ubuntu 12.10 usando os pacotes ruby1.9.1 e ruby1.9.1-dev.
+	* **Linux** - use o sistema de gerenciamento de pacotes de distribuição. Este tutorial foi validado no Ubuntu 12.10 usando os pacotes ruby1.9.1 e ruby1.9.1-dev.
 
-	* **Windows** - Existem várias distribuições do Ruby para o Windows. Este tutorial foi validado usando o [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
+	* **Windows** - existem várias distribuições do Ruby para Windows. Este tutorial foi validado usando o [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
 
 2. Abra uma nova linha de comando ou uma sessão de terminal e insira o seguinte comando para instalar o Ruby on Rails:
 
@@ -110,7 +110,7 @@ Execute as seguintes etapas para iniciar o servidor do Rails em seu ambiente de 
 
 		rails s
 
-	Você deve ver saídas semelhantes às seguintes. Observe a porta na qual o servidor web está escutando. No exemplo abaixo, ele está escutando na porta 3000.
+	Você deve ver saídas semelhantes às seguintes. Observe a porta na qual o servidor Web está escutando. No exemplo abaixo, ele está escutando na porta 3000.
 
 		=> Booting WEBrick
 		=> Rails 3.2.12 application starting in development on http://0.0.0.0:3000
@@ -136,7 +136,7 @@ Siga as instruções fornecidas [aqui][vm-instructions] para criar uma máquina 
 
 > [AZURE.NOTE] as etapas neste tutorial foram executadas em uma Máquina virtual do Azure que hospeda o Ubuntu 12.10. Se você estiver usando uma distribuição diferente do Linux, etapas diferentes podem ser necessárias para realizar as mesmas tarefas.
 
-> [AZURE.IMPORTANT] Você precisa **somente** criar a máquina virtual. Pare depois de aprender como se conectar à máquina virtual usando o SSH.
+> [AZURE.IMPORTANT] Você precisa criar **somente** a máquina virtual. Pare depois de aprender como se conectar à máquina virtual usando o SSH.
 
 Depois de criar Máquinas Virtuais do Azure, execute as seguintes etapas para instalar o Ruby and Rails na máquina virtual:
 
@@ -148,7 +148,7 @@ Depois de criar Máquinas Virtuais do Azure, execute as seguintes etapas para in
 
 		ssh railsdev@railsvm.cloudapp.net -p 61830
 
-	> [AZURE.NOTE] Se você estiver usando o Windows como o ambiente de desenvolvimento, será possível usar um utilitário como **PuTTY** para a funcionalidade do SSH. O PuTTY pode ser obtido na página de download do [PuTTY].(http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+	> [AZURE.NOTE] Se você estiver usando o Windows como o ambiente de desenvolvimento, será possível usar um utilitário como **PuTTY** para a funcionalidade do SSH. O PuTTY pode ser obtido na [página de download do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 2. Na sessão de SSH, use os seguintes comandos para instalar o Ruby na VM:
 
@@ -178,7 +178,7 @@ Por exemplo:
 
 	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
-> [AZURE.NOTE] Se você estiver usando o Windows como o ambiente de desenvolvimento, será possível usar um utilitário como **pscp** para a funcionalidade scp. O Pscp pode ser obtido na página de download do [PuTTY].(http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+> [AZURE.NOTE] Se você estiver usando o Windows como o ambiente de desenvolvimento, será possível usar um utilitário como **pscp** para a funcionalidade scp. O Pscp pode ser obtido na [página de download do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Os parâmetros usados nesse comando têm o seguinte efeito:
 
@@ -213,7 +213,7 @@ A lista de arquivos retornados deve corresponder aos arquivos contidos no diret�
 	
 		rails s
 
-	Você deve ver saídas semelhantes às seguintes. Observe a porta na qual o servidor web está escutando. No exemplo abaixo, ele está escutando na porta 3000.
+	Você deve ver saídas semelhantes às seguintes. Observe a porta na qual o servidor Web está escutando. No exemplo abaixo, ele está escutando na porta 3000.
 
 		=> Booting WEBrick
 		=> Rails 3.2.12 application starting in development on http://0.0.0.0:3000
@@ -239,7 +239,7 @@ A lista de arquivos retornados deve corresponder aos arquivos contidos no diret�
 
 	* **PORTA PÚBLICA**: 80
 
-	* **PORTA PRIVADA**: &lt;informações da porta na etapa 3 acima&gt;
+	* **PORTA PRIVADA**: &lt;informações de porta da etapa 3, acima&gt;
 
 	Isso criará uma porta pública de 80 que roteará o tráfego para a porta privada de 3000, na qual o servidor Rails está escutando.
 
@@ -259,7 +259,7 @@ A lista de arquivos retornados deve corresponder aos arquivos contidos no diret�
 
 Neste artigo, você aprendeu a criar e publicar um aplicativo Rails básico baseado em formulários em Máquinas Virtuais do Azure. A maioria das ações que executamos foram manuais e, em um ambiente de produção, o desejável seria automatizar. Além disso, a maioria dos ambientes de produção hospeda o aplicativo Rails em conjunto com outro processo do servidor como Apache ou NginX, que trata o roteamento da solicitação para várias instâncias do aplicativo Rails e atende recursos estáticos.
 
-Para obter informações sobre automatizar a implantação do aplicativo Rails, bem como usar o servidor Web Unicorn e o NginX, consulte [Unicorn+NginX+Capistrano com Máquina Virtuais do Azure][Unicorn+NginX+Capistrano] (a página pode estar em inglês).
+Para obter informações sobre a automatização da implantação do aplicativo Rails, e como usar o servidor Web Unicorn e o NginX, consulte [Unicorn+NginX+Capistrano com uma máquina virtual do Azure][unicorn-nginx-capistrano] (a página pode estar em inglês).
 
 Para saber mais sobre o Ruby on Rails, visite os [Guias do Ruby on Rails][rails-guides].
 
@@ -269,7 +269,7 @@ Para saber como usar o Azure SDK do Ruby para acessar os serviços do Azure de s
 
 * [Armazenar pares de chave/valor usando tabelas][tables]
 
-* [Atender o conteúdo alto da largura de banda com a rede de fornecimento de conteúdo][cdn-howto]
+* [Fornecer conteúdo de alta largura de banda com a Rede de Distribuição de Conteúdo][cdn-howto]
 
 
 
@@ -282,7 +282,7 @@ Para saber como usar o Azure SDK do Ruby para acessar os serviços do Azure de s
 
 [tables]: /pt-br/develop/ruby/how-to-guides/table-service/
 
-[Unicorn+NginX+Capistrano]: /pt-br/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+[unicorn-nginx-capistrano]: /pt-br/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
 
 [vm-instructions]: /pt-br/documentation/articles/virtual-machines-linux-tutorial
 
@@ -308,4 +308,4 @@ Para saber como usar o Azure SDK do Ruby para acessar os serviços do Azure de s
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

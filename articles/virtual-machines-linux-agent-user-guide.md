@@ -50,7 +50,7 @@ O Agente Linux do Azure (waagent) gerencia a interação entre uma máquina virt
 
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
 
-* Um DVD anexado ao tempo de inicialização para as implementações de IaaS. Este DVD inclui um arquivo de configuração compatível com OVF que inclui todas as informações de configuração que não seja os pares de chaves SSH real.
+* Um DVD anexado ao tempo de inicialização para as implementações de IaaS. Este DVD inclui um arquivo de configuração compatível com OVF que inclui todas as informações de provisionamento que não seja os pares de chaves SSH real.
 
 * Um ponto de extremidade TCP expondo uma API REST usada para obter a implantação e a configuração de topologia.
 
@@ -58,7 +58,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Você pode obter o agente mais recente do Linux diretamente de:
 
 - [Diferentes provedores de distribuição endossando o Linux no Azure](http://support.microsoft.com/kb/2805216)
-- ou o [Github abrir repositório de origem para o Azure agentes do Linux](https://github.com/WindowsAzure/WALinuxAgent)
+- ou o [Github abrir repositório de software livre para o Azure agentes do Linux](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###Distribuições Linux com suporte
@@ -80,7 +80,7 @@ Outros sistemas com suporte:
 Waagent depende de alguns pacotes de sistema para funcionar corretamente:
 
 * Python 2.5+
-* Openssl 1.0+
+* OpenSSL 1.0 +
 * Openssh 5.3+
 * Utilitários de sistema de arquivos: sfdisk, fdisk, mkfs
 * Ferramentas de senha: chpasswd, sudo
@@ -119,9 +119,9 @@ Arquivo de log do agente é mantido em /var/log/waagent.log.
 
  * Qualquer arquivo de configuração existente é movido para /etc/waagent.conf.old
 
- * Detecte a versão do kernel e aplique a solução VNUMA, se necessário
+ * Detectar a versão do kernel e aplica a solução VNUMA, se necessário
 
- * Mova as regras udev que podem interferir com a rede (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)para /var/lib/waagent/  
+ * Move as regras udev que podem interferir na rede (/ lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) para/var/lib/waagent /  
 
 - desinstalar: Remover waagent e arquivos associados
  * Cancela o registro do script de inicialização do sistema e o exclui
@@ -184,47 +184,47 @@ Uma amostra do arquivo de configuração é mostrada abaixo:
 
 Várias opções de configuração são descritas em detalhes abaixo. 
 As opções de configuração são de três tipos: Booliana, cadeia de caracteres ou número inteiro. 
-As opções de configuração Boolean podem ser especificadas como "y" ou "n". 
+As opções de configuração booliana podem ser especificadas como "y" ou "n". 
 A palavra-chave especial "Nenhum" pode ser usado para entradas de configuração de tipo algum sequência conforme detalhado abaixo.
 
 **Role.StateConsumer:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: Nenhum
 
 Se for especificado um caminho para um programa executável, ele é chamado quando waagent forneceu a imagem e o estado "Pronto" está prestes a ser relatado à malha. O argumento especificado para o programa serão "Pronto". O agente não aguardará para que o programa retorne antes de continuar.
 
 **Role.ConfigurationConsumer:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: Nenhum
 
 Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um arquivo de configuração está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que for alterado o arquivo de configuração. Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: Nenhum
 
-Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). Um arquivo de exemplo é fornecido no Apêndice a. O local atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
+Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: y
 
 Isso permite que o usuário habilite ou desabilite a funcionalidade de provisionamento no agente. Os valores válidos são "y" ou "n". Se o provisionamento for desabilitado, as chaves SSH de host e usuário da imagem serão preservadas e qualquer configuração especificada na API de provisionamento do Azure será ignorada.
 
 **Provisioning.DeleteRootPassword:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: n
 
 Se definido, a senha raiz no arquivo sombra é apagado durante o processo de provisionamento.
 
 **Provisioning.RegenerateSshHostKeyPair:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: y
 
 Se o conjunto de todos os SSH host pares de chaves (ecdsa, dsa e rsa) será excluído durante o processo de provisionamento de /etc/ssh /. E um único par de chave novo é gerado.
@@ -233,77 +233,77 @@ O tipo de criptografia para o novo par de chaves é configurável pela entrada d
 
 **Provisioning.SshHostKeyPairType:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: rsa
 
-Isso pode ser definido como um tipo de algoritmo de criptografia com suporte pelo daemon SSH na máquina virtual. Os valores geralmente aceitos são "rsa", "dsa" e "ecdsa". Observe que "putty.exe" no Windows não dá suporte a "ecdsa". Portanto, se você pretende usar putty.exe no Windows para conectar-se a uma implantação do Linux, use "rsa" ou "dsa".
+Isso pode ser definido como um tipo de algoritmo de criptografia com suporte pelo daemon SSH na máquina virtual. Os valores geralmente com suporte são "rsa", "dsa" e "ecdsa". Observe que "putty.exe" no Windows não dá suporte a "ecdsa". Portanto, se você pretende usar putty.exe no Windows para conectar-se a uma implantação do Linux, use "rsa" ou "dsa".
 
 **Provisioning.MonitorHostName:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: y
 
 Se definido, waagent monitorará máquina virtual Linux para alterações de nome do host (conforme retornado pelo comando "hostname") e atualizar automaticamente a configuração de rede da imagem para refletir a alteração. Para enviar por push a alteração do nome para os servidores DNS, a rede será reiniciado na máquina virtual. Isso resultará em resumo perda de conectividade com a Internet.
 
 **ResourceDisk.Format:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: y
 
 Se definido, o disco de recursos fornecido pela plataforma será formatado e montado por waagent se o tipo de sistema de arquivos solicitado pelo usuário em "ResourceDisk.Filesystem" for algo diferente de "ntfs". Uma única partição do tipo Linux (83) será disponibilizada no disco. Observe que essa partição não será formatada se ele pode ser montado com êxito.
 
 **ResourceDisk.Filesystem:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: ext4
 
-Especifica o tipo de sistema de arquivos para o disco do recurso. Valores aceitos variam de acordo com a distribuição do Linux. Se a sequência for X, em seguida, mkfs.X deve estar presente na imagem do Linux. Imagens de 11 SLES geralmente devem utilizar 'ext3'. FreeBSD imagens devem usar 'ufs2' aqui.
+Especifica o tipo de sistema de arquivos para o disco do recurso. Valores com suporte variam de acordo com a distribuição do Linux. Se a sequência for X, em seguida, mkfs.X deve estar presente na imagem do Linux. Imagens de 11 SLES geralmente devem utilizar 'ext3'. FreeBSD imagens devem usar 'ufs2' aqui.
 
 **ResourceDisk.MountPoint:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: /mnt/resource 
 
-Especifica o caminho em que o disco do recurso é montado. Observe que o disco de recurso é um disco  *temporary* e pode ser esvaziado quando a VM é desprovisionada.
+Especifica o caminho em que o disco do recurso é montado. Observe que o disco de recurso é um disco *temporary* e pode ser esvaziado quando a VM é desprovisionada.
 
 **ResourceDisk.EnableSwap:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: n 
 
 Se definir um arquivo de permuta (/ arquivo de permuta) é criado no disco recursos e adicionado ao espaço de troca de sistema.
 
 **ResourceDisk.SwapSizeMB:**
 
-Tipo: Número inteiro  
+Digite: Número inteiro  
 Padrão: 0
 
 Especifica o tamanho máximo do arquivo de permuta em megabytes.
 
 **LBProbeResponder:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: y
 
 Se definido, waagent responderá ao balanceador de carga de testes da plataforma (se presente).
 
 **Logs.Verbose:**
 
-Tipo: Booliano  
+Digite: Booliano  
 Padrão: n
 
 Se definido, a verbosidade do log é aumentado. Waagent faz /var/log/waagent.log e aproveita a funcionalidade de logrotate do sistema para girar os logs.
 
 **OS.RootDeviceScsiTimeout:**
 
-Tipo: Número inteiro  
+Digite: Número inteiro  
 Padrão: 300
 
 Isso configura o tempo limite de SCSI em segundos nos drives de disco e os dados de SO. Se não for definido, o sistema de padrões são usados.
 
 **OS.OpensslPath:**
 
-Tipo: Cadeia de caracteres  
+Digite: Cadeia de caracteres  
 Padrão: Nenhum
 
 Isso pode ser usado para especificar um caminho alternativo para o openssl binário a ser usado para operações de criptografia.
@@ -419,4 +419,4 @@ Isso pode ser usado para especificar um caminho alternativo para o openssl biná
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

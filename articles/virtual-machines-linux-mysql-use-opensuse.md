@@ -18,7 +18,7 @@
 
 # Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure
 
-[MySQL][MySQL] é um popular banco de dados SQL livre. Este tutorial mostra:
+O [MySQL][MySQL] é um popular banco de dados SQL de software livre. Este tutorial mostra:
 
 - Como usar o [Portal de Gerenciamento do Azure][AzurePortal] para criar uma máquina virtual OpenSUSE Linux por meio de uma imagem disponível pelo Azure.
 - Conectar-se a à máquina virtual usando o SSH ou o PuTTY.
@@ -41,4 +41,4 @@ Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

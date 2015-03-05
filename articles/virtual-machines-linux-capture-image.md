@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Capturar imagens de máquinas virtuais que executam Linux" 
 	description="Saiba como capturar imagens de máquina virtual do Azure que executam Linux." 
 	services="virtual-machines" 
@@ -32,9 +32,9 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
 ##Capturar a máquina virtual##
 
-1. Conectar-se à máquina virtual clicando em **Conecte-se** na barra de comando. Para mais detalhes, consulte [Como fazer logon em uma máquina virtual executando o Linux][].
+1. Conectar-se à máquina virtual clicando em **Conecte-se** na barra de comando. Para obter mais detalhes, consulte [Como fazer logon em uma máquina virtual executando o Linux][].
 
-2. Na janela SSH, digite o comando a seguir e, em seguida, digite a senha da conta criada na máquina virtual.  Observe que a saída de  `waagent`pode variar um pouco dependendo da versão do utilitário:
+2. Na janela SSH, digite o comando a seguir e, em seguida, digite a senha da conta criada na máquina virtual.  Observe que a saída de `waagent` pode variar um pouco dependendo da versão do utilitário:
 
 	`sudo waagent -deprovision`
 
@@ -62,12 +62,12 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 	![Image capture successful](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 ##Próximas etapas##
-A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
+A imagem está pronta para ser usada como modelo para criar novas máquinas virtuais. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
 	
-[Como fazer logon em uma máquina virtual executando o Linux]: ../virtual-machines-linux-how-to-log-on
-[Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn790290.aspx
+[Como fazer logon em uma máquina virtual que executa o Linux]: ../virtual-machines-linux-how-to-log-on
+[Sobre imagens de máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

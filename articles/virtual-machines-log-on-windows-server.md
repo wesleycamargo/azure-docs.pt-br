@@ -23,4 +23,4 @@ Para fazer logon em uma m√°quina virtual executando o Windows Server, use o bot√
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-<!--HONumber=42-->
+<!--HONumber=45--> 
