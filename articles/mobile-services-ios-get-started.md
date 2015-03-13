@@ -36,7 +36,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões posteriores.
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="_blank").
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="_blank").
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -115,13 +115,14 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-ios-get-started-users/
-[Introdução à sincronização de dados offline]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users/
+[Introdução à sincronização de dados offline]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 
 [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Versão de back-end do .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-\n<!--HONumber=42-->
+[Versão de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+
+\<!--HONumber=42-->

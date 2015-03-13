@@ -99,5 +99,4 @@ Conectar aplicativos sempre fez parte da criação de soluções completas e ser
 [filas]: ./media/hybrid-solutions/SvcBus_02_queues.png
 [topics-subs]: ./media/hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [retransmissão]: ./media/hybrid-solutions/SvcBus_04_relay.png
-
 <!--HONumber=42-->

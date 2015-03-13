@@ -1,6 +1,20 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Controle de acesso com base em função no portal de Visualização do Azure" description="Descreve como funciona o controle de acesso baseado em função e como configurá-lo" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties 
+	pageTitle="Controle de acesso com base em função no portal de Visualização do Azure" 
+	description="Descreve como funciona o controle de acesso baseado em função e como configurá-lo" 
+	services="" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Ibiza" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/06/2015" 
+	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -124,7 +138,7 @@ As atribuições de função podem também ser gerenciadas usando o módulo Micr
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-powershell/). 
+Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
 <h3><a id="remove"></a>Remover acesso</h2>
 
@@ -165,7 +179,7 @@ Você pode também remover um convidado de qualquer função, simplesmente como 
  
 <h2><a id="knownissues"></a>Problemas conhecidos ao usar o controle de acesso com base em função</h2>
 
-Se você encontrar um problema ao usar o recurso do controle de acesso com base em função enquanto estiver na visualização, consulte [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/) para qualquer problema conhecido que possa estar relacionado ao problema.
+Se você encontrar um problema ao usar o recurso do controle de acesso com base em função enquanto estiver na visualização, consulte [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/) para qualquer problema conhecido que possa estar relacionado ao problema.
 
 
 <h2><a id="feedback"></a>Como fornecer comentários</h2>
@@ -177,12 +191,12 @@ Experimente o RBAC do Azure e envie seus comentários [feedback](http://aka.ms/a
 
 Veja alguns recursos adicionais para ajudar você a usar o controle de acesso com base em função: 
 
-+ [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-powershell/)
-+ [Gerenciar o controle de acesso com base em função com o XPLAT CLI](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/)
++ [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [Gerenciar o controle de acesso com base em função com o XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/pt-br/library/azure/dn532272.aspx)
-+ [Como as assinaturas do Azure estão associadas ao Azure AD](http://msdn.microsoft.com/pt-br/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [Como as assinaturas do Azure estão associadas ao Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + Para uma introdução para o gerenciamento de grupo de autoatendimento para os grupos de segurança, consulte o [Blog da equipe do Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 
@@ -200,3 +214,5 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
+
+<!--HONumber=46--> 

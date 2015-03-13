@@ -62,9 +62,10 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo iOS, pr
 [Notificações por push e Live Connect do Windows]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
-[Scripts de servidor de armazenamento no controle do código-fonte]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
-\n<!--HONumber=42-->
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
+[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
+
+\<!--HONumber=42-->

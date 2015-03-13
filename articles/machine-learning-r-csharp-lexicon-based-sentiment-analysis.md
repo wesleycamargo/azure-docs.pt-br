@@ -1,7 +1,20 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="Etapa 1: Análise de sentimento baseada em léxico | Azure" description="Análise de sentimento baseada em léxico" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Etapa 1: Análise de sentimento baseada em léxico | Azure" 
+	description="Análise de sentimento baseada em léxico" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
-
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Análise de sentimento baseada em léxico 
@@ -61,7 +74,7 @@ Há várias maneiras de consumir o serviço de forma automática (aplicativos de
 A entrada é "Hoje é um bom dia.", a saída será "1", que indica um sentimento positivo associado à frase de entrada. 
 
 ##Criação de serviço Web
->Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+>Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 
 
 De dentro do AM do Azure, um novo teste em branco foi criado. A figura a seguir mostra o fluxo de teste do léxico com base na análise de sentimento. O "sent_dict.csv é o léxico de subjetividade MPQA, e é definido como uma entrada do "Script R de Executar". Outra entrada é uma revisão de amostra do conjunto de dados de análise Amazon para teste, em que realizamos seleção, modificação do nome de coluna e as operações de divisão.  Usamos o pacote de hash para armazenar o léxico de subjetividade na memória e acelerar o processo de cálculo de pontuação. O texto inteiro será indexado pelo pacote "tm" e comparado com a palavra no dicionário sentimento. Por fim, uma pontuação será calculada adicionando o peso de cada palavra subjetiva no texto. 
@@ -129,7 +142,7 @@ De dentro do AM do Azure, um novo teste em branco foi criado. A figura a seguir 
 Da perspectiva do algoritmo, léxico com base em análise de sentimento é uma ferramenta de análise do sentimento geral, pode não funcionar melhor que o método de classificação para campos específicos. O problema de negação não é bem processado. Nós codificamos várias palavras de negação no nosso programa, mas uma maneira melhor é usar um dicionário de negação e criar algumas regras. O serviço Web tem um melhor desempenho em frases curtas e simples, como tweets e postagens do Facebook, do que em frases longas e complexas, como a análise Amazon. 
 
 ##Perguntas frequentes
-Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-marketplace-faq).
+Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
@@ -141,3 +154,5 @@ Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no m
 
 
 
+
+<!--HONumber=46--> 

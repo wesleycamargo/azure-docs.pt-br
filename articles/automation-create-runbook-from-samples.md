@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Introdução à Automação do Azure" metaKeywords ="" description="Saiba como importar e executar uma tarefa de automação no Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
+﻿<properties 
+	pageTitle="Introdução à Automação do Azure" 
+	description="Saiba como importar e executar uma tarefa de automação no Azure." 
+	services="automation" 
+	documentationCenter="" 
+	authors="bwren" 
+	manager="stevenka" 
+	editor=""/>
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
+<tags 
+	ms.service="automation" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="bwren"/>
 
 
 # Introdução à Automação do Azure
@@ -9,7 +23,7 @@ A Automação do Microsoft Azure fornece uma maneira para os desenvolvedores aut
 
 Este tutorial apresenta e explica as etapas para importar um runbook "Hello World" de exemplo na Automação do Azure, executá-lo e, em seguida, exibir sua saída.
 
->[WACOM.NOTE] Para aprender a automatizar as operações do Azure usando [cmdlets do PowerShell do Azure](http://msdn.microsoft.com/pt-br/library/jj156055.aspx) consulte <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Automação do Azure: Autenticação do Azure usando o Active Directory do Azure</a>.
+>[WACOM.NOTE] Para aprender a automatizar as operações do Azure usando [cmdlets do PowerShell do Azure](http://msdn.microsoft.com/library/jj156055.aspx) consulte <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Automação do Azure: Autenticação do Azure usando o Active Directory do Azure</a>.
 
 ## Exemplos e runbooks utilitários
 
@@ -117,7 +131,7 @@ Os runbooks da comunidade e de outras equipes da Microsoft também são publicad
 
 
 # Gerenciando os serviços do Azure a partir de um Runbook 
-O exemplo acima mostra um runbook simples que não gerencia os serviços do Azure. Os [cmdlets do Azure](http://msdn.microsoft.com/pt-br/library/jj156055.aspx) exigem autorização do Azure. Siga as instruções em [Automação do Azure: Autenticação do Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) para configurar sua assinatura do Azure para o gerenciamento por meio da Automação do Azure.
+O exemplo acima mostra um runbook simples que não gerencia os serviços do Azure. Os [cmdlets do Azure](http://msdn.microsoft.com/library/jj156055.aspx) exigem autorização do Azure. Siga as instruções em [Automação do Azure: Autenticação do Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) para configurar sua assinatura do Azure para o gerenciamento por meio da Automação do Azure.
 
 # Consulte também
 
@@ -127,3 +141,5 @@ O exemplo acima mostra um runbook simples que não gerencia os serviços do Azur
 - [Automação do Azure: Autenticação do Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

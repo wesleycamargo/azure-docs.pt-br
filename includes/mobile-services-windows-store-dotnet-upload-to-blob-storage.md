@@ -142,5 +142,4 @@ A etapa final consiste em testar o aplicativo e validar que os carregamentos sej
 
    	>[AZURE.NOTE]A imagem é baixada automaticamente do serviço de Armazenamento de Blob quando a propriedade <code>imageUri</code> do novo item está vinculado ao controle <strong>Imagem</strong>.
 
-
 <!--HONumber=42-->

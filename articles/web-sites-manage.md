@@ -83,7 +83,7 @@ Uma seção **Visão Rápida**, que inclui as seguintes informações de resumo 
 A página de gerenciamento **Monitor** fornece um gráfico que exibe informações de uso do site. Por padrão, esse gráfico exibe as mesmas métricas do gráfico na página **Painel**, conforme descrito anteriormente na seção Painel. O gráfico também pode ser configurado para exibir as métricas de sucesso de HTTP, redirecionamentos HTTP, erros de HTTP 401, erros de HTTP 403, erros HTTP 404 e erros HTTP 406. Para obter mais informações sobre essas métricas, consulte [Como monitorar sites][Monitoramento].
 
 ##WebJobs##
-A página de gerenciamento WebJobs permite criar tarefas sob demanda, agendadas ou em execução contínua para seu site. Para obter mais informações, consulte [Como usar o recurso WebJobs em Sites do Microsoft Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-create-web-jobs/).
+A página de gerenciamento WebJobs permite criar tarefas sob demanda, agendadas ou em execução contínua para seu site. Para obter mais informações, consulte [Como usar o recurso WebJobs em Sites do Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/).
 
 ##Configurar##
 A página de gerenciamento **Configurar** é usada para definir configurações específicas do aplicativo.
@@ -102,7 +102,7 @@ Para obter mais informações sobre a configuração de opções de dimensioname
 A página de gerenciamento **Recursos Vinculados** fornece uma lista de recursos do Microsoft Azure que seu site está usando, incluindo bancos de dados SQL, MySQL e contas de armazenamento do Azure. Clique no nome do recurso para gerenciá-lo.
 
 ##Backups##
-A página de gerenciamento **Backups** permite criar backups manuais ou automatizados de seu site, restaurar seu site para um estado anterior ou criar um novo site baseado em um dos seus backups. Para obter mais informações, consulte [Backups de Sites do Microsoft Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-backup/) e [Restaurar um site do Microsoft Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-restore/).
+A página de gerenciamento **Backups** permite criar backups manuais ou automatizados de seu site, restaurar seu site para um estado anterior ou criar um novo site baseado em um dos seus backups. Para obter mais informações, consulte [Backups de Sites do Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/) e [Restaurar um site do Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Ícones da Página de Gerenciamento##
 Os ícones são exibidos na parte inferior de cada uma das páginas de gerenciamento do site. Vários desses ícones aparecem em várias páginas e alguns deles são exibidos apenas em páginas específicas.  Os ícones a seguir são exibidos na parte inferior da página de gerenciamento **Painel**:
@@ -210,11 +210,11 @@ Para redefinir a senha, clique em **Redefina as credenciais do perfil de publica
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[Configurar]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-configure-websites
+[Configurar]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
 
-[Monitoramento]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-monitor-websites/
+[Monitoramento]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
 
-[Escala]: http://www.windowsazure.com/pt-br/manage/services/web-sites/how-to-scale-websites
+[Escala]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

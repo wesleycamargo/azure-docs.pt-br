@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Principais conceitos de Gerenciamento de API" metaKeywords="" description="Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do gerenciamento do API." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Principais conceitos de Gerenciamento de API" 
+	description="Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do Gerenciamento de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #Principais conceitos de Gerenciamento de API
 
@@ -90,3 +104,5 @@ Você pode personalizar a aparência do portal do desenvolvedor adicionando cont
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

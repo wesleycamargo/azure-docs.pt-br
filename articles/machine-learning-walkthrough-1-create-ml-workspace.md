@@ -1,6 +1,20 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Etapa 1: Criar um espaço de trabalho de Aprendizado de Máquina | Azure" description="Etapa 1: Criar um novo espaço de trabalho do Azure Studio de aprendizado de máquina" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Etapa 1: Criar um espaço de trabalho de Aprendizado de Máquina | Azure" 
+	description="Solução alternativa. Etapa 1: Criar um novo espaço de trabalho do Azure Studio de aprendizado de máquina" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Esta é a primeira etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][develop]:
@@ -47,3 +61,5 @@ Após seu espaço de trabalho AM ser criado, você o verá listado na página **
 **Avançar: [Fazer upload de dados existentes][upload-data]**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+
+<!--HONumber=46--> 

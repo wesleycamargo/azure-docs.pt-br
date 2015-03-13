@@ -19,7 +19,7 @@
 
 #Restaurar um Site do Microsoft Azure
 
-Este artigo mostra como restaurar um site do qual você fez backup anteriormente usando o recurso Backup de Sites do Azure. Para obter mais informações, consulte [Backups de Sites do Microsoft Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-backup/). 
+Este artigo mostra como restaurar um site do qual você fez backup anteriormente usando o recurso Backup de Sites do Azure. Para obter mais informações, consulte [Backups de Sites do Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/). 
 
 O recurso de Restauração de Sites do Azure permite restaurar seu site sob demanda para um estado anterior ou criar um novo site baseado em um dos backups do seu site original. A criação de um novo site que é executado em paralelo para a versão mais recente pode ser útil para teste de A/B.
 

@@ -6,11 +6,11 @@
 
 	![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 	
-4. A primeira tela permite **Escolher uma imagem** para a máquina virtual em uma das listas na Galeria de imagens. (As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando). Clique na seta para continuar.
+4. A primeira tela permite **Escolher uma Imagem** para a máquina virtual em uma das listas na Galeria de Imagens. (As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando). Clique na seta para continuar.
 
 	![Choose an image](./media/virtual-machines-create-WindowsVM/chooseimage.png)
 
-5. A segunda tela permite separar um nome do computador, tamanho e nome e senha do usuário administrativo. Se você quiser apenas testar as Máquinas Virtuais do Azure, preencha os campos conforme mostrado na imagem abaixo. Do contrário, escolha a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. Aqui estão alguns detalhes para ajudar você a preenchê-los: 
+5. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Se você quiser apenas testar as Máquinas Virtuais do Azure, preencha os campos conforme mostrado na imagem abaixo. Do contrário, escolha a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. Aqui estão alguns detalhes para ajudar você a preenchê-los: 
 	
 	- **Novo Nome de Usuário** refere-se à conta administrativa que você usa para gerenciar o servidor. Crie uma senha exclusiva para essa conta e não se esqueça dela. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**. 
 
@@ -23,9 +23,9 @@
 6. A terceira tela permite configurar recursos para rede, armazenamento e disponibilidade. Aqui estão alguns detalhes para ajudar você a preenchê-los: 
 	
 
-	- O **Nome DNS do serviço de nuvem** é o nome DNS global que se torna parte do URI usado no contato com a máquina virtual. Você precisará sugerir o próprio nome do serviço de nuvem porque ele deve ser exclusivo no Azure. Os serviços de nuvem são importantes para cenários que usam [várias máquinas virtuais](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/).
+	- O **Nome DNS do Serviço de Nuvem** é o nome DNS global que se torna parte do URI usado no contato com a máquina virtual. Você precisará sugerir o próprio nome do serviço de nuvem porque ele deve ser exclusivo no Azure. Os serviços de nuvem são importantes para cenários que usem [várias máquinas virtuais](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/).
  
-	- Para **Região/Grupo de afinidade/Rede virtual**, use uma região apropriada ao local. Também é possível optar por especificar uma rede virtual.
+	- Para **Região/Grupo de Afinidade/Rede Virtual**, use uma região apropriada ao local. Também é possível optar por especificar uma rede virtual.
  
 	>[AZURE.NOTE] Se você deseja que uma máquina virtual use uma rede virtual, você **deve** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -43,4 +43,5 @@
 8. Depois que a máquina virtual é criada, o Portal de Gerenciamento lista a nova máquina virtual em **Máquinas Virtuais**. O serviço de nuvem correspondente e a conta de armazenamento também são criados e listados nessas seções. Tanto a máquina virtual quanto o serviço de nuvem são iniciados automaticamente, e o Portal de Gerenciamento mostra o status como **Em Execução**. 
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -24,7 +24,7 @@
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push a um aplicativo da Windows Store. 
 Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure para o projeto de início rápido. Ao concluir, seu serviço móvel enviará uma notificação por push usando Hubs de Notificação sempre que um registro for inserido. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
->[AZURE.NOTE]Este tópico mostra como configurar manualmente as notificações por push usando o Serviço de Notificação do Windows (WNS) para um aplicativo da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para configurar automaticamente as mesmas notificações por push em um projeto de aplicativo universal. Para obter mais informações, consulte a [versão do aplicativo universal do Windows](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push) deste tutorial.
+>[AZURE.NOTE]Este tópico mostra como configurar manualmente as notificações por push usando o Serviço de Notificação do Windows (WNS) para um aplicativo da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para configurar automaticamente as mesmas notificações por push em um projeto de aplicativo universal. Para obter mais informações, consulte a [versão do aplicativo universal do Windows](/pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push) deste tutorial.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
@@ -120,17 +120,18 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de transmissão para assinantes]: /en-us/documentation/articles/notification-hubs-windows-store-javascript-send-breaking-news/
-[Enviar notificações baseadas em modelo para assinantes]: /en-us/documentation/articles/notification-hubs-windows-store-javascript-send-localized-breaking-news/
-\n<!--HONumber=42-->
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-javascript-send-breaking-news/
+[Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-javascript-send-localized-breaking-news/
+
+<!--HONumber=42-->

@@ -19,7 +19,7 @@ O serviço Tabela contém os seguintes componentes:
     http://`<storage account>`.table.core.windows.net/`<table>`     
     Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para obter mais informações, consulte [OData.org][]
 
--   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Consulte [Metas de desempenho e escalabilidade do armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+-   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Consulte [Metas de desempenho e escalabilidade do armazenamento do Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 -   **Tabela**: Uma tabela é uma coleção de entidades. As tabelas não impõem um esquema nas entidades, o que significa que uma única tabela pode conter entidades com diferentes conjuntos de propriedades. O número de tabelas que uma 
 	conta de armazenamento pode conter é limitado apenas pelo limite de capacidade da conta de armazenamento.
@@ -32,4 +32,4 @@ O serviço Tabela contém os seguintes componentes:
   
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-<!--HONumber=41-->
+<!--HONumber=42-->

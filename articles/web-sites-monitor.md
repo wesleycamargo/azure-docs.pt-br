@@ -61,7 +61,7 @@ Para determinar a extensão do impacto de um site sobre cotas de uso de recursos
 	-	**Armazenamento do sistema de arquivos** - quando essa cota for atingida, o armazenamento do sistema de arquivos permanece acessível para operações de leitura, mas todas as operações de gravação, incluindo aquelas requeridas para atividade normal do site, são bloqueadas. As operações de gravação serão retomadas quando você reduzir o uso de arquivo ou mover o site para um plano de hospedagem da web com uma cota superior.
 	-	**Recursos vinculados** - cotas para quaisquer recursos vinculados do site, como banco de dados ou armazenamento, são exibidas aqui também.   
 
-	Algumas cotas podem ser aplicadas por plano de hospedagem da web, enquanto outas podem ser aplicadas por site. Para informações detalhadas sobre cotas de uso para cada plano de hospedagem da web, consulte [Limites de sites](http://azure.microsoft.com/pt-br/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Algumas cotas podem ser aplicadas por plano de hospedagem da web, enquanto outas podem ser aplicadas por site. Para informações detalhadas sobre cotas de uso para cada plano de hospedagem da web, consulte [Limites de sites](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>Como: Evitar exceder suas cotas
@@ -106,7 +106,7 @@ Como o log do aplicativo no armazenamento requer o uso de um cliente de armazena
 
 > [AZURE.NOTE] O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**.
 > 
-> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] O log de aplicativo se baseia em informações de log geradas pelo seu aplicativo. O método usado para gerar informações de log, bem como o formato das informações, é específico para o idioma em que seu aplicativo é gravado. Para obter informações específicas a um idioma sobre o uso do log de aplicativo, consulte os seguintes artigos:
 > 
@@ -173,7 +173,7 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou ferrame
 
 1. Na **Tela Inicial** ou no **Menu Iniciar**, pesquise por **PowerShell do Azure**. Clique com o botão direito do mouse no **PowerShell do Azure** e selecione **Executar como Administrador**.
 
-	> [AZURE.NOTE] Se o **PowerShell do Azure** não estiver instalado, consulte [Introdução aos cmdlets do PowerShell do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj554332.aspx) para obter informações sobre a instalação e a configuração.
+	> [AZURE.NOTE] Se o **PowerShell do Azure** não estiver instalado, consulte [Introdução aos cmdlets do PowerShell do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obter informações sobre a instalação e a configuração.
 
 2. No prompt do PowerShell do Azure, use o seguinte comando para baixar os arquivos de log:
 
@@ -201,7 +201,7 @@ Você também pode exibir um fluxo ao vivo de eventos de log usando o seguinte c
 
 Isso exibirá as informações de log para o prompt de comando do PowerShell, bash ou sessão de terminal de onde o comando é executado.
 
-> [AZURE.NOTE] Se o comando **azure** não estiver instalado, consulte [Como usar as ferramentas de linha de comando do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/command-line-tools/) para obter informações de instalação e configuração.
+> [AZURE.NOTE] Se o comando **azure** não estiver instalado, consulte [Como usar as ferramentas de linha de comando do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/) para obter informações de instalação e configuração.
 
 ###Leitura de arquivos de log###
 
@@ -276,9 +276,9 @@ Depois de configurar o monitoramento de ponto de extremidade, você pode analisa
 
 Para obter mais informações sobre o monitoramento de pontos de extremidade do site, consulte os seguintes vídeos:
 
-- [Scott Guthrie apresenta os Sites do Azure e configura o Monitoramento do Ponto de Extremidade](http://www.windowsazure.com/pt-br/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie apresenta os Sites do Azure e configura o Monitoramento do Ponto de Extremidade](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow (a página pode estar em inglês)](http://www.windowsazure.com/pt-br/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow (a página pode estar em inglês)](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

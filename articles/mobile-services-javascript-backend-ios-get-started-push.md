@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push por meio de um serviço APNS (Serviço de Notificação por Push da Apple) para um aplicativo iOS. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure para o [projeto de início rápido](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
+Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push por meio de um serviço APNS (Serviço de Notificação por Push da Apple) para um aplicativo iOS. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure para o [projeto de início rápido](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/). Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
@@ -238,19 +238,20 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Portal de Provisionamento do iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-ios-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-ios-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-ios-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto APNs]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de transmissão para assinantes]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Enviar notificações baseadas em modelo para assinantes]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/
+[Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
 
-[Referência conceitual do tutorial do Objective-C de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do Objective-C de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+
+\<!--HONumber=42-->

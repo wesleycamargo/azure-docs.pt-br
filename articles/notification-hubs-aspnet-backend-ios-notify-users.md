@@ -1,6 +1,20 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Notificação de Usuários nos Hubs de Notificação do Azure" metaKeywords="Azure push notifications, Azure notification hubs" description="Saiba como enviar notificações por push seguro no Azure. Exemplos de códigos escritos em Objective-C usando a API .NET." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Notificação de Usuários nos Hubs de Notificação do Azure" 
+	description="Saiba como enviar notificações por push seguro no Azure. Exemplos de códigos escritos em Objective-C usando a API .NET." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="yuaxu"/>
 
 #Notificação de Usuários nos Hubs de Notificação do Azure
 
@@ -9,28 +23,28 @@
 		<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, como mostrado no tópico de instrução [Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/pt-br/library/dn743807.aspx).
+O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, como mostrado no tópico de instrução[ Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx).
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/). Este tutorial também é um pré-requisito para o tutorial [Push seguro (iOS)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) .
-> Se você estiver usando serviços móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](/pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) deste tutorial.
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/).
+> Se você estiver usando Serviços móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](/pt-br/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) deste tutorial.
 
 
 ## Criar e configurar o hub de notificação
 
-Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/). Para obter recursos adicionais no fornecimento de dispositivos iOS, confira o guia em[Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
+Siga as seções de 1 a 5 no [Guia de Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Para obter recursos adicionais sobre o provisionamento de dispositivo iOS, confira o guia em [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modificar seu aplicativo iOS
 
-1. Abra o aplicativo de exibição em Página Única que você criou seguindo as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/).
+1. Abra o aplicativo de visualização Página Única criado após as seções de 1 a 5 no [Guia de Introdução aos Hubs de notificação (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
 > [AZURE.NOTE] Nesta seção, presumimos que você configurou seu projeto com um nome de organização vazio. Se não, você precisa prefixar o nome da organização a todos os nomes de classe.
 
 2. Em seu Main.storyboard. adicione os seguintes componentes da biblioteca de objetos:
 	+ Um UITextField com texto de espaço reservado **Nome de Usuário**
-	+ Um UITextField com texto de espaço reservado**Senha**, e verifique a opção**Proteger** no Inspetor de Atributos, sob a tecla Enter do Textfield 
-	+ Um UIButton com rótulo **1. Entre** e desmarque a opção **Habilitado** no Inspetor de Atributos, em Controle e Conteúdo
+	+ Um UITextField com texto de espaço reservado**Senha**, e verifique a opção**Proteger** no Inspetor de Atributos, sob a tecla Enter do Textfield
+	+ Um UIButton com rótulo **1. Entre em** e desmarque a opção **Habilitado** no Inspetor de Atributos, em Controle e Conteúdo
 	+ Um UIButton com rótulo **2. Envie por Push**, e desmarque a opção **Habilitado**
 
 	O storyboard deve ter a seguinte aparência:
@@ -192,7 +206,7 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](http
 		    [dataTask resume];
 		}
 
-	O código acima implementa a lógica explicada no artigo de orientação[Registrando-se no back-end do aplicativo](http://msdn.microsoft.com/pt-br/library/dn743807.aspx) usando NSURLSession para realizar chamadas REST ao back-end do aplicativo e NSUserDefaults para armazenar localmente o registrationId devolvido pelo hub de notificação.
+	O código acima implementa a lógica explicada no artigo de orientação [Registrando-se no back-end do seu aplicativo](http://msdn.microsoft.com/library/dn743807.aspx), utilizando NSURLSession para realizar chamadas de REST para o back-end do seu aplicativo e NSUserDefaults para armazenar localmente o registrationId retornado pelo hub de notificação.
 
 	Observe que essa classe requer que a propriedade **authorizationHeader** seja configurada para funcionar adequadamente. Essa propriedade é definida pela classe **ViewController** após o logon.
 
@@ -237,7 +251,7 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](http
 
 	Observe como a configuração do token do dispositivo ativa o botão de logon. Isso ocorre porque, como parte da ação de logon, o controlador de exibição registra-se para notificações por push no back-end do aplicativo. Portanto, não queremos que a ação de Logon seja acessível até que o token do dispositivo seja configurado corretamente. Você pode desacoplar o logon do registro de push, contanto que o primeiro ocorra antes do último.
 
-10. No ViewController.m, adicione uma constante ao ponto de extremidade do back-end e use os seguintes techos para implementar os métodos de ação para os UIButtons. Substitua o ponto de extremidade do back-end de espaço reservado pela URL de destino que você usou para o seu backend.
+10. No ViewController.m, adicione uma constante ao ponto de extremidade do back-end e use os seguintes snippets para implementar os métodos de ação para os UIButtons. Substitua o ponto de extremidade do back-end de espaço reservado pela URL de destino que você usou para o seu backend.
 
 		- (IBAction)LogInAction:(id)sender {
 		    // create authentication header and set it in register client
@@ -315,9 +329,9 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](http
 
 3. Você deverá ver um pop-up informando sobre o sucesso da inscrição. Clique em **OK**.
 
-4. Clique em**Enviar por push** e clique no botão da página inicial.Uma notificação por push aparecerá em breve.
+4. Clique em**Enviar por push** e clique no botão da página inicial. Uma notificação por push aparecerá em breve.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

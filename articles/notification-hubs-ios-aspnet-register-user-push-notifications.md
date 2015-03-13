@@ -1,7 +1,20 @@
-﻿
-<properties urlDisplayName="Notify iOS app users by using Web API" pageTitle="Registre o usuário atual para notificações por push usando a API Web - Hubs de notificação" metaKeywords=" do aplicativo de registro do Azure, Hubs de notificação, notificações por push do Azure, aplicativo iOS de notificação por push" description="Saiba como solicitar registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado pela API Web ASP.NET." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Registrar o usuário atual para notificações por push usando a API Web - Hubs de notificação" 
+	description="Saiba como solicitar registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado pela API Web ASP.NET." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Registrar o usuário atual para notificações por push usando o ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -12,13 +25,13 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 1. No MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objetos:
 
-	+ **label**: "Push to User with Notification Hubs"
-	+ **label**: "InstallationId"
-	+ **label**: "User"
-	+ **Text Field**: "User"
-	+ **Label**: "Password"
-	+ **Text Field**: "Password"
-	+ **Button**: "Login"
+	+ **Rótulo**: "Push to User with Notification Hubs"
+	+ **Rótulo**: "InstallationId"
+	+ **Rótulo**: "User"
+	+ **Campo de texto**: "User"
+	+ **Rótulo**: "Password"
+	+ **Campo de texto**: "Password"
+	+ **Botão**: "Login"
 
 	Neste ponto, o storyboard é semelhante ao seguinte:
 
@@ -85,15 +98,13 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 	A primeira linha inicializa o singleton **DeviceInfo**. A segunda linha inicia o registro das notificações por push, que já está presente uma vez que você já concluiu o tutorial [Introdução aos Hubs de Notificação].
 
-9. No PushToUserAppDelegate.m, implemente o método **didRegisterForRemoteNotificationsWithDeviceToken** em seu AppDelegate e adicione o seguinte código:
+9. Em PushToUserAppDelegate.m, implemente o método **didRegisterForRemoteNotificationsWithDeviceToken** em seu AppDelegate e adicione o seguinte código:
 
 		self.deviceInfo.deviceToken = deviceToken;
 
 	Isso define o token de dispositivo para a solicitação.
 
-	<div class="dev-callout"><b>Observação</b>
-	<p>Neste ponto, não deve haver nenhum outro código nesse método. Se você já tiver uma chamada para o método **registerNativeWithDeviceToken** que foi adicionado quando você concluiu o tutorial <a href="/pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Introdução aos Hubs de Notificação</a>, você deve comentar ou remover essa chamada.</p>
-	</div>
+	> [AZURE.NOTE] Neste ponto, não deve haver nenhum outro código nesse método. Se você já tiver uma chamada para o método **registerNativeWithDeviceToken** que foi adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação] (/pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), você deve comentar ou remover essa chamada.
 
 10.	No arquivo PushToUserAppDelegate, adicione o seguinte método de manipulador:
 
@@ -219,3 +230,5 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios
+
+<!--HONumber=45--> 

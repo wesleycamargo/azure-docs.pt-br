@@ -64,8 +64,7 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 É recomendável que você exclua o ambiente virtual existente no site, para impedir que sobrem arquivos de quando o ambiente virtual foi gerenciado automaticamente.
 
 
-[Criar uma máquina Virtual executando Windows]: http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-windows-tutorial/
+[Criar uma máquina Virtual executando Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilador do Microsoft Visual C++ para Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 <!--HONumber=42-->

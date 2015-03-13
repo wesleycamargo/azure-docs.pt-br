@@ -1,6 +1,20 @@
-﻿<properties pageTitle="O que é um plano de hospedagem na Web?" description="Visão geral do plano de hospedagem na web" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+﻿<properties 
+	pageTitle="O que é um plano de hospedagem na Web?" 
+	description="Visão geral do plano de hospedagem na web" 
+	services="web-sites" 
+	authors="adamabdelhamed" 
+	manager="wpickett" 
+	editor="" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="adamab"/>
 
 #  O que é um plano de hospedagem na Web? #
 
@@ -48,10 +62,12 @@ Clicar no plano iniciará um blade que permite gerenciar o plano de hospedagem n
 
 ### Próximas etapas ###
 
-Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/).
+Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 [WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
 [BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+
+<!--HONumber=46--> 

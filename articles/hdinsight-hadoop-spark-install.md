@@ -44,9 +44,9 @@ Este tópico fornece instruções sobre como personalizar um cluster HDInsight p
 
 Um exemplo de script para instalar Spark em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente para leitura em [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o Portal de Gerenciamento do Azure. 
 
-> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1.  Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1.  Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
-1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a Ação de Script, como mostrado abaixo:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -76,7 +76,7 @@ O Spark fornece APIs em Scala, Python e Java. Você também pode usar o shell Sp
 ###<a name="sparkshell"></a>Usando o shell Spark
 Execute as seguintes etapas para executar consultas Spark de um shell interativo Spark. Nesta seção, executamos uma consulta Spark em um arquivo de dados de exemplo (/example/data/gutenberg/davinci.txt) disponível em clusters HDInsight por padrão.
 
-1. No Portal de Gerenciamento do Azure, habilite a área de trabalho remota para o cluster criado com o Spark instalado e, em seguida, remote no cluster. Para obter instruções, consulte <a href="http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+1. No Portal de Gerenciamento do Azure, habilite a área de trabalho remota para o cluster criado com o Spark instalado e, em seguida, remote no cluster. Para obter instruções, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
 
 2. Na sessão RDP, na área de trabalho, abra a linha de comando do Hadoop e navegue até o local onde o Spark está instalado, por exemplo, **C:\apps\dist\spark-1.0.2**.
 
@@ -184,7 +184,7 @@ Nesta seção você irá remoto para o cluster com velas instalada e, em seguida
 
 ## <a name="usingPS"></a>Instalar o Spark em clusters Hadoop do HDInsight usando o PowerShell
 
-Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/pt-br/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, certifique-se de ter instalado e configurado o PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, certifique-se de ter instalado e configurado o PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
 Execute as seguintes etapas:
 
@@ -345,7 +345,7 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
             Version = "3.1"
         };        
 
-10. Acrescente o seguinte código à função Main () para usar a classe [ScriptAction](http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para chamar um script personalizado para instalar o Spark.
+10. Acrescente o seguinte código à função Main () para usar a classe [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para chamar um script personalizado para instalar o Spark.
 
 		// ADD THE SCRIPT ACTION TO INSTALL SPARK
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -383,4 +383,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

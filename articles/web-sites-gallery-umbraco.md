@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Criar um site do Umbraco com base na galeria do Microsoft Azure" description="obrigatório" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Criar um site do Umbraco com base na galeria do Microsoft Azure" 
+	description="obrigatório" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Criar um site do Umbraco com base na galeria do Microsoft Azure#
 
@@ -88,13 +102,13 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
 
 [Tutoriais em vídeo do Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Visão geral do Portal de Visualização do Microsoft Azure](http://azure.microsoft.com/pt-br/overview/preview-portal/)
+[Visão geral do Portal de Visualização do Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
 
-[Documentação do Portal de Visualização do Microsoft Azure](http://azure.microsoft.com/pt-br/documentation/preview-portal/)
+[Documentação do Portal de Visualização do Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Portal de Visualização do Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Documentação dos Sites do Microsoft Azure](http://azure.microsoft.com/pt-br/documentation/services/web-sites/)
+[Documentação dos Sites do Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
@@ -114,3 +128,5 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

@@ -149,7 +149,7 @@ Consulte [Executando os exemplos](#running) para saber como executar este exempl
 
 ##<a name="running"></a>Executando os exemplos
 
-Essas etapas usam o Microsoft Azure PowerShell. Se ele ainda não estiver instalado e configurado em sua máquina de desenvolvimento, consulte [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/) antes de usar as etapas a seguir.
+Essas etapas usam o Microsoft Azure PowerShell. Se ele ainda não estiver instalado e configurado em sua máquina de desenvolvimento, consulte [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) antes de usar as etapas a seguir.
 
 
 1. Usando os exemplos de Python [streaming.py](#streamingpy) e [jython.py](#jythonpy), criar cópias locais dos arquivos no seu computador de desenvolvimento.
@@ -279,5 +279,4 @@ As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também sã
 Se você precisa carregar módulos Python que não são fornecidos por padrão, consulte [Como implantar um módulo para o HDInsight do Azure](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) para ver um exemplo de como fazer isso.
 
 Se você gostaria de executar trabalhos no HDInsight remotamente sem usar o PowerShell, consulte [Como usar o HDInsight do Azure em Linux](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx) para obter um exemplo de uso do Python para executar trabalhos via API REST do WebHCat.
-
 <!--HONumber=42-->

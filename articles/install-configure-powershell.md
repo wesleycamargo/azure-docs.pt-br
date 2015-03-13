@@ -1,6 +1,20 @@
-<properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
+﻿<properties 
+	pageTitle="Como instalar e configurar o PowerShell do Azure" 
+	description="Saiba como instalar e configurar o PowerShell do Azure." 
+	editor="tysonn" 
+	manager="stevenka" 
+	documentationCenter="" 
+	services="" 
+	authors="coreyp69"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="coreyp"/>
 
 # Como instalar e configurar o PowerShell do Azure
 
@@ -269,13 +283,15 @@ Esses são alguns dos recursos disponíveis que você pode usar para aprender a 
   [Comece a usar o Azure]: http://go.microsoft.com/fwlink/p/?LinkId=320795
   [Gerenciar contas, assinaturas e funções administrativas (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=324796
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-  [Inscreva-se no Microsoft Azure como uma organização]: http://azure.microsoft.com/pt-br/documentation/articles/sign-up-organization/
+  [Inscreva-se no Microsoft Azure como uma organização]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
   [Portal deGerenciamento do Azure]: http://manage.windowsazure.com
-  [Adicionar e remover coadministradores de suas assinaturas do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg456328.aspx
-  [Referência de cmdlets do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554330.aspx
+  [Adicionar e remover coadministradores de suas assinaturas do Azure]: http://msdn.microsoft.com/library/windowsazure/gg456328.aspx
+  [Referência de cmdlets do Azure]: http://msdn.microsoft.com/library/windowsazure/jj554330.aspx
   [Fórum do Azure no MSDN]: http://go.microsoft.com/fwlink/p/?LinkId=320212
   [StackOverflow]: http://go.microsoft.com/fwlink/?LinkId=320213
   [Script Center do TechNet]: http://go.microsoft.com/fwlink/p/?LinkId=320211
   [Scripts com o Windows PowerShell]: http://go.microsoft.com/fwlink/p/?LinkId=320210
   [Executando scripts (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?LinkId=320627
   [Gerenciar o AD do Azure usando o Windows PowerShell]: http://go.microsoft.com/fwlink/p/?LinkId=320628
+
+<!--HONumber=46--> 

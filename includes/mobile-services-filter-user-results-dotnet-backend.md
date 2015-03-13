@@ -41,4 +41,4 @@ Agora que a autenticação é obrigatória para acessar dados na tabela TodoItem
    	Essa consulta filtra os objetos de TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele. 
 
 6. Republique o projeto de serviço móvel no Azure.
-<!--HONumber=41-->
+<!--HONumber=42-->

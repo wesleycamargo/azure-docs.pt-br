@@ -33,5 +33,4 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 
 	Esse script de inserção envia uma notificação por push (com o texto do item inserido) a todos os registros do aplicativo da Windows Store depois que a inserção é executada com êxito.
 
-
 <!--HONumber=42-->

@@ -1,19 +1,34 @@
-﻿<properties urlDisplayName="" pageTitle="Solução de problemas de controle de acesso baseado em função" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties 
+	pageTitle="Solução de problemas de controle de acesso baseado em função" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="stepsic-microsoft-com" 
+	writer="" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="stepsic"/>
 
 # Solução de problemas de controle de acesso baseado em função
 
 ## Introdução
 
-O [Controle da acesso baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode se sentir confiante ao conceder a uma pessoa específica o direito ao qual exatamente elas precisam. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
+O [Controle da acesso baseado em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode se sentir confiante ao conceder a uma pessoa específica o direito ao qual exatamente elas precisam. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
 
 Este documento informará você o que esperar ao usar algumas destas novas funções no portal de visualização.  Há três funções predefinidas que estão incluídas nesta versão:
 * Proprietário
 * Colaborador
 * Leitor
 
-Os proprietários e colaboradores terão acesso completo a experiência de gerenciamento, sendo que a diferença é que um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. [Consulte este artigo](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/) para obter detalhes sobre como exatamente conceder acesso.
+Os proprietários e colaboradores terão acesso completo a experiência de gerenciamento, sendo que a diferença é que um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. [Consulte este artigo](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) para obter detalhes sobre como exatamente conceder acesso.
 
 ## Cargas de trabalho do site
 
@@ -74,3 +89,5 @@ As máquinas virtuais têm estes recursos relacionados:
     * Regras de alerta
     
 Se você não conseguir acessar nenhuma destas partes, você precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
+
+<!--HONumber=46--> 

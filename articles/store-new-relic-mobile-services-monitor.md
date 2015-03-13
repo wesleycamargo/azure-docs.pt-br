@@ -139,7 +139,7 @@ Em seguida, você deverá habilitar o monitoramento do Nova Relíquia de seu ser
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[Controle do código-fonte]: http://msdn.microsoft.com/pt-br/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Controle do código-fonte]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Trabalhar com scripts de servidor em Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/

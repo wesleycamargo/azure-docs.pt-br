@@ -50,7 +50,7 @@ Este guia lhe mostrará como executar cenários comuns usando o armazenamento de
 <h3>Obtendo o assembly</h3>
 Você pode usar NuGet para obter o assembly  `Microsoft.WindowsAzure.Storage.dll`. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
-`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na <a href="http://www.windowsazure.com/pt-br/develop/net/#">Central de desenvolvedores do .NET</a>. O assembly está instalado no diretório  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na <a href="http://azure.microsoft.com/develop/net/#">Central de desenvolvedores do .NET</a>. O assembly está instalado no diretório  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
 <h3>Declarações de namespace</h3>
 Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C\# no qual você deseja acessar o Armazenamento do Azure por meio de programação:
@@ -248,10 +248,10 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referência à Biblioteca de Cliente de Armazenamento para .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dd179355">Referência da API REST</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">Referência da API REST</a></li>
   </ul>
 </li>
-<li>Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx">Armazenando e acessando dados no Azure</a>.</li>
+<li>Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em <a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">Armazenando e acessando dados no Azure</a>.</li>
 <li>Saiba como simplificar o código que você escreve para trabalhar com o armazenamento do Azure usando o <a href="../websites-dotnet-webjobs-sdk/">SDK WebJobs do Azure.</li>
 <li>Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
   <ul>
@@ -280,13 +280,12 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
   [Como: Excluir uma fila]: #delete-queue
   [Baixar e instalar o SDK do Azure para .NET]: /pt-br/develop/net/
   [Referência à Biblioteca cliente do .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Criando um projeto do Azure no Visual Studio]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405487.aspx 
-  [CloudStorageAccount]: http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+  [Criando um projeto do Azure no Visual Studio]: http://msdn.microsoft.com/library/windowsazure/ee405487.aspx 
+  [CloudStorageAccount]: http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configurando cadeias de conexão (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx
+  [Configurando cadeias de conexão (a página pode estar em inglês)]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
 <!--HONumber=42-->

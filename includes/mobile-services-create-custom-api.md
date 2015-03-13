@@ -40,7 +40,7 @@
 	Esse código usa o [objeto mssql] para acessar a tabela **todoitem** diretamente para definir o sinalizador de conclusão em todos os itens. Como a função **exports.post** é usada, os clientes enviam uma solicitação POST para executar a operação. O número de linhas alteradas é retornado ao cliente como um valor inteiro.
 
 > [AZURE.NOTE]
-> O objeto de <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/jj554218.aspx" target="_blank">solicitação</a> e <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn303373.aspx" target="_blank">resposta</a> fornecido para funções da API personalizadas é implementado pela <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">biblioteca Express.js</a>. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn280974.aspx" target="_blank">API personalizada</a>. 
+> O objeto de <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">solicitação</a> e <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">resposta</a> fornecido para funções da API personalizadas é implementado pela <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">biblioteca Express.js</a>. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">API personalizada</a>. 
 
 Em seguida, você modificará o aplicativo quickstart para adicionar um novo botão e o código que chama assincronamente a nova API personalizada.
 
@@ -50,6 +50,5 @@ Em seguida, você modificará o aplicativo quickstart para adicionar um novo bot
 
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[objeto mssql]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj554212.aspx
-
+[objeto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 <!--HONumber=42-->

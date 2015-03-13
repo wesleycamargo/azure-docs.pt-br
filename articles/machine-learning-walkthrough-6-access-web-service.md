@@ -1,6 +1,20 @@
-﻿<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Etapa 6: Acessar o serviço Web de Aprendizado de Máquina | Azure" description="Etapa 6: Acessar um serviço Web do API de aprendizado de máquina do Azure active" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Etapa 6: Acessar o serviço Web de Aprendizado de Máquina | Azure" 
+	description="Solução alternativa. Etapa 6: Acessar um serviço Web de aprendizado de máquina do Azure ativa" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 Esta é a última etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][develop]:
@@ -79,3 +93,5 @@ A página de ajuda de API inclui exemplos de linguagens de programação R, C# e
 	result = h$value()
 
 
+
+<!--HONumber=46--> 

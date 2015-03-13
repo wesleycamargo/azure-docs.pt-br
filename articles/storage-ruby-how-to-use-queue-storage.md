@@ -168,10 +168,9 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **de
 
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber como fazer tarefas mais complexas de armazenamento.
 
-- Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx)
+- Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 - Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visite o repositório [SDK do Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 
-Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus](/pt-br/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/pt-br/library/windowsazure/hh767287.aspx)
-
+Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus](/pt-br/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
 <!--HONumber=42-->

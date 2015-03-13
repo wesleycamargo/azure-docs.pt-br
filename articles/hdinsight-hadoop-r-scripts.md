@@ -43,9 +43,9 @@ Os scripts R podem ser executados em clusters Hadoop no HDInsight que foram pers
 
 Um exemplo de script para instalar o R em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente para leitura em [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o Portal de Gerenciamento do Azure.
 
-> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
-1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a Ação de Script, como mostrado abaixo:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
@@ -69,7 +69,7 @@ Você também pode usar o script para instalar o R no HDInsight usando o PowerSh
 ## <a name="useR"></a>Como executar scripts R no HDInsight?
 Esta seção descreve como executar um script de R no cluster Hadoop com o HDInsight.
 
-1. **Estabelecer uma conexão de área de trabalho remota para o cluster**: No Portal de Gerenciamento do Azure, habilite a área de trabalho remota para o cluster criado com R instalado e, em seguida, remote no cluster. Para obter instruções, consulte <a href="http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+1. **Estabelecer uma conexão de área de trabalho remota para o cluster**: No Portal de Gerenciamento do Azure, habilite a área de trabalho remota para o cluster criado com R instalado e, em seguida, remote no cluster. Para obter instruções, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
 
 2. **Abra o console de R**: A instalação de R coloca um link para o console de R na área de trabalho do headnode. Clique para abrir o console de R.
 
@@ -94,7 +94,7 @@ As duas primeiras linhas chamam as bibliotecas R Hadoop instaladas com R. A linh
 
 ## <a name="usingPS"></a>Instalar o R no HDInsight usando o PowerShell
 
-Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/pt-br/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, certifique-se de ter instalado e configurado o PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, certifique-se de ter instalado e configurado o PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
 Execute as seguintes etapas:
 
@@ -259,7 +259,7 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
             Version = "3.1"
         };        
 
-10. Acrescente o seguinte código para a função Main () para usar a classe [ScriptAction](http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para invocar um script personalizado para instalar o R.
+10. Acrescente o seguinte código para a função Main () para usar a classe [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para invocar um script personalizado para instalar o R.
 
 		// ADD THE SCRIPT ACTION TO INSTALL R
 
@@ -293,4 +293,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com R 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-<!--HONumber=42-->
+\<!--HONumber=42-->

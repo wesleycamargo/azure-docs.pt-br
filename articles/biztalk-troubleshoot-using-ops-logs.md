@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="Serviços do BizTalk: Solucionar problemas usando logs de operação | Azure" metaKeywords="" description="Serviços BizTalk: Solucionar problemas usando logs de operação" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="Serviços BizTalk: Solucionar problemas usando logs de operação | Azure" 
+	description="Serviços BizTalk de solução de problemas usando logs de operação. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # Serviços do BizTalk: Solução de problemas usando os logs de operação
@@ -8,7 +22,7 @@
 Os Logs de Operação são um recurso dos Serviços de Gerenciamento disponível no Portal de Gerenciamento do Azure que permite exibir os logs históricos de operações executadas nos serviços do Azure, incluindo o Serviço do BizTalk. Isso permite exibir dados históricos relacionados às operações de gerenciamento em sua assinatura do Serviço do BizTalk por um período de até 180 dias.
 
 <div class="dev-callout"><b>Observação</b>
-<p>Esse recurso captura apenas logs de operações de gerenciamento nos Serviços BizTalk, como quando o serviço foi iniciado, o backup foi feito etc. Essas operações são acompanhadas independentemente de serem executadas no Portal de Gerenciamento do Azure ou usando as <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn232347.aspx">APIs REST do Serviço BizTalk</a>. Para obter uma lista completa das operações que são acompanhadas usando os Serviços de Gerenciamento, consulte <a href="#bizops">Operações acompanhadas usando os Serviços de Gerenciamento do Azure</a>.</p>
+<p>Esse recurso captura apenas logs de operações de gerenciamento nos Serviços BizTalk, como quando o serviço foi iniciado, o backup foi feito etc. Essas operações são acompanhadas independentemente de serem executadas no Portal de Gerenciamento do Azure ou usando as <a href="http://msdn.microsoft.com/library/windowsazure/dn232347.aspx">APIs REST do Serviço BizTalk</a>. Para obter uma lista completa das operações que são acompanhadas usando os Serviços de Gerenciamento, consulte <a href="#bizops">Operações acompanhadas usando os Serviços de Gerenciamento do Azure</a>.</p>
 <p>Isso não captura os logs de atividades relacionadas ao tempo de execução do Serviço BizTalk (como mensagens processadas pelas pontes etc.) Para exibir esses logs, você deve usar a exibição Acompanhamento do portal dos Serviços BizTalk. Para obter mais informações, consulte <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Acompanhando mensagens</a>.</p>
 </div>
 
@@ -99,3 +113,5 @@ A tabela a seguir lista as operações que são acompanhadas usando os Serviços
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
+<!--HONumber=46--> 

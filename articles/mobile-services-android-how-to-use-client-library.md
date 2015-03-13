@@ -19,7 +19,7 @@
 # Como usar a biblioteca de cliente Android para os Serviços Móveis
 
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+  <a href="/pt-br/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 
@@ -717,7 +717,7 @@ O que acontecerá se o token expirar? Nesse caso, quando você tenta usá-lo par
 
 <h2><a name="errors"></a>Como: Tratar erros</h2>
 
-Você pode ver um exemplo de como fazer a validação e tratar qualquer erro <a href="https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" target="_blank">aqui</a>, que implementa a validação por meio de scripts de servidor que retornam exceções de erro e o código do cliente que lida com as exceções.
+Você pode ver um exemplo de como fazer a validação e tratar qualquer erro <a href="https://www.windowsazure.com/pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" target="_blank">aqui</a>, que implementa a validação por meio de scripts de servidor que retornam exceções de erro e o código do cliente que lida com as exceções.
 
 Outra abordagem é fornecer um *global* manipulador de erro. O código visto que acessa a tabela de serviços móveis envolveu três objetos diferentes de retorno de chamada:
 
@@ -892,9 +892,10 @@ A referência de Javadocs para a API do cliente Android está em [http://dl.wind
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android/
+[Get started with Mobile Services]: /pt-br/develop/mobile/tutorials/get-started-android/
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android/
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para gerenciar tabelas dos Serviços Móveis]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-\n<!--HONumber=42-->
+[CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+
+\<!--HONumber=42-->

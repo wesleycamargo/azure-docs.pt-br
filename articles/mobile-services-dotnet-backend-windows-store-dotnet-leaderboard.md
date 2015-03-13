@@ -94,7 +94,7 @@ Eles não são necessários para o tutorial, portanto, você pode excluí-los do
 
 ## Adicionar modelos de dados
 
-Você usará o [Primeiro código EF](http://msdn.microsoft.com/en-US/data/ee712907#codefirst) para definir as tabelas de banco de dados. Na pasta DataObjects, adicione uma classe chamada `Player`.
+Você usará o [Primeiro código EF](http://msdn.microsoft.com/data/ee712907#codefirst) para definir as tabelas de banco de dados. Na pasta DataObjects, adicione uma classe chamada `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -123,9 +123,9 @@ Adicione outra classe chamada `PlayerRank`.
 	    }
 	}
 
-Observe que as duas classes são herdeiras da classe **EntityData**. Extraindo de **EntityData** fica fácil para o aplicativo consumir os dados, usando a biblioteca cliente de várias plataformas para os Serviços Móveis do Azure. **EntityData** também facilita para que um aplicativo [manipule conflitos de gravação do banco de dados](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
+Observe que as duas classes são herdeiras da classe **EntityData**. Extraindo de **EntityData** fica fácil para o aplicativo consumir os dados, usando a biblioteca cliente de várias plataformas para os Serviços Móveis do Azure. **EntityData** também facilita para que um aplicativo [manipule conflitos de gravação do banco de dados](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
 
-A classe `PlayerRank` possui uma [propriedade de navegação](http://msdn.microsoft.com/en-us/data/jj713564.aspx) que aponta para a entidade `Player` relacionada. O atributo **[ForeignKey]** diz à EF que a propriedade `Player` representa uma chave estrangeira.
+A classe `PlayerRank` possui uma [propriedade de navegação](http://msdn.microsoft.com/data/jj713564.aspx) que aponta para a entidade `Player` relacionada. O atributo **[ForeignKey]** diz à EF que a propriedade `Player` representa uma chave estrangeira.
 
 # Adicionar controladores de API Web
 
@@ -153,7 +153,7 @@ Esta etapa adiciona um arquivo chamado PlayerController.cs ao projeto.
 
 O controlador obtém de **TableController<T>**. Esta classe herda **ApiController**, mas é especializado para Serviços Móveis do Azure.
  
-- Roteamento: A rota padrão para um **TableController** é `/tables/{table_name}/{id}`, em que *table_name* corresponde ao nome da entidade. A rota para o controlador do Player é */tables/player/{id}*. Essa convenção de roteamento deixa o **TableController** consistente com os Serviços Móveis do [API REST](http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx).
+- Roteamento: A rota padrão para um **TableController** é `/tables/{table_name}/{id}`, em que *table_name* corresponde ao nome da entidade. A rota para o controlador do Player é */tables/player/{id}*. Essa convenção de roteamento deixa o **TableController** consistente com os Serviços Móveis do [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx).
 - Acesso de dados: Para operações de banco de dados, a classe **TableController** usa a interface **IDomainManager**, que define uma abstração para acesso a dados.  O scaffolding usa **EntityDomainManager**, que é uma implementação concreta de **IDomainManager** que encapsula um contexto EF. 
 
 Agora, adicione um segundo controlador às entidades do PlayerRank. Siga as mesmas etapas, mas escolha o PlayerRank para a classe do modelo. Use a mesma classe de contexto de dados; não crie uma nova. Nomeie o controlador "PlayerRankController".
@@ -769,9 +769,10 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 
 <!-- URLs. -->
 
-[Saiba mais sobre os Serviços Móveis do Azure]: /en-us/develop/mobile/resources/
+[Saiba mais sobre os Serviços Móveis do Azure]: /pt-br/develop/mobile/resources/
 [Saiba mais sobre API Web]: http://asp.net/web-api
-[Tratar conflitos de gravação do banco de dados]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[Adicionar notificações por push]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-\n<!--HONumber=42-->
+[Tratar conflitos de gravação do banco de dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+[Adicionar notificações por push]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
+
+\<!--HONumber=42-->

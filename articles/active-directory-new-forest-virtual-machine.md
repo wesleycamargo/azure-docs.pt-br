@@ -1,18 +1,33 @@
-﻿<properties urlDisplayName="Active Directory forest" pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure" metaKeywords="" description="Um tutorial que explica como criar uma nova floresta de Active Directory em uma máquina virtual (VM) na rede virtual do Azure." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Azure" authors="Justinha"  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
+﻿<properties 
+	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure" 
+	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="Justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="Justinha"/>
 
 
 
 
 #Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
 
-Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure que se encontra em uma máquina virtual (VM) em uma [rede virtual do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156007.aspx). Nesse caso, a rede virtual do Azure não está conectada a uma rede local. 
+Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure que se encontra em uma máquina virtual (VM) em uma [rede virtual do Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). Nesse caso, a rede virtual do Azure não está conectada a uma rede local. 
 
 Você também pode estar interessado nestes tópicos relacionados:
 
-- Você também pode [configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento](http://msdn.microsoft.com/pt-br/library/windowsazure/dn133795.aspx) e instalar uma nova floresta ou estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio Active Directory de réplica em uma rede virtual do Azure](http://www.windowsazure.com/pt-br/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
--  Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090.aspx).
+- Você também pode [configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) e instalar uma nova floresta ou estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio Active Directory de réplica em uma rede virtual do Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
+-  Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 -  Para obter orientações passo a passo para criar um ambiente de laboratório de teste no Azure que inclua o AD DS, consulte [Guia do laboratório de teste: Configuração base do Windows Server 2012 R2 no Azure](http://www.microsoft.com/pt-br/download/details.aspx?id=41684).
 
 
@@ -62,7 +77,7 @@ Para configurar...  | Local | Rede virtual do Azure
 	**Serviço de nuvem** | <p>Serviço de Nuvem: <b>Crie um novo serviço de nuvem</b></p><p>Nome do serviço de nuvem: Aceitar valor padrão</p><p>Region/AffinityGroup/VirtualNetwork: Selecione a rede virtual que você criou</p><p>Sub-rede da rede virtual: Selecione a sub-rede da rede virtual que você criou. </p><p>Conta de armazenamento: <b>Use uma conta de armazenamento gerada automaticamente</b></p><p>Conjunto de disponibilidade: <b>Nenhum</b></p><p>Pontos de extremidade: Aceitar valores padrão</p>
 	**Agente de VM** | Selecione **Instalar o Agente VM**
 
-1. O endereço IP dinâmico atribuído à VM por padrão é válido durante o serviço de nuvem. Mas ele mudará se a VM for desligada. Atribua um endereço IP estático ao [executar o cmdlet do PowerShell do Azure Set-AzureStaticVNetIP](http://msdn.microsoft.com/pt-br/library/windowsazure/dn630228.aspx) de forma que o endereço IP será mantido se você precisar desligar a VM alguma vez. 
+1. O endereço IP dinâmico atribuído à VM por padrão é válido durante o serviço de nuvem. Mas ele mudará se a VM for desligada. Atribua um endereço IP estático ao [executar o cmdlet do PowerShell do Azure Set-AzureStaticVNetIP](http://msdn.microsoft.com/library/windowsazure/dn630228.aspx) de forma que o endereço IP será mantido se você precisar desligar a VM alguma vez. 
 2. Conecte um disco adicional à VM para armazenar o banco de dados, os logs e o SYSVOL do Active Directory. 
   3. Click the <b>VM</b> > <b>Anexar</b> > <b>Anexar disco vazio</b>. 
   4. Especifique um tamanho (por exemplo, 10 GB) e aceite todos os outros valores padrão.
@@ -118,23 +133,23 @@ Se reexecutar o script, você precisará fornecer um valor exclusivo para $servi
 
 -  [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
--  [Configure uma rede virtual somente em nuvem no Portal de Gerenciamento](http://msdn.microsoft.com/pt-br/library/dn631643.aspx)
+-  [Configure uma rede virtual somente em nuvem no Portal de Gerenciamento](http://msdn.microsoft.com/library/dn631643.aspx)
 
--  [Configure um VPN site a site no Portal de Gerenciamento](http://msdn.microsoft.com/pt-br/library/dn133795.aspx)
+-  [Configure um VPN site a site no Portal de Gerenciamento](http://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure](http://azure.microsoft.com/pt-br/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-  [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
 -  [Windows Azure IaaS para profissionais de TI: (01) Conceitos básicos sobre máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
 -  [Windows Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
--  [Rede Virtual do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156007.aspx)
+-  [Rede Virtual do Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
--  [Como instalar e configurar o PowerShell do Azure](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/)
+-  [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
 
--  [PowerShell do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156055.aspx)
+-  [PowerShell do Azure](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
 
--  [Cmdlets gerenciamento do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/jj152841)
+-  [Cmdlets gerenciamento do Azure](http://msdn.microsoft.com/library/windowsazure/jj152841)
 
 -  [Definir o endereço IP estático da VM do Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 
@@ -142,9 +157,11 @@ Se reexecutar o script, você precisará fornecer um valor exclusivo para $servi
 
 -  [Instalar uma nova floresta do Active Directory](http://technet.microsoft.com/library/jj574166.aspx)
 
--  [Introdução à virtualização de Serviços de Domínio Ative Directory (AD DS) (nível 100)](http://technet.microsoft.com/pt-br/library/hh831734.aspx)
+-  [Introdução à virtualização de Serviços de Domínio Ative Directory (AD DS) (nível 100)](http://technet.microsoft.com/library/hh831734.aspx)
 
 -  [Guia de Laboratório de Teste: Configuração base do Windows Server 2012 R2 no Azure](http://www.microsoft.com/pt-br/download/details.aspx?id=41684)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

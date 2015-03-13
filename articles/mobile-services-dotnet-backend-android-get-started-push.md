@@ -34,7 +34,7 @@ Este tutorial apresenta e explica estas etapas:
 
 Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis] ou a [Introdução aos dados] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013. 
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avaliação Gratuita do Azure</a>. 
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avaliação Gratuita do Azure</a>. 
 
 
 ##<a id="register"></a>Habilitar o Google Cloud Messaging
@@ -235,26 +235,27 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript e HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[Versão de back-end do JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-android
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-data-js
+[Versão de back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[Como usar a biblioteca de cliente Android para os Serviços Móveis]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[Como usar a biblioteca de cliente Android para os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-how-to-use-client-library
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de difusão para assinantes]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Enviar notificações baseadas em modelo para assinantes]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de difusão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

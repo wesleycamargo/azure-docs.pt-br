@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Azure Stream Analytics" pageTitle="Introdução à análise de fluxo | Azure" description="Compreender a análise de fluxo do Azure" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Introdução à análise de fluxo | Azure" 
+	description="Compreender a análise de fluxo do Azure" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 
 # Introdução à análise de fluxo do Azure
@@ -121,3 +135,5 @@ As expectativas para execução rápida e ágil em empresas continuam a crescer.
 [stream.analytics.get.started]: ../stream-analytics-get-started/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
+<!--HONumber=46--> 

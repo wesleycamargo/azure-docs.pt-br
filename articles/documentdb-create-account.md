@@ -1,6 +1,20 @@
-﻿<properties title="How to Create a DocumentDB Account" pageTitle="Crie uma conta de banco de dados | Azure" description="Saiba como criar uma conta de banco de dados de documentos DocumentDB NoSQL e escolha as configurações da conta no portal de visualização do Azure."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Crie uma conta de banco de dados | Azure" 
+	description="Saiba como criar uma conta de Banco de Dados de Documentos do NoSQL e escolha as configurações de conta no portal de visualização do Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
+	ms.author="mimig"/>
 
 #Crie uma conta de banco de dados
 Para usar o Banco de Dados de Documentos, você precisa criar uma conta do Banco de Dados de Documentos.  Este tópico descreve como criar uma conta uma conta do Banco de Dados de Documentos no portal de gerenciamento de visualização do Azure.  
@@ -25,7 +39,7 @@ Para usar o Banco de Dados de Documentos, você precisa criar uma conta do Banco
 
 	- A lente **Configuração opcional** é usada para especificar a capacidade inicial alocada à conta do Banco de Dados de Documentos.  O Banco de Dados de Documentos utiliza as unidades de capacidade para permitir que você dimensione sua conta do Banco de Dados de Documentos, em que cada unidade de capacidade inclui o armazenamento e a taxa de transferência reservados para o banco de dados.  Por padrão, uma unidade de capacidade é provisionada.  Você pode ajustar o número de unidades de capacidade disponível para a sua conta do Banco de Dados de Documentos a qualquer momento por meio do [portal de visualização de gerenciamento](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Para ver detalhes sobre a capacidade e a taxa de transferência do Banco de Dados de Documentos, consulte o artigo [Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos][documentdb-manage].
 
-	- Em **Grupo de recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos.  Por padrão, um novo Grupo de recursos será criado.  Você pode, no entanto, optar por selecionar um grupo de recursos existente ao qual gostaria de adicionar sua conta do Banco de Dados de Documentos. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups/).
+	- Em **Grupo de recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos.  Por padrão, um novo Grupo de recursos será criado.  Você pode, no entanto, optar por selecionar um grupo de recursos existente ao qual gostaria de adicionar sua conta do Banco de Dados de Documentos. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
 
 	- Para **Assinatura**, selecione a assinatura do Azure que deseja usar para a conta do Banco de Dados de Documentos. Se sua conta tem apenas uma assinatura, ela será selecionada automaticamente.*
  
@@ -42,7 +56,7 @@ Para usar o Banco de Dados de Documentos, você precisa criar uma conta do Banco
 
 4.	Após a conta do Banco de Dados de Documentos ter sido criada, ela estará pronta para uso com as configurações padrão.
 
-	*Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como Sessão.  Você pode ajustar a configuração da consistência padrão por meio do [portal de visualização de gerenciamento].(https://portal.azure.com/#gallery/Microsoft.DocumentDB)  
+	*Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como Sessão.  Você pode ajustar a configuração da consistência padrão por meio do [portal de visualização de gerenciamento](https://portal.azure.com/#gallery/Microsoft.DocumentDB)  
 	![][7]  
 
 5.	Você também pode acessar suas contas existentes do Banco de Dados de Documentos a partir da lâmina **Navegar**.  
@@ -73,3 +87,5 @@ Para saber mais sobre o Banco de Dados de Documento, consulte a documentação d
 [8]: ./media/documentdb-create-account/ca8.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Criar e carregar um VHD Linux no Azure" 
-	description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha o sistema operacional Linux." 
+	description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -18,7 +18,7 @@
 
 # Criando e carregando um disco rígido virtual que contém o sistema operacional Linux
 
-Esse artigo mostra como carregar um disco rígido virtual (VHD) para que você o use como sua própria imagem para criar outras máquinas virtuais no Azure. Você aprenderá como preparar o sistema operacional para que você o use para criar outras máquinas virtuais com base nessa imagem.  
+Esse artigo mostra como carregar um disco rígido virtual (VHD) para que você o use como sua própria imagem para criar outras máquinas virtuais no Azure. Você irá aprender como preparar o sistema operacional para que você o use para criar outras máquinas virtuais com base nessa imagem.  
 
 > [AZURE.NOTE] Não é necessária nenhuma experiência com VMs do Azure para concluir estas etapas nesse artigo. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
@@ -34,7 +34,7 @@ Este artigo pressupõe que você tenha os seguintes itens:
 
 - **Um certificado de gerenciamento** - Você criou um certificado de gerenciamento para a assinatura para a qual você deseja carregar um VHD e exportou o certificado para um arquivo .cer. Para obter mais informações sobre como criar certificados, consulte [Criar um certificado de gerenciamento para o Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx). 
 
-- **Sistema operacional Linux instalado em um arquivo .vhd**  - Você instalou um sistema operacional Linux com suporte em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd - por exemplo, você pode usar uma solução de virtualização como o Hyper-V para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Sistema operacional Linux instalado em um arquivo .vhd** - Você instalou um sistema operacional Linux com suporte em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd - por exemplo, você pode usar uma solução de virtualização como o Hyper-V para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
 	**Importante**: Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
 
@@ -42,7 +42,7 @@ Este artigo pressupõe que você tenha os seguintes itens:
 
 - **Ferramenta de linha de comando do Linux Azure** - Se você estiver usando um sistema operacional Linux para criar sua imagem, use as [ferramentas de linha de comando do Azure para Linux e Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409) para carregar o VHD.
 
-- **Ferramentas do PowerShell do Azure** - o cmdlet `Add-AzureVhd` também pode ser usado para carregar o VHD. Visite a página de [downloads do Azure](http://azure.microsoft.com/downloads/) para baixar os cmdlets do PowerShell do Azure. Para obter informações de referência, consulte [Add-AzureVhd (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
+- **Ferramentas PowerShell do Azure** - o  `Add-AzureVhd` cmdlet também pode ser usado para carregar o VHD. Acesse a página de [downloads do Azure](http://azure.microsoft.com/downloads/) para baixar os cmdlets do PowerShell do Azure. Para obter informações de referência, consulte [Add-AzureVhd (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
 
 Esta tarefa inclui as seguintes etapas:
@@ -52,22 +52,22 @@ Esta tarefa inclui as seguintes etapas:
 - [Etapa 3: Preparar a conexão com o Azure] []
 - [Etapa 4: Carregar a imagem no Azure] []
 
-## <a id="prepimage"> </a>Etapa 1: Preparar a imagem a ser carregada ##
+## <a id="prepimage"></a>Etapa 1: Preparar a imagem a ser carregada ##
 
-O Microsoft Azure dá suporte a diversas distribuições Linux (confira [Distribuições endossadas](../linux-endorsed-distributions)). Os artigos a seguir guiam você pela preparação das diversas distribuições do Linux que têm suporte no Azure:
+O Microsoft Azure é compatível com diversas distribuições Linux (confira [Distribuições endossadas](../linux-endorsed-distributions)). Os artigos a seguir guiam você pela preparação das diversas distribuições do Linux que são compatíveis com o Azure:
 
 - **[Distribuições com base em CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
 - **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
-- **[Outros - Distribuições não endossadas](../virtual-machines-linux-create-upload-vhd-generic)**
+- **[Outros - Informações para as distribuições não endossadas](../virtual-machines-linux-create-upload-vhd-generic)**
 
 Consulte também as **[observações de instalação Linux](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)** para obter mais dicas sobre como preparar imagens do Linux do Azure.
 
 Após as etapas descritas nos guias acima, você deve ter um arquivo VHD pronto para carregamento no Azure.
 
 
-## <a id="createstorage"> </a>Etapa 2: Criar uma conta de armazenamento no Azure ##
+## <a id="createstorage"></a>Etapa 2: Criar uma conta de armazenamento no Azure ##
 
 A conta de armazenamento representa o mais alto nível do namespace para acessar os serviços de armazenamento e está associada à assinatura do Azure. Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .vhd no Azure que pode ser usado para a criação de uma máquina virtual. Você pode criar uma conta de armazenamento usando o Portal de Gerenciamento do Azure.
 
@@ -89,7 +89,7 @@ A conta de armazenamento representa o mais alto nível do namespace para acessar
 	
 - Escolha o local ou o grupo de afinidade da conta de armazenamento. Especificando um grupo de afinidade, você pode localizar seus serviços de nuvem no mesmo data center com seu armazenamento.
  
-- Escolha entre usar a replicação geográfica ou não para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que seja feito o failover para um local secundário em caso de uma falha grave que não possa ser tratada no local primário. O local secundário é atribuído automaticamente e não pode ser alterado. Se os requisitos legais ou a política organizacional exigir um controle mais restrito do local de seu armazenamento baseado em nuvem, você poderá desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de dados uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto.
+- Escolha entre usar a replicação geográfica ou não para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que seja feito o failover para um local secundário em caso de uma falha grave que não possa ser tratada no local primário. O local secundário é atribuído automaticamente e não pode ser alterado. Se os requisitos legais ou a política organizacional exigir um controle mais restrito do local de seu armazenamento baseado em nuvem, você poderá desativar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto.
 
 5. Clique em **Criar Conta de Armazenamento**.
 
@@ -104,7 +104,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 1. Abra uma janela do PowerShell do Azure.
 
-2. Digite: 
+2. Tipo: 
 
 	`Get-AzurePublishSettingsFile`
 
@@ -112,11 +112,11 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 3. Salve o arquivo .publishsettings. 
 
-4. Digite:
+4. Tipo:
 
 	`Import-AzurePublishSettingsFile <PathToFile>`
 
-	Em que `<CaminhoParaOArquivo>` é o caminho completo para o arquivo .publishsettings. 
+	Onde `<PathToFile>` é o caminho completo para o arquivo .publishsettings. 
 
 	Para obter mais informações, consulte [Introdução aos cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 
@@ -131,7 +131,7 @@ Faça uma das opções a seguir:
 
 		`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-	Para obter mais informações, consulte [Add-AzureVhd (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/dn205185.aspx).
+	Para obter mais informações, consulte [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn205185.aspx).
 
 - Use a ferramenta de linha de comando do Linux para carregar a imagem. Você pode carregar uma imagem usando o seguinte comando:
 
@@ -144,5 +144,4 @@ Faça uma das opções a seguir:
 [Etapa 3: Preparar a conexão com o Azure]: #connect
 [Etapa 4: Carregar a imagem no Azure]: #upload
 
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

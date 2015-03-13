@@ -106,7 +106,7 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] a caixa de seleção **Habilitar o Active Directory do Azure** em configurações personalizadas integra o site ao [Active Directory do Azure](http://azure.microsoft.com/pt-br/documentation/articles/active-directory-whatis/) (o **diretório padrão**). Para obter mais informações sobre sincronização do Active Directory do Azure com o Active Directory no local, consulte [Integração de diretórios](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] a caixa de seleção **Habilitar o Active Directory do Azure** em configurações personalizadas integra o site ao [Active Directory do Azure](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (o **diretório padrão**). Para obter mais informações sobre sincronização do Active Directory do Azure com o Active Directory no local, consulte [Integração de diretórios](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Após fazer as alterações desejadas, clique em **Criar** para iniciar o processo de migração. A ferramenta de migração criará o banco de dados SQL do Azure e o site do Azure e, em seguida, publicará o conteúdo do site e os bancos de dados. O andamento da migração é claramente mostrado na ferramenta de migração, e você verá uma tela de resumo no final, que detalha os sites migrados, se eles foram bem-sucedidos, e vincula aos sites do Azure recém-criados. 
 

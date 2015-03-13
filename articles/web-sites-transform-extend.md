@@ -19,7 +19,7 @@
 
 # Transformar e estender o site
 
-Usando declarações [XDT](http://msdn.microsoft.com/pt-br/library/dd465326.aspx) (XML Document Transformation), você pode transformar o arquivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) nos sites do Microsoft Azure. Também é possível usar declarações XDT para adicionar extensões de site particulares a fim de habilitar ações de administração de site personalizadas. Este artigo inclui uma extensão de site do PHP Manager de exemplo que permite o gerenciamento das configurações de PHP por meio de uma interface da Web.
+Usando declarações [XDT](http://msdn.microsoft.com/library/dd465326.aspx) (XML Document Transformation), você pode transformar o arquivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) nos sites do Microsoft Azure. Também é possível usar declarações XDT para adicionar extensões de site particulares a fim de habilitar ações de administração de site personalizadas. Este artigo inclui uma extensão de site do PHP Manager de exemplo que permite o gerenciamento das configurações de PHP por meio de uma interface da Web.
 
 
 <!-- MINI TOC -->

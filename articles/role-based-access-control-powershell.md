@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gerenciando o controle de acesso baseado em função com o Windows PowerShell" metaKeywords ="ResourceManager, PowerShell, PowerShell do Azure, RBAC" description="Gerenciar o controle de acesso com base em função com o Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Gerenciar o controle de acesso com base em função com o Windows PowerShell" 
+	description="Gerenciar o controle de acesso com base em função com o Windows PowerShell" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # Gerenciar o controle de acesso com base em função com o Windows PowerShell
 
@@ -18,9 +32,9 @@ Para poder usar o Windows PowerShell para gerenciar o RBAC, você deve ter o seg
 
 - Windows PowerShell, versão 3.0 ou 4.0. Para localizar a versão do Windows PowerShell, digite: "$PSVersionTable" e verifique se o valor de "PSVersion" é 3.0 ou 4.0. Para instalar uma versão compatível, consulte [Windows Management Framework 3.0 ](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855).
 
-- PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Windows Azure](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell/).
+- PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Windows Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 
-Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/pt-br/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
 Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help. 
 
@@ -32,8 +46,8 @@ Por exemplo, para obter ajuda sobre o cmdlet Add-AzureAccount, digite:
 
 Leia também os tutoriais a seguir para se familiarizar com a instalação e para usar o Gerenciador de Recursos do Azure do Windows PowerShell:
 
-- [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/)
-- [Usando o Windows PowerShell com o Gerenciador de recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/)
+- [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
+- [Usando o Windows PowerShell com o Gerenciador de recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
 
 ## Neste tutorial ##
 
@@ -49,7 +63,7 @@ Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/).
+Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 Para se conectar as suas assinaturas do Azure, digite:
 
@@ -64,7 +78,7 @@ Se você tem várias assinaturas e deseja alternar para outra, digite:
     # Use o nome da assinatura para selecionar aquela na qual você deseja trabalhar.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-Para obter mais informações, consulte [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
+Para obter mais informações, consulte [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 
 ## <a id="check"></a>Verifique as atribuições de função existentes ##
 
@@ -139,13 +153,15 @@ Então quando você tenta executar outro cmdlet como "New-AzureResourceGroup", v
 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o Windows PowerShell e tópicos relacionados:
  
-- [Controle de acesso no Windows Azure baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/)
+- [Controle de acesso no Windows Azure baseado em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
 - [Cmdlets do Gerenciador de Recursos do Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Saiba usar os cmdlets nos módulos AzureResourceManager.
-- [Usando grupos de recursos para gerenciar os recursos do Azure](http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups): Saiba como criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
+- [Usando grupos de recursos para gerenciar os recursos do Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Saiba como criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): Saiba sobre os novos recursos do Azure.
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): Saiba mais sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" ](http://blogs.technet.com/b/heyscriptingguy/): Obtenha dicas reais e truques da comunidade do Windows PowerShell.
-- [Configurar controle de acesso baseado em função usando XPLAT CLI](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-xplat-cli/)
-- [Solucionando problemas de controle de acesso baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/)
+- [Configurar controle de acesso baseado em função usando XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
+- [Solucionando problemas de controle de acesso baseado em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -18,5 +18,4 @@
 
 	Após a conclusão da configuração, o nome de domínio personalizado será listado na seção **nomes de domínio** da página **Configurar** do seu site.
 
-Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao site do Azure. 
-<!--HONumber=42-->
+Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao site do Azure. <!--HONumber=42-->

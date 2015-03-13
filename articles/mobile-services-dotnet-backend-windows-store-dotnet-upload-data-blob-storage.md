@@ -74,15 +74,16 @@ Em seguida, você atualizará o aplicativo quickstart para capturar e carregar i
 [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
-[ Enviar e-mails dos Serviços Móveis com o SendGrid]: /en-us/documentation/articles/store-sendgrid-mobile-services-send-email-scripts/
-[Agendar trabalhos de back-end nos serviços móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
+[ Enviar e-mails dos Serviços Móveis com o SendGrid]: /pt-br/documentation/articles/store-sendgrid-mobile-services-send-email-scripts/
+[Agendar trabalhos de back-end nos serviços móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Como criar uma conta de armazenamento]: /en-us/documentation/articles/storage-create-storage-account/
+[Como criar uma conta de armazenamento]: /pt-br/documentation/articles/storage-create-storage-account/
 [Biblioteca do cliente de Armazenamento do Azure para a Loja de aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
-[Windows Phone SDK 8.0]: http://www.microsoft.com/en-us/download/details.aspx?id=35471
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Windows Phone SDK 8.0]: http://www.microsoft.com/pt-br/download/details.aspx?id=35471
 
 
-\n<!--HONumber=42-->
+
+<!--HONumber=42-->

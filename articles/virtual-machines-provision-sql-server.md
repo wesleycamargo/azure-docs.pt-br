@@ -43,7 +43,7 @@ Neste tutorial, você vai:
     
     > - Você pode criar uma nova máquina virtual usando a edição do SQL Server paga por minuto da galeria e migrar seus arquivos de banco de dados para essa nova máquina virtual, seguindo as etapas em [Como migrar os arquivos e o esquema de banco de dados do SQL Server entre máquinas virtuais no Azure usando discos de dados](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Ou**,
 
-    > - Atualizar uma instância existente da edição de avaliação do SQL Server para outra edição do SQL Server sob o contrato de [License Mobility por meio de Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/), seguindo as etapas em [Atualizar para outra edição do SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Para obter informações sobre como adquirir a cópia licenciada do SQL Server, consulte [Como comprar o SQL Server (a página pode estar em inglês)](http://www.microsoft.com/pt-br/sqlserver/get-sql-server/how-to-buy.aspx).
+    > - Atualizar uma instância existente da Edição de Avaliação do SQL Server para outra edição do SQL Server sob o contrato [License Mobility por meio do Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/) seguindo as etapas em [Atualizar para outra edição do SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Para obter informações sobre como adquirir a cópia licenciada do SQL Server, consulte [Como comprar o SQL Server (a página pode estar em inglês)](http://www.microsoft.com/pt-br/sqlserver/get-sql-server/how-to-buy.aspx).
    
 
 4. Na primeira página **Configuração de Máquina Virtual**, forneça as seguintes informações:
@@ -54,12 +54,12 @@ Neste tutorial, você vai:
 	- Selecione o **Tamanho** apropriado na lista suspensa. 
 
 	>[AZURE.NOTE] O tamanho da máquina virtual é especificado durante o provisionamento:
- 	> A2 é o menor tamanho recomendado para cargas de trabalho de produção. 
+ 	> Um2 é o tamanho menor recomendado para cargas de trabalho de produção. 
     > O tamanho mínimo recomendado para uma máquina virtual é A3 ao usar o SQL Server Enterprise Edition.
     > Selecione A3 ou maior ao usar o SQL Server Enterprise Edition.
    	> Selecione A4 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho transacionais.  
    	> Selecione A7 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho do Data Warehouse. 
-   	> TO tamanho selecionado limita o número de discos de dados que podem ser configurados. Para obter as informações mais atualizadas sobre os tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+   	> O tamanho selecionado limita o número de discos de dados que você pode configurar. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 	Clique na seta de avanço na parte inferior à direita para continuar.
 
@@ -99,7 +99,7 @@ Neste tutorial, você vai:
 	
 3. Na caixa de diálogo **Segurança do Windows**, forneça a senha da conta do administrador local que você especificou em uma etapa anterior. (Pode ser solicitado que você verifique as credenciais da máquina virtual.)
 
-4. Na primeira vez que você fizer logon nessa máquina virtual, talvez seja necessário concluir vários processos, incluindo a configuração da sua área de trabalho, atualizações do Windows e a conclusão das tarefas de configuração inicial do Windows (sysprep). Depois que o sysprep do Windows é concluído, a configuração do SQL Server conclui as tarefas de configuração. Essas tarefas podem causar um atraso de alguns minutos enquanto são concluídas. `SELECT @@SERVERNAME` pode não retornar o nome correto até a conclusão da instalação do SQL Server, e o SQL Server Management Studio pode não estar visível na página inicial.
+4. Na primeira vez que você fizer logon nessa máquina virtual, talvez seja necessário concluir vários processos, incluindo a configuração da sua área de trabalho, atualizações do Windows e a conclusão das tarefas de configuração inicial do Windows (sysprep). Depois que o sysprep do Windows é concluído, a configuração do SQL Server conclui as tarefas de configuração. Essas tarefas podem causar um atraso de alguns minutos enquanto são concluídas. `SELECT @@SERVERNAME` podem não retornar o nome correto até a conclusão da instalação do SQL Server e o SQL Server Management Studio pode não ser visível na página inicial.
 
 Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona de maneira muito semelhante à qualquer outro computador. Conecte-se à instância padrão do SQL Server com o SQL Server Management Studio (em execução na máquina virtual) da maneira normal. 
 
@@ -152,7 +152,7 @@ A máquina virtual deve ter um ponto de extremidade para escutar comunicação T
 	![Start the Firewall Program][Image12]
 2. No **Firewall do Windows com Segurança Avançada**, no painel esquerdo, clique com o botão direito do mouse em **Regras de Entrada**e, em seguida, clique em **Nova Regra** no painel de ações.
 
-	![New Rule][Image13]
+	![Nova regra][Image13]
 
 3. Na caixa de diálogo **Tipo de Regra**, selecione **Porta** e clique em **Avançar**.
 
@@ -160,17 +160,17 @@ A máquina virtual deve ter um ponto de extremidade para escutar comunicação T
 
 	![TCP Port 1433][Image14]
 
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 
 6. Na caixa de diálogo **Ação**, selecione **Permitir a conexão**, e clique em **Avançar**.
 
-	**Observação de segurança:** Selecionar **Permitir a conexão se for segura** pode fornecer segurança adicional. Selecione esta opção se desejar configurar opções de segurança adicionais em seu ambiente.
+	**Observação de segurança:**Ao selecionar **Permitir a conexão se for segura** pode fornecer segurança adicional. Selecione esta opção se desejar configurar opções de segurança adicionais em seu ambiente.
 
 	![Allow Connections][Image15]
 
 7. Na caixa de diálogo **Perfil**, selecione **Público** e clique em **Avançar**. 
 
-    **Observação de segurança:** Selecionar **Público** permite acesso pela internet. Sempre que possível, selecione um perfil mais restritivo.
+    **Observação de Segurança:**  A seleção de **Público** permite acesso pela Internet. Sempre que possível, selecione um perfil mais restritivo.
 
 	![Public Profile][Image16]
 
@@ -183,7 +183,7 @@ Abrir portas adicionais para outros componentes conforme necessário. Para obter
 
 ###<a id="TCP">Configurar o SQL Server para escutar no protocolo TCP</a>
 
-1. Enquanto estiver conectado à máquina virtual usando a Área de Trabalho Remota, no menu Iniciar, clique em **Todos os Programas**, clique em **Microsoft SQL Server** *version*, em **Ferramentas de Configuração** e, em seguida, em **SQL Server Configuration Manager**.
+1. Enquanto estiver conectado à máquina virtual usando a Área de Trabalho Remota, no menu Iniciar, clique em **Todos os Programas**, em **Microsoft SQL Server** *version*, clique em **Ferramentas de Configuração** e, em seguida, clique em **SQL Server Configuration Manager**.
 	
 	![Open SSCM][Image9]
 
@@ -265,7 +265,7 @@ Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve 
 
 11. Se esse for o primeiro logon que você está criando, talvez você queira designá-lo como um administrador do SQL Server. Em caso afirmativo, na página **Funções de Servidor**, marque **sysadmin**. 
 
-	**Observação de segurança:** Os membros da função de servidor fixa sysadmin têm controle total sobre o Mecanismo de Banco de Dados. Você deve restringir cuidadosamente a associação nessa função.
+	**Observação de segurança:** Os membros da função de servidor fixa sysadmin têm controle total sobre o mecanismo de banco de dados. Você deve restringir cuidadosamente a associação nessa função.
 
 	![sysadmin][Image25]
 
@@ -288,7 +288,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
  
 1. Em um computador conectado à Internet, abra o SQL Server Management Studio.
 
-2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, insira o nome DNS da máquina virtual (determinado na tarefa anterior) e o número da porta pública do ponto de extremidade no formato *DNSName,portnumber*, como **tutorialtestVM.cloudapp.net,57500**.
+2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e o número da porta pública do ponto de extremidade no formato de *DNSName,portnumber* como **tutorialtestVM.cloudapp.net,57500**.
 
 3. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
 
@@ -401,5 +401,4 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 [Image31]: ./media/virtual-machines-provision-sql-server/31VM-Connect.png
 [Image32]: ./media/virtual-machines-provision-sql-server/32DNS-Name.png
 [Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

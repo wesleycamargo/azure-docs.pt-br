@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Painel, Monitor e escala nos Serviços BizTalk | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Saiba mais sobre os controles nas guias do portal de gerenciamento para os serviços BizTalk: Painel, Monitor e escala." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Painel, Monitor e escala nos Serviços BizTalk | Azure" 
+	description=">Saiba mais sobre os controles e monitore o desempenho das guias do Portal de gerenciamento para serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -47,7 +61,7 @@ Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as 
 
 <tr>
         <td><strong>Saiba mais sobre os Serviços do BizTalk</strong></td>
-        <td>Acesse o <a HREF="http://azure.microsoft.com/pt-br/documentation/services/biztalk-services/">centro de aprendizado</a> para saber mais sobre os Serviços BizTalk do Azure.</td>
+        <td>Acesse o <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">centro de aprendizado</a> para saber mais sobre os Serviços BizTalk do Azure.</td>
 </tr>
 </table>
 
@@ -341,7 +355,7 @@ As Conexões Híbridas se conectam um aplicativo do Azure, como Sites ou Serviç
 
 Para criar conexões híbridas nos sites do Azure, consulte [conexão híbrida: Conectar um site do Azure a um recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Para usar Conexões Híbridas nos Serviços Móveis do Azure, consulte [Serviços Móveis do Azure e Conexões Híbridas](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+Para usar Conexões Híbridas nos Serviços Móveis do Azure, consulte [Serviços Móveis do Azure e Conexões Híbridas](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 Para criar ou gerenciar as Conexões Híbridas nos Serviços BizTalk do Azure, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
@@ -365,3 +379,5 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
+<!--HONumber=46--> 

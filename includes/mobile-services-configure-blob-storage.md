@@ -93,6 +93,5 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 
 <!-- URLs. -->
 [Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
-[Configurações do aplicativo]: http://msdn.microsoft.com/pt-br/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-
+[Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="Exemplo de aplicativo de aprendizado de máquina: Frequentemente comprados juntos | Azure" description="Um serviço Web de aprendizado de máquina que executa análise online de carrinho de compras online para produzir recomendações de produtos de itens frequentemente comprados juntos de transações de histórico fornecidas pelo usuário." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Aplicativo de exemplo de aprendizado de máquina: Normalmente juntos | Azure" 
+	description="Um serviço Web de aprendizado de máquina que executa análise online de carrinho de compras online para produzir recomendações de produtos de itens frequentemente comprados juntos de transações de histórico fornecidas pelo usuário." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/>  
 
 # Exemplo de aplicativo de aprendizado de máquina: Frequentemente comprados juntos
  
@@ -13,3 +27,5 @@ Depois de se inscrever para o [serviço Web]( https://datamarket.azure.com/datas
 
 Esse serviço contém APIs para gerenciar modelos de criação de itens frequentemente comprados juntos, carregar transações históricas e recuperar o conjunto de produtos frequentemente comprados juntos mais bem classificado para um determinado produto.  Exemplos que demonstram como usar essas APIs podem ser encontrados no repositório do [Azure-MachineLearning-DataScience no GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
+
+<!--HONumber=46--> 

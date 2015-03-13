@@ -31,7 +31,7 @@ Um dos desafios do desenvolvimento de um aplicativo Web é como fornecer um disp
  
 ##<a name="https"></a>Proteger comunicação
 
-Se usar o nome de domínio ***.azurewebsites.net** criado para o site, você poderá usar imediatamente o protocolo HTTPS, porque um certificado SSL é fornecido para todos os nomes de domínio ***.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-custom-domain-name/), será possível carregar um certificado SSL para habilitar o protocolo HTTPS para o domínio personalizado.
+Se usar o nome de domínio ***.azurewebsites.net** criado para o site, você poderá usar imediatamente o protocolo HTTPS, porque um certificado SSL é fornecido para todos os nomes de domínio ***.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/), será possível carregar um certificado SSL para habilitar o protocolo HTTPS para o domínio personalizado.
 
 ##<a name="develop"></a>Proteger desenvolvimento 
 

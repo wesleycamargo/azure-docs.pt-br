@@ -21,7 +21,7 @@
 
 # Como usar a biblioteca de cliente do iOS para Serviços Móveis
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+  <a href="/pt-br/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 Este guia mostra como executar cenários comuns usando o cliente iOS para os Serviços Móveis do Azure. As amostras são escritas em objective-C e exigem o [SDK dos Serviços Móveis].  Este tutorial também exige o [SDK do iOS]. Os cenários abordados incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se for iniciante em Serviços Móveis, deve primeiro concluir o [Início rápido dos Serviços Móveis][Introdução aos Serviços Móveis]. O tutorial de início rápido ajuda a configurar sua conta e criar seu primeiro serviço móvel.
@@ -510,20 +510,21 @@ Para obter mais informações, consulte o novo tópico sobre processamento de ca
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-ios
-[Validar e modificar dados nos Serviços Móveis usando scripts de servidor]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
+[Validar e modificar dados nos Serviços Móveis usando scripts de servidor]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [SDK dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
 [SDK do iOS]: https://developer.apple.com/xcode
 
 [Tratando Tokens expirados]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [SDK do Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissões]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
-[Usar scripts para autorizar usuários]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Permissões]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Usar scripts para autorizar usuários]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Esquema dinâmico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Como: acessar parâmetros personalizados]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Criar uma tabela]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+[Como: acessar parâmetros personalizados]: /pt-br/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Criar uma tabela]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [Objeto NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para gerenciar tabelas dos Serviços Móveis]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-\n<!--HONumber=42-->
+[CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Envio por push seguro de Hubs de notificação do Azure" metaKeywords ="notificações por envio por push do Azure, hubs de notificação do Azure, envio por push seguro" description="Saiba como enviar notificações por push segura para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Push Seguro dos Hubs de Notificação do Azure" 
+	description="Saiba como enviar notificações por push seguro para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e c#." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
 
@@ -26,13 +40,13 @@ Em um nível superior, o fluxo é o seguinte:
 
 Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificar o projeto iOS
 
-Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de uma notificação, é preciso alterar o aplicativo iOS para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
+Agora que você modificou o back-end do aplicativo para enviar apenas a  *id* de uma notificação, é preciso alterar o aplicativo iOS para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
 
 Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back-end do aplicativo.
 
@@ -46,13 +60,13 @@ Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Em seguida, adicione o código a seguir à seção de implementação, substituindo o espaço reservado pelo ponto de extremidade para seu back-end obtido anteriormente:
+3. Em seguida, adicione o código a seguir à seção de implementação, substituindo o espaço reservado  `{back-end endpoint}` pelo ponto de extremidade para seu back-end obtido anteriormente:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		{
-		    // check if authenticated
+		    // Verifique se autenticado
 		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
 		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
 		    if (!authenticationHeader) return;
@@ -139,4 +153,4 @@ Para executar o aplicativo, faça o seguinte:
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

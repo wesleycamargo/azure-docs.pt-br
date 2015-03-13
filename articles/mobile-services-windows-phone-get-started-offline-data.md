@@ -44,7 +44,7 @@ Este tutorial exige o seguinte:
 * [Armazenamento do Azure Mobile Services SQLite versão 1.0.0 (ou posterior)][armazenamento do SQLite Nuget]
 * [SQLite para Windows Phone 8]
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
+>[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Atualizar o aplicativo para dar suporte aos recursos offline
 
@@ -278,14 +278,15 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 [12]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png
 
 <!-- URLs. -->
-[Tratando conflitos com o suporte offline para os Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
+[Tratando conflitos com o suporte offline para os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
 [Exemplo de Introdução offline do Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/
 [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [SDK do Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
-[Exclusão Reversível]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Exclusão Reversível]: /pt-br/documentation/articles/mobile-services-using-soft-delete/
 
 [Nuget do SDK dos Serviços móveis]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [Nuget do repositório do SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

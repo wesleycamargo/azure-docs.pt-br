@@ -1,6 +1,20 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Introdução ao uso da Análise de fluxo do Azure | Azure" metaKeywords="" description="Comece a usar a análise de fluxo do Azure para processar e transformar eventos no Hub de eventos de barramento de serviço do Azure e armazenar os resultados no banco de dados SQL do Azure." metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Introdução ao uso da Análise de fluxo do Azure | Azure" 
+	description="Comece a usar a análise de fluxo do Azure para processar e transformar eventos no Hub de eventos de barramento de serviço do Azure e armazenar os resultados no banco de dados SQL do Azure." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao" />
 
 
 # Introdução ao uso da Análise de fluxo do Azure
@@ -73,7 +87,7 @@ Se já tiver um Banco de Dados SQL do Azure para usar neste tutorial, ignore est
 1.	No Portal de Gerenciamento, clique em **﻿﻿NOVO**, ﻿﻿**SERVIÇOS DE DADOS**, **﻿﻿﻿BANCO DE DADOS SQL**, **﻿﻿CRIAÇÃO RÁPIDA**.  Especifique um nome de banco de dados existente ou um novo servidor de banco de dados SQL.
 2.	Selecione o banco de dados recém-criado
 3.	Clique em **﻿PAINEL**, clique em **Mostrar cadeias de conexão** no painel à direita da página e copie a cadeia de conexão **ADO.NET**. Você a usará mais tarde no tutorial.  
-4.	Verifique se que as configurações de firewall de nível de servidor permitem que você se conecte ao banco de dados.  Você pode fazer isso adicionando uma nova regra IP no guia de configuração do servidor. Para obter mais detalhes, incluindo como lidar com IP dinâmico, consulte [http://msdn.microsoft.com/pt-br/library/azure/ee621782.aspx](http://msdn.microsoft.com/pt-br/library/azure/ee621782.aspx).
+4.	Verifique se que as configurações de firewall de nível de servidor permitem que você se conecte ao banco de dados.  Você pode fazer isso adicionando uma nova regra IP no guia de configuração do servidor. Para obter mais detalhes, incluindo como lidar com IP dinâmico, consulte [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ###Criar tabelas de saída
 1.	Abra o Visual Studio ou o SQL Server Management Studio.
@@ -264,13 +278,13 @@ Neste tutorial, você aprendeu a usar a Análise de fluxo para processar os dado
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/pt-br/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/pt-br/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/pt-br/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/pt-br/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/pt-br/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/pt-br/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
@@ -286,3 +300,5 @@ Neste tutorial, você aprendeu a usar a Análise de fluxo para processar os dado
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
+<!--HONumber=46--> 

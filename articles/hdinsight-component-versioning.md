@@ -50,7 +50,7 @@ As versões de componente associadas às versões do cluster HDInsight podem ser
 
 **Notas de versão**	
 
-Consulte [HDInsight Release Notes](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-release-notes/) para ver notas de versão adicionais sobre as versões mais recentes do HDInsight.
+Consulte [HDInsight Release Notes](http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/) para ver notas de versão adicionais sobre as versões mais recentes do HDInsight.
 
 ### Selecionar uma versão ao provisionar um cluster HDInsight
 
@@ -90,7 +90,7 @@ Por padrão, o Azure HDInsight agora dá suporte ao Hadoop 2.4 com o cluster HDI
 A tabela a seguir lista as versões do HDInsight disponíveis no momento, as versões correspondentes do Hortonworks Data Platform (HDP) que elas usam e suas datas de lançamento. Quando conhecidas, suas datas de vencimento e reprovação também serão fornecidas. Observe o seguinte:
 
 * Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight 2.1, 3.0 e 3.1. Eles não estão disponíveis para clusters HDInsight 1.6.
-* Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo portal de gerenciamento do Azure. A tabela a seguir indica quais versões estão disponíveis no portal de gerenciamento do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/pt-br/library/dn593744.aspx) do PowerShell e o SDK do .NET até sua data de substituição. 
+* Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo portal de gerenciamento do Azure. A tabela a seguir indica quais versões estão disponíveis no portal de gerenciamento do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) do PowerShell e o SDK do .NET até sua data de substituição. 
 
 <table border="1">
 <tr><th>Versão do HDInsight</th><th>Versão do HDP</a><th>Alta Disponibilidade</th></th><th>Data do lançamento</th><th>Disponível no Portal de Gerenciamento do Azure</th><th>Data de validade do suporte</th><th>Data de reprovação</th></tr>
@@ -113,7 +113,7 @@ O SLA é definido em termos de uma "Janela de Suporte". Uma janela de suporte re
 
 A **Data de Reprovação** é a data após a qual a versão do cluster não pode ser criada no HDInsight.
 
-> [AZURE.NOTE] O cluster HDInsight 2.1 e 3.0 é executado no SO Convidado do Azure [Família 4](http://msdn.microsoft.com/pt-br/library/azure/ee924680.aspx#explanation), que usa a versão de 64 bits do Windows Server 2012 R2 e dá suporte ao .NET Framework 4.0, 4.5. e 4.5.1. 
+> [AZURE.NOTE] O cluster HDInsight 2.1 e 3.0 é executado no SO Convidado do Azure [Família 4](http://msdn.microsoft.com/library/azure/ee924680.aspx#explanation), que usa a versão de 64 bits do Windows Server 2012 R2 e dá suporte ao .NET Framework 4.0, 4.5. e 4.5.1. 
 
 ## Notas de versão do Hortonworks associadas a versões do HDInsight##
 
@@ -128,7 +128,7 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/pt-br/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
@@ -145,5 +145,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

@@ -1,6 +1,18 @@
-﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Acompanhe o uso em aplicativos Web" description="Log de atividades do usuário." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Acompanhe o uso em aplicativos Web" 
+	description="Log de atividades do usuário." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Acompanhe o uso de aplicativos Web
 
@@ -119,3 +131,5 @@ Quer saber o que os usuários fazem com seu aplicativo? Inserindo chamadas em se
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

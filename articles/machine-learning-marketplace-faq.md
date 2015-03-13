@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="Perguntas frequentes sobre a publicação e utilização de aplicativos de aprendizado de máquina no Azure Marketplace | Azure" description="Perguntas frequentes" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Perguntas frequentes sobre a publicação e utilização de aplicativos de aprendizado de máquina no Azure Marketplace | Azure" 
+	description="Perguntas frequentes" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luisca"/>
 
 #Perguntas frequentes sobre a publicação e utilização de aplicativos de aprendizado de máquina no Azure Marketplace
 
@@ -16,7 +30,7 @@ Resposta: Você deve usar sua conta do Marketplace como o nome de usuário e a c
 
 ###Pergunta 3: Eu vejo o seguinte erro depois de inserir a entrada para o serviço Web em 'explorar este conjunto de dados'. Por que recebo esse erro?
 Ocorreu um erro inesperado ao processar sua solicitação. Tente novamente.
-Resposta: Um ou mais parâmetros de entrada do serviço Web podem ter excedido o limite de tamanho ao consumir o serviço Web na página do marketplace 'explorar este conjunto de dados'. Os serviços podem ser chamados com um tamanho de entrada maior usando métodos HTTP POST; o exemplo de código é postado sob os serviços de exemplo descritos aqui: http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-r-csharp-web-service-examples/.
+Resposta: Um ou mais parâmetros de entrada do serviço Web podem ter excedido o limite de tamanho ao consumir o serviço Web na página do marketplace 'explorar este conjunto de dados'. Os serviços podem ser chamados com um tamanho de entrada maior usando métodos HTTP POST; o exemplo de código é postado sob os serviços de exemplo descritos aqui: http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-web-service-examples/.
 
 ###
 
@@ -44,3 +58,5 @@ Resposta: Entre em contato com a equipe do Marketplace em datamarketbd@microsoft
 
 
 
+
+<!--HONumber=46--> 

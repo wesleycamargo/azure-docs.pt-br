@@ -25,7 +25,7 @@ Este tópico mostra como usar os Serviços Móveis do Azure para habilitar seu a
 
 Você não pode distribuir as credenciais necessárias de maneira segura usando o aplicativo cliente para carregar dados com segurança para o serviço de Armazenamento de Blob. Nesse caso, você deve armazenar essas credenciais em seu serviço móvel e usá-las para gerar uma SAS (assinatura de acesso compartilhado) usada para carregar uma nova imagem. A SAS, uma credencial com expiração curta&mdash;nesse caso, 5 minutos será retornado com segurança pelos Serviços Móveis para o aplicativo cliente. O aplicativo usará, então, essa credencial temporária para carregar a imagem. Neste exemplo, os downloads do serviço Blob são públicos.
 
-Neste tutorial, você adicionará funcionalidade ao [projeto de aplicativo de exemplo GetStartedWithData](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) para tirar fotos e carregar as imagens no Azure usando uma SAS gerada pelos Serviços Móveis. Este tutorial o orientará através das etapas básicas a seguir para atualizar o aplicativo TodoList simples a fim de carregar imagens no serviço de Armazenamento de Blob:
+Neste tutorial, você adicionará funcionalidade ao [projeto de aplicativo de exemplo GetStartedWithData](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) para tirar fotos e carregar as imagens no Azure usando uma SAS gerada pelos Serviços Móveis. Este tutorial o orientará através das etapas básicas a seguir para atualizar o aplicativo TodoList simples a fim de carregar imagens no serviço de Armazenamento de Blob:
 
 1. [Instalar a biblioteca do Cliente de Armazenamento]
 2. [Atualizar o aplicativo cliente para capturar imagens]
@@ -40,7 +40,7 @@ Este tutorial exige o seguinte:
 + [Windows Phone SDK 8.0] ou superior
 + Gerenciador de Pacotes Nuget instalado para o Microsoft Visual Studio.
 + [Conta de Armazenamento do Azure][Como criar uma conta de armazenamento]
-+ Conclua o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
++ Conclua o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
@@ -71,15 +71,16 @@ Para usar um SAS para carregar imagens de seu aplicativo no armazenamento de Blo
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
-[ Enviar e-mails dos Serviços Móveis com o SendGrid]: /en-us/documentation/articles/store-sendgrid-mobile-services-send-email-scripts/
-[Agendar trabalhos de back-end nos serviços móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[ Enviar e-mails dos Serviços Móveis com o SendGrid]: /pt-br/documentation/articles/store-sendgrid-mobile-services-send-email-scripts/
+[Agendar trabalhos de back-end nos serviços móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Como criar uma conta de armazenamento]: /en-us/documentation/articles/storage-create-storage-account/
+[Como criar uma conta de armazenamento]: /pt-br/documentation/articles/storage-create-storage-account/
 [Biblioteca do cliente de Armazenamento do Azure para a Loja de aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
-[Windows Phone SDK 8.0]: http://www.microsoft.com/en-us/download/details.aspx?id=35471
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Windows Phone SDK 8.0]: http://www.microsoft.com/pt-br/download/details.aspx?id=35471
 
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

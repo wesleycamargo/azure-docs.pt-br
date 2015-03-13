@@ -19,12 +19,12 @@
 # Autenticar seu aplicativo do Windows Phone 8 com o logon único do Live Connect
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">C# da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">JavaScript da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">do Windows Phone</a>
+	<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">JavaScript da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">do Windows Phone</a>
 </div>	
 
 Este tópico mostra como usar o logon único do Live Connect para autenticar usuários nos Serviços Móveis do Microsoft Azure de um aplicativo do Windows Phone 8.  Neste tutorial, você adiciona autenticação ao projeto de início rápido usando o Live Connect. Quando autenticado com êxito pelo Live Connect, um usuário conectado é recebido pelo nome e o valor da ID do usuário é exibido.  
 
->[AZURE.NOTE]Este tutorial demonstra os benefícios do uso da experiência de logon único fornecida pelo Live Connect para aplicativos do Windows Phone. Isso permite que você autentique mais facilmente um usuário já conectado com seu serviço móvel. Para uma experiência de autenticação mais generalizada que ofereça suporte a vários provedores de autenticação, consulte o tópico <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-users">Adicionar autenticação ao seu aplicativo</a>. 
+>[AZURE.NOTE]Este tutorial demonstra os benefícios do uso da experiência de logon único fornecida pelo Live Connect para aplicativos do Windows Phone. Isso permite que você autentique mais facilmente um usuário já conectado com seu serviço móvel. Para uma experiência de autenticação mais generalizada que ofereça suporte a vários provedores de autenticação, consulte o tópico <a href="/pt-br/documentation/articles/mobile-services-windows-phone-get-started-users">Adicionar autenticação ao seu aplicativo</a>. 
 
 Este tutorial explica estas etapas básicas para habilitar a autenticação do Live Connect:
 
@@ -140,7 +140,7 @@ Em seguida, você atualizará o aplicativo para autenticar usuários com o Live 
 
 7. Atualize a cadeia de caracteres _<<INSERIR ID DO CLIENTE AQUI>>_ da etapa anterior com o valor de ID de cliente gerado quando você registrou seu aplicativo com o Live Connect.
 
-    > [AZURE.NOTE] Em um aplicativo do Windows Phone 8, uma instância da classe **LiveAuthClient** é criada, passando o valor da ID de cliente para o construtor de classe. Em um [Aplicativo da Windows Store](/ en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), a mesma classe é instanciada passando-se o URI do domínio de redirecionamento.
+    > [AZURE.NOTE] Em um aplicativo do Windows Phone 8, uma instância da classe **LiveAuthClient** é criada, passando o valor da ID de cliente para o construtor de classe. Em um [Aplicativo da Windows Store](/ pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), a mesma classe é instanciada passando-se o URI do domínio de redirecionamento.
 
 8. Exclua o método **OnNavigatedTo** existente, ou remova seu comentário, e substitua-o pelo método a seguir que trata o evento **Loaded** para a página. 
 
@@ -191,9 +191,10 @@ No próximo tutorial, [Autorizar usuários com scripts], você obterá o valor d
 <!-- URLs. -->
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows e Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Adicionar Serviços Móveis a um aplicativo existente]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users
-[Autorizar usuários com scripts]: /en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users
+[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

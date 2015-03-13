@@ -25,12 +25,12 @@ criar uma conta de armazenamento usando a biblioteca de cliente de gerenciamento
     aplicativo do Azure, selecione a mesma região onde você implantará o
     aplicativo.
 
-6. Você também pode selecionar o tipo de replicação que deseja para sua conta. A replicação com redundância geográfica é o padrão e oferece a máxima durabilidade. Para obter mais detalhes sobre as opções de replicação, consulte [Opções de Redundância de Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn727290.aspx) e o [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+6. Você também pode selecionar o tipo de replicação que deseja para sua conta. A replicação com redundância geográfica é o padrão e oferece a máxima durabilidade. Para obter mais detalhes sobre as opções de replicação, consulte [Opções de Redundância de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx) e o [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Clique em **CRIAR CONTA DE ARMAZENAMENTO**.
 
-[usando a API REST]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx
+[usando a API REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-<!--HONumber=41-->
+<!--HONumber=42-->

@@ -31,10 +31,11 @@ Agora, você pode usar este valor de chave de API para habilitar serviços para 
 
 
 <!-- URLs. -->
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [SDK dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
-[Versão de back-end do .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
-\n<!--HONumber=42-->
+[Versão de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+
+\<!--HONumber=42-->

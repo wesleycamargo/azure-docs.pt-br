@@ -20,5 +20,4 @@ Aqui está uma alternativa que tira proveito do fato de que o script de implanta
 ### Opção 3: Personalize o script de implantação
 
 Se você personalizou o script de implantação, você pode alterar o código em deploy.cmd para forçá-lo para excluir a pasta env.
-
 <!--HONumber=42-->

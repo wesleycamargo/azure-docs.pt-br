@@ -26,7 +26,7 @@ Saiba como criar uma solução que use o cluster do Storm no HDInsight para proc
 
 * Uma assinatura do Azure
 
-* Visual Studio com o [SDK do Microsoft Azure para .NET](http://azure.microsoft.com/pt-br/downloads/archive-net-downloads/)
+* Visual Studio com o [SDK do Microsoft Azure para .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
 * [Java e JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -1347,7 +1347,7 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 * Para obter mais informações sobre o Apache Storm, consulte [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* Para obter mais informações sobre HBase com HDInsight, consulte a [Visão geral do HBase com HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-hbase-overview/)
+* Para obter mais informações sobre HBase com HDInsight, consulte a [Visão geral do HBase com HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-hbase-overview/)
 
 * Para obter mais informações sobre SignalR, consulte [ASP.NET SignalR](http://signalr.net/)
 
@@ -1356,5 +1356,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 * Para obter mais informações sobre o desenvolvimento com SCP, consulte [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# no Storm no HDInsight](/pt-br/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azure-portal]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

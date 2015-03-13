@@ -1,12 +1,26 @@
-<properties urlDisplayName="Diagnostics" pageTitle="Como usar o diagnóstico (.NET) - Guia de recursos do Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Saiba como usar dados de diagnóstico no Azure para depuração, medição do desempenho, monitoramento, análise de tráfego e mais." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties 
+	pageTitle="Como usar o diagnóstico (.NET) - Guia de recursos do Azure" 
+	description="Saiba como usar dados de diagnóstico no Azure para depuração, medição do desempenho, monitoramento, análise de tráfego e mais." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/11/2014" 
+	ms.author="robb"/>
 
 
 
 # Habilitando o Diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure
 
-O Diagnóstico do Azure 1.2 permite coletar dados de diagnóstico de uma função de trabalho, função web ou máquina virtual em execução no Azure. Este guia descreve como usar o Diagnóstico do Azure 1.2. Para obter orientações detalhadas adicionais sobre como criar um log e uma estratégia de rastreamento e como usar o diagnóstico e outras técnicas para solucionar problemas, consulte [Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure][].
+O Diagnóstico do Azure 1.2 e 1.3 permite coletar dados de diagnóstico de uma função de trabalho, função Web ou máquina virtual em execução no Azure. Este guia descreve como usar o Diagnóstico do Azure 1.2 e 1.3. Para obter orientações detalhadas adicionais sobre como criar um log e uma estratégia de rastreamento e usar diagnóstico e outras técnicas para solucionar problemas, consulte [Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure][].
 
 ## Sumário
 
@@ -16,20 +30,22 @@ O Diagnóstico do Azure 1.2 permite coletar dados de diagnóstico de uma funçã
 -   [Arquivo de configuração de amostra e esquema][]
 -   [Solução de problemas][]
 -   [Perguntas frequentes][]
--   [Comparando o Diagnóstico do Azure 1.0 e 1.2][]
+-   [Comparando as versões de diagnóstico do Azure][]
 -   [Recursos adicionais][]
 
-<h2><a name="overview"></a>Overview</h2>
+<h2><a name="overview"></a>Visão geral</h2>
 
-O Diagnóstico Azure 1.2 é uma extensão do Azure que permite coletar dados de telemetria de diagnóstico de uma função de trabalho, função web ou de uma máquina virtual em execução no Azure. Os dados de telemetria são armazenados na conta de armazenamento do Azure e podem ser usados para depuração e solução de problemas, medição de desempenho, monitoramento de uso de recursos, análise de tráfego e planejamento da capacidade e auditoria. 
+O Diagnóstico do Azure 1.2 e 1.3 são extensões do Azure que permitem que você colete dados de telemetria de diagnóstico de uma função de trabalho, função Web ou a máquina virtual em execução no Azure. Os dados de telemetria são armazenados na conta de armazenamento do Azure e podem ser usados para depuração e solução de problemas, medição de desempenho, monitoramento de uso de recursos, análise de tráfego e planejamento da capacidade e auditoria. 
 
-Se você usou a versão 1.0 do Diagnóstico no passado, existem três diferenças notáveis comparado ao Diagnóstico 1.2:
+O Diagnóstico do Azure 1.2 é para uso com SDKs do Azure para .NET 2.4 e anterior. O Diagnóstico do Azure 1.3 é para uso com SDKs do Azure para .NET 2.5 e posterior.
 
-1.	O Diagnóstico 1.2 pode ser implantado em máquinas virtuais, além de serviços de nuvem.
-2.	O Diagnóstico 1.0 é parte do SDK do Azure e é implantado quando você implanta seu serviço de nuvem. O Diagnóstico 1.2 é uma extensão e é implantada separadamente.
-3.	O Diagnóstico 1.2 habilita a coleta de eventos ETW e .NET EventSource.
+Se você usou a versão 1.0 do Diagnóstico no passado, existem três diferenças notáveis comparado ao Diagnóstico 1.2 e 1.3:
 
-Para ver uma comparação mais detalhada, consulte [Comparando o Diagnóstico do Azure 1.0 e 1.2][] no final deste artigo.
+1.	O Diagnóstico 1.2 e 1.3 pode ser implantado em máquinas virtuais, além de serviços de nuvem.
+2.	O Diagnóstico 1.0 é parte do SDK do Azure e é implantado quando você implanta seu serviço de nuvem. O Diagnóstico 1.2 e 1.3 é uma extensão e é implantado separadamente a partir de sua implantação do serviço de nuvem.
+3.	O Diagnóstico 1.2 e 1.3 habilita a coleta de eventos EventSource do ETW e .NET.
+
+Para obter uma comparação mais detalhada, consulte [Comparando versões de diagnóstico do Azure][] no final deste artigo.
 
 O Diagnóstico do Azure pode coletar os seguintes tipos de telemetria:
 
@@ -69,7 +85,7 @@ O Diagnóstico do Azure pode coletar os seguintes tipos de telemetria:
 	</tr>
 	<tr>
 		<td>.NET EventSource</td>
-		<td>Eventos gerados pelo seu código usando o .NET <a href="http://msdn.microsoft.com/pt-br/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">Classe EventSource</a>.</td>            
+		<td>Eventos gerados pelo seu código usando o .NET <a href="http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">Classe EventSource</a>.</td>            
 	</tr>
 	<tr>
 		<td>ETW baseado em manifesto</td>
@@ -81,17 +97,17 @@ O Diagnóstico do Azure pode coletar os seguintes tipos de telemetria:
 
 <h2><a name="worker-role"></a>Como habilitar o Diagnóstico em uma Função de trabalho</h2>
 
-Este passo a passo descreve como implementar uma função de trabalho do Azure que emite dados de telemetria usando a Classe EventSource .NET. O Diagnóstico do Azure é usado para coletar os dados de telemetria e armazená-los em uma conta de armazenamento do Azure. Ao criar uma função de trabalho, o Visual Studio habilita automaticamente o Diagnóstico 1.0 como parte da solução. As instruções a seguir descrevem o processo de criação da função de trabalho, desabilitando o Diagnóstico 1.0 por meio da solução e implantando o Diagnóstico 1.2 para sua função de trabalho.
+Este passo a passo descreve como implementar uma função de trabalho do Azure que emite dados de telemetria usando a Classe EventSource .NET. O Diagnóstico do Azure é usado para coletar os dados de telemetria e armazená-los em uma conta de armazenamento do Azure. Ao criar uma função de trabalho, o Visual Studio permite automaticamente O Diagnóstico 1.0 como parte da solução em SDKs do Azure para .NET 2.4 e versões anteriores. As instruções a seguir descrevem o processo de criação da função de trabalho, desabilitando o Diagnóstico 1.0 por meio da solução e implantando o Diagnóstico 1.2 ou 1.3 para sua função de trabalho.
 
 <h3>Pré-requisitos</h3>
 Esse artigo presume que você tem uma assinatura do Azure e está usando o Visual Studio 2013 com o SDK do Azure. Se você não tiver uma assinatura do Azure, será possível se inscrever para uma [Avaliação gratuita][]. Certifique-se de [Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior][].
 
 <h3>Etapa 1: Criar uma Função de trabalho</h3>
 1.	Inicie o **Visual Studio 2013**.
-2.	Crie um novo projeto do **Serviço de Nuvem do Microsoft Azure** por meio do modelo de **Nuvem** que se destina ao .NET Framework 4.5.Nomeie o projeto "WadExample".
+2.	Crie um novo projeto do **Serviço de Nuvem do Microsoft Azure** por meio do modelo de **Nuvem** que se destina ao .NET Framework 4.5.  Nomeie o projeto "WadExample".
 3.	Selecione **Função de Trabalho**.
 4.	No **Gerenciador de Soluções**, clique duas vezes no arquivo de propriedades **WorkerRole1**.
-5.	Na guia **Configuração**, desmarque **Habilitar o Diagnóstico** para desabilitar o Diagnóstico 1.0.
+5.	Na guia **Configuração**, desmarque **Habilitar o diagnóstico** para desabilitar o Diagnóstico 1.0 (SDK 2.4 do Azure e mais recente).
 6.	Compile sua solução para certificar-se de que não haja erros.
 
 <h3>Etapa 2: Instrumentalizar seu código</h3>
@@ -187,10 +203,10 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
 
 <h3>Etapa 4: Criar seu arquivo de configuração do Diagnóstico e instalar a extensão</h3>
 1.	Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
-
+2.	
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Adicione um arquivo XML ao seu projeto **WorkerRole1** clicando com o botão direito no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item...** -> **Itens Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
+2.	Adicione um arquivo XML ao seu projeto **WorkerRole1** ao clicar com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item...** -> **Itens Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
 
 	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
@@ -222,32 +238,32 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
 Os cmdlets do PowerShell para gerenciamento do Diagnóstico em uma função Web ou de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1.	Abra o PowerShell do Microsoft Azure.
-2.	Execute o script para instalar o Diagnóstico em sua função de trabalho (substitua *StorageAccountKey* pela chave de conta de armazenamento de sua conta de armazenamento wadexample):
+2.	Execute o script para instalar o Diagnóstico em sua função de trabalho (substitua  *StorageAccountKey* pela chave de conta de armazenamento de sua conta de armazenamento wadexample):
 
 		$storage_name = "wadexample"
 		$key = "<StorageAccountKey>"
 		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
 		$service_name="wadexample"
 		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
-		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging
+		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 
 
 <h3>Etapa 6: Olhar seus dados de telemetria</h3>
-No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Após o serviço de nuvem estar em execução por 5 minutos, você deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**.Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
+No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Após o serviço de nuvem estar em execução por 5 minutos, você deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
 	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 <h2><a name="virtual-machine"></a>Como habilitar o Diagnóstico em uma Máquina Virtual</h2>
 
-Esse passo a passo descreve como instalar remotamente o Diagnóstico em uma máquina virtual do Azure por meio de um computador de desenvolvedor. Você também aprende como implementar um aplicativo que é executado nesta máquina virtual do Azure e emite dados de telemetria usando a [Classe EventSource][] .NET.O Diagnóstico do Azure é usado para coletar a telemetria e armazená-la em uma conta de armazenamento do Azure.
+Esse passo a passo descreve como instalar remotamente o Diagnóstico em uma máquina virtual do Azure por meio de um computador de desenvolvedor. Você também aprende como implementar um aplicativo que é executado nesta máquina virtual do Azure e emite dados de telemetria usando a [Classe EventSource][] .NET. O Diagnóstico do Azure é usado para coletar a telemetria e armazená-la em uma conta de armazenamento do Azure.
 
 <h3>Pré-requisitos</h3>
 Esse passo a passo presume que você tenha uma assinatura do Azure e esteja usando o Visual Studio 2013 com o SDK do Azure. Se você não tiver uma assinatura do Azure, será possível se inscrever para uma [Avaliação gratuita][]. Certifique-se de [Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior][].
 
 <h3>Etapa 1: Criar uma Máquina Virtual</h3>
 1.	No computador do desenvolvedor, inicie o Visual Studio 2013.
-2.	No **Gerenciador de Servidores** do Visual Studio, clique com o botão direito em **Windows Azure** e selecione **Máquina Virtual** -> **Criar Máquina Virtual**.
+2.	No **Gerenciador de Servidor** do Visual Studio, expanda o **Azure**, clique com botão direito do mouse em **máquinas virtuais** e, em seguida, selecione **Criar Máquina Virtual**.
 3.	Selecione sua assinatura do Azure na caixa de diálogo **Escolher uma Assinatura** e clique em **Avançar**.
-4.	Selecione **Windows Server 2012 R2 Datacenter** na caixa de diálogo **Selecionar uma Imagem da Máquina Virtual** e clique em **Avançar**.
+4.	Selecione **Windows Server 2012 R2 Datacenter, novembro de 2014** na caixa de diálogo **Selecionar uma Imagem da Máquina Virtual** e clique em **Avançar**.
 5.	Nas **Configurações Básicas da Máquina Virtual**, defina o nome da máquina virtual como "wadexample". Defina o nome de usuário e senha do Administrador clique em **Avançar**.
 6.	Na caixa de diálogo **Configurações de Serviço de Nuvem**, crie um novo serviço de nuvem chamado "wadexampleVM". Crie uma nova conta de Armazenamento chamada "wadexample" e clique em **Avançar**.
 7.	Clique em **Criar**.
@@ -256,7 +272,7 @@ Esse passo a passo presume que você tenha uma assinatura do Azure e esteja usan
 1.	No computador do desenvolvedor, inicie o Visual Studio 2013.
 2.	Crie um novo aplicativo de console do Visual C# que se destina ao .NET Framework 4.5. Nomeie o projeto "WadExampleVM".
 	![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
-3.	Substitua os conteúdos do Program.cs pelo código a seguir.  A classe **SampleEventSourceWriter** implementa quatro métodos de registro: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**.O primeiro parâmetro para o método WriteEvent define a ID para o respectivo evento.O método Run implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
+3.	Substitua os conteúdos do Program.cs pelo código a seguir. A classe **SampleEventSourceWriter** implementa quatro métodos de registro: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. O primeiro parâmetro para o método WriteEvent define a ID para o respectivo evento. O método Run implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
 		using System;
 		using System.Diagnostics;
@@ -328,8 +344,8 @@ Esse passo a passo presume que você tenha uma assinatura do Azure e esteja usan
 
 
 <h3>Etapa 3: Implantar seu aplicativo</h3>
-1.	Clique com o botão direito do mouse no projeto **WadExampleVM** no **Gerenciador de Soluções** e selecione **Abrir Pasta** no Explorador de Arquivos.
-2.	Navegue para a pasta *bin\Debug* e copie todos os arquivos (WadExampleVM.*)
+1.	Clique com o botão direito do mouse no projeto **WadExampleVM** no **Gerenciador de Soluções** e selecione **Abrir Pasta no Explorador de Arquivos**.
+2.	Navegue até a pasta *bin\Debug* e copie todos os arquivos (WadExampleVM.*)
 3.	No **Gerenciador de Servidores**, clique com o botão direito do mouse na máquina virtual e selecione **Conectar usando a Área de Trabalho Remota**.
 4.	Após conectado ao VM, crie uma pasta com o nome de WadExampleVM e cole seus arquivos do aplicativo na pasta.
 5.	Inicie o aplicativo WadExampleVM.exe. Você verá uma janela de console em branco.
@@ -339,7 +355,7 @@ Esse passo a passo presume que você tenha uma assinatura do Azure e esteja usan
 
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Abra um novo arquivo XML no Visual Studio, seja em um projeto que você já abriu ou em uma instância do Visual Studio com nenhum projeto aberto. No Visual Studio, selecione **Adicionar** -> **Novo Item...** -> **Itens Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml"
+2.	Abra um novo arquivo XML no Visual Studio, seja em um projeto que você já abriu ou em uma instância do Visual Studio com nenhum projeto aberto. No Visual Studio, selecione **Adicionar** -> **Novo Item...** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml"
 3.	Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml seja uma janela ativa. Pressione **F4** para abrir a janela **Propriedades**. Clique na propriedade **Esquemas** na janela **Propriedades**. Clique em ...**** na propriedade **Esquemas**. Clique no botão **Adicionar...** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
 4.	Substitua os conteúdos do arquivo de configuração WadExample.xml pelo seguinte XML e salve o arquivo. Este arquivo de configuração define dois contadores de desempenho a serem coletados: um relacionado à utilização da CPU e um ao uso de memória. Em seguida, a configuração define os quatro eventos correspondentes aos métodos na classe SampleEventSourceWriter.
 
@@ -369,7 +385,7 @@ Esse passo a passo presume que você tenha uma assinatura do Azure e esteja usan
 Os cmdlets do PowerShell para gerenciamento do Diagnóstico em uma VM são: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension e Remove-AzureVMDiagnosticsExtension.
 
 1.	No computador do desenvolvedor, abra o PowerShell do Microsoft Azure.
-2.	Execute o script para instalar remotamente o Diagnóstico na sua VM (substitua *StorageAccountKey* pela chave de conta de armazenamento de sua conta de armazenamento wadexamplevm):
+2.	Execute o script para instalar remotamente o Diagnóstico na sua VM (substitua  *StorageAccountKey* pela chave de conta de armazenamento de sua conta de armazenamento wadexamplevm):
 
 		$storage_name = "wadexamplevm"
 		$key = "<StorageAccountKey>"
@@ -383,12 +399,12 @@ Os cmdlets do PowerShell para gerenciamento do Diagnóstico em uma VM são: Set-
 
 
 <h3>Etapa 6: Olhar seus dados de telemetria</h3>
-No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Após a VM estar em execução por 5 minutos, você deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**.Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
+No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Após a VM estar em execução por 5 minutos, você deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
 	![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
 <h2><a name="configuration-file-schema"></a>Esquema de arquivo de configuração</h2>
 
-O arquivo de configuração do Diagnóstico define valores que são usados para inicializar as definições de configurações do diagnóstico quando o monitor de diagnóstico inicia. Um arquivo de configuração de amostra e documentação detalhada de seu esquema são localizados aqui: [Esquema de Configuração do Diagnóstico do Azure 1.2][].
+O arquivo de configuração do Diagnóstico define valores que são usados para inicializar as definições de configurações do diagnóstico quando o monitor de diagnóstico inicia. Um arquivo de configuração de exemplo e documentação detalhada sobre seu esquema estão localizados aqui: [Esquema de Configuração do Diagnóstico do Azure 1.2][].
 
 <h2><a name="troubleshooting"></a>Solução de problemas</h2>
 
@@ -520,7 +536,7 @@ Se não existirem arquivos nesta pasta, o agente de monitoramento será incapaz 
 
 O Agente de Monitoramento registra quaisquer erros que ocorrerem no arquivo MaEventTable.tsf. Para inspecionar o conteúdo deste arquivo, execute o comando a seguir:
 
-		%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.2.0.0\Monitor\x64\table2csv maeventtable.tsf
+		%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.3.0.0\Monitor\x64\table2csv maeventtable.tsf
 
 A ferramenta gera um arquivo com o nome de maeventtable.csv, que você pode abrir e inspecionar os logs para verificar as falhas.
 
@@ -530,14 +546,14 @@ A seguir estão algumas perguntas frequentes e suas respostas:
 
 **P.** Como eu atualizo a minha solução do Visual Studio do Diagnóstico do Azure 1.0 para o Diagnóstico do Azure 1.1?
 
-** R.** Atualizar sua solução do Visual Studio do Diagnóstico 1.0 para o Diagnóstico 1.1 (ou posterior) é um processo manual:
+**R.** Atualizar sua solução do Visual Studio do Diagnóstico 1.0 para o Diagnóstico 1.1 (ou posterior) é um processo manual:
 - Desabilite o Diagnóstico na sua solução do Visual Studio para evitar que o Diagnóstico 1.0 seja implantado com sua função
 - Se o seu código usar o Ouvinte de Rastreamento, você precisará modificar seu código para usar o .NET EventSource. O Diagnóstico 1.1 e posterior não dá suporte ao Ouvinte de Rastreamento.
 - Modifique seu processo de implantação para instalar a extensão do Diagnóstico 1.1
 
-**P.** Se eu já tiver instalado a extensão do Diagnóstico 1.1 em minha função ou VM, como eu atualizo para o Diagnóstico 1.2?
+**P.** Se eu já tiver instalado a extensão do Diagnóstico 1.1 em minha função ou VM, como eu atualizo para o Diagnóstico 1.2 ou 1.3?
 
-**R.** Se você tiver especificado a "-Versão "1.*"" quando instalou o Diagnóstico 1.1, na próxima vez em que sua função for reiniciada ou que a VM for reiniciada, ela será atualizada automaticamente para a versão mais recente que corresponder à expressão regular "1.*"Se tiver especificado a "-Versão "1.1"" quando instalou o Diagnóstico 1.1, você pode atualizar para uma versão mais recente executando novamente o cmdlet Set- e especificando a versão que deseja instalar.
+**R.** Se você tiver especificado a "-Versão "1.*"" quando instalou o Diagnóstico 1.1, na próxima vez em que sua função for reiniciada ou que a VM for reiniciada, ela será atualizada automaticamente para a versão mais recente que corresponder à expressão regular "1.*" Se tiver especificado a "-Versão "1.1"" quando instalou o Diagnóstico 1.1, você pode atualizar para uma versão mais recente executando novamente o cmdlet Set- e especificando a versão que deseja instalar.
 
 **P.** Como as tabelas são nomeadas?
 
@@ -572,19 +588,19 @@ Isso gerará 4 tabelas:
 			<td><strong>Nome da tabela</strong></td>			
 	</tr>
 	<tr>
-			<td>provider="prov1" <Event id="1" /></td>
+			<td>provider="prov1" &lt;Event id="1" /&gt;</td>
 			<td>WADEvent+MD5("prov1")+"1"</td>			
 	</tr>
 	<tr>
-			<td>provider="prov1" <Event id="2" eventDestination="dest1" /></td>
+			<td>provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt;</td>
 			<td>WADdest1</td>			
 	</tr>
 	<tr>
-			<td>provider="prov1" <DefaultEvents /></td>
+			<td>provider="prov1" &lt;DefaultEvents /&gt;</td>
 			<td>WADDefault+MD5("prov1")</td>			
 	</tr>
 	<tr>
-			<td>provider="prov2" <DefaultEvents eventDestination="dest2" /></td>
+			<td>provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt;</td>
 			<td>WADdest2</td>			
 	</tr>
 	
@@ -592,16 +608,16 @@ Isso gerará 4 tabelas:
 </table>
 </tbody>
 
-<h2><a name="comparing"></a>Comparando o Diagnóstico do Azure 1.0 e 1.2</h2>
+<h2><a name="comparing"></a>Comparando as versões de diagnóstico do Azure</h2>
 
-A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure versões 1.0 e 1.1/1.2:
+A tabela a seguir compara os recursos com suporte pelas versões de Diagnóstico do Azure 1.0 e 1.1/1.2/1.3:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 	<tr>
-			<td style="width: 100px;"><strong>Tipos de função com suporte</strong></td>
+			<td style="width: 100px;"><strong>Tipos de função suportados</strong></td>
 			<td><strong>Diagnóstico 1.0</strong></td>
-			<td><strong>Diagnóstico 1.1/1.2</strong></td>
+			<td><strong>Diagnóstico 1.1/1.2/1.3</strong></td>
 	</tr>
 
 	<tr>
@@ -627,7 +643,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 	<tr>
 			<td style="width: 100px;"><strong>Configuração e implantação</strong></td>
 			<td><strong>Diagnóstico 1.0</strong></td>
-			<td><strong>Diagnóstico 1.1/1.2</strong></td>
+			<td><strong>Diagnóstico 1.1/1.2/1.3</strong></td>
 	</tr>
 
 	<tr>
@@ -653,6 +669,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td><strong>Descrição</strong></td>
 			<td><strong>Diagnóstico 1.0</strong></td>
 			<td><strong>Diagnóstico 1.1/1.2</strong></td>
+			<td><strong>Diagnóstico 1.3</strong></td>
 	</tr>
 	<tr>
 			<td>Logs System.Diagnostics.Trace</td>
@@ -661,12 +678,14 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>As mensagens de rastreamento de logs enviadas por meio de seu código ao ouvinte de rastreamento (um ouvinte de rastreamento deve ser adicionado ao arquivo web.config ou app.config). Os dados de logs serão transferidos no intervalo de transferência scheduledTransferPeriod para a tabela de armazenamento WADLogsTable.</td>
 			<td>Sim</td>
 			<td>Não (Use EventSource)</td>
+			<td>Sim</td>
 	</tr>
 	<tr>
 			<td>Logs IIS</td>
 			<td>Sim</td>
 			<td>Blob</td>
 			<td>Informações de logs sobre sites IIS. Os dados de log serão transferidos no intervalo de transferência scheduledTransferPeriod ao contêiner que você especificar.</td>
+			<td>Sim</td>
 			<td>Sim</td>
 			<td>Sim</td>
 	</tr>
@@ -677,6 +696,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>As informações de logs sobre a infraestrutura de diagnóstico, o módulo RemoteAccess e o módulo RemoteForwarder. Os dados de log serão transferidos no intervalo de scheduledTransferPeriodtransfer para a tabela de armazenamento WADDiagnosticInfrastructureLogsTable.</td>
 			<td>Sim</td>
 			<td>Sim</td>
+			<td>Sim</td>
 	</tr>
 	<tr>
 			<td>Logs de solicitação com falha IIS</td>
@@ -684,13 +704,15 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>Blob</td>
 			<td>Informações de logs sobre solicitações falhas para um site IIS ou aplicativo. Você deve também habilitar definindo opções de rastreamento em system.WebServer, em Web.config. Os dados de log serão transferidos no intervalo de transferência scheduledTransferPeriod ao contêiner que você especificar.</td>
 			<td>Sim</td>
-			<td>Yes</td>
+			<td>Sim</td>
+			<td>Sim</td>
 	</tr>
 	<tr>
 			<td>Log de eventos do Windows</td>
 			<td>Não</td>
 			<td>Tabela</td>
 			<td>Informações de logs sobre quão bem o sistema operacional, o aplicativo ou o driver está sendo executado. Os contadores de desempenho devem ser especificados explicitamente. Quando estes são adicionados, os dados do contador de desempenho serão transferidos no intervalo de transferência scheduledTransferPeriod para a tabela de armazenamento WADPerformanceCountersTable.</td>
+			<td>Sim</td>
 			<td>Sim</td>
 			<td>Sim</td>
 	</tr>
@@ -701,12 +723,14 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>Informações de logs sobre quão bem o sistema operacional, o aplicativo ou o driver está sendo executado. Os contadores de desempenho devem ser especificados explicitamente. Quando estes são adicionados, os dados do contador de desempenho serão transferidos no intervalo de transferência scheduledTransferPeriod para a tabela de armazenamento WADPerformanceCountersTable.</td>
 			<td>Sim</td>
 			<td>Sim</td>
+			<td>Sim</td>
 	</tr>
 	<tr>
 			<td>Despejos de memória</td>
 			<td>Não</td>
 			<td>Blob</td>
 			<td>Informações de logs sobre o estado do sistema operacional em caso de uma falha do sistema. Mini despejos de memória são coletados localmente. Despejos completos podem ser habilitados. Os dados de log serão transferidos no intervalo de transferência scheduledTransferPeriod ao contêiner que você especificar. Pelo fato do ASP.NET lidar com mais exceções, isso geralmente é útil somente para uma função de trabalho ou uma VM.</td>
+			<td>Sim</td>
 			<td>Sim</td>
 			<td>Sim</td>
 	</tr>
@@ -717,6 +741,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>Ao usar os recursos de armazenamento local, os dados personalizados podem ser registrados e transferidos imediatamente para o contêiner que você especificar.</td>
 			<td>Sim</td>
 			<td>Sim</td>
+			<td>Sim</td>
 	</tr>
 	<tr>
 			<td>EventSource</td>
@@ -725,6 +750,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>Os eventos de log gerados pelo seu código usando a classe .NET EventSource.</td>
 			<td>Não</td>
 			<td>Sim</td>
+			<td>Sim</td>
 	</tr>
 	<tr>
 			<td>ETW baseado em manifesto</td>
@@ -732,6 +758,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 			<td>Tabela</td>
 			<td>Eventos ETW gerados por qualquer processo.</td>
 			<td>Não</td>
+			<td>Sim</td>
 			<td>Sim</td>
 	</tr>
 </tbody>
@@ -742,7 +769,7 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 - [Práticas recomendadas para solução de problemas no desenvolvimento de aplicativos do Azure][]
 - [Coletar dados do log usando o Diagnóstico do Azure][]
 - [Depurando um aplicativo do Azure][]
-- [Configurando o Diagnóstico do Azure][]
+- [Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais][]
 
   
 
@@ -752,19 +779,21 @@ A tabela a seguir compara os recursos com suporte pelo Diagnóstico do Azure ver
 [Arquivo de configuração de amostra e esquema]: #configuration-file-schema
 [Solução de problemas]: #troubleshooting
 [Perguntas frequentes]: #faq
-[Comparando o Diagnóstico do Azure 1.0 e 1.2]: #comparing
+[Comparando versões de diagnóstico do Azure]: #comparing
+[Comparando as versões de diagnóstico do Azure]: #comparing
 [Recursos adicionais]: #additional
-[Classe EventSource]: http://msdn.microsoft.com/pt-br/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[Classe EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   
-[Configurando o Diagnóstico do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn186185.aspx
-[Depurando um aplicativo do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee405479.aspx   
-[Coletar dados do log usando o Diagnóstico do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433048.aspx
-[Práticas recomendadas para solução de problemas no desenvolvimento de aplicativos do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh771389.aspx
-[Avaliação gratuita]: http://azure.microsoft.com/pt-br/pricing/free-trial/
-[Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/
-[Esquema de configuração do Diagnóstico do Azure 1.2]: http://msdn.microsoft.com/pt-br/library/azure/dn782207.aspx
-[Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/pt-br/library/dn495270.aspx
-[Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/pt-br/library/dn495145.aspx
-[Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/pt-br/library/dn495168.aspx
+[Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
+[Depurando um aplicativo do Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Coletar dados do log usando o Diagnóstico do Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Práticas recomendadas para solução de problemas no desenvolvimento de aplicativos do Azure]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
+[Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure]:http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
+[Avaliação gratuita]: http://azure.microsoft.com/ pricing/free-trial/
+[Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
+[Esquema de configuração do Diagnóstico do Azure 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
+[Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
+[Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
+[Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

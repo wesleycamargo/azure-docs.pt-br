@@ -19,9 +19,9 @@
 # Tratando conflitos de gravação do banco de dados
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#" class="current">C# da Windows Store</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">JavaScript da Windows Store</a>
-<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
+<a href="/pt-br/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#" class="current">C# da Windows Store</a>
+<a href="/pt-br/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">JavaScript da Windows Store</a>
+<a href="/pt-br/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
 
 Este tutorial tem o objetivo de ajudá-lo a compreender melhor como tratar conflitos que ocorrem quando dois ou mais clientes gravam no mesmo registro do banco de dados em um aplicativo da Windows Store. Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. Os Serviços Moveis do Azure oferecem suporte para detectar e resolver esses conflitos. Este tópico descreve as etapas que permitem tratar com conflitos de gravação do banco de dados no servidor e em seu aplicativo.
@@ -392,14 +392,14 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 
 <!-- URLs. -->
 [Controle de simultaneidade otimista]: http://go.microsoft.com/fwlink/?LinkId=330935
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Conta do Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
+[Conta do Azure]: http://azure.microsoft.com/pricing/free-trial/
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
@@ -407,4 +407,5 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriedades do Sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

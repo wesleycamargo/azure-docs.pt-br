@@ -1,7 +1,20 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Compilar um aplicativo Web com Python e Flask usando o Banco de Dados de Documentos | Azure" description="Saiba como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python and Flask (MVC) hospedado no Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+    pageTitle="Compilar um aplicativo Web com Python e Flask usando o Banco de Dados de Documentos | Azure" 
+    description="Saiba como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python e Flask (MVC) hospedado no Azure." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="crwilcox" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
-
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+    ms.service="documentdb" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="02/12/2015" 
+    ms.author="crwilcox"/>
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">Criar um aplicativo Web com Python e Flask (MVC) usando o Banco de Dados de Documentos</a>
 ===========================================================================================================================================
@@ -473,7 +486,9 @@ conforme mencionado acima)
   [clique aqui]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
   [Clique aqui para acessar os tutoriais do Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx
   [aqui]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+
+<!--HONumber=46--> 

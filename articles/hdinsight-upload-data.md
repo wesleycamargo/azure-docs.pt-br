@@ -280,7 +280,7 @@ Agora que você compreende como obter dados no HDInsight, use os seguintes artig
 
 
 [azure-management-portal]: https://manage.windowsazure.com
-[azure-powershell]: http://msdn.microsoft.com/pt-br/library/windowsazure/jj152841.aspx
+[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /pt-br/develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage-create-storage-account/
@@ -307,6 +307,5 @@ Agora que você compreende como obter dados no HDInsight, use os seguintes artig
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-
 
 <!--HONumber=42-->

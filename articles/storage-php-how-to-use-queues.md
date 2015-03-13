@@ -126,7 +126,7 @@ O objeto **QueueRestProxy** permite que você crie uma fila com o método **crea
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -157,7 +157,7 @@ Para adicionar uma mensagem para uma fila, use **QueueRestProxy->createMessage**
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -186,7 +186,7 @@ Você pode exibir uma mensagem (ou mensagens) na frente de uma fila sem removê-
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -240,7 +240,7 @@ Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você cham
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -282,7 +282,7 @@ Você pode alterar o conteúdo de uma mensagem no local na fila chamando **Queue
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -329,7 +329,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -355,7 +355,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -382,7 +382,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **Queu
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/pt-br/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -399,6 +399,5 @@ Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga e
 [baixar]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
-[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
-
+[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
 <!--HONumber=42-->

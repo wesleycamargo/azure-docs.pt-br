@@ -1,6 +1,20 @@
-<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Usando a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" title="Usando a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" metaKeywords="interface de linha de comando entre plataformas microsoft azure com Gerenciador de Recursos, gerenciador de recursos de linha de comando do microsoft azure, gerenciador de recursos de linha de comando do azure, gerenciador de recursos de cli do azure" description="Use a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" metaCanonical="http://www.windowsazure.com/pt-br/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+﻿<properties 
+	pageTitle="Usando a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" 
+	description="Use a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 #Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos
 
@@ -162,8 +176,10 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 * Para obter mais informações sobre como usar a interface de linha de comando da entre plataformas do Azure, consulte [Instalar e configurar a interface de linha de comando dentre plataformas do Microsoft Azure][xplatsetup].
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos usando o Microsoft Azure PowerShell, consulte [Guia de introdução usando o Windows PowerShell com o Gerenciador de Recursos][psrm]
 
-[signuporg]: http://www.windowsazure.com/pt-br/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/pt-br/library/jj573650#createAzureTenant
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /pt-br/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
+<!--HONumber=46--> 

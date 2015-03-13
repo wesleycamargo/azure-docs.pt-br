@@ -33,8 +33,9 @@ Depois de registrar seu pacote de aplicativos, lembre-se de fornecer um valor de
 
 
 <!-- URLs. -->
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autenticar seu aplicativo da Windows Store com o logon único do Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introdução aos usuários de C#]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Introdução aos usuários de JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
-\n<!--HONumber=42-->
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autenticar seu aplicativo da Windows Store com o logon único do Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Introdução aos usuários de C#]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Introdução aos usuários de JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
+
+<!--HONumber=42-->

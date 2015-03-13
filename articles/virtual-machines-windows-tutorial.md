@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Criar uma máquina virtual que executa o Windows no Azure" 
 	description="Aprenda a criar a máquina virtual do Windows (VM) no Azure, em seguida, faça logon e anexe um disco de dados" 
 	services="virtual-machines" 
@@ -39,7 +39,7 @@ Para saber mais, consulte [Máquinas Virtuais](http://go.microsoft.com/fwlink/p/
 
 Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciamento para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar ingressar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE] Você também pode experimentar o [Portal de Visualização do Azure](https://portal.azure.com), mais avançado e personalizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e muito mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.  
+> [AZURE.NOTE] Você também pode experimentar o [Portal de visualização do Azure](https://portal.azure.com) mais avançado e customizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.  
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -51,7 +51,7 @@ Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciament
 
 ## <a id="attachdisk"> </a>Como anexar um disco de dados à nova máquina virtual ##
 
-Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [tutorial Anexar um disco de dados](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/) para obter mais informações, inclusive como anexar discos existentes.
+Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [Anexe um tutorial de disco de dados](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/) para obter mais informações, incluindo como anexar os discos existentes.
 
 1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
@@ -82,7 +82,7 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 	Quando você anexa um disco de dados, ele está offline e não inicializado. Antes de você poder usar os dados armazenados, você precisa fazer logon na máquina virtual e inicializar o disco.
 
-7. Conecte-se e faça logon na máquina virtual usando as etapas listadas na seção anterior, [Como fazer logon na máquina virtual depois de criá-la]. (#logon).
+7. Conecte-se e faça logon na máquina virtual usando as etapas listadas na seção anterior, [Como fazer logon na máquina virtual depois de criá-la](#logon).
 
 8. Depois de fazer logon na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -140,4 +140,5 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
 [Como configurar a comunicação com a máquina virtual]: #endpoints
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

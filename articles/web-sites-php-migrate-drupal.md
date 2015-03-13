@@ -102,7 +102,7 @@ Para obter mais informações, consulte as postagens e os tópicos a seguir:
   [Modificar Settings.php]: #modify-settingsphp
   [Implantar o código Drupal]: #deploy-drupalcode
   [Informações relacionadas]: #related-information
-  [Criar um Site em PHP-MySQL no Azure e implantar usando o Git]: http://www.windowsazure.com/pt-br/develop/php/tutorials/website-w-mysql-and-git/
+  [Criar um Site em PHP-MySQL no Azure e implantar usando o Git]: http://azure.microsoft.com/develop/php/tutorials/website-w-mysql-and-git/
   
   [Sites do Azure, um ponto de vista do PHP]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Sites do Azure, serviços de nuvem e máquinas virtuais: Quando usar qual opção?]: http://go.microsoft.com/fwlink/?LinkId=310123

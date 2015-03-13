@@ -41,7 +41,7 @@ Este tutorial exige o seguinte:
 
 + [SDK do iOS para Serviços Móveis] e [XCode 4.5][Instalar Xcode] e iOS 5.0 ou versões posteriores.
 + Visual Studio 2013 (você pode obter o [Visual Studio Express para Web](http://go.microsoft.com/p/?linkid=9832232) gratuitamente).
-+ Uma conta do Microsoft Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Avaliação Gratuita do Azure</a>.
++ Uma conta do Microsoft Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
 ##<a name="download-app"></a>Baixar o projeto GetStartedWithData
 
@@ -148,13 +148,13 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-ios
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
-[Versão de back-end do JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-ios
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios
+[Versão de back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
@@ -162,4 +162,5 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [Repositório GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

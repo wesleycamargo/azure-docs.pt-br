@@ -1,7 +1,20 @@
-﻿<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Introdução à Recuperação de Site do Azure: Local para proteção do Azure com replicação Hyper-V" metaKeywords ="Recuperação de Site do Azure, o VMM, nuvens, recuperação de desastres" description="A Recuperação de Site do Azure coordena a replicação, o failover e a recuperação de máquinas virtuais Hyper-V localizadas em nuvens VMM locais para o Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises VMM Site to Azure protection with Hyper-V Replication
-" editor="jimbe" manager="johndaw" authors="raynew" />
+﻿<properties 
+	pageTitle="Tutorial: Configurar a proteção entre um site VMM local e o Azure" 
+	description="A Recuperação de Site do Azure coordena a replicação, o failover e a recuperação de máquinas virtuais Hyper-V localizadas em nuvens VMM locais para o Azure." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 
 # Introdução à Recuperação de Site do Azure: Site do VMM no local para proteção do Azure com replicação do Hyper-V
@@ -251,3 +264,5 @@ Para testar sua implantação, você pode executar um failover de teste para uma
 </UL>
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -89,7 +89,7 @@ Consulte também as seguintes seções em [Implantação de WebJobs](#deploy) e 
 * [Política de retenção de backup de site simples com WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Sites do Microsoft Azure e serviços de nuvem lentos na primeira solicitação](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Mostra como usar WebJobs para simular o recurso AlwaysOn que só está disponível para a camada de sites padrão.
 * [Desligamento normal dos WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Desligamento normal para o SDK de WebJobs, consulte [Desligamento normal](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).)
-* [Dimensionamento de seu aplicativo Web com sites do Azure](http://msdn.microsoft.com/pt-br/magazine/dn786914.aspx)
+* [Dimensionamento de seu aplicativo Web com sites do Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * Vídeos
 	* [Expansão de WebJobs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 	* [Vídeos de WebJobs do Azure, de Magnus Mårtensson](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)

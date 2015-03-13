@@ -137,7 +137,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Como: Opções adicionais para remover mensagens da fila]: #advanced-get
   [Como: Obter o tamanho da fila]: #get-queue-length
   [Como: Excluir uma fila]: #delete-queue
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

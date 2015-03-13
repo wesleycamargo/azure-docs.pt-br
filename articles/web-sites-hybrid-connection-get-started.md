@@ -23,7 +23,7 @@ Você pode conectar um site no Microsoft Azure a qualquer recurso local que util
 > [AZURE.NOTE] A porção Sites do recurso Conexões Híbridas está disponível somente no [portal Visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Pré-requisitos
-- Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/). 
+- Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/). 
 
 - Para usar um banco de dados local SQL Server ou SQL Server Express com uma conexão híbrida, o TCP/IP precisa ser habilitado em uma porta estática. É recomendado usar uma instância padrão no SQL Server porque ele usa a porta estática 1433. Para informações sobre a instalação e a configuração do SQL Server Express para uso com conexões híbridas, consulte [Conectar-se a um SQL Server local por meio de um Site do Azure usando Conexões Híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -165,7 +165,7 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 
 - Para obter informações sobre como criar um aplicativo Web ASP.NET que utiliza uma conexão híbrida, consulte [Conectar-se a um SQL Server local por meio de um Site do Azure usando Conexões Híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- Para obter informações sobre como usar uma conexão híbrida com um serviço móvel, consulte [Conectar-se a um SQL Server local por meio de um serviço móvel do Azure utilizando Conexões Híbridas](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- Para obter informações sobre como usar uma conexão híbrida com um serviço móvel, consulte [Conectar-se a um SQL Server local por meio de um serviço móvel do Azure utilizando Conexões Híbridas](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 ###Recursos adicionais
 
@@ -173,9 +173,9 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 
 [Josh Twist apresenta conexões híbridas (vídeo no canal 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Site de Conexões Híbridas](http://azure.microsoft.com/pt-br/services/biztalk-services/)
+[Site de Conexões Híbridas](http://azure.microsoft.com/services/biztalk-services/)
 
-[Serviços BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](http://azure.microsoft.com/pt-br/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[Serviços BizTalk: Guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [Criando uma nuvem híbrida no mundo real com portabilidade perfeita com aplicativo (vídeo no canal 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

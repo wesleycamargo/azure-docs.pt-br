@@ -44,12 +44,12 @@ Para uma explicação completa da criação de uma conta de armazenamento e real
 ## Componentes do serviço de armazenamento de blobs do Azure 
 
 * Conta de Armazenamento: A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para acessar um serviço de armazenamento de BLOBs do Azure, primeiro crie uma conta de armazenamento do Azure. SQL Server usa o nome da conta de armazenamento do Azure e seus valores de chave de acesso para autenticar e gravar e ler blobs para o serviço de armazenamento. 
-Para obter mais informações sobre os serviços de armazenamento de blobs do Azure, consulte [Como usar serviços de armazenamento de blobs do Azure](http://www.windowsazure.com/pt-br/develop/net/how-to-guides/blob-storage/).
+Para obter mais informações sobre os serviços de armazenamento de blobs do Azure, consulte [Como usar serviços de armazenamento de blobs do Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
 
 * Contêiner: Um contêiner fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de blobs. Para escrever um SQL Server backup para um serviço Blob do Azure, você deve ter pelo menos o contêiner raiz criado. 
 
 * Blob: Um arquivo de qualquer tipo e tamanho. Há dois tipos de blobs que podem ser armazenados no Serviço de Armazenamento de blob do Azure: blobs de página e de bloco.  O backup do SQL Server usa Blobs de página como o tipo do Blob. Os blobs são endereçáveis usando o seguinte formato de URL: `https://<storage account>.blob.core.windows.net/<container>/<blob>`
-Para obter mais informações sobre blobs, consulte [Noções básicas sobre blobs de bloco e de página](http://msdn.microsoft.com/pt-br/library/windowsazure/ee691964.aspx)
+Para obter mais informações sobre blobs, consulte [Noções básicas sobre blobs de bloco e de página](http://msdn.microsoft.com/library/windowsazure/ee691964.aspx)
 
 ## Componentes do SQL Server
 
@@ -61,7 +61,7 @@ A seguir está um exemplo do URL desejar especificar o comando de BACKUP:
 <b>Importante</b>
 Se você optar por copiar e carregar um arquivo de backup para o serviço de armazenamento de Blob do Azure, você deve usar um tipo de blob de páginas como sua opção de armazenamento se você planeja usar este arquivo para operações de restauração. RESTAURAÇÃO por meio de um tipo de blob de blocos falhará com um erro. 
 
-* Credencial: As informações necessárias para se conectar e autenticar ao serviço de armazenamento de blobs do Azure são armazenadas como uma credencial.  Para o SQL Server gravar backups para uma restauração ou BLOBs do Azure dela, uma credencial do SQL Server deve ser criada. A credencial armazena o nome da conta de armazenamento e a chave de acesso da conta de armazenamento.  Depois que a credencial é criada, ele deve ser especificado na opção com CREDENCIAIS ao emitir as instruções de BACKUP/restauração. Para obter mais informações sobre como visualizar, copiar ou gerar novamente chaves de acesso da conta de armazenamento, consulte [Chaves de acesso da conta de armazenamento](http://msdn.microsoft.com/pt-br/library/windowsazure/hh531566.aspx).
+* Credencial: As informações necessárias para se conectar e autenticar ao serviço de armazenamento de blobs do Azure são armazenadas como uma credencial.  Para o SQL Server gravar backups para uma restauração ou BLOBs do Azure dela, uma credencial do SQL Server deve ser criada. A credencial armazena o nome da conta de armazenamento e a chave de acesso da conta de armazenamento.  Depois que a credencial é criada, ele deve ser especificado na opção com CREDENCIAIS ao emitir as instruções de BACKUP/restauração. Para obter mais informações sobre como visualizar, copiar ou gerar novamente chaves de acesso da conta de armazenamento, consulte [Chaves de acesso da conta de armazenamento](http://msdn.microsoft.com/library/windowsazure/hh531566.aspx).
 Para obter instruções passo a passo sobre como criar uma credencial do SQL Server, consulte [Introdução ao serviço de armazenamento do Azure para SQL Server Backup e restauração](http://go.microsoft.com/fwlink/?LinkId=271615).
 
 ## Backups e restauração do banco de dados SQL Server com blobs do Azure - Conceitos e tarefas:
@@ -82,7 +82,6 @@ Para obter instruções passo a passo sobre como criar uma credencial do SQL Ser
 
 
 	
-
 
 
 

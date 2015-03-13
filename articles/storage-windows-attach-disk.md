@@ -67,5 +67,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 > [AZURE.NOTE] A quantidade máxima de discos que podem ser anexados a uma máquina virtual é variável com base no tamanho da máquina virtual. Por exemplo, você pode anexar somente 4 discos para o padrão A2, mas você pode anexar 32 discos o padrão D14 e 64 discos para o padrão G5. Os detalhes sobre quantos discos podem ser anexados ao tamanho da máquina virtual podem ser encontrados [aqui](https://msdn.microsoft.com/pt-br/library/azure/dn197896.aspx).
 
 
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Como usar o serviço de email SendGrid (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Saiba como enviar email com o serviço de email SendGrid no Azure. Os exemplos de código são escritos em C# e usam o API .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="erikre" />
+﻿<properties 
+	pageTitle="Como usar o serviço de email SendGrid (.NET) - Azure" 
+	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em c# e usam a API .NET." 
+	services="" 
+	documentationCenter=".net" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="erikre"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/29/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/29/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 
@@ -243,3 +257,5 @@ Agora que você já conhece os princípios do serviço de email do SendGrid, ace
   [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

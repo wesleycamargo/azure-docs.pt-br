@@ -1,6 +1,18 @@
-﻿<properties title="Diagnose performance issues on a running website" pageTitle="Diagnosticar problemas de desempenho em um site em execução" description="Monitore o desempenho do site sem implantá-lo novamente." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Diagnosticar problemas de desempenho em um site em execução" 
+	description="Monitore o desempenho do site sem implantá-lo novamente. Use de forma independente ou com o Application Insights SDK" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
  
 
 # Monitorar o desempenho de um site on-line agora
@@ -98,3 +110,5 @@ Você verá dados em Integridade do aplicativo.
 
 
 
+
+<!--HONumber=46--> 

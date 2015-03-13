@@ -15,4 +15,4 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
-<!--HONumber=42-->
+\<!--HONumber=42-->

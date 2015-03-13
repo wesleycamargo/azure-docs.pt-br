@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Bottle e Armazenamento de Tabela do Azure com Python Tools 2.1 para Visual Studio" 
 	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bulbo que armazena dados no armazenamento de tabelas do Azure e pode ser implantado em um site. 
 	services="web-sites" 
@@ -15,6 +15,8 @@
 	ms.topic="article" 
 	ms.date="10/10/2014" 
 	ms.author="huvalo"/>
+
+
 
 
 # Bottle e Armazenamento de Tabela do Azure com Python Tools 2.1 para Visual Studio 
@@ -206,7 +208,7 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 
 <!--External Link references-->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-[SDK do Azure para .NET]: http://azure.microsoft.com/pt-br/downloads/
+[SDK do Azure para .NET]: http://azure.microsoft.com/downloads/
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -218,6 +220,8 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Projetos de serviços de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Armazenamento do Azure]: http://azure.microsoft.com/pt-br/documentation/services/storage/
+[Armazenamento do Azure]: http://azure.microsoft.com/documentation/services/storage/
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
+
+
 <!--HONumber=42-->

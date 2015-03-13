@@ -96,7 +96,7 @@ Os "[Apêndices]" incluem informações sobre o uso de ferramentas como o Wiresh
 
 ## <a name="monitoring-your-storage-service"></a>Monitoramento do seu serviço de armazenamento
 
-Se você está acostumado com o monitoramento de desempenho do Windows, é possível entender as Métricas de Armazenamento como equivalentes aos contadores do Monitor de Desempenho do Windows. Nas Métricas de Armazenamento você encontrará um grupo detalhado de métricas (contadores com terminologia de Monitor de Desempenho do Windows) como disponibilidade de serviço, número total de solicitações de serviço ou porcentagem de êxito solicitações de serviço (para uma lista completa de métricas disponíveis, consulte <a href="http://msdn.microsoft.com/pt-br/library/azure/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas de Armazenamento Analítico</a> no MSDN). Você pode especificar se deseja que o serviço de armazenamento colete e agregue as métricas a cada hora e ou cada minuto. Para mais informações sobre como habilitar as métricas e monitorar suas contas de armazenamento, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Habilitação das métricas de armazenamento</a> no MSDN.
+Se você está acostumado com o monitoramento de desempenho do Windows, é possível entender as Métricas de Armazenamento como equivalentes aos contadores do Monitor de Desempenho do Windows. Nas Métricas de Armazenamento você encontrará um grupo detalhado de métricas (contadores com terminologia de Monitor de Desempenho do Windows) como disponibilidade de serviço, número total de solicitações de serviço ou porcentagem de êxito solicitações de serviço (para uma lista completa de métricas disponíveis, consulte <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas de Armazenamento Analítico</a> no MSDN). Você pode especificar se deseja que o serviço de armazenamento colete e agregue as métricas a cada hora e ou cada minuto. Para mais informações sobre como habilitar as métricas e monitorar suas contas de armazenamento, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Habilitação das métricas de armazenamento</a> no MSDN.
 
 Você pode escolher quais intervalos de hora das métricas que você quer exibir no portal do Azure e configurar as regras de notificação dos administradores por email caso a métrica a cada hora ultrapasse um valor particular (para obter mais informações, consulte a página <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Como fazer para: Receber notificações de alerta e gerenciar regras de alerta no Azure</a>). O serviço de armazenamento coleta as métricas usando o melhor esforço, porém pode não registrar todas as operações de armazenamento.
 
@@ -130,7 +130,7 @@ Enquanto o portal coleta informações sobre integridade de dentro dos centros d
 
 ### <a name="monitoring-capacity"></a>Monitoramento de capacidade
 
-As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos dados do usuário (**dados** do valor) ou dados analíticos (valor **analítico**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**Capacidade** medida em bytes) e o número atual de contêiners (**ContainerCount**) e blobs (**ObjectCount**) em uso em cada conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob**, consulte <a href="http://msdn.microsoft.com/pt-br/library/azure/hh343264.aspx" target="_blank"> Esquema de Tabela de Métricas Analíticas de Armazenamento</a> no MSDN.
+As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos dados do usuário (**dados** do valor) ou dados analíticos (valor **analítico**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**Capacidade** medida em bytes) e o número atual de contêiners (**ContainerCount**) e blobs (**ObjectCount**) em uso em cada conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob**, consulte <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank"> Esquema de Tabela de Métricas Analíticas de Armazenamento</a> no MSDN.
 
 > [AZURE.NOTE] Monitore esses valores por meio de um aviso antecipado de que você está se aproximando dos limites de capacidade de sua conta de armazenamento. No portal do Azure, na página do **Monitor** da sua conta de armazenamento, você pode adicionar as regras de alertas para notificá-lo se o uso de armazenamento agregado excede ou está abaixo dos limites que você especificou.
 
@@ -140,7 +140,7 @@ Para ajudar na estimativa do tamanho dos diversos objetos de armazenamento, tais
 
 Monitore a disponibilidade dos serviços de monitoramento em sua conta de armazenamento monitorando os valores na coluna de **Disponibilidade** nas tabelas métricas de hora em hora ou de minuto em minuto - **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linda (a **RowKey** mostra se uma linha contém as métricas para o serviço como um todo ou para uma operação API específica. 
 
-Qualquer valor inferior a 100% indica que houve falha em algumas solicitações de armazenamento. Você pode ver porque estão falhando ao examinar as outras colunas nos dados de métricas que mostras os números de solicitações com diferentes tipos de erros, tais como **ServerTimeoutError**. Espere para ver a **Disponibilidade** cair temporariamente abaixo de 100% devido a razões como tempo limite do servidor transitório enquanto o serviço muda as partições para melhor balancear a carga da solicitação; a lógica de nova tentativa no aplicativo do seu cliente deve lidar com tais condições intermitentes. A página <a href="http://msdn.microsoft.com/pt-br/library/azure/hh343260.aspx" target="_blank"></a> lista os tipos de transações que as métricas de armazenamento incluem em seu cálculo de **Disponibilidade**.
+Qualquer valor inferior a 100% indica que houve falha em algumas solicitações de armazenamento. Você pode ver porque estão falhando ao examinar as outras colunas nos dados de métricas que mostras os números de solicitações com diferentes tipos de erros, tais como **ServerTimeoutError**. Espere para ver a **Disponibilidade** cair temporariamente abaixo de 100% devido a razões como tempo limite do servidor transitório enquanto o serviço muda as partições para melhor balancear a carga da solicitação; a lógica de nova tentativa no aplicativo do seu cliente deve lidar com tais condições intermitentes. A página <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> lista os tipos de transações que as métricas de armazenamento incluem em seu cálculo de **Disponibilidade**.
 
 No portal do Azure, na página do **Monitor** da sua conta de armazenamento, você pode adicionar as regras de alertas para notificá-lo se a **Disponibilidade** de um serviço está abaixo dos limites que você especificou.
 
@@ -199,10 +199,10 @@ Usuários do seu aplicativo podem notificá-lo de erros registrados pelo aplicat
 
 Os seguintes recursos no MSDN são úteis para compreender os status relacionados a armazenamento e os códigos de erro:
 
-- <a href="http://msdn.microsoft.com/pt-br/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>
-- <a href="http://msdn.microsoft.com/pt-br/library/azure/dd179439.aspx" target="_blank">Códigos de erro do serviço blob</a>
-- <a href="http://msdn.microsoft.com/pt-br/library/azure/dd179446.aspx" target="_blank">Códigos de erro do serviço de fila</a>
-- <a href="http://msdn.microsoft.com/pt-br/library/azure/dd179438.aspx" target="_blank">Códigos de erro do serviço de tabela</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Códigos de erro do serviço blob</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">Códigos de erro do serviço de fila</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Códigos de erro do serviço de tabela</a>
 
 ### <a name="storage-emulator-issues"></a>Problemas de emulador de armazenamento
 
@@ -375,7 +375,7 @@ Para os serviços tabela e fila, o algoritmo Nagle também pode causar alto **Av
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-Verifique os logs do lado do cliente para ver quantas solicitações seu aplicativo do cliente está enviando e verifique se há afunilamentos gerais de desempenho relacionados ao .NET no seu cliente, tais como CPU, coleta de lixo .NET, utilização da rede ou memória (como ponto inicial para solução de problemas dos aplicativos do cliente .NET, consulte <a href="http://msdn.microsoft.com/pt-br/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Depuração, rastreamento e criação de perfil</a> no MSDN).
+Verifique os logs do lado do cliente para ver quantas solicitações seu aplicativo do cliente está enviando e verifique se há afunilamentos gerais de desempenho relacionados ao .NET no seu cliente, tais como CPU, coleta de lixo .NET, utilização da rede ou memória (como ponto inicial para solução de problemas dos aplicativos do cliente .NET, consulte <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Depuração, rastreamento e criação de perfil</a> no MSDN).
 
 #### Investigando os problemas de latência de rede
 
@@ -431,7 +431,7 @@ Um aumento em **PercentThrottlingError** frequentemente acontece ao mesmo tempo 
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório em PercentThrottlingError
 
-Se você estiver vendo picos no valor do **PercentThrottlingError** que coincidam com períodos de alta atividade do aplicativo, você deve implementar uma exponencial (não linear) de retirada estratégia para novas tentativas em seu cliente: isso reduzirá a carga imediata na partição e ajudar seu aplicativo para suavizar picos no tráfego. Para obter mais informações sobre como implementar as políticas de tentativa usando a biblioteca do cliente de armazenamento, consulte <a href="http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Namespace Microsoft.WindowsAzure.Storage.RetryPolicies</a> no MSDN.
+Se você estiver vendo picos no valor do **PercentThrottlingError** que coincidam com períodos de alta atividade do aplicativo, você deve implementar uma exponencial (não linear) de retirada estratégia para novas tentativas em seu cliente: isso reduzirá a carga imediata na partição e ajudar seu aplicativo para suavizar picos no tráfego. Para obter mais informações sobre como implementar as políticas de tentativa usando a biblioteca do cliente de armazenamento, consulte <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Namespace Microsoft.WindowsAzure.Storage.RetryPolicies</a> no MSDN.
 
 > [AZURE.NOTE] Você também pode ver os picos no valor do **PercentThrottlingError** que não coincidem com períodos de alta atividade do aplicativo: a causa mais provável aqui é o serviço de armazenamento mover partições para melhorar o balanceamento de carga.
 
@@ -611,7 +611,7 @@ Nesse cenário, você deve investigar porque o token de SAS está expirando ante
 - Os parâmetros da versão na chave de SAS (por exemplo **sv=2012-02-12**) correspondem à versão da biblioteca do cliente de armazenamento que você está usando? Use sempre a versão mais recente da biblioteca do cliente de armazenamento. Para obter mais informações sobre o controle de versão do token de SAS e dependências na versão da biblioteca do cliente, consulte <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank"></a>. 
 - Se você gerar suas chaves de acesso de armazenamento (clique em **Gerencie as Chaves de Acesso** em qualquer página na sua conta de armazenamento no portal do Azure) isso pode invalidar quaisquer token de SAS existentes. Isso pode ser um problema se você token de SAS com um tempo de expiração longo para aplicativos de cliente para o cache.
 
-Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando o API REST de armazenamento e compilando tokens de SAS manualmente, leia cuidadosamente o tópico <a href="http://msdn.microsoft.com/pt-br/library/azure/ee395415.aspx" target="_blank">Delegando acesso com uma assinatura de acesso compartilhado</a> no MSDN.
+Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando o API REST de armazenamento e compilando tokens de SAS manualmente, leia cuidadosamente o tópico <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegando acesso com uma assinatura de acesso compartilhado</a> no MSDN.
 
 ### <a name="the-client-is-receiving-404-messages"></a>O cliente está recebendo mensagens HTTP 404 (Não encontrado)
 Se o aplicativo do cliente recebe uma mensagem HTTP 404 (Não encontrado) do ser, isso implica que o objeto do cliente estava tentando usar (tais como: uma entidade, tabela, blob, contêiner ou fila) não existe no serviço de armazenamento. Existem muitas razões para isso, tais como:
@@ -893,7 +893,7 @@ Se você estiver usando um cliente JavaScript e um serviço de armazenamento est
 
 Esses erros acontecem porque o navegador Web implementam a <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">política de mesma origem</a> de restrição de segurança que impede uma página da Web de chamar uma API em um domínio diferente do domínio de onde a página vem. 
 
-Para resolver o problema JavaScript, configure o compartilhamento de recursos entre origens (CORS) para o serviço de armazenamento que o cliente está acessando. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dn535601.aspx" target="_blank">Suporte do Compartilhamento de Recursos entre Origens (CORS) para os serviços de Armazenamento do Microsoft Azure</a> no MSDN.
+Para resolver o problema JavaScript, configure o compartilhamento de recursos entre origens (CORS) para o serviço de armazenamento que o cliente está acessando. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dn535601.aspx" target="_blank">Suporte do Compartilhamento de Recursos entre Origens (CORS) para os serviços de Armazenamento do Microsoft Azure</a> no MSDN.
 
 O código a seguir mostra como configurar seu serviço blob para permitir que o JavaScript execute o domínio Contoso para acessar um blob no seu serviço de armazenamento de blob:
 
@@ -988,7 +988,7 @@ As métricas de **PercentSuccess** capturam a porcentagem das operações que ti
 - **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
 - **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido carregada a partir da última operação.
 
-Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página <a href="http://msdn.microsoft.com/pt-br/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>. 
+Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>. 
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>As métricas de capacidade mostram um aumento inesperado em uso de capacidade de armazenamento
 
@@ -999,7 +999,7 @@ Se você ver mudanças repentinas, inesperadas na capacidade de uso na sua conta
 
 Se uma máquina virtual (VM) tem um grande número de VHDs anexados que estão na mesma conta de armazenamento, você pode exceder os alvos de escalabilidade de uma conta de armazenamento individual causando uma falha na VM. Verifique as métricas de minuto da conta de armazenamento (**TotalRequests**/**TotalIngress**/**TotalEgress**) para ver se há picos que excedem os alvos de escalabilidade da conta de armazenamento. Consulte a seção "[As métricas mostram um aumento em PercentThrottlingError]" para ajudar a determinar se a limitação ocorreu na sua conta de armazenamento. 
 
-Em geral, cada operação de entrada ou saída individual em um VHD a partir de uma máquina virtual traduz em operações **Get Page** ou **Put Page** nos blobs de páginas subjacentes. Portanto, você pode usar os IOPS estimados para o seu ambiente para ajustar quantos VHDs você pode ter em uma única conta de armazenamento com base no comportamento específico do seu aplicativo. Não recomendamos ter mais do que 40 discos em uma única conta de armazenamento. Consulte <a href="http://msdn.microsoft.com/pt-br/library/azure/dn249410.aspx" target="_blank">metas de desempenho e escalabilidade do armazenamento do Azure</a> para obter detalhes sobre as atual metas de escalabilidade para contas de armazenamento, em particular a largura de banda total de solicitação taxa e total para o tipo de conta de armazenamento você está usando. 
+Em geral, cada operação de entrada ou saída individual em um VHD a partir de uma máquina virtual traduz em operações **Get Page** ou **Put Page** nos blobs de páginas subjacentes. Portanto, você pode usar os IOPS estimados para o seu ambiente para ajustar quantos VHDs você pode ter em uma única conta de armazenamento com base no comportamento específico do seu aplicativo. Não recomendamos ter mais do que 40 discos em uma única conta de armazenamento. Consulte <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">metas de desempenho e escalabilidade do armazenamento do Azure</a> para obter detalhes sobre as atual metas de escalabilidade para contas de armazenamento, em particular a largura de banda total de solicitação taxa e total para o tipo de conta de armazenamento você está usando. 
 Se você está excedendo as metas de escalabilidade para sua conta de armazenamento, você deve colocar seus VHDs em várias contas de armazenamento diferentes para reduzir a atividade de cada conta individual.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste
@@ -1012,7 +1012,7 @@ Você normalmente usa o emulador de armazenamento durante o desenvolvimento e te
 
 #### <a name="feature-X-is-not-working"></a>O recurso "X" não está funcionando no emulador de armazenamento
 
-O emulador de armazenamento não é compatível com todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/gg433135.aspx" target="_blank">Diferenças entre o emulador armazenamento e os serviços de armazenamento do Azure</a> no MSDN.
+O emulador de armazenamento não é compatível com todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/gg433135.aspx" target="_blank">Diferenças entre o emulador armazenamento e os serviços de armazenamento do Azure</a> no MSDN.
 
 Para os recursos que não são compatíveis com o emulador de armazenamento, use o serviço de armazenamento do Azure em nuvem.
 
@@ -1028,7 +1028,7 @@ Esse cenário normalmente acontece se você instalar e usar a versão mais recen
 
 Você pode solicitar credenciais para o administrador quando você executar o emulador de armazenamento. Isso acontece apenas quando você inicializar o emulador de armazenamento pela primeira vez. Após você ter inicializado o emulador de armazenamento, você não precisa de privilégios de administrador para executá-lo novamente. 
 
-Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/gg433132.aspx" target="_blank">Inicialize o emulador de armazenamento usando a ferramenta de linha de comando</a> no MSDN (você também pode inicializar o emulador de armazenamento no Visual Studio, o que também requer privilégios de administrador).
+Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/gg433132.aspx" target="_blank">Inicialize o emulador de armazenamento usando a ferramenta de linha de comando</a> no MSDN (você também pode inicializar o emulador de armazenamento no Visual Studio, o que também requer privilégios de administrador).
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Você encontrou problemas ao instalar o SDK do Windows do Azure para .NET
 
@@ -1122,7 +1122,7 @@ Para configurar a sessão de rastreamento Web para tráfego HTTP e HTTPS usando 
 
 Quando você estiver pronto para coletar os dados de rastreamento, clique no botão **Iniciar Com**.
 
-Para obter mais informações sobre o rastreamento de **Proxy da Web** do Microsoft Message Analyzer, consulte <a href="http://technet.microsoft.com/pt-br/library/jj674814.aspx" target="_blank">Provedor PEF-WebProxy</a> no TechNet.
+Para obter mais informações sobre o rastreamento de **Proxy da Web** do Microsoft Message Analyzer, consulte <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">Provedor PEF-WebProxy</a> no TechNet.
 
 O rastreamento interno de **Proxy da Web** no Microsoft Message Analyzer é com base no Fiddler; ele pode capturar o tráfego do lado do cliente e exibir as mensagens HTTPS não criptografadas. O rastreamento **Proxy da Web** funciona ao configurar um proxy local para todo o tráfego HTTP e HTTPS que dá acesso às mensagens não criptografadas.
 
@@ -1138,11 +1138,11 @@ Quando você cria uma sessão de rastreamento no Microsoft Message Analyzer, é 
 
 ![][10]
 
-Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte <a href="http://technet.microsoft.com/pt-br/library/jj659264.aspx" target="_blank">Provedor do PEF-NDIS-PacketCapture</a> no TechNet.
+Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">Provedor do PEF-NDIS-PacketCapture</a> no TechNet.
 
 ### <a name="appendix-4"></a>Apêndice 4: Usando o Excel para exibir as métricas e os dados de log
 
-Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no <a href="http://msdn.microsoft.com/pt-br/library/hh343259.aspx" target="_blank">Formato de Log Analítico de Armazenamento</a> e no <a href="http://msdn.microsoft.com/pt-br/library/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas Analíticas de Armazenamento</a>.
+Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no <a href="http://msdn.microsoft.com/library/hh343259.aspx" target="_blank">Formato de Log Analítico de Armazenamento</a> e no <a href="http://msdn.microsoft.com/library/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas Analíticas de Armazenamento</a>.
 
 Para importar os dados de log de armazenamento para o Excel após ter baixado do armazenamento de blob:
 
@@ -1159,7 +1159,7 @@ Você pode também usar o recurso Application Insights no Visual Studio Online c
 - Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço da Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema. 
 - Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, nós podemos enviá-lo um email. Você pode monitorar os serviços da Web .NET e Java.
 
-Na hora da gravação o Application Insights está em visualização. Você pode encontrar mais informações no <a href="http://msdn.microsoft.com/pt-br/library/dn481095.aspx" target="_blank">Application Insights para Visual Studio Online no MSDN</a>.
+Na hora da gravação o Application Insights está em visualização. Você pode encontrar mais informações no <a href="http://msdn.microsoft.com/library/dn481095.aspx" target="_blank">Application Insights para Visual Studio Online no MSDN</a>.
 
 
 <!--Anchors-->
@@ -1234,5 +1234,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-
 <!--HONumber=42-->

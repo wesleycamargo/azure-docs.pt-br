@@ -1,6 +1,20 @@
-<properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Principais conceitos de Gerenciamento de API" 
+	description="Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do Gerenciamento de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Como importar a definição de uma API com operações no Gerenciamento da API do Azure
 
@@ -81,3 +95,5 @@ Após criar a API e importar as operações, você pode revisar e definir quaisq
   [Exportar formato de API]: ./media/api-management-howto-import-api/api-management-export-api-format.png
   [Como definir configurações de API]: ../api-management-howto-create-apis/#configure-api-settings
   [Como criar e publicar um produto]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

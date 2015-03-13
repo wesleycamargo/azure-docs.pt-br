@@ -121,9 +121,10 @@ Este tutorial exige o seguinte:
 [Testar o cliente usando autenticação]: #test-client
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Como se registrar com o Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
+[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="Interagir com os recursos do Banco de Dados de Documentos| Azure" description="O Banco de Dados de Documentos fornece SDKs de cliente para .NET, Python, Node.js e JavaScript - que são invólucros simples sobre as APIs REST subjacentes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Interações RESTful com recursos do Banco de Dados de Documentos | Azure" 
+	description="Saiba como executar as interações RESTful com os recursos do Banco de Dados de Documentos do Microsoft Azure usando verbos HTTP." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Interagir com recursos do Banco de Dados de Documentos 
 O Banco de Dados de Documentos oferece um modelo de programação RESTful simples e aberto em HTTP. Na versão de teste, o Banco de Dados de Documentos oferece ao cliente SDKs para .NET, Python, Node.js e JavaScript - todos são wrappers simples nas APIs REST. Em versões futuras, ele também fornecerá SDKs para C++ e Java. Incentivamos você a gravar suas próprias SDKs para seu ambiente de programação específico e compartilhá-las com a comunidade já que abrimos nossas SDKs. 
@@ -334,3 +348,5 @@ O Banco de Dados de Documentos expõe um modelo de endereçamento lógico, em qu
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
+<!--HONumber=46--> 

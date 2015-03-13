@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure | Azure" description="Como criar uma experiência para treinar e testar um modelo simples no Estúdio de Aprendizado de Máquina do Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure | Azure" 
+	description="Como criar uma experiência para treinar e testar um modelo simples no Estúdio de Aprendizado de Máquina do Microsoft Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #Criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure 
  
@@ -173,7 +187,7 @@ Agora que você tem seu experimento configurado, é possível iterar para tentar
 
 Quando estiver satisfeito com seu modelo, será possível publicá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Consulte o tópico de ajuda do Estúdio AM **Publicando Experimentos** para obter mais detalhes.
 
-Para obter um acompanhamento mais extenso e detalhado da criação, treinamento, pontuação e publicação de um modelo preditivo, consulte [Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
+Para obter um acompanhamento mais extenso e detalhado da criação, treinamento, pontuação e publicação de um modelo preditivo, consulte [Passo a passo: Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@ Para obter um acompanhamento mais extenso e detalhado da criação, treinamento,
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

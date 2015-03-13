@@ -45,7 +45,7 @@ Se alguma das opções acima não for verdadeira, considere ajustar suas configu
 - Web e Business Edition (descontinuadas)
 - Basic, Standard e Premium Edition 
 
-Embora a Web e a Business Edition tenham total suporte, elas serão desativadas até 24 de abril de 2015, conforme abordado em [Perguntas frequentes da desativação das Edições Web e Business](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). Encorajamos os clientes novos para começar a usar a Basic, a Standard e a Premium Edition em preparação para essa alteração. Esta nova edição fornece uma variedade de novas camadas e recursos de monitoramento que facilitam a compreensão e solução de problemas de desempenho do banco de dados. Todos os novos serviços móveis são criados usando a nova edição.
+Embora a Web e a Business Edition tenham total suporte, elas serão desativadas até 24 de abril de 2015, conforme abordado em [Perguntas frequentes da desativação das Edições Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). Encorajamos os clientes novos para começar a usar a Basic, a Standard e a Premium Edition em preparação para essa alteração. Esta nova edição fornece uma variedade de novas camadas e recursos de monitoramento que facilitam a compreensão e solução de problemas de desempenho do banco de dados. Todos os novos serviços móveis são criados usando a nova edição.
 
 Para converter um Serviço Móvel usando a Web e a Business Edition para uma entre a Basic, a Standard e a Premium Edition, siga essas etapas.
 
@@ -61,7 +61,7 @@ Aqui estão algumas recomendações sobre como selecionar a camada certa para se
 - **Standard** - use para serviços de produção em que você espera várias consultas simultâneas ao banco de dados
 - **Premium** - use para serviços de produção em grande escala com muitas consultas simultâneas, carga em alto pico e baixa latência esperada em toda consulta.
 
-Para obter mais informações sobre quando usar cada camada, consulte [Razões para usar as novas camadas de serviço](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons)
+Para obter mais informações sobre quando usar cada camada, consulte [Razões para usar as novas camadas de serviço](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)
 
 ### Analisando as métricas do banco de dados
 
@@ -81,7 +81,7 @@ Quando estiver familiarizado com as diferentes camadas do banco de dados, podemo
 
     ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
 
-Se qualquer métrica exceder os 80% de utilização por um longo período, isso pode indicar um problema de desempenho. Para obter informações mais detalhadas sobre como entender a utilização do banco de dados, consulte [Entendendo o uso dos recursos](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource).
+Se qualquer métrica exceder os 80% de utilização por um longo período, isso pode indicar um problema de desempenho. Para obter informações mais detalhadas sobre como entender a utilização do banco de dados, consulte [Entendendo o uso dos recursos](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource).
 
 Se as métricas indicarem que seu banco de dados está com alta utilização, considere **escalá-lo verticalmente a uma camada de serviço mais elevada** como uma primeira etapa de redução. Para resolver os problemas imediatamente, considere usar a guia **Escala** de seu banco de dados para expandi-lo. Isso resulta em um aumento na sua conta.
 ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
@@ -187,10 +187,10 @@ Aqui estão algumas orientações a serem consideradas ao consultar o banco de d
 
 - **Sempre execute operações de junção no banco de dados.** Com frequência você precisará combinar registros de duas ou mais tabelas onde os registros que estão sendo combinados compartilham um campo comum (também conhecido como um *join*). Essa operação pode ser ineficiente se executada incorretamente, uma vez que pode envolver puxando todas as entidades de tabelas e, em seguida, iteração em todos eles. É melhor deixar esse tipo de operação para o próprio banco de dados, mas às vezes é fácil executá-la por engano no cliente ou no código do serviço móvel.
     - Não execute junções no código de seu aplicativo
-    - Não execute junções no código de seu serviço móvel. Ao usar o back-end do JavaScript, saiba que o [objeto de tabela](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) não manipula junções. Certifique-se de usar o [objeto mssql](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) diretamente para garantir que a junção aconteça no banco de dados. Para obter mais informações, consulte [Juntar tabelas relacionais](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). Se estiver usando o back-end do .NET e consultando com LINQ, as junções serão automaticamente manipuladas no nível do banco de dados pelo Entity Framework.
+    - Não execute junções no código de seu serviço móvel. Ao usar o back-end do JavaScript, saiba que o [objeto de tabela](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) não manipula junções. Certifique-se de usar o [objeto mssql](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) diretamente para garantir que a junção aconteça no banco de dados. Para obter mais informações, consulte [Juntar tabelas relacionais](http://azure.microsoft.com/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). Se estiver usando o back-end do .NET e consultando com LINQ, as junções serão automaticamente manipuladas no nível do banco de dados pelo Entity Framework.
 - **Implementar a paginação.** Consultar o banco de dados às vezes pode resultar em um grande número de registros sendo retornados ao cliente. Para minimizar o tamanho e a latência de operações, considere a implementação de paginação.
-    - Por padrão, seu serviço móvel limitará quaisquer consultas de entrada para uma página de tamanho 50 e você pode solicitar manualmente até 1.000 registros. Para obter mais informações, consulte "Retornar dados em páginas" para [Windows Store](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) e [Xamarin](http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
-    - Não existe um tamanho de página padrão para as consultas feitas de seu código de serviço móvel. Se o seu aplicativo não implementar a paginação, ou como uma medida defensiva, considere aplicar limites padrão em suas consultas. No back-end do JavaScript, use o operador **take** no [objeto de consulta](http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx). Se usar o back-end .NET, considere usar o [método Take](http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx) como parte de sua consulta LINQ.  
+    - Por padrão, seu serviço móvel limitará quaisquer consultas de entrada para uma página de tamanho 50 e você pode solicitar manualmente até 1.000 registros. Para obter mais informações, consulte "Retornar dados em páginas" para [Windows Store](http://azure.microsoft.com/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) e [Xamarin](http://azure.microsoft.com/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
+    - Não existe um tamanho de página padrão para as consultas feitas de seu código de serviço móvel. Se o seu aplicativo não implementar a paginação, ou como uma medida defensiva, considere aplicar limites padrão em suas consultas. No back-end do JavaScript, use o operador **take** no [objeto de consulta](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se usar o back-end .NET, considere usar o [método Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) como parte de sua consulta LINQ.  
 
 Para obter mais informações sobre como melhorar o design da consulta, inclusive como analisar os planos de consulta, consulte [Design de consulta avançada](#AdvancedQuery) no final deste documento.
 
@@ -199,9 +199,9 @@ Para obter mais informações sobre como melhorar o design da consulta, inclusiv
 
 Imagine um cenário em que você esteja prestes a enviar uma notificação por push para todos os seus clientes para verificarem um novo conteúdo no aplicativo. Conforme tocam na notificação, o aplicativo é iniciado, o que possivelmente dispara uma chamada para seu serviço móvel e uma execução de consulta no banco de dados SQL. Como milhões de clientes em potencial executam essa ação no período de apenas alguns minutos, isso gerará um aumento de carga de SQL, o que pode ser de uma magnitude superior à carga de estado constante de seu aplicativo. Isso pode ser resolvido ao expandir seu aplicativo para uma camada de SQL mais elevada durante o pico e, em seguida, reduzi-lo novamente, no entanto, essa solução exige uma intervenção manual e gera um custo elevado. Fazer pequenos ajustes em sua arquitetura de serviço móvel com frequência pode equilibrar significativamente a unidade de clientes de carga para seu banco de dados SQL e eliminar picos problemáticos na demanda. Essas modificações podem ser implementadas facilmente com mínimo impacto na experiência de seu cliente. Estes são alguns exemplos:
 
-- **Dispersar a carga ao longo do tempo.** Se você controlar o tempo de determinados eventos (por exemplo, uma notificação de envio de difusão), que são esperados para gerar um aumento na demanda, e o tempo dos eventos não é crítico, considere distribuí-los ao longo do tempo. No exemplo acima, talvez seja aceitável para os clientes do aplicativo receber notificações sobre o novo conteúdo de aplicativo em lotes no decorrer de um dia, em vez de recebê-las quase simultaneamente. Considere a possibilidade de organizar seus clientes em grupos, o que permitirá uma entrega escalonada para cada lote. Se você estiver usando Hubs de notificação, aplicar uma marca adicional para acompanhar o lote e, em seguida, fornecer uma notificação por push para essa marca resulta em uma maneira fácil de implementar essa estratégia. Para obter mais informações sobre marcas, consulte [Usar Hubs de notificação para enviar as últimas notícias](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/).
-- **Use o Blob e armazenamento de tabela quando apropriado.** Com frequência o conteúdo que os clientes irão ver durante o pico será razoavelmente estático e não precisará ser armazenado em um banco de dados SQL, já que você provavelmente não precisa de recursos de consulta relacionais sobre esse conteúdo. Nesse caso, considere armazenar o conteúdo em Blob ou armazenamento de tabela. Você pode acessar blobs públicos no armazenamento de Blob diretamente por meio do dispositivo. Para acessar blobs de modo seguro ou usar o armazenamento de tabela, você precisará passar por uma API personalizada de Serviços Móveis para proteger sua chave de acesso de armazenamento. Para obter mais informações, consulte [Carregar imagens no armazenamento do Azure usando Serviços Móveis](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/).
-- **Usar um cache em memória**. Outra alternativa é armazenar dados, os quais poderiam ser normalmente acessados durante um pico de tráfego, em um cache em memória como o [Cache do Azure](http://azure.microsoft.com/en-us/services/cache/). Isso significa que as solicitações de entrada poderiam buscar as informações necessárias na memória, em vez de consultar repetidamente o banco de dados.
+- **Dispersar a carga ao longo do tempo.** Se você controlar o tempo de determinados eventos (por exemplo, uma notificação de envio de difusão), que são esperados para gerar um aumento na demanda, e o tempo dos eventos não é crítico, considere distribuí-los ao longo do tempo. No exemplo acima, talvez seja aceitável para os clientes do aplicativo receber notificações sobre o novo conteúdo de aplicativo em lotes no decorrer de um dia, em vez de recebê-las quase simultaneamente. Considere a possibilidade de organizar seus clientes em grupos, o que permitirá uma entrega escalonada para cada lote. Se você estiver usando Hubs de notificação, aplicar uma marca adicional para acompanhar o lote e, em seguida, fornecer uma notificação por push para essa marca resulta em uma maneira fácil de implementar essa estratégia. Para obter mais informações sobre marcas, consulte [Usar Hubs de notificação para enviar as últimas notícias](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/).
+- **Use o Blob e armazenamento de tabela quando apropriado.** Com frequência o conteúdo que os clientes irão ver durante o pico será razoavelmente estático e não precisará ser armazenado em um banco de dados SQL, já que você provavelmente não precisa de recursos de consulta relacionais sobre esse conteúdo. Nesse caso, considere armazenar o conteúdo em Blob ou armazenamento de tabela. Você pode acessar blobs públicos no armazenamento de Blob diretamente por meio do dispositivo. Para acessar blobs de modo seguro ou usar o armazenamento de tabela, você precisará passar por uma API personalizada de Serviços Móveis para proteger sua chave de acesso de armazenamento. Para obter mais informações, consulte [Carregar imagens no armazenamento do Azure usando Serviços Móveis](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/).
+- **Usar um cache em memória**. Outra alternativa é armazenar dados, os quais poderiam ser normalmente acessados durante um pico de tráfego, em um cache em memória como o [Cache do Azure](http://azure.microsoft.com/services/cache/). Isso significa que as solicitações de entrada poderiam buscar as informações necessárias na memória, em vez de consultar repetidamente o banco de dados.
 
 <a name="Advanced"></a>
 ## Solução de problemas avançada
@@ -210,7 +210,7 @@ Essa seção abrange algumas das tarefas de diagnóstico mais avançadas, as qua
 ### Pré-requisitos
 Para executar algumas das tarefas de diagnóstico nesta seção, você precisa acessar uma ferramenta de gerenciamento de bancos de dados SQL como o **SQL Server Management Studio** ou a funcionalidade interna de gerenciamento do **Portal de Gerenciamento do Azure**.
 
-O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a máquina virtual com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente. 
+O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a máquina virtual com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente. 
 
 O Portal de Gerenciamento do Azure oferece uma experiência de gerenciamento interna que é mais limitada, mas está disponível sem a necessidade de uma instalação local.
 
@@ -225,7 +225,7 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
 6. Anote o endereço do servidor na seção **Conectar ao seu banco de dados**, por exemplo: *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
-1. Navegue até [Edições do SQL Server - Express](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx)
+1. Navegue até [Edições do SQL Server - Express](http://www.microsoft.com/pt-br/server-cloud/products/sql-server-editions/sql-server-express.aspx)
 2. Localize a seção **SQL Server Management Studio** e selecione o botão **Baixar**, logo abaixo.
 3. Conclua as etapas de configuração até que possa executar com êxito o aplicativo:
 
@@ -268,7 +268,7 @@ Para executar qualquer uma das consultas abaixo, cole-as na janela e selecione *
 
 #### Métricas avançadas
 
-O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **sys.resource\_stats](http://msdn.microsoft.com/en-us/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
+O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
 
     SELECIONE TOP 10 * 
     FROM sys.resource_stats 
@@ -282,7 +282,7 @@ O resultado conterá as seguintes métricas úteis: CPU (% de limite de camada),
 
 #### Eventos de conectividade de SQL
 
-A exibição **[sys.event\_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx)** contém os detalhes dos eventos relacionados à conectividade.
+A exibição **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contém os detalhes dos eventos relacionados à conectividade.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
@@ -454,31 +454,32 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 
-[Documentação do Banco de dados SQL do Azure]: http://azure.microsoft.com/en-us/documentation/services/sql-database/
+[Documentação do Banco de dados SQL do Azure]: http://azure.microsoft.com/documentation/services/sql-database/
 [Gerenciando o Banco de Dados SQL usando o SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
 [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Desempenho e escalonamento do Banco de Dados SQL do Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
-[Solucionando problemas do Banco de Dados SQL do Azure]: http://msdn.microsoft.com/en-us/library/azure/ee730906.aspx
+[Solucionando problemas do Banco de Dados SQL do Azure]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 
 <!-- MSDN -->
-[Criando e modificando restrições de CHAVE PRIMÁRIA]: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
-[Criar índices clusterizados]: http://technet.microsoft.com/en-us/library/ms186342(v=sql.120).aspx
-[Criar índices exclusivos]: http://technet.microsoft.com/en-us/library/ms187019.aspx
-[Criar índices não clusterizados]: http://technet.microsoft.com/en-us/library/ms189280.aspx
+[Criando e modificando restrições de CHAVE PRIMÁRIA]: http://technet.microsoft.com/library/ms181043(v=sql.105).aspx
+[Criar índices clusterizados]: http://technet.microsoft.com/library/ms186342(v=sql.120).aspx
+[Criar índices exclusivos]: http://technet.microsoft.com/library/ms187019.aspx
+[Criar índices não clusterizados]: http://technet.microsoft.com/library/ms189280.aspx
 
-[Restrições de chave primária e estrangeira]: http://msdn.microsoft.com/en-us/library/ms179610(v=sql.120).aspx
-[Fundamentos de índice]: http://technet.microsoft.com/en-us/library/ms190457(v=sql.105).aspx
-[Diretrizes de Design de índices gerais]: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx 
-[Diretrizes de Design de índices exclusivos]: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
-[Diretrizes de Design de Índice Clusterizado]: http://technet.microsoft.com/en-us/library/ms190639(v=sql.105).aspx
+[Restrições de chave primária e estrangeira]: http://msdn.microsoft.com/library/ms179610(v=sql.120).aspx
+[Fundamentos de índice]: http://technet.microsoft.com/library/ms190457(v=sql.105).aspx
+[Diretrizes de Design de índices gerais]: http://technet.microsoft.com/library/ms191195(v=sql.105).aspx 
+[Diretrizes de Design de índices exclusivos]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
+[Diretrizes de Design de Índice Clusterizado]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
-[sys-missing-index-stats]: http://technet.microsoft.com/en-us/library/ms345421.aspx
+[sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
-[Considerações de desempenho sobre o Entity Framework 5]: http://msdn.microsoft.com/en-us/data/hh949853
-[Anotações de dados Code First]: http://msdn.microsoft.com/en-us/data/jj591583.aspx
-[Anotações de índice no Entity Framework]:http://msdn.microsoft.com/en-us/data/jj591583.aspx#Index
+[Considerações de desempenho sobre o Entity Framework 5]: http://msdn.microsoft.com/data/hh949853
+[Anotações de dados Code First]: http://msdn.microsoft.com/data/jj591583.aspx
+[Anotações de índice no Entity Framework]:http://msdn.microsoft.com/data/jj591583.aspx#Index
 
 <!-- BLOG LINKS -->
 [Quanto essa chave custa?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

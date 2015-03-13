@@ -160,7 +160,7 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 ## <a name="upload-blob"> </a>Como: Carregar um blob em um contêiner
 
-Um blob pode ser baseado em bloco ou página. Blobs de bloco permitem que você envie mais eficientemente grandes volumes de dados, enquanto blobs de página são otimizados para operações de leitura/gravação. Para obter mais informações, consulte [Noções básicas sobre blobs de bloco e blobs de página](http://msdn.microsoft.com/pt-br/library/azure/ee691964.aspx).
+Um blob pode ser baseado em bloco ou página. Blobs de bloco permitem que você envie mais eficientemente grandes volumes de dados, enquanto blobs de página são otimizados para operações de leitura/gravação. Para obter mais informações, consulte [Noções básicas sobre blobs de bloco e blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ###Blobs de bloco
 
@@ -407,10 +407,9 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Serviço em Nuvem Node.js]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Aplicativo da Web do Node.js com Armazenamento]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-web-site/
  [site com WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [using the REST API]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Node.js Cloud Service]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

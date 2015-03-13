@@ -1,11 +1,26 @@
-﻿<properties pageTitle="Criar uma conta de Serviços de Mídia - Azure" description="Descreve como criar uma nova conta de Serviços de Mídia no Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Criar uma conta de Serviços de Mídia - Azure" 
+	description="Descreve como criar uma nova conta de Serviços de Mídia no Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
-
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/15/2015" 
+	ms.author="juliako"/>
 
 
 
 # Como criar uma conta de Serviços de Mídia
+
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow).  
 
 O Portal de Gerenciamento do Azure fornece uma maneira de criar rapidamente uma conta de Serviços de Mídia do Azure. Você pode usar sua conta para acessar os Serviços de Mídia que permitem que você armazene, criptografe, codifique, gerencie e transmita conteúdo de mídia no Azure. Quando você cria uma conta de Serviços de Mídia, você também cria uma conta de armazenamento associada (ou usa uma existente) na mesma região geográfica que a conta de Serviços de Mídia. 
 
@@ -13,8 +28,8 @@ Este tópico explica como usar o método de Criação Rápida para criar uma nov
 
 ## Sumário
 
--  [Conceitos]( #concepts)
--  [Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida]( #quick)
+-  [Conceitos][]
+-  [Como: Criar uma conta de Serviços de Mídia usando a Criação Rápida][]
 
 
 <h2><a id="concepts"></a>Conceitos</h2>
@@ -49,7 +64,7 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 	Quando você clica duas vezes no nome da conta, a página Início Rápido é exibida por padrão. Esta página permite que você execute algumas tarefas de gerenciamento que também estão disponíveis em outras páginas do portal. Por exemplo, você pode carregar um arquivo de vídeo nesta página ou na página CONTEÚDO.
 
-	Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção de ESCREVER UM CÓDIGO, copiar o código  e usá-lo em seu aplicativo. 
+	Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção de ESCREVER UM CÓDIGO, copiar o código e usá-lo em seu aplicativo. 
 
 
 <!-- Reusable paths. -->
@@ -66,5 +81,4 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

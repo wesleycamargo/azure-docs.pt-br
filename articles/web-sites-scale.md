@@ -24,7 +24,7 @@ A expansão de Sites do Azure envolve duas coisas relacionadas: mudar de seu mod
 
 A alteração e a configuração dos modos são realizadas facilmente na guia Escala do portal de gerenciamento. Você pode expandir ou reduzir conforme necessário. Essas alterações levarão apenas alguns segundos para serem aplicadas e afetam todos os sites em seu Plano de Hospedagem na Web. Não é necessário alterar seu código nem reimplantar seus aplicativos.
 
-Para obter mais informações sobre os Planos de Hospedagem na Web, consulte [O que é um plano de hospedagem na web?](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-web-hosting-plan-overview/) e [Visão geral detalhada de planos de hospedagem na Web de sites do Azure](http://www.azure.microsoft.com/pt-br/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Para obter informações sobre os preços e os recursos de cada Plano de Hospedagem na Web, consulte [Detalhes de preços de Sites](http://www.windowsazure.com/pt-br/pricing/details/web-sites/).  
+Para obter mais informações sobre os Planos de Hospedagem na Web, consulte [O que é um plano de hospedagem na web?](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/) e [Visão geral detalhada de planos de hospedagem na Web de sites do Azure](http://www.azure.microsoft.com/pt-br/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Para obter informações sobre os preços e os recursos de cada Plano de Hospedagem na Web, consulte [Detalhes de preços de Sites](http://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Antes de mudar de um modo de Plano de Hospedagem na Web **Gratuito** para **Básico** ou **Padrão**, primeiro você deve remover os limites de gastos estabelecidos para sua assinatura do Site. Para exibir ou alterar as opções de sua assinatura dos Websites do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
@@ -141,7 +141,7 @@ Neste artigo:
 	
 14. Após concluir as alterações em todos os itens na lista **Editar Configurações de Escala para Agenda**, clique no ícone **Salvar** na barra de comandos na parte inferior da página para salvar todas as configurações de agendamento de uma vez (não é necessário salvar cada agenda individualmente).
 
-> [AZURE.NOTE] No [Portal de Visualização do Azure](https://portal.azure.com/), você pode dimensionar não só na percentual do CPU, mas também nas métricas adicionais da percentual da memória, comprimento da fila do disco, comprimento da fila HTTP, dados de entrada e dados de saída. Você também pode criar um uma ou mais regras de expansões e reduções que lhe forneçam ainda mais controle personalizado no dimensionamento. Para obter mais informações, consulte [Como dimensionar um site](http://azure.microsoft.com/pt-br/documentation/articles/insights-how-to-scale/) na documentação do portal de visualização do Azure.
+> [AZURE.NOTE] No [Portal de Visualização do Azure](https://portal.azure.com/), você pode dimensionar não só na percentual do CPU, mas também nas métricas adicionais da percentual da memória, comprimento da fila do disco, comprimento da fila HTTP, dados de entrada e dados de saída. Você também pode criar um uma ou mais regras de expansões e reduções que lhe forneçam ainda mais controle personalizado no dimensionamento. Para obter mais informações, consulte [Como dimensionar um site](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/) na documentação do portal de visualização do Azure.
 
 <a name="ScalingSQLServer"></a>
 ##Dimensionando um Banco de Dados SQL Server conectado ao seu site	
@@ -178,40 +178,40 @@ Dependendo do modo do plano de hospedagem na web, os seguintes recursos para des
 
 **Monitoramento do ponto de extremidade da web**
 
-- O monitoramento de ponto de extremidade da web está disponível nos modos dos planos de hospedagem na web Básico e Padrão. Para obter mais informações sobre o monitoramento de ponto de extremidade da web, consulte [Como monitorar sites (a página pode estar em inglês)](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-monitor/).
+- O monitoramento de ponto de extremidade da web está disponível nos modos dos planos de hospedagem na web Básico e Padrão. Para obter mais informações sobre o monitoramento de ponto de extremidade da web, consulte [Como monitorar sites (a página pode estar em inglês)](http://azure.microsoft.com/documentation/articles/web-sites-monitor/).
 
-- Para obter informações detalhadas sobre todos os demais recursos dos planos de hospedagem na web, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços de sites](http://www.windowsazure.com/pt-br/pricing/details/web-sites/).
+- Para obter informações detalhadas sobre todos os demais recursos dos planos de hospedagem na web, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços de sites](http://azure.microsoft.com/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>	
 ## Próximas etapas
 
-- Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/).
+- Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Para obter informações sobre preços, suporte e SLA, visite os links a seguir.
 	
-	[Detalhes de preços de transferências de dados](http://www.windowsazure.com/pt-br/pricing/details/data-transfers/)
+	[Detalhes de preços de transferências de dados](http://azure.microsoft.com/pricing/details/data-transfers/)
 	
-	[Planos de suporte do Microsoft Azure](http://www.windowsazure.com/pt-br/support/plans/)
+	[Planos de suporte do Microsoft Azure](http://azure.microsoft.com/support/plans/)
 	
-	[Contratos de Nível de Serviço](http://www.windowsazure.com/pt-br/support/legal/sla/)
+	[Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/)
 	
-	[Detalhes de preços do banco de dados SQL](http://www.windowsazure.com/pt-br/pricing/details/sql-database/)
+	[Detalhes de preços do banco de dados SQL](http://azure.microsoft.com/pricing/details/sql-database/)
 	
 	[Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
 	
-	[Detalhes do preço dos sites](http://www.windowsazure.com/pt-br/pricing/details/web-sites/)
+	[Detalhes do preço dos sites](http://azure.microsoft.com/pricing/details/web-sites/)
 	
-	[Detalhes do preço dos sites - Conexões SSL](http://www.windowsazure.com/pt-br/pricing/details/web-sites/#ssl-connections)
+	[Detalhes do preço dos sites - Conexões SSL](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 
 - Para obter informações sobre as práticas recomendadas dos Websites do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Websites do Windows do Azure (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Vídeos sobre dimensionamento de sites do Azure:
 	
-	[Quando dimensionar Sites do Azure - com Stefan Schackow](http://www.windowsazure.com/pt-br/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[Quando dimensionar Sites do Azure - com Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[Dimensionamento automático de Sites do Azure, CPU ou programado - com Stefan Schackow](http://www.windowsazure.com/pt-br/documentation/videos/auto-scaling-azure-web-sites/)
+	[Dimensionamento automático de Sites do Azure, CPU ou programado - com Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[Como dimensionar Sites do Azure - com Stefan Schackow](http://www.windowsazure.com/pt-br/documentation/videos/how-azure-web-sites-scale/)
+	[Como dimensionar Sites do Azure - com Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
 
 
 

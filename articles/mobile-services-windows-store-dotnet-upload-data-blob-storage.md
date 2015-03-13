@@ -93,15 +93,16 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
 
 <!-- URLs. -->
-[ Enviar e-mails dos Serviços Móveis com o SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
-[Agendar trabalhos de back-end nos serviços móveis]: /en-us/documentation/articles/mobile-services-schedule-recurring-tasks
+[ Enviar e-mails dos Serviços Móveis com o SendGrid]: /pt-br/develop/mobile/tutorials/send-email-with-sendgrid/
+[Agendar trabalhos de back-end nos serviços móveis]: /pt-br/documentation/articles/mobile-services-schedule-recurring-tasks
 [Enviar notificações por push para aplicativos da Windows Store usando o Barramento de Serviço de um back-end do .NET]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Como criar uma conta de armazenamento]: /en-us/manage/services/storage/how-to-create-a-storage-account
+[Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
 [Biblioteca do cliente de Armazenamento do Azure para a Loja de aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Configurações do aplicativo]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+[Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+\<!--HONumber=42-->

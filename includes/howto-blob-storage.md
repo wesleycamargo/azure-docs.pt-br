@@ -19,7 +19,7 @@ O serviço Blob contém os seguintes componentes:
 ![Blob1][Blob1]
 
 -   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito
-    por meio de uma conta de armazenamento. Consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+    por meio de uma conta de armazenamento. Consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 -   **Contêiner:** um contêiner fornece um agrupamento de conjunto de blobs.
     Todos os blobs devem ter um contêiner. Uma conta pode conter um
@@ -46,4 +46,4 @@ O serviço Blob contém os seguintes componentes:
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
-<!--HONumber=41-->
+<!--HONumber=42-->

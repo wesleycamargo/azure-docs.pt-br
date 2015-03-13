@@ -20,7 +20,7 @@
 
 Tabelas criadas com o JavaScript ou o back-end do .NET podem, opcionalmente, ter exclusão reversível habilitada. Ao usar a exclusão reversível, uma nova coluna chamada *__deleted* do [tipo de bit SQL] é adicionada ao banco de dados. Com a exclusão reversível habilitada, uma operação de excluir não excluir fisicamente as linhas do banco de dados, mas, em vez disso, define o valor da coluna excluída para TRUE.
 
-Ao consultar registros em uma tabela com exclusão reversível habilitada, as linhas excluídas não são retornadas na consulta por padrão. Para solicitar essas linhas, é preciso passar um parâmetro de consulta *\__includeDeleted=true* na sua [Operação de Consulta REST](http://msdn.microsoft.com/en-us/library/azure/jj677199.aspx). No SDK do cliente .NET, também é possível usar o método auxiliar `IMobileServiceTable.IncludeDeleted()`.
+Ao consultar registros em uma tabela com exclusão reversível habilitada, as linhas excluídas não são retornadas na consulta por padrão. Para solicitar essas linhas, é preciso passar um parâmetro de consulta *\__includeDeleted=true* na sua [Operação de Consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). No SDK do cliente .NET, também é possível usar o método auxiliar `IMobileServiceTable.IncludeDeleted()`.
 
 O suporte a exclusão reversível para o back-end do .NET foi lançado pela primeira vez com a versão 1.0.402 do Back-end do .NET de Serviços Móveis do Microsoft Azure. Os pacotes NuGet mais recentes estão disponíveis aqui, [Back-end do .NET de Serviços Móveis do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -109,7 +109,7 @@ O seguinte trabalho agendado limpa registros de exclusão reversível com mais d
         }
     }
 
-Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do .NET, consulte: [Agendar trabalhos recorrentes com Serviços Móveis de back-end do JavaScript](/ en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do .NET, consulte: [Agendar trabalhos recorrentes com Serviços Móveis de back-end do JavaScript](/ pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
@@ -150,7 +150,7 @@ Esse é um trabalho de amostra que exclui registros atualizados antes de uma dat
         }});
     }
 
-Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis de back-end do JavaScript](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis de back-end do JavaScript](/pt-br/documentation/articles/mobile-services-schedule-recurring-tasks/).
 
 
 
@@ -167,9 +167,10 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end d
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[Tipo de bit SQL]: http://msdn.microsoft.com/en-us/library/ms177603.aspx
-[Sincronização de dados offline para Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[Tipo de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
+[Sincronização de dados offline para Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

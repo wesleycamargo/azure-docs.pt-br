@@ -23,7 +23,7 @@
 
 Socket.IO fornece uma comunicação em tempo real entre o seu servidor node.js e clientes usando WebSockets. Também oferece suporte de retorno a outros transportes (como sondagem comprido) que funcionam com outros navegadores. Este tutorial anda sobre um Socket.IO host com base no aplicativo de bate-papo com um website do Azure. Para mais informações sobre o Socket.IO, consultar [http://socket.io/][socketio].
 
-> [AZURE.NOTE]  Os procedimentos nesta tarefa se aplicam para sites do Azure. Para serviços de nuvem, consulte <a href="http://www.windowsazure.com/pt-br/develop/nodejs/tutorials/app-using-socketio/">Criar um aplicativo de chat do Node.js com Socket.IO em um serviço de nuvem do Azure</a>.
+> [AZURE.NOTE]  Os procedimentos nesta tarefa se aplicam para sites do Azure. Para serviços de nuvem, consulte <a href="http://azure.microsoft.com/develop/nodejs/tutorials/app-using-socketio/">Criar um aplicativo de chat do Node.js com Socket.IO em um serviço de nuvem do Azure</a>.
 
 
 ## <a id="Download"></a>Baixar o exemplo de chat
@@ -95,7 +95,7 @@ instalar os módulos necessários:
 
 Siga estas etapas para criar um Site do Azure e habilitar a publicação Git e, em seguida, habilitar o suporte do WebSocket para o site.
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação gratuita do Azure</a>.
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação gratuita do Azure</a>.
 
 1. Na linha de comando, altere os diretórios para o diretório **\\node\chat** e use o comando a seguir para criar um novo Website do Azure e ativar um repositório Git para o site e o diretório local. Isso também cria um Git remoto nomeado  'azure'.
 

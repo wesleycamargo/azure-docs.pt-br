@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Como configurar o computador para Serviços de Mídia - Azure" description="Conheça os pré-requisitos para os Serviços de Mídia usando o SDK dos Serviços de Mídia para .NET. Saiba também como criar um aplicativo do Visual Studio." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Como configurar o computador para Serviços de Mídia - Azure" 
+	description="Conheça os pré-requisitos para os Serviços de Mídia usando o SDK dos Serviços de Mídia para .NET. Saiba também como criar um aplicativo do Visual Studio." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -61,7 +75,7 @@ Para obter uma referência ao contexto do servidor, crie uma nova instância do 
 	_context = new CloudMediaContext(_cachedCredentials);
 
 
-Sempre é útil definir uma variável em nível de módulo do tipo **CloudMediaContext** para manter uma referência ao contexto do servidor. Para obter mais informações, consulte [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/pt-br/library/azure/jj129571.aspx).
+Sempre é útil definir uma variável em nível de módulo do tipo **CloudMediaContext** para manter uma referência ao contexto do servidor. Para obter mais informações, consulte [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 O restante dos exemplos de código deste tópico usa uma variável chamada **_context** para fazer referência ao contexto do servidor. 
 

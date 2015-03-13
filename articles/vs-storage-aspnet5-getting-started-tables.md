@@ -27,7 +27,7 @@
 > - [Filas](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Tabelas](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") para obter mais informações.
+O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") para obter mais informações.
 
 Para acessar programaticamente tabelas em projetos do ASP.NET 5, você precisa adicionar os itens a seguir, se eles ainda não existirem.
 
@@ -192,6 +192,5 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
-
+Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
 <!--HONumber=42-->

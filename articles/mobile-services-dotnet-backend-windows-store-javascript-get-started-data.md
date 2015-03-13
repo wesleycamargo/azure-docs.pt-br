@@ -24,7 +24,7 @@ Este tópico mostra como usar os Serviços Móveis do Azure como uma fonte de da
 
 O serviço móvel que você criará neste tutorial é um serviço móvel de back-end do .NET. O back-end do .NET permite que você use linguagens .NET e o Visual Studio para a lógica dos negócios do lado do servidor no serviço móvel, e você pode executar e depurar seu serviço móvel no seu computador local. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte Versão de back-end do JavaScript neste tópico.
 
->[AZURE.NOTE]Este tópico mostra a você como adicionar os Serviços Móveis do Azure a um projeto da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para adicionar o mesmo serviço móvel de back-end do .NET a um projeto de aplicativo Windows universal. Para obter mais informações, consulte a [versão do aplicativo universal do Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data) deste tutorial.
+>[AZURE.NOTE]Este tópico mostra a você como adicionar os Serviços Móveis do Azure a um projeto da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para adicionar o mesmo serviço móvel de back-end do .NET a um projeto de aplicativo Windows universal. Para obter mais informações, consulte a [versão do aplicativo universal do Windows](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data) deste tutorial.
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
@@ -38,7 +38,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
 
 ##<a name="download-app"></a>Baixar o projeto GetStartedWithData
@@ -291,18 +291,19 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 [26]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/copy-service-and-packages-folder.png
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-js
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-js
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library/
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library/
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  \n<!--HONumber=42-->
+  
+<!--HONumber=42-->

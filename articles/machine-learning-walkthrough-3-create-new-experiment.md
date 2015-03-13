@@ -1,6 +1,20 @@
-<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Etapa 3: Criar um novo teste de Aprendizado de Máquina | Azure" description="Etapa 3: Criar uma nova experiência de treinamento no Azure Studio de aprendizado de máquina" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Etapa 3: Criar uma nova experiência de Aprendizado de Máquina | Azure" 
+	description="Solução alternativa. Etapa 3: Criar uma nova experiência de treinamento no Azure Studio de aprendizado de máquina" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Esta é a quarta etapa do passo a passo, [Desenvolvendo uma Solução Preditiva com o AM do Azure][develop]:
@@ -100,3 +114,5 @@ Nosso teste agora se parece com esse:
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
 [2]: ./media/machine-learning-walkthrough-3-create-new-experiment/create2.png
 [3]: ./media/machine-learning-walkthrough-3-create-new-experiment/create3.png
+
+<!--HONumber=46--> 

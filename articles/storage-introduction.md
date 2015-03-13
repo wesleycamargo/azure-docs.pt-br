@@ -49,7 +49,7 @@ Uma conta de armazenamento do Azure é uma conta segura que fornece acesso a ser
 - Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila.
 - Uma conta de armazenamento premium tem suporte no momento para discos de Máquina Virtual do Azure apenas. Armazenamento premium do Azure está disponível sob solicitação por meio da [página de Visualização do Azure](/pt-br/services/preview/).
 
-Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. Você pode criar até 100 contas de armazenamento nomeadas exclusivamente com uma única assinatura. Consulte [Detalhes de preços de armazenamento](http://www.windowsazure.com/pt-br/pricing/details/storage/) para obter informações sobre o preço por volume.
+Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. Você pode criar até 100 contas de armazenamento nomeadas exclusivamente com uma única assinatura. Consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
 
 Você pode começar com o Azure com uma [avaliação gratuita](/pt-br/pricing/free-trial/). Quando você decidir comprar um plano, você pode escolher entre uma variedade de [opções de compra](/pt-br/pricing/purchase-options/). se você for um [assinante do MSDN](/pt-br/pricing/member-offers/msdn-benefits-details/), obtenha créditos mensais gratuitos que podem ser usados com os serviços do Azure, incluindo o armazenamento do Azure.
 
@@ -164,7 +164,7 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 ### Downloads
 
 - [Pacote NuGet de armazenamento do Azure - Bibliotecas do cliente para .NET, Windows Phone e Tempo de Execução do Windows](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [SDKs e Ferramentas do Azure](http://azure.microsoft.com/pt-br/downloads/)
+- [SDKs e Ferramentas do Azure](http://azure.microsoft.com/downloads/)
 - [Emulador de Armazenamento do Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Código-fonte
@@ -174,15 +174,15 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 ### Documentação
 
 - [Documentação do Armazenamento do Azure](/pt-br/documentation/services/storage/)
-- [Referência de API REST de Serviços de Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dd179355.aspx)
-- [Referência da Ferramenta de Linha de Comando AzCopy](http://azure.microsoft.com/pt-br/documentation/articles/storage-use-azcopy/)
+- [Referência de API REST de Serviços de Armazenamento do Azure](http://msdn.microsoft.com/library/dd179355.aspx)
+- [Referência da Ferramenta de Linha de Comando AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>Para usuários do PowerShell</h3>
-- [Cmdlets do Armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn806401.aspx)
+- [Cmdlets do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>Para desenvolvedores do .NET</h3>
 
-- [Referência à Biblioteca cliente do .NET](http://msdn.microsoft.com/pt-br/library/wa_storage_30_reference_home.aspx)
+- [Referência à Biblioteca cliente do .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [Como usar o Armazenamento de Blob no .NET](../storage-dotnet-how-to-use-blobs/)
 - [Como usar o Armazenamento de Tabela no .NET](../storage-dotnet-how-to-use-tables/)
 - [Como usar o Armazenamento de Fila no .NET](../storage-dotnet-how-to-use-queues/)
@@ -217,5 +217,4 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de Blob no Python](../storage-python-how-to-use-blob-storage/)
 - [Como usar o Armazenamento de Tabela no Python](../storage-python-how-to-use-table-storage/)
 - [Como usar o Armazenamento de Fila no Python](../storage-python-how-to-use-queue-storage/)
-
 <!--HONumber=42-->

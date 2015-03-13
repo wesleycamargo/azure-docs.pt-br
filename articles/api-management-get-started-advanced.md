@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introdução à configuração avançada do Gerenciamento de API do Azure" metaKeywords="" description="Saiba como rastrear chamadas, configurar o limite de taxa e as políticas de cota e como personalizar o portal do desenvolvedor." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with advanced Azure API Management configuration" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introdução à configuração avançada do Gerenciamento de API do Azure" 
+	description="Saiba como rastrear chamadas, configurar o limite de taxa e as políticas de cota e como personalizar o portal do desenvolvedor." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Introdução à configuração avançada do Gerenciamento de API do Azure
 
@@ -22,3 +36,5 @@ Os tutoriais desta seção fornecem orientação sobre configuração e tarefas 
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

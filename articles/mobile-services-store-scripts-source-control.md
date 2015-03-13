@@ -17,7 +17,7 @@
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end .NET</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
+	<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
 </div>
 
 # Armazenar código de projeto no controle do código-fonte
@@ -169,13 +169,14 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 
 <!-- URLs. -->
 [Site do Git]: http://git-scm.com
-[Controle do código-fonte]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Controle do código-fonte]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Adicionar Serviços Móveis a um aplicativo existente]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Trabalhar com scripts de servidor em Serviços Móveis]: /en-us/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
+[Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
+[Trabalhar com scripts de servidor em Serviços Móveis]: /pt-br/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Chamar uma API personalizada do cliente]: /en-us/documentation/articles/mobile-services-ios-call-custom-api/
+[Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-ios-call-custom-api/
 [Documentação da API do Node.js: Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

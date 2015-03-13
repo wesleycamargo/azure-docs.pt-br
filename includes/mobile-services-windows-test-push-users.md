@@ -10,5 +10,4 @@
 4. (Opcional) Repita as etapas 1-3 em um dispositivo de um cliente diferente e usando uma conta diferente ao fazer logon.  
 
 	Verificar que a notificação seja recebida apenas neste dispositivo, porque o dispositivo anterior não estava marcado com a ID do usuário atual. 
-
 <!--HONumber=42-->

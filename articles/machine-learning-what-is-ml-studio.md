@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="O que é o Estúdio de Aprendizado de Máquina? | Azure" description="Visão geral do Estúdio de Aprendizado de Máquina do Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="O que é o Estúdio de Aprendizado de Máquina do Azure? | Azure" 
+	description="Visão geral do Estúdio de Aprendizado de Máquina do Microsoft Azure e seus componentes básicos" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # O que é o Estúdio de Aprendizado de Máquina do Azure?
 
@@ -39,8 +53,8 @@ Um teste consiste em conjuntos de dados que fornecem dados para módulos analít
 - Todas as portas de entrada dos módulos devem ter uma conexão com o fluxo de dados. 
 - Todos os parâmetros necessários a um módulo devem estar configurados. 
 
-Para obter um exemplo de criação de um teste simples, consulte [Criar um teste simples no Studio de Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-create-experiment/). 
-Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+Para obter um exemplo de criação de um teste simples, consulte [Criar um teste simples no Studio de Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
+Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### Conjunto de dados
 
@@ -67,3 +81,5 @@ Um módulo pode ter um conjunto de parâmetros que você pode usar para configur
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

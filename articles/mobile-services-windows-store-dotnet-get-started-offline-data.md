@@ -36,7 +36,7 @@ Neste tutorial, você irá atualizar o projeto de aplicativo Universal desde o t
 
 >[AZURE.NOTE] O objetivo deste tutorial é ajudá-lo a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados em um aplicativo da Windows Store. Se esta for sua primeira experiência com os Serviços móveis, você deve concluir o tutorial [Introdução aos serviços móveis] primeiro.
 >
->Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
+>Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
 >
 >O tutorial mais antigo do Windows Phone 8 para Visual Studio 2012 ainda está disponível aqui, [Tutorial do Windows Phone 8 para o Visual Studio 2012].
 
@@ -55,7 +55,7 @@ Este tutorial exige o seguinte:
 * [Armazenamento do Azure Mobile Services SQLite versão 1.0.0 (ou posterior)][Armazenamento do SQLite Nuget]
 * [SQLite para Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
+>[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Atualizar o aplicativo para dar suporte aos recursos offline
 
@@ -282,18 +282,19 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 
 
 <!-- URLs. -->
-[Tratando conflitos com o suporte offline para os Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Tratando conflitos com o suporte offline para os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
 [Exemplo de TodoList offline]: http://go.microsoft.com/fwlink/?LinkId=394777
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Introdução]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
+[Introdução]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
 [SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Tutorial do Windows Phone 8 para o Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
-[Exclusão Reversível]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Tutorial do Windows Phone 8 para o Visual Studio 2012]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
+[Exclusão Reversível]: /pt-br/documentation/articles/mobile-services-using-soft-delete/
 
 
 [Nuget do SDK dos Serviços móveis]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [Nuget do repositório do SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

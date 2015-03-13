@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Visão geral de Conexões Híbridas | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Saiba mais sobre conexões híbridas, incluindo segurança." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Visão geral de Conexões Híbridas | Azure" 
+	description="Saiba mais sobre conexões híbridas, incluindo segurança, portas TCP e configurações com suporte. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -62,7 +76,7 @@ As Conexões Híbridas utilizam a autorização de assinatura de acesso comparti
 
 As Conexões Híbridas fornecem uma distribuição perfeita e segura das chaves aos aplicativos e ao Gerenciador de Conexões Híbridas local. 
 
-Consulte [Criar e gerenciar conexões híbridas](http://azure.microsoft.com/pt-br/documentation/articles/integration-hybrid-connection-create-manage). 
+Consulte [Criar e gerenciar conexões híbridas](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage). 
 
 **A autorização do aplicativo é separada da Conexão Híbrida**. Qualquer método adequado de autorização pode ser usado. O método de autorização depende dos métodos de autorização de ponta a ponta suportados pela nuvem do Azure e nos componentes locais. Por exemplo, o seu aplicativo do Azure acessa um SQL Server local. Neste cenário, a Autorização SQL pode ser o método de autorização com suporte de ponta a ponta.
 
@@ -97,10 +111,10 @@ As seguintes portas TCP são usadas por Conexões Híbridas:
 
 ## Avançar
 
-- [Criar e gerenciar Conexões Híbridas](http://azure.microsoft.com/pt-br/documentation/articles/integration-hybrid-connection-create-manage)
+- [Criar e gerenciar Conexões Híbridas](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
 - [Conectar um site do Azure a um recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Conexões Híbridas passo a passo: Conectar-se a um SQL Server local por meio de um Site do Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Conexões Híbridas e Serviços Móveis do Azure](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Conexões Híbridas e Serviços Móveis do Azure](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
 
 
 ## Consulte também
@@ -114,3 +128,5 @@ As seguintes portas TCP são usadas por Conexões Híbridas:
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

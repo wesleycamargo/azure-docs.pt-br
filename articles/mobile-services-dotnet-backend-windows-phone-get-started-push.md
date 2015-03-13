@@ -146,7 +146,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
    	![][4]
 
-	>[AZURE.NOTE]Este tutorial usa MPNS no modo não autenticado. Nesse modo, o MPNS limita o número de notificações que podem ser enviadas a um canal do dispositivo. Para remover essa restrição, você deve gerar e carregar um certificado clicando em <strong>Carregar</strong> e selecionando o certificado. Para obter mais informações sobre como gerar o certificado, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configurando um serviço Web autenticado para enviar notificações por push ao Windows Phone</a>.
+	>[AZURE.NOTE]Este tutorial usa MPNS no modo não autenticado. Nesse modo, o MPNS limita o número de notificações que podem ser enviadas a um canal do dispositivo. Para remover essa restrição, você deve gerar e carregar um certificado clicando em <strong>Carregar</strong> e selecionando o certificado. Para obter mais informações sobre como gerar o certificado, consulte <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configurando um serviço Web autenticado para enviar notificações por push ao Windows Phone</a>.
 
 Isso permite que o serviço móvel se conecte ao MPNS no modo não autenticado para enviar notificações por push.
 
@@ -213,18 +213,19 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
-[Adicionar Serviços Móveis a um aplicativo existente]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de difusão para assinantes]: /en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
-[Enviar notificações baseadas em modelo aos assinantes]: /en-us/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de difusão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
+[Enviar notificações baseadas em modelo aos assinantes]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
 
 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
-[Aplicativos do Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library
+[Aplicativos do Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

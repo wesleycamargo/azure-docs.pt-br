@@ -28,7 +28,7 @@ Abaixo está um exemplo de um site .COM em execução em Websites do Azure. Ele 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> Este guia apresenta algumas das áreas mais comuns e tarefas que estão alinhadas com a execução de um site. voltado para o público em Websites do Azure. No entanto, há outras soluções comuns que você pode implementar nos Websites do Azure. Para revisar essas soluções, consulte as outras guias em <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campanhas de Marketing Digital</a> e <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/business-application-solution-overview">Aplicativos de negócios</a>.
+> Este guia apresenta algumas das áreas mais comuns e tarefas que estão alinhadas com a execução de um site. voltado para o público em Websites do Azure. No entanto, há outras soluções comuns que você pode implementar nos Websites do Azure. Para revisar essas soluções, consulte as outras guias em <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campanhas de Marketing Digital</a> e <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">Aplicativos de negócios</a>.
 
 ### Crie do zero ou coloque ativos existentes
 
@@ -122,8 +122,8 @@ Torne seu site .COM atraente com mídia avançada, como:
 
 [dimensionar]:/pt-br/manage/services/web-sites/how-to-scale-websites/
 [Portal de Gerenciamento do Azure]:http://manage.windowsazure.com/
-[API de gerenciamento de serviço]:http://msdn.microsoft.com/pt-br/library/windowsazure/ee460799.aspx
-[Script do PowerShell]:http://msdn.microsoft.com/pt-br/library/windowsazure/jj152841.aspx
+[API de gerenciamento de serviço]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Script do PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 coisas que eu aprendi sobre como dimensionar rapidamente sites com o Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis do Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

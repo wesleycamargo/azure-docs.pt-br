@@ -1,6 +1,20 @@
-<properties pageTitle="Como utilizar o cache Redis do Azure" metaKeywords="" description="Aprenda a criar um cache no Cache Redis do Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Como utilizar o cache Redis do Azure" 
+	description="Aprenda a criar um cache no Cache Redis do Azure" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/20/2015" 
+	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
 
@@ -332,35 +346,35 @@ siga estes links para saber como fazer tarefas de cache mais complexas.
 <!-- LINKS -->
 [Provedor de estado de sessão de Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Portal de Gerenciamento do Azure]: http://windows.azure.com/
-[Como: Configurar um cliente de cache de modo programático]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg618003.aspx
+[Como: Configurar um cliente de cache de modo programático]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Provedor de Estado de Sessão para Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Cache do Azure AppFabric: Cache de estado de sessão]: http://www.microsoft.com/pt-br/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Provedor de Cache de Saída para Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Cache compartilhado do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg278356.aspx
+[Cache compartilhado do Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Blog da equipe]: http://blogs.msdn.com/b/windowsazure/
 [Caching do Azure]: http://www.microsoft.com/pt-br/showcase/Search.aspx?phrase=azure+caching
 [Como configurar tamanhos de máquina virtual]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Considerações sobre o planejamento da capacidade do Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Caching do Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Como: Definir a capacidade de cache de uma página ASP.NET declarativamente]: http://msdn.microsoft.com/pt-br/library/zd1ysf1y.aspx
-[Como: Definir a capacidade de cache de uma página programaticamente]: http://msdn.microsoft.com/pt-br/library/z852zf6b.aspx
+[Como: Definir a capacidade de cache de uma página ASP.NET declarativamente]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[Como: Definir a capacidade de cache de uma página programaticamente]: http://msdn.microsoft.com/library/z852zf6b.aspx
 
 [Modelo de configuração Stackexchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Trabalhar com objetos .NET no cache]: http://msdn.microsoft.com/pt-br/library/dn690521.aspx#Objects
+[Trabalhar com objetos .NET no cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [Instalação do Gerenciador de Pacotes NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Detalhes de Preços do Cache]: http://www.windowsazure.com/pt-br/pricing/details/cache/
+[Detalhes de Preços do Cache]: http://azure.microsoft.com/pricing/details/cache/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
 [Visão geral do Cache Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Cache Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=398247
-[Modelo de configuração de StackExchange.Redis]: http://msdn.microsoft.com/en-us/library/azure/dn793612.aspx
+[Modelo de configuração de StackExchange.Redis]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [Migrar para o Cache Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Amostras de Cache Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Usando grupos de recursos para gerenciar seus recursos do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups/
+[Usando grupos de recursos para gerenciar seus recursos do Azure]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [Documentação de cliente de cache Redis StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -370,3 +384,5 @@ siga estes links para saber como fazer tarefas de cache mais complexas.
 [uma introdução de quinze minutos aos tipos de dados de Redis]: http://redis.io/topics/data-types-intro
 
 [Sites do Windows Azure: Como as cadeias de caracteres de aplicativo e a cadeias de caracteres de conexão trabalham]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+
+<!--HONumber=46--> 

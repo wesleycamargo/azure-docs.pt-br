@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="What is Azure AD?" pageTitle="O que é o Active Directory do Azure?" metaKeywords="" description="Use o Active Directory do Azure para estender suas identidades existentes locais para a nuvem para uma experiência aprimorada do administrador e usuário final enquanto a Microsoft mantém o Active Directory em execução na nuvem com alta escala, alta disponibilidade e recuperação de desastres integrada. Ou, desenvolva aplicativos integrado do AD do Azure para sua organização ou para outras organizações." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="O que é o Active Directory do Azure?" 
+	description="Use o Active Directory do Azure para estender suas identidades existentes locais para a nuvem para uma experiência aprimorada do administrador e usuário final enquanto a Microsoft mantém o Active Directory em execução na nuvem com alta escala, alta disponibilidade e recuperação de desastres integrada. Ou, desenvolva aplicativos integrado do AD do Azure para sua organização ou para outras organizações." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="justinha"/>
+
 
 
 
@@ -28,3 +43,5 @@ Os desenvolvedores de aplicativos podem integrar seus aplicativos com o AD do Az
 * [Inscrever-se no Azure como uma organização](/pt-br/manage/services/identity/organizational-account/)
 * [Identidade do Azure](/pt-br/manage/windows/fundamentals/identity/)
 * [Biblioteca do AD do Azure no MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
+
+<!--HONumber=46--> 

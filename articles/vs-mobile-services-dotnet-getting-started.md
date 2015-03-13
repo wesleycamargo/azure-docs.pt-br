@@ -45,7 +45,7 @@ O código a seguir obtém uma referência de uma tabela que contém dados para u
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-Este código funcionará se sua tabela possuir permissões definidas para **Qualquer um com uma chave de aplicativo**. Se você alterar as permissões para proteger seu serviço móvel, precisará adicionar suporte à autenticação de usuário. Consulte [Introdução à autenticação](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+Este código funcionará se sua tabela possuir permissões definidas para **Qualquer um com uma chave de aplicativo**. Se você alterar as permissões para proteger seu serviço móvel, precisará adicionar suporte à autenticação de usuário. Consulte [Introdução à autenticação](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
 
 #####Adicionar entrada 
 

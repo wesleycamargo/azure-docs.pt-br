@@ -1,7 +1,20 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Introdução ao Gerenciamento de API do Azure" 
+	description="Saiba como criar APIs, operações e obtenha uma introdução ao Gerenciamento de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
-
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 # Introdução ao Gerenciamento de API do Azure
 
 Este guia mostra como iniciar rapidamente a usar o Gerenciamento de API e como fazer sua primeira chamada à API.
@@ -244,7 +257,7 @@ A seção **Análise** possui as quatro guias a seguir.
   [Chamar uma operação no Portal do Desenvolvedor]: #call-operation
   [Exibir análise]: #view-analytics
   [Próximas etapas]: #next-steps
-  [Avaliação gratuita do Azure]: http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [Portal de Gerenciamento]: https://manage.windowsazure.com/
   [Nova instância do Gerenciamento de API]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [Novo serviço de Gerenciamento de API]: ./media/api-management-get-started/api-management-create-instance-step1.png
@@ -282,3 +295,5 @@ A seção **Análise** possui as quatro guias a seguir.
   [Resumo]: ./media/api-management-get-started/api-management-api-summary-metrics.png
   [Visão geral]: ./media/api-management-get-started/api-management-analytics-overview.png
   [Introdução à configuração avançada de API]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

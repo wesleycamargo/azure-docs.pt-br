@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Registrar o usuário atual para notificações por push usando um serviço móvel - Hubs de Notificação" description="Saiba como solicitar o registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado por serviços móveis do Azure." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Registrar o usuário atual para notificações por push usando um serviço móvel - Hubs de Notificação" 
+	description="Saiba como solicitar o registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado por serviços móveis do Azure." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # Registrar o usuário atual para notificações por push usando um serviço móvel
 

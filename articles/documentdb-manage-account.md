@@ -1,7 +1,20 @@
-<properties title="Monitor a DocumentDB Account" pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gerenciar uma conta do Banco de Dados de Documentos | Azure" 
+	description="Aprenda a gerenciar sua conta do Banco de Dados de Documentos." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="hawong" />
-
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="stbaro"/>
 # Como gerenciar uma Conta DocumentDB
 
 ## Sumário
@@ -150,3 +163,5 @@ Para remover uma conta DocumentDB que você não esteja mais usando, use o coman
   [Nível de Consistência]: http://go.microsoft.com/fwlink/p/?LinkId=402365
   [começar com sua conta DocumentDB]:http://go.microsoft.com/fwlink/p/?LinkId=402364
   [azure.com]: http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409
+
+<!--HONumber=46--> 

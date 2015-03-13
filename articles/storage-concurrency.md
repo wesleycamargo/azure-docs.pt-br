@@ -79,7 +79,7 @@ O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exempl
 	        throw;
 	}  
 
-O serviço de Armazenamento também inclui suporte para cabeçalhos condicionais adicionais, como **If-Modified-Since, ****If-Unmodified-Since** e **If-None-Match**, bem como combinações deles. Para obter mais informações, consulte [Especificando cabeçalhos condicionais para operações do serviço Blob](http://msdn.microsoft.com/pt-br/library/dd179371.aspx) no MSDN.  
+O serviço de Armazenamento também inclui suporte para cabeçalhos condicionais adicionais, como **If-Modified-Since, ****If-Unmodified-Since** e **If-None-Match**, bem como combinações deles. Para obter mais informações, consulte [Especificando cabeçalhos condicionais para operações do serviço Blob](http://msdn.microsoft.com/library/dd179371.aspx) no MSDN.  
 
 A tabela a seguir resume as operações de contêiner que aceitam cabeçalhos condicionais como **If-Match** na solicitação e retornam um valor de ETag na resposta.  
 
@@ -121,7 +121,7 @@ Obter intervalos de página|	Sim|	Sim
 (*) Lease Blob não altera a ETag em um blob.  
 
 ##Simultaneidade pessimista para blobs
-Para bloquear um blob para uso exclusivo, é possível obter uma [concessão](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx) sobre ele. Ao adquirir uma concessão, você especifica por quanto tempo precisa dela: esse período pode ser entre 15 e 60 segundos ou infinito, o que resulta em um bloqueio exclusivo. Você pode renovar uma concessão finita para estendê-la e pode liberar qualquer concessão quando terminar de trabalhar com ela. O serviço Blob libera as concessões finitas automaticamente quando elas expiram.  
+Para bloquear um blob para uso exclusivo, é possível obter uma [concessão](http://msdn.microsoft.com/library/azure/ee691972.aspx) sobre ele. Ao adquirir uma concessão, você especifica por quanto tempo precisa dela: esse período pode ser entre 15 e 60 segundos ou infinito, o que resulta em um bloqueio exclusivo. Você pode renovar uma concessão finita para estendê-la e pode liberar qualquer concessão quando terminar de trabalhar com ela. O serviço Blob libera as concessões finitas automaticamente quando elas expiram.  
 
 As concessões permitem que diferentes estratégias de sincronização tenham suporte, incluindo gravação exclusiva/leitura compartilhada, gravação exclusiva/leitura exclusiva e gravação compartilhada/leitura exclusiva. Nos locais em que há uma concessão, o serviço de Armazenamento impõe gravações exclusivas (operações de exclusão, definição e colocação), mas a garantia de exclusividade para operações de leitura requer que o desenvolvedor garanta que todos os aplicativos cliente usam uma ID de concessão e que apenas um cliente de cada vez tem uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.  
 
@@ -152,7 +152,7 @@ O trecho de C# a seguir mostra um exemplo de aquisição de uma concessão exclu
 	        throw;
 	}  
 
-Se você tentar realizar uma operação de gravação em um blob sob concessão sem enviar a ID de concessão, a solicitação falhará com um erro 412. Observe que se a concessão expirar antes de chamar o método **UploadText**, mas você ainda utilizar a ID de concessão, a solicitação também falhará com um erro **412**. Para obter mais informações sobre o gerenciamento de tempos de expiração de concessão e IDs de concessão, consulte a documentação de REST de [Lease Blob](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx).  
+Se você tentar realizar uma operação de gravação em um blob sob concessão sem enviar a ID de concessão, a solicitação falhará com um erro 412. Observe que se a concessão expirar antes de chamar o método **UploadText**, mas você ainda utilizar a ID de concessão, a solicitação também falhará com um erro **412**. Para obter mais informações sobre o gerenciamento de tempos de expiração de concessão e IDs de concessão, consulte a documentação de REST de [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx).  
 
 As operações de blob a seguir podem usar concessões para gerenciar a simultaneidade pessimista:  
 
@@ -189,9 +189,9 @@ As operações de contêiner a seguir podem usar concessões para gerenciar a si
 
 Para obter mais informações, consulte:  
 
-- [Especificando cabeçalhos condicionais para operações do serviço Blob](http://msdn.microsoft.com/pt-br/library/azure/dd179371.aspx)
-- [Lease Container](http://msdn.microsoft.com/pt-br/library/azure/jj159103.aspx)
-- [Lease Blob](http://msdn.microsoft.com/pt-br/library/azure/ee691972.aspx) 
+- [Especificando cabeçalhos condicionais para operações do serviço Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx)
+- [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
+- [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
 
 #Gerenciando a simultaneidade no serviço Tabela
 O serviço Tabela usa verificações de simultaneidade otimista como o comportamento padrão quando você está trabalhando com entidades, diferente do serviço Blob, em que é necessário escolher explicitamente realizar verificações de simultaneidade otimista. A outra diferença entre os serviços Tabela e Blob é que você pode gerenciar apenas o comportamento de simultaneidade de entidades, enquanto que com o serviço Blob é possível gerenciar a simultaneidade de contêineres e blobs.  
@@ -245,7 +245,7 @@ Em geral, os desenvolvedores usando tabelas devem recorrer à simultaneidade oti
 
 Para obter mais informações, consulte:  
 
-- [Operações em entidades](http://msdn.microsoft.com/pt-br/library/azure/dd179375.aspx)  
+- [Operações em entidades](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 #Gerenciando a simultaneidade no serviço Fila
 Um cenário em que a simultaneidade é uma preocupação no serviço de filas ocorre quando vários clientes recuperam mensagens de uma fila. Quando uma mensagem é recuperada da fila, a resposta inclui a mensagem e um valor de recebimento pop, que é necessário para excluir a mensagem. A mensagem não é automaticamente excluída da fila, mas após ser recuperada, não fica visível para outros clientes pelo intervalo de tempo especificado pelo parâmetro visibilitytimeout. Espera-se que o cliente que recuperou a mensagem a exclua após ela ser processada e antes do tempo especificado pelo elemento TimeNextVisible da resposta, que é calculado com base no valor do parâmetro visibilitytimeout. O valor de visibilitytimeout é adicionado ao horário em que a mensagem é recuperada para determinar o valor de TimeNextVisible.  
@@ -254,8 +254,8 @@ O serviço Fila não tem suporte para a simultaneidade pessimista ou otimista e,
 
 Para obter mais informações, consulte:  
 
-- [API REST do serviço Fila](http://msdn.microsoft.com/pt-br/library/azure/dd179363.aspx)
-- [Receber mensagens](http://msdn.microsoft.com/pt-br/library/azure/dd179474.aspx)  
+- [API REST do serviço Fila](http://msdn.microsoft.com/library/azure/dd179363.aspx)
+- [Receber mensagens](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 #Gerenciando a simultaneidade no serviço Arquivo
 O serviço Arquivo pode ser acessado usando dois pontos de extremidade de protocolo diferentes: SMB e REST. O serviço REST não tem suporte para o bloqueio otimista ou pessimista e todas as atualizações seguirão a estratégia último a gravar vence. Os clientes SMB que montam compartilhamentos de arquivos podem utilizar os mecanismos de bloqueio do sistema de arquivos para gerenciar o acesso aos arquivos compartilhados, incluindo a capacidade de realizar o bloqueio pessimista. Quando um cliente SMB abre um arquivo, ele especifica o modo de compartilhamento e de acesso do arquivo. Configurar uma opção de Acesso ao Arquivo de "Gravação" ou "Leitura/Gravação" juntamente com um modo de Compartilhamento de Arquivo de "Nenhum" resultará no bloqueio do arquivo por um cliente SMB até o arquivo ser fechado. Se houver a tentativa de realização da operação REST em um arquivo em que um cliente SMB tenha o arquivo bloqueado, o serviço REST retornará o código de status 409 (Conflito) com o código de erro SharingViolation.  
@@ -264,7 +264,7 @@ Quando um cliente SMB abre um arquivo para exclusão, ele marca o arquivo como e
 
 Para obter mais informações, consulte:  
 
-- [Gerenciando bloqueios de arquivo](http://msdn.microsoft.com/pt-br/library/azure/dn194265.aspx)  
+- [Gerenciando bloqueios de arquivo](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 #Resumo e próximas etapas
 O serviço de Armazenamento do Microsoft Azure foi desenvolvido para atender às necessidades dos aplicativos online mais complexos sem forçar os desenvolvedores a comprometerem ou repensarem as principais pressuposições de design, como a simultaneidade e a consistência de dados, as quais eles já consideram corriqueiras.  
@@ -275,10 +275,9 @@ Para encontrar o aplicativo de exemplo completo citado nesse blog:
 
 Para obter mais informações sobre Armazenamento do Azure, consulte:  
 
-- [Página inicial do Armazenamento do Microsoft Azure](http://azure.microsoft.com/pt-br/services/storage/)
-- [Introdução ao armazenamento do Azure](http://azure.microsoft.com/pt-br/documentation/articles/storage-introduction/)
-- Introdução ao Armazenamento para [Blob](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/)[Tabela](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-tables/) e [Filas](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/)
+- [Página inicial do Armazenamento do Microsoft Azure](http://azure.microsoft.com/services/storage/)
+- [Introdução ao armazenamento do Azure](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- Introdução ao Armazenamento para [Blob](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)[Tabela](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/) e [Filas](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Arquitetura de armazenamento - [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com consistência sólida](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 
 <!--HONumber=42-->

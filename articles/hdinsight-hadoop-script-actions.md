@@ -123,7 +123,7 @@ A Microsoft fornece scripts de exemplo para instalar componentes em um cluster H
 - [Instalar e usar o Solr em clusters HDInsight](../hdinsight-hadoop-solr-install)
 - [Instalar e usar o Giraph em clusters HDInsight](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1 ou posterior. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1 ou posterior. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>Como testar seu script personalizado com o emulador do HDInsight
 
@@ -131,7 +131,7 @@ Uma maneira direta de testar um script personalizado antes de usá-lo no comando
 
 Esta seção descreve o procedimento para usar o Emulador do HDInsight localmente para fins de teste, mas o procedimento para usar uma VM é semelhante.
 
-**Instalar o emulador do HDInsight**: Para executar Ações de Script localmente, você precisa ter o Emulador do HDInsight instalado. Para obter instruções sobre como instalá-lo, consulte [Introdução ao Emulador do HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-get-started-emulator/)
+**Instalar o emulador do HDInsight**: Para executar Ações de Script localmente, você precisa ter o Emulador do HDInsight instalado. Para obter instruções sobre como instalá-lo, consulte [Introdução ao Emulador do HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/)
 
 **Definir a política de execução de PowerShell do Azure:** abra o Microsoft Azure PowerShell e execute (como administrador) o comando a seguir para definir a política de execução para a *LocalMachine* e para ser *Unrestricted*.
  
@@ -214,4 +214,4 @@ Se ocorre uma falha na execução, a saída que o descreve também estará conti
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

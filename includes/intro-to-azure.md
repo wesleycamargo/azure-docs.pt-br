@@ -37,7 +37,7 @@ Seu feedback é importante. Este artigo deve oferecer a você uma visão geral e
  
 <h2><a id="components"></a>Os componentes do Azure</h2>
 
-O Azure agrupa os serviços em categorias no Portal de Gerenciamento e em vários auxílios visuais, como o [O que é o Infográfico do Windows Azure](http://azure.microsoft.com/pt-br/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). O Portal de Gerenciamento é o que você utiliza para gerenciar a maior parte (mas não todos) os serviços no Azure. 
+O Azure agrupa os serviços em categorias no Portal de Gerenciamento e em vários auxílios visuais, como o [O que é o Infográfico do Windows Azure](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). O Portal de Gerenciamento é o que você utiliza para gerenciar a maior parte (mas não todos) os serviços no Azure. 
 
 Este documento utilizará uma **organização diferente** para tratar de serviços baseados em uma função similar e para chamar sub-serviços que são parte de serviços maiores.  
 
@@ -121,7 +121,7 @@ Existem duas funções a serem escolhidas quando você cria uma instância, amba
 Os Serviços de Nuvem são ideais para dar suporte a expansão maciça quando você precisa de mais controle sobre a plataforma que o fornecido pelos Sites do Azure, mas não precisa de controle sobre o sistema operacional subjacente. 
 
 ####Escolhendo um Modelo de Computação####
-A comparação na página Azure Websites, Cloud Services and Virtual Machines (http://azure.microsoft.com/pt-br/documentation/articles/choose-web-site-cloud-service-vm/ ) fornece informações mais detalhadas sobre como escolher um modelo de computação.
+A comparação na página Azure Websites, Cloud Services and Virtual Machines (http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/ ) fornece informações mais detalhadas sobre como escolher um modelo de computação.
 
 
 
@@ -246,7 +246,7 @@ Se você precisa de mais largura de banda ou segurança do que a oferecida por u
 
 Configurar uma conexão Rota Expressa exige mais tempo e planejamento, portanto, talvez seja melhor você começar utilizando um VPN site a site, para então migrar para uma conexão Rota Expressa.
 
-Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Técnica do Rota Expressa](http://msdn.microsoft.com/pt-br/library/azure/dn606309.aspx).
+Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Técnica do Rota Expressa](http://msdn.microsoft.com/library/azure/dn606309.aspx).
 
 ###Gerenciador de Tráfego###
 
@@ -268,7 +268,7 @@ O Azure oferece uma série de ferramentas para auxiliar os desenvolvedores e pro
 ###SDK do Azure###
 Em 2008, a primeira versão de pré-lançamento do Azure oferecia suporte apenas para desenvolvimento .NET. Hoje, no entanto, você pode criar aplicativos do Azure em praticamente qualquer linguagem. Atualmente, a Microsoft fornece SDKs específicos a cada linguagem para .NET, Java, PHP, Node. js, Ruby e Python. Também há um SDK geral do Azure que fornece suporte básico para qualquer linguagem, como C++.  
 
-Estes SDKs vão ajudá-lo a desenvolver, implantar e gerenciar aplicativos do Azure. Eles estão disponíveis em [www.microsoftazure.com](http://azure.microsoft.com/pt-br/downloads/) ou no GitHub, e podem ser usados com o Visual Studio e o Eclipse. O Azure também oferece ferramentas de linha de comando que os desenvolvedores podem usar qualquer editor ou ambiente de desenvolvimento, incluindo ferramentas para implantar aplicativos no Azure em sistemas Linux e Macintosh. 
+Estes SDKs vão ajudá-lo a desenvolver, implantar e gerenciar aplicativos do Azure. Eles estão disponíveis em [www.microsoftazure.com](http://azure.microsoft.com/downloads/) ou no GitHub, e podem ser usados com o Visual Studio e o Eclipse. O Azure também oferece ferramentas de linha de comando que os desenvolvedores podem usar qualquer editor ou ambiente de desenvolvimento, incluindo ferramentas para implantar aplicativos no Azure em sistemas Linux e Macintosh. 
 
 Além de ajudar a desenvolver aplicativos Azure, estes SDKs também oferecem bibliotecas de cliente que ajudam você a criar software que use os serviços do Azure. Por exemplo, você pode criar um aplicativo que leia e grave blobs do Azure ou criar uma ferramenta que implante aplicativos do Azure por meio da interface de gerenciamento do Azure. 
 
@@ -418,7 +418,7 @@ Os dados ficam mais seguros porque os backups são criptografados antes da trans
 
 **Cenários para o Serviço de Backup do Azure**
 
-Se você já utiliza o Windows Server ou System Center, o Serviço de Backup do Azure é uma solução natural para suporte do sistema de arquivos de seus servidores, máquinas virtuais e bancos de dados de SQL Server.  Essa solução funciona com arquivos criptografados, esparsos e comprimidos. Há algumas limitações, de modo que você deve primeiro verificar os pré-requisitos do [Serviço de Backup do Azure](http://technet.microsoft.com/pt-br/library/dn296608.aspx). 
+Se você já utiliza o Windows Server ou System Center, o Serviço de Backup do Azure é uma solução natural para suporte do sistema de arquivos de seus servidores, máquinas virtuais e bancos de dados de SQL Server.  Essa solução funciona com arquivos criptografados, esparsos e comprimidos. Há algumas limitações, de modo que você deve primeiro verificar os pré-requisitos do [Serviço de Backup do Azure](http://technet.microsoft.com/library/dn296608.aspx). 
 
 
 
@@ -619,7 +619,6 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 
 
-[Cartaz dos Serviços de Mídia do Azure]: http://azure.microsoft.com/pt-br/documentation/infographics/media-services/
-
+[Cartaz dos Serviços de Mídia do Azure]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 <!--HONumber=42-->

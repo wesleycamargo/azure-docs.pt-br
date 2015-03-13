@@ -49,7 +49,7 @@ Executar o AD do Windows Server em VMs do Azure pode fazer sentido em várias si
 
 - Uma organização que usa o Azure para recuperação de desastres pode manter um pequeno conjunto de VMs ativas na nuvem, incluindo um controlador de domínio. Em seguida, ela pode ser preparada para expandir este site conforme necessário para assumir o controle de falhas em outro lugar.
 
-Existem também outras possibilidades. Por exemplo, não é necessário que você conecte o AD do Windows Server na nuvem a um datacenter local. Se desejar executar um farm do SharePoint que serviu um conjunto específico de usuários, por exemplo, todos os quais efetuariam logon exclusivamente com identidades baseadas na nuvem, você pode criar uma floresta autônoma no Azure. A maneira como você usa essa tecnologia depende de quais são suas metas. (Para obter orientações mais detalhadas sobre como usar o AD do Windows Server com o Azure, [clique aqui](http://msdn.microsoft.com/pt-br/library/windowsazure/jj156090.aspx).)
+Existem também outras possibilidades. Por exemplo, não é necessário que você conecte o AD do Windows Server na nuvem a um datacenter local. Se desejar executar um farm do SharePoint que serviu um conjunto específico de usuários, por exemplo, todos os quais efetuariam logon exclusivamente com identidades baseadas na nuvem, você pode criar uma floresta autônoma no Azure. A maneira como você usa essa tecnologia depende de quais são suas metas. (Para obter orientações mais detalhadas sobre como usar o AD do Windows Server com o Azure, [clique aqui](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
 
 ## <a name="ad"></a>Usando o Active Directory do Azure
 
@@ -121,5 +121,4 @@ Trabalhar com identidade é importante em praticamente todos os aplicativos. O o
 ##Sobre o autor
 
 David Chappell é diretor da Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) em San Francisco, Califórnia. Por meio de sua fala, escrita e consultoria,
-
 <!--HONumber=42-->

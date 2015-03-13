@@ -67,7 +67,7 @@ Você pode ver as unidades adicionadas na máquina virtual, observando o log de 
 ####Etapa 2: Criar o RAID com os discos adicionais
 Siga este artigo para obter as etapas detalhadas de configuração do RAID:  
 
-[http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] Se você estiver usando o sistema de arquivos XFS, siga as etapas abaixo após ter criado o RAID.
 

@@ -1,6 +1,20 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="Como criar uma imagem do modelo personalizada para o RemoteApp" description="Saiba como criar uma imagem de modelo personalizado para o RemoteApp. Você pode usar este modelo de implantação de uma nuvem ou híbrida." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Como criar uma imagem do modelo personalizada para o RemoteApp" 
+	description="Saiba como criar uma imagem de modelo personalizado para o RemoteApp. Você pode usar este modelo de implantação de uma nuvem ou híbrida." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/22/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 # Como criar uma imagem do modelo personalizada para o RemoteApp
 O RemoteApp do Azure usa uma imagem do modelo do Windows Server 2012 R2 para hospedar todos os programas que deseja compartilhar com os seus usuários. Para criar uma imagem do modelo do RemoteApp personalizada, é possível iniciar com uma imagem existente ou criar uma nova. Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azure são:
@@ -23,10 +37,10 @@ O RemoteApp do Azure usa uma imagem do modelo do Windows Server 2012 R2 para hos
 
 É necessário fazer o seguinte antes de criar o serviço:
 
-- Inscreva-se para a visualização do RemoteApp. É possível fazer isso em [http://azure.microsoft.com/pt-br/services/remoteapp/](http://azure.microsoft.com/pt-br/services/remoteapp/).
-- Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio. Consulte [Configurar o Active Directory do Azure para o RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-ad/) para obter mais informações.
+- Inscreva-se para a visualização do RemoteApp. É possível fazer isso em [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
+- Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio. Consulte [Configurar o Active Directory do Azure para o RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/) para obter mais informações.
 - Reúna as informações sobre a sua rede local: As informações de endereço IP e detalhes do dispositivo VPN.
-- Instale o módulo [PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
+- Instale o módulo [PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 - Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Pode ser informações da conta da Microsoft ou da conta organizacional do Active Directory para usuários e grupos.
 
 
@@ -115,6 +129,8 @@ As etapas detalhadas para a criação de uma nova imagem são:
 Agora que você tem sua imagem de modelo personalizada, você precisará atualizar aquela imagem para sua implantação do RemoteApp. Use as informações nos artigos a seguir para criar sua implantação:
 
 
-- [Como criar uma implantação híbrida do RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [Como criar uma implantação de nuvem do RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-cloud-deployment/)
+- [Como criar uma implantação híbrida do RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/) 
+- [Como criar uma implantação de nuvem do RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
 
+
+<!--HONumber=46--> 

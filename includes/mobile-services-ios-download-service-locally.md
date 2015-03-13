@@ -26,5 +26,4 @@
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-
 <!--HONumber=42-->

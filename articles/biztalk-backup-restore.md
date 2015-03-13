@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="Serviços do BizTalk: Backup e restauração | Azure" metaKeywords="" description="Os serviços BizTalk incluem recursos de backup e restauração. Ao criar um Backup, é feito um instantâneo da configuração dos Serviços BizTalk." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="Serviços BizTalk: Backup e restauração | Azure" 
+	description="Os serviços BizTalk incluem backup e restauração. Saiba como criar e restaurar um backup e determinar do que é feito backup. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # Serviços do BizTalk: Backup e restauração
@@ -16,7 +30,7 @@ Você também pode fazer backup dos Serviços BizTalk usando o [API REST dos Ser
 
 ##<a name="beforebackup"></a>Antes de começar
 
-- É possível que o backup e a restauração não estejam disponíveis para todas as edições. Consulte [Serviços do BizTalk: Tabela de edições](http://azure.microsoft.com/pt-br/documentation/articles/biztalk-editions-feature-chart/).
+- É possível que o backup e a restauração não estejam disponíveis para todas as edições. Consulte [Serviços do BizTalk: Tabela de edições](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Observação** NÃO se faz backup das conexões híbridas, independentemente da Edição.
 
@@ -227,3 +241,5 @@ Para criar Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, vá a
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
+<!--HONumber=46--> 

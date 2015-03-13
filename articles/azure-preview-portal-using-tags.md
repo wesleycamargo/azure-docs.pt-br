@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="Usando marcas para organizar os recursos do Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="Usando marcas para organizar os recursos do Azure" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # Usando marcas para organizar os recursos do Azure
 
 O portal de Visualização do Azure e o Gerenciador de Recursos subjacente são ferramentas para organizar seus recursos e personalizar sua experiência, tornando-a sob medida para você. 
 
-No portal completo do Azure, as assinaturas são a única maneira de classificar e agrupar seus recursos. Com o portal de visualização, [apresentamos os grupos de recursos](http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups), que permitem que você agrupe entidades relacionadas. Isso se tornou ainda mais valioso quando [introduzimos o acesso baseado em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure). Agora, no mesmo espírito, você pode marcar seus recursos com pares de chave/valor para visualizar os recursos e categorizá-los ainda mais em grupos e, dentro do portal, em assinaturas.
+No portal completo do Azure, as assinaturas são a única maneira de classificar e agrupar seus recursos. Com o portal de visualização, [apresentamos os grupos de recursos](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups), que permitem que você agrupe entidades relacionadas. Isso se tornou ainda mais valioso quando [introduzimos o acesso baseado em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). Agora, no mesmo espírito, você pode marcar seus recursos com pares de chave/valor para visualizar os recursos e categorizá-los ainda mais em grupos e, dentro do portal, em assinaturas.
 
 Agrupe os recursos por equipe, projeto ou até mesmo ambiente para concentrar-se exatamente no que você deseja ver, quando você precisa vê-lo. 
 
@@ -27,9 +42,9 @@ A partir daqui, você pode clicar em cada marca individual para exibir uma lista
 
 ## Marcação com o PowerShell
 
-Façamos primeiro o mais importante, pegar o mais recente [módulo do PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/). Se esta for sua primeira vez usando o módulo PowerShell do Azure, [leia a documentação](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell) para se familiarizar. Para os fins deste artigo, vamos supor que você já adicionou uma conta e selecionou uma assinatura com os recursos que deseja marcar.
+Façamos primeiro o mais importante, pegar o mais recente [módulo do PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). Se esta for sua primeira vez usando o módulo PowerShell do Azure, [leia a documentação](http://azure.microsoft.com/documentation/articles/install-configure-powershell) para se familiarizar. Para os fins deste artigo, vamos supor que você já adicionou uma conta e selecionou uma assinatura com os recursos que deseja marcar.
 
-A marcação só está disponível para recursos e grupos de recursos disponíveis a partir do [Gerenciador de Recursos](http://msdn.microsoft.com/pt-br/library/azure/dn790568.aspx), portanto, a próxima coisa que precisamos fazer é passar a usar o Gerenciador de Recursos. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/powershell-azure-resource-manager/).
+A marcação só está disponível para recursos e grupos de recursos disponíveis a partir do [Gerenciador de Recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx), portanto, a próxima coisa que precisamos fazer é passar a usar o Gerenciador de Recursos. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@ O processo é o mesmo para os recursos, exceto pelo fato de que você usará os 
 
 ## Marcação com o Gerenciador de Recursos
 
-Ambos o portal de visualização e o PowerShell usam a [REST API do Gerenciador de Recursos](http://msdn.microsoft.com/pt-br/library/azure/dn790568.aspx), nos bastidores. Se você precisar integrar a marcação a outro ambiente, você pode obter marcas com um GET na ID do recurso e atualizar o conjunto de marcas com uma chamada de PATCH.
+Ambos o portal de visualização e o PowerShell usam a [REST API do Gerenciador de Recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx), nos bastidores. Se você precisar integrar a marcação a outro ambiente, você pode obter marcas com um GET na ID do recurso e atualizar o conjunto de marcas com uma chamada de PATCH.
 
 
 ## Gerenciando sua taxonomia
@@ -74,3 +89,5 @@ Fixe as marcas mais importantes no seu quadro inicial para acesso rápido e voc�
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

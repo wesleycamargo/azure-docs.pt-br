@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Exemplo de aplicativos de aprendizado de máquina no Azure Marketplace | Azure" description="Os exemplos de aplicativos de aprendizado de máquina do Azure mostram como você pode publicar seu serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes para usar seus aplicativos." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Exemplo de aplicativos de aprendizado de máquina no Azure Marketplace | Azure" 
+	description="Os exemplos de aplicativos de aprendizado de máquina do Azure Marketplace mostram como você pode publicar seus serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes usarem os seus aplicativos." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luiscabrer"/>  
 
 # Exemplo de aplicativos de aprendizado de máquina no Azure Marketplace
 
@@ -17,3 +31,5 @@ Por exemplo, isso inclui:
 * [Detecção de anomalias](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - uma API que pode identificar eventos irregulares nos dados de série temporal (por exemplo, telemetria do servidor, dados baseados em sensor).
 
 Essas APIs permitem consumir serviços eficientes baseado em aprendizado de máquina do Azure ML sem a necessidade de ser um cientista de dados ou passar muito tempo desenvolvendo as APIs você mesmo - basta inserir seus próprios dados e começar a usar.
+
+<!--HONumber=46--> 

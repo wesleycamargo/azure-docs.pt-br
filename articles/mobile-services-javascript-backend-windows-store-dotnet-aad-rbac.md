@@ -283,13 +283,13 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
 
 <!-- URLs. -->
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Como se registrar com o Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Cenários de sincronização de diretório]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Armazenar scripts de servidor]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
-[Registrar-se para usar um logon do Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Armazenar scripts de servidor]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control/
+[Registrar-se para usar um logon do Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [API gráfica]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Referência de erros de API gráfica]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
-\n<!--HONumber=42-->
+[Referência de erros de API gráfica]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
+\<!--HONumber=42-->

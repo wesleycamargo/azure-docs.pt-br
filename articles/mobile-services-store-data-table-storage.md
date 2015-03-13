@@ -22,4 +22,4 @@
 Saiba como trabalhar com Armazenamento de Tabela usando os Serviços Móveis com o tutorial de Chris Risner, [Serviços Móveis e Armazenamento do Microsoft Azure].
 
 [Serviços Móveis e Armazenamento do Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
-\n<!--HONumber=42-->
+\<!--HONumber=42-->

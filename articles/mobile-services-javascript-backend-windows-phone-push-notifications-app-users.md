@@ -28,7 +28,7 @@ Este tutorial explica o seguinte processo:
 + [Atualizando o aplicativo para fazer logon antes do registro]
 + [Testando o aplicativo]
  
-Esse tutorial dá suporte a aplicativos do Windows Phone 8.0 e do Windows Phone 8.1 ("Silverlight"). Para aplicativos da Windows Phone 8.1 Store, consulte a [versão Windows Store deste tópico](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users).
+Esse tutorial dá suporte a aplicativos do Windows Phone 8.0 e do Windows Phone 8.1 ("Silverlight"). Para aplicativos da Windows Phone 8.1 Store, consulte a [versão Windows Store deste tópico](/pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users).
 
 ##Pré-requisitos 
 
@@ -95,9 +95,10 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 
 <!-- URLs. -->
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+
+<!--HONumber=42-->

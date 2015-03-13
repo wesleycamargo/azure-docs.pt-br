@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do Barramento de Serviço (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em c# usando a API do .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Como usar filas do Barramento de Serviço (.NET) - Azure" 
+	description="Aprenda a usar as filas do barramento de serviço no Azure. Amostras de código escrito em C# usando a API .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -233,7 +247,9 @@ links para saber mais.
   
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
-  [Sistema de mensagens agenciado .NET do Barramento de Serviço Tutorial]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367512.aspx
+  [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Sistema de mensagens agenciado .NET do Barramento de Serviço Tutorial]: http://msdn.microsoft.com/library/windowsazure/hh367512.aspx
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

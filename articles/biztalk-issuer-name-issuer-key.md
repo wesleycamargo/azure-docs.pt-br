@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Issuer name and issuer key" pageTitle="Nome do emissor e chave do emissor nos Serviços BizTalk | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Saiba como recuperar o nome do emissor e chave do emissor para barramento de serviço ou controle de acesso (ACS) nos serviços BizTalk." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
+﻿<properties 
+	pageTitle="Nome do emissor e chave do emissor nos Serviços BizTalk | Azure" 
+	description="Saiba como recuperar o nome do emissor e chave do emissor para barramento de serviço ou controle de acesso (ACS) nos serviços BizTalk. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -98,3 +112,5 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
 - [Serviços do BizTalk: guias Painel, Monitoramento e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Serviços do BizTalk: Backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Serviços do BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+
+<!--HONumber=46--> 

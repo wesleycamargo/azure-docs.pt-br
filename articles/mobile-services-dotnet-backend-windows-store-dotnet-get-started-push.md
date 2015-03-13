@@ -23,7 +23,7 @@
 
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do .NET para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure para o projeto universal de início rápido do Windows. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do .NET usando os Hubs de Notificação sempre que um registro for inserido. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
->[AZURE.NOTE]Este tópico mostra como configurar manualmente as notificações por push usando o Serviço de Notificação do Windows (WNS) para um aplicativo da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para configurar automaticamente as mesmas notificações por push em um projeto de aplicativo universal. Para obter mais informações, consulte a [versão universal do aplicativo Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push) deste tutorial.
+>[AZURE.NOTE]Este tópico mostra como configurar manualmente as notificações por push usando o Serviço de Notificação do Windows (WNS) para um aplicativo da Windows Store. Você pode usar as ferramentas do Visual Studio 2013 para configurar automaticamente as mesmas notificações por push em um projeto de aplicativo universal. Para obter mais informações, consulte a [versão universal do aplicativo Windows](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push) deste tutorial.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
@@ -35,7 +35,7 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 Este tutorial baseia-se no guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis] ou a [Introdução aos dados] para conectar seu projeto ao serviço móvel. 
 
->[AZURE.NOTE]Este tópico dá suporte aos aplicativos do Windows Phone Store 8.1. Para adicionar notificações por push a um aplicativo Windows Phone 8 ou Windows Phone Silverlight 8.1, consulte esta versão de [Introdução a notificações nos Serviços Móveis](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push).
+>[AZURE.NOTE]Este tópico dá suporte aos aplicativos do Windows Phone Store 8.1. Para adicionar notificações por push a um aplicativo Windows Phone 8 ou Windows Phone Silverlight 8.1, consulte esta versão de [Introdução a notificações nos Serviços Móveis](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push).
 
 ##<a id="register"></a> Registrar seu aplicativo com o WNS e configurar os Serviços Móveis
 
@@ -149,16 +149,17 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de transmissão aos assinantes]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Enviar notificações baseadas em modelo aos assinantes]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de transmissão aos assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Enviar notificações baseadas em modelo aos assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library
+
+\<!--HONumber=42-->

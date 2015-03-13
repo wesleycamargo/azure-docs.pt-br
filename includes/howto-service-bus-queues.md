@@ -68,7 +68,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 ###Para obter credenciais de gerenciamento do Gerenciador de Servidores
 
-Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui](http://http://msdn.microsoft.com/pt-br/library/windowsazure/ff687127.aspx), Na seção intitulada **Para conectar-se ao Azure pelo Visual Studio**. Quando você entra no Azure, o nó **Barramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio. 
+Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), Na seção intitulada **Para conectar-se ao Azure pelo Visual Studio**. Quando você entra no Azure, o nó **Barramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio. 
 
 Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
 
@@ -78,5 +78,4 @@ Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
-
 <!--HONumber=42-->

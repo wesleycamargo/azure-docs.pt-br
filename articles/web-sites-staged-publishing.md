@@ -72,7 +72,7 @@ O site deve estar sendo executado no plano de hospedagem **Padrão** para habili
 
 	-	 
 
-Não há conteúdo. É possível implantar no slot a partir de uma ramificação diferente do repositório, ou mesmo de um repositório diferente. Você também pode alterar a configuração do slot. Use o perfil de publicação ou as credenciais de implantação associadas ao slot de implantação para atualizar o conteúdo.  Por exemplo, você pode [publicar neste slot com o git](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-publish-source-control/).
+Não há conteúdo. É possível implantar no slot a partir de uma ramificação diferente do repositório, ou mesmo de um repositório diferente. Você também pode alterar a configuração do slot. Use o perfil de publicação ou as credenciais de implantação associadas ao slot de implantação para atualizar o conteúdo.  Por exemplo, você pode [publicar neste slot com o git](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/).
 
 <a name="AboutConfiguration"></a>
 ##Sobre a configuração de slots de implantação##
@@ -147,7 +147,7 @@ Na barra de comando na parte inferior do portal de sites do Azure, clique em **E
 
 O PowerShell do Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte para gerenciamento de slots de implantação para sites do Azure. 
 
-- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Microsoft Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](http://www.windowsazure.com/pt-br/documentation/articles/install-configure-powershell).  
+- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Microsoft Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell).  
 
 - Para listar os cmdlets disponíveis para sites do Azure no PowerShell, chame  `help AzureWebsite`. 
 
@@ -202,7 +202,7 @@ Se um slot de implantação não for mais necessário, ele poderá ser excluído
 
 A Interface de linha de comando entre plataformas do Azure (xplat-cli) fornece comandos entre plataformas para trabalhar com o Azure, incluindo suporte para gerenciamento de slots de implantação em sites do Azure. 
 
-- Para obter instruções sobre como instalar e configurar a xplat-cli, incluindo informações sobre como conectar a xplat-cli com sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://www.windowsazure.com/pt-br/documentation/articles/xplat-cli). 
+- Para obter instruções sobre como instalar e configurar a xplat-cli, incluindo informações sobre como conectar a xplat-cli com sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://azure.microsoft.com/documentation/articles/xplat-cli). 
 
 -  Para listar os comandos disponíveis para Sites do Azure na xplat-cli, chame  `azure site -h`. 
 
@@ -238,7 +238,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 ## Próximas Etapas ##
 [Sites do Azure - bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Avaliação gratuita do Microsoft Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/)
+[Avaliação gratuita do Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

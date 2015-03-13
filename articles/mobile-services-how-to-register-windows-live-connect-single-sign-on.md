@@ -20,7 +20,7 @@
 
 Este tópico mostra como registrar seu aplicativo da Windows Store para usar o logon único do Live Connect como o provedor de identidade dos Serviços Móveis do Azure. Esta etapa também é necessária para usar notificações por push.
 
-> [AZURE.IMPORTANT] Não é necessário registrar seu aplicativo da Windows Store para usar a Conta da Microsoft para autenticação antes de publicar seu aplicativo. Quando seu aplicativo da Windows Store não exigir logon único para notificações por push, você pode registrá-lo no Live Connect para usar um logon de Conta da Microsoft.  Para obter mais informações, consulte [Registrar seus aplicativos da Windows Store para usar um logon de Conta da Microsoft](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication).
+> [AZURE.IMPORTANT] Não é necessário registrar seu aplicativo da Windows Store para usar a Conta da Microsoft para autenticação antes de publicar seu aplicativo. Quando seu aplicativo da Windows Store não exigir logon único para notificações por push, você pode registrá-lo no Live Connect para usar um logon de Conta da Microsoft.  Para obter mais informações, consulte [Registrar seus aplicativos da Windows Store para usar um logon de Conta da Microsoft](/pt-br/develop/mobile/how-to-guides/register-for-microsoft-authentication).
 
 1. Se você não tiver registrado seu aplicativo, navegue até [Enviar uma página do aplicativo] no Centro de Desenvolvimento de aplicativos da Windows Store, entre com sua Conta da Microsoft e, em seguida, clique em **Nome do Aplicativo**.
 
@@ -81,13 +81,14 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 
 
 <!-- URLs. -->
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript e HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

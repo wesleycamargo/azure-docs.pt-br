@@ -1,6 +1,20 @@
-<properties pageTitle="Policies in Azure API Management" metaKeywords="" description="Learn how to create, edit, and configure policies in API Management." metaCanonical="" services="" documentationCenter="API Management" title="Policies in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Políticas do Gerenciamento de API do Azure" 
+	description="Aprenda a criar, editar e configurar políticas de Gerenciamento de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="sdanie"/>
 
 # Políticas do Gerenciamento de API do Azure
 
@@ -99,3 +113,5 @@ Observação: Uma política global não tem políticas superiores a ela, de modo
   [Editar]: ./media/api-management-howto-policies/api-management-policies-edit.png
   [Políticas de restrição]: ./media/api-management-howto-policies/api-management-policies-restrict.png
   [Salvar]: ./media/api-management-howto-policies/api-management-policies-save.png
+
+<!--HONumber=46--> 

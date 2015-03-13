@@ -28,7 +28,7 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *T
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express para Windows] 
 
 ## Criar um novo serviço móvel
@@ -78,7 +78,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 * [Introdução às notificações por push] 
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-Para obter mais informações sobre aplicativos Windows universais, consulte [Suporte a várias plataformas de dispositivo por meio de um único serviço móvel](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Para obter mais informações sobre aplicativos Windows universais, consulte [Suporte a várias plataformas de dispositivo por meio de um único serviço móvel](/pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
 <!-- Anchors. -->
 [Introdução aos Serviços Móveis]:#getting-started
@@ -89,10 +89,11 @@ Para obter mais informações sobre aplicativos Windows universais, consulte [Su
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

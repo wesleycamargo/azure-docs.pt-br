@@ -29,7 +29,7 @@ A sincronização offline possui diversos usos possíveis:
 * Permite que usuários finais criem e modifiquem dados mesmo quando não há acesso à rede, com suporte para cenários com pouca ou nenhuma conectividade
 * Sincroniza dados entre vários dispositivos e detecta conflitos quando o mesmo registro é modificado por dois dispositivos
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
 
 Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis].
 
@@ -282,15 +282,16 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 [Dados básicos]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Baixe o SDK de visualização aqui]: http://aka.ms/Gc6fex
-[Como usar a biblioteca de cliente dos Serviços Móveis para iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[Como usar a biblioteca de cliente dos Serviços Móveis para iOS]: /pt-br/documentation/articles/mobile-services-ios-how-to-use-client-library/
 [Exemplo de iOS off-line]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Repositório de exemplo de Serviços Móveis no GitHub]: https://github.com/Azure/mobile-services-samples
 
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Tratando conflitos com o suporte offline para os Serviços móveis]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
-[Exclusão Reversível]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
+[Tratando conflitos com o suporte offline para os Serviços móveis]: /pt-br/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[Exclusão Reversível]: /pt-br/documentation/articles/mobile-services-using-soft-delete/
 
 [Cobertura em Nuvem: Sincronização offline em Serviços Móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-\n<!--HONumber=42-->
+[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+
+\<!--HONumber=42-->

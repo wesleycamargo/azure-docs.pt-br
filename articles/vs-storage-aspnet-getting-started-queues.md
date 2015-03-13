@@ -27,7 +27,7 @@
 > - [Filas](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
 > - [Tabelas](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
-O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte [Como usar o Armazenamento de Filas do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/) para obter mais informações.
+O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte [Como usar o Armazenamento de Filas do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/) para obter mais informações.
 
 Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C# no qual você deseja acessar o Armazenamento do Azure por meio de programação.
 
@@ -44,4 +44,4 @@ Antes de poder realizar qualquer coisa com a fila, será necessário obter a cad
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
-<!--HONumber=42-->
+\<!--HONumber=42-->

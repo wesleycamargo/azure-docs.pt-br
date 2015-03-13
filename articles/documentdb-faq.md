@@ -1,6 +1,20 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="Perguntas frequentes sobre o Banco de Dados de Documentos | Azure" description="Respostas para perguntas frequentes sobre o serviço de Banco de Dados de Documentos nosql do Banco de Dados de Documentos do Azure. Saiba mais sobre capacidade e unidades de solicitação e entender como atendem às necessidades do seu aplicativo." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Perguntas frequentes sobre o Banco de Dados de Documentos | Azure" 
+	description="Respostas para perguntas frequentes sobre o serviço de Banco de Dados de Documentos nosql do Banco de Dados de Documentos do Azure. Saiba mais sobre capacidade e unidades de solicitação e entender como atendem às necessidades do seu aplicativo." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #Perguntas frequentes sobre o Banco de Dados de Documentos
@@ -32,7 +46,7 @@ Sim, o Banco de Dados de Documentos suporta transações entre documentos expres
 O Banco de Dados de Documentos é uma boa opção para novos aplicativos Web e dispositivos móveis nos quais escala, desempenho e consulta de dados sem esquema são importantes. O Banco de Dados de Documentos funciona bem em contextos de desenvolvimento rápido e suporta a iteração contínua de modelos de dados de aplicativos. Os aplicativos que gerenciam conteúdo e dados gerados pelo usuário são casos de uso comuns do Banco de Dados de Documentos.  
 
 ###Quais são os limites de escala e de capacidade?
-Cada conta do Banco de Dados de Documentos do Azure suporta um número máximo de unidades de capacidade que podem ser configuradas no portal do Azure. Se precisar de unidades de capacidade adicionais, entre em contato com o suporte para que a cota de sua conta seja aumentada.  Para obter mais informações sobre cotas de recursos, consulte [Limites da versão de teste do Banco de Dados de Documentos.](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 
+Cada conta do Banco de Dados de Documentos do Azure suporta um número máximo de unidades de capacidade que podem ser configuradas no portal do Azure. Se precisar de unidades de capacidade adicionais, entre em contato com o suporte para que a cota de sua conta seja aumentada.  Para obter mais informações sobre cotas de recursos, consulte [Limites da versão de teste do Banco de Dados de Documentos.](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 
 
 
 ###Quanto custa o Banco de Dados de Documentos do Microsoft Azure?
@@ -87,3 +101,5 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 
 [preview-portal]: https://portal.azure.com
 [query]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

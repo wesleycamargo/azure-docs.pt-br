@@ -1,6 +1,18 @@
-﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitorar a integridade e o uso do aplicativo com o Application Insights" description="Introdução ao Application Insights. Analise o uso, disponibilidade e desempenho de seu local ou aplicativos do Microsoft Azure." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Monitorar a integridade e o uso do aplicativo com o Application Insights" 
+	description="Introdução ao Application Insights. Analise o uso, disponibilidade e desempenho de seu local ou aplicativos do Microsoft Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-12-11" 
+	ms.author="awills"/>
  
 # Monitore o desempenho dos aplicativos web
 
@@ -152,3 +164,5 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -142,12 +142,11 @@ Este tutorial exige o seguinte:
 [Testar o cliente usando autenticação]: #test-client
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Como se registrar com o Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Introdução aos dados]: /pt-br/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
+[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Uma associação do Xamarin à Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Extensão Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
-
-<!--HONumber=42-->
+\<!--HONumber=42-->

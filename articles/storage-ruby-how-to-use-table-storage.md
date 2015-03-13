@@ -176,8 +176,7 @@ Para excluir uma tabela, use o método **delete\_table()** e transmita o nome da
 
 Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
 
-* Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx)
+* Consulte a referência de MSDN: [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 * Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visite o repositório [SDK do Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
-
 <!--HONumber=42-->

@@ -66,7 +66,7 @@ Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêin
     	}
 	}
 
-Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob) para obter mais informações.
+Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob) para obter mais informações.
 
 #####Baixar um blob
 Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o método DownloadToStream(). O exemplo a seguir usa o método DownloadToStream() para transferir o conteúdo do blob para um objeto de fluxo pode ser salvo como arquivo local.
@@ -80,7 +80,7 @@ Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-Existem outras maneiras de salvar blobs como arquivos. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs) para obter mais informações.
+Existem outras maneiras de salvar blobs como arquivos. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs) para obter mais informações.
 
 #####Excluir um blob
 Para excluir um blob, primeiramente obtenha uma referência para o blob e chame o método Delete() nele.
@@ -92,7 +92,6 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
 	blockBlob.Delete();
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx).
-
+Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

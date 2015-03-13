@@ -369,7 +369,7 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Como: Obter o tamanho da fila]: #get-queue-length
   [Como: Excluir uma fila]: #delete-queue
   [Como: Trabalhando com assinaturas de acesso compartilhado]: #sas
-  [using the REST API]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Criar e implantar um aplicativo Node.js em um site do Azure]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Node.js Cloud Service with Storage]: /pt-br/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
@@ -383,8 +383,7 @@ para saber como fazer tarefas mais complexas de armazenamento.
   
   
   [Serviço em Nuvem Node.js]: /pt-br/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg433040.aspx
+  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  [site com WebMatrix]: /pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/
-
 <!--HONumber=42-->

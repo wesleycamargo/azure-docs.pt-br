@@ -22,7 +22,7 @@
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo do Windows Phone. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.
 
->[AZURE.NOTE] Esse tópico dá suporte somente a aplicativos Silverlight do Windows Phone 8.0 e 8.1. Se você tiver um Windows Phone Store 8.1 ou aplicativo Windows universal, em vez disso, siga a [versão do aplicativo universal do Windows deste tópico](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+>[AZURE.NOTE] Esse tópico dá suporte somente a aplicativos Silverlight do Windows Phone 8.0 e 8.1. Se você tiver um Windows Phone Store 8.1 ou aplicativo Windows universal, em vez disso, siga a [versão do aplicativo universal do Windows deste tópico](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
@@ -77,15 +77,16 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Logon único para aplicativos do Windows Phone usando o Live Connect]: /en-us/documentation/articles/mobile-services-windows-phone-single-sign-on
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[Autorizar usuários com scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts
-[JavaScript e HTML]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Logon único para aplicativos do Windows Phone usando o Live Connect]: /pt-br/documentation/articles/mobile-services-windows-phone-single-sign-on
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts
+[JavaScript e HTML]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+
+\<!--HONumber=42-->

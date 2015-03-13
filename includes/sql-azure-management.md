@@ -217,7 +217,7 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
 * [Adicionando usuários ao seu Banco de Dados SQL][]   
 * [Referência Transact-SQL (SQL Database)][]
 
-  [Como usar o Banco de Dados SQL do Azure]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/sql-azure/
+  [Como usar o Banco de Dados SQL do Azure]: http://azure.microsoft.com/develop/net/how-to-guides/sql-azure/
   [Etapa 1: Obter o SQL Server Management Studio]: #Step1
   [Etapa 2: Conectar-se ao Banco de Dados SQL]: #Step2
   [Etapa 3: criar e gerenciar bancos de dados]: #Step3
@@ -231,18 +231,17 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
   [Obter o nome do servidor de Banco de Dados SQL por meio do Portal de Gerenciamento]: /media/portal_get_database_name.png
   [Conectar-se ao SSMS]: /media/ssms_connect.png
   [Conectar-se ao SSMS -- propriedades]: /media/ssms_connect_properties.png
-  [Referência Transact-SQL (SQL Database)]: http://msdn.microsoft.com/pt-br/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336274.aspx
-  [ALTER DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff394109.aspx
-  [DROP DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336259.aspx
-  [Gerenciamento de bancos de dados e logons no banco de dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336268.aspx
-  [CREATE USER (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/ee336277.aspx
-  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/pt-br/library/ms187750.aspx
-  [ALTER LOGIN (Banco de Dados SQL)]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336254.aspx
-  [Monitoramento de banco de dados SQL usando exibições de gerenciamento dinâmico]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff394114.aspx
-  [Introdução ao Banco de Dados SQL]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee336230.aspx
-  [Modelo de provisionamento de Banco de Dados SQL]: http://msdn.microsoft.com/pt-br/library/ee336227.aspx
+  [Referência Transact-SQL (SQL Database)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
+  [CREATE DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336274.aspx
+  [ALTER DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/library/windowsazure/ff394109.aspx
+  [DROP DATABASE (Banco de Dados SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336259.aspx
+  [Gerenciamento de bancos de dados e logons no banco de dados SQL]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+  [CREATE LOGIN (Banco de Dados SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336268.aspx
+  [CREATE USER (Banco de Dados SQL)]: http://msdn.microsoft.com/library/ee336277.aspx
+  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
+  [ALTER LOGIN (Banco de Dados SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336254.aspx
+  [Monitoramento de banco de dados SQL usando exibições de gerenciamento dinâmico]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [Introdução ao Banco de Dados SQL]: http://msdn.microsoft.com/library/windowsazure/ee336230.aspx
+  [Modelo de provisionamento de Banco de Dados SQL]: http://msdn.microsoft.com/library/ee336227.aspx
   [Adicionando usuários ao seu Banco de Dados SQL]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
-
 <!--HONumber=42-->

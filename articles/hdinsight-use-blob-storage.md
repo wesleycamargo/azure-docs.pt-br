@@ -62,7 +62,7 @@ Além dessa conta de armazenamento, você pode adicionar mais contas de armazena
 - **Contêineres públicos ou blobs públicos nas contas de armazenamento que NÃO estão conectadas a um cluster:** você tem permissão somente leitura para os blobs nos contêineres.
 
 	> [AZURE.NOTE]
-        > Um contêiner público permite obter uma lista de todos os blobs disponíveis nesse contêiner e obter metadados do contêiner. Um blob público permite  acessar os blobs somente se você souber a URL exata. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/dd179354.aspx">Restringir o acesso aos contêineres e blobs</a>.
+        > Um contêiner público permite obter uma lista de todos os blobs disponíveis nesse contêiner e obter metadados do contêiner. Um blob público permite  acessar os blobs somente se você souber a URL exata. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restringir o acesso aos contêineres e blobs</a>.
 
 - **Contêineres privados nas contas de armazenamento que NÃO estão conectados a um cluster:** não é possível acessar os blobs nos contêineres, a menos que você defina a conta de armazenamento quando você envia os trabalhos WebHCat. Isso é explicado posteriormente neste artigo.
 
@@ -296,11 +296,10 @@ Para saber mais, consulte os seguintes artigos:
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
-
 <!--HONumber=42-->

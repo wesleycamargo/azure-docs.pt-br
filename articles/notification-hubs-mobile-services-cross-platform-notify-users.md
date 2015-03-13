@@ -1,9 +1,23 @@
-﻿<properties urlDisplayName="notify users xplat mobile services" pageTitle="Enviar notificações entre plataformas a usuários com Hubs de notificação (serviços móveis) " metaKeywords ="" description="Saiba como usar modelos de Hubs de notificação para enviar, em uma única solicitação, uma notificação independente de plataforma, que se destina a todas as plataformas." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Enviar notificações entre plataformas para usuários com Hubs de notificação (Serviços móveis)" 
+	description="Saiba como usar modelos de Hubs de notificação para enviar, em uma única solicitação, uma notificação independente de plataforma que se destina a todas as plataformas." 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="12/03/2014" 
+	ms.author="glenga"/>
 
 # Enviar notificações entre plataformas a usuários com Hubs de Notificação
 
-Este tópico foi substituído e não é mais válido. Para saber como usar Hubs de notificação do Azure com serviços móveis do Azure para enviar notificações para usuários específicos, consulte o tópico [Enviar notificações push para usuários autenticados](/pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/).  
+Este tópico foi substituído e não é mais válido. Para saber como usar Hubs de notificação do Azure com serviços móveis do Azure para enviar notificações para usuários específicos, consulte o tópico [Enviar notificações push para usuários autenticados](/pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

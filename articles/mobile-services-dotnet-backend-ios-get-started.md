@@ -28,7 +28,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões posteriores.
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank").
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank").
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -76,7 +76,7 @@ Nesta seção você criará um novo aplicativo iOS que está conectado ao seu se
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-Isso mostra como executar seu novo aplicativo cliente no serviço móvel em execução no Azure. Antes de testar o aplicativo iOS com o serviço móvel em execução em um computador local, você deve configurar o servidor Web e o firewall para permitir acesso por meio de seu computador de desenvolvimento do iOS. Para obter mais informações, consulte [Configurar o servidor Web local para permitir conexões com um serviço móvel local](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
+Isso mostra como executar seu novo aplicativo cliente no serviço móvel em execução no Azure. Antes de testar o aplicativo iOS com o serviço móvel em execução em um computador local, você deve configurar o servidor Web e o firewall para permitir acesso por meio de seu computador de desenvolvimento do iOS. Para obter mais informações, consulte [Configurar o servidor Web local para permitir conexões com um serviço móvel local](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
 ## <a name="next-steps"> </a>Próximas Etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
@@ -116,15 +116,16 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Introdução à sincronização de dados offline]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
-[Solucionar um problema de back-end do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
+[Introdução à sincronização de dados offline]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Solucionar um problema de back-end do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [SDK do iOS dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Versão de back-end do JavaScript]: /en-us/documentation/articles/mobile-services-ios-get-started
-\n<!--HONumber=42-->
+[Versão de back-end do JavaScript]: /pt-br/documentation/articles/mobile-services-ios-get-started
+
+\<!--HONumber=42-->

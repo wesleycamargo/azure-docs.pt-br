@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Throttling" pageTitle="Limiares de limitação nos Serviços BizTalk | Azure" metaKeywords="BizTalk Services, throttling, Azure" description="Saiba mais sobre os limites de limitação e comportamentos de tempo de execução resultantes para os serviços BizTalk. Limitação baseia-se no uso de memória e o número de mensagens simultâneas." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Throttling" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Limiares de limitação nos Serviços BizTalk | Azure" 
+	description="Saiba mais sobre os limites de limitação e comportamentos de tempo de execução resultantes para os serviços BizTalk. A limitação é baseada no uso de memória e número de mensagens. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
+
 
 
 
@@ -76,3 +91,5 @@ Um pipeline puxa as mensagens de uma origem de FTP externa. A instância de fun�
 - [Serviços do BizTalk: guias Painel, Monitoramento e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Serviços do BizTalk: Backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Serviços do BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+
+<!--HONumber=46--> 

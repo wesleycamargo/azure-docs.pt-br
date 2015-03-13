@@ -23,7 +23,7 @@
 
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do .NET para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure em um projeto do aplicativo Windows universal. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do .NET para todos os aplicativos do Windows Store e Windows Phone Store sempre que um registro é inserido na tabela TodoList. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
->[AZURE.NOTE]Esse tópico lhe mostra como usar as ferramentas no Visual Studio Professional 2013 com atualização 3 para adicionar suporte para notificações por push dos Serviços Móveis para um aplicativo Windows universal. As mesmas etapas podem ser usadas para adicionar notificações por push dos Serviços Móveis para um aplicativo da Windows Store ou Windows Phone Store 8.1. Se você não pode atualizar para o Visual Studio Professional 2013 Update 3 ou prefere adicionar manualmente seu projeto de serviço móvel a uma solução de aplicativo da Windows Store, veja [esta versão](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push) do tópico.
+>[AZURE.NOTE]Esse tópico lhe mostra como usar as ferramentas no Visual Studio Professional 2013 com atualização 3 para adicionar suporte para notificações por push dos Serviços Móveis para um aplicativo Windows universal. As mesmas etapas podem ser usadas para adicionar notificações por push dos Serviços Móveis para um aplicativo da Windows Store ou Windows Phone Store 8.1. Se você não pode atualizar para o Visual Studio Professional 2013 Update 3 ou prefere adicionar manualmente seu projeto de serviço móvel a uma solução de aplicativo da Windows Store, veja [esta versão](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push) do tópico.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
@@ -68,7 +68,7 @@ As etapas restantes nesta seção são opcionais. Elas permitem que você teste 
 
 <ol start="5">
 <li><p>Navegue até a <code>\services\mobileServices\settings</code> pasta do projeto, copie o arquivo de script &lt;<em>your_service_name</em>&gt;.js gerado na pasta compartilhada <code>\js</code> do projeto e, em seguida, exclua esse arquivo de ambos os projetos individuais de aplicativo do Windows e WindowsPhone. Exclua também este arquivo da <code>\services\mobileServices\scripts</code> pasta em cada projeto de aplicativo se ela existir lá também.</p></li> 
-<li><p>Abra o arquivo de script na pasta de projeto compartilhada <code>\js</code> e comente o código existente que define o <a href="http://msdn.microsoft.com/en-us/library/azure/jj554219.aspx">MobileServiceClient object</a> usado para acessar o serviço móvel em execução no Azure.</p></li>
+<li><p>Abra o arquivo de script na pasta de projeto compartilhada <code>\js</code> e comente o código existente que define o <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx">MobileServiceClient object</a> usado para acessar o serviço móvel em execução no Azure.</p></li>
 <li><p>Adicione uma nova definição de objeto <strong>MobileServiceClient</strong> com o mesmo nome, mas usando a URL do host local no construtor, semelhante à seguinte:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.
@@ -110,13 +110,14 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-users
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
 
-[Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
-\n<!--HONumber=42-->
+[Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library
+
+<!--HONumber=42-->

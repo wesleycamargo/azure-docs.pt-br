@@ -1,7 +1,20 @@
-﻿<properties pageTitle="Personalização do portal do desenvolvedor no Gerenciamento de API do Azure" metaKeywords="" description="Personalização do portal do desenvolvedor no Gerenciamento de API do Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Personalização do portal do desenvolvedor no Gerenciamento de API do Azure" 
+	description="Personalização do portal do desenvolvedor no Gerenciamento de API do Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
-
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 # Personalização do portal do desenvolvedor no Gerenciamento de API do Azure
 
 Este guia mostra como modificar a aparência do portal do desenvolvedor no Gerenciamento de API para manter a consistência com a sua marca.
@@ -94,3 +107,5 @@ Clique na página "Bem-vindo" para editar o que é exibido na home page do porta
 [LESS variables]: http://getbootstrap.com/css/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

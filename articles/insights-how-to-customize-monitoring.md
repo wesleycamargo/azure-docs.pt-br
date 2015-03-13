@@ -1,6 +1,20 @@
-﻿<properties title="How to customize monitoring" pageTitle="Como personalizar o monitoramento" description="Saiba como personalizar gráficos de monitoramento no Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Como personalizar o monitoramento" 
+	description="Saiba como personalizar gráficos de monitoramento no Azure." 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # Personalizando o monitoramento
 
@@ -53,3 +67,5 @@ Com a personalização avançada pelo usuário na Visualização do Portal do Az
 
 Observe que o intervalo de tempo do gráfico e as métricas escolhidas serão redefinidas quando você sair do portal.
 
+
+<!--HONumber=46--> 

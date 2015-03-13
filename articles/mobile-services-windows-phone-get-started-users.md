@@ -85,8 +85,9 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 <!-- URLs. -->
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
-[Autorizar usuários com scripts]: /en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
+[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Logon único para aplicativos do Windows Phone usando o Live Connect]: /en-us/documentation/articles/mobile-services-windows-phone-single-sign-on
-\n<!--HONumber=42-->
+[Logon único para aplicativos do Windows Phone usando o Live Connect]: /pt-br/documentation/articles/mobile-services-windows-phone-single-sign-on
+
+\<!--HONumber=42-->

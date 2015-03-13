@@ -21,7 +21,7 @@
 O recurso de Backup e Restauração de Sites do Azure permite criar facilmente backups de sites manual ou automaticamente. É possível restaurar um site para um estado anterior ou criar um novo site baseado em um dos backups do seu site original. 
 
 
-Para obter informações sobre como restaurar um Site do Azure a partir do backup, consulte [Restaurar um Site do Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-restore/).
+Para obter informações sobre como restaurar um Site do Azure a partir do backup, consulte [Restaurar um Site do Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Neste artigo
 
@@ -57,7 +57,7 @@ O backup dessas informações é feito na conta de armazenamento do Azure especi
 <a name="requirements"></a>
 ##Requisitos e restrições
 
-* O recurso de Backup e Restauração requer que o site esteja em uma camada Standard. Para obter mais informações adicionais sobre como dimensionar seu site, consulte [Como dimensionar sites](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-scale/). 
+* O recurso de Backup e Restauração requer que o site esteja em uma camada Standard. Para obter mais informações adicionais sobre como dimensionar seu site, consulte [Como dimensionar sites](http://azure.microsoft.com/documentation/articles/web-sites-scale/). 
 
 * O recurso de Backup e Restauração requer uma conta de armazenamento do Azure que deve pertencer à mesma assinatura que o site do qual você vai fazer backup. Se ainda não tiver uma conta de armazenamento, você poderá criar uma clicando no botão **Armazenamento** (ícone de grade) no painel esquerdo do portal do Azure e, em seguida, escolhendo **Novo** na barra de comandos na parte inferior. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
 
@@ -134,9 +134,9 @@ Os nomes dos arquivos .zip e .xml do backup consistem no nome do site seguido de
 
 O arquivo XML que é armazenado com o arquivo zip indica o nome do arquivo de banco de dados em *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-O mesmo arquivo de backup do banco de dados é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um novo banco de dados SQL baseado na exportação do BACPAC, você pode seguir as etapas no artigo [Importar um arquivo BACPAC para criar um novo banco de dados do usuário](http://technet.microsoft.com/pt-br/library/hh710052.aspx).
+O mesmo arquivo de backup do banco de dados é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um novo banco de dados SQL baseado na exportação do BACPAC, você pode seguir as etapas no artigo [Importar um arquivo BACPAC para criar um novo banco de dados do usuário](http://technet.microsoft.com/library/hh710052.aspx).
 
-Para obter mais informações sobre restaurar um site do Azure (incluindo bancos de dados) usando o portal de gerenciamento do Azure, consulte [Restaurar um site do Microsoft Azure]( http://azure.microsoft.com/pt-br/documentation/articles/web-sites-restore/).
+Para obter mais informações sobre restaurar um site do Azure (incluindo bancos de dados) usando o portal de gerenciamento do Azure, consulte [Restaurar um site do Microsoft Azure]( http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 > [AZURE.NOTE]  A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.
 
@@ -150,19 +150,19 @@ Para obter mais informações sobre restaurar um site do Azure (incluindo bancos
 
 <a name="nextsteps"></a>
 ## Próximas etapas
-Para obter informações sobre como restaurar um Site do Azure a partir do backup, consulte [Restaurar um Site do Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-restore/).
+Para obter informações sobre como restaurar um Site do Azure a partir do backup, consulte [Restaurar um Site do Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
-Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pt-br/pricing/free-trial/).
+Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### Mais informações sobre contas de armazenamento
 
-[O que é uma Conta de Armazenamento?](http://www.windowsazure.com/pt-br/documentation/articles/storage-whatis-account/)
+[O que é uma Conta de Armazenamento?](http://azure.microsoft.com/documentation/articles/storage-whatis-account/)
 
-[Como: Criar uma conta de armazenamento](http://www.windowsazure.com/pt-br/documentation/articles/storage-create-storage-account/)
+[Como: Criar uma conta de armazenamento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
-[Como monitorar uma conta de armazenamento](http://www.windowsazure.com/pt-br/documentation/articles/storage-monitor-storage-account/)
+[Como monitorar uma conta de armazenamento](http://azure.microsoft.com/documentation/articles/storage-monitor-storage-account/)
 
 [Noções básicas sobre cobrança de armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

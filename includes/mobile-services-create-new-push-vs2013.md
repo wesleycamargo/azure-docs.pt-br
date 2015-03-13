@@ -20,7 +20,7 @@
 
 	O hub de notificação utilizado pelo seu serviço móvel é atualizado com o registro dos Serviços de Notificação do Windows (WNS). É possível agora usar os Hubs de Notificação do Azure para enviar notificações de Serviços Móveis para seu aplicativo usando o WNS. 
 
-	>[AZURE.NOTE]Este tutorial demonstra como enviar notificações de um back-end do serviço móvel. Você pode usar o mesmo hub de notificação para enviar notificações de qualquer serviço de back-end. Para obter mais informações, consulte [Visão geral de Hubs de Notificação](http://msdn.microsoft.com/pt-br/library/azure/jj927170.aspx).
+	>[AZURE.NOTE]Este tutorial demonstra como enviar notificações de um back-end do serviço móvel. Você pode usar o mesmo hub de notificação para enviar notificações de qualquer serviço de back-end. Para obter mais informações, consulte [Visão geral de Hubs de Notificação](http://msdn.microsoft.com/library/azure/jj927170.aspx).
 
 5. Quando você concluir o assistente, uma nova página **Configuração de push está quase concluída** é aberta no Visual Studio. Esta página fornece os detalhes de um método alternativo para configurar o seu projeto de serviço móvel para enviar notificações que são diferentes deste tutorial. 
 
@@ -30,5 +30,4 @@
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
 [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Importe o arquivo publishsettings no Visual Studio 2013]: /pt-br/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-
 <!--HONumber=42-->

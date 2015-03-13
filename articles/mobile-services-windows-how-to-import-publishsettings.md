@@ -50,14 +50,15 @@ Antes de criar o serviço móvel, você deve importar o arquivo de configuraçõ
 [1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
 [2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-live-connect-app-api-settings.png
 <!-- URLs. -->
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /en-us/develop/mobile/how-to-guides/register-for-single-sign-on/
+[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/how-to-guides/register-for-single-sign-on/
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started/
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript e HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

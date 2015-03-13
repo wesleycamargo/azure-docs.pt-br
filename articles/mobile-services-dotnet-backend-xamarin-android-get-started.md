@@ -22,7 +22,7 @@
 
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin Android usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript] neste tópico.
 
->[AZURE.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel usando o Portal de Gerenciamento do Azure. Usando o Visual Studio 2013 Update 2, você também pode adicionar um novo projeto de serviço móvel em uma solução existente do Visual Studio. Para saber mais, confira [Guia de início rápido: Adicionar um serviço móvel (back-end do .NET)](http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel usando o Portal de Gerenciamento do Azure. Usando o Visual Studio 2013 Update 2, você também pode adicionar um novo projeto de serviço móvel em uma solução existente do Visual Studio. Para saber mais, confira [Guia de início rápido: Adicionar um serviço móvel (back-end do .NET)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
@@ -30,7 +30,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Serviços Móveis para aplicativos Xamarin Android. 
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Avaliação Gratuita do Azure</a>.<br />Este tutorial requer o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Avaliação Gratuita do Azure</a>.<br />Este tutorial requer o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
 
 ## Criar um novo serviço móvel
 
@@ -124,19 +124,20 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [10]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Introdução à sincronização de dados offline]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
+[Introdução à sincronização de dados offline]: /pt-br/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript e HTML]: serviços móveis-javascript win8 /
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
-[Versão de back-end do JavaScript]: /en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started
-[Introdução aos dados nos Serviços Móveis usando o Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[Solucionar um problema de back-end do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Versão de back-end do JavaScript]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started
+[Introdução aos dados nos Serviços Móveis usando o Visual Studio 2012]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Solucionar um problema de back-end do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin para Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

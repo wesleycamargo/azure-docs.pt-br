@@ -19,7 +19,7 @@
 # Definir uma API personalizada que dá suporte a notificações periódicas
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">C# da Windows Store</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">JavaScript da Windows Store</a>
+	<a href="/pt-br/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">C# da Windows Store</a><a href="/pt-br/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">JavaScript da Windows Store</a>
 </div>
 
 Este tópico mostra como usar uma API personalizada para oferecer suporte a notificações periódicas em um aplicativo da Windows Store. Com as notificações periódicas habilitadas, o Windows acessará periodicamente o ponto de extremidade da API personalizada e usará o XML retornado em um formato específico de bloco para atualizar o bloco do aplicativo no menu Iniciar. Para obter mais informações, consulte [Notificações periódicas]. 
@@ -96,7 +96,7 @@ Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes 
 
 	A função **exports.get** é usada porque o cliente envia uma solicitação de GET para acessar o modelo tile.
 
-   	> [AZURE.NOTE] Este script da API personalizada usa o [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) do Node.js, que é referenciado usando a função **require**. Esse módulo é diferente do [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) retornado pelo [objeto push](http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx), que é usado para enviar notificações por push de scripts de servidor.
+   	> [AZURE.NOTE] Este script da API personalizada usa o [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) do Node.js, que é referenciado usando a função **require**. Esse módulo é diferente do [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) retornado pelo [objeto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), que é usado para enviar notificações por push de scripts de servidor.
 
 Em seguida, você modificará o aplicativo de início rápido para iniciar notificações periódicas que atualizam o bloco ativo solicitando a nova API personalizada.
 
@@ -159,13 +159,14 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 [Notificações por push e Live Connect do Windows]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[Adicionar Serviços Móveis a um aplicativo existente]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
+[Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Notificações periódicas]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+[Notificações periódicas]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

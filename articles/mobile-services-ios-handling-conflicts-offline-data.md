@@ -23,7 +23,7 @@
 
 Este tópico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Serviços Móveis do Azure. Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior, [Introdução aos dados offline]. Antes de começar este tutorial, você deve primeiro concluir a [Introdução aos dados offline].
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
@@ -465,9 +465,10 @@ Ao longo do caminho, você adicionou uma classe auxiliar **QSUIAlertViewWithBloc
 [Adicionando uma cena a um Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
 [Dados básicos]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Baixe o SDK de visualização aqui]: http://aka.ms/Gc6fex
-[Como usar a biblioteca de cliente dos Serviços Móveis para iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[Como usar a biblioteca de cliente dos Serviços Móveis para iOS]: /pt-br/documentation/articles/mobile-services-ios-how-to-use-client-library/
 [Introdução ao exemplo de iOS offline]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[Introdução aos dados offline]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data/
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-\n<!--HONumber=42-->
+[Introdução aos dados offline]: /pt-br/documentation/articles/mobile-services-ios-get-started-offline-data/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
+
+\<!--HONumber=42-->

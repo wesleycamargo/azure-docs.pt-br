@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="Perguntas frequentes para configurar e usar a API de recomendações de aprendizado de máquina | Azure" description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Perguntas frequentes para configurar e usar a API de recomendações de aprendizado de máquina | Azure" 
+	description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/> 
 
 # Perguntas frequentes para configurar e usar a API de recomendações de aprendizado de máquina
 Versão 1.0
@@ -88,7 +102,7 @@ Processo para atualizar uma assinatura
 
 IMPORTANTE: Leia atentamente a caixa de diálogo antes de atualizar, uma vez que há implicações de cobrança e uso.
 
-Para mais informações sobre a compreensão de assinaturas, clique [aqui](http://msdn.microsoft.com/pt-br/library/gg312164.aspx).
+Para mais informações sobre a compreensão de assinaturas, clique [aqui](http://msdn.microsoft.com/library/gg312164.aspx).
 
 ###Quando a minha assinatura de RECOMENDAÇÕES terminará?
 Sua assinatura será finalizada quando você a cancelar. Se você desejar cancelar suas assinaturas, consulte as instruções abaixo.
@@ -143,3 +157,5 @@ Este documento não fornece a você nenhum direito legal a qualquer propriedade 
 (c) 2014 Microsoft. Todos os direitos reservados. 
 
 
+
+<!--HONumber=46--> 

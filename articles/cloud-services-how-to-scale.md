@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Como dimensionar um serviço de nuvem - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Saiba como dimensionar um serviço de nuvem e os recursos vinculados no Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
+﻿<properties 
+	pageTitle="Como dimensionar um serviço de nuvem - Azure" 
+	description="Saiba como dimensionar um serviço de nuvem e os recursos vinculados no Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
@@ -15,11 +29,11 @@ Quando você expande ou diminui um aplicativo que está sendo executado em máqu
 
 Você deve considerar as seguintes informações antes de configurar o dimensionamento do seu aplicativo:
 
-- Você deve adicionar as máquinas virtuais criadas em um conjunto de disponibilidade para dimensionar um aplicativo que as use. As máquinas virtuais que você adicionar podem ser ativadas ou desativadas inicialmente, mas elas serão ativadas em uma ação de expansão e desligadas em uma ação de redução de escala. Para obter mais informações sobre máquinas virtuais e conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade das máquinas virtuais](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-manage-availability/).
-- O dimensionamento é afetado pelo uso do núcleo. Instâncias de função ou máquinas virtuais maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite dos núcleos para sua assinatura. Por exemplo, se sua assinatura tiver um limite de vinte núcleos e você executar um aplicativo com duas máquinas virtuais de tamanho médio (um total de quatro núcleos), você só poderá escalar verticalmente outras implantações do serviço de nuvem em sua assinatura em dezesseis núcleos. Todas as máquinas virtuais em um conjunto de disponibilidade que são usadas no dimensionamento de um aplicativo devem ser do mesmo tamanho. Para obter mais informações sobre o uso de núcleos e o tamanho de máquinas, consulte [Tamanhos de máquinas virtuais e serviço de nuvem para o Azure](http://msdn.microsoft.com/pt-br/library/dn197896.aspx).
-- Você deve criar uma fila e associá-la a uma função ou conjunto de disponibilidade antes de dimensionar um aplicativo com base em um limite de mensagens. Para obter mais informações, consulte [Como usar o serviço de armazenamento de fila](http://www.windowsazure.com/pt-br/develop/net/how-to-guides/queue-service).
-- Você pode dimensionar recursos que estão vinculados ao seu serviço de nuvem. Para obter mais informações sobre a vinculação de recursos, consulte [Como: Vincular um recurso a um serviço de nuvem](http://www.windowsazure.com/pt-br/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
-- Para habilitar uma alta disponibilidade para seu aplicativo, você deverá garantir que ele esteja implantado com duas ou mais instâncias de função ou máquinas virtuais. Para obter mais informações, consulte [Contratos de nível de serviço](https://www.windowsazure.com/pt-br/support/legal/sla/).
+- Você deve adicionar as máquinas virtuais criadas em um conjunto de disponibilidade para dimensionar um aplicativo que as use. As máquinas virtuais que você adicionar podem ser ativadas ou desativadas inicialmente, mas elas serão ativadas em uma ação de expansão e desligadas em uma ação de redução de escala. Para obter mais informações sobre das máquinas virtuais e conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade das máquinas virtuais](http://azure.microsoft.com/ documentation/articles/virtual-machines-manage-availability/) (a página pode estar em inglês).
+- O dimensionamento é afetado pelo uso do núcleo. Instâncias de função ou máquinas virtuais maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite dos núcleos para sua assinatura. Por exemplo, se sua assinatura tiver um limite de vinte núcleos e você executar um aplicativo com duas máquinas virtuais de tamanho médio (um total de quatro núcleos), você só poderá escalar verticalmente outras implantações do serviço de nuvem em sua assinatura em dezesseis núcleos. Todas as máquinas virtuais em um conjunto de disponibilidade que são usadas no dimensionamento de um aplicativo devem ser do mesmo tamanho. Para obter mais informações sobre o uso de núcleos e tamanho de máquinas, consulte [Tamanhos de máquina virtual e serviço de nuvem para o Azure](http://msdn.microsoft.com/library/dn197896.aspx) (a página pode estar em inglês).
+- Você deve criar uma fila e associá-la a uma função ou conjunto de disponibilidade antes de dimensionar um aplicativo com base em um limite de mensagens. Para obter mais informações, consulte [Como usar o serviço de armazenamento de fila](http://azure.microsoft.com/develop/net/how-to-guides/queue-service) (a página pode estar em inglês).
+- Você pode dimensionar recursos que estão vinculados ao seu serviço de nuvem. Para obter mais informações sobre a vinculação de recursos, consulte [: Vincular um recurso a um serviço de nuvem](http://azure.microsoft.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources) (a página pode estar em inglês).
+- Para habilitar uma alta disponibilidade para seu aplicativo, você deverá garantir que ele esteja implantado com duas ou mais instâncias de função ou máquinas virtuais. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://www.windowsazure.com/pt-br/support/legal/sla/).
 
 Você pode executar as seguintes ações de dimensionamento para um serviço de nuvem:
 
@@ -33,9 +47,9 @@ Você pode executar as seguintes ações de dimensionamento para um serviço de 
 
 Na página Escala, você pode aumentar ou diminuir manualmente o número de instâncias em execução em um serviço de nuvem.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem para abrir o painel.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 
-2. Clique em **Escala**.O dimensionamento automático é desabilitado por padrão para todas as funções, o que significa que você pode alterar manualmente o número de instâncias usadas pelo aplicativo.
+2. Clique em **Escala**. O dimensionamento automático é desabilitado por padrão para todas as funções, o que significa que você pode alterar manualmente o número de instâncias usadas pelo aplicativo.
 
 	![Scale page][manual_scale]
 
@@ -51,7 +65,7 @@ Na página Escala, você pode aumentar ou diminuir manualmente o número de inst
 	- O cinza claro representa os núcleos que estão disponíveis para uso com dimensionamento
 	- O rosa representa uma alteração feita que não foi salva
 
-4. Clique em **Salvar**.As instâncias de função serão adicionadas ou removidas com base nas suas seleções.
+4. Clique em **Salvar**. As instâncias de função serão adicionadas ou removidas com base nas suas seleções.
 
 <h2><a id="autoscale"></a>Dimensionar automaticamente um aplicativo executando funções Web, de trabalho ou máquinas virtuais</h2>
 
@@ -62,15 +76,15 @@ Na página Escala, você pode configurar seu serviço de nuvem para aumentar ou 
 
 <h3><a id="averagecpu"></a>Uso médio da CPU</h3>
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem para abrir o painel.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
-3. Role até a seção da função ou conjunto de disponibilidade e clique em **CPU**.Isso habilita o dimensionamento automático de seu aplicativo com base no percentual médio dos recursos de CPU que ele usa.
+3. Role até a seção da função ou conjunto de disponibilidade e clique em **CPU**. Isso habilita o dimensionamento automático de seu aplicativo com base no percentual médio dos recursos de CPU que ele usa.
 
 	![Autoscale on][autoscale_on]
 
 4. Cada função ou conjunto de disponibilidade tem um controle deslizante para alterar o número de instâncias que podem ser usadas. Para definir o número máximo de instâncias que podem ser usadas, arraste a barra à direita para a direita. Para definir o número mínimo de instâncias que podem ser usadas, arraste a barra à esquerda para a esquerda.
 
-	**Observação:**  Na página Escala, **Instância** representa uma instância de função ou uma instância de uma máquina virtual.
+	**Observação:** na página Escala, a **Instância** representa uma instância de função ou uma instância de uma máquina virtual.
 
 	![Instance range][instance_range]
 
@@ -105,13 +119,13 @@ Na página Escala, você pode configurar seu serviço de nuvem para aumentar ou 
 
 	![Down time][scale_downtime]
 
-10. Clique em **Salvar**.A ação de dimensionamento pode demorar até cinco minutos para ser concluída.
+10. Clique em **Salvar**. A ação de dimensionamento pode demorar até cinco minutos para ser concluída.
 
 <h3><a id="queuemessages"></a>Mensagens da fila</h3>
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem para abrir o painel.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
-3. Role até a seção da função ou do conjunto de disponibilidade e clique em **Fila**.Isso habilita o dimensionamento automático de seu aplicativo com base em um número de destino de mensagens da fila.
+3. Role até a seção da função ou do conjunto de disponibilidade e clique em **Fila**. Isso habilita o dimensionamento automático de seu aplicativo com base em um número de destino de mensagens da fila.
 
 	![Scale queue][scale_queue]
 
@@ -119,7 +133,7 @@ Na página Escala, você pode configurar seu serviço de nuvem para aumentar ou 
 
 	![Queue range][queue_range]
 
-	**Observação:**  Na página Escala, **Instância** representa uma instância de função ou uma instância de uma máquina virtual.
+	**Observação:** na página Escala, a **Instância** representa uma instância de função ou uma instância de uma máquina virtual.
 	
 	O número máximo de instâncias é limitado pelos núcleos disponíveis na assinatura. As cores do controle deslizante representam os núcleos usados e disponíveis em sua assinatura:
 	- O azul representa o número máximo de núcleos que a função pode usar.
@@ -157,13 +171,13 @@ Na página Escala, você pode configurar seu serviço de nuvem para aumentar ou 
 
 	![Down time][scale_downtime]
 
-12. Clique em **Salvar**.A ação de dimensionamento pode demorar até cinco minutos para ser concluída.
+12. Clique em **Salvar**. A ação de dimensionamento pode demorar até cinco minutos para ser concluída.
 
 <h2><a id="scalelink"></a>Dimensionar recursos vinculados</h2>
 
 Sempre que você dimensionar uma função, também é benéfico dimensionar o banco de dados que o aplicativo está usando. Se você vincular o banco de dados ao serviço de nuvem, poderá alterar a edição do Banco de Dados SQL e redimensionar o banco de dados na página Escala.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem para abrir o painel.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
 3. Na seção Recursos Vinculados, secione a edição para usar para o banco de dados.
 
@@ -180,9 +194,9 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 
 - **Dia e noite** - essa opção permite que você especifique o dimensionamento em determinadas horas do dia e da noite.
 
-**Observação:**Agendas não estão disponíveis no momento para aplicativos que usam máquinas virtuais.
+**Observação:** as agendas não estão disponíveis no momento para aplicativos que usam máquinas virtuais.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem para abrir o painel.
+1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
 3. Na página Escala, clique em **configurar horas agendadas**.
 
@@ -213,4 +227,4 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

@@ -19,7 +19,7 @@
 
 # Trabalhar com um serviço móvel de back-end do JavaScript
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">Back-end .NET</a> | <a href="/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">Back-end JavaScript</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">Back-end .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">Back-end JavaScript</a></div>
  
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end do JavaScript nos Serviços Móveis do Azure. Este tópico é dividido nas seguintes seções:
 
@@ -959,43 +959,43 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[Referência de script de servidor dos Serviços Móveis]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
-[Agendar trabalhos de back-end nos serviços móveis]: /en-us/develop/mobile/tutorials/schedule-backend-tasks/
-[request object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-[response object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
-[User object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
-[função de inserção]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-[função de atualização]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-[função de exclusão]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-[função de leitura]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[objeto de consulta]: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
-[objeto APNs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj839711.aspx
-[objeto mpns]: http://msdn.microsoft.com/en-us/library/windowsazure/jj871025.aspx
-[objeto wns]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860484.aspx
-[objeto de tabela]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx
-[objeto de tabelas]: http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx
-[objeto mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-[objeto de console]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554209.aspx
-[Ler e gravar dados]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631640.aspx
-[Validar dados]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631638.aspx
-[Modificar a solicitação]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx
-[Modificar a resposta]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
+[Referência de script de servidor dos Serviços Móveis]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
+[Agendar trabalhos de back-end nos serviços móveis]: /pt-br/develop/mobile/tutorials/schedule-backend-tasks/
+[request object]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response object]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User object]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[função de inserção]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[função de atualização]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[função de exclusão]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[função de leitura]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[objeto de consulta]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[objeto APNs]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[objeto mpns]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[objeto wns]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[objeto de tabela]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[objeto de tabelas]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[objeto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[objeto de console]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[Ler e gravar dados]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[Validar dados]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[Modificar a solicitação]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[Modificar a resposta]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
-[Agendar trabalhos]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
-[Validar e modificar dados nos Serviços Móveis usando scripts de servidor]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[Comandos para gerenciar os Serviços Móveis do Azure]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
-[Push do Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Push do Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
-[Push do iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
-[Push do Android]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
+[Agendar trabalhos]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
+[Validar e modificar dados nos Serviços Móveis usando scripts de servidor]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
+[Comandos para gerenciar os Serviços Móveis do Azure]: /pt-br/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
+[Push do Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Push do Windows Phone]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8/
+[Push do iOS]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios/
+[Push do Android]: /pt-br/develop/mobile/tutorials/get-started-with-push-android/
 [SDK do Azure para Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Enviar solicitação HTTP]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
-[ Enviar email dos Serviços Móveis com o SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
+[Enviar solicitação HTTP]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
+[ Enviar email dos Serviços Móveis com o SendGrid]: /pt-br/develop/mobile/tutorials/send-email-with-sendgrid/
 [Introdução à autenticação]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [API de criptografia]: http://go.microsoft.com/fwlink/p/?LinkId=288802
 [API de caminho]: http://go.microsoft.com/fwlink/p/?LinkId=288803
@@ -1003,15 +1003,16 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [API de url]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [API de utilitário]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [API de zlib]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[API personalizada]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-[Chamar uma API personalizada do cliente]: /en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
+[API personalizada]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
+[Chamar uma API personalizada do cliente]: /pt-br/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [biblioteca express.js]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-[Definir uma API personalizada que dá suporte a notificações periódicas]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/
+[Definir uma API personalizada que dá suporte a notificações periódicas]: /pt-br/develop/mobile/tutorials/create-pull-notifications-dotnet/
 [objeto expresso no express.js]: http://expressjs.com/api.html#express
-[Scripts de servidor de armazenamento no controle do código-fonte]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[Aproveitar o código compartilhado e os módulos do Node.js nos seus scripts de servidor]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[objeto de serviço]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
-[Configurações do aplicativo]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
-[módulo de configuração]: http://msdn.microsoft.com/en-us/library/dn508125.aspx
+[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/develop/mobile/tutorials/store-scripts-in-source-control/
+[Aproveitar o código compartilhado e os módulos do Node.js nos seus scripts de servidor]: /pt-br/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
+[objeto de serviço]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[Configurações do aplicativo]: http://msdn.microsoft.com/library/dn529070.aspx
+[módulo de configuração]: http://msdn.microsoft.com/library/dn508125.aspx
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

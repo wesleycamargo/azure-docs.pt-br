@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="Limites da versão de teste do Banco de Dados de Documentos | Azure" description="Saiba mais sobre os limites e imposições de cota do Banco de Dados de Documentos para a versão de visualização." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Limites da versão de teste do Banco de Dados de Documentos | Azure" 
+	description="Saiba mais sobre os limites e imposições de cota do Banco de Dados de Documentos para a versão de visualização." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 #Limites da versão de teste do Banco de Dados de Documentos
@@ -37,3 +51,5 @@ A tabela a seguir descreve os limites e imposições de cota do Banco de Dados d
 |Número máximo de JOINs por consulta    |2
 |Número máximo de cláusulas AND por consulta      |5
 |Número máximo de cláusulas OR por consulta       |5
+
+<!--HONumber=46--> 

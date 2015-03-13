@@ -123,7 +123,7 @@ Antes de armazenar dados, você primeiro precisa criar um recipiente para ele, a
 		}
 		?>
 
-	Os códigos de erro e a verificação de mensagens são encontrados aqui: [http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx][msdn-errors]
+	Os códigos de erro e a verificação de mensagens são encontrados aqui: [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
 ##Consultando uma tabela
@@ -441,11 +441,11 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
 
-[msdn-errors]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd179438.aspx
+[msdn-errors]: http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 
 
 
-[msdn-table-query-syntax]: http://msdn.microsoft.com/pt-br/library/windowsazure/dd894031.aspx
+[msdn-table-query-syntax]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
 [management-portal]: https://manage.windowsazure.com
 [new-website]: ./media/web-sites-php-storage/new_website.jpg

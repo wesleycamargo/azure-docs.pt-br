@@ -1,6 +1,20 @@
-<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Funções Web e de Trabalho do Python com o Python Tools 2.1 para Visual Studio" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho." metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Funções Web e de Trabalho do Python com o Python Tools 2.1 para Visual Studio" 
+	description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/09/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -9,35 +23,27 @@
 
 Este guia oferece uma visão geral do uso das funções Web e de trabalho do Python por meio do [Python Tools para Visual Studio][].
 
-+ [Pré-requisitos](#prerequisites)
-+ [O que são funções Web e de trabalho do Python?](#what-are-python-web-and-worker-roles)
-+ [Criação do projeto](#project-creation)
-+ [Executar localmente](#run-locally)
-+ [Publicar no Azure](#publish-to-azure)
-+ [Próximas etapas](#next-steps)
-
-##<a name="prerequisites"></a>Pré-requisitos
+## Pré-requisitos
 
  - Visual Studio 2012 ou 2013
  - [Python Tools 2.1 para Visual Studio][]
  - [Ferramentas do SDK do Azure para VS 2013][] ou [Ferramentas do SDK do Azure para VS 2012][]
  - [Python 2.7 de 32 bits][] ou [Python 3.4 de 32 bits][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="what-are-python-web-and-worker-roles"></a>O que são funções Web e de trabalho do Python?
+## O que são funções Web e de trabalho do Python?
 
-O Azure fornece três modelos de computação para execução de aplicativos:  [Sites do Azure, ][execution model-web sites][Máquinas Virtuais do Azure][execution model-vms] e [Serviços de Nuvem do Azure][execution model-cloud services]. Todos os três modelos dão suporte ao Python.Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*.Dentro de um serviço de nuvem, uma função web fornece um servidor Web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
+O Azure fornece três modelos de computação para execução de aplicativos: [Os][sites da Web do modelo de execução] dos sites da Web do Azure, [máquinas virtuais do Azure][execução do modelo vms], e [serviços de nuvem do Azure][serviços de nuvem do modelo de execução]. Todos os três modelos dão suporte ao Python. Os serviços de nuvem, que incluem funções da Web e de trabalho, fornecem *Platform as a Service (PaaS)*. Dentro de um serviço de nuvem, uma função web fornece um servidor Web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
 
 Para obter mais informações, consulte [O que é um Serviço de Nuvem?].
 
-<div class="dev-callout"><strong>Procurando desenvolver um site simples?</strong>
-<p>Se o seu cenário envolve apenas um site de front-end simples, considere usar um Site do Azure leve. Você pode atualizar facilmente para um Serviço de Nuvem conforme o site cresce e suas necessidades mudam. Consulte no <a href="/pt-br/develop/python/">Python Developer Center</a> artigos que tratam do desenvolvimento de Sites do Azure.</p>
-</div>
+> [AZURE.NOTE] **Procurando desenvolver um site simples?**
+Se o seu cenário envolve apenas um site de front-end simples, considere usar um Site do Azure leve. Você pode atualizar facilmente para um Serviço de Nuvem conforme o site cresce e suas necessidades mudam. Consulte no <a href="/pt-br/develop/python/">Python Developer Center</a> artigos que tratam do desenvolvimento de Sites do Azure.
 <br />
 
 
-##<a name="project-creation"></a>Criação do projeto
+## Criação do projeto
 
 No Visual Studio, você pode escolher o **Serviço de Nuvem do Azure** na caixa de diálogo **Novo Projeto**, em **Python**. 
 
@@ -57,7 +63,7 @@ Você pode adicionar funções Web ou de trabalho a um serviço de nuvem existen
 
 Seu serviço de nuvem pode conter funções implementadas em diferentes idiomas.  Por exemplo, uma função web do Python pode ser implementada usando o Django, com funções de trabalho do Python e C#.  Você pode se comunicar facilmente entre as funções usando filas do barramento de serviço ou filas de armazenamento.
 
-##<a name="run-locally"></a>Executar localmente
+## Executar localmente
 
 Se você configurar seu projeto de serviço de nuvem como o projeto de inicialização e pressionar F5, o serviço de nuvem será executado no emulador do Azure local.
 
@@ -67,7 +73,7 @@ Para depurar suas funções Web e de trabalho, você pode configurar o projeto d
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
-##<a name="publish-to-azure"></a>Publicar no Azure
+## Publicar no Azure
 
 Para publicar, clique com o botão direito do mouse no projeto de serviço de nuvem na solução e selecione **Publicar**.
 
@@ -93,7 +99,7 @@ Algum progresso aparecerá na janela de saída e, então, você verá a janela L
 
 A implantação levará alguns minutos para ser concluída; em seguida, suas funções Web e/ou de Trabalho serão executadas no Azure!
 
-##<a name="next-steps"></a>Próximas etapas
+## Próximas etapas
 
 Para obter informações mais detalhadas sobre como usar funções Web e de trabalho no Python Tools para Visual Studio, consulte a documentação do PTVS:
 
@@ -111,21 +117,21 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 <!--Link references-->
 
 [O que é um Serviço de Nuvem?]: /pt-br/manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: /pt-br/documentation/articles/fundamentals-application-models/#WebSites
-[execution model-vms]: /pt-br/documentation/articles/fundamentals-application-models/#VMachine
-[execution model-cloud services]: /pt-br/documentation/articles/fundamentals-application-models/#CloudServices
+[sites da Web do modelo de execução]: ../fundamentals-application-models/#WebSites
+[execução do modelo vms]: ../fundamentals-application-models/#VMachine
+[serviços de nuvem do modelo de execução]: ../fundamentals-application-models/#CloudServices
 [Python Developer Center]: /pt-br/develop/python/
 
-[Serviço Blob]: /pt-br/documentation/articles/storage-python-how-to-use-blob-storage/
-[Serviço Fila]: /pt-br/documentation/articles/storage-python-how-to-use-queue-storage/
-[Serviço Tabela]: /pt-br/documentation/articles/storage-python-how-to-use-table-storage/
-[Filas de barramento de serviço]: /pt-br/documentation/articles/service-bus-python-how-to-use-queues/
-[Tópicos de barramento de serviço]: /pt-br/documentation/articles/service-bus-python-how-to-use-topics-subscriptions/
+[Serviço Blob]: ../storage-python-how-to-use-blob-storage/
+[Serviço Fila]: ../storage-python-how-to-use-queue-storage/
+[Serviço Tabela]: ../storage-python-how-to-use-table-storage/
+[Filas de barramento de serviço]: ../service-bus-python-how-to-use-queues/
+[Tópicos de barramento de serviço]: ../service-bus-python-how-to-use-topics-subscriptions/
 
 
 <!--External Link references-->
 
-[Python Tools para Visual Studio]: http://pytools.codeplex.com
+[Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation 
 [Projetos de serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
@@ -135,4 +141,4 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrar um serviço de nuvem à CDN do Azure" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="Um tutorial que ensina como implantar um serviço em nuvem que serve o conteúdo a partir de um ponto de extremidade CDN do Azure integrado" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+﻿<properties 
+	pageTitle="Integrar um serviço de nuvem à CDN do Azure" 
+	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado" 
+	services="cdn, cloud-services" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Integrar um serviço de nuvem à CDN do Azure #
@@ -31,15 +45,15 @@ Você implantará uma função Web de serviço de nuvem usando o modelo ASP.NET 
 
 Este tutorial tem os seguintes pré-requisitos:
 
--	Ativa [conta do Microsoft Azure] (http://azure.microsoft.com/pt-br/account/)
+-	Ativa [conta do Microsoft Azure] (http://azure.microsoft.com/account/)
 -	Visual Studio 2013 com [SDK do Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
   <ul>
-    <li>You can <a href="http://azure.microsoft.com/pt-br/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
-    <li>You can <a href="http://azure.microsoft.com/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+    <li>You can <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
+    <li>You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
   <ul>
 </div>
 
@@ -81,7 +95,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[WACOM.NOTE] O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para obter mais informações sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure[(http://msdn.microsoft.com/pt-br/library/ff683672.aspx).
+	>[WACOM.NOTE] O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para obter mais informações sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure[(http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quando o **Log de atividade do Windows Azure** mostra que o status da publicação é **Concluído**, você criará um ponto de extremidade CDN que esteja integrado com esse serviço de nuvem. 
 
@@ -413,7 +427,7 @@ Isso permite que você depure o código JavaScript em seu ambiente de desenvolvi
 
 Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto de extremidade CDN.
 
-1. Em *App_Start\BundleConfig.cs*, modifique os métodos "bundles.Add()" para usar um diferente [Construtor de grupo](http://msdn.microsoft.com/pt-br/library/jj646464.aspx), um que especifique um endereço CDN. Para fazer isso, substitua a definição do método "RegisterBundles" com o código a seguir:  
+1. Em *App_Start\BundleConfig.cs*, modifique os métodos "bundles.Add()" para usar um diferente [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx), um que especifique um endereço CDN. Para fazer isso, substitua a definição do método "RegisterBundles" com o código a seguir:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -507,9 +521,9 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 
 Quando seu ponto de extremidade da CDN do Azure falhar por qualquer motivo, é melhor que sua página da Web seja inteligente o suficiente para acessar o servidor Web de origem como a opção de fallback para carregar JavaScript ou Bootstrap. Perder imagens do site devido à indisponibilidade da CDN já é grave, mas perder funcionalidades fundamentais da página fornecidas por seus scripts e folhas de estilo é ainda muito mais.
 
-A classe [Bundle](http://msdn.microsoft.com/pt-br/library/system.web.optimization.bundle.aspx) contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/pt-br/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que permite que você configure o mecanismo de fallback para falha da CDN. Para usar essa propriedade, siga as etapas abaixo:
+A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que permite que você configure o mecanismo de fallback para falha da CDN. Para usar essa propriedade, siga as etapas abaixo:
 
-1. No projeto de função Web, abra *App_Start\BundleConfig.cs*, onde você adicionou uma URL da CDN a cada [Construtor de grupo](http://msdn.microsoft.com/pt-br/library/jj646464.aspx), e faça as seguintes alterações em destaque para adicionar um mecanismo de fallback aos grupos padrão:  
+1. No projeto de função Web, abra *App_Start\BundleConfig.cs*, onde você adicionou uma URL da CDN a cada [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx), e faça as seguintes alterações em destaque para adicionar um mecanismo de fallback aos grupos padrão:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -615,9 +629,11 @@ A classe [Bundle](http://msdn.microsoft.com/pt-br/library/system.web.optimizatio
 
 # Mais informações #
 - [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Fornecer conteúdo da CDN do Azure em seu aplicativo Web](http://azure.microsoft.com/pt-br/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Integrar um site do CDN do Azure](http://azure.microsoft.com/pt-br/documentation/articles/cdn-websites-with-cdn/)
+- [Fornecer conteúdo da CDN do Azure em seu aplicativo Web](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [Integrar um site do CDN do Azure](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
 - [ASP.NET Agrupamento e minificação](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Usando a CDN para Azure](http://azure.microsoft.com/pt-br/documentation/articles/cdn-how-to-use/)
+- [Usando a CDN para Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

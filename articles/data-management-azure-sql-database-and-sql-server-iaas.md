@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure" description="Aprenda sobre o banco de dados SQL do Azure e SQL Server em máquinas virtuais do Azure. Revise comuns motivadores comerciais para determinar qual tecnologia SQL funciona melhor para seu aplicativo." services="virtual-machines" documentationCenter="" authors="Selcin" manager="jeffreyg" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure" 
+	description="Aprenda sobre o banco de dados SQL do Azure e SQL Server em máquinas virtuais do Azure. Revise comuns motivadores comerciais para determinar qual tecnologia SQL funciona melhor para seu aplicativo." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="selcint"/>
 
 # Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure
 
@@ -223,15 +237,15 @@ Obrigado a todos por dar vida a este artigo!
    <td valign="middle">Links para a documentação da biblioteca.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/azure/jj879332.aspx">Banco de Dados SQL do Azure e SQL Server - Comparação e contraste de desempenho e escalabilidade</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Banco de Dados SQL do Azure e SQL Server - Comparação e contraste de desempenho e escalabilidade</p></td>
    <td valign="middle">Este artigo explica as diferenças de desempenho e as técnicas de solução de problemas ao usar o Banco de Dados SQL do Azure e o SQL Server em execução localmente ou em uma VM. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/dn574746.aspx">Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure</p></td>
    <td valign="middle">Este artigo descreve os padrões de aplicativo mais comuns que se aplicam ao SQL Server em VMs do Azure e também cenários híbridos incluindo Banco de Dados SQL do Azure. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/hh680934(v=PandP.50).aspx">Bloco de aplicativos de manipulação de falhas transitórias da Biblioteca Empresarial da Microsoft</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Bloco de aplicativos de manipulação de falhas transitórias da Biblioteca Empresarial da Microsoft</p></td>
    <td valign="middle">Esta biblioteca permite aos desenvolvedores tornar aplicativos em execução no Banco de Dados SQL do Azure mais flexíveis, adicionando lógica robusta de manipulação de falhas transitórias. Falhas transitórias são erros que ocorrem devido a alguma condição temporária como problemas de conectividade de rede ou indisponibilidade do serviço. Uma vez que o Banco de Dados SQL do Azure é um serviço multilocatário, é importante tratar esses erros para minimizar qualquer tempo de inatividade do aplicativo. </td>   
 </tr>
 </table>

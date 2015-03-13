@@ -42,7 +42,7 @@ Para concluir este tutorial, é necessário ter XCode 4.5 e iOS 5.0 ou versões 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
-<li><p>No Xcode, abra o projeto criado quando você concluiu o tutorial <a href="/en-us/documentation/articles/mobile-services-ios-get-started">Introdução aos Serviços Móveis</a>.</p></li>
+<li><p>No Xcode, abra o projeto criado quando você concluiu o tutorial <a href="/pt-br/documentation/articles/mobile-services-ios-get-started">Introdução aos Serviços Móveis</a>.</p></li>
 <li><p>Pressione o botão <strong>Executar</strong> para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.<p>
 
    	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
@@ -92,12 +92,13 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-ios
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

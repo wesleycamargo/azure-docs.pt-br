@@ -31,7 +31,7 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis] ou a [Introdução aos dados] para conectar seu projeto ao serviço móvel. Quando um serviço móvel não é conectado, o assistente Adicionar Notificação por Push cria essa conexão para você. 
 
->[AZURE.NOTE]Para enviar notificações por push para um aplicativo da Windows Phone 8.1 Store, siga a versão [aplicativo da Windows Store](/ en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) deste tutorial.
+>[AZURE.NOTE]Para enviar notificações por push para um aplicativo da Windows Phone 8.1 Store, siga a versão [aplicativo da Windows Store](/ pt-br/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) deste tutorial.
 
 ##<a id="update-app"></a> Atualizar o aplicativo para se registrar para notificações
 
@@ -144,7 +144,7 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 
 	![][5]
 
-	>[AZURE.NOTE]Você não receberá a notificação enquanto ainda estiver no aplicativo. Para receber uma notificação de toast enquanto o aplicativo está ativo, você deverá manipular o evento [ShellToastNotificationReceived](http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
+	>[AZURE.NOTE]Você não receberá a notificação enquanto ainda estiver no aplicativo. Para receber uma notificação de toast enquanto o aplicativo está ativo, você deverá manipular o evento [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
 
 
 
@@ -193,19 +193,20 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users
 
-[Configurando um serviço web autenticado para enviar notificações por push para o Windows Phone]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Configurando um serviço web autenticado para enviar notificações por push para o Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de transmissão para assinantes]: /en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
-[Enviar notificações baseadas em modelo para assinantes]: /en-us/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
-\n<!--HONumber=42-->
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
+[Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
+
+\<!--HONumber=42-->

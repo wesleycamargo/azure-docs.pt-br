@@ -111,12 +111,13 @@ No próximo tutorial, [Autorizar usuários com scripts], você vai obter o valor
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-android
-[Adicionar os Serviços Móveis em um aplicativo existente]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-android
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android
+[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-android
+[Adicionar os Serviços Móveis em um aplicativo existente]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

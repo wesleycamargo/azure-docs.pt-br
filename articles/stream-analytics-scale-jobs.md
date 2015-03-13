@@ -1,6 +1,20 @@
-﻿<properties title="Scale Azure Stream Analytics jobs" pageTitle="Escalonar trabalhos de Análise de fluxo | Azure" description="Saiba como dimensionar trabalhos de análise de fluxo" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Escalonar trabalhos de Análise de fluxo | Azure" 
+	description="Saiba como dimensionar trabalhos de análise de fluxo" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 # Escalonar trabalhos de Análise de fluxo do Azure 
 
@@ -164,7 +178,7 @@ Neste artigo, você aprendeu como calcular as unidades de streaming e como dimen
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/pt-br/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
@@ -174,3 +188,5 @@ Neste artigo, você aprendeu como calcular as unidades de streaming e como dimen
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 
+
+<!--HONumber=46--> 

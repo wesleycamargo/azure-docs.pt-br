@@ -1,6 +1,20 @@
-﻿<properties title="Manage your Search service on Microsoft Azure" pageTitle="Gerenciar seu serviço de Pesquisa no Microsoft Azure" description="Gerenciar seu serviço de Pesquisa no Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gerenciar seu serviço de Pesquisa no Microsoft Azure" 
+	description="Gerenciar seu serviço de Pesquisa no Microsoft Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
 
@@ -11,7 +25,7 @@ A Pesquisa do Azure é um serviço baseado em nuvem e uma API baseada em HTTP qu
 
 Este artigo explica como administrar um serviço de pesquisa no novo [portal de Visualização do Azure](https://portal.azure.com).
 
-Como alternativa, você pode usar a API REST de gerenciamento. Consulte [Introdução ao Azure API de REST de gerenciamento de pesquisa](http://azure.microsoft.com/pt-br/documentation/articles/search-get-started-management-api/) e [referência de API de REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn832684.aspx) para obter detalhes.
+Como alternativa, você pode usar a API REST de gerenciamento. Consulte [Introdução ao Azure API de REST de gerenciamento de pesquisa](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) e [referência de API de REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obter detalhes.
 
 <!--TOC-->
 
@@ -34,7 +48,7 @@ A pesquisa padrão é cobrada porque você se inscreverá para usar infraestrutu
 
 Para se planejar quanto à capacidade e compreender o impacto da cobrança, recomendamos estes links:
 
-+	[Limites e restrições](http://msdn.microsoft.com/pt-br/library/dn798934.aspx)
++	[Limites e restrições](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Detalhes dos Preços](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Quando você estiver pronto para se inscrever, consulte [Introdução à Pesquisa do Azure](../search-get-started/).
@@ -98,10 +112,10 @@ Nesta visualização pública, o monitoramento de recursos é limitado às infor
 
 No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
 
-Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições](http://msdn.microsoft.com/pt-br/library/dn798934.aspx) para obter detalhes. 
+Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições](http://msdn.microsoft.com/library/dn798934.aspx) para obter detalhes. 
 
-+	[Obter estatísticas de índice](http://msdn.microsoft.com/pt-br/library/dn798942.aspx)
-+	[Contar documentos](http://msdn.microsoft.com/pt-br/library/dn798924.aspx)
++	[Obter estatísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Contar documentos](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [WACOM.NOTE] Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite. 
 
@@ -141,7 +155,7 @@ Em contraste com a remoção de réplicas, que não requer nenhum esforço extra
 
 Não há um método de detecção que informe quais fragmentos de índices estão armazenados em quais partições. Cada partição fornece cerca de 25 GB de armazenamento, de modo que você precisará reduzir o armazenamento para um tamanho que possa ser acomodado pelo número de partições que possui. Caso queira reverter para uma partição, os 12 fragmentos precisarão ser ajustados.
 
-Para ajudar no planejamento para o futuro, você pode desejar conferir o armazenamento (usando [Obter Estatísticas do Índice](http://msdn.microsoft.com/pt-br/library/dn798942.aspx)) para ver o quanto você realmente usou. 
+Para ajudar no planejamento para o futuro, você pode desejar conferir o armazenamento (usando [Obter Estatísticas do Índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver o quanto você realmente usou. 
 
 
 <!---->
@@ -157,7 +171,7 @@ Parar ou iniciar o serviço não desativa a cobrança. Você deve excluir o serv
 <!---->
 <h2 id="sub-8">Definir funções sobre o acesso administrativo</h2>
 
-O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal de Visualização ou na API do Gerenciador de Recursos do Azure se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Consulte [Controle de acesso baseado em função no Portal de Visualização do Azure](http://azure.microsoft.com/pt-br/updates/role-based-access-control-in-azure-preview-portal/) para detalhes sobre a associação do membro.
+O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal de Visualização ou na API do Gerenciador de Recursos do Azure se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Consulte [Controle de acesso baseado em função no Portal de Visualização do Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para detalhes sobre a associação do membro.
 
 Em termos de Pesquisa do Azure, controles de acesso baseados em função determinam as seguintes tarefas administrativas:
 
@@ -185,7 +199,7 @@ Os administradores de serviço e assinatura têm associação automática na fun
 </tr>
 </table>
 
-Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte "Autorização para gerenciamento versus operações de dados" no [controle de acesso baseado em função no Portal de Visualização do Azure](http://azure.microsoft.com/pt-br/updates/role-based-access-control-in-azure-preview-portal/) para obter mais informações.
+Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte "Autorização para gerenciamento versus operações de dados" no [controle de acesso baseado em função no Portal de Visualização do Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para obter mais informações.
 
 As funções fornecem controle de acesso depois da criação do serviço. Apenas os gerentes de assinatura podem adicionar um serviço de Pesquisa a uma assinatura.
 
@@ -213,3 +227,5 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 [Fluxo de trabalho de desenvolvimento de Pesquisa do Azure]: ../search-workflow/
 [Criar sua primeira solução de pesquisa do Azure]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

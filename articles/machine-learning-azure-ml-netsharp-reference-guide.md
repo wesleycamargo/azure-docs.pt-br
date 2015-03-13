@@ -1,6 +1,20 @@
-﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Guia para a Linguagem de Especificação de Redes Neurais Net# para AM do Azure " description="Sintaxe para a linguagem de especificação de redes neurais Net #, junto com exemplos de como criar um modelo de rede neural personalizado no Microsoft Azure ML usando Net# " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Guia para a Linguagem de Especificação de Redes Neurais Net# para AM do Azure" 
+	description="Sintaxe para a linguagem de especificação de redes neurais Net #, junto com exemplos de como criar um modelo de rede neural personalizado no Microsoft Azure ML usando Net#" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2014" 
+	ms.author="jeannt"/>
 
 
 
@@ -377,3 +391,5 @@ A definição da rede a seguir, projetada para reconhecer números, ilustra algu
 -	Já que **Sharing**[d] é falso apenas para d == 0, o número de kernels é **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+
+<!--HONumber=46--> 

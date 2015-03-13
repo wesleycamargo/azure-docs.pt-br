@@ -77,13 +77,14 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 [Próximas etapas]:#next-steps
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Autorizar usuários com scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+
+\<!--HONumber=42-->

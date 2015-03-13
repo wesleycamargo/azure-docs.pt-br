@@ -1,6 +1,20 @@
-﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Solucionar problemas do Data Factory do Azure" description="Saiba como solucionar problemas com o uso do Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Solucionar problemas do Data Factory do Azure" 
+	description="Saiba como solucionar problemas com o uso do Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Solucionar problemas do Data Factory
 Você pode solucionar problemas do Data Factory do Azure usando o Portal do Azure (ou) cmdlets do PowerShell do Azure. Este tópico tem instruções passo a passo que mostram como usar o Portal do Azure para solucionar rapidamente os erros encontrados com o Data Factory. 
@@ -250,3 +264,5 @@ Artigo | Descrição
 [image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]: ./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png
 
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
+
+<!--HONumber=46--> 

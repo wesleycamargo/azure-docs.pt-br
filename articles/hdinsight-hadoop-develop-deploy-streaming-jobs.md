@@ -534,9 +534,9 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 - [Usar o hive com o HDInsight][hdinsight-use-hive]
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
 
-[azure-purchase-options]: http://azure.microsoft.com/pt-br/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pt-br/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pt-br/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
@@ -556,7 +556,6 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
-
 
 
 

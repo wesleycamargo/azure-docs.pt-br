@@ -87,12 +87,13 @@ Agora você deve estar em um estado onde o serviço móvel foi recuperado para u
 <!-- Images. -->
 
 <!-- URLs. -->
-[Diretrizes para a continuidade dos negócios com o Banco de Dados SQL]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
+[Diretrizes para a continuidade dos negócios com o Banco de Dados SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[recurso de controle de código-fonte]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[usando a ferramenta de linha de comando do Azure]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[recurso de controle de código-fonte]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[usando a ferramenta de linha de comando do Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 [Portal do Azure]: http://manage.windowsazure.com/
-[Painel de Serviços do Azure]: http://www.windowsazure.com/en-us/support/service-dashboard/
-[Automatizar os serviços móveis com ferramentas de linha de comando]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
-\n<!--HONumber=42-->
+[Painel de Serviços do Azure]: http://azure.microsoft.com/support/service-dashboard/
+[Automatizar os serviços móveis com ferramentas de linha de comando]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+
+\<!--HONumber=42-->

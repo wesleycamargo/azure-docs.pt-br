@@ -94,10 +94,11 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-android
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-android
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

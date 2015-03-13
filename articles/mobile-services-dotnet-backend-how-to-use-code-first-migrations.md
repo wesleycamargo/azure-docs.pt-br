@@ -11,8 +11,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="multiple" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/27/2014" 
 	ms.author="glenga"/>
@@ -27,7 +27,7 @@ Os Serviços Móveis fornecem suporte para duas classes básicas do inicializado
 
 >[AZURE.NOTE]Quando você publica um serviço móvel de back-end do .NET, o inicializador não é executado até que ocorra uma operação de acesso a dados. Isso significa que, para um serviço publicado recentemente, as tabelas de dados usadas para o armazenamento não são criadas até que uma operação de acesso as dados, como uma consulta, é solicitada pelo cliente. 
 >
->Você também pode executar uma operação de acesso a dados usando a funcionalidade interna de ajuda da API, acessada por meio do link **Experimentar** na página inicial. Para obter mais informações sobre como usar a API de páginas para testar seu serviço móvel, consulte a seção de teste do projeto de serviço móvel localmente em [Adicionar serviços móveis a um aplicativo existente](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/#test-the-service-locally).  
+>Você também pode executar uma operação de acesso a dados usando a funcionalidade interna de ajuda da API, acessada por meio do link **Experimentar** na página inicial. Para obter mais informações sobre como usar a API de páginas para testar seu serviço móvel, consulte a seção de teste do projeto de serviço móvel localmente em [Adicionar serviços móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/#test-the-service-locally).  
 
 Ambas as classes base do inicializador excluem do banco de dados todas as tabelas, exibições, funções e procedimentos no esquema usado pelo serviço móvel. 
 
@@ -152,9 +152,9 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate] para adicionar 
 [2]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/sql-database-drop-tables.png
 
 <!-- URLs -->
-[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/en-us/library/gg679604(v=vs.113).aspx
-[Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx
+[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
-\n<!--HONumber=42-->
+[DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+\<!--HONumber=42-->

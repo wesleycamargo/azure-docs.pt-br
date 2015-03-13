@@ -1,12 +1,34 @@
-﻿<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Criando um perfil de serviço de nuvem localmente no emulador de computação" metakeywords="" footerexpose="" description=""umbraconavihide ="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="kempb" manager="douge" />
+﻿<properties 
+	urldisplayname="Team Foundation Service" 
+	headerexpose="" 
+	pageTitle="Criando um perfil de serviço de nuvem localmente no emulador de computação" 
+	metakeywords="" 
+	footerexpose="" 
+	description="Saiba como testar o desempenho de um serviço de nuvem no Emulador de computação do Azure local usando o criador de perfil do Visual Studio" 
+	umbraconavihide="0" 
+	disquscomments="1" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee" 
+	services="cloud-services" 
+	documentationCenter=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="kempb"/>
 
 # Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
 
 Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.
-Quando publica um serviço de nuvem no Azure, você pode fazer com que o Visual Studio colete dados de criação de perfil e, em seguida, os analise localmente, conforme descrito em [Criando o perfil de um aplicativo do Azure][1].
-Você também pode usar o diagnóstico para acompanhar vários contadores de desempenho, conforme descrito em [Usando contadores de desempenho no Azure][2].
+Quando você publica um serviço de nuvem no Azure, você pode ter o Visual Studio coletando os dados da criação de perfil
+e os analisando localmente, conforme descrito em [criação de perfil de um aplicativo do Azure][1].
+Você também pode usar o diagnóstico para controlar uma variedade de contadores de desempenho
+, conforme descrito em [Usando os contadores de desempenho no Azure][2].
 Também convém criar o perfil de seu aplicativo localmente no emulador de computação antes de implantá-lo na nuvem.
 
 Este artigo aborda o método de Amostragem de CPU da criação de perfil, que pode ser executado localmente no emulador. A Amostragem de CPU é um método de criação de perfil que não é muito invasivo. Em um intervalo de amostragem designado, o criador de perfis faz um instantâneo da pilha de chamadas. Os dados são coletados durante um período de tempo e mostrados em um relatório. Esse método de criação de perfis tende a indicar onde está sendo feita a maior parte do trabalho em um aplicativo que utiliza muitos recursos de computação.  Isso oferece a oportunidade de focalizar o "afunilamento" onde seu aplicativo está gastando mais tempo.
@@ -32,7 +54,7 @@ Este artigo aborda o método de Amostragem de CPU da criação de perfil, que po
 
 ## <a name="step1"> </a> Etapa 1: Configurar o Visual Studio para criação de perfis
 
-Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo Microsoft estão listados em **Locais de arquivo de símbolos (.pdb)**.Você também pode fazer referência a http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
+Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**.  Você também pode fazer referência a http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
 
 ![][4]
 
@@ -73,7 +95,7 @@ Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da f
             }
         }
 
-Compile e execute seu serviço de nuvem localmente sem depuração (Ctrl+F5), com a configuração da solução definida como **Versão**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores estejam iniciados.Inicie a UI do Emulador de Computação na barra de tarefas para confirmar que sua função de trabalho esteja em execução.
+Compile e execute seu serviço de nuvem localmente sem depuração (Ctrl+F5), com a configuração da solução definida como **Versão**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores estejam iniciados. Inicie a UI do Emulador de Computação na barra de tarefas para confirmar que sua função de trabalho esteja em execução.
 
 ## <a name="step2"> </a> Etapa 2: Anexar a um processo
 
@@ -90,7 +112,8 @@ Para uma função de trabalho, localize o processo WaWorkerHost.exe.
 Se a pasta de seu projeto estiver em uma unidade de rede, o criador de perfis solicitará que você forneça outro local para salvar os relatórios de criação de perfis.
 
  Também é possível conectar-se a uma função web, conectando-se ao WaIISHost.exe.
- Se houver vários processos de função de trabalho em seu aplicativo, você precisará usar o processID para diferenciá-los. Você pode consultar o processID programaticamente acessando o objeto Process. Por exemplo, adicionando este código ao método Run da classe derivada de RoleEntryPoint em uma função, você pode examinar o log na interface do usuário do Emulador de Computação para saber a qual processo conectar-se.
+ Se houver vários processos de função de trabalho em seu aplicativo, você precisará usar o processID para diferenciá-los. Você pode consultar o processID programaticamente acessando o objeto Process. Por exemplo, se você adicionar este código ao método Executar da classe RoleEntryPoint-derived em uma função, você pode examinar no
+logon na IU do emulador de computação para saber a qual processo se conectar.
 
 	var process = System.Diagnostics.Process.GetCurrentProcess();
 	var message = String.Format("Process ID: {0}", process.Id);
@@ -122,7 +145,8 @@ que mostra uma análise dos dados.
 
 Se você vir String.wstrcpy no Afunilamento, clique em Apenas Meu Código para alterar a exibição para mostrar somente o código do usuário.  Se você vir String.Concat, tente pressionar o botão Mostrar Todo o Código.
 
-Você verá o método Concatenate e o String.Concat tomando uma grande parte do tempo de execução.
+Você verá o método Concatenated e o String.Concat tomando uma grande parte
+do tempo de execução.
 
 ![][12]
 
@@ -145,7 +169,7 @@ Você também pode comparar o desempenho antes e depois de uma alteração no c�
 	    return builder.ToString();
 	}
 
-Realize outra execução de desempenho e, em seguida, compare o desempenho. No Gerenciador de Desempenho, se as execuções forem na mesma sessão, você poderá selecionar os dois relatórios, abrir o menu de atalho e escolher **Comparar Relatórios de Desempenho**. Se desejar comparar com uma execução em outra sessão de desempenho, abra o menu **Analisar** e escolha **Comparar Relatórios de Desempenho**.Especifique os dois arquivos na caixa de diálogo que é exibida.
+Realize outra execução de desempenho e, em seguida, compare o desempenho. No Gerenciador de Desempenho, se as execuções forem na mesma sessão, você poderá selecionar os dois relatórios, abrir o menu de atalho e escolher **Comparar Relatórios de Desempenho**. Se desejar comparar com uma execução em outra sessão de desempenho, abra o menu **Analisar** e escolha **Comparar Relatórios de Desempenho**. Especifique os dois arquivos na caixa de diálogo que é exibida.
 
 ![][15]
 
@@ -199,4 +223,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

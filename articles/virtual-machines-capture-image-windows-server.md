@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Capturar imagens de máquinas virtuais que executam Windows Server" 
 	description="Saiba como capturar imagem de máquina virtual do Azure que executam Windows Server 2008 R2." 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 Esse artigo mostra como capturar a máquina virtual do Azure executando Windows para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e qualquer disco de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
 
-O Azure trata esse modelo como uma imagem e o armazena em **Minhas Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure] [].
+O Azure trata esse modelo como uma imagem e o armazena em **Minhas Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure][].
 
 ##Antes de começar##
 
@@ -36,7 +36,7 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 2.	Abra uma janela de Prompt de comando como administrador.
 
 
-3.	Altere o diretório para `%windir%\system32\sysprep` e execute sysprep.exe.
+3.	Altere o diretório para  `%windir%\system32\sysprep` e, a seguir, execute sysprep.exe.
 
 
 4. 	A caixa de diálogo **Ferramenta de Preparação do Sistema** é aberta. Faça o seguinte:
@@ -69,18 +69,19 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
   **Observação: Quando você captura uma imagem de uma máquina virtual genérica, a máquina virtual é excluída.**
 
- A nova imagem agora está disponível em **Imagens**.
- ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+	A nova imagem agora está disponível em **Imagens**.
+
+	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Próximas etapas##
-A imagem está pronta para ser usada como modelo para criar novas máquinas virtuais. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
+A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
 
 	
-[Sobre imagens de máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
+[Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
 [Como fazer logon em uma máquina virtual executando o Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
-[Como usar o Sysprep: Uma introdução]:http://technet.microsoft.com/ library/bb457073.aspx
+[Como usar o Sysprep: Uma introdução]:http://technet.microsoft.com/library/bb457073.aspx
 [Executar o Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Inserir as opções de Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [A máquina virtual é parada]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
@@ -88,5 +89,4 @@ A imagem está pronta para ser usada como modelo para criar novas máquinas virt
 [Digitar o nome da imagem]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Captura de imagem bem-sucedida]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Usar a imagem capturada]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

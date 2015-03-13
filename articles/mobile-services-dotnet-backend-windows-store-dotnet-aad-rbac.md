@@ -308,11 +308,12 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
 
 <!-- URLs. -->
-[Adicionar autenticação ao seu aplicativo]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Como se registrar com o Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Adicionar autenticação ao seu aplicativo]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Cenários de sincronização de diretório]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Armazenar Scripts de servidor]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
-[Registrar-se para usar um logon do Active Directory do Azure]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Armazenar Scripts de servidor]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control/
+[Registrar-se para usar um logon do Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Biblioteca de Cliente Gráfico]: http://go.microsoft.com/fwlink/?LinkId=510536
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx\n<!--HONumber=42-->
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
+\<!--HONumber=42-->

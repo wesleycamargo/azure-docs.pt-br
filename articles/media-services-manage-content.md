@@ -1,12 +1,28 @@
-﻿<properties pageTitle="Como gerenciar conteúdo de mídia - Serviços de Mídia do Azure" description="Saiba como gerenciar seu conteúdo de mídia nos Serviços de Mídia do Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Como gerenciar conteúdo de mídia - Serviços de Mídia do Azure" 
+	description="Saiba como gerenciar seu conteúdo de mídia nos Serviços de Mídia do Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
 # Como gerenciar conteúdo nos Serviços de Mídia #
+
+Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](../media-services-video-on-demand-workflow). 
 
 Este tópico mostra como usar o Portal de Gerenciamento para gerenciar o conteúdo de mídia em sua conta de serviços de mídia.
 
@@ -17,10 +33,12 @@ Atualmente, você pode executar as seguintes operações de conteúdo diretament
 - Conteúdo do índice
 - Codificar conteúdo
 - Reproduzir conteúdo
+- Criptografar
 - Publicar/cancelar publicação de conteúdo
 
 
-## Como: Carregar conteúdo 
+
+## <a id="upload"></a>Como: Carregar conteúdo 
 
 
 1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e clique no nome da conta de Serviços de Mídia.
@@ -41,7 +59,7 @@ Quando o carregamento for concluído, você verá o novo ativo listado na lista 
 
 Se o valor do tamanho do arquivo não for atualizado depois que o processo de carregamento parar, pressione o botão **Sincronizar Metadados**. Isso sincroniza o tamanho do arquivo do ativo com o tamanho real do arquivo no armazenamento e atualiza o valor na página Conteúdo.	
 
-## Como: Conteúdo do índice
+## <a id="index"></a>Como: Conteúdo do índice
 
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Você pode indexar seu conteúdo usando o Portal de Gerenciamento, seguindo as etapas demonstradas abaixo. No entanto, se você quiser mais controle sobre quais arquivos e como é feito o trabalho de indexação, você pode usar o SDK dos Serviços de Mídia para .NET ou APIs REST. Para obter mais informações, consulte [Indexando arquivos de mídia com o Indexador de Mídia do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn783455.aspx).
 
@@ -55,7 +73,7 @@ As etapas a seguir demonstram como usar o Portal de gerenciamento para indexar s
 	
 	![Process][process]
 
-## Como: Codificar conteúdo
+## <a id="encode"></a>Como: Codificar conteúdo
 
 Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os Serviços de Mídia oferecem um codificador de mídia que permite que você especifique como deseja que seu conteúdo seja codificado (por exemplo, os codecs para uso, formato de arquivo, resolução e taxa de bits). 
 
@@ -65,13 +83,12 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-- codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),  
-- obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming a partir do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](http://azure.microsoft.com/pt-br/documentation/articles/media-services-how-to-scale/).
+- Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](../media-services-manage-origins#scale_streaming_endpoints/).
 
 Com o empacotamento dinâmico você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento e os Serviços de Mídia irão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. 
 
 Observe que, além de poder usar os recursos de empacotamento dinâmico, unidades reservadas de streaming sob demanda oferecem capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda.
-
 
 Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal de Gerenciamento.
 
@@ -91,7 +108,7 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 	+ **Codificar com proteção de conteúdo PlayReady**. Essa predefinição produz um ativo codificado com proteção de conteúdo PlayReady.  
 	
 	
-		Por padrão, o serviço de licença PlayReady dos Serviços de Mídia é usado. Para especificar algum outro serviço do qual os clientes possam obter uma licença para reproduzir o conteúdo criptografado do PlayReady, use as APIs REST ou do SDK .NET dos Serviços de Mídia. Para obter mais informações, consulte [Usando criptografia estática para proteger seu conteúdo] e defina a propriedade **licenseAcquisitionUrl** na predefinição do Criptografador de Mídia. Como alternativa, é possível usar criptografia dinâmica e definir a propriedade **PlayReadyLicenseAcquisitionUrl** como descrito em [Usando criptografia dinâmica e serviço de entrega de licença do PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720 ). 
+		Por padrão, o serviço de licença PlayReady dos Serviços de Mídia é usado. Para especificar algum outro serviço do qual os clientes possam obter uma licença para reproduzir o conteúdo criptografado do PlayReady, use as APIs REST ou do SDK .NET dos Serviços de Mídia. Para obter mais informações, consulte [Usando criptografia estática para proteger seu conteúdo]() e defina a propriedade **licenseAcquisitionUrl** na predefinição do Criptografador de Mídia. Como alternativa, é possível usar criptografia dinâmica e definir a propriedade **PlayReadyLicenseAcquisitionUrl** como descrito em [Usando criptografia dinâmica e serviço de entrega de licença do PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720 ). 
 	+ **Reproduzir no PC/Mac (via Flash/Silverlight)**. Essa predefinição produz um ativo Smooth Streaming com as características a seguir: 44,1 kHz 16 bits/CBR de áudio estéreo de exemplo codificado em 96 kbps usando AAC, e CBR de vídeo de 720p codificado em 6 bitrates variando entre 3.400 kbps a 400 kbps usando o Perfil Principal H.264 e GOPs de dois segundos.
 	+ **Reprodução por meio de HTML5 (IE/Chrome/Safari)**. Essa predefinição produz um único arquivo MP4 com as características a seguir: 44,1 kHz 16 bits/CBR de áudio estéreo de exemplo codificado em 128 kbps usando AAC, e CBR de vídeo de 720p codificado em 4.500 kbps usando o Perfil Principal H.264.
 	+ **Reprodução em dispositivos iOS e PC/Mac**. Essa predefinição produz um ativo com as mesmas características que o ativo de Smooth Streaming (descrito acima), mas em um formato que pode ser usado para fornecer fluxos HLS da Apple para dispositivos iOS. 
@@ -106,7 +123,22 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 
 	Se o valor do tamanho do arquivo não for atualizado depois que a codificação for concluída, pressione o botão **Sincronizar Metadados**. Isso sincroniza o tamanho do arquivo do ativo de saída com o tamanho real do arquivo no armazenamento e atualiza o valor na página Conteúdo.	
 
-## Como: Publicar conteúdo
+## <a id="encrypt"></a>Como: Criptografar conteúdo
+
+Se você desejar para os serviços de mídia criptografar dinamicamente seus ativos com uma chave AES ou DRM PlayReady, certifique-se de fazer o seguinte:
+
+- Codificar seu arquivo mezanino (origem) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde na seção [Encode](#encode) .
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](../media-services-manage-origins#scale_streaming_endpoints/).
+- Configure a "política de serviço de chave limpa aes padrão" ou "política de serviço sde licença playready padrão". Para obter mais informações, consulte [Configurar política de autorização de chave de conteúdo](../media-services-portal-configure-content-key-auth-policy).  
+
+
+	Quando você estiver pronto para habilitar a criptografia, pressione o botão **CRIPTOGRAFIA** na parte inferior da página **CONTEÚDO**.
+
+	![Encrypt][encrypt] 
+
+	Uma vez que você habilitou a criptografia, sempre que um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+
+## <a id="publish"></a>Como: Publicar conteúdo
 
 Quando publicar o conteúdo, você receberá uma URL de download progressivo ou streaming. Seu cliente deve ser capaz de reproduzir seus vídeos usando essa URL.
 
@@ -136,6 +168,5 @@ Somente conteúdo que tenha sido publicado pode ser reproduzido no portal. Além
 [contentpage]: ./media/media-services-manage-content/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
-
-
-<!--HONumber=42-->
+[encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
+<!--HONumber=45--> 

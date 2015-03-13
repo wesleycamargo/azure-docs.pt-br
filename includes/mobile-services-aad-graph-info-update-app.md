@@ -49,5 +49,4 @@ As instruções abaixo se aplicam à atualização de um cliente da Windows Stor
 
 
 4. Salve suas alterações e compile o serviço para verificar se não existem erros de sintaxe.  
-
 <!--HONumber=42-->

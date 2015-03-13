@@ -29,7 +29,7 @@ A sincronização offline possui diversos usos possíveis:
 * Permite que usuários finais criem e modifiquem dados mesmo quando não há acesso à rede, com suporte para cenários com pouca ou nenhuma conectividade
 * Sincroniza dados entre vários dispositivos e detecta conflitos quando o mesmo registro é modificado por dois dispositivos
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
+>[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>. 
 >
 > Se esta for sua primeira experiência com Serviços Móveis, você deve primeiro concluir [Introdução aos Serviços Móveis].
 
@@ -160,15 +160,16 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 
 <!-- URLs. -->
-[Tratando conflitos com o suporte offline para os Serviços móveis]: /en-us/documentation/articles/mobile-services-xamarin-android-handling-conflicts-offline-data/ 
-[Introdução aos dados]: /en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started/
-[Como usar o cliente do componente Xamarin para os serviços móveis do Azure]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
-[Exclusão Reversível]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Tratando conflitos com o suporte offline para os Serviços móveis]: /pt-br/documentation/articles/mobile-services-xamarin-android-handling-conflicts-offline-data/ 
+[Introdução aos dados]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started/
+[Como usar o cliente do componente Xamarin para os serviços móveis do Azure]: /pt-br/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[Exclusão Reversível]: /pt-br/documentation/articles/mobile-services-using-soft-delete/
 
 [Nuget do SDK dos Serviços móveis]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [Nuget do repositório do SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Xamarin Studio]: http://xamarin.com/download
 [Extensão Xamarin]: http://xamarin.com/visual-studio
 [Suplemento do NuGet para Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

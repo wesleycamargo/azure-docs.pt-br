@@ -1,6 +1,20 @@
-<properties pageTitle="How to create APIs in Azure API Management" metaKeywords="" description="Learn how to create and configure APIs in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Como criar APIs no Gerenciamento de API do Azure" 
+	description="Saiba como criar e configurar APIs no Gerenciamento de API do Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Como criar APIs no Gerenciamento de API do Azure
 
@@ -72,3 +86,5 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
   [Resumo da API]: ./media/api-management-howto-create-apis/api-management-api-summary.png
   [Configurações da API]: ./media/api-management-howto-create-apis/api-management-api-settings.png
   [Configurações da autenticação Básica]: ./media/api-management-howto-create-apis/api-management-api-settings-credentials.png
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gerenciando o controle de acesso baseado em função com interface de linha de comando entre plataformas do Azure" metaKeywords="ResourceManager, interface de linha de comando entre plataformas do Azure, linha de comando do Azure, linha de comando do azure, cli do azure, RBAC" description="Gerenciando o controle de acesso baseado em função com a interface de linha de comando entre plataformas" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Gerenciando o controle de acesso baseado em função com a interface de linha de comando entre plataformas do Azure" 
+	description="Gerenciando o controle de acesso baseado em função com a interface de linha de comando entre plataformas" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # Gerenciar o controle de acesso com base em função com interface de linha de comando de plataforma cruzada #
 
@@ -16,8 +30,8 @@ Neste tutorial, você aprenderá como usar a interface de linha de comando de pl
 
 Para poder usar o xplat-cli para gerenciar o RBAC, você deve ter o seguinte:
 
-- A interface de linha de comando entre plataformas do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando da plataforma cruzada do Azure](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/).
-- Leia também os tutoriais a seguir para se familiarizar com a instalação e para usar o Gerenciador de Recursos do Azure na interface de linha de comando da plataforma cruzada do Azure: [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli-azure-resource-manager/)
+- A interface de linha de comando entre plataformas do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando da plataforma cruzada do Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
+- Leia também os tutoriais a seguir para se familiarizar com a instalação e para usar o Gerenciador de Recursos do Azure na interface de linha de comando da plataforma cruzada do Azure: [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 ## Neste tutorial ##
 
@@ -33,7 +47,7 @@ Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira 
 
     arm do modo de configuração do Azure
 
-Para obter mais informações, consulte [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli-azure-resource-manager/)
+Para obter mais informações, consulte [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 Para se conectar às assinaturas do Azure, digite:
 
@@ -48,7 +62,7 @@ Se você tem várias assinaturas e deseja alternar para outra, digite:
     # Use o nome da assinatura para selecionar aquele em que você deseja trabalhar.
     conjunto de contas do azure <nome da assinatura>
 
-Para obter mais informações, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/).
+Para obter mais informações, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
 
 ## <a id="check"></a>Verifique as atribuições de função existentes ##
 
@@ -125,10 +139,12 @@ Quando você tenta executar outros cmdlets como `azure group create`, receberá 
 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o xplat-cli e tópicos relacionados:
 
-- [Controle de acesso com base em função do Windows Azure](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-configure/)
-- [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli/)
-- [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos](http://azure.microsoft.com/pt-br/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Usando grupos de recursos para gerenciar os recursos do Azure](http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups): Saiba como criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
+- [Controle de acesso com base em função do Windows Azure](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
+- [Instalar e configurar a interface de linha de comando entre plataformas do Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/)
+- [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- [Usando grupos de recursos para gerenciar os recursos do Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Saiba como criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): Saiba sobre os novos recursos do Azure.
-- [Configurar o controle de acesso com base em função usando o Windows PowerShell](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-powershell/)
-- [Solucionar problemas de controle de acesso com base em função](http://azure.microsoft.com/pt-br/documentation/articles/role-based-access-control-troubleshooting/)
+- [Configurar o controle de acesso com base em função usando o Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
+- [Solucionar problemas de controle de acesso com base em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
+
+<!--HONumber=46--> 

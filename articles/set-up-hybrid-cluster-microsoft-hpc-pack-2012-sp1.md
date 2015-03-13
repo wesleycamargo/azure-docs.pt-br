@@ -1,6 +1,19 @@
-﻿<properties pageTitle="Configurar um cluster de computação híbrido com o Microsoft HPC Pack" description="Aprenda a usar o Microsoft HPC Pack e o Azure para configurar um cluster de computação de alto desempenho (HPC) híbrido e pequeno" services="cloud-services" documentationCenter="" authors="dlepow" manager="timlt"/>
+﻿<properties 
+	pageTitle="Configurar um cluster de computação híbrido com o Microsoft HPC Pack" 
+	description="Aprenda a usar o Microsoft HPC Pack e o Azure para configurar um cluster de computação de alto desempenho (HPC) híbrido e pequeno" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/30/2015" ms.author="danlep"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 # Configurar um cluster de computação híbrido com o Microsoft HPC Pack
@@ -16,7 +29,7 @@ Este tutorial não pressupõe nenhuma experiência anterior com clusters de comp
 
 <h2 id="BKMK_Prereq">Pré-requisitos</h2>
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 Além disso, é necessário o seguinte para este tutorial.
 
@@ -293,7 +306,7 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 * [HPC Pack 2012 R2 e HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Intermitência do Azure com o Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack em VMs do Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure Big Compute: HPC e Lote](http://azure.microsoft.com/pt-br/solutions/big-compute/)
+* [Azure Big Compute: HPC e Lote](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

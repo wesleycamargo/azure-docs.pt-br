@@ -1,6 +1,20 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Monitorar e gerenciar o Azure Data Factory utilizando o Portal de visualização do Azure" description="Saiba como usar o Portal de Gerenciamento do Azure para monitorar e gerenciar os dados de fábrica do Azure que você criou." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Monitorar e gerenciar o Azure Data Factory utilizando o Portal de visualização do Azure" 
+	description="Saiba como usar o portal de gerenciamento do Azure para monitorar e gerenciar as fábricas de dados do Azure que você criou." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Monitorar o Data Factory do Azure utilizando o Portal de visualização do Azure
 
@@ -204,3 +218,5 @@ Artigo | Descrição
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

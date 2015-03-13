@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Fornecimento contínuo com o Visual Studio Online no Azure" metaKeywords="" description="Saiba como configurar seus projetos de equipe do Visual Studio Online para serem compilados e implantados automaticamente em Websites ou serviços de nuvem do Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties 
+	pageTitle="Fornecimento contínuo com o Visual Studio Online no Azure" 
+	description="Saiba como configurar seus projetos de equipe do Visual Studio Online para serem compilados e implantados automaticamente em Websites ou serviços de nuvem do Azure." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 
 
@@ -9,14 +23,11 @@
 
 Você pode usar os projetos de equipe do Visual Studio Online para hospedar um repositório Git para seu código-fonte e compilar e implantá-lo automaticamente em sites ou serviços de nuvem do Azure sempre que enviar por push uma confirmação ao repositório.
 
-Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
+Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>Para concluir este tutorial, você precisa de uma conta do Visual Studio Online:</h5>
-<p>Você pode <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">abrir uma conta no Visual Studio Online gratuitamente</a>.</p>
-</div>
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Visual Studio Online:
+> Você pode [abrir uma conta no Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Online, siga estas etapas:
 
@@ -50,8 +61,9 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 ![][4]
 
 2. Você pode implantar um site ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo.
-Crie um novo projeto de Serviço de Nuvem do Microsoft Azure ou um novo projeto ASP.NET MVC. Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC.
-Se você desejar criar um site, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Introdução ao Azure e ao ASP.NET](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-get-started/).
+Crie um novo projeto de serviço de nuvem do Microsoft Azure,
+ou um novo projeto ASP.NET MVC. Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC.
+Se você desejar criar um site, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Introdução ao Azure e ao ASP.NET](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 3. Abra o menu de atalho da solução e escolha **Confirmar**.<br/>
 ![][7]
@@ -65,13 +77,13 @@ Se você desejar criar um site, escolha o modelo de projeto de Aplicativo Web AS
 
 <h2> <a name="step3"> </a>Etapa 3: Conectar o projeto ao Azure</h2>
 
-1. Agora que possui um repositório Git no Visual Studio Online com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure.  No [Portal do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo selecionando o ícone + na parte inferior esquerda e escolhendo **Serviço de Nuvem** ou **Site** e, em seguida, **Criação Rápida**.<br.>
+1. Agora que possui um repositório Git no Visual Studio Online com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure.  No [Portal do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo selecionando o ícone + na parte inferior esquerda e escolhendo **Serviço de Nuvem** ou **Site** e, em seguida, **Criação Rápida**.<br/>
 ![][9]
 
-3. Para serviços de nuvem, escolha o link **Configurar publicação com o Visual Studio Online**. Para sites, escolha o link **Configurar a implantação do controle do código-fonte**. <br/>
+3. Para serviços de nuvem, escolha o link **Configurar publicação com o Visual Studio Online**. Para sites, escolha o link **Configurar a implantação do controle do código-fonte**.<br/>
 ![][10]
 
-2. No assistente, digite o nome de sua conta do Visual Studio Online na caixa de texto e escolha o link **Autorizar Agora**.Você pode ser solicitado a entrar.<br/>
+2. No assistente, digite o nome de sua conta do Visual Studio Online na caixa de texto e selecione no link **Autorizar Agora**. Você pode ser solicitado a entrar.<br/>
 ![][11]
 
 3. Na caixa de diálogo pop-up OAuth, escolha **Aceitar** para autorizar o Azure a configurar seu projeto da equipe no Visual Studio Online.<br/>
@@ -99,7 +111,7 @@ Na próxima vez em que você enviar uma confirmação por push ao repositório, 
 5. Selecione o link **Sincronizar**.<br/>
 ![][38]
 
-6. Escolha o link **Enviar por push** para enviar sua confirmação por push ao repositório no Visual Studio Online. (Você também pode usar o botão **Sincronizar** para copiar suas confirmações no repositório. A diferença é que o comando **Sincronizar** também efetua pull das alterações mais recentes do repositório.) <br/>
+6. Escolha o link **Enviar por push** para enviar sua confirmação por push ao repositório no Visual Studio Online. (Você também pode usar o botão **Sincronizar** para copiar suas confirmações no repositório. A diferença é que o comando **Sincronizar** também efetua pull das alterações mais recentes do repositório.)<br/>
 ![][39]
 
 7. Escolha o botão Início para retornar à página inicial do Team Explorer.<br/>
@@ -116,13 +128,13 @@ O Team Explorer mostra que uma compilação foi disparada para seu check-in.<br/
 10. Enquanto a compilação estiver em andamento, examine a definição de compilação que foi criada quando você usou o assistente para vincular ao Azure.  Abra o menu de atalho da definição de compilação e escolha **Editar Definição de Compilação**.<br/>
 ![][25]
 <br/>
-Na guia **Disparador**, você verá que a definição de compilação está definida, por padrão, para compilar em cada check-in. (Para um serviço de nuvem, o Visual Studio Online compila e implanta a ramificação mestre no ambiente de preparo automaticamente. Você ainda precisa executar uma etapa manual para implantar no site ativo.Para sites que não têm um ambiente de preparo, ele implanta a ramificação mestra diretamente no site ativo.<br/>
+Na guia **Disparador**, você verá que a definição de compilação está definida, por padrão, para compilar em cada check-in. (Para um serviço de nuvem, o Visual Studio Online compila e implanta a ramificação mestre no ambiente de preparo automaticamente. Você ainda precisa executar uma etapa manual para implantar no site ativo. Para sites que não têm um ambiente de preparo, ele implanta a ramificação mestra diretamente no site ativo.<br/>
 ![][26]
 <br/>
 Na guia **Processo**, você pode ver que o ambiente de implantação está definido como o nome do seu serviço de nuvem ou site.<br/>
 ![][27]
 <br/>
-Especifique valores para as propriedades se você desejar valores diferentes dos padrões. As propriedades de publicação no Azure estão na seção Implantação, e talvez você também precise definir parâmetros MSBuild. Por exemplo, em um projeto de serviço de nuvem, para especificar uma configuração de serviço diferente de "Cloud", defina os parâmetros MSbuild como /p:TargetProfile=*SeuPerfil*, em que *SeuPerfil* corresponde ao arquivo de configuração de serviço com um nome como ConfiguraçãoDeServiço.SeuPerfil.cscfg.
+Especifique valores para as propriedades se você desejar valores diferentes dos padrões. As propriedades de publicação no Azure estão na seção Implantação, e talvez você também precise definir parâmetros MSBuild. Por exemplo, em um projeto de serviço de nuvem, para especificar uma configuração de serviço diferente de "Nuvem", defina os parâmetros do MSbuild para /p:TargetProfile=*YourProfile*, onde *YourProfile* corresponde a um arquivo de configuração de serviço com um nome como ServiceConfiguration.*YourProfile*.cscfg.
 A tabela a seguir mostra as propriedades disponíveis na seção de Implantação:
 	<table>
 <tr><td><b>Propriedade</b></td><td><b>Valor padrão</b></td></tr>
@@ -144,7 +156,7 @@ A tabela a seguir mostra as propriedades disponíveis na seção de Implantaçã
 13. No [Portal do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia Implantações quando o ambiente de preparo estiver selecionado.<br/>
 ![][30]
 
-14.	Navegue até a URL do site.  Para um site, basta clicar no botão **Procurar** no portal.  Para um serviço de nuvem, escolha o URL na seção **Visão Rápida** da página **Painel** que mostra o ambiente de preparo. Por padrão, as implantações de integração contínua para serviços de nuvem são publicadas no ambiente de preparo.Você pode alterar isso definindo a propriedade Ambiente de Serviço de Nuvem Alternativo para a produção.Esta é a localização do URL do site está na página do painel do serviço de nuvem: <br/>
+14.	Navegue até a URL do site. Para um site, basta clicar no botão **Procurar** no portal. Para um serviço de nuvem, escolha o URL na seção **Visão Rápida** da página **Painel** que mostra o ambiente de preparo. Por padrão, as implantações de integração contínua para serviços de nuvem são publicadas no ambiente de preparo. Você pode alterar isso definindo a propriedade Ambiente de Serviço de Nuvem Alternativo para a produção. Esta é a localização do URL do site está na página do painel do serviço de nuvem: <br/>
 ![][31]
 <br/>
 Uma nova guia do navegador será aberta para revelar seu site em execução.<br/>
@@ -160,20 +172,20 @@ Esta etapa é opcional. No portal de gerenciamento, selecione uma implantação 
 
 <h2> <a name="step6"> </a>Etapa 6: Alterar a implantação em produção</h2>
 
- Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo **Permutar** no Portal de Gerenciamento. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo.A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.<br/>
+ Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo **Permutar** no Portal de Gerenciamento. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.<br/>
 ![][35]
 
 <h2> <a name="step7"> </a>Etapa 6: Implantar por meio de uma ramificação em andamento.</h2>
 
 Quando usa o Git, normalmente você faz alterações em uma ramificação em andamento e a integra à ramificação mestre quando seu desenvolvimento estiver concluído. Durante a fase de desenvolvimento de um projeto, você compilará e implantará a ramificação em andamento no Azure.
 
-1. No Team Explorer, escolha o botão **Início** e escolha o botão **Ramificações**. <br/>
+1. No Team Explorer, escolha o botão **Início** e escolha o botão **Ramificações**.<br/>
 ![][40]
 
 2. Escolha o link **Nova Ramificação**.<br/>
 ![][41]
 
-3. Insira o nome da ramificação, como "em andamento" e escolha **Criar Ramificação**.Isso cria uma nova ramificação local.<br/>
+3. Insira o nome da ramificação, como "em andamento" e escolha **Criar Ramificação**. Isso cria uma nova ramificação local.<br/>
 ![][42]
 
 4. Publique a ramificação. Escolha o nome da ramificação em **Ramificações não publicadas** e selecione **Publicar**.<br/>
@@ -195,7 +207,7 @@ Quando usa o Git, normalmente você faz alterações em uma ramificação em and
 
 11. Navegue até a exibição **Compilações** e encontre a compilação que foi acionada para a ramificação em andamento.
 
-Para obter mais informações, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Para obter dicas adicionais sobre como usar o Git com o Visual Studio Online, consulte [Compartilhar seu código no Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e para obter informações sobre como usar um repositório Git que não é gerenciado pelo Visual Studio Online para publicar no Azure, consulte [Publicando do Controle do código-fonte para sites do Azure](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-publish-source-control).
+Para obter mais informações, consulte [Visual Studio Online (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=253861). Para obter mais dicas de como usar o Git com Visual Studio Online, consulte [Compartilhar seu código no Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx), e para obter informações de como usar um repositório Git que não é gerenciado pelo Visual Studio Online para publicar no Azure, consulte [Publicando do controle do código-fonte em sites do Azure](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control).
 
 [Etapa 1: Criar um repositório Git.]: #step1
 [Etapa 2: Criar um projeto e enviá-lo por push ao repositório Git.]: #step2
@@ -250,4 +262,4 @@ Para obter mais informações, consulte [Visual Studio Online](http://go.microso
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

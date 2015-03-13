@@ -1,6 +1,20 @@
-<properties pageTitle="Conecte milh&otilde;es de coisas na nuvem" metaKeywords="Service Bus, internet of things" description="Saiba como conectar milh&otilde;es de coisas na nuvem usando o Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Conecte milh&otilde;es de coisas na nuvem" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Conecte milhões de coisas na nuvem" 
+	description="Saiba como conectar milhões de coisas na nuvem usando o Microsoft Azure." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # Conecte milhões de “coisas” na nuvem
 
@@ -28,13 +42,15 @@
 -   [Azure Active Directory][Azure Active Directory]
 -   [Serviços de Nuvem][Serviços de Nuvem]
 
-  [Hubs de Evento]: http://msdn.microsoft.com/pt-br/library/dn789973.aspx
-  [Padrão de Fragmentação]: http://msdn.microsoft.com/pt-br/library/dn589797.aspx
-  [Barramento de Serviço e AMQP 1.0]: http://msdn.microsoft.com/pt-br/library/azure/jj841071.aspx
-  [Introdução ao Barramento de Serviço]: http://azure.microsoft.com/pt-br/documentation/services/service-bus/
-  [Entidades do Sistema de Mensagens de Particionamento]: http://msdn.microsoft.com/pt-br/library/azure/dn520246.aspx
-  [Tópicos do Service Bus]: http://azure.microsoft.com/pt-br/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Utilizando o Apache Qpid Proton C com o Barramento de Serviço do Azure no Linux e no Windows]: http://msdn.microsoft.com/pt-br/library/azure/dn235560.aspx
+  [Hubs de Evento]: http://msdn.microsoft.com/library/dn789973.aspx
+  [Padrão de Fragmentação]: http://msdn.microsoft.com/library/dn589797.aspx
+  [Barramento de Serviço e AMQP 1.0]: http://msdn.microsoft.com/library/azure/jj841071.aspx
+  [Introdução ao Barramento de Serviço]: http://azure.microsoft.com/documentation/services/service-bus/
+  [Entidades do Sistema de Mensagens de Particionamento]: http://msdn.microsoft.com/library/azure/dn520246.aspx
+  [Tópicos do Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+  [Utilizando o Apache Qpid Proton C com o Barramento de Serviço do Azure no Linux e no Windows]: http://msdn.microsoft.com/library/azure/dn235560.aspx
   [Comunicação Assistida de Serviços para Dispositivos Conectados]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
-  [Azure Active Directory]: http://azure.microsoft.com/pt-br/documentation/services/active-directory/
-  [Serviços de Nuvem]: http://azure.microsoft.com/pt-br/documentation/services/cloud-services/
+  [Azure Active Directory]: http://azure.microsoft.com/documentation/services/active-directory/
+  [Serviços de Nuvem]: http://azure.microsoft.com/documentation/services/cloud-services/
+
+<!--HONumber=46--> 

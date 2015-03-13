@@ -48,7 +48,7 @@ O Apache Storm é um sistema de computação distribuído executado em clusters 
 
 O SCP fornece as bibliotecas que facilitam a criação das soluções Storm usando .NET. Os clusters Storm no HDInsight incluem os componentes necessários do lado do servidor para executar as soluções SCP que você cria.
 
-Para obter mais informações sobre Storm no HDInsight, consulte [Visão geral do Storm no HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-overview/).
+Para obter mais informações sobre Storm no HDInsight, consulte [Visão geral do Storm no HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/).
 
 ###Criar uma solução SCP
 
@@ -69,7 +69,7 @@ Criar uma solução envolve o seguinte:
 
 ##Instalar o SDK do SCP
 
-O SDK do SCP é fornecido no cluster Storm no HDInsight. Depois de [criar um cluster Storm no HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-storm-getting-started/), siga as seguintes etapas para baixar o SDK para seu ambiente de desenvolvimento local.
+O SDK do SCP é fornecido no cluster Storm no HDInsight. Depois de [criar um cluster Storm no HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/), siga as seguintes etapas para baixar o SDK para seu ambiente de desenvolvimento local.
 
 1. Entre no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
@@ -1003,5 +1003,4 @@ Os aplicativos de exemplo a seguir gravados com o SCP podem ser encontrados em s
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
-
 <!--HONumber=42-->

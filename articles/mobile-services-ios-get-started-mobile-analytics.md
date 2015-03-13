@@ -19,7 +19,7 @@
 # Introdução à Análise Móvel (Capptain)
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
+<a href="/pt-br/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
 </div>
 
 Neste tutorial, você adiciona recursos de análise móvel ao seu aplicativo usando o [Capptain]. A Análise Móvel permite determinar como os usuários estão interagindo com seu aplicativo e quais seções estão conduzindo a maior parte da atividade. Para começar a obter esses dados, você instrumentará o aplicativo com o SDK do Capptain.
@@ -99,5 +99,6 @@ Saiba mais sobre o que Capptain pode fazer para seu aplicativo em [http://www.ca
 
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
-[Camada Padrão de Serviços Móveis]: /en-us/pricing/details/mobile-services/
-\n<!--HONumber=42-->
+[Camada Padrão de Serviços Móveis]: /pt-br/pricing/details/mobile-services/
+
+\<!--HONumber=42-->

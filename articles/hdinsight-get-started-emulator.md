@@ -1,6 +1,21 @@
-<properties pageTitle="Introdução ao emulador do HDInsight | Azure" description="Saiba como usar o emulador do HDInsight para Azure." editor="cgronlun" manager="paulettm" services="hdinsight" author="nitinme" authors="nitinme" documentationCenter=""/>
+﻿<properties 
+	pageTitle="Introdução ao emulador do HDInsight | Azure" 
+	description="Saiba como usar o emulador do HDInsight para Azure." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	author="nitinme" 
+	authors="nitinme" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="nitinme"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="nitinme"/>
 
 # Introdução ao emulador do HDInsight 
 
@@ -69,7 +84,7 @@ A instalação deve ter inserido três ícones na área de trabalho. Os três í
 
 A instalação também deve ter instalado vários serviços locais. Esta é uma captura de tela da janela Serviços:
 
-![HDI.Emulator.Services][image-hdi-emulator-services]
+![HDI.Emulator.Services][0]
 
 Os serviços relacionados ao Emulador do HDInsight não são iniciados por padrão. Para iniciar os serviços, na linha de comando do Hadoop, execute **start\_local\_hdp_services.cmd** em <system drive\>\hdp. Para iniciar automaticamente os serviços após o reinício do computador, execute **set-onebox-autostart.cmd**.  
 
@@ -454,14 +469,14 @@ Neste tutorial, você instalará um Emulador do HDInsight e executará alguns tr
 - [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 - [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-deploy-streaming]
 - [Notas de versão do emulador do HDInsight][hdinsight-emulator-release-notes]
-- [Fórum do MSDN para discussão do HDInsight](http://social.msdn.microsoft.com/Forums/pt-br/hdinsight)
+- [Fórum do MSDN para discussão do HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
 
 
 
-[azure-sdk]: http://azure.microsoft.com/pt-br/downloads/
+[azure-sdk]: http://azure.microsoft.com/downloads/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
-[netstat-url]: http://technet.microsoft.com/pt-br/library/ff961504.aspx
+[netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
@@ -470,7 +485,7 @@ Neste tutorial, você instalará um Emulador do HDInsight e executará alguns tr
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-develop-deploy-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -480,5 +495,4 @@ Neste tutorial, você instalará um Emulador do HDInsight e executará alguns tr
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
-
 <!--HONumber=42-->

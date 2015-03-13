@@ -21,7 +21,7 @@
 
 Websites do Azure permitem que você execute programas ou scripts em seu site da Web de três maneiras: sob demanda, continuamente ou em uma agenda. Não há nenhum custo adicional para utilizar Trabalhos Web do Microsoft Azure.
 
-Este artigo mostra como implantar Trabalhos Web utilizando o Portal de gerenciamento do Azure. Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure para sites do Azure](http://azure.microsoft.com/pt-br/documentation/articles/websites-dotnet-deploy-webjobs).
+Este artigo mostra como implantar Trabalhos Web utilizando o Portal de gerenciamento do Azure. Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure para sites do Azure](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs).
 
 O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Trabalhos Web. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](../websites-dotnet-webjobs-sdk).
 

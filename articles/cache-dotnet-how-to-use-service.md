@@ -1,6 +1,20 @@
-<properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Com usar o Serviço de Cache gerenciado do Azure" 
+	description="" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Com usar o Serviço de Cache gerenciado do Azure
 
@@ -440,12 +454,12 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado,siga os links
   [Como: Especificar o término de um objeto no cache]: #specify-expiration
   [Como: Armazenar o estado da sessão ASP.NET no cache]: #store-session
   [Como: Armazenar o caching de saída de página ASP.NET no cache]: #store-page
-  [Detalhes de preços do Cache]: http://www.windowsazure.com/pt-br/pricing/details/cache/
+  [Detalhes de preços do Cache]: http://azure.microsoft.com/pricing/details/cache/
   [Visão geral do Serviço de Cache do Azure Gerenciado]: http://go.microsoft.com/fwlink/?LinkId=320830
   [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
   [Como instalar e configurar o PowerShell do Azure]: http://go.microsoft.com/fwlink/?LinkId=400494
-  [Add-AzureAccount]: http://msdn.microsoft.com/pt-br/library/dn495128.aspx
-  [Select-AzureSubscription]: http://msdn.microsoft.com/pt-br/library/dn495203.aspx
+  [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
+  [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
   [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
   [Ofertas de cache]: http://go.microsoft.com/fwlink/?LinkId=317277
   [NamedCaches]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg
@@ -463,4 +477,6 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado,siga os links
   [Provedor de Cache de Saída para o Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
   [Migre para o Serviço de Cache gerenciado]: http://go.microsoft.com/fwlink/?LinkId=317347
   [Amostras do Serviço de Cache gerenciado]: http://go.microsoft.com/fwlink/?LinkId=320840
-  [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
+  [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+
+<!--HONumber=46--> 

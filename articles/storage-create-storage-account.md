@@ -33,7 +33,7 @@ Você é cobrado pelo uso do Armazenamento do Azure com base na sua conta de arm
 - As transações referem-se a todas as operações de leitura e gravação no Armazenamento do Azure. 
 - A saída de dados refere-se a dados transferidos para fora de uma região do Azure. Quando os dados de sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, quer esse aplicativo seja um serviço de nuvem ou algum outro tipo de aplicativo, você é cobrado pela saída de dados. (Nos serviços do Azure, você pode tomar medidas para agrupar seus dados e serviços nos mesmos data centers para reduzir ou eliminar encargos de saída de dados.)  
 
-A página [Detalhes de preços de armazenamento](http://www.windowsazure.com/pt-br/pricing/details/#storage) fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados](http://www.windowsazure.com/pt-br/pricing/details/data-transfers/) fornece informações detalhadas de preços para saída de dados.
+A página [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/#storage) fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados](http://azure.microsoft.com/pricing/details/data-transfers/) fornece informações detalhadas de preços para saída de dados.
 
 Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento, consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
@@ -101,7 +101,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 Um *grupo de afinidades* é um agrupamento geográfico de seus serviços Azure e VMs na conta de armazenamento do Azure. Um grupo de afinidade pode melhorar o desempenho do serviço localizando cargas de trabalho do computador no mesmo data center ou próximo do público-alvo de usuários. Além disso, não há encargos de cobrança incorridos para saída quando os dados em uma conta de armazenamento são acessados por um serviço em execução do mesmo grupo de afinidade.
 
-> [AZURE.NOTE]  Para criar um grupo de afinidade, abra a área <b>Configurações</b> do Portal de Gerenciamento, clique em <b>Grupos de Afinidade</b> e em <b>Adicionar grupo de afinidade</b> ou no botão <b>Adicionar</b>. Você também pode criar e gerenciar os grupos de afinidade usando o Portal de Gerenciamento de Serviços do Azure. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/ee460798.aspx">Operações em grupos de afinidade</a>.
+> [AZURE.NOTE]  Para criar um grupo de afinidade, abra a área <b>Configurações</b> do Portal de Gerenciamento, clique em <b>Grupos de Afinidade</b> e em <b>Adicionar grupo de afinidade</b> ou no botão <b>Adicionar</b>. Você também pode criar e gerenciar os grupos de afinidade usando o Portal de Gerenciamento de Serviços do Azure. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/windowsazure/ee460798.aspx">Operações em grupos de afinidade</a>.
 
 
 ### <a id="replication-options"></a>Opções de replicação de conta de armazenamento
@@ -119,7 +119,7 @@ No [Portal de Gerenciamento](http://manage.windowsazure.com), use **Gerenciar Ch
 
 ### Copiar uma chave de acesso de armazenamento ###
 
-Você pode usar **Gerenciar Chaves** para copiar uma chave de acesso de armazenamento para uso em uma cadeia de conexão. A cadeia de conexão requer o nome da conta de armazenamento e uma chave a ser usada na autenticação. Para obter informações sobre como configurar cadeias de conexão para acessar os serviços de armazenamento do Azure, consulte [Configurando cadeias de conexão](http://msdn.microsoft.com/pt-br/library/ee758697.aspx).
+Você pode usar **Gerenciar Chaves** para copiar uma chave de acesso de armazenamento para uso em uma cadeia de conexão. A cadeia de conexão requer o nome da conta de armazenamento e uma chave a ser usada na autenticação. Para obter informações sobre como configurar cadeias de conexão para acessar os serviços de armazenamento do Azure, consulte [Configurando cadeias de conexão](http://msdn.microsoft.com/library/ee758697.aspx).
 
 1. No [Portal de Gerenciamento](http://manage.windowsazure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
@@ -171,10 +171,9 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 
 ## <a id="next"></a>Próximas etapas
 
-- Para saber mais sobre o Armazenamento do Azure, consulte a documentação de Armazenamento do Azure em [azure.com](http://azure.microsoft.com/pt-br/documentation/services/storage/) e no [MSDN].(http://msdn.microsoft.com/pt-br/library/gg433040.aspx). 
+- Para saber mais sobre o Armazenamento do Azure, consulte a documentação de Armazenamento do Azure em [azure.com](http://azure.microsoft.com/documentation/services/storage/) e no [MSDN)]http://msdn.microsoft.com/library/gg433040.aspx). 
 
 - Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
 
 
 

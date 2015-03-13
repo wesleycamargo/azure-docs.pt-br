@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Visão geral detalhada de planos de hospedagem na Web de sites do Azure - guia de recursos do Microsoft Azure" description="Saiba como os planos de hospedagem na Web para os sites da Web do Azure funcionam, e como eles se beneficiam de sua experiência em gerenciamento." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Visão geral detalhada de planos de hospedagem na Web de sites do Azure - guia de recursos do Microsoft Azure" 
+	description="Saiba como planos de hospedagem na web de sites do Azure funcionam e como eles beneficiam a sua experiência de gerenciamento." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Visão geral detalhada de planos de hospedagem na Web de sites do Azure#
 </br>
@@ -189,3 +203,5 @@ Essas métricas representam a média de uso entre instâncias pertencentes a um 
 Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Um plano de hospedagem na Web oferece a flexibilidade para alocar sites específicos a um determinado conjunto de recursos, como máquinas virtuais, e otimiza ainda mais a alocação de seus recursos do Azure e o uso de sites.
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

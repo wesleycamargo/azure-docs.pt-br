@@ -180,7 +180,6 @@ A etapa final consiste em testar o aplicativo e validar que os carregamentos sej
 
 
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started
-[CameraCaptureTask]: http://msdn.microsoft.com/pt-br/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
-[PhotoCamera]: http://msdn.microsoft.com/pt-br/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-
+[CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
+[PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 <!--HONumber=42-->

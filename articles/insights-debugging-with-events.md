@@ -1,6 +1,20 @@
-﻿<properties title="How to debug with events" pageTitle="Como depurar com eventos" description="Saiba como ver eventos no Azure." authors="hanikn" manager="kamrani" />
+﻿<properties 
+	pageTitle="Como depurar com eventos" 
+	description="Saiba como ver eventos no Azure." 
+	authors="HaniKN-MSFT" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="hanikn"/>
 
 # Monitorar os eventos que afetam seus recursos ou grupo de recursos do Azure
 
@@ -18,3 +32,5 @@
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)  
     Uma nova folha será aberta incluindo muitos detalhes do evento. Para eventos **Com falha**, esta página geralmente inclui uma seção **Substatus** e uma seção **Propriedades** que incluem detalhes úteis para fins de depuração.
 
+
+<!--HONumber=46--> 

@@ -91,10 +91,9 @@ Para obter mais informações sobre como obter e usar essas bibliotecas com o Ba
 
 *    [Como usar os tópicos AMQP 1.0 com a API do Barramento de Serviço .NET](http://aka.ms/lym3vk)
 *    [Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/pt-br/library/jj841071.aspx)
+*    [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx)
 *    [Especificação do protocolo de enfileiramento de mensagens avançado (AMQP) OASIS versão 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
-
 
 <!--HONumber=42-->

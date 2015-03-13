@@ -1,6 +1,20 @@
-﻿<properties title="Multivariate Linear Regression" pageTitle="Regressão linear multivariada | Azure" description="Regressão linear multivariada" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Regressão linear multivariada | Azure" 
+	description="Regressão linear multivariada" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Regressão linear multivariada   
@@ -59,7 +73,7 @@ Há várias maneiras de consumir o serviço de forma automática (aplicativos de
 
 
 #Criação do serviço Web  
->Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+>Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 
 
 De dentro de AM do Azure, um novo teste em branco foi criado e dois "Scripts R de Executar" foram levados ao espaço de trabalho. Esse serviço Web executa um teste de aprendizado de máquina do Azure com script R subjacente.  Ou seja, existem duas partes deste teste: definição de esquema, modelo de treinamento + pontuação.  O primeiro módulo define a estrutura esperada do conjunto de entrada, em que a primeira variável é a variável dependente e as variáveis restantes são independentes. O segundo módulo se encaixa em um modelo de regressão linear genérico para os dados de entrada.  
@@ -91,8 +105,10 @@ De dentro de AM do Azure, um novo teste em branco foi criado e dois "Scripts R d
 Este é um exemplo muito simples de um serviço Web de regressão linear múltipla. Como pode ser visto do código de exemplo acima, nenhuma captura de erro é implementada e o serviço pressupõe que tudo é uma variável contínua (nenhum recurso categórico é permitido), uma vez que o serviço apenas produz valores números no momento da criação do serviço Web. Além disso, o serviço atualmente lida com um tamanho de dados limitado, devido à natureza de solicitação/resposta da chamada de serviço Web e ao fato de que o modelo é ajustado sempre que o serviço Web é chamado. 
 
 ##Perguntas frequentes
-Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-marketplace-faq).
+Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png
 [2]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png
 [3]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png
+
+<!--HONumber=46--> 

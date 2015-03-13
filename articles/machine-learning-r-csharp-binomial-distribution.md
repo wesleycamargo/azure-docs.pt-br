@@ -1,6 +1,20 @@
-﻿<properties title="Binomial Distribution Suite" pageTitle="Pacote de distribuição binomial | Azure" description="Pacote de distribuição binomial" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Pacote de distribuição binomial | Azure" 
+	description="Pacote de distribuição binomial" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Pacote de distribuição binomial
@@ -88,7 +102,7 @@ Há várias maneiras de consumir o serviço de forma automática (aplicativos de
 
 ##Criação do serviço Web 
 
->Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+>Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 
 ###Calculadora de quantil de distribuição binomial
 
@@ -196,7 +210,7 @@ Há várias maneiras de consumir o serviço de forma automática (aplicativos de
 Estes são exemplos muito simples sobre Distribuição Binomial. Como se pode ver no exemplo de código acima, pouca captura de erro é implantada.
 
 ##Perguntas frequentes
-Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/pt-br/documentation/articles/machine-learning-marketplace-faq).
+Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
@@ -210,3 +224,5 @@ Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no m
 [5]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png
 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
+
+<!--HONumber=46--> 

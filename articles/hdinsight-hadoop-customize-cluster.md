@@ -24,7 +24,7 @@ Os clusters HDInsight podem ser personalizados em diversas maneiras, como, inclu
 
 
 
-> [AZURE.NOTE] Usar a ação de Script para personalizar um cluster tem suporte apenas no cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Usar a ação de Script para personalizar um cluster tem suporte apenas no cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 
 
@@ -65,7 +65,7 @@ Você pode usar a ação de Script por meio do Portal de Gerenciamento do Azure,
 
 **No Portal de gerenciamento**
 
-1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. Na página ações de Script do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a Ação de Script, como mostrado abaixo:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -86,7 +86,7 @@ Você pode usar a ação de Script por meio do Portal de Gerenciamento do Azure,
   
 **Usando os cmdlets do PowerShell**
 
-Use os comandos do PowerShell do HDInsight para executar uma única Ação de Script ou várias Ações de Script. Você pode usar o cmdlet **<a href = "http://msdn.microsoft.com/pt-br/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts personalizados. Para usar esses cmdlets, você deve ter instalado e configurado o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+Use os comandos do PowerShell do HDInsight para executar uma única Ação de Script ou várias Ações de Script. Você pode usar o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts personalizados. Para usar esses cmdlets, você deve ter instalado e configurado o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
 Use o seguinte comando do PowerShell para executar uma única Ação de Script ao implantar um cluster HDInsight:
 
@@ -106,13 +106,13 @@ Use o seguinte comando do PowerShell para executar várias Ações de Script ao 
 
 **Usando o SDK do .NET do HDInsight**
 
-O SDK do .NET do HDInsight fornece uma classe <a href="http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> para chamar scripts personalizados. Para usar o SDK do .NET do HDInsight:
+O SDK do .NET do HDInsight fornece uma classe <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> para chamar scripts personalizados. Para usar o SDK do .NET do HDInsight:
 
 1. Crie um aplicativo do Visual Studio e, em seguida, instale o SDK por meio do Nuget. No menu **Ferramentas**, clique em **Gerenciador de Pacotes Nuget** e, em seguida, clique em **Console do Gerenciador de Pacotes**. Execute os seguintes comandos no console para instalar o pacote:
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-2. Crie um cluster usando o SDK. Para obter instruções, consulte [Provisionar cluster HDInsight usando o SDK do .NET](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-provision-clusters/#sdk).
+2. Crie um cluster usando o SDK. Para obter instruções, consulte [Provisionar cluster HDInsight usando o SDK do .NET](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#sdk).
 
 3. Use a classe **ScriptAction** para chamar um script personalizado, como mostrado abaixo:
 
@@ -145,11 +145,11 @@ Para começar, o HDInsight oferece scripts de exemplo para instalar os component
 - **Instalar Giraph**. [Instalar e usar o Giraph em clusters HDInsight](../hdinsight-hadoop-giraph-install)
 
 ## <a name="support"></a>Suporte para software de código-fonte aberto usada no cluster HDInsight
-O serviço Microsoft Azure HDInsight é uma plataforma flexível que permite que você crie aplicativos de big data na nuvem usando o ecossistema das tecnologias de código-fonte aberto formado em torno do Hadoop. O Microsoft Azure fornece o nível geral de suporte para tecnologias de código-fonte aberto conforme discutido na <a href="http://azure.microsoft.com/pt-br/support/faq/" target="_blank">seção Escopo de Suporte do site de perguntas Frequentes de suporte do Azure</a>. Além disso o serviço HDInsight fornece um nível adicional de suporte para alguns dos componentes, conforme descrito abaixo.
+O serviço Microsoft Azure HDInsight é uma plataforma flexível que permite que você crie aplicativos de big data na nuvem usando o ecossistema das tecnologias de código-fonte aberto formado em torno do Hadoop. O Microsoft Azure fornece o nível geral de suporte para tecnologias de código-fonte aberto conforme discutido na <a href="http://azure.microsoft.com/support/faq/" target="_blank">seção Escopo de Suporte do site de perguntas Frequentes de suporte do Azure</a>. Além disso o serviço HDInsight fornece um nível adicional de suporte para alguns dos componentes, conforme descrito abaixo.
 
 Há dois tipos de componentes de código-fonte aberto que estão disponíveis no serviço HDInsight:
 
-- **Componentes internos**. Esses componentes são pré-instalados em clusters HDInsight e oferecem a funcionalidade principal do cluster. Por exemplo, Gerenciador de recursos de Yarn, linguagem de consulta de Hive e Biblioteca Mahout pertencem a essa categoria. A lista completa de componentes de cluster está disponível <a href="http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-component-versioning/" target="_blank">aqui</a>.
+- **Componentes internos**. Esses componentes são pré-instalados em clusters HDInsight e oferecem a funcionalidade principal do cluster. Por exemplo, Gerenciador de recursos de Yarn, linguagem de consulta de Hive e Biblioteca Mahout pertencem a essa categoria. A lista completa de componentes de cluster está disponível <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">aqui</a>.
 - **Componentes personalizados**. Você, como um usuário do cluster, pode instalar ou usar em sua carga de trabalho qualquer componente disponível na comunidade ou criado por você.
 
 Componentes internos são totalmente compatíveis e o Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
@@ -174,5 +174,4 @@ O serviço HDInsight oferece várias maneiras de usar componentes personalizados
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
-
 <!--HONumber=42-->

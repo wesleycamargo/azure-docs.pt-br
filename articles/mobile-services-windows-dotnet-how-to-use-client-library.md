@@ -23,8 +23,8 @@
 # Como usar um cliente .NET para os Serviços Móveis do Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+  <a href="/pt-br/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
+  	<a href="/pt-br/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 
@@ -94,7 +94,7 @@ No código acima, substitua `AppUrl` e `AppKey` pela URL e pela chave do aplicat
 
 <h2><a name="instantiating"></a>Como: Criar uma referência de tabela</h2>
 
-Todo código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando a função [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) em uma instância do `MobileServiceClient`.
+Todo código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando a função [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) em uma instância do `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -433,7 +433,7 @@ Esta seção mostra como exibir os objetos de dados retornados usando elementos 
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Alguns controles no Tempo de Execução do Windows oferecem suporte a uma interface chamada [ISupportIncrementalLoading (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windows/apps/Hh701916). Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos da Windows Store via `MobileServiceIncrementalLoadingCollection`, que manipula automaticamente as chamadas dos controles. Para usar `MobileServiceIncrementalLoadingCollection` em aplicativos da Windows Store, proceda da seguinte maneira:
+Alguns controles no Tempo de Execução do Windows oferecem suporte a uma interface chamada [ISupportIncrementalLoading (a página pode estar em inglês)](http://msdn.microsoft.com/library/windows/apps/Hh701916). Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos da Windows Store via `MobileServiceIncrementalLoadingCollection`, que manipula automaticamente as chamadas dos controles. Para usar `MobileServiceIncrementalLoadingCollection` em aplicativos da Windows Store, proceda da seguinte maneira:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -493,7 +493,7 @@ Se você estiver usando um provedor de identidade além do Facebook, altere o va
 Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. O [método LoginAsync] retorna um [MobileServiceUser], que fornece a [userId] do usuário autenticado e o [MobileServiceAuthenticationToken] como um JWT (token da web JSON). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache].
 
 > [AZURE.NOTE] **Aplicativo da Windows Store**
-Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote do aplicativo nos Serviços Móveis. Ao registrar as informações do pacote do aplicativo da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de logon da conta da Microsoft para obter uma experiência de logon único. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Depois que as informações do pacote estiverem registradas nos Serviços Móveis, chame o método LoginAsync fornecendo um valor **verdadeiro** para o parâmetro useSingleSignOn para reutilizar as credenciais.
+Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote do aplicativo nos Serviços Móveis. Ao registrar as informações do pacote do aplicativo da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de logon da conta da Microsoft para obter uma experiência de logon único. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/pt-br/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Depois que as informações do pacote estiverem registradas nos Serviços Móveis, chame o método LoginAsync fornecendo um valor **verdadeiro** para o parâmetro useSingleSignOn para reutilizar as credenciais.
 
 <h3>Fluxo de cliente</h3>
 
@@ -538,7 +538,7 @@ Ao usar uma conta da Microsoft, faça logon da seguinte maneira:
 	user = await client
 		.LoginWithMicrosoftAccountAsync(authentication_token_value);
 
-Para obter um exemplo de como usar a Conta da Microsoft para fornecer uma experiência de logon único, consulte "Autenticar seu aplicativo com logon único ([Windows Store](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/en-us/develop/mobile/tutorials/single-sign-on-wp8/)).
+Para obter um exemplo de como usar a Conta da Microsoft para fornecer uma experiência de logon único, consulte "Autenticar seu aplicativo com logon único ([Windows Store](/pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/pt-br/develop/mobile/tutorials/single-sign-on-wp8/)).
 
 <h3><a name="caching"></a>Armazenando o token de autenticação em cache</h3>
 Em alguns casos, a chamada para o método de logon pode ser evitada após a primeira vez que o usuário é autenticado. Você pode usar o [PasswordVault] para aplicativos da Windows Store para armazenar a identidade do usuário atual em cache na primeira vez que fizer logon e em todas as vezes subsequentes em que você verificar se já tem a identidade do usuário em nosso cache. Quando o cache estiver vazio, ainda será necessário enviar o usuário pelo processo de logon.
@@ -653,7 +653,7 @@ Você pode desejar anexar um cabeçalho personalizado para cada solicitação de
 
 ### <a name="serialization"></a>Como: Personalizar a serialização
 
-A classe [MobileServiceClient](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) expõe uma propriedade `SerializerSettings` do tipo [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
+A classe [MobileServiceClient](http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) expõe uma propriedade `SerializerSettings` do tipo [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
 Usando essa propriedade, você pode definir propriedades Json.NET (há muitas), incluindo uma, por exemplo, para converter todas as propriedades em letras minúsculas:
 
@@ -716,37 +716,38 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Tutorial de início rápido da Windows Store]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
-[Tutorial de início rápido do Windows Phone]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/
-[Tutorial de dados da Windows Store]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Tutorial de dados do Windows Phone]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-wp8/
-[Autenticação da Windows Store]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Autenticação do Windows Phone]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/
-[PasswordVault]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx
+[Tutorial de início rápido da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
+[Tutorial de início rápido do Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
+[Tutorial de dados da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Tutorial de dados do Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-wp8/
+[Autenticação da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Autenticação do Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-wp8/
+[PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
-[ProtectedData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+[ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [SDK dos Serviços Móveis]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[Método LoginAsync]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[Método LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para gerenciar tabelas dos Serviços Móveis]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-[Tutorial de simultaneidade otimista]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+[CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Tutorial de simultaneidade otimista]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
-[IncludeTotalCount]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250560.aspx
-[Skip]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx
-[Take]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx
+[IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
+[Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
+[Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizada nos SDKs de cliente de Serviços Móveis do Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Chamar uma API personalizada do cliente]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos | Azure" description="Saiba como você pode dimensionar elasticamente o Banco de Dados de Documentos para atender às necessidades de armazenamento e desempenho do seu aplicativo." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos | Azure" 
+	description="Saiba como você pode dimensionar elasticamente o Banco de Dados de Documentos para atender às necessidades de armazenamento e desempenho do seu aplicativo." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos
 O Banco de Dados de Documentos é um serviço de banco de dados NoSQL orientado a documentos extremamente escalonável e totalmente gerenciado.  Com o Banco de Dados de Documentos, você não precisa alugar máquinas virtuais, implantar software, monitorar banco de dados nem se preocupar com recuperação de desastres. O Banco de Dados de Documentos é operado e continuamente monitorado por engenheiros da Microsoft para fornecer disponibilidade, desempenho e proteção a dados de classe internacional.  
@@ -66,3 +80,5 @@ Cada CU comprada para sua conta é provisionada com 10 GB de armazenamento de do
 
 Por padrão, todos os documentos são indexados pelo Banco de Dados de Documentos automaticamente. Porém, caso deseje ajustar a sobrecarga de índice, você pode optar por remover determinados documentos da indexação no momento da inserção ou substituição de um documento. Você pode configurar uma coleção do Banco de Dados de Documentos para excluir todos os documentos na coleção para não serem indexados. Você também pode configurar uma coleção do Banco de Dados de Documentos para indexar seletivamente apenas determinadas propriedades ou caminhos com caracteres curinga de documentos JSON.  Excluir propriedades ou documentos também melhora a taxa de transferência de gravação - o que significa que você consumirá menos unidades de solicitação.   
  
+
+<!--HONumber=46--> 

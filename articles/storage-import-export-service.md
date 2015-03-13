@@ -298,7 +298,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 	> [AZURE.IMPORTANT] Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
 
-- Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](http://azure.microsoft.com/pt-br/support/legal/services-terms/). 
+- Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](http://azure.microsoft.com/support/legal/services-terms/). 
 
 **Pode adquirir unidades para os trabalhos de importação/exportação da Microsoft?**
 
@@ -313,5 +313,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
 <!--HONumber=42-->

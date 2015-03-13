@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Assinatura do Microsoft Azure e Limites de Serviço, Cotas e Restrições" metaKeywords ="Serviços de Nuvem, Máquinas Virtuais, Websites, Rede Virtual, Banco de dados SQL, Assinatura, Armazenamento" description="Oferece uma lista de assinaturas e limites de serviço comuns do Azure juntamente com os valores máximos." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
+﻿<properties 
+	pageTitle="Assinatura do Microsoft Azure e limites de serviços, cotas e restrições" 
+	description="Oferece uma lista de assinaturas e limites de serviço comuns do Azure juntamente com os valores máximos." 
+	services="" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -30,22 +44,22 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
    <th align="left" valign="middle">Limite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Núcleos por <a href="http://msdn.microsoft.com/pt-br/library/azure/hh531793.aspx">assinatura</a><sup>1</sup></p></td>
+   <td valign="middle"><p>Núcleos por <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">assinatura</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10.000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/azure/gg456328.aspx">Coadministradores</a> por assinatura</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coadministradores</a> por assinatura</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/storage-whatis-account/">Contas de armazenamento</a> por assinatura</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">Contas de armazenamento</a> por assinatura</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-what-is/">Serviços de Nuvem</a> por assinatura</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Serviços de Nuvem</a> por assinatura</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
@@ -55,7 +69,7 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/jj157100.aspx">Redes locais</a> por assinatura</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Redes locais</a> por assinatura</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -85,18 +99,18 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/azure/jj156085.aspx">Grupos de afinidade</a> por assinatura</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Grupos de afinidade</a> por assinatura</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups/">Grupos de recursos</a> por assinatura</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Grupos de recursos</a> por assinatura</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/services/batch/">Visualização de lote</a> contas por região por assinatura</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Visualização de lote</a> contas por região por assinatura</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -115,22 +129,22 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
    <th align="left" valign="middle">Limite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/articles/cloud-services-what-is/">Funções Web/de trabalho por implantação<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Funções Web/de trabalho por implantação<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/gg557552.aspx#InstanceInputEndpoint">Pontos de extremidade de entrada de instância</a> por implantação</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Pontos de extremidade de entrada de instância</a> por implantação</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/gg557552.aspx#InputEndpoint">Pontos de extremidade de entrada</a> por implantação</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Pontos de extremidade de entrada</a> por implantação</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/pt-br/library/gg557552.aspx#InternalEndpoint">Pontos de extremidade internos</a> por implantação</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Pontos de extremidade internos</a> por implantação</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -147,7 +161,7 @@ O documento a seguir especifica alguns dos limites mais comuns do Microsoft Azur
    <th align="left" valign="middle">Limite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/pt-br/documentation/services/virtual-machines/">Máquinas virtuais</a> por serviço de nuvem<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">Máquinas virtuais</a> por serviço de nuvem<sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -314,18 +328,20 @@ Para o Azure Active Directory (AD), consulte o tópico a seguir:
 
 [Máquinas virtuais e tamanhos de serviço de nuvem para o Azure][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/pt-br/support/faq/
+  [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/pt-br/library/azure/jj156210.aspx 
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
   [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/pt-br/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/pt-br/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/pt-br/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/pt-br/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/pt-br/library/azure/dn197896.aspx
+  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/pt-br/library/azure/dn764971.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

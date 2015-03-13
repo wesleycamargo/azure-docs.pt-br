@@ -1,6 +1,20 @@
-<properties pageTitle="How to edit the contents of a page in Azure API Management" metaKeywords="" description="How to edit the contents of a page in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to edit the contents of a page in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Como editar o conteúdo de uma página no Gerenciamento de API do Azure" 
+	description="Como editar o conteúdo de uma página no Gerenciamento de API do Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Como editar o conteúdo de uma página no Gerenciamento da API do Azure
 
@@ -15,3 +29,5 @@ Clique na página “Bem-vindo" para editar o que é exibido na home page do por
 > A home page usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção Conteúdo. Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, depois selecione **Home page** na lista suspensa **Camada atual** e, em seguida, abra o item **Faixa** na seção Em destaque. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
 
   [Gerenciar conteúdo]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+
+<!--HONumber=46--> 

@@ -433,8 +433,8 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [add-linker-flag]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Notificações por push a usuários]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
+[Notificações por push a usuários]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
@@ -442,4 +442,5 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

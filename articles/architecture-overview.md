@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="Arquitetura" metaKeywords ="" description="Visão geral da arquitetura que aborda padrões de design comuns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties 
+	pageTitle="Arquitetura" 
+	description="Visão geral da arquitetura que aborda os padrões comuns de design" 
+	services="" 
+	documentationCenter="" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor="mattshel"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 #Arquitetura
 Recursos para criar aplicativos que usam o Microsoft Azure.
@@ -25,12 +39,12 @@ Se você já usou os símbolos, lembre-se de preencher a nossa [pesquisa](http:/
 ![Azure Symbol/Icon set][azure_symbols]
 
 ##Padrões de design
-Os desenvolvedores de práticas e padrões da Microsoft publicaram o livro [Padrões de Design de Nuvem](http://msdn.microsoft.com/pt-br/library/dn568099.aspx) disponível no MSDN e para download em PDF. Está disponível também um pôster de grande formato que lista todos os padrões. 
+Os desenvolvedores de práticas e padrões da Microsoft publicaram o livro [Padrões de Design de Nuvem](http://msdn.microsoft.com/library/dn568099.aspx) disponível no MSDN e para download em PDF. Está disponível também um pôster de grande formato que lista todos os padrões. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
 ##Infográfico de arquitetura
-A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos. Elas incluem [Criando aplicativos de nuvem do mundo real](http://azure.microsoft.com/pt-br/documentation/infographics/building-real-world-cloud-apps/) e [Dimensionamento com serviços de nuvem](http://azure.microsoft.com/pt-br/documentation/infographics/cloud-services/) . 
+A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos. Elas incluem [Criando aplicativos de nuvem do mundo real](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) e [Dimensionamento com serviços de nuvem](http://azure.microsoft.com/documentation/infographics/cloud-services/) . 
 
 
 ![Azure Architecture Infographics][AzureInfographic]
@@ -43,3 +57,5 @@ A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos.
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copiar dados com o Data Factory do Azure" description="Saiba como usar a atividade de cópia no Azure Data Factory para copiar dados a partir de uma fonte de dados para outra fonte de dados." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Copiar dados com o Data Factory do Azure" 
+	description="Saiba como usar a atividade de cópia no Azure Data Factory para copiar dados de uma fonte de dados para outra." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # Copiar dados com o Azure Data Factory (atividade de cópia)
 É possível utilizar a **Atividade de Cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. A atividade de cópia pode ser utilizada nos seguintes cenários:
@@ -724,3 +738,5 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-da
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

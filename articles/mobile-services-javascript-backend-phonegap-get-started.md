@@ -165,12 +165,13 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-html-get-started-users
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-html-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-html-get-started-users
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/mobile-services-html-get-started-push
 [SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

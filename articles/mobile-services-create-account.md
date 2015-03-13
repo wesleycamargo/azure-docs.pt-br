@@ -17,4 +17,5 @@
 	ms.author="glenga"/>
 
 [AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

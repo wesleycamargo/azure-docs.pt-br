@@ -1,6 +1,20 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="Níveis de consistência no Banco de Dados de Documentos" description="O Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar os desenvolvedores de aplicativos a tornar previsíveis vantagens e desvantagens de latência de disponibilidade de consistência." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="Níveis de consistência no Banco de Dados de Documentos" 
+	description="O Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar os desenvolvedores de aplicativos a tornar previsíveis vantagens e desvantagens de latência de disponibilidade de consistência." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="mimig"/>
 
 #Níveis de consistência no Banco de Dados de Documentos
 Muitas vezes, os desenvolvedores enfrentam o desafio de escolher entre dois extremos: consistência forte e eventual. A realidade é que existem várias barreiras de consistência entre esses dois extremos. Na maioria dos cenários reais, os aplicativos se beneficiam ao fazer compensações refinadas entre consistência, disponibilidade e latência. O Banco de Dados de Documentos oferece quatro níveis de consistência bem definidos, com níveis de desempenho associados. Isso permite que os desenvolvedores de aplicativos façam compensações previsíveis entre consistência, disponibilidade e latência.  
@@ -49,3 +63,5 @@ Assim como nas solicitações de leitura, você pode diminuir o nível de consis
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Eventual Consistent - Revisitado.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

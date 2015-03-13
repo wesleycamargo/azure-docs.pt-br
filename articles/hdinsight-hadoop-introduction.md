@@ -123,7 +123,7 @@ Essas ferramentas de BI podem ajudar em sua análise de big data:
 * <a target="_blank" href="http://www.microsoft.com/pt-br/download/details.aspx?id=39379">Baixe o Microsoft Power Query para Excel</a> 
 * <a target="_blank" href="http://www.microsoft.com/pt-br/download/details.aspx?id=40886">Baixe o Driver ODBC do Microsoft Hive</a>
 * <a target="_blank" href="http://www.microsoft.com/pt-br/server-cloud/solutions/business-intelligence/analysis.aspx">Saiba mais sobre SQL Server Analysis Services</a>
-* <a target="_blank" href="http://msdn.microsoft.com/pt-br/library/ms159106.aspx">Saiba mais sobre SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Saiba mais sobre SQL Server Reporting Services</a>
 
 ## <a name="advantage"></a>Vantagens do Hadoop na nuvem
 
@@ -166,9 +166,9 @@ Para experimentar o Hadoop no HDInsight, consulte os artigos de "Introdução" n
 
 ### Bancos de Dados SQL no Azure	
 		
-* [Banco de Dados SQL do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336279.aspx): Documentação de MSDN para o Banco de Dados SQL.
+* [Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): Documentação de MSDN para o Banco de Dados SQL.
 	
-* [Portal de Gerenciamento para o Banco de Dados SQL](http://msdn.microsoft.com/pt-br/library/windowsazure/gg442309.aspx): uma ferramenta de gerenciamento de banco de dados leve e fácil de usar para gerenciamento do Banco de Dados SQL na nuvem.
+* [Portal de Gerenciamento para o Banco de Dados SQL](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx): uma ferramenta de gerenciamento de banco de dados leve e fácil de usar para gerenciamento do Banco de Dados SQL na nuvem.
 
 * [Adventure Works para o Banco de Dados SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): página de download do banco de dados de amostra do Banco de Dados SQL.	
 
@@ -194,5 +194,4 @@ Para experimentar o Hadoop no HDInsight, consulte os artigos de "Introdução" n
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

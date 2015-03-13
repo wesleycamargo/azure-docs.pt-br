@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="Como usar os tópicos AMQP 1.0 com A API do Barramento de Serviço em .NET - Azure" metaKeywords="" description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 com a API de barramento de serviço .NET do Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Como usar os tópicos AMQP 1.0 com A API do Barramento de Serviço em .NET - Azure" 
+	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 com a API de barramento de serviço .NET do Azure." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -29,7 +43,7 @@ O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK d
 
 Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP. O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção. Além dessa alteração, o código do aplicativo permanece basicamente inalterado ao usar o AMQP 1.0.
 
-Na versão atual, existem alguns outros recursos da API que não têm suporte com o uso do AMQP. Esses recursos não suportados são listados posteriormente na seção "Recursos não suportados e restrições". Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP. Nenhuma dessas configurações são usadas neste breve guia de instruções, porém mais detalhes estão disponíveis no [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx).
+Na versão atual, existem alguns outros recursos da API que não têm suporte com o uso do AMQP. Esses recursos não suportados são listados posteriormente na seção "Recursos não suportados e restrições". Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP. Nenhuma dessas configurações são usadas neste breve guia de instruções, porém mais detalhes estão disponíveis no [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 ### Configuração por meio do App.config
 
@@ -213,7 +227,7 @@ Este guia mostrou como enviar mensagens para o Barramento de Serviço usando o .
 
 Ao usar a amostra do aplicativo do .NET descrito acima e um aplicativo do Java semelhante obtido de um guia complementar, [Como usar a API do Java Message Service (JMS) com o Barramento de Serviço e o AMQP 1.0](http://aka.ms/ll1fm3), é possível trocar mensagens entre o .NET e o Java. 
 
-Para obter mais informações sobre os detalhes do sistema de mensagens entre plataformas usando o Barramento de serviço e AMQP 1.0, consulte o [Guia do Desenvolvedor do Barramento de Serviço AMQP 1.0](http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx).
+Para obter mais informações sobre os detalhes do sistema de mensagens entre plataformas usando o Barramento de serviço e AMQP 1.0, consulte o [Guia do Desenvolvedor do Barramento de Serviço AMQP 1.0](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 ### Do JMS para o .NET
 
@@ -285,19 +299,21 @@ Os seguintes recursos da API do Service Bus do .NET não são atualmente suporta
 * Renovação de bloqueio da sessão
 * Algumas pequenas diferenças no comportamento
 
-Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx). Este tópico inclui uma lista detalhada de APIs não têm suporte.
+Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx). Este tópico inclui uma lista detalhada de APIs não têm suporte.
 
 <h2>Resumo</h2>
 
 Este Guia de Instruções mostrou como acessar os recursos de mensagens agenciadas do Service Bus (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Service Bus.
 
-Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagens, incluindo Java, C, Python e PHP. Os componentes criados com essas linguagens podem trocar mensagens com segurança e com total fidelidade usando o AMQP 1.0 no Barramento de Serviço. Para obter mais informações, consulte o [Guia do desenvolvedor do Barramento de Serviço AMQP 1.0](http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx).
+Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagens, incluindo Java, C, Python e PHP. Os componentes criados com essas linguagens podem trocar mensagens com segurança e com total fidelidade usando o AMQP 1.0 no Barramento de Serviço. Para obter mais informações, consulte o [Guia do desenvolvedor do Barramento de Serviço AMQP 1.0](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 <h2>Mais informações</h2>
 
 * [Suporte para o AMQP 1.0 no Service Bus do Azure](http://aka.ms/pgr3dp)
 * [Como usar a API do Serviço de Mensagem Java (JMS) com Service Bus e AMQP 1.0](http://aka.ms/ll1fm3)
-* [Guia do desenvolvedor do AMQP 1.0 do Service Bus](http://msdn.microsoft.com/pt-br/library/windowsazure/jj841071.aspx)
-* [Como usar as filas do Service Bus](http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-queues/)
+* [Guia do desenvolvedor do AMQP 1.0 do Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx)
+* [Como usar as filas do Service Bus](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
-[Como usar as filas do Service Bus]: http://www.windowsazure.com/pt-br/develop/net/how-to-guides/service-bus-queues/
+[Como usar as filas do Service Bus]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
+
+<!--HONumber=46--> 

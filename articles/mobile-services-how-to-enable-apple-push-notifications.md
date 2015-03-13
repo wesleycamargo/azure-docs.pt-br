@@ -31,9 +31,10 @@ Agora, você pode usar esse certificado .p12 para habilitar serviços para auten
 
 
 <!-- URLs. -->
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 [SDK dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

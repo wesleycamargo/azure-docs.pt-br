@@ -134,7 +134,6 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx).
-
+Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

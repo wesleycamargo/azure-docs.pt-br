@@ -1,6 +1,20 @@
-<properties urlDisplayName="Access Control" pageTitle="Como usar o Controle de Acesso (Java) - guia de recursos do Azure" metaKeywords="" description="Aprenda a desenvolver e usar o controle de acesso com Java no Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Como usar o Controle de Acesso (Java) - guia de recursos do Azure" 
+	description="Aprenda a desenvolver e usar o controle de acesso com Java no Azure." 
+	services="active-directory" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 
@@ -126,9 +140,9 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 - Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Você pode baixá-los em <http://www.eclipse.org/downloads/>. 
 - Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
 - Uma assinatura do Azure, a qual pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-- O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690946.aspx).
+- O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas mais adiante neste tutorial).
-- Familiaridade com o emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx).
+- Familiaridade com o emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## <a name="create-namespace"></a>Criar um Namespace do ACS
 
@@ -280,7 +294,7 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
 
 1. No Explorador de Projeto do Eclipse, clique com o botão direito do mouse em **MyACSHelloWorld**, clique em **Azure** e em **Pacote para Azure**.
 2. Para **Nome do projeto**, digite **MyAzureACSProject** e clique em **Avançar**.
-3. Selecione um JDK e o servidor de aplicativo. (Essas etapas são abordadas detalhadamente no tutorial [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx) (a página pode estar em inglês)).
+3. Selecione um JDK e o servidor de aplicativo. (Essas etapas são abordadas detalhadamente no tutorial [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (a página pode estar em inglês)).
 4. Clique em **Concluir**.
 5. Clique no botão **Executar no Emulador do Azure**.
 6. Depois de iniciar seu aplicativo web Java no emulador de computação, feche todas as instâncias do seu navegador (para que nenhuma sessão atual do navegador interfira em seu teste de logon do ACS).
@@ -314,11 +328,11 @@ Para implantar no Azure, você precisará alterar o realm da terceira parte conf
 
 13. Clique em **Concluir** para fechar a caixa de diálogo **Editar Biblioteca**.
 14. Clique em **OK** para fechar a caixa de diálogo **Propriedades de MyACSHelloWorld**.
-15. No Eclipse, clique no botão **Publicar na Nuvem do Azure**. Responda às solicitações, de maneira semelhante ao que foi feito na seção **Para implantar seu aplicativo no Azure** do tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx) (a página pode estar em inglês). 
+15. No Eclipse, clique no botão **Publicar na Nuvem do Azure**. Responda às solicitações, de maneira semelhante ao que foi feito na seção **Para implantar seu aplicativo no Azure** do tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (a página pode estar em inglês). 
 
 Após a implantação do seu aplicativo web, feche todas as sessões abertas do navegador e execute seu aplicativo web. Você deverá ser solicitado a entrar com as credenciais do Windows Live ID que, em seguida, serão enviadas para a URL de retorno de seu aplicativo de terceira parte confiável.
 
-Quando você terminar de usar seu aplicativo Hello World do ACS, lembre-se de excluir a implantação (você pode aprender como excluir uma implantação no tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/pt-br/library/windowsazure/hh690944.aspx) (a página pode estar em inglês)).
+Quando você terminar de usar seu aplicativo Hello World do ACS, lembre-se de excluir a implantação (você pode aprender como excluir uma implantação no tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (a página pode estar em inglês)).
 
 
 ## <a name="next_steps"></a>Próximas etapas
@@ -383,3 +397,5 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
+
+<!--HONumber=46--> 

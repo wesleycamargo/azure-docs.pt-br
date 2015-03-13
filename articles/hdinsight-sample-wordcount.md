@@ -29,7 +29,7 @@ Este tutorial mostra como executar um exemplo de contagem de palavras de MapRedu
 
 **Pré-requisitos**:	
 
-- Você deve ter uma conta do Azure. Para obter as opções de como inscrever-se em uma conta, consulte a página [Testar o Azure gratuitamente (a página pode estar em inglês)](http://azure.microsoft.com/pt-br/pricing/free-trial/).
+- Você deve ter uma conta do Azure. Para obter as opções de como inscrever-se em uma conta, consulte a página [Testar o Azure gratuitamente (a página pode estar em inglês)](http://azure.microsoft.com/pricing/free-trial/).
 
 - Você deve ter provisionado um cluster HDInsight. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Introdução ao Azure HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight](../hdinsight-provision-clusters/)
 
@@ -224,7 +224,6 @@ Para obter tutoriais que executam outros exemplos e fornecem instruções sobre 
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
-
 
 
 <!--HONumber=42-->

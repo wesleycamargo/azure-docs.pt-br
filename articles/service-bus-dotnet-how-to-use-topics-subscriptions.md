@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Como usar tópicos do Barramento de Serviço (.NET) - Azure metaKeywords="Introdução a tópicos de Barramento de Serviço do Azure, sistema de mensagens de assinatura de publicação do Azure, tópicos de sistema de mensagens do Azure e assinaturas C# " description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Como usar os tópicos do Barramento de Serviço (.NET) - Azure" 
+	description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -308,6 +322,8 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   
-  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/pt-br/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Tutorial do Service Bus orientado a mensagens do .NET]: http://msdn.microsoft.com/pt-br/library/hh367512.aspx
+  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Tutorial do Service Bus orientado a mensagens do .NET]: http://msdn.microsoft.com/library/hh367512.aspx
+
+<!--HONumber=46--> 

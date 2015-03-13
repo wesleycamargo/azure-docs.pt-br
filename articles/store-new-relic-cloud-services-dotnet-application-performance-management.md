@@ -35,7 +35,7 @@ Nova Relíquia especial de preços por meio do armazenamento do Azure
 Nova Relíquia padrão é gratuito para usuários do Azure
 Nova Relíquia Pro é oferecido com base no tamanho da instância para os serviços de nuvem do Azure
 
-Para obter informações sobre preços, consulte a [página do New Relic na Azure Store](http://www.windowsazure.com/pt-br/gallery/store/new-relic/new-relic/).
+Para obter informações sobre preços, consulte a [página do New Relic na Azure Store](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10 entre em contato com o novo Relíquia (sales@newrelic.com) para o preço por volume.
 

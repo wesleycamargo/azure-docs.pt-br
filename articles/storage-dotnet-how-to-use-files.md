@@ -58,7 +58,7 @@ O armazenamento de arquivos contém os seguintes componentes:
 ![files-concepts][files-concepts]
 
 
--   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Consulte [metas de desempenho e escalabilidade do armazenamento do Azure](http://msdn.microsoft.com/pt-br/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+-   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Consulte [metas de desempenho e escalabilidade do armazenamento do Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 -   **Compartilhamento:** um compartilhamento de arquivo de armazenamento é um compartilhamento de arquivos SMB 2.1 no Azure. Todos os diretórios e arquivos devem ser criados em um compartilhamento pai. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos até os limites de capacidade da conta de armazenamento.
 
@@ -72,7 +72,7 @@ A URL de exemplo a seguir poderia ser usada para endereçar um dos arquivos no d
 
 
 
-Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos, consulte [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados](http://msdn.microsoft.com/pt-br/library/azure/dn167011.aspx).
+Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos, consulte [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ##<a name="create-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -155,7 +155,7 @@ Após ter uma conexão remota com a máquina virtual, você poderá executar o c
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [namespaces do System.IO](http://msdn.microsoft.com/pt-br/library/gg145019(v=vs.110).aspx) no .NET Framework. 
+Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [namespaces do System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) no .NET Framework. 
 
 Você também pode montar o compartilhamento de arquivos por meio de uma função executada em um serviço de nuvem do Azure ao estabelecer comunicação remota à função.
 
@@ -248,7 +248,7 @@ para obter informações mais detalhadas.
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referência à Biblioteca de Cliente de Armazenamento para .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/pt-br/library/azure/dn167006.aspx">Referência à API REST do serviço de arquivos</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">Referência à API REST do serviço de arquivos</a></li>
   </ul>
 </li>
 <li>Consulte as postagens do blog da Equipe de Armazenamento do Azure relativas ao serviço de arquivos:
@@ -276,6 +276,5 @@ para obter informações mais detalhadas.
 [Criar um aplicativo local para acessar o armazenamento de arquivos]: #create-console-app
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-
 
 <!--HONumber=42-->

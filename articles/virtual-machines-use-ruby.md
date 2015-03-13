@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="O que é a Azure Multi-Factor Authentication?" 
+	pageTitle="O que é a Autenticação Multifator do Azure?" 
 	description="Saiba mais sobre a Azure Multi-Factor Authentication, um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos logons e às transações dos usuários." 
 	services="active-directory, multi-factor-authentication" 
 	documentationCenter="" 
@@ -44,9 +44,9 @@ Embora a API de gerenciamento de serviços possa ser usada para gerenciar uma va
 
 ## <a name="concepts"> </a>Conceitos
 
-As máquinas virtuais do Azure são implementadas como  'roles' dentro de um serviço de nuvem. Cada serviço de nuvem pode conter uma ou mais funções, que são logicamente agrupadas em implantações. A função define as características físicas gerais da VM, como a quantidade de memória disponível, a quantidade de núcleos de CPU etc.
+As máquinas virtuais do Azure são implementadas como 'funções' dentro de um serviço de nuvem. Cada serviço de nuvem pode conter uma ou mais funções, que são logicamente agrupadas em implantações. A função define as características físicas gerais da VM, como a quantidade de memória disponível, a quantidade de núcleos de CPU etc.
 
-Cada VM tem também um disco de SO, que contém o sistema operacional inicializável. Uma VM pode ter um ou mais discos de dados, que são discos adicionais que devem ser usados para armazenar dados de aplicativo. Os discos são implementados como discos rígidos virtuais (VHD) armazenados no armazenamento do blob do Azure. Os VHDs também podem ser expostos como  'images', que são modelos usados para criar discos usados por uma VM durante a criação da VM. Por exemplo, a criação de uma nova VM que usa uma imagem do Ubuntu resultará em um novo disco de SO criado por meio da imagem do Ubuntu.
+Cada VM tem também um disco de SO, que contém o sistema operacional inicializável. Uma VM pode ter um ou mais discos de dados, que são discos adicionais que devem ser usados para armazenar dados de aplicativo. Os discos são implementados como discos rígidos virtuais (VHD) armazenados no armazenamento do blob do Azure. Os VHDs também podem ser expostos como 'imagens', que são modelos usados para criar discos usados por uma VM durante a criação da VM. Por exemplo, a criação de uma nova VM que usa uma imagem do Ubuntu resultará em um novo disco de SO criado a partir da imagem do Ubuntu.
 
 A maioria das imagens são fornecidas pela Microsoft ou por parceiros, entretanto você pode criar suas próprias imagens ou uma imagem de uma máquina virtual hospedada no Azure.
 
@@ -80,7 +80,7 @@ Para gerenciar os serviços do Azure, você precisa baixar e usar Azure gem, que
 
 ### Use o comando do gem para instalar o pacote
 
-1.  Use uma interface de linha de comando, como o **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (UNIX), e vá até a pasta onde você criou o aplicativo de exemplo.
+1.  Use uma interface de linha de comando, como o **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (UNIX), e vá até a pasta onde você criou a amostra do aplicativo.
 
 2. Use o comando a seguir para instalar o azure gem:
 
@@ -104,7 +104,7 @@ Para gerenciar os serviços do Azure, você precisa baixar e usar Azure gem, que
 		Successfully installed azure-0.5.0
 		7 gems installed
 
-	> [AZURE.NOTE] Se você receber um erro relacionado a permissões, use <code>sudo gem install azure</code> em vez disso.
+	> [AZURE.NOTE] Se você receber um erro relacionado a permissões, use <code>sudo gem install azure</code> ao invés.
 
 ### Exigir o gem
 
@@ -114,11 +114,11 @@ Usando um editor de texto, adicione o seguinte à parte superior do arquivo do a
 
 ## <a name="setup-connection"> </a>Como: Conectar-se ao gerenciamento de serviços
 
-Para executar as operações de gerenciamento de serviços com êxito com o Azure, você deve especificar a ID da assinatura e o certificado obtido na seção [Criar um certificado de gerenciamento do Azure].(#setup-certificate) . A maneira mais fácil de fazer isso é especificando a ID e o caminho do arquivo de certificado usando as variáveis de ambiente a seguir:
+Para executar as operações de gerenciamento de serviços com êxito com o Azure, você deve especificar a ID da assinatura e o certificado obtido na seção [Criar um certificado de gerenciamento do Azure)]#setup-certificate) . A maneira mais fácil de fazer isso é especificando a ID e o caminho do arquivo de certificado usando as variáveis de ambiente a seguir:
 
-* AZURE\_MANAGEMENT\_CERTIFICATE - caminho para o arquivo .PEM que contém o certificado de gerenciamento.
+* AZURE\_MANAGEMENT\_CERTIFICATE -  - O caminho do arquivo .PEM contendo o certificado de gerenciamento.
 
-* AZURE\_SUBSCRIPTION\_ID - ID de assinatura da sua assinatura do Azure.
+* AZURE\_SUBSCRIPTION\_ID -  - A ID da sua assinatura do Azure.
 
 Você também pode definir esses valores de forma programática no seu aplicativo usando o seguinte:
 
@@ -139,13 +139,13 @@ Para criar uma nova máquina virtual, use o método **create\_virtual\_machine**
 
 * **:vm\_name** - O nome da máquina virtual
 
-* **:vm\_user** - O nome de usuário raiz ou administrador
+* **:vm\_user** -  O nome do usuário raiz ou o nome de usuário do administrador
 
-* **:password** - A senha a ser usada para o usuário raiz ou administrador
+* **:senha** -  A senha a ser usada para o usuário raiz ou administrador
 
-* **:image** - A imagem do SO que será usada para criar o disco de SO para esta VM. O disco de SO será armazenado em um VHD criado no armazenamento do blob.
+* **:imagem** -  A imagem do SO que será usada para criar o disco de SO para esta VM. O disco de SO será armazenado em um VHD criado no armazenamento do blob.
 
-* **:location** - A região em que a VM será criada. Essa deve ser a mesma região da conta de armazenamento que contém os discos usados por essa VM.
+* **:local** -  A região em que a VM será criada. Essa deve ser a mesma região da conta de armazenamento que contém os discos usados por essa VM.
 
 Este é um exemplo da criação de uma nova máquina virtual usando esses parâmetros:
 
@@ -171,25 +171,25 @@ Você pode fornecer um hash de parâmetros opcionais que lhe permita substituir 
 
 A seguir estão as opções que estão disponíveis ao usar o método **create\_virtual\_machine**:
 
-* **:storage\_account\_name** - o nome da conta de armazenamento a ser usada para armazenar imagens de disco. Se a conta de armazenamento ainda não existir, uma nova será criada. Se ela estiver omitida, uma nova conta de armazenamento será criada com um nome baseado na :vm\_name param.
+* **:storage\_account\_name** - O nome da conta de armazenamento a ser usada para armazenar imagens de disco. Se a conta de armazenamento ainda não existir, uma nova será criada. Se ela estiver omitida, uma nova conta de armazenamento será criada com um nome baseado na :vm\_name param.
 
-* **:cloud\_service\_name** - o nome do serviço de nuvem a ser usado para hospedar a máquina virtual. Se o serviço de nuvem ainda não existir, um novo será criado. Se ele estiver omitido, uma nova conta de serviço de nuvem será criada com um nome baseado na :vm\_name param.
+* **:cloud\_service\_name** - O nome do serviço de nuvem a ser usado para hospedar a máquina virtual. Se o serviço de nuvem ainda não existir, um novo será criado. Se ele estiver omitido, uma nova conta de serviço de nuvem será criada com um nome baseado na :vm\_name param.
 
-* **:deployment\_name** - o nome da implantação a ser usada ao implantar a configuração da máquina virtual
+* **:deployment\_name** - O nome da implantação a ser usada ao implantar a configuração da máquina virtual
 
-* **:tcp\_endpoints** - as portas TCP a serem expostas publicamente para esta VM. O ponto de extremidade do SSH (para VMs baseadas no Linux) e o ponto de extremidade do WinRM (para VMs baseadas no Windows) não precisam ser especificados e serão criados automaticamente. Várias portas podem ser especificadas, separadas por vírgula. Para associar uma porta interna a uma porta pública usando um número de porta diferente, use o formato **porta pública:porta interna**. Por exemplo, 80:8080 expõe a porta interna 8080 como porta pública 80.
+* **:tcp\_endpoints** - As portas TCP a serem expostas publicamente para esta VM. O ponto de extremidade do SSH (para VMs baseadas no Linux) e o ponto de extremidade do WinRM (para VMs baseadas no Windows) não precisam ser especificados e serão criados automaticamente. Várias portas podem ser especificadas, separadas por vírgula. Para associar uma porta interna a uma porta pública usando um número de porta diferente, use o formato **porta pública:porta interna**. Por exemplo, 80:8080 expõe a porta interna 8080 como porta pública 80.
 
-* **:service\_location** - o local do repositório de certificados de destino na VM. Aplica-se somente às VMs baseadas no Windows.
+* **:service\_location** - O local de destino de armazenamento do certificado na VM. Aplica-se somente às VMs baseadas no Windows.
 
-* **:ssh\_private\_key\_file** - o arquivo contendo a chave privada, que será usada para proteger o acesso do SSH à VM baseada no Linux. Ele também será usado para especificar o certificado usado para proteger o WinRM se o transporte HTTPS estiver selecionado. Se **:ssh\_private\_key\_file** e **:ssh\_certificate\_file** estão omitidos, SSH usará apenas a autenticação de senha
+* **:ssh\_private\_key\_file** - O arquivo contendo a chave privada, que será usada para proteger o acesso do SSH à VM baseada no Linux. Ele também será usado para especificar o certificado usado para proteger o WinRM se o transporte HTTPS estiver selecionado. Se **:ssh\_private\_key\_file** e **:ssh\_certificate\_file** estão omitidos, SSH usará apenas a autenticação de senha
 
-* **:ssh\_certificate\_file** - o arquivo contendo a chave privada, que será usada para proteger o acesso do SSH à VM baseada no Linux. Ele também será usado para especificar o certificado usado para proteger o WinRM se o transporte HTTPS estiver selecionado. Se **:ssh\_private\_key\_file** e **:ssh\_certificate\_file** estão omitidos, SSH usará apenas a autenticação de senha
+* **:ssh\_certificate\_file** - O arquivo contendo o arquivo de certificado, que será usado para proteger o acesso do SSH à VM baseada no Linux. Ele também será usado para especificar o certificado usado para proteger o WinRM se o transporte HTTPS estiver selecionado. Se **:ssh\_private\_key\_file** e **:ssh\_certificate\_file** estão omitidos, SSH usará apenas a autenticação de senha
 
-* **:ssh\_port** - a porta pública que será usada para a comunicação SSH. Se omitida, o padrão de porta do SSH será 22.
+* **:ssh\_port** - A porta pública que será usada para a comunicação SSH. Se omitida, o padrão de porta do SSH será 22.
 
-* **:vm\_size** - o tamanho da VM. Isso determina o tamanho de memória, o número de núcleos, a largura de banda e outras características físicas da VM. Consulte [Tamanhos de máquinas virtuais e serviços de nuvem para o Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para obter os tamanhos disponíveis e as características físicas.
+* **:vm\_size** - O tamanho da VM. Isso determina o tamanho de memória, o número de núcleos, a largura de banda e outras características físicas da VM. Consulte [Tamanhos de máquinas virtuais e serviços de nuvem para o Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para obter os tamanhos disponíveis e as características físicas.
 
-* **:winrm_transport** - uma matriz dos transportes disponíveis para uso com o WinRM. Os transportes válidos são 'http' e 'https'. Se 'https' é especificado como um transporte, você também deve usar **: ssh\_private\_key\_file** e **: ssh\_certificate\_file** para especificar o certificado usado para proteger as comunicações HTTPS.
+* **:winrm_transport** - Uma matriz dos transportes disponíveis para uso com o WinRM. Os transportes válidos são 'http' e 'https'. Se 'https' é especificado como um transporte, você também deve usar **: ssh\_private\_key\_file** e **: ssh\_certificate\_file** para especificar o certificado usado para proteger as comunicações HTTPS.
 
 Este é um exemplo de criação de uma nova máquina virtual que usa uma instância de computação pequena, expõe as portas publicamente para os tráfegos HTTP (porta local 8080, pública porta 80) e HTTPS (443) e permite a autenticação de certificado para as sessões SSH usando os arquivos de certificado especificados:
 
@@ -250,7 +250,7 @@ Para iniciar uma máquina virtual, use o método **start\_virtual\_machine** e a
 
 ##<a name="vm-images"> </a>Como: Trabalhar com imagens e discos de máquinas virtuais
 
-As operações nas imagens de máquinas virtuais são executadas usando-se a classe **Azure::VirtualMachineImageService**. As operações nos discos são executadas usando a classe **Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService**.
+As operações nas imagens de máquinas virtuais são executadas usando a classe **Azure::VirtualMachineImageService**. As operações nos discos são executadas usando a classe **Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService**.
 
 ###Como: Listar imagens de máquinas virtuais
 
@@ -281,9 +281,9 @@ As operações de gerenciamento dos serviços de nuvem do Azure são executadas 
 
 Para criar um novo serviço de nuvem, use o método **create\_cloud\_service** e atribua um nome e um hash de opções. As opções válidas são:
 
-* **:location** - *Required*. A região em que o serviço de nuvem será criado.
+* **:local** - *Obrigatório*. A região em que o serviço de nuvem será criado.
 
-* **:description** -uma descrição do serviço de nuvem.
+* **:descrição** - Uma descrição do serviço de nuvem.
 
 O exemplo a seguir cria um novo serviço de nuvem na região Leste dos EUA:
 
@@ -326,9 +326,9 @@ As operações de gerenciamento dos serviços de nuvem do Azure são executadas 
 
 Para criar uma nova conta de armazenamento, use o método **create\_storage\_account** e atribua um nome e um hash de opções. As opções válidas são:
 
-* **:location** - *Required*. A região em que a conta de armazenamento será criada.
+* **:local** - *Obrigatório*. A região em que a conta de armazenamento será criada.
 
-* **:description** - uma descrição da conta de armazenamento.
+* **:descrição** - Uma descrição da conta de armazenamento.
 
 O exemplo a seguir cria uma nova conta de armazenamento na região 'Leste dos EUA':
 
@@ -362,6 +362,5 @@ Agora que você aprendeu as noções básicas de criação de máquinas virtuais
 
 * Visite a página de recursos [Máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 *  Consulte a referência de MSDN: [Máquinas Virtuais](http://msdn.microsoft.com/library/windowsazure/jj156003.aspx)
-* Saiba como hospedar um [aplicativo Ruby on Rails em uma máquina virtual](http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/)
-
-<!--HONumber=45--> 
+* Saiba como hospedar um [Ruby no aplicativo Rails em uma máquina virtual](http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/)
+<!--HONumber=42-->

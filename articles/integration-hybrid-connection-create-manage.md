@@ -1,7 +1,20 @@
-﻿<properties urlDisplayName="Create and Manage Hybrid Connections - BizTalk Services" pageTitle="Criar e gerenciar Conexões Híbridas | Azure" metaKeywords="BizTalk Services, BizTalk, web sites, website, hybrid connections, Azure" description="Saiba como criar uma conexão híbrida, gerenciar a conexão e instalar o Gerenciador de conexões híbridas." metaCanonical="" services="integration-services" documentationCenter="" title="Create and Manage Hybrid Connections" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Criar e gerenciar Conexões Híbridas | Azure" 
+	description="Saiba como criar uma conexão híbrida, gerenciar a conexão e instalar o Gerenciador de conexões híbridas. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
-
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 #Criar e gerenciar Conexões Híbridas
 
@@ -78,7 +91,7 @@ Uma Conexão Híbrida pode ser criada no Portal de Gerenciamento do Azure usando
 
 Para conectar o site do Azure a uma Conexão Híbrida existente, selecione **usar uma Conexão Híbrida existente** na lâmina Conexões Híbridas. Consulte [Conectar um site do Azure a um recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Para conectar o Serviço Móvel do Azure a uma Conexão Híbrida existente, selecione **Incluir Conexão Híbrida** ao alterar ou criar um Serviço Móvel. Consulte [Conexões Híbridas e Serviços Móveis do Azure](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+Para conectar o Serviço Móvel do Azure a uma Conexão Híbrida existente, selecione **Incluir Conexão Híbrida** ao alterar ou criar um Serviço Móvel. Consulte [Conexões Híbridas e Serviços Móveis do Azure](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 
 ##<a name="InstallHCM"></a>Instalar o Gerenciador de Conexões Híbridas local
@@ -164,8 +177,8 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 
 - [Conectar um site do Azure a um recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Conexões Híbridas passo a passo: Conectar-se a um SQL Server local por meio de um Site do Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Conexões Híbridas e Serviços Móveis do Azure](http://azure.microsoft.com/pt-br/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
-- [Visão geral de Conexões Híbridas](http://azure.microsoft.com/pt-br/documentation/articles/integration-hybrid-connection-overview)
+- [Conexões Híbridas e Serviços Móveis do Azure](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Visão geral de Conexões Híbridas](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-overview)
 
 
 ## Consulte também
@@ -179,3 +192,5 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

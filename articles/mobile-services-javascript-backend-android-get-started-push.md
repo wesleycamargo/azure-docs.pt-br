@@ -214,24 +214,25 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-android-get-started-users
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Notificações por push para usuários do aplicativo]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript e HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-android-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-android-get-started-users
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-js
+[Notificações por push para usuários do aplicativo]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-js
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-push-js
 [Configurar o SDK do Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Como usar a biblioteca de cliente Android para os serviços móveis]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[Como usar a biblioteca de cliente Android para os serviços móveis]: /pt-br/documentation/articles/mobile-services-android-how-to-use-client-library
 
 [objeto GCM]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
-[Enviar notificações de transmissão para assinantes]: /en-us/documentation/articles/notification-hubs-android-send-breaking-news/
-[Enviar notificações baseadas em modelo para assinantes]: /en-us/documentation/articles/notification-hubs-android-send-localized-breaking-news/
-\n<!--HONumber=42-->
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
+[Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-android-send-breaking-news/
+[Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+
+\<!--HONumber=42-->

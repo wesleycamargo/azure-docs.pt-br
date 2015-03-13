@@ -22,7 +22,7 @@ A boa notícia é que todas as práticas de desenvolvimento de segurança, princ
 -   A auditoria e o log devem ser corretamente implementados para atenuar as ameaças de não repúdio.
 -   Autenticação e autorização devem ser implementadas usando mecanismos comprovados oferecidos pela plataforma para evitar falsificação de identidade e a elevação de ameaças de privilégios.
 
-Para obter uma lista completa de ameaças, ataques, vulnerabilidades e contramedidas, consulte a [Folha de consulta de padrões e práticas: Quadro de segurança de aplicativo](http://msdn.microsoft.com/pt-br/library/ff649461.aspx) e [Orientação de segurança para índice de aplicativos](http://msdn.microsoft.com/pt-br/library/ff650760.aspx).
+Para obter uma lista completa de ameaças, ataques, vulnerabilidades e contramedidas, consulte a [Folha de consulta de padrões e práticas: Quadro de segurança de aplicativo](http://msdn.microsoft.com/library/ff649461.aspx) e [Orientação de segurança para índice de aplicativos](http://msdn.microsoft.com/library/ff650760.aspx).
 
 Na nuvem, autenticação e mecanismos de controle de acesso são muito diferentes daqueles disponíveis para aplicativos locais. Há muito mais opções de autenticação e acesso oferecidas para aplicativos em nuvem que podem levar a uma confusão e, consequentemente, a implementações defeituosas. Acontece mais confusão quando se define o que é um aplicativo em nuvem. Por exemplo, o aplicativo pode ser implantado na nuvem, mas seu mecanismo de autenticação pode ser fornecido pelo Active Directory. Por outro lado, o aplicativo pode ser implantado no local, mas com mecanismos de autenticação na nuvem (por exemplo, pelo Controle de Acesso do Active Directory do Azure (anteriormente conhecido como Serviço do Controle de Acesso ou ACS)).
 
@@ -72,11 +72,11 @@ A melhor contramedida contra um ataque é usar os mecanismos de acesso e identid
 O Controle de Acesso do AD do Azure é um serviço em nuvem que oferece serviço STS (Security Token) e permite a federação com diferentes provedores de identidade (IdPs) como uma empresa do Active Directory ou IdPs de Internet, como o Windows Live ID/Conta da Microsoft, Facebook, Google, Yahoo! e provedores de identidade Open ID 2.0. Os recursos a seguir fornecem informações detalhadas sobre o Controle de Acesso do AD do Azure:
 
 -   [Serviço de Controle de Acesso 2.0](http://msdn.microsoft.com/library/gg429786.aspx) 
--   [Cenários e soluções usando o ACS](http://msdn.microsoft.com/pt-br/library/gg185920.aspx)
--   [Instruções do ACS](http://msdn.microsoft.com/pt-br/library/windowsazure/gg185939.aspx)
--   [Um guia para Identidade baseada em declarações e Controle de Acesso](http://msdn.microsoft.com/pt-br/library/ff423674.aspx)(a página pode estar em inglês)
+-   [Cenários e soluções usando o ACS](http://msdn.microsoft.com/library/gg185920.aspx)
+-   [Instruções do ACS](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
+-   [Um guia para Identidade baseada em declarações e Controle de Acesso](http://msdn.microsoft.com/library/ff423674.aspx)(a página pode estar em inglês)
 -   [Kit de treinamento de identidade para desenvolvedores ](http://www.microsoft.com/pt-br/download/details.aspx?id=14347)(a página pode estar em inglês)
--   [Curso de treinamento de identidade para desenvolvedores hospedado pelo MSDN](http://msdn.microsoft.com/pt-br/IdentityTrainingCourse)(a página pode estar em inglês)
+-   [Curso de treinamento de identidade para desenvolvedores hospedado pelo MSDN](http://msdn.microsoft.com/IdentityTrainingCourse)(a página pode estar em inglês)
 
 **Serviços de Federação do Active Directory (AD FS).**Os serviços de Federação do Active Directory (AD FS) 2.0 oferecem suporte para soluções de reconhecimento de declaração de identidade que envolvam Windows Server?? e tecnologia do Active Directory. O AD FS 2.0 oferece suporte ao WS-Trust, WS-Federation e protocolos SAML. Os recursos a seguir fornecem informações detalhadas sobre o AD FS:
 
@@ -87,7 +87,7 @@ O Controle de Acesso do AD do Azure é um serviço em nuvem que oferece serviço
 **Assinaturas de acesso compartilhado do Azure.** Assinaturas de acesso compartilhado permitem ajustar o acesso a um recurso de contêiner ou blob. Os recursos a seguir fornecem informações detalhadas sobre as Assinaturas
 de Acesso Compartilhado.
 
--   [Gerenciando acesso a Blobs e Contêineres](http://msdn.microsoft.com/pt-br/library/ee393343.aspx)
+-   [Gerenciando acesso a Blobs e Contêineres](http://msdn.microsoft.com/library/ee393343.aspx)
 -   [Novo recurso de armazenamento: Assinaturas de Acesso Compartilhado](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
 -   [Assinaturas de Acesso Compartilhado são fáceis hoje em dia](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)(a página pode estar em inglês)
 
@@ -124,12 +124,12 @@ Para resolver esse cenários, use o Controle de Acesso do AD do Azure e o Window
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: criar meu primeiro aplicativo ASP.NET com reconhecimento de declarações usando o ACS](http://msdn.microsoft.com/pt-br/library/gg429779.aspx)
--   [Como: hospedar páginas de logon no seu aplicativo da web ASP.NET](http://msdn.microsoft.com/pt-br/library/gg185926.aspx)
--   [Como: implementar a autorização de declarações em um aplicativo ASP.NET com reconhecimento de declarações usando WIF e ACS](http://msdn.microsoft.com/pt-br/library/gg185907.aspx)    
--   [Como: implementar o Controle de Acesso Baseado em Função (RBAC) em um aplicativo ASP.NET com reconhecimento de declarações, usando WIF e ACS](http://msdn.microsoft.com/pt-br/library/gg185914.aspx)
--   [Como: configurar a confiança entre o ACS e os aplicativos da web ASP.NET usando os certificados X.509](http://msdn.microsoft.com/pt-br/library/gg185947.aspx)
--   [Exemplo de código: Formulários ASP.NET simples](http://msdn.microsoft.com/pt-br/library/gg185938.aspx)
+-   [Como: criar meu primeiro aplicativo ASP.NET com reconhecimento de declarações usando o ACS](http://msdn.microsoft.com/library/gg429779.aspx)
+-   [Como: hospedar páginas de logon no seu aplicativo da web ASP.NET](http://msdn.microsoft.com/library/gg185926.aspx)
+-   [Como: implementar a autorização de declarações em um aplicativo ASP.NET com reconhecimento de declarações usando WIF e ACS](http://msdn.microsoft.com/library/gg185907.aspx)    
+-   [Como: implementar o Controle de Acesso Baseado em Função (RBAC) em um aplicativo ASP.NET com reconhecimento de declarações, usando WIF e ACS](http://msdn.microsoft.com/library/gg185914.aspx)
+-   [Como: configurar a confiança entre o ACS e os aplicativos da web ASP.NET usando os certificados X.509](http://msdn.microsoft.com/library/gg185947.aspx)
+-   [Exemplo de código: Formulários ASP.NET simples](http://msdn.microsoft.com/library/gg185938.aspx)
 
 ###Serviço do WCF (SOAP) com identidade do serviço
 
@@ -143,11 +143,11 @@ do AD do Azure para emitir tokens SAML que serão manipulados pelo WIF no servi�
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: Adicionar identidade de serviço com um certificado X.509, senha ou chave simétrica](http://msdn.microsoft.com/pt-br/library/gg185924.aspx)
--   [Como: Como: autenticar com um Certificado Cliente em um serviço WCF protegido pelo ACS](http://msdn.microsoft.com/pt-br/library/hh289316.aspx)
--   [Como: autenticar com nome de usuário e senha em um serviço WCF protegido pelo ACS](http://msdn.microsoft.com/pt-br/library/gg185954.aspx)
--   [Exemplo de código: Autenticação de certificado do WCF](http://msdn.microsoft.com/pt-br/library/gg185952.aspx)
--   [Exemplo de código: Autenticação de nome de usuário do WCF](http://msdn.microsoft.com/pt-br/library/gg185927.aspx)
+-   [Como: Adicionar identidade de serviço com um certificado X.509, senha ou chave simétrica](http://msdn.microsoft.com/library/gg185924.aspx)
+-   [Como: Como: autenticar com um Certificado Cliente em um serviço WCF protegido pelo ACS](http://msdn.microsoft.com/library/hh289316.aspx)
+-   [Como: autenticar com nome de usuário e senha em um serviço WCF protegido pelo ACS](http://msdn.microsoft.com/library/gg185954.aspx)
+-   [Exemplo de código: Autenticação de certificado do WCF](http://msdn.microsoft.com/library/gg185952.aspx)
+-   [Exemplo de código: Autenticação de nome de usuário do WCF](http://msdn.microsoft.com/library/gg185927.aspx)
 
 ###Serviço do WCF (SOAP) com Autenticação Federada, Identidades no Active Directory
 
@@ -162,11 +162,11 @@ serviço com o Serviço de Controle de Acesso do Azure AD. O agente que precisa 
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: Adicionar identidade de serviço com um certificado X.509, senha ou chave simétrica](http://msdn.microsoft.com/pt-br/library/gg185924.aspx)
--   [Como: Configurar o AD FS 2.0 como Provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185961.aspx)
--   [Como: Usar o Serviço de Gerenciamento para configurar o AD FS 2.0 como Provedor de identidade empresarial](http://msdn.microsoft.com/pt-br/library/gg185905.aspx)
+-   [Como: Adicionar identidade de serviço com um certificado X.509, senha ou chave simétrica](http://msdn.microsoft.com/library/gg185924.aspx)
+-   [Como: Configurar o AD FS 2.0 como Provedor de identidade](http://msdn.microsoft.com/library/gg185961.aspx)
+-   [Como: Usar o Serviço de Gerenciamento para configurar o AD FS 2.0 como Provedor de identidade empresarial](http://msdn.microsoft.com/library/gg185905.aspx)
 -   [Exemplo de código: Autenticação WCF federada com o AD FS 2.0
-](http://msdn.microsoft.com/pt-br/library/hh127796.aspx)
+](http://msdn.microsoft.com/library/hh127796.aspx)
 
 ###Serviço do WCF (REST) com Identidades do Serviço
 
@@ -180,10 +180,10 @@ Considere o diagrama a seguir (o WIF é opcional):
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: configurar a confiança entre o ACS e o serviço WCF usando chaves simétricas](http://msdn.microsoft.com/pt-br/library/gg185958.aspx)
--   [Como: autenticar para um Serviço REST WCF implantado no Azure usando o ACS](http://msdn.microsoft.com/pt-br/library/hh289317.aspx)
--   [Exemplo de código: Serviço Web do ASP.NET](http://msdn.microsoft.com/pt-br/library/gg983271.aspx)
--   [Exemplo de código: Aplicativo do Windows Phone 7](http://msdn.microsoft.com/pt-br/library/gg983271.aspx)
+-   [Como: configurar a confiança entre o ACS e o serviço WCF usando chaves simétricas](http://msdn.microsoft.com/library/gg185958.aspx)
+-   [Como: autenticar para um Serviço REST WCF implantado no Azure usando o ACS](http://msdn.microsoft.com/library/hh289317.aspx)
+-   [Exemplo de código: Serviço Web do ASP.NET](http://msdn.microsoft.com/library/gg983271.aspx)
+-   [Exemplo de código: Aplicativo do Windows Phone 7](http://msdn.microsoft.com/library/gg983271.aspx)
 -   [WCF REST com Token SWT emitido pelo Controle de Acesso Service do Azure (ACS)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)(a página pode estar em inglês)
 
 ###Serviço do WCF (REST) com Live ID/Conta da Microsoft, Facebook, Google, Yahoo!, Open ID
@@ -201,11 +201,11 @@ Considere o diagrama a seguir (o WIF é opcional, por isso não foi exibido):
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: autenticar para um Serviço REST WCF implantado no Azure usando o ACS](http://msdn.microsoft.com/pt-br/library/hh289317.aspx)
--   [Como: configurar o Google como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185976.aspx)
--   [Como: configurar o Facebook como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185919.aspx)
--   [Como: configurar o Yahoo! como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185977.aspx)
--  [Exemplo de código: Aplicativo do Windows Phone 7](http://msdn.microsoft.com/pt-br/library/gg983271.aspx)
+-   [Como: autenticar para um Serviço REST WCF implantado no Azure usando o ACS](http://msdn.microsoft.com/library/hh289317.aspx)
+-   [Como: configurar o Google como um provedor de identidade](http://msdn.microsoft.com/library/gg185976.aspx)
+-   [Como: configurar o Facebook como um provedor de identidade](http://msdn.microsoft.com/library/gg185919.aspx)
+-   [Como: configurar o Yahoo! como um provedor de identidade](http://msdn.microsoft.com/library/gg185977.aspx)
+-  [Exemplo de código: Aplicativo do Windows Phone 7](http://msdn.microsoft.com/library/gg983271.aspx)
 -   [WCF REST com Token SWT emitido pelo Controle de Acesso Service do Azure (ACS)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)(a página pode estar em inglês)
 
 
@@ -224,9 +224,9 @@ Configuração do Controle de Acesso do Azure AD para emitir token SWT. O token 
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: configurar o Google como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185976.aspx)
--   [Como: configurar o Facebook como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185919.aspx)
--   [Como: configurar o Yahoo! como um provedor de identidade](http://msdn.microsoft.com/pt-br/library/gg185977.aspx)
+-   [Como: configurar o Google como um provedor de identidade](http://msdn.microsoft.com/library/gg185976.aspx)
+-   [Como: configurar o Facebook como um provedor de identidade](http://msdn.microsoft.com/library/gg185919.aspx)
+-   [Como: configurar o Yahoo! como um provedor de identidade](http://msdn.microsoft.com/library/gg185977.aspx)
 -   [Aplicativo Web ASP.NET para Serviço REST com WCF usando Token SWT Compartilhado](http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82)(a página pode estar em inglês)
 
 ###Controle de acesso baseado em função (RBAC) em serviços e aplicativos com reconhecimento de declaração
@@ -256,8 +256,8 @@ O WIF é usado em todos os casos. O WIF oferece suporte ao método IPrincipal.Is
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: implementar o Controle de Acesso Baseado em Função (RBAC) em um aplicativo ASP.NET com reconhecimento de declarações, usando WIF e ACS](http://msdn.microsoft.com/pt-br/library/gg185914.aspx)
--   [Como: implementar a lógica de transformação do token usando regras](http://msdn.microsoft.com/pt-br/library/gg185955.aspx)
+-   [Como: implementar o Controle de Acesso Baseado em Função (RBAC) em um aplicativo ASP.NET com reconhecimento de declarações, usando WIF e ACS](http://msdn.microsoft.com/library/gg185914.aspx)
+-   [Como: implementar a lógica de transformação do token usando regras](http://msdn.microsoft.com/library/gg185955.aspx)
 -   [Autorização com RoleManager para aplicativos Web ASP.NET com reconhecimento de declarações (WIF)](http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx)(a página pode estar em inglês)
 -   Exemplo de código: Usando declarações em IsInRole no [SDK Windows Identity Foundation](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
@@ -272,8 +272,8 @@ O ClaimsAuthorizationManager permite que o acesso externo verifique as chamadas 
 
 Consulte os recursos a seguir para implementar este cenário:
 
--   [Como: implementar a lógica de transformação do token usando regras](http://msdn.microsoft.com/pt-br/library/gg185955.aspx)
--   [Como: implementar a autorização de declarações em um aplicativo ASP.NET com reconhecimento de declarações usando WIF e ACS](http://msdn.microsoft.com/pt-br/library/gg185907.aspx)
+-   [Como: implementar a lógica de transformação do token usando regras](http://msdn.microsoft.com/library/gg185955.aspx)
+-   [Como: implementar a autorização de declarações em um aplicativo ASP.NET com reconhecimento de declarações usando WIF e ACS](http://msdn.microsoft.com/library/gg185907.aspx)
 -   Exemplo de código:  autorização com base em declarações no [SDK do Windows Identity Foundation](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)(a página pode estar em inglês)
 
 
@@ -292,7 +292,7 @@ de Acesso Compartilhado.
 
 Consulte os recursos a seguir para resolver este cenário
 
--   [Gerenciando acesso a Blobs e Contêineres](http://msdn.microsoft.com/pt-br/library/ee393343.aspx)
+-   [Gerenciando acesso a Blobs e Contêineres](http://msdn.microsoft.com/library/ee393343.aspx)
 -   [Novo recurso de armazenamento: Assinaturas de Acesso Compartilhado](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
 -   [Assinaturas de Acesso Compartilhado são fáceis hoje em dia](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)(a página pode estar em inglês)
 
@@ -307,14 +307,14 @@ Banco de dados SQL. Preste atenção especial ao gerenciar seu nome de usuário 
 
 Consulte os recursos a seguir para resolver este cenário:
 
--   [Diretrizes e limitações de segurança (Banco de dados SQL do Azure)](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394108.aspx#authentication)
--   [Como: conectar-se ao Banco de Dados SQL usando o sqlcmd](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336280.aspx)
--   [Como: conectar-se ao Banco de Dados SQL usando o ADO.NET](http://msdn.microsoft.com/pt-br/library/windowsazure/ee336243.aspx)
--   [Como: conectar-se ao Banco de Dados SQL por meio do ASP.NET](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621781.aspx)
--   [Como: conectar-se ao Banco de dados SQL por meio do WCF Data Services](http://msdn.microsoft.com/pt-br/library/windowsazure/ee621789.aspx)
--  [Como: conectar-se ao Banco de Dados SQL do Azure usando o PHP](http://msdn.microsoft.com/pt-br/library/windowsazure/ff394110.aspx)
--   [Como: conectar-se ao Banco de Dados SQL usando o JDBC](http://msdn.microsoft.com/pt-br/library/windowsazure/gg715284.aspx)
--   [Como: conectar-se ao Banco de dados SQL usando o ADO.NET Entity Framework](http://msdn.microsoft.com/pt-br/library/windowsazure/ff951633.aspx)
+-   [Diretrizes e limitações de segurança (Banco de dados SQL do Azure)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
+-   [Como: conectar-se ao Banco de Dados SQL usando o sqlcmd](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
+-   [Como: conectar-se ao Banco de Dados SQL usando o ADO.NET](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
+-   [Como: conectar-se ao Banco de Dados SQL por meio do ASP.NET](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
+-   [Como: conectar-se ao Banco de dados SQL por meio do WCF Data Services](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
+-  [Como: conectar-se ao Banco de Dados SQL do Azure usando o PHP](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
+-   [Como: conectar-se ao Banco de Dados SQL usando o JDBC](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
+-   [Como: conectar-se ao Banco de dados SQL usando o ADO.NET Entity Framework](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
 
 ##Identidade do Serviço de Barramento do Azure e cenários de acesso
 
@@ -326,7 +326,7 @@ Consulte os recursos a seguir para resolver este cenário:
 
 -   [Proteção do Barramento de Serviço com o ACS](http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS) (Vídeo)
 -   [Proteção do Barramento de Serviço com o ACS](https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849) (Slides)
--   [Autenticação e autorização do Barramento de Serviço com o Controle de Acesso](http://msdn.microsoft.com/pt-br/library/hh403962.aspx)
+-   [Autenticação e autorização do Barramento de Serviço com o Controle de Acesso](http://msdn.microsoft.com/library/hh403962.aspx)
 
 ##Cenários de acesso e identidade do Cache em memória
 
@@ -337,9 +337,9 @@ O cache em memória (anteriormente conhecido como Caching do Azure) depende do C
 
 Consulte os recursos a seguir para resolver este cenário:
 
--   [Como: configurar um cliente de cache de forma programática para o Caching do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg618003.aspx)
--   [Como: configurar um cliente de cache usando o arquivo de configuração de aplicativo do Caching do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/gg278346.aspx)
--   [Exemplos de Caching e Barramento de Serviço do Azure](http://msdn.microsoft.com/pt-br/library/ee706741.aspx) (seção de exemplos de Caching)
+-   [Como: configurar um cliente de cache de forma programática para o Caching do Azure](http://msdn.microsoft.com/library/windowsazure/gg618003.aspx)
+-   [Como: configurar um cliente de cache usando o arquivo de configuração de aplicativo do Caching do Azure](http://msdn.microsoft.com/library/windowsazure/gg278346.aspx)
+-   [Exemplos de Caching e Barramento de Serviço do Azure](http://msdn.microsoft.com/library/ee706741.aspx) (seção de exemplos de Caching)
 
 ##Cenários de Acesso e identidade de Marketplace do Azure
 
@@ -355,7 +355,7 @@ Use a chave compartilhada que está disponível através de sua assinatura do Ma
 
 Consulte os recursos a seguir para resolver este cenário:
 
--   [Uso de HTTP Basic Auth no seu aplicativo do Marketplace](http://msdn.microsoft.com/pt-br/library/gg193417.aspx)(a página pode estar em inglês)
+-   [Uso de HTTP Basic Auth no seu aplicativo do Marketplace](http://msdn.microsoft.com/library/gg193417.aspx)(a página pode estar em inglês)
 
 ###Os usuários acessam os meus conjuntos de dados
 
@@ -390,7 +390,7 @@ Serviço de Controle de Acesso do Azure AD. Use-a como uma lista de verificaçã
 
 ###Windows Identity Foundation
 
-A seguir estão os principais botões de segurança de WIF. As informações a seguir são um resumo de [Considerações sobre design do WIF](http://msdn.microsoft.com/pt-br/library/ee517298.aspx) e [Segurança do Windows Identity Foundation (WIF)para aplicativos Web ASP.NET - ameaças e contramedidas (as páginas podem estar em inglês)](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
+A seguir estão os principais botões de segurança de WIF. As informações a seguir são um resumo de [Considerações sobre design do WIF](http://msdn.microsoft.com/library/ee517298.aspx) e [Segurança do Windows Identity Foundation (WIF)para aplicativos Web ASP.NET - ameaças e contramedidas (as páginas podem estar em inglês)](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
 .
 
 -   **IssuerNameRegistry**. Especifica os Serviços de Token de Segurança (STS) confiáveis. Certifique-se de que apenas STS confiáveis estão listados.
@@ -403,7 +403,7 @@ A seguir estão os principais botões de segurança de WIF. As informações a s
 ###Controle de Acesso do AD do Azure
 
 Considere os seguintes botões de segurança na implantação do Access Control do AD do Azure. As informações a seguir são um resumo das [Diretrizes de segurança do
-ACS](http://msdn.microsoft.com/pt-br/library/gg185962.aspx) e [Certificados e diretrizes de gerenciamento de chaves](http://msdn.microsoft.com/pt-br/library/hh204521.aspx).
+ACS](http://msdn.microsoft.com/library/gg185962.aspx) e [Certificados e diretrizes de gerenciamento de chaves](http://msdn.microsoft.com/library/hh204521.aspx).
 
 -   **Expiração de tokens do STS**. Use o portal de gerenciamento do Controle de Acesso do AD do Azure para definir expiração agressiva do token.
 -   **Validação de dados ao usar o recurso de URL de Erro**. O recurso de URL de Erro do Controle de Acesso do AD do Azure requer acesso anônimo à página do aplicativo para onde ele envia as mensagens de erro. Suponha que todos os dados que chegam a esta página são perigosos e de fonte não confiável.
@@ -430,8 +430,8 @@ Todos os cenários e as soluções descritos neste tópico são válidos quando 
 -   [Kit de treinamento de identidade para desenvolvedores ](http://go.microsoft.com/fwlink/?LinkId=214555)(a página pode estar em inglês)
 -   [Curso de treinamento de identidade para desenvolvedores hospedado pelo MSDN](http://go.microsoft.com/fwlink/?LinkId=214561)(a página pode estar em inglês)
 -   [Um guia para Identidade baseada em declarações e Controle de Acesso](http://go.microsoft.com/fwlink/?LinkId=214562)(a página pode estar em inglês)
--   [Serviço de Controle de Acesso](http://msdn.microsoft.com/pt-br/library/windowsazure/gg429786.aspx)
--   [Instruções do ACS](http://msdn.microsoft.com/pt-br/library/windowsazure/gg185939.aspx)
+-   [Serviço de Controle de Acesso](http://msdn.microsoft.com/library/windowsazure/gg429786.aspx)
+-   [Instruções do ACS](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
 -   [Proteção de aplicativo web ASP.NET com função web do Azure usando o Access Control Service v2.0](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)(a página pode estar em inglês)
 -   [Academy Videos do Access Control Service (ACS) do AD do Azure](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)(a página pode estar em inglês)
 -   [Ciclo de vida de desenvolvimento de segurança da Microsoft](http://www.microsoft.com/security/sdl/default.aspx)
@@ -464,7 +464,6 @@ Todos os cenários e as soluções descritos neste tópico são válidos quando 
 [19]:./media/SecurityRX/19_UsersAccessMyDatasets.gif
 [20]:./media/SecurityRX/20_ApplicationAccessMarketplaceAPI.gif
 
-[Design de SSO Web]: http://technet.microsoft.com/pt-br/library/dd807033(WS.10).aspx
-[Design de SSO Web federado]: http://technet.microsoft.com/pt-br/library/dd807050(WS.10).aspx
-
+[Design de SSO Web]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
+[Design de SSO Web federado]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 <!--HONumber=42-->

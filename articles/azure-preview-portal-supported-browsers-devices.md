@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="Suporte a navegadores e dispositivos" metaKeywords ="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+﻿<properties 
+	pageTitle="Navegadores e dispositivos com suporte" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="JustinBeckwith" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/16/2014" 
+	ms.author="justbe"/>
 
 #Navegadores e dispositivos com suporte
 O Portal de Visualização do Microsoft Azure é executado em todos os dispositivos desktop e tablet e navegadores modernos.
@@ -20,3 +35,5 @@ Há suporte para as versões mais recentes dos navegadores a seguir:
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

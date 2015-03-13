@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Registrar-se para autenticação do Active Directory do Azure - Serviços Móveis" 
 	description="Saiba como se registrar para a autenticação do Active Directory do Azure em seu aplicativo de serviços móveis." 
 	authors="wesmc7777" 
@@ -21,7 +21,7 @@
 Este tópico mostra como registrar seus aplicativos para poderem usar o Active Directory do Azure como um provedor de autenticação para os Serviços Móveis do Azure. 
 
 
->[AZURE.NOTE] As etapas descritas neste tópico devem ser usados com o tutorial [Adicionar Autenticação ao aplicativo de Serviços Móveis](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) quando você quiser usar [Operações de logon voltadas ao serviço](http://msdn.microsoft.com/en-us/library/azure/dn283952.aspx) com seu aplicativo. Como alternativa, se seu aplicativo exigir [operações de logon voltadas ao cliente](http://msdn.microsoft.com/en-us/library/azure/jj710106.aspx) para o Active Directory do Azure e um serviço móvel de back-end do .NET, você deve começar com o tutorial [Autenticar o aplicativo com logon único da biblioteca de autenticação do Active Directory](/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] As etapas descritas neste tópico devem ser usados com o tutorial [Adicionar Autenticação ao aplicativo de Serviços Móveis](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) quando você quiser usar [Operações de logon voltadas ao serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com seu aplicativo. Como alternativa, se seu aplicativo exigir [operações de logon voltadas ao cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para o Active Directory do Azure e um serviço móvel de back-end do .NET, você deve começar com o tutorial [Autenticar o aplicativo com logon único da biblioteca de autenticação do Active Directory](/pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
 
 
 1. Entre no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis**, e, em seguida, clique em seu serviço móvel.
@@ -98,4 +98,5 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\n<!--HONumber=42-->
+
+<!--HONumber=42-->

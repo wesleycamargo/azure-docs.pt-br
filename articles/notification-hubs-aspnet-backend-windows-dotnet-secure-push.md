@@ -1,6 +1,20 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Push de Segurança dos Hubs de Notificação do Azure" metaKeywords=" notificações push do Azure, hubs de notificação do Azure, mensagens do Azure, push seguro" description="Saiba como enviar notificações por push seguro no Azure. Exemplos de códigos escritos em c# usando a API do .NET." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
+﻿<properties 
+	pageTitle="Push Seguro dos Hubs de Notificação do Azure" 
+	description="Saiba como enviar notificações por push seguro no Azure. Exemplos de códigos escritos em c# usando a API do .NET." 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
 
@@ -24,20 +38,20 @@ Em um nível superior, o fluxo é o seguinte:
 
 É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificar Usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
+Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Windows Store)](http://azure.microsoft.com/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Windows Store)](http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
 Além disso, observe que o Windows Phone 8.1 requer credenciais do Windows (não Windows Phone) e tarefas em segundo plano não funcionam no Windows Phone 8.0 ou Silverlight 8.1. Para aplicativos da Windows Store, você pode receber notificações por meio de uma tarefa de segundo plano somente se o aplicativo estiver com o bloqueio de tela habilitado (clique na caixa de seleção em Appmanifest).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificar o projeto do Windows Phone
 
-1. No projeto **NotifyUserWindowsPhone**, adicione o código a seguir em App.xaml.cs para registrar a tarefa de segundo plano de push. Adicione a linha de código a seguir no final do método `OnLaunched()`:
+1. No projeto **NotifyUserWindowsPhone**, adicione o código a seguir em App.xaml.cs para registrar a tarefa de segundo plano de push. Adicione a linha de código a seguir no final do método  `OnLaunched()`:
 
 		RegisterBackgroundTask();
 
-2. Ainda no App.xaml.cs, adicione o código a seguir imediatamente após o método `OnLaunched()`:
+2. Ainda no App.xaml.cs, adicione o código a seguir imediatamente após o método  `OnLaunched()`:
 
 		private async void RegisterBackgroundTask()
         {
@@ -53,7 +67,7 @@ Além disso, observe que o Windows Phone 8.1 requer credenciais do Windows (não
             }
         }
 
-3. Adicione o seguinte `usando` instruções na parte superior do arquivo App.xaml.cs:
+3. Adicione as seguintes instruções  `using` na parte superior do arquivo App.xaml.cs:
 
 		using Windows.Networking.PushNotifications;
 		using Windows.ApplicationModel.Background;
@@ -64,7 +78,7 @@ Além disso, observe que o Windows Phone 8.1 requer credenciais do Windows (não
 
 A próxima etapa é criar o componente de segundo plano de push.
 
-1. No Gerenciador de Soluções, clique com o botão direito no nó do nível superior da solução (**SecurePush de Solução** nesse caso), em seguida, clique em **Adicionar** e, em seguida, clique em **Novo Projeto**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no nó do nível superior da solução (**Solução SecurePush** nesse caso) e clique em **Adicionar** e em **Novo Projeto**.
 
 2. Expanda **Aplicativos da Loja**, clique em **Aplicativos para Windows Phone** e, em seguida clique em **Componente de Tempo de Execução do Windows (Windows Phone)**. Nomeie o projeto **PushBackgroundComponent** e clique em **OK** para criar o projeto.
 
@@ -72,7 +86,7 @@ A próxima etapa é criar o componente de segundo plano de push.
 
 3. No Gerenciador de Soluções, clique com o botão direito no projeto **PushBackgroundComponent (Windows Phone 8.1)**, clique em **Adicionar** e, em seguida, em **Classe**. Nomeie a nova classe como **PushBackgroundTask.cs**. Clique em **Adicionar** para gerar a classe.
 
-4. Substitua todo o conteúdo da definição de namespace **PushBackgroundComponent** pelo código a seguir, substituindo o espaço reservado `{back-end endpoint}` por um ponto de extremidade de back-end obtido ao implementar seu back-end:
+4. Substitua todo o conteúdo da definição do namespace **PushBackgroundComponent** pelo código a seguir, substituindo o espaço reservado  `{back-end endpoint}` pelo ponto de extremidade do back-end obtido ao implantar o back-end:
 
 		public sealed class Notification
     		{
@@ -127,7 +141,7 @@ A próxima etapa é criar o componente de segundo plano de push.
 
 9. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**. Instale o pacote **Json.NET** e feche a janela do Gerenciador de Pacotes NuGet.
 
-10. Adicione o seguinte `usando` instruções na parte superior do arquivo **PushBackgroundTask.cs**:
+10. Adicione as seguintes instruções  `using` na parte superior do arquivo **PushBackgroundTask.cs**:
 
 		using Windows.ApplicationModel.Background;
 		using Windows.Networking.PushNotifications;
@@ -164,8 +178,10 @@ Para executar o aplicativo, faça o seguinte:
 
 3. Na interface do usuário do aplicativo **NotifyUserWindowsPhone**, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
 
-4. Na interface do usuário do aplicativo **NotifyUserWindowsPhone**, clique em **Fazer logon e registrar-se**. Em seguida, clique em **Enviar push**.
+4. No**NotifyUserWindowsPhone**, clique em **Fazer logon e registrar-se**. Em seguida, clique em **Enviar push**.
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
+
+<!--HONumber=45--> 

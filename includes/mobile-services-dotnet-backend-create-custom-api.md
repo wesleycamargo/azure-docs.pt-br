@@ -58,11 +58,10 @@
 
 	No código acima, substitua  `todolistContext` pelo nome do DbContext do modelo de dados, que deve ser o nome do serviço móvel anexado a  `Context`. Além disso, substitua o nome de esquema na instrução UPDATE pelo nome de seu serviço móvel. 
 
-	Esse código usa a [Classe Banco de Dados](http://msdn.microsoft.com/pt-br/library/system.data.entity.database.aspx) para acessar a tabela **TodoItems** diretamente para definir a marcação concluído em todos os itens. Esse método dá suporte a uma solicitação POST, e o número de linhas alteradas é retornado ao cliente como um valor inteiro.
+	Esse código usa a [Classe Banco de Dados](http://msdn.microsoft.com/library/system.data.entity.database.aspx) para acessar a tabela **TodoItems** diretamente para definir a marcação concluído em todos os itens. Esse método dá suporte a uma solicitação POST, e o número de linhas alteradas é retornado ao cliente como um valor inteiro.
 
 	> [AZURE.NOTE]  As permissões padrão são definidas, o que significa que qualquer usuário do aplicativo pode chamar a API personalizada. No entanto, a chave de aplicativo não é distribuída ou armazenada de forma segura e não pode ser considerada uma credencial segura. Por isso, você deve restringir o acesso somente para usuários autenticados em operações que modificam dados ou afetam o serviço móvel. 
 
 Em seguida, você modificará o aplicativo quickstart para adicionar um novo botão e o código que chama assincronamente a nova API personalizada.
-
 
 <!--HONumber=42-->

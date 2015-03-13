@@ -103,7 +103,7 @@ Para obter informações sobre como implantar sites do Azure a partir do Visual 
 * [Introdução ao Microsoft Azure e ao ASP.NET](../web-sites-dotnet-get-started/). Como criar e implantar um projeto da web ASP.NET MVC simples usando o Visual Studio e a Implantação da Web.
 * [Como implantar o Trabalhos Web do Azure nos sites do Azure](../websites-dotnet-deploy-webjobs/). Como configurar projetos de Aplicativo de console para que sejam implantados como Trabalhos Web.  
 * [Implantar um aplicativo ASP.NET MVC 5 seguro com Associação, OAuth e Banco de Dados SQL em um site do Azure](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Como criar e implantar um projeto da web ASP.NET MVC com um banco de dados SQL, usando o Visual Studio, a Implantação da Web e as Migrações do Entity Framework Code First.
-* [Visão geral sobre a implantação da Web para o Visual Studio e o ASP.NET](http://msdn.microsoft.com/pt-br/library/dd394698.aspx). Uma introdução básica à implantação da web usando o Visual Studio. Desatualizado, mas inclui informações que ainda são relevantes, incluindo uma visão geral das opções para a implantação de um banco de dados junto com o aplicativo da web e uma lista de tarefas de implantação adicionais que você talvez tenha que executar ou configurar o Visual Studio manualmente para executá-las para você. Este tópico é sobre implantação em geral, e não apenas sobre a implantação de sites do Azure.
+* [Visão geral sobre a implantação da Web para o Visual Studio e o ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Uma introdução básica à implantação da web usando o Visual Studio. Desatualizado, mas inclui informações que ainda são relevantes, incluindo uma visão geral das opções para a implantação de um banco de dados junto com o aplicativo da web e uma lista de tarefas de implantação adicionais que você talvez tenha que executar ou configurar o Visual Studio manualmente para executá-las para você. Este tópico é sobre implantação em geral, e não apenas sobre a implantação de sites do Azure.
 * [Implantação da Web do ASP.NET usando o Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Uma série de tutoriais de 12 partes que abrange uma gama mais completa de tarefas de implantação do que os outros nessa lista. Alguns recursos de implantação do Azure foram adicionados desde que o tutorial foi escrito, mas anotações adicionadas posteriormente explicam o que está faltando. 
 * [Implantação direta de um site do ASP.NET no Azure no Visual Studio 2012 a partir de um repositório Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica como implantar um projeto da web ASP.NET no Visual Studio, usando o plug-in do Git para confirmar o código para o Git e conectar o Azure ao repositório Git. A partir do Visual Studio 2013, o suporte do Git é incorporado e não requer a instalação de um plug-in.
 
@@ -111,9 +111,9 @@ Para obter informações sobre como implantar sites do Azure a partir do Visual 
 
 Para obter informações sobre como implantar sites do Azure a partir do WebMatrix, consulte os recursos a seguir:
 
-* [Desenvolver e implantar um site com o Microsoft WebMatrix](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-dotnet-using-webmatrix/). Como criar um site do ASP.NET simples usando um modelo do WebMatrix e implantá-lo em um site do Azure usando o WebMatrix e a Implantação da Web.
-* [Compilar e implantar um site do node.js no Azure usando o WebMatrix](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-nodejs-use-webmatrix/).
-* [Criar e implantar um site do Azure PHP-MySQL usando o WebMatrix](http://www.windowsazure.com/pt-br/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+* [Desenvolver e implantar um site com o Microsoft WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-using-webmatrix/). Como criar um site do ASP.NET simples usando um modelo do WebMatrix e implantá-lo em um site do Azure usando o WebMatrix e a Implantação da Web.
+* [Compilar e implantar um site do node.js no Azure usando o WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-use-webmatrix/).
+* [Criar e implantar um site do Azure PHP-MySQL usando o WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3: Git integrado e implantação no Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Como usar o WebMatrix para implantar de um repositório de controle do código-fonte do Git.
 
 ##<a name="ftp"></a>Implantando usando um utilitário FTP
@@ -186,12 +186,12 @@ Para obter mais informações, consulte o recurso a seguir:
 
 ###<a name="powershell"></a>Windows PowerShell
 
-É possível executar funções de implantação do MSBuild ou de FTP por meio do [Windows PowerShell](http://msdn.microsoft.com/pt-br/library/dd835506.aspx). Se fizer isso, você também poderá usar uma coleção de cmdlets do Windows PowerShell que facilitam chamar a API de gerenciamento do REST do Azure.
+É possível executar funções de implantação do MSBuild ou de FTP por meio do [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Se fizer isso, você também poderá usar uma coleção de cmdlets do Windows PowerShell que facilitam chamar a API de gerenciamento do REST do Azure.
 
 Para obter mais informações, consulte o recurso a seguir:
 
 * [Compilando aplicativos de nuvem do mundo real com o Azure - automatizar tudo](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de livro eletrônico que explica como o aplicativo de amostra mostrado no livro eletrônico usa scripts do Windows PowerShell para criar um ambiente de teste do Azure e implantá-lo. Consulte a seção [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para obter links para a documentação adicional do PowerShell do Azure.
-* [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](http://msdn.microsoft.com/pt-br/library/dn642480.aspx). Como usar os scripts de implantação do Windows PowerShell que o Visual Studio gera.
+* [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](http://msdn.microsoft.com/library/dn642480.aspx). Como usar os scripts de implantação do Windows PowerShell que o Visual Studio gera.
 
 ###<a name="api"></a>API de gerenciamento do .NET
 
@@ -216,7 +216,7 @@ A [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) é o
 Para obter mais informações, consulte o recurso a seguir:
 
 * [Websites do Azure simples: Implantação](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre uma ferramenta que ele escreveu para torná-lo mais fácil de usar a implantação da Web.
-* [Ferramenta de Implantação de Web](http://technet.microsoft.com/pt-br/library/dd568996). Documentação oficial no site do Microsoft TechNet. Desatualizada, mas ainda um bom ponto de partida.
+* [Ferramenta de Implantação de Web](http://technet.microsoft.com/library/dd568996). Documentação oficial no site do Microsoft TechNet. Desatualizada, mas ainda um bom ponto de partida.
 * [Usando a Implantação da Web](http://www.iis.net/learn/publish/using-web-deploy). Documentação oficial no site do Microsoft IIS.NET. Também desatualizada, mas ainda um bom ponto de partida.
 * [StackOverflow](http://www.stackoverflow.com). O melhor lugar para obter informações mais atuais sobre como usar a Implantação da Web da linha de comando.
 * [Implantação da Web do ASP.NET usando o Visual Studio: Implantação por Linha de comando](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). O MSBuild é o mecanismo de compilação usado pelo Visual Studio e também pode ser usado a partir da linha de comando para implantar aplicativos da web nos sites do Azure. Este tutorial faz parte de uma série que trata principalmente da implantação do Visual Studio.

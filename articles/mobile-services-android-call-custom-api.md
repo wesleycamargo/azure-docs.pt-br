@@ -68,10 +68,11 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo Android
 [SDK para Android de Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-android-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-android-get-started-push/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-android-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-android-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-android-get-started-push/
 
-[Scripts de servidor de armazenamento no controle do código-fonte]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
-\n<!--HONumber=42-->
+[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
+
+\<!--HONumber=42-->

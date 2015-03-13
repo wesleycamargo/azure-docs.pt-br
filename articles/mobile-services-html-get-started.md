@@ -34,7 +34,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Serviços Móveis para aplicativos HTML. 
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
 ###Requisitos adicionais
 
@@ -80,7 +80,7 @@ Nesta seção, você criará um novo aplicativo HTML que está conectado ao seu 
 
   	![][9]
 
-	> [AZURE.IMPORTANT] Se você implantar o aplicativo quickstart em um servidor Web que não seja o localhost, deverá adicionar o nome do host do servidor Web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] Se você implantar o aplicativo quickstart em um servidor Web que não seja o localhost, deverá adicionar o nome do host do servidor Web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 ## Hospedar e executar seu aplicativo HTML
 
@@ -152,13 +152,14 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-[Chamar uma API personalizada por meio de um aplicativo HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api 
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-html
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html
+[Chamar uma API personalizada por meio de um aplicativo HTML]: /pt-br/documentation/articles/mobile-services-html-call-custom-api 
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [versão mais recente do Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
-[Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client
+[Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
+
+\<!--HONumber=42-->

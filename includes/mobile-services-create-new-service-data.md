@@ -20,7 +20,7 @@ Em seguida, você criará um novo serviço móvel para substituir a lista na mem
     Isso exibe a página **Especificar configurações de banco de dados**.
 
     
-	> [AZURE.NOTE] Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo serviço móvel, você poderá escolher **Usar o banco de dados existente** e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
+	> [AZURE.NOTE] Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância do Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo serviço móvel, você poderá escolher **Usar o banco de dados existente** e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
 
 5.	Em **Nome**, digite o nome do novo banco de dados, digite **Nome de logon**, que é o nome de logon de administrator do novo servidor de Banco de Dados SQL, digite e confirme a senha e clique no botão de seleção para concluir o processo.
 
@@ -34,4 +34,4 @@ Em seguida, você criará um novo serviço móvel para substituir a lista na mem
 Você criou um novo serviço móvel que pode ser usado por seus aplicativos móveis. Em seguida, você adicionará uma nova tabela para armazenar dados do aplicativo. Essa tabela será usada pelo aplicativo em vez de coleção em memória.
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

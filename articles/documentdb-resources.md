@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="Modelo e conceitos de recursos do Banco de Dados de Documentos | Azure" description="O Banco de Dados de Documentos nosql do Banco de Dados de Documentos gerencia os recursos, identificados exclusivamente por URIs lógicos, com os quais os desenvolvedores podem interagir com o uso de verbos HTTP, cabeçalhos de solicitação/resposta e códigos de status." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Modelo e conceitos de recursos do Banco de Dados de Documentos | Azure" 
+	description="O Banco de Dados de Documentos do Microsoft Azure é um banco de dados NoSQL totalmente gerenciado documento que usa um modelo hierárquico das contas de banco de dados, bancos de dados, coleções, procedimentos armazenados, gatilhos, UDFs, documentos, anexos, mídia, usuários e permissões para gerenciar recursos."  
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Modelo e conceitos de recursos do Banco de Dados de Documentos
 
@@ -460,3 +474,5 @@ Assim como todos os outros recursos, as permissões no Banco de Dados de Documen
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 

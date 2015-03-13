@@ -107,7 +107,7 @@ Para tutoriais de ponta a ponta, acesse a página [Central de desenvolvedores de
 [configure-php]: /pt-br/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /pt-br/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /pt-br/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/pt-br/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /pt-br/manage/services/web-sites/how-to-scale-websites/
 
 

@@ -303,11 +303,11 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 	Para obter informações sobre como usar SSL e seu próprio domínio (por exemplo www.contoso.comem vez de contoso.azurewebsites.net), consulte os seguintes recursos:
 
 	* [Configurando um nome de domínio personalizado para um Site do Azure](/pt-br/documentation/articles/web-sites-custom-domain-name/). 
-	* [Habilitar HTTPS para um site do Azure](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Habilitar HTTPS para um site do Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * Como evitar tempo de espera para voltar ao funcionamento após intervalos em ociosidade 
 
-	Por padrão, os sites serão descarregados se estiverem ociosos durante um determinado período de tempo. A primeira solicitação após isso acontecer precisa aguardar que o site seja carregado novamente. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar sites](http://azure.microsoft.com/pt-br/documentation/articles/web-sites-configure/).
+	Por padrão, os sites serão descarregados se estiverem ociosos durante um determinado período de tempo. A primeira solicitação após isso acontecer precisa aguardar que o site seja carregado novamente. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar sites](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
 
 * Como adicionar recursos em tempo real como chat
 

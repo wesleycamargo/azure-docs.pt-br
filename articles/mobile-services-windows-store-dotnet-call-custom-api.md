@@ -60,11 +60,12 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo da Wind
 
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
 
-[Definir uma API personalizada que dá suporte a notificações periódicas]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
-[Scripts de servidor de armazenamento no controle do código-fonte]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
-\n<!--HONumber=42-->
+[Definir uma API personalizada que dá suporte a notificações periódicas]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
+[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
+
+\<!--HONumber=42-->

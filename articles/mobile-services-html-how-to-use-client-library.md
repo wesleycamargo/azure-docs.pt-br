@@ -20,7 +20,7 @@
 # Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+  <a href="/pt-br/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 
@@ -432,7 +432,7 @@ Se estiver usando um provedor de identidade diferente do Facebook, altere o valo
 Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. A função [login] quando concluída, retorna um objeto JSON (**usuário**) que expõe a IDdo usuário e o token de autenticação dos Serviços Móveis nos campos **userId** e **authenticationToken**, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache].
 
 > [AZURE.NOTE] **Aplicativo da Windows Store**
-Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote do aplicativo nos Serviços Móveis. Ao registrar as informações do pacote do aplicativo da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de logon da conta da Microsoft para obter uma experiência de logon único. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Depois que as informações do pacote são registradas com os Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro <em>useSingleSignOn</em> reutilizar as credenciais.
+Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote do aplicativo nos Serviços Móveis. Ao registrar as informações do pacote do aplicativo da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de logon da conta da Microsoft para obter uma experiência de logon único. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/pt-br/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Depois que as informações do pacote são registradas com os Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro <em>useSingleSignOn</em> reutilizar as credenciais.
 
 <h3>Fluxo de cliente</h3>
 Seu aplicativo também pode entrar em contato independentemente com o provedor de identidade e fornecer o token retornado aos Serviços Móveis para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
@@ -628,33 +628,34 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-html
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-html
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Introdução aos dados]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-[Introdução à autenticação da Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
-[Saiba mais sobre as diferenças entre then e done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
-[como tratar erros em promessas]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700337.aspx
+[Introdução aos dados]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html
+[Introdução à autenticação da Windows Store]: /pt-br/develop/mobile/tutorials/get-started-with-users-js
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[Saiba mais sobre as diferenças entre then e done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[como tratar erros em promessas]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
-[Vinculação de dados (aplicativos da Windows Store usando JavaScript e HTML]: http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx
-[Início rápido de JavaScript da Windows Store]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
-[Início rápido de HTML]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
-[Introdução aos dados no JavaScript da Windows Store]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
-[Introdução aos dados no HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Você pode ver um exemplo completo de como configurar este cenário aqui]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-[Autorizar usuários com scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
-[Autenticar seu aplicativo com logon único]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[Vinculação de dados (aplicativos da Windows Store usando JavaScript e HTML]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Início rápido de JavaScript da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
+[Início rápido de HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[Introdução aos dados no JavaScript da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[Introdução aos dados no HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[Você pode ver um exemplo completo de como configurar este cenário aqui]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-html
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html
+[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-html
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
+[Autenticar seu aplicativo com logon único]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para gerenciar tabelas dos Serviços Móveis]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

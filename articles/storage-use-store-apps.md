@@ -26,7 +26,7 @@ Este guia mostra como iniciar o desenvolvimento de um aplicativo da Windows Stor
 
 ## Baixar as ferramentas necessárias ##
 
-- [O Visual Studio 2012](http://msdn.microsoft.com/pt-br/library/windows/apps/br211384) torna mais fácil compilar, depurar, localizar, empacotar e implantar aplicativos da Windows Store.
+- [O Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) torna mais fácil compilar, depurar, localizar, empacotar e implantar aplicativos da Windows Store.
 - [A Biblioteca do cliente do Armazenamento do Azure Windows para Tempo de execução do Windows](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fornece uma biblioteca de classes para trabalhar com o armazenamento do Azure.
 - [As ferramentas do WCF Data Services para aplicativos da Windows Store (a página pode estar em inglês)](http://www.microsoft.com/pt-br/download/details.aspx?id=30714) ampliam a experiência de adição de referência de serviço com o suporte para OData no lado do cliente para aplicativos da Windows Store no Visual Studio 2012 e superior.
 
@@ -49,7 +49,7 @@ Neste ponto, seu aplicativo está pronto para se chamar os serviços Blob e Fila
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Em seguida, adicione um botão à sua página. Adicione o código a seguir ao seu evento **Click** e modifique seu método manipulador de eventos com a [palavra-chave async](http://msdn.microsoft.com/pt-br/library/vstudio/hh156513.aspx):
+Em seguida, adicione um botão à sua página. Adicione o código a seguir ao seu evento **Click** e modifique seu método manipulador de eventos com a [palavra-chave async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -90,5 +90,4 @@ Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.T
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
 <!--HONumber=42-->

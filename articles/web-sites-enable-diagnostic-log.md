@@ -49,13 +49,13 @@ O diagnóstico de site permite que você habilite ou desabilite o seguinte:
 
 ###Diagnóstico de aplicativo
 
-O diagnóstico de aplicativos permite que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/pt-br/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
+O diagnóstico de aplicativos permite que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
 
 	System.Diagnostics.Trace.TraceError("Se você estiver vendo isso, algo ruim aconteceu");
 
 O diagnóstico de aplicativos permite que você solucione o seu aplicativo em execução, ao emitir informações quando certas partes do código são usadas. Isto é especialmente útil quando você está tentando determinar por que o código está tomando um caminho específico, geralmente quando este resulta em um erro ou outro comportamento indesejado.
 
-Para obter informações sobre como trabalhar com Diagnóstico de Aplicativos usando o Visual Studio, consulte [Solucionando problemas em sites do Azure no Visual Studio](http://www.windowsazure.com/pt-br/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Para obter informações sobre como trabalhar com Diagnóstico de Aplicativos usando o Visual Studio, consulte [Solucionando problemas em sites do Azure no Visual Studio](http://azure.microsoft.com/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 > [AZURE.NOTE] Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
 
@@ -69,7 +69,7 @@ Ao habilitar o **diagnóstico de aplicativo**, você deverá também selecionar 
 
 Ao habilitar o **diagnóstico de site**, você deverá selecionar **armazenamento** ou **sistema de arquivos** para **log de servidor da Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estarão gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
 
-> [AZURE.NOTE] As informações armazenadas em **armazenamento de tabela** ou **armazenamento de blob** apenas podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](http://www.windowsazure.com/pt-br/downloads/#).
+> [AZURE.NOTE] As informações armazenadas em **armazenamento de tabela** ou **armazenamento de blob** apenas podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](http://azure.microsoft.com/downloads/#).
 
 A seguir, estão as configurações disponíveis ao habilitar o **diagnóstico de aplicativo**:
 
@@ -81,7 +81,7 @@ A seguir, estão as configurações disponíveis ao habilitar o **diagnóstico d
 
 > [AZURE.NOTE] Qualquer combinação de sistema de arquivos, armazenamento de tabela ou armazenamento de blob pode ser habilitada ao mesmo tempo e tem configurações de nível de log individuais. Por exemplo, você pode desejar gravar erros e avisos no armazenamento de blob como uma solução de log a longo prazo, habilitando o log de sistema de arquivos em um nível detalhado.
 
-> [AZURE.NOTE] O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**. Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**. Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 <a name="download"></a><h2>Como: Baixe logs</h2>
 
@@ -113,7 +113,7 @@ Para baixar os arquivos de log, inicie uma nova instância do PowerShell do Azur
 
 Isto salvará os logs para o site especificado pelo parâmetro **-Name** em um arquivo chamado **logs.zip** no diretório atual.
 
-> [AZURE.NOTE] Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ###Baixar com as ferramentas da linha de comando do Azure
 
@@ -123,7 +123,7 @@ Para baixar os arquivos de log usando as Ferramentas da Linha de Comando do Azur
 
 Isto salvará os logs para o site nomeado  'websitename' em um arquivo nomeado **diagnostics.zip** no diretório atual.
 
-> [AZURE.NOTE]  Se você não instalou as Ferramentas da Linha de Comando ou não configurou-as para usar a sua Assinatura do Azure, consulte [Como usar as ferramentas da linha de comando do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE]  Se você não instalou as Ferramentas da Linha de Comando ou não configurou-as para usar a sua Assinatura do Azure, consulte [Como usar as ferramentas da linha de comando do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="streamlogs"></a><h2>Como: Logs de streaming</h2>
 
@@ -151,7 +151,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Path**. Po
 
 Para visualizar uma lista de caminhos disponíveis, use o parâmetro -ListPath.
 
-> [AZURE.NOTE] Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ###Transmitir com as ferramentas da linha de comando do Azure
 
@@ -169,7 +169,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **--Path**. P
 
 	azure site log tail websitename --path http
 
-> [AZURE.NOTE]  Se você não instalou as Ferramentas da Linha de Comando ou não configurou-as para usar a sua Assinatura do Azure, consulte [Como usar as ferramentas da linha de comando do Azure](http://www.windowsazure.com/pt-br/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE]  Se você não instalou as Ferramentas da Linha de Comando ou não configurou-as para usar a sua Assinatura do Azure, consulte [Como usar as ferramentas da linha de comando do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="understandlogs"></a><h2>Como: Compreendendo os logs de diagnóstico</h2>
 

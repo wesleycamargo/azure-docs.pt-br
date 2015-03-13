@@ -38,7 +38,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 Este tutorial requer o seguinte::
 
 + Visual Studio 2013 Atualização 2, ou uma versão posterior.
-+ Uma conta do Microsoft Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avaliação Gratuita do Azure</a>.</p></div> 
++ Uma conta do Microsoft Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avaliação Gratuita do Azure</a>.</p></div> 
 
 ##<a name="download-app"></a>Baixar o projeto GetStartedWithData
 
@@ -352,21 +352,22 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[JavaScript e HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[Versão de back-end do JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-data-js
+[Versão de back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-wp8
 
 [SDK do Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site de Exemplos de Código do Desenvolvedor]:  https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
-[Referência conceitual do tutorial de .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial de .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [Como adicionar uma nova regra de porta do Firewall do Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
-  \n<!--HONumber=42-->
+  
+\<!--HONumber=42-->

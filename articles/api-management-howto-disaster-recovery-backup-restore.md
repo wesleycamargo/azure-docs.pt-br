@@ -1,6 +1,20 @@
-<properties pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" metaKeywords="" description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to implement disaster recovery using service backup and restore in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure" 
+	description="Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -81,7 +95,9 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 -   **a camada** do serviço que está sendo restaurada **deve combinar** com a camada do serviço de backup sendo restaurada.
 -   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto restauram a operação que está em andamento **podem ser substituídas**.
 
-  [Autenticando as solicitações do Gerenciador de Recursos do Azure]: http://msdn.microsoft.com/pt-br/library/dn790557.aspx
+  [Autenticando as solicitações do Gerenciador de Recursos do Azure]: http://msdn.microsoft.com/library/dn790557.aspx
   [Fazer backup de um serviço de Gerenciamento de API]: #step1
   [Restaurar um serviço de Gerenciamento de API]: #step2
-  [API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/pt-br/library/azure/dn781421.aspx
+  [API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+
+<!--HONumber=46--> 

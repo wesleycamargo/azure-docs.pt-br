@@ -168,11 +168,12 @@ Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedE
 
 <!-- URLs -->
 [Amostra de código de tratamento de conflitos]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Introdução aos dados offline]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-get-started/
+[Introdução aos dados offline]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Tratando de conflitos de banco de dados]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Tratando de conflitos de banco de dados]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
 [Repositório do Github de exemplos de serviços móveis]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Exemplo de Serviços Móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

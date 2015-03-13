@@ -39,7 +39,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Este tutorial necessita do Visual Studio 2012 Express para Windows Phone 8 e o [SDK do Windows Phone 8] em execução no Windows 8. Para concluir este tutorial para criar um aplicativo Windows Phone 8.1, você deve usar o Visual Studio 2013 atualização 2 ou posterior.
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
 ##<a name="download-app"></a>Baixar o projeto GetStartedWithData
 
@@ -207,16 +207,17 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Introdução aos dados]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Introdução às notificações por push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-wp8
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-wp8
+[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-wp8
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-wp8
+[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK do Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

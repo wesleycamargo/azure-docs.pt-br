@@ -36,7 +36,7 @@ Nova Relíquia especial de preços por meio do armazenamento do Azure
 O New Relic Standard é gratuito para usuários do Azure.
 O New Relic Pro é oferecido em vários pacotes com base no modo de site que você está usando e no tamanho da instância se você estiver usando o modo reservado.
 
-Para obter informações sobre preços, consulte a [página do New Relic na Azure Store](http://www.windowsazure.com/pt-br/gallery/store/new-relic/new-relic/).
+Para obter informações sobre preços, consulte a [página do New Relic na Azure Store](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10 entre em contato com o novo Relíquia (sales@newrelic.com) para o preço por volume.
 
@@ -238,8 +238,8 @@ Visão geral da nova Relíquia UI, definir direitos de usuário e perfis, usando
  * [Encontrar Ajuda](https://newrelic.com/docs/site/finding-help): Recursos disponibilizados pelo centro de ajuda on-line do New Relic
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/pt-br/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/pt-br/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

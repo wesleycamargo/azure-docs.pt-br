@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="Como configurar um serviço de nuvem - Azure" metaKeywords="Configurando serviço de nuvem" description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Como configurar um serviço de nuvem - Azure" 
+	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
@@ -27,14 +41,14 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 	
 	Na página **Configurar**, é possível configurar o monitoramento, atualizar as configurações da função e escolher o sistema operacional convidado e a família para instâncias de função. 
 
-2. Em **monitoramento**, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado. Para obter instruções, consulte [Como monitorar serviços de nuvem].(../how-to-monitor-a-cloud-service/).
+2. Em **monitoramento**, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado. Para obter instruções, consulte [Como monitorar serviços de nuvem](../how-to-monitor-a-cloud-service/).
 
 
 3. Para as funções de serviço (agrupadas por função), você pode atualizar as seguintes configurações:
 
-	>- **Configurações** Modifique os valores das diversas especificadas nos elementos *ConfigurationSettings* do arquivo de configuração do serviço (.cscfg).
+	>- **Configurações**   Modifique os valores das diversas configurações especificadas nos elementos  *ConfigurationSettings* do arquivo de configuração do serviço (.cscfg).
 	
-	>- **Certificados**   Altere a impressão digital do certificado que está sendo usado na criptografia SSL para uma função. Para alterar um certificado, você deve primeiro carregar o novo certificado (na página **Certificados**). Em seguida, atualize a impressão digital na cadeia de caracteres do certificado exibida nas configurações da função.
+	>- **Certificados**   Altere a impressão digital do certificado usado na criptografia SSL para uma função. Para alterar um certificado, você deve primeiro carregar o novo certificado (na página **Certificados**). Em seguida, atualize a impressão digital na cadeia de caracteres do certificado exibida nas configurações da função.
 
 4. Em **sistema operacional**, você pode alterar a família ou a versão do sistema operacional para instâncias de função ou escolher **Automático** para habilitar as atualizações automáticas da versão atual do sistema operacional. As configurações do sistema operacional aplicam-se às funções Web e às funções de trabalho, mas não afetam as máquinas virtuais.
 
@@ -62,7 +76,7 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 
 	c. Se seu Serviço de Nuvem contiver alguma função com apenas uma instância, marque a caixa de seleção **Aplicar configuração mesmo se uma ou mais funções contiverem uma única instância** para habilitar as atualizações de configuração para que funções continuem.
 
-	A menos que você defina no mínimo duas instâncias de cada função, o Azure não poderá garantir ao menos 99,95 por cento de disponibilidade do seu Serviço de Nuvem durante as atualizações da configuração do serviço. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://www.windowsazure.com/pt-br/support/legal/sla/).
+	A menos que você defina no mínimo duas instâncias de cada função, o Azure não poderá garantir ao menos 99,95 por cento de disponibilidade do seu Serviço de Nuvem durante as atualizações da configuração do serviço. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
 
 	d. Clique em **OK** (marca de seleção). 
 
@@ -85,7 +99,7 @@ Adicione os elementos de **Importação** ao arquivo de definição de serviço 
 
 	 ![Cloud services remote](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
 
-	** Aviso:** todas as instâncias de função serão reiniciadas quando você habilitar a área de trabalho remota pela primeira vez e clicar em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função.
+	**Aviso:** todas as instâncias de função serão reiniciadas quando você habilitar a área de trabalho remota pela primeira vez e clicar em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função.
 
 	Para evitar uma reinicialização, instale um certificado e retorne para essa caixa de diálogo (consulte [Usando a área de trabalho remota com funções do Azure][] para obter mais informações). Se você escolher um certificado existente, uma atualização da configuração será enviada a todas as instâncias na função.
 
@@ -127,9 +141,9 @@ Adicione os elementos de **Importação** ao arquivo de definição de serviço 
 
 5. Clique em **OK** (marca de seleção).
 
-[Configuração de uma conexão de área de trabalho remota para uma função no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh124107.aspx
+[Configuração de uma conexão de área de trabalho remota para uma função no Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
 
-[Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg443832.aspx
+[Usando a área de trabalho remota com funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 			
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

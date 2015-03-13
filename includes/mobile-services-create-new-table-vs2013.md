@@ -13,8 +13,7 @@ Antes de armazenar dados em seu novo serviço móvel, você deve criar uma nova 
 
 	Isso cria a tabela de TodoItem no servidor em que qualquer pessoa que tenha a chave de aplicativo pode acessar e alterar dados na tabela sem precisar ser autenticado primeiro. 
 
-	>[AZURE.NOTE]A chave de aplicativo é distribuída com o aplicativo. Como essa chave não é distribuída com segurança, ela não pode ser considerada como um token de segurança. Para proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de acessar. Para obter mais informações, consulte [Permissões](http://msdn.microsoft.com/pt-br/library/windowsazure/jj193161.aspx).
-
+	>[AZURE.NOTE]A chave de aplicativo é distribuída com o aplicativo. Como essa chave não é distribuída com segurança, ela não pode ser considerada como um token de segurança. Para proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de acessar. Para obter mais informações, consulte [Permissões](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 
 
 

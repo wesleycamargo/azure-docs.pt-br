@@ -1,26 +1,38 @@
-<properties urlDisplayName="Enable SSL" pageTitle="Configurar SSL para um serviço de nuvem - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Saiba como especificar um ponto de extremidade HTTPS para uma função web e como carregar um certificado SSL para proteger seu aplicativo." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties 
+	pageTitle="Configurar SSL para um serviço de nuvem - Azure" 
+	description="Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 # Configurando SSL para um aplicativo no Azure
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função web e como carregar um certificado SSL para proteger seu aplicativo.
 
-<div class="dev-callout">Observação
-<p>Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Sites, consulte <a href="../web-sites-configure-ssl-certificate/">Configurar um certificado SSL para um Site do Azure</a>.</p>
-</div>
+> [AZURE.NOTE] Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para Sites, consulte [Configurando um certificado SSL para um site do Azure](../articles/web-sites-configure-ssl-certificate/).
 
 Esta tarefa inclui as seguintes etapas:
 
 -   [Etapa 1: Obter um certificado SSL][]
 -   [Etapa 2: Modificar a definição do serviço e os arquivos de configuração][]
 -   [Etapa 3: Carregar o pacote de implantação e certificado][]
--   [Etapa 4: Conectar-se à instância de função usando HTTPS][]
+-   [Etapa 4: Conectar-se à instância da função usando HTTPS][]
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
 
@@ -43,7 +55,10 @@ Em seguida, você deve incluir informações sobre o certificado nos arquivos de
 
 O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
 
-1.  No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado:
+1.  Em seu ambiente de desenvolvimento, abra o arquivo de definição de serviço
+    (CSDEF), adicione um **Certificado** na seção **WebRole**
+    e inclua as seguintes informações sobre o
+    certificado:
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -55,9 +70,11 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
         ...
         </WebRole>
 
-    A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado. Optamos por armazenar o certificado no repositório AC (autoridade de certificação), mas é possível escolher outras opções também.Consulte [Como associar um certificado a um serviço][] para obter mais informações.
+    A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado. Optamos por armazenar o certificado no repositório AC (autoridade de certificação), mas é possível escolher outras opções também. Consulte [Como associar um certificado a um serviço][] para obter mais informações.
 
-2.  No arquivo de definição de serviço, adicione um elemento **InputEndpoint** dentro da seção **Pontos de extremidade** para habilitar HTTPS: 
+2.  No arquivo de definição do serviço, adicione um elemento **InputEndpoint**
+    dentro da seção **Pontos de extremidade** para habilitar HTTPS:
+
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
             <Endpoints>
@@ -67,8 +84,8 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
         ...
         </WebRole>
 
-3.  No arquivo de definição de serviço, adicione um elemento **Associação** dentro
-    da seção **Sites**.Isso adiciona uma associação HTTP para mapear
+3.  No arquivo de definição do serviço, adicione uma **Associação**
+    dentro da seção **Sites**. Isso adiciona uma associação HTTP para mapear
     o ponto de extremidade para o site:
 
         <WebRole name="CertificateTesting" vmsize="Small">
@@ -83,9 +100,13 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
         ...
         </WebRole>
 
-    Todas as alterações obrigatórias no arquivo de definição de serviço foram concluídas, mas você continua precisando adicionar as informações de certificado ao arquivo de configuração de serviço.
+    Todas as alterações obrigatórias no arquivo de definição do serviço foram
+    concluídas, mas você continua precisando adicionar as informações de certificado ao
+    arquivo de configuração do serviço.
 
-4.  No arquivo de configuração de serviço (CSCFG), ServiceConfiguration.Cloud.cscfg, adicione uma seção **Certificados** na seção **Função**, substituindo o valor de exemplo thumbprint mostrado abaixo pelo seu certificado:
+4.  No arquivo de configuração do serviço (CSCFG), ServiceConfiguration.Cloud.cscfg, adicione uma seção **Certificados**
+    na seção **Função**, substituindo o valor de exemplo thumbprint
+    mostrado abaixo pelo seu certificado:
 
         <Role name="Deployment">
         ...
@@ -97,13 +118,19 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
         ...
         </Role>
 
-(O exemplo acima usa **sha1** para o algoritmo de impressão digital.Especifique o valor apropriado ao algoritmo thumbprint do certificado.)
+(O exemplo acima usa **sha1** para o algoritmo de impressão digital. Especifique o valor apropriado ao algoritmo thumbprint do certificado.)
 
-Agora que os arquivos de definição e configuração do serviço foram atualizados, empacote a implantação para carregamento no Azure. Se você está usando **cspack**, certifique-se de que você não use o sinalizador**/generateConfigurationFile**, pois ele substituirá as informações de certificado que você acabou de inserir.
+Agora que os arquivos de definição e configuração do serviço foram atualizados,
+empacote a implantação para carregamento no Azure. Se
+sevocê está usando **cspack**, certifique-se de que você não use o
+**/generateConfigurationFile**, pois ele substituirá as informações
+de certificado que você acabou de inserir.
 
 <h2><a name="step3"> </a>Etapa 3: Carregar o pacote de implantação e certificado</h2>
 
-O pacote de implantação foi atualizado para usar o certificado, e um ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o certificado no Azure com o Portal de Gerenciamento.
+O pacote de implantação foi atualizado para usar o certificado, e um
+ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o
+certificado no Azure com o Portal de Gerenciamento.
 
 1. Faça logon no [Portal de Gerenciamento do Azure][]. 
 2. Clique em **Novo**, em **Serviço de Nuvem** e em **Criação Personalizada**.
@@ -113,7 +140,9 @@ O pacote de implantação foi atualizado para usar o certificado, e um ponto de 
     ![Publish your cloud service][0]
 
 4.  Clique no botão **Avançar**.
-5.  Na caixa de diálogo **Adicionar certificado**, insira o local do arquivo do certificado .pfx, a senha do certificado e clique em**anexar certificado**.  
+5.  Na caixa de diálogo **Adicionar certificado**, digite o local para o arquivo .pfx no certificado SSL
+    , a senha do certificado para o certificado e clique em
+    **certificados anexados**.  
 
     ![Add certificate][1]
 
@@ -121,7 +150,7 @@ O pacote de implantação foi atualizado para usar o certificado, e um ponto de 
 
     ![Attached certificates][4]
 
-7.  Clique no botão **Concluir** para criar o serviço de nuvem. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
+7.  Clique no botão **Concluir para criar o serviço de nuvem**. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
 
 <h2><a name="step4"> </a>Etapa 4: Conectar-se à instância de função usando HTTPS</h2>
 
@@ -134,7 +163,10 @@ conectar-se a ela usando HTTPS.
 
 2.  No navegador da Web, modifique o link para usar **https** em vez de **http**, e visite a página.
 
-    **Observação:** Se estiver usando um certificado autoassinado, ao navegar até um ponto de extremidade HTTPS associado com o certificado autoassinado, você verá um erro de certificado no navegador. O uso de um certificado assinado por uma certificação confiável eliminará esse problema; enquanto isso, você poderá ignorar o erro.(Outra opção é adicionar o certificado autoassinado ao repositório de certificados da autoridade de certificado confiável do usuário.)
+    **Observação:** se você estiver usando um certificado autoassinado, quando você
+    navegar até um ponto de extremidade HTTPS que está associado ao certificado autoassinado
+    você verá um erro de certificado no navegador. Usando um
+    certificado assinado por uma certificação confiável eliminará esse problema; enquanto isso, você poderá ignorar o erro. (Outra opção é adicionar o certificado autoassinado ao repositório de certificados da autoridade de certificado confiável do usuário.)
 
     ![SSL example web site][3]
 
@@ -149,15 +181,15 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
   [Etapa 1: Obter um certificado SSL]: #step1
   [Etapa 2: Modificar a definição do serviço e os arquivos de configuração]: #step2
   [Etapa 3: Carregar o pacote de implantação e certificado]: #step3
-  [Etapa 4: Conectar-se à instância de função usando HTTPS]: #step4
-  [Como criar um certificado para uma função]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg432987.aspx
-  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg465718.aspx
+  [Etapa 4: Conectar-se à instância da função usando HTTPS]: #step4
+  [Como criar um certificado para uma função]: http://msdn.microsoft.com/library/windowsazure/gg432987.aspx
+  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/pt-br/library/windowsazure/ff795779.aspx
+  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

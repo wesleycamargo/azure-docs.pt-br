@@ -34,7 +34,7 @@ Abaixo está um exemplo de um aplicativo de linha de negócios em execução em 
 
 <div class="dev-callout">
 <strong>Observação</strong>
-<p>Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas com aplicativos de linha de negócios. No entanto, há outros recursos de sites do Azure que você pode usar em sua implementação específica. Para rever esses recursos, consulte também as outras guias no <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/global-web-presence-solution-overview/">Presença Global da Web</a> e <a href="http://www.windowsazure.com/pt-br/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campanhas de Marketing Digital</a>.</p>
+<p>Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas com aplicativos de linha de negócios. No entanto, há outros recursos de sites do Azure que você pode usar em sua implementação específica. Para rever esses recursos, consulte também as outras guias no <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">Presença Global da Web</a> e <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campanhas de Marketing Digital</a>.</p>
 </div>
 
 ### Colocar ativos existentes
@@ -108,8 +108,8 @@ No plano de hospedagem **padrão**, monitore as notificações de email de recep
 
 [dimensionar]:/pt-br/manage/services/web-sites/how-to-scale-websites/
 [Portal de Gerenciamento do Azure]:http://manage.windowsazure.com/
-[API de gerenciamento de serviço]:http://msdn.microsoft.com/pt-br/library/windowsazure/ee460799.aspx
-[Script do PowerShell]:http://msdn.microsoft.com/pt-br/library/windowsazure/jj152841.aspx
+[API de gerenciamento de serviço]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Script do PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 coisas que eu aprendi sobre como dimensionar rapidamente sites com o Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis do Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

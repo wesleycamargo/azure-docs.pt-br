@@ -90,5 +90,4 @@
 7. Publicar novamente o projeto do serviço móvel.
 
 Agora, o serviço usa a marca de ID do usuário para enviar notificações por push (com o texto do item inserido) para todos os registros criados pelo usuário conectado.
- 
-<!--HONumber=42-->
+ <!--HONumber=42-->

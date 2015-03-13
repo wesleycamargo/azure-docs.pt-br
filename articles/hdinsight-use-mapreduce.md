@@ -244,5 +244,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 
 
-
 <!--HONumber=42-->

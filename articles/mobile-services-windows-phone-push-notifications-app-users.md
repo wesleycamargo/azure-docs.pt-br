@@ -20,5 +20,6 @@
 
 Este tópico foi preterido. Em vez disso, siga as orientações atualizadas nestes tutoriais:
 
-+ [Adicionar notificações por push a seu aplicativo de serviços móveis](/ en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList. 
-+ [Enviar notificações por push para usuários autenticados](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.\n<!--HONumber=42-->
++ [Adicionar notificações por push a seu aplicativo de serviços móveis](/ pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList. 
++ [Enviar notificações por push para usuários autenticados](/pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.
+\<!--HONumber=42-->

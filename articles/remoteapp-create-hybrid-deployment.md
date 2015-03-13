@@ -1,6 +1,20 @@
-﻿<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="Como criar uma implantação híbrida do RemoteApp" description="Aprenda a criar uma implantação de RemoteApp que se conecta à sua rede interna." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Como criar uma coleção híbrida para o RemoteApp" 
+	description="Aprenda a criar uma implantação de RemoteApp que se conecta à sua rede interna." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Como criar uma implantação híbrida do RemoteApp
 
@@ -11,7 +25,7 @@ Há dois tipos de implantação do RemoteApp:
 
 Este tutorial explica o processo de criação de uma implantação híbrida. Há sete etapas: 
 
-1.	Crie uma [imagem de modelo personalizada para o RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-custom-image/).
+1.	Crie uma [imagem de modelo personalizada para o RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/).
 2.	Criar um serviço RemoteApp.
 2.	Vincular a uma rede virtual.
 3.	Conectar-se a uma imagem do modelo.
@@ -23,12 +37,12 @@ Este tutorial explica o processo de criação de uma implantação híbrida. Há
 
 É necessário fazer o seguinte antes de criar o serviço:
 
-- Inscreva-se para a visualização do RemoteApp. É possível fazer isso em [http://azure.microsoft.com/pt-br/services/remoteapp/](http://azure.microsoft.com/pt-br/services/remoteapp/).
+- Inscreva-se para a visualização do RemoteApp. É possível fazer isso em [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
 - Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 - Reúna as informações sobre a sua rede local: As informações de endereço IP e detalhes do dispositivo VPN.
-- Instale o módulo [PowerShell do Azure](http://azure.microsoft.com/pt-br/documentation/articles/install-configure-powershell/).
+- Instale o módulo [PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 - Reúna as informações sobre os usuários e os grupos aos quais deseja permitir acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
-- Crie sua imagem de modelo. Uma imagem de modelo do RemoteApp contém os aplicativos e programas que você deseja publicar para seus usuários. Consulte [Como criar uma imagem do modelo personalizada para o RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-custom-image/) para ver as etapas detalhadas. 
+- Crie sua imagem de modelo. Uma imagem de modelo do RemoteApp contém os aplicativos e programas que você deseja publicar para seus usuários. Consulte [Como criar uma imagem do modelo personalizada para o RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) para ver as etapas detalhadas. 
 
 
 
@@ -74,7 +88,7 @@ Uma rede virtual permite que os seus usuários acessem os dados da sua rede loca
 
 ## **Etapa 3: Conectar-se a uma imagem do modelo do RemoteApp** ##
 
-Uma imagem do modelo do RemoteApp contém os programas que deseja compartilhar com os usuários. É possível carregar a nova imagem do modelo criado (das instruções em [Como criar uma imagem do modelo personalizada para o RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-create-custom-image/)) ou conectar a uma imagem existente (uma já carregada no Azure).
+Uma imagem do modelo do RemoteApp contém os programas que deseja compartilhar com os usuários. É possível carregar a nova imagem do modelo criado (das instruções em [Como criar uma imagem do modelo personalizada para o RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)) ou conectar a uma imagem existente (uma já carregada no Azure).
 
 Se estiver fazendo o upload da nova imagem, será necessário inserir o nome e escolher o local para a imagem. Na próxima página do assistente, você verá um conjunto de cmdlets do PowerShell - copie e execute esses cmdlets em um prompt elevado do Windows PowerShell para fazer o upload da imagem específica.
 
@@ -110,3 +124,5 @@ Para os usuários, certifique-se de que você use o formato "user@domain.com". P
 É isso - a sua implantação híbrida do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, faça com que os usuários façam logon no cliente e acessem os programas do RemoteApp publicados.
 
 
+
+<!--HONumber=46--> 

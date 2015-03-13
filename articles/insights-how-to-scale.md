@@ -1,6 +1,20 @@
-﻿<properties title="How to scale a website" pageTitle="Como dimensionar um site" description="Saiba como dimensionar seu plano de hospedagem no Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Como dimensionar um site" 
+	description="Saiba como dimensionar seu plano de hospedagem no Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Como dimensionar um site
 
@@ -70,3 +84,5 @@ Com várias regras de escala, você pode ser mais agressivo sobre como expandir 
 2. Aumentar três instâncias se a porcentagem de CPU estiver acima de 85%
 
 Com essa regra adicional, se sua carga exceder 85% antes de uma ação de escala, você terá duas instâncias adicionais em vez de uma. 
+
+<!--HONumber=46--> 

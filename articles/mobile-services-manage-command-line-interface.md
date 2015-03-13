@@ -32,9 +32,9 @@ Quando combinadas em um único script ou arquivo em lotes, estes comandos indivi
 
 Para usar as ferramentas de linha de comando do Azure para gerenciar Serviços Móveis, você precisará de uma conta do Azure que tenha o recurso Serviços Móveis habilitado.
 
-+ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">Avaliação Gratuita do Azure</a>.
++ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Avaliação Gratuita do Azure</a>.
 
-+ Se você tiver uma conta existente mas precisa habilitar a visualização de serviços móveis do Azure, consulte <a href="http://azure.microsoft.com/en-us/documentation/articles/php-create-account/#enable" target="_blank">recursos de visualização do Azure permitem</a>.
++ Se você tiver uma conta existente mas precisa habilitar a visualização de serviços móveis do Azure, consulte <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">recursos de visualização do Azure permitem</a>.
 
 Este tópico aborda uma seleção de tarefas para administração comuns compatíveis com as ferramentas de linha de comando do Azure. Para obter mais informações, consulte [Documentação das ferramentas de linha de comando do Azure][documentos de referência].
 
@@ -203,7 +203,8 @@ Próximas etapas aqui...
 
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
-[reference-docs]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
+[reference-docs]: /pt-br/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
 [Como instalar ferramentas da linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

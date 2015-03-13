@@ -22,7 +22,7 @@
 
 Este tópico mostra como usar os Serviços Móveis do Azure para aproveitar os dados de um aplicativo HTML. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
->[AZURE.NOTE]O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo HTML. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/en-us/develop/mobile/tutorials/get-started-html">Introdução aos Serviços Móveis</a>.
+>[AZURE.NOTE]O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados de um aplicativo HTML. Desse modo, este tópico explica muitas das etapas que são concluídas para você no Guia de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-html">Introdução aos Serviços Móveis</a>.
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
@@ -32,7 +32,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 4. [Atualizar o aplicativo para usar os Serviços Móveis]
 5. [Testar o aplicativo com os Serviços Móveis]
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
 
 ###Requisitos adicionais
 
@@ -140,7 +140,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
   	![][11]
 
-	> [AZURE.IMPORTANT] Se você implantar o aplicativo quickstart em um servidor Web que não seja o localhost, deverá adicionar o nome do host do servidor Web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] Se você implantar o aplicativo quickstart em um servidor Web que não seja o localhost, deverá adicionar o nome do host do servidor Web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
@@ -311,17 +311,18 @@ Após concluir a série de dados, saiba como autenticar os usuários do seu apli
 [11]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Refinar consultas com paginação]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-[Introdução aos Serviços Móveis]: /en-us/develop/mobile/tutorials/get-started
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-html
+[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-html
+[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-html
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Aplicativo GetStartedWithData]:  http://go.microsoft.com/fwlink/?LinkID=286345
 
-[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
+[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+[Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

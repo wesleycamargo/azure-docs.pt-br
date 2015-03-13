@@ -22,9 +22,9 @@
 
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do .NET para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure em um projeto do aplicativo Windows universal. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do .NET para todos os aplicativos do Windows Store e Windows Phone Store sempre que um registro é inserido na tabela TodoList. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
->[AZURE.NOTE]Esse tópico lhe mostra como usar as ferramentas no Visual Studio Professional 2013 com atualização 3 para adicionar suporte para notificações por push dos Serviços Móveis para um aplicativo Windows universal. As mesmas etapas podem ser usadas para adicionar notificações por push dos Serviços Móveis para um aplicativo da Windows Store ou Windows Phone Store 8.1. Para adicionar notificações por push a um aplicativo Windows Phone 8 ou Windows Phone Silverlight 8.1, veja esta versão de [Introdução às notificações por push nos Serviços Móveis](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push).
+>[AZURE.NOTE]Esse tópico lhe mostra como usar as ferramentas no Visual Studio Professional 2013 com atualização 3 para adicionar suporte para notificações por push dos Serviços Móveis para um aplicativo Windows universal. As mesmas etapas podem ser usadas para adicionar notificações por push dos Serviços Móveis para um aplicativo da Windows Store ou Windows Phone Store 8.1. Para adicionar notificações por push a um aplicativo Windows Phone 8 ou Windows Phone Silverlight 8.1, veja esta versão de [Introdução às notificações por push nos Serviços Móveis](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push).
 
-> Se você não pode atualizar para o Visual Studio Professional 2013 Update 3 ou prefere adicionar manualmente seu projeto de serviço móvel a uma solução de aplicativo da Windows Store, veja [esta versão](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) do tópico.
+> Se você não pode atualizar para o Visual Studio Professional 2013 Update 3 ou prefere adicionar manualmente seu projeto de serviço móvel a uma solução de aplicativo da Windows Store, veja [esta versão](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) do tópico.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
@@ -47,7 +47,7 @@ Para concluir este tutorial, você precisará do seguinte:
 <li><p>Abra o arquivo de código App.xaml.cs compartilhado e observe que uma chamada para o novo <strong>UploadChannel</strong> método foi adicionado ao manipulador de eventos <strong>OnLaunched</strong>.</p> <p>Isso garante a tentativa do registro do dispositivo sempre que o aplicativo for iniciado.</p></li>
 <li><p>Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store, e depois, no arquivo compartilhado App.xaml.cs remova a chamada extra para <strong>UploadChannel</strong> e o wrapper <code>#if...#endif</code> conditional restante.</p> <p>Ambos os projetos podem agora compartilhar uma única chamada para <strong>UploadChannel</strong>.</p>
 
-> [AZURE.NOTE] Você também pode simplificar o código gerado unificando as <code>#if...#endif</code> definições [MobileServiceClient](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) em uma única definição desencapsulada usada por ambas as versões do aplicativo.
+> [AZURE.NOTE] Você também pode simplificar o código gerado unificando as <code>#if...#endif</code> definições [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) em uma única definição desencapsulada usada por ambas as versões do aplicativo.
 
 </li>
 </ol>
@@ -69,14 +69,14 @@ As etapas restantes nesta seção são opcionais. Elas permitem que você teste 
 >[AZURE.NOTE]Nunca use um serviço móvel de produção para testar e desenvolver o trabalho. Sempre publique seu projeto de serviço móvel para um serviço de preparação para testes.
 
 <ol start="5">
-<li><p>Abra o arquivo de projeto App.xaml.cs compartilhado e localize qualquer uma das linhas do código que cria uma nova instância da classe <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> para acessar o serviço móvel em execução no Azure.</p></li>
-<li><p>Comente este código e adicione o código que cria um novo <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> com o mesmo nome, mas usando a URL do host local no construtor, semelhante ao seguinte:</p>
+<li><p>Abra o arquivo de projeto App.xaml.cs compartilhado e localize qualquer uma das linhas do código que cria uma nova instância da classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> para acessar o serviço móvel em execução no Azure.</p></li>
+<li><p>Comente este código e adicione o código que cria um novo <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> com o mesmo nome, mas usando a URL do host local no construtor, semelhante ao seguinte:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.
 public static MobileServiceClient todolistClient = new MobileServiceClient(
 	"http://localhost:4584"
 );
-</code></pre><p>Usando este <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, o aplicativo conectará ao serviço local ao invés da versão hospedada no Azure. Quando você quiser voltar e executar o aplicativo no serviço móvel hospedado no Azure, mude de volta para as definições <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> originais.</p></li>
+</code></pre><p>Usando este <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, o aplicativo conectará ao serviço local ao invés da versão hospedada no Azure. Quando você quiser voltar e executar o aplicativo no serviço móvel hospedado no Azure, mude de volta para as definições <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> originais.</p></li>
 </ol>
 
 ##<a id="test"></a> Testar notificações por push no seu aplicativo
@@ -112,13 +112,14 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users
 
-[Enviar notificações por push para usuários autenticados]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /en-us/documentation/articles/notification-hubs-overview/
+[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
 
-[Como usar um cliente .NET para os Serviços Móveis do Azure]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
-\n<!--HONumber=42-->
+[Como usar um cliente .NET para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+
+<!--HONumber=42-->

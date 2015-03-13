@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search Management REST API" pageTitle="Introdução à API REST de Gerenciamento de Pesquisa do Azure" description="Introdução à API REST de Gerenciamento de Pesquisa do Azure" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Introdução à API REST de Gerenciamento de Pesquisa do Azure" 
+	description="Introdução à API REST de Gerenciamento de Pesquisa do Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/10/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure #
 
 A API REST de Gerenciamento de Pesquisa do Azure é uma alternativa programática para realizar tarefas administrativas no portal. As operações de gerenciamento de serviço incluem criar ou excluir o serviço, dimensionar o serviço e gerenciar chaves. Este tutorial é fornecido com um aplicativo cliente de exemplo que demonstra a API de gerenciamento de serviço. Ele também inclui etapas de configuração necessárias para executar o exemplo no seu ambiente de desenvolvimento local.
@@ -24,11 +38,11 @@ Você pode encontrar o aplicativo cliente em Codeplex na [Demonstração da API 
 
 <h2 id="config">Configurar o aplicativo</h2>
 
-Antes de executar o aplicativo de exemplo, você deve habilitar a autenticação para que as solicitações enviadas do aplicativo cliente para o ponto de extremidade do gerenciador de recursos podem ser aceitas. O requisito de autenticação é obtido com o [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790568.aspx), que é a base para todas as operações relacionadas portal solicitada por meio de uma API, inclusive aquelas relacionadas ao gerenciamento de serviço de pesquisa. A API de gerenciamento de serviço para Pesquisa do Azure é simplesmente uma extensão do Gerenciador de Recursos do Azure e, portanto, herda suas dependências.  
+Antes de executar o aplicativo de exemplo, você deve habilitar a autenticação para que as solicitações enviadas do aplicativo cliente para o ponto de extremidade do gerenciador de recursos podem ser aceitas. O requisito de autenticação é obtido com o [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), que é a base para todas as operações relacionadas portal solicitada por meio de uma API, inclusive aquelas relacionadas ao gerenciamento de serviço de pesquisa. A API de gerenciamento de serviço para Pesquisa do Azure é simplesmente uma extensão do Gerenciador de Recursos do Azure e, portanto, herda suas dependências.  
 
 O Gerenciador de Recursos do Azure requer o serviço Active Directory do Azure como seu provedor de identidade. 
 
-Para obter um token de acesso que permitirá às solicitações acessarem o gerenciador de recursos, o aplicativo cliente inclui um segmento de código que chama o Active Directory. O segmento de código e as etapas necessárias para usar o segmento de código foram emprestadas deste artigo: [Solicitações do Gerenciador de Recursos de autenticação do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790557.aspx).
+Para obter um token de acesso que permitirá às solicitações acessarem o gerenciador de recursos, o aplicativo cliente inclui um segmento de código que chama o Active Directory. O segmento de código e as etapas necessárias para usar o segmento de código foram emprestadas deste artigo: [Solicitações do Gerenciador de Recursos de autenticação do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Você pode seguir as instruções no link acima ou usar as etapas neste documento se preferir acompanhar o tutorial passo a passo.
 
@@ -39,7 +53,7 @@ Nesta seção, você realizará as seguintes tarefas:
 1. Configurar o aplicativo do AD registrando detalhes sobre o aplicativo cliente de exemplo que você baixou
 1. Carregar o aplicativo cliente de exemplo com os valores que ele usará para obter autorização para suas solicitações
 
-> [WACOM.NOTE] Estes links fornecem um contexto sobre o uso do Active Directory do Azure para autenticar solicitações de cliente para o gerenciador de recursos: [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790568.aspx), [Autenticando as solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790557.aspx) e [Active Directory do Azure](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+> [WACOM.NOTE] Estes links fornecem um contexto sobre o uso do Active Directory do Azure para autenticar solicitações de cliente para o gerenciador de recursos: [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Autenticando as solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) e [Active Directory do Azure](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
 <h3>Criar um serviço do Active Directory</h3>
 
@@ -140,7 +154,7 @@ Se você ainda não tiver [baixado o aplicativo de exemplo do Codeplex](linkTBD)
 
 Problemas com referências de assembly podem impedir que uma solução seja criada. Esta seção fornece soluções alternativas para alguns deles.
 
-- Microsoft.IdentityModel.Clients.ActiveDirectory deve ser instalado (consulte [Autenticando solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790557.aspx) para detalhes sobre como instalar a [Biblioteca de autenticação do Active Directory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)).
+- Microsoft.IdentityModel.Clients.ActiveDirectory deve ser instalado (consulte [Autenticando solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) para detalhes sobre como instalar a [Biblioteca de autenticação do Active Directory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)).
 - Reinstalar um assembly também pode resolver o problema. Acesse **Ferramentas** | **Gerenciador de Pacotes NuGet Pack** | **Console do Gerenciador de Pacotes**. Ao prompt PM>, insira *Update-package -reinstall Microsoft.IdentityModel.Clients.ActiveDirectory*.
 - Newtonsoft.Json também é referido nessa solução. Se ocorrer um erro para este assembly, exclua-o do projeto e adicione-o novamente. Clique com o botão direito em **Referências** | **Gerenciar Pacotes NuGet** | **Pacotes Instalados**. Selecione **Json.Net** e desinstale-o. Expanda **Online**, selecione **Json.Net** | **Instalar**.
 
@@ -155,13 +169,13 @@ O aplicativo de exemplo cria um serviço gratuito de Pesquisa do Azure para uma 
  
 3. Observe que **ExecuteArmRequest** é usado para executar solicitações com relação ao ponto de extremidade do Gerenciador de Recursos do Azure, `https://management.azure.com/subscriptions` para uma `subscriptionID` especificada. Esse método é usado em todo o programa para executar operações usando a API do Gerenciador de Recursos ou a API de gerenciamento de Pesquisa.
 
-3. Solicitações para o Gerenciador de Recursos do Azure devem ser autenticadas e autorizadas. Isso é feito usando o método **GetAuthorizationHeader** chamado pelo método **ExecuteArmRequest**, emprestado de [solicitações de autenticação de Gerenciador de Recursos do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn790557.aspx). Observe que **GetAuthorizationHeader** chama `https://management.core.windows.net` para obter um token de acesso.
+3. Solicitações para o Gerenciador de Recursos do Azure devem ser autenticadas e autorizadas. Isso é feito usando o método **GetAuthorizationHeader** chamado pelo método **ExecuteArmRequest**, emprestado de [solicitações de autenticação de Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx). Observe que **GetAuthorizationHeader** chama `https://management.core.windows.net` para obter um token de acesso.
 
 4. Você precisará entrar com um nome de usuário e senha válidos para sua assinatura.
 
 5. Em seguida, um novo serviço de Pesquisa do Azure será registrado com o provedor do Gerenciador de Recursos do Azure. Novamente, isso é o método **ExecuteArmRequest**, usado neste momento para criar o serviço de pesquisa no Azure para sua assinatura por meio de `providers/Microsoft.Search/register`. 
 
-6. O restante do programa usa a [API REST de Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/dn832684.aspx). Observe que a 'api-version' para essa API é diferente da versão de api do Gerenciador de Recursos do Azure. Por exemplo, `/listAdminKeys?api-version=2014-07-31-Preview` mostra o 'api-version' da API REST de gerenciamento de Pesquisa do Azure.
+6. O restante do programa usa a [API REST de Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx). Observe que a 'api-version' para essa API é diferente da versão de api do Gerenciador de Recursos do Azure. Por exemplo, `/listAdminKeys?api-version=2014-07-31-Preview` mostra o 'api-version' da API REST de gerenciamento de Pesquisa do Azure.
 
 	A próxima série de operações recupera a definição de serviço que você acabou de criar, as chaves de api de administração, regenera recupera as chaves, altera a réplica e a partição e, por fim, exclui o serviço.
 
@@ -173,8 +187,8 @@ O aplicativo de exemplo cria um serviço gratuito de Pesquisa do Azure para uma 
 
 Depois de ter concluído este tutorial, você pode querer saber mais sobre gerenciamento de serviços ou autenticação com o serviço Active Directory:
 
-- Saiba mais sobre como integrar um aplicativo cliente com o Active Directory. Consulte [Integrando aplicativos no Active Directory do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn151122.aspx).
-- Saiba mais sobre outras operações de gerenciamento de serviço no Azure. Consulte [Gerenciando seus serviços](http://msdn.microsoft.com/pt-br/library/azure/dn578292.aspx).
+- Saiba mais sobre como integrar um aplicativo cliente com o Active Directory. Consulte [Integrando aplicativos no Active Directory do Azure](http://msdn.microsoft.com/library/azure/dn151122.aspx).
+- Saiba mais sobre outras operações de gerenciamento de serviço no Azure. Consulte [Gerenciando seus serviços](http://msdn.microsoft.com/library/azure/dn578292.aspx).
 
 <!--Anchors-->
 [Baixar o aplicativo de exemplo]: #Download
@@ -197,3 +211,5 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 [Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure]: ../search-create-geospatial/
 
 
+
+<!--HONumber=46--> 

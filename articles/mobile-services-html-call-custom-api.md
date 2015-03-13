@@ -93,6 +93,6 @@ Agora que você criou uma API personalizada e a chamou por meio de seu aplicativ
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-html-get-started-data
-\n<!--HONumber=42-->
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-html-get-started-data
+\<!--HONumber=42-->

@@ -19,7 +19,7 @@
 
 
 
-#Como fazer logon em uma máquina virtual que executa o Linux #
+#Como fazer logon em uma máquina virtual executando o Linux #
 
 Em uma máquina virtual que executa o sistema operacional Linux, use um cliente Secure Shell (SSH) para fazer logon.
 
@@ -32,17 +32,17 @@ Instale um cliente SSH no computador que você deseja usar para fazer logon na m
 
 Este procedimento mostra como usar o programa PuTTY para acessar a máquina virtual.
 
-1. Encontre o **Nome do Host** e as **Informações da porta** no [Portal de Gerenciamento](http://manage.windowsazure.com). Você pode encontrar as informações que você precisa no painel da máquina virtual. Clique no nome da máquina virtual e procure os **Detalhes de SSH** na seção **Visão Rápida** do painel de controle.
+1. Localize o **Nome do host** e as **Informações da porta** no [Portal de Gerenciamento](http://manage.windowsazure.com). Você pode encontrar as informações que você precisa no painel da máquina virtual. Clique no nome da máquina virtual e procure os **Detalhes de SSH** na seção **Visão Rápida** do painel de controle.
 
 	![Obtain SSH details](./media/virtual-machines-linux-how-to-log-on/sshdetails.png)
 
 2. Abra o programa PuTTY.
 
-3. Insira o Nome do Host e as Informações da porta coletadas no painel e clique em **Abrir**.
+3. Digite o Nome do Host e as Informações da porta coletadas do painel de controle e, em seguida, clique em **Abrir**.
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Faça logon na máquina virtual usando a conta especificada quando ela foi criada. Para obter mais detalhes sobre como criar uma máquina virtual com o nome de usuário e senha, consulte [Criar uma máquina virtual que executa Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). 
+4. Faça logon na máquina virtual usando a conta especificada quando a máquina foi criada. Para obter mais detalhes sobre como criar uma máquina virtual com o nome de usuário e senha, consulte [criar uma máquina Virtual executando Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). 
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
@@ -52,5 +52,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

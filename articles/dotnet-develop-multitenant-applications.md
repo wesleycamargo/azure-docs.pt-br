@@ -1,6 +1,20 @@
-<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Padrão de aplicativo Web multilocatário - arquitetura do Azure" metaKeywords="" description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Padrão de aplicativo Web multilocatário - arquitetura do Azure" 
+	description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
 
 <div>
@@ -107,7 +121,9 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 
 <!--links-->
 
-[Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/pt-br/library/hh534480.aspx
-[Criando aplicativos multilocatários no Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh689716
+[Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Criando aplicativos multilocatários no Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 
+
+<!--HONumber=46--> 

@@ -18,9 +18,9 @@
 
 # <a id="createstorageaccount"></a>Monitorar uma conta de armazenamento no Portal de Gerenciamento do Azure
 
-É possível monitorar sua conta de armazenamento no Portal de Gerenciamento do Azure. Quando você configurar sua conta de armazenamento para o monitoramento por meio do portal, o armazenamento do Azure usa [Storage Analytics](http://msdn.microsoft.com/pt-br/library/azure/hh343270.aspx) para acompanhar métricas para sua conta e dados de solicitação de log. 
+É possível monitorar sua conta de armazenamento no Portal de Gerenciamento do Azure. Quando você configurar sua conta de armazenamento para o monitoramento por meio do portal, o armazenamento do Azure usa [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) para acompanhar métricas para sua conta e dados de solicitação de log. 
 
-> [AZURE.NOTE] Lembre-se de que há custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
+> [AZURE.NOTE] Lembre-se de que há custos adicionais associados ao exame de dados de monitoramento no Portal de Gerenciamento. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
 
 > O serviço de Arquivo do Azure não tem suporte para Análise de Armazenamento no momento.
 
@@ -65,7 +65,7 @@ Até que você configure o monitoramento para uma conta de armazenamento, nenhum
 
 Depois de definir os níveis de monitoramento e as políticas de retenção, você pode escolher quais das métricas disponíveis serão monitoradas no Portal de Gerenciamento e quais métricas serão traçadas nos gráficos de métricas. Um conjunto de métricas padrão é exibido em cada nível de monitoramento. Você pode usar **Adicionar métricas** para adicionar ou remover métricas da lista de métricas.
 
-As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento](http://msdn.microsoft.com/pt-br/library/windowsazure/hh343258.aspx).
+As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx).
 
 
 <h2><a id="customizestoragemonitoring"></a>Como: Personalizar o painel para o monitoramento</h2>
@@ -109,7 +109,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://msdn.microsoft.com/pt-br/library/windowsazure/hh360997.aspx).
+	> [AZURE.NOTE] Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx).
 
 3. Clique em **Adicionar métricas**. 
 
@@ -164,6 +164,5 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 4. Clique em **Salvar**.
 
-Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/pt-br/library/windowsazure/hh343262.aspx).
-
+Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx).
 <!--HONumber=42-->

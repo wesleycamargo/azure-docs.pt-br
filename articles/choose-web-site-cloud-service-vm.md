@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Comparação de Sites do Azure, Serviços de Nuvem e Máquinas Virtuais" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Saiba quando usar Websites do Azure, Serviços de Nuvem e Máquinas Virtuais para hospedar aplicativos Web." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Comparação de Sites do Azure, Serviços de Nuvem e Máquinas Virtuais" 
+	description="Saiba quando usar Websites do Azure, Serviços de Nuvem e Máquinas Virtuais para hospedar aplicativos Web." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Comparação de Sites do Azure, Serviços de Nuvem e Máquinas Virtuais
 
@@ -346,15 +360,17 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [Máquinas Virtuais]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configurar um certificado SSL para um Site do Azure]: http://www.windowsazure.com/pt-br/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/pt-br/gallery/store/
-  [scripting]: http://www.windowsazure.com/pt-br/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/pt-br/develop/net/
-  [nodejs]: http://www.windowsazure.com/pt-br/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/pt-br/develop/php/
-  [Python]: http://www.windowsazure.com/pt-br/develop/python/
-  [servicebus]: http://www.windowsazure.com/pt-br/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/pt-br/documentation/services/sql-database/
-  [Armazenamento]: http://www.windowsazure.com/pt-br/documentation/services/storage/
+  [Configurar um certificado SSL para um Site do Azure]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://azure.microsoft.com/gallery/store/
+  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://azure.microsoft.com/develop/net/
+  [nodejs]: http://azure.microsoft.com/develop/nodejs/
+  [PHP]: http://azure.microsoft.com/develop/php/
+  [Python]: http://azure.microsoft.com/develop/python/
+  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
+  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
+  [Armazenamento]: http://azure.microsoft.com/documentation/services/storage/
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

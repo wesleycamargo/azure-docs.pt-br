@@ -15,5 +15,4 @@
 - [(Xamarin Android | Javascript)](/pt-br/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/)
 - [(HTML | Javascript)](/pt-br/documentation/articles/mobile-services-html-get-started-users/)
 - [(Appcelerator | Javascript)](/pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/)
-
 <!--HONumber=42-->

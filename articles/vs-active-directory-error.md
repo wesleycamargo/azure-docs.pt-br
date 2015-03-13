@@ -1,6 +1,20 @@
-<properties title="Error During Authentication Detection" pageTitle="Erro na Detecção da Autenticação" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Erro na Detecção da Autenticação" 
+	description="O Assistente de conexão do Active Directory detectou um tipo de autenticação incompatível" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###Erro na Detecção da Autenticação 
 Ao detectar o código de autenticação anterior, o assistente detectou um tipo de autenticação incompatível.   
@@ -78,3 +92,5 @@ Para detectar uma forma anterior de Autenticação de conta organizacional, o as
 Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e execute o assistente novamente.
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
+
+<!--HONumber=46--> 

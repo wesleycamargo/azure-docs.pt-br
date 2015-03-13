@@ -1,4 +1,4 @@
-﻿## <a name="setup-connection-string"> </a>Configurar uma cadeia de conexão de armazenamento
+## <a name="setup-connection-string"> </a>Configurar uma cadeia de conexão de armazenamento
 
 A Biblioteca de Cliente de Armazenamento do Azure para .NET oferece suporte ao uso de uma cadeia de conexão de armazenamento para configurar pontos de extremidade e credenciais para acesso a serviços de armazenamento. Recomendamos a você colocar a cadeia de conexão de armazenamento em um arquivo de configuração, em vez de embuti-la no código de seu aplicativo. Você tem duas opções para salvar sua cadeia de conexão:
 
@@ -62,5 +62,4 @@ Agora você está pronto para executar as tarefas das instruções deste guia.
 [connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
 [connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
 
-[Configurando cadeias de conexão]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee758697.aspx
-<!--HONumber=41-->
+[Configurando cadeias de conexão]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx<!--HONumber=42-->

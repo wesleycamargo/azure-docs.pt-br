@@ -1,19 +1,36 @@
-﻿<properties pageTitle="Monitorar uma conta do Serviços de Mídia - Azure" description="Descreve como configurar o monitoramento de sua conta de Serviços de Mídia no Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Monitorar uma conta do Serviços de Mídia - Azure" 
+	description="Descreve como configurar o monitoramento de sua conta de Serviços de Mídia no Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="juliako"/>
 
 
 
 
 
-<h1><a id="monitormediaservicesaccount"></a>Como monitorar uma conta de Serviços de Mídia</h1>
+# <a id="monitormediaservicesaccount"></a>Como monitorar uma conta de Serviços de Mídia
+
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow). 
+
 O painel Serviços de Mídia do Azure apresenta métricas de uso e informações sobre a conta que você pode usar para gerenciar sua conta de Serviços de Mídia.
 
 Você pode monitorar o número de trabalhos de codificação na fila, as tarefas de codificação com falha, os trabalhos de codificação ativos representados pelos dados de entrada e saída do codificador, bem como o uso do armazenamento de blob associado à conta dos Serviços de Mídia. Além disso, se estiver transmitindo conteúdo a clientes, você também pode recuperar várias métricas de streaming. Você pode optar por monitorar os dados das últimas 6 horas, 24 horas ou 7 dias.
  
 >[AZURE.NOTE] Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-<h2><a id="configuremonitoring"></a>Como: Monitorar uma conta dos Serviços de Mídia</h2>
+## <a id="configuremonitoring"></a>Como: Monitorar uma conta dos Serviços de Mídia
 
 1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e clique no nome da conta dos Serviços de Mídia para abrir o painel. 
 
@@ -21,7 +38,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 2. Para monitorar seus trabalhos ou dados de codificação, basta começar a enviar trabalhos de codificação aos Serviços de Mídia ou iniciar a transmissão de conteúdo aos clientes usando o Streaming de Mídia por Demanda do Azure. Você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
 
-<h2><a id="configuringstorage"></a>Como: Monitorar o uso do seu armazenamento de blob (opcional)</h2>
+## <a id="configuringstorage"></a>Como: Monitorar o uso do seu armazenamento de blob (opcional)
 1. Clique no nome da **CONTA DE ARMAZENAMENTO** na seção **visão rápida**.
 2. Na página da conta de armazenamento, clique no link **configurar página** e role para baixo até as configurações de **monitoramento** dos serviços de Blob, Tabela e Fila, mostrados a seguir.
 
@@ -51,5 +68,4 @@ As métricas são armazenadas na conta de armazenamento em quatro tabelas intitu
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

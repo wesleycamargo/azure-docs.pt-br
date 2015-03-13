@@ -1,6 +1,20 @@
-<properties title="Perguntas frequentes (FAQ) do Aprendizado de M&aacute;quina do Microsoft Azure" pageTitle="Perguntas frequentes do Aprendizado de M&aacute;quina | Azure" description="Perguntas frequentes sobre o Aprendizado de M&aacute;quina do Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Perguntas frequentes do Aprendizado de Máquina | Azure" 
+	description="Perguntas frequentes sobre o Aprendizado de Máquina do Microsoft Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pablissima" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="paulettm"/>
 
 # Perguntas frequentes (FAQ) do Aprendizado de Máquina do Microsoft Azure
 
@@ -36,11 +50,11 @@ Os encargos são agregados por espaço de trabalho para sua assinatura. Em cada 
 -   Horas de Previsão do Serviço de API - este medidor inclui encargos de computação resultantes dos serviços Web em execução na produção.
 -   Previsões de Serviço de API (em 1000s) - este medidor inclui encargos resultantes por chamada ao serviço Web de produção.
 
-Visite a página Preços para obter detalhes de preços, <http://azure.microsoft.com/pt-br/pricing/details/machine-learning/>.
+Visite a página Preços para obter detalhes de preços, <http://azure.microsoft.com/pricing/details/machine-learning/>.
 
 **6. O Aprendizado de Máquina do Azure tem uma Avaliação Gratuita?**
 
-O AM do Azure é uma parte da avaliação gratuita do Azure. Ao assinar uma avaliação gratuita do Azure, você pode testar quaisquer serviços Azure por um mês. Para aprender mais sobre a avaliação gratuita do Azure, visite <http://azure.microsoft.com/pt-br/pricing/free-trial-faq/>.
+O AM do Azure é uma parte da avaliação gratuita do Azure. Ao assinar uma avaliação gratuita do Azure, você pode testar quaisquer serviços Azure por um mês. Para aprender mais sobre a avaliação gratuita do Azure, visite <http://azure.microsoft.com/pricing/free-trial-faq/>.
 
 ### ESTÚDIO DE APRENDIZADO DE MÁQUINA
 
@@ -108,12 +122,14 @@ Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. É
 
 **18. Como fazer para obter suporte ao AM do Azure?**
 
-O AM do Azure tem suporte como parte da oferta de suporte do Azure. Para obter suporte técnico no AM do Azure, selecione ‘Aprendizado de Máquina' como serviço e você verá uma categoria de tópicos para arquivar seu chamado de suporte. Para aprender mais sobre a oferta do Suporte do Azure, visite <http://azure.microsoft.com/pt-br/support/options/>
+O AM do Azure tem suporte como parte da oferta de suporte do Azure. Para obter suporte técnico no AM do Azure, selecione ‘Aprendizado de Máquina' como serviço e você verá uma categoria de tópicos para arquivar seu chamado de suporte. Para aprender mais sobre a oferta do Suporte do Azure, visite <http://azure.microsoft.com/support/options/>
 
 O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSDN, em que é possível fazer questões relacionadas ao AM do Azure. O fórum é monitorado pela equipe do AM do Azure. Visite o [Fórum do Azure][Fórum do Azure].
 
   [página de introdução]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Centro de Aprendizado de Máquina do Azure]: http://azure.microsoft.com/pt-br/documentation/services/machine-learning/
+  [Centro de Aprendizado de Máquina do Azure]: http://azure.microsoft.com/documentation/services/machine-learning/
   [fórum de feedback do usuário]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [Fórum do Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/pt-br/home?forum=MachineLearning
+
+<!--HONumber=46--> 

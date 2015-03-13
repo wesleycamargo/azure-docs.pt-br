@@ -19,7 +19,7 @@
 # Agendar trabalhos recorrentes nos Serviços Móveis 
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">Back-end .NET</a> | <a href="/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
+	<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">Back-end .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
 </div>
  
 Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Portal de Gerenciamento para definir o código de script que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
@@ -152,7 +152,7 @@ Agora, você pode criar o trabalho agendado que acessa o Twitter e armazena dado
 
    	Esse script chama a API de consulta do Twitter usando as credenciais armazenadas para solicitar tweets recentes que contêm o hashtag "#mobileservices". Respostas e tweets duplicados são removidos dos resultados antes de serem armazenados na tabela.
 
-    >[AZURE.NOTE]Esse exemplo pressupõe que apenas algumas linhas são inseridas na tabela durante cada execução agendada. Em casos onde várias linhas são inseridas em um loop, você pode esgotar as conexões ao executar na camada Gratuita. Nesse caso, você deve executar inserções em lotes. Para obter mais informações, consulte <a href="/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Como: Executar inserções em massa</a>.
+    >[AZURE.NOTE]Esse exemplo pressupõe que apenas algumas linhas são inseridas na tabela durante cada execução agendada. Em casos onde várias linhas são inseridas em um loop, você pode esgotar as conexões ao executar na camada Gratuita. Nesse caso, você deve executar inserções em lotes. Para obter mais informações, consulte <a href="/pt-br/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Como: Executar inserções em massa</a>.
 
 6. Clique em **Executar uma vez** para testar o script. 
 
@@ -199,9 +199,10 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Registrar seus aplicativos para logon do Twitter com os Serviços Móveis]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Registrar seus aplicativos para logon do Twitter com os Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configurações do aplicativo]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-\n<!--HONumber=42-->
+[Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+\<!--HONumber=42-->

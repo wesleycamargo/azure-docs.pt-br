@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="Práticas recomendadas de desempenho - Azure" metaKeywords =" otimização do Azure, desempenho de prática recomendada do Azure" description="Saiba mais sobre as práticas recomendadas do desempenho no Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle=">Práticas recomendadas de desempenho - Azure" 
+	description="Conheça as práticas recomendadas para o desempenho no Azure." 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # Práticas recomendadas para o desempenho nos aplicativos do Azure
 
@@ -103,7 +117,7 @@ Um padrão de design comum em que você pode considerar o Armazenamento de Tabel
 
 Para obter mais informações sobre o Armazenamento de Tabela, consulte: 
 
-* [Armazenamento de Tabela do Azure e Banco de Dados SQL do Azure - semelhanças e diferenças](http://msdn.microsoft.com/pt-br/library/jj553018.aspx)
+* [Armazenamento de Tabela do Azure e Banco de Dados SQL do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Considerações sobre desempenho do Armazenamento de Tabela do Azure](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [Banco de Dados SQL e o Armazenamento de Tabela do Azure](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Melhorando o desempenho com o envio em lotes de inserções do Armazenamento de Tabela do Azure](http://go.microsoft.com/fwlink/?LinkID=252665), que discute alguns resultados de desempenho.
@@ -343,3 +357,5 @@ Outros recursos
 * [Planejamento do Azure - Guia pós-decisão para integrar o Azure em seu ambiente](http://go.microsoft.com/fwlink/?LinkId=252884) 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

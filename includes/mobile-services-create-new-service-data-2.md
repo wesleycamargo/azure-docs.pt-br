@@ -29,7 +29,7 @@
  	</tr>
  	<tr>
  	<td>id</td>
- 	<td>string</td>
+ 	<td>cadeia de caracteres</td>
  	<td>Indexada</td>
  	</tr>
  	<tr>
@@ -52,9 +52,9 @@
 
   	Este é o requisito mínimo para uma tabela nos Serviços Móveis. 
 
-    > [AZURE.NOTE] Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
+    > [AZURE.NOTE] Quando o esquema dinâmico estiver habilitado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

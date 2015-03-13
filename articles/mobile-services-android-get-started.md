@@ -34,7 +34,7 @@ A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Andro
 
 O projeto de início rápido baixado contém o SDK de Serviços Móveis para Android. Enquanto este projeto requer Android 4.2 ou uma versão posterior, o SDK dos Serviços Móveis exige apenas Android 2.2 ou uma versão posterior.
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 >[AZURE.NOTE] Se você gostaria de ver o código-fonte do aplicativo concluído, clique <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">aqui</a>.
 
@@ -89,7 +89,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 	- 	Encontre o método **OnCreate** em **TodoActivity.java** e localize o código que instancia o cliente de serviços móveis. O código está visível na imagem anterior.
 	- 	Substitua "MobileServiceUrl" pela verdadeira Url do serviço móvel.
 	- 	Substitua "AppKey" pela chave do serviço móvel.
-	- 	Para obter mais detalhes, consulte o tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-get-started-data/">Adicionar Serviços Móveis a um aplicativo existente</a>. 
+	- 	Para obter mais detalhes, consulte o tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Adicionar Serviços Móveis a um aplicativo existente</a>. 
 
 
 
@@ -150,11 +150,12 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-android-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-android-get-started-data/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-android-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

@@ -29,7 +29,7 @@
 
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos.
 
-Para iniciar, você precisará criar uma conta do Armazenamento do Azure e um ou mais contêineres no armazenamento. Por exemplo, você poderia criar um armazenamento chamado "Scrapbook" e criar contêineres no armazenamento chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos de blob individuais para eles. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET") para obter mais informações sobre como manipular blobs programaticamente.
+Para iniciar, você precisará criar uma conta do Armazenamento do Azure e um ou mais contêineres no armazenamento. Por exemplo, você poderia criar um armazenamento chamado "Scrapbook" e criar contêineres no armazenamento chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos de blob individuais para eles. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET") para obter mais informações sobre como manipular blobs programaticamente.
 
 Para acessar programaticamente blobs em projetos do ASP.NET 5, você precisa adicionar os itens a seguir, se eles ainda não existirem.
 
@@ -123,7 +123,7 @@ Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêin
             }
         } while (token != null);
 
-Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob) para obter mais informações.
+Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob) para obter mais informações.
 
 ##### Baixar um blob
 Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o método **DownloadToStreamAsync()**. O exemplo a seguir usa o método **DownloadToStreamAsync()** para transferir o conteúdo do blob para um objeto de fluxo pode ser salvo como arquivo local.
@@ -137,7 +137,7 @@ Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Existem outras maneiras de salvar blobs como arquivos. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs) para obter mais informações.
+Existem outras maneiras de salvar blobs como arquivos. Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs) para obter mais informações.
 
 ##### Excluir um blob
 Para excluir um blob, primeiramente obtenha uma referência para o blob e chame o método **DeleteAsync()** nele.
@@ -149,5 +149,5 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
 	await blockBlob.DeleteAsync();
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/pt-br/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
-<!--HONumber=42-->
+Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+\<!--HONumber=42-->

@@ -20,7 +20,7 @@
 
 Este tópico mostra como registrar seus aplicativos para poder usar o Facebook para autenticar com os Serviços Móveis do Azure. 
 
-> [AZURE.NOTE] Este tutorial é sobre [Serviços Móveis do Azure], uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilitam a sincronização de dados, autenticam usuários e enviam notificações por push. Esta página oferece suporte ao tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/">Introdução à autenticação</a> que mostra como registrar usuários no seu aplicativo. Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/">Introdução aos Serviços Móveis</a>.
+> [AZURE.NOTE] Este tutorial é sobre [Serviços Móveis do Azure], uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilitam a sincronização de dados, autenticam usuários e enviam notificações por push. Esta página oferece suporte ao tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introdução à autenticação</a> que mostra como registrar usuários no seu aplicativo. Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introdução aos Serviços Móveis</a>.
 	
 Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook com um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
 
@@ -84,7 +84,8 @@ Agora você está pronto para usar um logon do Facebook para autenticação em s
 
 <!-- URLs. -->
 [Desenvolvedores de Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Introdução à autenticação]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Serviços móveis do Azure]: http://azure.microsoft.com/en-us/services/mobile-services/
-\n<!--HONumber=42-->
+[Serviços móveis do Azure]: http://azure.microsoft.com/services/mobile-services/
+
+\<!--HONumber=42-->

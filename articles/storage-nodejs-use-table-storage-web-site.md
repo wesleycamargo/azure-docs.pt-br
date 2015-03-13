@@ -691,5 +691,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
 [Create and deploy a Node.js application to an Azure Web Site]: /pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
 <!--HONumber=42-->

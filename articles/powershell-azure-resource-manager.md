@@ -1,6 +1,20 @@
-<properties pageTitle="Usando o Windows PowerShell com o Gerenciador de Recursos" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Usar o Windows PowerShell para criar um grupo de recursos" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
+﻿<properties 
+	pageTitle="Usando o Windows PowerShell com o Gerenciador de Recursos" 
+	description="Use o Windows PowerShell para criar um grupo de recursos" 
+	services="" 
+	documentationCenter="" 
+	authors="sdkaczmarek" 
+	manager="stevenka" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/02/2014" 
+	ms.author="stevenka"/>
 
 # Usando o Windows PowerShell com o Gerenciador de Recursos
 
@@ -480,8 +494,10 @@ Para obter mais informações sobre como usar o Windows PowerShell com o Gerenci
   [Solucionar problemas de um grupo de recursos]: #troubleshoot
   [Próximas etapas]: #next
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
-  [Usando grupos de recursos para gerenciar os recursos do Azure]: http://azure.microsoft.com/pt-br/documentation/articles/azure-preview-portal-using-resource-groups
-  [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos]: http://www.windowsazure.com/pt-br/documentation/articles/xplat-cli-azure-resource-manager/
+  [Usando grupos de recursos para gerenciar os recursos do Azure]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups
+  [Usando a interface de linha de comando da plataforma cruzada do Microsoft Azure com o Gerenciador de Recursos]: http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
   [Blog do Azure]: http://blogs.msdn.com/windowsazure
   [Blog do Windows PowerShell]: http://blogs.msdn.com/powershell
   [Blog "Hey, Scripting Guy!" Blog]: http://blogs.technet.com/b/heyscriptingguy/
+
+<!--HONumber=46--> 

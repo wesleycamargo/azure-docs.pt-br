@@ -1,6 +1,20 @@
-﻿<properties title="Create an Azure Machine Learning workspace" pageTitle="Criar um espaço de trabalho de Aprendizado de Máquina | Azure" description="Criar um espaço de trabalho para o Estúdio de Aprendizado de Máquina do Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Criar um espaço de trabalho de Aprendizado de Máquina | Azure" 
+	description="Como criar um espaço de trabalho para o Estúdio de Aprendizado de Máquina do Microsoft Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # Criar um espaço de trabalho de Aprendizado de Máquina do Azure 
@@ -31,3 +45,5 @@ Um Espaço de Trabalho de Aprendizado de Máquina (Espaço de Trabalho AM) do Mi
 
 
 <!--Link references-->
+
+<!--HONumber=46--> 

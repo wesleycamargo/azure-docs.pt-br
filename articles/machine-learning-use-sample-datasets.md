@@ -1,6 +1,21 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina | Azure" description="Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina | Azure" 
+	description="Descrições dos conjuntos de dados de exemplo incluídas no Estúdio de Aprendizado de Máquina do Microsoft Azure " 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
+
 
 
 # Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure
@@ -338,3 +353,5 @@ A versão em série do contêiner primário transmitido entre módulos no Estúd
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

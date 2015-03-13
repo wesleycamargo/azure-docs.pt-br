@@ -95,7 +95,7 @@ Este artigo usa um arquivo de exemplo *log4j* que vem com os clusters HDInsight 
 
 Nesta seção, você analisará algumas declarações do Pig Latin individualmente e seus resultados depois de executar as declarações. Nesta seção, você executará o PowerShell para executar as declarações Pig juntas para analisar o arquivo de log de amostra. As declarações Pig Latin individuais devem ser executadas diretamente no cluster do HDInsight.
 
-1. Habilite a área de trabalho remota para o cluster HDInsight seguindo as instruções em [Conectar ao clusters HDInsight usando o RDP](http://azure.microsoft.com/pt-br/documentation/articles/hdinsight-administer-use-management-portal/#rdp). Efetue logon no nó do cluster e, na área de trabalho, clique na **Linha de comando do Hadoop**.
+1. Habilite a área de trabalho remota para o cluster HDInsight seguindo as instruções em [Conectar ao clusters HDInsight usando o RDP](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp). Efetue logon no nó do cluster e, na área de trabalho, clique na **Linha de comando do Hadoop**.
 
 2. Na linha de comando, navegue para o diretório em que o **Pig** está instalado. Tipo:
 
@@ -397,12 +397,11 @@ Embora o Pig permita que você execute a análise de dados, outras linguagens in
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
-[powershell-start]: http://technet.microsoft.com/pt-br/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
-
 
 <!--HONumber=42-->

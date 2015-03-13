@@ -1,12 +1,25 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Visão técnica geral do Azure Batch" metaKeywords="" description="Saiba mais sobre os conceitos, fluxos de trabalho e cenários do serviço de Lote do Azure" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Visão técnica geral do Lote do Azure" 
+	description="Saiba mais sobre os conceitos, os fluxos de trabalho e cenários do serviço Lote do Azure" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Visão técnica geral do Azure Batch
 O Azure Batch ajuda você a executar aplicativos HPC (computação de alto desempenho) em larga escala e paralelos, na nuvem, fornecendo agendamento dos trabalhos e dimensionamento automático dos recursos de computação como um serviço de plataforma. Usando o SDK do Batch e o serviço Batch, você pode configurar as cargas de trabalho em lotes para executar sob demanda ou em uma agenda, em uma coleção gerenciada de máquinas virtuais, sem precisar se preocupar com a complexidade de agendamento de trabalhos e do gerenciamento dos recursos na plataforma subjacente.
  
->[WACOM.NOTE]O Batch está em Visualizar. Para usar o Batch, você precisa de uma conta do Azure; além disso, precisa habilitar a Visualização do Batch em sua assinatura. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://www.windowsazure.com/pt-br/develop/php/tutorials/create-a-windows-azure-account/). 
+>[WACOM.NOTE]O Batch está em Visualizar. Para usar o Batch, você precisa de uma conta do Azure; além disso, precisa habilitar a Visualização do Batch em sua assinatura. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
 Este artigo fornece a você uma visão geral de:
@@ -53,7 +66,7 @@ As APIs do Batch baseadas em REST oferecem suporte a dois cenários de desenvolv
 
 <h2 id="BKMK_Entities">Conceitos Batch</h2>
 
-As seções a seguir resumem os conceitos principais para trabalhar com o serviço Batch e APIs. Para obter mais informações, consulte [Noções básicas de API para o Azure Batch](http://azure.microsoft.com/pt-br/documentation/articles/batch-api-basics). 
+As seções a seguir resumem os conceitos principais para trabalhar com o serviço Batch e APIs. Para obter mais informações, consulte [Noções básicas de API para o Azure Batch](http://azure.microsoft.com/documentation/articles/batch-api-basics). 
 
 * [Conta do Batch](#BKMK_Account)
 * [Máquinas virtuais de tarefa e pools](#BKMK_TVM)
@@ -173,8 +186,8 @@ A Figura 5 mostra um fluxo de trabalho básico para publicar um aplicativo usand
 	
 <h2 id="BKMK_Resources">Recursos adicionais</h2>
 
-* [Introdução à Biblioteca do Azure Batch para .NET](http://azure.microsoft.com/pt-br/documentation/articles/batch-dotnet-get-started/)
-* [Ferramentas e bibliotecas de desenvolvimento do Azure Batch](http://azure.microsoft.com/pt-br/documentation/articles/batch-development-libraries-tools/)
+* [Introdução à Biblioteca do Azure Batch para .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
+* [Ferramentas e bibliotecas de desenvolvimento do Azure Batch](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Referência da API REST do Azure Batch](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Referência da API REST do Azure Batch Apps](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -186,3 +199,5 @@ A Figura 5 mostra um fluxo de trabalho básico para publicar um aplicativo usand
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

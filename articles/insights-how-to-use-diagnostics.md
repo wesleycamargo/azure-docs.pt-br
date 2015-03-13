@@ -1,6 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="Como usar o diagnóstico" description="Saiba como configurar o diagnóstico para os seus recursos no Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Como usar o diagnóstico" 
+	description="Saiba como configurar o diagnóstico para os seus recursos no Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Configurando os diagnósticos
 
@@ -66,3 +80,5 @@ Em seguida, você pode selecionar de qualquer uma das métricas que você tem ha
 O gráfico lhe mostrará uma visualização de seu limite de alerta comparado à métrica do dia anterior. Depois de clicar em **Salvar**, dentro de alguns minutos você será informado sempre que a métrica que escolheu exceder o limite. 
 
 Observe que as métricas em que aparece apenas no Portal de Visualização não são alertáveis no Portal Completo. Como resultado, certas regras de alerta no Portal de Visualização não estão no Portal Completo.
+
+<!--HONumber=46--> 

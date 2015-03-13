@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="Carregar os testes padrão de aplicativo - padrões de arquitetura do Azure"metaKeywords ="" description="Localize as visões gerais de arquitetura e padrões de design que descrevem como implementar um sistema de teste de carga no Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Carregar os testes padrão de aplicativo - padrões de arquitetura do Azure" 
+	description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um sistema de teste de carga no Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 # Teste de carga no Azure
 
@@ -9,8 +23,8 @@ O serviço de teste de carga baseado em nuvem pode testar a carga de seus aplica
 <!--links-->
 
 [Azure e Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[Executando testes de carga em ambientes mistos]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh966776.aspx
-[Usando os testes de carga do Visual Studio em funções do Azure]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh674491.aspx
+[Executando testes de carga em ambientes mistos]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Usando os testes de carga do Visual Studio em funções do Azure]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
@@ -18,3 +32,5 @@ O serviço de teste de carga baseado em nuvem pode testar a carga de seus aplica
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

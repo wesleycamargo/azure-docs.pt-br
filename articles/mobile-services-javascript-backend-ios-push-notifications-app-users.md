@@ -81,14 +81,15 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 
 <!-- URLs. -->
-[Introdução à autenticação]: /en-us/documentation/articles/mobile-services-ios-get-started-users/
-[Introdução às notificações por push]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users/
+[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
 
 [23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
 [24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
-\n<!--HONumber=42-->
+
+\<!--HONumber=42-->

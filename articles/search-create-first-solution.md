@@ -1,6 +1,20 @@
-﻿<properties title="Create your first search solution using Azure Search" pageTitle="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure" description="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure" 
+	description="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Crie sua primeira solução de pesquisa usando a Pesquisa do Azure
 
@@ -29,7 +43,7 @@ A demonstração introduz a Pesquisa do Azure ao guiá-lo por estes exercícios:
 
 <h2 id="sub-1">Pré-requisitos</h2>
 
-+	Visual Studio 2012 ou posterior com o ASP.NET MVC 4 e SQL Server instalados. Se você ainda não tiver o software instalado, você pode baixar as edições Express gratuitas: [Visual Studio 2013 Express](http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx) e [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/pt-br/evalcenter/dn434042.aspx).
++	Visual Studio 2012 ou posterior com o ASP.NET MVC 4 e SQL Server instalados. Se você ainda não tiver o software instalado, você pode baixar as edições Express gratuitas: [Visual Studio 2013 Express](http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx) e [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 +	Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Começar com a pesquisa do Azure](../search-get-started/) para obter detalhes.
 +	[Projeto de demonstração da pesquisa do Azure da Adventure Works no CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). Na guia Fonte, clique em **Download** para obter um arquivo zip da solução.  
 
@@ -89,7 +103,7 @@ Vejamos mais de perto o projeto **CatalogIndexer** para entender como ele funcio
 
 4.	Mova para "ApplyChanges" no mesmo arquivo. Observe como essa função exclui o índice se ele já existe ("DeleteCatalogIndex") e cria um novo chamado índice "catálogo" ("CreateCatalogIndex").    
 
-5.	Mova para a função "CreateCatalogIndex" e observe como o índice é criado com um esquema que corresponde às colunas da tabela Produtos no SQL Server. Cada campo tem um Tipo (por exemplo, "EDM" ou "Edm.Double"), bem como os atributos que definem para o que esses campos são usados. Consulte a [documentação da API REST da Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn798935.aspx) para encontrar mais detalhes sobre esses atributos.
+5.	Mova para a função "CreateCatalogIndex" e observe como o índice é criado com um esquema que corresponde às colunas da tabela Produtos no SQL Server. Cada campo tem um Tipo (por exemplo, "EDM" ou "Edm.Double"), bem como os atributos que definem para o que esses campos são usados. Consulte a [documentação da API REST da Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para encontrar mais detalhes sobre esses atributos.
 
 6.	Volte para a função "ApplyChanges". Observe como essa função executa um loop por todos os dados no "ChangeSet" de alterações enumeradas. Em vez de aplicar as alterações uma a uma, elas são reunidas em grupos de 1.000 e aplicadas ao serviço de Pesquisa. Isso é muito mais eficiente do que aplicar os documentos um a um.
 
@@ -147,7 +161,7 @@ Vamos analisar essas duas funções mais detalhadamente.
 
 5.	Pare o aplicativo se ele ainda estiver em execução e abra o arquivo **Index.cshtml** em Exibições | Página Inicial.  Ao final desse arquivo, você verá uma função JavaScript que usa "JQuery $(function ())". Essa função é chamada quando a página carrega. Ela usa a função de preenchimento automático JQuery e vincula essa função como um retorno de chamada da caixa de texto de pesquisa, identificada como "q". Sempre que alguém digita na caixa de texto, esta função de sugestão automática é chamada e retorna a chamada /home/sugerir com o que foi digitado.  "/home/sugerir" é uma referência função em **HomeController.cs** chamada "Sugerir".
 
-6.	Abra o **HomeController.cs** e mova para a função Suggest. Este código é bastante semelhante à função Search que usa o objeto "_catalogSearch" para chamar uma função no **CatalogSearch.cs** chamada "Suggest". Em vez de fazer uma consulta de pesquisa, a função "Suggest" faz uma chamada para a [API de Sugestões](http://msdn.microsoft.com/pt-br/library/azure/dn798936.aspx). Ela usa os termos inseridos na caixa de texto e cria uma lista de possíveis sugestões. Os valores são retornados para o arquivo **Index.cshtml** e automaticamente listados na caixa de Pesquisa como opções de digitação antecipada.
+6.	Abra o **HomeController.cs** e mova para a função Suggest. Este código é bastante semelhante à função Search que usa o objeto "_catalogSearch" para chamar uma função no **CatalogSearch.cs** chamada "Suggest". Em vez de fazer uma consulta de pesquisa, a função "Suggest" faz uma chamada para a [API de Sugestões](http://msdn.microsoft.com/library/azure/dn798936.aspx). Ela usa os termos inseridos na caixa de texto e cria uma lista de possíveis sugestões. Os valores são retornados para o arquivo **Index.cshtml** e automaticamente listados na caixa de Pesquisa como opções de digitação antecipada.
 
 Você pode estar se perguntando neste momento como a Pesquisa do Azure sabe sobre quais campos criar sugestões. A resposta para isso está em quando você criou o Índice. Na função "CreateCatalogIndex" no arquivo Program.cs do projeto **CatalogIndexer**, há um atributo chamado "Suggestions".  Sempre que esse atributo é definido como "True", isto significa que a Pesquisa do Azure pode usá-lo como um campo para recuperar sugestões.
 
@@ -176,11 +190,11 @@ Ao desenvolver o AdventureWorksWeb, se você receber "Não foi possível carrega
 
 Para estudo individual adicional, considere adicionar uma página Detalhes para se abrir quando o usuário clicar em um dos resultados da pesquisa. Para preparar, você pode fazer o seguinte:
 
-+	Informe-se sobre a [API de Pesquisa](http://msdn.microsoft.com/pt-br/library/azure/dn798929.aspx) que permite que você faça uma consulta para a Pesquisa do Azure retornar um documento específico (por exemplo, você pode passar o productID).
++	Informe-se sobre a [API de Pesquisa](http://msdn.microsoft.com/library/azure/dn798929.aspx) que permite que você faça uma consulta para a Pesquisa do Azure retornar um documento específico (por exemplo, você pode passar o productID).
 +	Tente adicionar uma nova função chamada "Details" no arquivo **HomeController.cs**. Adicione uma visualização **Details.cshtml** correspondente que receba os resultados dessa pesquisa e exibe-os.
 +	Confira esta amostra adicional de código e o vídeo sobre pesquisa geoespacial: [Channel 9 - Pesquisa do Azure e Dados Geoespaciais](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) e [CodePlex: Exemplo de Pesquisa Geoespacial na Pesquisa do Azure](http://azuresearchgeospatial.codeplex.com)
 
-Você também pode examinar a [API REST da Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn798935.aspx) no MSDN.
+Você também pode examinar a [API REST da Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) no MSDN.
 
 
 <!--Anchors-->
@@ -201,3 +215,5 @@ Você também pode examinar a [API REST da Pesquisa do Azure](http://msdn.micros
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

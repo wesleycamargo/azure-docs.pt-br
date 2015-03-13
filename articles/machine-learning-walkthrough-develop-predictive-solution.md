@@ -1,6 +1,20 @@
-<properties title="Desenvolver uma solu&ccedil;&atilde;o preditiva com o Aprendizado de M&aacute;quina do Azure" pageTitle="Desenvolver uma solu&ccedil;&atilde;o preditiva com o Aprendizado de M&aacute;quina | Azure" description="Apresenta&ccedil;&atilde;o de como criar um experimento de anal&iacute;tica preditiva no Est&uacute;dio de Aprendizado de M&aacute;quina do Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Desenvolver uma solução preditiva com o Aprendizado de Máquina | Azure" 
+	description="Apresentação de como criar um experimento de analítica preditiva no Estúdio de Aprendizado de Máquina do Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure
 
@@ -29,3 +43,5 @@ Este passo a passo é baseado em uma versão simplificada do
   [Publicar o serviço Web]: ../machine-learning-walkthrough-5-publish-web-service/
   [Acessar o serviço Web]: ../machine-learning-walkthrough-6-access-web-service/
   [Experimento de amostra de previsão de risco de crédito]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 

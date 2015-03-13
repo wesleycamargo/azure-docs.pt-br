@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Manutenção planejada para máquinas virtuais do Azure" 
 	description="Compreenda o que é a manutenção planejada do Azure e como ela afeta suas máquinas virtuais em execução no Azure." 
 	services="virtual-machines" 
@@ -24,22 +24,22 @@
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-* [Configurações de máquina virtual]  
+* [Configurações de máquina virtual]
 * [Atualização de várias instâncias]
 * [Atualização de instância única]
 * [Notificação por email]
 
 
 ## Configurações de máquina virtual
-Existem dois tipos de configurações de máquina virtual: instâncias múltiplas e instância única.  As máquinas virtuais de várias instâncias são configuradas colocando-se máquinas virtuais idênticas em um conjunto de disponibilidade. A configuração de várias instâncias oferece redundância e é recomendada para garantir a disponibilidade do aplicativo. Todas as máquinas virtuais do conjunto de disponibilidade devem ser praticamente idênticas e ter a mesma finalidade do aplicativo. Para mais informações sobre a configuração das máquinas virtuais para alta disponibilidade, consulte "<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/">Gerenciar a disponibilidade de máquinas virtuais</a>". 
+Existem dois tipos de configurações de máquina virtual: instâncias múltiplas e instância única.  As máquinas virtuais de várias instâncias são configuradas colocando-se máquinas virtuais idênticas em um conjunto de disponibilidade. A configuração de várias instâncias oferece redundância e é recomendada para garantir a disponibilidade do aplicativo. Todas as máquinas do conjunto de disponibilidade devem ser praticamente idênticas e ter a mesma finalidade do aplicativo. Para obter mais informações sobre como configurar as máquinas virtuais para alta disponibilidade, consulte "<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/">Gerenciar a disponibilidade das máquinas virtuais</a>". 
 
-Por outro lado, as máquinas virtuais de instância única são máquinas virtuais independentes que não são colocadas no conjunto de disponibilidade. Sozinhas, as máquinas virtuais de instância única não se qualificam para o Contrato de Nível de Serviço (SLA), que exige duas ou mais máquinas virtuais implantadas no mesmo conjunto de disponibilidade. Para obter mais informações sobre o SLA, consulte a seção "Serviços de nuvem, máquinas virtuais e rede virtual" dos [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
+Por outro lado, as máquinas virtuais de instância única são máquinas virtuais independentes que não são colocadas no conjunto de disponibilidade. Sozinhas, as máquinas virtuais de instância única não se qualificam para o Contrato de Nível de Serviço (SLA), que exige duas ou mais máquinas virtuais implantadas no mesmo conjunto de disponibilidade. Para obter mais informações sobre o SLA, consulte a seção "Serviços de Nuvem, máquinas virtuais e rede virtual" dos [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
 
 
 ## Atualização de várias instâncias
 Durante a manutenção planejada, a plataforma do Azure atualizará primeiramente o conjunto de máquinas de host que hospedam o conjunto de máquinas virtuais em uma configuração de várias instâncias, causando a reinicialização dessas máquinas virtuais. Para máquinas virtuais em uma configuração de várias instâncias, as máquinas virtuais são atualizadas de maneira a preservar a disponibilidade ao longo de todo o processo, pressupondo-se que cada máquina ofereça uma função semelhante à função das outras no conjunto. Toda máquina virtual no conjunto de disponibilidade recebe um Domínio de Atualização (UD) e um Domínio de Falha (FD) da plataforma do Azure subjacente. Cada UD é um grupo de máquinas virtuais que serão reinicializadas na mesma janela de tempo. Cada FD é um grupo de máquinas virtuais que compartilham uma mesma fonte de energia e um mesmo comutador de rede. 
 
-Para mais informações sobre UDs e FDs, consulte "<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância</a>".
+Para obter mais informações sobre UDs e FDs, consulte "<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configurar várias máquinas virtuais em um conjunto de disponibilidade para redundância</a>".
 
 O Microsoft Azure garante que nenhum evento de manutenção planejada deixará máquinas virtuais de dois UDs diferentes ficarem offline ao mesmo tempo. A manutenção é realizada desligando-se cada máquina virtual, aplicando-se a atualização às máquinas de host, reiniciando-se a máquina virtual e passando-se ao próximo UD. O evento de manutenção planejada termina assim que todos os UDs forem atualizados. A ordem de UDs reinicializados não pode continuar sequencialmente durante a manutenção planejada, e sim apenas um UD será reinicializado por vez. Atualmente, nenhuma notificação prévia de manutenção planejada é dada para máquinas virtuais na configuração de várias instâncias.
 
@@ -69,6 +69,5 @@ Apenas para máquinas virtuais de configuração de instância única, o Azure e
 
 <!--Link references-->
 [Disponibilidade de gerenciar máquinas virtuais]: ../virtual-machines-windows-tutorial/
-[Compreenda a manutenção planejada x não planejada]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
-
-<!--HONumber=45--> 
+[Compreender manutenção planejada X manutenção não planejada]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
+<!--HONumber=42-->

@@ -8,4 +8,4 @@ Se você não tiver o Visual Studio instalado, o Visual Studio Express para a We
 
 [SDK do Azure para Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

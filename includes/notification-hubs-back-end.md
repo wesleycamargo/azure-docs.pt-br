@@ -1,10 +1,10 @@
-
+﻿
 Esta seção mostra como enviar notificações por meio de um aplicativo de console .NET e de qualquer outro.
-Se você estiver usando os serviços móveis, consulte os tutoriais [Introdução ao Push](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação por meio de Java/PHP](/pt-br/documentation/articles/notification-hubs-java-backend-how-to/). Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
+Se você estiver usando os serviços móveis, consulte os tutoriais [Introdução ao Push](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação a partir de Java/PHP](/pt-br/documentation/articles/notification-hubs-java-backend-how-to/). Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
 
 O código a seguir envia notificações à Windows Store, Windows Phone, iOS e dispositivos Android. 
 
-Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando concluído [Introdução aos Hubs de notificação][get-started].
+Ignore as etapas 1 a 3, se você tiver criado um aplicativo de console quando concluiu [Introdução aos Hubs de notificação][get-started].
 
 1. No Visual Studio, crie um novo aplicativo de console em Visual C#: 
 
@@ -73,7 +73,7 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
 	
 	> [AZURE.NOTE] Esse código de back-end oferece suporte a Windows Store, clientes de iOS, Windows Phone e Android. Envie métodos retornam uma resposta de erro quando o hub de notificação ainda não foi configurado para uma plataforma de cliente específico. 
 
-6. No código acima, substitua os espaços reservados `<nome do hub>` e `<cadeia de conexão com acesso de escuta>` pelo nome do hub de notificação e a cadeia de conexão por  *DefaultFullSharedAccessSignature*, que você obteve anteriormente.
+6. No código acima, substitua os espaços reservados "<hub name>" e "<connection string with listen access>" com o nome de seu hub de notificação e a cadeia de conexão para *DefaultFullSharedAccessSignature* que você tiver obtido anteriormente.
 
 7. Adicione as seguintes linhas no método **Main**:
 
@@ -93,12 +93,12 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
 
 <!-- URLs. -->
 [get-started]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Usar os Hubs de notificação para enviar notificações aos usuários]: ../notificationhubs/tutorial-notify-users-mobileservices.md
+[Usando os Hubs de notificação para enviar notificações aos usuários]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/jj927170.aspx
-[Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/pt-br/library/jj927172.aspx
-[Interface REST de Hubs de Notificação]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn223264.aspx
+[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
+[Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Interface REST de Hubs de Notificação]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

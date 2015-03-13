@@ -138,10 +138,11 @@ No próximo tutorial, [Autorizar usuários com scripts], você vai obter o valor
 [15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-get-started
-[Introdução aos dados]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Autorizar usuários com scripts]: /en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts
+[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-get-started
+[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-html-get-started-data
+[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-html-authorize-users-in-scripts
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
-\n<!--HONumber=42-->
+[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library
+
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Como usar o Cache na Função (.NET) - Guia de recursos do Azure" 
+	description="Saiba como usar o Cache na Função do Azure. Os exemplos são escritos em código C# e utilizam a API .NET." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Como usar o Cache na Função para Cache do Azure
 
@@ -390,14 +404,16 @@ Agora que você aprendeu o básico do Cache na Função,siga os links para saber
   [Como configurar tamanhos de máquinas virtuais]: http://go.microsoft.com/fwlink/?LinkId=164387
   [Cache de função 4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
   [Cache de função 5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
-  [Solução de problemas e diagnóstico do Cache na Função]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh914135.aspx
+  [Solução de problemas e diagnóstico do Cache na Função]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
   [Cache de função 6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
   [Instalação do Gerenciador de Pacotes NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-  [Provedor de estado de sessão de Cache na Função]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg185668.aspx
+  [Provedor de estado de sessão de Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
   [Diretiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-  [Provedor de Cache de Saída de Cache na Função]: http://msdn.microsoft.com/pt-br/library/windowsazure/gg185662.aspx
+  [Provedor de Cache de Saída de Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
   [Cache em Função]: http://www.microsoft.com/pt-br/showcase/Search.aspx?phrase=azure+caching
-  [Migrar para o Cache na Função]: http://msdn.microsoft.com/pt-br/library/hh914163.aspx
-  [Exemplos de Cache na Função]: http://msdn.microsoft.com/pt-br/library/jj189876.aspx
+  [Migrar para o Cache na Função]: http://msdn.microsoft.com/library/hh914163.aspx
+  [Exemplos de Cache na Função]: http://msdn.microsoft.com/library/jj189876.aspx
   [Desempenho Máximo: Acelere seus aplicativos de Serviços de Nuvem com o Caching do Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-  [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
+  [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+
+<!--HONumber=46--> 

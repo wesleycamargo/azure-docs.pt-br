@@ -1,6 +1,20 @@
-﻿<properties title="Search Service: workflow for developers" pageTitle="Serviço de pesquisa: fluxo de trabalho para desenvolvedores" description="Serviço de pesquisa: fluxo de trabalho para desenvolvedores" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Serviço de pesquisa: fluxo de trabalho para desenvolvedores" 
+	description="Serviço de pesquisa: fluxo de trabalho para desenvolvedores" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Pesquisa do Azure: fluxo de trabalho de desenvolvimento
 
@@ -21,7 +35,7 @@ Nós presumimos que você já tenha provisionado o serviço. Se você ainda não
 
 As consultas são voltadas para um índice de pesquisa que contém dados e atributos de pesquisa. Dessa forma, a primeira etapa após o provisionamento do serviço é definir o esquema de índice no formato JSON e executar uma solicitação HTTPS PUT para criar o índice no serviço. 
 
-Os índices são criados pelo código do aplicativo. Não existem ferramentas integradas ou editores para ajudá-lo a definir um índice em uma interface do usuário. Exemplos que demonstram várias maneiras de construir o índice incluem [Criar sua primeira solução de pesquisa usando a Pesquisa do Azure](../search-create-first-solution/), em que o esquema é especificado no arquivo Program.cs, e [Introdução a perfis de pontuação na Pesquisa do Azure](../search-get-started-scoring-profiles), que fornece o índice em um arquivo de esquema JSON independente. Para saber mais sobre a criação do índice, consulte [Criar índice (API de pesquisa do Azure)](http://msdn.microsoft.com/pt-br/library/dn798941.aspx) no MSDN.
+Os índices são criados pelo código do aplicativo. Não existem ferramentas integradas ou editores para ajudá-lo a definir um índice em uma interface do usuário. Exemplos que demonstram várias maneiras de construir o índice incluem [Criar sua primeira solução de pesquisa usando a Pesquisa do Azure](../search-create-first-solution/), em que o esquema é especificado no arquivo Program.cs, e [Introdução a perfis de pontuação na Pesquisa do Azure](../search-get-started-scoring-profiles), que fornece o índice em um arquivo de esquema JSON independente. Para saber mais sobre a criação do índice, consulte [Criar índice (API de pesquisa do Azure)](http://msdn.microsoft.com/library/dn798941.aspx) no MSDN.
 
 <h2 id="sub-2">Etapa 2: Adicionar documentos</h2>
 
@@ -40,8 +54,8 @@ Diante de grandes cargas, não é incomum que haja algumas falhas no carregament
 
 Após os documentos terem sido indexados, você pode executar consultas de pesquisa. Você pode consultar um índice por vez, usando OData ou uma sintaxe de consulta simples:
 
-+	[Sintaxe de expressão OData para a Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/dn798921.aspx)
-+	[Sintaxe de consulta simples na Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/dn798920.aspx)
++	[Sintaxe de expressão OData para a Pesquisa do Azure](http://msdn.microsoft.com/library/dn798921.aspx)
++	[Sintaxe de consulta simples na Pesquisa do Azure](http://msdn.microsoft.com/library/dn798920.aspx)
 
 <h2 id="sub-4">Etapa 4: Atualizar ou excluir índices e documentos</h2>
 
@@ -55,7 +69,7 @@ A Pesquisa do Azure usa o armazenamento interno para os índices e documentos us
 
 Nem todos os campos em um documento serão pesquisáveis. Por exemplo, se o seu aplicativo for um catálogo online de música ou vídeos, recomendamos armazenar arquivos binários no serviço BLOB do Azure ou algum outro formato de armazenamento. Os arquivos binários em si não são pesquisáveis e, portanto, não há necessidade de persistir com eles no armazenamento da Pesquisa do Azure. Embora você deva armazenar imagens, vídeos e arquivos de áudio em outros serviços ou locais, deve incluir um campo que faça referência ao URL para o local do arquivo. Dessa forma, você pode retornar os dados externos como parte dos resultados da pesquisa. 
 
-Para obter mais informações sobre a criação de índices ou documentos, consulte [API REST da Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/dn798935.aspx).
+Para obter mais informações sobre a criação de índices ou documentos, consulte [API REST da Pesquisa do Azure](http://msdn.microsoft.com/library/dn798935.aspx).
 
 
 <!--Anchors-->
@@ -73,3 +87,5 @@ Para obter mais informações sobre a criação de índices ou documentos, consu
 [Gerenciar seu serviço de pesquisa no Microsoft Azure]: ../search-manage/
 [Crie sua primeira solução de pesquisa usando a Pesquisa do Azure]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

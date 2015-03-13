@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Relay" pageTitle="Como usar a retransmissão do barramento de serviço (.NET) - Azure" metaKeywords="introdução à retransmissão do barramento de serviço do azure em c# " description="Saiba como usar o serviço de Retransmissão do Barramento de Serviço do Azure para conectar dois aplicativos hospedados em locais diferentes." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Como usar a Retransmissão do Barramento de Serviço (.NET) - Azure" 
+	description="Saiba como usar o serviço de Retransmissão do Barramento de Serviço do Azure para conectar dois aplicativos hospedados em locais diferentes." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -266,6 +280,8 @@ Agora que você já aprendeu os conceitos básicos do serviço de **Retransmiss�
   [Obtenha o pacote do NuGet do Service Bus]: #get_nuget_package
   [Como: Use o Barramento de Serviço para expor e consumir um serviço Web SOAP com TCP]: #how_soap
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  [Compilando um serviço para o Barramento de Serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee173564.aspx
-  [Compilando um aplicativo cliente do Barramento de Serviço]: http://msdn.microsoft.com/pt-br/library/windowsazure/ee173543.aspx
+  [Compilando um serviço para o Barramento de Serviço]: http://msdn.microsoft.com/library/windowsazure/ee173564.aspx
+  [Compilando um aplicativo cliente do Barramento de Serviço]: http://msdn.microsoft.com/library/windowsazure/ee173543.aspx
   [Exemplos do Azure]: http://code.msdn.microsoft.com/windowsazure
+
+<!--HONumber=46--> 

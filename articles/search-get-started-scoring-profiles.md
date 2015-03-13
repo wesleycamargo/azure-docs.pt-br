@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Introdução aos perfis de pontuação na Pesquisa do Azure" description="Introdução aos perfis de pontuação na Pesquisa do Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Como usar os perfis de pontuação na Pesquisa do Azure" 
+	description="Introdução aos perfis de pontuação na Pesquisa do Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # Introdução aos perfis de pontuação na Pesquisa do Azure
 
@@ -43,7 +57,7 @@ Quando tiver terminado de adicionar o URL e a 'api-key' para app.config, as conf
 
 Você está quase pronto para compilar e executar o aplicativo, mas antes examine os arquivos JSON usados para criar e preencher o índice.
 
-**Schema.json** define o índice, incluindo os perfis de pontuação que são enfatizados nesta demonstração. Observe que o esquema define todos os campos usados no índice, incluindo campos não pesquisável, como 'margem', que podem ser usados em um perfil de pontuação. A sintaxe do perfil de pontuação é documentada em [Adicionar um perfil de pontuação para um índice da Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn798928.aspx).
+**Schema.json** define o índice, incluindo os perfis de pontuação que são enfatizados nesta demonstração. Observe que o esquema define todos os campos usados no índice, incluindo campos não pesquisável, como 'margem', que podem ser usados em um perfil de pontuação. A sintaxe do perfil de pontuação é documentada em [Adicionar um perfil de pontuação para um índice da Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 **Data1-3.json** fornece os dados, 246 álbuns em alguns gêneros. Os dados são uma combinação do álbum real e das informações sobre o artista, com campos fictícios como 'preço' e 'margem' usados para ilustrar as operações de pesquisa. Os arquivos de dados estão em conformidade com o índice e são carregados para o serviço da Pesquisa do Azure. Depois de os dados serem carregados e indexados, você pode emitir consultas em relação a eles.
 
@@ -85,9 +99,9 @@ Agora que você experimentou os perfis de pontuação, tente alterar o programa 
 
 <h2 id="next-steps">Próximas etapas</h2>
 
-Saiba mais sobre perfis de pontuação. Consulte [Adicionar um perfil de pontuação no índice de Pesquisa do Azure](http://msdn.microsoft.com/pt-br/library/azure/dn798928.aspx) para detalhes.
+Saiba mais sobre perfis de pontuação. Consulte [Adicionar um perfil de pontuação no índice de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx) para detalhes.
 
-Saiba mais sobre os parâmetros de sintaxe e consulta de pesquisa. Consulte [Pesquisar documentos (API REST da Pesquisa do Azure)](http://msdn.microsoft.com/pt-br/library/azure/dn798927.aspx) para obter detalhes.
+Saiba mais sobre os parâmetros de sintaxe e consulta de pesquisa. Consulte [Pesquisar documentos (API REST da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes.
 
 Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a este vídeo](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) para compreender os fundamentos básicos.
 
@@ -104,3 +118,5 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 
