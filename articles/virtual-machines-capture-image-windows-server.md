@@ -36,7 +36,7 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 2.	Abra uma janela de Prompt de comando como administrador.
 
 
-3.	Altere o diretório para  `%windir%\system32\sysprep` e, a seguir, execute sysprep.exe.
+3.	Altere o diretório para `%windir%\system32\sysprep` e execute sysprep.exe.
 
 
 4. 	A caixa de diálogo **Ferramenta de Preparação do Sistema** é aberta. Faça o seguinte:
@@ -69,12 +69,11 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
   **Observação: Quando você captura uma imagem de uma máquina virtual genérica, a máquina virtual é excluída.**
 
-	A nova imagem agora está disponível em **Imagens**.
-
-	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ A nova imagem agora está disponível em **Imagens**.
+ ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Próximas etapas##
-A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
+A imagem está pronta para ser usada como modelo para criar novas máquinas virtuais. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
 
 	
 [Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
@@ -89,4 +88,5 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [Digitar o nome da imagem]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Captura de imagem bem-sucedida]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Usar a imagem capturada]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

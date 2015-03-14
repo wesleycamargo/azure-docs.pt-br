@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tratar conflitos de dados offline nos Serviços Móveis (Windows Phone) | Centro de desenvolvimento de Serviços Móveis" 
 	description="Saiba como usar o manipulador de conflitos dos serviços móveis do Azure ao sincronizar dados offline em seu aplicativo para Windows Phone" 
 	documentationCenter="windows" 
@@ -226,7 +226,7 @@ Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedE
 [Baixar o projeto do Windows Phone]: #download-app
 [Criar o serviço móvel]: #create-service
 [Adicionar uma coluna de data de conclusão ao banco de dados]: #add-column
-[Atualizando o banco de dados de serviços móveis de back-end do .NET]: #dotnet-backend  
+[Atualizando o banco de dados para os serviços móveis de back-end do .NET]: #dotnet-backend  
 [Atualizando o banco de dados para os serviços móveis JavaScript]: #javascript-backend
 [Testar o aplicativo com um serviço móvel]: #test-app
 [Atualizar manualmente os dados no back-end para criar um conflito]: #handle-conflict
@@ -255,4 +255,4 @@ Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedE
 [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/
 
-\<!--HONumber=42-->
+<!--HONumber=42-->

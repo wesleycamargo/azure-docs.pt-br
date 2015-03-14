@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Autenticar seu aplicativo com logon único da biblioteca de autenticação do Active Directory(Windows Store) | Centro de desenvolvimento de Serviços Móveis" 
 	description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo da Windows Store." 
 	documentationCenter="windows" 
@@ -200,7 +200,7 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [Configurar o serviço móvel para exigir autenticação]: #require-authentication
 [Serviço móvel de back-end de JavaScript]: #javascript-authentication
 [Serviço móvel de back-end do .NET]: #dotnet-authentication
-[Adicionar código de autenticação ao aplicativo cliente]: #add-authentication-code
+[Adicionar o código de autenticação ao aplicativo do cliente]: #add-authentication-code
 [Testar o cliente usando autenticação]: #test-client
 
 <!-- Images -->
@@ -226,4 +226,5 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Painel do Centro de desenvolvimento do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
-\<!--HONumber=42-->
+
+<!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução às notificações por push (Android JavaScript) | Centro de desenvolvimento dos Serviços Móveis" 
 	description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo JavaScript do Android." 
 	services="mobile-services, notification-hubs" 
@@ -235,4 +235,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-android-send-breaking-news/
 [Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-android-send-localized-breaking-news/
 
-\<!--HONumber=42-->
+<!--HONumber=42-->
