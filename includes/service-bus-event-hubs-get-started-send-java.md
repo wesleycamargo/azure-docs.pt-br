@@ -92,4 +92,6 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png<!--HONumber=42-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+
+<!--HONumber=42-->
