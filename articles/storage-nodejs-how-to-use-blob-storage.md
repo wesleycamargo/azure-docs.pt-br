@@ -45,10 +45,10 @@ consulte as [Próximas etapas][].
 * [Como: Trabalhar com assinaturas de acesso compartilhado][]     
 * [Próximas etapas][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 ##<a name="create-account"></a>Criar uma conta de Armazenamento do Azure
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>Criar um aplicativo do Node.js
 

@@ -53,11 +53,11 @@ Após você clicar em **Concluir**, a Azure iniciará o processo de compilar e i
 
 2. Na página de gerenciamento **Painel**, role para baixo e clique no link à esquerda em **Url do Site** para abrir a página de boas-vindas do site.
 
-	![site URL][11] 
+
 
 3. Insira as informações de configuração apropriadas exigidas pelo WordPress e clique em **Instalar WordPress** para finalizar a configuração e abra a página de logon do site.
 
-	![login to WordPress][12]
+
 
 4. Faça logon no novo site do WordPress, inserindo o nome de usuário e a senha que você especificou na página de **Boas-vindas**.
 
@@ -76,7 +76,6 @@ Após você clicar em **Concluir**, a Azure iniciará o processo de compilar e i
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

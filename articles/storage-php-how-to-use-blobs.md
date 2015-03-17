@@ -36,11 +36,11 @@ Este guia mostra como executar cenários comuns usando o serviço Blob do Azure.
 * [Como: Excluir um contêiner de blob](#DeleteContainer)
 * [Próximas etapas](#NextSteps)
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 <h2><a id="CreateAccount"></a>Criar uma conta de armazenamento do Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-create-account-include.md)]
 
 <h2><a id="CreateApplication"></a>Criar um aplicativo PHP</h2>
 

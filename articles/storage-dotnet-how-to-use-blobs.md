@@ -37,9 +37,9 @@ Este guia demonstra como executar cenários comuns usando oServiço de armazenam
 -   [Como: Listar blobs em páginas de maneira assíncrona][]
 -   [Próximas etapas][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-create-account-include.md)]
 
 [AZURE.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 

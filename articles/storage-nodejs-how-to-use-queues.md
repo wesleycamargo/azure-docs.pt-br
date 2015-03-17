@@ -51,7 +51,7 @@ excluindo filas**. Para obter mais informações sobre filas, consulte a seção
 
 <h2><a name="create-account"></a>Criar uma conta de Armazenamento do Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"></a>Criar um aplicativo do Node.js
 

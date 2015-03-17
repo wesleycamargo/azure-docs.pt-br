@@ -43,7 +43,7 @@ Este guia mostrará como executar cenários comuns usando o serviço Tabela do A
 
 ##<a id="CreateAccount"></a>Criar uma conta de armazenamento do Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a id="CreateApplication"></a>Criar um aplicativo PHP
 

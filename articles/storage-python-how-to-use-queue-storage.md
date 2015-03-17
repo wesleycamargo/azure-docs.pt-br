@@ -39,7 +39,7 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 [AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>Criar uma conta de armazenamento do Azure
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 
 **Observação:** se você precisar instalar o Python ou as bibliotecas de cliente, consulte o [Guia de Instalação do Python](../python-how-to-install/) (a página pode estar em inglês).

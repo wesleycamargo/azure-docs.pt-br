@@ -42,7 +42,7 @@ Este guia mostra como executar cenários comuns usando o serviço Fila do Azure.
 
 <h2><a id="create-account"></a>Criar uma conta de armazenamento do Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 <h2><a id="create-app"></a>Criar um aplicativo PHP</h2>
 
