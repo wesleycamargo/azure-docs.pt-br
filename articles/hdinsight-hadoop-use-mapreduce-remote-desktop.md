@@ -30,9 +30,9 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cliente do Windows 7, 8 ou 10
 
-##<a id="connect"></a>Conectar com a área de trabalho remota
+##<a id="connect"></a>Conectar-se à área de trabalho remota
 
-Habilitar o Remote Desktop para o cluster HDInsight e conectá-lo seguindo as instruções em <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+Habilite a área de trabalho remota para o cluster HDInsight e conecte-o seguindo as instruções em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
 
 ##<a id="hadoop"></a>Usar o comando Hadoop
 
@@ -40,7 +40,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
 1. Na área de trabalho do HDInsight, inicie a **Linha de Comando do Hadoop**. Isso abrirá um novo prompt de comando no diretório **c:\apps\dist\hadoop-&lt;version number>**.
 
-	> [AZURE.NOTE] O número de versão muda à medida que o Hadoop é atualizado. A variável de ambiente **HADOOP_HOME** pode ser usada para localizar o caminho. Por exemplo, `cd %HADOOP_HOME%` irá alterar diretórios para o diretório Hadoop, sem a necessidade de saber o número da versão.
+	> [AZURE.NOTE] O número de versão muda à medida que o Hadoop é atualizado. A variável de ambiente **HADOOP_HOME** pode ser usada para localizar o caminho. Por exemplo, `cd %HADOOP_HOME%` vai alterar diretórios para o diretório Hadoop, sem a necessidade de saber o número de versão.
 
 2. Para usar o comando **Hadoop** para executar um trabalho MapReduce de exemplo, use o seguinte.
 
@@ -48,7 +48,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
 	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar** no diretório atual. Como entrada, ele usa o documento **wasb://example/data/gutenberg/davinci.txt** e a saída é armazenada **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="../hdinsight-use-mapreduce/">Usar o MapReduce no HDInsight Hadoop</a>.
+	> [AZURE.NOTE] Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="../hdinsight-use-mapreduce/">Usar o MapReduce no HDInsight Hadoop</a>.
 
 2. O trabalho emitirá detalhes conforme for processado, finalmente retornando informações semelhantes à seguinte quando o trabalho for concluído.
 
@@ -94,4 +94,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
 
 * [Usar o Pig com Hadoop no HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

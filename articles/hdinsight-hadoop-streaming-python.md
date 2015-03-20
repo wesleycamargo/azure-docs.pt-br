@@ -20,7 +20,7 @@
 
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapeamento e redução em outras linguagens além do Java. Nesse documento, você aprenderá como usar o Python para executar operações de MapReduce.
 
-> [AZURE.NOTE] Esse artigo se baseia em informações e exemplos publicados por Michael Noll em [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
+> [AZURE.NOTE] Este artigo se baseia em informações e exemplos publicados por Michael Noll em [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
 ##Requisitos
 
@@ -54,7 +54,7 @@ O Hadoop permite que você especifique um arquivo que contém o mapa e a lógica
 
 * **Formato de dados** - os dados consumidos e produzidos deve ser um par chave/valor, separado por um caractere de tabulação
 
-O Python pode facilmente atender a esses requisitos usando o módulo **sys** para ler do STDIN e **print** para imprimir para o STDOUT. O restante é simplesmente formatar os dados com um caractere de tabulação (`\t`) entre a chave e valor.
+O Python pode facilmente atender a esses requisitos usando o módulo **sys** para ler do STDIN e **print** para imprimir para o STDOUT. O restante é simplesmente formatar os dados com um caractere de tabulação (`\t`)  entre a chave e o valor.
 
 ##Criar o mapeador e redutor
 
@@ -139,7 +139,7 @@ No cliente, no mesmo diretório do **mapper.py** e **reducer.py**, use o seguint
 
 Isso copiará os arquivos do sistema local para o nó principal.
 
-> [AZURE.NOTE] Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
+> [AZURE.NOTE] Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo,`scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
 
 ##Executar o MapReduce
 
@@ -196,7 +196,7 @@ Isso deve exibir uma lista de palavras e quantas vezes a palavra ocorreu. A segu
 
 Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
-* [Usar o hive com o HDInsight](../hdinsight-use-hive/)
+* [Use o hive com o HDInsight](../hdinsight-use-hive/)
 * [Usar o Pig com o HDInsight](../hdinsight-use-pig/)
 * [Usar trabalhos MapReduce com o HDInsight](../hdinsight-use-mapreduce)
-<!--HONumber=45--> 
+<!--HONumber=47-->

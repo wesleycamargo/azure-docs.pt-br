@@ -16,11 +16,11 @@
 	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
-# Como: Verificar o andamento do trabalho
+#Como: Verificar o andamento do trabalho
 
-Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](../media-services-video-on-demand-workflow). 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
 
-## Usar o Portal para verificar o status do trabalho
+##Usar o Portal para verificar o status do trabalho
 
 1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e clique no nome da conta de Serviços de Mídia.
 2. Selecione a página **TRABALHOS**. 
@@ -29,11 +29,11 @@ Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de tr
 
 	![CheckStatus][checkstatus]
 
-## Próxima etapa
+##Próxima etapa
 
-Publicar seu conteúdo. Para obter mais informações, consulte [Como: Codificar um ativo](../media-services-manage-content#publish). 
+Publicar seu conteúdo. Para obter mais informações, consulte [Como: codificar um ativo](../media-services-manage-content#publish). 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -16,10 +16,10 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-# Como: Configurar políticas de entrega de ativos
+#Como: Configurar políticas de entrega de ativos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow). 
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
 
 Uma das etapas do fluxo de trabalho de fornecimento de conteúdo de serviços de mídia está configurando políticas de entrega de ativos que você deseja que sejam transmitidas. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum). 
 
@@ -53,19 +53,19 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [criar uma URL de transmissão](../media-services-deliver-streaming-content).
+Para obter instruções sobre como publicar um ativo e compilar uma URL de streaming, consulte [Criar uma URL de streaming](../media-services-deliver-streaming-content).
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos serviços de mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
 
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
 
 
-## Política de entrega de ativos clara 
+##Política de entrega de ativos clara 
 
-### <a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
-A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica para não aplicar criptografia dinâmica e entregar o fluxo em qualquer um dos seguintes protocolos.  Protocolos de Smooth Streaming, HLS e MPEG DASH. 
+###<a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
+A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica para não aplicar criptografia dinâmica e entregar o fluxo em qualquer um dos seguintes protocolos:  Protocolos de Smooth Streaming, HLS e MPEG DASH. 
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte o [tipos usados ao definir AssetDeliveryPolicy](#types) .   
 
@@ -114,7 +114,7 @@ Resposta:
 	"Created":"2015-02-08T06:21:27.6908329Z",
 	"LastModified":"2015-02-08T06:21:27.6908329Z"}
 	
-### <a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos
+###<a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos
 
 A seguinte solicitação HTTP vincula o ativo especificado na política de entrega de ativos.
 
@@ -138,14 +138,14 @@ Resposta:
 	HTTP/1.1 204 No Content
 
 
-## Política de entrega de ativos DynamicEnvelopeEncryption 
+##Política de entrega de ativos DynamicEnvelopeEncryption 
 
-### Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo
+###Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo
 
 Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-rest-create-contentkey)).
 
 
-### <a id="get_delivery_url"></a>Obter URL de entrega
+###<a id="get_delivery_url"></a>Obter URL de entrega
 
 Obter a URL de entrega para o método de entrega especificado da chave de conteúdo criado na etapa anterior. Um cliente usa a URL retornada para solicitar uma chave AES ou uma licença PlayReady a fim de reproduzir o conteúdo protegido.
 
@@ -184,7 +184,7 @@ Resposta:
 	{"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### Criar política de entrega de ativos
+###Criar política de entrega de ativos
 
 A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para o protocolo **HLS** (neste exemplo, outros protocolos serão impedidos de streaming). 
 
@@ -227,22 +227,22 @@ Resposta:
 	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### Ativos de link com a política de entrega de ativos
+###Ativos de link com a política de entrega de ativos
 
 Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
 
-## Política de entrega de ativos DynamicCommonEncryption 
+##Política de entrega de ativos DynamicCommonEncryption 
 
-### Cria chave de conteúdo do tipo CommonEncryption e a vincule ao ativo
+###Cria chave de conteúdo do tipo CommonEncryption e a vincule ao ativo
 
 Ao especificar a política de entrega DynamicCommonEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption. Para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-rest-create-contentkey)).
 
 
-### Obter URL de entrega
+###Obter URL de entrega
 
 Obter a URL de entrega para o método de entrega PlayReady da chave de conteúdo criada na etapa anterior. Um cliente usa a URL retornada para solicitar uma licença do PlayReady a fim de reproduzir o conteúdo protegido. Para obter mais informações, consulte [Obter a URL de entrega](#get_delivery_url).
 
-### Criar política de entrega de ativos
+###Criar política de entrega de ativos
 
 A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) para o protocolo **Smooth Streaming** (neste exemplo, outros protocolos serão impedidos de streaming). 
 
@@ -266,14 +266,14 @@ Solicitação:
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-### Ativos de link com a política de entrega de ativos
+###Ativos de link com a política de entrega de ativos
 
 Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
 
 
-## <a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
+##<a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
 
-### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+###AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -312,7 +312,7 @@ Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_
         All = 0xFFFF
     }
 
-### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+###AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -346,7 +346,7 @@ Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_
         DynamicCommonEncryption
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -369,7 +369,7 @@ Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_
         BaselineHttp
     }
 
-### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+###AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -412,4 +412,4 @@ Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_
         EnvelopeEncryptionIV,
     }
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

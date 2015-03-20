@@ -20,7 +20,7 @@
 
 Clusters de HDInsight baseados em Linux oferecem a opção de proteção de acesso do SSH usando uma senha ou uma chave SSH. Esse documento fornece informações sobre como se conectar ao HDInsight de clientes do Windows usando o cliente SSH PuTTY.
 
-> [AZURE.NOTE] As etapas neste artigo presumem que você esteja usando um cliente do Windows. Se você estiver usando um cliente Linux, Unix ou OS X, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X](/pt-br/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [AZURE.NOTE] As etapas neste artigo presumem que você esteja usando um cliente do Windows. Se você estiver usando um cliente Linux, Unix ou OS X, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
 
 ##Pré-requisitos
 
@@ -78,7 +78,7 @@ Ao criar um cluster HDInsight baseado em Linux, você deve fornecer a **chave p�
 
 * **Interface de linha de comando entre plataformas do Azure (xplat-cli)** - usa comandos da linha de comando para criar o cluster
 
-Cada um desses métodos exigirá a **chave pública**. Para obter mais informações sobre como criar um cluster HDInsight baseado em Linux, consulte <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar os clusters HDInsight baseados em Linux</a>.
+Cada um desses métodos exigirá a **chave pública**. Para obter mais informações sobre como criar um cluster HDInsight baseado em Linux, consulte <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar clusters HDInsight baseados em Linux</a>.
 
 ###Portal de Gerenciamento do Azure
 
@@ -90,9 +90,9 @@ Isso cria um logon para o usuário especificado e permite a autenticação de se
 
 ###Interface de Linha de Comando de Plataforma Cruzada do Azure
 
-Você pode usar as instruções <a href="../xplat-cli/" target="_brad">Interface de Linha de Comando de Plataforma Cruzada do Azure</a>, para criar um novo cluster usando o comando  `azure hdinsight cluzter create`.
+Você pode usar a <a href="../xplat-cli/" target="_brad">Interface de linha de comando entre plataformas do Azure</a> para criar um novo cluster usando o comando  `azure hdinsight cluzter create`.
 
-Para obter mais informações sobre como usar esse comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar cluster Linux Hadoop no HDInsight usando opções personalizadas</a>
+Para saber mais sobre o uso deste comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar clusters Linux do Hadoop no HDInsight usando opções personalizadas</a>
 
 ##<a id="connect"></a>Conectar-se a um cluster HDInsight baseado em Linux
 
@@ -176,11 +176,11 @@ Use as seguintes etapas para criar um túnel SSH e configurar seu navegador para
 
 	> [AZURE.NOTE] Selecionar **DNS Remoto** resolverá solicitações DNS usando o cluster HDInsight. Se não selecionado, o DNS será resolvido localmente.
 
-	Você pode verificar se o tráfego está sendo roteado através do túnel visualizando um site, como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> com as configurações de proxy habilitadas e desabilitadas no Firefox. Quando habilitada, o endereço IP será para uma máquina no datacenter do Microsoft Azure.
+	Você pode garantir que o tráfego esteja sendo encaminhado por meio do túnel visitando um site como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a>, com as configurações de proxy habilitadas e desabilitadas no Firefox. Quando habilitada, o endereço IP será para uma máquina no datacenter do Microsoft Azure.
 
 ###Extensões do navegador
 
-Embora configurar o navegador para usar o túnel funcione, geralmente não deseja encaminhar todo o tráfego através do túnel. Extensões do navegador, como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  oferecem suporte padrão de correspondência para solicitações de URL (apenas FoxyProxy Standard ou Plus) para que somente as solicitações para URLs específicas sejam enviadas através do túnel.
+Embora configurar o navegador para usar o túnel funcione, geralmente não deseja encaminhar todo o tráfego através do túnel. Extensões de navegador como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> dão suporte padrão de correspondência para solicitações de URL (apenas FoxyProxy Standard ou Plus) para que somente as solicitações de URLs específicas sejam enviadas através do túnel.
 
 Se você tiver instalado o **FoxyProxy Standard**, use as seguintes etapas para configurá-lo para encaminhar o tráfego apenas para HDInsight pelo túnel.
 
@@ -208,7 +208,7 @@ Se você tiver instalado o **FoxyProxy Standard**, use as seguintes etapas para 
 
 	* **Nome do Padrão** - **headnode** - isso é apenas um nome amigável para o padrão
 
-	* **Padrão de URL** - **\*headnode\*** - isso define um padrão que corresponde a qualquer URL com a palavra **headnode** nela.
+	* **Padrão de URL** - **\*headnode\*** - define um padrão que corresponde a qualquer URL com a palavra **headnode** nela.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-windows/foxypattern.png)
 
@@ -224,10 +224,10 @@ Após seguir essas etapas, somente as solicitações de URLs que contêm a cadei
 
 Agora que você entende como autenticar usando uma chave SSH, aprenda a usar o MapReduce com Hadoop no HDInsight.
 
-* [Usar o hive com o HDInsight](../hdinsight-use-hive/)
+* [Use o hive com o HDInsight](../hdinsight-use-hive/)
 
 * [Usar o Pig com o HDInsight](../hdinsight-use-pig/)
 
 * [Usar trabalhos MapReduce com o HDInsight](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -66,7 +66,7 @@ A operação de dimensionamento do cluster não tem suporte para clusters de tip
 
 * Somente clusters com um HDInsight versão 3.1.3 ou superior são suportados. Se você não tiver certeza da versão do seu cluster, é possível verificar a versão do cluster no Portal do Azure clicando no nome do cluster HDInsight ou executando o comando  `Get-AzureHDInsightCluster -name <clustername>` no PowerShell do Azure.
 
-* O PowerShell do Azure versão 0.8.14 ou superior é necessário para executar a operação do PowerShell. Você pode baixar a versão mais recente do PowerShell na seção de ferramentas de linha de comando no site [Downloads do Azure](http://azure.microsoft.com/ downloads/). Você pode verificar a versão do PowerShell do Azure que estiver instalada com o seguinte comando em uma janela do PowerShell: `(get-module Azure).Version`
+* O PowerShell do Azure versão 0.8.14 ou superior é necessário para executar a operação do PowerShell. Você pode baixar a versão mais recente do PowerShell na seção de ferramentas de linha de comando no site [Downloads do Azure](http://azure.microsoft.com/downloads/). Você pode verificar a versão do PowerShell do Azure que estiver instalada com o seguinte comando em uma janela do PowerShell: `(get-module Azure).Version`
 
 ## Como usar o dimensionamento de cluster
 
@@ -140,5 +140,5 @@ Aqui está alguns exemplos de código que mostra como usar a versão síncrona d
 	}
 
 
-Consulte o tópico [Provisionar clusters Hadoop no HDInsight usando opções de personalização](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/) para obter mais informações sobre como usar o SDK do .NET do HDInsight.
-<!--HONumber=45--> 
+Consulte o tópico [Provisionar clusters Hadoop no HDInsight usando opções de personalização](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/) para obter mais informações sobre como usar o SDK do .NET do HDInsight.
+<!--HONumber=47-->

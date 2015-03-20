@@ -22,7 +22,7 @@
 
 Nesse artigo, você aprenderá como usar o SSH para se conectar a um Hadoop no cluster HDInsight e enviar trabalhos MapReduce usando o comando Hadoop.
 
-> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux</a>.
+> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux</a>.
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -48,9 +48,9 @@ Conecte-se com o nome de domínio totalmente qualificado (FQDN) do cluster HDIns
 
 O Windows não fornece um cliente SSH integrado. É recomendável usar **Putty**, que pode ser baixado em <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
-Para obter mais informações sobre como usar Putty, consulte a seção **Usar Putty para conectar-se a um computador Linux** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
+Para obter mais informações sobre como usar Putty, consulte a seção **Usar Putty para conectar-se a um computador Linux** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
 
-> [AZURE.NOTE] Se você usou um certificado para autenticação de SSH para o cluster HDInsight, você também precisará ver a seção **Criar um PPK para Putty** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>
+> [AZURE.NOTE] Se você tiver usado um certificado para autenticação de SSH para o cluster HDInsight, também precisará ver a seção **Criar um PPK para Putty** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>
 
 ##<a id="hadoop"></a>Usar o comando Hadoop
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre como usar Putty, consulte a seção **Usar P
 
 	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o documento **wasb://example/data/gutenberg/davinci.txt** e a saída é armazenada **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="../hdinsight-use-mapreduce/" target="_blank">Usar o MapReduce no Hadoop do HDInsight</a>.
+	> [AZURE.NOTE] Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="../hdinsight-use-mapreduce/" target="_blank">Usar o MapReduce no Hadoop no HDInsight</a>.
 
 2. O trabalho emitirá detalhes conforme for processado, finalmente retornando informações semelhantes à seguinte quando o trabalho for concluído.
 
@@ -106,4 +106,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
 
 * [Usar o Pig com Hadoop no HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

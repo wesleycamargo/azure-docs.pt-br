@@ -1,4 +1,4 @@
-﻿
+
 O APNS (Serviço de Notificação por Push da Apple) usa certificados para autenticar seu serviço móvel. Siga estas instruções para criar os certificados necessários e carregá-los no seu Serviço Móvel. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 ## <a id="certificates"></a>Gerar o arquivo de Solicitação de Assinatura de Certificado
@@ -33,9 +33,9 @@ Para poder enviar notificações por push para um aplicativo iOS dos serviços m
 
 
 
-> [AZURE.NOTE] Se você optar por fornecer um <strong>identificador de pacote</strong> com valor diferente de <i>mobileservices. QuickStart</i>, você deve também atualizar o valor do identificador de pacote em seu projeto Xcode. É recomendável que você use o valor exato do identificador de pacote já usado no seu projeto de início rápido.
+> [AZURE.NOTE] Se você optar por fornecer um <strong>identificador de pacote</strong> com valor diferente de <i>MobileServices.Quickstart</i>, você deve também atualizar o valor do identificador de pacote em seu projeto Xcode. É recomendável que você use o valor exato do identificador de pacote já usado no seu projeto de início rápido.
 
-2. Digite um nome para o seu aplicativo em **Descrição**, insira o valor MobileServices.Quickstart em **Identificador de Pacote**, marque a opção "Notificações por Push" na seção "Serviços de Aplicativo" e depois clique em **Continuar**. Este exemplo usa a ID **MobileServices.Quickstart**, mas você não pode reutilizar essa mesma ID, pois as IDs de aplicativo devem ser exclusivas para todos os usuários. Portanto, recomenda-se acrescentar o nome completo ou as iniciais após o nome do aplicativo.
+2. Digite um nome para o seu aplicativo em **Descrição**, insira o valor _MobileServices.Quickstart_ em **Identificador de Pacote**, marque a opção "Notificações por Push" na seção "Serviços de Aplicativo" e depois clique em **Continuar**. Este exemplo usa a ID **MobileServices.Quickstart**, mas você não pode reutilizar essa mesma ID, pois as IDs de aplicativo devem ser exclusivas para todos os usuários. Portanto, recomenda-se acrescentar o nome completo ou as iniciais após o nome do aplicativo.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
@@ -129,4 +129,5 @@ Posteriormente, você usará esse certificado para gerar um arquivo. p12 e carre
 9. Em **Destinos**, clique em **Quickstart**, expanda **Identidade de Assinatura de Código** e, em seguida, selecione o novo perfil em **Depurar**. Isso garantirá que o projeto Xcode use o novo perfil para a assinatura de código. Em seguida, carregue o certificado no Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-<!--HONumber=42-->
+
+<!--HONumber=47-->

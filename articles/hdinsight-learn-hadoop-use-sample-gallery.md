@@ -16,7 +16,7 @@
    ms.date="1/29/2015" 
    ms.author="jgao"/>
 
-# Saiba mais sobre o Hadoop no HDInsight usando a Galeria de Introdução do HDInsight
+# Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight
 
 A Galeria de Introdução do HDInsight fornece uma maneira fácil e rápida de executar aplicativos de exemplo do Hadoop no HDInsight. Alguns dos exemplos vêm com dados de exemplo. Você pode fornecer seus próprios dados para o restante dos exemplos. Atualmente, há 6 amostras, com mais em breve:
 
@@ -62,4 +62,4 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [hdinsight.learning.map]: ../hdinsight-learning-map/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

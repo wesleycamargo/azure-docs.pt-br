@@ -28,19 +28,19 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster do Azure HDInsight (Hadoop no HDInsight) (Windows ou Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">PowerShell do Azure</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">PowerShell do Azure</a>
 
 ##<a id="powershell"></a>Executar um trabalho MapReduce usando o PowerShell
 
-O PowerShell do Azure fornece  *cmdlets* que lhe permite executar remotamente trabalhos MapReduce no HDInsight. Internamente, isso é feito através de chamadas REST para <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente chamado de Templeton,) em execução no cluster do HDInsight.
+O PowerShell do Azure fornece  *cmdlets* que permitem executar remotamente trabalhos MapReduce no HDInsight. Internamente, isso é feito por meio de chamadas REST para <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente chamado de Templeton) em execução no cluster HDInsight.
 
 Os seguintes cmdlets são usados ao executar trabalhos MapReduce em um cluster HDInsight remoto.
 
 * **Add-AzureAccount** - Autentica o PowerShell para sua assinatura do Azure
 
-* **New-AzureHDInsightMapReduceJobDefinition** - Cria um novo  *job definition* usando as informações especificadas do MapReduce
+* **New-AzureHDInsightMapReduceJobDefinition** - Cria um novo *job definition* usando as informações especificadas de MapReduce
 
-* **Start-AzureHDInsightJob** - Envia a definição do para o no HDInsight, inicia o trabalho e retorna um objeto  *job* que pode ser usado para verificar o status do trabalho
+* **Start-AzureHDInsightJob** - Envia a definição do trabalho no HDInsight, inicia o trabalho e retorna um objeto  *job* que pode ser usado para verificar o status do trabalho
 
 * **Wait-AzureHDInsightJob** - Usa o objeto de trabalho para verificar o status do trabalho. Ele aguardará até que o trabalho seja concluído ou o tempo de espera seja excedido
 
@@ -141,9 +141,9 @@ O exemplo a seguir recuperar as informações de armazenamento e baixa a saída 
 		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
 		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
 
-> [AZURE.NOTE] Esse exemplo armazenará os arquivos baixados na pasta  **example/data/WordCountOutput** no diretório que você executa o script.
+> [AZURE.NOTE] Este exemplo armazenará os arquivos baixados para a pasta **exemplo/data/WordCountOutput** no diretório do qual você executa o script.
 
-A saída do trabalho MapReduce é armazenada em arquivos com o nome  *part-r-#####*. Abra o arquivo **example/data/WordCountOutput/part-r-00000** em um editor de texto para ver as palavras e contagens produzidas pelo trabalho.
+A saída do trabalho MapReduce é armazenada em arquivos com o nome *part-r-#####*. Abra o arquivo **example/data/WordCountOutput/part-r-00000** em um editor de texto para ver as palavras e contagens produzidas pelo trabalho.
 
 > [AZURE.NOTE] Os arquivos de saída de um trabalho MapReduce são imutáveis. Portanto, se você executar esse exemplo novamente, será necessário alterar o nome do arquivo de saída.
 
@@ -172,4 +172,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
 
 * [Usar o Pig com Hadoop no HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

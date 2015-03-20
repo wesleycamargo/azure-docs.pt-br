@@ -36,7 +36,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 Para autenticar o aplicativo no Azure HDInsight, você deve criar um certificado autoassinado, instalá-lo em sua estação de trabalho de desenvolvimento e também carregá-lo em sua assinatura do Azure.
 
-Para obter instruções sobre como fazer isso, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Crie um certificado autoassinado</a>.
+Para obter instruções sobre como fazer isso, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Criar um certificado autoassinado</a>.
 
 > [AZURE.NOTE] Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
 
@@ -44,7 +44,7 @@ Para obter instruções sobre como fazer isso, consulte <a href="http://go.micro
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
-1. Visite o <a href="https://manage.windowsazure.com/" target="_blank">Console de Gerenciamento do Azure</a>.
+1. Visite o <a href="https://manage.windowsazure.com/" target="_blank">Console de gerenciamento do Azure</a>.
 
 2. Na barra à esquerda do portal, selecione **Configurações**.
 
@@ -229,4 +229,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

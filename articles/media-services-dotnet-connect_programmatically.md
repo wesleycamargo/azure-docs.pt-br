@@ -19,7 +19,7 @@
 
 # Conectando-se a conta dos serviços de mídia usando o SDK dos serviços de mídia para .NET
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow)  e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow). 
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
 
 Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o SDK dos serviços de mídia para .NET.
 
@@ -61,9 +61,9 @@ O exemplo a seguir usa o construtor CloudMediaContext(credenciais MediaServicesC
 Esta seção mostra como reutilizar tokens do serviço de controle de acesso usando os construtores de CloudMediaContext que usam MediaServicesCredentials como um parâmetro.
 
 
-O [Controle de acesso do Active Directory do Azure](https://msdn.microsoft.com/pt-br/library/hh147631.aspx) (também conhecido como Serviço de controle de acesso ou ACS) é um serviço baseado em nuvem que fornece uma maneira fácil de autenticar e autorizar os usuários para ganhar acesso a seus aplicativos Web. Os serviços de mídia do Microsoft Azure controla o acesso a seus serviços embora o protocolo OAuth que requer um token ACS. Os serviços de mídia recebem os tokens ACS de um servidor de autorização.
+O [Controle de acesso do Active Directory do Azure](https://msdn.microsoft.com/library/hh147631.aspx) (também conhecido como Serviço de controle de acesso ou ACS) é um serviço baseado em nuvem que fornece uma maneira fácil de autenticar e autorizar os usuários para ganhar acesso a seus aplicativos Web. Os serviços de mídia do Microsoft Azure controla o acesso a seus serviços embora o protocolo OAuth que requer um token ACS. Os serviços de mídia recebem os tokens ACS de um servidor de autorização.
 
-Ao desenvolver com o SDK dos serviços de mídia, você pode optar por não lidar com tokens, porque o código do SDK o gerencia pra você. No entanto, permitir que o SDK gerencie completamente os tokens ACS leva a solicitações de token desnecessárias. Solicitar tokens leva tempo e consome os recursos de cliente e servidor. Além disso, o servidor ACS acelera as solicitações se a taxa for muito alta. O limite é de 30 solicitações por segundo, consulte [Limitações de serviço ACS](https://msdn.microsoft.com/pt-br/library/gg185909.aspx) para obter mais detalhes.
+Ao desenvolver com o SDK dos serviços de mídia, você pode optar por não lidar com tokens, porque o código do SDK o gerencia pra você. No entanto, permitir que o SDK gerencie completamente os tokens ACS leva a solicitações de token desnecessárias. Solicitar tokens leva tempo e consome os recursos de cliente e servidor. Além disso, o servidor ACS acelera as solicitações se a taxa for muito alta. O limite é de 30 solicitações por segundo, consulte [Limitações de serviço ACS](https://msdn.microsoft.com/library/gg185909.aspx) para obter mais detalhes.
 
 Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível reutilizar os tokens ACS. Os construtores do **CloudMediaContext** que usam **MediaServicesCredentials** como um parâmetro habilitam o compartilhamento de tokens ACS entre vários contextos. A classe MediaServicesCredentials encapsula as credenciais de serviços de mídia. Se um token ACS está disponível e seu tempo de expiração é conhecido, você pode criar uma nova instância de MediaServicesCredentials com o token e passá-la para o construtor do CloudMediaContext. Observe que o SDK dos serviços de mídia atualiza automaticamente os tokens assim que eles expiram. Há duas maneiras de reutilizar os tokens ACS, conforme mostrado nos exemplos a seguir.
 
@@ -99,7 +99,7 @@ Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível re
 		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
-	Use the saved token values to create MediaServicesCredentials.
+	Use os valores do token salvos para criar MediaServicesCredentials.
 
 
 		var accessToken = "";
@@ -117,7 +117,7 @@ Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível re
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	Update the token copy in case the token was updated by the Media Services SDK. 
+	Atualize a cópia do token caso o token tenha sido atualizado pelo SDK dos Serviços de Mídia. 
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -166,7 +166,7 @@ Por exemplo:
 
 ## Armazenando valores de conexão na configuração
 
-É uma prática altamente recomendável armazenar valores de conexão, especialmente valores confidenciais como seu nome de conta e senha, na configuração. Além disso, é uma prática recomendada criptografar dados de configuração confidenciais. Você pode criptografar o arquivo de configuração inteiro usando o sistema de arquivos com criptografia (EFS) do Windows. Para habilitar o EFS em um arquivo, clique com o botão direito do mouse no arquivo, selecione **Propriedades**e habilite a criptografia na guia de configurações **Avançadas**. Ou você pode criar uma solução personalizada para criptografar as partes selecionadas de um arquivo de configuração usando a configuração protegida. Consulte [Criptografando informações de configuração usando configuração protegida](https://msdn.microsoft.com/pt-br/library/53tyfkaw.aspx).
+É uma prática altamente recomendável armazenar valores de conexão, especialmente valores confidenciais como seu nome de conta e senha, na configuração. Além disso, é uma prática recomendada criptografar dados de configuração confidenciais. Você pode criptografar o arquivo de configuração inteiro usando o sistema de arquivos com criptografia (EFS) do Windows. Para habilitar o EFS em um arquivo, clique com o botão direito do mouse no arquivo, selecione **Propriedades**e habilite a criptografia na guia de configurações **Avançadas**. Ou você pode criar uma solução personalizada para criptografar as partes selecionadas de um arquivo de configuração usando a configuração protegida. Consulte [Criptografando informações de configuração usando configuração protegida](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
 O arquivo App.config a seguir contém os valores de conexão necessárias. Os valores no elemento <appSettings> são os valores necessários que você obteve do processo de configuração de conta dos serviços de mídia.
 
@@ -191,4 +191,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

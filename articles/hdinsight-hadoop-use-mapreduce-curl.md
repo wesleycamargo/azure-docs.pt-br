@@ -24,7 +24,7 @@ Neste documento, você aprenderá como usar o Curl para executar trabalhos MapRe
 
 O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar trabalhos MapReduce. Isso funciona usando a API REST do WebHCat (anteriormente conhecido como Templeton) fornecida pelo seu cluster HDInsight.
 
-> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre Hadoop baseado em Linux no HDInsight</a>.
+> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre Hadoop baseado em Linux no HDInsight</a>.
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
 
-##<a id="curl"></a>Executar trabalhos MapReduce usando o Curl
+##<a id="curl"></a>Executar trabalhos MapReduce usando Curl
 
 > [AZURE.NOTE] Ao usar o Curl ou quaisquer outras comunicações do REST com WebHCat, deve autenticar as solicitações fornecendo o nome de usuário de administrador de cluster HDInsight e a senha. Você também deve usar o nome do cluster como parte do URI usado para enviar as solicitações para o servidor.
 > 
@@ -57,7 +57,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
     * **-u** - o nome de usuário e a senha usada para autenticar a solicitação
     * **-G** - indica que se trata de uma solicitação GET
 
-    O início do URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. 
+    O início da URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. 
 
 2. Para enviar um trabalho MapReduce, use o seguinte.
 
@@ -65,7 +65,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
     O final do URI (/mapreduce/jar) informa o WebHCat que essa solicitação iniciará um trabalho MapReduce de uma classe em um arquivo jar. Os parâmetros usados nesse comando são os seguintes.
 
-	* **-d** - como `- G` não é usado, a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação
+	* **-d** - since `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação
 
         * **user.name** - o usuário que está executando o comando
         * **jar** - o local do arquivo jar que contém a classe para ser executada
@@ -76,7 +76,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
         {"id":"job_1415651640909_0026"}
 
-3. Para verificar o status do trabalho, use o comando a seguir. Substitua o **JOBID** com o valor retornado na etapa anterior. Por exemplo, se o valor de retorno foi `{"id":"job_1415651640909_0026"}`, o JOBID será `job_1415651640909_0026`.
+3. Para verificar o status do trabalho, use o comando a seguir. Substitua o **JOBID** com o valor retornado na etapa anterior. Por exemplo, se o valor retornado foi `{"id":"job_1415651640909_0026"}`, JOBID será `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
@@ -86,7 +86,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de BLOBs do Azure. O parâmetro  `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **wasb:///example/curl**. Esse endereço armazena a saída do trabalho no diretório **example/curl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
 
-Você pode listar e baixar esses arquivos usando a <a href="../xplat-cli/" target="_blank">Interface de Linha de Comando de Plataforma Cruzada do Azure (xplat-cli)</a>. Por exemplo, para listar arquivos no **example/curl**, use o seguinte comando.
+Você pode listar e baixar esses arquivos usando a <a href="../xplat-cli/" target="_blank">Interface de linha de comando entre plataformas do Azure (xplat-cli)</a>. Por exemplo, para listar arquivos no **example/curl**, use o seguinte comando.
 
 	azure storage blob list <container-name> example/curl
 
@@ -94,13 +94,13 @@ Para baixar um arquivo, use o seguinte.
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE] Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k` ou definir as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte <a href="../hdinsight-upload-data/" target="_blank" for more information.
+> [AZURE.NOTE] Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros '-a' e '-k' ou definir as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte <a href="../hdinsight-upload-data/" target="_blank" para obter mais informações.
 
 ##<a id="summary"></a>Resumo
 
 Conforme demonstrado nesse documento, você pode usar a solicitação HTTP bruta para executar, monitorar e exibir os resultados de trabalhos do Hive no cluster do HDInsight.
 
-Para obter mais informações sobre a interface REST usada nesse artigo, consulte a [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Para obter mais informações sobre a interface REST usada neste artigo, consulte a [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
 
 ##<a id="nextsteps"></a>Próximas etapas
 
@@ -113,4 +113,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
 
 * [Usar o Pig com Hadoop no HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

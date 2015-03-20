@@ -19,7 +19,7 @@
 
 # Conectando-se a conta dos serviços de mídia usando a API REST dos serviços de mídia
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
 
 Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o API REST dos serviços de mídia.
 
@@ -30,7 +30,7 @@ As etapas a seguir descrevem o fluxo de trabalho mais comuns ao usar a API REST 
 1. Obtendo um token de acesso 
 2. Conectando o URI dos serviços de mídia 
 
-	>[AZURE.NOTE] Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
+	>[AZURE.NOTE] Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 	Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 
 3. Poste suas chamadas de API subsequentes para a nova URL. 
@@ -42,7 +42,7 @@ As etapas a seguir descrevem o fluxo de trabalho mais comuns ao usar a API REST 
 
 	Você deve postar suas chamadas de API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-## Obtendo um token de acesso
+##Obtendo um token de acesso
 
 Para acessar os serviços de mídia diretamente por meio da API REST, recupere um token de acesso do ACS e use-o durante todas as solicitações HTTP feitas no serviço. Esse token é semelhante aos outros tokens fornecidos pelo ACS com base nas declarações de acesso fornecidas no cabeçalho de uma solicitação HTTP e usando o protocolo OAuth v2. Não é necessário qualquer outro pré-requisito antes de conectar-se diretamente aos serviços de mídia.
 
@@ -99,11 +99,11 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 
 Certifique-se de monitorar o valor "expires_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
-### Conectando o URI dos serviços de mídia
+###Conectando o URI dos serviços de mídia
 
 O URI raiz para os serviços de mídia é https://media.windows.net/. Inicialmente, você deve se conectar a esse URI, e se você obtiver um redirecionamento 301 em resposta, você deve fazer chamadas subsequentes para o novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados para o novo URI.
 
-Observe que o URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/ onde o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de serviços de mídia.
+Observe que o URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/, em que o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de serviços de mídia.
 
 O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos serviços de mídia(https://media.windows.net/). A solicitação obtém um redirecionamento 301 em resposta. A solicitação subsequente está usando o novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
@@ -169,4 +169,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos serviços 
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

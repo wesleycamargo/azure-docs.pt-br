@@ -24,7 +24,7 @@ Aprenda a usar o Ambari para gerenciar e monitorar clusters HDInsight baseados e
 
 ##<a id="whatis"></a>O que é Ambari?
 
-<a href="http://ambari.apache.org" target="_blank">O Apache Ambari</a> torna o gerenciamento do Hadoop mais simples, fornecendo uma interface fácil de utilizar que pode ser usada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar esses recursos em seus aplicativos usando as <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">APIs REST do Ambari</a>. 
+<a href="http://ambari.apache.org" target="_blank">O Apache Ambari</a> torna o gerenciamento do Hadoop mais simples, fornecendo uma interface fácil de utilizar que pode ser usada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar esses recursos em seus aplicativos usando os <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">APIs REST do Ambari</a>. 
 
 Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux. Clusters HDInsight baseados no Windows fornecem funcionalidade de monitoramento através das APIs REST do Ambari.
 
@@ -34,9 +34,9 @@ Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux. Clu
 
 Para resolver esse problema, use um túnel SSH para tráfego da Web do proxy para o nó principal do cluster, que pode resolver os nomes de domínio interno com êxito. Use os artigos a seguir para criar um túnel SSH de uma porta no computador local para o cluster.
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X</a> - etapas sobre como criar um túnel SSH usando o comando  `ssh`
+* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio de OS X, Unix ou Linux</a> -etapas sobre como criar um túnel SSH usando o comando `ssh`
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight do Windows</a> - etapas sobre como usar o PuTTy para criar um túnel SSH
+* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows</a> - etapas do uso do PuTTY para criar um túnel SSH
 
 ##Interface da Web do Ambari
 
@@ -144,9 +144,9 @@ A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, 
 > 
 > Para obter informações sobre como usar um túnel SSL com o HDInsight, consulte um desses procedimentos.
 > 
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X</a> - etapas sobre como criar um túnel SSH usando o comando  `ssh`
+> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio de OS X, Unix ou Linux</a> -etapas sobre como criar um túnel SSH usando o comando `ssh`
 >
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight do Windows</a> - etapas sobre como usar o Putty para criar um túnel SSH
+>* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows</a> - etapas do uso do Putty para criar um túnel SSH
 
 ###Gerenciamento
 
@@ -190,7 +190,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 
 		> [AZURE.NOTE] Não use essa ação em clusters HDInsight
 
-####<a id="service"></a>Acesso
+####<a id="service"></a>Serviço
 
 Na página **Painel** ou **Serviços**, use o botão **Ações** na parte inferior da lista de serviços para **adicionar** novos serviços ou **parar** e **iniciar** todos os serviços.
 
@@ -254,4 +254,4 @@ Ambari Web se baseia em uma API REST subjacente, que você pode aproveitar para 
 Para obter uma referência completa da API REST, consulte [V1 de referência da API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

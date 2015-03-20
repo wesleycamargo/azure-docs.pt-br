@@ -26,7 +26,7 @@ O nome de domínio totalmente qualificado (FQDN) para usar ao se conectar ao clu
 
 ##Serviços acessíveis remotamente
 
-* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
+* **Ambari (Web)** - https://&lt;clustername>.azurehdinsight.net
 
 	> [AZURE.NOTE] Autenticar usando o usuário do administrador de cluster e a senha e fazer o logon para Ambari. Isso também utiliza o usuário do administrador de cluster e a senha
 	> 
@@ -36,9 +36,9 @@ O nome de domínio totalmente qualificado (FQDN) para usar ao se conectar ao clu
 
 	Para resolver esse problema, use um túnel SSH para tráfego do proxy da Web para o nó principal do cluster. Use os artigos a seguir para criar um túnel SSH de uma porta no computador local para o cluster.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X</a> - etapas sobre como criar um túnel de SSH usando o comando  `ssh`
+	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Linux, Unix ou OS X</a> - etapas para a criação de um túnel SSH usando o comando  `ssh`
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight do Windows</a> - etapas sobre como usar o Putty para criar um túnel SSH
+	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows</a> - etapas do uso do Putty para criar um túnel SSH
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -60,7 +60,7 @@ O nome de domínio totalmente qualificado (FQDN) para usar ao se conectar ao clu
 
 Arquivos relacionados ao Hadoop podem ser encontrados em nós de cluster em  `/usr/hdp/current`.
 
-Dados de exemplo e jars podem ser encontradas no HDFS (WASB) em '/example' ou  'wasb:///example'.
+Dados de exemplo e jars podem ser encontradas no HDFS (WASB) em '/example' ou 'wasb:///example'.
 
 ##Práticas recomendadas de HDFS, WASB e armazenamento
 
@@ -88,7 +88,7 @@ Durante a criação do cluster, você pode selecionar para usar uma conta de arm
 
 **Portal do Azure**
 
-1. No <a href="https://manage.windowsazure.com/" target="_blank">Portal de Gerenciamento do Azure</a>, selecione o cluster HDInsight.
+1. No <a href="https://manage.windowsazure.com/" target="_blank">Portal de Gerenciamento do Azure</a>, selecione seu cluster do HDInsight.
 
 2. Selecione **Painel** na parte superior da página.
 
@@ -104,7 +104,7 @@ Durante a criação do cluster, você pode selecionar para usar uma conta de arm
 
 Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 
-* <a href="http://azure.microsoft.com/ documentation/articles/xplat-cli/" target="_blank">Interface de Linha de Comando de Plataforma Cruzada do Azure</a> - depois de instalar, consulte  `azure storage` para obter ajuda sobre o uso do armazenamento ou  `azure blob` para comandos específicos do blob.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Interface de linha de comando entre plataformas do Azure</a> - após a instalação, consulte `azure storage` para obter ajuda com o uso do armazenamento, ou `azure blob` para ver comandos específicos do blob.
 
 * Uma variedade de SDKs:
 
@@ -120,14 +120,14 @@ Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/pt-br/library/azure/dd135733.aspx" target="_blank">API REST de armazenamento</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">API REST de armazenamento</a>
 
 
 ##Próximas etapas
 
-* [Usar o hive com o HDInsight](../hdinsight-use-hive/)
+* [Use o hive com o HDInsight](../hdinsight-use-hive/)
 * [Usar o Pig com o HDInsight](../hdinsight-use-pig/)
 * [Usar trabalhos MapReduce com o HDInsight](../hdinsight-use-mapreduce)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

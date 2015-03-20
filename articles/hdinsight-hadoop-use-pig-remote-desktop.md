@@ -30,11 +30,11 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cliente do Windows 7, 8 ou 10
 
-##<a id="connect"></a>Conectar com a área de trabalho remota
+##<a id="connect"></a>Conectar-se à área de trabalho remota
 
-Habilitar o Remote Desktop para o cluster HDInsight e conectá-lo seguindo as instruções em <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+Habilite a área de trabalho remota para o cluster HDInsight e conecte-o seguindo as instruções em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
 
-##<a id="pig"></a>Use o comando Pig
+##<a id="pig"></a>Usar o comando Pig
 
 2. Uma vez conectado, inicie a **Linha de Comando do Hadoop** usando o ícone na área de trabalho.
 
@@ -58,7 +58,7 @@ Habilitar o Remote Desktop para o cluster HDInsight e conectá-lo seguindo as in
 
 	Você pode usar **DUMP** para exibir os dados após a transformação. Nesse caso, `DUMP LEVELS;`.
 
-5. Continue a aplicar transformações usando as instruções a seguir. Use `DUMP` para exibir o resultado da transformação após cada etapa.
+5. Continue a aplicar transformações usando as instruções a seguir. Use  `DUMP` para exibir o resultado da transformação após cada etapa.
 
 	<table>
 	<tr>
@@ -78,7 +78,7 @@ Habilitar o Remote Desktop para o cluster HDInsight e conectá-lo seguindo as in
 	</tr>
 	</table>
 
-6. Você também pode salvar os resultados de uma transformação usando a instrução `STORE`. Por exemplo, o seguinte salva o `RESULT` no diretório **/example/data/pigout** no contêiner de armazenamento padrão para seu cluster.
+6. Você também pode salvar os resultados de uma transformação usando a instrução  `STORE`. Por exemplo, o seguinte salva o  `RESULT` no diretório **/example/data/pigout** no contêiner de armazenamento padrão para o cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -132,4 +132,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
 
 * [Usar o MapReduce com Hadoop no HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

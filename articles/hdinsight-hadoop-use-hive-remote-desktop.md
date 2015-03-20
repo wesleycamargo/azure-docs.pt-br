@@ -22,7 +22,7 @@
 
 Neste artigo, você aprenderá como se conectar a um cluster HDInsight usando o Remote Desktop e executar consultas Hive usando a Interface de Linha de Comando (CLI) do Hive.
 
-> [AZURE.NOTE] Esse documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Usar o Hive com Hadoop no HDInsight</a>.
+> [AZURE.NOTE] Este documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Usar o Hive com Hadoop no HDInsight</a>.
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -32,11 +32,11 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um sistema operacional Windows 7 ou cliente mais recente
 
-##<a id="connect"></a>Conectar com a área de trabalho remota
+##<a id="connect"></a>Conectar-se à área de trabalho remota
 
-Habilitar o Remote Desktop para o cluster HDInsight e conectá-lo seguindo as instruções em <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+Habilite a área de trabalho remota para o cluster HDInsight e conecte-o seguindo as instruções em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
 
-##<a id="hive"></a>Use o comando do Hive
+##<a id="hive"></a>Usar o comando Hive
 
 Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a seguir para trabalhar com o Hive.
 
@@ -46,7 +46,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
         %hive_home%\bin\hive
 
-    Depois de iniciar o CLI, você verá o prompt do CLI Hive - `hive>`.
+    Depois de iniciar o CLI, você verá o prompt da CLI do Hive -  `hive>`.
 
 3. Usando a CLI, digite as instruções a seguir para criar uma nova tabela chamada **log4jLogs** usando os dados de exemplo.
 
@@ -60,7 +60,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
     * **DROP TABLE** - exclui a tabela e o arquivo de dados, caso a tabela já exista
     
-    * **CREATE EXTERNAL TABLE** - cria uma nova tabela 'external' em Hive. As tabelas externas apenas armazenam a definição da tabela em Hive - os dados são deixados no local original
+    * **CREATE EXTERNAL TABLE** - cria uma nova tabela  'externa' no Hive. As tabelas externas apenas armazenam a definição da tabela em Hive - os dados são deixados no local original
 
 		> [AZURE.NOTE] As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
     	>
@@ -70,10 +70,10 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 	
     * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados), e armazenados como texto
     
-    * **SELECT** - seleciona uma contagem de todas as linhas em que a coluna **t4** cOntém o valor **[ERROR].** Isso deve retornar um valor de **3** já que existem três linhas que contêm esse valor
+    * **SELECT** - seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** já que existem três linhas que contêm esse valor
 
 
-4. Use as instruções a seguir para criar uma nova tabela  'internal' chamada **errorLogs**.
+4. Use as instruções a seguir para criar uma nova tabela  'interna' chamada **errorLogs**.
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -113,17 +113,17 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/pt-br/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -145,4 +145,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -22,7 +22,7 @@
 
 Este documento fornece um exemplo de uso do PowerShell para executar consultas do Hive em um Hadoop no cluster HDInsight.
 
-> [AZURE.NOTE] Esse documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Usar o Hive com Hadoop no HDInsight</a>.
+> [AZURE.NOTE] Este documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Usar o Hive com Hadoop no HDInsight</a>.
 
 
 ##<a id="prereq"></a>Pré-requisitos
@@ -31,20 +31,20 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster do Azure HDInsight (Hadoop no HDInsight) (Windows ou Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">PowerShell do Azure</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">PowerShell do Azure</a>
 
 
 ##<a id="powershell"></a>Executar consultas Hive usando o PowerShell
 
-O PowerShell do Azure fornece  *cmdlets* que lhe permite executar remotamente as consultas Hive no HDInsight. Internamente, isso é feito através de chamadas REST para <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente chamado de Templeton,) em execução no cluster do HDInsight.
+O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente as consultas Hive no HDInsight. Internamente, isso é feito por meio de chamadas REST para <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente chamado de Templeton) em execução no cluster HDInsight.
 
 Os seguintes cmdlets são usados ao executar consultas do Hive em um cluster HDInsight remoto.
 
 * **Add-AzureAccount** - Autentica o PowerShell para sua assinatura do Azure
 
-* **New-AzureHDInsightHiveJobDefinition** - Cria um novo  *job definition* usando as instruções HiveQL especificadas
+* **New-AzureHDInsightHiveJobDefinition** - Cria uma nova  *definição de trabalho* usando as instruções HiveQL especificadas
 
-* **Start-AzureHDInsightJob** - Envia a definição do para o no HDInsight, inicia o trabalho e retorna um objeto  *job* que pode ser usado para verificar o status do trabalho
+* **Start-AzureHDInsightJob** - Envia a definição do trabalho para o HDInsight, inicia o trabalho e retorna um objeto  *job* que pode ser usado para verificar o status do trabalho
 
 * **Wait-AzureHDInsightJob** - Usa o objeto de trabalho para verificar o status do trabalho. Ele aguardará até que o trabalho seja concluído ou o tempo de espera seja excedido
 
@@ -107,7 +107,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 		SELECT * FROM errorLogs;
 		"@
 
-	A saída terá a aparência a seguir.
+	The output will look like the following.
 
 		2012-02-03	18:35:34	SampleClass0	[ERROR]	incorrect	id	
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id	
@@ -115,9 +115,9 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
 	> [AZURE.NOTE] Para consultas HiveQL mais longas, é possível usar Here-Strings do PowerShell ou arquivos de script HiveQL. Os fragmentos a seguir mostram como usar o cmdlet *Invoke-Hive* para executar um arquivo de script HiveQL. O arquivo de script HiveQL deve ser carregado no WASB.
 	>
-	> `Invoke-Hive -File "wasb://<Nome_do_contêiner>@<Nome_da_conta_de_armazenamento>/<Caminho>/query.hql"`
+	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> Para obter mais informações sobre Here-Strings, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Usando Here-Strings no Windows PowerShell</a>.
+	> Para obter mais informações sobre Here-Strings, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Usando Here-Strings do Windows PowerShell</a>.
 
 ##<a id="troubleshooting"></a>Solução de problemas
 
@@ -145,4 +145,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

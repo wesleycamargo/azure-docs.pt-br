@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-# Como: Fornecer conteúdo de streaming
+#Como: Fornecer conteúdo de streaming
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow).  
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) .  
 
-## Visão geral
+##Visão geral
 
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [Codificando um ativo](../media-services-rest-encode-asset) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](../media-services-rest-configure-asset-delivery-policy) tópico. 
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](../media-services-rest-encode-asset) mostra como codificar em um conjunto MP4 com taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste] tópico(../media-services-rest-configure-asset-delivery-policy) . 
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
@@ -32,7 +32,7 @@ Este tópico mostra como criar um localizador de streaming sob demanda para publ
 
 A [seguinte](#types) seção mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
   
-## Criar um localizador de streaming sob demanda
+##Criar um localizador de streaming sob demanda
 
 Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
 
@@ -45,7 +45,7 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
    4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
 
 
-### Crie uma política de acesso
+###Crie uma política de acesso
 
 Solicitação:
 		
@@ -63,7 +63,7 @@ Solicitação:
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Response:
+Resposta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -82,7 +82,7 @@ Response:
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### Criar um localizador de streaming sob demanda
+###Criar um localizador de streaming sob demanda
 
 Crie o localizador para o ativo especificado e a política de ativo.
 
@@ -121,7 +121,7 @@ Resposta:
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### Criar URLs de streaming
+###Criar URLs de streaming
 
 Use o valor **Caminho** retornado após a criação do localizador para criar o Smooth, HLS e URLs do MPEG DASH. 
 
@@ -146,7 +146,7 @@ exemplo:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-### Crie URLs de download progressivo
+###Crie URLs de download progressivo
 
 Use o valor **Caminho** retornado após a criação do localizador para criar a URL de download progressivo.   
 
@@ -156,7 +156,7 @@ exemplo:
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Tipos de enum
+##<a id="types"></a>Tipos de enum
 
     [Flags]
     public enum AccessPermissions
@@ -174,4 +174,4 @@ exemplo:
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=45--> 
+<!--HONumber=47-->

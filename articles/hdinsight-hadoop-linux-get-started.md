@@ -21,7 +21,7 @@
 Este tutorial apresenta rapidamente o HDInsight no Linux mostrando como provisionar um cluster Hadoop do HDInsight no Linux e executar uma consulta do Hive para extrair informações significativas de dados não estruturados. Em seguida, você poderá analisar os resultados em uma ferramenta do Business Intelligence (BI), como o Tableau.
 
 
-> [AZURE.NOTE] Se você for novo no Hadoop e Big Data, é possível ler mais sobre os termos <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>e <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Para entender como o HDInsight habilita o Hadoop no Azure, consulte [Introdução ao Hadoop no HDInsight](../hdinsight-hadoop-introduction/).
+> [AZURE.NOTE] Se você é iniciante no Hadoop e em Big Data, leia mais sobre os termos <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Para entender como o HDInsight habilita o Hadoop no Azure, consulte [Introdução ao Hadoop no HDInsight](../hdinsight-hadoop-introduction/).
 
 
 ## O que este tutorial aborda? ##
@@ -36,7 +36,7 @@ Suponha que você tenha um grande conjunto de dados não estruturado e deseje ex
 Antes de começar este tutorial, você deve ter o seguinte:
 
 
-- Uma assinatura do Azure. Para obter mais informações sobre como adquirir uma assinatura, consulte <a href="http://azure.microsoft.com/ pricing/purchase-options/" target="_blank">Opções de compra</a>, <a href="http://azure.microsoft.com/ pricing/member-offers/" target="_blank">Ofertas de membro</a>ou <a href="http://azure.microsoft.com/ pricing/free-trial/" target="_blank">Avaliação gratuita</a>.
+- Uma assinatura do Azure. Para obter mais informações sobre como adquirir uma assinatura, consulte <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Opções de compra</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Ofertas para membros</a> ou <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Avaliação gratuita</a>.
 
 **Tempo estimado para concluir:** 30 minutos
 
@@ -49,7 +49,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ## <a name="storage"></a>Criar uma conta de Armazenamento do Azure
 
-O HDInsight usa o Armazenamento de Blob do Azure para armazenar dados. Ele se chama *WASB* ou *Azure Storage - Blob*. O WASB é a implementação do HDFS da Microsoft no Armazenamento de Blob do Azure. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](../hdinsight-use-blob-storage/).
+O HDInsight usa o Armazenamento de Blob do Azure para armazenar dados. Ele é chamado de  *WASB* ou  *Armazenamento do Azure - Blob*. O WASB é a implementação do HDFS da Microsoft no Armazenamento de Blob do Azure. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](../hdinsight-use-blob-storage/).
 
 Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento do Azure. Um contêiner de armazenamento de Blob específico dessa conta é designado como o sistema de arquivos padrão, exatamente como no HDFS. O cluster HDInsight, por padrão, é provisionado no mesmo data center que a conta de armazenamento especificada.
 
@@ -78,12 +78,12 @@ Para obter mais informações, consulte
 	
 ## <a name="provision"></a>Provisionar um cluster HDInsight no Linux
 
-Ao provisionar um cluster HDInsight, você provisiona recursos de computação do Azure que contêm o Hadoop e aplicativos relacionados. Nesta seção você provisiona um cluster HDInsight no Linux usando a opção quick-create. Essa opção usa nomes de usuário padrão e contêineres de armazenamento do Azure e configura um cluster com o HDInsight versão 3.2 (Hadoop versão 2.5, HDP versão 2.2) em execução no Ubuntu 12.04 LTS. Para obter informações sobre versões diferentes do HDInsight e o SLA, consulte a página [Controle de versão do componente do HDInsight](http://azure.microsoft.com/ documentation/articles/hdinsight-component-versioning/).
+Ao provisionar um cluster HDInsight, você provisiona recursos de computação do Azure que contêm o Hadoop e aplicativos relacionados. Nesta seção você provisiona um cluster HDInsight no Linux usando a opção quick-create. Essa opção usa nomes de usuário padrão e contêineres de armazenamento do Azure e configura um cluster com o HDInsight versão 3.2 (Hadoop versão 2.5, HDP versão 2.2) em execução no Ubuntu 12.04 LTS. Para obter informações sobre versões diferentes do HDInsight e o SLA, consulte a página [Controle de versão do componente do HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 >[AZURE.NOTE]  Você também pode criar clusters de Hadoop executando o sistema operacional Windows Server. Para obter instruções, consulte [Introdução ao HDInsight no Windows](../hdinsight-get-started/).
 
 
-**Para provisionar um cluster do HDInsight** 
+**Para provisionar um cluster HDInsight**
 
 1. Entre no <a href="https://manage.windowsazure.com/" target="_blank">Portal de Gerenciamento do Azure</a>. 
 
@@ -96,8 +96,8 @@ Ao provisionar um cluster HDInsight, você provisiona recursos de computação d
 	<table border="1">
 	<tr><th>Nome</th><th>Valor</th></tr>
 	<tr><td>Nome do cluster</td><td>Nome do cluster</td></tr>
-	<tr><td>Tamanho do cluster</td><td>Número de nós de dados que você deseja implantar. O valor padrão é 4. No entanto, a opção de usar 1 ou 2 nós de dados também está disponível no menu suspenso. Qualquer número de nós do cluster pode ser especificado ao utilizar a opção <strong>Criação Personalizada</strong> . Os detalhes de preço referente às taxas de cobrança para diversos tamanhos de cluster estão disponíveis. Clique no símbolo <strong>?</strong> logo acima da lista suspensa e siga o link no pop-up.</td></tr>
-	<tr><td>Senha</td><td>A senha da conta <i>HTTP</i> conta (nome de usuário padrão: admin) e <i>SSH</i> conta (nome de usuário padrão: hdiuser). Observe que essas NÃO são contas de administrador para as VMs em que os clusters são provisionados. </td></tr>
+	<tr><td>Tamanho do cluster</td><td>Número de nós de dados que você deseja implantar. O valor padrão é 4. No entanto, a opção de usar 1 ou 2 nós de dados também está disponível no menu suspenso. Qualquer número de nós do cluster pode ser especificado ao utilizar a opção <strong>Criação Personalizada</strong>. Os detalhes de preço referente às taxas de cobrança para diversos tamanhos de cluster estão disponíveis. Clique no símbolo <strong>?</strong> logo acima da caixa suspensa e siga o link no pop-up.</td></tr>
+	<tr><td>Senha</td><td>A senha para a conta <i>HTTP</i> (nome de usuário padrão: admin) e a conta <i>SSH</i> (nome de usuário padrão: hdiuser). Observe que essas NÃO são contas de administrador para as VMs em que os clusters são provisionados. </td></tr>
 	
 	<tr><td>Conta de Armazenamento</td><td>Selecione a conta de armazenamento criada na caixa suspensa. <br/>
 
@@ -144,7 +144,7 @@ Você pode se conectar a um cluster HDInsight no Linux de um computador Linux ou
 
 **Para conectar-se de um computador Windows**
 
-1. Baixe **PuTTY** para clientes Windows. Está disponível em <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+1. Baixe **PuTTY** para clientes Windows. Ele está disponível em <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
 2. Abra o **PuTTY**. Em **Categoria**, clique em **Sessão**. Na tela **Opções básicas para sua sessão PuTTY**, digite o endereço SSH do seu servidor HDInsight no campo **Nome do host (ou endereço IP)**. O endereço do SSH é seu nome de cluster, seguido por**-ssh.azurehdinsight.net**. Por exemplo, **myhdinsightcluster-ssh.azurehdinsight.net**.
 
@@ -152,7 +152,7 @@ Você pode se conectar a um cluster HDInsight no Linux de um computador Linux ou
 
 3. Para salvar as informações de conexão para uso futuro, digite um nome para essa conexão em **Sessões Salvas** e clique em **Salvar**. A conexão será adicionada à lista de sessões salvas.
 
-4. Clique em **Abrir** para se conectar ao cluster. Quando solicitado a fornecer o nome de usuário, digite *hdiuser*. Para a senha, digite a senha especificada durante o provisionamento do cluster. Depois que você for conectado com êxito, o prompt será alterado para o seguinte:
+4. Clique em **Abrir** para se conectar ao cluster. Quando for solicitado o nome de usuário, insira  *hdiuser*. Para a senha, digite a senha especificada durante o provisionamento do cluster. Depois que você for conectado com êxito, o prompt será alterado para o seguinte:
 
 		hdiuser@headnode-0:~$
 
@@ -175,10 +175,10 @@ Quando você estiver conectado ao cluster usando SSH, use os seguintes comandos 
 	As instruções executam as seguintes ações.
 
 	- **DROP TABLE** - exclui a tabela e o arquivo de dados, caso a tabela já exista.
-	- **CREATE EXTERNAL TABLE** - cria uma nova tabela 'external' em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
+	- **CREATE EXTERNAL TABLE** - cria uma nova tabela "externa" no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
 	- **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 	- **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-	- **SELECT** - seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR]. 
+	- **SELECT** - seleciona uma conta entre todas as linhas em que a coluna t4 contém o valor [ERROR]. 
 
 	>[WACOM.NOTE] As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes. Descartar uma tabela externa **não** exclui os dados, apenas a definição da tabela.
 
@@ -219,7 +219,7 @@ Quando você estiver conectado ao cluster usando SSH, use os seguintes comandos 
 
 	As instruções executam as seguintes ações.
 
-	- **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave EXTERNAL não é utilizada, essa é uma tabela 'internal', que é armazenada no depósito de dados do Hive e é gerenciada totalmente pelo Hive. Diferentemente da tabela **EXTERNAL**, o descarte de uma tabela interna excluirá os dados subjacentes também.
+	- **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave EXTERNAL não é utilizada, essa é uma tabela "interna", que é armazenada no depósito de dados do Hive e é gerenciada totalmente pelo Hive. Diferentemente da tabela **EXTERNAL**, o descarte de uma tabela interna excluirá os dados subjacentes também.
 	- **STORED AS ORC** - armazena os dados no formato de linha de otimização Colunar (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 	- **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm [ERROR] e insere os dados na tabela **errorLogs**
 
@@ -234,7 +234,7 @@ Quando você estiver conectado ao cluster usando SSH, use os seguintes comandos 
 		2012-02-03	19:25:27	SampleClass4	[ERROR]	 incorrect		id
 		Time taken: 0.987 seconds, Fetched: 3 row(s)
 
-	Os dados retornados devem corresponder aos logs [ERROR].
+	The returned data should all correspond to [ERROR] logs.
 
 
 ## <a name="nextsteps"></a>Próximas etapas
@@ -243,7 +243,7 @@ Nesse tutorial, você aprendeu a provisionar um cluster do Hadoop Linux com o HD
 - [Provisionar HDInsight no Linux usando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters)
 - [Trabalhando com o HDInsight no Linux](../hdinsight-hadoop-linux-information)
 - [Gerenciar clusters HDInsight usando Ambari](../hdinsight-hadoop-manage-ambari)
-- [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce]
+- [Usar o MapReduce com HDInsight][hdinsight-use-mapreduce]
 - [Usar o hive com o HDInsight][hdinsight-use-hive]
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
 - [Usar o armazenamento de blobs do Azure com o HDInsight](../hdinsight-use-blob-storage)
@@ -271,4 +271,4 @@ Nesse tutorial, você aprendeu a provisionar um cluster do Hadoop Linux com o HD
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-<!--HONumber=45--> 
+<!--HONumber=47-->

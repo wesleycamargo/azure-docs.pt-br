@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Trending topics do Twitter com Apache Storm no HDInsight
+#Trending topics do Twitter com Apache Storm no HDInsight
 
 Saiba como usar Trident para criar uma topologia Storm que determina trending topics (hashtags) no Twitter. 
 
@@ -24,9 +24,9 @@ Trident é uma abstração de alto nível que fornece ferramentas, como junçõe
 
 > [AZURE.NOTE] Baseia-se muito no exemplo [trident-storm](https://github.com/jalonsoramos/trident-storm) de Juan Alonso.
 
-## Requisitos
+##Requisitos
 
-* <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java e o JDK 1.7</a>
+* <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java e JDK 1.7</a>
 
 * <a href="http://maven.apache.org/what-is-maven.html" target="_blank">Maven</a>
 
@@ -34,13 +34,13 @@ Trident é uma abstração de alto nível que fornece ferramentas, como junçõe
 
 * Uma conta de desenvolvedor do Twitter
 
-## Baixe o projeto
+##Baixe o projeto
 
 Use o seguinte para clonar o projeto localmente.
 
 	git clone https://github.com/Blackmist/TwitterTrending
 
-## Topologia
+##Topologia
 
 A topologia para esse exemplo é o seguinte:
 
@@ -78,15 +78,15 @@ Isso faz o seguinte:
 > 
 > * <a href="https://github.com/kstyrc/trident-redis" target="_blank">https://github.com/kstyrc/trident-redis</a>
 
-### O spout
+###O spout
 
-O spout, **TwitterSpout** usa <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar os tweets do Twitter. Um filtro é criado (amor, música e café) e tweets de entrada (status) que correspondem ao filtro são armazenados em um <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Por fim, os itens são retirados da fila e emitidos na topologia.
+O spout **TwitterSpout** usa o <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar tweets do Twitter. Um filtro é criado (amor, música e café) e tweets de entrada (status) que correspondem ao filtro são armazenados em um <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Por fim, os itens são retirados da fila e emitidos na topologia.
 
-### O HashtagExtractor
+###O HashtagExtractor
 
 Para extrair hashtags, <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> é usado para recuperar todas as hashtags contidas no tweet. Eles são emitidos para o fluxo.
 
-## Habilitar Twitter
+##Habilitar Twitter
 
 Use as etapas a seguir para registrar um novo aplicativo do Twitter e obter as informações do token de acesso e do consumidor necessárias para ler no Twitter.
 
@@ -100,14 +100,14 @@ Use as etapas a seguir para registrar um novo aplicativo do Twitter e obter as i
 
 5. No projeto **TwitterSpoutTopology** anteriormente clonado, abra o arquivo **resources/twitter4j.properties**, adicione as informações coletadas nas etapas anteriores e salve o arquivo.
 
-## Compilar a topologia
+##Compilar a topologia
 
 Use a seguinte compilação do projeto.
 
 		cd [directoryname]
 		mvn compile
 
-## Testar a topologia
+##Testar a topologia
 
 Use o comando a seguir para testar a topologia localmente.
 
@@ -115,17 +115,17 @@ Use o comando a seguir para testar a topologia localmente.
 
 Depois que a topologia é iniciada, você verá informações de depuração que contém hashtags e contagens emitidas pela topologia. A saída deve ter aparência similar à exibida a seguir.
 
-	DEBUG: [Quicktellervalentine, 7]
-	DEBUG: [GRAMMYs, 7]
-	DEBUG: [AskSam, 7]
-	DEBUG: [poppunk, 1]
-	DEBUG: [rock, 1]
-	DEBUG: [punkrock, 1]
-	DEBUG: [band, 1]
-	DEBUG: [punk, 1]
-	DEBUG: [indonesiapunkrock, 1]
+	DEPURAR: [Quicktellervalentine, 7]
+	DEPURAR: [GRAMMYs, 7]
+	DEPURAR: [AskSam, 7]
+	DEPURAR: [poppunk, 1]
+	DEPURAR: [rock, 1]
+	DEPURAR: [punkrock, 1]
+	DEPURAR: [band, 1]
+	DEPURAR: [punk, 1]
+	DEPURAR: [indonesiapunkrock, 1]
 
-## Próximas etapas
+##Próximas etapas
 
 Agora que você testou a topologia localmente, descubra como [implantar essa topologia para Storm no HDInsight](../hdinsight-storm-deploy-monitor-topology/).
 
@@ -134,4 +134,10 @@ Você também pode estar interessado nos tópicos do Storm a seguir:
 * [Desenvolver topologias de Java para Storm no HDInsight usando o Maven](../hdinsight-storm-develop-java-topology/)
 
 * [Desenvolver topologias C# para Storm no HDInsight usando o Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
-<!--HONumber=45--> 
+
+Para obter mais exemplos de Storm para HDInsight:
+
+* [Exemplos de Storm no HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Analisar dados de sensor do hub de eventos com Storm no HDInsight](../hdinsight-storm-sensor-data-analysis/)
+<!--HONumber=47-->

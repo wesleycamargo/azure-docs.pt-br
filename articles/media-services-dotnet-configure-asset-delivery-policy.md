@@ -16,10 +16,10 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-# Como: Configurar políticas de entrega de ativos
+#Como: Configurar políticas de entrega de ativos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow). 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
 
 Uma das etapas do fluxo de trabalho de fornecimento de conteúdo de serviços de mídia está configurando políticas de entrega de ativos que você deseja que sejam transmitidas. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum). 
 
@@ -53,9 +53,9 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [criar uma URL de transmissão](../media-services-deliver-streaming-content).
+Para obter instruções sobre como publicar um ativo e compilar uma URL de streaming, consulte [Criar uma URL de streaming](../media-services-deliver-streaming-content).
 
-## Política de entrega de ativos clara 
+##Política de entrega de ativos clara 
 
 O seguinte método **ConfigureClearAssetDeliveryPolicy** especifica para não aplicar criptografia dinâmica e entregar o fluxo em qualquer um dos seguintes protocolos:  Protocolos de Smooth Streaming, HLS e MPEG DASH. 
   
@@ -71,7 +71,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         asset.DeliveryPolicies.Add(policy);
     }
 
-## Política de entrega de ativos DynamicCommonEncryption 
+##Política de entrega de ativos DynamicCommonEncryption 
 
 
 O seguinte método **CreateAssetDeliveryPolicy** cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (serão bloqueados outros protocolos de streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**, para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-dotnet-create-contentkey#common_contentkey)).
@@ -105,7 +105,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 
 
-## Política de entrega de ativos DynamicEnvelopeEncryption 
+##Política de entrega de ativos DynamicEnvelopeEncryption 
 
 O seguinte método **CreateAssetDeliveryPolicy** cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para protocolos HLS e DASH (serão bloqueados outros protocolos de streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**, para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-dotnet-create-contentkey#envelope_contentkey)).
 
@@ -150,9 +150,9 @@ Para obter informações sobre os valores que você pode especificar ao criar um
     }
 
 
-## <a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
+##<a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
 
-### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -191,7 +191,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         All = 0xFFFF
     }
 
-### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -225,7 +225,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         DynamicCommonEncryption
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -248,7 +248,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         BaselineHttp
     }
 
-### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -290,4 +290,4 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         /// </summary>
         EnvelopeEncryptionIV,
     }
-<!--HONumber=45--> 
+<!--HONumber=47-->

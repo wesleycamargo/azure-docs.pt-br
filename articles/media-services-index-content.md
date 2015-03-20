@@ -19,29 +19,38 @@
 
 # Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
-Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](../media-services-video-on-demand-workflow). 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
 
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote. Você também pode indexar os arquivos que estão disponíveis publicamente na Internet especificando URLs dos arquivos no arquivo de manifesto.
 
 >[AZURE.NOTE] Quanto a indexação de conteúdo, certifique-se de usar os arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio no microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras e apresentações registradas. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, tudo com áudio misto e efeitos de som, com conteúdo mal gravado com ruídos de fundo (assovio).
->
-Um trabalho de indexação gera arquivos de saída SAMI e TTML (entre outros arquivos).  O SAMI e TTML incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base em o quanto a fala é reconhecível no vídeo de origem.  Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
+
+
+Um trabalho de indexação gera quatro saídas para todo arquivo de indexação:
+
+- Arquivo de legenda codificada no formato SAMI.
+- Arquivo de legenda codificada no formato de linguagem de marcação de texto temporizada (TTML).
+
+	O SAMI e TTML incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base em o quanto a fala é reconhecível no vídeo de origem.  Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
+- Arquivo de palavra-chave (XML).
+- Áudio de indexação de arquivo de blob (AIB) para uso com o SQL Server.
+	
+	Para obter mais informações, consulte [Usando arquivos de AIB com o indexador de mídia do Azure e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+
 
 Este tópico mostra como criar trabalhos de indexação para **Indexar um ativo**, **Indexar vários arquivos**, e **arquivos publicamente disponíveis na Internet**.
 
-Para os idiomas com suporte, consulte a seção **Suporte para Idiomas**.
+Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos serviços de mídia](http://azure.microsoft.com/blog/topics/media-services/).
 
-Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs doos serviços de mídia](http://azure.microsoft.com/blog/topics/media-services/).
-
-## Usando arquivos de configuração e de manifesto para tarefas de indexação
+##Usando arquivos de configuração e de manifesto para tarefas de indexação
 
 Você pode especificar mais detalhes para as tarefas de indexação usando uma configuração de tarefa. Por exemplo, você pode especificar quais metadados usar para o arquivo de mídia. Esses metadados são usados pelo mecanismo de idioma para expandir seu vocabulário e melhora significativamente a precisão do reconhecimento de fala.
 
 Você também pode processar vários arquivos de mídia ao mesmo tempo usando um arquivo de manifesto.
 
-Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn783454.aspx).
+Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-## Indexe um ativo
+##Indexe um ativo
 
 O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho para indexar o ativo.
 
@@ -57,7 +66,7 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -134,7 +143,7 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
 	    return processor;
 	} 
 	
-### <a id="output_files"></a>Arquivos de saída
+###<a id="output_files"></a>Arquivos de saída
 
 O trabalho de indexação gera os seguintes arquivos de saída. Os arquivos serão armazenados no primeiro ativo de saída.
 
@@ -148,7 +157,7 @@ O arquivo de blob de indexação de áudio (AIB) é um arquivo binário que pode
 <br/>
 Ele requer a instalação do complemento do indexador SQL em uma máquina executando Microsoft SQL Server 2008 ou posterior. Pesquisando o AIB usando a pesquisa de texto completa do Microsoft SQL Server fornece resultados da pesquisa mais precisos que pesquisando os arquivos de legenda codificada gerados pelo WAMI. Isso ocorre porque o AIB contém palavras alternativas que parecem familiares enquanto os arquivos de legenda codificados contêm a palavra com a confiança mais alta para cada segmento do áudio. Se estiver procurando palavras faladas de máxima importância, é recomendável usar o AIB em conjunto com o Microsoft SQL Server.
 <br/><br/>
-Para baixar o complemento, clique em <a href="http://aka.ms/indexersql">Complemento SQL do indexador de mídia do Azure</a>.
+Para baixar o complemento, clique em <a href="http://aka.ms/indexersql">Complemento de SQL do Indexador de Mídia do Azure</a>.
 <br/><br/>
 Também é possível utilizar outros mecanismos de pesquisa, como o Apache Lucene/Solr para indexar apenas vídeo com base na legenda codificada e arquivos XML de palavra-chave, mas isso resulta em resultados de pesquisa menos precisos.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
@@ -167,11 +176,11 @@ O arquivo pode ser usado para várias finalidades, como para executar análise d
 
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
 
-## Vários arquivos de índice
+##Vários arquivos de índice
 
 O método a seguir carrega vários arquivos de mídia como um ativo e cria um trabalho para indexar todos esses arquivos em um lote.
 
-Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn783454.aspx).
+Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -189,7 +198,7 @@ Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo.
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -247,7 +256,7 @@ Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo.
 	}
 
 
-### Arquivos de saída
+###Arquivos de saída
 
 Quando houver mais de um arquivo de mídia de entrada, o WAMI gerará um arquivo de manifesto para as saídas de trabalho, chamado 'JobResult.txt'. Para cada mídia de entrada de arquivo, o AIB, SAMI, TTML e arquivos de palavra-chave resultantes são numerados em sequência, como listado abaixo.
 
@@ -275,7 +284,7 @@ Alias: nome do arquivo de saída correspondente.
 <br/><br/>
 MediaLength: tamanho do arquivo de mídia de entrada, em segundos. Pode ser 0 se o erro ocorreu para esta entrada.
 <br/><br/>
-Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, caso contrário, falha. Consulte  <a href="#error_codes">Códigos do Erro</a> para erros concretos.
+Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, caso contrário, falha. Consulte <a href="#error_codes">Códigos de Erro</a> para erros concretos.
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>Arquivo #0 - indexação de áudio de arquivo de blob.</td></tr>
@@ -289,16 +298,16 @@ Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, c
 
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
 
-### Trabalho parcialmente bem-sucedido
+###Trabalho parcialmente bem-sucedido
 
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
 
 
 As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada estão com falha, de acordo com os valores da coluna de erro. Para arquivos de entrada com falha, o AIB, SAMI, TTML e arquivos de palavra-chave resultantes não serão gerados.
 
-## Arquivos de índice da Internet
+##Arquivos de índice da Internet
 
-Para arquivos de mídia disponíveis publicamente na Internet, você também pode indexá-los sem copiá-los para o armazenamento do Azure. Você pode usar o arquivo de manifesto para especificar as URLs dos arquivos de mídia. Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn783454.aspx).
+Para arquivos de mídia disponíveis publicamente na Internet, você também pode indexá-los sem copiá-los para o armazenamento do Azure. Você pode usar o arquivo de manifesto para especificar as URLs dos arquivos de mídia. Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 Observe que os protocolos de URL HTTP e HTTPS são suportados.
 
@@ -318,7 +327,7 @@ O método e a configuração a seguir criam um trabalho para indexar um arquivo 
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
@@ -361,16 +370,16 @@ O método e a configuração a seguir criam um trabalho para indexar um arquivo 
 	    return true;
 	}
 
-### Arquivos de saída
+###Arquivos de saída
 
 Para obter descrições dos arquivos de saída, consulte [arquivos de saída](#output_files). 
 
 
-## Arquivos protegidos do processo
+##Arquivos protegidos do processo
 
 O indexador oferece suporte à autenticação básica com o nome de usuário e senha ao baixar arquivos da internet via http ou https.
 
-Você pode especificar o **nome de usuário** e **senha** na configuração da tarefa, conforme descrito em [predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn783454.aspx).
+Você pode especificar o **nome de usuário** e **senha** na configuração da tarefa, conforme descrito em [predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Códigos do Erro
 
@@ -395,9 +404,13 @@ Nenhum fluxo de áudio na mídia de entrada.</td></tr>
 </table>
 
 
-## Idiomas com suporte
+##<a id="supported_languages"></a>Idiomas com suporte
 
 Atualmente, há suporte para apenas o idioma inglês.
+
+##Links relacionados
+
+[Usando arquivos AIB com o indexador de mídia do Azure e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -405,4 +418,4 @@ Atualmente, há suporte para apenas o idioma inglês.
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

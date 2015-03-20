@@ -16,11 +16,11 @@
 	ms.date="02/08/2015" 
 	ms.author="juliako"/>
 
-# Como: Verificar o andamento do trabalho
+#Como: Verificar o andamento do trabalho
 
-Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](../media-services-video-on-demand-workflow). 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
 
-Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode descobrir o status do trabalho, usando a propriedade de estado do trabalho. Para obter mais informações sobre a propriedade de Estado, consulte [propriedades de entidade de trabalho](https://msdn.microsoft.com/pt-br/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode descobrir o status do trabalho, usando a propriedade de estado do trabalho. Para obter mais informações sobre a propriedade de Estado, consulte [Propriedades de entidade de trabalho](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
 
 
 Solicitação:
@@ -53,4 +53,4 @@ Resposta:
 	Date: Wed, 11 Feb 2015 01:46:39 GMT
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
-<!--HONumber=45--> 
+<!--HONumber=47-->

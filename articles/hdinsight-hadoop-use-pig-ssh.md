@@ -20,23 +20,23 @@
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-Neste documento, você verá o processo de conexão para um cluster HDInsight baseado em Linux usando SSH, usando o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lote.
+Neste documento, você verá o processo de conexão para um cluster Azure HDInsight baseado em Linux usando SSH (Secure Shell), usando o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lotes.
 
 A linguagem de programação Pig Latin permite descrever as transformações que são aplicadas aos dados de entrada para produzir a saída desejada.
 
-> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre Hadoop baseado em Linux no HDInsight</a>.
+> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre Hadoop baseado em Linux no HDInsight</a>.
 
 ##<a id="prereq"></a>Pré-requisitos
 
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
-* Um cluster do HDInsight baseado em Linux (Hadoop no HDInsight)
+* Um cluster HDInsight baseado em Linux (Hadoop no HDInsight).
 
-* Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente ssh. Os usuários do Windows devem baixar um cliente, como <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>
+* Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>.
 
 ##<a id="ssh"></a>Conexão com o SSH
 
-Conecte-se com o nome de domínio totalmente qualificado (FQDN) do cluster HDInsight usando o comando SSH. O FQDN será o nome que você atribuiu ao cluster e **.azurehdinsight.net**. Por exemplo, o seguinte deve se conectar a um cluster chamado **myhdinsight**.
+Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDInsight usando o comando SSH. O FQDN será o nome que você atribuiu ao cluster e **.azurehdinsight.net**. Por exemplo, o seguinte deve se conectar a um cluster chamado **myhdinsight**.
 
 	ssh admin@myhdinsight-ssh.azurehdinsight.net
 
@@ -46,21 +46,21 @@ Conecte-se com o nome de domínio totalmente qualificado (FQDN) do cluster HDIns
 
 **Se você forneceu uma senha para autenticação SSH** ao criar o cluster HDInsight, você precisará fornecer a senha quando solicitado.
 
-###Putty (clientes do Windows)
+###Putty (clientes baseados no Windows)
 
-O Windows não fornece um cliente SSH integrado. É recomendável usar **Putty**, que pode ser baixado em <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+O Windows não fornece um cliente SSH integrado. É recomendável usar **Putty**, que pode ser baixado de <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
-Para obter mais informações sobre como usar Putty, consulte a seção **Usar Putty para conectar-se a um computador Linux** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
+Para obter mais informações sobre como usar Putty, consulte a seção **Usar Putty para conectar-se a um computador Linux** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
 
-> [AZURE.NOTE] Se você usou um certificado para autenticação de SSH para o cluster HDInsight, você também precisará ver a seção **Criar um PPK para Putty** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>
+> [AZURE.NOTE] Se você tiver usado um certificado para autenticação de SSH para o cluster HDInsight, também precisará ver a seção **Criar um PPK para Putty** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
 
-##<a id="pig"></a>Use o comando Pig
+##<a id="pig"></a>Usar o comando Pig
 
-2. Uma vez conectado, inicie a Interface de Linha de Comando (CLI) Pig usando o comando a seguir.
+2. Uma vez conectado, inicie a CLI (interface de linha de comando) do Pig usando o comando a seguir.
 
         pig
 
-	Após um momento, você deverá ver um `grunt>` prompt.
+	Após um momento, você deverá ver um prompt  `grunt>`.
 
 3. Insira a instrução a seguir.
 
@@ -74,9 +74,9 @@ Para obter mais informações sobre como usar Putty, consulte a seção **Usar P
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	Você pode usar **DUMP** para exibir os dados após a transformação. Nesse caso, `DUMP LEVELS;`.
+	Você pode usar **DUMP** para exibir os dados após a transformação. Nesse caso, use `DUMP LEVELS;`.
 
-5. Continue a aplicar transformações usando as instruções a seguir. Use `DUMP` para exibir o resultado da transformação após cada etapa.
+5. Continue a aplicar transformações usando as instruções a seguir. Use  `DUMP` para exibir o resultado da transformação após cada etapa.
 
 	<table>
 	<tr>
@@ -89,14 +89,14 @@ Para obter mais informações sobre como usar Putty, consulte a seção **Usar P
 	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Agrupa as linhas pelo nível de log e armazena os resultados em GROUPEDLEVELS.</td>
 	</tr>
 	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Cria um novo conjunto de dados que contém cada valor de nível de log exclusivo e quantas vezes ele ocorre. Isso é armazenado em FREQUENCIES</td>
+	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Cria um novo conjunto de dados que contém cada valor de nível de log exclusivo e quantas vezes ele ocorre. Isso é armazenado em FREQUENCIES.</td>
 	</tr>
 	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena os níveis de log por contagem (decrescente) e armazena em RESULT</td>
+	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena os níveis de log por contagem (decrescente) e armazena em RESULT.</td>
 	</tr>
 	</table>
 
-6. Você também pode salvar os resultados de uma transformação usando a instrução `STORE`. Por exemplo, o seguinte salva o `RESULT` no diretório **/example/data/pigout** no contêiner de armazenamento padrão para seu cluster.
+6. Você também pode salvar os resultados de uma transformação usando a instrução  `STORE`. Por exemplo, o seguinte salva o  `RESULT` no diretório **/example/data/pigout** no contêiner de armazenamento padrão para o cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -124,7 +124,7 @@ Você também pode usar o comando Pig para executar o Pig Latin contido em um ar
 		RESULT = order FREQUENCIES by COUNT desc;
 		DUMP RESULT;
 
-5. Use o seguinte para executar o arquivo **pigbatch.pig** utilizando o comando pig.
+5. Use o seguinte para executar o arquivo **pigbatch.pig** usando o comando Pig.
 
 		pig ~/pigbatch.pig
 
@@ -152,4 +152,5 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
 
 * [Usar o MapReduce com Hadoop no HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+
+<!--HONumber=47-->

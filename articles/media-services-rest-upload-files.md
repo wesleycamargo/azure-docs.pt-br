@@ -18,26 +18,31 @@
 
 
 
-# Carregar arquivos em uma conta de serviços de mídia usando a API REST
+#Carregar arquivos em uma conta de serviços de mídia usando a API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](../media-services-video-on-demand-workflow). 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
 
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
+
+
+>[AZURE.NOTE]Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Nome** não pode ter qualquer um dos seguintes [caracteres reservados para codificação de porcentagem](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+
+O fluxo de trabalho básico para a ingestão de Ativos é dividido nas seguintes seções:
+
+- Criar um ativo
+- Criptografar um ativo (opcional)
+- Carregar um arquivo no armazenamento de blob
+
+
+##Criar um ativo
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos serviços de mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
 
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
  
-
-## <a id="upload"></a>Criar um novo ativo e carregar um arquivo de vídeo com a API REST
-
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/pt-br/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
-
-
-### Criar um ativo
-
 Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
 Uma das propriedades que você pode especificar quando criar um ativo está em **opções**. **Opções ** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores. 
@@ -51,7 +56,7 @@ Uma das propriedades que você pode especificar quando criar um ativo está em *
 
 - **EnvelopeEncryptionProtected** = **4**: Especifique se você estiver carregando HSL criptografado com arquivos AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
-Se o ativo for usar criptografia, você deve criar um **ContentKey** e vinculá-lo ao seu ativo conforme descrito no tópico a seguir:[Como criar um ContentKey](../media-services-rest-create-contentkey). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **ativos**. Faça isso usando a solicitação HTTP de **mesclar**. 
+>[AZURE.NOTE]Se o ativo for usar criptografia, você deve criar um **ContentKey** e vinculá-lo ao seu ativo conforme descrito no tópico a seguir:[Como criar um ContentKey](../media-services-rest-create-contentkey). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **ativos**. Faça isso usando a solicitação HTTP de **mesclar**. 
 
 
 O exemplo a seguir mostra como criar um ativo.
@@ -101,7 +106,7 @@ Se for bem-sucedido, será retornado o seguinte:
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-### Criar um AssetFile
+##Criar um AssetFile
 
 A entidade do [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
@@ -166,7 +171,7 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
 	}
 
 
-### Criando o AccessPolicy com permissão de gravação. 
+## Criando o AccessPolicy com permissão de gravação. 
 
 Antes de carregar todos os arquivos no armazenamento de blob, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para obter mais informações sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
@@ -213,7 +218,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 	   "Permissions":2
 	}
 
-### Obter a URL de carregamento
+##Obter a URL de carregamento
 
 Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usam o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para obter mais informações, consulte [localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
@@ -281,7 +286,7 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 	   "Name":null
 	}
 
-### Carregar um arquivo em um contêiner de armazenamento de blob
+## Carregar um arquivo em um contêiner de armazenamento de blob
 	
 Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos. 
 
@@ -290,7 +295,7 @@ Depois de definir AccessPolicy e localizador, o arquivo real é carregado como u
 Para obter mais informações sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-### Atualizar o AssetFile 
+## Atualizar o AssetFile 
 
 Agora que você carregou o arquivo, atualize as informações de tamanho do FileAsset (e outros). Por exemplo:
 	
@@ -359,10 +364,6 @@ Se for bem-sucedido, será retornado o seguinte:
 	...
 
  
-
-## Próximas etapas
-Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][].
-
 [Como obter um processador de mídia]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

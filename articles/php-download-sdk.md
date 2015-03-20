@@ -18,35 +18,37 @@
 
 #Baixar o SDK do Azure para PHP
 
+## Visão geral
+
 O SDK do Azure para o Python inclui componentes que permitem que você desenvolva, implante e gerencie aplicativos do PHP para o Azure. O SDK do Azure para o PHP inclui especificamente o seguinte:
 
 * **As bibliotecas de cliente PHP para Azure**. Essas bibliotecas de classe fornecem uma interface para acessar recursos do Azure, como serviços de gerenciamento de dados e serviços de nuvem.  
 * **As Ferramentas de Linha de Comando do Azure para Mac e Linux**. Esse é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como Sites do Azure e Máquinas Virtuais do Azure. Essas ferramentas funcionam em qualquer plataforma, incluindo Mac, Linux e Windows.
-* **PowerShell para Azure (somente Windows)**. Esse é um conjunto de cmdlets do PowerShell para implantar e gerenciar serviços do Microsoft Azure, como Serviços de Nuvem e Máquinas Virtuais.
+* **PowerShell para Azure (somente Windows)**. Esse é um conjunto de cmdlets do PowerShell para implantar e gerenciar serviços do Windows Azure, como Serviços de Nuvem e Máquinas Virtuais.
 * **Os Emuladores do Azure (somente Windows)**. Os emuladores de computação e armazenamento são emuladores locais de serviços de nuvem e serviços de gerenciamento de dados que permitem que você teste um aplicativo localmente. Os Emuladores do Azure são executados somente no Windows.
 
 As seções a seguir descrevem como baixar e instalar os componentes descritos acima. 
 
-As instruções deste tópico pressupõem que você tenha o [PHP][install-php] instalado.
+As instruções neste tópico pressupõem que você tenha o [PHP][install-php] instalado.
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > Você deve ter o PHP 5.3 ou superior para usar as bibliotecas de cliente PHP para Azure. 
 
 ##As bibliotecas de cliente PHP para Azure.
 
 As Bibliotecas de Cliente PHP para Azure fornecem uma interface para acessar recursos do Azure, como serviços de gerenciamento de dados e serviços de nuvem, de qualquer sistema operacional. Essas bibliotecas podem ser instaladas através do Composer ou dos gerenciadores de pacotes PEAR ou manualmente.
 
-Para obter informações sobre como usar as Bibliotecas de Cliente do PHP para Azure, consulte [Como usar o serviço Blob][blob-service], [Como usar o serviço Tabela][table-service] e [Como usar o serviço Fila][queue-service].
+Para obter informações sobre como usar as bibliotecas cliente PHP do Azure, consulte [Como usar o serviço Blob][blob-service], [Como usar o serviço de tabela][table-service] e [Como usar o serviço de fila][queue-service].
 
 ###Instalar por meio do Composer
 
-1. [instalar o Git][install-git]. 
+1. [Instalar o Git][install-git].
 
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> No Windows, você também precisará adicionar o executável do Git à variável de ambiente PATH.
 
-2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código nele:
+2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
 
 		{
 			"require": {
@@ -85,12 +87,12 @@ Depois que a instalação for concluída, você poderá fazer referência às bi
 
 Para baixar e instalar as Bibliotecas de Cliente PHP para o Azure manualmente, siga estas etapas:
 
-1. Baixar um arquivo. zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para sua máquina local. (A última opção requer uma conta do GitHub e ter o Git instalado localmente).
+1. Baixar um arquivo. zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para seu computador local. (A última opção requer uma conta do GitHub e ter o Git instalado localmente).
 
-	> [WACOM.NOTE] 
-	> As Bibliotecas de Clientes do PHP para Microsoft Azure têm uma dependência dos pacotes PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). A maneira recomendada para resolver essas dependências é instalando esses pacotes com o [gerenciador de pacotes PEAR](http://pear.php.net/manual/en/installation.php).
+	> [AZURE.NOTE] 
+	> As bibliotecas de cliente PHP para o Azure têm uma dependência de pacotes PEAR [HTTP_Request2](, http://pear.php.net/package/HTTP_Request2)[Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). A maneira recomendada para resolver essas dependências é instalando esses pacotes com o [gerenciador de pacotes PEAR](http://pear.php.net/manual/en/installation.php).
 
-2. Copie o diretório do 'MicrosoftAzure' do arquivo morto baixado para a estrutura de diretórios do seu aplicativo e faça referência às classes do seu aplicativo.
+2. Copie o diretório do  `WindowsAzure` do arquivo morto baixado para a estrutura de diretórios do seu aplicativo e faça referência às classes do seu aplicativo.
 
 ##O PowerShell do Azure e o Emuladores do Azure.
 
@@ -100,18 +102,18 @@ A maneira recomendada de instalar os emuladores do PowerShell do Azure e do Azur
 
 Para obter informações sobre como usar o PowerShell do Azure, consulte [Como usar o PowerShell do Azure][powershell-tools].
 
-##Ferramenta de linha de comando do Azure para Mac e Linux
+##Ferramentas de linha de comando Azure para Mac e Linux
 
 As Ferramentas de Linha de Comando do Azure para Mac e Linux são um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como Sites do Azure e Máquinas Virtuais do Azure. A lista a seguir descreve como instalar as ferramentas, dependendo do sistema operacional:
 
 * **Mac**: Baixe o Instalador do SDK do Azure: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Abra o arquivo .pkg baixado e conclua as etapas de instalação quando for solicitado.
 
-* **Linux**: instale a versão mais recente do [Node.js][nodejs-org] (consulte [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]), em seguida, execute o seguinte comando:
+* **Linux**: Instale a versão mais recente do [Node.js][nodejs-org] (consulte [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]), em seguida, execute o seguinte comando:
 
 		npm install azure-cli -g
 
-	> [WACOM.NOTE] 
-	> Talvez seja necessário executar esse comando com privilégios elevados:  `sudo npm install azure-cli -g`
+	> [AZURE.NOTE] 
+	> talvez seja necessário executar esse comando com privilégios elevados:  `sudo npm install azure-cli -g`
 
 
 Para obter informações sobre como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux, consulte [Como usar as Ferramentas de Linha de Comando para Mac e Linux][crossplat-tools].
@@ -136,4 +138,4 @@ Para obter informações sobre como usar as Ferramentas de Linha de Comando do A
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!--HONumber=46--> 
+<!--HONumber=47-->
