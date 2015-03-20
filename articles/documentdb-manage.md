@@ -50,9 +50,9 @@ O Banco de Dados de Documentos proporciona um amplo conjunto de operações de b
 
 As unidades de solicitação são provisionadas para cada Conta de banco de dados com base no número de unidades de capacidade que você compra. O consumo da unidade de solicitação é avaliado em termos de taxa por segundo. Os aplicativos que excedem a taxa de unidades de solicitação provisionadas para sua conta serão limitados até que a taxa fique abaixo do nível reservado para a Conta. Se o seu aplicativo exigir um nível mais alto de taxa de transferência, você pode comprar unidades de capacidade adicionais.  
 
-A tabela a seguir fornece uma lista de várias operações de banco de dados e as unidades de solicitação disponíveis por CU. A tabela ajuda você a planejar como uma operação de determinado banco de dados consome a taxa de transferência provisionada associada a uma CU.  Vamos supor que o tamanho do documento é de 1 KB consistindo em 10 valores de propriedade exclusivos com o nível de consistência padrão definido como "Session" e todos os documentos indexados automaticamente pelo Banco de Dados de Documentos. 
+A tabela a seguir fornece uma lista de várias operações de banco de dados e as unidades de solicitação disponíveis por UC. A tabela ajuda você a planejar como uma operação de determinado banco de dados consome a taxa de transferência provisionada associada a uma UC.  Vamos supor que o tamanho do documento é de 1 KB consistindo em 10 valores de propriedade exclusivos com o nível de consistência padrão definido como "Session" e todos os documentos indexados automaticamente pelo Banco de Dados de Documentos. 
 
-|Operações de banco de dados|Número de operações por segundo por CU|
+|Operações de banco de dados|Número de operações por segundo por UC|
 |-------------------|--------------------------------------|
 |Leitura de um único documento	|2000
 |Inserção/substituição/exclusão de um único documento	|500
