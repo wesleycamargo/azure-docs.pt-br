@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Registrar-se para logon único - Serviços Móveis do Azure" 
 	description="Saiba como se registrar para autenticação de logon único em seu aplicativo de Serviços Móveis do Azure." 
 	services="mobile-services" 
@@ -91,4 +91,4 @@ Agora você está pronto para integrar a autenticação usando o Live Connect em
 [JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-users-js/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+<!--HONumber=42-->

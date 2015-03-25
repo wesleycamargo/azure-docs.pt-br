@@ -115,7 +115,7 @@ Abra uma sessão do PowerShell do Azure e execute o comando a seguir. Não se es
 [Opção 2: Adicione uma máquina virtual já existente a um conjunto de disponibilidade]: #addmachine
 
 <!-- LINKS -->
-[Balanceamento de carga para Serviços de infraestrutura do Azure]: ../virtual-machines-load-balance
+[Balanceamento de carga de máquinas virtuais]: ../virtual-machines-load-balance
 [Gerenciar a disponibilidade de máquinas virtuais]: ../virtual-machines-manage-availability
 [Criar uma máquina virtual que execute o Windows]: ../virtual-machines-windows-tutorial
 [Visão geral da rede virtual do Azure]: http://go.microsoft.com/fwlink/p/?linkid=294063

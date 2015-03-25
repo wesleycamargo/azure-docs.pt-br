@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução às notificações por push (iOS) | Centro de Desenvolvimento de Serviços Móveis" 
 	description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo iOS." 
 	services="mobile-services, notification-hubs" 
@@ -254,4 +254,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Referência conceitual do tutorial do Objective-C de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-\<!--HONumber=42-->
+<!--HONumber=42-->

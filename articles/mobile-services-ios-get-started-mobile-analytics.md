@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução à Análise Móvel | Centro de desenvolvimentos dos Serviços Móveis" 
 	description="Introdução à Análise Móvel." 
 	documentationCenter="ios" 
@@ -31,7 +31,7 @@ Neste tutorial, você adiciona recursos de análise móvel ao seu aplicativo usa
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
 1. [Inicializar o SDK do Capptain]
-2. [Sobrecarregar o UIViewController
+2. [Sobrecarregar o UIViewController]
 
 Este tutorial exige o seguinte:
 
@@ -99,6 +99,6 @@ Saiba mais sobre o que Capptain pode fazer para seu aplicativo em [http://www.ca
 
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
-[Camada Padrão de Serviços Móveis]: /pt-br/pricing/details/mobile-services/
+[Camada Padrão dos Serviços Móveis]: /pt-br/pricing/details/mobile-services/
 
-\<!--HONumber=42-->
+<!--HONumber=42-->

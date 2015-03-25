@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Registrar para autenticação no Twitter - Serviços Móveis" 
 	description="Aprenda a usar a autenticação do Twitter com o aplicativo de serviços móveis do Azure." 
 	services="mobile-services" 
@@ -68,4 +68,4 @@ Agora você está pronto para usar um logon do Twitter para autenticação no se
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+<!--HONumber=42-->
