@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Criando uma máquina virtual para um projeto Web que usa o Visual Studio" 
-	description="Criar uma máquina virtual para um site" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="kempb" 
-	manager="douge" 
-	editor="tglee"/>
+﻿<properties
+	pageTitle="Criando uma máquina virtual para um projeto Web que usa o Visual Studio"
+	description="Criar uma máquina virtual para um site"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kempb"
+	manager="douge"
+	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/02/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/19/2015" 
 	ms.author="kempb"/>
 
 # Criar uma máquina virtual para um site com o Visual Studio
@@ -65,4 +65,4 @@ Se você quiser personalizar os scripts de publicação criados, veja informaç�
 [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
 [4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

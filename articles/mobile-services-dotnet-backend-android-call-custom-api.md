@@ -4,18 +4,18 @@
 	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo Android que usa os serviços móveis do Microsoft Azure." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="ggailey777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/27/2014" 
-	ms.author="glenga"/>
+	ms.date="02/16/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Chamar uma API personalizada do cliente
 
@@ -25,13 +25,9 @@ Este tópico mostra como chamar uma API personalizada em um aplicativo Android. 
 
 A API personalizada criada neste tópico permite enviar uma única solicitação POST que define o *completed* sinalizador `true` para todos os itens de tarefas pendentes na tabela do seu serviço móvel. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis] ou [Introdução aos dados]. Para fazer isso, você executará as seguintes etapas:
+Você adicionará essa funcionalidade ao aplicativo que criou quando concluir um dos tutoriais [Introdução aos Serviços Móveis] ou [Introdução aos dados]. 
 
-1. [Definir a API personalizada]
-2. [Atualizar o aplicativo para chamar a API personalizada]
-3. [Testar o aplicativo] 
-
-Este tutorial baseia-se no guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. 
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
@@ -61,11 +57,11 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo Android
 [SDK para Android de Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Introdução aos dados]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Introdução à autenticação]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Introdução às notificações por push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
-[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
+[Scripts de servidor de armazenamento no controle do código-fonte]: /documentation/articles/mobile-services-store-scripts-source-control
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

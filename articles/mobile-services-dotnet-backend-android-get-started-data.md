@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
@@ -25,6 +25,10 @@ Este tópico mostra como usar os Serviços Móveis do Azure como uma fonte de da
 O serviço móvel que você criará neste tutorial dará suporte ao tempo de execução do .NET no Serviço Móvel. Isso permitirá que você use linguagens .NET e o Visual Studio para a lógica dos negócios do lado do servidor no serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript] neste tópico.
 
 > [AZURE.IMPORTANT] Este tutorial requer o Visual Studio 2013.
+
+<!-- -->
+
+> [AZURE.NOTE] Se você gostaria de ver a versão Eclipse deste tutorial, vá para: [Introdução aos dados (Eclipse)].
 
 Este tutorial apresenta e explica as seguintes etapas básicas:
 
@@ -38,7 +42,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 5. [Testar o aplicativo no serviço móvel publicado]
 
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
+> [AZURE.IMPORTANTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
 
 
 <h2><a name="create-service"></a>Criar um novo serviço móvel</h2>
@@ -82,7 +86,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, você pode testá-lo nos Serviços Móveis usando o emulador do Android ou um telefone Android.
 
-1. No menu **Executar**, clique em **Executar** para iniciar o projeto.
+1. No menu **Executar**, clique em **Executar aplicativo** para iniciar o projeto.
 
 	Isso executa seu aplicativo criado com o SDK do Android que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
 
@@ -99,7 +103,7 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 5. No Portal de Gerenciamento, execute um consulta para exibir as mudanças feitas pelo aplicativo da Windows Store. Sua consulta será semelhante à consulta a seguir, mas usará seu nome de banco de dados em vez de `todolist`.
 
-        SELECT * FROM [todolist].[todoitems]	
+        SELECT * FROM [todolist].[todoitems]
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
 
@@ -130,7 +134,7 @@ Tente um destes outros tutoriais:
 * [Introdução às notificações por push] 
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Referência conceitual do tutorial do .NET de Serviços Móveis]
+* [Referência conceitual do tutorial de .NET de Serviços Móveis]
   <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
   
 <!-- Anchors. -->
@@ -176,19 +180,20 @@ Tente um destes outros tutoriais:
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
-[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-data-js
-[Versão de back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
+[Introdução aos dados (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[Validar e modificar dados com scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-android
+[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-android
+[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Versão de back-end do JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial de .NET de Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-\<!--HONumber=42-->
+[Referência conceitual do tutorial de .NET de Serviços Móveis]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+<!--HONumber=47-->

@@ -1,27 +1,28 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Como usar filas do Barramento de Serviço (Java) - Azure" metaKeywords="filas do Barramento de Serviço do Azure, filas do Azure, sistema de mensagens do Azure, filas do Azure em Java" description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Como usar filas do barramento de serviço (Java) - Azure" 
+	description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java." 
+	services="service-bus" 
+	documentationCenter="java" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# Como usar as filas do Service Bus
+# Como usar filas do Barramento de Serviço
 
-Este guia mostra como usar as filas do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários abrangidos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
+Este guia descreve como usar as filas do barramento de serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários abrangidos incluem **criar filas****, enviar e receber mensagens**e **excluir filas**.
 
-## Sumário
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
--   [O que são as filas do Service Bus?][]
--   [Criar um namespace de serviço][]
--   [Obter as credenciais de gerenciamento padrão do namespace][]
--   [Configurar seu aplicativo para usar o Service Bus][]
--   [Como: Criar um provedor de token de segurança][]
--   [Como: Criar uma fila][How to: Create a Security Token Provider]
--   [Como: Enviar mensagens para uma fila][]
--   [Como: Receber mensagens de uma fila][]
--   [Como: Tratar falhas do aplicativo e mensagens ilegíveis][]
--   [Próximas etapas][]
-
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
-
-## <a name="bkmk_ConfigApp"> </a>Configurar seu aplicativo para usar o Service Bus
+## Configurar seu aplicativo para usar o Barramento de serviço
 
 Adicione as seguintes instruções de importação à parte superior do arquivo Java:
 
@@ -31,9 +32,9 @@ Adicione as seguintes instruções de importação à parte superior do arquivo 
 	import com.microsoft.windowsazure.services.core.*; 
 	import javax.xml.datatype.*;
 	
-## <a name="bkmk_HowToCreateQueue"> </a>Como criar uma fila
+## Como criar uma fila
 
-Operações de gerenciamento para as filas do Barramento de Serviço podem ser realizadas pela classe **ServiceBusContract**. Um objeto **ServiceBusContract** é construído com uma configuração adequada que encapsula as permissões de token para gerenciá-lo, e a classe **ServiceBusContract** é o único ponto de comunicação com o Azure.
+Operações de gerenciamento para as filas do Barramento de Serviço podem ser realizadas pela classe**ServiceBusContract**. Um objeto **ServiceBusContract** é construído com uma configuração adequada que encapsula as permissões de token para gerenciá-lo, e a classe **ServiceBusContract** é o único ponto de comunicação com o Azure.
 
 A classe **ServiceBusService** fornece métodos para criar, enumerar e excluir filas. O exemplo abaixo mostra como um objeto **ServiceBusService** pode ser usado para criar uma fila chamada "TestQueue" com um namespace chamado "HowToSample":
 
@@ -58,7 +59,7 @@ A classe **ServiceBusService** fornece métodos para criar, enumerar e excluir f
         System.exit(-1);
     }
 
-Há métodos em QueueInfo que permitem às propriedades da fila serem ajustadas (por exemplo: para configurar o valor padrão "time-to-live" como sendo aplicado a mensagens enviadas à fila). O exemplo a seguir mostra como criar uma fila denominada "TestQueue" com um tamanho máximo de 5 GB:
+Existem métodos em QueueInfo que permitem que as propriedades da fila sejam ajustadas (por exemplo, para definir o valor da "vida útil" padrão a ser aplicado às mensagens enviadas para a fila). O exemplo a seguir mostra como criar uma fila denominada "TestQueue" com um tamanho máximo de 5 GB:
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -67,9 +68,10 @@ Há métodos em QueueInfo que permitem às propriedades da fila serem ajustadas 
 
 Observe que você pode usar o método **listQueues** em objetos **ServiceBusContract** para verificar se já existe uma fila com um nome especificado dentro de um namespace de serviço.
 
-## <a name="bkmk_HowToSendMsgs"> </a>Como enviar mensagens para uma fila
+## Como enviar mensagens para uma fila
 
-Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo obterá um objeto**ServiceBusContract**. O código abaixo demonstra como enviar uma mensagem para a fila "TestQueue" que criamos acima dentro do nosso namespace de serviço "HowToSample":
+Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo obterá um objeto**ServiceBusContract**. O código abaixo demonstra como enviar uma mensagem para a fila "TestQueue" que criamos acima dentro do nosso
+namespace de serviço "HowToSample":
 
     try
     {
@@ -83,10 +85,9 @@ Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo ob
         System.exit(-1);
     }
 
-As mensagens enviadas para (e recebidas das) filas de Barramento de Serviço são instâncias da classe **BrokeredMessage**. Os objetos **BrokeredMessage** possuem um conjunto de métodos padrão (como **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**), um dicionário usado para conter propriedades específicas do aplicativo personalizado, e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do **BrokeredMessage** e o serializador adequado então será usado para serializar o objeto. Como alternativa, um **java.IO.InputStream** pode ser fornecido.
+As mensagens enviadas para (e recebidas das) filas de Barramento de Serviço são instâncias da classe **BrokeredMessage**. **Objeto BrokeredMessage** possuem um conjunto de métodos padrão (como **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do **BrokeredMessage** e o serializador adequado então será usado para serializar o objeto. Como alternativa, um **java.IO.InputStream** pode ser fornecido.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para
-"TestQueue" **MessageSender** obtido no trecho de código acima:
+O exemplo a seguir demonstra como enviar cinco mensagens de teste para **MessageSender** de "TestQueue" que obtivemos no trecho de código acima:
 
     for (int i=0; i<5; i++)
     {
@@ -98,13 +99,16 @@ O exemplo a seguir demonstra como enviar cinco mensagens de teste para
          service.sendQueueMessage("TestQueue", message);
     }
 
-As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, incluindo as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
+As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>Como receber mensagens de uma fila
+## Como receber mensagens de uma fila
 
-A maneira mais fácil de receber mensagens de uma fila é usar um objeto **ServiceBusContract**. As mensagens recebidas podem funcionar de dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.  Ao usar o modo **ReceiveAndDelete**, o recebimento é uma operação única, isto é, quando o Barramento de Serviço recebe uma solicitação de leitura de uma mensagem em uma fila, ele marca a mensagem como sendo consumida e a retorna para o aplicativo. O modo **ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Service Bus marcou a mensagem como consumida e o aplicativo reiniciou e começou a consumir mensagens novamente, ela perdeu a mensagem que foi consumida antes da falha.
+A maneira mais fácil de receber mensagens de uma fila é usar um objeto **ServiceBusContract**. As mensagens recebidas podem funcionar de dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
 
-No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o possibilita o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, ela a bloqueia para evitar que outros consumidores a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando **Delete** na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Delete**, ele marca a mensagem como sendo consumida e remove-a da fila.
+Quando o modo **ReceiveAndDelete** for usado, o recebimento será uma operação única, isto é, quando o Barramento de Serviço receber uma solicitação de leitura de uma mensagem em uma fila, ele marcará a mensagem como sendo consumida e a retornará ao aplicativo. **O modo ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la.
+Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+
+No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando **Delete** na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Delete**, ele marca a mensagem como tendo sido consumida e remove-a da fila.
 
 O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** (não o modo padrão). O exemplo abaixo executa um loop infinito e processa mensagens assim que elas chegam em nossa "TestQueue":
 
@@ -159,28 +163,30 @@ O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas
 	    System.exit(-1);
 	} 	
 
-## <a name="bkmk_HowToHandleAppCrashes"> </a>Como tratar falhas do aplicativo e mensagens ilegíveis
+## Como tratar falhas do aplicativo e mensagens ilegíveis
 
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que possa ser recebida novamente, tanto pelo mesmo aplicativo de consumo quanto por algum outro.
+O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
 
-Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Service Bus desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Barramento de
+Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
-## <a name="bkmk_NextSteps"> </a>Próximas etapas
+## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos das filas do barramento de serviço, consulte o tópico MSDN
-[Filas, Tópicos e Assinaturas][] para mais informações.
+Agora que você aprendeu as noções básicas sobre Filas do Barramento de Serviço, consulte o tópico do MSDN [Filas, tópicos e assinaturas][] para obter mais informações.
 
-  [SDK do Azure para Java]: http://azure.microsoft.com/pt-br/develop/java/
-  [O que são as filas do Service Bus?]: #what-are-service-bus-queues
+  [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
+  [O que são as filas do Barramento de Serviço?]: #what-are-service-bus-queues
   [Criar um namespace de serviço]: #create-a-service-namespace
-  [Obter as credenciais de gerenciamento padrão do namespace]: #obtain-default-credentials
-  [Configurar seu aplicativo para usar o Service Bus]: #bkmk_ConfigApp
+  [Obter as Credenciais de Gerenciamento Padrão para o Namespace]: #obtain-default-credentials
+  [Configurar seu aplicativo para usar o Barramento de serviço]: #bkmk_ConfigApp
   [Como: Criar um provedor de token de segurança]: #bkmk_HowToCreateQueue
   [Como: Enviar mensagens para uma fila]: #bkmk_HowToSendMsgs
   [Como: Receber mensagens de uma fila]: #bkmk_HowToReceiveMsgs
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #bkmk_HowToHandleAppCrashes
   [Próximas etapas]: #bkmk_NextSteps
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
-  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh367516.aspx
+  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+
+<!--HONumber=47-->

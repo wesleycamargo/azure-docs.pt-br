@@ -1,7 +1,7 @@
 ﻿
 ##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-1. Adicionaremos um botão rotulado como "Tudo Completo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Eclipse, abra o arquivo  *res\layout\activity_to_do.xml* em seu projeto quickstart, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado  `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
+1. Adicionaremos um botão rotulado como "Tudo Completo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Android Studio, abra o arquivo  *res\layout\activity_to_do.xml* em seu projeto de início rápido, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado  `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
 
 2. No segundo **LinearLayout**, exclua o elemento **EditText** e adicione o código a seguir imediatamente após o elemento **Botão** existente: 
 
@@ -42,7 +42,7 @@
 
 
 
-5. No Gerenciador de Pacotes, clique com o botão direito do mouse no nome do projeto na pasta  *src* (`com.example.{your projects name}`), escolha **Novo** e **Classe**. Na caixa de diálogo, digite **MarkAllResult** no campo do nome da classe, escolha OK e substitua a definição da classe resultante pelo seguinte código:
+5. No Explorador de Projeto, clique com botão direito no nome do projeto na pasta *src* (`com.example.{your projects name}`), escolha **Novo** e **Classe**. Na caixa de diálogo, digite **MarkAllResult** no campo do nome da classe, escolha OK e substitua a definição da classe resultante pelo seguinte código:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -97,18 +97,18 @@
 
 ## Testar o aplicativo
 
-1. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador do Android.
+1. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador do Android, ou em um dispositivo Android conectado.
 
-	Isso executa seu aplicativo criado com o SDK do Android que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
+	Isso executa seu aplicativo, criado com o SDK do Android, que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
 
 
 2. No aplicativo, digite um texto em **Inserir um TodoItem** e clique em **Adicionar**.
 
 3. Repita a etapa anterior até que tenha incluído vários itens pendentes na lista.
 
-4. Clique no botão **Tudo Concluído**.
+4. Clique no botão **Concluir Tudo**.
 
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
-\<!--HONumber=42-->
+<!--HONumber=47-->

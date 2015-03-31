@@ -86,6 +86,4 @@ Como os grupos de recursos permitem que você gerencie o ciclo de vida de todos 
 
 ![](http://i.imgur.com/ZTXoISb.png)
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

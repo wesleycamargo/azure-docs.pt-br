@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Registrar-se para autenticação do Active Directory do Azure - Serviços Móveis" 
 	description="Saiba como se registrar para a autenticação do Active Directory do Azure em seu aplicativo de serviços móveis." 
 	authors="wesmc7777" 
@@ -10,18 +10,21 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
+##Visão geral
+
 
 Este tópico mostra como registrar seus aplicativos para poderem usar o Active Directory do Azure como um provedor de autenticação para os Serviços Móveis do Azure. 
 
+##Registrando seu aplicativo
 
->[AZURE.NOTE] As etapas descritas neste tópico devem ser usados com o tutorial [Adicionar Autenticação ao aplicativo de Serviços Móveis](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) quando você quiser usar [Operações de logon voltadas ao serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com seu aplicativo. Como alternativa, se seu aplicativo exigir [operações de logon voltadas ao cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para o Active Directory do Azure e um serviço móvel de back-end do .NET, você deve começar com o tutorial [Autenticar o aplicativo com logon único da biblioteca de autenticação do Active Directory](/pt-br/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] As etapas descritas neste tópico devem ser usados com o tutorial [Adicionar Autenticação ao aplicativo de Serviços Móveis](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) quando você quiser usar [Operações de logon voltadas ao serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com seu aplicativo. Como alternativa, se seu aplicativo exigir [operações de logon voltadas ao cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para o Active Directory do Azure e um serviço móvel de back-end do .NET, você deve começar com o tutorial [Autenticar o aplicativo com logon único da biblioteca de autenticação do Active Directory](/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
 
 
 1. Entre no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis**, e, em seguida, clique em seu serviço móvel.
@@ -38,7 +41,7 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 4. Navegue até **Active Directory** no portal de gerenciamento e clique em seu diretório.
 
-    ![][4] 	
+    ![][4] 
 
 5. Clique na guia **Aplicativos** na parte superior e clique em **ADICIONAR** um aplicativo. 
 
@@ -46,7 +49,7 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 6. Clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
 
-7. No Assistente Adicionar Aplicativo, insira um **Nome** para seu aplicativo e clique no tipo **Aplicativo Web e/ou API Web**. Em seguida, clique em continuar.
+7. No Assistente de Adicionar Aplicativo, insira um **Nome** para seu aplicativo e clique no tipo **Aplicativo Web e/ou API Web**. Em seguida, clique em continuar.
 
     ![][5]
 
@@ -57,7 +60,7 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 9. Depois que o aplicativo tiver sido adicionado, clique na guia **Configurar**. Em seguida, clique para copiar a **ID do cliente** do aplicativo.
 
-    Se você criou o serviço móvel para usar o back-end do .Net para seu serviço móvel, edite também a **URL de Resposta** em **Logon Único** para ser a URL do seu serviço móvel acrescentada ao caminho, _signin-aad_. Por exemplo, `https://todolist.azure-mobile.net/signin-aad`
+    Se você criou o serviço móvel para usar o back-end do .Net para seu serviço móvel, além disso edite a **URL de resposta** em **Logon Único** para ser a URL do seu serviço móvel acrescentada ao caminho, _signin-aad_. Por exemplo, `https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
@@ -99,4 +102,4 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
 
-<!--HONumber=42-->
+<!--HONumber=47-->

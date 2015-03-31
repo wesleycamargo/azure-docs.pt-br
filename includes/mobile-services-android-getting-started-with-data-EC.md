@@ -4,7 +4,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 2. Copie os arquivos `.jar` da pasta `mobileservices` do SDK para a pasta `libs` do projeto GetStartedWithData.
 
-3. No Explorer de Pacotes no Eclipse, clique com o botão direito na pasta `libs`, clique em **Atualizar** e os arquivos jar copiados serão exibidos
+3. No Explorer de Pacotes no Eclipse, clique na pasta  `libs`, clique em **Atualizar** e os arquivos jar copiados serão exibidos
 
   	Isso adiciona a referência ao SDK dos Serviços Móveis ao espaço de trabalho.
 
@@ -44,7 +44,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Localize a classe *ProgressFilter* na parte inferior do arquivo e remova os comentários dela. Essa classe exibe um indicador 'loading' enquanto o *MobileServiceClient* está executando operações de rede.
+10. Localize a classe  *ProgressFilter* na parte inferior do arquivo e remova os comentários dela.  Essa classe exibe um indicador 'loading' enquanto o  *MobileServiceClient* está executando operações de rede.
 
 
 11. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
@@ -71,7 +71,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Isso cria uma nova instância de  *MobileServiceClient*que é usada para acessar o serviço móvel. Também cria a instância de *MobileServiceTable* que é usada para armazenamento de dados de proxy no serviço móvel.
+  	Isso criará uma nova instância de  *MobileServiceClient* que é usada para acessar seu serviço móvel.  Também cria a instância  *MobileServiceTable* que é usada para armazenamento de dados de proxy no serviço móvel.
 
 14. No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e a chave do aplicativo de seu serviço móvel, nessa ordem.
 
@@ -156,4 +156,4 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 <!-- URLs. -->
 [SDK dos Serviços Móveis Android]: http://aka.ms/Iajk6q
-<!--HONumber=45--> 
+<!--HONumber=47-->

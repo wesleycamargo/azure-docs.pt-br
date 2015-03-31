@@ -29,11 +29,11 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-8. Na página Serviços, clique em **Site do Live Services** em **Serviços Móveis do Azure**.
+8. In the Services page, click **Live Services site** under **Azure Mobile Services**.
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
-9. Em **Configurações do aplicativo**, anote os valores de **ID do cliente**, **Segredo do cliente**, e **Identificador de segurança do pacote (SID)**. 
+9. In **App settings**, make a note of the values of **Client ID**, **Client secret**, and **Package security identifier (SID)**. 
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
@@ -65,7 +65,8 @@ Agora você está pronto para usar uma Conta da Microsoft para autenticação em
  
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
+[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started/#create-new-service
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-<!--HONumber=42-->
+
+<!--HONumber=47-->

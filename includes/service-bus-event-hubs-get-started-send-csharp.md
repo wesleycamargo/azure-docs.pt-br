@@ -13,7 +13,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 	![][8]
 
-	Ele faz o download, instala e adiciona uma referência ao <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet de biblioteca do barramento de serviço do Azure</a>.
+	Ele faz o download, instala e adiciona uma referência ao <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet de biblioteca do Barramento de serviço do Azure</a>.
 
 4. Adicione a seguinte instrução `using` na parte superior do arquivo **Program.cs**:
 
@@ -61,4 +61,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -73,4 +73,4 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

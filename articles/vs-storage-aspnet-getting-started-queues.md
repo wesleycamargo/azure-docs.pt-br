@@ -1,11 +1,11 @@
 ﻿<properties 
 	pageTitle="Introdução ao Armazenamento do Azure" 
-	description="" 
+	description="Como começar a usar o armazenamento de fila do Azure em um projeto ASP.NET no Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
@@ -35,7 +35,7 @@ Adicione as seguintes declarações de namespace de código à parte superior de
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;
 
-##### Obter a cadeia de conexão do armazenamento
+#####Obter a cadeia de conexão do armazenamento
 Antes de poder realizar qualquer coisa com a fila, será necessário obter a cadeia de conexão para a conta de armazenamento onde as filas residirão. Você pode usar o tipo **CloudStorageAccount** para representar suas informações de conta de armazenamento. Para projetos ASP.NET, você pode usar o tipo **ConfigurationManager** para obter sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração de serviço do Azure, como mostrado no código a seguir.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -44,4 +44,4 @@ Antes de poder realizar qualquer coisa com a fila, será necessário obter a cad
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
-\<!--HONumber=42-->
+<!--HONumber=47-->

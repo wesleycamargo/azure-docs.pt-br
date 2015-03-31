@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Sobre o Puppet e as Máquinas Virtuais do Azure" 
 	description="Descreve como instalar e configurar o Puppet em uma VM no Azure" 
 	services="virtual-machines" 
@@ -35,7 +35,7 @@ Para obter instruções, baixe o "Guia de Introdução" disponível na página [
 
 [Como fazer logon em uma máquina virtual que executa o Linux]
 
-[Recursos e extensões de VM do Azure]
+[Gerenciar extensões]
 
 <!--Link references-->
 [Novas integrações com o Microsoft Azure e o Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
@@ -45,4 +45,4 @@ Para obter instruções, baixe o "Guia de Introdução" disponível na página [
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

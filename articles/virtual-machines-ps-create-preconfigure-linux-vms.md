@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux
@@ -22,11 +22,11 @@ Estas etapas mostram como personalizar um conjunto de comandos do PowerShell do 
 
 Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
 
-Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Windows, consulte [Usar o PowerShell do Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines-ps-create-preconfigure-windows-vms/).
+Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Windows, consulte [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines-ps-create-preconfigure-windows-vms/).
 
 ##Etapa 1: Instale o Azure PowerShell
 
-Se ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/) para instalar o PowerShell Azure em seu computador local. Em seguida, abra um prompt de comando do PowerShell do Azure com nível de administrador.
+Se ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/) para instalar o PowerShell Azure em seu computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
 
 ##Etapa 2: Definir a assinatura e a conta de armazenamento
 
@@ -83,7 +83,7 @@ Especifique o nome de usuário inicial do Linux e a senha (obrigatório). Escolh
 	$pass="<user account password>"
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
-Se você estiver salvando o conjunto de comandos resultante como um arquivo, certifique-se de armazená-lo em um local seguro para proteger o nome da conta e a senha.
+Se você estiver salvando o conjunto de comandos resultante em um arquivo, armazene-o em um local seguro para proteger o nome da conta e senha.
 
 Opcionalmente, especifique um conjunto de pares de chaves SSH que já tenham sido implantadas na assinatura.
 
@@ -267,4 +267,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -28,7 +28,7 @@
  	<th>Índice</th>
  	</tr>
  	<tr>
- 	<td>id</td>
+ 	<td>ID</td>
  	<td>cadeia de caracteres</td>
  	<td>Indexada</td>
  	</tr>
@@ -57,4 +57,4 @@
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

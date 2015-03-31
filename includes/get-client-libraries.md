@@ -1,6 +1,6 @@
 ﻿###Instalar por meio do Composer
 
-1. [Instalar o Git][install-git]. 
+1. [Instalar o Git][install-git].
 
  
 	> [AZURE.NOTE] No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
@@ -30,15 +30,15 @@
 
 Para baixar e instalar as Bibliotecas de Cliente PHP para o Azure manualmente, siga estas etapas:
 
-1. Fazer o download de um arquivo .zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para seu computador local. (A última opção requer uma conta do GitHub e ter o Git instalado localmente).
+1. Baixar um arquivo. zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para seu computador local. (A última opção requer uma conta do GitHub e ter o Git instalado localmente).
 
 	
-	> [AZURE.NOTE] As bibliotecas de cliente PHP para o Azure têm uma dependência de pacotes PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). A maneira recomendada para resolver essas dependências é instalando esses pacotes com o [gerenciador de pacotes PEAR](http://pear.php.net/manual/en/installation.php).
+	> [AZURE.NOTE] As bibliotecas de cliente PHP para o Azure têm uma dependência de pacotes PEAR [HTTP_Request2](, http://pear.php.net/package/HTTP_Request2)[Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). A maneira recomendada para resolver essas dependências é instalando esses pacotes com o [gerenciador de pacotes PEAR](http://pear.php.net/manual/en/installation.php).
 
 
 2. Copie o diretório do `WindowsAzure` do arquivo baixado para a estrutura de diretórios de aplicativo.
 
-Para obter mais informações sobre como instalar as bibliotecas de clientes PHP para o Azure (incluindo informações sobre instalar como um pacote PEAR), consulte [Baixar o SDK do Azure para PHP][download-SDK-PHP].
+Para obter mais informações sobre como instalar as Bibliotecas de Clientes PHP para o Azure (incluindo informações sobre instalar como um pacote PEAR), consulte [Baixar o SDK do Azure para PHP][download-SDK-PHP].
 
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
@@ -46,4 +46,4 @@ Para obter mais informações sobre como instalar as bibliotecas de clientes PHP
 [download-SDK-PHP]: ../php-download-sdk/
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

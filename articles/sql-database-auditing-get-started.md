@@ -1,25 +1,39 @@
-﻿<properties title="Get started with SQL database auditing" pageTitle="Introdução à auditoria do banco de dados SQL | Azure" description="Introdução à auditoria do banco de dados SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+﻿<properties 
+	pageTitle="Introdução à auditoria do banco de dados SQL | Azure" 
+	description="Introdução à auditoria do banco de dados SQL" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/23/2015" 
+	ms.author="jeffreyg"/>
  
 # Introdução à auditoria do banco de dados SQL 
-<p> A Auditoria do Banco de Dados SQL do Azure rastreia eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure. A auditoria está disponível na visualização das camadas de serviço Basic, Standard e Premium.
+<p> A Auditoria do Banco de Dados SQL do Azure rastreia eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure. A auditoria é disponibilizada normalmente para as camadas de serviço Basic, Standard e Premium.
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. 
 
-As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que dão suporte à conformidade com os padrões, consulte <a href="http://azure.microsoft.com/pt-br/support/trust-center/compliance/" target="_blank">Central de confiabilidade do Azure</a>.
+As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que dão suporte à conformidade com os padrões, consulte <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Central de confiabilidade do Azure</a>.
 
 + [Fundamentos da Auditoria do Banco de Dados SQL do Azure] 
 + [Configure a auditoria para seu banco de dados]
 + [Analise os logs e relatórios de auditoria]
 
-##<a id="subheading-1">Fundamentos da Auditoria do Banco de Dados SQL do Azure</a>
+##<a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados SQL do Azure
 
 A auditoria é configurada no Portal de Visualização do Azure, mas não faz diferença se o banco de dados foi criado usando o Portal do Azure ou o Portal de Visualização do Azure. A auditoria do Banco de Dados SQL permite que você:
 
-- **Retenha** uma trilha de auditoria dos eventos selecionados.Defina categorias de ações e eventos do banco de dados a serem registradas.
-- **Relate** sobre a atividade do banco de dados.Utilize relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
-- **Analise** relatórios.Encontre eventos suspeitos, atividades incomuns e tendências.
+- **Retenha** uma trilha de auditoria dos eventos selecionados. Defina categorias de ações e eventos do banco de dados a serem registradas.
+- **Relate** sobre a atividade do banco de dados. Utilize relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
+- **Analise** relatórios. Encontre eventos suspeitos, atividades incomuns e tendências.
 
 Você pode realizar a auditoria dos seguintes eventos e atividades:
 
@@ -33,22 +47,22 @@ Para mais detalhes sobre as atividades e eventos registrados, consulte a <a href
 
 Você também escolhe a conta de armazenamento onde os logs de auditoria serão salvos.
 
-###Cadeia de conexão segura
+###Cadeia de conexão de segurança habilitada
 Ao configurar a auditoria, o Azure oferece uma cadeia de conexão segura para o banco de dados. Somente aplicativos clientes que utilizam essa cadeia de conexão terão suas atividades e eventos registrados, por isso, você precisa atualizar os aplicativos clientes existentes para utilizar o novo formato de cadeia de caracteres.
 
-Formato tradicional da cadeia de conexão: <*nome do servidor*>.database.windows.net
+Formato tradicional da cadeia de conexão: <*server name*>.database.windows.net
 
-Cadeia de conexão segura: <*nome do servidor*>.database.**secure**.windows.net
+Cadeia de conexão segura: <*server name*>.database.**secure**.windows.net
 
 
 ##<a id="subheading-2"></a>Configure a auditoria para seu banco de dados
 
-1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal de visualização do Azure</a> em https://portal.azure.com. Como opção, você também pode abrir o <a href= "https://manage.windowsazure.com/" target="_bank">Portal clássico do Azure</a> em https://manage.windowsazure.com/. Consulte os detalhes a seguir.
+1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal de visualização do Azure</a> em https://portal.azure.com. Como alternativa, você também pode iniciar o <a href= "https://manage.windowsazure.com/" target="_bank">Portal clássico do Azure</a> em https://manage.windowsazure.com/. Consulte os detalhes a seguir.
 2. Navegue para a lâmina de configuração do banco de dados que deseja auditar. Role para baixo para a seção **Operações** e clique em **Auditoria** para habilitar a auditoria e iniciar a lâmina de configuração de auditoria.
 
 	![][1]
 
-3. Na folha de configuração de auditoria, selecione a conta de armazenamento do Azure onde os logs serão salvos. **Dica:**Use a mesma conta de armazenamento para todos os bancos de dados auditados para obter o máximo dos modelos de relatórios pré-configurados.
+3. Na folha de configuração de auditoria, selecione a conta de armazenamento do Azure onde os logs serão salvos. **Dica:** Use a mesma conta de armazenamento para todos os bancos de dados auditados para obter o máximo dos modelos de relatórios pré-configurados.
 
 	![][2]
 
@@ -58,7 +72,7 @@ Cadeia de conexão segura: <*nome do servidor*>.database.**secure**.windows.net
 
 5. Marque **Salvar essa configuração como padrão do servidor** se quiser que essas configurações se apliquem a todos os bancos de dados futuros no servidor e a qualquer um que ainda não tenha a auditoria configurada. Você pode substituir as configurações mais tarde para cada banco de dados seguindo essas mesmas etapas. 
 
-6. Clique em **Mostrar cadeias de conexão de banco de dados** e depois copie ou anote a cadeia de conexão segura adequada para seu aplicativo.Use essa conexão para aplicativos clientes cuja atividade você queira auditar.
+6. Clique em **Mostrar cadeias de conexão de banco de dados** e depois copie ou anote a cadeia de conexão segura adequada para seu aplicativo. Use essa conexão para aplicativos clientes cuja atividade você queira auditar.
 
 	![][5]
 
@@ -70,7 +84,7 @@ Cadeia de conexão segura: <*nome do servidor*>.database.**secure**.windows.net
 
 Os logs de auditoria são agregados em uma única Tabela de Armazenamento do Azure denominada **AuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode visualizar os arquivos de log usando uma ferramenta como o <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Gerenciador de Armazenamento do Azure</a>.
 
-Um modelo de relatório de painel pré-configurado está disponível como uma <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">planilha de Excel para baixar</a> para ajudá-lo a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que pode ser baixado <a href="http://www.microsoft.com/pt-br/download/details.aspx?id=39379">aqui</a>. 
+Um modelo de relatório de painel pré-configurado está disponível como uma <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">planilha de Excel para baixar</a> para ajudá-lo a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que pode ser baixado <a href="http://www.microsoft.com/download/details.aspx?id=39379">aqui</a>. 
 
 O modelo possui dados de amostra fictícios, e você pode configurar o Power Query para importar seu log de auditoria diretamente da sua conta de armazenamento do Azure. 
 
@@ -87,11 +101,11 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 
 ![][7]
 
-4. Edite o **TIPO DE EVENTO** conforme o necessário.
+4. Edite o **EVENT TYPE** conforme o necessário.
 
 ![][8]
 
-5. Selecione uma **CONTA DE ARMAZENAMENTO**.
+5. Selecione uma **STORAGE ACCOUNT**.
 6. Clique em **SALVAR**.
 7. Clique em **Mostrar cadeia de conexão segura** para a cadeia de caracteres de conexão.
 
@@ -102,7 +116,7 @@ A descrição nesta seção refere-se às capturas de tela acima. Você pode usa
 
 ##<a id="subheading-4"></a>Acesso habilitado para segurança
 
-Em produção, você provavelmente precisará que todo o tráfego para todo o banco de dados de todos os aplicativos e ferramentas seja auditado. Para isso, modifique **Acesso habilitado para segurança** de *Opcional* para *Obrigatório* e salve a política.Depois que *Obrigatório* tiver sido configurado, não há opção para acessar o banco de dados usando a cadeia de conexão original, mas apenas por meio da cadeia de conexão segura.
+Em produção, você provavelmente precisará que todo o tráfego para todo o banco de dados de todos os aplicativos e ferramentas seja auditado. Para isso modifique o **Acesso de segurança habilitada** de *Optional* para *Required* e salve a política. Depois que *Required* tiver sido configurado, não há opção para acessar o banco de dados usando a cadeia de conexão original, mas apenas por meio da cadeia de conexão segura.
 
 
 ![][9]
@@ -113,18 +127,22 @@ Em produção, você provavelmente precisará que todo o tráfego para todo o ba
 Em produção, você provavelmente atualizará suas chaves de armazenamento periodicamente. O Serviço de Auditoria não mantém suas chaves de conta de armazenamento. Ao Salvar, uma chave de Assinatura de Acesso Compartilhado (SAS) apenas de gravação é produzida para a tabela de auditoria (apenas o cliente pode ler os logs de auditoria). Para esse fim, ao atualizar suas chaves, é preciso salvar a política novamente. O processo é o seguinte:
 
 
-1. Na lâmina de configuração de auditoria (descrita acima na seção de configuração de auditoria), altere **Chave de acesso de armazenamento** de *Primária* para *Secundária* e **SALVE**.
+1. Na lâmina de configuração de auditoria (descrita acima na seção de configuração de auditoria), altere **Chave de acesso de armazenamento** de *Primary* para *Secondary* e **SAVE**.
 ![][10]
-2. Acesse a lâmina de configuração de armazenamento e **gere novamente** a *Chave de acesso primário*.
+2. Vá até a lâmina de configuração de armazenamento e **regenere** o *Primary Access Key*.
 
-3. Volte para a lâmina de configuração de auditoria, altere **Chave de acesso de armazenamento** de *Secundária* para *Primária* e pressione **SALVAR**.
+3. Volte para a lâmina de configuração de auditoria, alterne a **Chave de acesso de armazenamento** de *Secondary* para *Primary* e pressione **SAVE**.
 
-4. Volte para a interface do usuário de armazenamento e **gere novamente** a *Chave secundária* (como preparação para o próximo ciclo de atualização de chaves.
+4. Volte para o armazenamento da interface do usuário e **regenerar** a *Secondary Access Key* (como preparação para a próxima chaves ciclo de atualização.
   
 ##<a id="subheading-4"></a>Automação
-Para o PowerShell, consulte o <a href="https://github.com/Azure/azure-powershell" target="_blank">SDK do PowerShell</a>.
+Há vários cmdlets do PowerShell, que você pode usar para configurar a auditoria no Banco de Dados SQL do Azure. Para acessar os cmdlets de auditoria você deve estar executando o PowerShell no modo do Gerenciador de Recursos do Azure.
 
-Para a API REST, consulte <a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">API REST do banco de dados SQL do Azure</a>
+> [AZURE.NOTE] O módulo AzureResourceManager está atualmente em visualização. Ele pode não fornecer os mesmos recursos de gerenciamento que o módulo do Azure.
+
+ O modo do [Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/dn654592.aspx) é acessado executando o cmdlet Switch-AzureMode (`Switch-AzureMode AzureResourceManager`). Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-Command *AzureSql*` para listar os cmdlets disponíveis.
+
+
 
 
 
@@ -154,9 +172,9 @@ Para a API REST, consulte <a href="http://download.microsoft.com/download/D/8/D/
 
 
 <!--Link references-->
-[Link 1 para outro tópico da documentação do azure.microsoft.com]: ../virtual-machines-windows-tutorial/
-[Link 2 para outro tópico da documentação do azure.microsoft.com]: ../web-sites-custom-domain-name/
-[Link 3 para outro tópico da documentação do azure.microsoft.com]: ../storage-whatis-account/
+[Link de 1 para outro tópico de documentação do azure.microsoft.com]: ../virtual-machines-windows-tutorial/
+[Link de 2 para outro tópico de documentação do azure.microsoft.com]: ../web-sites-custom-domain-name/
+[Link de 3 para outro tópico de documentação do azure.microsoft.com]: ../storage-whatis-account/
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

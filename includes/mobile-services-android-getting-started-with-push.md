@@ -1,6 +1,6 @@
-﻿1. No seu projeto de aplicativo, abra o arquivo `AndroidManifest.xml`. No código nas duas próximas etapas, substitua _`**my_app_package**`_ pelo nome do pacote do aplicativo para o seu projeto, que é o valor do atributo  `package` da marca  `manifest`. 
+﻿1. No seu projeto de **aplicativo**, abra o arquivo `AndroidManifest.xml`. No código nas duas próximas etapas, substitua _`**my_app_package**`_ pelo nome do pacote do aplicativo para o seu projeto, que é o valor do atributo `package` da marca `manifest`. 
 
-2. Adicione as seguintes novas permissões depois do elemento  `uses-permission`:
+2. Adicione as seguintes novas permissões conforme o elemento `uses-permission` existente:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -9,7 +9,7 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Adicione o código a seguir após o marca de abertura  `application`: 
+3. Adicione o código a seguir após o marca de abertura `application`: 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             						 	android:permission="com.google.android.c2dm.permission.SEND">
@@ -20,16 +20,20 @@
         </receiver>
 
 
-4. Baixe e descompacte o [Mobile Services Android SDK], abra as **notificações**, copie o arquivo **notifications-1.0.1. jar** para a  *libs* pasta do seu projeto Eclipse e atualize a *libs* pasta.
+4. Adicione essas linhas em *dependencies* no arquivo **build.gradle** no diretório do aplicativo: 
 
-    > [AZURE.NOTE] Os números no fim do nome do arquivo podem ser alterados em versões subsequentes do SDK.
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5.  Abra o arquivo *ToDoItemActivity.java*e adicione a seguinte instrução de importação:
+
+5. Abra o arquivo *ToDoItemActivity.java*, e adicione a seguinte declaração de importação:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 
-6. Adicione a seguinte variável particular à classe: substitua _`<PROJECT_NUMBER>`_ com o número do projeto atribuído pelo Google para seu aplicativo no procedimento anterior:
+6. Adicione a seguinte variável particular à classe: substitua _`<PROJECT_NUMBER>`_ pelo número do projeto atribuído pelo Google para seu aplicativo no procedimento anterior:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
@@ -39,13 +43,18 @@
 
 
 
-9. Em seguida, precisamos adicionar uma nova classe para tratar das notificações. No Gerenciador de Pacotes, clique com o botão direito no pacote (no nó  `src`), clique em **Novo** e em **Classe**.
+8. Em seguida, precisamos adicionar uma nova classe para tratar das notificações. No Explorador de Projeto, localize o nó `src`, abra-o e clique com o botão direito no nó do nome do pacote: clique em **Novo** e, em seguida, clique em **Classe Java**.
 
-10. Em **Nome**, digite  `MyHandler`, no tipo **Superclasse**, digite  `com.microsoft.windowsazure.notifications.NotificationsHandler` e clique em **Concluir**.
+9. Em **Nome**, digite `MyHandler` e clique em **OK**. 
 
-	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
-	Isto criará a nova classe MyHandler.
+	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
+
+
+10. No arquivo MyHandler, substitua a declaração de classe por 
+
+		public class MyHandler extends NotificationsHandler {
+
 
 11. Adicione as seguintes instruções de importação para a classe  `MyHandler`:
 
@@ -128,4 +137,5 @@
 
 <!-- URLs. -->
 [SDK para Android de Serviços Móveis]: http://aka.ms/Iajk6q
-<!--HONumber=42-->
+
+<!--HONumber=47-->

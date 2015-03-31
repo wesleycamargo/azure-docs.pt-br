@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Autorização de serviço(Android) | Centro de Desenvolvimento de Serviços Móveis" 
 	description="Saiba como autorizar usuários no back-end do JavaScript dos Serviços Móveis do Azure." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 
 	ms.author="glenga"/>
 
-# Autorização de serviço para usuários de Serviços Móveis
+# Autorização de serviço a usuários dos Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
@@ -42,19 +42,29 @@ Como o aplicativo Guia de início rápido lê e insere dados, você precisa regi
    	![][2]
 
 4. Substitua o script existente pela função a seguir e clique em **Salvar**.
-     function insert(item, user, request) {       item.userId = user.userId;           request.execute();     }
- Este script adiciona um valor de userId ao item que é a ID de usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
- > [AZURE.NOTE] O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna **userId** à tabela **TodoItem** na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Store.
+
+        function insert(item, user, request) {
+          item.userId = user.userId;    
+          request.execute();
+        }
+
+    Este script adiciona um valor de userId ao item que é a ID de usuário autenticado, antes que ele seja inserido na tabela TodoItem. 
+
+    > [AZURE.NOTE] O esquema dinâmico deve ser habilitado na primeira vez que esse script de inserção for executado. Com o esquema dinâmico habilitado, os Serviços Móveis automaticamente adicionam a coluna **userId** à tabela **TodoItem** na primeira execução. Por padrão, o esquema dinâmico é habilitado para um novo serviço móvel e deve ser desabilitado antes que o aplicativo seja publicado na Windows Store.
 
 
-5. Repita as etapas 3 e 4 para substituir a operação **Ler** por esta função:
-     function read(query, user, request) {        query.where({ userId: user.userId });            request.execute();     }
+5. Repita as etapas 3 e 4 para substituir a operação **Ler** pela função a seguir:
+
+        function read(query, user, request) {
+           query.where({ userId: user.userId });    
+           request.execute();
+        }
 
    	Esse script filtra os objetos TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele.
 
 ## Testar o aplicativo
 
-1. No Eclipse, abra o projeto que você modificou quando concluiu o tutorial [Introdução à autenticação].
+1. No Android Studio, abra o projeto modificado quando você concluiu o tutorial [Introdução à autenticação].
 
 2. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com seu provedor de identidade. 
 
@@ -94,11 +104,11 @@ Isso conclui os tutoriais que demonstram os conceitos básicos de como trabalhar
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-android
-[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
+[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-android
+[Introdução aos dados]: /develop/mobile/tutorials/get-started-with-data-android
+[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-android
+[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

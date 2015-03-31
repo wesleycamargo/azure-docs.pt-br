@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste
@@ -41,11 +41,11 @@ Há três fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar a avaliação do Office 365 FastTrack.
 3.	Configurar o servidor DirSync (DS1).
 
-Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](http://www.windowsazure.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](http://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Fase 1: Configurar o ambiente de nuvem híbrida
 
-Use as instruções no tópico [Configurar um ambiente de nuvem híbrida para testes](../virtual-networks-setup-hybrid-cloud-environment-testing/). Como esse ambiente de teste não exige a presença do servidor APP1 na sub-rede Corpnet, fique à vontade para desligá-lo por enquanto.
+Use as instruções no tópico [Configurar um ambiente de nuvem híbrida para testes](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Como esse ambiente de teste não exige a presença do servidor APP1 na sub-rede Corpnet, fique à vontade para desligá-lo por enquanto.
 
 Esta é a configuração atual.
 
@@ -78,9 +78,9 @@ Esta é a configuração atual.
 
 Primeiro, crie uma máquina virtual do Azure para o DS1 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < e >.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -128,7 +128,7 @@ Em seguida, habilite a Sincronização de Diretórios para sua versão de avalia
 4.	Quando a pergunta **Deseja ativar a sincronização do Active Directory?** for exibida, clique em **Ativar**. Depois disso, a mensagem **A sincronização do Active Directory está ativada.** é exibida na etapa 3.
 5.	Deixe a página **Configurar e gerenciar a sincronização do Active Directory** aberta no CLIENT1.
 
-Em seguida, faça logon no DC1 com a conta de CORP\User1 e abra um prompt de comando do Windows PowerShell com nível de administrador. Execute estes comandos para criar uma nova unidade organizacional chamada contoso_users e adicione duas novas contas de usuário, para Marci Kaufman e Lynda Meyer.
+Em seguida, faça logon no DC1 com a conta de CORP\User1 e abra um prompt de comando do Windows PowerShell com nível de administrador. Execute estes comandos para criar uma nova unidade organizacional chamada contoso_users e adicionar duas novas contas de usuário, para Marci Kaufman e Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -142,7 +142,7 @@ Depois, configure a Sincronização de Diretórios no DS1.
 2.	Na tela **inicial**, digite **Sincronização de Diretórios**.
 3.	Clique com o botão direito em **Configuração de Sincronização de Diretórios** e clique em **Executar como administrador**. Isso inicia o Assistente de Configuração.
 4.	Na página de Boas-vindas, clique em **Avançar**.
-5.	Na página Credenciais do Microsoft Azure Active Directory, digite o endereço de email e a senha da conta inicial que você criou quando configurou a versão de avaliação do Office 365 FastTrack na fase 2. Clique em Avançar. 
+5.	Na página Credenciais do Active Directory do Microsoft Azure, digite o endereço de email e a senha da conta inicial que você criou quando configurou a versão de avaliação do Office 365 FastTrack na fase 2. Clique em Avançar. 
 6.	Na página Credenciais do Active Directory, digite **CORP\User1** em **Nome de usuário** e a senha da conta User1 em **Senha**. Clique em **Avançar**.
 7.	Na página Implantação Híbrida, selecione **Habilitar Implantação Híbrida** e clique em **Avançar**.
 8.	Na página Sincronização de Senha, selecione **Habilitar Sincronização de Senha** e clique em **Avançar**.
@@ -186,5 +186,6 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
 [Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[Configurar um ambiente de nuvem híbrida simulado para testes](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

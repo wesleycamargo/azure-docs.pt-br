@@ -2,7 +2,7 @@
 
    	![](./media/download-android-sample-code/mobile-eclipse-project.png)
 
-   	Observe que há comentários `//TODO` que especificam as etapas que você deve seguir para fazer com que esse aplicativo funcione com o serviço móvel.
+   	Observe que há comentários  `//TODO` que especificam as etapas que você deve seguir para fazer com que esse aplicativo funcione com o serviço móvel.
 
 2. No menu **Executar**, clique em **Executar** e clique em **Aplicativo Android** para iniciar o projeto.
 
@@ -15,4 +15,4 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
-<!--HONumber=45--> 
+<!--HONumber=47-->

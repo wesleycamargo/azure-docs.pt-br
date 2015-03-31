@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar autenticação ao seu aplicativo de Serviços Móveis
@@ -23,23 +23,16 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
+## Resumo
+
 <p>Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.</p>
 </div>
 
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a><span class="time">10:42</span></div>
 </div> 
 
-Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
+Este tutorial explica as etapas básicas para habilitar a autenticação em seu aplicativo.
 
-1. [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]
-2. [Restringir permissões de tabela para usuários autenticados]
-3. [Adicionar autenticação ao aplicativo]
-4. [Armazenar os tokens de autenticação no cliente]
-5. [Atualizar tokens expirados]
-
- 
-
->[AZURE.NOTE] Se você gostaria de ver o código-fonte do aplicativo concluído, clique <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithAuth/Android" target="_blank">aqui</a>.
 
 ##Pré-requisitos
 
@@ -53,9 +46,9 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-3. No Eclipse, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis]. 
+3. No Android Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis]. 
 
-4. No menu **Executar**, clique em **Executar** para iniciar o aplicativo. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado. 
+4. No menu **Executar**, clique em **Executar aplicativo**. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado. 
 
 	 Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
 
@@ -77,7 +70,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo tutorial, [Autorizar usuários com scripts], você vai obter o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis. 
+No próximo tutorial, [Autorizar usuários com scripts], você obterá o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis. 
 
 <!-- Anchors. -->
 [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
@@ -111,13 +104,13 @@ No próximo tutorial, [Autorizar usuários com scripts], você vai obter o valor
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Logon único para aplicativos da Windows Store usando o Live Connect]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-android
-[Adicionar os Serviços Móveis em um aplicativo existente]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-android
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-android
-[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-android
+[Logon único para aplicativos da Windows Store usando o Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-android
+[Adicionar Serviços Móveis a um aplicativo existente]: /develop/mobile/tutorials/get-started-with-data-android
+[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-android
+[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-android
+[Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

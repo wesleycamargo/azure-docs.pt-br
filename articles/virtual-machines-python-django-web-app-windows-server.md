@@ -22,7 +22,7 @@
 
 # Aplicativo Web Django Hello World (a página pode estar em inglês)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/pt-br/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
 Este tutorial descreve como hospedar um site baseado em Django na Microsoft 
 Azure usando uma máquina virtual do Windows Server. Este tutorial pressupõe que você não tem experiência anterior com o Azure. Depois de concluir este guia, você terá um aplicativo baseado no Django em funcionamento na nuvem.
@@ -43,16 +43,16 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 ## Crie e configure uma máquina virtual do Azure para hospedar o Django
 
-1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição do *Windows Server 2012 R2 Datacenter*.
+1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição do*Windows Server 2012 R2 Datacenter*.
 
 1. Instrua o Azure para direcionar o tráfego da porta **80** da web para a porta **80** na máquina virtual:
- - Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia *ENDPOINTS*.
+ - Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia*ENDPOINTS*.
  - Clique no botão *ADD* na parte inferior da tela.
 	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- - Abra a *PUBLIC PORT 80* e a *PRIVATE PORT 80* do protocolo *TCP*.
+ - Abra a *TCP* do protocolo *PUBLIC PORT 80* como *PRIVATE PORT 80*.
 ![][port80]
-1. Na guia *DASHBOARD*, clique em *CONNECT* para usar a *Remote Desktop* para fazer logon remotamente na máquina virtual recém-criada do Azure.  
+1. Na guia*DASHBOARD*, clique em*CONNECT* para usar a*Remote Desktop* para fazer logon remotamente na máquina virtual recém-criada do Azure.  
 
 **Observação importante:** todas as instruções abaixo pressupõem que você se conectou corretamente à máquina virtual e está emitindo comandos lá, em vez de seu computador local! 
 
@@ -152,7 +152,7 @@ Execute estes comando somente se estiver usando o Python 3.4.
 ## Criando um novo aplicativo Django
 
 
-1.  Em *C:\inetpub\wwwroot*, digite o seguinte comando para criar um novo projeto de Django:
+1.  Em*C:\inetpub\wwwroot*, digite o seguinte comando para criar um novo projeto de Django:
 
     Python 2.7:
 
@@ -198,9 +198,9 @@ Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtu
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /pt-br/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal da mv]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Como habilitar o sistema de Mensagens em Nuvem do Google" 
 	description="Siga este tutorial para criar um novo serviço usando Serviços Móveis do Azure." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,11 +31,11 @@ Agora, você pode usar este valor de chave de API para habilitar serviços para 
 
 
 <!-- URLs. -->
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Introdução às notificações por push]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [SDK dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
-[Versão de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Versão de back-end do .NET]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

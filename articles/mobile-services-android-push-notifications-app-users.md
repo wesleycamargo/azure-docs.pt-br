@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Enviar notificações por push aos usuários (Android) | Centro de Desenvolvimento Móvel" 
 	description="Aprenda a usar os serviços móveis para enviar notificações por push aos usuários de seu aplicativo Android." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/07/2014" 
@@ -20,6 +20,6 @@
 
 Este tópico foi preterido. Em vez disso, siga as orientações atualizadas nestes tutoriais:
 
-+ [Adicionar notificações por push ao seu aplicativo de Serviços Móveis](/pt-br/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList. 
-+ [Enviar notificações por push a usuários autenticados](/pt-br/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.
-\<!--HONumber=42-->
++ [Adicionar notificações por push ao seu aplicativo de Serviços Móveis](/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList.
++ [Enviar notificações por push para usuários autenticados](/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.
+<!--HONumber=47-->

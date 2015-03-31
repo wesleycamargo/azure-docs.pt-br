@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 
-#Detalhes da configuração do Farm do SharePoint Server#
+#Detalhes da configuração do Farm do SharePoint Server
 
 Farm do SharePoint Server é um recurso do Portal de Visualização do Microsoft Azure que cria automaticamente um farm do SharePoint Server 2013 pré-configurado para você. Existem duas configurações de farm:
 
@@ -28,7 +28,7 @@ As seções a seguir fornecem detalhes da configuração de cada farm.
 
 Para obter informações adicionais, consulte [Farm do SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Farm do SharePoint básico##
+##Farm do SharePoint básico
 
 O farm do SharePoint básico consiste em três máquinas virtuais nesta configuração:
 
@@ -71,7 +71,7 @@ Aqui estão os detalhes da configuração:
 	-	Senha do farm do SharePoint: Especificada durante a configuração inicial.
 
 
-##Farm do SharePoint de alta disponibilidade##
+##Farm do SharePoint de alta disponibilidade
 
 O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais nesta configuração:
 
@@ -119,10 +119,10 @@ Aqui estão os detalhes da configuração:
 	-	Senha da conta do farm do SharePoint: Especificada durante a configuração inicial.		
 	-	Senha do farm do SharePoint: Especificada durante a configuração inicial.
 
-##Recursos adicionais##
+##Recursos adicionais
 
 [Farm do SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

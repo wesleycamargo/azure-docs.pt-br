@@ -1,11 +1,11 @@
-<properties 
+﻿<properties 
 	pageTitle="Usando a extensão de máquina virtual Docker para Linux no Azure" 
 	description="Descreve as extensões de máquinas virtuais Docker e Azure Virtual, além de mostrar como criar máquinas virtuais que sejam hosts do Docker programaticamente no Azure, por meio da linha de comando, usando a interface de comandos azure-cli." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,22 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="10/21/2014" 
+	ms.date="02/02/2015" 
 	ms.author="rasquill"/>
 # Usando a extensão de máquina virtual Docker na interface de plataforma cruzada (xplat-cli) do Azure
 Este tópico descreve como criar uma máquina virtual com a extensão Docker na xplat-cli, em qualquer plataforma. [O Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker do [Agente Linux do Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 + [Como usar a Extensão de VM Docker com o Azure]
-+ [Extensões de máquina virtual para Linux e Windows]
++ [Extensões de máquina virtual para Linux e Windows] 
 + [Recursos de contêiner e gerenciamento de contêineres para o Azure]
 + [Próximas etapas]
 
 
 
 ## <a id='How to use the Docker VM Extension with Azure'>Como usar a Extensão de VM Docker com o Azure</a>
-Para usar a extensão de máquina virtual Docker com o Azure, você deve instalar uma [interface de linha de comando de plataforma cruzada do Azure](https://github.com/Azure/azure-sdk-tools-xplat) (que chamamos de **xplat-cli** neste tópico) posterior à versão 0.8.6. Até a edição deste artigo, a versão 0.8.10 era a mais atual. Você pode instalar a xplat-cli em Mac, Linux e Windows. 
+Para usar a extensão de máquina virtual Docker com o Azure, você deve instalar uma [interface de linha de comando de plataforma cruzada do Azure](https://github.com/Azure/azure-sdk-tools-xplat) (que chamamos de **xplat-cli** neste tópico) posterior à versão 0.8.6. Até a edição deste artigo, a versão atual era a 0.8.10. Você pode instalar a xplat-cli em Mac, Linux e Windows. 
 
-> [AZURE.NOTE] Embora você possa instalar a xplat-cli no Microsoft Windows, o Docker foi criado com dependências de kernel específicas para o Linux. Por isso, para usar o Windows como cliente Docker, é necessário hospedar uma distribuição Linux completa como máquina virtual no Hyper-V ou em outro hipervisor. Em seguida, você pode usar a xplat-cli e os comandos do Docker nesse documento e nos documentos do Docker. Você pode usar o programa de configuração do Docker, o [Boot2Docker](https://docs.docker.com/installation/windows/), para automatizar a mesma configuração.
+> [AZURE.NOTE] Embora você possa instalar a xplat-cli no Microsoft Windows, o Docker foi criado com dependências de kernel específicas para o Linux. Por isso, para usar o Windows como cliente Docker, é necessário hospedar uma distribuição Linux completa como máquina virtual no Hyper-V ou em outro hipervisor. Em seguida, você pode usar a xplat-cli e os comandos do Docker nesse documento e nos documentos do Docker. Você pode usar o programa de instalação do Windows, o [Boot2Docker](https://docs.docker.com/installation/windows/), para automatizar a mesma configuração.
 
 O processo completo para usar o Docker no Azure é simples:
 
@@ -55,13 +55,13 @@ Para usar o Docker com uma máquina virtual do Azure, o [Agente de máquina virt
 
 + Uma imagem do Ubuntu da Galeria de Imagens do Azure ou 
 
-+ Uma imagem Linux personalizada criada por você, na qual o Agente de máquina virtual Linux do Azure esteja instalado e configurado. Confira [Agente de máquina virtual Linux do Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) para obter mais informações sobre como criar uma máquina virtual Linux personalizada com o agente.
++ Uma imagem Linux personalizada criada por você, na qual o Agente de máquina virtual Linux do Azure esteja instalado e configurado. Consulte [Agente de máquina virtual Linux do Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) para obter mais informações sobre como criar uma máquina virtual Linux personalizada com o agente.
 
 ### Usando a Galeria de Imagens do Azure
 
-Em uma sessão bash ou de terminal, use o comando de xplat-cli a seguir para localizar a imagem mais recente do Ubuntu na galeria da máquina virtual para usar digitando
+Em uma sessão bash ou de terminal, use o comando de xplat-cli a seguir para localizar a imagem mais recente do Ubuntu na galeria da máquina virtual.
 
-`azure vm image list | grep Ubuntu-14_04`
+`lista de imagens de vm do azure | grep Ubuntu-14_04`
 
 e selecione um dos nomes da imagens, como `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-pt-br-30GB`, e use o comando a seguir para criar uma nova máquina virtual usando essa imagem. 
 
@@ -75,7 +75,7 @@ onde:
 
 +  *&lt;username&gt;* é o nome de usuário do usuário raiz padrão da máquina virtual
 
-+ *&lt;password&gt;* é a senha da conta  *username* que atende aos padrões de complexidade do Azure 
++ *&lt;password&gt;* é a senha da conta *username* que atende aos padrões de complexidade do Azure 
  
 > [AZURE.NOTE] Atualmente, a senha deve ter pelo menos 8 caracteres, conter um caractere em minúscula e um em maiúscula, um número e um caractere especial, como um dos seguintes caracteres: `!@#$%^&+=`. Não, o ponto no final da frase anterior NÃO é um caractere especial. 
 
@@ -94,18 +94,18 @@ onde *<vm-name-you-used>* é o nome da máquina virtual que você usou em sua ch
 ![](./media/virtual-machines-docker/connectingtodockerhost.png)
 
 ### Autenticação da máquina virtual host do Docker
-Além de criar a VM do Docker, o comando  `azure vm docker create` também cria automaticamente os certificados necessários para permitir que seu computador cliente Docker se conecte ao host do contêiner do Azure usando HTTPS, e os certificados são armazenados nas máquinas cliente e host, conforme adequado. Em execuções subsequentes, os certificados existentes são reutilizados e compartilhados com o novo host.
+Além de criar a VM do Docker, o comando `azure vm docker create` também cria automaticamente os certificados necessários para permitir que seu computador cliente Docker se conecte ao host do contêiner do Azure usando HTTPS, e os certificados são armazenados nas máquinas cliente e host, conforme adequado. Em execuções subsequentes, os certificados existentes são reutilizados e compartilhados com o novo host.
 
-Por padrão, os certificados são colocados em `~/.docker` e o Docker será configurado para ser executado na porta **4243**. Se você desejar usar uma porta ou diretório diferentes, use uma das opções  `azure vm docker create` da linha de comando a seguir para configurar a VM host do contêiner do Docker para usar outra porta ou outros certificados para conectar clientes:
+Por padrão, os certificados são colocados em `~/.docker` e o Docker será configurado para ser executado na porta **4243**. Se você desejar usar uma porta ou diretório diferentes, use uma das opções `azure vm docker create` da linha de comando a seguir para configurar a VM host do contêiner do Docker para usar outra porta ou outros certificados para conectar clientes:
 
 ```
 -dp, --docker-port [port]              Port to use for docker [4243]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
-O daemon do Docker no host é configurado para escutar e autenticar conexões clientes na porta especificada usando os certificados gerados pelo comando  `azure vm docker create`. A máquina cliente deve ter esses certificados para obter acesso ao host do Docker. 
+O daemon do Docker no host é configurado para escutar e autenticar conexões clientes na porta especificada usando os certificados gerados pelo comando `azure vm docker create`. O computador cliente deve ter esses certificados para obter acesso ao host do Docker. 
 
-> [AZURE.NOTE] Um host em rede em execução sem esses certificados ficará vulnerável a qualquer um que possa conectar-se à máquina. Antes de modificar a configuração padrão, certifique-se de que você compreende os riscos para seu computador e outros aplicativos.
+> [AZURE.NOTE] Um host em rede em execução sem esses certificados ficará vulnerável a qualquer um que possa conectar-se ao computador. Antes de modificar a configuração padrão, certifique-se de que você compreende os riscos para seu computador e outros aplicativos.
 
 
 
@@ -115,13 +115,13 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
 Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máquina virtual Docker. Para criar uma máquina virtual habilitada para o Docker no novo portal, confira [Como usar a extensão de máquina virtual Docker com o Portal].
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
+[Subtítulo 1]: #subheading-1
+[Subtítulo 2]: #subheading-2
+[Subtítulo 3]: #subheading-3
 [Próximas etapas]: #next-steps
 
 [Como usar a Extensão de VM Docker com o Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Extensões de Máquina Virtual para Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Extensões de máquina virtual para Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 [Recursos de contêiner e gerenciamento de contêineres para o Azure]: #Container-and-Container-Management-Resources-for-Azure
 
 <!--Image references-->
@@ -131,10 +131,11 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link de 2 para outro tópico de documentação azure.microsoft.com]: ../web-sites-custom-domain-name/
-[Link de 3 para outro tópico de documentação azure.microsoft.com]: ../storage-whatis-account/
-[Como usar a extensão de máquina virtual Docker com o Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Link de 1 para outro tópico de documentação do azure.microsoft.com]: ../virtual-machines-windows-tutorial/
+[Link de 2 para outro tópico de documentação do azure.microsoft.com]: ../web-sites-custom-domain-name/
+[Link de 3 para outro tópico de documentação do azure.microsoft.com]: ../storage-whatis-account/
+[Como usar a extensão de VM Docker com o Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-[Guia do usuário do Docker]: https://docs.docker.com/userguide/
-<!--HONumber=42-->
+[Guia do usuário Docker]: https://docs.docker.com/userguide/
+
+<!--HONumber=47-->

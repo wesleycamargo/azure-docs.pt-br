@@ -1,11 +1,25 @@
-﻿<properties title="Azure SQL Database Elastic Scale" pageTitle="Escala Elástica do Banco de Dados SQL do Azure" description="Dimensione facilmente os recursos de banco de dados na nuvem usando o recurso de escala elástica do banco de dados SQL do Azure." metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Escala Elástica do Banco de Dados SQL do Azure" 
+	description="Dimensione facilmente os recursos de banco de dados na nuvem usando o recurso de escala elástica do banco de dados SQL do Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Escala Elástica do Banco de Dados SQL do Azure 
-Bem-vindo à demonstração pública ﻿de Escala Elástica de Banco de Dados SQL do Azure! 
+# Visão geral da Escala elástica do banco de dados SQL do Azure 
+Bem-vindo à visualização da Escala Elástica do Banco de Dados SQL do Azure! 
 
-###Promessas e desafios
+## Promessas e desafios
 A Escala Elástica do Banco de Dados SQL do Azure cumpre a promessa da computação em nuvem e permite que praticamente ilimitado de capacidade, bem como elasticidade na plataforma de Banco de Dados SQL do Azure. Até agora, os provedores do serviço de nuvem foram capazes de fornecer a maioria dos aspectos em torno de limites capacidade de computação e armazenamento de blob. Elasticidade, no entanto, ainda continua sendo um desafio quando se trata de monitoração de estado de processamento de dados na nuvem, principalmente com o gerenciamento de banco de dados relacional. Vimos esses desafios surgem com mais destaque nos dois cenários abaixo: 
 
 * Aumentando e diminuindo a capacidade para a parte do banco de dados relacional da carga de trabalho.
@@ -15,34 +29,43 @@ Tradicionalmente, estes cenários são endereçados comprando mais hardware que 
 
 Trabalhar diretamente com os clientes ao longo dos anos, vimos vários padrões de fragmentação emerge esses projetos. A Escala Elástica do Banco de Dados SQL do Azure fornece bibliotecas de cliente e ofertas de serviço relacionadas a esses padrões. A Escala Elástica torna mais fácil desenvolver, dimensionar e gerenciar as camadas de dados com monitoração de estado dos aplicativos do Azure.
 
-Em seguida, você pode se concentrar na lógica de negócios do seu aplicativo em vez de infra-estrutura de construção de fragmentação.  
+Em seguida, você pode se concentrar na lógica de negócios do seu aplicativo em vez de infraestrutura de construção de fragmentação.
+## Horizontal Versus expansão Vertical
+A figura abaixo mostra a diferença entre a escala horizontal e vertical. Essas são as duas maneiras que você pode dimensionar uma solução fragmentada. 
+![Horizontal versus Vertical Scaleout][4]
+
+Use a expansão horizontal para aumentar a capacidade. Por exemplo, como um prazo de imposto se aproximando, aumente o espaço para armazenar documentos de entrada.
+
+Use expansão vertical para aumentar o desempenho de um fragmento. Isso pode ocorrer quando um lote de dados está sendo processada e que faz com que o fragmento para se tornar um ponto de acesso no sistema. Por exemplo, você pode criar um novo fragmento para lidar com um grande fluxo de dados ao final de um mês. Enquanto os novos dados estiverem sendo recebidos, o fragmento será dimensionado para cima e reduzido de volta conforme a afluência diminui.
+
+Para obter mais informações sobre o dimensionamento de cenários, consulte [Divisão e mesclagem com Escala Elástica](./sql-database-elastic-scale-overview-split-and-merge.md).
 
 
-##Recursos 
+## Funcionalidades 
 
-Desenvolver, escalar gerenciar aplicativos de expansão usando fragmentação apresenta desafios para os dois o desenvolvedor como para o administrador. A Escala Elástico do Banco de Dados SQL do Azure facilita a vida de ambas essas funções. Os números no gráfico descrevem os principais recursos fornecidos com esta versão de demonstração pública. 
+Desenvolver, escalar gerenciar aplicativos de expansão usando fragmentação apresenta desafios para os dois o desenvolvedor como para o administrador. A Escala Elástica do Banco de Dados SQL do Azure facilita a vida de ambas as funções. Os números no gráfico descrevem os principais recursos fornecidos com esta versão de demonstração pública. 
 A parte inferior mostra a camada de dados do aplicativo e a distribuição de seus dados em vários bancos de dados, chamados fragmentos. Suponha que vários bancos de dados estão armazenando os dados de vários fragmentos. 
 
 Para obter definições dos termos usados aqui, consulte o [Glossário de escala elástica](./sql-database-elastic-scale-glossary.md).
 
-###Escala Elástico com fragmentação 
+## Escala Elástica com fragmentação 
+**Elasticidade de fragmento**é a funcionalidade que permite aos administradores automatizar a escala vertical (discagem para cima e para a edição de um único fragmento) e a horizontal (fragmentos de adição ou remoção de um mapa de fragmento) do ambiente fragmentado por meio de scripts do PowerShell e por meio do serviço de automação do Azure. Para obter detalhes, consulte [Elasticidade de fragmento](./sql-database-elastic-scale-elasticity.md).
 
-![][1]
-
-A figura mostra o desenvolvedor e o administrador à esquerda e à direita. Os clientes podem esperar obter a funcionalidade completa do T-SQL durante o envio de operações de fragmento local em vez de operações entre fragmentos que têm suas próprias semânticas. 
+A figura abaixo mostra o desenvolvedor e o administrador à esquerda e à direita. Os clientes podem esperar obter a funcionalidade completa do T-SQL durante o envio de operações de fragmento local em vez de operações entre fragmentos que têm suas próprias semânticas. 
 A versão de visualização pública para a Escala Elástica do Banco de Dados SQL do Azure facilita a desenvolver aplicativos para Banco de Dados SQL do Azure fragmentados por meio dos seguintes recursos específicos: 
 
-* **Gerenciamento de mapa de fragmentos**: Gerenciamento de mapa do fragmento (1) é a capacidade de um aplicativo para gerenciar vários metadados sobre seus fragmentos. Gerenciamento de mapa do fragmento é um recurso da biblioteca de cliente a ﻿Escala Elástica. Os desenvolvedores podem usar essa funcionalidade para registrar fragmentos, descrevem os mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para fragmentos e manter esses metadados conforme se desenvolve o layout dos fragmentos na camada de dados para refletir as alterações de capacidade. Gerenciamento de mapa do fragmento constitui uma grande parte do código clichê que os clientes precisavam escrever em seus aplicativos quando eles implementavam fragmentação próprios. Para obter detalhes, consulte [Gerenciamento de mapa do fragmento](./sql-database-elastic-scale-shard-map-management.md)
+![Elastic Scale Capabilities][1]
+
+1.  **Gerenciamento de mapa de fragmentos**: Gerenciamento de mapa do fragmento é a capacidade de um aplicativo para gerenciar vários metadados sobre seus fragmentos. Gerenciamento de mapa do fragmento é um recurso da biblioteca de cliente a Escala Elástica. Os desenvolvedores podem usar essa funcionalidade para registrar fragmentos, descrevem os mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para fragmentos e manter esses metadados conforme se desenvolve o layout dos fragmentos na camada de dados para refletir as alterações de capacidade. Gerenciamento de mapa do fragmento constitui uma grande parte do código clichê que os clientes precisavam escrever em seus aplicativos quando eles implementavam fragmentação próprios. Para obter detalhes, consulte [Gerenciamento de mapa do fragmento](./sql-database-elastic-scale-shard-map-management.md)
  
-* **Roteamento dependente de dados**: Imagine que uma solicitação de entrada para o aplicativo. Com base no valor da chave de fragmentação da solicitação, o aplicativo precisa determinar o fragmento correto que mantém os dados para esse valor de chave de fragmentação e, em seguida, abrir uma conexão com esse fragmento (2) para processar a solicitação. Roteamento dependente de dados fornece a capacidade de abrir conexões com uma única chamada simples para o mapa do fragmento do aplicativo. Roteamento dependente de dados era outra área do código de infraestrutura que agora é coberto por funcionalidade na biblioteca de cliente da Escala Elástica. Para obter mais detalhes, consulte [Roteamento dependente de dados](./sql-database-elastic-scale-data-dependent-routing.md)
+* **Roteamento dependente de dados**: Imagine que uma solicitação de entrada para o aplicativo. Com base no valor da chave de fragmentação da solicitação, o aplicativo precisa determinar o fragmento correto que mantém os dados para esse valor de chave de fragmentação e, em seguida, abrir uma conexão com esse fragmento para processar a solicitação. Roteamento dependente de dados fornece a capacidade de abrir conexões com uma única chamada simples para o mapa do fragmento do aplicativo. Roteamento dependente de dados era outra área do código de infraestrutura que agora é coberto por funcionalidade na biblioteca de cliente da Escala Elástica. Para obter mais detalhes, consulte [Roteamento dependente de dados](./sql-database-elastic-scale-data-dependent-routing.md)
 
-* **Consultas de vários fragmentos (MSQ)**: Consultar vários fragmentos funciona quando uma solicitação envolve fragmentos várias (ou todos). Uma consulta de vários fragmentos (3) executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados de fragmentos de participantes são mesclados em um resultado geral definido usando a semântica UNION ALL. A funcionalidade é exposta por meio do cliente biblioteca trata muitas tarefas, incluindo: gerenciamento de conexões, gerenciamento de threads, tratamento de falhas e processar os resultados intermediários. MSQ pode consultar até centenas de fragmentos. Para obter mais detalhes, consulte [Consulta de vários fragmentos](./sql-database-elastic-scale-multishard-querying.md).
+* **Consultas de vários fragmentos (MSQ)**: Consultar vários fragmentos funciona quando uma solicitação envolve fragmentos várias (ou todos). Uma consulta de vários fragmento executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados de fragmentos de participantes são mesclados em um resultado geral definido usando a semântica UNION ALL. A funcionalidade é exposta por meio da biblioteca cliente que trata muitas tarefas, incluindo: gerenciamento de conexões, gerenciamento de threads, tratamento de falhas e os resultados intermediários de processamento. MSQ pode consultar até centenas de fragmentos. Para obter mais detalhes, consulte [Consulta de vários fragmentos](./sql-database-elastic-scale-multishard-querying.md).
 
-* **Elasticidade de fragmento**: Essa funcionalidade permite aos administradores automatizar a escala vertical (discagem para cima e para a edição de um único fragmento) e a horizontal (fragmentos de adição ou remoção de um mapa de fragmento) do ambiente fragmentado por meio de scripts do PowerShell e por meio do serviço de automação do Azure. Para obter detalhes, consulte [Elasticidade de fragmento](./sql-database-elastic-scale-elasticity.md).
 
-* **Serviço de Divisão-Mesclagem**: Quando as necessidades de capacidade flutuam em tandem com impulso nos negócios, os aplicativos precisam redistribuir dados de maneira flexível em vários bancos de dados (4). A Escala Elástica fornece uma experiência de serviço hospedado no cliente para crescimento e reduzindo a capacidade da camada de dados e gerenciar pontos de acesso para aplicativos fragmentados em situações que envolvem a movimentação de dados também. Ela desenvolve uma funcionalidade subjacente para mover shardlets sob demanda entre fragmentos diferentes e integra-se ao gerenciamento de mapa do fragmento para manter mapeamentos consistentes e conexões de roteamento dependente de dados precisos. Para obter detalhes, consulte [Dividindo e mesclando com a Escala Elástica](./sql-database-elastic-scale-overview-split-and-merge.md)
+* **Serviço de Divisão-Mesclagem**: Quando as necessidades de capacidade flutuam em conjunto com impulso nos negócios, os aplicativos precisam redistribuir dados de maneira flexível em vários bancos de dados. A Escala Elástica fornece uma experiência de serviço hospedado no cliente para crescimento e reduzindo a capacidade da camada de dados e gerenciar pontos de acesso para aplicativos fragmentados em situações que envolvem a movimentação de dados também. Ela desenvolve uma funcionalidade subjacente para mover shardlets sob demanda entre fragmentos diferentes e integra-se ao gerenciamento de mapa do fragmento para manter mapeamentos consistentes e conexões de roteamento dependente de dados precisos. Para obter detalhes, consulte [Divisão e mesclagem com Escala Elástica](./sql-database-elastic-scale-overview-split-and-merge.md)
 
-##Padrões comuns de fragmentação
+## Padrões comuns de fragmentação
 
 A **Fragmentação** é uma técnica para distribuir grandes quantidades de dados estruturado de forma idêntica em vários bancos de dados independentes. É especialmente popular com desenvolvedores de nuvem que estiverem criando Software como as ofertas de serviço (SAAS) para clientes finais ou empresas. Esses clientes finais são referidos como "Locatários". Fragmentação pode ser necessária por vários motivos: 
 
@@ -57,7 +80,7 @@ A fragmentação funciona melhor quando todas as transações em um aplicativo p
 
 Alguns aplicativos usam a abordagem mais simples de criar um banco de dados separado para cada locatário. Este é o **padrão de fragmentação de locatário único** que fornece isolamento, capacidade de backup/restauração e escala de recurso na granularidade do inquilino. Com a fragmentação de locatário único, cada banco de dados está associado a um valor de ID específico do locatário (ou o valor de chave de cliente), mas essa chave não deve sempre estar presente nos próprios dados. É responsabilidade do aplicativo para rotear cada solicitação para o banco de dados apropriado. 
 
-![][2]
+![Single tenant versus multi-tenant][3]
 
 Outros cenários de vários locatários pack juntos em bancos de dados, em vez de isolá-los em bancos de dados separados. Esse é um **padrão típico multilocatário fragmentação** - e pode ser orientada por considerações de custo, eficiência ou o fato de que um aplicativo gerencia grandes números de locatários muito pequenos. Na fragmentação multilocatária, as linhas nas tabelas de banco de dados foram projetadas para executar uma chave que identifica a ID do locatário ou a chave de fragmentação. Novamente, a camada de aplicativo é responsável pelo roteamento de solicitação de um locatário no banco de dados apropriado. 
 
@@ -67,3 +90,7 @@ Outros cenários de vários locatários pack juntos em bancos de dados, em vez d
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-intro/overview.png
 [2]:./media/sql-database-elastic-scale-intro/tenancy.png
+[3]:./media/sql-database-elastic-scale-intro/single_v_multi_tenant.png
+[4]:./media/sql-database-elastic-scale-intro/h_versus_vert.png
+
+<!--HONumber=47-->

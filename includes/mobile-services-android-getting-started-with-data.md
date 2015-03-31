@@ -1,18 +1,27 @@
 ﻿Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo para armazenar itens nos Serviços Móveis em vez de na coleção local. 
 
-1. Se você ainda não tiver o [SDK dos Serviços Móveis Android], baixe-o agora e expanda os arquivos compactados.
+1. Verificar se você tem as seguintes linhas na marca **dependências** no arquivo *build.gradle (Module app)* e, se não, adicione-as. Isso adiciona as referências para o SDK de Cliente Android dos Serviços Móveis.
 
-2. Copie os arquivos  `.jar` da pasta  `mobileservices` do SDK para a pasta  `libs` do projeto GetStartedWithData.
+		compile 'com.android.support:support-v4:21.0.3'
+    	compile 'com.google.code.gson:gson:2.2.2'
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
 
-3. No Explorer de Pacotes no Eclipse, clique na pasta  `libs`, clique em **Atualizar** e os arquivos jar copiados serão exibidos
 
-  	Isso adiciona a referência ao SDK dos Serviços Móveis ao espaço de trabalho.
+2. Agora, recompile o projeto clicando em **Sincronizar projetos com arquivos do Gradle**.
 
-4. Abra o arquivo AndroidManifest.xml e adicione a linha a seguir, que permite que o aplicativo acesse os Serviços Móveis no Azure.
+3. Abra o arquivo AndroidManifest.xml e adicione a linha a seguir, que permite que o aplicativo acesse os Serviços Móveis no Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. No Explorador de Pacotes, abra o arquivo TodoActivity.java localizado no pacote com.example.getstartedwithdata e remova os comentários das seguintes linhas de código: 
+
+6. Abra o arquivo AndroidManifest.xml e adicione a linha a seguir, que permite que o aplicativo acesse os Serviços Móveis no Azure.
+
+		<uses-permission android:name="android.permission.INTERNET" />
+
+5. No Explorador de Projeto, abra o arquivo TodoActivity.java localizado na pasta **GetStartedWithData => app => src => java** e remova os comentários das seguintes linhas de código: 
+
+
 
 		import java.net.MalformedURLException;
 		import android.os.AsyncTask;
@@ -28,34 +37,34 @@
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
-6. Comente as linhas a seguir:
+5. Comente as linhas a seguir:
 
 		import java.util.ArrayList;
 		import java.util.List;
 
-7. Removeremos a lista na memória usada atualmente pelo aplicativo, portanto, é possível substituí-la por um serviço móvel. Na classe **ToDoActivity**, comente a seguinte linha de código que define a lista **toDoItemList** existente.
+6. Removeremos a lista na memória usada atualmente pelo aplicativo, portanto, é possível substituí-la por um serviço móvel. Na classe **ToDoActivity**, comente a seguinte linha de código que define a lista **toDoItemList** existente.
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. Salve o arquivo e o projeto indicará erros de compilação. Pesquise os três locais restantes onde a variável  `toDoItemList` é usada e comente as seções indicadas. Isso remove totalmente a lista na memória. 
+7. Salve o arquivo e o projeto indicará erros de compilação. Pesquise os três locais restantes onde a variável  `toDoItemList` é usada e comente as seções indicadas. Isso remove totalmente a lista na memória. 
 
-9. Agora adicionamos o nosso serviço móvel. Remova os comentários das seguintes linhas de código:
+8. Agora adicionamos o nosso serviço móvel. Remova os comentários das seguintes linhas de código:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Localize a classe  *ProgressFilter* na parte inferior do arquivo e remova os comentários dela. Essa classe exibe um indicador  'loading' enquanto o  *MobileServiceClient* está executando operações de rede.
+9. Localize a classe  *ProgressFilter* na parte inferior do arquivo e remova os comentários dela. Essa classe exibe um indicador  'loading' enquanto o  *MobileServiceClient* está executando operações de rede.
 
 
-11. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
+10. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
 
-12. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
+11. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
   	Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
 
-13. No método **onCreate**, remova os comentários das seguintes linhas de código que definem a variável **MobileServiceClient**:
+12. No método **onCreate**, remova os comentários das seguintes linhas de código que definem a variável **MobileServiceClient**:
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -73,11 +82,11 @@
 
   	Isso cria uma nova instância de  *MobileServiceClient* que é usada para acessar o serviço móvel. Também cria a instância de  *MobileServiceTable* que é usada para armazenamento de dados de proxy no serviço móvel.
 
-14. No código acima, substitua  `MobileServiceUrl` e  `AppKey` pela URL e a chave do aplicativo de seu serviço móvel, nessa ordem.
+13. No código acima, substitua  `MobileServiceUrl` e  `AppKey` pela URL e a chave do aplicativo de seu serviço móvel, nessa ordem.
 
 
 
-15. Remova os comentários destas linhas do método **checkItem**:
+14. Remova os comentários destas linhas do método **checkItem**:
 
 	    new AsyncTask<Void, Void, Void>() {
 	        @Override
@@ -101,7 +110,7 @@
 
    	Isso envia uma atualização de item ao serviço móvel e remove os itens selecionados do adaptador.
     
-16. Remova os comentários destas linhas do método **addItem**:
+15. Remova os comentários destas linhas do método **addItem**:
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
@@ -126,7 +135,7 @@
 
   	Esse código cria um novo item e o insere na tabela no serviço móvel remoto.
 
-18. Remova os comentários destas linhas do método **refreshItemsFromTable**:
+16. Remova os comentários destas linhas do método **refreshItemsFromTable**:
 
 		// Get the items that weren't marked as completed and add them in the adapter
 	    new AsyncTask<Void, Void, Void>() {
@@ -155,4 +164,5 @@
 		
 
 <!-- URLs. -->
-[SDK para Android de Serviços Móveis]: http://aka.ms/Iajk6q<!--HONumber=42-->
+[SDK para Android de Serviços Móveis]: http://aka.ms/Iajk6q
+<!--HONumber=47-->

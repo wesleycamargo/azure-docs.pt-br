@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Criar uma máquina virtual que executa o Windows no Azure" 
 	description="Aprenda a criar a máquina virtual do Windows (VM) no Azure, em seguida, faça logon e anexe um disco de dados" 
 	services="virtual-machines" 
@@ -13,45 +13,39 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="03/04/2015" 
 	ms.author="kathydav"/>
 
 
 
-# Criação de uma Máquina virtual executando o Windows #
+# Criação de uma Máquina virtual executando o Windows
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Portal do Azure</a><a href="/pt-br/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">Portal de visualização do Azure</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Portal do Azure</a><a href="/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">Portal de visualização do Azure</a></div>
 
-Este tutorial mostra como é fácil criar uma máquina virtual do Azure (VM). Ele usa uma imagem do Windows Server, mas isso é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens sistemas operacionais do Windows, sistemas operacionais baseados em Linux e aplicativos pré-instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
-
-> [AZURE.NOTE] Não é necessário qualquer experiência com VMs do Azure para concluir este tutorial, mas você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
-
-Este tutorial mostra:
-
-- [Como criar a máquina virtual](#createvirtualmachine)
-- [Como fazer o logon na máquina virtual após você criá-la](#logon)
-- [Como anexar um disco de dados à nova máquina virtual](#attachdisk)
-
-Para saber mais, consulte [Máquinas Virtuais](http://go.microsoft.com/fwlink/p/?LinkID=271224).
+Este tutorial mostra como é fácil criar uma máquina virtual do Azure (VM). Este tutorial usa uma imagem do Windows Server, mas isso é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens sistemas operacionais do Windows, sistemas operacionais baseados em Linux e aplicativos pré-instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
 
-##<a id="createvirtualmachine"> </a>Como criar a máquina virtual##
+Você também pode criar VMs do Windows usando [suas próprias imagens como modelos](../virtual-machines-create-upload-vhd-windows-server/). Para saber mais sobre o VMs do Azure, consulte [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+
+## <a id="createvirtualmachine"> </a>Como criar a máquina virtual
 
 Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciamento para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar ingressar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE] Você também pode experimentar o [Portal de visualização do Azure](https://portal.azure.com) mais avançado e customizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.  
+> [AZURE.NOTE] Você também pode experimentar o [Portal de Visualização do Azure](https://portal.azure.com), mais avançado e personalizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e muito mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.  
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
-## <a id="logon"> </a>Como fazer o logon na máquina virtual após você criá-la ##
+## <a id="logon"> </a>Como fazer o logon na máquina virtual após você criá-la 
 
 É possível fazer logon na máquina virtual que você criou para gerenciar as configurações e os aplicativos que estão em execução.
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-## <a id="attachdisk"> </a>Como anexar um disco de dados à nova máquina virtual ##
+## <a id="attachdisk"> </a>Como anexar um disco de dados à nova máquina virtual 
 
-Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [Anexe um tutorial de disco de dados](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/) para obter mais informações, incluindo como anexar os discos existentes.
+Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [tutorial Anexar um disco de dados](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/) para obter mais informações, inclusive como anexar discos existentes.
 
 1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
@@ -82,7 +76,7 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 	Quando você anexa um disco de dados, ele está offline e não inicializado. Antes de você poder usar os dados armazenados, você precisa fazer logon na máquina virtual e inicializar o disco.
 
-7. Conecte-se e faça logon na máquina virtual usando as etapas listadas na seção anterior, [Como fazer logon na máquina virtual depois de criá-la](#logon).
+7. Conecte-se e faça logon na máquina virtual usando as etapas listadas na seção anterior, [Como fazer logon na máquina virtual depois de criá-la]. (#logon).
 
 8. Depois de fazer logon na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -92,7 +86,7 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 	![Expand File and Storage Services in Server Manager](./media/virtual-machines-windows-tutorial/selectdisks.png)	
 	
-10.	A seção **Discos** lista disco 0, disco 1 e disco 2. O disco 0 é o disco do OS, o disco 1 é um disco de recurso temporário (que não deve ser usado para o armazenamento de dados) e o disco 2 é o disco de dados anexado à máquina virtual. O disco de dados tem uma capacidade de 5 GB, com base no que você especificou quando anexou o disco. Clique com o botão direito no disco 2 e selecione **Inicializar**.
+10.	A seção **Discos** lista disco 0, disco 1 e disco 2. O disco 0 é o disco do OS, o disco 1 é um disco de recurso temporário (que não deve ser usado para o armazenamento de dados) e o disco 2 é o disco de dados anexado à máquina virtual. O disco de dados tem uma capacidade de 5 GB, com base no que você especificou quando anexou o disco. Clique com o botão direito no disco 2 e  selecione **Inicializar**.
 
 	![Start initialization](./media/virtual-machines-windows-tutorial/initializedisk.png)
 
@@ -108,15 +102,15 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 	![Create the volume](./media/virtual-machines-windows-tutorial/newvolumecreated.png)
 	
-##Próximas etapas 
+## Próximas etapas 
 
 Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure, consulte:
 
-[Como conectar máquinas virtuais em um serviço de nuvem](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
+[Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../cloud-services-connect-virtual-machine/)
 
-[Como criar e carregar um Disco Rígido Virtual que contém o sistema operacional Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[Criar e carregar um VHD do Windows Server no Azure](../virtual-machines-create-upload-vhd-windows-server/)
 
-[Gerenciar a disponibilidade de máquinas virtuais](http://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/)
+[Gerenciar a disponibilidade de máquinas virtuais](../manage-availability-virtual-machines/)
 
 [Sobre as definições de configuração da VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
@@ -140,5 +134,4 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
 [Como configurar a comunicação com a máquina virtual]: #endpoints
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

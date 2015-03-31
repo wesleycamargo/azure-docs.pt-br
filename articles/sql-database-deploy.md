@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="Como implantar um banco de dados SQL - Azure" metaKeywords="" description="Saiba como implantar um banco de dados SQL Server no Azure. Você usará o banco de dados de implantação ao Assistente de banco de dados SQL para carregar um banco de dados de exemplo." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+﻿<properties 
+	pageTitle="Como implantar um banco de dados SQL - Azure" 
+	description="Saiba como implantar um banco de dados SQL Server no Azure. Você usará o banco de dados de implantação ao Assistente de banco de dados SQL para carregar um banco de dados de exemplo." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -13,20 +27,16 @@ Há várias maneiras diferentes de mover um banco de dados local do SQL Server p
 
 O banco de dados de exemplo School é convenientemente simples. Todos os seus objetos são compatíveis com o Banco de Dados SQL eliminando a necessidade de modificar ou preparar um banco de dados para migração. Como um novo administrador, primeiro tente implantar um banco de dados simples para aprender as etapas antes de usar seus próprios bancos de dados. 
 
-**Observação**: Examine o Guia de Migração do Banco de Dados SQL para obter instruções detalhadas sobre como preparar um banco de dados local para a migração para o Azure. Além disso, considere a possibilidade de baixar o Kit de Treinamento do Azure.Ele inclui um laboratório que mostra uma abordagem alternativa para migrar um banco de dados local.
+**Observação:** examine o Guia de Migração do Banco de Dados SQL para obter instruções detalhadas sobre como preparar um banco de dados local para a migração para o Azure. Além disso, considere a possibilidade de baixar o Kit de Treinamento do Azure. Ele inclui um laboratório que mostra uma abordagem alternativa para migrar um banco de dados local.
 
-##Sumário##
-* [Como: Criar o banco de dados school em um servidor local](#schooldb)
-* [Como: Implantar no Banco de Dados SQL](#deploydb)
-* [Como: Verificar a implantação do banco de dados](#verify)
 
 <h2><a id="schooldb"></a>Como: Criar o banco de dados school em um servidor local</h2>
 
-Os scripts para criar esse banco de dados podem ser encontrados em [Introdução à administração de Banco de Dados SQL][].Nesse guia, você executará esses scripts no Management Studio para criar uma versão local do banco de dados School.
+Os scripts para criar esse banco de dados podem ser encontrados em [Introdução à administração de Banco de Dados SQL][]. Nesse guia, você executará esses scripts no Management Studio para criar uma versão local do banco de dados School.
 
-1. No Management Studio, conecte-se a um servidor local. Clique com o botão direito do mouse em **Bancos de Dados**, clique em **Novo Banco de Dados** e digite *school*.
+1. No Management Studio, conecte-se a um servidor local. Clique com o botão direito em **Bancos de Dados**, clique em **Novo Banco de Dados** e digite  *school*.
 
-2. Clique com o botão direito do mouse em *school* e clique em **Nova Consulta**. 
+2. Clique com o botão direito em *school*, clique em **Nova consulta**. 
 
 3. Copie e, em seguida, execute o script Create Schema do tutorial. 
 
@@ -531,7 +541,7 @@ Em seguida, copie e execute o script Insert Data.
 
 2. Clique com o botão direito do mouse no banco de dados School que você acabou de criar, aponte para **Tarefas**e clique em **Implantar o Banco de Dados no SQL Azure**.
 
-3. Em Configurações da Implantação, digite um nome para o banco de dados, por exemplo, *school*. 
+3. Em Configurações da Implantação, digite um nome para o banco de dados, por exemplo,  *school*. 
 
 4. Clique em **Conectar**.
 
@@ -543,9 +553,9 @@ Em seguida, copie e execute o script Insert Data.
 
 8. Clique em **Opções**.
 
-9.  Em Propriedades da Conexão, em Conectar-se ao banco de dados, digite **mestre**.
+9. Em Propriedades da Conexão, em **Conectar-se ao banco de dados**, digite **mestre**.
 
-10. Clique em **Conectar**.Essa etapa conclui a especificação da conexão e leva você de volta ao assistente.
+10. Clique em **Conectar**. Essa etapa conclui a especificação da conexão e leva você de volta ao assistente.
 
 
 11. Clique em **Avançar** e clique em **Concluir** para executar o assistente.
@@ -555,7 +565,7 @@ Em seguida, copie e execute o script Insert Data.
 
 1. No Management Studio, no Pesquisador de Objetos, atualize os bancos de dados para exibir o novo que você acabou de criar.
 
-2. Expanda a pasta Databases. Você deve ver o banco de dados **school** na lista.
+2. Expanda a pasta **Databases**. Você deve ver o banco de dados **school** na lista.
 
 3. Clique com o botão direito do mouse no banco de dados school e clique em **Nova Consulta**.
 
@@ -581,7 +591,7 @@ Em seguida, copie e execute o script Insert Data.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Introdução à administração do Banco de Dados SQL]: /pt-br/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Introdução à administração do Banco de Dados SQL]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

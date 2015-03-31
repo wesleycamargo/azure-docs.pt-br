@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/27/2014" 
-	ms.author="mahender"/>
+	ms.date="02/16/2015" 
+	ms.author="ricksal,mahender"/>
 
 # Adicionar autenticação ao seu aplicativo de Serviços Móveis
 
@@ -22,18 +22,13 @@
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.
 
-Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
+Este tutorial explica as etapas básicas para habilitar a autenticação em seu aplicativo.
 
-1. [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]
-2. [Restringir permissões de tabela para usuários autenticados]
-3. [Adicionar autenticação ao aplicativo]
-4. [Armazenar os tokens de autenticação no cliente]
-5. [Atualizar tokens expirados]
 
 
 Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
 
-##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços Móveis
+##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -43,9 +38,9 @@ Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Você 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-3. No Eclipse, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis]. 
+3. Abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis]. 
 
-4. No menu **Executar**, clique em **Executar** para iniciar o aplicativo. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado. 
+4. No menu **Executar**, clique em **Executar aplicativo** para iniciar o aplicativo. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado. 
 
 	 Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
 
@@ -65,7 +60,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="next-steps"></a>Próximas etapas
 
-No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móveis][Autorizar usuários com scripts], você obterá o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e o usará para filtrar os dados retornados pelos Serviços Móveis. 
+No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móveis][Autorizar usuários com scripts], você usará o valor de ID de usuário fornecido pelos serviços móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis. 
 
 
 <!-- Anchors. -->
@@ -77,14 +72,14 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 [Próximas etapas]:#next-steps
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Introdução aos dados]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Introdução à autenticação]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Introdução às notificações por push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Autorizar usuários com scripts]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
-[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /pt-br/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Referência conceitual do tutorial de .NET de Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

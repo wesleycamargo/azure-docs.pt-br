@@ -16,7 +16,7 @@
 	ms.date="02/18/2015"
 	ms.author="cherylmc"/>
 
-#Configurar uma rede virtual usando um arquivo de configuração de rede
+# Configurar uma rede virtual usando um arquivo de configuração de rede
 
 ## Visão geral
 
@@ -26,14 +26,14 @@ Talvez você prefira usar o Assistente do Portal de gerenciamento para criar ini
 
 Ou, se você quiser fazer alterações em seus parâmetros de configuração de rede antes de implantar serviços de nuvem ou máquinas virtuais na rede, você pode exportar o arquivo, editá-lo e importá-lo novamente no Azure. Você também pode usar um arquivo de configuração de rede para fazer backup das configurações de rede se quiser recriar sua rede virtual.
 
-##Criando e modificando um arquivo de configuração de rede 
+## Criando e modificando um arquivo de configuração de rede 
 A maneira mais fácil de criar um arquivo de configuração de rede é exportar as configurações de rede de uma configuração de rede virtual existente e, então modificar o arquivo para conter as configurações que você deseja para configurar suas redes virtuais. Você também pode obter um arquivo de exemplo e modificá-lo.
 
 Para editar o arquivo de configuração de rede, basta abrir o arquivo, fazer as alterações apropriadas e salvá-los. Você pode usar qualquer *xml* editor para fazer alterações no arquivo de configuração de rede. 
 
 Você deve seguir atentamente as diretrizes para configurações de esquema de arquivo de configuração de rede. Quando você cria o arquivo de configuração de rede, as configurações no arquivo substituirão as configurações que você fez nessa assinatura no Azure. Se você fizer alterações nos valores do arquivo que não são compatíveis com as diretrizes das configurações, sua rede virtual poderá não estar configurada da maneira desejada e, em alguns casos, o Azure não permitirá que você importe o arquivo. Para obter informações sobre as configurações específicas contidas em um arquivo de configuração de rede, consulte [Esquema de configuração de rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
-O Azure considera uma sub-rede com algo implantado como "em uso". Quando uma sub-rede estiver em uso, ela não poderá ser modificada. Antes de modificar, mova qualquer coisa que você tenha implantado na sub-rede para uma sub-rede diferente que não está sendo modificada.   Consulte [Mover uma VM ou instância de função para uma sub-rede diferente](https://msdn.microsoft.com/pt-br/library/azure/dn643636.aspx).
+O Azure considera uma sub-rede com algo implantado como "em uso". Quando uma sub-rede estiver em uso, ela não poderá ser modificada. Antes de modificar, mova qualquer coisa que você tenha implantado na sub-rede para uma sub-rede diferente que não está sendo modificada.   Consulte [Mover uma VM ou instância de função para uma sub-rede diferente](https://msdn.microsoft.com/library/azure/dn643636.aspx).
 
 
 
@@ -70,4 +70,4 @@ Para obter mais informações sobre a rede virtual, consulte:
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

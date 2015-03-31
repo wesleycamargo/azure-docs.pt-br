@@ -46,4 +46,4 @@ Para instalar o cliente Chef em uma máquina virtual do Azure, você tem estas o
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

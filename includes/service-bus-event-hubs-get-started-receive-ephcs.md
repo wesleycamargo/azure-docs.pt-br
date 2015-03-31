@@ -89,7 +89,7 @@ Para usar o [EventProcessorHost], você deve ter uma [conta de armazenamento do 
 		using Microsoft.ServiceBus.Messaging;
 		using System.Threading.Tasks;
 	
-	Em seguida, adicione o seguinte código no método **Main** , substituindo a cadeia de conexão e o nome do Hub de eventos e a conta de armazenamento e a chave que você copiou na seção anterior:
+	Em seguida, adicione o seguinte código no método **Main**, substituindo a cadeia de conexão e o nome do Hub de eventos e a conta de armazenamento e a chave que você copiou na seção anterior:
 
 		string eventHubConnectionString = "{event hub connection string}";
         string eventHubName = "{event hub name}";
@@ -109,7 +109,7 @@ Para usar o [EventProcessorHost], você deve ter uma [conta de armazenamento do 
 
 <!-- Links -->
 [Visão Geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn821413.aspx
-[amostra de processamento de eventos em escala]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[Exemplo de processamento de eventos de escala]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Conta de armazenamento do Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
@@ -121,4 +121,4 @@ Para usar o [EventProcessorHost], você deve ter uma [conta de armazenamento do 
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [Guia do desenvolvedor de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-<!--HONumber=42-->
+<!--HONumber=47-->

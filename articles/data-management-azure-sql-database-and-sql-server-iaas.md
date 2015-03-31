@@ -1,19 +1,19 @@
 ﻿<properties 
 	pageTitle="Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure" 
 	description="Aprenda sobre o banco de dados SQL do Azure e SQL Server em máquinas virtuais do Azure. Revise comuns motivadores comerciais para determinar qual tecnologia SQL funciona melhor para seu aplicativo." 
-	services="virtual-machines" 
+	services="sql-database, virtual-machines" 
 	documentationCenter="" 
 	authors="Selcin" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/23/2015" 
 	ms.author="selcint"/>
 
 # Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure
@@ -53,9 +53,9 @@ Nas seções a seguir, aprenderemos sobre os dois últimos: Banco de Dados SQL d
 
 ##<a name="close"></a>Uma análise mais profunda do Banco de Dados SQL do Azure e SQL Server na VM do Azure
 
-**Microsoft Azure SQL Database (Banco de dados SQL do Azure)** é um banco de dados como serviço relacional, que se encaixa na categoria do setor *Platform as a Service (PaaS)*. O Banco de Dados SQL do Azure baseia-se em hardware e software padronizados que são de propriedade, hospedados e mantidos pela Microsoft. Com o Banco de Dados SQL, você pode desenvolver diretamente no serviço usando a funcionalidade e recursos internos. Ao usar o Banco de Dados SQL, você paga pelo uso com opções para escalar verticalmente ou horizontalmente para ter maior capacidade.
+**O Banco de Dados SQL do Microsoft Azure (Banco de Dados SQL do Azure)** é um banco de dados como serviço relacional, que se encaixa na categoria do setor *Plataforma como Serviço (PaaS)*. O Banco de Dados SQL do Azure baseia-se em hardware e software padronizados que são de propriedade, hospedados e mantidos pela Microsoft. Com o Banco de Dados SQL, você pode desenvolver diretamente no serviço usando a funcionalidade e recursos internos. Ao usar o Banco de Dados SQL, você paga pelo uso com opções para escalar verticalmente ou horizontalmente para ter maior capacidade.
 
-**O SQL Server na Máquina Virtual do Azure (VM)** se enquadra na categoria do setor *Infrastructure as a Service (IaaS)* e permite executar o SQL Server dentro de uma máquina virtual na nuvem. Semelhante ao Banco de Dados SQL do Azure, ele se baseia no hardware padronizado que é de propriedade, hospedado e mantido pela Microsoft. Ao usar o SQL Server em uma VM, você pode colocar sua própria licença do SQL Server no Azure ou usar uma das imagens pré-configuradas do SQL Server no portal do Azure.
+**O SQL Server na Máquina Virtual do Azure (VM)** se enquadra na categoria setor *Infraestrutura como Serviço (IaaS)* e permite executar o SQL Server dentro de uma máquina virtual na nuvem. Semelhante ao Banco de Dados SQL do Azure, ele se baseia no hardware padronizado que é de propriedade, hospedado e mantido pela Microsoft. Ao usar o SQL Server em uma VM, você pode colocar sua própria licença do SQL Server no Azure ou usar uma das imagens pré-configuradas do SQL Server no portal do Azure.
 
 Em geral, essas duas opções de SQL são otimizadas para finalidades diferentes:
 
@@ -90,7 +90,7 @@ A tabela a seguir resume as principais características do Banco de Dados SQL do
       <li type=round>Aplicativos do SQL Server que exigem acesso a recursos locais (como o Active Directory) do Azure por meio de um túnel seguro. 
       <li type=round>Se você precisar de um ambiente de TI personalizado com direitos administrativos completos.
       <li type=round>Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server sem produção local.
-      <li type=round>Recuperação de desastres para aplicativos do SQL Server no local usando <a href="http://msdn.microsoft.com/library/jj919148.aspx">backup no armazenamento do Azure</a> ou <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Réplicas do AlwaysOn em VMs do Azure</a>.
+      <li type=round>Recuperação de desastres para aplicativos do SQL Server local usando o <a href="http://msdn.microsoft.com/library/jj919148.aspx">backup no Armazenamento do Azure</a> ou <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Réplicas AlwaysOn nas VMs do Azure</a>.
       <li type=round>Grandes bancos de dados maiores que 1 TB em tamanho.
       </ul></td>
    
@@ -113,8 +113,8 @@ A tabela a seguir resume as principais características do Banco de Dados SQL do
 </tr>
 <tr>
    <td valign="middle"><p><b>Continuidade dos negócios</b></p></td>
-   <td valign="middle"><ul><li type=round>Além dos recursos internos de infraestrutura de tolerância a falhas, o Banco de Dados SQL do Azure fornece recursos como a Restauração Pontual, Restauração Geográfica e Replicação Geográfica para aumentar a continuidade dos negócios. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Continuidade dos negócios no Banco de dados SQL do Azure</a>.</ul></td>
-   <td valign="middle"><ul><li type=round>O SQL Server na VM do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastres para as necessidades específicas do seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure</a>.</ul></td>
+   <td valign="middle"><ul><li type=round>Além dos recursos internos de infraestrutura de tolerância a falhas, o Banco de Dados SQL do Azure fornece recursos como a Restauração Pontual, Restauração Geográfica e Replicação Geográfica para aumentar a continuidade dos negócios. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Continuidade de negócios do Banco de Dados SQL do Azure.</a></ul></td>
+   <td valign="middle"><ul><li type=round>O SQL Server na VM do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastres para as necessidades específicas do seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Alta disponibilidade e recuperação de desastres para o SQL Server em máquinas virtuais do Azure.</a></ul></td>
    
 </tr>
 <tr>
@@ -122,7 +122,7 @@ A tabela a seguir resume as principais características do Banco de Dados SQL do
    <td valign="middle"><ul><li type=round>Seu aplicativo local pode acessar dados no Banco de Dados SQL do Azure.</ul></td>
    <td valign="middle"><ul>
       <li type=round>Com o SQL Server em VMs do Azure, você pode ter aplicativos que executam parcialmente na nuvem e parcialmente localmente. Por exemplo, você pode estender a rede local e o diretório de domínio ativo para a nuvem por meio dos <a href="http://msdn.microsoft.com/library/azure/gg433091.aspx">Serviços de Rede do Azure</a>. Além disso, você pode armazenar arquivos de dados locais no armazenamento do Azure usando os <a href="http://msdn.microsoft.com/library/dn385720.aspx">Arquivos de dados do SQL Server no recurso do Azure</a>. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/dn606154.aspx">Introdução à nuvem híbrida do SQL Server 2014</a>.
-      <li type=round>Oferece suporte à recuperação de desastres para aplicativos do SQL Server no local  usando  <a href="http://msdn.microsoft.com/library/jj919148.aspx">backup no armazenamento do Azure</a> ou <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Réplicas do AlwaysOn em VMs do Azure</a>.
+      <li type=round>Recuperação de desastres para aplicativos do SQL Server local  usando o  <a href="http://msdn.microsoft.com/library/jj919148.aspx">backup no Armazenamento do Azure</a> ou <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Réplicas AlwaysOn nas VMs do Azure</a>.
       </ul></td>
    
 </tr>
@@ -253,5 +253,4 @@ Obrigado a todos por dar vida a este artigo!
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

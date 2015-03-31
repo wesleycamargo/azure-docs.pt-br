@@ -1,11 +1,11 @@
 ﻿Este tutorial é baseado em **GetStartedWithData**, que é um aplicativo Android. A interface do usuário para esse aplicativo é idêntica no quickstart dos serviços móveis do Android, exceto que os itens adicionados à lista são armazenados localmente na memória. Você adicionará o código necessário para persistir os dados no armazenamento.
 
 
-1. Baixe o repositório `mobile-services-samples` do gitHub clicando em <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures" target="blank">aqui</a> e, em seguida, clique em **Baixar ZIP**.
+1. Baixe o repositório `mobile-services-samples` do gitHub clicando <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures" target="blank">aqui</a> e, em seguida, clique em **baixar ZIP**.
 
 3. Descompacte o arquivo baixado e anote sua localização.
 
-2. No Eclipse, clique em **Arquivo**, em **Importar**, expanda **Android**, clique em **Código Android existente no espaço de trabalho** e clique em **Avançar.** 
+2. No Eclipse, clique em **Arquivo**, em **Importar**, expanda **Android**, clique em **Código Android Existente no Espaço de Trabalho** e clique em **Avançar**. 
 
  	![](./media/download-android-sample-code/mobile-services-import-android-workspace.png)
 
@@ -15,8 +15,8 @@
 
 	Isso importa os arquivos de projeto no espaço de trabalho atual.
  
->[AZURE.NOTE] Se você deseja obter o arquivo de amostra usado na versão anterior do SDK Android dos serviços móveis, você pode obtê-lo [aqui][GitHub].
+>[AZURE.NOTE] Se você deseja obter o arquivo de amostra usado na versão anterior dos SDK Android dos Serviços Móveis, você pode obtê-lo [aqui][GitHub].
 
 <!-- URLs. -->
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=45--> 
+<!--HONumber=47-->

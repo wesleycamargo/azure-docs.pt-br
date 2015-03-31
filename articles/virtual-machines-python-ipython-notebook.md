@@ -57,11 +57,11 @@ e nós vamos abordar a configuração do IPython em ambos os tipos de máquinas 
 
 ### VM Linux
 
-Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição do *OpenSUSE* ou do *Ubuntu*. Este tutorial usa o OpenSUSE 13.2 e o Ubuntu Server 14.04 LTS. Vamos pressupor que o nome de usuário padrão seja *azureuser*.
+Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição *OpenSUSE* ou do  *Ubuntu*. Este tutorial usa o OpenSUSE 13.2 e o Ubuntu Server 14.04 LTS. Vamos pressupor que o nome de usuário padrão é *azureuser*.
 
 ### VM Windows
 
-Siga as instruções fornecidas [aqui][portal-vm-windows] para criar uma máquina virtual da distribuição do *Windows Server 2012 R2 Datacenter*. Neste tutorial, vamos pressupor que o nome de usuário seja *azureuser*.
+Siga as instruções fornecidas [aqui][portal-vm-windows] para criar uma máquina virtual da distribuição do*Windows Server 2012 R2 Datacenter*.  Neste tutorial, vamos pressupor que o nome de usuário é  *azureuser*.
 
 ## Criar um ponto de extremidade para o IPython Notebook
 
@@ -72,7 +72,7 @@ ponto de extremidade abre uma porta no firewall do Azure e mapeia a porta públi
 443) para a porta privada na VM (9999).
 
 Para criar um ponto de extremidade, vá para o painel da VM, clique em "Pontos de Extremidade", "Adicionar
-Ponto de Extremidade" e crie um novo ponto de extremidade (chamado `ipython_nb` neste exemplo). Escolha
+Ponto de Extremidade" e crie um novo ponto de extremidade (chamado`ipython_nb` neste exemplo). Escolha
 TCP como protocolo, 443 como porta pública e 9999 como porta privada:
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
@@ -121,7 +121,7 @@ usando o Windows PowerShell para executar todas as ações de linha de comando.
 
 **Observação**: Para baixar qualquer coisa usando o Internet Explorer, será necessário alterar algumas configurações de segurança.  No **Gerenciador de Servidores**, clique em **Servidor Local**, clique em **Configuração de Segurança Aprimorada do IE** e desative-a para administradores.  Você poderá habilitá-la novamente depois que a instalação do IPython for concluída.
 
-1.  Baixe e instale a versão de 32 bits mais recente do [Python 2.7][].  Você precisará adicionar `C:\Python27` and `C:\Python27\Scripts` à sua variável de ambiente `PATH`.
+1.  Baixe e instale a versão de 32 bits mais recente do [Python 2.7][].  Você precisará adicionar `C:\Python27` e `C:\Python27\Scripts` para a variável de ambiente `PATH` .
 
 1.  Instale [Tornado][tornado]e [PyZMQ][pyzmq] e as outras dependências do IPython, fazendo o seguinte:
 
@@ -132,7 +132,7 @@ usando o Windows PowerShell para executar todas as ações de linha de comando.
         easy_install python-dateutil
         easy_install pyparsing
 
-1.  Baixe e instale o [NumPy][numpy] usando o instalador binário `.exe` disponível no site.  Quando este artigo foi escrito, a versão mais recente era **numpy-1.9.1-win32-superpack-python2.7.exe**.
+1.  Baixe e instale o [NumPy][numpy] usando o instalador binário`.exe` disponível no site.  Quando este artigo foi escrito, a versão mais recente era **numpy-1.9.1-win32-superpack-python2.7.exe**.
 
 1.  Instale o [Matplotlib][matplotlib] fazendo o seguinte:
 
@@ -142,7 +142,7 @@ usando o Windows PowerShell para executar todas as ações de linha de comando.
 
 	* Você encontrará o **Pacote Redistribuível do Visual C++ 2008** na mesma página de download.
 
-	* Você precisará adicionar `C:\OpenSSL-Win32\bin` à sua variável de ambiente `PATH`.
+	* Você também precisará adicionar `C:\OpenSSL-Win32\bin` à sua variável de ambiente `PATH`.
 
 	> [AZURE.NOTE] Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
 
@@ -171,7 +171,7 @@ Perfil de configuração do IPython para encapsular as informações de configur
 
     ipython profile create nbserver
 
-Em seguida, vamos usar `cd` para o diretório de perfil para criar nosso certificado SSL e editar
+Em seguida, vamos usar`cd` para o diretório de perfil para criar nosso certificado SSL e editar
 o arquivo de configuração de perfis.
 
 No Linux:
@@ -305,7 +305,7 @@ pode ser usado:
 
 * como um bloco de anotações eletrônico para gravar soluções para um problema,
 
-* para compartilhar resultados com colegas em 'live' forma computacional ou em
+* para compartilhar resultados com colegas em'live' forma computacional ou em
   formatos de cópia impressa (HTML, PDF),
 
 * para distribuir e apresentar materiais de ensino ao vivo que envolvem computação,
@@ -346,8 +346,8 @@ criação de perfis e integração com computação paralela.
 [NumPy]:        http://www.numpy.org/               "NumPy"
 [Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
 
-[portal-vm-windows]: /pt-br/manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /pt-br/manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [repositório]: https://github.com/ipython/ipython
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
@@ -355,4 +355,4 @@ criação de perfis e integração com computação paralela.
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

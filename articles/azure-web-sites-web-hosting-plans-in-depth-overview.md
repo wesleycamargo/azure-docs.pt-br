@@ -66,7 +66,7 @@ Você também pode ver todos os grupos de recursos que foram criados para você 
 ![See all the resource groups that have been created](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
 </br>
 </br>
-Você também observará que tem um grupo de recursos padrão gerado automaticamente em cada região onde você já tem sites. O nome do grupo de recursos gerado automaticamente para os sites é *Default-Web-<NOME DO LOCAL>*, onde nome do local representa uma região do Azure (por exemplo, *Default-Web-WestUS*). Em cada grupo de recursos você encontrará todos os seus sites existentes para a região do grupo. Cada site que você criou anteriormente e criará no futuro, seja no portal do Azure completo ou no Portal de visualização do Azure, estará disponível em ambos os portais. 
+Você também observará que tem um grupo de recursos padrão gerado automaticamente em cada região onde você já tem sites. O nome do grupo de recursos gerado automaticamente para sites é *Default-Web-<LOCATION NAME>*, onde o nome do local representa uma região do Azure (por exemplo *Default-Web-WestUS*). Em cada grupo de recursos você encontrará todos os seus sites existentes para a região do grupo. Cada site que você criou anteriormente e criará no futuro, seja no portal do Azure completo ou no Portal de visualização do Azure, estará disponível em ambos os portais. 
 </br>
 Uma vez que cada site deve ser associado a uma plano de hospedagem na Web, criamos os planos de hospedagem na Web padrão para os sites existentes de acordo com a seguinte convenção, em cada região:
 </br>
@@ -78,7 +78,7 @@ Uma vez que cada site deve ser associado a uma plano de hospedagem na Web, criam
 </br>
 O nome deste plano de hospedagem na Web é **DefaultServerFarm**. Esse nome foi escolhido para dar suporte a uma API herdada. O nome **ServerFarm** pode ser um pouco enganador, uma vez que ele se refere a um **Plano de hospedagem na Web**, mas é importante notar que ele é um nome de plano de hospedagem na Web e não uma entidade própria. 
 </br>
-##P.F.## de Plano de Hospedagem na Web
+##Perguntas frequentes sobre plano de hospedagem na Web##
 </br>
 **Questão**: Como crio um plano de hospedagem na Web?
 </br>
@@ -200,8 +200,6 @@ Essas métricas representam a média de uso entre instâncias pertencentes a um 
 </br>
 ##Impressões e conclusões##
 </br>
-Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Um plano de hospedagem na Web oferece a flexibilidade para alocar sites específicos a um determinado conjunto de recursos, como máquinas virtuais, e otimiza ainda mais a alocação de seus recursos do Azure e o uso de sites.
+Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Um plano de hospedagem na Web oferece a flexibilidade para alocar sites específicos a um determinado conjunto de recursos, como máquinas virtuais, e otimiza ainda mais a alocação de seus recursos do Azure e o uso de sites. 
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

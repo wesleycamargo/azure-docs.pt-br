@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Criar e carregar um VHD FreeBSD para o Azure" 
    description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional FreeBSD" 
    services="virtual-machines" 
@@ -20,16 +20,16 @@
 
 Esse artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema operacional FreeBSD para que você o use como sua própria imagem para criar outras máquinas virtuais no Azure. 
 
-##Pré-requisitos##
+## Pré-requisitos##
 Este artigo pressupõe que você tenha os seguintes itens:
 
 - **Uma assinatura do Azure** - Se você não tiver uma, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://azure.microsoft.com/documentation/articles/php-create-account/). 
 
 - **Ferramentas Azure PowerShell** - Você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura. Para baixar o módulo, consulte [Downloads do Azure](http://azure.microsoft.com/downloads/) (a página pode estar em inglês). Um tutorial para instalar e configurar o módulo está disponível aqui. Você usará o cmdlet [Downloads do Azure](http://azure.microsoft.com/downloads/) para carregar o VHD.
 
-- **Sistema operacional FreeBSD instalado em um arquivo .vhd**  - Você instalou um sistema operacional FreeBSD com suporte em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd - por exemplo, você pode usar uma solução de virtualização como o Hyper-V para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Sistema de operacional FreeBSD instalado em um arquivo .vhd** - Você instalou um sistema de operacional FreeBSD suportado em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd - por exemplo, você pode usar uma solução de virtualização como o Hyper-V para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
-> [AZURE.NOTE] Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](https://technet.microsoft.com/pt-br/library/hh848454.aspx).
+> [AZURE.NOTE] Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](https://technet.microsoft.com/library/hh848454.aspx).
 
 Esta tarefa inclui as cinco etapas a seguir.
 
@@ -84,7 +84,7 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
 		# chmod 755 /usr/sbin/waagent
 		# /usr/sbin/waagent -install
 
-    **Importante**: Após a instalação, verifique novamente se ele está em execução.
+    **mportante**: Após a instalação, verifique novamente se ele está em execução.
 
 		# service -e | grep waagent
 		/etc/rc.d/waagent
@@ -170,13 +170,13 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 3. Salve o arquivo .publishsettings. 
 
 4. Digite: 
-	`Import-AzurePublishSettingsFile <CaminhoParaOArquivo>`
-
+	`Import-AzurePublishSettingsFile <PathToFile>`
+	
 	Em que `<CaminhoParaOArquivo>` é o caminho completo para o arquivo .publishsettings. 
 
    Para obter mais informações, consulte [Introdução aos cmdlets do Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   Para obter mais informações sobre instalação e configuração do PowerShell, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). 
+   Para obter mais informações sobre instalação e configuração do PowerShell, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](http://www.windowsazure.com/documentation/articles/install-configure-powershell/). 
 
 ## Etapa 4: Carregar o arquivo .vhd ##
 
@@ -208,4 +208,4 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

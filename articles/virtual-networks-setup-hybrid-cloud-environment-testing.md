@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Configurar um ambiente de nuvem híbrida para teste
@@ -42,7 +42,7 @@ Há cinco fases principais para configurar esse ambiente de teste de nuvem híbr
 4.	Criar a conexão VPN site a site.
 5.	Configurar o DC2. 
 
-Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](http://www.windowsazure.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](http://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Máquinas virtuais e gateways de redes virtuais no Azure geram custos monetários contínuos quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para reduzir os custos de executar esse ambiente de teste quando ele não estiver em uso, consulte [Minimizando os custos contínuos desse ambiente](#costs) neste tópico para obter mais informações.
 
@@ -126,7 +126,7 @@ Primeiro, faça logon no [Portal de Gerenciamento do Azure](https://manage.windo
 
 Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/) para instalar o PowerShell do Azure em seu computador local.
 
-Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia chamá-la de TestVNET-*SequênciaExclusiva*, onde *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestVNET-Tailspin.
+Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia chamá-la de TestVNET-*UniqueSequence*, onde *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestVNET-Tailspin.
 
 Você pode testar a exclusividade do nome com o comando a seguir do PowerShell do Azure em seu computador local.
 
@@ -219,10 +219,10 @@ Primeiro, crie uma máquina virtual do Azure para o DC2 com estes comandos no pr
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -287,11 +287,13 @@ Seu ambiente de nuvem híbrida agora está pronto para testes.
 
 ##Recursos adicionais
 
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Configurar um ambiente de nuvem híbrida simulado para testes](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
 ##Minimizando os custos contínuos desse ambiente
 
@@ -316,4 +318,4 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

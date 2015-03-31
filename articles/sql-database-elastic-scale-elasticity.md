@@ -1,18 +1,32 @@
-﻿<properties title="Data Dependent Routing" pageTitle="Elasticidade de fragmento" description="Explica conceitos e fornece exemplos por trás da elasticidade de fragmento, a capacidade de escalar horizontalmente facilmente bancos de dados do SQL Azure." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Elasticidade de fragmento" 
+	description="Explica conceitos e fornece exemplos por trás da elasticidade de fragmento, a capacidade de escalar horizontalmente facilmente bancos de dados do SQL Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # Elasticidade de fragmento 
 
-**Elasticidade de fragmento** permite aos desenvolvedores de aplicativos dinamicamente ampliar ou reduzir os recursos de banco de dados conforme a necessidade, permitindo otimizar o desempenho de seus aplicativos e também minimizar os custos. A combinação da ﻿Escala Elástica para Banco de Dados SQL do Azure juntamente com as camadas de serviço [Básica, Padrão e Premium](http://msdn.microsoft.com/pt-br/library/azure/dn741340.aspx) fornecem cenários de elasticidade muito atraentes.  A Escala Elástica habilita o **escala horizontal** - um padrão de design de bancos de dados ("fragmentos" em [termos de ﻿Escala Elástica] (sql-database-elastic-scale-glossary.md)) são adicionados ou removidos de um **conjunto de fragmento** para aumentar ou reduzir a capacidade. Da mesma forma, as camadas de serviço do banco de dados SQL fornecem capacidades de **escala vertical** que recursos de um único banco de dados podem ser escalados e reduzidos verticalmente até que correspondam à demanda de forma adequada.  Juntos, a escala vertical de um único fragmento e a escala horizontal de vários fragmentos proporcionam aos desenvolvedores de aplicativos um ambiente muito flexível que pode ser dimensionado para atender às necessidades de desempenho, capacidade e otimização de custo.
+**Elasticidade de fragmento** permite aos desenvolvedores de aplicativos dinamicamente ampliar ou reduzir os recursos de banco de dados conforme a necessidade, permitindo otimizar o desempenho de seus aplicativos e também minimizar os custos. A combinação da Escala Elástica para Banco de Dados SQL do Azure juntamente com as camadas de serviço [Básica, Padrão e Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) fornecem cenários de elasticidade muito atraentes.  A Escala Elástica habilita o **escala horizontal** - um padrão de design de bancos de dados ("fragmentos" em [termos de Escala Elástica](sql-database-elastic-scale-glossary.md)) são adicionados ou removidos de um **conjunto de fragmento** para aumentar ou reduzir a capacidade. Da mesma forma, as camadas de serviço do banco de dados SQL fornecem capacidades de **escala vertical** que recursos de um único banco de dados podem ser escalados e reduzidos verticalmente até que correspondam à demanda de forma adequada.  Juntos, a escala vertical de um único fragmento e a escala horizontal de vários fragmentos proporcionam aos desenvolvedores de aplicativos um ambiente muito flexível que pode ser dimensionado para atender às necessidades de desempenho, capacidade e otimização de custo.
 
-### Exemplo de escala horizontal: Pico de conjunto
+## Exemplo de escala horizontal: Pico de conjunto
 
 Um cenário canônico para escala horizontal é um aplicativo que processa transações para tíquetes de conjunto. Em volume do cliente normal, o aplicativo usa recursos de banco de dados mínimo para lidar com transações de compra.  No entanto, quando tíquetes de venda para um concerto popular, um único banco de dados não pode manipular o grande pico nas demandas de clientes. 
 
-Para processar o aumento significativo nas transações, o aplicativo é dimensionado horizontalmente. O aplicativo agora pode distribuir a carga de transações entre vários fragmentos. Quando os recursos adicionais não são mais necessários, a camada de banco de dados é reduzido para o uso normal. Aqui, a escala horizontal permite que um aplicativo seja escalado horizontalmente para coincidir com a demanda dos clientes e escala-in quando os recursos não são mais necessários.   
+Para processar o aumento significativo nas transações, o aplicativo é dimensionado horizontalmente. O aplicativo agora pode distribuir a carga de transações entre vários fragmentos. Quando os recursos adicionais não são mais necessários, a camada de banco de dados é reduzido para o uso normal. Aqui, a escala horizontal permite que um aplicativo seja escalado horizontalmente para coincidir com a demanda dos clientes e escala verticalmente quando os recursos não são mais necessários.   
 
-### Exemplo de escala vertical: Telemetria
+## Exemplo de escala vertical: Telemetria
 
 Um cenário canônico para escala vertical é um aplicativo que usa um **conjunto de fragmentos** para armazenar telemetria operacional. Nesse cenário, é melhor colocalizar todos os dados de telemetria para um único dia em um único fragmento. Neste aplicativo, os dados para o dia atual é incluídos em um fragmento e um novo fragmento é fornecido para os dias seguintes. Os dados operacionais podem ser antigos e consultados conforme apropriados. 
 
@@ -30,9 +44,9 @@ A escala vertical e horizontal é uma função de três componentes básicos:
 
 1. **Telemetria**
 2. **Regra**
-3. **Ações**   
+3. **Ação**   
 
-## <a name="telemetry"> </a>Telemetria
+## Telemetria
 
 **Elasticidade orientado a dados** está no coração de um aplicativo de escala elástica. Dependendo dos requisitos de desempenho, use telemetria para tomar decisões orientado a dados se dimensionar vertical ou horizontalmente.  
 
@@ -72,7 +86,7 @@ Uma possível analisar o uso de recursos de desempenho consultando o mestre de b
     WHERE database_name = 'Shard_20140623'  
     ORDER BY time DESC 
 
-Como dados é incluídos em um fragmento específico, é útil um dia para frente do projeto e determinar se o fragmento tem capacidade suficiente para tratar a carga de trabalho próximo. Enquanto não é uma implementação verdadeira da regressão linear, a consulta a seguir retorna o delta máximo na capacidade do banco de dados entre dois dias consecutivos.  Tal telemetria pode então ser aplicada a uma regra que resultaria em uma ação (ou em uma não ação) que está sendo executada. 
+Como dados é incluídos em um fragmento específico, é útil um dia para frente do projeto e determinar se o fragmento tem capacidade suficiente para tratar a carga de trabalho próximo. Enquanto não é uma implementação verdadeira da regressão linear, a consulta a seguir retorna o delta máximo na capacidade do banco de dados entre dois dias consecutivos.  Tal telemetria pode então ser aplicada a uma regra que resultaria em uma ação (ou em uma ausência de ação) que está sendo executada. 
 
     WITH MaxDatabaseDailySize AS( 
         SELECT 
@@ -93,17 +107,17 @@ Como dados é incluídos em um fragmento específico, é útil um dia para frent
     WHERE 
         Size.[order] < 8 
 
-## <a name="rule"></a>Regra  
+## Regra  
 
 A regra é o mecanismo de decisão que determina se ou não uma ação é executada. Algumas regras são muito simples e alguns são muito mais complicados. Conforme mostrado no trecho de código abaixo, uma regra centrados na capacidade pode ser configurada de forma que quando um fragmento atinge $SafetyMargin, por exemplo, 80% da sua capacidade máxima, um novo fragmento é provisionado.
 
-    # Determinar se o tamanho do banco de dados atual e o tamanho máximo de delta diária for maior que o limite 
+    # Determine if the current DB size plus the maximum daily delta size is greater than the threshold 
     if( ($CurrentDbSizeMb + $MaxDbDeltaMb) -gt ($MaxDbSizeMb * $SafetyMargin))  
     {#provision new shard} 
 
 Considerando as fontes de dados acima, um número de regras pode ser formulado para realizar diversas situações de elasticidade de fragmento. 
 
-## <a name="action"></a>Ação  
+## Ação  
 
 Com base no resultado da regra, a ação (ou a não ação) é o resultado. As duas ações mais comuns são:
 
@@ -122,11 +136,11 @@ O exemplo mostrado na figura a seguir destaca os dois cenários de escala elást
 
 A escala horizontal, uma regra (com base no tamanho do banco de dados ou data) é usada para provisionar um novo fragmento e registrá-lo com o mapa do fragmento, aumentando assim a camada de banco de dados horizontalmente. Em segundo lugar, para escalar verticalmente, uma segunda regra é implementada em que qualquer fragmento é mais de um dia está desatualizado da Premium Edition para uma edição básica ou padrão. 
 
-Considere o cenário de telemetria novamente: os fragmentos de aplicativo por data. Ele coleta dados de telemetria continuamente, exigindo uma edição de alto desempenho no carregamento de tempo, mas idades de desempenho mais baixo do que os dados. Data do dia atual [Tnow] é gravado para um banco de dados de alto desempenho (Premium). Quando o relógio bater meia-noite, o fragmento do dia anterior (agora [T-1]) não será mais usado para inclusão. Os dados atuais são incluídos pelo [Tnow] atual. Antes do próximo dia, um novo fragmento deve ser provisionado e registrado com o mapa do fragmento ([T+1]).  
+Considere o cenário de telemetria novamente: os fragmentos de aplicativo por data. Ele coleta dados por telemetria continuamente, exigindo uma edição de alto desempenho no carregamento de tempo, mas idades de desempenho mais baixo do que os dados. A data do dia atual [Tnow] é gravada para um banco de dados de alto desempenho (Premium). Quando o relógio bater meia-noite, o fragmento do dia anterior (agora [T-1]) não será mais usado para inclusão. Os dados atuais são incluídos pelo [Tnow] atual. Antes do próximo dia, um novo fragmento deve ser provisionado e registrado com o mapa do fragmento ([T+1]).  
 
 Isso pode ser feito por um provisionamento de um novo fragmento antes de cada novo dia ou provisionar um novo fragmento quando o fragmento atual ([Tnow]) se aproximar de sua capacidade máxima. Usar um desses métodos preserva a localidade dos dados de telemetria todos escrita para um dia específico. Também pode ser aplicada a fragmentação por hora granularidade mais fina. Depois que um novo fragmento é provisionado e como [T-1] é usado para consultas e relatórios, é desejável para reduzir o nível de desempenho do banco de dados, reduza os custos. Como o conteúdo na duração de bancos de dados, o nível de desempenho pode ser reduzido e/ou o conteúdo de bancos de dados pode ser arquivado no armazenamento do Azure ou excluído, dependendo do aplicativo. 
 
-## Cenários de elasticidade fragmento em execução  
+## Cenários de elasticidade de fragmento em execução  
 
 Para facilitar a implementação real de cenários de escala vertical e horizontal, vários [scripts de exemplo de elasticidade do fragmento](http://go.microsoft.com/?linkid=9862617) foram criados e lançados no Script Center. Esses runbooks PowerShell criados para serem executados no serviço de automação do Azure, fornecem uma série de métodos que interagem com as bibliotecas de cliente de escala elástica e Banco de Dados SQL do Azure.  Por fazer a compilação ou a extração desses exemplos de código, uma pessoa pode criar os scripts necessários a fim de automatizar os cenários de escala vertical, horizontal, ou ambos, para seu aplicativo. 
 
@@ -137,6 +151,8 @@ Para facilitar a implementação real de cenários de escala vertical e horizont
 [1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
 
 <!--anchors-->
-[Telemetry]:#telemetry
-[Rule]:#rule
-[Action]:#action
+[Telemetria]:#telemetry
+[Regra]:#rule
+[Ação]:#action
+
+<!--HONumber=47-->

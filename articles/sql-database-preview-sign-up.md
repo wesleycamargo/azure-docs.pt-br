@@ -1,40 +1,75 @@
-﻿<properties title="Walkthrough: Sign Up for the Latest SQL Database Update V12 (preview)" pageTitle="Passo a passo: inscrever-se para a mais recente atualização do banco de dados SQL V12 (visualização)" description="Descreve as etapas para inscrever-se para a versão de visualização do banco de dados do SQL do Azure V12, usando a nova interface do usuário do portal do Azure." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="GeneMi" manager="jhubbard, jeffreyg" videoId="" scriptId=""/>
+﻿<properties 
+	pageTitle="Passo a passo: Ativar a atualização V12 mais recente do banco de dados SQL (visualização)" 
+	description="Descreve as etapas para experimentar a versão experimental do V12 de banco de dados do SQL Azure, usando o portal do Azure novo interface do usuário." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jhubbard, jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
-
-<!--
-Latest update datetime for this topic.
-GeneMi  ,  2014-Dec-10 Wednesday 10:40am.
-
-http : // azure.microsoft .com/ documentation/articles/ sql-database-latest-preview-sign-up/
--->
-
-# Passo a passo: inscrever-se para a mais recente atualização do banco de dados SQL V12 (visualização)
-
-Este tópico descreve as etapas que você pode seguir para inscrever-se para a atualização do banco de dados SQL V12 do Azure (visualização), conforme lançado pela Microsoft em dezembro de 2014.
-
-Você deve se inscrever para a visualização V12 antes de criar ou atualizar um banco de dados com a visualização. Se você tentar atualizar o banco de dados existente antes de você se inscrever para a visualização, o portal do Azure o redireciona para a lâmina de inscrição para a visualização.
-
-Para obter mais informações sobre a visualização, consulte [Planejar e preparar a visualização da atualização para o Azure SQL Database V12](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="genemi"/>
 
 
-## Autorização de segurança
+# Passo a passo: Ativar a atualização V12 mais recente do banco de dados SQL (visualização)
 
-Para ter a autorização suficiente para se inscrever para a visualização, você deve ser ao menos um dos seguintes:
+Este tópico descreve as etapas que você pode seguir para ativar a opção para a atualização V12 do banco de dados SQL Azure (visualização), inicialmente lançado pela Microsoft em dezembro de 2014.
+
+Para experimentar a mais recente visualização V12 é necessária, primeiro, uma assinatura para o Microsoft Azure ou ao menos uma assinatura de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+
+Você pode ativar a visualização V12 usando o portal de gerenciamento da nova visualização do Microsoft em [http://portal.azure.com/](http://portal.azure.com/). Depois de ativar a visualização V12 para sua assinatura, as opções de criação e atualização para a visualização V12 serão desbloqueadas no portal do Azure. Em seguida, os usuários podem iniciar o fluxo de trabalho de [criação](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/) ou [atualização](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/) a partir da lâmina do servidor ou da lâmina de banco de dados.
+
+> [AZURE.NOTE]
+> Novos bancos de dados, cópias de banco de dados ou bancos de dados de teste são bons candidatos para a atualização para a visualização. Os bancos de dados de produção dos quais sua empresa depende devem esperar até após o período de visualização.
+
+Para obter mais informações sobre a visualização, consulte [Planejar e preparar a atualização V12 do banco de dados do SQL Azure (visualização)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+
+
+## R. Autorização de segurança
+
+A primeira etapa é garantir que você tem autorização suficiente para ativar a visualização V12 para sua assinatura. Quando você tentar ativar a opção de visualização V12, uma verificação de autorização é executada para verificar se que você tem autoridade suficiente dentro da assinatura.
+
+ Para tentar a visualização, você deve ter uma das seguintes autorizações:
 
 - O proprietário da assinatura
 - Um coadministrador da assinatura
 
 Para obter mais informações sobre contas do Azure, consulte [Gerenciar contas, assinaturas e funções administrativas](http://msdn.microsoft.com/library/hh531793.aspx).
 
-## Opções de sequência para inscrição
+## B. Etapas no portal de interface do usuário
 
-Você pode se inscrever para a visualização V12 quando você tentar criar um novo banco de dados na versão de visualização. Durante a sequência o sistema detecta que você deve se inscrever e o levará para uma caixa de seleção onde você concorda e inscreve-se.
+Esta seção descreve uma sequência de cliques que você pode seguir uma vez na interface do usuário do portal do Azure para ativar a opção de visualização V12. Depois de ativar a opção, ele permanecerá disponível.
 
-Você pode se inscrever para a visualização clicando na parte **Configurações do Portal** no portal do Azure.
+Todos os cenários de ativação usam a mesma ideia básica. Quando você primeiro tenta [criar um novo servidor de banco de dados SQL](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/), uma lâmina rotulada **Atualização mais recente (visualização)** é exibida e oferece uma caixa de verificação que você pode optar por ativar o privilégio para usar a versão de visualização V12. Depois de ativar o privilégio, você nunca verá a caixa de seleção novamente. Em vez disso, você verá um controle **Sim|Não** que você pode usar para especificar se deseja que o novo servidor use a visualização V12. Se você escolher **Não**, você cria um servidor de V11 (conforme relatado pelo SELECT@@VERSION;).
 
+### B.1 Sim|Não controle da versão de visualização V12
+
+Depois de ter ativado o privilégio de visualização V12, você verá o controle **Sim|Não** circulado na seguinte captura de tela do portal.
+
+![YesNoOptionForTheV12Preview][Image1]
+
+
+## C. O que vem a seguir
+
+Em seguida, os tópicos a seguir explicam maneiras que você pode usar a visualização V12.
+
+- [Criar um banco de dados na atualização do banco de dados SQL V12 (visualização) mais recente](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/)
+- [Atualização para a atualização mais recente do banco de dados SQL V12 (visualização)](http://azure.microsoft.com/documentation/articles/sql-database-preview-upgrade/)
+
+> [AZURE.NOTE]
+> Novos bancos de dados, cópias de banco de dados ou bancos de dados de teste são bons candidatos para a atualização para a visualização. Os bancos de dados de produção dos quais sua empresa depende devem esperar até após o período de visualização.
+
+
+<!-- References, Images. -->
+[Image1]: ./media/sql-database-preview-sign-up/V12Preview-YesNo-Option-New-SQLDatabase-Server-Newserver-Screenshot-e23.png
 
 
 <!-- EOF -->
 
-<!--HONumber=35.2-->
+<!--HONumber=47-->

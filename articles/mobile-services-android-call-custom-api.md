@@ -11,10 +11,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="10/16/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal,glenga"/>
 
 # Chamar uma API personalizada do cliente
@@ -23,16 +23,12 @@
 
 Este tópico mostra como chamar uma API personalizada em um aplicativo Android. Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma operação de inserção, atualização, exclusão ou leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
-A API personalizada criada neste tópico permite enviar uma única solicitação POST que define o *completed*sinalizador `true` para todos os itens de tarefas pendentes na tabela de Serviços Móveis. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
+A API personalizada criada neste tópico permite enviar uma única solicitação POST que define o *completed* sinalizador `true` para todos os itens de tarefas pendentes na tabela do seu serviço móvel. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis] ou [Introdução aos dados]. Para fazer isso, você executará as seguintes etapas:
-
-1. [Definir a API personalizada]
-2. [Atualizar o aplicativo para chamar a API personalizada]
-3. [Testar o aplicativo]
+Você adicionará essa funcionalidade ao aplicativo que criou quando concluir um dos tutoriais [Introdução aos Serviços Móveis] ou [Introdução aos dados]. 
 
 
->[AZURE.NOTE] Se você gostaria de ver o código-fonte do aplicativo concluído, clique <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">aqui</a>.
+>[AZURE.NOTE] Se você desejar ver o código-fonte do aplicativo concluído, vá <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">aqui</a>.
 
 ##Pré-requisitos
 
@@ -68,11 +64,11 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo Android
 [SDK para Android de Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-get-started/
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-android-get-started-data/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-android-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-android-get-started-push/
+[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-android-get-started/
+[Introdução aos dados]: /documentation/articles/mobile-services-android-get-started-data/
+[Introdução à autenticação]: /documentation/articles/mobile-services-android-get-started-users/
+[Introdução às notificações por push]: /documentation/articles/mobile-services-android-get-started-push/
 
-[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
+[Scripts de servidor de armazenamento no controle do código-fonte]: /documentation/articles/mobile-services-store-scripts-source-control
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

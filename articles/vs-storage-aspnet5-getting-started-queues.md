@@ -1,11 +1,11 @@
 ﻿<properties 
 	pageTitle="Introdução ao Armazenamento do Azure" 
-	description="" 
+	description="Como começar a usar o armazenamento de fila do Azure em um projeto ASP.NET 5 no Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
@@ -47,15 +47,15 @@ Para acessar programaticamente filas em projetos do ASP.NET 5, você precisa adi
 ##### Obter a cadeia de conexão do armazenamento
 Antes de poder realizar qualquer coisa com a fila, será necessário obter a cadeia de conexão para a conta de armazenamento onde as filas residirão. Você pode usar o tipo **CloudStorageAccount** para representar suas informações de conta de armazenamento. Se estiver usando um projeto ASP.NET 5, você poderá chamar o método do objeto Configuration para obter sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração de serviço do Azure, como mostrado no código a seguir.
 
-**Observação:** os APIs que executam chamadas em saída para o armazenamento do Azure em ASP.NET 5 são assíncronos. Consulte [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que métodos de programação assíncrona estão sendo usados.
+**OBSERVAÇÃO:** os APIs que executam chamadas em saída para o armazenamento do Azure em ASP.NET 5 são assíncronos. Consulte [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que métodos de programação assíncrona estão sendo usados.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 ##### Criar uma fila
-Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos neste tópico usam uma cadeia de conexão de armazenamento armazenada na configuração dos serviços do aplicativo do Azure. Também existem outras maneiras de criar um objeto **CloudStorageAccount**. Consulte a documentação do [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") para ver detalhes.
+Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos neste tópico usam uma cadeia de conexão de armazenamento armazenada na configuração dos serviços do aplicativo do Azure. Também existem outras maneiras de criar um objeto **CloudStorageAccount**. Consulte a documentação do [CloudStorageAccount](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") para ver detalhes.
 
-**Observação:** os APIs que executam chamadas em saída para o armazenamento do Azure em ASP.NET 5 são assíncronos. Consulte [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que métodos de programação assíncrona estão sendo usados.
+**OBSERVAÇÃO:** os APIs que executam chamadas em saída para o armazenamento do Azure em ASP.NET 5 são assíncronos. Consulte [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que métodos de programação assíncrona estão sendo usados.
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -103,4 +103,5 @@ Este processo de duas etapas de remover uma mensagem garante que se o código n�
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
-<!--HONumber=42-->
+
+<!--HONumber=47-->

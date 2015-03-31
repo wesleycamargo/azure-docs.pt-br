@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure" 
-	description="Descreve como instalar e configurar o Symantec Endpoint Protection em uma máquina virtual no Azure" 
+	description="Descreve como instalar e configurar a extensão de segurança Symantec Endpoint Protection em uma VM nova ou existente no Azure" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="02/24/2015" 
 	ms.author="kathydav"/>
 
 #Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure
@@ -30,7 +30,7 @@ O [Portal de Gerenciamento do Azure](http://manage.windowsazure.com) permite ins
 
 Essa opção **Da Galeria** abre um assistente que ajuda você a configurar a máquina virtual. Você usa a última página do assistente para instalar o Agente de VM e a extensão de segurança da Symantec. 
 
-Para obter instruções gerais, consulte [Criar uma máquina virtual na qual o Windows Server esteja em execução](http://go.microsoft.com/fwlink/p/?LinkId=403943). Quando você chegar à última página do assistente:
+Para obter instruções gerais, consulte [Criar uma máquina virtual na qual o Windows Server esteja em execução](../virtual-machines-windows-tutorial/). Quando você chegar à última página do assistente:
 
 1.	Em VM Agent, **Instalar o agente da VM** já devem ser verificados.
 
@@ -45,40 +45,37 @@ Para obter instruções gerais, consulte [Criar uma máquina virtual na qual o W
 
 Antes de começar, você precisará do seguinte:
 
-- Módulo PowerShell do Azure, versão 0.8.2 ou mais nova. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o PowerShell do Azure](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
+- Módulo PowerShell do Azure, versão 0.8.2 ou mais nova. Você pode verificar a versão do PowerShell do Azure instalado com o comando **Get-Module azure | format-table version**. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/).  
 
-- O Agente de VM. Para obter instruções e um link para o download, consulte a postagem no blog [VM Agent and Extensions - Part 2 (Agente de VM e extensões - Parte 2)](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+- O Agente de VM. 
 
-Para instalar a extensão de segurança Symantec em uma máquina virtual existente:
+Primeiramente, verifique se que o agente de VM já está instalado. Preencha o nome do serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos em um prompt de comando do PowerShell do Azure com nível de administrador. Substitua tudo entre aspas, incluindo os caracteres < e >.
 
-1.	Obtenha o nome do serviço de nuvem e o nome da máquina virtual. Se você não souber quais são, use o comando **Get-AzureVM** para exibir essas informações para todas as máquinas virtuais na assinatura atual. Em seguida, substitua tudo dentro de aspas, incluindo os caracteres < e > e execute estes comandos:
+	$CSName = "<cloud service name>"
+	$VMName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	write-host $vm.VM.ProvisionGuestAgent
 
-	<p>`$servicename = "<YourServiceName>"`
-<p>`$name = "<YourVmName>"`
-<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
-<p>`Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection`
+Se você não souber o nome da máquina virtual e serviço de nuvem, execute **Get-AzureVM** para exibir essas informações para todas as máquinas virtuais em sua assinatura atual.
 
-2.	Na exibição do comando Get-AzureVMAvailableExtension, observe o número de versão para a propriedade da versão e, em seguida, execute estes comandos:
+Se o comando **write-host** exibe **True**, o agente de VM está instalado. Se ele exibir **False**, consulte as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
-	<p>`$ver=<version number from the Version property>`
-<p>`Set-AzureVMExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection -Version $ver -VM $vm.VM`
-<p>`Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
+Se o Agente de VM Agent estiver instalado, execute estes comandos para instalar o agente Symantec Endpoint Protection.
+
+	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+	Set-AzureVMExtension -Publisher Symantec -Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 Para verificar se a extensão de segurança Symantec foi instalada e está atualizada:
 
-1.	Faça logon na máquina virtual.
-2.	Para Windows Server 2008 R2, clique em **Iniciar > Todos os programas > Symantec Endpoint Protection**. Para o Windows Server 2012, na tela inicial, digite **Symantec**e, em seguida, clique em **Symantec Endpoint Protection**.
-3.	Na janela de status, aplique as atualizações, se necessário.
+1.	Faça logon na máquina virtual. Para obter mais informações, consulte [Como fazer logon em uma Máquina Virtual executando Windows Server](../virtual-machines-log-on-windows-server/).
+2.	Para Windows Server 2008 R2, clique em **Iniciar > Symantec Endpoint Protection**. Para o Windows Server 2012 ou Windows Server 2012 R2, na tela inicial, digite **Symantec** e, em seguida, clique em **Symantec Endpoint Protection**.
+3.	Na guia **Status** da janela de **Status do Symantec Endpoint Protection**, aplique atualizações ou reinicie se necessário.
 
 ## Recursos adicionais
-[Como fazer logon em uma máquina virtual executando o Windows Server]
 
-[Gerenciar extensões]
+[Como fazer logon em uma máquina virtual executando o Windows Server](../virtual-machines-log-on-windows-server/)
 
-<!--Link references-->
-[Como fazer logon em uma máquina virtual executando o Windows Server]: ../virtual-machines-log-on-windows-server/
-
-[Gerenciar extensões]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Gerenciar extensões](https://msdn.microsoft.com/library/dn606311.aspx)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

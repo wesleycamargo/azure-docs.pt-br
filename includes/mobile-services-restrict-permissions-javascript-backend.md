@@ -1,10 +1,7 @@
 ﻿
 
-1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**. 
+1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela _TodoItem_.
 
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
+2. Clique na guia **Permissões**, defina todas as permissões para **Somente usuários autenticados** e clique em **Salvar**. Isso garante que todas as operações em relação a tabela  _TodoItem_ exigem um usuário autenticado.
 
-2. Clique na guia **Permissões**, defina todas as permissões para **Somente usuários autenticados** e clique em **Salvar**. Isso garantirá que todas as operações em relação a tabela **TodoItem** exigem um usuário autenticado. Isso também simplifica os scripts do próximo tutorial porque eles não precisarão permitir a possibilidade de usuários anônimos.
-
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
-<!--HONumber=42-->
+<!--HONumber=47-->

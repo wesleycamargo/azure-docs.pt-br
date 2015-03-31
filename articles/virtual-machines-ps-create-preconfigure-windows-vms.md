@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows
@@ -26,7 +26,7 @@ Para o tópico complementar sobre como configurar máquinas virtuais baseadas em
 
 ##Etapa 1: Instale o Azure PowerShell
 
-Se ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/) para instalar o PowerShell Azure em seu computador local. Em seguida, abra um prompt de comando do PowerShell do Azure com nível de administrador.
+Se ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/) para instalar o PowerShell Azure em seu computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
 
 ##Etapa 2: Definir a assinatura e a conta de armazenamento
 
@@ -98,7 +98,7 @@ Opcionalmente, para um computador Windows autônomo, especifique a conta de admi
 	$localadminpassword="<local administrator account password>"
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
 
-Opcionalmente, para adicionar o computador Windows a um domínio existente do Active Directory, especifique a conta e a senha do administrador local, o domínio e as credenciais de conta de uma conta de domínio.
+Opcionalmente, para adicionar o computador Windows a um domínio do Active Directory existente, especifique a conta e a senha de administrador local, o domínio e o nome e a senha de uma conta de domínio.
 
 	$localadminusername="<local administrator account name>"
 	$localadminpassword="<local administrator account password>"
@@ -108,7 +108,7 @@ Opcionalmente, para adicionar o computador Windows a um domínio existente do Ac
 	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
 
-Observe que isto requer que você especifique o nome da conta e a senha de uma conta de domínio do Active Directory. Se você estiver salvando o conjunto de comandos resultante como um arquivo, certifique-se de armazená-lo em um local seguro para proteger o nome da conta de domínio e a senha.
+Observe que as duas opções exigem que você especifique senhas e nomes de conta. Se você estiver salvando o conjunto de comandos em um arquivo, armazene-o em um local seguro para protegê-los.
 
 Para opções adicionais de pré-configuração para máquinas virtuais baseadas em Windows, consulte a sintaxe para os conjuntos de parâmetros **Windows** e **WindowsDomain** em [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -269,4 +269,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

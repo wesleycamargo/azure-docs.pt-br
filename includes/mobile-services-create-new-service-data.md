@@ -34,4 +34,4 @@ Em seguida, você criará um novo serviço móvel para substituir a lista na mem
 Você criou um novo serviço móvel que pode ser usado por seus aplicativos móveis. Em seguida, você adicionará uma nova tabela para armazenar dados do aplicativo. Essa tabela será usada pelo aplicativo em vez de coleção em memória.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

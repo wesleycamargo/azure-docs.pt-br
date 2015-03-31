@@ -26,7 +26,7 @@ Existem dois níveis de balanceamento de carga para serviços de infraestrutura 
 
 ##Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites##
 
-O Gerenciador de Tráfego do Azure permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que inclui serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domínio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em data centers diferentes em todo o mundo. 
+O Gerenciador de Tráfego do Azure permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que inclui serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domúnio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em datacenters diferentes em todo o mundo. 
 
 Você deve usar tanto o REST como o Windows PowerShell para configurar os pontos de extremidade externos ou os perfis do Gerenciador de Tráfego como pontos de extremidade. 
 
@@ -34,7 +34,7 @@ O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga 
 
 - **Failover**:  Use este método quando desejar usar um ponto de extremidade primário para todos os seus tráfegos, mas forneça backups no caso de um primário se tornar indisponível.
 - **Desempenho**:  Use este método quando tiver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade "mais próximo" em termos de menor latência.
-- **Round Robin:** use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo data center ou através dos serviços de nuvem ou sites em diversos data centers.
+- **Round Robin**:  Use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
 
 Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
@@ -80,4 +80,4 @@ Para obter mais informações, consulte [Balanceamento de carga interno](http://
 <!-- LINKS -->
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

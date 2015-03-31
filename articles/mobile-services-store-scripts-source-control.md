@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Armazenar código de projeto no controle do código-fonte - Serviços Móveis do Azure" 
 	description="Saiba como armazenar seus arquivos de script de servidor e módulos em um repositório Git local no computador." 
 	services="mobile-services" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/pt-br/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end .NET</a> | <a href="/pt-br/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end do .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end do JavaScript</a>
 </div>
 
 # Armazenar código de projeto no controle do código-fonte
@@ -46,11 +46,11 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 	> [AZURE.NOTE]
 	> Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
 
-2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell do Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
+2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
 
 3. Na linha de comando, altere para o diretório no qual você armazenará seus scripts. Por exemplo, `cd SourceControl`.
 
-4. Use o comando a seguir para criar uma cópia local do seu novo repositório Git, substituindo `<sua_URL_Git>` pela URL do repositório Git para seu serviço móvel:
+4. Use o comando a seguir para criar uma cópia local do seu novo repositório Git, substituindo `<URL_do_seu_git>` pela URL do repositório Git para seu serviço móvel:
 
 		git clone <your_git_URL>
 
@@ -69,7 +69,7 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 7. Abra a subpasta .\service\table e observe se ela contém um arquivo TodoItem.json, que é uma representação JSON das permissões de operação na tabela TodoItem. 
 
-	Quando os scripts de servidor tiverem sido definidos nessa tabela, você também terá um ou mais arquivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> contendo os scripts para a operação de tabela específica. O Agendador e os scripts de APIs personalizadas serão mantidos em pastas separadas com esses respectivos nomes. Para obter mais informações, consulte [Controle do código-fonte].
+	Quando os scripts de servidor foram definidos nessa tabela, você também terá um ou mais arquivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> que contêm os scripts para a operação de tabela específica. O Agendador e os scripts de APIs personalizadas serão mantidos em pastas separadas com esses respectivos nomes. Para obter mais informações, consulte [Controle do código-fonte].
 
 Agora que criou seu repositório local, você pode fazer alterações nos scripts de servidor e enviar por push as alterações de volta para o serviço móvel.
 
@@ -171,12 +171,12 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Site do Git]: http://git-scm.com
 [Controle do código-fonte]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
-[Adicionar Serviços Móveis a um aplicativo existente]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
-[Trabalhar com scripts de servidor em Serviços Móveis]: /pt-br/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-ios-get-started/
+[Adicionar Serviços Móveis a um aplicativo existente]: /documentation/articles/mobile-services-ios-get-started-data/
+[Trabalhar com scripts de servidor em Serviços Móveis]: /documentation/articles/mobile-services-how-to-use-server-scripts/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-ios-call-custom-api/
+[Chamar uma API personalizada do cliente]: /documentation/articles/mobile-services-ios-call-custom-api/
 [Documentação da API do Node.js: Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!--HONumber=42-->
+<!--HONumber=47-->

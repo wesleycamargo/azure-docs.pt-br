@@ -1,4 +1,4 @@
-## Receber mensagens com Apache Storm
+﻿## Receber mensagens com Apache Storm
 
 O [**Apache Storm**](https://storm.incubator.apache.org) é um sistema de computação distribuída em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout de Hubs de Eventos do Storm para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
 
@@ -220,12 +220,13 @@ Este tutorial usa uma instalação do [HDInsight Storm], que acompanha o spout d
 	Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
 
 <!-- Links -->
-[Visão geral dos Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[Visão Geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[tutorial de análise de sensor HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Tutorial de análise de sensor do HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+<!--HONumber=47-->

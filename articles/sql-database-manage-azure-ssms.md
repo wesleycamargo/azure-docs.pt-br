@@ -1,10 +1,26 @@
-﻿<properties urlDisplayName="SQL Database Management" pageTitle="Gerenciar um Banco de Dados SQL com o SSMS - Azure" metaKeywords ="SQL Server Management Studio SSMS do Azure  " description="Aprenda a usar o SQL Server Management Studio para gerenciar bancos de dados e servidores de banco de dados SQL." metaCanonical="" services="sql-database" documentationCenter=".NET" title="" authors="jeffreyg" solutions="" manager="jeffreyg" editor="tysonn" />
+﻿<properties 
+	pageTitle="Gerenciar um banco de dados SQL com o SSMS - Azure" 
+	description="Aprenda a usar o SQL Server Management Studio para gerenciar bancos de dados e servidores de banco de dados SQL." 
+	services="sql-database" 
+	documentationCenter=".net" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/23/2015" 
+	ms.author="jeffreyg"/>
 
 
 
 
 
 
-[WACOM.INCLUDE [sql-azure-management](../includes/sql-azure-management.md)] 
+[AZURE.INCLUDE [sql-azure-management](../includes/sql-azure-management.md)] 
+
+<!--HONumber=47-->

@@ -16,36 +16,6 @@
 	ms.date="11/19/2014" 
 	ms.author="wpickett"/>
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/pt-br/develop/net/compute/">Computação</a></li>
-<li class="menu-nodejs-data"><a href="/pt-br/develop/net/data/">Serviços de dados</a></li>
-<li class="menu-nodejs-appservices"><a href="/pt-br/develop/net/app-services/">Serviços de Aplicativos</a></li>
-<li><a href="/pt-br/develop/net/reference/">Referência</a></li>
-<li><a href="/pt-br/develop/net/guidance/">Diretrizes</a></li>
-<li><a href="/pt-br/develop/net/architecture/">Arquitetura</a></li>
-<li><a href="/pt-br/develop/net/samples/">Exemplos</a></li>
-<li><a href="/pt-br/develop/net/end-to-end-Apps/">Tutoriais baseados em cenário</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/pt-br/support/forums/">Fóruns</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>Nesta seção (pular para):</li>
-<li><a href="/pt-br/develop/net/architecture/#overviews">Visões gerais da arquitetura do aplicativo</a></li>
-<li><strong>Padrão do aplicativo: Aplicativos multilocatários</strong></li>
-<li><a href="/pt-br/develop/net/architecture/load-testing-pattern/">Padrão do aplicativo: Testes de carga</a></li>
-<li><a href="/pt-br/develop/net/architecture/#designpatterns">Padrões de design</a></li>
-</ul>
-</div>
-</div>
-</div>
-
 # Aplicativos multilocatários no Azure
 
 Um aplicativo multilocatário é um recurso compartilhado que permite que usuários distintos ou "locatários" exibam o aplicativo como se ele fosse de sua propriedade. Um cenário típico que pode ser usado como um aplicativo multilocatário é aquele em que todos os usuários do aplicativo talvez queiram personalizar a experiência do usuário, mas que, de outra forma, têm os mesmos requisitos de negócios básico. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
@@ -96,20 +66,20 @@ O gerenciamento de dados, como os serviços de Banco de Dados SQL Azure ou o Arm
 
 **Serviços de Rede**
 
-O Azure fornece vários serviços de rede que oferecem suporte à autenticação e melhoram a capacidade de gerenciamento dos aplicativos hospedados. Esses serviços incluem o seguinte: 
+O Azure fornece vários serviços de rede que oferecem suporte à autenticação e melhoram a capacidade de gerenciamento dos aplicativos hospedados. esses serviços incluem o seguinte: 
 
 - A Rede Virtual do Azure permite que você provisione e gerencie VPNs (redes virtuais privadas) no Azure e vincule-as com segurança à infraestrutura de TI local. 
 - O Gerenciador de Tráfego de Rede Virtual permite que você equilibre o tráfego de entrada entre os vários serviços hospedados do Azure, quer eles estejam em execução no mesmo datacenter ou em diferentes datacenters ao redor do mundo. 
-- O Active Directory do Azure (AD do Azure) é um serviço moderno e baseado em REST que fornece recursos de gerenciamento de identidade e de controle de acesso para seus aplicativos na nuvem. O uso do AD do Azure para recursos do aplicativo. O AD do Azure fornece uma maneira fácil de autenticar e autorizar os usuários para obterem acesso a seus aplicativos e serviços Web permitindo, ao mesmo tempo, que os recursos de autenticação e autorização sejam fatorados de seu código. 
-- O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. O uso da Retransmissão do Barramento de Serviço para recursos do aplicativo. Os serviços que são expostos como pontos de extremidade podem pertencer ao locatário (por exemplo, hospedados fora do sistema, como no local) ou podem ser serviços provisionados especificamente para o locatário (porque dados confidenciais específicos ao locatário trafegam entre eles). 
+- O Active Directory do Azure (AD do Azure) é um serviço moderno e baseado em REST que fornece recursos de gerenciamento de identidade e de controle de acesso para seus aplicativos na nuvem. O uso do AD do Azure para recursos do aplicativo. O AD do Azure fornece uma maneira fácil de autenticar e autorizar os usuários para obterem acesso a seus aplicativos e serviços web permitindo, ao mesmo tempo, que os recursos de autenticação e autorização sejam fatorados de seu código. 
+- O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. O uso da Retransmissão do Service Bus para recursos do aplicativo. Os serviços que são expostos como pontos de extremidade podem pertencer ao locatário (por exemplo, hospedados fora do sistema, como no local) ou podem ser serviços provisionados especificamente para o locatário (porque dados confidenciais específicos ao locatário trafegam entre eles). 
 
 
 
-**Provisionando recursos**
+**Provisionando de recursos**
 
 O Azure fornece várias maneiras de provisionar novos locatários para o aplicativo. Para aplicativos multilocatários com um grande número de locatários, geralmente é necessário automatizar esse processo permitindo provisionamento por autoatendimento.
 
-- A funções de trabalho permitem provisionar e desprovisionar recursos por locatário (como quando um novo locatário faz ou cancela uma assinatura), coletar métricas para uso de medição e gerenciar a escala seguindo uma determinada agenda ou em resposta ao cruzamento de limites dos principais indicadores de desempenho. Essa mesma função também pode ser usada para enviar atualizações por push para a solução. 
+- A funções de trabalho permitem provisionar e desprovisionar recursos por locatário (como quando um novo locatário faz ou cancela uma assinatura), coletar métricas para uso de medição e gerenciar a escala seguindo uma determinada agenda ou em resposta ao cruzamento de limites dos principais indicadores de desempenho. Essa mesma função também pode ser usada para enviar atualizações e upgrades por push para a solução. 
 - Os Blobs do Azure podem ser usados para provisionar computação ou recursos de armazenamento pré-inicializados para novos locatários fornecendo, ao mesmo tempo, políticas de acesso em nível de contêiner para proteger os pacotes, imagens VHD e outros recursos do serviço de computação.
 - As opções para provisionamento de recursos de Banco de Dados SQL para um locatário incluem:
 
@@ -119,6 +89,7 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 	- 	Uso de importação e exportação de banco de dados para provisionar novos bancos de dados de um arquivo. 
 
 
+
 <!--links-->
 
 [Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
@@ -126,4 +97,4 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

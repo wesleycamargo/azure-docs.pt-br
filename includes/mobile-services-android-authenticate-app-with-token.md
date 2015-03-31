@@ -4,7 +4,7 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 >[AZURE.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
 
 
-1. No Eclipse, abra o arquivo ToDoActivity.java e adicione as seguintes instruções de importação:
+1. Abra o arquivo ToDoActivity.java e adicione as seguintes instruções de importação:
 
         import android.content.Context;
         import android.content.SharedPreferences;
@@ -89,4 +89,5 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

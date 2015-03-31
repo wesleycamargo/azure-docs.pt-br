@@ -10,15 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Usando exclusão reversível nos Serviços Móveis
 
-Tabelas criadas com o JavaScript ou o back-end do .NET podem, opcionalmente, ter exclusão reversível habilitada. Ao usar a exclusão reversível, uma nova coluna chamada *__deleted* do [tipo de bit SQL] é adicionada ao banco de dados. Com a exclusão reversível habilitada, uma operação de excluir não excluir fisicamente as linhas do banco de dados, mas, em vez disso, define o valor da coluna excluída para TRUE.
+##Visão geral
+
+Tabelas criadas com o JavaScript ou o back-end do .NET podem, opcionalmente, ter exclusão reversível habilitada. Ao usar a exclusão reversível, uma nova coluna chamada *\__deleted* do [tipo de bit SQL] é adicionada ao banco de dados. Com a exclusão reversível habilitada, uma operação de excluir não excluir fisicamente as linhas do banco de dados, mas, em vez disso, define o valor da coluna excluída para TRUE.
 
 Ao consultar registros em uma tabela com exclusão reversível habilitada, as linhas excluídas não são retornadas na consulta por padrão. Para solicitar essas linhas, é preciso passar um parâmetro de consulta *\__includeDeleted=true* na sua [Operação de Consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). No SDK do cliente .NET, também é possível usar o método auxiliar `IMobileServiceTable.IncludeDeleted()`.
 
@@ -34,16 +36,9 @@ No entanto, registros excluídos com exclusão reversível ocupam espaço no ban
 
 
 
-Visão geral deste tópico:
-
-1. [Habilitando exclusão reversível para o back-end do .NET]
-2. [Habilitando exclusão reversível para o back-end do JavaScript]
-3. [Usando exclusão reversível com o back-end do .NET] 
-4. [Usando exclusão reversível com o back-end do JavaScript] 
 
 
-
-## <a name="enable-for-dotnet"></a>Habilitando exclusão reversível para o back-end do .NET
+##Habilitando exclusão reversível para o back-end do .NET
 
 O suporte a exclusão reversível para o back-end do .NET foi lançado pela primeira vez com a versão 1.0.402 do Back-end do .NET de Serviços Móveis do Microsoft Azure. Os pacotes NuGet mais recentes estão disponíveis aqui, [Back-end do .NET de Serviços Móveis do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -63,7 +58,7 @@ As seguintes etapas o conduzem sobre como habilitar a exclusão reversível para
         }
 
 
-## <a name="enable-for-javascript"></a>Habilitando exclusão reversível para o back-end do JavaScript
+##Habilitando exclusão reversível para o back-end do JavaScript
 
 Se estiver criando uma nova tabela para seu serviço móvel, é possível habilitar a exclusão reversível na página de criação da tabela.
 
@@ -109,12 +104,12 @@ O seguinte trabalho agendado limpa registros de exclusão reversível com mais d
         }
     }
 
-Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do .NET, consulte: [Agendar trabalhos recorrentes com Serviços Móveis de back-end do JavaScript](/ pt-br/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do .NET, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
 
-## <a name="using-with-javascript"></a>Usando exclusão reversível com o back-end do JavaScript
+##Usando exclusão reversível com o back-end do JavaScript
 
 Você usa scripts de tabela para adicionar lógica em torno do recurso de exclusão reversível com os serviços móveis do back-end do JavaScript.
 
@@ -123,7 +118,7 @@ Para detectar uma solicitação de cancelamento de exclusão, use a propriedade 
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
-To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
+Para incluir registros excluídos no resultado da consulta em um script, defina o "includeDeleted" para true:
     
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
@@ -150,16 +145,11 @@ Esse é um trabalho de amostra que exclui registros atualizados antes de uma dat
         }});
     }
 
-Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis de back-end do JavaScript](/pt-br/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/).
 
 
 
 
-<!-- Anchors. -->
-[Habilitando exclusão reversível para o back-end do .NET]: #enable-for-dotnet
-[Habilitando exclusão reversível para o back-end do JavaScript]: #enable-for-javascript
-[Usando exclusão reversível com o back-end do .NET]: #using-with-dotnet
-[Usando exclusão reversível com o back-end do JavaScript]: #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
@@ -168,9 +158,9 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end d
 
 <!-- URLs. -->
 [Tipo de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
-[Sincronização de dados offline para Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[Sincronização de dados offline para Serviços Móveis]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
 
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

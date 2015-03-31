@@ -1,21 +1,22 @@
-﻿Devido ao desenvolvimento contínuo, a versão do SDK do Android instalada no Eclipse talvez não coincida com a versão do código. O SDK do Android referenciado neste tutorial é versão 21, a mais recente no momento desta edição. O número de versão pode aumentar à medida que aparecem novas versões do SDK e é recomendável usar a versão mais recente disponível.
+﻿Devido ao desenvolvimento contínuo, a versão do SDK do Android instalada no Android Studio pode não corresponder à versão no código. O SDK do Android referenciado neste tutorial é versão 21, a mais recente no momento desta edição. O número de versão pode aumentar à medida que aparecem novas versões do SDK e é recomendável usar a versão mais recente disponível.
 
 Dois sintomas da incompatibilidade de versão são:
 
-1. Examine o Console do Eclipse no painel inferior. Você pode ver mensagens de erro do formato "**Não é possível resolver o destino  'android-n'**".
+1. Quando você compilar ou recompilar o projeto, você pode receber mensagens de erro de Gradle como "**Falha ao localizar o alvo Google Inc.:Google APIs:n**".
 
 2. Objetos Android padrão no código que deve ser resolvido com base em instruções  `import` podem gerar mensagens de erro.
 
-Se um deles for exibido, a versão do SDK do Android instalado no Eclipse poderá não coincidir com o destino do SDK do projeto baixado.  Para verificar a versão, faça as seguintes alterações:
+Se um deles for exibido, a versão do SDK do Android instalado no Android Studio poderá não coincidir com o destino do SDK do projeto baixado.  Para verificar a versão, faça as seguintes alterações:
 
 
-1. No Eclipse, clique em **Janela** clique em **Gerenciador de SDK do Android**. Se você não tiver instalado a versão mais recente da plataforma do SDK, clique para instalá-la. Anote o número de versão.
+1. No Android Studio, clique em **Ferramentas** => **Android** => **Gerenciador de SDK**. Se você não tiver instalado a versão mais recente da plataforma do SDK, clique para instalá-la. Anote o número de versão.
 
-2. Abra o arquivo de projeto **AndroidManifest.xml**. Verifique se no elemento **uses-sdk**, **targetSdkVersion** está definido como a versão mais recente instalada. A marcação **uses-sdk** deve ser semelhante a esta:
+2. Na guia Explorador de Projeto, em **Scripts Gradle**, abra o arquivo **gradle.build (modeule: app)**. Verifique se **compileSdkVersion** e **buildToolsVersion** estão definidos para a versão do SDK mais recente instalada. As marcas podem ter esta aparência:
  
-	 	    <uses-sdk
-	 	        android:minSdkVersion="8"
-	 	        android:targetSdkVersion="21" />
+	 	    compileSdkVersion 'Google Inc.:Google APIs:21'
+    		buildToolsVersion "21.1.2"
 	
-3. No Gerenciador de Pacotes do Eclipse, clique com o botão direito do mouse no nó do projeto, escolha **Propriedades** e, na coluna à esquerda, escolha **Android**. Verifique se a opção **Destino da Compilação do Projeto** está definida como a mesma versão do SDK que o **targetSdkVersion**.
-\<!--HONumber=42-->
+3. No Explorador de Projeto do Android Studio, clique com o botão direito do mouse no nó do projeto, escolha **Propriedades** e, na coluna esquerda, escolha **Android**. Verifique se a opção **Destino da Compilação do Projeto** está definida como a mesma versão do SDK que o **targetSdkVersion**.
+
+4. No Android Studio, o arquivo de manifesto não é usado para especificar o SDK de destino e a versão mínima do SDK, ao contrário do que ocorre com o Eclipse.
+<!--HONumber=47-->

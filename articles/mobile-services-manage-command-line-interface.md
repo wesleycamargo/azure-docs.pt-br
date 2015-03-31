@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -32,7 +32,7 @@ Quando combinadas em um único script ou arquivo em lotes, estes comandos indivi
 
 Para usar as ferramentas de linha de comando do Azure para gerenciar Serviços Móveis, você precisará de uma conta do Azure que tenha o recurso Serviços Móveis habilitado.
 
-+ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Avaliação Gratuita do Azure</a>.
++ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">Avaliação Gratuita do Azure</a>.
 
 + Se você tiver uma conta existente mas precisa habilitar a visualização de serviços móveis do Azure, consulte <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">recursos de visualização do Azure permitem</a>.
 
@@ -63,15 +63,15 @@ Para iniciar, você deve primeiro baixar e importar suas configurações de publ
 
 Isto abrirá o navegador padrão e solicitará que você entre no Portal de Gerenciamento. Depois de entrar, seu arquivo `.publishsettings` será baixado. Observe o local onde este arquivo foi salvo.
 
-Em seguida, importe o arquivo `.publishsettings` executando o comando a seguir, substituindo `<path-to-settings-file> pelo caminho de seu arquivo `.publishsettings`:
+Em seguida, importe o arquivo `.publishsettings` executando o comando a seguir, substituindo `<path-to-settings-file>` pelo caminho para seu arquivo `.publishsettings`:
 
 		azure account import <path-to-settings-file>
 
-Você pode remover todas as informações armazenadas pelo comando <code>import</code> usando o comando <code>account clear</code>:
+É possível remover todas as informações armazenadas pelo comando <code>import</code> usando o comando de <code>exclusão de conta</code> :
 
 		azure account clear
 
-Para ver uma lista de opções de comandos `account`, use a opção `-help`:
+Para ver uma lista de opções de comandos de  `account`, use a opção `-ajuda`:
 
 		azure account -help
 
@@ -101,9 +101,9 @@ Você pode usar as ferramentas de linha de comando para excluir um serviço móv
 
 		azure mobile delete <service-name> -a -q
 
-Com a inclusão dos parâmetros`-a` e `-q`, este comando também exclui o Banco de Dados SQL e o servidor usados pelo serviço móvel, sem exibir um prompt.
+Com a inclusão dos parâmetros `-a` e `-q`, este comando também exclui o Banco de Dados SQL e o servidor usados pelo serviço móvel, sem exibir um prompt.
 
-> [AZURE.NOTE] Se você não especificar o parâmetro <code>-q</code> juntamente com <code>-a</code> ou <code>-d</code>, a execução é interrompida e você será solicitado a selecionar opções de exclusão para seu Banco de Dados SQL. Somente utilize o parâmetro <code>-a</code> quando nenhum outro serviço usar o banco de dados ou servidor; caso contrário, use o parâmetro <code>-d</code> para excluir apenas os dados pertencentes ao serviço móvel que está sendo excluído.
+> [AZURE.NOTE] Se você não especificar o parâmetro <code>-q</code> com <code>-a</code> ou <code>-d</code>, a execução será pausada e você será solicitado a selecionar opções de exclusão para o seu banco de dados SQL. Use apenas o parâmetro <code>-a</code> quando nenhum outro serviço utilizar o banco de dados ou servidor; caso contrário, use o parâmetro <code>-d</code> para apagar apenas os dados que pertencem ao serviço móvel que está sendo excluído.
 
 <h2><a name="create-table"></a>Como criar uma tabela no serviço móvel</h2>
 
@@ -111,7 +111,7 @@ O comando a seguir cria uma tabela no serviço móvel especificado, onde `<servi
 
 		azure mobile table create <service-name> <table-name>
 
-Isso cria uma nova tabela com as permissões padrão, `application`, para as operações de tabela: `insert`, `read`, `update` e `delete`. 
+Isso cria uma nova tabela com as permissões padrão, `application`, para as operações de tabela: ,`,insert` `read` `update` e `delete`. 
 
 O comando a seguir cria uma nova tabela com permissão para `read` pública, mas com a permissão para `delete` concedida apenas a administradores:
 
@@ -137,15 +137,15 @@ Este comando também mostra o número de índices em cada tabela e o número de 
 
 <h2><a name="delete-table"></a>Como excluir uma tabela existente do serviço móvel</h2>
 
-O comando a seguir exclui uma tabela do serviço móvel, em que `<service-name>` é o nome do serviço móvel e`<table-name>` é o nome da tabela a ser excluída:
+O comando a seguir exclui uma tabela do serviço móvel, onde `<service-name>` é o nome do serviço móvel e `<table-name>` é o nome da tabela a ser excluída:
 
 		azure mobile table delete <service-name> <table-name> -q
 
-Em scripts de automação, use o parâmetro `-q` para excluir a tabela sem exibir um prompt de confirmação que bloqueará a execução.
+Em scripts de automação, use o parâmetro `- q` para excluir a tabela sem exibir um prompt de confirmação que bloqueará a execução.
 
 <h2><a name="register-script"></a>Como registrar um script para uma operação de tabela</h2>
 
-O comando a seguir carrega e registra uma função em uma operação de tabela, em que`<service-name>` é o nome do serviço móvel, `<table-name>` é o nome da tabela e `<operation>` é a operação da tabela, que pode ser `read`, `insert`, `update` ou `delete`:
+O comando a seguir carrega e registra uma função em uma operação de tabela, onde `<service-name>` é o nome do serviço móvel, `<table-name>` é o nome da tabela e `<operation>` é a operação da tabela, que pode ser `read`, `insert`, `update` ou `delete`:
 
 		azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
@@ -203,8 +203,8 @@ Próximas etapas aqui...
 
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
-[reference-docs]: /pt-br/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
+[reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Como instalar ferramentas da linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

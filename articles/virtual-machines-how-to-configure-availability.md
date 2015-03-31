@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Como configurar um conjunto de disponibilidade para máquinas virtuais" 
-	description="Instrui a configurar um conjunto de disponibilidade para máquinas virtuais no Azure" 
+	description="Fornece as etapas para configurar uma conjunto de disponibilidade para uma VM nova ou existente no Azure usando os comandos do Portal de Gerenciamento do Azure e o PowerShell do Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="02/24/2015" 
 	ms.author="kathydav"/>
 
 #Como configurar um conjunto de disponibilidade para máquinas virtuais#
@@ -33,7 +33,7 @@ Você pode escolher uma destas opções para colocar máquinas virtuais em um co
 
 ## <a id="createset"> </a>Opção 1: Crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo##
 
-Você pode usar o Portal de Gerenciamento ou cmdlets do PowerShell do Azure para fazer isso. 
+Você pode usar comandos do Portal de Gerenciamento ou o PowerShell do Azure para fazer isso. 
 
 Para usar o Portal de Gerenciamento:
 
@@ -52,9 +52,10 @@ Para usar o Portal de Gerenciamento:
 	2. Se você pretende usar uma rede virtual, especifique-a em **Região/Grupo de Afinidade/Rede Virtual**. **Importante**: Se quiser que uma máquina virtual use uma rede virtual, você deve adicioná-la ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure][]. 
 	
 	3. Crie o conjunto de disponibilidade. Em **Conjunto de Disponibilidade**, selecione a opção **Criar um conjunto de disponibilidade**. Em seguida, atribua um nome ao conjunto. 
+
 	4. Crie os pontos de extremidade padrão e adicione mais pontos de extremidade se necessário. Também é possível adicionar os pontos de extremidade em outro momento. 
 
-	![Create an availabililty set for a new VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png) 
+	![Criar um conjunto de disponibilidade para uma nova máquina virtual](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png) 
 
 6. Na quarta tela, selecione as extensões que você deseja instalar. As extensões oferecem recursos que facilitam o gerenciamento da máquina virtual, como a execução de antimalware ou redefinição de senhas. Para obter detalhes, confira [Agente de máquina virtual Linux e extensões de máquina virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkId=XXX).
 
@@ -62,30 +63,30 @@ Para usar o Portal de Gerenciamento:
 
 	No painel da nova máquina virtual, você pode clicar em **Configurar** e verificar que a máquina virtual pertence ao novo conjunto de disponibilidade.
 
-Para usar os cmdlets do Azure:
+Para usar comandos do PowerShell do Azure para criar uma VM do Azure e adicioná-la a um conjunto de disponibilidade novo ou existente, consulte o seguinte:
 
-1.	Abra uma sessão do PowerShell do Azure e execute os comandos como nos exemplos a seguir. Esses exemplos mostram a criação da máquina virtual, do serviço de nuvem e do conjunto de disponibilidade.
+- [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
+- [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
-2.	Obtenha o nome da imagem que será usada para criar a máquina virtual e armazene-o em uma variável. O comando de exemplo a seguir usa o número de índice para obter a propriedade ImageName do objeto de imagem. Ele presume que você sabe qual é o número atual do índice da imagem que deseja e que substituirá esse número por &lt;index_number&gt;. <br>
-
-	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
-
+<<<<<<< HEAD
 	>[AZURE.NOTE] Execute `Get-AzureVMImage` sem parâmetros para obter uma lista de todas as imagens que se aplicam à sua assinatura. Isso pode retornar uma lista grande. Para reduzir a lista, use propriedades como o nome de família da imagem. Para dicas e exemplos que mostrem como fazer isso para encontrar uma imagem específica, consulte [Gerenciar imagens usando o Windows PowerShell](http://msdn.microsoft.com/library/azure/dn790330.aspx).
 
 3.	Especifique a configuração da nova máquina virtual e use o pipeline para transmitir um objeto de configuração ao cmdlet que cria a máquina virtual. Não se esqueça de substituir os próprios valores para espaços reservados, como  &lt;VmName&gt; e &lt;VmSize&gt;.
 
 	`C:\PS> New-AzureVMConfig -Name "<VmName>" -InstanceSize <VmSize> -AvailabilitySetName "<SetName>" -ImageName $image | Add-AzureProvisioningConfig -Windows -AdminUsername "<UserName>" -Password "<MyPassword>" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM -ServiceName "<MySvc1>" `
 
+=======
+>>>>>>> 1dc830a16302e6b943a5d55ebacef659451b22d6
 
 ## <a id="addmachine"> </a>Opção 2: Adicione uma máquina virtual já existente a um conjunto de disponibilidade##
 
-No Portal de gerenciamento é possível adicionar máquinas virtuais existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais devem pertencer ao mesmo serviço de nuvem.) As etapas são praticamente as mesmas. No PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente. 
+No Portal de gerenciamento é possível adicionar máquinas virtuais existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente. 
 
 1. Se você ainda não tiver feito isso, entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 2. Na barra de navegação, clique em **Máquinas Virtuais**.
 
-3. Selecione uma das máquinas virtuais que você deseja adicionar ao conjunto. Clique na linha da máquina virtual para abrir seu painel.
+3. Na lista de máquinas virtuais, clique no nome das máquinas virtuais que deseja adicionar ao conjunto.
 
 4. Dentre as guias abaixo do nome da máquina virtual, clique em **Configurar**. 
 
@@ -95,15 +96,13 @@ No Portal de gerenciamento é possível adicionar máquinas virtuais existentes 
 
 	B. Escolha **Selecionar um conjunto de disponibilidade** e selecione um dos conjuntos da lista.
 
-	![Create an availabililty set for an existing VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityExistingVM.png) 
+	![Criar um conjunto de disponibilidade para uma máquina virtual existente](./media/virtual-machines-how-to-configure-availability/VMavailabilityExistingVM.png) 
 
 6. Clique em **Salvar**.
 
-Para usar os cmdlets do Azure:
+Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do Azure de nível de administrador e execute o comando a seguir. Para os espaços reservados (como &lt;VmCloudServiceName&gt;), substitua tudo entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
-Abra uma sessão do PowerShell do Azure e execute o comando a seguir. Não se esqueça de substituir seus próprios valores por espaços reservados, como &lt;VmCloudServiceName&gt; e &lt;VmName&gt;.
-
-	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
+	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 >[AZURE.NOTE] A máquina virtual pode ser reiniciada para concluir a adição ao conjunto de disponibilidade.
 
@@ -115,13 +114,18 @@ Abra uma sessão do PowerShell do Azure e execute o comando a seguir. Não se es
 [Opção 2: Adicione uma máquina virtual já existente a um conjunto de disponibilidade]: #addmachine
 
 <!-- LINKS -->
-[Balanceamento de carga de máquinas virtuais]: ../virtual-machines-load-balance
+[Balanceamento de carga para Serviços de infraestrutura do Azure]: ../virtual-machines-load-balance
 [Gerenciar a disponibilidade de máquinas virtuais]: ../virtual-machines-manage-availability
-[Criar uma máquina virtual que execute o Windows]: ../virtual-machines-windows-tutorial
+[Criação de uma Máquina virtual executando o Windows]: ../virtual-machines-windows-tutorial
 [Visão geral da rede virtual do Azure]: http://go.microsoft.com/fwlink/p/?linkid=294063
 [Sobre grupos de afinidade para rede virtual]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
+<<<<<<< HEAD
 [Como conectar máquinas virtuais em um serviço de nuvem]: ../virtual-machines-connect-cloud-service
 [Sobre as definições de configuração da VM do Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+=======
+[Como conectar máquinas virtuais em um serviço de nuvem]: ../cloud-services-connect-virtual-machine
+[Sobre as definições de configuração da VM do Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+>>>>>>> 1dc830a16302e6b943a5d55ebacef659451b22d6
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

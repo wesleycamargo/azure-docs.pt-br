@@ -83,4 +83,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 [Recursos e extensões de VM do Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

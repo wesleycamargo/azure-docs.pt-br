@@ -2,19 +2,15 @@
 
 1. No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo da Windows Store, clique em **Adicionar** e em **Notificação por push...**. 
 
-	![Add Push Notification wizard in Visual Studio 2013](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
+	![Add Push Notification wizard in Visual Studio 2013](./media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
 
 	Isso inicia o Assistente Adicionar Notificação por Push.
 
 2. Clique em **Próximo**, entre na sua conta da Windows Store e forneça um nome em **Reservar um novo nome** e clique em **Reservar**.
 
-	![Select an app name in the Add Push Notification wizard](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png) 
-
 	Isso cria um novo registro de aplicativo.
 
 3. Clique no novo registro na lista **Nome do Aplicativo** e clique em **Próximo**.
-
-	![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
 
 4. Na página **Selecione um serviço**, clique no nome do seu serviço móvel e clique em **Próximo** e **Concluir**. 
 
@@ -24,10 +20,11 @@
 
 5. Quando você concluir o assistente, uma nova página **Configuração de push está quase concluída** é aberta no Visual Studio. Esta página fornece os detalhes de um método alternativo para configurar o seu projeto de serviço móvel para enviar notificações que são diferentes deste tutorial. 
 
-	>[AZURE.NOTE]O código que é adicionado a sua solução de aplicativo universal do Windows pelo assistente Adicionar Notificação por Push é específico da plataforma. Mais tarde nesta seção, removeremos esta redundância compartilhando o código cliente dos Serviços Móveis, o que torna mais fácil a manutenção do aplicativo universal.  
+	O código que é adicionado a sua solução de aplicativo universal do Windows pelo assistente Adicionar Notificação por Push é específico da plataforma. Mais tarde nesta seção, removeremos esta redundância compartilhando o código cliente dos Serviços Móveis, o que torna mais fácil a manutenção do aplicativo universal.  
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/
-[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Importe o arquivo publishsettings no Visual Studio 2013]: /pt-br/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-<!--HONumber=42-->
+[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started/
+[Introdução aos dados]: /develop/mobile/tutorials/get-started-with-data-dotnet/
+[Importe o arquivo publishsettings no Visual Studio 2013]: /documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
+<!--HONumber=47-->

@@ -42,7 +42,7 @@
 		C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
 	Isso cria um serviço chamado "Mongo DB" com uma descrição de "Mongo DB". A opção **--logpath** deve ser usada para especificar um arquivo de log, uma vez que o serviço em execução não terá uma janela de comando para exibir a saída.  A opção **--logpath** especifica que uma reinicialização do serviço fará com que a saída anexe o arquivo de log existente.  A opção **--dbpath** especifica o local do diretório de dados. Para obter mais opções de linha de comando relacionadas ao serviço, consulte [Opções da linha de comando relacionadas ao serviço] [MongoWindowsSvcOptions].
-10. Agora que o MongoDB está instalado e em execução, você precisa abrir uma porta no Firewall do Windows para poder se conectar remotamente ao MongoDB.  No menu **Iniciar**, selecione **Ferramentas Administrativas** e depois **Firewall do Windows com segurança avançada**. 
+10. Agora que o MongoDB está instalado e em execução, você precisa abrir uma porta no Firewall do Windows para poder se conectar remotamente ao MongoDB.  No menu **Iniciar**, selecione **Ferramentas do Administrador** e a **Windows Firewall com Segurança Avançada**. 
 
 11. No painel esquerdo, selecione **Regras de Entrada**.  À direita, no painel **Ações**, selecione **Nova Regra...**.
 	
@@ -94,4 +94,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

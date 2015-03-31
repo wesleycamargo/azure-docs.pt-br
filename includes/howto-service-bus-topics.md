@@ -1,4 +1,4 @@
-﻿<h2><a name="what-are-service-bus-topics"></a>O que são tópicos e assinaturas do Barramento de Serviço</h2>
+﻿## O que são tópicos e assinaturas do Barramento de Serviço
 
 Os tópicos e assinaturas do Barramento de Serviço oferecem suporte a um modelo de **comunicação de mensagens de publicação/assinatura**. Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
 
@@ -10,7 +10,7 @@ Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias da
 
 As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento para processar um grande número de mensagens em muitos usuários e aplicativos.
 
-<h2><a name="create-a-service-namespace"></a>Criar um namespace de serviço</h2>
+## Criar um namespace de serviço
 
 Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo.
 
@@ -18,8 +18,7 @@ Para criar um namespace de serviço:
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][].
 
-2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em
-    **Barramento de Serviço**.
+2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em **Barramento de Serviço**.
 
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.   
     ![][0]
@@ -37,17 +36,20 @@ Para criar um namespace de serviço:
 	![][6]
 
 
-<h2><a name="obtain-default-credentials"></a>Obter as Credenciais de Gerenciamento Padrão para o Namespace</h2>
+## Obter as credenciais de gerenciamento padrão para o namespace
 
 A fim de executar operações de gerenciamento, como a criação de um tópico ou assinatura no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais do Portal de Gerenciamento ou do Gerenciador de servidores do Visual Studio.
 
 ###Para obter as credenciais de gerenciamento do portal
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis:    ![][0]
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis:   
+    ![][0]
 
-2.  Selecione o namespace que você acabou de criar na lista abaixo:    ![][3]
+2.  Selecione o namespace que você acabou de criar na lista abaixo:   
+    ![][3]
 
-3.  Clique em **Informações de Conexão**.    ![][4]
+3.  Clique em **Informações de Conexão**.   
+    ![][4]
 
 4.  Na caixa de diálogo **Informações de conexão de acesso**, localize as entradas de **Emissor Padrão** e **Chave Padrão**. Tome nota desses valores, pois você usará essas informações abaixo para executar operações com o namespace. 
 
@@ -68,4 +70,5 @@ Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
-<!--HONumber=42-->
+
+<!--HONumber=47-->

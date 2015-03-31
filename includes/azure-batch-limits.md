@@ -5,7 +5,7 @@
    <th align="left" valign="middle">Limite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Núcleos por conta de <a href="http://azure.microsoft.com/pt-br/services/batch/">lote</a></p></td>
+   <td valign="middle"><p>Núcleos por conta de <a href="http://azure.microsoft.com/services/batch/">lote</a></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>N/D<sup>1</sup></p></td>
 </tr>
@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> O número de núcleos por conta de lote pode ser aumentado, mas o número máximo não está especificado. Entre em contato com o suporte ao cliente para discutir opções de aumento.
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

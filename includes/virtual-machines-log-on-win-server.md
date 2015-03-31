@@ -1,8 +1,8 @@
-﻿<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties services="virtual-machines" title="Como fazer logon em uma máquina virtual executando o Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
 
->[AZURE.NOTE] Se precisar redefinir o nome de usuário ou a senha, ou habilitar o RDP na máquina virtual, use a extensão [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para fazer isso. Para verificar os requisitos ou obter dicas para solução de problemas de logon, consulte [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
+>[AZURE.NOTE] Se precisar redefinir o nome de usuário ou a senha, ou habilitar o RDP na máquina virtual, use a extensão [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para fazer isso. Para verificar os requisitos ou obter dicas para solução de problemas, consulte [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
-1. Se você ainda não fez isso, entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
+1. Se você ainda não tiver feito isso, entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 2. Clique em **Máquinas Virtuais**e, em seguida, selecione a máquina virtual apropriada.
 
@@ -31,4 +31,4 @@ Clique em **Sim** para verificar a identidade da máquina virtual.
 Agora você pode trabalhar remotamente com a máquina virtual.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

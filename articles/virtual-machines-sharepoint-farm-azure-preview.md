@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
-#Farm do SharePoint Server#
+#Farm do SharePoint Server
 
 Com o Farm do SharePoint Server, o Portal de visualização do Microsoft Azure cria um farm pré-configurado do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
@@ -38,7 +38,7 @@ Para os detalhes de configuração de ambos os farms, consulte [Detalhes de conf
 
 Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server, faça o seguinte:
 
-1. No [Portal de visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Farm do SharePoint Server**.
+1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Farm do SharePoint Server**.
 2. No painel **Criar um farm do SharePoint**, digite o nome de um grupo de recursos.
 3. Digite um nome de usuário e uma senha para uma conta de administrador local em cada máquina virtual em seu farm. Escolha um nome e uma senha difícil de adivinhar, grave-a e armazene-a em um local seguro.
 4. Se desejar um farm de alta disponibilidade, clique em **Habilitar alta disponibilidade**.
@@ -87,5 +87,8 @@ O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts 
 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
+[Detalhes da configuração do Farm do SharePoint Server](../virtual-machines-sharepoint-farm-config-azure-preview/)
+
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
-<!--HONumber=42-->
+
+<!--HONumber=47-->

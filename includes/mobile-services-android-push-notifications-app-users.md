@@ -1,12 +1,12 @@
-
+﻿
 Em seguida, você precisa fazer alterações ao se registrar para notificações para assegurar que o usuário está autenticado antes da tentativa de registro.
 
 
-1. No Gerenciador de Pacotes no Eclipse, abra o arquivo ToDoActivity.java e localize o método  `onCreate`. Mova o seguinte código do método  `onCreate` para o início do método  `createTable`.
+1. No Explorador de Projeto no Android Studio, abra o arquivo ToDoActivity.java e localize o método `onCreate`. Mova o seguinte código do método  `onCreate` para o início do método  `createTable`.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-   O método `createTable` é chamado quando o método  `authenticate` conclui. Todo seu método `createTable` deve ser semelhante ao seguinte.
+     O método `createTable` é chamado quando o método `authenticate` conclui. Todo seu método `createTable` deve ser semelhante ao seguinte.
 
         private void createTable() {
         
@@ -26,4 +26,5 @@ Em seguida, você precisa fazer alterações ao se registrar para notificações
             refreshItemsFromTable();
         }	
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

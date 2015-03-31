@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Capturar imagens de máquinas virtuais que executam Windows Server" 
 	description="Saiba como capturar imagem de máquina virtual do Azure que executam Windows Server 2008 R2." 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 Esse artigo mostra como capturar a máquina virtual do Azure executando Windows para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e qualquer disco de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
 
-O Azure trata esse modelo como uma imagem e o armazena em **Minhas Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure][].
+O Azure trata esse modelo como uma imagem e o armazena em **Minhas Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure] [].
 
 ##Antes de começar##
 
@@ -79,14 +79,14 @@ A imagem está pronta para ser usada como modelo para criar novas máquinas virt
 [Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
-[Como fazer logon em uma máquina virtual executando o Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
+[Como fazer logon em uma máquina virtual executando o Windows Server]:http://www.windowsazure.com/manage/windows/how-to-guides/log-on-a-windows-vm/
 [Como usar o Sysprep: Uma introdução]:http://technet.microsoft.com/library/bb457073.aspx
-[Executar o Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
-[Inserir as opções de Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
-[A máquina virtual é parada]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
-[Capturar uma imagem da máquina virtual]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
-[Digitar o nome da imagem]: ./media/virtual-machines-capture-image-windows-server/Capture.png
-[Captura de imagem bem-sucedida]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
-[Usar a imagem capturada]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[Enter Sysprep.exe options]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
+[The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[Capture an image of the virtual machine]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
+[Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
+[Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

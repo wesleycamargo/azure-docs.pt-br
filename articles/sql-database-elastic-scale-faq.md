@@ -1,6 +1,20 @@
-﻿<properties title="Azure SQL Elastic Scale FAQ" pageTitle="Perguntas frequentes sobre a Escala elástica do SQL Azure" description="Perguntas frequentes sobre o dimensionamento elástico do banco de dados SQL do Azure." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh"/>
+﻿<properties 
+	pageTitle="Perguntas frequentes sobre a Escala elástica do SQL Azure" 
+	description="Perguntas frequentes sobre a Escala Elástico do banco de dados SQL do Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="ddove" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ddove@microsoft.com"/>
 
 # Perguntas frequentes sobre a Escala elástica do banco de dados SQL do Azure 
 
@@ -17,7 +31,7 @@ O uso da biblioteca de Escala elástica não acarretará nenhum custo. Custos se
 Não use credenciais na forma de "Usuário ID=username@servername", em vez disso, basta usar "User ID = username".  Além disso, certifique-se de que o logon "username" tem permissões no fragmento.
 
 #### É necessário criar um Gerenciador de mapa de fragmento e preencher os fragmentos sempre que iniciar meus aplicativos?
-Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/pt-br/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/pt-br/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo.  Deve existir apenas uma chamada por domínio de aplicativo.
+Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo.  Deve existir apenas uma chamada por domínio de aplicativo.
 
 #### Tenho dúvidas sobre o uso da escala elástica, como obter respostas para elas? 
 Vá ao [Fórum do banco de dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
@@ -33,4 +47,4 @@ Não. Para operações de **divisão**, o banco de dados de destino deve existir
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
-<!--HONumber=35.2-->
+<!--HONumber=47-->

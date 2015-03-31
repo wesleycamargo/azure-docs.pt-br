@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar notificações por push ao seu aplicativo de Serviços Móveis
@@ -22,24 +22,20 @@
 
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push a um aplicativo Android. Neste tutorial você adiciona notificações por push usando o serviço de Mensagens de Nuvem do Google (GCM) para o projeto de início rápido. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido. 
 
-Este tutorial apresenta e explica estas etapas:
 
-1. [Habilitar o Google Cloud Messaging](#register)
-2. [Configurar o serviço móvel para enviar solicitações por push](#configure)
-5. [Atualizar o servidor para enviar notificações por push](#update-server)
-7. [Adicionar notificações por push ao seu aplicativo](#update-app)
-8. [Habilitar notificações por push para teste local](#local-testing)
-9. [Testar o aplicativo no serviço móvel publicado]
 
 
 Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis] ou a [Introdução aos dados] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013. 
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avaliação Gratuita do Azure</a>. 
+>[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Avaliação gratuita do Azure</a>. 
 
+<!-- -->
 
+>[AZURE.NOTE] Para ver a versão Eclipse deste tutorial, vá para: [Introdução às notificações por push (Eclipse)].
+ 
 ##<a id="register"></a>Habilitar o Google Cloud Messaging
 
-[AZURE.INCLUDE [Habilitar o GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Configurar Serviços Móveis para enviar solicitações por push
@@ -52,7 +48,7 @@ Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes 
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-> [AZURE.IMPORTANT] Quando você define suas credenciais do GCM para notificações por push aprimoradas na guia Enviar por Push no portal, elas são compartilhadas com os Hubs de Notificação para configurar o hub de notificação com seu aplicativo.
+> [AZURE.IMPORTANTE] Quando você define suas credenciais do GCM para notificações por push aprimoradas na guia Enviar por Push no portal, elas são compartilhadas com os Hubs de Notificação para configurar o hub de notificação com seu aplicativo.
 
 
 Seu serviço móvel agora está configurado para trabalhar com o GCM e Hubs de Notificação.
@@ -68,7 +64,7 @@ Seu serviço móvel agora está configurado para trabalhar com o GCM e Hubs de N
 
 ##<a id="update-server"></a>Atualizar o servidor para enviar notificações por push
 
-1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controladores** no projeto de serviço móvel. Abra o TodoItemController.cs. Na parte superior do arquivo, adicione as seguintes instruções `using`:
+1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controladores** no projeto do serviço móvel. Abra o TodoItemController.cs. Na parte superior do arquivo, adicione as seguintes instruções `using`:
 
 
 		using System;
@@ -119,7 +115,7 @@ Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK d
 
 ###Inclua o Google Play Services no projeto
 
-[AZURE.INCLUDE [Adicionar Play Services](../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ###Incluir código
 
@@ -143,7 +139,7 @@ Assegure-se de usar um Dispositivo Virtual Android (AVD) que suporte APIs do Goo
 
 	Destina-se ao AVD para usar APIs do Google. Se você tiver várias versões do SDK do Android instaladas, assegure-se de que o Nível da API corresponda àquele configurado nas propriedades do projeto anteriormente.
 
-###<a id="local-testing"></a> Habilitar notificações por push para testes locais
+###<a id="local-testing"></a> Habilitar notificações por push para teste local
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
@@ -163,16 +159,16 @@ Este tutorial foi concluído com êxito.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-<!---Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Android para usar Serviços Móveis e Hubs de Notificação para enviar notificações por push. Em seguida, considere concluir o tutorial seguinte, [Enviar notificações por push para usuários autenticados], que permite mostrar como usar marcas para enviar notificações por push de um Serviço Móvel para um único usuário autenticado.
+<!---Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Android para usar Serviços Móveis e Hubs de Notificação para enviar notificações por push. Em seguida, considere concluir o próximo tutorial, [Enviar notificações por push para usuários autenticados], que permite mostrar como usar marcas para enviar notificações por push de um Serviço Móvel para um único usuário autenticado.
 
 
 + [Enviar notificações por push para usuários autenticados]
 	<br/>Saiba como usar marcas para enviar notificações por push de um Serviço Móvel para apenas um usuário autenticado.
 
-+ [Enviar notificações de difusão a assinantes]
++ [Enviar notificações de transmissão para assinantes]
 	<br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 
-+ [Enviar notificações baseadas em modelo para assinantes]
++ [Enviar notificações baseadas em modelo aos assinantes]
 	<br/>Saiba usar modelos para enviar notificações por push de um Serviço Móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
 -->
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
@@ -235,27 +231,28 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
 <!-- URLs. -->
-[Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refinar consultas com paginação]: /pt-br/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript e HTML]: /pt-br/develop/mobile/tutorials/get-started-with-data-js
-[Versão de back-end do JavaScript]: /pt-br/develop/mobile/tutorials/get-started-with-data-android
+[Introdução às notificações por push (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push-EC
+[Validar e modificar dados com scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refinar consultas com paginação]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-android-get-started
+[Introdução aos dados]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[Introdução à autenticação]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Versão de back-end do JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial de .NET de Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[Como usar a biblioteca de cliente Android para os Serviços Móveis]: /pt-br/documentation/articles/mobile-services-android-how-to-use-client-library
+[Como usar a biblioteca de cliente Android para os Serviços Móveis]: /documentation/articles/mobile-services-android-how-to-use-client-library
 
-[Enviar notificações por push para usuários autenticados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[Enviar notificações por push para usuários autenticados]: /documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
 
-[O que são Hubs de Notificação?]: /pt-br/documentation/articles/notification-hubs-overview/
-[Enviar notificações de difusão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[O que são Hubs de Notificação?]: /documentation/articles/notification-hubs-overview/
+[Enviar notificações de transmissão para assinantes]: /documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Enviar notificações baseadas em modelo aos assinantes]: /documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

@@ -22,7 +22,7 @@
 
 # Aplicativo Web Django Hello World (mac-linux)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/pt-br/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
 Este tutorial descreve como hospedar um site baseado em Django no Windows 
 Azure usando uma máquina virtual Linux. Este tutorial pressupõe que você não tem experiência anterior com o Azure. Depois de concluir este guia, você terá um aplicativo baseado no Django em funcionamento na nuvem.
@@ -43,20 +43,20 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 ## Crie e configure uma máquina virtual do Azure para hospedar o Django
 
-1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição do *Ubuntu Server 14.04 LTS*.
+1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição do*Ubuntu Server 14.04 LTS*.
 
-  **Observação:** você precisa criar *only* a máquina virtual. Pare na seção intitulada *How to log on to the virtual machine after you create it*.
+  **Observação:** você precisa criar a máquina virtual*only* .  Pare na seção intitulada*How to log on to the virtual machine after you create it*.
 
 1. Instrua o Azure para direcionar o tráfego da porta **80** da web para a porta **80** na máquina virtual:
-	* Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia *ENDPOINTS*.
-	* Clique no botão *ADD* na parte inferior da tela.
+	* Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia*ENDPOINTS*.
+	* Clique no botão*ADD* na parte inferior da tela.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Abra a *PUBLIC PORT 80* e a *PRIVATE PORT 80* do protocolo *TCP*.
+	* Abra a *TCP* do protocolo *PUBLIC PORT 80* como *PRIVATE PORT 80*.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>Configurando o ambiente de desenvolvimento
 
-**Observação:** se precisar instalar o Python ou se quiser usar as Bibliotecas do Cliente, consulte o [Guia de Instalação do Python](../python-how-to-install/).
+**Observe:** se você precisar instalar o Python ou quiser usar as bibliotecas de cliente, consulte o [Guia de instalação do Python](../python-how-to-install/).
 
 A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o Apache ou o django instalados.  Siga estas etapas para conectar a sua MV e instalar o Apache e o django.
 
@@ -107,7 +107,7 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 ## Configurando o Apache
 
-1.  Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e lembre-se de substituir *yourVmUrl* pela URL atual da máquina que você está usando (por exemplo, *pyubuntu.cloudapp.net*).
+1.  Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e lembre-se de substituir *yourVmUrl* pela URL atual da máquina que você está usando *pyubuntu.cloudapp.net*).
 
 		<VirtualHost *:80>
 		ServerName yourVmUrl
@@ -133,6 +133,6 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
 
-[portal-vm]: /pt-br/manage/linux/tutorials/virtual-machine-from-gallery/
+[portal da mv]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -27,12 +27,12 @@ Para facilitar a recuperação em caso de um problema de disponibilidade, você 
 + **Fazer backup dos dados no Banco de Dados SQL do serviço móvel do Azure**
 	<br/>Os dados do aplicativo de seu serviço móvel são armazenados em um Banco de Dados SQL do Azure. Recomendamos fazer o backup conforme indicado em [Diretrizes para a continuidade dos negócios para o Banco de Dados SQL].
 + **Fazer backup de seus scripts do serviço móvel**
-	<br/>É recomendável armazenar seus scripts do serviço móvel em um sistema de controle de código-fonte, como o [Team Foundation Service] ou [GitHub] e não depender somente das cópias no próprio serviço móvel. Você pode baixar os scripts por meio do portal do Azure usando o [recurso de controle de código-fonte]dos Serviços Móveis ou [usando a ferramenta de linha de comando do Azure]. Preste atenção aos recursos rotulados como "visualização" no portal, pois a recuperação desses scripts não é garantida, e você pode precisar recuperá-los de seu próprio controle do código-fonte original.
+	<br/>É recomendável armazenar armazene seus scripts do serviço móvel em um sistema de controle de código-fonte, como o [Team Foundation Service] ou o [GitHub] e não depender somente das cópias no próprio serviço móvel. Você pode baixar os scripts por meio do portal do Azure usando o [recurso de controle de código-fonte]dos Serviços Móveis ou [usando a ferramenta de linha de comando do Azure]. Preste atenção aos recursos rotulados como "visualização" no portal, pois a recuperação desses scripts não é garantida, e você pode precisar recuperá-los de seu próprio controle do código-fonte original.
 + **Reservar um serviço móvel secundário**
 	<br/>No caso se um problema de disponibilidade com o serviço móvel, você poderá precisar reimplantá-lo em uma região alternativa do Azure. Para garantir que a capacidade esteja disponível (por exemplo, em raras circunstâncias, como a perda de toda a região), é recomendável criar um serviço móvel secundário em sua região alternativa e definir seu modo igual como maior do que o modo do serviço primário. (Se o serviço primário estiver em modo de compartilhamento, você poderá tornar o serviço secundário compartilhado ou reservado. Mas se o primário for reservado, o secundário também deverá ser reservado.)
 
 
-<h2><a name="watch"></a>Observar os sinais de um problema</h2>
+<h2><a name="watch"></a>Procurar por sinais de um problema</h2>
 
 Estas circunstâncias indicam um problema que pode exigir uma operação de recuperação:
 
@@ -90,10 +90,10 @@ Agora você deve estar em um estado onde o serviço móvel foi recuperado para u
 [Diretrizes para a continuidade dos negócios com o Banco de Dados SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[recurso de controle de código-fonte]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[usando a ferramenta de linha de comando do Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[recurso de controle de código-fonte]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[usando a ferramenta de linha de comando do Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Portal do Azure]: http://manage.windowsazure.com/
-[Painel de Serviços do Azure]: http://azure.microsoft.com/support/service-dashboard/
-[Automatizar os serviços móveis com ferramentas de linha de comando]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[Painel de Serviços do Azure]: http://www.windowsazure.com/support/service-dashboard/
+[Automatizar os serviços móveis com ferramentas de linha de comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

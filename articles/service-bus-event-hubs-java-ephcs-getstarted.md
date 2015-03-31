@@ -1,14 +1,30 @@
-<properties pageTitle="Introdução aos Hubs de eventos" metaKeywords="barramento de serviço do Azure, hub de eventos, introdução a hubs de eventos" description="Siga este tutorial para começar a usar os Hubs de evento do Azure enviando eventos com Java e recebendo em C# usando o EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Introdução aos Hubs de Evento" 
+	description="Siga este tutorial para começar a usar os Hubs de evento do Azure enviando eventos com Java e recebendo em C# usando o EventProcessorHost" 
+	services="service-bus" 
+	documentationCenter="" 
+	authors="fsautomata" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="csharp" 
+	ms.devlang="csharp" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# <a name="getting-started"> </a>Introdução aos Hubs de Eventos
+# Introdução aos Hubs de Evento
 
-[WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Eventos, você pode transformar e armazenar os dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
+## Introdução
 
-Para mais informações, consulte [Visão geral de Hubs de Eventos].
+Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
+
+Para obter mais informações, consulte [Visão Geral de Hubs de Evento].
 
 Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando um aplicativo de console em Java, e recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
 
@@ -18,17 +34,17 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio Express 2013 para Windows
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
-## Criar um hub de eventos
+## Criar um Hub de Evento
 
 1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
 
-2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Eventos** e, em seguida, **Criação Rápida**.
+2. Clique em **Serviços de aplicativo**, em seguida, **Barramento de serviço**, em seguida, **Hub de eventos**e, em seguida, **Criação rápida**.
 
    	![][1]
 
-3. Digite um nome para seu Hub de Eventos, selecione a região desejada e clique em **Criar novo Hub de Eventos**.
+3. Digite um nome para o Hub de Evento, selecione a região desejada e clique em **Criar um novo Hub de Evento**.
 
    	![][2]
 
@@ -36,11 +52,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][3]
 
-5. Clique na guia **Hubs de Eventos** na parte superior da página e depois clique no Hub de Eventos recém-criado.
+5. Clique na guia **Hubs de Evento** parte superior da página e clique no Hub de Evento que acabou de criar.
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com direitos de *Manage, Send, Listen*, adicione outra regra chamada **ReceiveRule** com direitos de *Listen* e clique em **Salvar**.
+6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com *Send* direitos, adicione outra regra chamada **ReceiveRule** com *Manage, Send, Listen* direitos e clique **Salvar**.
 
    	![][5]
 
@@ -48,16 +64,16 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][6b]
 
-8. Clique na guia **Painel** na parte superior da página e clique em **Informações de Conexão**. Anote as duas cadeias de conexão.
+8. Clique na guia **Painel** parte superior da página e clique em **Informações de Conexão**. Anote as duas cadeias de conexão.
 
    	![][6]
 
-Seu Hub de Eventos agora está criado e você tem as cadeias de conexão necessárias para enviar e receber eventos.
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Executar os aplicativos
 
@@ -87,4 +103,6 @@ Agora você está pronto para executar os aplicativos.
 <!-- Links -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Eventos]: http://msdn.microsoft.com/pt-br/library/azure/dn836025.aspx
+[Visão Geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+
+<!--HONumber=47-->

@@ -18,7 +18,7 @@
 
 # Teste de carga no Azure
 
-O serviço de teste de carga baseado em nuvem pode testar a carga de seus aplicativos web. Use o Visual Studio para criar um teste de carga para determinar a capacidade e o desempenho de seu aplicativo web. Não há necessidade de usar suas próprias VMs do Azure. Em vez disso, você pode deixar que o [serviço de teste de carga baseado em nuvem](http://tfs.visualstudio.com/pt-br/learn/load-testing) as crie para você.
+O serviço de teste de carga baseado em nuvem pode testar a carga de seus aplicativos web. Use o Visual Studio para criar um teste de carga para determinar a capacidade e o desempenho de seu aplicativo web. Não há necessidade de usar suas próprias VMs do Azure. Em vez disso, você pode deixar que o [serviço de teste de carga baseado em nuvem](http://tfs.visualstudio.com/learn/load-testing) as crie para você.
 
 <!--links-->
 
@@ -29,8 +29,6 @@ O serviço de teste de carga baseado em nuvem pode testar a carga de seus aplica
 <!--images-->
 
 
- 
 
-<!--HONumber=35.2-->
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

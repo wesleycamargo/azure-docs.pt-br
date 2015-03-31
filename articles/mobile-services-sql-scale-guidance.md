@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -34,7 +34,7 @@ Este tópico apresenta e explica as seguintes seções básicas:
 Se você suspeitar de que seu serviço móvel está com problemas de carga, o primeiro lugar a verificar é a guia **Painel** de seu serviço no [Portal de Gerenciamento do Azure][]. Algumas das coisas a verificar são se:
 
 - As medidas de uso, incluindo **Chamadas de API** e **Dispositivos Ativos**, não estão acima da cota
-- O status do **Monitoramento de ponto de extremidade** indica que o serviço está apto (somente disponível se o serviço estiver usando a camada padrão e se o Monitoramento de ponto de extremidade estiver habilitado) 
+- **O status do Monitoramento de ponto de extremidade** indica que o serviço está apto (somente disponível se o serviço estiver usando a camada padrão e se o Monitoramento de ponto de extremidade estiver habilitado) 
 
 Se alguma das opções acima não for verdadeira, considere ajustar suas configurações de escala na guia *Scale*. Se isso não resolver seu problema, é possível continuar e investigar se o Banco de Dados SQL do Azure pode ser a fonte do problema. As próximas seções abrangem abordagens diferentes para diagnosticar o que está dando errado.
 
@@ -73,9 +73,9 @@ Quando estiver familiarizado com as diferentes camadas do banco de dados, podemo
 4. Selecione o nome **Banco de Dados SQL** na seção **Configurações do Banco de Dados**. Com isso, você navegará até a guia Banco de Dados SQL do Azure no portal.
 5. Navegue até a guia **Monitorar**
 6. Certifique-se de que as métricas relevantes são exibidas usando o botão **Adicionar Métricas**. Inclua o seguinte
-    - *Porcentagem de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
-    - *Porcentagem de Leituras de Dados Físicos* (disponível apenas nas camadas Basic/Standard/Premium) 
-    - *Porcentagem de Gravações de Log* (disponível apenas nas camadas Basic/Standard/Premium)
+    - *Percentual de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
+    - *Percentual de Leituras de Dados Físicos* (disponível apenas nas camadas Basic/Standard/Premium) 
+    - *Percentual de Gravação de Log* (disponível apenas nas camadas Basic/Standard/Premium)
     - *Armazenamento* 
 7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas. 
 
@@ -105,7 +105,7 @@ Muitas vezes, é interessante configurar alertas para as principais métricas do
 3. Selecione a métrica para a qual você deseja definir um alerta e selecione **Adicionar regra**
     ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
 4. Forneça um nome e descrição para o alerta
-    ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+    ![Azure Management Portal - SQL Alert Name and Descrição][PortalSqlAddAlert2]
 5. Especifique o valor a ser usado como o limite do alerta. Considere usar **80%** para permitir algum tempo de reação. Certifique-se também especificar um endereço de email que você monitore ativamente. 
     ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
@@ -160,7 +160,7 @@ Também é possível remover índices dessa exibição.
 
 #### Back-end do .NET
 
-Para definir um índice no Entity Framework, use o atributo [Index] nos campos que deseja indexar. Por exemplo:
+Para definir um índice no Entity Framework, use o atributo `[Index]` nos campos que deseja indexar. Por exemplo:
 
     public class TodoItem : EntityData
     {
@@ -178,7 +178,7 @@ Para obter mais informações sobre os índices, consulte [Anotações de índic
 Aqui estão alguns problemas que você deve tomar conhecimento ao escolher os tipos de dados para seus objetos, os quais, por sua vez, convertem-se ao esquema de seu banco de dados SQL. Ajustar o esquema pode, frequentemente, trazer melhorias significativas de desempenho, já que a SQL possui maneiras otimizadas e personalizadas de manipular a indexação e o armazenamento para diferentes tipos de dados:
 
 - **Use a coluna ID fornecida**. Todas as tabelas de serviço móvel vêm com uma coluna de ID padrão configurada como a chave primária e tem seu índice configurado nela. Não há necessidade de criar uma coluna de ID adicional.
-- **Use os tipos de dados corretos no seu modelo.** Se você souber que determinadas propriedades de seu modelo será um numérico ou booleano, certifique-se de defini-lo dessa maneira em seu modelo em vez de como uma cadeia de caracteres. No back-end JavaScript, usar literais como `true` em vez de "true" e 5 em vez de "5". No back-end .NET, use os tipos `int` e `bool` quando você declarar as propriedades do modelo. Isso permite que o SQL crie o esquema correto para esses tipos, oque torna as consultas mais eficientes.
+- **Use os tipos de dados corretos no seu modelo.** Se você souber que determinadas propriedades de seu modelo será um numérico ou booleano, certifique-se de defini-lo dessa maneira em seu modelo em vez de como uma cadeia de caracteres. No back-end JavaScript, usar literais como `true` em vez de `"true"` e `5` em vez de `"5"`. No back-end .NET, use os tipos `int` e `bool` quando você declarar as propriedades do modelo. Isso permite que o SQL crie o esquema correto para esses tipos, oque torna as consultas mais eficientes.
 
 <a name="Query"></a>
 ## Design de consulta
@@ -219,13 +219,13 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
 #### Obter informações de conexão SQL 
 1. Inicie o [Portal de Gerenciamento do Azure][].
 2. Na guia Serviços Móveis, selecione o serviço com o qual deseja trabalhar.
-3. Selecione a guia **Configurar**.
+3. Selecione a guia ****Configurar**.
 4. Selecione o nome **Banco de Dados SQL** na seção **Configurações do Banco de Dados**. Com isso, você navegará até a guia Banco de Dados SQL do Azure no portal.
-5. Selecione **Configurar as regras de firewall do Microsoft Azure para esse endereço IP**.
+5. Selecione **Configurar as regras de firewall do Azure para esse endereço IP**.
 6. Anote o endereço do servidor na seção **Conectar ao seu banco de dados**, por exemplo: *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
-1. Navegue até [Edições do SQL Server - Express](http://www.microsoft.com/pt-br/server-cloud/products/sql-server-editions/sql-server-express.aspx)
+1. Navegue até [Edições do SQL Server - Express](http://www.microsoft.com/server-cloud/products/sql-server-editions/sql-server-express.aspx)
 2. Localize a seção **SQL Server Management Studio** e selecione o botão **Baixar**, logo abaixo.
 3. Conclua as etapas de configuração até que possa executar com êxito o aplicativo:
 
@@ -242,7 +242,7 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
 1. Na guia do Banco de Dados SQL do Azure de seu banco de dados, selecione o botão **Gerenciar** 
 2. Configure a conexão com os seguintes valores
     - Servidor: *should be pre-set to the right value*
-    - Banco de dados: *leave blank*
+    - Banco de dados :*leave blank*
     - Nome de usuário: *login you picked when creating server*
     - Senha: *password you picked when creating server*
 3. Agora você deve estar conectado.
@@ -250,9 +250,9 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
 
 <a name="AdvancedDiagnosing" />
-### Advanced Diagnostics
+### Diagnósticos avançados
 
-Várias tarefas de diagnóstico podem ser facilmente concluídas da maneira correta no **Portal de Gerenciamento do Azure**; no entanto, algumas tarefas avançadas de diagnóstico somente são possíveis no **SQL Server Management Studio** ou no **Portal de Gerenciamento do Banco de Dados SQL**.  Aproveitaremos as exibições de gerenciamento dinâmico, um conjunto de exibições preenchidas automaticamente com informações de diagnóstico sobre seu banco de dados. Esta seção fornece um conjunto de consultas que pode ser executado nessas exibições para examinar diversas métricas. Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico][].
+Várias tarefas de diagnóstico podem ser facilmente concluídas da maneira correta no **Portal de Gerenciamento do Azure**; no entanto, algumas tarefas avançadas de diagnóstico somente são possíveis no **SQL Server Management Studio** ou no **Portal de Gerenciamento do Banco de Dados SQL**.  Aproveitaremos as exibições de gerenciamento dinâmico, um conjunto de exibições preenchidas automaticamente com informações de diagnóstico sobre seu banco de dados. Esta seção fornece um conjunto de consultas que pode ser executado nessas exibições para examinar diversas métricas. Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][].
 
 Após concluir as etapas na seção anterior para se conectar ao banco de dados no SQL Server Management Studio, selecione seu banco de dados no **Gerenciador de Objetos**. Expandir **Exibições** e **Exibições do Sistema** mostrará uma lista de exibições de gerenciamento. Para executar as consultas abaixo, selecione **Nova Consulta** enquanto estiver com seu banco de dados selecionado no **Gerenciador de Objetos**; então, cole a consulta e selecione **Executar**.
 
@@ -268,9 +268,9 @@ Para executar qualquer uma das consultas abaixo, cole-as na janela e selecione *
 
 #### Métricas avançadas
 
-O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
+O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
 
-    SELECIONE TOP 10 * 
+    SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
@@ -304,7 +304,7 @@ Uma tabela ou exibição pode conter os seguintes tipos de índices:
 Para fornecer uma analogia ao mundo real: considere um livro ou uma técnica manual. O conteúdo de cada página é um registro, o número da página é o índice clusterizado e o índice de tópicos na parte final do livro é um índice não clusterizado. Cada entrada no índice de tópicos aponta para o índice clusterizado, o número da página.
 
 > [AZURE.NOTE] 
-> Por padrão, o back-end do JavaScript dos Serviços Móveis do Azure configura **\_createdAt** como o índice clusterizado. Se você remover essa coluna ou se desejar um índice clusterizado diferente, procure seguir as [orientações de design de índice clusterizado](#ClusteredIndexes) abaixo. No back-end .NET, a classe `EntityData` define `CreatedAt` como um índice clusterizado usando a anotação `[Index(IsClustered = true)]`.
+> Por padrão, o back-end do JavaScript dos Serviços Móveis do Azure configura **\_createdAt** como o índice clusterizado. Se você remover essa coluna ou se desejar um índice clusterizado diferente, procure seguir as [orientações de design de índice clusterizado](#ClusteredIndexes) abaixo. No back-end do .NET, a classe `EntityData` define `CreatedAt` como um índice clusterizado usando a anotação `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Orientações de design de índices clusterizados
@@ -400,7 +400,7 @@ O exemplo a seguir retorna informações sobre as cinco principais consultas cla
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico (a página pode estar em inglês)][]. Além de executar a consulta, o **Portal de Gerenciamento do Banco de Dados SQL** fornece um bom atalho para ver esses dados, ao selecionar **Resumo** para seu banco de dados e, em seguida, **Desempenho da Consulta**:
+Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][]. Além de executar a consulta, o **Portal de Gerenciamento do Banco de Dados SQL** fornece um bom atalho para ver esses dados, ao selecionar **Resumo** para seu banco de dados e, em seguida, **Desempenho da Consulta**:
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 
@@ -482,4 +482,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 <!-- BLOG LINKS -->
 [Quanto essa chave custa?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

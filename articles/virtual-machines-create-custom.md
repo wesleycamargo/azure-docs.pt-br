@@ -31,4 +31,4 @@ Uma máquina virtual *custom* é simplesmente uma máquina virtual que você cri
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

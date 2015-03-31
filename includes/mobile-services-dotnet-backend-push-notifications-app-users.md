@@ -27,55 +27,55 @@
 	    {
 	        public Task Register(ApiServices services, HttpRequestContext context,
             NotificationRegistration registration)
-        {
-            try
-            {
-                // Perform a check here for user ID tags, which are not allowed.
-                if(!ValidateTags(registration))
-                {
-                    throw new InvalidOperationException(
-                        "You cannot supply a tag that is a user ID.");                    
-                }
-
-                // Get the logged-in user.
-                var currentUser = context.Principal as ServiceUser;
-
-                // Add a new tag that is the user ID.
-                registration.Tags.Add(currentUser.Id);
-
-                services.Log.Info("Registered tag for userId: " + currentUser.Id);
-            }
-            catch(Exception ex)
-            {
-                services.Log.Error(ex.ToString());
-            }
-                return Task.FromResult(true);
-        }
-
-        private bool ValidateTags(NotificationRegistration registration)
-        {
-            // Create a regex to search for disallowed tags.
-            System.Text.RegularExpressions.Regex searchTerm =
-            new System.Text.RegularExpressions.Regex(@"facebook:|google:|twitter:|microsoftaccount:",
-                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-
-            foreach (string tag in registration.Tags)
-            {
-                if (searchTerm.IsMatch(tag))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+	        {
+	            try
+	            {
+	                // Perform a check here for user ID tags, which are not allowed.
+	                if(!ValidateTags(registration))
+	                {
+	                    throw new InvalidOperationException(
+	                        "You cannot supply a tag that is a user ID.");                    
+	                }
 	
-        public Task Unregister(ApiServices services, HttpRequestContext context, 
-            string deviceId)
-        {
-            // This is where you can hook into registration deletion.
-            return Task.FromResult(true);
-        }
-    }
+	                // Get the logged-in user.
+	                var currentUser = context.Principal as ServiceUser;
+	
+	                // Add a new tag that is the user ID.
+	                registration.Tags.Add(currentUser.Id);
+	
+	                services.Log.Info("Registered tag for userId: " + currentUser.Id);
+	            }
+	            catch(Exception ex)
+	            {
+	                services.Log.Error(ex.ToString());
+	            }
+	                return Task.FromResult(true);
+	        }
+	
+	        private bool ValidateTags(NotificationRegistration registration)
+	        {
+	            // Create a regex to search for disallowed tags.
+	            System.Text.RegularExpressions.Regex searchTerm =
+	            new System.Text.RegularExpressions.Regex(@"facebook:|google:|twitter:|microsoftaccount:",
+	                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+	
+	            foreach (string tag in registration.Tags)
+	            {
+	                if (searchTerm.IsMatch(tag))
+	                {
+	                    return false;
+	                }
+	            }
+	            return true;
+	        }
+		
+	        public Task Unregister(ApiServices services, HttpRequestContext context, 
+	            string deviceId)
+	        {
+	            // This is where you can hook into registration deletion.
+	            return Task.FromResult(true);
+	        }
+	    }
 
 	O método **Register** é chamado durante o registro. Isso permite que você adicione uma marca ao registro que seja o ID do usuário conectado. As marcas fornecidas são validadas para impedir que um usuário se registre para outra ID de usuário. Quando uma notificação é enviada para esse usuário, ela é recebida por este e qualquer outro dispositivo registrado pelo usuário. 
 
@@ -90,4 +90,5 @@
 7. Publicar novamente o projeto do serviço móvel.
 
 Agora, o serviço usa a marca de ID do usuário para enviar notificações por push (com o texto do item inserido) para todos os registros criados pelo usuário conectado.
- <!--HONumber=42-->
+ 
+<!--HONumber=47-->
