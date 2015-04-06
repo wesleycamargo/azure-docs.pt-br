@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como monitorar um banco de dados SQL - gerenciamento de serviços do Azure" 
 	description="Saiba como monitorar um banco de dados SQL usando o portal de gerenciamento do Azure." 
 	services="sql-database" 
@@ -26,6 +26,6 @@ As ferramentas e as técnicas de monitoramento que você pode estar acostumado a
 
 Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][].
 
-[Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+[Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
 
 <!--HONumber=47-->
