@@ -20,7 +20,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Como usar o CoreOS no Azure
 
-Este tópico descreve o [CoreOS] e mostra como criar um cluster de três máquinas virtuais CoreOS no Azure rapidamente. Ele usa os elementos mais básicos das implantações do CoreOS e os exemplos do [CoreOS com Azure], o [Tutorial de Tim Park sobre o CoreOS] e o [Tutorial de Patrick Chanezon sobre o CoreOS] a fim de demonstrar os requisitos mínimos para compreender a estrutura básica de uma implantação CoreOS e obter um cluster de três máquinas virtuais que executam sem problemas. 
+Este tópico descreve o [CoreOS] e mostra como criar um cluster de três máquinas virtuais CoreOS no Azure rapidamente. Ele usa os elementos mais básicos das implantações do CoreOS e os exemplos do [CoreOS com Azure] o [Tutorial de Tim Park sobre o CoreOS] e o [Tutorial de Patrick Chanezon sobre o CoreOS] a fim de demonstrar os requisitos mínimos para compreender a estrutura básica de uma implantação CoreOS e obter um cluster de três máquinas virtuais que executam sem problemas. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 Este tópico contém estas seções:
@@ -52,7 +52,7 @@ No momento, o CoreOS parte do pressuposto de que todos que podem executar SSH no
 
 ## <a id='usingcoreos'>Como usar o CoreOS no Azure</a>
 
-Esta seção descreve como criar um serviço de nuvem do Azure com três máquinas virtuais CoreOS por meio da [Interface de plataforma cruzada do Azure (xplat-cli)]. Estas são as etapas básicas
+Esta seção descreve como criar um serviço de nuvem do Azure com três máquinas virtuais CoreOS por meio da [interface de linha de comando de plataforma cruzada (xplat-cli)]. Estas são as etapas básicas
 
 1. Criar certificados SSH e chaves para garantir a segurança da comunicação com a máquina virtual CoreOS
 2. Obter a ID etcd do cluster para intercomunicação
@@ -110,7 +110,7 @@ coreos:
 ### Usar a xplat-cli para criar uma nova máquina virtual CoreOS
 <!--Cada tópico deve ter as seguintes etapas e links para o próximo conjunto lógico de conteúdo para manter o cliente envolvido-->
 
-1. Instale a [Interface de plataforma cruzada do Azure (xplat-cli)] se ela ainda não estiver instalada. Em seguida, faça logon usando uma ID profissional ou escolar ou baixe um arquivo .publishsettings e importe-o em sua conta.
+1. Instale a [interface de linha de comando de plataforma cruzada (xplat-cli)] se ela ainda não estiver instalada. Em seguida, faça logon usando uma ID profissional ou escolar ou baixe um arquivo .publishsettings e importe-o em sua conta.
 2. Localize sua imagem CoreOS. Para localizar as imagens disponíveis a qualquer momento, digite `azure vm image list | grep CoreOS` e você deverá ver uma lista de resultados semelhante a:
 
 	data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0              Public    Linux
@@ -206,7 +206,7 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Deste ponto, voc
 
 
 <!--Link references-->
-[Interface de plataforma cruzada do Azure (xplat-cli)]: ../xplat-cli/
+[interface de linha de comando de plataforma cruzada (xplat-cli)]: ../xplat-cli/
 
 [CoreOS]: https://coreos.com/
 [Visão geral do CoreOS]: https://coreos.com/using-coreos/

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de notificação do Azure" 
 	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
 	services="notification-hubs" 
@@ -233,7 +233,7 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
 
 	Você receberá uma notificação do sistema em todos os dispositivos registrados. Clicar ou tocar no banner de notificação do sistema carrega o aplicativo.
 
-Você pode encontrar todas as cargas com suporte nos tópicos do [catálogo de notificações do sistema][, no catálogo de blocos] e na [visão geral da notificação] no MSDN.
+Você pode encontrar todas as cargas com suporte nos tópicos do [catálogo de notificações do sistema], no [catálogo de blocos] e na [visão geral da notificação] no MSDN.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -286,10 +286,10 @@ Neste exemplo simples você envia notificações de difusão para todos os seus 
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
+[Usar Hubs de Notificação para enviar notícias mais recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
 
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[visão geral da notificação]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 <!--HONumber=45--> 

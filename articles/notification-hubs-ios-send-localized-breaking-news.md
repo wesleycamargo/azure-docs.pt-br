@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tutorial de últimas notícias localizadas de Hubs de Notificação para iOS" 
 	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias (iOS)." 
 	services="notification-hubs" 
@@ -22,7 +22,7 @@
 </div>
 
 
-Este tópico mostra como usar o recurso **template** dos Hubs de Notificação do Azure para transmitir notificações de últimas notícias que foram localizadas por idioma e dispositivo. Neste tutorial você começa com o aplicativo da Windows Store criado em [Usar Hubs de Notificação para enviar últimas notícias]. Ao concluir, você poderá se registrar em categorias de seu interesse, especificar um idioma no qual deseja receber as notificações e receber notificações por push para as categorias selecionadas nesse idioma.
+Este tópico mostra como usar o recurso **template** dos Hubs de Notificação do Azure para transmitir notificações de últimas notícias que foram localizadas por idioma e dispositivo. Neste tutorial você começa com o aplicativo da Windows Store criado em [Usar Hubs de Notificação para envio de últimas notícias]. Ao concluir, você poderá se registrar em categorias de seu interesse, especificar um idioma no qual deseja receber as notificações e receber notificações por push para as categorias selecionadas nesse idioma.
 
 Este tutorial explicará estas etapas básicas a serem seguidas para habilitar este cenário:
 
@@ -219,7 +219,7 @@ Uma referência à linguagem de expressão do modelo por ser encontrada em [Inst
 
 <!-- URLs. -->
 [Como: Hubs de notificação de Barramento de Serviço (aplicativos iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-ios
+[Usar Hubs de Notificação para envio de últimas notícias]: /pt-br/manage/services/notification-hubs/breaking-news-ios
 [Serviço Móvel]: /pt-br/develop/mobile/tutorials/get-started
 [Notificar usuários com Hubs de Notificação: ASP.NET]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
 [Notificar usuários com Hubs de Notificação: Serviços Móveis]: /pt-br/manage/services/notification-hubs/notify-users

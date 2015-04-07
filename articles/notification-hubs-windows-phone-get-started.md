@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de notificação do Azure" 
 	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
 	services="notification-hubs" 
@@ -68,7 +68,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 Agora, você tem as cadeias de conexão necessárias para registrar seu aplicativo do Windows Phone 8 e enviar notificações.
 
-> [AZURE.NOTE] Este tutorial usa MPNS no modo não autenticado. O modo não autenticado MPNS é fornecido com restrições nas notificações que você pode enviar para cada canal. Os Hubs de Notificação oferecem suporte ao [Modo autenticado MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105) (a página pode estar em inglês). <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE] Este tutorial usa MPNS no modo não autenticado. O modo não autenticado MPNS é fornecido com restrições nas notificações que você pode enviar para cada canal. Os Hubs de Notificação oferecem suporte ao [Modo autenticado MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105)) (a página pode estar em inglês). <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##<a name="connecting-app"></a>Conexão do seu aplicativo ao Hub de notificação
 
@@ -215,10 +215,10 @@ Neste exemplo simples você difunde notificações para todos os seus dispositiv
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
-[Instruções sobre Hubs de notificação do Windows Phone 8]: tbd!!!
+[Notification Hubs How-To for Windows Phone 8]: tbd!!!
 [Modo autenticado MPNS]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usar hubs de notificação para enviar notificações por push aos usuários]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
+[Usar Hubs de Notificação para enviar notícias mais recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catálogo de blocos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 

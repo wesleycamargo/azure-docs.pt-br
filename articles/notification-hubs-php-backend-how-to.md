@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar Hubs de Notificação com PHP" 
 	description="Aprenda a usar Hubs de notificação do Azure de um back-end do PHP." 
 	services="notification-hubs" 
@@ -31,7 +31,7 @@ Neste tópico, mostramos como:
 ## Interface do cliente
 A interface principal do cliente pode oferecer os mesmos métodos disponíveis no [SDK dos Hubs de Notificação do .NET](http://msdn.microsoft.com/library/jj933431.aspx); isso permite que você converta diretamente todos os tutoriais e exemplos disponíveis atualmente neste site, bem como aqueles enviados pela comunidade na Internet.
 
-Você pode encontrar todos os códigos disponíveis na [amostra de wrapper de REST PHP].
+Você pode encontrar todos os códigos disponíveis na [amostra do wrapper de REST PHP].
 
 Por exemplo, para criar um cliente:
 
@@ -44,7 +44,7 @@ Para enviar uma notificação nativa do iOS:
 
 ## Implementação
 Se você ainda não fez, siga nosso [Tutorial de introdução] direto para a última seção onde você precisa implementar o back-end.
-Além disso, se você quiser, pode usar o código da [amostra de wrapper REST PHP] e ir diretamente para [Concluir o tutorial](#complete-tutorial) .
+Além disso, se você quiser, pode usar o código da [amostra do wrapper de REST PHP] e ir diretamente para [Concluir o tutorial](#complete-tutorial) .
 
 Todos os detalhes para implementar um wrapper completo do REST podem ser encontrados em [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Nesta seção, descreveremos a implementação do PHP das principais etapas necessárias para acessar os pontos de extremidade de REST dos Hubs de Notificação:
 
@@ -256,7 +256,7 @@ Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de
 * Saber como enviar notificações por push a usuários individuais no[tutorial Notificar usuários]
 
 
-[Amostra de wrapper do PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Tutorial de introdução]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
+[amostra do wrapper de REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[Tutorial de introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
 <!--HONumber=45--> 

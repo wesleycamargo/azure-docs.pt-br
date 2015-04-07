@@ -1,4 +1,11 @@
-﻿<properties pageTitle="Introdução aos Hubs de notificação do Azure" description="Saiba como usar os Hubs de notificação do Azure para notificações por push." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introdução aos Hubs de notificação do Azure" 
+	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
+	services="notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -89,7 +96,7 @@ Seu hub de notificação agora está configurado para funcionar com o GCM e voc�
 
 1. Baixe os Hubs de Notificação do SDK do Android <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aqui</a>. Extraia o arquivo .zip e copie o arquivo notificationhubs\notification-hubs-0.1.jar no diretório \libs do seu projeto no Gerenciador de Pacotes.
 
-2. Baixe e descompacte o [SDK dos Serviços Móveis do Android], abra a pasta **notifications** copie o arquivo **notifications-1.0.1.jar** na pasta *libs* do seu projeto do Eclipse e atualize a pasta *libs*.
+2. Baixe e descompacte o [SDK de Serviços Móveis do Android], abra a pasta **notifications** copie o arquivo **notifications-1.0.1.jar** na pasta *libs* do seu projeto do Eclipse e atualize a pasta *libs*.
 
     > [AZURE.NOTE] Os números no fim do nome do arquivo podem ser alterados em versões subsequentes do SDK.
 
@@ -324,7 +331,7 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
 
 <!-- URLs. -->
-[SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[SDK de Serviços Móveis do Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -341,7 +348,7 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
+[Usar Hubs de Notificação para enviar notícias de última hora]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
 
 
 <!--HONumber=45--> 

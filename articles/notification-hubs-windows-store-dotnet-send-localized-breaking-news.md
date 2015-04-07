@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tutorial de últimas notícias localizadas dos Hubs de Notificação" 
 	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias." 
 	services="notification-hubs" 
@@ -41,14 +41,14 @@ Há duas partes que compõem esse cenário:
 
 ##Pré-requisitos ##
 
-Você já deve ter concluído o tutorial [Usar Hubs de Notificação para envio de últimas notícias] e ter o código disponível, porque este tutorial se baseia diretamente no código. 
+Você já deve ter concluído o tutorial [Usar Hubs de Notificação para enviar últimas notícias] e ter o código disponível, porque este tutorial se baseia diretamente no código. 
 
 O Visual Studio 2012 também é necessário.
 
 
 <h2><a name="concepts"></a>Conceitos de modelo</h2>
 
-Em [Usar Hubs de Notificação para envio de últimas notícias] você criou um aplicativo que usou **marcas** para assinar notificações para diferentes categorias de notícias.
+Em [Usar Hubs de Notificação para enviar últimas notícias] você criou um aplicativo que usou **marcas** para assinar notificações para diferentes categorias de notícias.
 No entanto, muitos aplicativos são destinados a vários mercados e requerem localização. Isso significa que o próprio conteúdo das notificações deve ser localizado e entregue para o conjunto de dispositivos correto.
 Neste tópico, mostraremos como usar o recurso **template** de Hubs de Notificação para entregar facilmente notificações de últimas notícias localizadas.
 
@@ -79,7 +79,7 @@ Os modelos são um recurso muito avançado sobre o qual você pode aprender em n
 
 <h2><a name="ui"></a>A interface do usuário do aplicativo</h2>
 
-Agora vamos modificar o aplicativo Breaking News que você criou no tópico [Usar Hubs de Notificação para envio de últimas notícias] para enviar últimas notícias localizadas usando modelos.
+Agora vamos modificar o aplicativo Breaking News que você criou no tópico [Usar Hubs de Notificação para enviar últimas notícias] para enviar últimas notícias localizadas usando modelos.
 
 
 Para adaptar seus aplicativos cliente para receber mensagens localizadas, você precisa substituir seus registros *native* (ou seja, registros que você especifica em um modelo) pelos registros do modelo.
@@ -218,7 +218,7 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 [Serviço Móvel]: /pt-br/develop/mobile/tutorials/get-started
 [Notificar usuários com Hubs de Notificação: ASP.NET]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
 [Notificar usuários com Hubs de Notificação: Serviços Móveis]: /pt-br/manage/services/notification-hubs/notify-users
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet 
+[Usar Hubs de Notificação para enviar últimas notícias]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet 
 
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039

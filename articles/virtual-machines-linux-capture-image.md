@@ -21,7 +21,7 @@
 
 Esse artigo mostra como capturar a máquina virtual do Azure executando Linux para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e qualquer disco de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
 
-O Azure trata esse modelo como uma imagem e o armazena em **Minhas Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure] [].
+O Azure trata esse modelo como uma imagem e o armazena em **Minhas Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure][].
 
 ##Antes de começar##
 
@@ -32,9 +32,9 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
 ##Capturar a máquina virtual##
 
-1. Conectar-se à máquina virtual clicando em **Conecte-se** na barra de comando. Para mais detalhes, consulte [Como fazer logon em uma máquina virtual executando o Linux][].
+1. Conectar-se à máquina virtual clicando em **Conecte-se** na barra de comando. Para obter mais detalhes, consulte [Como fazer logon em uma máquina virtual executando o Linux][].
 
-2. Na janela SSH, digite o comando a seguir e, em seguida, digite a senha da conta criada na máquina virtual.  Observe que a saída de  `waagent`pode variar um pouco dependendo da versão do utilitário:
+2. Na janela SSH, digite o comando a seguir e, em seguida, digite a senha da conta criada na máquina virtual.  Observe que a saída de `waagent` pode variar um pouco dependendo da versão do utilitário:
 
 	`sudo waagent -deprovision`
 
@@ -62,11 +62,12 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 	![Image capture successful](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 ##Próximas etapas##
-A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
+A imagem está pronta para ser usada como modelo para criar novas máquinas virtuais. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
 	
 [Como fazer logon em uma máquina virtual executando o Linux]: ../virtual-machines-linux-how-to-log-on
 [Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

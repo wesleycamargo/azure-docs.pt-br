@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introdução aos Hubs de notificação do Azure" description="Saiba como usar os Hubs de notificação do Azure para notificações por push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
+<properties pageTitle="Introdução aos Hubs de notificação do Azure" description="Saiba como usar os Hubs de notificação do Azure para notificações por push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -271,8 +271,8 @@ Neste simples exemplo, você difunde notificações para todos os seus dispositi
 [Portal de Provisionamento do iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
+[Usar Hubs de Notificação para enviar notícias de última hora]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
 
-[Guia de Programação Local e de Notificações por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guia de Programação Local e de Notificação por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 <!--HONumber=45--> 

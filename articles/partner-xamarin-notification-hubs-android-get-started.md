@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de Notificação para aplicativos Xamarin.Android" 
 	description="Saiba como usar os Hubs de notificação do Azure para enviar notificações por push para um aplicativo Android Xamarin." 
 	authors="lindydonna" 
@@ -452,7 +452,7 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Instruções sobre Hubs de Notificação para Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: /pt-br/manage/services/notification-hubs/notify-users-aspnet
-[Usar hubs de notificação para enviar notícias recentes]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
+[Usar hubs de notificação para enviar notícias de última hora]: /pt-br/manage/services/notification-hubs/breaking-news-dotnet
 [Página Componente GCMClient]: http://components.xamarin.com/view/GCMClient
 [Página do Xamarin.NotificationHub Github]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
