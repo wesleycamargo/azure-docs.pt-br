@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia" 
 	description="Saiba como criar um localizador que é usado para construir um URL de transmissão. O código usa a API REST." 
 	authors="juliako" 
@@ -24,7 +24,7 @@ Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de 
 ##Visão geral
 
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](../media-services-rest-encode-asset) mostra como codificar em um conjunto MP4 com taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste] tópico(../media-services-rest-configure-asset-delivery-policy) . 
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](../media-services-rest-encode-asset) mostra como codificar em um conjunto MP4 com taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](../media-services-rest-configure-asset-delivery-policy) tópico . 
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
