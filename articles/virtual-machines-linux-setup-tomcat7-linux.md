@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Como configurar o Tomcat7 em uma máquina Virtual Linux com o Microsoft Azure" 
-	description="Saiba como configurar o Tomcat7 com o Microsoft Azure usando uma máquina virtual do Azure (VM) executando o Linux." 
+﻿<properties 
+	pageTitle="Como configurar o Tomcat7 em uma máquina virtual Linux com o Microsoft Azure" 
+	description="Saiba como configurar o Tomcat7 com o Microsoft Azure usando uma máquina virtual do Azure (VM) executando Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="NingKuang" 
@@ -16,11 +16,11 @@
 	ms.date="10/27/2014" 
 	ms.author="ningk"/>
 
-#Como configurar o Tomcat7 em uma máquina Virtual Linux com o Microsoft Azure 
+#Como configurar o Tomcat7 em uma máquina virtual Linux com o Microsoft Azure 
 
-Apache Tomcat (ou simplesmente Tomcat, anteriormente também Tomcat Jacarta) é um servidor web de código-fonte aberto e o contêiner de servlet desenvolvidos pelo Apache Software Foundation (ASF). Tomcat implementa o Servlet Java e especificações de JavaServer Pages (JSP) da Sun Microsystems e fornece um ambiente de servidor Web HTTP Java puro na qual executará o código Java. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
+Apache Tomcat (ou simplesmente Tomcat, anteriormente também Tomcat Jacarta) é um servidor Web de software livre e o contêiner de servlet desenvolvidos pelo Apache Software Foundation (ASF). Tomcat implementa o Servlet Java e especificações de JavaServer Pages (JSP) da Sun Microsystems e fornece um ambiente de servidor Web HTTP Java puro na qual executará o código Java. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
 
-Neste guia, você instalará o tomcat7 em uma imagem do Linux e irá implantá-lo no Microsoft Azure.  
+Neste guia, você instalará o tomcat7 em uma imagem do Linux e vai implantá-lo no Microsoft Azure.  
 
 Você aprenderá:  
 
@@ -67,7 +67,7 @@ Para a **Chave de autenticação SSH**, copie o valor-chave do arquivo **publicK
 Configure as outras configurações conforme necessário e, em seguida, clique em Criar.  
 
 ##Fase 2: Preparar sua máquina virtual para o Tomcat7
-Nesta fase, você configurará um ponto de extremidade para o tráfego do tomcat e, em seguida, irá conectar-se à nova máquina virtual.
+Nesta fase, você configurará um ponto de extremidade para o tráfego do tomcat e, em seguida, se conectará à nova máquina virtual.
 ###Etapa 1: Abra a porta HTTP para permitir o acesso via Web
 Os pontos de extremidade no Azure são compostos por um protocolo (TCP ou UDP) juntamente com uma porta pública e privada. A porta privada é a porta que o serviço está escutando na máquina virtual. A porta pública é a porta que o serviço de nuvem do Azure está escutando externamente para tráfego de entrada baseado na Internet.  
 
@@ -93,14 +93,14 @@ A Porta 8080 TCP é o número da porta padrão na qual o tomcat escuta. Abrindo 
 ###Etapa 2: Conectar-se à imagem criada.
 Você pode escolher qualquer ferramenta SSH para se conectar à sua máquina virtual. Neste exemplo, usamos Putty.  
 
-Primeiro, obtenha o nome DNS da máquina virtual a partir do Portal de Visualização do Azure. **Clique em Procurar** -> **Máquinas virtuais** -> o nome de sua máquina virtual -> **Propriedades** e, em seguida, examine o campo **Nome do domínio** do bloco **Propriedades**.  
+Primeiro, obtenha o nome DNS da máquina virtual no Portal de Visualização do Azure. **Clique em Procurar** -> **Máquinas virtuais** -> o nome de sua máquina virtual -> **Propriedades** e, em seguida, verifique o campo **Nome do domínio** do bloco **Propriedades**.  
 
-Obtenha o número da porta para conexões SSH a partir do campo **SSH**. Aqui está um exemplo.  
+Obtenha o número da porta para conexões SSH no campo **SSH**. Aqui está um exemplo.  
 ![][8]
  
-Baixe o Putty [aqui)]http://www.putty.org/) .  
+Baixe o Putty [aqui](http://www.putty.org/).  
 
-Após o download, clique no arquivo executável PUTTY.EXE. Configure as opções básicas com o nome do host e o número da porta obtido a partir das propriedades da sua máquina virtual. Aqui está um exemplo:  
+Após o download, clique no arquivo executável PUTTY.EXE. Configure as opções básicas com o nome do host e o número da porta obtido nas propriedades da sua máquina virtual. Aqui está um exemplo:  
 ![][9]
  
 No painel esquerdo, clique em **Conexão** -> **SSH** -> **Autenticação** e, em seguida, clique em **Procurar** para especificar o local do arquivo **privateKey.ppk** que contém a chave privada gerada pelo puttygen na Fase 1: Crie uma imagem. Aqui está um exemplo:  
@@ -219,14 +219,14 @@ Depois de editar esse arquivo, você deverá reiniciar serviços do tomcat7 com 
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Abra o navegador e digite a URL **http://<your tomcat server DNS name>/manager/html**. Para o exemplo deste artigo, a URL é http://tomcatexample.cloudapp.net/manager/html.  
+Abra o navegador e digite a URL **http://<nome do DNS de seu servidor Tomcat>/manager/html**. Para o exemplo neste artigo, a URL é http://tomcatexample.cloudapp.net/manager/html.  
 
 Após conectar, você deverá ver algo semelhante ao seguinte:  
 ![][18]
  
 ##Problemas comuns
 
-###Não é possível acessar a máquina virtual com o Tomcat e o Moodle a partir da Internet
+###Não é possível acessar a máquina virtual com o Tomcat e o Moodle por meio da Internet
 
 -	**Sintoma**  
 Tomcat está sendo executado, mas você não consegue ver a página padrão do Tomcat com seu navegador.
@@ -243,13 +243,13 @@ Tomcat está sendo executado, mas você não consegue ver a página padrão do T
 
 			sudo vi /etc/default/tomcat7  
 
-		Then uncomment the last line and change "no" to "yes".  
+		Remova a marca de comentário da última linha e altere "não" para "sim".  
 
 			AUTHBIND=yes
 
 	2.	O firewall desabilitou a porta de escuta do tomcat.
 
-		Se você só pode ver a página padrão do Tomcat do host local, é mais provável que o problema seja que a porta que é ouvida por tomcat é bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da web. Os seguintes comandos instalar w3m e navegue até a página padrão do Tomcat:  
+		Se você só pode ver a página padrão do Tomcat do host local, é mais provável que o problema seja que a porta que é ouvida por tomcat é bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da Web. Os seguintes comandos instalar w3m e navegue até a página padrão do Tomcat:  
 
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
@@ -279,15 +279,15 @@ Tomcat está sendo executado, mas você não consegue ver a página padrão do T
 -	**Sintoma**  
 Quando você usar qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/lib/tomcat7/webapps/ para publicar seu site, você receberá uma mensagem de erro semelhante à seguinte:  
 
-		status:	Listing directory /var/lib/tomcat7/webapps
-		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
-		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
-		Error:	File transfer failed
+		status:	Listando diretório /var/lib/tomcat7/webapps
+		Comando:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
+		Erro:	/var/lib/tomcat7/webapps/info.jsp: aberto para gravação: permissão negada
+		Erro:	Falha na transferência de arquivo
 
 -	**Possível causa raiz** 
 Você não tem permissões para acessar a pasta /var/lib/tomcat7/webapps.  
 -	**Solução**  
-Você precisa obter permissão da conta raiz. Você pode alterar a propriedade da pasta raiz para o nome de usuário usado ao provisionar a máquina. Aqui está um exemplo com o nome de conta azureuser:  
+Você precisa obter permissão da conta raiz. Você pode alterar a propriedade da pasta raiz para o nome de usuário usado ao provisionar o computador. Aqui está um exemplo com o nome de conta azureuser:  
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
@@ -322,4 +322,6 @@ Você precisa obter permissão da conta raiz. Você pode alterar a propriedade d
 [15]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-15.png
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
-[18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png<!--HONumber=42-->
+[18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
+
+<!--HONumber=49-->

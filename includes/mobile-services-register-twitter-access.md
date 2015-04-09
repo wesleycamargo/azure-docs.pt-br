@@ -1,19 +1,17 @@
-﻿
+﻿As novas APIs do Twitter v1.1 exigem que o aplicativo seja primeiro autenticado, para depois acessar recursos. Primeiro, você precisa obter as credenciais necessárias para solicitar acesso usando o OAuth 2.0. Em seguida, você irá armazená-las com segurança nas configurações do aplicativo para seu serviço móvel.
 
-As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para acessar recursos. Primeiro, você precisa obter as credenciais necessárias para solicitar acesso usando o OAuth 2.0. Em seguida, você irá armazená-las com segurança nas configurações do aplicativo para seu serviço móvel.
+1. Se ainda não o fez, conclua as etapas do tópico <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis</a>. 
 
-1. Se ainda não o fez, conclua as etapas do tópico <a href="/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis</a>. 
-  
   	O Twitter gera as credenciais necessárias para habilitar seu acesso às APIs do Twitter v1.1. Você pode obter essas credenciais no site de Desenvolvedores do Twitter. 
 
 2. Navegue até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Desenvolvedores do Twitter</a>, entre usando suas credenciais de conta do Twitter e selecione seu aplicativo do Twitter.
 
 3. Na guia **Chaves e Tokens de Acesso** do aplicativo, anote os seguintes valores:
 
-	+ **Chave do consumidor**
-	+ **Segredo do consumidor**
-	+ **Token de acesso**
-	+ **Segredo do token de acesso**
+	+ **Consumer key**
+	+ **Consumer secret**
+	+ **Access token**
+	+ **Access token secret**
 
 4. Faça o logon no [Portal de Gerenciamento do Microsoft Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
 
@@ -32,9 +30,10 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[MicrosoftAzure.com]: http://www.windowsazure.com/
 [Portal de Gerenciamento do Microsoft Azure]: https://manage.windowsazure.com/
-[Registrar seus aplicativos para logon do Twitter com os Serviços Móveis]: /documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Registrar seus aplicativos para logon do Twitter com os Serviços Móveis]: ../articles/mobile-services-how-to-register-twitter-authentication.md
 [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=47-->
+
+<!--HONumber=49-->

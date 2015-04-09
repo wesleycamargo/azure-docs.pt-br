@@ -18,10 +18,11 @@ O Painel do Site é exibido.
 1. Clique em **salvar** na barra de ferramentas.  
 ![SaveWebSite][button-website-save]
 
-**Observação:** O Windows Azure adiciona o prefixo **CUSTOMCONNSTR\_** a esta variável, que é a razão de o código acima fazer referência a **CUSTOMCONNSTR\_MONGOLAB_URI.**
+**Observação:** O Azure adiciona o prefixo **CUSTOMCONNSTR\_** a esta variável, que é a razão de o código acima fazer referência a **CUSTOMCONNSTR\_MONGOLAB_URI.**
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

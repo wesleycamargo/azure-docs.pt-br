@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Fornecimento contínuo com o Visual Studio Online no Azure" 
 	description="Saiba como configurar seus projetos de equipe do Visual Studio Online para serem compilados e implantados automaticamente em Websites ou serviços de nuvem do Azure." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -19,7 +19,7 @@
 
 # Entrega contínua para o Azure usando o Visual Studio Online
 
-  Você pode configurar seus projetos de equipe do Visual Studio Online para compilação e implantação automática em sites ou serviços de nuvem do Azure.  (Para obter informações sobre como configurar uma compilação contínua e implantar um sistema usando um *on-premises* Team Foundation Server, consulte [Entrega contínua de serviços de nuvem no Azure](../cloud-services-dotnet-continuous-delivery).)
+  Você pode configurar seus projetos de equipe do Visual Studio Online para compilação e implantação automática em aplicativos Web ou serviços de nuvem do Azure.  (Para obter informações sobre como configurar uma compilação contínua e implantar um sistema usando um *on-premises* Team Foundation Server, consulte [Entrega contínua de serviços de nuvem no Azure](cloud-services-dotnet-continuous-delivery.md).)
 
 Este tutorial pressupõe que você possui o Visual Studio 2013 e o SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
@@ -28,7 +28,7 @@ Este tutorial pressupõe que você possui o Visual Studio 2013 e o SDK do Azure 
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Online, siga estas etapas:
 
--   [Etapa 1: Crie um projeto em equipe.][]
+-   [Etapa 1: Criar um projeto em equipe.][]
 
 -   [Etapa 2: Fazer check-in em um projeto para o controle do código-fonte.][]
 
@@ -52,7 +52,7 @@ Siga as instruções contidas [aqui](http://go.microsoft.com/fwlink/?LinkId=5129
 Você pode implantar um site ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo.
 Se você desejar criar uma nova solução, crie um novo projeto de Serviço de Nuvem do Azure
 ou um novo projeto ASP.NET MVC. Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**.
-Se você desejar criar um site, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Introdução ao Azure e ao ASP.NET](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+Se você desejar criar um site, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Introdução aos Sites do Azure e ao ASP.NET](web-sites-dotnet-get-started.md).
 
 2. Abra o menu de contexto da solução e selecione **Adicionar solução ao controle do código-fonte**.<br/>
 ![][5]
@@ -137,11 +137,11 @@ A tabela a seguir mostra as propriedades disponíveis na seção de Implantaçã
 ><tr><td>Não Excluir</td><td>Se for verdadeiro, não substitui uma implantação existente não relacionada (atualizações são permitidas).</td></tr>
 <tr><td>Caminho para Configurações de Implantação</td><td>O caminho para seu arquivo .pubxml se um site, relacionado à pasta raiz do repo. Ignorado para serviços de nuvem.</td></tr>
 <tr><td>Ambiente de Implantação do SharePoint</td><td>O mesmo que o nome do serviço</td></tr>
-<tr><td>Ambiente de Implantação do Microsoft Azure</td><td>O nome do site ou serviço de nuvem</td></tr>
+<tr><td>Ambiente de implantação do Azure</td><td>O nome do site ou serviço de nuvem</td></tr>
 </table>
 <br/>
 
-Se está usando configurações de serviço múltipla (arquivos .cscfg), você pode especificar a configuração do serviço desejado na configuração **Compilar, Avançado argumentos MSBuild**. Por exemplo, para usar ServiceConfiguration.Test.cscfg, defina opções de linha de argumentos MSBuild /p:TargetProfile=Test.<br/>
+Se estiver usando várias configurações de serviço (arquivos .cscfg), você poderá especificar a configuração de serviço desejada na configuração **Compilar, Avançado argumentos MSBuild**. Por exemplo, para usar ServiceConfiguration.Test.cscfg, defina opções de linha de argumentos MSBuild /p:TargetProfile=Test.<br/>
 ![][38]
 
 11. A essa altura, sua compilação deve estar concluída com êxito.<br/>
@@ -204,7 +204,7 @@ Esta etapa se aplica somente aos sites, não serviços de nuvem. Para colocar um
 4.  Edite a definição de compilação, escolha a guia Processar e expanda o nó de Teste.
 
 
-5.  Defina o **Compilação falha na falha de teste** para Verdadeiro. Isso significa que a implantação não ocorre, a menos que passe no teste.<br/>
+5.  Defina **Compilação falha na falha de teste** como Verdadeiro. Isso significa que a implantação não ocorre, a menos que passe no teste.<br/>
 ![][41]
 
 6.  Fila de uma nova compilação.<br/>
@@ -241,9 +241,9 @@ Esta etapa se aplica somente aos sites, não serviços de nuvem. Para colocar um
 
 Para saber mais sobre o teste de unidade no Visual Studio Online, consulte [Executar testes de unidade em sua compilação](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-Para obter mais informações, consulte [Visual Studio Online (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=253861). Se estiver usando o Git, consulte [Compartilhar seu código no Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e [Publicando no controle do código-fonte para sites do Azure](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control).
+Para obter mais informações, consulte [Visual Studio Online (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=253861). Se você estiver usando o Git, consulte [Compartilhar seu código no Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e [Publicar sites do Azure com Git](web-sites-publicar-origem-control.md).
 
-[Etapa 1: Crie um projeto em equipe.]: #step1
+[Etapa 1: Criar um projeto em equipe.]: #step1
 [Etapa 2: Fazer check-in em um projeto para o controle do código-fonte.]: #step2
 [Etapa 3: Conectar o projeto ao Azure.]: #step3
 [Etapa 4: Fazer alterações e disparar uma recompilação e uma reimplantação.]: #step4
@@ -302,4 +302,4 @@ Para obter mais informações, consulte [Visual Studio Online (a página pode es
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

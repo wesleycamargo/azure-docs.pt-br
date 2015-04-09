@@ -1,36 +1,24 @@
-# Publicando sites do Azure com o Git
+# Implantação contínua usando GIT no Serviço de Aplicativo do Azure
 
-Os Sites do Azure oferecem suporte à implantação contínua do controle do código-fonte e ferramentas de repositório, como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu site e enviar as alterações de forma rápida e fácil ao seu site quando desejar.
+[O Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a implantação contínua para aplicativos Web por meio de ferramentas de repositório e de controle do código-fonte como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu aplicativo, e enviar as alterações de modo rápido e fácil ao seu aplicativo Web quando desejar.
 
-Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em um Site do Azure (no Azure, esse método de publicação é chamado de **Git local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Online].
+Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Online].
 
-> [AZURE.NOTE]  Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um Site usando as <a href="/pt-br/develop/nodejs/how-to-guides/command-line-tools/">Ferramentas de linha de comando do Azure para Mac e Linux</a>.
-
-A tarefa inclui as seguintes etapas:
-
-* [Instalar o Git](#Step1)
-* [Criar um repositório local](#Step2)
-* [Adicionar uma página da web](#Step3)
-* [Habilitar o repositório de site](#Step4)
-* [Implantar o seu projeto](#Step5)
-	* [Copiar arquivos locais para o Azure (Git Local)](#Step6)
-	* [Implantar arquivos de um site de repositório como BitBucket, CodePlex, recados, GitHub ou Mercurial](#Step7)
-	* [Implantar arquivos de um site de repositório como BitBucket, CodePlex, recados, GitHub ou Mercurial](#Step75)
-* [Solução de problemas](#Step8)
+> [AZURE.NOTE] Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um aplicativo Web usando as [Ferramentas de Linha de Comando do Azure para Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
 <h2><a id="Step2"></a>Instalando o Git</h2>
 
-As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
+As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [instalando o Git] para distribuições específicas do sistema operacional e orientações de instalação.
 
-> [AZURE.NOTE]  Em alguns sistemas operacionais, uma versão de linha de comando e outra com GUI do Git serão disponibilizados. As instruções fornecidas neste artigo usam a versão de linha de comando.
+> [AZURE.NOTE] Em alguns sistemas operacionais, uma versão de linha de comando e outra com GUI do Git serão disponibilizados. As instruções fornecidas neste artigo usam a versão de linha de comando.
 
-<h2><a id="Step2"></a>Criar um repositório local</h2>
+## <a id="Step2"></a>Etapa 2: Criar um repositório local
 
 Execute as seguintes tarefas para criar um novo repositório do Git.
 
-1. Crie um diretório chamado MyGitRepository para os arquivos de site e repositório git.
+1. Crie um diretório chamado MyGitRepository para os arquivos de aplicativo Web e repositório git.
 
-2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
+2. Abra uma linha de comando como **GitBash** (Windows) ou **Bash** (shell do Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
 
 3. Da linha de comando, mude para o diretório MyGitRepository.
 
@@ -42,9 +30,9 @@ Execute as seguintes tarefas para criar um novo repositório do Git.
 
 	Isso deve retornar uma mensagem como **Inicializou vazio no repositório do Git em [path]**.
 
-<h2><a id="Step3"></a>Adicionar uma página da web</h2>
+## <a id="Step3"></a>Etapa 3: Adicionar uma página da web
 
-Os Sites do Azure oferecem suporte a aplicativos criados em uma variedade de linguagens de programação. Para este exemplo, você usará um arquivo .html estático. Para obter informações sobre a publicação de sites em outras linguagens de programação no Azure, consulte o [Centro de Desenvolvedores do Azure].
+Aplicativos Web dão suporte a aplicativos criados em uma variedade de linguagens de programação. Para este exemplo, você usará um arquivo .html estático. Para obter informações sobre a publicação de aplicativos Web em outras linguagens de programação no Azure, consulte o [Azure Developer Center].
 
 1. Usando um editor de texto, crie um novo arquivo chamado **index.html** na raiz do repositório do Git.
 
@@ -62,57 +50,51 @@ Os Sites do Azure oferecem suporte a aplicativos criados em uma variedade de lin
 
 		git commit -m "Adding index.html to the repository"
 
-	Você deverá ver uma saída semelhante ao seguinte:
+	You should see output similar to the following:
 
 		[master (root-commit) 369a79c] Adding index.html to the repository
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2><a id="Step4"></a>Habilitar o repositório do site</h2>
+<h2><a id="Step4"></a>Habilitar o repositório de aplicativo Web</h2>
 
-Execute as seguintes etapas para ativar um repositório do Git em seu site usando o portal do Azure:
+Execute as seguintes etapas para habilitar um repositório do Git em seu aplicativo Web usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715):
 
 1. Faça logon no [Portal do Azure].
 
-2. Clique no botão NOVO para criar um site novo para o qual você habilitará um repositório.
+2. Na lâmina de seu aplicativo Web, role para baixo até a seção **Implantação** e clique em **Configurar implantação contínua**. Clique em **Escolher fonte**, depois em **Repositório Git local** e em **OK**.  
 
-2. Espere até que o processo da criação do site tenha terminado na visualização **Sites** e, em seguida, selecione o site.
+2. Aguarde até que o processo de criação do aplicativo Web seja concluído, então selecione o aplicativo Web na lâmina Aplicativos Web.
 
-	![An image displaying a selected web site][portal-select-website]
+	![An image displaying a selected web app](./media/publishing-with-git/azure1-local-git.png)
 
-3. Selecione a guia **PAINEL**.
+4. Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local. Na lâmina de seu aplicativo Web, clique em **Definir credenciais de implantação** e, em seguida, configure o nome de usuário de implantação e a senha. Quando terminar, clique em **OK**.
 
-4. Na seção **Visão Rápida**, selecione **Configurar a implantação por meio do controle de origem**.  A caixa de diálogo **CONFIGURAR IMPLANTAÇÃO** é exibida.
-
-	![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
-
-4. Escolha **Git local** e, em seguida, clique na seta **Avançar**.
-
-4. Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local. 
-
-	![](./media/publishing-with-git/git_credentials.png)
-	
-5. Após um pequeno intervalo, deverá aparecer uma mensagem informando que o seu repositório está pronto. 
-
-	![git-instructions][git-instructions]
+	![](./media/publishing-with-git/azure2-credentials.png)
 
 <h2><a id="Step5"></a>Implantar o seu projeto</h2>
 
-<h3><a id="Step6"></a>Copiar arquivos locais para o Azure (Git Local)</h3>
+* [Copiar arquivos locais para o Azure (Git Local)](#Step6)
+* [Implantar arquivos de um site de repositório como BitBucket, CodePlex, Dropbox, GitHub ou Mercurial](#Step7)
+* [Implantar uma solução do Visual Studio a partir do BitBucket, CodePlex, Dropbox, GitHub ou Mercurial](#Step75)
 
-Nesse ponto, o portal exibe instruções para inicializar o repositório local e adicionar arquivos. Você já fez isso nas etapas anteriores deste tópico. No entanto, se você não tiver configurado suas credenciais de implantação, você deve voltar à guia **PAINEL** no portal e clicar em **Redefinir suas credenciais de implantação**.
+Use as etapas a seguir para publicar seu aplicativo Web no Azure usando o Git local:
 
-Use as seguintes etapas para publicar seu site no Azure usando o git local:
+1. Na lâmina de seu aplicativo Web, na seção Implantação, clique em **Nenhuma implantação encontrada**.
+
+	![](./media/publishing-with-git/azure3-repo-details.png)
+
+	A **URL do Git** será a referência remota à qual implantar posteriormente, por meio do seu repositório local.
 
 1. Usando a linha de comando, verifique se você está na raiz do seu repositório git local que contém o arquivo index.html criado anteriormente.
 
-2. Copie o comando add git remoto da etapa 3 das instruções enviadas pelo portal. Ele é semelhante ao seguinte comando:
+2. Use o comando remoto do Git para adicionar a referência remota listada na **URL do Git** a partir da etapa 1. O comando será semelhante ao seguinte:
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE] O comando **remoto** adiciona uma referência com nome ao repositório remoto. Neste exemplo, ele cria uma referência denominada 'azure' para o repositório do site do Azure.
+    > [AZURE.NOTE] O comando **remoto** adiciona uma referência com nome a um repositório remoto. Neste exemplo, ele cria uma referência denominada 'azure' para o repositório do aplicativo Web.
 
-1. Use a seguinte da linha de comando para transferir o conteúdo do repositório atual do repositório local para o 'azure' remoto:
+1. Use a seguinte da linha de comando para transferir o conteúdo do repositório atual do repositório local para o comando remoto do 'azure':
 
 		git push azure master
 
@@ -130,9 +112,13 @@ Use as seguintes etapas para publicar seu site no Azure usando o git local:
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE]  O repositório criado para o seu site do Azure espera solicitações por push para o destino da ramificação <strong>mestre</strong> do repositório, que será usada como o conteúdo do site.
+	> [AZURE.NOTE] O repositório criado para o seu aplicativo Web espera solicitações por push para definir como alvo a ramificação <strong>mestre</strong> do seu repositório, que será usada como o conteúdo do aplicativo Web.
 
-2. No portal, clique no link **NAVEGAR** na parte inferior do portal para verificar se o **index. html** foi implantado. Será exibida uma página contendo 'Hello Git!'.
+2. Volte para a lâmina de seu aplicativo Web no Portal do Azure. **Nenhuma implantação encontrada** deve ser alterada para **Implantação Ativa** com uma entrada de log de seu envio por push mais recente. 
+
+	![](./media/publishing-with-git/azure4-deployed.png)
+
+2. Clique na URL na parte superior do portal para verificar se o arquivo **index.html** foi implantado. Será exibida uma página contendo 'Hello Git!'.
 
 	![A webpage containing 'Hello Git!'][hello-git]
 
@@ -148,45 +134,41 @@ Use as seguintes etapas para publicar seu site no Azure usando o git local:
 
 	![A webpage containing 'Yay!'][yay]
 
-<h3><a id="Step7"></a>Implantar arquivos de um site de repositório como BitBucket, CodePlex, recados, GitHub ou Mercurial</h3>
+<h3><a id="Step7"></a>Implante arquivos por meio de um site de repositório como BitBucket, CodePlex, Dropbox, GitHub ou Mercurial</h3>
 
-Copiar arquivos locais do Azure usando Git local permite que você envie atualizações manualmente de um projeto local para o Site do Azure ao implantar do BitBucket, CodePlex, recados, GitHub ou Mercurial. Isso resulta em um processo de implantação contínua no qual o Azure receberá as atualizações mais recentes do seu projeto.
+Enviar arquivos locais do Azure por push usando Git Local permite que você envie por push, manualmente, atualizações de um projeto local para o aplicativo Web do Azure, enquanto implantar por meio do BitBucket, CodePlex, Dropbox, GitHub ou Mercurial resulta em um processo de implantação contínua, no qual o Azure receberá as atualizações mais recentes do seu projeto.
 
-Enquanto ambos os métodos resultam na implantação do seu projeto em um Site do Azure, a implantação contínua é útil quando você tem várias pessoas trabalhando em um projeto e deseja ter certeza de que a versão mais recente é sempre publicada, independentemente de quem fez a atualização mais recente. A implantação contínua também é útil se você estiver usando uma das ferramentas mencionadas acima como o repositório central do seu aplicativo.
+Enquanto ambos os métodos resultam na implantação do seu projeto em Aplicativos Web, a implantação contínua é útil quando você tem várias pessoas trabalhando em um projeto e deseja ter certeza de que a versão mais recente será sempre publicada, independentemente de quem tiver feito a atualização mais recente. A implantação contínua também é útil se você estiver usando uma das ferramentas mencionadas acima como o repositório central do seu aplicativo.
 
 A implantação de arquivos do GitHub, CodePlex ou BitBucket requer que você tenha publicado seu projeto local em um desses serviços. Para obter mais informações sobre a publicação de seu projeto nesses serviços, consulte [Criar um Repo (GitHub)], [Usando Git com CodePlex], [Criar um Repo (BitBucket)], [Usando o Dropbox para compartilhar repositórios do Git], ou [Início rápido: Mercurial].
 
-1. Primeiro coloque seus arquivos do site no repositório selecionado que será usado para implantação contínua.
+1. Primeiro coloque seus arquivos do aplicativo Web no repositório selecionado que será usado para implantação contínua.
 
-2. No portal Azure de seu site, vá para a guia **PAINEL**. Na seção **Visão Rápida**, selecione **Configurar a implantação por meio do controle de origem**.  A caixa de diálogo **Configurar implantação** é exibida com a seguinte mensagem: **Onde está o código-fonte?**. 
+2. Na lâmina de seu aplicativo Web presente no portal, role para baixo até a seção **Implantação** e clique em **Configurar implantação contínua**. Clique em **Escolher Fonte** e depois em **GitHub**, por exemplo.  
 
-2. Escolha o método de controle do código-fonte que você deseja usar para implantação contínua.
+	![](./media/publishing-with-git/azure6-setup-github.png)
 	
-3. Quando solicitado, insira suas credenciais para o serviço selecionado.
+2. Na lâmina **Implantação contínua**, clique em **Autorização** e depois em **Autorizar**. O portal do Azure redirecionará você ao site do repositório para concluir o processo de autorização. 
 
-4. Após autorizar o Azure a acessar sua conta, será apresentada uma lista de repositórios. 
+4. Quando terminar, volte para o portal do Azure e clique em **OK** na lâmina **Autorização**.
 
-	![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
+5. Na lâmina **Implantação contínua**, escolha a organização, o projeto e a ramificação por meio dos quais você deseja implantar. Quando terminar, clique em **OK**.
   
-5. Selecione o repositório com o qual você deseja associar seu site do Azure. Clique na marca de seleção para continuar.
+	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
 	> [AZURE.NOTE] Ao habilitar a implantação contínua com GitHub ou BitBucket, os projetos públicos e privados serão exibidos.
 
-6. O Azure cria uma associação com o repositório selecionado e extrai os arquivos a partir da ramificação mestre. Depois que esse processo for concluído, o **histórico de implantação** da página **Implantações** exibirá uma mensagem da **Implantação Ativa** da seguinte maneira:
+O Azure cria uma associação com o repositório selecionado e extrai os arquivos da ramificação especificada. Depois que o processo for concluído, a seção **Implantação** da lâmina de seu aplicativo Web mostrará uma mensagem **Implantação Ativa**, que indica que a implantação foi bem-sucedida.
 
-	![git-githubdeployed][git-githubdeployed]
+7. Nesse ponto, seu projeto foi implantado do seu repositório de escolha para seu aplicativo Web. Para verificar se o aplicativo Web está ativo, clique na **URL** na parte superior do portal. O navegador deve acessar o aplicativo Web.
 
-7. Nesse ponto, seu projeto foi implantado do seu repositório de escolha no site do Azure. Para verificar se o site está ativo, clique no link **Navegar** na parte inferior do portal. O navegador deve acessar o site.
+8. Para verificar se a implantação contínua está ocorrendo no repositório de sua escolha, envie uma alteração por push para o repositório. Seu aplicativo Web deve ser atualizado para refletir as alterações logo após a conclusão do envio por push para o repositório. Você pode verificar se ele recebeu a atualização na página **Implantações** do seu aplicativo Web.
 
-8. Para verificar se a implantação contínua está ocorrendo, faça uma alteração ao seu projeto e envie a atualização para o repositório que você associou com este site. Seu site deve ser atualizado para refletir as alterações logo após a conclusão do envio para o repositório. Você pode verificar se ele recebeu a atualização na página **Implantações** do seu Site.
+### <a id="Step75"></a>Implantar uma solução do Visual Studio a partir do BitBucket, CodePlex, Dropbox, GitHub ou Mercurial
 
-	![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
+Enviar uma solução do Visual Studio por push para Aplicativos Web no Serviço de Aplicativo do Azure é tão simples quanto enviar por push um arquivo index.html simples. O processo de implantação dos aplicativos Web simplifica todos os detalhes, incluindo as dependências de restauração NuGet e a criação dos binários do aplicativo. Você pode seguir as práticas recomendadas de controle do código-fonte, de manter apenas código no seu repositório Git e deixar que a implantação de aplicativos Web do Azure cuide do resto.
 
-<h3><a id="Step75"></a>Implantar arquivos de um site de repositório como BitBucket, CodePlex, recados, GitHub ou Mercurial</h3>
-
-Enviar uma solução do Visual Studio para um site do Azure é tão simples como enviar um arquivo simples index.html. O processo de implantação dos sites do Azure simplificam todos os detalhes, incluindo as dependências de restauração NuGet e a criação dos binários dou aplicativo. Você pode seguir os melhores práticas de controle de origem da manutenção do código apenas no seu repositório Git, e permitir a implantação de sites do Azure cuidar do resto.
-
-As etapas para enviar sua solução do Visual Studio para um site do Azure é a mesma da [seção anterior](#Step7), desde que você configure sua solução e o repositório da seguinte maneira:
+As etapas para enviar sua solução do Visual Studio para aplicativos Web é a mesma da [seção anterior](#Step7), desde que você configure sua solução e o repositório da seguinte maneira:
 
 -	Na raiz do seu repositório, adicione um arquivo `.gitignore`, que especifique todos os arquivos e pastas que você quer excluir do seu repositório, como as pastas `Obj`, `Bin` e `packages` (consulte a [documentação gitignore](http://git-scm.com/docs/gitignore) para formatar informações). Por exemplo:
 
@@ -212,46 +194,27 @@ As etapas para enviar sua solução do Visual Studio para um site do Azure é a 
 
 -	Na sua solução do Visual Studio, [habilite a Restauração de Pacote NuGet](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages) para que o Visual Studio restaure automaticamente os pacotes faltantes.
 
-Assim que você tiver configurado seu repositório conforme descrito, e tiver configurado seu site do Azure para publicação contínua de um dos repositórios Git online, você pode desenvolver seu aplicativo ASP.NET localmente no Visual Studio e implantar continuamente seu código simplesmente enviando por push suas alterações a seu repositório Git online.
+Assim que você tiver configurado seu repositório conforme descrito e tiver configurado seu aplicativo Web do Azure para publicação contínua por meio de um dos repositórios Git online, você poderá desenvolver seu aplicativo ASP.NET localmente no Visual Studio e implantar continuamente seu código, simplesmente enviando por push suas alterações a seu repositório Git online.
 
-<h4>Como funciona a implantação contínua</h4>
-A implantação contínua funciona fornecendo a **URL DO GATILHO DA IMPLANTAÇÃO** encontrada na seção **implantações** da guia **Configurar** do seu site.
+<h2>Desabilitar a implantação contínua</h2>
 
-![git-DeploymentTrigger][git-DeploymentTrigger]
+A implantação contínua pode ser desabilitada na lâmina **Implantações**. Na lâmina de seu aplicativo Web, na seção **Implantação**, clique em Implantação Ativa. Em seguida, clique em **Desconectar**.
 
-Quando as atualizações são feitas ao seu repositório, é enviada uma solicitação POST para esta URL, que notifica o Site do Azure de que o repositório foi atualizado. Nesse ponto, ele recuperará a atualização e a implantará ao seu site.
+![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)	
 
-Para obter mais informações sobre o mecanismo por trás do processo de implantação Git para os sites do Azure, consulte [Projeto Kudu](https://github.com/projectkudu/kudu/wiki).
+Depois de responder **Sim** à mensagem de confirmação, você pode retornar à lâmina de seu aplicativo Web e clicar em **Configurar implantação contínua**, caso deseje configurar a publicação por meio de outra origem.
 
-<h4>Especificando a ramificação a ser usada</h4>
+## <a id="Step8"></a>Solucionar problemas
 
-Quando você habilitar a implantação contínua, o padrão será a ramificação **mestre** do repositório. Se quiser usar uma ramificação diferente, execute as seguintes etapas:
-
-1. No portal, selecione seu site e, em seguida, selecione **CONFIGURAR**.
-
-2. Na seção **implantações** da página, insira a ramificação que você deseja usar no campo **RAMIFICAÇÃO PARA IMPLANTAR** e pressione enter. Por fim, clique em **SALVAR**.
-
-	 Azure deve começar imediatamente a atualização com base nas alterações para a nova ramificação.
-
-<h4>Desabilitar a implantação contínua</h4>
-
-A implantação contínua pode ser desabilitada do **Painel** do Azure. Na seção **visão rápida**, escolha a opção de desconectar do repositório que você está usando:
-
-![git-DisconnectFromGitHub][git-DisconnectFromGitHub]	
-
-Depois de responder a **Sim** na mensagem de confirmação, você poderá retornar à **visão rápida** e clicar em **Configurar a implantação por meio do controle de origem** se você deseja configurar a publicação de outra fonte.
-
-<h2><a id="Step8"></a>Solução de problemas</h2>
-
-Estes são erros ou problemas comumente encontrados ao usar o Git para publicar em um site do Azure:
+Estes são erros ou problemas comumente encontrados ao usar o Git para publicar em um aplicativo Web do Azure:
 
 ****
 
 **Sintoma**: Não é possível acessar '[siteURL]': Falha ao conectar ao [scmAddress]
 
-**Causa**: Este erro pode ocorrer se o site não estiver carregado e em execução.
+**Causa**: Este erro pode ocorrer se o aplicativo Web não estiver carregado e em execução.
 
-**Resolução**: Iniciar o site no portal do Azure. A implantação git não funcionará a menos que o site estiver em execução. 
+**Resolução**: Inicie o aplicativo Web no portal do Azure. A implantação Git não funcionará a menos que o aplicativo Web esteja em execução. 
 
 
 ****
@@ -284,7 +247,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: erro - alterações confirmadas para o repositório remoto, mas o site não atualizado.
+**Sintoma**: Erro - Alterações confirmadas para o repositório remoto, mas o aplicativo Web não foi atualizado.
 
 **Causa**: Este erro pode ocorrer se você estiver implantando um aplicativo do Node.js que contém um arquivo package.json que especifica módulos adicionais necessários.
 
@@ -296,7 +259,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 	* npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
 
-		OU
+		OR
 
 	* npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
@@ -306,14 +269,20 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 * [Como usar o PowerShell do Azure]
 * [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]
 * [Documentação do Git]
-* [Kudu do projeto](https://github.com/projectkudu/kudu/wiki)
+* [Kudu do Projeto](https://github.com/projectkudu/kudu/wiki)
+
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+
+## O que mudou
+* Para obter um guia para a mudança de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a mudança do portal antigo para o novo portal, consulte: [Referência para navegação no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Centro de desenvolvedores do Azure]: http://azure.microsoft.com/develop/overview/
-[Portal do Azure]: http://manage.windowsazure.com
+[Portal do Azure]: https://portal.azure.com
 [Site do Git]: http://git-scm.com
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Como usar o PowerShell do Azure]: http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/
-[Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: /pt-br/develop/nodejs/how-to-guides/command-line-tools/
+[Como usar o PowerShell do Azure]: ../articles/install-configure-powershell.md
+[Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: ../articles/xplat-cli.md
 [Documentação do Git]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -331,7 +300,8 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Criar um Repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Usando Git com CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Criar um Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Início rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
-[Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
-[Envio contínuo ao Azure por meio do Visual Studio Online]: http://azure.microsoft.com/develop/net/common-tasks/publishing-with-tfs/
-<!--HONumber=42-->
+[Início rápido - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
+[Usando Dropbox para compartilhar repositórios Git]: https://gist.github.com/trey/2722927
+[Entrega contínua para o Azure usando o Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+
+<!--HONumber=49-->

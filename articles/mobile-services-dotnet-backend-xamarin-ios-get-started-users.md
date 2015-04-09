@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -28,9 +28,9 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
 
-##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços Móveis
+##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -72,9 +72,9 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
             }
         }
 
-> [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_, ou _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado ao **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs**. Modifique a definição de método de **ViewDidLoad** para remover a chamada para **RefreshAsync()** perto do final:
+3. Abra o **QSTodoListViewController.cs**. Modifique a definição de método de **ViewDidLoad** para remover a chamada para **RefreshAsync()** perto do final:
 
 		public override async void ViewDidLoad ()
 		{
@@ -96,7 +96,7 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 		}
 
 
-4. Modifique o método **RefreshAsync** para autenticar e exibir uma tela de logon se a propriedade **User** for nula. No código a seguir na parte superior da definição do método:
+4. Modifique o método **RefreshAsync** para autenticar e exibir uma tela de logon se a propriedade **User** for null. No código a seguir na parte superior da definição do método:
 
 		// start of RefreshAsync method
 		if (todoService.User == null) {
@@ -112,9 +112,9 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 
 	Faça um gesto de atualização pressionando a lista de itens, o que fará com que a tela de logon apareça. Depois de inserir credenciais válidas com êxito, o aplicativo exibirá a lista de itens de tarefas pendentes e você poderá fazer a atualização dos dados.
 
-<!-- ## <a name="next-steps"> </a>Próximas etapas
+<!-- ## <a name="next-steps"> </a>Next steps
 
-No próximo tutorial, [Autorização de serviço dos usuários dos Serviços Móveis][Autorizar usuários com scripts], você obterá o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e o usará para filtrar os dados retornados pelos Serviços Móveis. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -128,12 +128,12 @@ No próximo tutorial, [Autorização de serviço dos usuários dos Serviços Mó
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
-[Autorizar usuários com scripts]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript e HTML]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[Introdução à autenticação]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Introdução às notificações por push]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Autorizar usuários com scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript e HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+<!--HONumber=49-->

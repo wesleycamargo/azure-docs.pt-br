@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" 
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -56,16 +56,16 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 2.	Para fornecer todos os provedores de identidade disponíveis, use o código a seguir:
 
-            var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-            var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-            var appName = 'appctest';
-            azureMobileServices.setAppName(appName);
-            var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
-            var dialog = Ti.UI.createOptionDialog({
+        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+        var appName = 'appctest';
+        azureMobileServices.setAppName(appName);
+        var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
+        var dialog = Ti.UI.createOptionDialog({
             options : authenticationClients,
             title : 'Select a client'
-            });
-            dialog.addEventListener('click', function(evt) {
+        });
+        dialog.addEventListener('click', function(evt) {
             if (evt.index == 0 || evt.index == 1 || evt.index == 2 || evt.index == 3 || evt.index == 4) {
                 var str = authenticationClients[evt.index];
                 str = str.replace(/ /g, '');
@@ -79,22 +79,22 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
             } else {
                 dialog.hide();
             }
-            });
-            dialog.show();
+        });
+        dialog.show();
 
 3.	Para fornecer um provedor de identidade específico, use o código a seguir:
 
-            var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-            var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-            var authorizeClient = "Google"; //Replace "Google" with identity provider.
-            authorizeClient = authorizeClient.toLowerCase();
-            azureMobileServices.authorizeClient(authorizeClient, function(result) {
+        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+        var authorizeClient = "Google"; //Replace "Google" with identity provider.
+        authorizeClient = authorizeClient.toLowerCase();
+        azureMobileServices.authorizeClient(authorizeClient, function(result) {
             if (result == 'true') {
                 Alloy.createController('TableData');
             }
-            });
+        });
 
->[AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes: *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[AZURE.NOTE] Se estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes: *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
 4.	Pressione o botão Executar para criar o projeto, inicie o aplicativo no simulador do iPhone ou em um emulador do Android e clique na opção Com Logon para fazer logon no provedor de identidade.
 
@@ -110,6 +110,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Introdução aos Serviços Móveis]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

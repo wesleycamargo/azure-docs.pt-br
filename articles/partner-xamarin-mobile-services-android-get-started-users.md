@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introdução à autenticação (Xamarin.Android) - serviços móveis" 
 	description="Aprenda a usar a autenticação em seu aplicativo de serviços móveis do Azure para Android Xamarin." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -28,7 +28,7 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
 
 Para concluir este tutorial, é necessário ter Xamarin.Android e SDK do Android 4.2 ou uma versão posterior. 
 
@@ -52,7 +52,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 <h2><a name="add-authentication"></a>Adicionar autenticação ao aplicativo</h2>
 
-1. Adicione a seguinte propriedade à classe **TodoActivity**:
+1. Adicione a seguinte propriedade à classe **TodoActivity** :
 
 			private MobileServiceUser user;
 
@@ -73,9 +73,9 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
     Isso cria um novo método para manipular o processo de autenticação. O usuário é autenticado usando um logon da Conta da Microsoft. Será exibida uma caixa de diálogo que exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
-    > [AZURE.NOTE] Se estiver usando um provedor de identidade diferente da Microsoft, altere o valor passado para o método **login** acima para um dos seguintes: _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Se estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para o método **login** acima para um dos seguintes: _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
 
-3. No método **OnCreate**, adicione a linha de código a seguir após o código que cria uma instância do objeto  `MobileServiceClient`.
+3. No método **OnCreate** adicione a linha de código a seguir após o código que cria uma instância do objeto  `MobileServiceClient`.
 
 		await Authenticate();
 
@@ -104,7 +104,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 		await CreateTable();
 
 
-6. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com o provedor de identidade escolhido. 
+6. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com seu provedor de identidade. 
 
    	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
@@ -113,7 +113,7 @@ Baixe o [projeto de exemplo concluído]. Lembre-se de atualizar as variáveis **
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis. 
+No próximo tutorial, [Autorizar usuários com scripts], você obterá o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis. 
 
 <!-- Anchors. -->
 [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
@@ -134,15 +134,16 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-xamarin-android
-[Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Autorizar usuários com scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-xamarin-android
+[Introdução aos dados]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
 [projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

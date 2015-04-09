@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Saiba como proteger o acesso aos dados no Banco de Dados de Documentos | Azure" 
+	pageTitle="Saiba como proteger o acesso aos dados no Banco de Dados de Documentos do Azure" 
 	description="Saiba mais sobre conceitos de controle de acesso no Banco de Dados de Documentos, incluindo chaves mestras, chaves somente leitura, usuários e permissões." 
 	services="documentdb" 
 	authors="stephbaron" 
@@ -84,7 +84,7 @@ Como mencionado anteriormente, chaves mestras do Banco de Dados de Documentos fo
         });
 
 
-##<a id="Sub3"></a>Visão geral dos tokens de recurso do Banco de Dados de Documentos ##
+##<a id="Sub3"></a>Visão geral dos tokens de recursos do Banco de Dados de Documentos ##
 Você pode usar um token de recurso (criando usuários e permissões do Banco de Dados de Documentos) quando quiser fornecer acesso a recursos de sua conta do Banco de Dados de Documentos a um cliente que não é confiável para receber a chave mestra. Suas chaves mestras do Banco de Dados de Documentos incluem uma chave primária e uma chave secundária, que concedem acesso administrativo à sua conta e a todos os recursos que ela contém. A exposição de qualquer uma de suas chaves mestras torna sua conta vulnerável a um possível uso mal-intencionado ou negligente. 
 
 Da mesma forma, as chaves somente leitura do Banco de Dados de Documentos fornecem acesso de leitura a todos os recursos - exceto recursos de permissão, é claro - de uma conta do Banco de Dados de Documentos e não podem ser usadas para fornecer um acesso mais granular a recursos específicos dele.
@@ -95,12 +95,12 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 
 1. Um serviço de camada intermediária é configurado para atender a um aplicativo móvel de compartilhamento de fotos do usuário.
 2. O serviço de camada intermediária tem a chave mestra da conta do Banco de Dados de Documentos.
-3. O app de fotos é instalado em dispositivos móveis de usuários finais. 
+3. O aplicativo de fotos é instalado em dispositivos móveis de usuários finais. 
 4. No logon, o aplicativo de fotos estabelece a identidade do usuário com o serviço de camada intermediária. Esse mecanismo de estabelecimento de identidade depende apenas do aplicativo.
 5. Depois que a identidade é estabelecida, o serviço de camada intermediária solicita permissões com base na identidade.
-6. O serviço de camada intermediária envia um token de recurso de volta para o app móvel.
-7. O app móvel pode continuar usando o token de recurso para acessar diretamente recursos do Banco de Dados de Documentos com as permissões definidas pelo token e no intervalo permitido por ele. 
-8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado.  Nesse ponto, o app móvel restabelece a identidade e solicita um novo token de recurso.
+6. O serviço de camada intermediária envia um token de recurso de volta para o aplicativo móvel.
+7. O aplicativo móvel pode continuar usando o token de recurso para acessar diretamente recursos do Banco de Dados de Documentos com as permissões definidas pelo token e no intervalo permitido por ele. 
+8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado.  Nesse ponto, o aplicativo móvel restabelece a identidade e solicita um novo token de recurso.
 
 ![DocumentDB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
@@ -155,12 +155,12 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP] Tokens de recurso têm um intervalo de tempo válido padrão de uma hora.  O tempo de vida do token, no entanto, pode ser especificada explicitamente, até um máximo de cinco horas.
+> [AZURE.TIP] Tokens de recurso têm um intervalo de tempo válido padrão de uma hora.  O tempo de vida do token, no entanto, pode ser especificado explicitamente, até um máximo de cinco horas.
 
 ##<a name="NextSteps"></a>Próximas etapas
 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
-- Para saber sobre o gerenciamento de chaves mestras e somente leitura, clique [aqui](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/).
+- Para saber sobre o gerenciamento de chaves mestras e somente leitura, clique [aqui](documentdb-manage-account.md).
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

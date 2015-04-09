@@ -83,10 +83,12 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
             }
         }
 
-	Nesta versão do **AuthenticateAsync**, o aplicativo tenta usar as credenciais armazenadas no **PasswordVault** para acessar ao serviço móvel. Uma consulta simples é enviada para verificar que o token armazenado não tenha expirado. Se um 401 for retornado, tenta-se um registro normal baseado no provedor. Também é realizado um registro normal quando não há uma credencial armazenada.
+	Nesta versão do **AuthenticateAsync**, o aplicativo tenta usar as credenciais armazenadas no **PasswordVault** para acessar ao serviço móvel. Uma consulta simples é enviada para verificar que o token armazenado não tenha expirado. Se um 401 for retornado, tenta-se uma entrada normal baseada no provedor. Também é realizada uma entrada normal quando não há uma credencial armazenada.
 
 	>[AZURE.NOTE]Este aplicativo testa tokens expirados durante o logon, mas a expiração do token pode ocorrer após a autenticação quando o aplicativo estiver em uso. Para solucionar como lidar com erros de autorização relacionados a tokens expirados, consulte a postagem [Armazenagem em cache e manipulação de tokens expirados no SDK gerenciado pelos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
 
 3. Reiniciar o aplicativo.
 
-	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. <!--HONumber=42-->
+	Observe que na primeira inicialização, a entrada no provedor é requerida novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e ignora-se a entrada. 
+
+<!--HONumber=49-->

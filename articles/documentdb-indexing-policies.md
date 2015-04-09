@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Políticas de Indexação do Banco de Dados de Documentos | Azure" 
 	description="Compreender como a indexação funciona no Banco de Dados de Documentos e saber como configurar a política de indexação." 
 	services="documentdb" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="documentdb" 
-	ms.devlang="may be required" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/23/2015" 
+	ms.date="03/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -26,18 +26,17 @@ A indexação automática de documentos é habilitada por técnicas de manutenç
 
 O subsistema de indexação do Banco de Dados de Documentos foi projetado para oferecer suporte a:
 
-·         Pesquisas hierárquicas e relacionais ricas e eficientes sem quaisquer definições de esquema ou índice.
+·         Pesquisas hierárquicas e relacionais ricas e eficientes sem quaisquer definições de esquema ou índice.
 
-·         Resultados de consulta consistentes ao manipular um volume prolongado de gravações. Para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, ao manipular um volume prolongado de gravações.
+·         Resultados de consulta consistentes ao manipular um volume prolongado de gravações. Para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, ao manipular um volume prolongado de gravações.
 
-·         Eficiência do armazenamento. Para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível.
+·         Eficiência do armazenamento. Para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível.
 
-·         Multilocação. As atualizações do índice são realizadas dentro do orçamento dos recursos do sistema alocados por coleção de documento. 
+·         Multilocação. As atualizações do índice são realizadas dentro do orçamento dos recursos do sistema alocados por coleção de documento.
 
-Para a maioria dos aplicativos, você pode usar a diretiva de indexação automática padrão já que ela permite mais flexibilidade e compensações perfeitas entre desempenho e eficiência de armazenamento. Por outro lado, especificar uma política de indexação personalizada permite que você faça compensações granulares entre desempenho de pesquisa, desempenho de gravação e sobrecarga de armazenamento do índice.  
+Para a maioria dos aplicativos, você pode usar a diretiva de indexação automática padrão já que ela permite mais flexibilidade e compensações perfeitas entre desempenho e eficiência de armazenamento. Por outro lado, especificar uma política de indexação personalizada permite que você faça compensações granulares entre desempenho de pesquisa, desempenho de gravação e sobrecarga de armazenamento do índice.
 
-Por exemplo, excluindo certos documentos ou caminhos nos documentos da indexação, você pode reduzir o espaço armazenamento usado para indexação, bem como o custo de tempo de inserção para manutenção de índice. Você pode alterar o tipo do índice mais adequado para consultas de intervalo ou aumentar a precisão de índice em bytes para melhorar o desempenho da consulta. Este artigo descreve diferentes configurações de indexação disponíveis no
-Banco de Dados de Documentos e como personalizar a política de indexação para suas cargas de trabalho.
+Por exemplo, excluindo certos documentos ou caminhos nos documentos da indexação, você pode reduzir o espaço armazenamento usado para indexação, bem como o custo de tempo de inserção para manutenção de índice. Você pode alterar o tipo do índice mais adequado para consultas de intervalo ou aumentar a precisão de índice em bytes para melhorar o desempenho da consulta. Este artigo descreve diferentes configurações de indexação disponíveis no Banco de Dados de Documentos e como personalizar a política de indexação para suas cargas de trabalho.
 
 <a id="HowWorks"></a>Como funciona a indexação do Banco de Dados de Documentos
 -----------------------------
@@ -49,11 +48,9 @@ A indexação do Banco de Dados de Documentos aproveita-se que a gramática JSON
 
 Por exemplo, a propriedade JSON {"headquarters": A propriedade "Belgium"} no exemplo acima corresponde ao caminho/"headquarters"/"Belgium". A matriz JSON {"exports": [{"city": "Moscow"}, {"city": Athens"}]} correspondem aos caminhos /"exports"/0/"city"/"Moscow" e /"exports"/1/"city"/"Athens".
 
-**Observação** A representação de caminho confunde os limites entre a estrutura/esquema e os valores de instância em documentos, permitindo que o
-Bando de Dados de Documentos seja realmente livre de esquema.
+**Observação** A representação de caminho confunde os limites entre a estrutura/esquema e os valores de instância em documentos, permitindo que o Bando de Dados de Documentos seja realmente livre de esquema.
 
-No Banco de Dados de Documentos, os documentos são organizados em coleções que podem ser consultadas usando o SQL ou processadas dentro do escopo de uma única transação.
-Cada coleção pode ser configurada com sua própria política de indexação expressada em termos de caminhos. Na seção a seguir, veremos como configurar o comportamento de indexação de uma coleção do Banco de Dados de Documentos.
+No Banco de Dados de Documentos, os documentos são organizados em coleções que podem ser consultadas usando o SQL ou processadas dentro do escopo de uma única transação. Cada coleção pode ser configurada com sua própria política de indexação expressada em termos de caminhos. Na seção a seguir, veremos como configurar o comportamento de indexação de uma coleção do Banco de Dados de Documentos.
 
 <a id="ConfigPolicy"></a>Configurando a política de indexação de uma coleção
 -------------------------------------------
@@ -66,7 +63,7 @@ O exemplo a seguir mostra como definir uma política de indexação personalizad
  	Accept: application/json 
                                                                                                                          
  	{                                                                     
-	 "name":"customIndexCollection",                                     
+	 "id":"customIndexCollection",                                     
 	 "indexingPolicy":{                                                 
      "automatic":true,                                            
 	 "indexingMode":"Consistent",                                     
@@ -87,16 +84,15 @@ O exemplo a seguir mostra como definir uma política de indexação personalizad
 	 HTTP/1.1 201 Created                                                     
 
 
-**Observação:** A política de indexação de uma coleção deve ser especificada no momento da sua criação. Não é permitido modificar a política de indexação após a criação do conjunto, porém terá suporte em uma versão futura do Banco de Dados de Documentos.
+**Observação:** a política de indexação de uma coleção deve ser especificada no momento da sua criação. Não é permitido modificar a política de indexação após a criação do conjunto, porém, isso terá suporte em uma versão futura do Banco de Dados de Documentos.
 
-**Observação:** Por padrão, O Banco de Dados de Documentos indexa todos os caminhos nos documentos consistentemente com um índice de hash. O caminho interno do carimbo de hora (\_ts) é armazenado com um índice de intervalo.
+**Observação:** por padrão, O Banco de Dados de Documentos indexa todos os caminhos nos documentos consistentemente com um índice de hash. O caminho interno do carimbo de data/hora (\_ts) é armazenado com um índice de intervalo.
 
 ### Indexação automática
 
 Você pode escolher se deseja ou não que a coleção indexe automaticamente todos os documentos. Por padrão, todos os documentos são indexados automaticamente, mas você pode optar por desativá-lo. Quando a indexação estiver desativada, documentos podem ser acessados somente por meio de seus self links ou através de consultas usando um ID.
 
-Com a indexação automática desativada, você ainda pode adicionar seletivamente somente documentos específicos para o índice. Por outro lado, você pode deixar a indexação automática e seletivamente optar por excluir apenas documentos específicos.
-As configurações de Ativar/desativar a indexação são úteis quando você tem apenas um subconjunto dos documentos que precisa ser consultado.
+Com a indexação automática desativada, você ainda pode adicionar seletivamente somente documentos específicos para o índice. Por outro lado, você pode deixar a indexação automática e seletivamente optar por excluir apenas documentos específicos. As configurações de Ativar/desativar a indexação são úteis quando você tem apenas um subconjunto dos documentos que precisa ser consultado.
 
 Você pode configurar a política padrão especificando o valor da propriedade automática para ser verdadeiro ou falso. Para substituir um único documento, você pode definir a solicitação de cabeçalho x-ms-indexingdirective ao inserir ou substituir um documento.
 
@@ -107,7 +103,7 @@ Por exemplo, o exemplo a seguir mostra como incluir um documento explicitamente 
 	// use the RequestOptions.IndexingDirective property.                                  
 	                                                                         
 	client.CreateDocumentAsync(defaultCollection.SelfLink,  
-	    new { Name = "AndersenFamily", isRegistered = true },                            
+	    new { Id = "AndersenFamily", isRegistered = true },                            
 		new RequestOptions                               
 		    {                                                                    
 			    IndexingDirective = IndexingDirective.Include                                                                                      
@@ -119,17 +115,16 @@ Por exemplo, o exemplo a seguir mostra como incluir um documento explicitamente 
 
 Escolha entre atualizações de índice síncronas (**Consistentes**) e assíncronas (**lentas**). Por padrão, o índice é atualizado sincronamente em cada ação de inserção, substituição ou exclusão realizada em um documento na coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos sem demora para o índice atualizado.
 
-Enquanto o Banco de Dados de Documentos é otimizado para gravação e suporta volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta é excelente para situações em que dados são gravados em picos e deseja amortizar o trabalho necessário para indexar o conteúdo em um período mais longo de tempo. Isso permite que você use a taxa de transferência provisionada com eficiência e atenda solicitações de gravação em horários de pico com latência mínima.    Com a indexação lenta ativada, os resultados de consultas serão eventualmente consistentes, independentemente do nível de consistência configurada para a conta de banco de dados.                                                                                     
+Embora o Banco de Dados de Documentos seja otimizado para gravação e dê suporte a volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta é excelente para situações em que dados são gravados em picos e deseja amortizar o trabalho necessário para indexar o conteúdo em um período mais longo de tempo. Isso permite que você use a taxa de transferência provisionada com eficiência e atenda solicitações de gravação em horários de pico com latência mínima. Com a indexação lenta ativada, os resultados de consultas serão eventualmente consistentes, independentemente do nível de consistência configurada para a conta de banco de dados.
 
-O exemplo a seguir mostra como criar uma coleção de Banco de Dados de Documentos usando o
-SDK do .NET com indexação automática consistente em todas as inserções do documento.
+O exemplo a seguir mostra como criar uma coleção do Banco de Dados de Documentos usando o SDK do .NET com indexação automática consistente em todas as inserções de documentos.
 
 
 	 // Default collection creates a hash index for all string and numeric    
 	 // fields. Hash indexes are compact and offer efficient                                                                                           
 	 // performance for equality queries.                                     
 	                                                                          
-	 var defaultCollection = new DocumentCollection { Name ="defaultCollection" };                                                   
+	 var defaultCollection = new DocumentCollection { Id ="defaultCollection" };                                                   
 	                                                                          
 	 // Optional. Override Automatic to false for opt-in indexing of documents.                                                                
 	                                                                          
@@ -147,15 +142,14 @@ SDK do .NET com indexação automática consistente em todas as inserções do d
 
 O tipo ou esquema usado para as entradas de índice tem um impacto direto no armazenamento de índice e no desempenho. Para um esquema usando mais precisão, as consultas são geralmente mais rápidas. No entanto, há também um armazenamento com maior sobrecarga para o índice. Escolher uma precisão menor significa que mais documentos podem ser processados durante a execução da consulta, e a sobrecarga de armazenamento será menor.
 
-A precisão de índice para valores em qualquer caminho pode ser entre 3 e 7 bytes. 
-Haja visto que o mesmo caminho pode ter valores numéricos e de sequência de caracteres em documentos diferentes, eles podem ser controlados separadamente. No SDK do .NET, esses valores correspondem às propriedades [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) e
-[StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx).
+A precisão de índice para valores em qualquer caminho pode ser entre 3 e 7 bytes.
+Haja vista que o mesmo caminho pode ter valores numéricos e de sequência de caracteres em documentos diferentes, eles podem ser controlados separadamente. No SDK do .NET, eles correspondem às propriedades [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) e [StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx).
 
 Há dois tipos com suporte de índice: Hash e intervalo. Escolher um tipo de índice **Hash** permite consultas de mesma eficiência. Na maioria dos casos de uso, os índices de hash não precisam de uma precisão maior que o valor padrão de 3 bytes.
 
 Escolhendo um tipo de índice **intervalo** permite consultas de intervalo (usando >, <, >=, <=, !=). Para caminhos que possuem grandes intervalos de valores, é recomendável usar uma precisão igual ou superior a 6 bytes. Um caso de uso comum que requer um índice de intervalo de maior precisão são os carimbos de hora armazenados como tempo de época.
 
-Se o seu caso de uso não requer consultas de intervalo eficientes, o padrão de índices de hash oferecem uma melhor relação de armazenamento e desempenho. Observe que, para oferecer suporte a consultas de intervalo, você deve especificar uma política de índice personalizado.
+Se o seu caso de uso não requer consultas de intervalo eficientes, o padrão de índices de hash oferece uma melhor relação de armazenamento e desempenho. Observe que, para oferecer suporte a consultas de intervalo, você deve especificar uma política de índice personalizado.
 
 > [AZURE.NOTE] Índices de intervalo têm suporte somente para valores numéricos.
   
@@ -166,7 +160,7 @@ O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em 
 	 // against ranges (>,>=,<=,<), then you can configure the collection to 
 	 // use range queries for all numeric values.                                                                                                      
  
-	var rangeDefault = new DocumentCollection { Name = "rangeCollection" };                                                              
+	var rangeDefault = new DocumentCollection { Id = "rangeCollection" };                                                              
 	rangeDefault.IndexingPolicy.IncludedPaths.Add(                                                             
 												 new IndexingPath {   
 													IndexType = IndexType.Range, Path = "/", 
@@ -179,12 +173,9 @@ O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em 
 
 Nos documentos, você pode escolher quais caminhos devem ser incluídos ou excluídos da indexação. Isso pode oferecer um melhor desempenho de gravação e menor armazenamento de índice para situações onde os padrões de consulta são previamente conhecidos.
 
-Caminhos de índice começam com a raiz (/) e geralmente terminam com o operador de curinga ?, indicando que há vários valores possíveis para o prefixo. Por exemplo, para servir de SELECT * FROM Families F WHERE
-F.familyName = "Andersen", você deve incluir um caminho de índice para a
-política de índice da coleção /"familyName"/?in.                                                      
+Caminhos de índice começam com a raiz (/) e geralmente terminam com o operador de curinga ?, indicando que há vários valores possíveis para o prefixo. Por exemplo, para servir de SELECT * FROM Families F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para a política de índice da coleção /"familyName"/?in.
 
-Caminhos de índice também podem usar o * operador curinga para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo,
-/"payload"/* pode ser usado para excluir tudo sob a propriedade de carga da indexação.
+Caminhos de índice também podem usar o * operador curinga para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /"payload"/* pode ser usado para excluir tudo sob a propriedade de carga da indexação.
 
 Estes são os padrões comuns para especificar caminhos de índice:
 
@@ -277,7 +268,7 @@ Estes são os padrões comuns para especificar caminhos de índice:
     </tbody>
 </table>
 
-> [AZURE.NOTE] Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/". 
+> [AZURE.NOTE] Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/".
 
 O exemplo a seguir configura um caminho específico com a indexação de intervalo e um valor personalizado de precisão de 7 bytes:
 
@@ -289,7 +280,7 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
  	// /"CreatedTimestamp"/?    
  	// allowing queries of the form WHERE CreatedTimestamp [>] X            
 	
-	var pathRange = new DocumentCollection { Name = "rangeSinglePathCollection" };    
+	var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 	
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
@@ -307,13 +298,12 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
 	 pathRange = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);      
 
 
-O Banco de Dados de Documentos retornará um erro quando uma consulta usa um operador de intervalo, mas não tem um índice de intervalo contra o caminho consultado e não tem todos os outros filtros que podem ser feitos a partir do índice. Mas essas consultas ainda podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-allow-scans na API REST ou
-usando a opção AllowScanInQueryrequest do SDK do .NET.                                                                                  
+O Banco de Dados de Documentos retornará um erro quando uma consulta usa um operador de intervalo, mas não tem um índice de intervalo contra o caminho consultado e não tem todos os outros filtros que podem ser feitos a partir do índice. Mas essas consultas ainda podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-allow-scans na API REST ou usando a opção AllowScanInQueryrequest do SDK do .NET.
 
 O exemplo a seguir exclui uma subárvore de caminhos de indexação usando o
 "*" curinga.
 
-	var excluded = new DocumentCollection { Name = "excludedPathCollection" };                                                                       
+	var excluded = new DocumentCollection { Id = "excludedPathCollection" };                                                                       
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
@@ -335,8 +325,7 @@ Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma 
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Para medir a sobrecarga de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho x-ms-request-charge (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse <T\>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK
-do .NET) para avaliar o número de unidades de solicitação consumidas por essas operações.
+Para medir a sobrecarga de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho x-ms-request-charge (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse <T\>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
 
 
  	// Measure the performance (request units) of writes.     
@@ -356,4 +345,4 @@ do .NET) para avaliar o número de unidades de solicitação consumidas por essa
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

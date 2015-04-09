@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Agendar tarefas de back-end com o Agendador - Serviços Móveis" 
 	description="Use o Agendador dos serviços móveis do Azure para agendar trabalhos para seu aplicativo móvel." 
 	services="mobile-services" 
@@ -19,8 +19,8 @@
 # Agendar trabalhos recorrentes nos Serviços Móveis 
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Qualquer | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(Qualquer | JavaScript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(Qualquer | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Qualquer | JavaScript)](mobile-services-schedule-recurring-tasks.md)
  
 Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Portal de Gerenciamento para definir o código de script que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
 
@@ -52,7 +52,7 @@ Agora, você pode criar o trabalho agendado que acessa o Twitter e armazena dado
 
 2. Clique na guia **Agendador** e clique em **+Criar**. 
 
-    >[AZURE.NOTE]Quando você executa seu serviço móvel na camada <em>Gratuito</em> você só é capaz de executar um trabalho agendado por vez. Em camadas pagas, você pode executar até dez trabalhos agendados simultaneamente.
+    >[AZURE.NOTE]Quando você executa seu serviço móvel na camada <em>Gratuita</em>, pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados simultaneamente.
 
 3. Na caixa de diálogo Agendador, digite _getUpdates_ para o **Nome do Trabalho**, defina o intervalo e as unidades do agendamento e clique no botão de seleção. 
 
@@ -183,4 +183,4 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=47-->
+<!--HONumber=49-->

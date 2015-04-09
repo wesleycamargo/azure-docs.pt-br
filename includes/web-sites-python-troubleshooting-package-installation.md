@@ -1,4 +1,4 @@
-Alguns pacotes podem não ser instalados usando pip durante a execução do Azure.  É possível simplesmente que o pacote não esteja disponível no índice de pacotes de Python.  Talvez um compilador seja necessário (um compilador não está disponível no computador executando o site do Azure).
+﻿Alguns pacotes podem não ser instalados usando pip durante a execução do Azure.  É possível simplesmente que o pacote não esteja disponível no índice de pacotes de Python.  Talvez um compilador seja necessário (um compilador não está disponível no computador executando o site do Azure).
 
 Nesta seção, examinaremos modos de lidar com esse problema.
 
@@ -6,9 +6,9 @@ Nesta seção, examinaremos modos de lidar com esse problema.
 
 Se a instalação do pacote requer um compilador, você deve tentar entrar em contato com o proprietário do pacote para solicitar que discos sejam disponibilizados para o pacote.
 
-Com o lançamento recente do [Compilador do Microsoft Visual C++ para Python 2.7][], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
+Com o lançamento recente do [compilador Microsoft Visual C++ para Python 2.7][], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
 
-### Compilar discos (requires Windows)
+### Compilar discos(requires Windows)
 
 Observação: Ao usar essa opção, certifique-se de compilar o pacote usando um ambiente de Python que corresponda à plataforma/arquitetura/versão usadas no site do Azure (Windows/32-bit/2.7 ou 3.4).
 
@@ -34,7 +34,7 @@ Edite seu requirements.txt para acrescentar a opção `--find-links` ao topo. Is
 
     --find-links wheelhouse
     azure==0.8.4
-			
+
 Se você quiser incluir todas as suas dependências na pasta \wheelhouse e não usar o índice de pacotes do python, você pode forçar o pip a ignorar o índice de pacotes adicionando `--no-index` na parte superior do seu requirements.txt.
 
     --no-index
@@ -64,7 +64,8 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 É recomendável que você exclua o ambiente virtual existente no site, para impedir que sobrem arquivos de quando o ambiente virtual foi gerenciado automaticamente.
 
 
-[Criar uma máquina Virtual executando Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[Compilador do Microsoft Visual C++ para Python 2.7]: http:://aka.ms/vcpython27
+[Criar uma Máquina virtual executando o Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Compilador do Microsoft Visual C++ para o Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-<!--HONumber=42-->
+
+<!--HONumber=49-->

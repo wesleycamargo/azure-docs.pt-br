@@ -29,22 +29,22 @@ Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal de V
 	![](./media/documentdb-monitor-accounts/madocdb1.png)
 
 
-3.	Clicar em **Total de Solicitações** ou **Média de Solicitações por Segundo** abre uma detalhada lâmina de **Métrica**.
-4.	A lâmina **Métrica** mostra detalhes das métricas que você selecionou.  Na parte superior da lâmina há um gráfico e, abaixo dele, uma tabela que mostra valores de agregação das métricas selecionadas como a média, o mínimo e o máximo.  A lâmina Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na lâmina de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
+3.	Clicar em **Total de Solicitações** ou **Média de Solicitações por Segundo** abre uma folha detalhada de **Métrica**.
+4.	A folha **Métrica** mostra detalhes das métricas que você selecionou.  Na parte superior da folha há um gráfico e, abaixo dele, uma tabela que mostra valores de agregação das métricas selecionadas como a média, o mínimo e o máximo.  A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
 
 	![](./media/documentdb-monitor-accounts/madocdb2.png)
 
 
 ## <a id="custom"></a>Personalizar exibições de métricas de desempenho para uma conta do Banco de Dados de Documentos
 
-1.	Para personalizar as métricas que são exibidas em uma parte específica, clique com o botão direito no gráfico de métricas e selecione **Editar Gráfico.**  
+1.	Para personalizar as métricas exibidas em uma parte específica, clique com o botão direito no gráfico de métricas e selecione **Editar gráfico**.  
 	![](./media/documentdb-monitor-accounts/madocdb3.png)
 
-2.	Na lâmina **Editar Gráfico**, há opções para modificar as métricas que são exibidas nessa parte, além de seu intervalo de tempo.  
+2.	Na folha **Editar Gráfico**, há opções para modificar as métricas que são exibidas nessa parte, além de seu intervalo de tempo.  
 	![](./media/documentdb-monitor-accounts/madocdb4.png)
 
-3.	Para alterar as métricas que são exibidas na parte, basta marcar ou desmarcar as métricas de desempenho disponíveis e clicar em **Salvar** na parte inferior da lâmina.  
-4.	Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Última Hora**) e clique em **Salvar** na parte inferior da lâmina.  
+3.	Para alterar as métricas que são exibidas na parte, basta marcar ou desmarcar as métricas de desempenho disponíveis e clicar em **Salvar** na parte inferior da folha.  
+4.	Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Última Hora**) e clique em **Salvar** na parte inferior da folha.  
 
 	![](./media/documentdb-monitor-accounts/madocdb5.png) 
 
@@ -61,7 +61,7 @@ O portal de Visualização do Azure permite que você crie gráficos de métrica
 	![](./media/documentdb-monitor-accounts/madocdb7.png)  
 
 
-Agora, você pode tratar essa parte como qualquer outra parte de métrica, personalizando as métricas e o intervalo de tempo exibidos na parte.  Fazendo isso, você pode dois gráficos de métricas diferentes lado a lado, simultaneamente.  
+Agora, você pode tratar essa parte como qualquer outra parte de métrica, personalizando as métricas e o intervalo de tempo exibidos na parte.  Fazendo isso, você pode ver um gráfico com duas métricas diferentes lado a lado simultaneamente.  
 	![](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## <a id="view"></a>Ver métricas de uso de uma conta do Banco de Dados de Documentos
@@ -81,10 +81,10 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 2.	Na lente **Operações**, clique na parte **Regras de alerta**.  
 	![](./media/documentdb-monitor-accounts/madocdb10.png)
 
-3.	Na lâmina das Regras de alerta, clique em **Adicionar Alerta**.  
+3.	Na folha das Regras de alerta, clique em **Adicionar Alerta**.  
 	![](./media/documentdb-monitor-accounts/madocdb11.png)
 
-4.	Na lâmina **Adicionar uma regra de alerta**, especifique:
+4.	Na folha **Adicionar uma regra de alerta**, especifique:
 	*	O nome da regra de alerta que você está configurando.
 	*	Uma descrição da nova regra de alerta.
 	*	A métrica para a regra de alerta.
@@ -95,7 +95,7 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 
  
 ## <a id="next"></a>Próximas etapas
-Para saber mais sobre a capacidade e o desempenho do Banco de Dados de Documentos, consulte [Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos](../documentdb-manage/). 
+Para saber mais sobre a capacidade e o desempenho do Banco de Dados de Documentos, consulte [Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos](documentdb-manage.md). 
 
 <!--Anchors-->
 [Como exibir métricas de desempenho para uma conta do Banco de Dados de Documentos]: #How-to-view-performance-metrics-for-a-DocumentDB-account
@@ -105,4 +105,4 @@ Para saber mais sobre a capacidade e o desempenho do Banco de Dados de Documento
 [Como definir alertas de métricas de desempenho para uma conta do Banco de Dados de Documentos]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [Próximas etapas]: #Next-steps
 
-<!--HONumber=47-->
+<!--HONumber=49-->

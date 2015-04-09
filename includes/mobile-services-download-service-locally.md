@@ -6,7 +6,7 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-service-project.png)
 
-3. Se você ainda não o fez, baixe e instale o [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou uma versão posterior.
+3. Se ainda não tiver feito isso, baixe e instale o [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934), ou uma versão posterior.
 
 4. Clique em **Baixar** em **Baixar e publicar o serviço na nuvem**.
 
@@ -27,4 +27,4 @@
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=47-->
+<!--HONumber=49-->

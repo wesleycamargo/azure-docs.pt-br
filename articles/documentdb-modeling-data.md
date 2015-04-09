@@ -38,7 +38,7 @@ Antes de nos aprofundarmos demais, vamos voltar um pouco e ver como modelaríamo
 
 Durante anos trabalhando com bancos de dados relacionais, aprendemos a normalizar, normalizar e normalizar.
 
-Normalizar os dados geralmente envolve pegar uma entidade, como uma pessoa, e dividi-la em dados separados. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Nós ainda vamos além e dividimos os detalhes de contato extraindo campos comuns, como tipo. O mesmo vale para o endereço, cada registro tem um tipo, como  *Residencial* ou *Comercial* 
+Normalizar os dados geralmente envolve pegar uma entidade, como uma pessoa, e dividi-la em dados separados. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Nós ainda vamos além e dividimos os detalhes de contato extraindo campos comuns, como tipo. O mesmo vale para o endereço, cada registro tem um tipo, como *Residencial* ou *Comercial* 
 
 A premissa que orienta a normalização de dados é **evitar armazenar dados redundantes** em cada registro e, em vez disso, referir-se a eles. Neste exemplo, para ler uma pessoa, com todos os endereços e detalhes de contato, você precisa usar junções para agregar os dados de modo eficaz em tempo de execução.
 
@@ -114,7 +114,7 @@ Veja este trecho de JSON.
 
 Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada**, o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso se tornará um problema, pois o tamanho do documento poderá aumentar significativamente.
 
-> [AZURE.TIP] Documentos no Banco de Dados de Documentos têm um tamanho máximo. Para saber mais, consulte [limites do Banco de Dados de Documentos](../documentdb-limits).
+> [AZURE.TIP] Documentos no Banco de Dados de Documentos têm um tamanho máximo. Para saber mais, consulte [limites do Banco de Dados de Documentos](documentdb-limits.md).
 
 Conforme o tamanho do documento aumenta, a capacidade de transmitir dados eletronicamente, bem como de ler e atualizar o documento, em escala, será afetada.
 
@@ -175,7 +175,7 @@ Veja este trecho de JSON.
 
 Isto pode representar o portfólio de ações de alguém. Nós optamos por inserir as informações das ações em cada documento do portfólio. Em um ambiente onde dados relacionados mudam com frequência, como um aplicativo de corretagem de ações, inserir dados que mudam frequentemente significa que você atualiza constantemente cada documento do portfólio, sempre que uma ação for negociada.
 
-A ação  *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação  *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema mal dimensionado. 
+A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema mal dimensionado. 
 
 ##<a id="Refer"></a>Fazendo referência a dados##
 
@@ -183,7 +183,7 @@ Inserir dados funciona bem em muitos casos, mas claramente há situações em qu
 
 Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a compilação de sistemas que se adequariam melhor a um banco de dados relacional no Banco de Dados de Documentos, ou em qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser muito úteis. 
 
-No JSON abaixo, optamos por usar o exemplo do portfólio de ações mas, dessa vez, fazemos referência ao item de estoque no portfólio em vez de inseri-lo. Dessa forma, quando o item de estoque mudar frequentemente ao longo do dia, o único documento que precisará ser atualizado será o documento de estoque. 
+No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa vez, fazemos referência ao item de estoque no portfólio em vez de inseri-lo. Dessa forma, quando o item de estoque mudar frequentemente ao longo do dia, o único documento que precisará ser atualizado será o documento de estoque. 
 
     Documento de pessoa:
     {
@@ -264,7 +264,7 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
 	Publisher document: 
 	{
 	    "id": "mspress",
-	    "name": "Microsoft Press
+	    "name": "Microsoft Press"
 	}
 	
 	Book documents: 
@@ -279,7 +279,7 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
 No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora no documento de cada livro.
 
 ###Como eu modelo relações de muitos para muitos?
-Em um banco de dados relacional, relações  *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas. 
+Em um banco de dados relacional, relações *many:many* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas. 
 
 ![Join tables](./media/documentdb-modeling-data/join-table.png)
 
@@ -369,9 +369,9 @@ Considere o JSON a seguir.
 		]
 	}
 
-Aqui, seguimos (principalmente) o modelo inserido, em que dados de outras entidade são inseridos no documento de nível superior, mas outros dados são referenciados. 
+Aqui, seguimos (principalmente) o modelo inserido, em que dados de outras entidades são inseridos no documento de nível superior, mas outros dados são referenciados. 
 
-Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo de  *id* que é o campo que usamos para fazer referência a um documento de autor, o que é o padrão em um modelo normalizado, mas também temos  *nome* e  *thumbnailUrl*. Nós poderíamos ter ficado somente com a  *id* e deixado o aplicativo obter informações adicionais do documento do autor usando o "vínculo", mas como nosso aplicativo mostra o nome do autor e uma foto em miniatura com cada livro mostrado, podemos eliminar uma viagem de ida e volta ao servidor por livro da lista desnormalizando **alguns** dados do autor.
+Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo de *id* que é o campo que usamos para fazer referência a um documento de autor, o que é a prática padrão em um modelo normalizado, mas também temos *name* e *thumbnailUrl*. Nós poderíamos ter ficado somente com a *id* e deixado o aplicativo obter informações adicionais do documento do autor usando o "vínculo", mas como nosso aplicativo mostra o nome do autor e uma foto em miniatura com cada livro mostrado, podemos eliminar uma viagem de ida e volta ao servidor por livro da lista desnormalizando **alguns** dados do autor.
 
 Claro, se o nome do autor mudasse ou se ele quisesse altera sua foto, teríamos que atualizar cada livro publicado. Mas para nosso aplicativo, com base no fato de que autores não mudam de nome com frequência, essa é uma decisão de design aceitável.  
 
@@ -385,11 +385,12 @@ O principal aspecto deste artigo é entender que modelar dados em um ambiente se
 
 Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente. 
 
-Para saber mais sobre o Banco de Dados de Documentos, consulte a página de [documentação]( ../../services/documentdb/) do serviço . 
+Para saber mais sobre o Banco de Dados de Documentos, consulte a página de [documentação]( ../../services/documentdb/) do serviço 
 
-Para saber mais sobre o ajuste de índices no Banco de Dados de Documentos do Azure, consulte o artigo sobre as [políticas de indexação](../documentdb-indexing-policies).
+Para saber mais sobre o ajuste de índices no Banco de Dados de Documentos do Azure, consulte o artigo sobre as [políticas de indexação](documentdb-indexing-policies.md).
 
-Para saber como fragmentar seus dados em diversas partições, consulte [Particionando dados no Banco de Dados de Documentos](../documentdb-partition-data). 
+Para saber como fragmentar seus dados em diversas partições, consulte [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md). 
 
 Por fim, para obter orientações sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
-<!--HONumber=47-->
+
+<!--HONumber=49-->

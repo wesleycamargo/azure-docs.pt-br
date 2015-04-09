@@ -20,7 +20,7 @@
 #Limites da versão de teste do Banco de Dados de Documentos
 A tabela a seguir descreve os limites e imposições de cota do Banco de Dados de Documentos durante a versão de teste. Na maioria dos casos, os limites são impostos com a intenção de obter seus comentários ou com base nas restrições de capacidade atual. Se você tem a necessidade comercial de reduzir os limites, entre em contato conosco e faremos o possível para acomodá-la dentro das restrições da oferta pública.    
 
-|Entidade|Cota (oferta Standard da versão de teste)|
+|Entidade |Quota (oferta Standard na versão de teste)|
 |-------|--------|
 |Contas do banco de dados     |5
 |Número de bancos de dados por conta de banco de dados     |100
@@ -30,26 +30,26 @@ A tabela a seguir descreve os limites e imposições de cota do Banco de Dados d
 |Número máximo de unidades de capacidade por conta de banco de dados       |50
 |Número de coleções por unidade de capacidade      |3
 |Armazenamento mínimo alocado por coleção com, no mínimo, 1 documento    |3,3 GB
-|Rendimento mínimo alocado por coleção com, no mínimo, 1 documento |667 RUs
-|Elasticidade de uma coleção    |0 a 10 GB
+|Rendimento mínimo alocado por coleção com, no mínimo, 1 documento |667 RUs (unidades de solicitação)
+|Elasticidade da coleção    |0 GB a 10 GB
 |Máximo de unidades de solicitação/s por coleção   |2000
 |Número de procedimentos armazenados, gatilhos e UDFs por coleção       |25 cada
-|Tempo de execução máximo para procedimento armazenado e gatilho     |5 segundos
+|Tempo de execução máximo para procedimento armazenado e gatilho     |5 s
 |Armazenamento/unidade de capacidade de documento provisionado |10 GB
-|Unidades de solicitação/s provisionadas por unidade de capacidade     |2.000
+|Unidades de solicitação/s provisionadas por unidade de capacidade     |2000
 |Armazenamento máximo de documentos por banco de dados (5 unidades de capacidade)    |500 GB
-|Tamanho máximo da propriedade Id    |255 caracteres
+|Comprimento máximo da propriedade Id    |255 caracteres
 |Número padrão de itens por página     |100
-|Máximo de itens por página        |1.000
-|Tamanho máximo da solicitação de documento e anexo       |512 KB
-|Tamanho máximo da solicitação de procedimento armazenado, gatilho e UDF        |256 KB
-|Tamanho de resposta máximo |1 MB
+|Máximo de itens por página        |1000
+|Tamanho máximo da solicitação de documento e anexo       |512KB
+|Tamanho máximo da solicitação de procedimento armazenado, gatilho e UDF        |256KB
+|Tamanho de resposta máximo |1MB
 |Número máximo de caminhos exclusivos por coleção       |100
-|Cadeia de caracteres |Todas as cadeias de caracteres devem estar em conformidade com a codificação UTF-8. Como UTF-8 é uma codificação com largura variável, os tamanhos das cadeias de caracteres são determinados usando os bytes UTF-8.
-|Tamanho máximo da propriedade ou valor |Nenhum limite prático
+|Cadeia de caracteres |Todas as cadeias de caracteres devem ser codificadas em UTF-8. Como UTF-8 é uma codificação com largura variável, os tamanhos das cadeias de caracteres são determinados usando os bytes UTF-8.
+|Comprimento máximo da propriedade ou valor  |Sem limite prático
 |Número máximo de UDFs por consulta     |1
 |Número máximo de JOINs por consulta    |2
 |Número máximo de cláusulas AND por consulta      |5
 |Número máximo de cláusulas OR por consulta       |5
 
-<!--HONumber=47-->
+<!--HONumber=49-->

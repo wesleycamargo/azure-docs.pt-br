@@ -15,7 +15,7 @@
 
 4. Configure o IIS Express para permitir solicitações de conexão remota ao serviço. Para fazer isso, no arquivo applicationhost.config, localize o elemento site do serviço móvel e adicione um novo elemento  `binding`para a porta usando o endereço IP que você anotou anteriormente. Em seguida, salve o arquivo applicationhost.config. 
 
-    Your updated site element should look similar to the following:
+    Seu elemento site atualizado deverá ser semelhante ao seguinte:
 
         <site name="todolist_Service(1)" id="2">
             <application path="/" applicationPool="Clr4IntegratedAppPool">
@@ -29,13 +29,14 @@
 
 5. Abra o console do Firewall do Windows e crie uma nova regra de porta para permitir conexões à porta. Para obter mais informações sobre como criar uma nova regra de porta do Firewall do Windows, consulte [Como adicionar uma nova regra de porta do Firewall do Windows].
 
-    >[AZURE.NOTE]  Se seu computador de teste tiver ingressado em um domínio, exceções do firewall poderão ser controladas por uma política do domínio. Nesse caso, será necessário entrar em contato com o administrador do domínio para obter uma isenção para a porta em seu computador.
+    >[AZURE.NOTE] Se seu computador de teste tiver ingressado em um domínio, exceções do firewall poderão ser controladas por uma política do domínio. Nesse caso, será necessário entrar em contato com o administrador do domínio para obter uma isenção para a porta em seu computador.
 
     Você agora deve estar configurado para testar com o IIS Express hospedando o serviço móvel. 
 
-    >[AZURE.NOTE]  Depois de concluir o teste do serviço localmente, você deve excluir a regra do Firewall do Windows que criou. 
+    >[AZURE.NOTE] Depois de concluir o teste do serviço localmente, você deve excluir a regra do Firewall do Windows que criou. 
 
 
 <!-- URLs. -->
 [Como adicionar uma nova regra de porta do Firewall do Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
-<!--HONumber=42-->
+
+<!--HONumber=49-->

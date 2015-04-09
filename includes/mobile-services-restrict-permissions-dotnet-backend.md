@@ -1,6 +1,4 @@
-﻿
-
-Por padrão, todas as solicitações de recursos dos serviços móveis são restritas aos clientes que apresentam a chave do aplicativo, que não protege estritamente o acesso aos recursos. Para proteger seus recursos, você deve restringir o acesso a apenas clientes autenticados.
+﻿Por padrão, todas as solicitações de recursos dos serviços móveis são restritas aos clientes que apresentam a chave do aplicativo, que não protege estritamente o acesso aos recursos. Para proteger seus recursos, você deve restringir o acesso a apenas clientes autenticados.
 
 1. No Visual Studio, abra o projeto de serviço móvel, expanda a pasta Controladores e abra **TodoItemController.cs**. A classe **TodoItemController** implementa o acesso a dados da tabela TodoItem. Adicione a instrução `using` a seguir:
 
@@ -20,4 +18,4 @@ Por padrão, todas as solicitações de recursos dos serviços móveis são rest
 
 4. Republique seu projeto.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

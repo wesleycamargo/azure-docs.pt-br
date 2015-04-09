@@ -1,7 +1,7 @@
-﻿<properties 
-	pageTitle="Controlando o tráfego de sites do Azure com o Gerenciador de Tráfego do Azure" 
-	description="Este artigo fornece informações de resumo do Gerenciador de Tráfego do Azure, conforme ele se relaciona com Websites do Azure." 
-	services="web-sites" 
+<properties 
+	pageTitle="Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure" 
+	description="Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Azure, já que está relacionado a aplicativos Web do Azure." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -9,61 +9,60 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Controlando o tráfego de sites do Azure com o Gerenciador de Tráfego do Azure
+# Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
 
-> [AZURE.NOTE] Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Microsoft Azure em relação a Websites do Azure. Mais informações sobre o próprio Gerenciador de Tráfego do Azure podem ser encontradas visitando-se os links ao final deste artigo.
+> [AZURE.NOTE] Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Microsoft Azure, já que está relacionado a aplicativos Web do Serviço de Aplicativo do Azure. Mais informações sobre o próprio Gerenciador de Tráfego do Azure podem ser encontradas visitando-se os links ao final deste artigo.
 
 ## Introdução
-Você pode usar o Gerenciador de Tráfego do Azure para controlar como as solicitações de clientes Web são distribuídas para sites do Azure. Quando os pontos de extremidade do site do Azure são adicionados a um perfil do Gerenciador de Tráfego do Azure, este acompanha o status de seus sites (em execução, parados ou excluídos) de forma que possa decidir quais desses pontos de extremidade devem receber tráfego.
+Você pode usar o Gerenciador de Tráfego do Azure para controlar como as solicitações de clientes Web são distribuídas aos aplicativos Web no Serviço de Aplicativo do Azure. Quando os pontos de extremidade do aplicativo Web são adicionados a um perfil do Gerenciador de Tráfego do Azure, este acompanha o status de seus aplicativos Web (em execução, parado ou excluído) de modo que pode decidir quais desses pontos de extremidade devem receber tráfego.
 
 ## Métodos de balanceamento de carga
-O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga diferentes. Eles estão descritos na lista a seguir desde que pertençam a sites do Azure. 
+O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga diferentes. Eles estão descritos na lista a seguir, já que pertencem a aplicativos Web do Azure. 
 
-* **Failover**: Se tiver clones de site em regiões diferentes, você poderá usar esse método para configurar um site para todo o tráfego do cliente Web de serviço e configurar outro site em uma região diferente para oferecer esse tráfego caso o primeiro site fique indisponível. 
+* **Failover**: se tiver clones de aplicativos Web em regiões diferentes, você poderá usar esse método para configurar um aplicativo Web para suprir todo o tráfego do cliente Web e configurar outro aplicativo Web em uma região diferente, para suprir esse tráfego caso o primeiro site fique indisponível. 
 	
-* **Round Robin**: se tiver clones de site em regiões diferentes, você poderá usar esse método para distribuir tráfego por igual entre os sites em regiões diferentes. 
+* **Round Robin**: se tiver clones de aplicativo Web em regiões diferentes, você poderá usar esse método para distribuir tráfego por igual entre os aplicativos Web em regiões diferentes. 
 	
-* **Desempenho**: o método de desempenho distribui o tráfego com base no menor tempo de ida e volta até os clientes. O método de desempenho pode ser usado em sites dentro da mesma região ou em regiões diferentes. 
+* **Desempenho**: o método de desempenho distribui o tráfego com base no menor tempo de ida e volta até os clientes. O método de desempenho pode ser usado em aplicativos Web dentro da mesma região ou em regiões diferentes. 
 
 Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
-##Sites do Azure e perfis do Gerenciador de Tráfego 
-Para configurar e controlar o tráfego de site, crie um perfil no Gerenciador de Tráfego do Azure que use um dos três métodos de balanceamento de carga descritos anteriormente e, em seguida, adicione os pontos de extremidade (neste caso, sites) para os quais você deseja controlar o tráfego até o perfil. O status do site (em execução, parado ou excluído) é comunicado regularmente ao perfil para que o Gerenciador de Tráfego do Azure possa direcionar o tráfego de acordo.
+##Aplicativos Web e perfis do Gerenciador de Tráfego 
+Para configurar o controle do tráfego de aplicativos Web, crie um perfil no Gerenciador de Tráfego do Azure que use um dos três métodos de balanceamento de carga descritos anteriormente e, em seguida, adicione os pontos de extremidade (neste caso, aplicativos Web) para os quais você deseja controlar o tráfego até o perfil. O status do aplicativo Web (em execução, parado ou excluído) é comunicado regularmente ao perfil, para que o Gerenciador de Tráfego do Azure possa direcionar o tráfego de acordo.
 
 Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguintes pontos:
 
-* Para implantações apenas de site dentro da mesma região, os sites do Azure já fornecem uma funcionalidade de failover e round-robin independentemente do modo de site.
+* Para implantações apenas de aplicativos Web na mesma região, Aplicativos Web já oferece funcionalidade de failover e rodízio independentemente do modo do aplicativo Web.
 
-* Para implantações na mesma região usando sites do Azure com outro serviço de nuvem do Azure, você pode combinar ambos os tipos de pontos de extremidade para habilitar cenários híbridos.
+* Para implantações na mesma região usando Aplicativos Web juntamente com outro serviço de nuvem do Azure, você pode combinar ambos os tipos de pontos de extremidade para habilitar cenários híbridos.
 
-* Você só pode especificar um ponto de extremidade de site por região em um perfil. Quando você seleciona um site como um ponto de extremidade para uma região, os sites restantes nessa região ficam disponíveis para seleção desse perfil.
+*  Você só pode especificar um ponto de extremidade de aplicativo Web por região em um perfil. Quando você seleciona um aplicativo Web como um ponto de extremidade para uma região, os aplicativos Web restantes nessa região ficam indisponíveis para seleção para esse perfil.
 
-* Os pontos de extremidade de site especificados em um perfil do Gerenciador de Tráfego do Azure serão exibido na seção **Nomes de Domínio** da página Configurar dos sites no perfil, mas não serão configuráveis lá.
+*  Os pontos de extremidade de aplicativo Web que você especificar em um perfil do Gerenciador de Tráfego do Azure serão exibidos na seção **Nomes de Domínio** da página Configurar do aplicativo Web no perfil, mas não serão configuráveis nessa página.
 
-* Depois que você adicionar um site a um perfil, o **URL do Site** no painel da página de portal do site exibirá a URL do domínio personalizado do site se você tiver definido uma. Do contrário, ele exibirá a URL do perfil do Gerenciador de Tráfego (por exemplo,  `contoso.trafficmgr.com`). O nome de domínio direto do site e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do site na seção **Nomes de Domínio**.
+* Depois que você adicionar um aplicativo Web a um perfil, a **URL do Site** no painel da página de portal do aplicativo Web exibirá a URL do domínio personalizado do aplicativo Web, se você tiver definido uma. Do contrário, ele exibirá a URL do perfil do Gerenciador de Tráfego (por exemplo,  `contoso.trafficmgr.com`). O nome de domínio direto do aplicativo Web e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo Web na seção **Nomes de Domínio**.
 
-* Os nomes de domínio personalizados funcionarão conforme esperado, mas além de adicioná-los a seus sites, você deve configurar o mapa DNS a fim de apontar para a URL do Gerenciador de Tráfego. Para obter informações sobre como configurar um domínio personalizado para um site do Azure, consulte [Configurando um nome de domínio personalizado para um site do Azure](https://www.windowsazure.com/pt-br/documentation/articles/web-sites-custom-domain-name/).
+* Os nomes de domínio personalizados funcionarão conforme esperado, mas além de adicioná-los a seus aplicativos Web, você deve configurar o mapa DNS a fim de apontar para a URL do Gerenciador de Tráfego. Para obter informações sobre como configurar um domínio personalizado para um aplicativo Web do Azure, consulte [Configurando um nome de domínio personalizado para um site do Azure](web-sites-custom-domain-name.md).
 
-* Você só pode adicionar sites que estejam no modo Padrão para um perfil do Gerenciador de Tráfego do Azure.
+* Você só pode adicionar a um perfil do Gerenciador de Tráfego do Azure aplicativos Web que estejam no modo Padrão.
 
 ## Próximas etapas
 
 Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx). 
 
-Para obter informações sobre como configurar o Gerenciador de Tráfego do Azure, inclusive para usar sites do Azure, consulte [Tarefas de configuração do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
+Para obter informações sobre como configurar o Gerenciador de Tráfego do Azure, inclusive para usar Aplicativos Web, consulte [Tarefas de configuração do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
 
 Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
-Para obter mais informações sobre como usar o Gerenciador de tráfego com Websites do Azure, consulte as postagens de blog 
-[Usando o Gerenciador de Tráfego do Azure com Websites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [Gerenciador de Tráfego do Azure agora pode se integrar com Websites do Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+Para obter mais informações sobre como usar o Gerenciador de Tráfego com aplicativos Web, consulte as postagens de blog 
+[Usando o Gerenciador de Tráfego do Azure com Sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [O Gerenciador de Tráfego do Azure agora pode integrar-se a Sites do Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

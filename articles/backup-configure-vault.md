@@ -1,39 +1,30 @@
 ﻿<properties 
-	pageTitle="Configurar os Serviços de Recuperação do Azure para fazer backup rápido e fácil do Windows Server" 
+	pageTitle="Configurar os Serviços de Backup do Azure para fazer backup rápido e fácil do Windows Server" 
 	description="Use este tutorial para aprender a usar o serviço de backup na oferta de nuvem do Microsoft Azure para fazer o backup do Windows Server na nuvem." 
-	services="site-recovery" 
+	services="backup" 
 	documentationCenter="" 
 	authors="markgalioto" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/04/2015" 
 	ms.author="markgal"/>
 
 
 
 <h1><a id="configure-a-backup-vault-tutorial"></a>Configurar o Backup do Azure para fazer backup rápido e fácil do Windows Server</h1>
-<div class="dev-callout"> 
-<strong>Observação</strong>
- 
-<p>Para concluir este tutorial, você precisa de uma conta do Azure. Este tutorial o levará através da ativação do recurso de Backup do Azure. Anteriormente, você precisaria criar ou adquirir um certificado X.509 v3, a fim de registrar seu servidor de backup. Os certificados ainda não suportados, mas agora para facilitar o registro do cofre do Azure a um servidor, você pode gerar uma credencial de cofre direto da página de Início Rápido. </p>
-<ul> 
-<li>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="/pt-br/pricing/free-trial/">Avaliação gratuita do Azure</a>.</li> 
- 
 
-</ul>
- 
-
-</div>
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Este tutorial o levará através da ativação do recurso de Backup do Azure. Anteriormente, você precisaria criar ou adquirir um certificado X.509 v3, a fim de registrar seu servidor de backup. Os certificados ainda não suportados, mas agora para facilitar o registro do cofre do Azure a um servidor, você pode gerar uma credencial de cofre direto da página de Início Rápido. 
+<ul><li>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="/pricing/free-trial/">Avaliação Gratuita do Azure</a>.</li></ul>
   
 
-<p>Para fazer o backup de arquivos e dados do seu Windows Server para Azure, você deve criar um cofre de backup na região geográfica em que deseja armazenar os dados. Este tutorial vai orientá-lo através da criação de cofre que será usado para armazenar backups, o download de um certificado de cofre, a instalação de um agente de backup e uma visão geral das tarefas de gerenciamento de backup disponíveis por meio do portal de gerenciamento.</p>
+<p>Para fazer o backup de arquivos e dados do seu Windows Server para Azure, você deve criar um cofre de backup na região geográfica em que deseja armazenar os dados. Este tutorial vai orientá-lo durante a criação de cofre que será usado para armazenar backups, o download de um certificado de cofre, a instalação de um agente de backup e uma visão geral das tarefas de gerenciamento de backup disponíveis por meio do portal de gerenciamento.</p>
 
 
 
@@ -68,7 +59,7 @@ As credenciais do sofre substituem os certificados como forma de registrar o seu
 
 4. O portal gerará uma credencial de cofre usando uma combinação do nome do cofre e a data atual. Clique em **Salvar** para baixar as credenciais do cofre para a pasta de donwloads da conta local, ou selecione **Salvar Como** a partir do menu **Salvar**, para especificar um local para as credenciais do cofre. Você não pode editar as credenciais do cofre, então não existe razão para clicar em Abrir. Uma vez que as credenciais foram baixadas, você será solicitado a Abrir a pasta. Clique em **x** para fechar este menu.
 
-<h2><a id="download"></a>Baixe e instale um agente de backup</h2>
+<h2><a id="download"></a>Baixar e instalar um agente de backup</h2>
 1. No [Portal de Gerenciamento](https://manage.windowsazure.com).
 
 2. Clique em **Serviços de Recuperação**, em seguida, selecione o cofre de backup para exibir a página de Início Rápido.
@@ -114,6 +105,6 @@ Depois que o agente está instalado, você pode usar a interface de gerenciament
 [deleted-server]: ./media/backup-configure-vault/RS_deletedserver.png
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
-<!--HONumber=35.2-->
+<!--HONumber=49--> 
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

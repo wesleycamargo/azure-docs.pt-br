@@ -112,7 +112,7 @@ O serviço do Banco de Dados de Documentos responde com uma resposta de êxito e
 	}
 
 ##Executar um procedimento armazenado usando POST
-Por fim, para executar o procedimento armazenado no exemplo acima, é necessário emitir um POST no URI do recurso de procedimento armazenado (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). Isso é ilustrado no código a seguir.  
+Por fim, para executar o procedimento armazenado no exemplo acima, é necessário executar um POST no URI do recurso do procedimento armazenado (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). Isso é ilustrado no código a seguir.  
 
 	POST /dbs/MyDb/colls/MyColl/sprocs/sproc1 HTTP/1.1
 	 [ { "id": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
@@ -167,8 +167,8 @@ A maioria dos aplicativos Web confia na marca da entidade baseada no controle de
 ##Opções de conectividade
 O Banco de Dados de Documentos expõe um modelo de endereçamento lógico, em que cada recurso tem um URI lógico e estável identificado pelo link _self. Como um sistema de armazenamento distribuído espalha-se pelas regiões, os recursos em várias contas do banco de dados no Banco de Dados de Documentos são particionados em inúmeros computadores e cada partição é replicada para alta disponibilidade. As réplicas que gerenciam os recursos de uma determinada partição registram endereços físicos. Enquanto os endereços físicos mudam com o tempo devido a falhas, seus endereços lógicos permanecem estáveis e constantes. A conversão do endereço lógico em físico é mantida em uma tabela de roteamento que também está disponível internamente como um recurso. O Banco de Dados de Documentos expõe dois modos de conectividade:  
 
-1.	**Modo de Gateway:** Os clientes ficam protegidos contra a conversão entre endereços lógicos e físico ou os detalhes do roteamento. Eles lidam somente com URIs lógicos e navegam com RESTful no modelo de recurso. Os clientes emitem as solicitações usando URI lógico e as máquinas de borda convertem o URI lógico para o endereço físico da réplica que gerencia o recurso e encaminha a solicitação. Com as máquinas de borda armazenando em cache a tabela de roteamento (atualizada periodicamente), o roteamento é extremamente eficiente.
-2.	**Modo de Conectividade Direto:** Os clientes gerenciam diretamente a tabela de roteamento em seu espaço de processo e a atualizam periodicamente. O cliente pode conectar-se às réplicas diretamente e ignorar as máquinas de borda.
+1.	**Modo de Gateway:** os clientes ficam protegidos contra a conversão entre endereços lógicos e físicos ou os detalhes do roteamento. Eles lidam somente com URIs lógicos e navegam com RESTful no modelo de recurso. Os clientes emitem as solicitações usando URI lógico e as máquinas de borda convertem o URI lógico para o endereço físico da réplica que gerencia o recurso e encaminha a solicitação. Com as máquinas de borda armazenando em cache a tabela de roteamento (atualizada periodicamente), o roteamento é extremamente eficiente. 
+2.	**Modo de Conectividade Direto:** os clientes gerenciam diretamente a tabela de roteamento em seu espaço de processo e a atualizam periodicamente. O cliente pode conectar-se às réplicas diretamente e ignorar as máquinas de borda.   
 
 
 <table width="300">
@@ -252,17 +252,17 @@ O Banco de Dados de Documentos expõe um modelo de endereçamento lógico, em qu
 Explore a [referência da API REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) para saber mais sobre como trabalhar com recursos usando a API REST.
 
 ##Referências
--   [Referência da API REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+-   [Referência da API REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 -	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
--	Especificação JSON [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
+-	Especificação JSON   [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 -	Especificação HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
--	Marcas de entidade [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[Consulta ao Banco de Dados de Documentos](../documentdb-sql-query/)
+-	Marcas da entidade [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+-	[Consulta ao Banco de Dados de Documentos](documentdb-sql-query.md)
 -	[Referência SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Programando o Banco de Dados de Documentos: procedimentos armazenados, gatilhos e UDFs](../documentdb-programming/)
+-	[Programando o Banco de Dados de Documentos: Procedimentos armazenados, gatilhos e UDFs](../documentdb-programming/)
 -	[Documentação de referência do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

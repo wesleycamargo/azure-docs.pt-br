@@ -32,4 +32,5 @@ Você pode usar a [interface de linha de comando do Azure][] para criar os arqui
 Quando esses arquivos não existem, o Azure cria um script de implantação temporária e o executa.  Ele é idêntico àquele que você cria com o comando acima.
 
 [Interface de linha de comando do Azure]: http://azure.microsoft.com/downloads/
-<!--HONumber=42-->
+
+<!--HONumber=49-->

@@ -1,25 +1,25 @@
-﻿Você pode se inscrever em um banco de dados MongoDB hospedado pelo Azure e totalmente gerenciado na Azure Store. Para fazer isso, siga estas etapas:
+Você pode se inscrever em um banco de dados MongoDB hospedado pelo Azure e totalmente gerenciado na Azure Store. Para fazer isso, siga estas etapas:
 
 1. Faça logon no Portal de Gerenciamento do Azure.
 1. Clique em **Novo**.  
 ![New][button-new]
 1. Selecione **Armazenamento**.  
 ![Store][button-store]
-1. Selecione MongoLab. Você pode nos encontrar na categoria **Serviços de aplicativo**, bem como em **Todas**.  
+1. Selecione MongoLab. Você pode nos encontrar na categoria **Serviços de Aplicativos**, bem como em **Todos**.  
 ![MongoLab][entry-mongolab]
-1. Clique em **Próximo**.  
-![Next][button-next]  
+1. Clique em **Avançar**.  
+![Next][button-next] 
   A entrada do repositório do MongoLab será exibida.  
 ![NewMongoLab][screen-newmongolab]
 1. Selecione a opção de **Assinatura** desejada.
 1. Digite um **Nome** para o seu banco de dados. Seu nome pode conter somente caracteres alfanuméricos, pontos, traços e sublinhados. O MongoLab também requer que esse nome seja exclusivo, portanto você pode ser solicitado a enviar novamente a solicitação, se o nome for usado.
 1. Selecione a **Região** desejada.
-1. Clique em **Próximo**.  
+1. Clique em **Avançar**.  
 ![Next][button-next]
 1. Reveja as suas informações de compra da Store e, em seguida, clique em **Comprar** para confirmar.  
-![Next][button-purchase]  
+![Next][button-purchase]    
 1. O botão de andamento da barra de ferramentas fornece o status de provisionamento.  
-![ProgressButton][button-progress]  
+![ProgressButton][button-progress]   
 Uma mensagem de êxito é exibida quando o provisionamento é concluído.  
 ![SuccessMessage][message-success]
 
@@ -33,4 +33,5 @@ Parabéns! O MongoLab forneceu apenas um banco de dados MongoDB na região do Az
 [entry-mongolab]: ./media/howto-provision-mongolab/entry-mongolab.png 
 [screen-newmongolab]: ./media/howto-provision-mongolab/screen-newmongolab.png 
 [message-success]: ./media/howto-provision-mongolab/message-provisionsuccess.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

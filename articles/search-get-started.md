@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introdução à Pesquisa do Azure" 
 	description="Introdução à Pesquisa do Azure" 
 	services="search" 
@@ -18,21 +18,14 @@
 
 # Introdução à Pesquisa do Azure
 
-[WACOM.INCLUDE [Este artigo usa o Portal de visualização do Azure](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [Este artigo usa o Portal de visualização do Azure](../includes/preview-portal-note.md)]
 
-A Pesquisa do Microsoft Azure (Visualização pública) é um novo serviço que permite que você incorpore a funcionalidade de pesquisa em aplicativos personalizados. Ela fornece mecanismo de pesquisa e armazenamento para seus dados, os quais você acessa e gerencia usando uma API REST. Para ler mais sobre por que você usaria a Pesquisa do Azure, confira em [Recursos e cenários da Pesquisa do Azure](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
+A Pesquisa do Microsoft Azure é um novo serviço que permite que você incorpore a funcionalidade de pesquisa em aplicativos personalizados. Ela fornece mecanismo de pesquisa e armazenamento para seus dados, os quais você acessa e gerencia usando um .NET SK ou uma API REST. Para ler mais sobre por que você usaria a Pesquisa do Azure, confira em [Recursos e cenários da Pesquisa do Azure](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
 
 Como administrador, você pode adicionar o serviço de Pesquisa a uma assinatura existente sem custos adicionais ao selecionar o serviço compartilhado, ou por um valor reduzido ao optar por recursos dedicados. Este artigo possui as seguintes seções:
 
-<!--Table of contents -->
-
-+ [Começar com o serviço gratuito](#sub-1)
-+ [Atualizar para a pesquisa padrão](#sub-2)
-+ [Testar operações de serviço](#sub-3)
-+ [Explorar o painel do serviço de Pesquisa](#sub-4)
-+ [Experimentar](#next-steps)
-
-<h2 id="sub-1">Iniciar com o serviço gratuito</h2>
+<a id="sub-1"></a>
+## Começar com o serviço gratuito
 
 Os assinantes obtêm automaticamente acesso gratuito a um serviço de Pesquisa compartilhado, multilocatários, que você pode utilizar para fins de aprendizado, testes de prova de conceito ou pequenos projetos de desenvolvimento de pesquisa. Inscreva-se na versão gratuita por meio das seguintes etapas.
 
@@ -46,21 +39,17 @@ Os assinantes obtêm automaticamente acesso gratuito a um serviço de Pesquisa c
 
   	![][7]
 
-4. Na Galeria, clique em **Dados, armazenamento, cache, + backup**.
+4. Na Galeria, clique em **Dados + Análise**.
  
   	![][8]
 
-5. Clique em **Ver Tudo** para expandir a lista de todos os serviços relacionados a dados. 
-
-  	![][9]
-
-6. Em Serviços de dados, clique em **Pesquisar**.
+5. Em Serviços de dados, clique em **Pesquisar**.
  
   	![][10]
 
 7. No final da página de Pesquisa, clique em **CRIAR**.
 
-8. Digite um nome de serviço em letras minúsculas para ser usado na URL do serviço, evitando traços, espaços e se atendo ao limite de 15 caracteres.
+8. Digite um nome de serviço em letras minúsculas para ser usado na URL do serviço, evitando espaços e se atendo ao limite de 15 caracteres.
  
   	![][11]
 
@@ -78,7 +67,7 @@ Os assinantes obtêm automaticamente acesso gratuito a um serviço de Pesquisa c
 
 Em alguns minutos, o serviço é criado. Você pode voltar para as configurações para obter a URL ou as chaves de API. As conexões com seu serviço de Pesquisa requerem que você tenha a URL e a chave da API para autenticar a chamada. Veja como encontrar esses valores facilmente:
 
-14. Vá para **Navegar** | **Tudo** | **Dados, armazenamento, cache, + backup** | **Ver tudo** | **Serviços de pesquisa**, clique em seu serviço de pesquisa para abrir o painel de serviço. 
+14. Vá para **Início** para abrir o painel. Clique no serviço de Pesquisa para abrir o painel do serviço. 
 
   	![][13]
 
@@ -94,8 +83,8 @@ Em alguns minutos, o serviço é criado. Você pode voltar para as configuraçõ
 
 Continue em [Testar operações de serviço](#sub-3) para obter instruções sobre como se conectar ao serviço usando esses valores.
 
-
-<h2 id="sub-2">Atualizar para a pesquisa padrão</h2>
+<a id="sub-2"></a>
+## Atualizar para a pesquisa padrão
 
 A pesquisa padrão fornece a você recursos dedicados em um datacenter do Azure que só pode ser usado por você. Cargas de trabalho de pesquisa requerem réplicas de serviço e armazenamento. Quando se inscreve para a pesquisa padrão, você pode otimizar a configuração de serviço para usar mais de qualquer um dos recursos que for mais importante no seu contexto.
 
@@ -113,9 +102,7 @@ Configurar recursos dedicados pode levar algum tempo (15 minutos ou mais).
 
 3. Clique em **Tudo** no início da página.
 
-4. Na Galeria, clique em **Dados, armazenamento, cache, + backup**.
-
-5. Clique em **Ver Tudo** para expandir a lista de todos os serviços relacionados a dados.
+4. Na Galeria, clique em **Dados + Análise**.
 
 6. Em Serviços de dados, clique em **Pesquisar**.
 
@@ -135,18 +122,20 @@ A pesquisa padrão começa com uma réplica e uma partição cada, mas pode ser 
 
 2.	Use os controles deslizantes para adicionar réplicas, partições ou ambas. 
 
-Réplicas e partições adicionais são cobradas em unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos. Você pode verificar os [Detalhes dos Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade.
+Réplicas e partições adicionais são cobradas em unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos. 
+
+Você pode verificar os [Detalhes dos Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Consulte [Limites e restrições](http://msdn.microsoft.com/library/azure/dn798934.aspx) para ajudá-lo a decidir como configurar combinações de partição e de réplica.
 
  ![][15]
 
-  
-<h2 id="sub-3">Testar operações de serviço</h2>
+<a id="sub-3"></a>
+## Testar operações de serviço
 
 Confirmar que seu serviço está funcionando e pode ser acessado por meio de um aplicativo cliente é a etapa final da configuração da Pesquisa. Este procedimento usa o Fiddler, disponível como um [download gratuito do Telerik](http://www.telerik.com/fiddler), para emitir solicitações HTTP e ver as respostas. Usando o Fiddler, você pode testar a API imediatamente, sem precisar escrever nenhum código. 
 
 O procedimento a seguir funciona para a pesquisa padrão e a compartilhada. Nas etapas abaixo, você criará um índice, carregará documentos, consultará o índice e consultará o sistema quanto a informações de serviço.
 
-<h3>Crie um índice</h3>
+### Crie um índice
 
 1. Inicie o Fiddler. No menu Arquivo, desabilite **Capturar tráfego** para ocultar atividades HTTP externas não relacionadas à atividade atual. Na guia Composer, você formulará uma solicitação semelhante a esta: 
 
@@ -156,7 +145,7 @@ O procedimento a seguir funciona para a pesquisa padrão e a compartilhada. Nas 
 
 3. Insira uma URL que especifique a URL do serviço (que você pode encontrar na página Propriedades), solicite atributos e a versão da API. Alguns aspectos a ter em mente:
    + Use HTTPS como o prefixo
-   + O atributo de solicitação é "/indexes/hotels". Isso diz à Pesquisa para criar um índice chamado "hotels".
+   + O atributo de solicitação é "/indexes/hotels". Isso instrui a Pesquisa a criar um índice chamado 'hotels'.
    + A versão da API fica em letras minúsculas, especificada como "?api-version=2014-07-31-preview". As versões da API são importantes porque a Pesquisa do Azure implanta atualizações regularmente. Em ocasiões raras, uma atualização do serviço pode introduzir uma alteração de última hora na API. Usando as versões da API, você pode continuar usando sua versão existente e atualizando para a seguinte quando for conveniente.
 
     A URL completa deve se parecer com o exemplo a seguir:
@@ -195,7 +184,7 @@ Em alguns segundos, você deverá ver uma resposta HTTP 201 na lista de sessões
 
 Se obtiver o HTTP 504, veja se a URL especifica HTTPS. Caso veja HTTP 400 ou 404, confira o corpo da solicitação para verificar se não houve erros ao copiar e colar. Um HTTP 403 normalmente indica um problema com a chave de API (uma chave inválida ou um problema de sintaxe com o modo que a chave de API está especificada).
 
-<h3>Carregue os documentos</h3>
+### Carregue os documentos
 
 Na guia Composer, sua solicitação para publicar documentos terá a seguinte aparência. O corpo da solicitação contém os dados de pesquisa de 4 hotéis.
 
@@ -281,7 +270,7 @@ Na guia Composer, sua solicitação para publicar documentos terá a seguinte ap
 
 Em alguns segundos, você verá uma resposta HTTP 200 na lista de sessões. Isso indica que os documentos foram criados com êxito. Se você obtiver um 207, houve falha no carregamento de pelo menos um documento. Se você obtiver um 404, há um erro de sintaxe no cabeçalho ou no corpo da solicitação.
 
-<h3>Consulte o índice</h3>
+### Consulte o índice
 
 Agora que o índice e os documentos foram carregados, você pode consultá-los.  Na guia Composer, um comando GET que consulta seu serviço será semelhante ao seguinte:
 
@@ -316,7 +305,7 @@ O exemplo da consulta a seguir é da [operação Pesquisar índice (API de pesqu
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
 
-<h3>Consulte o sistema</h3>
+### Consulte o sistema
 
 Você também pode consultar o sistema para obter informações de contagens de documentos e consumo de armazenamento. Na guia Composer, sua solicitação será semelhante à seguinte, e a resposta retornará uma contagem do número de documentos e do espaço usado.
 
@@ -343,33 +332,36 @@ Você também pode consultar o sistema para obter informações de contagens de 
 
  	![][21]
 
-<h2 id="sub-4">Explorar o painel do serviço de Pesquisa</h2>
+<a id="sub-4"></a>
+## Explorar o painel do serviço de Pesquisa
 
 Se você precisar de um lembrete de onde encontrar as páginas de configuração, siga as etapas a seguir para localizar o painel de serviço.
 
 1.	Entre no [Portal de visualização do Azure](https://portal.azure.com) usando sua assinatura existente. 
-2.	Clique em **Navegar** | **Tudo**.
+2.	Clique em **Início** e, em seguida, clique no bloco do serviço de Pesquisa.
 
  	![][22]
 
-3.	Escolha **Serviços de pesquisa** na lista. Você deverá ver uma lista de todos os serviços de Pesquisa criados em suas assinaturas.
+4.	Clicar no bloco abre o painel de serviço. Observe que os comandos **Iniciar**, **Parar** e **Excluir** estão no topo. O painel de serviço inclui blocos para ver as Propriedades e as Chaves e um Início rápido com links para informações e instruções. Role para baixo para ver o uso.
 
-4.	Clique em um serviço para abrir seu painel. Observe que os comandos **Iniciar**, **Parar** e **Excluir** estão no topo. O painel de serviço inclui blocos para ver as Propriedades e as Chaves e um Início rápido com links para informações e instruções. Role para baixo para ver o uso.
-
-5.	Clique em **PROPRIEDADES**. Observe que a página de Propriedades abre à direita. A URL do serviço está no topo da página. Para obter as chaves de API usadas para autenticar o serviço, clique em **CHAVES**.
+5.	Clique em **PROPRIEDADES**. Observe que a página de Propriedades abre à direita. A URL do serviço está no topo da página. Você precisará dessa URL para se conectar a seu serviço de Pesquisa do Azure.
 
  	![][23]
+	
+7.	Clique em **CHAVES** para exibir as chaves de api. Você precisará de uma chave de Administração para se autenticar no serviço. Você pode usar a primária ou a secundária. Opcionalmente, você pode criar chaves de consulta para acesso somente leitura ao serviço.
+
 
 <!--Next steps and links -->
-<h2 id="next-steps">Experimentar</h2>
+<a id="next-steps"></a>
+## Experimentar
 
 Pronto para a próxima etapa? Os links a seguir levam você a materiais adicionais que mostram como compilar e gerenciar aplicativos de pesquisa que usam a Pesquisa do Azure.
 
-- [Criar sua primeira solução de pesquisa do Azure](../search-create-first-solution/) 
+- [Criar sua primeira solução de pesquisa do Azure](search-create-first-solution.md) 
 
-- [Criar um exemplo de Pesquisa Geoespacial do Azure](../search-create-geospatial/)
+- [Criar um exemplo de Pesquisa Geoespacial do Azure](search-create-geospatial.md)
 
-- [Gerenciar a sua solução de pesquisa no Microsoft Azure](../search-manage/) 
+- [Gerenciar a sua solução de pesquisa no Microsoft Azure](search-manage.md) 
 
 - [Visão geral técnica de pesquisa do Azure](http://msdn.microsoft.com/library/dn798933.aspx)
 
@@ -405,14 +397,16 @@ Pronto para a próxima etapa? Os links a seguir levam você a materiais adiciona
 [19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
 [20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
 [21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 
 <!--Link references-->
-[Gerenciar a sua solução de pesquisa no Microsoft Azure]: ../search-manage/
-[Fluxo de trabalho de desenvolvimento de pesquisa do Azure]: ../search-workflow/
-[Criar sua primeira solução de pesquisa do Azure]: ../search-create-first-solution/
-[Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure]: ../search-create-geospatial/
+[Gerenciar a sua solução de pesquisa no Microsoft Azure]: search-manage.md
+[Fluxo de trabalho de desenvolvimento de pesquisa do Azure]: search-workflow.md
+[Criar sua primeira solução de pesquisa do Azure]: search-create-first-solution.md
+[Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure]: search-create-geospatial.md
 
-<!--HONumber=35.2-->
+<!--HONumber=49--> 
+
+<!--HONumber=49-->

@@ -46,7 +46,7 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Salve o arquivo e o projeto indicará erros de compilação. Pesquise os três locais restantes onde a variável  `toDoItemList` é usada e comente as seções indicadas. Isso remove totalmente a lista na memória. 
+7. Salve o arquivo e o projeto indicará erros de compilação. Pesquise os três locais restantes onde a variável `toDoItemList` é usada e comente as seções indicadas. Isso remove totalmente a lista na memória. 
 
 8. Agora adicionamos o nosso serviço móvel. Remova os comentários das seguintes linhas de código:
 
@@ -82,7 +82,7 @@
 
   	Isso cria uma nova instância de  *MobileServiceClient* que é usada para acessar o serviço móvel. Também cria a instância de  *MobileServiceTable* que é usada para armazenamento de dados de proxy no serviço móvel.
 
-13. No código acima, substitua  `MobileServiceUrl` e  `AppKey` pela URL e a chave do aplicativo de seu serviço móvel, nessa ordem.
+13. No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e a chave do aplicativo de seu serviço móvel, nessa ordem.
 
 
 
@@ -165,4 +165,5 @@
 
 <!-- URLs. -->
 [SDK para Android de Serviços Móveis]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->

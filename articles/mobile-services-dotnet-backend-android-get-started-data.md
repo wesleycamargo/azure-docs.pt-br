@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Introdução aos dados (Android) | Centro de Desenvolvimento de Serviços Móveis" 
-	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo Android." 
+	description="Saiba como começar a usar os Serviços Móveis para utilizar dados em seu aplicativo Android.." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -42,7 +42,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 5. [Testar o aplicativo no serviço móvel publicado]
 
 
-> [AZURE.IMPORTANTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
 
 
 <h2><a name="create-service"></a>Criar um novo serviço móvel</h2>
@@ -94,7 +94,7 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
    	Isso envia um novo item como uma inserção no serviço móvel.
 
-    Você pode reiniciar o aplicativo para ver se as alterações foram persistidas no banco de dados no Azure. Também é possível examinar o banco de dados usando o Portal de Gerenciamento do Azure:  as duas próximas etapas fazem isso para exibir as mudanças em seu banco de dados.
+    Você pode reiniciar o aplicativo para ver se as alterações foram persistidas no banco de dados no Azure. Você também pode examinar o banco de dados usando o portal de gerenciamento do Azure: as próximas duas etapas fazem isso para exibir as alterações no banco de dados.
 
 
 4. No Portal de Gerenciamento do Azure, clique em gerenciar para o banco de dados associado a seu serviço móvel.
@@ -115,15 +115,15 @@ Isso conclui o tutorial **Introdução aos dados** para Android.
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Android para trabalhar com dados nos Serviços Móveis. 
 
-<!--Em seguida, considere fazer um dos seguintes tutoriais com base no aplicativo GetStartedWithData que você criou neste tutorial:
+<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
-* [Validar e modificar dados com scripts]
-  <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [Refinar consultas com paginação]
-  <br/>Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-Depois de ter concluído a série de dados, tente
+Once you have completed the data series, try
 -->
 
 Tente um destes outros tutoriais:
@@ -180,10 +180,10 @@ Tente um destes outros tutoriais:
 
 
 <!-- URLs. -->
-[Introdução aos dados (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[Introdução aos dados (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-EC.md
 [Validar e modificar dados com scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refinar consultas com paginação]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-android
 [Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-android
 [JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-data-js
@@ -195,5 +195,6 @@ Tente um destes outros tutoriais:
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Referência conceitual do tutorial de .NET de Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Referência conceitual do tutorial de .NET de Serviços Móveis]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-<!--HONumber=47-->
+[Referência conceitual do tutorial de .NET de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md  
+
+<!--HONumber=49-->

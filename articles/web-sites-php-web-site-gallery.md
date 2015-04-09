@@ -1,34 +1,33 @@
 ﻿<properties 
-	pageTitle="Website WordPress de Gallery - Tutorial Azure" 
-	description="Um tutorial que ensina a criar um novo site do Azure para um blog WordPress e, em seguida, implantá-lo por meio do portal de gerenciamento." 
-	services="web-sites" 
+	pageTitle="Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure" 
+	description="A tutorial que ensina a criar um novo aplicativo Web do Azure para um blog WordPress e, em seguida, implantá-lo por meio do Portal do Azure." 
+	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
-
-
-
-# Criar um site do WordPress da galeria na Azure
+# Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure
 
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="nextsteps"></a>Próximas etapas
-Você aprendeu como criar e implantar um site da galeria. Para saber mais sobre como criar, configurar, implantar e dimensionar sites do Azure, veja estes recursos:
+Você aprendeu como criar e implantar um aplicativo Web por meio da galeria. Para saber mais sobre como criar, configurar, implantar e dimensionar aplicativos Web do Azure, veja estes recursos:
 
-- [Criar um site do Azure PHP MySQL e implantar usando o Git](/pt-br/develop/php/tutorials/website-w-mysql-and-git/) -- Criar um site PHP do zero e implantá-lo em um site do Azure usando o Git
-- [Mais tutoriais de PHP](/pt-br/develop/php/tutorials/) - Criar tipos adicionais de aplicativos usando o PHP e o Azure
+- [Criar um aplicativo Web do Azure em PHP-MySQL e implantá-lo usando o Git](/pt-br/develop/php/tutorials/website-w-mysql-and-git/)  - crie um aplicativo Web PHP do zero e implante-o no Serviço de Aplicativo do Azure usando o Git
+- [Mais tutoriais de PHP](/pt-br/develop/php/tutorials/) - criar tipos adicionais de aplicativos usando o PHP e o Azure
 
+## O que mudou
+* Para obter um guia para a mudança de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a mudança do portal antigo para o novo portal, consulte: [Referência para navegação no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

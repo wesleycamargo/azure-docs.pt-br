@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Como usar o CDN - guia de recursos do Azure" 
-	description="Saiba como usar a CDN (rede de distribuição de conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático." 
+	pageTitle="Como usar o CDN ‒ guia de recursos do Azure" 
+	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático." 
 	services="cdn" 
 	documentationCenter=".net" 
 	authors="" 
@@ -19,8 +19,7 @@
 
 
 
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
 
-<!--HONumber=35.2-->
+[AZURE.INCLUDE [cdn](../includes/cdn.md)]
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

@@ -26,7 +26,7 @@ Este tutorial explica as etapas básicas para habilitar a autenticação em seu 
 
 
 
-Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
@@ -72,14 +72,14 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 [Próximas etapas]:#next-steps
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Introdução aos dados]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Introdução à autenticação]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Introdução às notificações por push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Autorizar usuários com scripts]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-android-get-started.md
+[Introdução aos dados]: mobile-services-dotnet-backend-android-get-started-data.md
+[Introdução à autenticação]: mobile-services-dotnet-backend-android-get-started-users.md
+[Introdução às notificações por push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Autorizar usuários com scripts]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Referência conceitual do tutorial de .NET de Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

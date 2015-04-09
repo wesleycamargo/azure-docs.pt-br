@@ -5,54 +5,51 @@
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
+#Visão geral
 
 O controle de acesso baseado em funções (RBAC) é a prática de atribuir permissões a funções que seus usuários podem ter, definindo claramente os limites sobre o que certas classes de usuários podem e não podem fazer. Este tutorial explica como adicionar RBAC básico aos Serviços Móveis do Azure.
 
 Este tutorial demonstrará o controle de acesso baseado em função, verificando cada associação de usuário ao grupo de Vendas definido no Active Directory do Azure (AAD). A verificação de acesso será feita com JavaScript no back-end do serviço móvel usando a [API gráfica do Active Directory do Azure]. Somente usuários que pertencem à função Vendas podem consultar os dados.
 
 
->[AZURE.NOTE] O objetivo deste tutorial é ampliar o seu conhecimento de autenticação para incluir práticas de autorização. Espera-se que você tenha concluído primeiro o tutorial [Introdução à autenticação] usando o provedor de autenticação do Active Directory do Azure. Este tutorial continua a atualizar o aplicativo TodoItem usado no tutorial [Introdução à autenticação].
+>[AZURE.NOTE] O objetivo deste tutorial é ampliar o seu conhecimento de autenticação para incluir práticas de autorização. É esperado que você conclua primeiro o tutorial [Adicionar Autenticação a seu aplicativo de serviço móvel] usando o provedor de autenticação do Active Directory do Azure. Este tutorial continua a atualizar o aplicativo TodoItem usado no tutorial [Adicionar autenticação ao aplicativo].
 
-Este tutorial apresenta as seguintes etapas:
-
-1. [Criar um grupo de Vendas com associação]
-2. [Gerar uma chave para o aplicativo integrado]
-3. [Adicionar um script compartilhado que verifica a associação]
-4. [Adicionar verificação de acesso baseada em função às operações de banco de dados]
-5. [Testar o acesso do cliente]
+##Pré-requisitos
 
 Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1.
-* Conclusão do tutorial [Introdução à autenticação] usando o provedor de autenticação do Active Directory do Azure.
+* Conclusão do tutorial [Adicionar autenticação a seu aplicativo de serviço móvel] usando o provedor de autenticação do Active Directory do Azure.
 * Conclusão do tutorial [Armazenar scripts do servidor] para familiarização com o uso de um repositório Git para armazenamento de scripts de servidor.
  
 
 
-## <a name="create-group"></a>Criar um grupo de Vendas com associação
+##Criar um grupo de Vendas com associação
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a>Gerar uma chave para o Aplicativo Integrado
+##Gerar uma chave para o Aplicativo Integrado
 
 
-Durante o tutorial [Introdução à autenticação], você criou um registro para o aplicativo integrado quando concluiu a etapa [Registrar-se para usar um logon do Active Directory do Azure]. Nesta seção, você gera uma chave para ser usada ao ler as informações de diretório com essa ID integrada de cliente do aplicativo. 
+Durante o tutorial [Adicionar autenticação a seu aplicativo de serviço móvel], você criou um registro para o aplicativo integrado quando concluiu a etapa [Registrar-se para usar um logon do Active Directory do Azure]. Nesta seção, você gera uma chave para ser usada ao ler as informações de diretório com essa ID integrada de cliente do aplicativo. 
+
+Se seguiu o tutorial [Acessar informações de gráfico do Active Directory do Azure], você já concluiu essa etapa e poderá ignorar esta seção.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -60,14 +57,14 @@ Durante o tutorial [Introdução à autenticação], você criou um registro par
 
 
 
-## <a name="add-shared-script"></a>Adicionar um script compartilhado ao serviço móvel que verifica a associação
+##Adicionar um script compartilhado ao serviço móvel que verifica a associação
 
 Nesta seção, você usará o Git para implantar um arquivo de script compartilhado denominado *rbac.js* a seu serviço móvel. O arquivo de script compartilhado conterá as funções que usam a [API gráfica] para verificar a associação a um grupo do usuário. 
 
 Se não estiver familiarizado com a implantação de scripts para seu serviço móvel com o Git, examine o tutorial [Armazenar scripts do servidor] antes de concluir esta seção.
 
-1. Crie um novo arquivo de script denominado *rbac.js* no diretório ./service/shared/ do repositório local de seu serviço móvel.
-2. Adicione o seguinte script à parte superior do arquivo que define a função `getAADToken`. Considerando a *tenant_domain*, *client id* de aplicativo integrado e *key* de aplicativo, essa função fornece um token de acesso gráfico usado para ler as informações de diretório.
+1. Crie um novo arquivo de script denominado *rbac.js* no diretório *./service/shared/* do repositório local de seu serviço móvel.
+2. Adicione o seguinte script à parte superior do arquivo que define a função `getAADToken`. Considerando o *tenant_domain*, o  *client id* de aplicativo integrado e a *key* de aplicativo, essa função fornece um token de acesso gráfico usado para ler as informações de diretório.
 
     >[AZURE.NOTE] Você deve armazenar o token em cache, em vez de criar um novo com cada verificação de acesso. Em seguida, atualize o cache ao tentar usar o resultado do token em uma resposta 401 Authentication_ExpiredToken como observado na [Referência de erro de API Gráfica]. Para simplificar, isso não está demonstrado no código abaixo, mas aliviará o tráfego extra na rede em seu Active Directory. 
 
@@ -170,10 +167,10 @@ Se não estiver familiarizado com a implantação de scripts para seu serviço m
 
 8. Salve suas alterações em *rbac.js*.
 
-## <a name="add-access-checking"></a>Adicionar verificação de acesso baseada em função às operações de banco de dados
+##Adicionar verificação de acesso baseada em função às operações de banco de dados
 
 
-Ao concluir o tutorial [Introdução à autenticação], você já deve ter definido as operações de tabela para que exijam autenticação, conforme mostrado abaixo.
+Quando você concluiu a [adicionar autenticação ao seu aplicativo de serviço móvel] tutorial, você deve já tiver definido as operações de tabela para exigir autenticação, conforme mostrado abaixo.
 
 ![][3]
 
@@ -196,7 +193,7 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
             });
         }
 
-2. Adicione um novo arquivo de script denominado *todoitem.read.js* no diretório ./service/table/ do repositório Git local para seu serviço móvel. Cole o seguinte script nesse arquivo.
+2. Adicione um novo arquivo de script denominado *todoitem.read.js* no diretório *./service/table/* do repositório Git local para seu serviço móvel. Cole o seguinte script nesse arquivo.
 
         function read(query, user, request) {
         
@@ -249,7 +246,7 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 
         git commit -m "Added role based access control to table operations"
   
-7. Na interface de linha de comando de seu repositório Git, implante as atualizações em seu diretório Git local para o serviço móvel executando o seguinte comando. Este comando presume que você tenha feito as atualizações na ramificação *master*.
+7. Na interface de linha de comando de seu repositório Git, implante as atualizações em seu diretório Git local para o serviço móvel executando o seguinte comando. Esse comando presume que você tenha feito as atualizações na ramificação *master*.
 
         git push origin master
 
@@ -257,7 +254,7 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 
     ![][4]
 
-## <a name="test-client"></a>Testar o acesso do cliente
+##Testar o acesso do cliente
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -265,12 +262,6 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 
 
 
-<!-- Anchors. -->
-[Criar um grupo de Vendas com associação]: #create-group
-[Gerar uma chave para o aplicativo integrado]: #generate-key
-[Adicionar um script compartilhado que verifica a associação]: #add-shared-script
-[Adicionar verificação de acesso baseada em função às operações de banco de dados]: #add-access-checking
-[Testar o acesso do cliente]: #test-client
 
 
 <!-- Images -->
@@ -283,13 +274,15 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
 
 <!-- URLs. -->
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Adicionar autenticação ao seu aplicativo de serviço móvel]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md
+[Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Cenários de sincronização de diretório]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Armazenar scripts de servidor]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control/
-[Registrar-se para usar um logon do Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Armazenar scripts de servidor]: mobile-services-store-scripts-source-control.md
+[Registrar-se para usar um logon do Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [API gráfica]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Referência de erros de API gráfica]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-\<!--HONumber=42-->
+[Acessando informações do Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
+
+<!--HONumber=49-->

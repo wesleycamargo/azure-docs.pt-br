@@ -1,7 +1,7 @@
-﻿<properties 
-	pageTitle="Restaurar um Site do Microsoft Azure" 
-	description="Saiba como restaurar seus Websites do Azure de backup." 
-	services="web-sites" 
+<properties 
+	pageTitle="Restaurar um aplicativo Web no Serviço de Aplicativo do Azure" 
+	description="Saiba como restaurar seu aplicativo Web por meio de um backup." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -9,122 +9,81 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-#Restaurar um Site do Microsoft Azure
+# Restaurar um aplicativo Web no Serviço de Aplicativo do Azure
 
-Este artigo mostra como restaurar um site do qual você fez backup anteriormente usando o recurso Backup de Sites do Azure. Para obter mais informações, consulte [Backups de Sites do Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/). 
+Este artigo mostra como restaurar um aplicativo Web do qual você fez backup anteriormente usando o recurso de dos Backup de [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Para obter mais informações, consulte [Backups de Aplicativos Web do Serviço de Aplicativo](web-sites-backup.md). 
 
-O recurso de Restauração de Sites do Azure permite restaurar seu site sob demanda para um estado anterior ou criar um novo site baseado em um dos backups do seu site original. A criação de um novo site que é executado em paralelo para a versão mais recente pode ser útil para teste de A/B.
+O recurso de restauração de aplicativos Web permite restaurar seu aplicativo Web sob demanda para um estado anterior, ou então criar um novo aplicativo Web com base em um dos backups do seu aplicativo Web original. A criação de um novo aplicativo Web que é executado em paralelo à versão mais recente pode ser útil para testes de A/B.
 
-O recurso de restauração, disponível na guia Backups no portal de Sites do Azure, está disponível apenas no modo Standard.
-
-##Neste artigo
-- [Para restaurar um Site do Azure a partir de um backup feito anteriormente](#PreviousBackup)
-- [Para restaurar um Site do Azure diretamente de uma conta de armazenamento](#StorageAccount)
-- [Escolher as configurações de restauração do Site e iniciar a operação de restauração](#RestoreSettings)
-- [Exibir os logs de operação](#OperationLogs)
-
+O recurso de Restauração de Aplicativos Web, disponível na lâmina **Backups** do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), está disponível somente nos modos Padrão e Premium. Para obter informações sobre como dimensionar seu aplicativo usando modo Padrão ou Premium, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). 
+Observe que o modo Premium permite a realização de um número maior de backups diários do que o modo Padrão.
 
 <a name="PreviousBackup"></a>
-##Para restaurar um Site do Azure a partir de um backup feito anteriormente
+## Para restaurar um aplicativo Web por meio de um backup feito anteriormente
 
-1. Na guia **Backups**, clique em **Restaurar agora** na barra de comandos na parte inferior da página do portal. A caixa de diálogo **Restaurar agora** é exibida.
+1. Na lâmina **Configurações** de seu aplicativo Web no portal do Azure, clique na opção **Backups** para exibir a lâmina **Backups**. Role por essa lâmina e selecione um dos itens de backup com base no **TEMPO DE BACKUP** e **STATUS**, por meio da lista de backup.
 	
 	![Choose backup source][ChooseBackupSource]
 	
-2. Em **Escolha a origem do backup**, selecione **Backup Anterior deste Site**.
-3. Selecione a data do backup que deseja restaurar e, em seguida, clique na seta para a direita para continuar.
-4. Siga as etapas da seção [Escolher suas configurações de restauração de Website](#RestoreSettings) mais adiante neste artigo.
+2. Selecione **Restaurar agora** na parte superior da lâmina **Backups**. 
 
+	![Choose restore now][ChooseRestoreNow]]
+
+3. Na lâmina **Restauração**, para restaurar o aplicativo Web existente, verifique todos os detalhes exibidos e, em seguida, clique em **OK**. 
+	
+Você também pode restaurar seu aplicativo Web para um novo aplicativo Web, selecionando a parte **APLICATIVO WEB** da lâmina **Restaurar** e selecionando a parte **Criar um novo aplicativo Web**.
+	
 <a name="StorageAccount"></a>
-##Para restaurar um Site do Azure diretamente de uma conta de armazenamento
+## Baixar ou excluir um backup de uma conta de armazenamento
+	
+1. Na página principal da lâmina **Procurar** do portal do Azure, selecione **Contas de Armazenamento**.
+	
+	Uma lista de suas contas de armazenamento existentes será exibida. 
+	
+2. Selecione a conta de armazenamento que contém o backup que você deseja baixar ou excluir.
+	
+	A lâmina **ARMAZENAMENTO** será exibida.
 
-1. Na guia **Backups**, clique em **Restaurar agora** na barra de comandos na parte inferior da página do portal. A caixa de diálogo **Restaurar agora** é exibida.
+3. Selecione a parte **Contêineres** na lâmina **ARMAZENAMENTO** para exibir a lâmina **Contêineres**.
 	
-	![Choose backup source][ChooseBackupSource]
+	Será exibida uma lista de contêineres. Essa lista também mostrará a URL e a data de quando esse contêiner foi modificado pela última vez.
 	
-2. Em **Escolher a origem do backup**, selecione **Arquivo da Conta de Armazenamento**. Aqui você pode especificar diretamente a URL do arquivo da conta de armazenamento ou clicar no ícone de pasta para navegar para o armazenamento de blob e especificar o arquivo de backup. Este exemplo escolhe o ícone de pasta.
-	
-	![Storage Account File][StorageAccountFile]
-	
-3. Clique no ícone de pasta para abrir a caixa de diálogo **Procurar Armazenamento em Nuvem**.
-	
-	![Browse Cloud Storage][BrowseCloudStorage]
-	
+	![View Containers][ViewContainers]
 
-4. Expanda o nome da conta de armazenamento que você deseja usar e, em seguida, selecione **websitebackups**, que contém seus backups.
-5. Selecione o arquivo zip que contém o backup que deseja restaurar e, em seguida, clique em **Abrir**.
-6. O arquivo da conta de armazenamento foi selecionado e é mostrado na caixa Conta de Armazenamento. Clique na seta direita para continuar.
+4. Na lista, selecione o contêiner e exiba a lâmina que mostra uma lista de nomes de arquivo, juntamente com o tamanho de cada arquivo.
 	
-	![Storage Account File Selected][StorageAccountFileSelected]
-	
-7. Continue com a seção a seguir, [Escolher as configurações de restauração do site e iniciar a operação de restauração](#RestoreSettings).
-
-<a name="RestoreSettings"></a>
-##Escolher as configurações de restauração do Site e iniciar a operação de restauração
-1. Em **Selecionar as configurações de restauração do seu site**, **Restaurar para**, selecionar **Site atual** ou **Nova instância do site**.
-	
-	![Choose your web site restore settings][ChooseRestoreSettings]
-	
-	Se você selecionar **Site atual**, o site existente será substituído pelo backup selecionado (restauração destrutiva). Todas as alterações feitas no site desde o momento do backup escolhido serão removidas permanentemente, e a operação de restauração não poderá ser desfeita. Durante a operação de restauração, seu site atual estará temporariamente indisponível e você será avisado sobre isso.
-	
-	Se você selecionar **Nova instância do site**, um novo site será criado na mesma região com o nome especificado. (por padrão, o novo nome é **restored-***oldWebSiteName*.) 
-	
-	O site que você restaurar irá conter o mesmo conteúdo e configuração que foram feitos no portal para o site original. Também incluirá todos os bancos de dados que você optar por incluir na próxima etapa.
-2. Se você desejar restaurar um banco de dados juntamente com o site, em **Bancos de Dados Incluídos**, selecione o nome do servidor de banco de dados para o qual você deseja restaurar o banco de dados usando o menu suspenso sob **Restaurar para**. Você também pode optar por criar um novo servidor de banco de dados para o qual restaurar ou escolher o padrão **Não Restaurar** para não restaurar o banco de dados. 
-	
-	Depois de escolher o nome do servidor, especifique o nome do banco de dados de destino para a restauração na caixa **Nome do Banco de Dados**.
-	
-	Se a restauração incluir um ou mais bancos de dados, você pode selecionar **Ajustar cadeias de conexão automaticamente** para atualizar suas cadeias de conexão armazenadas no backup para apontarem para o novo banco de dados ou servidor de banco de dados, conforme apropriado. Você deve verificar se todas as funcionalidades relacionadas aos bancos de dados funcionam conforme o esperado após a conclusão da restauração.
-	
-	![Choose database server host][ChooseDBServer]
-	
-	> [AZURE.NOTE] Você não pode restaurar um banco de dados SQL com o mesmo nome para o mesmo SQL Server. Você deve escolher outro nome de banco de dados ou outro host do SQL Server no qual restaurar o banco de dados. 
-	
-	> [AZURE.NOTE] Você pode restaurar um banco de dados MySQL com o mesmo nome no mesmo servidor, mas lembre-se de que isso apagará o conteúdo existente armazenado no banco de dados MySQL.	
-	
-3. Se você optar por restaurar um banco de dados existente, precisará fornecer um nome de usuário e uma senha. Se você optar por restaurar para um novo banco de dados, você precisará fornecer um novo nome de banco de dados:
-	
-	![Restore to a new SQL database][RestoreToNewSQLDB]
-	
-	Clique na seta direita para continuar.	
-4. Se você optar por criar um novo banco de dados, precisará fornecer as credenciais e outras informações de configuração inicial do banco de dados na próxima caixa de diálogo. O exemplo mostra um novo banco de dados SQL. (As opções para um novo banco de dados MySQL são um pouco diferentes).
-	
-	![New SQL database settings][NewSQLDBConfig]
-	
-5. Clique na marca de seleção para iniciar o processo de restauração. Quando concluir, a nova instância do site (se essa for a opção de restauração que você escolheu) ficará visível na lista de sites no portal.
-	
-	![Restored Contoso web site][RestoredContosoWebSite]
+5. Ao selecionar um arquivo, você pode optar por **Baixar** ou **Excluir** o arquivo. Observe que há dois tipos primários de arquivos, arquivos .zip e arquivos .xml. 
 
 <a name="OperationLogs"></a>
-##Exibir os logs de operação
+## Exibir os logs de auditoria
 	
-1. Para ver detalhes sobre o sucesso ou a falha da operação de restauração de site, vá para a guia Painel do site. Na seção **Visão Rápida**, em **Serviços de Gerenciamento**, clique em **Logs de Operação**.
+1. Para ver detalhes sobre o êxito ou falha da operação de restauração de aplicativo Web, selecione a parte **Log de auditoria** da lâmina **Procurar** principal. 
 	
-	![Dashboard - Operation Logs Link][DashboardOperationLogsLink]
+	A lâmina **Log de áudio** exibe todas as suas operações, juntamente com detalhes de nível, status, recursos e tempo.
 	
-2. Você é levado para a página **Logs de Operação** do portal de Serviços de Gerenciamento, onde pode ver o log da operação de restauração na lista de logs de operação:
+2. Role a lâmina para localizar as operações relacionadas ao seu aplicativo Web.
+3. Para exibir detalhes adicionais sobre uma operação, selecione essa operação na lista.
 	
-	![Management Services Operation Logs page][ManagementServicesOperationLogsList]
+A lâmina de detalhes exibirá as informações disponíveis relacionadas à operação.
 	
-3. Para exibir detalhes sobre a operação, selecione a operação na lista e, em seguida, clique no botão **Detalhes** na barra de comandos.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 	
-	![Details Button][DetailsButton]
-	
-	Ao fazer isso, a janela **Detalhes das Operações** é aberta e mostra o conteúdo que pode ser copiado do arquivo de log:
-	
-	![Operation Details][OperationDetails]
-	
+## O que mudou
+* Para obter um guia para a mudança de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a mudança do portal antigo para o novo portal, consulte: [Referência para navegação no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
 [StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
@@ -138,5 +97,4 @@ O recurso de restauração, disponível na guia Backups no portal de Sites do Az
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

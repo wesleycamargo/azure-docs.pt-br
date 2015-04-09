@@ -29,14 +29,14 @@ Neste exemplo, você utilizará um cluster do HDInsight para analisar arquivos d
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
-## Pré-requisitos
+##Pré-requisitos
 
-- Você deve ter provisionado um **cluster HDInsight**. Para obter instruções, consulte [Provisionar clusters do HDInsight][hdinsight-provision]. 
+- Você deve ter provisionado um **cluster HDInsight**. Para obter instruções, veja [Provisionar clusters do HDInsight][hdinsight-provision]. 
 - Você deve ter o Microsoft Excel 2010 ou Microsoft Excel 2013 instalado.
-- Você deve ter o [Driver ODBC do Microsoft Hive](http://www.microsoft.com/pt-br/download/details.aspx?id=40886) para importar dados do Hive no Excel.
+- Você deve ter o [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) para importar dados do Hive no Excel.
 
 
-## Para executar a amostra
+##Para executar a amostra
 
 1. No Portal de Gerenciamento do Azure, clique no cluster no qual deseja executar a amostra e depois clique em **Console de Consulta** na parte inferior. Como alternativa, você pode abrir diretamente o Console de Consulta usando a seguinte URL:
 
@@ -47,12 +47,13 @@ Neste exemplo, você utilizará um cluster do HDInsight para analisar arquivos d
 2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Amostras**, então clique na amostra **Análise de log do Website**.
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-## Próximas etapas
+##Próximas etapas
 Experimente a amostra sobre como analisar dados do sensor usando o Azure HDInsight. Veja [Analisando dados do sensor usando o Hive com HDInsight][hdinsight-sensor-data-sample].
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

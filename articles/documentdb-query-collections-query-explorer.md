@@ -44,7 +44,7 @@ O Gerenciador de Consultas pode ser iniciado por meio de qualquer conta, banco d
 
 O Gerenciador de Consultas permite criar, editar e executar consultas facilmente em uma coleção do Banco de Dados de Documentos, e inclui o realce de valores e palavras-chave básicas para aprimorar a experiência de criação de consultas.  
 
-- Ao abrir o Gerenciador de Consultas inicialmente, uma consulta padrão SELECT * FROM c é fornecida.  Você pode aceitar a consulta padrão ou construir a sua e clicar no botão **Executar consulta** para exibir os resultados. O Gerenciador de Consultas dá suporte à linguagem de consulta SQL do Banco de Dados de Documentos, conforme descrito em [Consultar o Banco de Dados de Documentos](../documentdb-sql-query/).
+- Ao abrir o Gerenciador de Consultas inicialmente, uma consulta padrão SELECT * FROM c é fornecida.  Você pode aceitar a consulta padrão ou construir a sua e clicar no botão **Executar consulta** para exibir os resultados. O Gerenciador de Consultas dá suporte à linguagem de consulta SQL do Banco de Dados de Documentos, conforme descrito em [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -63,6 +63,6 @@ O Gerenciador de Consultas permite criar, editar e executar consultas facilmente
 ##<a name="NextSteps"></a>Próximas etapas
 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
-- Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte pelo Gerenciador de Consultas, clique [aqui](../documentdb-sql-query/).
+- Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte pelo Gerenciador de Consultas, clique [aqui](documentdb-sql-query.md).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

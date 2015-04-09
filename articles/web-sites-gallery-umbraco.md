@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Criar um site do Umbraco com base na galeria do Microsoft Azure" 
-	description="obrigatório" 
+	description="Criar um sistema de gerenciamento de conteúdo Umbraco e implantar no site do Azure." 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="02/25/2015" 
 	ms.author="tomfitz"/>
 
 #Criar um site do Umbraco com base na galeria do Microsoft Azure#
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá:
 
 1. Faça logon no [Portal de Gerenciamento do Microsoft Azure](https://portal.azure.com/).
 
-2. Escolha o ícone **Galeria do Azure**.
+2. Escolha o ícone da **Galeria do Azure**.
 	
 	![Choose Web Gallery][01Startboard]
 	
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá:
 	
 	![Click Create][03UmbracoCMS]
 	
-5. A próxima etapa é configurar todos os recursos associados ao Umbraco CMS. Nesse caso, os recursos são um site e um banco de dados SQL Server. Primeiro, selecione **Site** para definir as configurações do site, como **URL**, **Plano de Hospedagem na Web**, **Configurações do Aplicativo Web** e **Local**. 
+5. A próxima etapa é configurar todos os recursos associados ao Umbraco CMS. Nesse caso, os recursos são um site e um banco de dados SQL Server. Primeiro, selecione **Site** para definir as configurações do site, como a **URL** do site, o **Plano de Hospedagem da Web**, as **Configurações do aplicativo Web** e o **Local**. 
 	
 	![Configure resources][04AppSettings]
 	
@@ -51,11 +51,11 @@ Neste tutorial, você aprenderá:
 	
 	![Create a SQL Server on Azure][05NewServer]
 	
-7. Agora que o site e o banco de dados estão configurados, você pode começar a implantar o aplicativo clicando em **Criar** na parte inferior da primeira folha **Umbraco CMS** vista na imagem anterior.
+7. Agora que o site e o banco de dados estão configurados, você pode começar a implantar o aplicativo clicando em **Criar** na parte inferior da primeira lâmina **Umbraco CMS** vista na imagem anterior.
 	
 	![Click Create][06UmbracoCMSGroup]
 	
-Depois que a implantação for concluída, a placa inicial no portal mostra que o Grupo de Recursos do Umbraco CMS, no caso **UmbracoCMSgroup**, foi criado. Na seção **Resumo**, clique no nome do site (nesse caso, **umbracocmsgroup**) para ver as propriedades do site. Também na seção **Resumo**, é possível selecionar o recurso do banco de dados para ver as propriedades do banco de dados associado.
+Depois que a implantação for concluída, a placa inicial no portal mostra que o Grupo de Recursos do Umbraco CMS, no caso **UmbracoCMSgroup**, foi criado. Na seção **Resumo**, clique no nome do site (nesse caso, **umbracocmsgroup**) para ver as propriedades do seu site. Também na seção **Resumo**, é possível selecionar o recurso do banco de dados para ver as propriedades do banco de dados associado.
 	
 ![][07UmbracoCMSGroupBlade]
 
@@ -69,11 +69,11 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
 	
 	![Install Umbraco wizard][09InstallUmbraco7]
 	
-3. Insira os detalhes da conexão e da autenticação do banco de dados que o Umbraco usará. Selecione **Microsoft SQL Azure** para o tipo de banco de dados.  É possível obter a cadeia de conexão do banco de dados na seção **Configurações do Site**.
+3. Insira os detalhes da conexão e da autenticação do banco de dados que o Umbraco usará. Selecione **Microsoft SQL Azure** para o tipo de banco de dados.  É possível obter a cadeia de conexão do banco de dados na seção **Configurações do Site** de seu site.
 	
 	![Configure your database][10ConfigureYourDatabase] 
 	
-4. Se estiver começando a usar o Umbraco CMS, você poderá selecionar um kit de início do site. Do contrário, clique em **Não, obrigado. Não desejo instalar um site de início**.
+4. Se estiver começando a usar o Umbraco CMS, você poderá selecionar um kit de início do site. Do contrário, clique em **Não, obrigado. Não desejo instalar um site inicial**.
 	
 	![Install a starter website][11InstallAStarterWebsite]
 	
@@ -85,7 +85,7 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
 	
 	![Create a text page][15CreateItemUnderOverflow]
 	
-7. Insira um título e conteúdo para a página de texto, conforme mostrado abaixo. Quando terminar, clique em **Salvar e publicar**.
+7. Insira um título e um conteúdo para a página de texto, conforme mostrado abaixo. Quando terminar, clique em **Salvar e publicar**.
 	
 	![Enter a title and some content][16EnterAName]
 	
@@ -106,7 +106,7 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
 
 [Documentação do Portal de Visualização do Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
-[Portal de Visualização do Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
+[Portal de Visualização do Azure (Canal 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
 [Documentação dos Sites do Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
@@ -129,4 +129,4 @@ Depois que a implantação for concluída, a placa inicial no portal mostra que 
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

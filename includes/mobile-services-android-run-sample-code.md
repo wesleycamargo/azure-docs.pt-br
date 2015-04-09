@@ -1,9 +1,9 @@
-﻿1. No Explorador de Projeto, expanda **aplicativo** => **java** => **com.example.GetStartedWithData**, **src** e **.com.example.GetStartedWithData** e, em seguida, abra o arquivo *ToDoActivity.java*.
+1. No Explorador de Projeto, expanda **aplicativo** => **java** => **com.example.GetStartedWithData**, **src** e **.com.example.GetStartedWithData** e, em seguida, abra o arquivo *ToDoActivity.java*.
 
-   	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
+   ![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
 
-   	Observe que há comentários  `//TODO` que especificam as etapas que você deve seguir para fazer com que esse aplicativo funcione com o serviço móvel.
+   Observe que há comentários  `//TODO` que especificam as etapas que você deve seguir para fazer com que esse aplicativo funcione com o serviço móvel.
 
 2. No menu **Executar**, clique em **Executar aplicativo**.
 
@@ -13,15 +13,16 @@
 
 
 
-	> [AZURE.NOTE] É possível executar este projeto usando um telefone Android ou o emulador Android. A execução com um telefone Android exige que você baixe um driver USB específico de telefone.
+> [AZURE.NOTE] É possível executar este projeto usando um telefone Android ou o emulador Android. A execução com um telefone Android exige que você baixe um driver USB específico de telefone.
 	>
-	> Para executar o projeto no emulador Android, deve-se definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
+> Para executar o projeto no emulador Android, deve-se definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
 
 4. Escolha um dispositivo conectado, ou *Launch Emulator*.
 
 5. Quando o aplicativo surgir, digite um texto significativo, como _Complete the tutorial_ e clique em **Adicionar**.
 
-   	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
+   ![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
-   	Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
-<!--HONumber=47-->
+   Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
+
+<!--HONumber=49-->

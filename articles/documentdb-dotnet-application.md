@@ -2,7 +2,7 @@
 	pageTitle="Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos | Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos com .NET para compilar um aplicativo Web de lista de tarefas pendentes. Você vai armazenar e acessar dados de um aplicativo Web ASP.NET MVC hospedado em Sites do Azure." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/26/2015" 
+	ms.date="03/23/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
@@ -25,7 +25,7 @@ Para destacar como você pode aproveitar com eficiência o Banco de Dados de Doc
 
 Este passo a passo mostra como usar o serviço do Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados em um aplicativo Web ASP.NET MVC hospedado no Azure.
 
-> [AZURE.TIP] Este tutorial presume que você tem experiência anterior no uso do ASP.NET MVC e dos Sites do Azure. Se você não estiver familiarizado com ASP.NET ou as [ferramentas de pré-requisito](#_Toc395637760), recomendamos baixar o projeto de [tarefa](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) tutorial completo do [GitHub](https://github.com/Azure/azure-documentdb-net) e compilá-lo usando [as instruções no final deste artigo](#GetProject). Depois que você o tiver criado, poderá ler o artigo para obter informações sobre o código no contexto do projeto.
+> [AZURE.TIP] Este tutorial presume que você tenha experiência anterior no uso do ASP.NET MVC e dos Sites do Azure. Se você for iniciante no ASP.NET ou nas [ferramentas de pré-requisito](#_Toc395637760), recomendamos baixar o projeto do tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo do [GitHub](https://github.com/Azure/azure-documentdb-net) e compilá-lo usando as [instruções no fim deste artigo](#GetProject). Depois que você o tiver criado, poderá ler o artigo para obter informações sobre o código no contexto do projeto.
 
 ## <a name="_Toc395637760"></a>Pré-requisitos
 
@@ -55,7 +55,7 @@ Agora vamos criar nosso novo projeto ASP.NET.
 1. No Visual Studio, no menu **Arquivo**, vá para **Novo** e clique **Projeto**.
 
    	A caixa de diálogo **Novo Projeto** é exibida.
-2. No painel **Tipos de projeto**, expanda **Modelos**, **Visual C#**, **Web**e selecione **Aplicativo Web ASP.NET**.
+2. No painel **Tipos de projeto**, expanda **Modelos**, **Visual C#**, **Web** e selecione **Aplicativo Web ASP.NET**.
 
   	![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/documentdb-dotnet-application/image10.png)
 
@@ -92,7 +92,7 @@ essa solução. Agora vamos abordar a finalidade real deste tutorial, adicionand
 
 2. Na caixa **Pesquisar Online**, digite "Banco de Dados de Documentos do Azure". Nos resultados, instale o pacote **Bibliotecas de cliente do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json.
 
-  	> [AZURE.NOTE] Enquanto o serviço ainda estiver em visualização, o pacote NuGet ficará marcado como "Pré-lançamento". Por isso, você precisará incluir a opção "Incluir Pré-lançamento" ou não encontrará o pacote.  
+  	> [AZURE.NOTE] Enquanto o serviço ainda estiver em visualização, o pacote NuGet ficará marcado como "Pré-lançamento". Por isso, você precisará incluir a opção "Incluir Pré-lançamento" ou não encontrará o pacote. 
 
   	Se preferir, poderá usar o Console de Comando do Pacote para instalar o pacote digitando o seguinte.
 
@@ -109,14 +109,14 @@ Agora vamos adicionar os modelos, exibições e controladores a este aplicativo 
 
 - [Adicionar um modelo](#_Toc395637764).
 - [Adicionar um controlador](#_Toc395637765).
-- [Adicionar exibição](#_Toc395637766).
+- [Adicionar exibições](#_Toc395637766).
 
 
 ### <a name="_Toc395637764"></a>Adicionar um modelo
 
 Vamos começar criando o **M** no MVC, o modelo. 
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Modelos**, clique em **Adicionar**e, em seguida, em **Classe**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Modelos**, clique em **Adicionar** e, em seguida, em **Classe**.
 
   	A caixa de diálogo **Adicionar Novo Item** é exibida.
 
@@ -167,7 +167,7 @@ Depois de o arquivo ser criado, sua solução do Visual Studio deverá se parece
 
 ![Screen shot of Solution Explorer with the new ItemController.cs file and Item.cs file highlighted](./media/documentdb-dotnet-application/image16.png)
 
-### <a name="_Toc395637766"></a>Adicionar exibição
+### <a name="_Toc395637766"></a>Adicionar exibições
 
 E, por fim, vamos criar o **V** no MVC, as exibições:
 
@@ -184,7 +184,7 @@ E, por fim, vamos criar o **V** no MVC, as exibições:
 
 2. Na caixa de diálogo **Adicionar Exibição**, faça o seguinte:
 	- Na caixa **Nome de Exibição**, digite ***Índice***.
-	- Na caixa **Modelo**, selecione ***List***.
+	- Na caixa **Modelo**, selecione ****List****.
 	- Na caixa **Classe do modelo**, selecione ***Item (todo.Models)***.
 	- Na caixa de página de layout, digite ***~/Views/Shared/_Layout.cshtml***.
 	- Clique em **Adicionar**.
@@ -214,7 +214,7 @@ E, por fim, adicione uma última exibição para editar um **Item** da mesma man
 
 Na caixa de diálogo **Adicionar Exibição**, faça o seguinte:
 
-- Na caixa **Nome de Exibição**, digite ***Edit***.
+- Na caixa **Nome de exibição**, digite ***Editar***.
 - Na caixa **Modelo**, selecione ***Editar***.
 - Na caixa **Classe do modelo**, selecione ***Item (todo.Models)***.
 - Selecione **Criar como uma exibição parcial**.
@@ -397,7 +397,7 @@ Nesta seção, vamos adicionar código para tratar o seguinte:
 
 	Se você executar o aplicativo agora, deverá ir para o **Controlador Inicial** e a exibição **Índice** desse controlador. Esse é o comportamento padrão para o projeto do modelo MVC que escolhemos no início, mas não queremos isso! Vamos alterar o roteamento neste aplicativo MVC para alterar seu comportamento.
 
-11. Abra ***App\_Start\RouteConfig.cs*** e localize a linha que começa com "defaults:" e altere-a para que se pareça com o seguinte.
+11. Abra ***App\_Start\RouteConfig.cs*** e localize a linha que começa com "defaults:" e altere-a para que se pareça com o seguinte;
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
@@ -437,7 +437,7 @@ Já temos uma exibição para **Criar** e um botão na exibição de **Índice**
 			return View(item);   
 		}
 
-	**Observação de segurança**: O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação intersite forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, consulte [Prevenindo solicitação intersite forjada][]. O código-fonte fornecido no [Github][] já tem a implementação completa.
+	**Observação de segurança**: O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação entre sites forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, consulte [Prevenindo solicitação intersite forjada][]. O código-fonte fornecido no [GitHub][] já tem a implementação completa.
 
 	**Observação de segurança**: Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques de overposting. Para obter mais detalhes, consulte [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)][].
 
@@ -578,7 +578,7 @@ Em poucos segundos, o Visual Studio terminará de publicar seu aplicativo Web e 
 
 ##<a name="_Toc395637775"></a>Próximas etapas
 
-Parabéns! Você acabou de criar seu primeiro Aplicativo ASP.NET MVC usando o Banco de Dados de Documentos do Azure e publicá-lo nos sites do Azure. O código-fonte para o aplicativo completo, incluindo as funcionalidade de detalhes e exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [Github][]. Então, se você estiver interessado em adicioná-lo ao seu aplicativo, pegue o código e adicione-o a esse aplicativo.
+Parabéns! Você acabou de criar seu primeiro Aplicativo ASP.NET MVC usando o Banco de Dados de Documentos do Azure e publicá-lo nos sites do Azure. O código-fonte para o aplicativo completo, incluindo as funcionalidade de detalhes e exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][]. Então, se você estiver interessado em adicioná-lo ao seu aplicativo, pegue o código e adicione-o a esse aplicativo.
 
 Para adicionar funcionalidades adicionais ao seu aplicativo, veja as APIs disponíveis na [Biblioteca do Banco de Dados de Documentos .NET](http://msdn.microsoft.com/library/azure/dn783362.aspx) e fique à vontade para contribuir com a biblioteca no [GitHub][]. 
 
@@ -586,7 +586,7 @@ Para adicionar funcionalidades adicionais ao seu aplicativo, veja as APIs dispon
 
 Se estiver buscando economizar tempo e deseja apenas compilar a solução completa de tarefas e não adicionar o código por conta própria, você está com sorte. A solução completa está disponível no GitHub e você pode compilá-la e implantá-la em poucos minutos usando as instruções a seguir.
 
-1. Verifique se você tem os [softwares de pré-requisito](#_Toc395637760) instalado, que inclui o Visual Studio e o SDK do Azure para .NET versão 2.3 ou mais recente.
+1. Verifique se você tem o [software de pré-requisito](#_Toc395637760) instalado, o que inclui o Visual Studio e o SDK do Azure para .NET versão 2.3 ou posterior.
 
 2. Clone o repositório azure-documentdb-net usando o Git para Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) ou baixe o arquivo zip do [GitHub](https://github.com/Azure/azure-documentdb-net/).
 
@@ -597,9 +597,9 @@ Se estiver buscando economizar tempo e deseja apenas compilar a solução comple
 4. Recupere os valores **URI** e **PRIMARY KEY** ou **SECONDARY KEY** da folha **Chaves** da sua conta do Banco de Dados de Documentos no [portal de Visualização do Azure](https://portal.azure.com/). 
 
 	
-	Se você não tiver uma conta, consulte [Criar uma conta de banco de dados](/documentation/articles/documentdb-create-account/) para configurá-la.
+	Se você não tiver uma conta, consulte [Criar uma conta de banco de dados](documentdb-create-account.md) para configurá-la.
 
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-dotnet-application/keys.png)
+	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
 
 5. No arquivo Web.config, atualize os valores padrão para as chaves **endpoint** e **authKey**.
 
@@ -611,14 +611,14 @@ Se estiver buscando economizar tempo e deseja apenas compilar a solução comple
 	
 
 
-7. Agora você pode [executar o aplicativo localmente](#_Toc395637773) e, em seguida, [implantá-lo nos Sites do Azure](#_Toc395637774).
+7. Agora você pode [executar o aplicativo localmente](#_Toc395637773) e [implantá-lo em sites do Azure](#_Toc395637774).
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Github]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
-[Preventing Cross-Site Request Forgery (Prevenindo Solicitação Intersite Forjada)]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC (Operações CRUD Básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
+[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
+[Impedindo a falsificação de solicitação entre sites]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Operações CRUD Básicas no ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 
-<!--HONumber=47-->
+<!--HONumber=49-->

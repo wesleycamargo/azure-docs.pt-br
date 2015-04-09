@@ -16,7 +16,7 @@
 
 # Particionando dados no Banco de Dados de Documentos
 
-O [Banco de Dados de Documentos do Microsoft Azure](../../services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para  *expandir* diretamente com seu aplicativo conforme ele cresce. O Banco de Dados de Documentos tem sido usado para alimentar serviços de produção de grande escala na Microsoft, como o Repositório de Dados do Usuário que alimenta o pacote MSN de aplicativos Web e para celular. 
+O [Banco de Dados de Documentos do Microsoft Azure](../../services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para *scale-out* diretamente com seu aplicativo conforme ele cresce. O Banco de Dados de Documentos tem sido usado para alimentar serviços de produção de grande escala na Microsoft, como o Repositório de Dados do Usuário que alimenta o pacote MSN de aplicativos Web e para celular. 
 
 Você pode obter uma escala quase infinita em termos de armazenamento e produtividade para seu aplicativo no Banco de Dados de Documentos, particionando seus dados horizontalmente - um conceito comumente chamado de **fragmentação**.  Contas do Banco de Dados de Documentos podem ser dimensionadas linearmente com o custo, por meio de unidades empilháveis chamadas de **coleções**. A melhor forma de particionar os dados entre as coleções depende do formato dos dados e dos padrões de acesso. 
 
@@ -28,19 +28,19 @@ Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
 ## Coleções = Partições
 
-Antes de nos aprofundarmos mais nas técnicas de particionamento de dados, é importante compreender o que é e o que não é uma coleção. Talvez você já saiba que uma coleção é um contêiner para seus documentos JSON. No Banco de Dados de Documentos, as coleções não são apenas contêineres  *lógicos*, mas também contêineres  *físicos*. Eles são o limite de transação para procedimentos e gatilhos armazenados e o ponto de entrada para consultas e operações CRUD. A cada coleção é atribuída uma produtividade, que não é compartilhada com outras coleções da mesma conta. Portanto, você pode escalar horizontalmente seu aplicativo em termos de armazenamento e de produtividade, acrescentando mais coleções e distribuindo seus documentos entre elas.
+Antes de nos aprofundarmos mais nas técnicas de particionamento de dados, é importante compreender o que é e o que não é uma coleção. Talvez você já saiba que uma coleção é um contêiner para seus documentos JSON. Coleções em DocumentDB não são apenas contêineres *logical*, mas também contêineres *physical*. Eles são o limite de transação para procedimentos e gatilhos armazenados e o ponto de entrada para consultas e operações CRUD. A cada coleção é atribuída uma produtividade, que não é compartilhada com outras coleções da mesma conta. Portanto, você pode escalar horizontalmente seu aplicativo em termos de armazenamento e de produtividade, acrescentando mais coleções e distribuindo seus documentos entre elas.
 
 Coleções não são o mesmo que tabelas em bancos de dados relacionais. As coleções não impõem o esquema. Sendo assim, você pode armazenar tipos diferentes de documentos com vários esquemas na mesma coleção. No entanto, você pode optar por usar coleções para armazenar objetos de apenas um tipo, como faria com as tabelas. O melhor modelo depende apenas de como os dados aparecem juntos em consultas e transações.
 
 ## Particionando com o Banco de Dados de Documentos
 
-As técnicas mais comuns usadas para particionar dados com o Banco de Dados de Documentos do Azure são o  *particionamento por intervalos*, o  *particionamento por pesquisa* e o  *particionamento hash*. Normalmente, você designa um nome de propriedade JSON no documento como sua chave de partição, como "timestamp" ou "userID". Em alguns casos, pode ser uma propriedade JSON interna ou um nome de propriedade diferente para cada tipo de documento.
+As técnicas mais comuns usadas para particionar os dados com o Banco de Dados de Documentos do Azure são *range partitioning*, *lookup partitioning* e *hash partitioning*. Normalmente, você designa um nome de propriedade JSON no documento como sua chave de partição, como "timestamp" ou "userID". Em alguns casos, pode ser uma propriedade JSON interna ou um nome de propriedade diferente para cada tipo de documento.
 
 Vejamos essas técnicas com mais detalhes.
 
 ## Particionamento por intervalos
 
-No particionamento por intervalos, as partições são atribuídas com base no intervalo em que se encontra a chave de partição. Normalmente, ele é usado para fazer o particionamento com propriedades de  *carimbo de data/hora* (por exemplo, eventTime entre 1º de fevereiro de 2015 e 2 de fevereiro de 2015). 
+No particionamento por intervalos, as partições são atribuídas com base no intervalo em que se encontra a chave de partição. Normalmente, ele é usado para fazer o particionamento com propriedades de *time stamp* (por exemplo, eventTime entre 1º de fevereiro de 2015 e 2 de fevereiro de 2015). 
 
 > [AZURE.TIP] Você deve usar o particionamento por intervalos se suas consultas forem restritas a valores em intervalos específicos com relação à chave de partição.
 
@@ -62,9 +62,9 @@ Qual técnica de particionamento é melhor para você? Depende do tipo de dados 
 
 - O **particionamento por intervalos** geralmente é usado no contexto de datas, pois oferece um mecanismo simples e natural para remover partições com base no carimbo de data/hora. Ele também é útil quando as consultas ficam restritas a um intervalo de tempo, uma vez que ele é alinhado aos limites de particionamento. 
 - O **particionamento por pesquisa** permite agrupar e organizar conjuntos de dados desordenados e não relacionados de uma maneira natural, como agrupar locatários por organização ou estados por região. A pesquisa também oferece um controle refinado da migração de dados entre coleções. 
-- O **particionamento hash** é útil para fazer o balanceamento de cargas uniforme das solicitações, para usar de maneira eficaz o armazenamento e a produtividade provisionados. Usar algoritmos de  *hash consistentes* permite reduzir a quantidade de dados que precisam ser movidos quando uma partição é adicionada ou removida.
+- O **particionamento hash** é útil para fazer o balanceamento de cargas uniforme das solicitações, para usar de maneira eficaz o armazenamento e a produtividade provisionados. Usar algoritmos de *consistent hashing* permite reduzir a quantidade de dados que precisam ser movidos quando uma partição é adicionada ou removida.
 
-Você não precisa escolher apenas uma técnica de particionamento. Uma  *mescla* dessas técnicas também pode ser útil dependendo da situação. Por exemplo, se você estiver armazenando dados de telemetria de um veículo, uma boa abordagem seria particionar os dados de telemetria do dispositivo segundo intervalo do carimbo de data/hora para facilitar o gerenciamento das partições e, depois, sub-particionar segundo o VIN (número de identificação de veículo), para expandir e obter mais produtividade (particionamento de composição e hash por intervalos).
+Você não precisa escolher apenas uma técnica de particionamento. Uma *composite* dessas técnicas também pode ser útil dependendo da situação. Por exemplo, se você estiver armazenando dados de telemetria de um veículo, uma boa abordagem seria particionar os dados de telemetria do dispositivo segundo intervalo do carimbo de data/hora para facilitar o gerenciamento das partições e, depois, subparticionar segundo o VIN (número de identificação de veículo), para expandir e obter mais produtividade (particionamento de composição e hash por intervalos).
 
 ## Desenvolvendo um aplicativo particionado
 Há três áreas principais do design às quais é necessário prestar atenção ao desenvolver um aplicativo particionado no Banco de Dados de Documentos.
@@ -79,7 +79,7 @@ Vejamos cada uma dessas áreas com mais detalhes.
 
 Encaminhar solicitações de criação de documentos é simples para as três técnicas que discutimos. O documento é criado na partição com o valor hash, de pesquisa ou de intervalo correspondente à chave de partição.
 
-Consultas e leituras normalmente devem ser direcionadas a uma única chave de partição, de modo que as consultas sejam distribuídas apenas às partições correspondentes. Para consultar todos os dados, no entanto, você precisa  *distribuir* a solicitação em várias partições e depois mesclar os resultados. Tenha em mente que algumas consultas talvez precisem executar uma lógica personalizada para mesclar resultados (por exemplo, para buscar os N resultados principais).
+Consultas e leituras normalmente devem ser direcionadas a uma única chave de partição, de modo que as consultas sejam distribuídas apenas às partições correspondentes. Para consultar todos os dados, no entanto, você precisa *fan-out* a solicitação em várias partições e depois mesclar os resultados. Tenha em mente que algumas consultas talvez precisem executar uma lógica personalizada para mesclar resultados (por exemplo, para buscar os N resultados principais).
 
 ## Gerenciando seu mapa de partições
 
@@ -89,14 +89,14 @@ Se não, você pode armazená-lo em qualquer armazenamento persistente. Um padr�
 
 ## Adicionando e removendo partições
 
-Com o Banco de Dados de Documentos, você pode adicionar e remover as coleções criadas a qualquer momento e usá-las para armazenar novos dados ou balancear novamente dados disponíveis em coleções existentes. Veja na página [Limites][banco de dados de documentos-limites] o número de coleções. E você sempre pode nos contatar para aumentar os limites.
+Com o Banco de Dados de Documentos, você pode adicionar e remover as coleções criadas a qualquer momento e usá-las para armazenar novos dados ou balancear novamente dados disponíveis em coleções existentes. Veja na página [Limites][documentdb-limits] o número de coleções. E você sempre pode nos contatar para aumentar os limites.
 
 Adicionar e remover uma nova partição usando particionamento por intervalos ou pesquisa é simples. Por exemplo, para adicionar uma nova região ou um novo intervalo de tempo para dados recentes, você precisa apenas acrescentar as novas partições ao mapa existente. Dividir uma partição existente em várias partições ou mesclar duas partições demanda um pouco mais de esforço. Você precisa 
 
 - Deixar o fragmento offline para leituras.
 - Encaminhar leituras para as duas partições usando a configuração de particionamento antiga, bem como a nova configuração de particionamento durante a migração. Observe que as garantias de nível de consistência e transação não estarão em vigor até a conclusão da migração.
 
-Com o hash, é um pouco mais complicado adicionar e remover partições. Técnicas de hash simples causarão embaralhamento e demandarão que a maioria dos dados sejam movidos. Usar **hash consistente** garante que apenas uma fração dos dados precise ser movida.
+Com o hash, é um pouco mais complicado adicionar e remover partições. Técnicas de hash simples causarão embaralhamento e demandarão que a maioria dos dados seja movida. Usar **hash consistente** garante que apenas uma fração dos dados precise ser movida.
 
 Um modo relativamente fácil de adicionar novas partições sem precisar mover dados é "transbordar" seus dados para uma nova coleção e distribuir as solicitações nas coleções nova e antiga. Essa abordagem, no entanto, deve ser usada apenas em situações raras (por exemplo, transbordar durante picos de cargas de trabalho e para reter os dados temporariamente até que eles possam ser movidos).
 
@@ -104,4 +104,4 @@ Um modo relativamente fácil de adicionar novas partições sem precisar mover d
 Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o Banco de Dados de Documentos, bem como quando usar qual técnica ou uma combinação delas. Comece a usar um dos [SDKs com suporte](https://msdn.microsoft.com/library/azure/dn781482.aspx) e entre em contato conosco pelo [fórum de suporte do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) se tiver dúvidas.
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

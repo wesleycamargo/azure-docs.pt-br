@@ -1,8 +1,8 @@
 ﻿<properties 
-	pageTitle="Compilar um aplicativo Web do Node.js usando o Banco de Dados de Documentos | Azure" 
+	pageTitle="Compilar um aplicativo Web Node.js usando o Banco de Dados de Documentos | Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos do Microsoft Azure para armazenar e acessar dados de um aplicativo Web Express do Node.js hospedado nos Sites do Azure." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -11,36 +11,43 @@
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="03/03/2015" 
+	ms.date="03/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Compilar um aplicativo Web do Node.js usando o Banco de Dados de Documentos
 
 Este tutorial mostra a você como usar o serviço do Banco de Dados de Documentos do Azure para armazenar e acessar dados de um aplicativo Express do Node.js hospedado nos Sites do Azure.
 
-Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
+É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu mostra como provisionar uma conta de banco de dados do Banco de Dados de Documentos do Azure e armazenar documentos JSON em seu aplicativo do Node.js. 
+
+> [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
+
+Em seguida, volte a este artigo, onde você aprenderá as respostas para as seguintes perguntas:
 
 - Como posso trabalhar com o Banco de Dados de Documentos usando o módulo nmp do banco de dados?
 - Como posso implantar o aplicativo Web nos Sites do Azure?
 
-Seguindo este tutorial, você compilará um aplicativo simples de gerenciamento de tarefas baseado na Web que permite criar, recuperar e concluir tarefas. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos
+Seguindo este tutorial, você criará um aplicativo simples baseado na Web
+de gerenciamento de tarefas que permite criar, recuperar e
+concluir tarefas. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos
 do Azure.
 
 ![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Não tem tempo para concluir o tutorial e quer apenas obter a solução completa no Github? Sem problemas, [aqui][] está.
+Não tem tempo para concluir o tutorial e quer apenas obter a solução completa no Github? Sem problemas, [aqui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo) está.
 
 ## <a name="_Toc395783176"></a>Pré-requisitos
 
-> [AZURE.TIP] Este tutorial presume que você tem alguma experiência com o uso do Node.js e dos Sites do Azure.
+> [AZURE.TIP] Este tutorial presume que você tenha alguma experiência com o uso do Node.js e dos Sites do Azure.
 
-Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
+Antes de seguir as instruções neste artigo, você deve verificar
+se tem o seguinte:
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](../../pricing/free-trial/).
 - [Node.js][] versão v0.10.29 ou superior.
-- [Gerador do Express](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo via `npm install express-generator -g`)
+- [Gerador do Express](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo por meio de `npm install express-generator -g`)
 - [Git][].
 
 ## <a name="_Toc395637761"></a>Etapa 1: Criar uma conta de banco de dados do Banco de Dados de Documentos
@@ -70,13 +77,17 @@ Agora, vamos criar um projeto básico do tipo Hello World no Node.js usando a es
 
 		npm start
 
-5. Você pode ver o novo aplicativo navegando até [http://localhost:3000/](http://localhost:3000).
+5. Você pode ver o novo aplicativo navegando em seu navegador até [http://localhost:3000](http://localhost:3000).
 
 	![Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
 ## <a name="_Toc395783179"></a>Etapa 3: Instalar módulos adicionais
 
-O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Este arquivo contém uma lista de módulos adicionais que são necessários para seu aplicativo do Node.js. Mais tarde, quando você implantar o aplicativo em um Site do Azure, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para dar suporte ao aplicativo. Ainda precisamos instalar mais dois pacotes para este tutorial.
+O arquivo **package.json** é um dos arquivos criados na raiz do
+projeto. Esse arquivo contém uma lista de módulos adicionais que são
+necessários para seu aplicativo do Node.js. Posteriormente, quando você implantar o
+aplicativo para um site do Azure, esse arquivo será usado para determinar
+quais módulos devem ser instalados no Azure para dar suporte a seu aplicativo. Ainda precisamos instalar mais dois pacotes para este tutorial.
 
 1. No terminal, instale o módulo **async** via npm.
 
@@ -104,61 +115,69 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 4. Copie o código a seguir para **docdbUtils.js**
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
-		
+			
 		var DocDBUtils = {
-		  getOrCreateDatabase: function(client, databaseId, callback) {
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.id=@id',
-		      parameters: [{
-		        name: '@id',
-		        value: databaseId
-		      }]
-		    };
+		    getOrCreateDatabase: function (client, databaseId, callback) {
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            parameters: [{
+		                name: '@id',
+		                value: databaseId
+		            }]
+		        };
 		
-		    client.queryDatabases(querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      }
+		        client.queryDatabases(querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
 		
-		      if (!err && results.length === 0) {
-		        client.createDatabase({
-		          id: databaseId
-		        }, function(err, created) {
-		          callback(null, created);
+		            } else {
+		                if (results.length === 0) {
+		                    var databaseSpec = {
+		                        id: databaseId
+		                    };
+		
+		                    client.createDatabase(databaseSpec, function (err, created) {
+		                        callback(null, created);
+		                    });
+		
+		                } else {
+		                    callback(null, results[0]);
+		                }
+		            }
 		        });
-		      } else {
-		        callback(null, results[0]);
-		      }
-		    });
-		  },
+		    },
 		
-		  getOrCreateCollection: function(client, databaseLink, collectionId, callback) {
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.id=@id',
-		      parameters: [{
-		        name: '@id',
-		        value: collectionId
-		      }]
-		    };
+		    getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            parameters: [{
+		                name: '@id',
+		                value: collectionId
+		            }]
+		        };
+		        
+		        client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
 		
-		    client.queryCollections(databaseLink, querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      }
+		            } else {		
+		                if (results.length === 0) {
+		                    var collectionSpec = {
+		                        id: collectionId
+		                    };
 		
-		      if (!err && results.length === 0) {
-		        client.createCollection(databaseLink, {
-		          id: collectionId
-		        }, function(err, created) {
-		          callback(null, created);
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
+		                        callback(null, created);
+		                    });
+		
+		                } else {
+		                    callback(null, results[0]);
+		                }
+		            }
 		        });
-		      } else {
-		        callback(null, results[0]);
-		      }
-		    });
-		  }
+		    }
 		};
-		
+				
 		module.exports = DocDBUtils;
 		
 3. Salve e feche o arquivo **docdbUtils.js**.
@@ -181,91 +200,101 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		
 		module.exports = TaskDao;
 
-5. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in DocumentDB.
+5. Em seguida, adicione o seguinte código para definir métodos adicionais no objeto da Tarefa, que permitem interações com os dados armazenados no Banco de Dados de Documentos.
 
 		TaskDao.prototype = {
-		  init: function(callback) {
-		    var self = this;
+		    init: function (callback) {
+		        var self = this;
 		
-		    docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
-		      if (err) {
-		        callback(err);
-		      }
+		        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
+		            if (err) {
+		                callback(err);
+
+		            } else {
+		                self.database = db;
+		                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
+		                    if (err) {
+		                        callback(err);
 		
-		      self.database = db;
-		      docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
-		        if (err) {
-		          callback(err);
-		        }
-		
-		        self.collection = coll;
-		      });
-		    });
-		  },
-		
-		  find: function(querySpec, callback) {
-		    var self = this;
-		
-		    self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        callback(null, results);
-		      }
-		    });
-		  },
-		
-		  addItem: function(item, callback) {
-		    var self = this;
-		    item.date = Date.now();
-		    item.completed = false;
-		    self.client.createDocument(self.collection._self, item, function(err, doc) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        callback(null);
-		      }
-		    });
-		  },
-		
-		  updateItem: function(itemId, callback) {
-		    var self = this;
-		
-		    self.getItem(itemId, function(err, doc) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        doc.completed = true;
-		        self.client.replaceDocument(doc._self, doc, function(err, replaced) {
-		          if (err) {
-		            callback(err);
-		          } else {
-		            callback(null);
-		          }
+		                    } else {
+		                        self.collection = coll;
+		                    }
+		                });
+		            }
 		        });
-		      }
-		    });
-		  },
+		    },
 		
-		  getItem: function(itemId, callback) {
-		    var self = this;
+		    find: function (querySpec, callback) {
+		        var self = this;
 		
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.id=@id',
-		      parameters: [{
-		        name: '@id',
-		        value: itemId
-		      }]
-		    };
+		        self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
 		
-		    self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        callback(null, results[0]);
-		      }
-		    });
-		  }
+		            } else {
+		                callback(null, results);
+		            }
+		        });
+		    },
+		
+		    addItem: function (item, callback) {
+		        var self = this;
+		
+		        item.date = Date.now();
+		        item.completed = false;
+		
+		        self.client.createDocument(self.collection._self, item, function (err, doc) {
+		            if (err) {
+		                callback(err);
+		
+		            } else {
+		                callback(null, doc);
+		            }
+		        });
+		    },
+		
+		    updateItem: function (itemId, callback) {
+		        var self = this;
+		
+		        self.getItem(itemId, function (err, doc) {
+		            if (err) {
+		                callback(err);
+		
+		            } else {
+		                doc.completed = true;
+		
+		                self.client.replaceDocument(doc._self, doc, function (err, replaced) {
+		                    if (err) {
+		                        callback(err);
+		
+		                    } else {
+		                        callback(null, replaced);
+		                    }
+		                });
+		            }
+		        });
+		    },
+		
+		    getItem: function (itemId, callback) {
+		        var self = this;
+		
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            parameters: [{
+		                name: '@id',
+		                value: itemId
+		            }]
+		        };
+		
+		        self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
+		
+		            } else {
+		                callback(null, results[0]);
+		            }
+		        });
+		    }
 		};
 
 6. Salve e feche o arquivo **taskDao.js**. 
@@ -273,7 +302,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 ### Criar o controlador
 
 1. No diretório **routes** do seu projeto, crie um novo arquivo chamado **tasklist.js**. 
-2. Adicione os seguintes códigos ao **tasklist.js**. Isso carrega os módulos DocumentDBClient e async, que são usados pelo **tasklist.js**. Isso também define a função de **TaskList**, que é transmitida a uma instância do objeto **Task** definido anteriormente:
+2. Adicione os seguintes códigos ao **tasklist.js**. Isso carrega os módulos DocumentDBClient e async, que são usados pelo **tasklist.js**. Isso também definiu a função de **TaskList**, que é transmitida a uma instância do objeto da **Tarefa** definido anteriormente:
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
 		var async = require('async');
@@ -285,65 +314,66 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		module.exports = TaskList;
 
 3. Continue adicionando ao arquivo **tasklist.js**, adicionando os métodos usados para **showTasks, addTask** e **completeTasks**:
-
+		
 		TaskList.prototype = {
-		  showTasks: function(req, res) {
-		    var self = this;
+		    showTasks: function (req, res) {
+		        var self = this;
 		
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.completed=@completed',
-		      parameters: [{
-		        name: '@completed',
-		        value: false
-		      }]
-		    };
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.completed=@completed',
+		            parameters: [{
+		                name: '@completed',
+		                value: false
+		            }]
+		        };
 		
-		    self.taskDao.find(querySpec, function(err, items) {
-		      if (err) {
-		        throw (err);
-		      }
+		        self.taskDao.find(querySpec, function (err, items) {
+		            if (err) {
+		                throw (err);
+		            }
 		
-		      res.render('index', {
-		        title: 'My ToDo List ',
-		        tasks: items
-		      });
-		    });
-		  },
+		            res.render('index', {
+		                title: 'My ToDo List ',
+		                tasks: items
+		            });
+		        });
+		    },
 		
-		  addTask: function(req, res) {
-		    var self = this;
-		    var item = req.body;
+		    addTask: function (req, res) {
+		        var self = this;
+		        var item = req.body;
 		
-		    self.taskDao.addItem(item, function(err) {
-		      if (err) {
-		        throw (err);
-		      }
+		        self.taskDao.addItem(item, function (err) {
+		            if (err) {
+		                throw (err);
+		            }
 		
-		      res.redirect('/');
-		    });
-		  },
+		            res.redirect('/');
+		        });
+		    },
 		
-		  completeTask: function(req, res) {
-		    var self = this;
-		    var completedTasks = Object.keys(req.body);
+		    completeTask: function (req, res) {
+		        var self = this;
+		        var completedTasks = Object.keys(req.body);
 		
-		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-		      self.taskDao.updateItem(completedTask, function(err) {
-		        if (err) {
-		          callback(err);
-		        } else {
-		          callback(null);
-		        }
-		      });
-		    }, function goHome(err) {
-		      if (err) {
-		        throw err;
-		      } else {
-		        res.redirect('/');
-		      }
-		    });
-		  }
+		        async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+		            self.taskDao.updateItem(completedTask, function (err) {
+		                if (err) {
+		                    callback(err);
+		                } else {
+		                    callback(null);
+		                }
+		            });
+		        }, function goHome(err) {
+		            if (err) {
+		                throw err;
+		            } else {
+		                res.redirect('/');
+		            }
+		        });
+		    }
 		};
+
 
 4. Salve e feche o arquivo **tasklist.js**.
  
@@ -403,7 +433,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 
 Agora vamos voltar a atenção para criar a interface do usuário, desse modo, um usuário pode realmente interagir com nosso aplicativo. O aplicativo Express que criamos usa o **Jade** como mecanismo de exibição. Para saber mais sobre o Jade, consulte [http://jade-lang.com/](http://jade-lang.com/).
 
-1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante. 
+1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar o [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante. 
 2. Abra o arquivo **layout.jade** encontrado na pasta **views** e substitua o conteúdo pelo seguinte:
 	
 		doctype html
@@ -497,22 +527,25 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 ## <a name="_Toc395783181"></a>Etapa 6: Execute seu aplicativo localmente
 
-1. Para testar o aplicativo no computador local, execute  `npm start` em um terminal para iniciar o aplicativo e iniciar um navegador com uma página semelhante à imagem a seguir:
+1. Para testar o aplicativo no computador local, execute `npm start` em um terminal para iniciar o aplicativo e iniciar um navegador com uma página semelhante à imagem a seguir:
 
 	![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
 
 
-2. Use os campos fornecidos para Item, Nome do Item e Categoria para inserir informações e clique em **Adicionar Item**.
+2. Use os campos fornecidos para o Item, o nome do Item e a categoria para inserir
+informações e clique em **Adicionar Item**.
 
-3. A página deve ser atualizada para exibir o item recém-criado na lista ToDo.
+3. A página deve ser atualizada para exibir o item recém-criado na lista
+ToDo.
 
 	![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
 
-4. Para concluir uma tarefa, basta marcar a caixa de seleção na coluna Concluir e clicar em **Atualizar tarefas**.
+4. Para concluir uma tarefa, basta marcar a caixa de seleção na coluna Concluir
+e, em seguida, clicar em **Atualizar tarefas**.
 
 ## <a name="_Toc395783182"></a>Etapa 7: Implantar o aplicativo no Azure
 
-1. Se ainda não tiver feito isso, habilite um repositório git para seu Site do Azure. Você pode encontrar instruções de como fazer isso [aqui](/documentation/articles/web-sites-publish-source-control/#Step4).
+1. Se ainda não tiver feito isso, habilite um repositório git para seu Site do Azure. Você pode encontrar instruções de como fazer isso [aqui](web-sites-publish-source-control-git.md#step4).
 
 2. Adicione seu Site do Azure como uma referência remota git.
 
@@ -522,19 +555,19 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 		git push azure master
 
-4. Em poucos segundos, o git terminará de publicar seu aplicativo Web e iniciará um navegador onde você poderá ver seu trabalho sendo executado no Azure!
+4. Em poucos segundos, o git terminará a publicação do seu aplicativo
+Web e iniciará um navegador onde você pode ver seu trabalho útil
+em execução no Azure!
 
 ## <a name="_Toc395637775"></a>Próximas etapas
 
 Parabéns! Você acabou de criar seu primeiro aplicativo Web Express do Node.js
 usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure.
 
-O código-fonte para o aplicativo de referência completo pode ser baixado [aqui][].
+O código-fonte para o aplicativo de referência completo pode ser baixado [aqui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [aqui]: https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo
-  [CLI do Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [Portal de Gerenciamento do Azure]: http://portal.azure.com
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,7 +1,9 @@
-﻿## <a name="what-is"> </a>O que é Armazenamento de Blob
+﻿## O que é Armazenamento de Blob
 
-O armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades dedados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de
-HTTP ou HTTPS. Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada.
+O Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de
+dados não estruturados, como dados binários ou texto, que podem ser acessados de qualquer lugar do mundo por meio de
+HTTP ou HTTPS. Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo, ou
+para armazenar dados de aplicativo de modo privado.
 
 Usos comuns de armazenamento de Blob incluem:
 
@@ -10,16 +12,16 @@ Usos comuns de armazenamento de Blob incluem:
 -   Transmitir por streaming áudio e vídeo
 -   Executar recuperação de desastre e backup seguro
 -   Armazenar dados para análise por um serviço local ou hospedado pelo
-    Azure
+    propriedade serviço
 
-## <a name="concepts"> </a>Conceitos
+## Conceitos do serviço Blob
 
 O serviço Blob contém os seguintes componentes:
 
 ![Blob1][Blob1]
 
 -   **Conta de armazenamento:** todo o acesso ao armazenamento do Azure é feito
-    por meio de uma conta de armazenamento. Consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+    por meio de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 -   **Contêiner:** um contêiner fornece um agrupamento de conjunto de blobs.
     Todos os blobs devem ter um contêiner. Uma conta pode conter um
@@ -46,4 +48,5 @@ O serviço Blob contém os seguintes componentes:
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!--HONumber=42-->
+
+<!--HONumber=49-->

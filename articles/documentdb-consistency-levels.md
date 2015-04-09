@@ -17,7 +17,7 @@
 	ms.author="mimig"/>
 
 #Níveis de consistência no Banco de Dados de Documentos
-Muitas vezes, os desenvolvedores enfrentam o desafio de escolher entre dois extremos: consistência forte e eventual. A realidade é que existem várias barreiras de consistência entre esses dois extremos. Na maioria dos cenários reais, os aplicativos se beneficiam ao fazer compensações refinadas entre consistência, disponibilidade e latência. O Banco de Dados de Documentos oferece quatro níveis de consistência bem definidos, com níveis de desempenho associados. Isso permite que os desenvolvedores de aplicativos façam compensações previsíveis entre consistência, disponibilidade e latência.  
+Muitas vezes, os desenvolvedores enfrentam o desafio de escolher entre dois extremos: consistência forte e eventual. A realidade é que existem várias barreiras de consistência entre esses dois extremos. Na maioria dos cenários reais, os aplicativos beneficiam ao fazer compensações refinadas entre consistência, disponibilidade e latência. O Banco de Dados de Documentos oferece quatro níveis de consistência bem definidos, com níveis de desempenho associados. Isso permite que os desenvolvedores de aplicativos façam compensações previsíveis entre consistência, disponibilidade e latência.  
  
 Todos os recursos do sistema, incluindo contas de bancos de dados, bancos de dados, coleções, usuários e permissões são sempre fortemente consistentes para leituras e consultas. Os níveis de consistência são aplicáveis somente aos recursos definidos pelo usuário. Para consultas e operações de leitura em recursos definidos pelo usuário, incluindo documentos, anexos, procedimentos armazenados, disparadores e UDFs, o Banco de Dados de Documentos oferece quatro níveis distintos de consistência: 
 
@@ -50,12 +50,12 @@ A consistência Session oferece consistência previsível de dados de leitura pa
 A consistência Eventual oferece a consistência de leitura mais fraca, mas oferece a menor latência para leituras e gravações. 
 
 ##Consistência de consultas
-Por padrão, para recursos definidos pelo usuário, o nível de consistência das consultas é o mesmo que o das leituras. Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos. Enquanto o Banco de Dados de Documentos é otimizado para gravação e suporta volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.  
+Por padrão, para recursos definidos pelo usuário, o nível de consistência das consultas é o mesmo que o das leituras. Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos. Embora o Banco de Dados de Documentos seja otimizado para gravação e dê suporte a volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.  
 
-Modo de Indexação|	Leituras|	Consultas  
+Modo de indexação|	Leituras|	Consultas  
 -------------|-------|---------
-Consistente (padrão)|	Selecione entre Strong, Bounded staleness, Session ou Eventual|	Selecione entre Strong, Bounded staleness, Session ou Eventual|
-Lenta|	Selecione entre Strong, Bounded staleness, Session e Eventual|	Eventual  
+Consistente (padrão)|	Escolher entre Strong, Bounded staleness, Session ou Eventual|	Escolher entre Strong, Bounded staleness, Session ou Eventual|
+Lentidão|	Escolher entre Strong, Bounded staleness, Session ou Eventual|	Eventual  
 
 Assim como nas solicitações de leitura, você pode diminuir o nível de consistência de uma solicitação de consulta específica determinando o cabeçalho [x-ms-consistency-level] para a solicitação.  
 
@@ -68,7 +68,7 @@ Assim como nas solicitações de leitura, você pode diminuir o nível de consis
 [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) para quóruns parciais práticos.   
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Eventual consistente - Revisitado.    
+-	Werner Vogels. Consistente eventual ‒ revisitado.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

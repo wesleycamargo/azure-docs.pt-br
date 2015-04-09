@@ -1,6 +1,4 @@
-﻿
-
-Para autenticar usuários, registrar seu aplicativo com um provedor de identidade e, em seguida, registrar as credenciais de cliente geradas pelo provedor nos Serviços Móveis do Azure.
+﻿Para autenticar usuários, registrar seu aplicativo com um provedor de identidade e, em seguida, registrar as credenciais de cliente geradas pelo provedor nos Serviços Móveis do Azure.
 
 1. Entre no Portal de Gerenciamento do Azure, clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
@@ -20,4 +18,4 @@ Para autenticar usuários, registrar seu aplicativo com um provedor de identidad
 
     > [AZURE.IMPORTANT] Verifique se você definiu o URI de redirecionamento correto no site de desenvolvedores do provedor de identidade. Conforme descrito nas instruções vinculadas para cada provedor acima, o URI de redirecionamento pode ser diferente para um serviço de back-end do .NET em comparação com um serviço de back-end do JavaScript. Um URI de redirecionamento configurado incorretamente pode fazer com que a tela de logon não seja exibida corretamente e que o aplicativo funcione incorretamente de maneiras inesperadas.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

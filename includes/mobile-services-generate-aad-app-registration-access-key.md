@@ -1,5 +1,5 @@
-﻿1. Clique na guia **Aplicativos** na página do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
-  
+1. Clique na guia **Aplicativos** na página do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
+
 2. Clique no registro integrado de aplicativos.
 
 3. Clique em **Configurar** na página do aplicativo e role até a seção **chaves** da página. 
@@ -30,6 +30,8 @@
     </tr>
     </table><br/>
 
- 
-    ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
-  <!--HONumber=42-->
+
+   ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
+
+
+<!--HONumber=49-->

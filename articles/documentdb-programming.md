@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
 # Programando o Banco de Dados de Documentos: procedimentos armazenados, gatilhos e UDFs
 
 Saiba como a execução transacional e integrada do JavaScript pelo Banco de Dados de Documentos permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
 
-Após ler este artigo, você poderá responder as perguntas a seguir:
+É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação do lado do servidor do Banco de Dados de Documentos. 
+
+> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+
+Em seguida, volte a este artigo, onde você aprenderá as respostas para as seguintes perguntas:  
 
 - Como eu escrevo um procedimento armazenado, gatilho ou UDF usando JavaScript?
 - Como o Banco de Dados de Documentos garante o ACID?
@@ -31,19 +35,19 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 
 ##Introdução
 
-Essa abordagem de "JavaScript como um T-SQL moderno" liberta os desenvolvedores de aplicativos das complexidades causadas por incompatibilidades de sistema de tipos e tecnologias de mapeamento relacionais do objeto. Também possui uma série de vantagens intrínsecas que podem ser utilizadas para criar aplicativos ricos:  
+Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores de aplicativos das complexidades das incompatibilidades do sistema de tipos e tecnologias de mapeamento relacionais do objeto. Também possui uma série de vantagens intrínsecas que podem ser utilizadas para criar aplicativos ricos:  
 
--	**Lógica de procedimento:** JavaScript como uma linguagem de programação de alto nível, fornece uma interface familiar e avançada para expressar lógicas de negócios. Você pode executar sequências complexas de operações mais próximo aos dados.
+-	**Lógica de procedimento:** JavaScript como uma linguagem de programação de alto nível, fornece uma interface familiar e avançada para expressar lógicas de negócios. Você pode executar sequências complexas de operações de forma mais próxima aos dados.
 
--	**Transações atômicas:** o Banco de Dados de Documentos garante que operações de banco de dados executadas em um único procedimento armazenado ou gatilho sejam atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas ou nenhuma delas sejam bem-sucedidas.
+-	**Transações atômicas:** o Banco de Dados de Documentos garante que operações de banco de dados executadas em um único procedimento armazenado ou gatilho sejam atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas ou nenhuma delas sejam bem-sucedidas. 
 
 -	**Desempenho:** o fato de o JSON ser mapeado intrinsecamente para o sistema com linguagem JavaScript, e de ser a unidade básica de armazenamento do Banco de Dados de Documentos, permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e disponibilizá-los sob demanda ao código em execução. Há mais benefícios de desempenho associados ao envio de lógica de negócios para o banco de dados:
 	-	Envio em lote - Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente. 
 	-	Pré-compilação - O Banco de Dados de Documentos pré-compila os procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDFs) a fim de evitar custos de compilação de JavaScript para cada invocação. A sobrecarga de construir o código de bytes para a lógica de procedimento é amortizada a um valor mínimo.
 	-	Sequenciamento - Várias operações precisam de um efeito colateral ("gatilho") que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor. 
 -	**Encapsulamento:** procedimentos armazenados podem ser usados para agrupar a lógica de negócios em um lugar. Isso tem duas vantagens:
-	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não têm esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
-	-	Essa abstração permite que as empresas protejam seus dados ao simplificar o acesso a partir dos scripts.  
+	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
+	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
 A criação e execução de gatilhos, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o [SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.   
 
@@ -142,10 +146,10 @@ Observe que esse procedimento armazenado pode ser modificado para assumir uma ma
 O exemplo descrito demonstra como usar procedimentos armazenados. Iremos discutir os gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial. Primeiro, vamos observar as características gerais do suporte a script do Banco de Dados de Documentos.  
 
 ##Suporte de tempo de execução
-[O SDK do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](../documentdb-interactions-with-resources.md).
+[O SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](documentdb-interactions-with-resources.md).
  
 ##Transações
-A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bastante conhecido que indica quatro propriedades: Atomicidade, Consistência, Isolamento e Durabilidade.  
+A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bem conhecido que representa quatro propriedades: atomicidade, consistência, isolamento e durabilidade.  
 
 Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma transação seja tratado como uma única unidade em que tudo é confirmado ou não. A consistência garante que os dados estejam sempre em uma boa condição interna entre as transações. O isolamento garante que duas transações não interfiram uma com a outra; geralmente, a maioria dos sistemas comerciais oferece vários níveis de isolamento que podem ser usados com base nas necessidades do aplicativo. A durabilidade garante que qualquer alteração confirmada no banco de dados esteja sempre presente.   
 
@@ -220,7 +224,7 @@ Esse procedimento armazenado utiliza transações dentro de um aplicativo de jog
 ##Confirmação e reversão
 As transações são profunda e nativamente integradas ao modelo de programação de JavaScript do Banco de Dados de Documentos. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. Com isso, as declarações "BEGIN TRANSACTION" e "COMMIT TRANSACTION" em bancos de dados relacionais são implícitas no Banco de Dados de Documentos.  
  
-Se houver qualquer exceção propagada a partir do script, o tempo de execução de JavaScript do Banco de Dados de Documentos reverterá toda a transação. Como mostrado no exemplo anterior, lançar uma exceção é efetivamente equivalente a uma declaração "ROLLBACK TRANSACTION" no Banco de Dados de Documentos. 
+Se houver qualquer exceção propagada do script, o tempo de execução de JavaScript do Banco de Dados de Documentos reverterá toda a transação. Como mostrado no exemplo anterior, lançar uma exceção é efetivamente equivalente a uma declaração "ROLLBACK TRANSACTION" no Banco de Dados de Documentos. 
 
 ###Consistência de dados
 Procedimentos armazenados e gatilhos são sempre executados na réplica primária da coleção do Banco de Dados de Documentos. Isso assegura que as leituras de dentro de procedimentos armazenados ofereçam uma forte consistência. As consultas que utilizam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária, porém, garantimos que o nível de consistência solicitado seja atendido ao escolher a réplica adequada.
@@ -372,7 +376,7 @@ O gatilho pode ser registrado como mostrado na amostra a seguir.
 
 Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o documento recém-criado.  
 
-É importante observar a execução **transacional** de gatilhos no Banco de Dados de Documentos. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
+É importante observar a execução **transacional** de gatilhos no Banco de Dados de Documentos. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será revertida. Nenhum documento será criado e uma exceção será retornada.  
 
 ##<a id="udf"></a>Funções definidas pelo usuário
 UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Banco de Dados de Documentos e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, UDFs podem ser executadas em réplicas secundárias do serviço do Banco de Dados de Documentos.  
@@ -403,7 +407,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
-		    var query = 'SELECT * FROM TaxPayers t WHERE tax(t.income) > 20000'; 
+		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
 		    return client.queryDocuments(collection.self,
 	               query).toArrayAsync();
 		}, function(error) {
@@ -601,7 +605,7 @@ Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/az
 	    });
 
 
-E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF) e utilizá-la em uma [consulta SQL do Banco de Dados de Documentos](../documentdb-sql-query.md).
+E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF) e utilizá-la em uma [consulta SQL do Banco de Dados de Documentos](documentdb-sql-query.md).
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -613,7 +617,7 @@ E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF)
 	};
 	
 	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
-	    "SELECT * FROM Books b WHERE LOWER(b.Title) = 'war and peace'"))
+	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}
@@ -628,7 +632,7 @@ Explorar os [SDKs do Banco de Dados de Documentos do Azure](https://msdn.microso
 - JavaScript ECMA-262 [http://www.ecma-international.org/publications/standards/Ecma-262.htm ](http://www.ecma-international.org/publications/standards/Ecma-262.htm )
 -	JavaScript - Sistema do tipo JSON [http://www.json.org/js.html](http://www.json.org/js.html) 
 -	Extensibilidade segura e portátil do banco de dados - [http://dl.acm.org/citation.cfm?id=276339](http://dl.acm.org/citation.cfm?id=276339) 
--	Arquitetura de banco de dados orientada a serviços - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	Hospedando o tempo de execução .NET no Microsoft SQL Server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
+-	Arquitetura do banco de dados orientada a serviços - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+-	Hospedando o tempo de execução .NET no Microsoft SQL server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

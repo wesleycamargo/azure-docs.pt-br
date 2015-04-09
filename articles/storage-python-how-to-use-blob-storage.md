@@ -1,9 +1,9 @@
-<properties 
-	pageTitle="Como usar o armazenamento de blob (Python) | Microsoft Azure" 
-	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir blobs." 
+﻿<properties 
+	pageTitle="Como usar o Armazenamento de Blob do Python | Microsoft Azure" 
+	description="Saiba como usar o serviço Blob do Azure do Python para carregar, baixar, listar e excluir blobs." 
 	services="storage" 
 	documentationCenter="python" 
-	authors="rmcmurray" 
+	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,40 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
-	ms.author="robmcm"/>
+	ms.date="03/11/2015" 
+	ms.author="huvalo"/>
 
-# Como usar o serviço de armazenamento de blobs no Python
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Blob do Azure. Os exemplos foram escritos usando a API do Python. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas][].
+# Como usar o armazenamento de Blob no Python
 
-## Sumário
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
- [O que é Armazenamento de Blob?][]   
- [Conceitos][]   
- [Criar uma conta de Armazenamento do Azure][]   
- [Como: Criar um contêiner][]   
- [Como: Carregar um blob em um contêiner][]   
- [Como: Listar os blobs em um contêiner][]   
- [Como: Baixar blobs][]   
- [Como: Excluir um blob][]   
- [Próximas etapas][]
+## Visão geral
+
+Este guia mostra como executar cenários comuns usando o
+Serviço de armazenamento de Blob do Azure. Os exemplos são escritos em Python e usam o [Pacote do Python Azure][]. Os cenários abordados incluem **carregamento**, **listagem**,
+**download** e **exclusão** de blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-## <a name="create-account"> </a>Criar uma conta de armazenamento do Azure
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-create-account-include.md)]
+## Como: Criar um contêiner
 
-## <a name="create-container"> </a>Como: Criar um contêiner
-
-**Observação:** se você precisar instalar o Python ou as bibliotecas de cliente, consulte o [Guia de Instalação do Python](../python-how-to-install/) (a página pode estar em inglês).
+> [AZURE.NOTE] Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](python-how-to-install.md).
 
 
 O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto **BlobService**. Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
 	from azure.storage import BlobService
 
-O código a seguir cria um objeto **Serviço de blob** usando o nome da conta de armazenamento e a chave da conta.  Substitua 'myaccount' e 'mykey' com a conta real e a chave.
+O código a seguir cria um objeto **Serviço de blob** usando o nome da conta de armazenamento e a chave da conta.  Substitua 'myaccount' e 'mykey' pela conta e a chave reais.
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
@@ -64,56 +57,54 @@ Como alternativa, você pode modificar um contêiner após você tê-lo criado u
 
 Após essa alteração, qualquer pessoa na Internet pode ver blobs em um contêiner público, mas apenas você pode modificar ou excluí-los.
 
-## <a name="upload-blob"> </a>Como: Carregar um blob em um contêiner
+## Como: Carregar um blob em um contêiner
 
 Para carregar dados em um blob, use os métodos **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** ou **put\_block\_blob\_from\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-**put\_block\_blob\_from\_path** carrega o conteúdo de um arquivo do caminho especificado, **put\_block\_blob\_from\_file** carrega o conteúdo de um arquivo já aberto/fluxo. **put\_block\_blob\_from\_bytes** carrega uma matriz de bytes, **put\_block\_blob\_from\_text** carrega o valor de texto especificado usando a codificação especificada (o padrão é UTF-8).
+**put\_block\_blob\_from\_path** carrega o conteúdo de um arquivo do caminho especificado e **put\_block\_blob\_from\_file** carrega o conteúdo de um arquivo/fluxo já aberto. **put\_block\_blob\_from\_bytes** carrega uma matriz de bytes e **put\_block\_blob\_from\_text** carrega o valor de texto especificado usando a codificação especificada (usa UTF-8 como padrão).
 
-O exemplo a seguir carrega o conteúdo do arquivo **task1.txt** no blob **myblob**.
+O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** no blob **myblob**.
 
-	blob_service.put_block_blob_from_path('mycontainer', 'myblob', 'task1.txt')
+	blob_service.put_block_blob_from_path(
+        'mycontainer',
+        'myblob',
+        'sunset.png',
+        x_ms_blob_content_type='image/png'
+    )
 
-## <a name="list-blob"> </a>Como: Listar os blobs em um contêiner
+## Como: Listar os blobs em um contêiner
 
-Para listar os blobs em um contêiner, use o método **list\_blobs**list_blobs com um loop**for** para exibir o nome de cada blob no contêiner. O código a seguir exibe o **nome** e a **url** de cada blob em um contêiner para o console.
+Para listar os blobs em um contêiner, use o método **list\_blobs** com um loop
+**for** para exibir o nome de cada blob no contêiner. O código a seguir exibe o **nome** e a **url** de cada blob em um contêiner para o console.
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
 		print(blob.url)
 
-## <a name="download-blobs"> </a>Como: Baixar blobs
+## Como: Baixar blobs
 
-Para baixar dados de um blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file****get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
+Para baixar dados de um blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-O exemplo a seguir demonstra o uso de **get\_blob\_to\_path**get_blob_to_path para baixar o conteúdo do blob **myblob** e armazená-lo no arquivo **out-task1.txt**:
+O exemplo a seguir demonstra o uso de **get\_blob\_to\_path** para baixar o conteúdo do blob **myblob** e armazená-lo no arquivo **out-sunset.png**:
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-task1.txt')
+	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
-## <a name="delete-blobs"> </a>Como: Excluir um blob
+## Como: Excluir um blob
 
 Finalmente, para excluir um blob, chame **delete_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
-## <a name="next-steps"></a>Próximas etapas
+## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
+Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 -   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
--   Visite o [Blog da Equipe do Armazenamento do Azure][]
+-   Visite o [Blog da Equipe de Armazenamento do Azure][]
 
-  [Próximas etapas]: #next-steps
-  [O que é Armazenamento de Blob?]: #what-is
-  [Conceitos]: #concepts
-  [Criar uma conta de Armazenamento do Azure]: #create-account
-  [Como: Criar um contêiner]: #create-container
-  [Como: Carregar um blob em um contêiner]: #upload-blob
-  [Como: Listar os blobs em um contêiner]: #list-blob
-  [Como: Baixar blobs]: #download-blobs
-  [Como: Excluir um blob]: #delete-blobs
-  [Como: Carregar e baixar blobs grandes]: #large-blobs
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-<!--HONumber=42-->
+[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Pacote do Python Azure]: https://pypi.python.org/pypi/azure  
+
+<!--HONumber=49-->

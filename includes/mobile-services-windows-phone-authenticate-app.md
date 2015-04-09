@@ -1,4 +1,4 @@
-﻿1. Abra o arquivo do projeto mainpage.xaml.cs e adicione o seguinte snippet de código à classe MainPage:
+1. Abra o arquivo do projeto mainpage.xaml.cs e adicione o seguinte snippet de código à classe MainPage:
 	
         private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
@@ -50,5 +50,6 @@
 		
 4. Pressione a tecla F5 para executar o aplicativo e entrar no aplicativo com seu provedor de identidade escolhido. 
 
-   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
-<!--HONumber=42-->
+   Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+
+<!--HONumber=49-->

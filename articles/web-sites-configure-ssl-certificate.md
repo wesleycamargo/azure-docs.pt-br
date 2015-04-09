@@ -1,23 +1,22 @@
 ﻿<properties 
-	pageTitle="Habilitar HTTPS para um site do Azure - Centro de desenvolvimento do .NET" 
-	description="Saiba como habilitar o SSL com um site do Azure." 
-	services="web-sites" 
+	pageTitle="Habilitar HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure" 
+	description="Aprenda como habilitar o SSL com um Serviço de Aplicativo do Azure." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 
 [AZURE.INCLUDE [configure-ssl-web-site](../includes/configure-ssl-web-site.md)]
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

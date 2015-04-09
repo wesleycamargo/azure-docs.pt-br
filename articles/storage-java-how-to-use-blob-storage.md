@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Como usar o armazenamento de blob (Java) | Microsoft Azure" 
-	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Amostras escritas em Java." 
+	pageTitle="Como usar o Armazenamento de Blob do Java | Microsoft Azure" 
+	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Exemplos escritos em Java." 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,44 +13,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="03/11/2015" 
 	ms.author="robmcm"/>
 
-# Como usar o Armazenamento de Blob no Java
+# Como usar o Armazenamento de Blob do Java
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Blob do Microsoft Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][]. Os cenários abrangidos incluem **carregar**, **listar**, **baixar** e **excluir** blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#NextSteps).
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
-Observação: Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][]. 
+## Visão geral
 
-## <a name="Contents"> </a> Sumário
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Blob do Microsoft Azure. Os exemplos são escritos em Java e usam o [SDK de Armazenamento do Azure para Java][]. Os cenários abrangidos incluem **carregar**, **listar**, **baixar** e **excluir** blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#NextSteps) .
 
-* [O que é Armazenamento de Blob](#what-is)
-* [Conceitos](#Concepts)
-* [Criar uma conta de armazenamento do Azure](#CreateAccount)
-* [Criar um aplicativo Java](#CreateApplication)
-* [Configurar seu aplicativo para acessar o Armazenamento de Blob](#ConfigureStorage)
-* [Configurar uma cadeia de conexão de armazenamento do Azure](#ConnectionString)
-* [Como: Criar um contêiner](#CreateContainer)
-* [Como: Carregar um blob em um contêiner](#UploadBlob)
-* [Como: Listar os blobs em um contêiner](#ListBlobs)
-* [Como: Baixar um blob](#DownloadBlob)
-* [Como: Excluir um blob](#DeleteBlob)
-* [Como: Excluir um contêiner de blob](#DeleteContainer)
-* [Próximas etapas](#NextSteps)
+> [AZURE.NOTE] Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][]. 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-<h2><a id="CreateAccount"></a>Criar uma conta de armazenamento do Azure</h2>
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-create-account-include.md)]
-
-## <a name="CreateApplication"> </a>Criar um aplicativo Java
+## Criar um aplicativo Java
 
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
 Para isso, você vai precisar instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
-## <a name="ConfigureStorage"> </a>Configurar seu aplicativo para acessar o Armazenamento de Blob
+## Configurar seu aplicativo para acessar o Armazenamento de Blob
 
 Adicione as seguintes instruções de importação à parte superior do arquivo Java no qual deseja usar as APIs de armazenamento do Azure para acessar blobs:
 
@@ -58,9 +44,10 @@ Adicione as seguintes instruções de importação à parte superior do arquivo 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
-## <a name="ConnectionString"></a>Configurar uma cadeia de conexão de armazenamento do Azure
+## Configurar uma cadeia de conexão de armazenamento do Azure
 
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de Acesso primário da conta de armazenamento listada no Portal de Gerenciamento para os valores  *AccountName* e  *AccountKey*. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
+Um cliente de armazenamento do Azure usa uma cadeia de conexão de armazenamento para armazenar
+pontos de extremidade e credenciais para acessar os serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de Acesso primário da conta de armazenamento listada no Portal de Gerenciamento para os valores  *AccountName* e  *AccountKey*. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
     // Define the connection-string with your values
     public static final String storageConnectionString = 
@@ -76,9 +63,9 @@ Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, 
 
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
 
-## <a name="CreateContainer"> </a>Como: Criar um contêiner
+## Como: Criar um contêiner
 
-Um objeto CloudBlobClient permite que você obtenha os objetos de referência para os contêineres e blobs. O código a seguir cria um objeto **CloudBlobClient**. (Observação: Existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure].)
+Um objeto CloudBlobClient permite que você obtenha os objetos de referência para os contêineres e blobs. O código a seguir cria um objeto **CloudBlobClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure].)
 
 Todos os blobs residem em um contêiner. Use o objeto **CloudBlobClient** para obter uma referência ao contêiner que deseja usar. Se o contêiner não existir, será possível criá-lo com o método **createIfNotExists**; caso contrário, ele retornará o contêiner existente. Por padrão, o novo contêiner é particular; portanto, você deve especificar sua chave de acesso de armazenamento (como anteriormente) para baixar blobs desse contêiner.
 
@@ -103,7 +90,7 @@ Todos os blobs residem em um contêiner. Use o objeto **CloudBlobClient** para o
         e.printStackTrace();
     }
 
-###Opcional: Configurar um contêiner para acesso público ###
+### Opcional: Configurar um contêiner para acesso público
 
 Por padrão, as permissões de um contêiner são configuradas para acesso privado, mas você pode configurar facilmente as permissões de um contêiner para permitir acesso público somente leitura a todos os usuários na Internet:
 
@@ -116,7 +103,7 @@ Por padrão, as permissões de um contêiner são configuradas para acesso priva
     // Set the permissions on the container.
     container.uploadPermissions(containerPermissions);
 
-## <a name="UploadBlob"> </a>Como: Carregar um blob em um contêiner
+## Como: Carregar um blob em um contêiner
 
 Para carregar um arquivo em um blob, obtenha uma referência de contêiner e use-a para obter uma referência de blob. Depois de obter uma referência do blob, é possível carregar qualquer fluxo chamando o upload na referência de blob. Essa operação criará o blob, se ele não existir, ou o substituirá, se ele já existir. Este exemplo de código mostra isso e pressupõe que o contêiner já tenha sido criado.
 
@@ -145,7 +132,7 @@ Para carregar um arquivo em um blob, obtenha uma referência de contêiner e use
         e.printStackTrace();
     }
 
-## <a name="ListBlobs"> </a>Como: Listar os blobs em um contêiner
+## Como: Listar os blobs em um contêiner
 
 Para listar os blobs em um contêiner, primeiro obtenha uma referência do contêiner como a que você obteve para carregar um blob. É possível usar o método **listBlobs** do contêiner com um loop **for**. O código a seguir gera a saída do Uri de cada blob em um contêiner para o console.
 
@@ -180,7 +167,7 @@ o parâmetro **useFlatBlobListing** definido para true. Isso resultará em
 cada blob sendo retornado, independentemente do diretório. Para obter mais
 informações, consulte **CloudBlobContainer.listBlobs** na [Referência de SDK do cliente de armazenamento do Azure].
 
-## <a name="DownloadBlob"> </a>Como: Baixar um blob
+## Como: Baixar um blob
 
 Para baixar blobs, siga as mesmas etapas utilizadas para carregar um blob, a fim de obter uma referência do blob. No exemplo de carregamento, você chamou o carregamento no objeto do blob. No exemplo a seguir, chame o download para transferir o conteúdo do blob para um objeto do fluxo, como um **FileOutputStream** que pode ser usado para persistir o blob ao arquivo local.
 
@@ -211,7 +198,7 @@ Para baixar blobs, siga as mesmas etapas utilizadas para carregar um blob, a fim
         e.printStackTrace();
     }
 
-## <a name="DeleteBlob"> </a>Como: Excluir um blob
+## Como: Excluir um blob
 
 Para excluir um blob, obtenha uma referência do blob e chame **deleteIfExists**.
 
@@ -238,9 +225,10 @@ Para excluir um blob, obtenha uma referência do blob e chame **deleteIfExists**
         e.printStackTrace();
     }
 
-## <a name="DeleteContainer"> </a>Como: Excluir um contêiner de blob
+## Como: Excluir um contêiner de blob
 
-Por fim, para excluir um contêiner de blob, obtenha uma referência do blob echame **deleteIfExists**.
+Por fim, para excluir um contêiner de blob, obtenha uma referência deo blob e, em seguida,
+chame **deleteIfExists**.
 
     try
     {
@@ -262,9 +250,9 @@ Por fim, para excluir um contêiner de blob, obtenha uma referência do blob ech
         e.printStackTrace();
     }
 
-## <a name="NextSteps"></a>Próximas etapas
+## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber como executar tarefas de armazenamento mais complexas.
+Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 - [SDK de Armazenamento do Azure para Java]
 - [Referência de SDK do Cliente de Armazenamento do Azure]
@@ -277,4 +265,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 [Referência de SDK do Cliente de Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-<!--HONumber=42-->
+
+<!--HONumber=49-->

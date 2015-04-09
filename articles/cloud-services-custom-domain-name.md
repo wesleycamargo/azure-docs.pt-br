@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Configurar um nome de domínio personalizado - Azure" 
-	description="Saiba como expor seu aplicativo ou dados do Azure em um domínio personalizado ajustando as configurações de DNS." 
+	pageTitle="Configurar um nome de domínio personalizado ‒ Azure" 
+	description="Saiba como expor seus dados ou seu aplicativo do Azure em um domínio personalizado definindo as configurações de DNS." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -21,4 +21,4 @@
 
 [AZURE.INCLUDE [custom-dns](../includes/custom-dns.md)]
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

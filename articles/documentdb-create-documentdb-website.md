@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 # Implantar o Banco de Dados de Documentos e um Site do Azure usando um Modelo do Gerenciador de Recursos do Azure #
@@ -31,8 +31,8 @@ Depois de concluir este tutorial, você poderá responder às seguintes pergunta
 Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 
 - Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura.  Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- Uma Conta de Armazenamento do Azure. Para obter instruções, consulte [Sobre Contas de Armazenamento do Azure](../storage-whatis-account/).
-- Uma estação de trabalho com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- Uma Conta de Armazenamento do Azure. Para obter instruções, consulte [Sobre Contas de Armazenamento do Azure](storage-whatis-account.md).
+- Uma estação de trabalho com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](install-configure-powershell.md).
 
 ##<a id="CreateDB"></a>Etapa 1: Baixe e extraia os arquivos de exemplo ##
 Vamos começar baixando os arquivos de exemplo que usaremos neste tutorial.
@@ -69,7 +69,7 @@ Agora, vamos implantar nosso primeiro modelo.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebsiteTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebsite" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP] Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script.  A implantação completa levará entre 10 e 15 minutos para ser concluída.  	
+	> [AZURE.TIP] Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script. A implantação completa levará entre 10 e 15 minutos para ser concluída.  	
 
 4. E aqui está um exemplo da saída resultante: 
 
@@ -118,7 +118,7 @@ Agora, vamos implantar nosso primeiro modelo.
 
 	- Um pacote de implantação da Web foi implantado para o site do Azure
 
-	- A configuração do Site do Azure foi modificada de modo que o ponto de extremidade do Banco de Dados de Documentos do Azure e a chave primária mestra foram reproduzidos como configurações de aplicativo.
+	- A configuração do Site do Azure foi modificada de modo que o ponto de extremidade do Banco de Dados de Documentos do Azure e a chave primária mestra foram reproduzidas como configurações de aplicativo.
 
 	- Uma série de regras de monitoramento padrão foi criada.
 
@@ -151,7 +151,7 @@ Agora, vamos implantar nosso segundo modelo.
 
 > [AZURE.TIP] O modelo não valida se o nome do site e o nome da conta do Banco de Dados de Documentos inseridos abaixo são a)válidos e b)disponíveis.  É altamente recomendável que você verifique a disponibilidade dos nomes que planeja fornecer antes de executar o script de implantação do PowerShell.
 
-1. Abra o Microsoft Azure PowerShell e navegue até a pasta na qual você baixou e extraiu o [Criar uma conta do Banco de Dados de Documentos e exemplo de site](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (por exemplo, C:\DocumentDBTemplates\CreateDocDBWebsite).
+1. Abra o Microsoft Azure PowerShell e navegue até a pasta na qual você baixou e extraiu [Criar uma conta do Banco de Dados de Documentos e exemplo de site](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (por exemplo, C:\DocumentDBTemplates\CreateDocDBWebsite).
 
 
 2. Vamos executar o script PowerShell CreateDocDBWebsite.ps1.  O script usa os mesmos parâmetros que o primeiro modelo implantado, ou seja:
@@ -187,7 +187,7 @@ Agora, vamos implantar nosso segundo modelo.
 8. Na folha Site, clique em **Todas as configurações**, em **Configurações do aplicativo** e observe como há configurações de aplicativos presentes para o ponto de extremidade do Banco de Dados de Documentos e cada uma das chaves mestras do Banco de Dados de Documentos.
 
 	![Screenshot of the Website, Settings, and Site settings blades](./media/documentdb-create-documentdb-website/image7.png)
-9. Fique à vontade para continuar a explorar o portal do Azure ou siga um dos nosso [exemplos](http://go.microsoft.com/fwlink/?LinkID=402386) do Banco de Dados de Documentos para criar seu próprio aplicativo do Banco de Dados de Documentos.
+9. Fique à vontade para continuar a explorar o portal do Azure ou siga um de nossos [exemplos](http://go.microsoft.com/fwlink/?LinkID=402386) do Banco de Dados de Documentos para criar seu próprio aplicativo do Banco de Dados de Documentos.
 
 	
 	
@@ -200,4 +200,4 @@ Parabéns! Você implantou um Banco de Dados de Documentos, Sites do Azure e um 
 - Para saber mais sobre os Sites do Azure, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=325362).
 - Para saber mais sobre modelos do Gerenciador de Recursos do Azure, clique [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

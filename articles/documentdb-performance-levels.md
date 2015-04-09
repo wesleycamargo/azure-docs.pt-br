@@ -69,7 +69,7 @@ Quando uma coleção é criada, a alocação total de RUs baseada no nível de d
 
 Após as coleções serem criadas, você pode modificar o nível de desempenho por meio das SDKs do Banco de Dados de Documentos ou do Portal de Gerenciamento do Azure. 
 
-> [AZURE.IMPORTANT] Coleções padrão do Banco de Dados de Documentos são cobradas com base em uma taxa por hora e cada coleção que você criar será cobrada por, no mínimo, uma hora de uso.
+> [AZURE.IMPORTANT] Coleções padrão do Banco de Dados de Documentos são cobradas com base em uma taxa por hora e cada coleção que você criar será cobrada por, no mínimo, uma hora de uso. 
 
 Se ajustar o nível de desempenho de uma coleção dentro de uma hora, você será cobrado pelo nível de desempenho mais alto definido durante aquela hora. Por exemplo, se aumentar o nível de desempenho de uma coleção às 8h53, você será cobrado pelo novo nível a partir das 8h. Da mesma forma, se você diminuir o nível de desempenho às 8h53, a nova taxa será aplicada às 9h.
 
@@ -78,7 +78,7 @@ As unidades de solicitação são reservadas para cada coleção com base no ní
 > [AZURE.NOTE] Quando seu aplicativo ultrapassa os níveis de desempenho para uma ou várias coleções, as solicitações são limitadas por coleção. Isso significa que algumas solicitações do aplicativo podem ser bem-sucedidas enquanto outras são limitadas.
 
 ##<a id="Sub3"></a>Trabalhando com os níveis de desempenho##
-Coleções do Banco de Dados de Documentos permitem particionar seus dados com base nos padrões de consulta e nas necessidades de desempenho do seu aplicativo. Veja a [documentação sobre particionamento de dados](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/) para saber mais sobre o particionamento de dados no Banco de Dados de Documentos. Com o suporte a consultas e a indexação automática do Banco de Dados de Documentos, é bastante comum colocar documentos heterogêneos na mesma coleção. As principais considerações para decidir se coleções diferentes devem ser usadas para os dados incluem:
+Coleções do Banco de Dados de Documentos permitem particionar seus dados com base nos padrões de consulta e nas necessidades de desempenho do seu aplicativo. Veja a [documentação sobre particionamento de dados](documentdb-partition-data.md) para saber mais sobre o particionamento de dados no Banco de Dados de Documentos. Com o suporte a consultas e a indexação automática do Banco de Dados de Documentos, é bastante comum colocar documentos heterogêneos na mesma coleção. As principais considerações para decidir se coleções diferentes devem ser usadas para os dados incluem:
 
 - Consultas - Uma coleção é o escopo para a realização de consultas. Se você precisar consultar um conjunto de documentos, os padrões de leitura mais eficientes vêm da colocação de documentos em uma única coleção.
 - Transações - Uma coleção é o domínio de transação para os gatilhos e procedimentos armazenados. Todas as transações têm como escopo apenas uma coleção. 
@@ -93,12 +93,12 @@ Recomendamos que seu aplicativo use um número reduzido de coleções e que os p
 Para saber mais sobre a definição de preços e o gerenciamento de dados no Banco de Dados de Documentos do Azure, explore esses recursos:
  
 - [Definição de preços no Banco de Dados de Documentos](http://azure.microsoft.com/pricing/details/documentdb/)
-- [Gerenciando a capacidade no Banco de Dados de Documentos](http://azure.microsoft.com/documentation/articles/documentdb-manage/) 
-- [Modelando dados no Banco de Dados de Documentos](http://azure.microsoft.com/documentation/articles/documentdb-modeling-data/)
-- [Particionando dados no Banco de Dados de Documentos](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)
+- [Gerenciando a capacidade no Banco de Dados de Documentos](documentdb-manage.md) 
+- [Modelando dados no Banco de Dados de Documentos](documentdb-modeling-data.md)
+- [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md)
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](http://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure. 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

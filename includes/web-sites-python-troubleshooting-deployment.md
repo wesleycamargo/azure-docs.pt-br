@@ -7,4 +7,5 @@ Expanda a implantação desejada:
 Clique em **Exibir Log** para ver a saída do script de implantação personalizada:
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
-<!--HONumber=42-->
+
+<!--HONumber=49-->
