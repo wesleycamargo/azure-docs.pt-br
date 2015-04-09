@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar os tópicos AMQP 1.0 com A API do Barramento de Serviço em .NET - Azure" 
 	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 com a API de barramento de serviço .NET do Azure." 
 	services="service-bus" 
@@ -33,7 +33,7 @@ Este Guia de Instruções explica como usar os recursos do sistema de mensagens 
 
 ## Introdução ao Barramento de serviço
 
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte o Guia de Instruções chamado "[Como usar filas do Service Bus.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte o Guia de Instruções chamado "[Como usar filas do Barramento de Serviço](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 ## Baixar o SDK do Barramento de Serviço
 
@@ -66,7 +66,7 @@ O valor da configuração **Microsoft.ServiceBus.ConnectionString** é a cadeia 
 
 	Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Onde [namespace] e [chave SAS] são obtidos no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Como usar as Filas do Service Bus][].
+Onde [namespace] e [chave SAS] são obtidos no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Como usar filas do Barramento de Serviço][].
 
 Ao usar o AMQP, a cadeia de conexão é acrescentada com ";TransportType=Amqp", que informa à biblioteca de cliente para fazer sua conexão com o Service Bus usando o AMQP 1.0.
 

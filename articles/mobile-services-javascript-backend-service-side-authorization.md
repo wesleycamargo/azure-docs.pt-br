@@ -22,7 +22,7 @@
 
 Este tópico mostra como usar scripts do servidor para autorizar usuários. Neste tutorial, você registra scripts nos Serviços Móveis do Azure, filtra consultas com base em IDs de usuário e fornece acesso aos usuários apenas para seus próprios dados.
 
-Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no tutorial [Adicionar autenticação ao aplicativo de serviços móveis existentes]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existente] primeiro.
+Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no tutorial [Adicionar autenticação ao aplicativo de serviços móveis existentes]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existentes] primeiro.
 
 ## <a name="register-scripts"></a>Registrar scripts
 

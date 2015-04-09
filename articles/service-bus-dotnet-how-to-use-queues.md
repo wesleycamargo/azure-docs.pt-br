@@ -1,4 +1,4 @@
-﻿<properties
+<properties
     pageTitle="Como usar filas do Barramento de Serviço (.NET) - Azure"
     description="Aprenda a usar as filas do barramento de serviço no Azure. Amostras de código escrito em C# usando a API .NET."
     services="service-bus"
@@ -245,8 +245,7 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 
 -   Consulte a referência de MSDN: [Filas, tópicos e assinaturas][].
 -   Compilar um aplicativo de trabalho que envia e recebe mensagens para e
-    uma fila do Barramento de Serviço: [Sistema de mensagens agenciado do Barramento de Serviço .NET
-    Tutorial].
+    uma fila do Barramento de Serviço: [Tutorial do Sistema de mensagens agenciado .NET do Barramento de Serviço].
 
   [Próximas etapas]: #next-steps
   [O que são as filas do Barramento de Serviço]: #what-queues
@@ -261,7 +260,7 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [Como: Tratar falhas do aplicativo e mensagens ilegíveis]: #handle-crashes
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Filas, tópicos e assinaturas.]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/hh367516.aspx
   [Tutorial do Sistema de mensagens agenciado .NET do Barramento de Serviço]: http://msdn.microsoft.com/library/hh367512.aspx
 
 <!--HONumber=47-->

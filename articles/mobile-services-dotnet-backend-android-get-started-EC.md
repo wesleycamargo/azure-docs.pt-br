@@ -70,7 +70,7 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
  
 	![][2]  
 
-3. Se ainda não fez isso, baixe e instale o [Android Developer Tools][Android SDK] em seu computador local ou máquina virtual.
+3. Se ainda não fez isso, baixe e instale o [Android Developer Tools][SDK para Android] em seu computador local ou máquina virtual.
 
 4. Em **Baixar e executar o aplicativo**, clique em **Baixar**. 
 
@@ -150,7 +150,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução aos dados]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
 [Introdução à autenticação]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
 [Introdução às notificações por push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push
-[SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[SDK para Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Solucionar um problema de back-end do .NET de Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 

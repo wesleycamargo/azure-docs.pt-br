@@ -1,4 +1,4 @@
-﻿<table cellspacing="0" border="1">
+<table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Recurso</th>
    <th align="left" valign="middle">Gratuito</th>
@@ -187,7 +187,7 @@
 <sup>10</sup>Opere executáveis e/ou scripts personalizados sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano dentro da instância dos seus sites da Web. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard.
 
   [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websites-pricing]: http://azure.microsoft.com/pricing/details/web-sites/
+  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
   [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
 
 <!--HONumber=47-->

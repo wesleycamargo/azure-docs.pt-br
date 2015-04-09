@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Recuperar o serviço móvel em caso de desastre - Serviços Móveis do Azure" 
 	description="Saiba como recuperar o serviço móvel em caso de desastre." 
 	services="mobile-services" 
@@ -25,7 +25,7 @@ Quando usa os Serviços Móveis do Azure para implantar um aplicativo, você pod
 Para facilitar a recuperação em caso de um problema de disponibilidade, você pode se preparar para o problema com antecedência: 
 
 + **Fazer backup dos dados no Banco de Dados SQL do serviço móvel do Azure**
-	<br/>Os dados do aplicativo de seu serviço móvel são armazenados em um Banco de Dados SQL do Azure. Recomendamos fazer o backup conforme indicado em [Diretrizes para a continuidade dos negócios para o Banco de Dados SQL].
+	<br/>Os dados do aplicativo de seu serviço móvel são armazenados em um Banco de Dados SQL do Azure. Recomendamos fazer o backup conforme indicado em [Diretrizes para a continuidade dos negócios com o Banco de Dados SQL].
 + **Fazer backup de seus scripts do serviço móvel**
 	<br/>É recomendável armazenar armazene seus scripts do serviço móvel em um sistema de controle de código-fonte, como o [Team Foundation Service] ou o [GitHub] e não depender somente das cópias no próprio serviço móvel. Você pode baixar os scripts por meio do portal do Azure usando o [recurso de controle de código-fonte]dos Serviços Móveis ou [usando a ferramenta de linha de comando do Azure]. Preste atenção aos recursos rotulados como "visualização" no portal, pois a recuperação desses scripts não é garantida, e você pode precisar recuperá-los de seu próprio controle do código-fonte original.
 + **Reservar um serviço móvel secundário**
@@ -94,6 +94,6 @@ Agora você deve estar em um estado onde o serviço móvel foi recuperado para u
 [usando a ferramenta de linha de comando do Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Portal do Azure]: http://manage.windowsazure.com/
 [Painel de Serviços do Azure]: http://www.windowsazure.com/support/service-dashboard/
-[Automatizar os serviços móveis com ferramentas de linha de comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[Automatizar serviços móveis com ferramentas de linha de comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
 <!--HONumber=47-->
