@@ -252,7 +252,7 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
 <a name="AdvancedDiagnosing" />
 ### Diagnósticos avançados
 
-Várias tarefas de diagnóstico podem ser facilmente concluídas da maneira correta no **Portal de Gerenciamento do Azure**; no entanto, algumas tarefas avançadas de diagnóstico somente são possíveis no **SQL Server Management Studio** ou no **Portal de Gerenciamento do Banco de Dados SQL**.  Aproveitaremos as exibições de gerenciamento dinâmico, um conjunto de exibições preenchidas automaticamente com informações de diagnóstico sobre seu banco de dados. Esta seção fornece um conjunto de consultas que pode ser executado nessas exibições para examinar diversas métricas. Para obter mais informações, consulte [Monitorando o Banco de Dados SQL Usando a Exibição de Gerenciamento Dinâmico][] (a página pode estar em inglês).
+Várias tarefas de diagnóstico podem ser facilmente concluídas da maneira correta no **Portal de Gerenciamento do Azure**; no entanto, algumas tarefas avançadas de diagnóstico somente são possíveis no **SQL Server Management Studio** ou no **Portal de Gerenciamento do Banco de Dados SQL**.  Aproveitaremos as exibições de gerenciamento dinâmico, um conjunto de exibições preenchidas automaticamente com informações de diagnóstico sobre seu banco de dados. Esta seção fornece um conjunto de consultas que pode ser executado nessas exibições para examinar diversas métricas. Para obter mais informações, consulte [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico][] (a página pode estar em inglês).
 
 Após concluir as etapas na seção anterior para se conectar ao banco de dados no SQL Server Management Studio, selecione seu banco de dados no **Gerenciador de Objetos**. Expandir **Exibições** e **Exibições do Sistema** mostrará uma lista de exibições de gerenciamento. Para executar as consultas abaixo, selecione **Nova Consulta** enquanto estiver com seu banco de dados selecionado no **Gerenciador de Objetos**; então, cole a consulta e selecione **Executar**.
 
@@ -311,7 +311,7 @@ Para fornecer uma analogia ao mundo real: considere um livro ou uma técnica man
 
 Todas as tabelas devem possuir um índice clusterizado na coluna (ou nas colunas, no caso de uma chave composta) com as seguintes propriedades:
 
-- Estreita - usa um pequeno tipo de banco de dados ou é uma [chave composta][Restrições de chave primárias e estrangeiras] de um pequeno número de colunas estreitas
+- Estreita - usa um pequeno tipo de banco de dados ou é uma [chave composta][Restrições de chave primária e estrangeira] de um pequeno número de colunas estreitas
 - Exclusiva ou em grande parte exclusiva
 - Estática - o valor não é alterado com frequência
 - Em crescimento constante 
