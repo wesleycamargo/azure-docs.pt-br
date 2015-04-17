@@ -3,7 +3,7 @@
 	description="Saiba como enviar notificações por push para todos os dispositivos de um usuário" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	autores="yuaxu" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 

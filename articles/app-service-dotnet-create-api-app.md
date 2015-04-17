@@ -64,7 +64,7 @@ Clique com o botão direito do mouse na pasta **Controladores** e, no menu de co
 
 Na caixa de diálogo **Adicionar Scaffold**, selecione a opção **Controlador de API Web 2 - Vazio** e clique em **Adicionar**. 
 
-![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-V3.png)
+![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-v3.png)
 
 Nomeie o controlador **ContactsController** e clique em **Adicionar**. 
 
