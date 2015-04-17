@@ -3,7 +3,7 @@
 	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações de últimas notícias para dispositivos iOS." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,31 +13,29 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc"/>
 
 # Usar hubs de notificação para enviar notícias recentes
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/pt-br/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
-	<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
+	<a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias a um aplicativo iOS. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc.
+##Visão geral
 
-Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais _tags_ ao criar um registro no Hub de Notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre rótulos, consulte [Diretrizes dos Hubs de Notificação].
+Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias a um aplicativo iOS.  Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias.  Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc.
 
-Este tutorial explicará estas etapas básicas a serem seguidas para habilitar este cenário:
+Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais _tags_ ao criar um registro no Hub de Notificação.  Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação.  Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência.  Para obter mais informações sobre rótulos, consulte [Diretrizes dos Hubs de Notificação].
 
-1. [Adicionar a seleção de categorias ao aplicativo]
-2. [Registrar-se para receber notificações]
-3. [Enviar notificações de seu back-end]
-4. [Executar o aplicativo e gerar notificações]
 
-Este tópico baseia-se no aplicativo criado em [Introdução aos Hubs de Notificação][get-started]. Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução aos Hubs de Notificação][get-started].
+##Pré-requisitos
 
-##<a name="adding-categories"></a>Adicionar a seleção de categorias ao aplicativo
+Este tópico baseia-se no aplicativo criado em [Introdução aos Hubs de Notificação][get-started].  Antes de iniciar o tutorial, você deve primeiro concluir a [Introdução aos Hubs de Notificação][get-started].
 
-A primeira etapa é adicionar os elementos da interface do usuário ao seu storyboard existente que permite que o usuário selecione as categorias a serem registradas. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
+##Adicionar a seleção de categorias ao aplicativo
+
+A primeira etapa é adicionar os elementos da interface do usuário ao seu storyboard existente que permite que o usuário selecione as categorias a serem registradas.  As categorias selecionadas por um usuário são armazenadas no dispositivo.  Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
 
 2. No MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objetos:
 	+ Um rótulo com o texto "Breaking News",
@@ -53,7 +51,7 @@ A primeira etapa é adicionar os elementos da interface do usuário ao seu story
 
 	![][4]
 
-4. Crie uma Ação para o botão chamado "subscribe". Seu BreakingNewsViewController.h deve conter o seguinte:
+4. Crie uma Ação para o botão chamado "subscribe".  Seu BreakingNewsViewController.h deve conter o seguinte:
 
 		@property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
@@ -64,7 +62,7 @@ A primeira etapa é adicionar os elementos da interface do usuário ao seu story
 
 		- (IBAction)subscribe:(id)sender;
 
-5. Crie uma nova classe chamada `Notifications`. Copie o código a seguir na seção da interface do arquivo Notifications.h:
+5. Crie uma nova classe chamada `Notifications`.  Copie o código a seguir na seção da interface do arquivo Notifications.h:
 
 		@property NSData* deviceToken;
 
@@ -90,11 +88,11 @@ A primeira etapa é adicionar os elementos da interface do usuário ao seu story
 		    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
 		}
 
-	Essa classe usa o armazenamento local para armazenar as categorias de notícias que esse dispositivo precisa receber. Além, disso, ele contém métodos para registrar essas categorias.
+	Essa classe usa o armazenamento local para armazenar as categorias de notícias que esse dispositivo precisa receber.  Além, disso, ele contém métodos para registrar essas categorias.
 
-4. No código acima, substitua os espaços reservados "<hub name>" e "<connection string with listen access>" com o nome de seu hub de notificação e a cadeia de conexão para *DefaultListenSharedAccessSignature* que você tiver obtido anteriormente.
+4. No código acima, substitua os espaços reservados  `<hub name>`  e  `<connection string with listen access>`  pelo nome do hub de notificação e a cadeia de conexão por  *DefaultListenSharedAccessSignature* que você tiver obtido anteriormente.
 
-	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completo é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
+	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente.  O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas.  A chave de acesso completo é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
 
 8. No arquivo BreakingNewsAppDelegate.h, adicione a seguinte propriedade:
 
@@ -106,7 +104,7 @@ A primeira etapa é adicionar os elementos da interface do usuário ao seu story
 
 		self.notifications = [[Notifications alloc] init];
 
-	Isso inicializa o singleton Notification.
+	The initializes the Notification singleton.
 
 10. No método **didRegisterForRemoteNotificationsWithDeviceToken** em BreakingNewsAppDelegate.m, remova a chamada para **registerNativeWithDeviceToken** e adicione o seguinte código:
 
@@ -150,15 +148,15 @@ A primeira etapa é adicionar os elementos da interface do usuário ao seu story
 	        }
 	    }];
 
-	Esse método cria um **NSMutableArray** de categorias e usa a classe **Notifications** para armazenar a lista no armazenamento local e registra as marcas correspondentes com seu hub de notificação. Quando as categorias são alteradas, o registro é recriado com as novas categorias.
+	Esse método cria um **NSMutableArray** de categorias e usa a classe **Notifications** para armazenar a lista no armazenamento local e registra as marcas correspondentes com seu hub de notificação.  Quando as categorias são alteradas, o registro é recriado com as novas categorias.
 
 Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo e registrar com o hub de notificação, sempre que o usuário alterar a seleção de categorias.
 
-##<a name="register"></a>Registrar-se para receber notificações
+##Registrar-se para receber notificações
 
 Estas etapas registram com o hub de notificação na inicialização, usando as categorias que foram armazenadas no armazenamento local.
 
-> [AZURE.NOTE] Como o token do dispositivo atribuído pelo APNS (Serviço de Notificação por Push da Apple) pode ser escolhido a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
+> [AZURE.NOTE] Como o token do dispositivo atribuído pelo APNS (Serviço de Notificação por Push da Apple) pode ser escolhido a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação.  Este exemplo registra a notificação a cada vez que o aplicativo é iniciado.  Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
 
 1. Adicione o seguinte método na seção de interface do arquivo Notifications.h:
 
@@ -177,7 +175,7 @@ Estas etapas registram com o hub de notificação na inicialização, usando as 
 		    return [[NSSet alloc] initWithArray:categories];
 		}
 
-2. Add the following code in the **didRegisterForRemoteNotificationsWithDeviceToken** method:
+2. Adicione o seguinte código ao método **didRegisterForRemoteNotificationsWithDeviceToken**:
 
 		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
@@ -205,13 +203,13 @@ Estas etapas registram com o hub de notificação na inicialização, usando as 
 
 	Isso atualiza a interface do usuário na inicialização com base no status das categorias salvas anteriormente.
 
-O aplicativo agora está completo e pode armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para registrá-las com o hub de notificação, sempre que o usuário alterar a seleção de categorias. Em seguida, você definirá um back-end que pode enviar notificações por categoria para esse aplicativo.
+O aplicativo agora está completo e pode armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para registrá-las com o hub de notificação, sempre que o usuário alterar a seleção de categorias.  Em seguida, você definirá um back-end que pode enviar notificações por categoria para esse aplicativo.
 
-<h2><a name="send"></a>Enviar notificações de seu back-end</h2>
+##Enviar notificações de seu back-end
 
 [AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Executar o aplicativo e gerar notificações
+##Executar o aplicativo e gerar notificações
 
 1. Pressione o botão Executar para compilar o projeto e iniciar o aplicativo.
 
@@ -231,9 +229,9 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 
 5. As notificações para as categorias selecionadas são exibidas como notificações do sistema.
 
-## <a name="next-steps"> </a>Próximas etapas
+## Próximas etapas
 
-Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria. Considere a conclusão de um dos seguintes tutoriais que destacam outros cenários avançados de Hubs de Notificação:
+Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.  Considere a conclusão de um dos seguintes tutoriais que destacam outros cenários avançados de Hubs de Notificação:
 
 + **[Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]**
 
@@ -241,14 +239,9 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 
 + **[Notificar usuários com Hubs de Notificação]**
 
-	Saiba como enviar notificações por push a usuários autenticados específicos. É uma boa solução enviar notificações somente a usuários específicos.
+	Saiba como enviar notificações por push a usuários autenticados específicos.  É uma boa solução enviar notificações somente a usuários específicos.
 
-<!-- Anchors. -->
-[Adicionar a seleção de categorias ao aplicativo]: #adding-categories
-[Registrar-se para receber notificações]: #register
-[Enviar notificações de seu back-end]: #send
-[Executar o aplicativo e gerar notificações]: #test-app
-[Próximas etapas]: #next-steps
+
 
 <!-- Images. -->
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
@@ -262,14 +255,14 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 
 
 <!-- URLs. -->
-[Como: Hubs de notificação de Barramento de Serviço (aplicativos iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /pt-br/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Serviço Móvel]: /pt-br/develop/mobile/tutorials/get-started
-[Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users/
+[Como:  Hubs de notificação de Barramento de Serviço (aplicativos iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Serviço Móvel]: /develop/mobile/tutorials/get-started
+[Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users/
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Instruções sobre Hubs de Notificação para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[introdução]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

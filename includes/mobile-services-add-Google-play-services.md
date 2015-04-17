@@ -1,6 +1,6 @@
-﻿1. Abra o Gerenciador de SDK do Android clicando no ícone na barra de ferramentas do Android Studio (na extremidade direita: em caso de dúvida, focalize o ponteiro do mouse sobre o ícone). Localize a versão de destino do SDK do Android que é usada em seu projeto, abra-o e escolha **APIs do Google**, se não ainda estiver instalado.
+﻿1.  Abra o Gerenciador de SDK do Android clicando no ícone na barra de ferramentas do Android Studio (na extremidade direita: em caso de dúvida, focalize o ponteiro do mouse sobre o ícone).  Localize a versão de destino do SDK do Android que é usada em seu projeto, abra-o e escolha **APIs do Google**, se não ainda estiver instalado.
 
-2. Role até **Extras**, expanda-o e escolha **Google Play Services**, conforme mostrado abaixo. Clique em **Instalar Pacotes**. Anote o caminho do SDK a ser usado na etapa a seguir. 
+2. Role até **Extras**, expanda-o e escolha **Google Play Services**, conforme mostrado abaixo.  Clique em **Instalar Pacotes**.  Anote o caminho do SDK a ser usado na etapa a seguir. 
 
    	![](./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png)
 
@@ -26,5 +26,4 @@
 
 
 
-
-<!--HONumber=47-->
+<!--HONumber=49-->

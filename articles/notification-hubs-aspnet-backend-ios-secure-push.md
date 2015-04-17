@@ -1,8 +1,8 @@
 ﻿<properties 
 	pageTitle="Push Seguro dos Hubs de Notificação do Azure" 
-	description="Saiba como enviar notificações por push seguro para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e c#." 
+	description="Saiba como enviar notificações por push seguro para um aplicativo iOS do Azure.  Exemplos de códigos escritos em Objective-C e c#." 
 	documentationCenter="ios" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc,yuaxu"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
-		<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
+
+##Visão geral
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
 
-Devido a restrições regulatórias ou de segurança, às vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitido por meio da infraestrutura de notificação por push padrão. Este tutorial descreve como obter a mesma experiência ao enviar informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo cliente e o back-end do aplicativo.
+Devido a restrições regulatórias ou de segurança, às vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitido por meio da infraestrutura de notificação por push padrão.  Este tutorial descreve como obter a mesma experiência ao enviar informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo cliente e o back-end do aplicativo.
 
 Em um nível superior, o fluxo é o seguinte:
 
@@ -36,11 +38,11 @@ Em um nível superior, o fluxo é o seguinte:
 	- O dispositivo entra em contato com o back-end solicitando a carga segura.
 	- O aplicativo pode mostrar a carga como uma notificação no dispositivo.
 
-É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
+É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token.  Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo.  Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
+Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura.  O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -50,7 +52,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a  *id* de
 
 Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back-end do aplicativo.
 
-1. Em **Appdelegate.m**, verifique se o aplicativo registra para notificações silenciosas para processar a id de notificação enviada do back-end. Adicione a opção **UIRemoteNotificationTypeNewsstandContentAvailability** em didFinishLaunchingWithOptions:
+1. Em **Appdelegate.m**, verifique se o aplicativo registra para notificações silenciosas para processar a id de notificação enviada do back-end.  Adicione a opção **UIRemoteNotificationTypeNewsstandContentAvailability** em didFinishLaunchingWithOptions:
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
@@ -66,7 +68,7 @@ Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		{
-		    // Verifique se autenticado
+		    // check if authenticated
 		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
 		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
 		    if (!authenticationHeader) return;
@@ -109,7 +111,7 @@ Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back
 
 	Esse método chama o seu back-end do aplicativo para recuperar o conteúdo da notificação usando as credenciais armazenadas nas preferências compartilhadas.
 
-4. Agora, precisamos manipular a notificação de entrada e utilizar o método acima para recuperar o conteúdo a ser exibido. Primeiro, precisamos habilitar o aplicativo iOS para ser executado em segundo plano ao receber uma notificação por push. Em **XCode**, selecione seu projeto de aplicativo no painel à esquerda e depois clique no seu destino de aplicativo principal na seção **Destinos** do painel central.
+4. Agora, precisamos manipular a notificação de entrada e utilizar o método acima para recuperar o conteúdo a ser exibido.  Primeiro, precisamos habilitar o aplicativo iOS para ser executado em segundo plano ao receber uma notificação por push.  Em **XCode**, selecione seu projeto de aplicativo no painel à esquerda e depois clique no seu destino de aplicativo principal na seção **Destinos** do painel central.
 
 5. Então, clique na guia **Recursos** na parte superior do painel central e marque a caixa de seleção **Notificações Remotas**.
 
@@ -139,7 +141,7 @@ Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back
 
 		}
 
-	Observe que é preferível manipular os casos de propriedade de cabeçalho de autenticação ausente ou de rejeição por meio do back-end. A manipulação específica desses casos depende em grande parte da sua meta de experiência do usuário. Uma opção é exibir uma notificação com um aviso genérico para que o usuário realize a autenticação para recuperar a notificação real.
+	Observe que é preferível manipular os casos de propriedade de cabeçalho de autenticação ausente ou de rejeição por meio do back-end.  A manipulação específica desses casos depende em grande parte da sua meta de experiência do usuário.  Uma opção é exibir uma notificação com um aviso genérico para que o usuário realize a autenticação para recuperar a notificação real.
 
 ## Executar o aplicativo
 
@@ -147,10 +149,10 @@ Para executar o aplicativo, faça o seguinte:
 
 1. No XCode, execute o aplicativo em um dispositivo iOS físico (as notificações por push não funcionarão no simulador).
 
-2. Na interface do usuário do aplicativo iOS, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
+2. Na interface do usuário do aplicativo iOS, insira um nome de usuário e senha.  Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
 
-3. Na interface do usuário do aplicativo iOS, clique em **Logon**. Em seguida, clique em **Enviar push**. Você deve ver a notificação segura sendo exibida no centro de notificações.
+3. Na interface do usuário do aplicativo iOS, clique em **Logon**.  Em seguida, clique em **Enviar push**.  Você deve ver a notificação segura sendo exibida no centro de notificações.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

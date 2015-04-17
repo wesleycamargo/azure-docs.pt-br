@@ -1,5 +1,5 @@
-﻿#### Saiba mais
+﻿####Saiba mais
 
-Ainda não está usando dimensionamento Elástico do Banco de Dados SQL do Azure? Confira nosso [Guia de Introdução](./sql-database-elastic-scale-get-started.md) e [Mapa da documentação](./sql-database-elastic-scale-documentation-map.md).  Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de recurso, adicione-os ao [Fórum de feedback do SQL Database](http://feedback.azure.com/forums/217321-sql-database).
+Ainda não está usando dimensionamento Elástico do Banco de Dados SQL do Azure?  Confira nosso [Guia de Introdução](../articles/sql-database-elastic-scale-get-started.md) e [Mapa da documentação](../articles/sql-database-elastic-scale-documentation-map.md).    Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de recurso, adicione-os ao [Fórum de feedback do SQL Database](http://feedback.azure.com/forums/217321-sql-database).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

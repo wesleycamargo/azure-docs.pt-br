@@ -1,6 +1,6 @@
-﻿
 
-Em seu aplicativo de back-end, você precisa alternar para envio de notificações de modelo em vez de cargas nativas. Isso simplificará o código de back-end, pois você não terá que enviar várias cargas para diferentes plataformas.
+
+Em seu aplicativo de back-end, você precisa alternar para envio de notificações de modelo em vez de cargas nativas.  Isso simplificará o código de back-end, pois você não terá que enviar várias cargas para diferentes plataformas.
 
 Ao enviar notificações de modelos, você só precisa fornecer um conjunto de propriedades. No nosso caso, enviaremos o conjunto de propriedades contendo a versão localizada das notícias atuais, por exemplo:
 
@@ -52,4 +52,4 @@ No Agendador de Serviço Móvel, substitua seu script por:
 	
 Observe como nesse caso não é necessário enviar várias notificações para localidades e plataformas diferentes.
 
-<!--HONumber=45--> 
+<!--HONumber=49-->
