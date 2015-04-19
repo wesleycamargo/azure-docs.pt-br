@@ -20,9 +20,9 @@ authors="torsteng"/>
 
 Os aplicativos criados no Banco de Dados SQL do Azure enfrentam desafios quando suas necessidades de dados ou de processamento não se ajustam mais a uma única unidade de escala no Banco de Dados SQL do Azure. Os exemplos incluem aplicativos que viralizam ou onde um conjunto específico de locatários cresce além dos limites de um único banco de dados do Banco de Dados SQL do Azure. O **Serviço de divisão/mesclagem** de escala elástica ameniza consideravelmente esse problema. 
 
-Esta discussão sobre o Serviço de divisão/mesclagem gerencia a redução e o escalonamento horizontais alterando o número de bancos de dados do Banco de Dados do Azure e equilibrando a distribuição de **shardlets** entre eles. (Para definições de termos, consulte o [Glossário de escala elástica](./sql-database-elastic-scale-glossary.md)). 
+Esta discussão sobre o Serviço de divisão/mesclagem gerencia a redução e o escalonamento horizontais alterando o número de bancos de dados do Banco de Dados do Azure e equilibrando a distribuição de **shardlets** entre eles. (Para definições de termos, consulte o [Glossário de escala elástica](sql-database-elastic-scale-glossary.md)). 
 
-Com as atuais opções de edições do Banco de Dados SQL do Azure, a capacidade pode ser gerenciada escalando ou reduzindo horizontalmente a capacidade de um único banco de dados do Banco de Dados SQL do Azure. A dimensão de escalonamento/redução horizontal do gerenciamento da capacidade elástica não é coberta pela divisão/mesclagem (em vez disso, consulte Elasticidade de fragmento [Elasticidade de fragmento de escala elástica]).(./sql-database-elastic-scale-elasticity.md)). 
+Com as atuais opções de edições do Banco de Dados SQL do Azure, a capacidade pode ser gerenciada escalando ou reduzindo horizontalmente a capacidade de um único banco de dados do Banco de Dados SQL do Azure. A dimensão de escalonamento/redução horizontal do gerenciamento da capacidade elástica não é coberta pela divisão/mesclagem (em vez disso, consulte Elasticidade de fragmento [Elasticidade de fragmento de escala elástica]).(sql-database-elastic-scale-elasticity.md)). 
  
 ## O que há de novo em Divisão/Mesclagem
 
@@ -65,7 +65,7 @@ Figura 1: Visão geral conceitual de divisão/mesclagem
 
 ## Principais recursos e conceitos
 
-**Serviços hospedados no cliente**: A Divisão/﻿Mesclagem é entregue como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Consulte o [Tutorial de divisão-mesclagem](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no seguinte documento [Considerações de segurança de escala elástica](./sql-database-elastic-scale-configure-security.md).
+**Serviços hospedados no cliente**: A Divisão/﻿Mesclagem é entregue como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Consulte o [Tutorial de divisão-mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no seguinte documento [Considerações de segurança de escala elástica](sql-database-elastic-scale-configure-security.md).
 
 O serviço padrão implantado é executado com um operador e uma função web. Cada um usa o tamanho da VM A1 nos Serviços de Nuvem do Azure. Embora não seja possível modificar essas configurações durante a implantação do pacote, eles podem ser alterados após uma implantação bem-sucedida no serviço de nuvem em execução (por meio do portal do Azure). Observe que a função de trabalho não deve ser configurada para mais de uma única instância por motivos técnicos. 
 
@@ -109,7 +109,7 @@ As tabelas 'região' e 'país' são definidas como tabelas de referência e ser�
 
 ## Obtendo os binários de serviço
 
-Os binários do serviço de Divisão/Mesclagem são fornecidos por meio do [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consulte o passo a passo [Tutorial de divisão-mesclagem](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) Para obter mais informações sobre como baixar os binários.
+Os binários do serviço de Divisão/Mesclagem são fornecidos por meio do [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consulte o passo a passo [Tutorial de divisão-mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) Para obter mais informações sobre como baixar os binários.
 
 ## A Interface do usuário de Divisão/Mesclagem
 
@@ -204,9 +204,9 @@ Além disso, uma propriedade de exclusividade com a chave de fragmentação como
 
 ## Referências 
 
-* [Tutorial de Mesclagem-Divisão](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Tutorial de Mesclagem-Divisão](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Considerações de segurança de dimensionamento Elástico](./sql-database-elastic-scale-configure-security.md)  
+* [Considerações de segurança de dimensionamento Elástico](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

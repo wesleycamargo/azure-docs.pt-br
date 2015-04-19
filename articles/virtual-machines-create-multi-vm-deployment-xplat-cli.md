@@ -63,7 +63,7 @@ Embora você possa encontrar mais informações usando a opção -help em qualqu
 ## Próximas etapas
 
  
-* [Computação Linux e Software Livre no Azure](../virtual-machines-linux-opensource/)
-* [Como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines-linux-how-to-log-on/)
+* [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
+* [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md)
 
 <!--HONumber=47-->

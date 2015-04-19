@@ -28,7 +28,7 @@ Este tutorial explica o seguinte processo:
 + [Atualizando o aplicativo para fazer logon antes do registro]
 + [Testando o aplicativo]
  
-Esse tutorial dá suporte a aplicativos do Windows Phone 8.0 e do Windows Phone 8.1 ("Silverlight"). Para aplicativos da Loja do Windows Phone 8.1, consulte a versão da [Windows Store deste tópico](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
+Esse tutorial dá suporte a aplicativos do Windows Phone 8.0 e do Windows Phone 8.1 ("Silverlight"). Para aplicativos da Loja do Windows Phone 8.1, consulte a versão da [Windows Store deste tópico](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 ##Pré-requisitos 
 

@@ -511,7 +511,7 @@ Para interromper as topologias, selecione cada topologia no **Visualizador de To
 
 Neste documento, você aprendeu a usar o bolt e o spout do Java do Hub de Eventos de uma topologia de C# para trabalhar com dados no Hub de Eventos do Azure. Para saber mais sobre a criação de topologias de C#, consulte o seguinte.
 
-* [Desenvolver topologias C# para Apache Storm no HDInsight usando o Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Desenvolver topologias C# para Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Exemplos do Storm no HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
 

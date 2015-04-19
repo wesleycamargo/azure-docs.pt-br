@@ -18,7 +18,7 @@
 
 # Como usar o API do Engagement no Windows Phone
 
-Este documento é um complemento para o documento [Como integrar o Mobile Engagement em seu aplicativo do Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
+Este documento é um complemento para o documento [Como integrar o Mobile Engagement em seu aplicativo do Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
 
 Se você desejar apenas relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todas as suas subclasses `PhoneApplicationPage` herdarem da classe `EngagementPage`.
 

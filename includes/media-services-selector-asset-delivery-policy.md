@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [SDK .NET](/documentation/articles/media-services-dotnet-configure-asset-delivery-policy/)
-- [API REST](/documentation/articles/media-services-rest-configure-asset-delivery-policy/)
+- [SDK .NET](media-services-dotnet-configure-asset-delivery-policy.md)
+- [API REST](media-services-rest-configure-asset-delivery-policy.md)
 
 <!--HONumber=47-->

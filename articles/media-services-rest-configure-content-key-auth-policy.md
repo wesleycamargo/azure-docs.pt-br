@@ -21,13 +21,13 @@
 #Criptografia dinâmica: Configurar a Política de Autorização de Chave de Conteúdo 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
 
 ##Visão geral
 
 Os serviços de mídia do Microsoft Azure permitem distribuir o conteúdo criptografado (dinamicamente) com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados. 
 
-Se você deseja que os serviços de mídia criptografem um ativo, você precisa associar uma chave de criptografia (**CommonEncryption** ou **EnvelopeEncryption**) com o ativo (conforme descrito [aqui](../media-services-rest-create-contentkey/)) e também configurar políticas de autorização para a chave (conforme descrito neste artigo). 
+Se você deseja que os serviços de mídia criptografem um ativo, você precisa associar uma chave de criptografia (**CommonEncryption** ou **EnvelopeEncryption**) com o ativo (conforme descrito [aqui](media-services-rest-create-contentkey.md)) e também configurar políticas de autorização para a chave (conforme descrito neste artigo). 
 
 No momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
@@ -47,8 +47,8 @@ Para obter mais informações, consulte
 
 ###Algumas considerações se aplicam:
 
-- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](../media-services-manage-origins#scale_streaming_endpoints). 
-- O ativo deve conter um conjunto de MP4s de múltiplas taxas de bits ou arquivos de Smooth Streaming de múltiplas taxas de bits. Para obter mais informações, consulte [Codificar um ativo](../media-services-encode-asset/).  
+- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins#scale_streaming_endpoints.md). 
+- O ativo deve conter um conjunto de MP4s de múltiplas taxas de bits ou arquivos de Smooth Streaming de múltiplas taxas de bits. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).  
 - Carregar e codificar seus ativos usando a opção **AssetCreationOptions.StorageEncrypted**.
 - Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
 - O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
@@ -59,9 +59,9 @@ Para obter mais informações, consulte
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
 
 
 ###Restrição aberta
@@ -486,7 +486,7 @@ Adicionar AuthorizationPolicy para o ContentKey, como mostrado [aqui](#AddAuthor
 
 
 ##Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](../media-services-rest-configure-asset-delivery-policy/) .
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md) .
 
 
 <!--HONumber=47-->

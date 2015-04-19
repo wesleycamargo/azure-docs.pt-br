@@ -38,7 +38,7 @@ Uma máquina virtual *personalizada* se refere a uma máquina virtual que você 
 
 	**Observação**: Para obter mais informações sobre como conectar máquinas virtuais ao mesmo serviço de nuvem, consulte [Como conectar máquinas virtuais em um serviço de nuvem](http://www.windowsazure.com/pt-br/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar para a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade para a rede virtual](http://msdn.microsoft.com/pt-br/library/azure/jj156085.aspx).
+12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar para a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade para a rede virtual](http://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 13. Na **Conta de armazenamento**, selecione uma conta de armazenamento existente para o arquivo VHD ou use uma conta de armazenamento gerada automaticamente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nessa conta de armazenamento. Você está limitado a 20 contas de armazenamento.
 
@@ -46,7 +46,7 @@ Uma máquina virtual *personalizada* se refere a uma máquina virtual que você 
 
 	**Observação**: Máquina Virtual que são membros de um conjunto de disponibilidade são implantados em domínios de falha diferente. Saiba como usar várias máquinas virtuais em um conjunto de disponibilidade para que seus aplicativos permaneçam disponíveis durante falhas de rede, falhas de hardware de disco local e qualquer tempo de inatividade planejado.
 
-15.  Em **Pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões à máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](http://azure.microsoft.com/pt-br/documentation/articles/virtual-machines-set-up-endpoints/). 
+15.  Em **Pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões à máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/). 
 
 16.   Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
@@ -58,7 +58,7 @@ Uma máquina virtual *personalizada* se refere a uma máquina virtual que você 
 ##Próximas etapas##
 Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando o portal mostra o status como Executando, você poderá fazer logon na máquina virtual. Para obter instruções, consulte um dos seguintes artigos:
 
-- [Como fazer logon em uma máquina virtual executando o Linux](../virtual-machines-linux-how-to-log-on)
-- [Como fazer logon em uma máquina virtual executando o Windows Server](../virtual-machines-log-on-windows-server)
+- [Como fazer logon em uma máquina virtual executando o Linux](virtual-machines-linux-how-to-log-on.md)
+- [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md)
 
 

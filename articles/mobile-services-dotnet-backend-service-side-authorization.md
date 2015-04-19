@@ -17,8 +17,8 @@
 # Autorização de serviço de usuários nos serviços móveis
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Qualquer | .NET)](/pt-br/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Qualquer | JavaScript)](/pt-br/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Qualquer | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Qualquer | JavaScript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 Este tópico mostra como usar a lógica de servidor para autorizar usuários.  Neste tutorial, você modifica os métodos de acesso de dados no .NET, filtra consultas com base nas IDs de usuário e concede acesso aos usuários apenas para seus próprios dados.
 
@@ -30,7 +30,7 @@ Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no t
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as [Migrações Code First](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as [Migrações Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. No Visual Studio, expanda a pasta Controladores e abra **TodoItemController.cs**. Localize o método **PostTodoItem** e adicione o seguinte código no começo do método. Esse código adiciona a ID de usuário do usuário autenticado para o item, antes que ele seja inserido na tabela TodoItem.
 

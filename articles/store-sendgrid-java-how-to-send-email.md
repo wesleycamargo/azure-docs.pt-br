@@ -197,7 +197,7 @@ O SendGrid oferece APIs baseadas na Web que podem ser usadas para aproveitar a f
 
 Agora que você já conhece as noções básicas do serviço de email SendGrid, siga estes links para saber mais.
 
-* Exemplo que demonstra o uso do SendGrid em uma implantação do Azure: [Como enviar email usando o SendGrid do Java em uma implantação do Azure](../store-sendgrid-java-how-to-send-email-example/)
+* Exemplo que demonstra o uso do SendGrid em uma implantação do Azure: [Como enviar email usando o SendGrid do Java em uma implantação do Azure](store-sendgrid-java-how-to-send-email-example.md)
 * SDK de Java do SendGrid: <https://sendgrid.com/docs/Code_Examples/java.html>
 * Documentação da API do SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>

@@ -25,7 +25,7 @@ Este guia descreve como usar as filas do barramento de serviço. Os exemplos sã
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Observação:** se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install/).
+**Observação:** se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](python-how-to-install.md).
 
 
 ## Como criar uma fila

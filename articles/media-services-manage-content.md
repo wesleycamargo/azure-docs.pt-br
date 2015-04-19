@@ -22,7 +22,7 @@
 
 # Como gerenciar conteúdo nos Serviços de Mídia #
 
-Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](../media-services-video-on-demand-workflow). 
+Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](media-services-video-on-demand-workflow.md). 
 
 Este tópico mostra como usar o Portal de Gerenciamento para gerenciar o conteúdo de mídia em sua conta de serviços de mídia.
 
@@ -84,7 +84,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).
-- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](../media-services-manage-origins#scale_streaming_endpoints/).
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](media-services-manage-origins#scale_streaming_endpoints.md).
 
 Com o empacotamento dinâmico você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento e os Serviços de Mídia irão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. 
 
@@ -128,8 +128,8 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 Se você desejar para os serviços de mídia criptografar dinamicamente seus ativos com uma chave AES ou DRM PlayReady, certifique-se de fazer o seguinte:
 
 - Codificar seu arquivo mezanino (origem) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde na seção [Encode](#encode) .
-- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](../media-services-manage-origins#scale_streaming_endpoints/).
-- Configure a "política de serviço de chave limpa aes padrão" ou "política de serviço sde licença playready padrão". Para obter mais informações, consulte [Configurar política de autorização de chave de conteúdo](../media-services-portal-configure-content-key-auth-policy).  
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](media-services-manage-origins#scale_streaming_endpoints.md).
+- Configure a "política de serviço de chave limpa aes padrão" ou "política de serviço sde licença playready padrão". Para obter mais informações, consulte [Configurar política de autorização de chave de conteúdo](media-services-portal-configure-content-key-auth-policy.md).  
 
 
 	Quando você estiver pronto para habilitar a criptografia, pressione o botão **CRIPTOGRAFIA** na parte inferior da página **CONTEÚDO**.

@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introdução](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [O que aconteceu](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Introdução](vs-storage-aspnet-getting-started-queues.md)
+> - [O que aconteceu](vs-storage-aspnet-what-happened.md)
 
 ## Introdução ao armazenamento do Azure (Projetos ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Filas](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tabelas](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
+> - [Filas](vs-storage-aspnet-getting-started-queues.md)
+> - [Tabelas](vs-storage-aspnet-getting-started-tables.md)
 
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte [Como usar o Armazenamento de Filas do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/) para obter mais informações.
 

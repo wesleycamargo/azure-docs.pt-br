@@ -29,11 +29,11 @@ O diagrama a seguir mostra as partes principais da plataforma de serviços de m�
 ![Live workflow][live-overview]
 
 
-Para obter mais informações, consulte [Visão Geral dos Serviços de Mídia](../media-services-overview).
+Para obter mais informações, consulte [Visão Geral dos Serviços de Mídia](media-services-overview.md).
 
 ##Criar uma conta de serviços de mídia
 
-Use o **Portal de Gerenciamento do Azure** para [criar conta de serviços de mídia do Azure](../media-services-create-account/).
+Use o **Portal de Gerenciamento do Azure** para [criar conta de serviços de mídia do Azure](media-services-create-account.md).
 
 ##Configurando pontos de extremidade de streaming
 
@@ -82,7 +82,7 @@ Publicar ativos (ao criar localizadores) usando o **Portal de Gerenciamento do A
 
 Você pode dimensionar os **serviços de mídia** especificando o número de **unidades reservadas de Streaming**, você gostaria que sua conta fosse provisionada. 
 
-Para obter informações sobre dimensionamento de unidades de streaming, consulte: [Como dimensionar unidades de streaming](../media-services-manage-origins#scale_streaming_endpoints).
+Para obter informações sobre dimensionamento de unidades de streaming, consulte: [Como dimensionar unidades de streaming](media-services-manage-origins#scale_streaming_endpoints.md).
 
 
 

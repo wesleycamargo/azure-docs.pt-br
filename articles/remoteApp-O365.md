@@ -11,7 +11,7 @@ Você pode criar uma coleção de RemoteApp usando a imagem de modelo do Office 
 
 A opção Office 365 ProPlus estará disponível durante a avaliação gratuita de 30 dias e no modo de produção, mas esta é a única opção com suporte após o término da avaliação.  
 
-Observe que você também pode criar uma imagem de modelo personalizada que contenha o Office 365 ProPlus. Para construir essa imagem de modelo, siga as [etapas de implantação](http://technet.microsoft.com/pt-br/library/dn782858(v=office.15). aspx) para o Office 365 ProPlus nos Serviços de Área de Trabalho Remota (RDS).
+Observe que você também pode criar uma imagem de modelo personalizada que contenha o Office 365 ProPlus. Para construir essa imagem de modelo, siga as [etapas de implantação](http://technet.microsoft.com/library/dn782858(v=office.15). aspx) para o Office 365 ProPlus nos Serviços de Área de Trabalho Remota (RDS).
 
 ##Versão de avaliação do Office 2013 Professional Plus 
 Durante uma avaliação de 30 dias do RemoteApp, você pode usar a imagem de modelo do Office 2013 Professional Plus (avaliação) para criar uma coleção de RemoteApp. Você pode atribuir usuários a esta coleção de avaliação usando suas contas de trabalho do Active Directory do Azure ou contas da Microsoft. Nenhuma assinatura adicional é necessária.

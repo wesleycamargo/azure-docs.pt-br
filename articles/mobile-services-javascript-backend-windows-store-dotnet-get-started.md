@@ -26,7 +26,7 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *T
 
 >[AZURE.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel e o aplicativo universal do Windows usando o Portal de Gerenciamento do Azure. Usando o Visual Studio 2013, você também pode adicionar um novo projeto de serviço móvel a uma solução existente do Visual Studio. Para saber mais, confira [Início rápido: Adicionar um serviço móvel (back-end JavaScript)](http://msdn.microsoft.com/library/windows/apps/xaml/dn263180.aspx).
 
->Para adicionar um serviço móvel a um projeto de aplicativo para Windows Phone 8.0 ou Windows Phone Store 8.1, consulte [Introdução aos dados para Windows Phone](/pt-br/documentation/articles/mobile-services-windows-phone-get-started-data).
+>Para adicionar um serviço móvel a um projeto de aplicativo para Windows Phone 8.0 ou Windows Phone Store 8.1, consulte [Introdução aos dados para Windows Phone](mobile-services-windows-phone-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -85,7 +85,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 * [Introdução às notificações por push] 
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-Para obter mais informações sobre aplicativos Windows universais, consulte [Suporte a várias plataformas de dispositivo por meio de um único serviço móvel](/pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Para obter mais informações sobre aplicativos Windows universais, consulte [Suporte a várias plataformas de dispositivo por meio de um único serviço móvel](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
 
 <!-- Anchors. -->
 [Introdução aos Serviços Móveis]:#getting-started

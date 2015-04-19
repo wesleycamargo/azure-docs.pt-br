@@ -368,8 +368,8 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 [CLI do Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
 [Referência de comandos CLI do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [criar uma chave SSH para autenticação]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[estratégia de ajuste de desempenho]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[otimizar e testar o desempenho do MySQL em VMs com Linux no Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[estratégia de ajuste de desempenho]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[otimizar e testar o desempenho do MySQL em VMs com Linux no Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [problema #1268 na CLI do Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [outra maneira de fazer clustering de MySQL no Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 

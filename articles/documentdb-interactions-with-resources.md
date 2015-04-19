@@ -259,7 +259,7 @@ Explore a [referência da API REST do Banco de Dados de Documentos do Azure](htt
 -	Marcas da entidade [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[Consulta ao Banco de Dados de Documentos](documentdb-sql-query.md)
 -	[Referência SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Programando o Banco de Dados de Documentos: Procedimentos armazenados, gatilhos e UDFs](../documentdb-programming/)
+-	[Programando o Banco de Dados de Documentos: Procedimentos armazenados, gatilhos e UDFs](documentdb-programming.md)
 -	[Documentação de referência do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 

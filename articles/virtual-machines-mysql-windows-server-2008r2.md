@@ -38,7 +38,7 @@ Este tutorial mostra como:
 
 Depois de criada a máquina virtual, você pode, opcionalmente, anexar um disco de dados adicional. Isso é recomendado para cargas de trabalho de produção e para evitar a falta de espaço na unidade do sistema operacional (C:), que atualmente se limita a 127 GB e inclui o sistema operacional.
 
-Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../storage-windows-attach-disk/) e siga as instruções para anexar um disco vazio. Defina a configuração de cache de host como **Nenhum** ou **Somente leitura**.
+Consulte [Como anexar um disco de dados a uma máquina virtual Windows](storage-windows-attach-disk.md) e siga as instruções para anexar um disco vazio. Defina a configuração de cache de host como **Nenhum** ou **Somente leitura**.
 
 ## Faça logon na máquina virtual
 
@@ -91,7 +91,7 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 Se quiser que o serviço do servidor MySQL esteja disponível para computadores cliente MySQL na Internet, você deverá configurar um ponto de extremidade para a porta TCP na qual o serviço MySQL Server escutará e criará uma regra adicional do Firewall do Windows. É a porta TCP 3306, a menos que você tenha especificado uma porta diferente na página Tipo e Rede (etapa 10 do procedimento anterior). 
 
 
-> [AZURE.NOTE] Você deve considerar cuidadosamente as implicações de segurança de fazer isso, porque isso disponibilizará o serviço MySQL Server para todos os computadores na Internet. Você pode definir o conjunto de endereços IP de origem que têm permissão para usar o ponto de extremidade com uma lista de controle de acesso (ACL). Para obter mais informações, consulte [Como configurar pontos de extremidade para uma Máquina Virtual](../virtual-machines-set-up-endpoints/).
+> [AZURE.NOTE] Você deve considerar cuidadosamente as implicações de segurança de fazer isso, porque isso disponibilizará o serviço MySQL Server para todos os computadores na Internet. Você pode definir o conjunto de endereços IP de origem que têm permissão para usar o ponto de extremidade com uma lista de controle de acesso (ACL). Para obter mais informações, consulte [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md).
 
 
 Para configurar um ponto de extremidade para o serviço do servidor MySQL:

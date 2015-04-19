@@ -232,7 +232,7 @@ O valor da `id` deve ser exclusivo e não deve incluir caracteres dos seguintes 
 +  Caracteres de impressão: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Os ids "." e ".."
 
-Você também pode usar Ids de números inteiros para suas tabelas. Para usar um ID de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `- integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables).
+Você também pode usar Ids de números inteiros para suas tabelas. Para usar um ID de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `- integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis](virtual-machines-command-line-tools.md/#Mobile_Tables).
 
 
 ###<a name="access-headers"></a>Como: Acessar parâmetros personalizados

@@ -19,7 +19,7 @@
 
 #Como codificar um ativo usando o Codificador de Mídia do Azure
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) . 
 
 ##Visão geral
 Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para entregar pela internet ou para dispositivos de seus clientes para exibir corretamente. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia.
@@ -32,9 +32,9 @@ Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de 
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
 
 
 O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. Quando estiver codificando com o Codificador de Mídia do Azure, você pode usar as predefinições de tarefa de configuração especificadas [aqui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
@@ -110,7 +110,7 @@ Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de
 
 
 ##Próximas etapas
-Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](../media-services-rest-check-job-progress/) .
+Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-rest-check-job-progress.md) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Predefinição do codificador]: http://msdn.microsoft.com/library/dn619392.aspx

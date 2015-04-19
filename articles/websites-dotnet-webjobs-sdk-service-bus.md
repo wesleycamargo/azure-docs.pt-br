@@ -18,9 +18,9 @@
 
 # Como usar o barramento de serviço do Azure com o SDK WebJobs
 
-Este guia fornece exemplos de código C# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam [SDK WebJobs](../websites-dotnet-webjobs-sdk/) versão 1. x.
+Este guia fornece exemplos de código C# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1. x.
 
-O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](../websites-dotnet-webjobs-sdk-get-started/).
+O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 
 Os trechos de código mostram apenas funções, não o código que cria o objeto `JobHost` como neste exemplo:
 
@@ -138,7 +138,7 @@ Para criar uma mensagem sobre um tópico, use o atributo `ServiceBus` com um nom
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
 
-Para obter informações sobre cenários de SDK WebJobs não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Para obter informações sobre cenários de SDK WebJobs não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Tópicos abordados nesse artigo incluem o seguinte:
 

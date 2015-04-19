@@ -19,7 +19,7 @@
 
 #Como codificar um ativo usando o Codificador de Mídia do Azure
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) . 
 
 ##Visão geral
 
@@ -207,7 +207,7 @@ O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém
 
 
 ##Próximas etapas
-Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](../media-services-check-job-progress/) .
+Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-check-job-progress.md) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Predefinição do codificador]: http://msdn.microsoft.com/library/dn619392.aspx

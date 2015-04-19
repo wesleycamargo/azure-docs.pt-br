@@ -41,7 +41,7 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 	
 	Na página **Configurar**, é possível configurar o monitoramento, atualizar as configurações da função e escolher o sistema operacional convidado e a família para instâncias de função. 
 
-2. Em **monitoramento**, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado. Para obter instruções, consulte [Como monitorar serviços de nuvem](../how-to-monitor-a-cloud-service/).
+2. Em **monitoramento**, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado. Para obter instruções, consulte [Como monitorar serviços de nuvem](how-to-monitor-a-cloud-service.md).
 
 
 3. Para as funções de serviço (agrupadas por função), você pode atualizar as seguintes configurações:

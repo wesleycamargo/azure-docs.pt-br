@@ -26,7 +26,7 @@ Farm do SharePoint Server é um recurso do Portal de Visualização do Microsoft
 
 As seções a seguir fornecem detalhes da configuração de cada farm.
 
-Para obter informações adicionais, consulte [Farm do SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/).
+Para obter informações adicionais, consulte [Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md).
 
 ##Farm do SharePoint básico
 
@@ -121,7 +121,7 @@ Aqui estão os detalhes da configuração:
 
 ##Recursos adicionais
 
-[Farm do SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/)
+[Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md)
 
 [SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 

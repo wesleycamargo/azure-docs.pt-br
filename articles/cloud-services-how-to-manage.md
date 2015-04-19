@@ -86,7 +86,7 @@ Use **Permutar** para promover uma implantação de preparo de um Serviço de Nu
 
 Para mostrar as dependências do serviço de nuvem em outros recursos, é possível vincular uma instância do Banco de Dados SQL do Azure ou uma conta de armazenamento ao serviço de nuvem. Você pode vincular e desvincular recursos na página **Recursos Vinculados**, e monitorar seu uso no painel do serviço de nuvem. Se uma conta de armazenamento vinculada tiver o monitoramento ativado, você poderá monitorar Solicitações Totais no painel do serviço de nuvem.
 
-Use **Vincular** para vincular uma instância nova ou existente do Banco de Dados SQL ou conta de armazenamento ao Serviço de Nuvem. Em seguida, é possível dimensionar um banco de dados junto com a função de Serviço de Nuvem que o está usando na página **Escala**. (Uma conta de armazenamento é dimensionada automaticamente à medida que cresce o uso.) Para obter mais informações, consulte [Como dimensionar um Serviço de Nuvem e os recursos vinculados (a página pode estar em inglês)](../cloud-services-how-to-scale/). 
+Use **Vincular** para vincular uma instância nova ou existente do Banco de Dados SQL ou conta de armazenamento ao Serviço de Nuvem. Em seguida, é possível dimensionar um banco de dados junto com a função de Serviço de Nuvem que o está usando na página **Escala**. (Uma conta de armazenamento é dimensionada automaticamente à medida que cresce o uso.) Para obter mais informações, consulte [Como dimensionar um Serviço de Nuvem e os recursos vinculados (a página pode estar em inglês)](cloud-services-how-to-scale.md). 
 
 Você também pode monitorar, gerenciar e dimensionar o banco de dados no nó **Bancos de dados** do Portal de Gerenciamento. 
 
@@ -120,7 +120,7 @@ O procedimento a seguir descreve como vincular uma nova instância do banco de d
 
 	![Link Progress](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkProgress.png)
 
-	Quando o vínculo estiver concluído, você poderá monitorar o status do recurso vinculado no painel do serviço de nuvem. Para obter informações sobre o dimensionamento de um Banco de Dados SQL vinculado, consulte [Como dimensionar um Serviço de Nuvem e os recursos vinculados](../cloud-services-how-to-scale/).
+	Quando o vínculo estiver concluído, você poderá monitorar o status do recurso vinculado no painel do serviço de nuvem. Para obter informações sobre o dimensionamento de um Banco de Dados SQL vinculado, consulte [Como dimensionar um Serviço de Nuvem e os recursos vinculados](cloud-services-how-to-scale.md).
 
 ###Para desvincular um recurso vinculado###
 
@@ -158,7 +158,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 5. Para excluir o Serviço de Nuvem, clique em **Excluir o Serviço de Nuvem**. Em seguida, clique em **Sim** no prompt de confirmação.
 
 > [AZURE.NOTE]
-> Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte "Como: Acessar dados do monitoramento detalhado fora do Portal de Gerenciamento" em <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-how-to-monitor/">Como monitorar serviços de nuvem</a>.
+> Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte "Como: Acessar dados do monitoramento detalhado fora do Portal de Gerenciamento" em <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Como monitorar serviços de nuvem</a>.
 
 
 <!--HONumber=45--> 

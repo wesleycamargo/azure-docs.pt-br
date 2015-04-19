@@ -135,7 +135,7 @@ Esse problema é fácil de corrigir: basta reverter para uma versão com suporte
 
 Quando usar o back-end do .NET dos Serviços Móveis com um banco de dados SQL, o Entity Framework (EF) será usado como a tecnologia de acesso a dados que permite a você consultar o banco de dados e os objetos persistentes dentro dele. Um aspecto importante que o EF trata em nome do desenvolvedor é como as colunas do banco de dados (também conhecidas como *schema*) mudam de acordo com as classes do modelo especificadas na mudança do código. Esse processo é conhecido como [Codificar Migrações Iniciais](http://msdn.microsoft.com/data/jj591621).
 
-As migrações podem ser complexas e exigir que o estado do banco de dados seja mantido sincronizado com o modelo EF para ser bem-sucedido. Para obter instruções sobre como lidar com migrações com seu serviço móvel e erros que podem surgir, consulte [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
+As migrações podem ser complexas e exigir que o estado do banco de dados seja mantido sincronizado com o modelo EF para ser bem-sucedido. Para obter instruções sobre como lidar com migrações com seu serviço móvel e erros que podem surgir, consulte [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 <!-- IMAGES -->
 

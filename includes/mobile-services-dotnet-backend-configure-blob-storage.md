@@ -25,7 +25,7 @@ A classe TodoItem define o objeto de dados, e é necessário adicionar a essa cl
 
 	Essas propriedades são utilizadas para gerar a SAS e armazenar informações de imagem. Observe as maiúsculas e minúsculas nessas propriedades correspondem à versão back-end do JavaScript. 
 
-	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 ##<a name="update-scripts"></a>Atualizar o controlador de TodoItem para gerar uma assinatura de acesso compartilhado 
 

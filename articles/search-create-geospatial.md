@@ -40,7 +40,7 @@ Este tutorial é baseado na [Pesquisa do Azure - Demonstração do Adventure Wor
 <h2 id="sub-1">Pré-requisitos</h2>
 
 Visual Studio 2012 ou posterior com o ASP.NET MVC 4 e SQL Server instalados. Se você ainda não tiver o software instalado, você pode baixar as edições Express gratuitas: [Visual Studio 2013 Express](http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx) e [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+ Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Introdução à Pesquisa do Azure](../search-get-started/) para obter detalhes.
++ Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Introdução à Pesquisa do Azure](search-get-started.md) para obter detalhes.
 + Um serviço de mapa do Bing e uma chave para acessá-lo. As instruções são fornecidas na próxima seção
 +	[Exemplo de GeoSearch da Pesquisa do Azure no CodePlex](https://azuresearchgeospatial.codeplex.com/). Na guia Fonte, clique em **Download** para obter um arquivo zip da solução. 
 

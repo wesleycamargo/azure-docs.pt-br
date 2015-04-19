@@ -659,7 +659,7 @@ Uma assinatura de acesso compartilhado pode estar em uma das duas formas:
 - **SAS Ad hoc**: Quando você cria uma SAS ad hoc, a hora de início, a hora de término e as permissões para a SAS são especificadas no URI SAS. Esse tipo de SAS pode ser criado em um contêiner, blob, tabela ou fila e é não pode ser revogado.
 - **SAS com política de acesso armazenada**: Uma política de acesso armazenada é definida em um contêiner de recurso um contêiner de blob, tabela ou fila - e você pode usá-la para gerenciar restrições para uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada. Esse tipo de SAS pode ser revogado.
 
-Para obter mais informações, consulte [Assinaturas de Acesso Compartilhado](./storage-dotnet-shared-access-signature-part-1.md/), [Parte 1: Noções básicas sobre o modelo SAS](./storage-dotnet-shared-access-signature-part-1.md/) e [Gerenciar o acesso aos recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx).
+Para obter mais informações, consulte [Assinaturas de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md), [Parte 1: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Gerenciar o acesso aos recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx).
 
 Nas seções a seguir, você aprenderá a como criar uma política de acesso armazenado e um token de assinatura de acesso compartilhado para tabelas do Azure. O PowerShell do Azure fornece cmdlets semelhantes para contêineres, blobs e filas. Para executar os scripts nesta seção, baixe o [PowerShell do Azure versão 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou posterior.
 
@@ -721,7 +721,7 @@ Para usar o armazenamento do Azure com [Azure Government dos EUA](http://azure.m
 
 Para obter mais informações, consulte:
 
-- [Guia do Desenvolvedor do Microsoft Azure Government](../azure-government-developer-guide/). 
+- [Guia do Desenvolvedor do Microsoft Azure Government](azure-government-developer-guide.md). 
 - [Diferenças entre AzureCloud para o Azure global e AzureChinaCloud para Azure operado pelo 21Vianet na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## <a name="next"></a>Próximas etapas

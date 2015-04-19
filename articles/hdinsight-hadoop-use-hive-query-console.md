@@ -78,13 +78,13 @@ Para saber mais sobre o Hive usando o Console de Consulta, selecione **Introduç
 
 Para obter informações gerais sobre o Hive no HDInsight.
 
-* [Usar o Hive com Hadoop no HDInsight](../hdinsight-use-hive/)
+* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight.
 
-* [Usar o Pig com Hadoop no HDInsight](../hdinsight-use-pig/)
+* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-* [Usar o MapReduce com Hadoop no HDInsight](../hdinsight-use-mapreduce/)
+* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 

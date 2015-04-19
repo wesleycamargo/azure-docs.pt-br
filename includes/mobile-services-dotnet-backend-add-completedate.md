@@ -4,7 +4,7 @@
 
 2. No arquivo WebApiConfig.cs, observe que a classe de inicializador padrão do banco de dados é derivada da classe  `DropCreateDatabaseIfModelChanges`. Isso significa que qualquer alteração no modelo resultará na tabela que está sendo descartada e recriada para acomodar o modelo novo. Portanto, os dados da tabela serão perdidos e a tabela será refeita. Modifique o método Seed do inicializador do banco de dados de forma que os dados de propagação sejam os da gravação do arquivo WebApiConfig.cs.
 
-    >[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+    >[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
         List<TodoItem> todoItems = new List<TodoItem>
         {

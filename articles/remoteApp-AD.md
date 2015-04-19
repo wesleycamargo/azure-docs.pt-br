@@ -10,7 +10,7 @@ Para uma coleção híbrida do RemoteApp, você precisa configurar uma infraestr
 ##Configurar o Active Directory no local
 Iniciar a configuração de seu Active Directory local. Você precisa identificar o sufixo de domínio para usar e, em seguida, criar objetos do Active Directory para o RemoteApp. 
 
-Não adicionou serviços de domínio Active Directory para seu ambiente do Windows Server 2012 R2 ainda? Verifique [estas instruções](http://technet.microsoft.com/pt-br/library/cc731053(v=WS.10). aspx) para obter informações sobre como fazer exatamente isso.
+Não adicionou serviços de domínio Active Directory para seu ambiente do Windows Server 2012 R2 ainda? Verifique [estas instruções](http://technet.microsoft.com/library/cc731053(v=WS.10). aspx) para obter informações sobre como fazer exatamente isso.
 ###Examinar e definir o sufixo de domínio UPN
 Se a floresta não está configurada com um sufixo UPN que corresponda ao domínio do AD do Azure que você usará para o RemoteApp, você precisa adicioná-lo. Determine se o sufixo necessário está configurado:
 
@@ -77,9 +77,9 @@ Agora que o Active Directory local está configurado, mova para o AD do Azure. V
 Use as informações a seguir para configurar o Active Directory do Azure
 
 
-- [Adicionar seu domínio](http://technet.microsoft.com/pt-br/library/hh969247.aspx) - use essas informações para adicionar um domínio que coincide com o sufixo de domínio UPN do seu domínio do Active Directory local.
-- [Integração de diretórios](http://technet.microsoft.com/pt-br/library/jj573653.aspx) - use essas informações para escolher uma opção de integração de diretório - [DirSync com sincronização de senha](http://technet.microsoft.com/pt-br/library/dn441214.aspx) ou [DirSync com federação](http://technet.microsoft.com/pt-br/library/dn441213.aspx).
+- [Adicionar seu domínio](http://technet.microsoft.com/library/hh969247.aspx) - use essas informações para adicionar um domínio que coincide com o sufixo de domínio UPN do seu domínio do Active Directory local.
+- [Integração de diretórios](http://technet.microsoft.com/library/jj573653.aspx) - use essas informações para escolher uma opção de integração de diretório - [DirSync com sincronização de senha](http://technet.microsoft.com/library/dn441214.aspx) ou [DirSync com federação](http://technet.microsoft.com/library/dn441213.aspx).
 
-Você também pode configurar [Autenticação multifator (MFA)](http://technet.microsoft.com/pt-br/library/dn249466.aspx).
+Você também pode configurar [Autenticação multifator (MFA)](http://technet.microsoft.com/library/dn249466.aspx).
 
 <!--HONumber=35.2-->

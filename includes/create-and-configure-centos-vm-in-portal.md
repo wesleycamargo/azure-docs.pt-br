@@ -74,6 +74,6 @@ Digite a senha novamente. Aguarde enquanto as atualizações são instaladas.
 
   [Visão geral da rede virtual do Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Criar uma Nova Máquina Virtual]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [senha forte]: http://msdn.microsoft.com/pt-br/library/ms161962.aspx
+  [senha forte]: http://msdn.microsoft.com/library/ms161962.aspx
   [Página de Download do PuTTY]: http://www.puttyssh.org/download.html
   [Tela do PuTTY]: ./media/create-and-configure-centos-vm-in-portal/putty.png

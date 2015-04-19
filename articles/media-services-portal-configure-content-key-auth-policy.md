@@ -21,7 +21,7 @@
 #Configurar a Política de Autorização de Chave de Conteúdo 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
 
 
 ##Visão geral
@@ -35,14 +35,14 @@ Quando um player solicita um fluxo que é definido para ser criptografado dinami
 
 Se você planeja ter várias chaves de conteúdo ou deseja especificar uma URL de **serviço de entrega de Chave/Licença** diferente do serviço de distribuição de chaves dos serviços de mídia, use as APIs SDK ou REST do .NET dos serviços de mídia.
 
-[Configurar política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia](../media-services-dotnet-configure-content-key-auth-policy/)
+[Configurar política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia](media-services-dotnet-configure-content-key-auth-policy.md)
 
-[Configurar política de autorização de chave de conteúdo usando a API REST dos serviços de mídia](../media-services-rest-configure-content-key-auth-policy/)
+[Configurar política de autorização de chave de conteúdo usando a API REST dos serviços de mídia](media-services-rest-configure-content-key-auth-policy.md)
 
 ###Algumas considerações se aplicam:
 
-- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](../media-services-manage-origins#scale_streaming_endpoints). 
-- O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](../media-services-encode-asset/).  
+- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins#scale_streaming_endpoints.md). 
+- O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).  
 - O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
 
 
@@ -87,7 +87,7 @@ Ao proteger o conteúdo com **PlayReady**, uma das coisas que você precisa espe
 Você pode clicar no botão **Importar a política XML** e fornecer um XML diferente que está em conformidade com o esquema XML definido [aqui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ##Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [como: Usar o Portal de Gerenciamento do Azure para habilitar a criptografia](../media-services-manage-content#encrypt/) .
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [como: Usar o Portal de Gerenciamento do Azure para habilitar a criptografia](media-services-manage-content#encrypt.md) .
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png

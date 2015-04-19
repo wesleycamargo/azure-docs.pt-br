@@ -66,7 +66,7 @@ Para concluir esta seção, certifique-se primeiro de executar as seguintes tare
 3. Verifique se você tem o [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) instalado no computador, pois os projetos de exemplo de início rápido do Azure necessitam dele. Se você não tiver certeza de qual versão do .NET Framework está instalada no seu computador, consulte [Como: Determinar quais versões do .NET Framework estão instaladas](https://msdn.microsoft.com/vstudio/hh925568.aspx). Ou pressione o botão **Iniciar** ou a tecla Windows, digite **Painel de Controle**. Em seguida, clique em **Programas** > **Programas e Recursos**. Verifique se o .NET Framework 4.5 está listado entre todos os programas instalados.
 4.	Obtenha uma assinatura do Azure (se você ainda não tiver uma) e crie também uma conta de **Armazenamento padrão**:
 	- Para obter uma assinatura do Azure, consulte [Avaliação gratuita](, http://azure.microsoft.com/pricing/free-trial/)[Opções de compra](http://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) (para membros de outros programas da Microsoft, MSDN, Microsoft Partner Network e BizSpark).
-	- Para criar uma conta de **Armazenamento padrão** no Azure, consulte [Como criar, gerenciar ou excluir uma conta de armazenamento](./storage-create-storage-account.md). **Observação:** Há dois tipos de contas de armazenamento no Azure: Conta de Armazenamento Padrão e a conta de Armazenamento Premium. Uma conta de armazenamento padrão fornece acesso ao Armazenamento de Blob, Tabela e Fila do Azure. Uma conta de Armazenamento Premium está disponível apenas para armazenar dados em discos usados por máquinas virtuais do Azure. Para obter mais informações, consulte [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](./storage-premium-storage-preview-portal.md).
+	- Para criar uma conta de **Armazenamento padrão** no Azure, consulte [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md). **Observação:** Há dois tipos de contas de armazenamento no Azure: Conta de Armazenamento Padrão e a conta de Armazenamento Premium. Uma conta de armazenamento padrão fornece acesso ao Armazenamento de Blob, Tabela e Fila do Azure. Uma conta de Armazenamento Premium está disponível apenas para armazenar dados em discos usados por máquinas virtuais do Azure. Para obter mais informações, consulte [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage-preview-portal.md).
 
 Agora, vamos criar um aplicativo simples do Armazenamento do Azure usando um dos projetos de exemplo do início rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo **Armazenamento de Blob do Azure**, **Armazenamento de Tabela do Azure** e **Filas de Armazenamento do Azure**. As instruções a seguir se aplicam para todos os projetos de exemplo, exceto se você escolher um modelo diferente na etapa 3.a:
 
@@ -88,7 +88,7 @@ Agora, execute o aplicativo de exemplo:
 2.	Remova o comentário da cadeia de conexão para o Serviço de Armazenamento do Azure e forneça a chave de acesso e do nome da conta de armazenamento no arquivo App.config:
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	Para localizar o nome da conta do armazenamento e a chave de acesso, consulte [O que é uma conta de armazenamento](./storage-whatis-account.md). 
+	Para localizar o nome da conta do armazenamento e a chave de acesso, consulte [O que é uma conta de armazenamento](storage-whatis-account.md). 
 
 3.	Depois de fornecer a chave de acesso e o nome da conta de armazenamento no arquivo App.config, no menu **Arquivo**, clique em **Salvar tudo** para salvar todos os arquivos de projeto. 
 4.	No menu **Compilar**, clique em **Compilar Solução**. 
@@ -100,10 +100,10 @@ Neste tutorial, você aprendeu como programar no Armazenamento de Blob do Azure,
 
 Se você quiser saber mais sobre eles, siga estes links:
 
-* [Introdução ao Armazenamento do Microsoft Azure](./storage-introduction.md)
-* [Como usar o Armazenamento de Blob no .NET](./storage-dotnet-how-to-use-blobs.md)
-* [Como usar o Armazenamento de Tabela no .NET](./storage-dotnet-how-to-use-tables.md)
-* [Como usar o Armazenamento de Fila no .NET](./storage-dotnet-how-to-use-queues.md)
+* [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
+* [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
+* [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)
+* [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
 * [Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 * [Referência do MSDN de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 * [Biblioteca de cliente do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)

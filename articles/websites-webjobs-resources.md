@@ -73,7 +73,7 @@ Consulte também as seções a seguir em [Implantação de Trabalhos Web](#deplo
 * [Código de hospedagem interativo na nuvem](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Obtendo um painel para o desenvolvimento local com o SDK de Trabalhos Web](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Adição de rastreamento a Trabalhos Web e Sites do Azure](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
+* [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 * Vídeos
 	* [Depuração remota e ferramentas de Trabalhos Web](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

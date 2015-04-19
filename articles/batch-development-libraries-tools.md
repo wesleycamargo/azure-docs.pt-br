@@ -27,7 +27,7 @@
 
 + [Exemplos de código](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch) (MSDN)
 + [Fórum do Azure Batch](https://social.msdn.microsoft.com/forums/azure/pt-br/home?forum=azurebatch)
-+ [Introdução à Biblioteca do Azure Batch para .NET](http://azure.microsoft.com/pt-br/documentation/articles/batch-dotnet-get-started/)
++ [Introdução à Biblioteca do Azure Batch para .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
 
 <!--Anchors-->
 [Batch]: #batch

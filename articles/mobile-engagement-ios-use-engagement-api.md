@@ -31,7 +31,7 @@ Antes de qualquer chamada de API, o objeto `EngagementAgent` deve ser inicializa
 
 ## Conceitos de Engagement
 
-As seguintes partes refinam os [Conceitos de Mobile Engagement](../mobile-engagement-concepts/) usuais para a plataforma iOS.
+As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagement-concepts.md) usuais para a plataforma iOS.
 
 ### `Sessão` e `Atividade`
 

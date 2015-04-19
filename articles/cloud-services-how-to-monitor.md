@@ -38,7 +38,7 @@ O monitoramento das exibições no Portal de Gerenciamento são altamente config
 Por padrão, o monitoramento mínimo é fornecido para um novo serviço de nuvem usando os contadores do desempenho coletados do sistema operacional do host para as instâncias de função (máquinas virtuais). As métricas mínimas estão limitadas a percentual de CPU, entrada de dados, saída de dados, transferência de leitura e gravação de disco. Configurando o monitoramento detalhado, você pode receber métricas adicionais com base nos dados de desempenho em máquinas virtuais (instâncias de função). As métricas detalhadas permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo.
 
 > [AZURE.NOTE]
-> Se você usar o monitoramento detalhado, é possível adicionar mais contadores de desempenho na inicialização da instância de função por meio de um arquivo de configuração de diagnóstico. Para monitorar essas métricas no Portal de Gerenciamento, você deve adicionar esses contadores de desempenho antes de configurar o monitoramento detalhado. Para obter mais informações, consulte <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-diagnostics/">Habilitando o Diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure</a>.
+> Se você usar o monitoramento detalhado, é possível adicionar mais contadores de desempenho na inicialização da instância de função por meio de um arquivo de configuração de diagnóstico. Para monitorar essas métricas no Portal de Gerenciamento, você deve adicionar esses contadores de desempenho antes de configurar o monitoramento detalhado. Para obter mais informações, consulte <a href="http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/">Habilitando o Diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure</a>.
 
 Por padrão, os dados do contador de desempenho das instâncias de função passam por amostragem e são transferidos da instância de função em intervalos de 3 minutos. Quando você habilita o monitoramento detalhado, os dados brutos do contador de desempenho são agregados para cada instância de função e por instâncias de função para cada função em intervalos de 5 minutos, 1 hora e 12 horas. Os dados agregados são limpos após 10 dias.
 
@@ -56,13 +56,13 @@ Use os procedimentos a seguir para configurar o monitoramento mínimo ou detalha
 - Crie uma conta de armazenamento para armazenar os dados de monitoramento. Você pode usar contas de armazenamento diferentes para funções diferentes. Para obter mais informações, consulte a ajuda para as **Contas de Armazenamento** ou consulte [Como criar uma conta de armazenamento](/pt-br/manage/services/storage/how-to-create-a-storage-account/).
 
 
-- Habilite o Diagnóstico do Azure para as funções do seu serviço de nuvem. <br /><br />Para obter mais informações, consulte [Habilitando o Diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](/pt-br/documentation/articles/cloud-services-dotnet-diagnostics/).
+- Habilite o Diagnóstico do Azure para as funções do seu serviço de nuvem. <br /><br />Para obter mais informações, consulte [Habilitando o Diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](cloud-services-dotnet-diagnostics.md).
 
 No Portal de Gerenciamento, você pode adicionar ou modificar as cadeias de conexão de diagnóstico que Diagnóstico do Azure usa para acessar as contas do armazenamento que armazenam os dados do monitoramento detalhado, além de poder definir o nível de monitoramento como detalhado ou mínimo. Como o monitoramento detalhado armazena dados em uma conta de armazenamento, você deve configurar as cadeias de conexão de diagnóstico antes de definir o nível de monitoramento como detalhado.
 
 ###Para configurar cadeias de conexões de diagnóstico para o monitoramento detalhado###
 
-1. Copie uma chave de acesso de armazenamento para a conta de armazenamento que você usará para armazenar os dados do monitoramento detalhado. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), você pode usar **Gerencia Chaves** na página **Contas de Armazenamento**. Para obter mais informações, consulte [Como gerenciar os serviços de nuvem](/pt-br/documentation/articles/cloud-services-how-to-manage/) ou consulte a ajuda para a página **Contas de Armazenamento**. 
+1. Copie uma chave de acesso de armazenamento para a conta de armazenamento que você usará para armazenar os dados do monitoramento detalhado. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), você pode usar **Gerencia Chaves** na página **Contas de Armazenamento**. Para obter mais informações, consulte [Como gerenciar os serviços de nuvem](cloud-services-how-to-manage.md) ou consulte a ajuda para a página **Contas de Armazenamento**. 
 
 2. Abra **Serviços de Nuvem**. Em seguida, para abrir o painel, clique no nome do serviço de nuvem que você deseja configurar.
 

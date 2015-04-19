@@ -158,7 +158,7 @@ Artigo | Descrição
 [data-factory-introduction]: ../data-factory-introduction  
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[azure-machine-learning]: http://azure.microsoft.com/pt-br/services/machine-learning/
+[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
 

@@ -12,7 +12,7 @@ Agora que a autenticação é obrigatória para acessar dados na tabela TodoItem
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](/pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 3. No Gerenciador de Soluções, expanda a pasta Controllers, abra o arquivo de projeto TodoItemController.cs e adicione a seguinte instrução **using**:
 

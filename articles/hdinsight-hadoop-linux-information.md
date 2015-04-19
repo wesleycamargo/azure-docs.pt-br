@@ -125,9 +125,9 @@ Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 
 ##Próximas etapas
 
-* [Use o hive com o HDInsight](../hdinsight-use-hive/)
-* [Usar o Pig com o HDInsight](../hdinsight-use-pig/)
-* [Usar trabalhos MapReduce com o HDInsight](../hdinsight-use-mapreduce)
+* [Use o hive com o HDInsight](hdinsight-use-hive.md)
+* [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
+* [Usar trabalhos MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
 
 <!--HONumber=47-->

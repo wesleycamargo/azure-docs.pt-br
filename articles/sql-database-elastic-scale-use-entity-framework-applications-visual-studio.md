@@ -18,7 +18,7 @@
 
 # Usando a Escala Elástica com o Entity Framework 
  
-Você pode usar a Escala Elástica do Banco de Dados SQL do Azure com o Entity Framework (EF) da Microsoft para criar aplicativos. A Escala Elástica permite ampliar e reduzir a capacidade por meio de fragmentação e expansão para a camada de dados do aplicativo. Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos de Escala Elástica. O foco está na composição [gerenciamento de fragmento da Escala Elástica](http://go.microsoft.com/?linkid=9862595) e [roteamento dependentes de dados](./sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework **Code First**. O tutorial [Code First - novo banco de dados](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução ao longo deste documento. O código de exemplo que acompanha este documento é parte dos exemplos de Escala Elástica dos exemplos de código do Visual Studio.
+Você pode usar a Escala Elástica do Banco de Dados SQL do Azure com o Entity Framework (EF) da Microsoft para criar aplicativos. A Escala Elástica permite ampliar e reduzir a capacidade por meio de fragmentação e expansão para a camada de dados do aplicativo. Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos de Escala Elástica. O foco está na composição [gerenciamento de fragmento da Escala Elástica](http://go.microsoft.com/?linkid=9862595) e [roteamento dependentes de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework **Code First**. O tutorial [Code First - novo banco de dados](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução ao longo deste documento. O código de exemplo que acompanha este documento é parte dos exemplos de Escala Elástica dos exemplos de código do Visual Studio.
   
 ## Baixar e executar o código de exemplo
 Para baixar o código para este artigo:
@@ -53,7 +53,7 @@ Todas essas abordagens contam com a classe DbContext para gerenciar, transparent
 
 ## Pressuposições de Escala Elástica 
 
-Para definições de termos, consulte o [Glossário de Escala Elástica](./sql-database-elastic-scale-glossary.md).
+Para definições de termos, consulte o [Glossário de Escala Elástica](sql-database-elastic-scale-glossary.md).
 
 Com a Escala Elástica do Banco de Dados SQL do Azure você define partições dos seus dados do aplicativo chamados shardlets.  Os shardlets são identificados por uma chave de fragmentação e são mapeados para bancos de dados específicos. Um aplicativo pode ter tantos bancos de dados quanto necessários e distribuir shardlets para fornecer capacidade ou desempenho suficientes, considerando os requisitos de negócio atuais. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa do fragmento fornecido pelas APIs de Escala Elástica. Chamamos essa funcionalidade de Gerenciamento de Mapa do Fragmento ou SMM (abreviada do inglês: Shard Map Management). O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Chamamos essa funcionalidade de roteamento dependente de dados. 
  

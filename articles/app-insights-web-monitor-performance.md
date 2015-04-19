@@ -35,7 +35,7 @@ Se você ainda não tem o Application Insights adicionado ao seu projeto (ou sej
 
 * [Adicione o Application Insights ao seu projeto de aplicativo no Visual Studio][greenbrown] - Recomendado. Além do monitoramento de desempenho passivo, você pode inserir o registro em log do diagnóstico e acompanhar o uso.
 * [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplantar o site da web.
-* [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring/)  você já pode ver métricas lentea de monitoramento do site. 
+* [Para um site do Microsoft Azure](insights-how-to-customize-monitoring.md)  você já pode ver métricas lentea de monitoramento do site. 
 
 
 ## <a name="view"></a>Exibir relatórios

@@ -19,7 +19,7 @@
 
 # Assinaturas de acesso compartilhado, Parte 2: Criar e usar um SAS com o Serviço Blob
 
-A [Parte 1](../storage-dotnet-shared-access-signature-part-1/) deste tutorial explorou as assinaturas de acesso compartilhado (SAS) e explicou as práticas recomendadas para sua utilização. A Parte 2 mostra como gerar e usar assinaturas de acesso compartilhado com o serviço Blob do Azure. Os exemplos são escritos em C# e usam a Biblioteca de Cliente do Armazenamento do Azure para .NET. Os cenários abordados incluem esses aspectos de trabalho com assinaturas de acesso compartilhado:
+A [Parte 1](storage-dotnet-shared-access-signature-part-1.md) deste tutorial explorou as assinaturas de acesso compartilhado (SAS) e explicou as práticas recomendadas para sua utilização. A Parte 2 mostra como gerar e usar assinaturas de acesso compartilhado com o serviço Blob do Azure. Os exemplos são escritos em C# e usam a Biblioteca de Cliente do Armazenamento do Azure para .NET. Os cenários abordados incluem esses aspectos de trabalho com assinaturas de acesso compartilhado:
 
 - Gerando uma assinatura de acesso compartilhado em um contêiner
 - Gerando uma assinatura de acesso compartilhado em um blob
@@ -533,7 +533,7 @@ Execute o aplicativo de console e observe a saída para ver quais operações s�
 
 # Próximas etapas #
 
-[Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS](../storage-dotnet-shared-access-signature-part-1/)
+[Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 
 [Gerenciar o acesso aos recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

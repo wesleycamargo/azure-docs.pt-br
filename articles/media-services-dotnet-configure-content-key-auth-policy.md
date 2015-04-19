@@ -21,7 +21,7 @@
 #Criptografia dinâmica: Configurar a Política de Autorização de Chave de Conteúdo 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
 
 ##Visão geral
 
@@ -29,7 +29,7 @@ Os serviços de mídia do Microsoft Azure permitem distribuir o conteúdo cripto
 
 No momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
-Se você deseja que os serviços de mídia criptografem um ativo, você precisa associar uma chave de criptografia (**CommonEncryption** ou **EnvelopeEncryption**) com o ativo (conforme descrito [aqui](../media-services-dotnet-create-contentkey/)) e também configurar políticas de autorização para a chave (conforme descrito neste artigo). 
+Se você deseja que os serviços de mídia criptografem um ativo, você precisa associar uma chave de criptografia (**CommonEncryption** ou **EnvelopeEncryption**) com o ativo (conforme descrito [aqui](media-services-dotnet-create-contentkey.md)) e também configurar políticas de autorização para a chave (conforme descrito neste artigo). 
 
 Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
@@ -47,8 +47,8 @@ Para obter mais informações, consulte
 
 ###Algumas considerações se aplicam:
 
-- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](../media-services-manage-origins#scale_streaming_endpoints). 
-- O ativo deve conter um conjunto de MP4s de múltiplas taxas de bits ou arquivos de Smooth Streaming de múltiplas taxas de bits. Para obter mais informações, consulte [Codificar um ativo](../media-services-encode-asset/).  
+- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins#scale_streaming_endpoints.md). 
+- O ativo deve conter um conjunto de MP4s de múltiplas taxas de bits ou arquivos de Smooth Streaming de múltiplas taxas de bits. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).  
 - Carregar e codificar seus ativos usando a opção **AssetCreationOptions.StorageEncrypted**.
 - Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
 - O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
@@ -393,6 +393,6 @@ Para obter um token de teste com base na restrição de token que foi usada para
 
 
 ##Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](../media-services-dotnet-configure-asset-delivery-policy/) .
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md) .
 
 <!--HONumber=47-->

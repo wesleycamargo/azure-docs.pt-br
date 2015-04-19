@@ -26,7 +26,7 @@ Este guia mostra como usar os tópicos e as assinaturas do Barramento de Serviç
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Observação:** se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install/).
+**Observação:** se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](python-how-to-install.md).
 
 
 ## Como criar um tópico

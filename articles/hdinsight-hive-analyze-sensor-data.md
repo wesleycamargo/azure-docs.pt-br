@@ -31,7 +31,7 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 ## Pré-requisitos:
 
-* Um cluster do HDInsight (Hadoop) - veja [Provisionar clusters do Hadoop no HDInsight](/pt-br/documentation/articles/hdinsight-provision-clusters/) para obter informações sobre como criar um cluster
+* Um cluster do HDInsight (Hadoop) - veja [Provisionar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md) para obter informações sobre como criar um cluster
 
 * Microsoft Excel 2013
 

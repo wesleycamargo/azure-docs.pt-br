@@ -18,7 +18,7 @@
 
 # Como usar o API do Engagement no Windows
 
-Este documento é um complemento para o documento [Como integrar o Engagement no Windows](../mobile-engagement-windows-store-integrate-engagement/): ele fornece detalhes aprofundados sobre como usar a API Engagement para relatar as estatísticas do aplicativo.
+Este documento é um complemento para o documento [Como integrar o Engagement no Windows](mobile-engagement-windows-store-integrate-engagement.md): ele fornece detalhes aprofundados sobre como usar a API Engagement para relatar as estatísticas do aplicativo.
 
 Tenha em mente que caso queira o Engagement apenas para relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todas as suas subclasses `Page` herdarem da classe `EngagementPage`.
 
@@ -30,7 +30,7 @@ Mesmo se o módulo de agente não foi inicializado, cada chamada para a API é a
 
 ## Conceitos de Engagement
 
-As seguintes partes refinam os [Conceitos de Mobile Engagement](../mobile-engagement-concepts/)  usuais para a plataforma Windows.
+As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagement-concepts.md)  usuais para a plataforma Windows.
 
 ### `Sessão` e `Atividade`
 

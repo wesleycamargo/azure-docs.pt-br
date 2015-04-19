@@ -155,8 +155,8 @@ Ao seguir o procedimento de integração descrito acima, o serviço do Engagemen
 
 Para se beneficiar de push "A qualquer momento", você precisa usar um ou mais serviços de Push Nativo, dependendo dos dispositivos que você visa:
 
-  - Dispositivos do Google Play: Use o [Google Cloud Messaging], seguindo o guia [Como integrar o GCM com o Engagement](../mobile-engagement-android-gcm-integrate/) .
-  - Dispositivos Amazon: Use o [Amazon Device Messaging], seguindo o guia [Como integrar o ADM com o Engagement](../mobile-engagement-android-adm-integrate/) .
+  - Dispositivos do Google Play: Use o [Google Cloud Messaging], seguindo o guia [Como integrar o GCM com o Engagement](mobile-engagement-android-gcm-integrate.md) .
+  - Dispositivos Amazon: Use o [Amazon Device Messaging], seguindo o guia [Como integrar o ADM com o Engagement](mobile-engagement-android-adm-integrate.md) .
 
 Se você deseja ter como alvo tanto dispositivos Amazon quanto Google Play, é possível ter tudo dentro de 1 AndroidManifest.xml/APK (Android Application Package) para desenvolvimento. Mas, ao enviar para a Amazon, eles podem rejeitar seu aplicativo se encontrarem código do GCM (Google Cloud Messaging).
 

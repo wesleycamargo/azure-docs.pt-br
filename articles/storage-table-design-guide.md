@@ -24,7 +24,7 @@ Para projetar tabelas escalonáveis e de alto desempenho, você deve considerar 
 
 ## Sobre o serviço de Tabela do Azure
 
-Esta seção destaca alguns dos principais recursos do serviço Tabela que são especialmente relevantes para o projeto de desempenho e escalabilidade. Se você for novo no Armazenamento do Azure e o serviço de Tabela, leia primeiro [Introdução ao Armazenamento do Microsoft Azure](../storage-introduction/) e [Como usar o Armazenamento de Tabela no .NET](../storage-dotnet-how-to-use-tables/) antes de ler o restante deste artigo. Embora o foco deste guia seja no serviço Tabela, ele incluirá alguma discussão dos serviços Blob e fila do Azure e como você pode usá-los junto com o serviço Tabela em uma solução.  
+Esta seção destaca alguns dos principais recursos do serviço Tabela que são especialmente relevantes para o projeto de desempenho e escalabilidade. Se você for novo no Armazenamento do Azure e o serviço de Tabela, leia primeiro [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md) antes de ler o restante deste artigo. Embora o foco deste guia seja no serviço Tabela, ele incluirá alguma discussão dos serviços Blob e fila do Azure e como você pode usá-los junto com o serviço Tabela em uma solução.  
  
 O que é o serviço Tabela? Como você pode esperar do nome, o serviço Tabela usa um formato tabular para armazenar dados. Na terminologia padrão, cada linha da tabela representa uma entidade e as colunas armazenam várias propriedades da entidade. Cada entidade tem um par de chaves para identificá-la exclusivamente, e uma coluna de carimbo de data/hora que o serviço Tabela usa para controlar quando a entidade foi atualizada (isso ocorre automaticamente e não é possível substituir manualmente o carimbo de data/hora por um valor arbitrário). O serviço Tabela usa esse último LMT (Carimbo de Data/hora Modificado) para gerenciar a simultaneidade otimista.  
 
@@ -1132,7 +1132,7 @@ Você também deve considerar como seu design afeta a forma de tratamento, por p
 
 #### Gerenciando simultaneidade  
 
-Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar**, e **Excluir**, embora seja possível para um cliente forçar o serviço Tabela para ignorar essas verificações. Para obter mais informações sobre como o serviço de tabela gerencia a simultaneidade, consulte [Gerenciamento de simultaneidade no Armazenamento do Microsoft Azure](../storage-concurrency/) no site do Microsoft Azure.  
+Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar**, e **Excluir**, embora seja possível para um cliente forçar o serviço Tabela para ignorar essas verificações. Para obter mais informações sobre como o serviço de tabela gerencia a simultaneidade, consulte [Gerenciamento de simultaneidade no Armazenamento do Microsoft Azure](storage-concurrency.md) no site do Microsoft Azure.  
 
 #### Mesclar ou substituir  
 
@@ -1448,7 +1448,7 @@ Você pode usar tokens de SAS (Assinatura de Acesso Compartilhado) para habilita
 -	Você pode descarregar parte do trabalho que as funções Web e de trabalho desempenham no gerenciamento de suas entidades em dispositivos clientes, como computadores de usuários finais e dispositivos móveis.  
 -	Você pode atribuir um conjunto de permissões restrito e de tempo limitado a um cliente (como acesso somente leitura a recursos específicos).  
 
-Para obter mais informações sobre como usar tokens SAS com o serviço Tabela, consulte [Assinaturas de acesso compartilhado, parte 1: Noções básicas sobre o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).  
+Para obter mais informações sobre como usar tokens SAS com o serviço Tabela, consulte [Assinaturas de acesso compartilhado, parte 1: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).  
 
 No entanto, você ainda deve gerar os tokens SAS que concedem a um aplicativo cliente para as entidades no serviço Tabela: você deve fazer isso em um ambiente com acesso seguro às chaves de conta de armazenamento. Geralmente, você usa uma função de trabalho ou Web para gerar tokens SAS e enviá-los aos aplicativos clientes que precisam acessar suas entidades. Como ainda há uma sobrecarga envolvida na geração e fornecimento de tokens SAS aos clientes, você deve considerar a melhor maneira de reduzir essa sobrecarga, especialmente em cenários de alto volume.  
 

@@ -68,7 +68,7 @@ A imagem abaixo mostra as relações entre os recursos de armazenamento do Azure
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Quando você estiver pronto para criar uma conta de armazenamento padrão, consulte [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/) para obter mais detalhes.
+Quando você estiver pronto para criar uma conta de armazenamento padrão, consulte [Criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md) para obter mais detalhes.
 
 ### Contas de Armazenamento premium (visualização)
 
@@ -128,7 +128,7 @@ Por padrão, somente o proprietário da conta de armazenamento pode acessar recu
 
 Sua conta de armazenamento recebe duas chaves de acesso privadas na criação, que são usadas para autenticação. Ter duas chaves garante que seu aplicativo permaneça disponível quando você regenerar regularmente as chaves como uma prática comum de gerenciamento de chaves de segurança.
 
-Se você precisar permitir acesso controlado aos usuários a seus recursos de armazenamento, poderá criar uma [assinatura de acesso compartilhado](../storage-dotnet-shared-access-signature-part-1/). Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um contêiner, blob, tabela ou fila. Qualquer pessoa que possua o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da validade. Observe que atualmente o armazenamento de arquivo do Azure não dá suporte para assinaturas de acesso compartilhado.
+Se você precisar permitir acesso controlado aos usuários a seus recursos de armazenamento, poderá criar uma [assinatura de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md). Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um contêiner, blob, tabela ou fila. Qualquer pessoa que possua o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da validade. Observe que atualmente o armazenamento de arquivo do Azure não dá suporte para assinaturas de acesso compartilhado.
 
 Finalmente, você pode especificar que um contêiner e seus blobs ou um blob específico estão disponíveis para acesso público. Quando você indica que um contêiner ou blob é público, qualquer pessoa pode lê-lo anonimamente. Nenhuma autenticação é necessária.  Os contêineres e blobs públicos são úteis para expor recursos, como mídia e documentos, que são hospedados em sites.  Para reduzir a latência de rede para um público global, você pode armazenar em cache os dados de blob usados por sites com a CDN do Azure.
 
@@ -183,38 +183,38 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 <h3>Para desenvolvedores do .NET</h3>
 
 - [Referência à Biblioteca cliente do .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-- [Como usar o Armazenamento de Blob no .NET](../storage-dotnet-how-to-use-blobs/)
-- [Como usar o Armazenamento de Tabela no .NET](../storage-dotnet-how-to-use-tables/)
-- [Como usar o Armazenamento de Fila no .NET](../storage-dotnet-how-to-use-queues/)
+- [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
+- [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)
+- [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
 
 <h3>Para desenvolvedores de Java/Android</h3>
 
 - [Referência da Biblioteca do Cliente Java]()
-- [Como usar o Armazenamento de Blob no Java/Android](../storage-java-how-to-use-blob-storage/)
-- [Como usar o Armazenamento de Tabela no Java/Android](../storage-java-how-to-use-table-storage/)
-- [Como usar o Armazenamento de Fila no Java/Android](../storage-java-how-to-use-queue-storage/)
+- [Como usar o Armazenamento de Blob no Java/Android](storage-java-how-to-use-blob-storage.md)
+- [Como usar o Armazenamento de Tabela no Java/Android](storage-java-how-to-use-table-storage.md)
+- [Como usar o Armazenamento de Fila no Java/Android](storage-java-how-to-use-queue-storage.md)
 
 <h3>Para desenvolvedores do Node.js</h3>
 
-- [Como usar o Armazenamento de Blob no Node.js](../storage-nodejs-how-to-use-blob-storage/)
-- [Como usar o Armazenamento de Tabela no Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [Como usar o Armazenamento de Fila no Node.js](../storage-nodejs-how-to-use-queues/)
+- [Como usar o Armazenamento de Blob no Node.js](storage-nodejs-how-to-use-blob-storage.md)
+- [Como usar o Armazenamento de Tabela no Node.js](storage-nodejs-how-to-use-table-storage.md)
+- [Como usar o Armazenamento de Fila no Node.js](storage-nodejs-how-to-use-queues.md)
 
 <h3>Para desenvolvedores do PHP</h3>
 
-- [Como usar o Armazenamento de Blob no PHP](../storage-php-how-to-use-blobs/)
-- [Como usar o Armazenamento de Tabela no PHP](../storage-php-how-to-use-table-storage/)
-- [Como usar o Armazenamento de Fila no PHP](../storage-php-how-to-use-queues/)
+- [Como usar o Armazenamento de Blob no PHP](storage-php-how-to-use-blobs.md)
+- [Como usar o Armazenamento de Tabela no PHP](storage-php-how-to-use-table-storage.md)
+- [Como usar o Armazenamento de Fila no PHP](storage-php-how-to-use-queues.md)
 
 <h3>Para desenvolvedores do Ruby</h3>
 
-- [Como usar o Armazenamento de Blob no Ruby](../storage-ruby-how-to-use-blob-storage/)
-- [Como usar o Armazenamento de Tabela no Ruby](../storage-ruby-how-to-use-table-storage/)
-- [Como usar o Armazenamento de Fila no Ruby](../storage-ruby-how-to-use-queue-storage/)
+- [Como usar o Armazenamento de Blob no Ruby](storage-ruby-how-to-use-blob-storage.md)
+- [Como usar o Armazenamento de Tabela no Ruby](storage-ruby-how-to-use-table-storage.md)
+- [Como usar o Armazenamento de Fila no Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 <h3>Para desenvolvedores do Python</h3>
 
-- [Como usar o Armazenamento de Blob no Python](../storage-python-how-to-use-blob-storage/)
-- [Como usar o Armazenamento de Tabela no Python](../storage-python-how-to-use-table-storage/)
-- [Como usar o Armazenamento de Fila no Python](../storage-python-how-to-use-queue-storage/)
+- [Como usar o Armazenamento de Blob no Python](storage-python-how-to-use-blob-storage.md)
+- [Como usar o Armazenamento de Tabela no Python](storage-python-how-to-use-table-storage.md)
+- [Como usar o Armazenamento de Fila no Python](storage-python-how-to-use-queue-storage.md)
 <!--HONumber=42-->

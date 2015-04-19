@@ -100,7 +100,7 @@ Siga estas etapas para criar um site do Azure.
 
 ##Próximas etapas
 
-Para saber mais sobre as versões do Node.js que são fornecidas com o Azure e como especificar a versão a ser usada com seu aplicativo, consulte [Especificando uma versão do Node.js em um aplicativo do Azure](/pt-br/documentation/articles/nodejs-specify-node-version-azure-apps/).
+Para saber mais sobre as versões do Node.js que são fornecidas com o Azure e como especificar a versão a ser usada com seu aplicativo, consulte [Especificando uma versão do Node.js em um aplicativo do Azure](nodejs-specify-node-version-azure-apps.md).
 
 Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azure, consulte [Como depurar um aplicativo Node.js em sites do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/Debug-Website/) para obter informações sobre como diagnosticar o problema.
 

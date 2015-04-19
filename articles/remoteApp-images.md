@@ -11,7 +11,7 @@ Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 - Microsoft Office 365 ProPlus (assinatura do Office 365 necessária)
 - Microsoft Office 2013 Professional Plus (somente avaliação)
 
-Independentemente da imagem você usar, existem considerações de licenciamento toda vez que você compartilhar um aplicativo com os usuários. Confira os [Detalhes de licenciamento do RemoteApp](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-licensing/) para obter mais informações.
+Independentemente da imagem você usar, existem considerações de licenciamento toda vez que você compartilhar um aplicativo com os usuários. Confira os [Detalhes de licenciamento do RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-licensing/) para obter mais informações.
 
 Leia mais para obter detalhes sobre o que cada imagem contém.
 
@@ -54,7 +54,7 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Word
 - Revisores de texto do Microsoft Office 
 
-Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365 consulte[Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-licensing/) 
+Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365 consulte[Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](http://azure.microsoft.com/documentation/articles/remoteapp-licensing/) 
 
 ##Microsoft Office 2013 Professional Plus (somente avaliação)
 Durante o período de avaliação gratuito, você pode testar o serviço com a imagem do Office 2013. 
@@ -74,6 +74,6 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Word
 - Revisores de texto do Microsoft Office 
 
-**Informações legais importantes:** essa imagem não inclui uma licença do Microsoft Office e *não pode ser usada para produção*. A imagem do Office 2013 Professional Plus é destinada apenas para o uso de avaliação. Se você quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisa usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](http://azure.microsoft.com/pt-br/documentation/articles/remoteapp-licensing/)
+**Informações legais importantes:** essa imagem não inclui uma licença do Microsoft Office e *não pode ser usada para produção*. A imagem do Office 2013 Professional Plus é destinada apenas para o uso de avaliação. Se você quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisa usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](http://azure.microsoft.com/documentation/articles/remoteapp-licensing/)
 
 <!--HONumber=35.2-->

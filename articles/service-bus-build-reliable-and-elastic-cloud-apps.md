@@ -20,7 +20,7 @@
  
 A demanda dinâmica é uma realidade para os aplicativos de hoje.  De uma demanda sazonal e variável a tendências inesperadas de mídias sociais, os aplicativos modernos devem lidar muito bem com picos de carga que podem ser incertos ou esperados. A natureza de Plataforma como Serviço (PaaS) do Barramento de Serviço do Azure permite que você crie aplicativos que são escalados facilmente e que se recuperam de picos ou interrupções momentâneas de componentes.  
  
-[Criar um aplicativo .NET multicamada usando filas do Barramento de Serviço](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
+[Criar um aplicativo .NET multicamada usando filas do Barramento de Serviço](cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md)
  
 ## Explorar
 - [Conceitos fundamentais do Barramento de Serviço do Azure da Microsoft](http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/)

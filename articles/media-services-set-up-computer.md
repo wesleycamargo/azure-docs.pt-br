@@ -26,7 +26,7 @@ Esta seção contém os pré-requisitos gerais para desenvolvimento de Serviços
 
 ### Pré-requisitos
 
--   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](../media-services-create-account/).
+-   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
 -   Sistemas operacionais: Windows 7, Windows 2008 R2 ou Windows 8.
 -   .NET Framework 4.
 -   Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 

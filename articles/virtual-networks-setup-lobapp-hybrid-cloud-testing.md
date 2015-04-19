@@ -46,7 +46,7 @@ Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma
 
 ##Fase 1: Configurar o ambiente de nuvem híbrida
 
-Use as instruções no tópico [Configurar um ambiente de nuvem híbrida para testes](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Como esse ambiente de teste não exige a presença do servidor APP1 na sub-rede Corpnet, fique à vontade para desligá-lo por enquanto.
+Use as instruções no tópico [Configurar um ambiente de nuvem híbrida para testes](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Como esse ambiente de teste não exige a presença do servidor APP1 na sub-rede Corpnet, fique à vontade para desligá-lo por enquanto.
 
 Esta é a configuração atual.
 
@@ -182,11 +182,11 @@ Este ambiente agora está pronto para que você implante seu aplicativo baseado 
 
 [Plataforma de servidor Web de hospedagem amigável (IIS)](http://technet.microsoft.com/library/hh831818)
 
-[Configurar um ambiente de nuvem híbrida para teste](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configurar um ambiente de nuvem híbrida para teste](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configurar um ambiente de nuvem híbrida simulado para testes](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

@@ -132,7 +132,7 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 
 [O que é uma Conta de Armazenamento?](storage-whatis-account.md)
 
-[Como: criar uma conta de armazenamento](../storage-create-storage-account/)
+[Como: criar uma conta de armazenamento](storage-create-storage-account.md)
 
 [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md)
 

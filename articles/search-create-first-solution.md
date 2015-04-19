@@ -44,7 +44,7 @@ A demonstração introduz a Pesquisa do Azure ao guiá-lo por estes exercícios:
 <h2 id="sub-1">Pré-requisitos</h2>
 
 +	Visual Studio 2012 ou posterior com o ASP.NET MVC 4 e SQL Server instalados. Se você ainda não tiver o software instalado, você pode baixar as edições Express gratuitas: [Visual Studio 2013 Express](http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx) e [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Começar com a pesquisa do Azure](../search-get-started/) para obter detalhes.
++	Um serviço de Pesquisa do Azure. Você precisará do nome do serviço de Pesquisa, mais a chave de administrador. Consulte [Começar com a pesquisa do Azure](search-get-started.md) para obter detalhes.
 +	[Projeto de demonstração da pesquisa do Azure da Adventure Works no CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). Na guia Fonte, clique em **Download** para obter um arquivo zip da solução.  
 
     ![][12]

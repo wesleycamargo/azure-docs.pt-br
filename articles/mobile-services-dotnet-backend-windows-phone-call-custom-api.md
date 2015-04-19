@@ -25,13 +25,13 @@ Este tópico mostra como chamar uma API personalizada em um aplicativo do Window
 
 A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador de conclusão como `true` para todos os itens todo na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que você criou após concluir [Adicionar os Serviços Móveis em um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) tutorial. Para fazer isso, você executará as seguintes etapas:
+Você adicionará essa funcionalidade ao aplicativo que você criou após concluir [Adicionar os Serviços Móveis em um aplicativo existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md) tutorial. Para fazer isso, você executará as seguintes etapas:
 
 1. [Definir a API personalizada]
 2. [Atualizar o aplicativo para chamar a API personalizada]
 3. [Testar o aplicativo] 
 
-Este tutorial é baseado no exemplo GetStartedWithData, um aplicativo TodoList simples. Antes de iniciar este tutorial, você deve primeiro [Adicionar os Serviços Móveis em um aplicativo existente](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+Este tutorial é baseado no exemplo GetStartedWithData, um aplicativo TodoList simples. Antes de iniciar este tutorial, você deve primeiro [Adicionar os Serviços Móveis em um aplicativo existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 

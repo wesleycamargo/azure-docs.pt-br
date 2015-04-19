@@ -89,7 +89,7 @@ No plano de hospedagem **padrão**, monitore as notificações de email de recep
 ## Mais recursos
 
 - [Documentação dos Websites do Azure](/pt-br/documentation/services/websites/)
-- [Mapa de aprendizado para Websites do Azure](/pt-br/documentation/articles/websites-learning-map/)
+- [Mapa de aprendizado para Websites do Azure](websites-learning-map.md)
 - [Blog de Web do Azure](/blog/topics/web/)
 
 

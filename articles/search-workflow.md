@@ -22,7 +22,7 @@
 
 Este artigo oferece um roteiro e algumas das melhores práticas para criar e manter o serviço de pesquisa e seus índices. 
 
-Nós presumimos que você já tenha provisionado o serviço. Se você ainda não tiver feito isso, consulte [Introdução à Pesquisa do Azure](../search-get-started/) para obter mais instruções.
+Nós presumimos que você já tenha provisionado o serviço. Se você ainda não tiver feito isso, consulte [Introdução à Pesquisa do Azure](search-get-started.md) para obter mais instruções.
 
 + [Etapa 1: Criar o índice](#sub-1)
 + [Etapa 2: Adicionar documentos](#sub-2)
@@ -35,7 +35,7 @@ Nós presumimos que você já tenha provisionado o serviço. Se você ainda não
 
 As consultas são voltadas para um índice de pesquisa que contém dados e atributos de pesquisa. Dessa forma, a primeira etapa após o provisionamento do serviço é definir o esquema de índice no formato JSON e executar uma solicitação HTTPS PUT para criar o índice no serviço. 
 
-Os índices são criados pelo código do aplicativo. Não existem ferramentas integradas ou editores para ajudá-lo a definir um índice em uma interface do usuário. Exemplos que demonstram várias maneiras de construir o índice incluem [Criar sua primeira solução de pesquisa usando a Pesquisa do Azure](../search-create-first-solution/), em que o esquema é especificado no arquivo Program.cs, e [Introdução a perfis de pontuação na Pesquisa do Azure](../search-get-started-scoring-profiles), que fornece o índice em um arquivo de esquema JSON independente. Para saber mais sobre a criação do índice, consulte [Criar índice (API de pesquisa do Azure)](http://msdn.microsoft.com/library/dn798941.aspx) no MSDN.
+Os índices são criados pelo código do aplicativo. Não existem ferramentas integradas ou editores para ajudá-lo a definir um índice em uma interface do usuário. Exemplos que demonstram várias maneiras de construir o índice incluem [Criar sua primeira solução de pesquisa usando a Pesquisa do Azure](search-create-first-solution.md), em que o esquema é especificado no arquivo Program.cs, e [Introdução a perfis de pontuação na Pesquisa do Azure](search-get-started-scoring-profiles.md), que fornece o índice em um arquivo de esquema JSON independente. Para saber mais sobre a criação do índice, consulte [Criar índice (API de pesquisa do Azure)](http://msdn.microsoft.com/library/dn798941.aspx) no MSDN.
 
 <h2 id="sub-2">Etapa 2: Adicionar documentos</h2>
 

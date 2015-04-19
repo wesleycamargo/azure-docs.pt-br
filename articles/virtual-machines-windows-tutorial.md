@@ -25,7 +25,7 @@
 Este tutorial mostra como é fácil criar uma máquina virtual do Azure (VM). Este tutorial usa uma imagem do Windows Server, mas isso é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens sistemas operacionais do Windows, sistemas operacionais baseados em Linux e aplicativos pré-instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
 
-Você também pode criar VMs do Windows usando [suas próprias imagens como modelos](../virtual-machines-create-upload-vhd-windows-server/). Para saber mais sobre o VMs do Azure, consulte [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+Você também pode criar VMs do Windows usando [suas próprias imagens como modelos](virtual-machines-create-upload-vhd-windows-server.md). Para saber mais sobre o VMs do Azure, consulte [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
@@ -106,11 +106,11 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure, consulte:
 
-[Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../cloud-services-connect-virtual-machine/)
+[Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](cloud-services-connect-virtual-machine.md)
 
-[Criar e carregar um VHD do Windows Server no Azure](../virtual-machines-create-upload-vhd-windows-server/)
+[Criar e carregar um VHD do Windows Server no Azure](virtual-machines-create-upload-vhd-windows-server.md)
 
-[Gerenciar a disponibilidade de máquinas virtuais](../manage-availability-virtual-machines/)
+[Gerenciar a disponibilidade de máquinas virtuais](manage-availability-virtual-machines.md)
 
 [Sobre as definições de configuração da VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 

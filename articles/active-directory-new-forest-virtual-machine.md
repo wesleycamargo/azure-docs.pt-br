@@ -23,7 +23,7 @@ Este tópico mostra como criar um novo ambiente do Active Directory do Windows S
 
 Você também pode estar interessado nestes tópicos relacionados:
 
-- Você também pode [configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) e instalar uma nova floresta ou estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio Active Directory de réplica em uma rede virtual do Azure](../virtual-networks-install-replica-active-directory-domain-controller).
+- Você também pode [configurar uma VPN site a site usando o Assistente do Portal de Gerenciamento](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) e instalar uma nova floresta ou estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio Active Directory de réplica em uma rede virtual do Azure](virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 
@@ -65,7 +65,7 @@ Repita as etapas a seguir para criar VMs para hospedar a função de controlador
 	**Configuração de Máquina Virtual**  | <p>Serviço de Nuvem: Escolha <b>Criar um novo serviço de nuvem</b> para a primeira VM e selecione esse mesmo nome de serviço de nuvem ao criar mais VMs que hospedarão a função de controlador de domínio.</p><p>Nome DNS do Serviço de Nuvem Especifique um nome exclusivo</p><p>Região/grupo de afinidade/rede virtual: Especifique o nome da rede virtual (como WestUSVNet).</p><p>Conta de Armazenamento: Escolha <b>Usar uma conta de armazenamento gerada automaticamente</b> para a primeira máquina virtual e selecione esse nome de conta de armazenamento ao criar mais VMs que hospedará a função de controlador de domínio.</p><p>Conjunto de disponibilidade: Escolha <b>Criar um conjunto de disponibilidade</b>.</p><p>Nome do conjunto de disponibilidade: Digite um nome para o conjunto disponibilidade definido ao criar a primeira máquina virtual e, em seguida, selecione esse mesmo nome quando você criar mais VMs.</p>
 	**Configuração de Máquina Virtual**  | <p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p>
 2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Depois de entrar na VM pela primeira vez, abra o **Gerenciador do Servidor** > **Serviços de Arquivo e Armazenamento** para criar um volume nesse disco usando o NTFS.
-3. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](../powershell-install-configure) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
+3. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](powershell-install-configure.md) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -115,7 +115,7 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 -  [Configurar uma VPN site a site no Portal de Gerenciamento](https://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure](../virtual-networks-install-replica-active-directory-domain-controller)
+-  [Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure](virtual-networks-install-replica-active-directory-domain-controller.md)
 
 -  [Windows Azure IaaS para profissionais de TI: (01) Conceitos básicos sobre máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
@@ -123,7 +123,7 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 -  [Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
--  [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/)
+-  [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md)
 
 -  [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 

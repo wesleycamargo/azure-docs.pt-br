@@ -22,7 +22,7 @@ Neste artigo, você aprenderá como criar um aplicativo de linha de negócios (L
 
 O locatário AAD que você usa pode ter um diretório somente no Azure, ou pode ser sincronizado no diretório com seu Active Directory (AD) local para criar uma experiência de logon único para os trabalhadores que estão locais ou remotos.
 
-Para obter uma visão geral das opções de autenticação e autorização de empresa diferente para sites do Azure, consulte [Autenticar e autorizar usuários nos aplicativos LOB nos sites do Azure](../web-sites-authentication-authorization).
+Para obter uma visão geral das opções de autenticação e autorização de empresa diferente para sites do Azure, consulte [Autenticar e autorizar usuários nos aplicativos LOB nos sites do Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## O que você compilará ##
@@ -339,8 +339,8 @@ Agora que você configurou as autorizações e a funcionalidade LOB para diferen
 ## Outros recursos
 
 - [Proteger o aplicativo com SSL e o atributo Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Autenticar e autorizar usuários em aplicativos de LOB em sites do Azure](../web-sites-authentication-authorization/)
-- [Criar um aplicativo de linha de negócios do ASP.NET MVC em sites do Azure que autentica com o AD FS](../web-sites-dotnet-lob-application-adfs/)
+- [Autenticar e autorizar usuários em aplicativos de LOB em sites do Azure](web-sites-authentication-authorization.md)
+- [Criar um aplicativo de linha de negócios do ASP.NET MVC em sites do Azure que autentica com o AD FS](web-sites-dotnet-lob-application-adfs.md)
 - [Exemplos e documentação do Active Directory do Microsoft Azure](https://github.com/AzureADSamples)
 - [Blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migrar um projeto Web VS2013 do WIF para Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

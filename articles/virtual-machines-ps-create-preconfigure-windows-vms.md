@@ -26,7 +26,7 @@ Para o tópico complementar sobre como configurar máquinas virtuais baseadas em
 
 ##Etapa 1: Instale o Azure PowerShell
 
-Se ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/) para instalar o PowerShell Azure em seu computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
+Se ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md) para instalar o PowerShell Azure em seu computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
 
 ##Etapa 2: Definir a assinatura e a conta de armazenamento
 
@@ -265,8 +265,8 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/)
+[Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-[Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
+[Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <!--HONumber=47-->

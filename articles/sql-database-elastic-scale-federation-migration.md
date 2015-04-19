@@ -65,7 +65,7 @@ Com federações, uma conexão é estabelecida com um membro específico da fede
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-Com APIs da Escala Elástica, é estabelecida uma conexão com um fragmento em particular por meio de um [roteamento dependente de dados](./sql-database-elastic-scale-data-dependent-routing.md) com o método **OpenConnectionForKey** na classe **RangeShardMap**. 
+Com APIs da Escala Elástica, é estabelecida uma conexão com um fragmento em particular por meio de um [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com o método **OpenConnectionForKey** na classe **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ Com APIs da Escala Elástica, é estabelecida uma conexão com um fragmento em p
         } 
     }
 
-As etapas nesta seção são necessárias, mas podem não abordar todos os cenários de migração que surgirem. Para mais informações, consulte a [visão geral conceitual da Escala Elástica](./sql-database-elastic-scale-introduction.md) e a [referência de API](http://go.microsoft.com/?linkid=9862604).
+As etapas nesta seção são necessárias, mas podem não abordar todos os cenários de migração que surgirem. Para mais informações, consulte a [visão geral conceitual da Escala Elástica](sql-database-elastic-scale-introduction.md) e a [referência de API](http://go.microsoft.com/?linkid=9862604).
 
 ## Desativar membros da federação existentes 
 
@@ -102,7 +102,7 @@ O Utilitário de Migração de Federações fornece as habilidades para:
 
 
 ##Comparação de recursos  
-Embora a Escala Elástica ofereça muitos recursos adicionais (por exemplo, [consulta de multifragmento](./sql-database-elastic-scale-multishard-querying.md), [dividir e mesclar fragmentos](./sql-database-elastic-scale-overview-split-and-merge.md), [elasticidade de fragmentos](./sql-database-elastic-scale-elasticity.md), [cache no cliente](./sql-database-elastic-scale-shard-map-management.md)e mais), há alguns recursos de Federações dignos de nota que não têm mais suporte na Escala Elástica.
+Embora a Escala Elástica ofereça muitos recursos adicionais (por exemplo, [consulta de multifragmento](sql-database-elastic-scale-multishard-querying.md), [dividir e mesclar fragmentos](sql-database-elastic-scale-overview-split-and-merge.md), [elasticidade de fragmentos](sql-database-elastic-scale-elasticity.md), [cache no cliente](sql-database-elastic-scale-shard-map-management.md)e mais), há alguns recursos de Federações dignos de nota que não têm mais suporte na Escala Elástica.
   
 
 - O uso de **FILTERING=ON**. A escala elástica não tem suporte para filtragem em nível de coluna no momento. Uma mitigação é integrar a lógica de filtragem na consulta emitida com relação ao fragmento da seguinte maneira: 

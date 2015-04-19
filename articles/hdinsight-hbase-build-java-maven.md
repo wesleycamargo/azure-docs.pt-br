@@ -349,9 +349,9 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 ##Carregue o JAR e inicie um trabalho
 
-> [AZURE.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](/pt-br/documentation/articles/hdinsight-upload-data/). As etapas abaixo utilizam o [PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas abaixo utilizam o [PowerShell do Azure](install-configure-powershell.md).
 
-1. Após instalar e configurar o [PowerShell do Azure](/pt-br/documentation/articles/install-configure-powershell/), crie um novo arquivo chamado __hbase-runner.psm1__. Use o conteúdo a seguir para este arquivo.
+1. Após instalar e configurar o [PowerShell do Azure](install-configure-powershell.md), crie um novo arquivo chamado __hbase-runner.psm1__. Use o conteúdo a seguir para este arquivo.
 
 		<#
 		.SYNOPSIS

@@ -25,7 +25,7 @@ Este tópico mostra como usar os Serviços Móveis do Azure para habilitar seu a
 
 Você não pode distribuir as credenciais necessárias de maneira segura usando o aplicativo cliente para carregar dados com segurança para o serviço de Armazenamento de Blob. Nesse caso, você deve armazenar essas credenciais em seu serviço móvel e usá-las para gerar uma SAS (assinatura de acesso compartilhado) usada para carregar uma nova imagem. A SAS, uma credencial com expiração curta&mdash;nesse caso, 5 minutos, será retornada com segurança pelos Serviços Móveis para o aplicativo cliente. O aplicativo usará, então, essa credencial temporária para carregar a imagem. Neste exemplo, os downloads do serviço Blob são públicos.
 
-Neste tutorial, você adicionará funcionalidade ao [projeto de aplicativo de exemplo GetStartedWithData](/pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/) para tirar fotos e carregar as imagens no Azure usando uma SAS gerada pelos Serviços Móveis. Este tutorial o orientará através das etapas básicas a seguir para atualizar o aplicativo TodoList simples a fim de carregar imagens no serviço de Armazenamento de Blob:
+Neste tutorial, você adicionará funcionalidade ao [projeto de aplicativo de exemplo GetStartedWithData](mobile-services-windows-phone-get-started-data.md) para tirar fotos e carregar as imagens no Azure usando uma SAS gerada pelos Serviços Móveis. Este tutorial o orientará através das etapas básicas a seguir para atualizar o aplicativo TodoList simples a fim de carregar imagens no serviço de Armazenamento de Blob:
 
 1. [Instalar a biblioteca do Cliente de Armazenamento]
 2. [Atualizar o script de inserção para gerar uma SAS]
@@ -38,7 +38,7 @@ Este tutorial exige o seguinte:
 + [Windows Phone SDK 8.0] ou superior
 + Gerenciador de Pacotes Nuget instalado para o Microsoft Visual Studio.
 + [Conta de Armazenamento do Azure][Como criar uma conta de armazenamento]
-+ Conclua o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](/pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/)  
++ Conclua o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-windows-phone-get-started-data.md)  
 
 
 ##<a name="install-storage-client"></a>Instalar o cliente de armazenamento para aplicativos do Windows Phone

@@ -38,7 +38,7 @@ Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas v
 
 Ao criar uma máquina virtual Linux usando o Portal de Gerenciamento do Azure, você deve fornecer um nome de usuário, uma senha e (como opção) uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos;  'root', por exemplo.
 
- - Consulte [Como usar SSH com Linux no Azure](../linux-use-ssh-key/)
+ - Consulte [Como usar SSH com Linux no Azure](linux-use-ssh-key.md)
 
 
 ### <a id="keygeneration"></a>Geração da chave SSH
@@ -92,14 +92,14 @@ A conta de usuário especificada durante a implantação da instância de máqui
 
 Opcionalmente, você pode obter um shell de root usando **sudo -s**.
 
-- Consulte [Usando privilégios de raiz em máquinas virtuais Linux do Azure](../virtual-machines-linux-use-root-privileges/)
+- Consulte [Usando privilégios de raiz em máquinas virtuais Linux do Azure](virtual-machines-linux-use-root-privileges.md)
 
 
 ## <a id="firewallconfiguration"></a>Configuração do firewall
 
 O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no Portal de Gerenciamento. Por padrão, a única porta permitida é SSH. Você pode abrir acesso a portas adicionais na máquina virtual Linux configurando pontos de extremidade no Portal de Gerenciamento:
 
- - Consulte: [Como instalar pontos de extremidade em uma máquina virtual](../virtual-machines-set-up-endpoints/)
+ - Consulte: [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-set-up-endpoints.md)
 
 As imagens do Linux na Galeria do Azure não habilitam o firewall *iptables* por padrão. Se desejado, o firewall poderá ser configurado para fornecer filtragem adicional.
 
@@ -114,7 +114,7 @@ Se forem desejadas alterações no nome do host depois da implantação de uma m
 
 O Agente Linux do Azure inclui uma funcionalidade para detectar automaticamente essa alteração de nome e configurar corretamente a máquina virtual para persistir nessa alteração e, além disso, publicá-la nos servidores DNS da plataforma.
 
- - [Guia do usuário do agente Linux para o Azure](../virtual-machines-linux-agent-user-guide/)
+ - [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
 ### Imagens do Ubuntu
 As imagens do Ubuntu utilizam inicialização de nuvem, que fornece recursos adicionais para inicializar uma máquina virtual.
@@ -132,7 +132,7 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
 
 3. Clique em *Capture* no Portal de Gerenciamento ou use o PowerShell ou as ferramentas da CLI para capturar a máquina virtual como uma imagem.
 
- - Consulte: [Como capturar uma máquina virtual Linux para ser usada como um modelo](../virtual-machines-linux-capture-image/)
+ - Consulte: [Como capturar uma máquina virtual Linux para ser usada como um modelo](virtual-machines-linux-capture-image.md)
 
 
 ## <a id="attachingdisks"></a>Anexando discos
@@ -143,9 +143,9 @@ No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do A
 
 	>[AZURE.NOTE] Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a máquina virtual reinicializada.
 
-No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados à máquina virtual](../virtual-machines-linux-how-to-attach-disk/).
+No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados à máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
- - Consulte também: [Configurar RAID de software no Linux](../virtual-machines-linux-configure-raid/)
+ - Consulte também: [Configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
 
 
 <!--HONumber=45--> 

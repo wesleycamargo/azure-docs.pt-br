@@ -174,7 +174,7 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando o Twilio
 * Saiba mais sobre a Twilio em [https://www.twilio.com/docs][twilio_docs].
 
 ##<a name="seealso"></a>Confira também
-* [Como usar o Twilio para funcionalidades de voz e SMS do Azure](../twilio-dotnet-how-to-use-for-voice-sms/)
+* [Como usar o Twilio para funcionalidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

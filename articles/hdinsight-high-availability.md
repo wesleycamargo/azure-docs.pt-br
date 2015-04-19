@@ -46,7 +46,7 @@ Os headnodes são alocados como grandes VMs por padrão. Esse tamanho é adequad
 
 VMs extragrandes podem ser configuradas usando cmdlets de PowerShell do Azure ou o SDK do HDInsight.
 
-A criação e o provisionamento de um cluster usando o PowerShell estão documentados em [Administrar o HDInsight usando o PowerShell](../hdinsight-administer-use-powershell/). A configuração de um headnote muito grande exige a adição do parâmetro `-HeadNodeVMSize ExtraLarge` ao cmdlet `New-AzureHDInsightcluster` usado neste código.
+A criação e o provisionamento de um cluster usando o PowerShell estão documentados em [Administrar o HDInsight usando o PowerShell](hdinsight-administer-use-powershell.md). A configuração de um headnote muito grande exige a adição do parâmetro `-HeadNodeVMSize ExtraLarge` ao cmdlet `New-AzureHDInsightcluster` usado neste código.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

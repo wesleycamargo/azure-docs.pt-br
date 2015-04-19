@@ -19,13 +19,13 @@
 #Como: Configurar políticas de entrega de ativos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
 
 Uma das etapas do fluxo de trabalho de fornecimento de conteúdo de serviços de mídia está configurando políticas de entrega de ativos que você deseja que sejam transmitidas. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum). 
 
 Este tópico discute por que e como criar e configurar políticas de entrega de ativos. 
 
->[AZURE.NOTE]Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE]Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins#scale_streaming_endpoints.md). 
 >
 >Além disso, o ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável.  
 
@@ -53,13 +53,13 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Para obter instruções sobre como publicar um ativo e compilar uma URL de streaming, consulte [Criar uma URL de streaming](../media-services-deliver-streaming-content).
+Para obter instruções sobre como publicar um ativo e compilar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
 
 
 ##Política de entrega de ativos clara 
@@ -142,7 +142,7 @@ Resposta:
 
 ###Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo
 
-Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-rest-create-contentkey)).
+Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para obter mais informações, consulte: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
 
 ###<a id="get_delivery_url"></a>Obter URL de entrega
@@ -235,7 +235,7 @@ Consulte [Ativos de link com a política de entrega de ativos](#link_asset_with_
 
 ###Cria chave de conteúdo do tipo CommonEncryption e a vincule ao ativo
 
-Ao especificar a política de entrega DynamicCommonEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption. Para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-rest-create-contentkey)).
+Ao especificar a política de entrega DynamicCommonEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption. Para obter mais informações, consulte: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
 
 ###Obter URL de entrega

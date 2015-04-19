@@ -51,7 +51,7 @@ Para se planejar quanto à capacidade e compreender o impacto da cobrança, reco
 +	[Limites e restrições](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Detalhes dos Preços](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-Quando você estiver pronto para se inscrever, consulte [Introdução à Pesquisa do Azure](../search-get-started/).
+Quando você estiver pronto para se inscrever, consulte [Introdução à Pesquisa do Azure](search-get-started.md).
 
 
 <h2 id="sub-2">Tarefas administrativas</h2>

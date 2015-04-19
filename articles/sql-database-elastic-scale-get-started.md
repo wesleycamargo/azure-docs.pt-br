@@ -26,7 +26,7 @@ Este documento apresenta a experiência do desenvolvedor da Escala Elástica do 
 
 Para mais informações sobre como a Escala Elástica funciona, consulte a [Visão geral da Escala Elástica](http://go.microsoft.com/?linkid=9862592).
 
-Para obter uma lista de todos os tópicos sobre a Escala Elástica, consulte [Mapa da documentação da Escala Elástica](./sql-database-elastic-scale-documentation-map.md)
+Para obter uma lista de todos os tópicos sobre a Escala Elástica, consulte [Mapa da documentação da Escala Elástica](sql-database-elastic-scale-documentation-map.md)
 
 ## O aplicativo de exemplo da Escala Elástica
 
@@ -92,7 +92,7 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 ## Próximas etapas
 Para obter mais informações sobre o recurso de Escala Elástica, consulte:
 
-* [Página de aprendizado da Escala Elástica](./sql-database-elastic-scale-documentation-map.md) 
+* [Página de aprendizado da Escala Elástica](sql-database-elastic-scale-documentation-map.md) 
 -    Amostras de código: 
     -    [Escala Elástica com Banco de Dados SQL do Azure - Introdução](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Escala Elástica com Banco de Dados SQL do Azure - Integração com o Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

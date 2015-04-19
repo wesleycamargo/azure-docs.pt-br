@@ -29,7 +29,7 @@ aplicativos em nuvem escalonáveis no Azure. Eles permitem a separação e geren
 e expansão de componentes de front-end e back-end do aplicativo.  Serviços de Nuvem 
 fornecem uma máquina virtual exclusiva robusta para hospedar cada função confiável.
 
-Para obter mais informações sobre serviços de nuvem e como eles são comparados aos Sites do Azure e máquinas virtuais, consulte [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas Virtuais](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+Para obter mais informações sobre serviços de nuvem e como eles são comparados aos Sites do Azure e máquinas virtuais, consulte [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas Virtuais](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 >[AZURE.TIP] Procurando desenvolver um site simples? Se seu cenário envolve apenas um site de front-end simples, considere <a href="/pt-br/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usar um site do Azure leve.</a> Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam.
 

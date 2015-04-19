@@ -19,13 +19,13 @@
 
 #Criar ContentKeys com REST
 
-Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) .  
+Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) .  
 
 Os serviços de mídia permitem que você crie novos ativos e forneça ativos criptografados. O **ContentKey** fornece acesso seguro aos seus **ativos**s. 
 
-Quando você cria um novo ativo (por exemplo, antes de [carregar arquivos](../media-services-rest-upload-files/)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
+Quando você cria um novo ativo (por exemplo, antes de [carregar arquivos](media-services-rest-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
 
-Quando você entregar ativos a seus clientes, você pode [configurar ativos para que sejam criptografados dinamicamente](../media-services-rest-configure-asset-delivery-policy) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Quando você entregar ativos a seus clientes, você pode [configurar ativos para que sejam criptografados dinamicamente](media-services-rest-configure-asset-delivery-policy.md) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
 Os ativos criptografados precisam ser associados ao **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
@@ -67,9 +67,9 @@ Observe que os exemplos que geram uma chave AES, criptografam a chave e calculam
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
 
 ##Recuperação de ProtectionKeyId 
  

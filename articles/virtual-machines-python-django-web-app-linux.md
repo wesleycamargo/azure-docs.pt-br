@@ -56,7 +56,7 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 ## <a id="setup"> </a>Configurando o ambiente de desenvolvimento
 
-**Observe:** se você precisar instalar o Python ou quiser usar as bibliotecas de cliente, consulte o [Guia de instalação do Python](../python-how-to-install/).
+**Observe:** se você precisar instalar o Python ou quiser usar as bibliotecas de cliente, consulte o [Guia de instalação do Python](python-how-to-install.md).
 
 A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o Apache ou o django instalados.  Siga estas etapas para conectar a sua MV e instalar o Apache e o django.
 

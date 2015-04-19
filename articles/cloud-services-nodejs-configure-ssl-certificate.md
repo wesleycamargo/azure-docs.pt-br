@@ -26,7 +26,7 @@ para proteger dados enviados pela Internet. Esta tarefa comum aborda como
 especificar um ponto de extremidade HTTPS para um aplicativo do Node.js hospedado como um serviço de nuvem do Azure em uma função da Web e como carregar um
 certificado SSL para proteger seu aplicativo.
 
-> [AZURE.NOTE] As etapas deste artigo se aplicam somente aos aplicativos de nó hospedados como um Serviço de Nuvem do Azure em uma função web. Para Sites da Web, consulte [Configurando um certificado SSL para um site do Azure](../web-sites-configure-ssl-certificate/).
+> [AZURE.NOTE] As etapas deste artigo se aplicam somente aos aplicativos de nó hospedados como um Serviço de Nuvem do Azure em uma função web. Para Sites da Web, consulte [Configurando um certificado SSL para um site do Azure](web-sites-configure-ssl-certificate.md).
 
 Esta tarefa inclui as seguintes etapas:
 

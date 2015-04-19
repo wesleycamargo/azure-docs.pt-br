@@ -38,7 +38,7 @@
 
 [adf-azure-ml]: ../data-factory-create-predictive-pipelines
 [adf-custom-activities]: ../data-factory-use-custom-activities
-[on-demand-hdi-parameters]: http://msdn.microsoft.com/pt-br/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
+[on-demand-hdi-parameters]: http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
 
 
 

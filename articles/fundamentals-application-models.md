@@ -41,7 +41,7 @@ Os VHDs na galeria e na VMDepot incluem imagens limpas do sistema operacional Mi
 
 
 
-Juntamente com um VHD, você especifica o tamanho da sua nova VM.  As estatísticas completas para cada tamanho são listadas [na biblioteca do Azure](http://msdn.microsoft.com/pt-br/library/windowsazure/dn197896.aspx).  
+Juntamente com um VHD, você especifica o tamanho da sua nova VM.  As estatísticas completas para cada tamanho são listadas [na biblioteca do Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
 
 -	**Extra Pequeno**, com um núcleo compartilhado e 768MB de memória.
 -	**Pequena**, com 1 núcleo e 1,75 GB de memória.

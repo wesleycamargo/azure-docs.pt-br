@@ -22,7 +22,7 @@
 
 #Linux em distribuições endossadas pelo Azure
 
-As imagens de distribuição na Galeria do Azure são fornecidas pelos parceiros a seguir, e estamos trabalhando junto a diversas comunidades Linux para trazer ainda mais distribuições endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](../virtual-machines-linux-create-upload-vhd/).
+As imagens de distribuição na Galeria do Azure são fornecidas pelos parceiros a seguir, e estamos trabalhando junto a diversas comunidades Linux para trazer ainda mais distribuições endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](virtual-machines-linux-create-upload-vhd.md).
 
 ## Canonical ##
  

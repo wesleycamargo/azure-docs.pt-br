@@ -36,7 +36,7 @@ As [APIs de cliente de escala elástica](http://go.microsoft.com/?linkid=9862605
 
      Não use valores de ID de usuário na forma de "username@server"--em vez disso, basta usar o "username".  Isso ocorre porque as credenciais devem funcionar no banco de dados do Gerenciador de mapa do fragmento e fragmentos individuais, que podem estar em servidores diferentes.
      
-* **Credenciais de usuário para Acesso de gerenciamento de mapa do fragmento**:  Ao instanciar o Gerenciador de mapa do fragmento em um aplicativo que não vai administrar mapas de fragmento, use credenciais que tenham permissões somente leitura no mapa de fragmento global. As informações recuperadas do mapa do fragmento global sob essas credenciais são usadas para [roteamento dependentes de dados](./sql-database-elastic-scale-data-dependent-routing.md) e popular o cache de mapa do fragmento no cliente. As credenciais são fornecidas por meio do mesmo padrão de chamada para **GetSqlShardMapManager**, conforme mostrado acima: 
+* **Credenciais de usuário para Acesso de gerenciamento de mapa do fragmento**:  Ao instanciar o Gerenciador de mapa do fragmento em um aplicativo que não vai administrar mapas de fragmento, use credenciais que tenham permissões somente leitura no mapa de fragmento global. As informações recuperadas do mapa do fragmento global sob essas credenciais são usadas para [roteamento dependentes de dados](sql-database-elastic-scale-data-dependent-routing.md) e popular o cache de mapa do fragmento no cliente. As credenciais são fornecidas por meio do mesmo padrão de chamada para **GetSqlShardMapManager**, conforme mostrado acima: 
  
         // Obtain shard map manager. 
         ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 

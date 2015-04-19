@@ -20,7 +20,7 @@
 
 Este guia fornece exemplos de código C# que mostram como usar a versão 1.x do SDK do WebJobs do Azure versão com o serviço de armazenamento de fila do Azure.
 
-O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](../websites-dotnet-webjobs-sdk-get-started/).
+O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 
 A maioria dos trechos de código mostram apenas funções, não o código que cria o objeto `JobHost` como neste exemplo:
 
@@ -294,7 +294,7 @@ A interface `IBinder` também pode ser usada comos atributos `Table` e `Blob`.
 
 ## <a id="blobs"></a> Como ler e gravar blobs e tabelas durante o processamento de uma mensagem da fila
 
-Os atributos `Blob` e `Table` permitem que você leia e grave os blobs e tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como disparar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blobs do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/)e para obter exemplos de código que lê e grava as tabelas, consulte [Como usar o armazenamento de tabela do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-tables-how-to/).
+Os atributos `Blob` e `Table` permitem que você leia e grave os blobs e tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como disparar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blobs do Azure com o SDK do WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)e para obter exemplos de código que lê e grava as tabelas, consulte [Como usar o armazenamento de tabela do Azure com o SDK do WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### As mensagens da fila de cadeia de caracteres disparam operações de blob
 
@@ -310,7 +310,7 @@ O exemplo a seguir usa objetos `Stream` para ler e gravar os blobs. A mensagem d
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-O construtor do atributo `Blob`aceita um parâmetro `blobPath` que especifica o nome do contêiner e blob. Para obter mais informações sobre esse espaço reservado, consulte [Como usar o armazenamento de blobs do Azure com o SDK do WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), 
+O construtor do atributo `Blob`aceita um parâmetro `blobPath` que especifica o nome do contêiner e blob. Para obter mais informações sobre esse espaço reservado, consulte [Como usar o armazenamento de blobs do Azure com o SDK do WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
 
 Quando o atributo decora um objeto `Stream`, outro parâmetro do construtor especifica o modo `FileAccess` como leitura, gravação ou leitura/gravação. 
 

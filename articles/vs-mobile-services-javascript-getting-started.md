@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introdução](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [O que aconteceu](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [Introdução](vs-mobile-services-javascript-getting-started.md)
+> - [O que aconteceu](vs-mobile-services-javascript-what-happened.md)
 
 ## Introdução aos Serviços Móveis
 

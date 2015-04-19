@@ -48,7 +48,7 @@ Por exemplo, para armazenar o conteúdo em cache por uma hora, adicione o seguin
 
 #Consulte também
 
-[Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure](./cdn-manage-expiration-of-blob-content.md
+[Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-manage-expiration-of-blob-content.md
 )
 
 <!--HONumber=49-->

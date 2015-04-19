@@ -20,7 +20,7 @@
 
 Clusters de HDInsight baseados em Linux oferecem a opção de proteção de acesso do SSH usando uma senha ou uma chave SSH. Esse documento fornece informações sobre como se conectar ao HDInsight de clientes do Windows usando o cliente SSH PuTTY.
 
-> [AZURE.NOTE] As etapas neste artigo presumem que você esteja usando um cliente do Windows. Se você estiver usando um cliente Linux, Unix ou OS X, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [AZURE.NOTE] As etapas neste artigo presumem que você esteja usando um cliente do Windows. Se você estiver usando um cliente Linux, Unix ou OS X, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Pré-requisitos
 
@@ -224,10 +224,10 @@ Após seguir essas etapas, somente as solicitações de URLs que contêm a cadei
 
 Agora que você entende como autenticar usando uma chave SSH, aprenda a usar o MapReduce com Hadoop no HDInsight.
 
-* [Use o hive com o HDInsight](../hdinsight-use-hive/)
+* [Use o hive com o HDInsight](hdinsight-use-hive.md)
 
-* [Usar o Pig com o HDInsight](../hdinsight-use-pig/)
+* [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 
-* [Usar trabalhos MapReduce com o HDInsight](../hdinsight-use-mapreduce/)
+* [Usar trabalhos MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
  
 <!--HONumber=47-->

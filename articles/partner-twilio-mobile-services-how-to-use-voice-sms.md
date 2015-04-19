@@ -72,14 +72,14 @@ Quando você estiver pronto para obter uma conta do Twilio, inscreva-se em [Expe
 Quando você se inscrever para uma conta de Twilio, você receberá uma ID de conta e um token de autenticação. Eles serão necessários para fazer chamadas de API do Twilio. Para evitar o acesso não autorizado em sua conta, mantenha o token da autenticação seguro. Sua ID da conta e o token de autenticação poderão ser exibidos na [página da conta Twilio][twilio_account], nos campos rotulados **ACCOUNT SID** e **AITH TOKEN**, respectivamente.
 
 <h2><a id="create_app"></a>Criar um Serviço Móvel</h2>
-Um Serviço Móvel que hospeda um aplicativo habilitado para Twilio não é diferente de qualquer outro Serviço Móvel. Basta adicionar a biblioteca do node.js do Twilio para referenciá-lo em seus scripts de APIs personalizadas do Serviço Móvel. Para obter informações sobre como criar um serviço móvel inicial, consulte [Introdução aos serviços móveis](/pt-br/documentation/articles/mobile-services-ios-get-started/).
+Um Serviço Móvel que hospeda um aplicativo habilitado para Twilio não é diferente de qualquer outro Serviço Móvel. Basta adicionar a biblioteca do node.js do Twilio para referenciá-lo em seus scripts de APIs personalizadas do Serviço Móvel. Para obter informações sobre como criar um serviço móvel inicial, consulte [Introdução aos serviços móveis](mobile-services-ios-get-started.md).
 
 <h2><a id="ConfigureMobileService"></a>Configurar seu Serviço Móvel para usar a biblioteca do Node.js da Twilio</h2>
 A Twilio fornece uma biblioteca do Node.js que encapsula vários aspectos da Twilio para fornecer maneiras simples e fáceis de interagir com a API REST da Twilio e o Cliente da Twilio para gerar respostas TwiML.
 
 Para usar a biblioteca do node.js da Twilio em seu Serviço Móvel, você precisa utilizar o suporte ao módulo npm dos Serviços Móveis, o que pode ser feito armazenando seus scripts no controle do código-fonte. 
 
-1. Conclua o tutorial [armazenar Scripts no controle de origem](/pt-br/documentation/articles/mobile-services-store-scripts-source-control/). Isso o leva através da configuração do controle do código-fonte para seus serviços móveis e armazena os scripts de servidor em um repositório Git.
+1. Conclua o tutorial [armazenar Scripts no controle de origem](mobile-services-store-scripts-source-control.md). Isso o leva através da configuração do controle do código-fonte para seus serviços móveis e armazena os scripts de servidor em um repositório Git.
 
 2. Depois de configurar o controle do código-fonte para o seu Serviço Móvel, abra o repositório em seu computador local, navegue até o subpasta  `\services`, abra o arquivo package.json em um editor de texto, e adicione o campo a seguir ao objeto de **dependências**:
 

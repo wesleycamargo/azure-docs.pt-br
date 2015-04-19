@@ -20,6 +20,6 @@
 
 Este tópico foi preterido. Em vez disso, siga as orientações atualizadas nestes tutoriais:
 
-+ [Adicionar notificações por push ao seu aplicativo de Serviços Móveis](/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList.
-+ [Enviar notificações por push para usuários autenticados](/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.
++ [Adicionar notificações por push ao seu aplicativo de Serviços Móveis](mobile-services-javascript-backend-android-get-started-push.md)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList.
++ [Enviar notificações por push para usuários autenticados](mobile-services-javascript-backend-android-push-notifications-app-users.md)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.
 <!--HONumber=47-->

@@ -21,7 +21,7 @@
 #Carregar arquivos em uma conta de serviços de mídia usando a API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) . 
 
 Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
 
@@ -39,9 +39,9 @@ O fluxo de trabalho básico para a ingestão de Ativos é dividido nas seguintes
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](../media-services-rest-how-to-use).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](../media-services-rest-connect_programmatically/). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
  
 Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
@@ -56,7 +56,7 @@ Uma das propriedades que você pode especificar quando criar um ativo está em *
 
 - **EnvelopeEncryptionProtected** = **4**: Especifique se você estiver carregando HSL criptografado com arquivos AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
->[AZURE.NOTE]Se o ativo for usar criptografia, você deve criar um **ContentKey** e vinculá-lo ao seu ativo conforme descrito no tópico a seguir:[Como criar um ContentKey](../media-services-rest-create-contentkey). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **ativos**. Faça isso usando a solicitação HTTP de **mesclar**. 
+>[AZURE.NOTE]Se o ativo for usar criptografia, você deve criar um **ContentKey** e vinculá-lo ao seu ativo conforme descrito no tópico a seguir:[Como criar um ContentKey](media-services-rest-create-contentkey.md). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **ativos**. Faça isso usando a solicitação HTTP de **mesclar**. 
 
 
 O exemplo a seguir mostra como criar um ativo.

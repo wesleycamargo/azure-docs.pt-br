@@ -36,6 +36,6 @@ Depois que você habilita um ponto de extremidade CDN para sua origem, como a co
 > Observação: A configuração criada para o ponto de extremidade não estará imediatamente disponível. Pode levar até 60 minutos para o registro se propagar pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 400 (Solicitação Incorreta) até que o conteúdo esteja disponível por meio da CDN.
 
 #Consulte Também
-[Como Mapear o Conteúdo da CDN (Rede de Distribuição de Conteúdo) para um Domínio Personalizado](./cdn-map-content-to-custom-domain.md)
+[Como Mapear o Conteúdo da CDN (Rede de Distribuição de Conteúdo) para um Domínio Personalizado](cdn-map-content-to-custom-domain.md)
 
 <!--HONumber=49-->

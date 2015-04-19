@@ -18,11 +18,11 @@
 
 # Como usar o armazenamento de blobs do Azure com o SDK WebJobs
 
-Este guia fornece exemplos de código C# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam [SDK WebJobs](../websites-dotnet-webjobs-sdk/) versão 1. x.
+Este guia fornece exemplos de código C# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1. x.
 
-Para obter exemplos de código que mostram como criar blobs, consulte [Como usar armazenamento de fila do Azure com o SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Para obter exemplos de código que mostram como criar blobs, consulte [Como usar armazenamento de fila do Azure com o SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 		
-O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](../websites-dotnet-webjobs-sdk-get-started/).
+O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## Sumário
 
@@ -223,7 +223,7 @@ Se quiser forçar o reprocessamento de um blob, você poderá excluir manualment
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de filas
 
-Para obter informações sobre como lidar com processamento de blob disparado por uma mensagem da fila, ou cenários SDK WebJobs não específicos para o processamento de blob, consulte [Como usar o armazenamento de fila do Azure com o SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Para obter informações sobre como lidar com processamento de blob disparado por uma mensagem da fila, ou cenários SDK WebJobs não específicos para o processamento de blob, consulte [Como usar o armazenamento de fila do Azure com o SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Tópicos relacionados abordados nesse artigo incluem o seguinte:
 

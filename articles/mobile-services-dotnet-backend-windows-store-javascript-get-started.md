@@ -102,7 +102,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 * [Introdução às notificações por push]
   <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-Para obter mais informações sobre aplicativos Windows universais, consulte [Suporte a várias plataformas de dispositivo de um único serviço móvel](/pt-br/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Para obter mais informações sobre aplicativos Windows universais, consulte [Suporte a várias plataformas de dispositivo de um único serviço móvel](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
 
 <!-- Anchors. -->
 [Introdução aos Serviços Móveis]:#getting-started

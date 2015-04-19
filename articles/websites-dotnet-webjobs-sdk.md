@@ -31,7 +31,7 @@ Este artigo explica o que é o SDK de Trabalhos Web, analisa alguns cenários co
 
 ## <a id="overview"></a>Visão geral
 
-[Trabalhos Web](/pt-br/documentation/articles/web-sites-create-web-jobs/)  é um recurso dos sites Webdo Azure que permite executar um programa ou um script no mesmo contexto do site. A finalidade do SDK de Trabalhos Web é simplificar a tarefa de escrever um código que seja executado como um Trabalho Web e que funcione com filas, blobs e tabelas do Armazenamento do Azure, além de filas do Barramento de Serviço.
+[Trabalhos Web](web-sites-create-web-jobs.md)  é um recurso dos sites Webdo Azure que permite executar um programa ou um script no mesmo contexto do site. A finalidade do SDK de Trabalhos Web é simplificar a tarefa de escrever um código que seja executado como um Trabalho Web e que funcione com filas, blobs e tabelas do Armazenamento do Azure, além de filas do Barramento de Serviço.
 
 O SDK de Trabalhos Web inclui os seguintes componentes:
 
@@ -45,7 +45,7 @@ Aqui estão alguns cenários típicos que é possível processar mais facilmente
 
 * Processamento de imagens ou outro trabalho com uso intensivo da CPU. Uma característica comum de sites é a capacidade de carregar imagens ou vídeos. Você pode querer manipular o conteúdo após o upload, mas sem fazer o usuário esperar enquanto faz isso.
 
-* Processamento de filas. Uma maneira comum de comunicação de um front-end da Web com um serviço back-end é usar filas. Quando precisa fazer o trabalho, o site envia uma mensagem para uma fila. Um serviço back-end efetua pull das mensagens da fila e faz o trabalho. Você pode usar as filas para processamento de imagens: por exemplo, depois que o usuário carrega um número de arquivos, coloque os nomes de arquivo em uma mensagem da fila captada pelo back-end para processamento. Ou você poderia usar filas para melhorar a resposta do site. Por exemplo, em vez de escrever diretamente para um banco de dados SQL, escreva para uma fila, informe ao usuário quando terminar e deixe o serviço back-end processar o trabalho do banco de dados relacional de alta latência. Para obter um exemplo de processamento de fila com processo de imagens, consulte o tutorial [Introdução ao SDK de Trabalhos Web](../websites-dotnet-webjobs-sdk-get-started/).
+* Processamento de filas. Uma maneira comum de comunicação de um front-end da Web com um serviço back-end é usar filas. Quando precisa fazer o trabalho, o site envia uma mensagem para uma fila. Um serviço back-end efetua pull das mensagens da fila e faz o trabalho. Você pode usar as filas para processamento de imagens: por exemplo, depois que o usuário carrega um número de arquivos, coloque os nomes de arquivo em uma mensagem da fila captada pelo back-end para processamento. Ou você poderia usar filas para melhorar a resposta do site. Por exemplo, em vez de escrever diretamente para um banco de dados SQL, escreva para uma fila, informe ao usuário quando terminar e deixe o serviço back-end processar o trabalho do banco de dados relacional de alta latência. Para obter um exemplo de processamento de fila com processo de imagens, consulte o tutorial [Introdução ao SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-get-started.md).
 
 * Agregação de RSS. Se tivesse um site que mantivesse uma lista de RSS feeds, você poderia efetuar pull em todos os artigos dos feeds em um processo em segundo plano.
 

@@ -301,8 +301,8 @@ Após a conclusão da configuração, o nome de domínio personalizado será lis
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../custom-dns/
 [trafficmanager]: /pt-br/documentation/articles/web-sites-traffic-manager/
-[addendpoint]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/pt-br/library/windowsazure/dn339012.aspx
+[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
+[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
 
 <!-- images -->
 

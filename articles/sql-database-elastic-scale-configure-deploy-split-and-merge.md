@@ -60,7 +60,7 @@ Para determinar a chave de acesso, acesse o [portal de Gerenciamento do Azure](h
 6.    Insira o nome da conta de armazenamento e uma das chaves de acesso fornecidas nos espaços reservados da cadeia de conexão de armazenamento. Essa cadeia de conexão é usada nas seções de função de **SplitMergeWeb** e **SplitMergeWorker** na configuração de **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Você pode usar, potencialmente, as contas de armazenamento diferentes para as diferentes funções. 
 
 ### Configurando a segurança 
-Para obter instruções detalhadas configurar a segurança do serviço, consulte as [Configurações de segurança da Escala Elástica](./sql-database-elastic-scale-configure-security.md).
+Para obter instruções detalhadas configurar a segurança do serviço, consulte as [Configurações de segurança da Escala Elástica](sql-database-elastic-scale-configure-security.md).
 
 Para fins de  de implementação de teste simples, é adequado concluir este tutorial, um conjunto mínimo de etapas de configuração será executada para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
@@ -120,7 +120,7 @@ Para a função de trabalho:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Observe que para implantações de produção devem ser usados certificados separados para a autoridade de certificação, para criptografia, o certificado do servidor e os certificados de cliente. Para obter instruções detalhadas sobre isso, consulte a [Configuração de segurança](./sql-database-elastic-scale-configure-security.md).
+Observe que para implantações de produção devem ser usados certificados separados para a autoridade de certificação, para criptografia, o certificado do servidor e os certificados de cliente. Para obter instruções detalhadas sobre isso, consulte a [Configuração de segurança](sql-database-elastic-scale-configure-security.md).
 
 ### Implantando seu serviço de Divisão-Mesclagem
 1. Vá para o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).

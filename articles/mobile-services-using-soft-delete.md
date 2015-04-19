@@ -104,7 +104,7 @@ O seguinte trabalho agendado limpa registros de exclusão reversível com mais d
         }
     }
 
-Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do .NET, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do .NET, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
 
 
 
@@ -145,7 +145,7 @@ Esse é um trabalho de amostra que exclui registros atualizados antes de uma dat
         }});
     }
 
-Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Para saber mais sobre os trabalhos agendados com Serviços Móveis do back-end do JavaScript, consulte: [Agendar trabalhos recorrentes com Serviços Móveis do back-end do JavaScript](mobile-services-schedule-recurring-tasks.md).
 
 
 

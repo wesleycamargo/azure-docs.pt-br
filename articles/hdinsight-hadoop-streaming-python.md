@@ -196,7 +196,7 @@ Isso deve exibir uma lista de palavras e quantas vezes a palavra ocorreu. A segu
 
 Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
-* [Use o hive com o HDInsight](../hdinsight-use-hive/)
-* [Usar o Pig com o HDInsight](../hdinsight-use-pig/)
-* [Usar trabalhos MapReduce com o HDInsight](../hdinsight-use-mapreduce)
+* [Use o hive com o HDInsight](hdinsight-use-hive.md)
+* [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
+* [Usar trabalhos MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 <!--HONumber=47-->

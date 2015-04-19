@@ -238,7 +238,7 @@ Melhor uso do Gerenciador de mapa de fragmento virão os aplicativos que exigem 
 
 Observe que esses aplicativos (usando **ShardMapManager** aberto com as credenciais somente leitura) não poderão alterar os mapeamentos ou mapas.  Para essas necessidades, crie aplicativos administrativos específicos ou scripts do PowerShell que fornecem credenciais de privilégios mais altos, conforme discutido anteriormente.   
 
-Para obter mais detalhes, consulte [Roteamento dependente de dados](./sql-database-elastic-scale-data-dependent-routing.md). 
+Para obter mais detalhes, consulte [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). 
 
 ## Modificando um mapa do fragmento 
 
@@ -270,9 +270,9 @@ Esses métodos funcionam juntos como blocos de construção disponíveis para mo
 
 Geralmente, os aplicativos precisam simplesmente adicionar novos fragmentos para lidar com dados que são esperados de novas chaves ou intervalos de chaves para um mapa do fragmento que já existe. Por exemplo, um aplicativo fragmentado por ID de locatário talvez tenha provisionar um novo fragmento para um novo locatário ou dados mensalmente fragmentados talvez precisem de um novo fragmento provisionado antes do início de cada novo mês. 
 
-Se o novo intervalo de valores de chave já não é parte de um mapeamento existente e nenhuma movimentação de dados é necessária, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento. Para obter detalhes sobre como adicionar novos fragmentos, consulte [Adicionando um novo fragmento](./sql-database-elastic-scale-add-a-shard.md).
+Se o novo intervalo de valores de chave já não é parte de um mapeamento existente e nenhuma movimentação de dados é necessária, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento. Para obter detalhes sobre como adicionar novos fragmentos, consulte [Adicionando um novo fragmento](sql-database-elastic-scale-add-a-shard.md).
 
-Para cenários que exigem a movimentação de dados, no entanto, o serviço de Divisão-Mesclagem é necessário para orquestrar a movimentação dos dados entre os fragmentos em combinação com as atualizações necessárias de mapa do fragmento. Para obter detalhes sobre como usar o serviço de divisão e mesclagem, consulte [Visão geral da Divisão-Mesclagem](./sql-database-elastic-scale-overview-split-and-merge.md) 
+Para cenários que exigem a movimentação de dados, no entanto, o serviço de Divisão-Mesclagem é necessário para orquestrar a movimentação dos dados entre os fragmentos em combinação com as atualizações necessárias de mapa do fragmento. Para obter detalhes sobre como usar o serviço de divisão e mesclagem, consulte [Visão geral da Divisão-Mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 

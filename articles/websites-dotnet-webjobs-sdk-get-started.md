@@ -78,7 +78,7 @@ Se o tráfego variar de acordo com a hora do dia ou o dia da semana e se for pos
 * Executar o programa como um Trabalho Web em um aplicativo Web à parte, dedicado a essa finalidade. Em seguida, você pode dimensionar seu aplicativo Web de back-end independentemente do seu aplicativo Web de front-end.
 * Executar o programa em uma função de trabalho Serviço de Nuvem do Azure. Se escolher essa opção, você pode executar o front-end em uma função web de Serviço de Nuvem ou em um aplicativo Web.
 
-Este tutorial mostra como executar o front-end em um aplicativo Web e o back-end como um Trabalho Web no mesmo aplicativo Web. Para obter informações sobre como escolher o melhor ambiente para seu cenário, consulte [Comparação entre aplicativo Web do Azure, serviços de nuvem e máquinas virtuais](../choose-web-site-cloud-service-vm/).
+Este tutorial mostra como executar o front-end em um aplicativo Web e o back-end como um Trabalho Web no mesmo aplicativo Web. Para obter informações sobre como escolher o melhor ambiente para seu cenário, consulte [Comparação entre aplicativo Web do Azure, serviços de nuvem e máquinas virtuais](choose-web-site-cloud-service-vm.md).
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 

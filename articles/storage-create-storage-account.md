@@ -95,7 +95,7 @@ Por exemplo, se a sua conta de armazenamento se chamar * *mystorageaccount**, os
 
 A URL para acessar um objeto em uma conta de armazenamento é compilada acrescentando o local do objeto na conta de armazenamento ao ponto de extremidade. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Também é possível configurar um nome de domínio para usar com a conta de armazenamento. Consulte[ Configurar um nome de domínio personalizado para dados de blob em uma conta de armazenamento](../storage-custom-domain-name/) para obter detalhes.
+Também é possível configurar um nome de domínio para usar com a conta de armazenamento. Consulte[ Configurar um nome de domínio personalizado para dados de blob em uma conta de armazenamento](storage-custom-domain-name.md) para obter detalhes.
 
 ### <a id="affinity-group"></a>Localização conjunta de serviço com grupo de afinidade 
 
@@ -113,7 +113,7 @@ Um *grupo de afinidades* é um agrupamento geográfico de seus serviços Azure e
 
 Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
 
-> [AZURE.NOTE] Recomendamos que você evite compartilhar suas chaves de acesso a contas de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte o [Tutorial de assinatura de acesso compartilhado](../storage-dotnet-shared-access-signature-part-1/) para obter mais informações.
+> [AZURE.NOTE] Recomendamos que você evite compartilhar suas chaves de acesso a contas de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte o [Tutorial de assinatura de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md) para obter mais informações.
 
 No [Portal de Gerenciamento](http://manage.windowsazure.com), use **Gerenciar Chaves** no painel ou a página **Armazenamento** para exibir, copiar e regenerar as chaves de acesso do armazenamento que são usadas para acessar os serviços de Fila, Blob e Tabela. 
 

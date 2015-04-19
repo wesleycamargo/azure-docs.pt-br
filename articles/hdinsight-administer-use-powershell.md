@@ -70,7 +70,7 @@ Depois de importar o arquivo publishsettings, você pode usar o seguinte comando
 
 
 
-Para obter informações sobre como criar uma conta de armazenamento do Azure usando o Portal de Gerenciamento, consulte [Como criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/).
+Para obter informações sobre como criar uma conta de armazenamento do Azure usando o Portal de Gerenciamento, consulte [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
 
 Se já tiver uma conta de armazenamento, mas não souber o nome e a chave da conta, você poderá usar os seguintes comandos para recuperar as informações:
 
@@ -79,7 +79,7 @@ Se já tiver uma conta de armazenamento, mas não souber o nome e a chave da con
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-Para obter detalhes de como obter informações usando o portal de gerenciamento, consulte a seção *Como: Exibir, copiar e regenerar chaves de acesso de armazenamento* de [Como criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/).
+Para obter detalhes de como obter informações usando o portal de gerenciamento, consulte a seção *Como: Exibir, copiar e regenerar chaves de acesso de armazenamento* de [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
 
 **Para criar o contêiner de armazenamento do Azure**
 

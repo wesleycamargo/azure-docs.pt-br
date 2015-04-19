@@ -42,7 +42,7 @@ Você deve ter o seguinte para concluir com sucesso este tutorial.
 
 * Microsoft Azure PowerShell
 
-* Se não estiver familiarizado com o Apache Storm, você deve ler primeiro o artigo [Visão geral do HDInsight Storm](/pt-br/documentation/articles/hdinsight-storm-overview) article.
+* Se não estiver familiarizado com o Apache Storm, você deve ler primeiro o artigo [Visão geral do HDInsight Storm](hdinsight-storm-overview.md) article.
 
 ## <a id="provision"></a>Provisionar um cluster Storm no portal do Azure
 
@@ -72,7 +72,7 @@ Você deve ter o seguinte para concluir com sucesso este tutorial.
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-8. Na página **Ações de Script**, clique em **adicionar ação de script** para fornecer detalhes sobre o script personalizado que você deseja executar para personalizar um cluster, enquanto o cluster está sendo criado. Por exemplo, você pode usar a Ação de Script para personalizar um cluster para instalar o <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script](/pt-br/documentation/articles/hdinsight-hadoop-customize-cluster/). 
+8. Na página **Ações de Script**, clique em **adicionar ação de script** para fornecer detalhes sobre o script personalizado que você deseja executar para personalizar um cluster, enquanto o cluster está sendo criado. Por exemplo, você pode usar a Ação de Script para personalizar um cluster para instalar o <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). 
 	
 	![Configure Script Action to customize an HDInsight HBase cluster](./media/hdinsight-storm-getting-started/wizard5.png "Use Script Action to customize an HDInsight cluster") 
 
@@ -199,7 +199,7 @@ Caso veja a página da Web da interface do usuário do Storm na Web imediatament
 
 * [Analisando dados de sensor com Storm e HDInsight](/ pt-br/documentation/articles/hdinsight-storm-sensor-data-analysis)
 
-* [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# em Storm no HDInsight](/pt-br/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# em Storm no HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introdução](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [O que aconteceu](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Introdução](vs-storage-cloud-services-getting-started-blobs.md)
+> - [O que aconteceu](vs-storage-cloud-services-what-happened.md)
 
 ###<span id="whathappened">O que aconteceu com meu projeto?</span>
 

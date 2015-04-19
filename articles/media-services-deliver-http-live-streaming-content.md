@@ -22,7 +22,7 @@
 
 <h1>Como:  Entregar conteúdo de streaming HLS da Apple</h1>
 
-Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure.  O tópico anterior era [Como:  Entregar conteúdo de streaming da Apple](../media-services-deliver-streaming-content/).
+Este artigo faz parte de uma série de introdução à programação dos Serviços de Mídia do Azure.  O tópico anterior era [Como:  Entregar conteúdo de streaming da Apple](media-services-deliver-streaming-content.md).
 
 Este tópico mostra como criar um localizador para conteúdo HTTP Live Streaming (HLS) da Apple em um servidor de origem dos Serviços de Mídia.  Com essa abordagem, é possível criar uma URL para conteúdo de HLS da Apple e fornecê-la aos dispositivos do Apple iOS para reprodução.  A abordagem básica para a criação da URL do localizador URL é a mesma.  Crie um localizador para o caminho do ativo de streaming HLS da Apple em um servidor de origem e, em seguida, crie uma URL completa que se vincule com o manifesto para o conteúdo de streaming.
 
@@ -92,8 +92,8 @@ Este tópico conclui os tópicos Usando os Serviços de Mídia do Azure.  Aborda
 -   [Criando aplicativos com o SDK dos Serviços de Mídia para .NET][]
 -   [Criando aplicativos com a API REST dos Serviços de Mídia do Azure][]
 -   [Fórum dos Serviços de Mídia][]
--	[Como monitorar uma conta de Serviços de Mídia](../media-services-monitor-services-account/)
--	[Como gerenciar conteúdo nos Serviços de Mídia](../media-services-manage-content/)
+-	[Como monitorar uma conta de Serviços de Mídia](media-services-monitor-services-account.md)
+-	[Como gerenciar conteúdo nos Serviços de Mídia](media-services-manage-content.md)
 
 [Documentação dos Serviços de Mídia do Azure]: http://go.microsoft.com/fwlink/?linkid=245437
 [Introdução ao SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966

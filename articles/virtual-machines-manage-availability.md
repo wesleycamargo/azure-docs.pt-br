@@ -55,7 +55,7 @@ Por exemplo, você pode colocar todas as VMs em front-end da execução IIS, Apa
 
  
 ### Combine o Balanceador de Carga com os Conjuntos de Disponibilidade
-Combine o Balanceador de Carga do Azure com o Conjunto de Disponibilidade para obter a melhor resiliência de aplicativo. O Balanceador de Carga do Azure distribui o tráfego entre as múltiplas máquinas virtuais. Para as nossas máquinas virtuais de camadas padrões, o Balanceador de carga do Azure está incluso. Observe que nem todas as camadas de Máquina Virtual incluem o Balanceador de Carga do Azure. Para obter mais informações sobre balanceamento de carga de suas máquinas virtuais, consulte [Balanceamento de carga de máquinas virtuais](../load-balance-virtual-machines/). 
+Combine o Balanceador de Carga do Azure com o Conjunto de Disponibilidade para obter a melhor resiliência de aplicativo. O Balanceador de Carga do Azure distribui o tráfego entre as múltiplas máquinas virtuais. Para as nossas máquinas virtuais de camadas padrões, o Balanceador de carga do Azure está incluso. Observe que nem todas as camadas de Máquina Virtual incluem o Balanceador de Carga do Azure. Para obter mais informações sobre balanceamento de carga de suas máquinas virtuais, consulte [Balanceamento de carga de máquinas virtuais](load-balance-virtual-machines.md). 
 
 Se o balanceador de carga não estiver configurado para balancear o tráfego entre múltiplas máquinas virtuais, então qualquer evento de manutenção planejada afetará a única máquina virtual atendendo ao tráfego causando uma pane na sua camada de aplicativo. Colocar diversas máquinas virtuais na mesma camada sob o mesmo balanceador de carga e Conjunto de Disponibilidade habilita o tráfego a ser atendido continuamente pelo menos por uma instância. 
 

@@ -34,7 +34,7 @@ O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview
 
 ## Arquitetura alternativa: Sites e WebJobs
 
-Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/pt-br/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em visualização) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](/pt-br/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem do Azure e Máquinas Virtuais do Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/pt-br/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em visualização) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](websites-dotnet-webjobs-sdk-get-started.md). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem do Azure e Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## O que você vai aprender
 
@@ -47,7 +47,7 @@ Este tutorial mostra como executar front-end e back-end no serviço de nuvem do 
 
 ## Pré-requisitos
 
-O tutorial presume que você entenda [os conceitos básicos sobre os serviços em nuvem do Azure](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices) como *web role* e terminologia *worker role*.  Também assumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Web Forms. 
+O tutorial presume que você entenda [os conceitos básicos sobre os serviços em nuvem do Azure](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices) como *web role* e terminologia *worker role*.  Também assumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Web Forms. 
 
 Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se para uma avaliação gratuita](/pt-br/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -795,7 +795,7 @@ Os aplicativo Contoso Ads foi, intencionalmente, mantido simples para este tutor
 Estes são alguns aplicativos função Web de serviço de nuvem que demonstram práticas mais reais de codificação, listados do menos para o mais complexo:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Em conceito, é semelhante ao Contoso Ads, mas implementa mais recursos e práticas mais reais de codificação.
-* [Aplicativo multicamada de serviço de nuvem do Azure com tabelas, filas e blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduz as tabelas de armazenamento do Azure, bem como blobs e filas, e vem com uma [série de tutoriais passo a passo](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
+* [Aplicativo multicamada de serviço de nuvem do Azure com tabelas, filas e blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduz as tabelas de armazenamento do Azure, bem como blobs e filas, e vem com uma [série de tutoriais passo a passo](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
 * [Noções Básicas sobre Serviço de Nuvem no Windows Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Um exemplo abrangente que demonstra uma grande variedade de melhores práticas, produzido pelo grupo de Práticas e Padrões da Microsoft.
 
 Para obter informações sobre como desenvolver para a nuvem, consulte [Criando aplicativos de nuvem do mundo real no Windows Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -807,7 +807,7 @@ Para obter mais informações, consulte os recursos a seguir:
 * [Serviços de nuvem do Azure Parte 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Serviços de nuvem do Azure](/pt-br/documentation/services/cloud-services/)
 * [Armazenamento do Azure](/pt-br/documentation/services/storage/)
-* [Como usar o Armazenamento de Blob no .NET](/pt-br/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Como usar o Armazenamento de Fila no .NET](/pt-br/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
+* [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

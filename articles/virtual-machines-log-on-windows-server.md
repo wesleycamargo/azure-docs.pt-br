@@ -19,7 +19,7 @@
 
 #Como fazer logon em uma máquina virtual executando o Windows Server#
 
-Para fazer logon em uma máquina virtual executando o Windows Server, use o botão conectar no Portal de Gerenciamento para iniciar uma conexão de área de trabalho remota. (Para VMs do Linux, consulte [Como fazer logon em uma máquina virtual executando o Linux](./virtual-machines-linux-how-to-log-on/).)
+Para fazer logon em uma máquina virtual executando o Windows Server, use o botão conectar no Portal de Gerenciamento para iniciar uma conexão de área de trabalho remota. (Para VMs do Linux, consulte [Como fazer logon em uma máquina virtual executando o Linux](virtual-machines-linux-how-to-log-on).)
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 

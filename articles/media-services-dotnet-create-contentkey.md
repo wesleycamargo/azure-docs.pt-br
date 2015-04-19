@@ -19,13 +19,13 @@
 
 #Criar ContentKeys com .NET
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) .  
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) .  
 
 Os serviços de mídia permitem que você crie novos ativos e forneça ativos criptografados. O **ContentKey** fornece acesso seguro aos seus **ativos**s. 
 
-Quando você cria um novo ativo (por exemplo, antes de [carregar arquivos](../media-services-dotnet-upload-files/)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
+Quando você cria um novo ativo (por exemplo, antes de [carregar arquivos](media-services-dotnet-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
 
-Quando você entregar ativos a seus clientes, você pode [configurar ativos para que sejam criptografados dinamicamente](../media-services-dotnet-configure-asset-delivery-policy) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Quando você entregar ativos a seus clientes, você pode [configurar ativos para que sejam criptografados dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
 Os ativos criptografados precisam ser associados ao **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 

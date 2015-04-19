@@ -525,7 +525,7 @@ Esta seção mostra como baixar e exibir a saída.  Para obter informações sob
 ##<a id="nextsteps"></a>Próximas etapas
 Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming do Hadoop, a testar o aplicativo no emulador do HDInsight e a escrever um script do PowerShell para provisionar um cluster HDInsight e executar um MapReduce no cluster. Para saber mais, consulte os seguintes artigos:
 
-- [Introdução ao Azure HDInsight](../hdinsight-get-started/)
+- [Introdução ao Azure HDInsight](hdinsight-get-started.md)
 - [Introdução ao emulador do HDInsight][hdinsight-get-started-emulator]
 - [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 - [Usar o armazenamento de blobs do Azure com o HDInsight][hdinsight-storage]

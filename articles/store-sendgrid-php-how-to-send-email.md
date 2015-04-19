@@ -460,7 +460,7 @@ estes links para obter mais informações.
   [http://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [oferta especial]: https://www.sendgrid.com/windowsazure.html
-  [Empacotamento e implantação de aplicativos do PHP para Microsoft Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/pt-br/library/windowsazure/hh674499(v=VS.103).aspx
+  [Empacotamento e implantação de aplicativos do PHP para Microsoft Azure (a página pode estar em inglês)]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [função de rotação]: http://php.net/curl
   [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions

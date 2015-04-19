@@ -114,7 +114,7 @@ Selecionar um spout na seção **Spouts** ou **Bolts** exibirá as seguintes inf
 
 ##Ferramentas do HDInsight para Visual Studio
 
-As ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbridas para seu Cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar suas próprias topologias usando as Ferramentas do HDInsight, consulte [desenvolver topologias C# usando as Ferramentas do HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+As ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbridas para seu Cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar suas próprias topologias usando as Ferramentas do HDInsight, consulte [desenvolver topologias C# usando as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Use as etapas a seguir para implantar um exemplo para seu Storm no cluster HDInsight e exibir e gerenciar a topologia.
 
@@ -166,7 +166,7 @@ Informações retornadas da API REST podem ser usadas somente dentro do cluster 
 
 ##Próximas etapas
 
-Agora que você aprendeu a implantar e monitorar topologias usando o Painel do Storm, saiba como [desenvolver topologias C# usando as Ferramentas do HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/) ou como [desenvolver topologias baseadas em Java usando o Maven](../hdinsight-storm-develop-java-topology/).
+Agora que você aprendeu a implantar e monitorar topologias usando o Painel do Storm, saiba como [desenvolver topologias C# usando as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) ou como [desenvolver topologias baseadas em Java usando o Maven](hdinsight-storm-develop-java-topology.md).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

@@ -82,7 +82,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 		* Ao usar o SQL Server em uma **Máquina Virtual do Azure**, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
 
-	* Para **provisionar um cluster HDInsight em uma rede virtual**, consulte [Provisionar clusters Hadoop no HDInsight usando opções de personalização](/pt-br/documentation/articles/hdinsight-provision-clusters/)
+	* Para **provisionar um cluster HDInsight em uma rede virtual**, consulte [Provisionar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
 
 	> [AZURE.NOTE] O SQL Server também deve permitir Autenticação do SQL. Você deve usar o logon do SQL para as etapas neste artigo.
 

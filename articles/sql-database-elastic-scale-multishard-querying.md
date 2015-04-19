@@ -18,7 +18,7 @@
 
 # Consultar vários fragmentos
 ## Visão geral
-**Consultar vários fragmentos** é usado para tarefas, como coleta/relatórios de dados que exigem a execução de uma consulta que se estendem por vários fragmentos. (Compare isso [roteamento dependente de dados](./sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho em um único fragmento.) 
+**Consultar vários fragmentos** é usado para tarefas, como coleta/relatórios de dados que exigem a execução de uma consulta que se estendem por vários fragmentos. (Compare isso [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho em um único fragmento.) 
 
 A biblioteca de cliente de Escala Elástica introduz um novo namespace chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query** que fornece a capacidade de consultar vários fragmentos usando uma única consulta e resultado. Ele fornece uma abstração de consulta em uma coleção de fragmentos. Ele também fornece diretivas de execução alternativo, resultados parciais em particular, para lidar com falhas ao consultar sobre vários fragmentos.  
 

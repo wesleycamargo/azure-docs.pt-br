@@ -18,9 +18,9 @@
 
 # Como usar o armazenamento de tabela do Azure com o SDK WebJobs
 
-Este guia fornece exemplos de código C# que mostram como ler e gravar as tabelas de armazenamento do Azure usando [SDK WebJobs](../websites-dotnet-webjobs-sdk/) versão 1. x.
+Este guia fornece exemplos de código C# que mostram como ler e gravar as tabelas de armazenamento do Azure usando [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1. x.
 
-O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](../websites-dotnet-webjobs-sdk-get-started/).
+O guia pressupõe que você saiba [como criar um projeto WebJob no Visual Studio com conexão de cadeia de caracteres que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 		
 Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamada manualmente](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), ou seja, não usando um dos atributos de gatilho. 
 
@@ -149,11 +149,11 @@ O seguinte código exemplo usa um objeto `CloudTable` a ser adicionado a uma ún
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obter mais informações sobre como usar o objeto `CloudTable`, consulte [como usar o armazenamento de tabela no .NET](../storage-dotnet-how-to-use-tables/). 
+Para obter mais informações sobre como usar o objeto `CloudTable`, consulte [como usar o armazenamento de tabela no .NET](storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas
 
-Para obter informações sobre como lidar com o processamento da tabela disparado por uma mensagem da fila, ou para cenários de SDK WebJobs não específicos para o processamento da tabela, consulte [Como usar armazenamento de fila do Azure com o SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Para obter informações sobre como lidar com o processamento da tabela disparado por uma mensagem da fila, ou para cenários de SDK WebJobs não específicos para o processamento da tabela, consulte [Como usar armazenamento de fila do Azure com o SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Tópicos abordados nesse artigo incluem o seguinte:
 

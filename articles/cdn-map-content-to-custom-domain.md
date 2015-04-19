@@ -88,7 +88,7 @@ Primeiro, verifique se você tem conteúdo público armazenado em cache no ponto
 #Consulte também
 
 
-[Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure](./cdn-create-new-endpoint.md)  
+[Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure](cdn-create-new-endpoint.md)  
 **Visão Geral da CDN do Azure**
 
 

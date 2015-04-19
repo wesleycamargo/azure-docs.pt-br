@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando a biblioteca de autenticação do Active Directory para dar suporte a [operações de logon direcionadas pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) com o Active Directory do Azure. Para oferecer suporte a [operações de logon direcionadas pelo serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o Azure Active Directory, comece com o tutorial [Adicionar autenticação ao seu aplicativo de Serviços Móveis](/pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando a biblioteca de autenticação do Active Directory para dar suporte a [operações de logon direcionadas pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) com o Active Directory do Azure. Para oferecer suporte a [operações de logon direcionadas pelo serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o Azure Active Directory, comece com o tutorial [Adicionar autenticação ao seu aplicativo de Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
 
 Para autenticar usuários, registre seu aplicativo com o Active Directory do Azure (AAD). Isso é feito em duas etapas. Primeiro, deve-se registrar o seu serviço móvel e expor nele as permissões. Segundo, deve-se registrar o seu aplicativo Windows Store e liberar o acesso a essas permissões.
 

@@ -218,7 +218,7 @@ O Azure fornece suporte direto para Hadoop e também permite o uso de outras tec
 
 * [Big Data](/pt-br/solutions/big-data/) 
 * [Serviço do Azure HDInsight](/pt-br/documentation/services/hdinsight/)
-* [Introdução ao Serviço do Azure HDInsight](/pt-br/documentation/articles/hdinsight-get-started/)
+* [Introdução ao Serviço do Azure HDInsight](hdinsight-get-started.md)
 
 Para obter algumas discussões de questões envolvidas com vários métodos de armazenamento noSQL, consulte: 
 

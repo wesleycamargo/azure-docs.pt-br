@@ -179,9 +179,9 @@ Parabéns. Você criou um grupo de sincronização que inclui uma instância do 
 ## Próximas etapas
 Para obter informações adicionais sobre banco de dados SQL e Sincronização de Dados do SQL, consulte:
 
-* [Inscreva-se para a oferta Premium do banco de dados SQL] (../sign-up-for-sql-database-premium/)
+* [Inscreva-se para a oferta Premium do banco de dados SQL] (sign-up-for-sql-database-premium.md)
 * [Sincronização de Dados do SQL (Portal do WA)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Introdução ao banco de dados SQL do Azure](../getting-started-w-sql-databases/)
+* [Introdução ao banco de dados SQL do Azure](getting-started-w-sql-databases.md)
 * [Ciclo de vida de banco de dados do SQL Server ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

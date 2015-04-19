@@ -23,7 +23,7 @@
 
 Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Engagement em seu aplicativo do Windows Phone.
 
-As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessário para calcular outras estatísticas, como eventos, erros e trabalhos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no aplicativo Windows Phone](../mobile-engagement-windows-phone-use-engagement-api/) abaixo) já que essas estatísticas são dependentes do aplicativo.
+As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessário para calcular outras estatísticas, como eventos, erros e trabalhos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no aplicativo Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md) abaixo) já que essas estatísticas são dependentes do aplicativo.
 
 ## Versões com suporte
 
@@ -209,7 +209,7 @@ Se você não pode ou não quer sobrecarregar as classes `PhoneApplicationPage`,
 
 Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent`. A API do Engagement permite usar todos os recursos avançados do Engagement.
 
-Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo da Windows Store](../mobile-engagement-windows-phone-use-the-engagement-api/).
+Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo da Windows Store](mobile-engagement-windows-phone-use-the-engagement-api.md).
 
 ## Configuração avançada
 

@@ -18,7 +18,7 @@
 
 Você imagina quantos usuários visitaram seu site?  Você imagina qual é o tempo de carga médio de páginas ou quais navegadores estão sendo usados?  Inserindo algumas linhas de script nas suas páginas da web, você pode coletar dados sobre como seu site é usado por seus clientes. 
 
-*Você pode fazer isso para sites não Azure também: [Monitorar o uso de aplicativos Web com o Application Insights](../app-insights-web-track-usage/).*
+*Você pode fazer isso para sites não Azure também: [Monitorar o uso de aplicativos Web com o Application Insights](app-insights-web-track-usage.md).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

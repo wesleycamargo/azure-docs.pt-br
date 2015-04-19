@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introdução](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
-> - [O que aconteceu](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Introdução](vs-storage-cloud-services-getting-started-tables.md)
+> - [O que aconteceu](vs-storage-cloud-services-what-happened.md)
 
 ##Introdução ao armazenamento do Azure (Projetos de serviço de nuvem)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Filas](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Tabelas](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Filas](vs-storage-cloud-services-getting-started-queues.md)
+> - [Tabelas](vs-storage-cloud-services-getting-started-tables.md)
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte [Como usar o Armazenamento de Blob do .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") para obter mais informações.
 

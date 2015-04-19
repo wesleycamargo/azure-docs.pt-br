@@ -339,8 +339,8 @@ A tabela a seguir compara os recursos dos Sites, Serviços de Nuvem e Machines V
 
 Para obter mais informações sobre as três opções de hospedagem na Web, consulte os recursos a seguir:
 
-* [Apresentando o Azure](../fundamentals-introduction-to-azure/)
-* [Opções de hospedagem de computação fornecidas pelo Azure](../fundamentals-application-models/)
+* [Apresentando o Azure](fundamentals-introduction-to-azure.md)
+* [Opções de hospedagem de computação fornecidas pelo Azure](fundamentals-application-models.md)
 
 Para começar a usar as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 

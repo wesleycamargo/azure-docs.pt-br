@@ -18,7 +18,7 @@
 
 # Gerenciar suas máquinas virtuais usando o PowerShell do Azure
 
-Antes de começar, você precisará certificar-se de que ter instalado o PowerShell do Azure. Para fazer isso, visite [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell/)
+Antes de começar, você precisará certificar-se de que ter instalado o PowerShell do Azure. Para fazer isso, visite [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
 ## Obter uma imagem
 

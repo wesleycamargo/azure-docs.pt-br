@@ -44,7 +44,7 @@ No exemplo a seguir, um banco de dados denominado **sample_shard_2** e todos os 
 
 ## Para adicionar um fragmento de uma parte vazia de um intervalo existente  
 
-Em algumas circunstâncias, você já mapeou um intervalo para um fragmento e parcialmente preencheu-o com dados, mas agora deseja que os dados futuros sejam direcionados para um fragmento diferente. Por exemplo, você fragmentou o intervalo por dia e já tem 50 dias alocados para um fragmento, mas no dia 24, você deseja que os dados futuros encaixem em um fragmento diferente. O [Serviço de Divisão e mesclagem] da visualização da Escala Elástica(./sql-database-elastic-scale-overview-split-and-merge.md) pode executar essa operação, mas se a movimentação de dados não é necessária (por exemplo, os dados para o intervalo de dias [25, 50), por exemplo, dia 25 inclusive para 50 exclusivo, ainda não existe) você pode executar isso inteiramente usando as APIs de gerenciamento de mapa do fragmento diretamente.
+Em algumas circunstâncias, você já mapeou um intervalo para um fragmento e parcialmente preencheu-o com dados, mas agora deseja que os dados futuros sejam direcionados para um fragmento diferente. Por exemplo, você fragmentou o intervalo por dia e já tem 50 dias alocados para um fragmento, mas no dia 24, você deseja que os dados futuros encaixem em um fragmento diferente. O [Serviço de Divisão e mesclagem] da visualização da Escala Elástica(sql-database-elastic-scale-overview-split-and-merge.md) pode executar essa operação, mas se a movimentação de dados não é necessária (por exemplo, os dados para o intervalo de dias [25, 50), por exemplo, dia 25 inclusive para 50 exclusivo, ainda não existe) você pode executar isso inteiramente usando as APIs de gerenciamento de mapa do fragmento diretamente.
 
 ###Exemplo:  Dividindo um intervalo e atribuindo a parte vazia para um fragmento adicionado recentemente
 
@@ -73,7 +73,7 @@ Um banco de dados chamado "sample_shard_2" e todos os objetos de esquema necess�
     upd.Shard = shard2; 
     sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 
-**Importante**:  Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.  Se existirem linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa do fragmento atualizado. Use o [Serviço de Divisão e mesclagem](./sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação nesses casos.  
+**Importante**:  Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.  Se existirem linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa do fragmento atualizado. Use o [Serviço de Divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação nesses casos.  
 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]

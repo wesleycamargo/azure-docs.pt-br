@@ -28,7 +28,7 @@ O aplicativo de exemplo demonstra comportamentos de pontuação usando dados fic
 
 O aplicativo de exemplo é escrito em C# usando Visual Studio 2013. Experimente o [Visual Studio 2013 Express edition](http://www.visualstudio.com/pt-br/products/visual-studio-express-vs.aspx) se você já não tiver uma cópia do Visual Studio.
 
-Você precisará de uma assinatura do Azure e um serviço de Pesquisa do Azure para concluir este tutorial. Consulte [Introdução com a Pesquisa do Azure](../search-get-started/) para ajudar com a configuração do serviço.
+Você precisará de uma assinatura do Azure e um serviço de Pesquisa do Azure para concluir este tutorial. Consulte [Introdução com a Pesquisa do Azure](search-get-started.md) para ajudar com a configuração do serviço.
 
 [WACOM.INCLUDE [Você de uma conta do Azure para concluir este tutorial:](../includes/free-trial-note.md)]
 

@@ -20,7 +20,7 @@
 
 # Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS
 
-O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. [A Parte 2](../storage-dotnet-shared-access-signature-part-2/) do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
+O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. [A Parte 2](storage-dotnet-shared-access-signature-part-2.md) do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
 
 ## O que é uma assinatura de acesso compartilhado? ##
 
@@ -223,7 +223,7 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
 ## Next Steps ##
 
-[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../storage-dotnet-shared-access-signature-part-2/)
+[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md)
 
 [Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

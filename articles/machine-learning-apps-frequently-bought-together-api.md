@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Aplicativo de exemplo de Aprendizado de Máquina:  Frequentemente comprados juntos | Azure" 
-	description="Um serviço Web de Aprendizado de Máquina que executa análise online de carrinho de compras online para produzir recomendações de produtos de itens frequentemente comprados juntos de transações de histórico fornecidas pelo usuário." 
+	pageTitle="Aplicativo de exemplo de aprendizado de máquina: Normalmente juntos | Azure" 
+	description="Um serviço Web de aprendizado de máquina que executa análise online de carrinho de compras online para produzir recomendações de produtos de itens frequentemente comprados juntos de transações de histórico fornecidas pelo usuário." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="CoromT" 
@@ -14,23 +14,18 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/17/2014" 
-	ms.author="coromt"/> 
+	ms.author="coromt"/>  
 
-# Aplicativo de exemplo de Aprendizado de Máquina:  Frequentemente comprados juntos
-
-##Visão geral
+# Exemplo de aplicativo de aprendizado de máquina: Frequentemente comprados juntos
  
-O [serviço Web Frequentemente comprados juntos]( https://datamarket.azure.com/dataset/amla/mba) no Aprendizado de Máquina executa análise de carrinho de compras online para produzir recomendações de produtos de itens frequentemente comprados juntos por meio do histórico de transações.  Recomendações de itens frequentemente comprados juntos ajudam os compradores identificar em um catálogo os produtos que são mais relevantes ao comprar um item específico.  Mostrar essas recomendações em destaque comprovou-se uma maneira eficaz de melhorar as vendas para lojas online. 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+Esse [serviço Web]( https://datamarket.azure.com/dataset/amla/mba) de aprendizado de máquina executa análise online de carrinho de compras para produzir recomendações de produtos de itens frequentemente comprados juntos por meio de transações históricas fornecidas pelo usuário. Recomendações de itens frequentemente comprados juntos ajudam os compradores identificar em um catálogo os produtos que são mais relevantes ao comprar um item específico. Mostrar essas recomendações com destaque provou ser eficaz para elevar as vendas para lojas online. 
   
 ##Introdução 
-
-Depois que você se inscrever no serviço Web Frequentemente comprados juntos, você pode usar o [aplicativo Web de exemplo de Serviço de Análise de Carrinho de Compras](https://marketbasket.cloudapp.net/) para carregar com facilidade os dados em um modelo e descobrir conjuntos de produtos comprados com frequência.  Para usar a API ou o aplicativo, primeiro você precisa da sua chave de API, que pode ser obtida na [página da conta do Azure Data Market](https://datamarket.azure.com/account).
+Depois de se inscrever para o [serviço Web]( https://datamarket.azure.com/dataset/amla/mba), você pode usar o [aplicativo Web de amostra de itens Frequentemente comprados juntos](https://marketbasket.cloudapp.net/) para facilmente carregar seus dados para um modelo e descobrir conjuntos de produtos frequentemente comprados juntos.  Para usar a API ou o aplicativo, primeiro você precisará da sua chave de API, que pode ser obtida na [página da conta do Azure Data Market](https://datamarket.azure.com/account)
 
 ##Consumo do serviço Web 
 
-Este serviço contém APIs para criar modelos de Frequentemente comprados juntos, carregar transações históricas e obter o conjunto de produtos frequentemente comprados juntos com melhor classificação para um determinado produto.  Exemplos que demonstram como usar essas APIs podem ser encontrados no repositório [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) no GitHub.
+Esse serviço contém APIs para gerenciar modelos de criação de itens frequentemente comprados juntos, carregar transações históricas e recuperar o conjunto de produtos frequentemente comprados juntos mais bem classificado para um determinado produto.  Exemplos que demonstram como usar essas APIs podem ser encontrados no repositório do [Azure-MachineLearning-DataScience no GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

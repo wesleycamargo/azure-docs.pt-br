@@ -31,10 +31,10 @@ As mensagens do Barramento de Serviço têm dois recursos separados: filas e tó
 
 Para obter mais informações sobre as mensagens do Barramento de Serviço, consulte os tópicos a seguir.
 
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](../fundamentals-service-bus-hybrid-solutions/)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
 
-- [Como usar filas do Barramento de Serviço](../service-bus-dotnet-how-to-use-queues)
+- [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
-- [Como usar tópicos do Barramento de Serviço](../service-bus-dotnet-how-to-use-topics-subscriptions)
+- [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 <!--HONumber=47-->
