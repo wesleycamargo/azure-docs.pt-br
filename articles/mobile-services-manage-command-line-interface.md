@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Administrando um serviço móvel na linha de comando - tutorial do Azure" 
 	description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando." 
 	services="mobile-services" 
@@ -195,7 +195,7 @@ Próximas etapas aqui...
 
 
 <!-- URLs. -->
-[Referência para script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p?LinkId=262293
+[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
@@ -203,8 +203,8 @@ Próximas etapas aqui...
 
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
-[documentos de referência]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
-[Como instalar as ferramentas de linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
+[reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
+[Como instalar ferramentas da linha de comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
 <!--HONumber=47-->

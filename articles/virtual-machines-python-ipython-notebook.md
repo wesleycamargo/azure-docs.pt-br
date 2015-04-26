@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tutorial sobre IPython Notebook - Azure" 
 	description="Um tutorial que mostra como implantar o IPython Notebook no Azure, usando o Linux ou as máquinas virtuais (VMs) do Windows." 
 	services="virtual-machines" 
@@ -350,7 +350,7 @@ criação de perfis e integração com computação paralela.
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [repositório]: https://github.com/ipython/ipython
-[Python Tools para Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html

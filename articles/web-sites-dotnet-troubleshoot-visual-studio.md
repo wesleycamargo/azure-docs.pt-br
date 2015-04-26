@@ -207,9 +207,9 @@ Esta seção mostra como depurar remotamente usando o projeto e o site que você
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto Web ContosoAdsWeb (não no projeto Trabalho Web) e clique em **Publicar**.
 
-2. In the **Profile** drop-down list, select the same profile that you used in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+2. Na lista suspensa **Perfil** selecione o mesmo perfil que você usou em [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 3. Clique na guia **Configurações** e altere **Configuração** para **Depuração** e, em seguida, clique em **Publicar**.
 

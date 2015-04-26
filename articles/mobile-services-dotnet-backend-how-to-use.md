@@ -33,4 +33,6 @@ O back-end do .NET de Serviços Móveis permite que você escreva a lógica de n
 O back-end do .NET dos Serviços Móveis fornece uma abstração de "tabela" universal, que representa uma API HTTP com base em CRUD para armazenamento em banco de dados. Essa abstração separa as preocupações com o armazenamento de dados de sua lógica de negócios e permite que seu serviço móvel exponha armazenamentos de dados diferentes em um formato de rede consistente, com base em JSON, que é prontamente entendido pelos SDKs clientes de Serviços Móveis de plataforma cruzada. 
 
 Na raiz desse modelo de programação está a classe [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx), que é apenas uma API Web regular [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx), personalizada para um padrão de acesso a dados CRUD. O **TableController** pode usar uma variedade de fontes de dados, inclusive SQL (por meio de [Entity Framework](http://msdn.microsoft.com/data/ef.aspx)), [Armazenamento de Tabela do Azure](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org), ou seu próprio repositório personalizado.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

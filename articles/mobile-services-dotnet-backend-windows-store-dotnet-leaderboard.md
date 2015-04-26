@@ -775,4 +775,6 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 [Adicionar notificações por push]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -31,4 +31,5 @@ A biblioteca do Microsoft Azure Mobile Service foi adicionada ao seu projeto na 
 Na pasta  `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um **MobileServiceClient** foi gerado contendo o URL do aplicativo do serviço móvel selecionado e uma chave do aplicativo.  
 
 
+
 <!--HONumber=42-->

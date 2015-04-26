@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Enviar email usando o SendGrid - serviços móveis do Azure" 
 	description="Aprenda a usar o serviço SendGrid para enviar emails de seu aplicativo de serviços móveis do Azure." 
 	services="mobile-services" 
@@ -120,6 +120,7 @@ estes links para saber mais sobre o SendGrid.
 
 <!-- Anchors. -->
 [Criar uma conta do SendGrid]: #sign-up
+[Criar uma conta SendGrid]: #sign-up
 [Adicionar um script para enviar e-mails]: #add-script
 [Inserir dados para receber e-mails]: #insert-data
 
@@ -136,6 +137,7 @@ estes links para saber mais sobre o SendGrid.
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [serviço de e-mail baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
+
 
 
 

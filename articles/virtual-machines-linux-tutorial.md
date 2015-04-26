@@ -73,4 +73,5 @@ Para saber mais sobre o Linux no Azure, consulte os seguintes artigos:
 [Como criar a máquina virtual]: #custommachine
 [Como fazer o logon na máquina virtual após você criá-la]: #logon
 [Como anexar um disco de dados à nova máquina virtual]: #attachdisk
+
 <!--HONumber=42-->

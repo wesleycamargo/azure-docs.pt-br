@@ -26,7 +26,7 @@
 ## Anexando discos de dados
 Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID.  Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux.  Consulte o artigo do Microsoft Azure [anexar um disco](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/#attachempty) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
 
->[AZURE.NOTE] O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual.  Consulte [tamanhos de máquinas virtuais e de serviços de nuvem para o Microsoft Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
+>[AZURE.NOTE] O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual.  Consulte [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
 
 
 ## Instalar o utilitário mdadm
@@ -51,14 +51,14 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 - Iniciar fdisk para começar a criar partições
 
 		# sudo fdisk /dev/sdc
-		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-		Building a new DOS disklabel with disk identifier 0xa34cb70c.
-		Changes will remain in memory only, until you decide to write them.
-		After that, of course, the previous content won't be recoverable.
+		O dispositivo não contém uma tabela de partição do DOS válida, nem um disklabel Sun, SGI ou OSF
+		Criando um novo disklabel DOS com identificador de disco 0xa34cb70c.
+		As alterações permanecerão na memória apenas, até que você decida gravá-las.
+		Depois disso, é claro, o conteúdo anterior não será recuperável.
 
-		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-				 switch off the mode (command 'c') and change display units to
-				 sectors (command 'u').
+		AVISO: O Modo compatível com DOS foi preterido. É altamente recomendável
+				 desligar o modo (comando 'c') e alterar as unidades de exibição para
+				 setores (comando ' u').
 
 - Pressione 'n' no prompt para criar uma **n**ova partição:
 
@@ -85,7 +85,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- Em seguida, altere a ID e o **d**igite a partição da ID padrão '83' (Linux) para a ID  'fd' (Raid automático do Linux):
+- Em seguida, altere a ID e o **t**ipo da partição da ID padrão '83' (Linux) para a ID 'fd' (Raid automático do Linux):
 
 		Command (m for help): t
 		Selected partition 1
@@ -104,7 +104,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que se, anteriormente, esses discos de dados faziam parte de outro conjunto de RAID desabilitado, poderá ser necessário adicionar o parâmetro `--force` ao comando  `mdadm`.
+Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que se anteriormente esses discos de dados faziam parte de outro conjunto de RAID desabilitado, poderá ser necessário adicionar o parâmetro `--force` ao comando  `mdadm`.
 
 
 2. Criar o sistema de arquivos no novo dispositivo RAID
@@ -155,7 +155,7 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 	Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo /etc/fstab.
 
-	Em seguida, executar o comando  `mount` para garantir que o sistema de arquivos esteja montado:
+	Em seguida, execute o comando  `mount` para garantir que o sistema de arquivos esteja montado:
 
 		# mount
 		.................
@@ -163,14 +163,15 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 5. Parâmetros opcionais
 
-	Muitas distribuições incluem os parâmetros  `nobootwait` ou  `nofail` de mount que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+	Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 	Exemplo (Ubuntu):
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
 
-	Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema inicialize, mesmo que seja detectado que o RAID está danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
+	Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded = true`" pode permitir que o sistema inicialize, mesmo que seja detectado que o RAID está danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
 
-	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável  `GRUB_CMDLINE_LINUX_DEFAULT` no "/etc/default/grub".
+	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` no "/etc/default/grub".
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Como usar a máquina de suporte com o Azure" 
    description="Mostra como colocar em funcionamento o Azure com Máquina de Suporte no Ubuntu." 
    services="virtual-machines" 
@@ -53,7 +53,8 @@ Se você tiver experiência com distribuições do Linux, é possível já ter e
 		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
-	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
+	Esteja pronto para digitar a senha de exportação para o seu certificado e capturá-lo para uso futuro. Em seguida, digite:
+
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 

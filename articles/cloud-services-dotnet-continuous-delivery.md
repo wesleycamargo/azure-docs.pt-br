@@ -778,7 +778,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 Para habilitar a depuração remota ao usar entrega contínua, consulte [estas instruções](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
 
-  [Fornecimento contínuo para o Azure usando o Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
+  [Fornecimento contínuo no Azure usando o Visual Studio Online:]: ../cloud-services-continuous-delivery-use-vso/
   [Etapa 1: Configurar o Servidor de compilação]: #step1
   [Etapa 2: Criar um pacote usando comandos MSBuild]: #step2
   [Etapa 3: Criar um pacote usando o TFS Team Build (opcional)]: #step3

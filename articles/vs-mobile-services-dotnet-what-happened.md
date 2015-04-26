@@ -38,4 +38,5 @@ No seu arquivo App.xaml.cs, um objeto **MobileServiceClient** foi criado com o U
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

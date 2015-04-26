@@ -64,10 +64,10 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 ##Próximas etapas##
 A imagem está pronta para ser usada como modelo para criar novas máquinas virtuais. Para fazer isto, crie uma máquina virtual personalizada usando o método **de Galeria** e selecione a imagem que você acabou de criar. Para obter instruções, consulte [Como criar uma máquina virtual personalizada][].
 	
-[Como fazer logon em uma máquina virtual executando o Linux]: ../virtual-machines-linux-how-to-log-on
+[Como fazer logon em uma máquina virtual executando o Linux]: virtual-machines-linux-how-to-log-on.md
 [Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
-[Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
+[Como criar uma máquina virtual personalizada]: virtual-machines-create-custom.md
+[Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
 
 
 <!--HONumber=45--> 

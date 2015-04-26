@@ -150,4 +150,5 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Com usar o Serviço de Cache Gerenciado do Azure" 
 	description="Saiba como melhorar o desempenho de seus aplicativos do Azure com o Serviço de Cache Gerenciado do Azure" 
 	services="cache" 
@@ -148,7 +148,7 @@ Para obter mais informações sobre políticas de remoção e expiração, consu
 
 Notificações de cache que permitem que seus aplicativos recebam notificações assíncronas quando várias operações de cache ocorrem no cluster de cache. As notificações de cache também fornecem invalidação automática de objetos armazenados em cache localmente. Para obter mais informações, consulte [Notificações][].
 
->As Notificações só estão disponíveis nas ofertas de cache Padrão e Premium e não estão disponíveis na oferta de cache básico. Para obter mais informações, consulte [Configurações do cache][].
+>As Notificações só estão disponíveis nas ofertas de cache Padrão e Premium e não estão disponíveis na oferta de cache básico. Para obter mais informações, consulte [Ofertas de cache][].
 
 ## Alta Disponibilidade ##
 
@@ -156,7 +156,7 @@ Quando a alta disponibilidade está habilitada, é feita uma cópia de backup de
 
 Por definição, o uso de alta disponibilidade multiplica por dois a quantidade de memória necessária para cada item armazenado em cache. Considere esse impacto de memória durante as tarefas de planejamento da capacidade. Para obter mais informações, consulte [Alta disponibilidade][].
 
->A Alta disponibilidade só está disponível na oferta de cache Premium e não está disponível nas ofertas de cache Básica e Padrão. Para obter mais informações, consulte [Configurações do cache][].
+>A Alta disponibilidade só está disponível na oferta de cache Premium e não está disponível nas ofertas de cache Básica e Padrão. Para obter mais informações, consulte [Ofertas de cache][].
 
 ## Remoção ##
 
@@ -182,7 +182,7 @@ Digite **WindowsAzure.Caching** na caixa de texto **Pesquisar Online** e selecio
 
 O pacote NuGet faz várias coisas: adiciona a configuração necessária ao arquivo de configuração do aplicativo e adiciona as referências necessárias ao assembly. Para projetos de Serviços de Nuvem, ele também adiciona uma configuração de nível de diagnóstico do cliente de cache ao arquivo Introdução ao Serviço de Cache do Serviço de Nuvem.
 
->Para projetos web ASP.NET, o pacote NuGet do Cache também adiciona duas seções comentadas ao web.config. A primeira seção permite que o estado da sessão seja armazenado no cache, e a segunda seção habilita a saída do cache da página ASP.NET. Para obter mais informações, consulte [Como Armazenar o Estado da Sessão ASP.NET no Cache] e [Como: Armazenar o Cache de Saída de Página ASP.NET no Cache][].
+>Para projetos web ASP.NET, o pacote NuGet do Cache também adiciona duas seções comentadas ao web.config. A primeira seção permite que o estado da sessão seja armazenado no cache, e a segunda seção habilita a saída do cache da página ASP.NET. Para obter mais informações, consulte [Como: Armazenar o Estado da Sessão ASP.NET no Cache] e [Como: Armazenar o Cache de Saída de Página ASP.NET no Cache][].
 
 O pacote NuGet adiciona os seguintes elementos de configuração ao web.config ou ao app.config de seu aplicativo. Uma seção **dataCacheClients** e uma seção **cacheDiagnostics** são adicionadas sob o elemento **configSections**. Se não houver nenhum elemento **configSections** presente, será criado um como um filho do elemento **configuration**.
 
@@ -357,7 +357,7 @@ Para exibir o intervalo de tempo limite restante de um item no cache, o método 
 <a name="store-session"></a>
 ## Como: Armazenar o Estado da Sessão ASP.NET no Cache
 
-O Provedor de Estado de Sessão para Cache do Azure é um mecanismo de armazenamento fora do processo para aplicativos ASP.NET. Esse provedor permite que você armazene o estado da sessão em um cache do Azure, em vez de na memória ou em um banco de dados do SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cache e, em seguida, configure o aplicativo ASP.NET para Cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Serviço de Cache][]. Quando o pacote NuGet do Cache está instalado, ele adiciona uma seção comentada no web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Estado de Sessão para o Cache do Azure.
+O Provedor de Estado de Sessão para Cache do Azure é um mecanismo de armazenamento fora do processo para aplicativos ASP.NET. Esse provedor permite que você armazene o estado da sessão em um cache do Azure, em vez de na memória ou em um banco de dados do SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cache e, em seguida, configure o aplicativo ASP.NET para Cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao serviço de Cache Gerenciado][]. Quando o pacote NuGet do Cache está instalado, ele adiciona uma seção comentada no web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Estado de Sessão para o Cache do Azure.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -424,7 +424,7 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Qual tipo de cache é mais adequado para mim?]: #choosing-cache
 [Preparar Seu Projeto do Visual Studio para usar Cache do Azure]: #prepare-vs
 [Configurar Seu Aplicativo para Usar Cache]: #configure-app
-[Introdução ao Serviço de Cache Gerenciado]: #getting-started-cache-service
+[Introdução ao serviço de Cache Gerenciado]: #getting-started-cache-service
 [Criar o cache]: #create-cache
 [Configurar o cache]: #enable-caching
 [Configurar os clientes de cache]: #NuGet
@@ -455,9 +455,9 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 <!-- LINKS -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Como: Configurar um Cliente de Cache de Modo Programático]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Provedor de Estado de Sessão para Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Provedor de estado de sessão para o Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Cache do Azure AppFabric: Cache de Estado de Sessão]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Provedor de Cache de Saída para Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Provedor de Cache de Saída para o Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Cache Compartilhado do Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Blog da Equipe]: http://blogs.msdn.com/b/windowsazure/
 [Cache do Azure]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
@@ -466,7 +466,7 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Como: Definir a Capacidade de Cache de uma Página ASP.NET Declarativamente]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [Como: Definir a Capacidade de Cache de uma Página de Modo Programático]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Visão Geral do Serviço de Cache Gerenciado do Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Visão geral do Serviço de Cache do Azure Gerenciado]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Serviço de Cache Gerenciado]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Diretiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Solução de Problemas e Diagnóstico]: http://go.microsoft.com/fwlink/?LinkId=320839
@@ -482,10 +482,10 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Amostras do Serviço de Cache Gerenciado]: http://go.microsoft.com/fwlink/?LinkId=320840
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Cmdlets de Cache Gerenciado do Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
-[Como instalar e configurar o PowerShell do Azure]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Como instalar e configurar o Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[Qual oferta de Cache do Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=49-->

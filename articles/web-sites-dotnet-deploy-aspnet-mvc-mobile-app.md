@@ -62,7 +62,7 @@ Os projetos do Visual Studio com o código-fonte em C\# estão disponíveis para
 
 ##<a name="bkmk_DeployStarterProject"></a>Implantar o projeto inicial em um aplicativo Web do Azure
 
-1.	Baixe o [projeto inicial] [StarterProject] do aplicativo de listagem de conferência.
+1.	Baixe o projeto inicial [][StarterProject] do aplicativo de listagem de conferência.
 
 2. 	Em seguida, no Windows Explorer, clique com o botão direito no arquivo Mvc5Mobile.zip e escolha *Properties*.
 
@@ -107,8 +107,8 @@ Os projetos do Visual Studio com o código-fonte em C\# estão disponíveis para
 	Depois que o Visual Studio terminar de publicar o projeto inicial para o aplicativo Web do Azure, o navegador da área de trabalho se abre para exibir o aplicativo Web online.
 
 14.	Inicie o emulador de navegador móvel, copie a URL para o aplicativo de conferência (*<prefixo>*.azurewebsites.net) do emulador e depois clique no botão da parte superior direita e selecione **Procurar por marca**. Se você estiver usando o Internet
-Explorer 11 como o navegador padrão, basta digitar `F12`, depois
-`Ctrl+8` e, em seguida, altere perfil de navegador para **Windows Phone**. A imagem abaixo mostra a exibição *AllTags* no modo retrato (mostrada ao escolher
+Explorer 11 como o navegador padrão, basta digitar "F12", depois
+"Ctrl+8" e, em seguida, altere perfil de navegador para **Windows Phone**. A imagem abaixo mostra a exibição *AllTags* no modo retrato (mostrada ao escolher
 **Procurar por marca**).
 
 	![][AllTags]
@@ -198,7 +198,7 @@ Por outro lado, a exibição do navegador de desktop não foi alterada (com tít
 Além dos modos de exibição específicos para navegadores móveis e de desktop, você pode criar modos de exibição para um único navegador. Por exemplo, você pode criar modos de exibição específicos para o navegador do iPhone ou do Android. Nesta seção, você criará um layout para o navegador do iPhone e uma versão para iPhone do modo de exibição *AllTags*.
 
 Abra o arquivo *Global.asax* e adicione o seguinte código à parte inferior do
-método `Application_Start`.
+método 'Application_Start'.
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
     {
@@ -214,7 +214,7 @@ sufixo "iPhone".
 
 No código, clique com botão direito em `DefaultDisplayMode`, escolha **resolver** e, em seguida, escolha `using System.Web.WebPages;`. This adds a reference to the
 namespace `System.Web.WebPages`, que é onde os
-tipos `DisplayModeProvider` e  `DefaultDisplayMode` são definidos.
+tipos "DisplayModeProvider" e  `DefaultDisplayMode` são definidos.
 
 ![][ResolveDefaultDisplayMode]
 
@@ -226,10 +226,10 @@ seção 'using' do arquivo.
 Salve as alterações. Copie o
 Arquivo *Views\\Shared\\\_Layout.Mobile.cshtml* para
 *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra o novo arquivo e altere o título de  `MVC5 Application (Mobile)` para
-`Aplicativo MVC5 (iPhone)`.
+"Aplicativo MVC5 (iPhone)".
 
 Copie o arquivo *Views\\Home\\AllTags.Mobile.cshtml* para
-*Views\\Home\\AllTags.iPhone.cshtml*. No novo arquivo, altere o elemento `<h2>` de "Marcas (M)" para "Marcas (iPhone)".
+*Views\\Home\\AllTags.iPhone.cshtml*. No novo arquivo, altere o elemento \<h2\> de "Marcas (M)" para "Marcas (iPhone)".
 
 Execute o aplicativo. Execute o emulador de navegador móvel com o agente do usuário definido como "iPhone" e navegue até o modo de exibição *AllTags*. Se você estiver usando o emulador nas ferramentas de desenvolvedor do Internet Explorer 11 F12, configure a emulação para fazer o seguinte:
 
@@ -258,7 +258,7 @@ Quando o `RequireConsistentDisplayMode` estiver definido como `true`, o layout m
 ![][AllSpeakers_LayoutMobileOverridden]
 
 Você pode desabilitar o modo de exibição consistente em um modo de exibição específico, definindo
-`RequireConsistentDisplayMode` como `false` no arquivo de exibição. A marcação a seguir no arquivo *Views\\Home\\AllSpeakers.cshtml* define
+'RequireConsistentDisplayMode' como `false` no arquivo de exibição. A marcação a seguir no arquivo *Views\\Home\\AllSpeakers.cshtml* define
 'RequireConsistentDisplayMode' como `false`:
 
     @model IEnumerable<string>
@@ -436,7 +436,7 @@ Você pode aprimorar ainda mais o modo de exibição de *Dates* organizando os v
         </div>
     }
 
-Esse código cria uma marca `<div class="panel panel-primary">` separada para cada data da lista e usa o [grupo de listas vinculadas][] para os respectivos links, como antes. Esta é a aparência do navegador móvel quando esse código é executado:
+Esse código cria uma marca '<div class="panel panel-primary">' separada para cada data da lista e usa o [grupo de listas vinculadas][] para os respectivos links, como antes. Esta é a aparência do navegador móvel quando esse código é executado:
 
 ![][AllDatesFixed2]
 
@@ -621,12 +621,12 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-[grupo de listas vinculadas]: http://getbootstrap.com/components/#list-group-linked
+[linked list group]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
-[painéis]: http://getbootstrap.com/components/#panels
-[grupo personalizado de lista vinculada]: http://getbootstrap.com/components/#list-group-custom-content
-[sistema de grades]: http://getbootstrap.com/css/#grid
-[utilitários dinâmicos]: http://getbootstrap.com/css/#responsive-utilities
+[panels]: http://getbootstrap.com/components/#panels
+[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
+[sistema de grade]: http://getbootstrap.com/css/#grid
+[utilitários com resposta ágil]: http://getbootstrap.com/css/#responsive-utilities
 [Blog oficial do Bootstrap]: http://blog.getbootstrap.com/
 [Tutorial do Twitter Bootstrap do Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
 [O Playground do Bootstrap]: http://www.bootply.com/

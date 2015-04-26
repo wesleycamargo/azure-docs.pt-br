@@ -39,4 +39,5 @@ Sob  `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

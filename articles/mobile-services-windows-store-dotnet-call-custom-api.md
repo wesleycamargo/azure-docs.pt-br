@@ -68,4 +68,6 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo da Wind
 [Definir uma API personalizada que dá suporte a notificações periódicas]: /pt-br/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
 [Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

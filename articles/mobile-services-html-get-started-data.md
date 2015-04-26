@@ -325,4 +325,6 @@ Após concluir a série de dados, saiba como autenticar os usuários do seu apli
 [Compartilhamento de recursos entre origens]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

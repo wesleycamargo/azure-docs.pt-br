@@ -58,4 +58,6 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
+
+
 <!--HONumber=42-->

@@ -68,7 +68,7 @@ Cada serviço de nuvem tem dois ambientes nos quais você pode implantar seu pac
 
 [HTMonitorCloudServices]:http://azure.microsoft.com/ manage/services/cloud-services/how-to-monitor-a-cloud-service/
 [SLA]: http://azure.microsoft.com/ support/legal/sla/
-[CloudServicesDiagnostics]: http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/
-[Comparison]: http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/
+[CloudServicesDiagnostics]: http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-diagnostics/
+[Comparison]: http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/
 
 <!--HONumber=45--> 

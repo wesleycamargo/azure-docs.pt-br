@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Modelo e conceitos de recursos do Banco de Dados de Documentos | Azure" 
 	description="O Banco de Dados de Documentos do Microsoft Azure é um banco de dados NoSQL totalmente gerenciado documento que usa um modelo hierárquico das contas de banco de dados, bancos de dados, coleções, procedimentos armazenados, gatilhos, UDFs, documentos, anexos, mídia, usuários e permissões para gerenciar recursos."  
 	services="documentdb" 
@@ -351,7 +351,7 @@ A execução de um procedimento armazenado é feita com a emissão de um HTTP PO
 	    });
 
 ###Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+Cancelar o registro de um procedimento armazenado é um processo simples, feito com a emissão de um HTTP DELETE para um recurso de procedimento armazenado existente.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {

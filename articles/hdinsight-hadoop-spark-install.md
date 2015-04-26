@@ -372,8 +372,8 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 
 ## Consulte também##
 - [Instalar R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters de Hadoop do HDinsight. R é um ambiente de computação de estatísticas e linguagem de fonte aberta e fornece centenas de funções estatísticas de compilação e sua própria linguagem de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece recursos abrangentes de gráficos.
-- [Instalar o Giraph em clusters HDInsight](../hdinsight-hadoop-giraph-install). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure.
-- [Instalar o Solr em clusters HDInsight](../hdinsight-hadoop-solr-install). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações de pesquisa poderosas nos dados armazenados.
+- [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure.
+- [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações de pesquisa poderosas nos dados armazenados.
 
 
 
@@ -383,4 +383,6 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

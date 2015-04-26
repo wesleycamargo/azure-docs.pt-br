@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Como usar os tópicos AMQP 1.0 com A API do Barramento de Serviço em .NET - Azure" 
-	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 com a API de barramento de serviço .NET do Azure." 
+	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 com a API de Barramento de Serviço .NET do Azure". 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -27,27 +27,27 @@
 
 O AMQP (Protocolo de Enfileiramento de Mensagens Avançadas) 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas.
 
-O suporte para o AMQP 1.0 no Barramento de Serviço significa que você pode usar o enfileiramento e publicar/assinar os recursos do sistema de mensagens agenciado de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
+O suporte para o AMQP 1.0 no Barramento de Serviço significa que você pode usar o enfileiramento e publicar/assinar os recursos do sistema de mensagens agenciado de uma variedade de plataformas usando um protocolo binário eficiente.  Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
-Este Guia de Instruções explica como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) dos aplicativos do .NET que usam a API do .NET do Barramento de Serviço. Existe um guia de instruções complementar que explica como fazer o mesmo usando a API do Java Message Service (JMS) padrão. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
+Este Guia de Instruções explica como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) dos aplicativos do .NET que usam a API do .NET do Barramento de Serviço.  Existe um guia de instruções complementar que explica como fazer o mesmo usando a API do Java Message Service (JMS) padrão.  Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
 
 ## Introdução ao Barramento de serviço
 
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte o Guia de Instruções chamado "[Como usar filas do Barramento de Serviço](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1."  Caso contrário, você pode criar o namespace e a fila usando o [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).  Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte o Guia de Instruções chamado "[Como usar filas do Service Bus.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 ## Baixar o SDK do Barramento de Serviço
 
-O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK do Barramento de Serviço. Você pode baixar o SDK mais recente no site da NuGet em [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
+O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK do Barramento de Serviço.  Você pode baixar o SDK mais recente no site da NuGet em [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ## Codificando aplicativos .NET
 
-Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP. O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção. Além dessa alteração, o código do aplicativo permanece basicamente inalterado ao usar o AMQP 1.0.
+Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP.  O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção.  Além dessa alteração, o código do aplicativo permanece basicamente inalterado ao usar o AMQP 1.0.
 
-Na versão atual, existem alguns outros recursos da API que não têm suporte com o uso do AMQP. Esses recursos não suportados são listados posteriormente na seção "Recursos não suportados e restrições". Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP. Nenhuma dessas configurações são usadas neste breve guia de instruções, porém mais detalhes estão disponíveis no [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx).
+Na versão atual, existem alguns outros recursos da API que não têm suporte com o uso do AMQP.  Esses recursos não suportados são listados posteriormente na seção "Recursos não suportados e restrições".  Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP.  Nenhuma dessas configurações são usadas neste breve guia de instruções, porém mais detalhes estão disponíveis no [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx).
 
 ### Configuração por meio do App.config
 
-É uma prática recomendada que os aplicativos usem o arquivo de configuração do App.config para armazenar as configurações. Para os aplicativos do Barramento de Serviço, você pode usar o App.config para armazenar as configurações de **ConnectionString** do Barramento de Serviço. Este aplicativo de exemplo também usa o App.config para armazenar o nome da entidade de mensagens do Barramento de Serviço que ele usa.
+É uma prática recomendada que os aplicativos usem o arquivo de configuração do App.config para armazenar as configurações.  Para os aplicativos do Barramento de Serviço, você pode usar o App.config para armazenar as configurações de **ConnectionString** do Barramento de Serviço.  Este aplicativo de exemplo também usa o App.config para armazenar o nome da entidade de mensagens do Barramento de Serviço que ele usa.
 
 Uma amostra do arquivo App.config é mostrada abaixo:
 
@@ -66,7 +66,7 @@ O valor da configuração **Microsoft.ServiceBus.ConnectionString** é a cadeia 
 
 	Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Onde [namespace] e [chave SAS] são obtidos no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Como usar filas do Barramento de Serviço][].
+Onde [namespace] e [chave SAS] são obtidos no Portal de Gerenciamento do Azure.  Para obter mais informações, consulte [Como usar as Filas do Service Bus][].
 
 Ao usar o AMQP, a cadeia de conexão é acrescentada com ";TransportType=Amqp", que informa à biblioteca de cliente para fazer sua conexão com o Service Bus usando o AMQP 1.0.
 
@@ -209,21 +209,21 @@ O exemplo a seguir envia e recebe mensagens em uma fila do Service Bus.
 A execução do aplicativo produz a saída do formulário:
 
 	> SimpleSenderReceiver.exe
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+	Pressione [enter] para enviar uma mensagem.  Digite 'exit' + [enter] para sair.
 	
-	Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
-	Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
+	Mensagem enviada com MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
+	Mensagem recebida com MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
 	
-	Sent message with MessageID = d00e2e088f06416da7956b58310f7a06
-	Received message with MessageID = d00e2e088f06416da7956b58310f7a06
+	Mensagem enviada com MessageID = d00e2e088f06416da7956b58310f7a06
+	Mensagem recebida com MessageID = d00e2e088f06416da7956b58310f7a06
 	
-	Received message with MessageID = f27f79ec124548c196fd0db8544bca49
-	Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
+	Mensagem recebida com MessageID = f27f79ec124548c196fd0db8544bca49
+	Mensagem enviada com MessageID = f27f79ec124548c196fd0db8544bca49
 	exit
 
 ## Mensagens em plataformas cruzadas entre JMS e .NET
 
-Este guia mostrou como enviar mensagens para o Barramento de Serviço usando o .NET e também como receber essas mensagens usando o .NET. No entanto, um dos principais benefícios do AMQP 1.0 é que ele permite que os aplicativos sejam criados por meio de componentes escritos em diferentes linguagens, com mensagens trocadas de forma confiável e com total fidelidade.
+Este guia mostrou como enviar mensagens para o Barramento de Serviço usando o .NET e também como receber essas mensagens usando o .NET.  No entanto, um dos principais benefícios do AMQP 1.0 é que ele permite que os aplicativos sejam criados por meio de componentes escritos em diferentes linguagens, com mensagens trocadas de forma confiável e com total fidelidade.
 
 Ao usar a amostra do aplicativo do .NET descrito acima e um aplicativo do Java semelhante obtido de um guia complementar, [Como usar a API do Java Message Service (JMS) com o Barramento de Serviço e o AMQP 1.0](http://aka.ms/ll1fm3), , é possível trocar mensagens entre o .NET e o Java. 
 
@@ -234,33 +234,33 @@ Para obter mais informações sobre os detalhes de mensagens em plataformas cruz
 Para demonstrar as mensagens do JMS para o .NET:
 
 * Inicie o aplicativo de exemplo do .NET sem nenhum argumento de linha de comando.
-* Inicie a amostra do aplicativo Java com o argumento de linha de comando "sendonly". Nesse modo, o aplicativo não receberá mensagens da fila, ele somente as enviará.
+* Inicie a amostra do aplicativo Java com o argumento de linha de comando "sendonly".  Nesse modo, o aplicativo não receberá mensagens da fila, ele somente as enviará.
 * Pressione **Enter** algumas vezes no console do aplicativo Java; isso fará com que as mensagens sejam enviadas.
 * Essas mensagens são recebidas pelo aplicativo .NET.
 
 ### Saída do aplicativo JMS
 
 	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with JMSMessageID = ID:4364096528752411591
-	Sent message with JMSMessageID = ID:459252991689389983
-	Sent message with JMSMessageID = ID:1565011046230456854
+	Pressione [enter] para enviar uma mensagem.  Digite 'exit' + [enter] para sair.
+	Mensagem enviada com JMSMessageID = ID:4364096528752411591
+	Mensagem enviada com JMSMessageID = ID:459252991689389983
+	Mensagem enviada com JMSMessageID = ID:1565011046230456854
 	exit
 
 ### Saída do aplicativo .NET
 
 	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with MessageID = 4364096528752411591
-	Received message with MessageID = 459252991689389983
-	Received message with MessageID = 1565011046230456854
+	Pressione [enter] para enviar uma mensagem.  Digite 'exit' + [enter] para sair.
+	Mensagem recebida com MessageID = 4364096528752411591
+	Mensagem recebida com MessageID = 459252991689389983
+	Mensagem recebida com MessageID = 1565011046230456854
 	exit
 
 ## Do .NET para o JMS
 
 Para demonstrar as mensagens do .NET para o JMS:
 
-* Inicie a amostra do aplicativo do .NET com o argumento de linha de comando "sendonly". Nesse modo, o aplicativo não receberá mensagens da fila, ele somente as enviará.
+* Inicie a amostra do aplicativo do .NET com o argumento de linha de comando "sendonly".  Nesse modo, o aplicativo não receberá mensagens da fila, ele somente as enviará.
 * Inicie a amostra do aplicativo do Java sem nenhum argumento de linha de comando.
 * Pressione **Enter** algumas vezes no console do aplicativo .NET, isso fará com que as mensagens sejam enviadas.
 * Essas mensagens são recebidas pelo aplicativo Java.
@@ -268,20 +268,20 @@ Para demonstrar as mensagens do .NET para o JMS:
 #### Saída do aplicativo .NET
 
 	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
-	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
-	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+	Pressione [enter] para enviar uma mensagem.  Digite 'exit' + [enter] para sair.
+	Mensagem enviada com MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+	Mensagem enviada com MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+	Mensagem enviada com MessageID = acbca67f03c346de9b7893026f97ddeb
 	exit
 
 
 #### Saída do aplicativo JMS
 
 	> java SimpleSenderReceiver	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
-	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
-	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+	Pressione [enter] para enviar uma mensagem.  Digite  'exit' + [enter] para sair.
+	Mensagem recebida com JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+	Mensagem recebida com JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+	Mensagem recebida com JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 	exit
 
 <h2>Restrições e recursos sem suporte</h2>
@@ -299,13 +299,13 @@ Os seguintes recursos da API do Service Bus do .NET não são atualmente suporta
 * Renovação de bloqueio da sessão
 * Algumas pequenas diferenças no comportamento
 
-Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Service Bus](http://msdn.microsoft.com/library/jj841071.aspx). Este tópico inclui uma lista detalhada de APIs não suportadas.
+Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx).  Este tópico inclui uma lista detalhada de APIs não suportadas.
 
 <h2>Resumo</h2>
 
-Este Guia de Instruções mostrou como acessar os recursos de mensagens agenciadas do Service Bus (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Service Bus.
+Este Guia de Instruções mostrou como acessar os recursos de mensagens agenciadas do Service Bus (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Barramento de Serviço.
 
-Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagens, incluindo Java, C, Python e PHP. Os componentes criados com essas linguagens podem trocar mensagens com segurança e com total fidelidade usando o AMQP 1.0 no Barramento de Serviço. Para obter mais informações, consulte o [Guia do desenvolvedor do Barramento de Serviço AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx).
+Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagens, incluindo Java, C, Python e PHP.  Os componentes criados com essas linguagens podem trocar mensagens com segurança e com total fidelidade usando o AMQP 1.0 no Barramento de Serviço. Para obter mais informações, consulte o [Guia do Desenvolvedor AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx).
 
 <h2>Mais informações</h2>
 
@@ -316,4 +316,4 @@ Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagen
 
 [Como usar filas do Barramento de Serviço]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

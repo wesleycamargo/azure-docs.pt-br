@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Armazenar código de projeto no controle do código-fonte - Serviços Móveis do Azure" 
 	description="Saiba como armazenar seus arquivos de script de servidor e módulos em um repositório Git local no computador." 
 	services="mobile-services" 
@@ -176,7 +176,7 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Trabalhar com scripts de servidor em Serviços Móveis]: /documentation/articles/mobile-services-how-to-use-server-scripts/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Chamar uma API personalizada do cliente]: /documentation/articles/mobile-services-ios-call-custom-api/
-[Documentação da API de Node.js: Módulos]: http://nodejs.org/api/modules.html
+[Documentação da API do Node.js: Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
 <!--HONumber=47-->

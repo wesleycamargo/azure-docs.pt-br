@@ -176,4 +176,6 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Referência conceitual do tutorial HTML/JavaScript de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-html-how-to-use-client-library/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

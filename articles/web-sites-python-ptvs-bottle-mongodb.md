@@ -236,4 +236,5 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [Projetos de serviços de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 
+
 <!--HONumber=42-->

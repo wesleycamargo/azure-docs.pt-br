@@ -622,4 +622,6 @@ Observe que as duas implementações do controlador fazem uso exclusivo dos DTOs
     }
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço. 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

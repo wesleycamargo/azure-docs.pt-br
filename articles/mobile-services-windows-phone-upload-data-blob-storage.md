@@ -121,4 +121,6 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
 
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

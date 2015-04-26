@@ -471,4 +471,6 @@ Ao longo do caminho, você adicionou uma classe auxiliar **QSUIAlertViewWithBloc
 [Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
 [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

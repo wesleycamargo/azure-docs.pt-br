@@ -63,4 +63,5 @@ Para usar Serviços Móveis do Azure em projetos Cordova na Visualização do Vi
 
 [1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png 
 
+
 <!--HONumber=42-->

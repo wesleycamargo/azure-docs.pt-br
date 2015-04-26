@@ -18,20 +18,20 @@
 
 
 # Criar um espaço de trabalho de Aprendizado de Máquina do Azure 
-Um Espaço de Trabalho de Aprendizado de Máquina (Espaço de Trabalho AM) do Microsoft Azure contém as ferramentas necessárias para gerenciar e publicar experimentos. Para obter mais informações sobre o Espaço de Trabalho do Aprendizado de Máquina, link.
+Um espaço de trabalho de Aprendizado de Máquina (Espaço de Trabalho AM) do Azure contém as ferramentas necessárias para gerenciar e publicar experimentos.  Para obter mais informações sobre espaços de trabalho de Aprendizado de Máquina, consulte o link.
 ## Para criar um espaço de trabalho ##
-1. Entre na sua conta Microsoft Azure.
+1. Entre na sua conta do Microsoft Azure.
 2. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 
 ![][1]
  
 
 1. Clique em **CRIAR UM ESPAÇO DE TRABALHO DE AM**.
-2. Na página **CRIAÇÃO RÁPIDA**:
+2. Na página**CRIAÇÃO RÁPIDA**:
 	1. Insira suas informações de espaço de trabalho.    
-	OBSERVAÇÃO: O **PROPRIETÁRIO DO ESPAÇO DE TRABALHO** é a sua conta da Microsoft (nome@outlook.com).
+	> [AZURE.NOTE] O **PROPRIETÁRIO DO ESPAÇO DE TRABALHO** é o nome da conta da Microsoft (nome@outlook.com) ou da conta da sua empresa.
 	2. Clique em **CRIAR UM ESPAÇO DE TRABALHO DE AM**.
-3. Após seu espaço de trabalho AM ser criado, você o verá listado na página **aprendizado de máquina**.
+3. Depois que seu espaço de trabalho de Aprendizado de Máquina for criado, você o verá listado na página **Aprendizado de Máquina**.
  
 ![][2]
 
@@ -46,4 +46,4 @@ Um Espaço de Trabalho de Aprendizado de Máquina (Espaço de Trabalho AM) do Mi
 
 <!--Link references-->
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

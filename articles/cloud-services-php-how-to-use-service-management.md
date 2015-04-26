@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Como usar as APIs de gerenciamento de serviços do Azure (PHP)" 
 	description="Saiba como usar as APIs de Gerenciamento de Serviços do PHP do Azure para gerenciar serviços de nuvem e outros aplicativos do Azure." 
 	services="" 
@@ -562,7 +562,7 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 [pacote de serviço]: http://msdn.microsoft.com/library/windowsazure/gg433093
 [Cmdlets do PowerShell do Azure]: ../install-configure-powershell/
 [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
-[GetDepolymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
+[GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
 [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx

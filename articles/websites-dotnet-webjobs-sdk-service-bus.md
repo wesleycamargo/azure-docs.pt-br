@@ -156,4 +156,5 @@ Tópicos abordados nesse artigo incluem o seguinte:
 Este guia fornece exemplos de código que mostram como lidar com cenários comuns para trabalhar com o barramento de serviço do Azure. Para obter mais informações sobre como usar o WebJobs do Azure e o SDK WebJobs, consulte [Recursos recomendados do WebJobs do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
 
+
 <!--HONumber=42-->

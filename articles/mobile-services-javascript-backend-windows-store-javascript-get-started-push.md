@@ -134,4 +134,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-javascript-send-breaking-news/
 [Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-store-javascript-send-localized-breaking-news/
 
+
 <!--HONumber=42-->

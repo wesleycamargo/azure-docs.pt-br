@@ -250,4 +250,5 @@ Neste artigo, você aprendeu como criar um cluster do HDInsight usando o Portal 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+
 <!--HONumber=42-->

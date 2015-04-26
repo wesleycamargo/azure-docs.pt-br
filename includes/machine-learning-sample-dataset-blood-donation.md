@@ -1,2 +1,4 @@
 ﻿Um subconjunto de dados do banco de dados de doadores de sangue do Centro de Serviços de Transfusão de Sangue da Cidade de Hsin-Chu, Taiwan.<p> </p>Os dados do doador incluem os meses desde a última doação e a frequência, ou o número total de doações, data da última doação e a quantidade de sangue doado.<p> </p><b>Uso:</b> O objetivo é prever, por meio de classificação, se o doador doou sangue em março de 2007, em que 1 indica um doador durante o período alvo, 0 um não doador. <p> </p><b>Pesquisa relacionada:</b> Yeh, I.C., (2008). Repositório de aprendizado de máquina UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -3,7 +3,7 @@
 	description="Os exemplos de aplicativos de aprendizado de máquina do Azure Marketplace mostram como você pode publicar seus serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes usarem os seus aplicativos." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,22 +14,48 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/10/2015" 
-	ms.author="luiscabrer"/>  
+	ms.author="luisca"/> 
 
-# Exemplo de aplicativos de aprendizado de máquina no Azure Marketplace
+# Aplicativos de aprendizado de máquina no Azure Marketplace
 
-Aprendizado de máquina do Azure proporciona aos cientistas de dados um novo canal para lucrar com sua experiência e criatividade, como fazem os desenvolvedores de aplicativos para smartphone. Ao publicar os serviços de aprendizado de máquina no Azure Marketplace, você habilita qualquer pessoa no mundo a pagar e assinar suas APIs em nuvem recém-publicadas e usá-las nos seus aplicativos.
+O Aprendizado de Máquina do Azure fornece aos cientistas de dados um canal para lucrar com a sua experiência e criatividade, como os desenvolvedores de aplicativos para smartphone fazem. Publicando seus serviços de aprendizado de máquina no Azure Marketplace, você possibilita que qualquer pessoa no mundo pague e se inscreva em seus APIs de nuvem publicados e use-os em seus aplicativos.
 
-Mas o Azure Marketplace pode oferecer muito mais do que a APIs de análise básica. Por exemplo, criamos um conjunto de aplicativos de AM de ponta a ponta concluídos, tudo isso usando AM do Azure, para atender necessidades de negócios específicas. Esses aplicativos de AM não exigem um cientista de dados ou experiência em AM para usar - a ciência já é embutida em nossa solução. Os usuários podem simplesmente colocar seus próprios dados e começar a usá-los. 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
-Por exemplo, isso inclui:
+Mas o Azure Marketplace pode oferecer muito mais do que a APIs de análise básica.  Por exemplo, criamos um conjunto de aplicativos de aprendizado de máquina de ponta a ponta concluídos para atender a necessidades de negócios específicas.  Esses aplicativos de aprendizado de máquina não exigem um cientista de dados ou experiência com aprendizado de máquina para usá-los.  A ciência já está incorporada em nossas soluções.  Os usuários podem simplesmente fornecer seus próprios dados e começar a usar os aplicativos. 
 
-* [Recomendações](http://datamarket.azure.com/dataset/amla/recommendations) um mecanismo de recomendação de autoatendimento, mas muito eficiente, que permite adicionar facilmente recomendações de produtos personalizados às suas campanhas de site ou email. 
+Por exemplo, esses aplicativos incluem:
+
+##Recomendações##
+ Um mecanismo de recomendação de autoatendimento, mas muito eficiente, que permite que você adicione facilmente recomendações de produtos personalizados às suas campanhas de site ou por email.
+
+[Link do mercado de dados](http://datamarket.azure.com/dataset/amla/recommendations)
+
+[Guia de início rápido](machine-learning-recommendation-api-quick-start-guide.md) 
   
-* [Frequentemente comprados juntos](https://datamarket.azure.com/dataset/amla/mba) - uma API que ajuda os clientes a descobrir itens do catálogo que frequentemente são comprados juntos. Use seu histórico de compras do cliente para adicionar recomendações de itens "frequentemente comprados juntos" para seu site e para melhorar a conversão no seu armazenamento digital.
+##Frequentemente comprados juntos##
+Uma API que ajuda os clientes a descobrir itens do catálogo que frequentemente são comprados juntos.  Use seu histórico de compras do cliente para adicionar recomendações de itens Frequentemente comprados juntos para seu site e para melhorar a conversão no seu armazenamento digital.
 
-* [Detecção de anomalias](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - uma API que pode identificar eventos irregulares nos dados de série temporal (por exemplo, telemetria do servidor, dados baseados em sensor).
+[Link do mercado de dados](https://datamarket.azure.com/dataset/amla/mba)
 
-Essas APIs permitem consumir serviços eficientes baseado em aprendizado de máquina do Azure ML sem a necessidade de ser um cientista de dados ou passar muito tempo desenvolvendo as APIs você mesmo - basta inserir seus próprios dados e começar a usar.
+[Documentação](machine-learning-apps-frequently-bought-together-api.md)
 
-<!--HONumber=46--> 
+##Detecção de anomalias##
+Uma API que pode identificar eventos irregulares em dados de série temporal (por exemplo, telemetria do servidor ou os dados baseados em sensor).
+
+[Link do mercado de dados](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
+
+[Documentação](machine-learning-apps-anomaly-detection.md)
+
+Essas APIs permitem consumir serviços poderosos baseados em aprendizagem de máquina criados no aprendizado de máquina do Azure, sem a necessidade de ser um cientista de dados ou gastar muito tempo desenvolvendo aplicativos por conta própria.  Basta colocar seus próprios dados e começar a usá-los.
+
+##Análise de texto##
+Essa API pode ser usada para analisar texto não estruturado para tarefas como análise de sentimento e extração de frases-chave.  Nenhum dado de treinamento é necessário para usar essa API, basta colocar seus dados de texto.  Ela utiliza técnicas avançadas de processamento de linguagem natural nos bastidores. 
+
+[Link do mercado de dados](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
+
+[Documentação](machine-learning-apps-text-analytics.md)
+
+ 
+
+<!--HONumber=49-->

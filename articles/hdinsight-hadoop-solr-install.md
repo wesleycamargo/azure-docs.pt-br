@@ -365,7 +365,7 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 ## Consulte também##
 - [Instalar e usar o Spark em clusters HDInsight (visualização)][hdinsight-install-spark]. Use a personalização do cluster para instalar o Spark em clusters de Hadoop do HDInsight. O Spark é uma estrutura de processamento paralelo de código-fonte aberto que oferece suporte ao processamento de memória para melhorar o desempenho dos aplicativos de grandes volumes de dados analíticos.
 - [Instalar o R em clusters HDInsight][hdinsight-install-r]. Use a personalização do cluster para instalar o R em clusters de Hadoop do HDInsight. R é um ambiente de computação de estatísticas e linguagem de fonte aberta e fornece centenas de funções estatísticas de compilação e sua própria linguagem de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece recursos abrangentes de gráficos.
-- [Instalar o Giraph em clusters HDInsight](../hdinsight-hadoop-giraph-install). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure.
+- [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure.
 
 
 
@@ -374,4 +374,5 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
+
 <!--HONumber=42-->

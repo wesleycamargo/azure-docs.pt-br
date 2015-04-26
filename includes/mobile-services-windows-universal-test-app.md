@@ -12,4 +12,6 @@
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
 	Observe que os dados salvos da etapa anterior são carregados a partir do serviço móvel após o aplicativo ser iniciado.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

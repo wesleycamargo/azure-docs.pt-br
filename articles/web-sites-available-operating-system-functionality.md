@@ -120,4 +120,5 @@ Os aplicativos têm acesso somente leitura a grande parte (mas nem todo) do Regi
 O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave do Registro por usuário. Do ponto de vista de um aplicativo, o acesso de gravação ao Registro jamais deve ser usado em um ambiente de nuvem porque os aplicativos podem (e vão) ser migrados entre máquinas virtuais diferentes. O único armazenamento gravável persistente que pode ser usado por um aplicativo Web é a estrutura do diretório de conteúdo do site armazenada nos compartilhamentos UNC dos Sites do Azure. 
 
 
+
 <!--HONumber=42-->

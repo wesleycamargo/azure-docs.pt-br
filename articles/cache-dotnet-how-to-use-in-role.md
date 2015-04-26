@@ -392,17 +392,18 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Como: Configurar um Cliente de Cache de Modo Programático]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Como: Definir a Capacidade de Cache de uma Página de Modo Programático]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Como: Definir a Capacidade de Cache de uma Página ASP.NET Declarativamente]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Considerações Sobre o Planejamento da Capacidade de Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=252651
+[Considerações sobre o Planejamento da Capacidade do Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=252651
+[Considerações sobre o planejamento da capacidade de Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=252651
 [Exemplos de Cache na Função]: http://msdn.microsoft.com/library/jj189876.aspx
 [Cache em Função]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Cache em Função]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [Desempenho Máximo: Acelere Seus Aplicativos de Serviços de Nuvem com o Cache do Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
 [Migrar para o Cache na Função]: http://msdn.microsoft.com/library/hh914163.aspx
 [Instalação do Gerenciador de Pacotes NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Provedor de Cache de Saída para o Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
+[Provedor de Cache de Saída de Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Diretiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Visão Geral do Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Provedor de Estado de Sessão para Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Provedor de Estado de Sessão de Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Blog da Equipe]: http://blogs.msdn.com/b/windowsazure/
 [Solução de Problemas e Diagnóstico do Cache na Função]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Cache do Azure AppFabric: Cache de Estado de Sessão]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20

@@ -220,4 +220,6 @@ Depois de ter concluído a série de dados, você também pode tentar um dos seg
 [SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Site de Exemplos de Código do Desenvolvedor]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

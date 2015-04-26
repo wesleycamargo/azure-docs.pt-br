@@ -228,4 +228,6 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 [Aplicativos do Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

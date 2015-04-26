@@ -60,7 +60,7 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 
   	![][7]
 
-3. Se ainda não fez isso, baixe e instale [Android Developer Tools][SDK para Android] em seu computador local ou máquina virtual.
+3. Se ainda não fez isso, baixe e instale [Android Developer Tools][SDK do Android] em seu computador local ou máquina virtual.
 
 4. Clique em **Criar tabela TodoItem** para criar uma tabela para armazenar os dados do aplicativo.
 

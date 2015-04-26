@@ -63,4 +63,6 @@
   	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
 
 	É exibida uma caixa de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

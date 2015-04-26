@@ -316,4 +316,6 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [Registrar-se para usar um logon do Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Biblioteca de Cliente Gráfico]: http://go.microsoft.com/fwlink/?LinkId=510536
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

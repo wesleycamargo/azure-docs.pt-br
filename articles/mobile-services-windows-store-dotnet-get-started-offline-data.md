@@ -297,4 +297,6 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 [Nuget do SDK dos Serviços móveis]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [Nuget do repositório do SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

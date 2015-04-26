@@ -234,4 +234,5 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
+
 <!--HONumber=42-->

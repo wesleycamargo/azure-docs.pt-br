@@ -658,4 +658,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução à autenticação (Windows Phone) | Centro de desenvolvimento de Serviços Móveis" 
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo do Windows Phone por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -38,13 +38,13 @@ Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também 
 
 >[AZURE.NOTE]Este tutorial demonstra o fluxo de autenticação gerenciado pelos Serviços Móveis utilizando uma variedade de provedores de identidade. Esse método é fácil de configurar e oferece suporte a vários provedores. Em vez de usar o Live Connect com autenticação gerenciada pelo cliente e fornecer uma experiência de logon único em seu aplicativo do Windows Phone, consulte o tópico [Logon único para aplicativos do Windows Phone usando o Live Connect]. Ao usar a autenticação gerenciada pelo cliente, seu aplicativo tem acesso aos dados adicionais do usuário mantidos pelo provedor de identidade. Você pode obter os mesmos dados do usuário em seu serviço móvel ao chamar a função **user.getIdentities()** nos scripts do servidor. Para obter mais informações, consulte [essa publicação](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
-##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 
-##<a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -57,17 +57,17 @@ Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também 
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Armazenar os tokens de autorização no cliente
+## <a name="tokens"></a>Armazenar os tokens de autorização no cliente
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móveis],(mobile-services-javascript-backend-service-side-authorization.md)você usará o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis. 
+No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móveis](mobile-services-javascript-backend-service-side-authorization.md),você usará o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis. 
 
 <!-- Anchors. -->
 [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register

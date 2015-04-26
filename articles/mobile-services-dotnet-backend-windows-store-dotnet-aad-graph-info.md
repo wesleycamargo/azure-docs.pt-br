@@ -202,4 +202,6 @@ No próximo tutorial, [Controle de acesso baseado em função com AAD nos Servi�
 [Obter usuário]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Controle de acesso baseado em função com o AAD nos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

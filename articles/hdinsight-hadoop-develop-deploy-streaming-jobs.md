@@ -562,4 +562,5 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
 
 
+
 <!--HONumber=42-->

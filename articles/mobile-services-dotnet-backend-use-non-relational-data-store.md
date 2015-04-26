@@ -120,4 +120,6 @@ O tutorial requer a conclusão de um dos tutoriais [Introdução aos Serviços M
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [O que é o serviço Tabela]: /pt-br/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
 [Página do suplemento MongoLab]: /pt-br/gallery/store/mongolab/mongolab
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

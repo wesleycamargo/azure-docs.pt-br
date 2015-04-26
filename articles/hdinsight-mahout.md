@@ -419,4 +419,5 @@ Para executar trabalhos que usam essas classes, conecte-se ao cluster do HDInsig
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+
 <!--HONumber=42-->

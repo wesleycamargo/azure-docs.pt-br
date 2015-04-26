@@ -242,4 +242,5 @@ Tópicos relacionados abordados nesse artigo incluem o seguinte:
 Este guia fornece exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure - Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
 
+
 <!--HONumber=42-->

@@ -105,4 +105,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-\<!--HONumber=42-->
+<!--HONumber=42-->

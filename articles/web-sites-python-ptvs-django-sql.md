@@ -227,4 +227,5 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Banco de Dados SQL]: /pt-br/documentation/services/sql-database/
 
 
+
 <!--HONumber=42-->

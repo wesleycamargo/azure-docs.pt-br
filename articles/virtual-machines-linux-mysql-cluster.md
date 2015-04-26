@@ -312,13 +312,13 @@ A captura de tela a seguir mostra `crm_mon` com um nó parado (saia usando Contr
 
 ![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
-E essa captura de tela mostra ambos os nós, com um mestre e um subordinado:
+E essa captura de tela mostra ambos os nós, com um mestre e um escravo:
 
 ![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png) 
 
 ## Testando
 
-Estamos prontos para uma simulação de failover automático. Existem duas maneiras de fazer isso: a fácil e a difícil. A maneira fácil é usar a função de desligamento do cluster: ``crm_standby -U `uname -n` -v on``. Usando isso no mestre, o subordinado assumirá. Não se esqueça de desativá-lo (ou crm_mon informará que um nó está em espera)
+Estamos prontos para uma simulação de failover automático. Existem duas maneiras de fazer isso: a fácil e a difícil. A maneira fácil é usar a função de desligamento do cluster: ``crm_standby -U `uname -n` -v on``. Usando isso no mestre, o escravo assumirá. Não se esqueça de desativá-lo (ou crm_mon informará que um nó está em espera)
 
 A maneira difícil é desligando a VM primária (hadb01) por meio do Portal ou alterando o nível de execução na VM (ou seja: parada, desligamento) e, assim, estamos ajudando o Corosync e o Pacemaker sinalizando o desligamento do mestre. Podemos testar isso (útil para janelas de manutenção), mas também podemos forçar o cenário apenas congelando a VM.
 
@@ -340,7 +340,7 @@ Há código de exemplo para o recurso disponível em [GitHub](https://github.com
 
 As seguintes limitações se aplicam:
 
-- O script do recurso DRBD linbit que gerencia DRBD como um recurso no Pacemaker usa `drbdadm down` durante a desativação de um nó, mesmo que o nó esteja apenas em modo de espera. Isso não é o ideal, pois o subordinado não sincronizará o recurso DRBD enquanto o mestre receber gravações. Se o mestre não falhar, o subordinado poderá assumir um estado do sistema de arquivos mais antigo. Existem duas maneiras em potencial de resolver isso:
+- O script do recurso DRBD linbit que gerencia DRBD como um recurso no Pacemaker usa `drbdadm down` durante a desativação de um nó, mesmo que o nó esteja apenas em modo de espera. Isso não é o ideal, pois o escravo não sincronizará o recurso DRBD enquanto o mestre receber gravações. Se o mestre não falhar, o escravo poderá assumir um estado do sistema de arquivos mais antigo. Existem duas maneiras em potencial de resolver isso:
   - Impondo um `drbdadm up r0` a todos os nós de cluster por meio de um watchdog local (não clusterizado) ou
   - Editando o script DRBD linbit, verificando se `down` não é chamado, em `/usr/lib/ocf/resource.d/linbit/drbd`.
 - Como o balanceador de carga precisa de pelo menos 5 segundos para responder, os aplicativos devem reconhecer o cluster e ser mais tolerantes ao tempo limite. Outras características também podem ajudar, por exemplo, filas em aplicativo, middleware de consulta, etc.

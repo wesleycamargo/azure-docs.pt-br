@@ -224,4 +224,5 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
 
+
 <!--HONumber=42-->

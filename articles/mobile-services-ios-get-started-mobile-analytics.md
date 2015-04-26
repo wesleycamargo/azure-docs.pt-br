@@ -101,4 +101,5 @@ Saiba mais sobre o que Capptain pode fazer para seu aplicativo em [http://www.ca
 [Capptain]: http://www.capptain.com
 [Camada Padrão dos Serviços Móveis]: /pt-br/pricing/details/mobile-services/
 
+
 <!--HONumber=42-->

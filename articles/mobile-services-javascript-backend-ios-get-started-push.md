@@ -254,4 +254,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Referência conceitual do tutorial do Objective-C de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
+
 <!--HONumber=42-->

@@ -143,4 +143,5 @@ Depois de ter concluído a série de dados, tente um desses outros tutoriais:
 
 [Classe de MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
+
 <!--HONumber=42-->

@@ -582,4 +582,5 @@ E em uma tabela do Azure os logs `Console.Out` e `Console.Error` têm esta apar�
 Este guia fornece exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure - Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
 
+
 <!--HONumber=42-->

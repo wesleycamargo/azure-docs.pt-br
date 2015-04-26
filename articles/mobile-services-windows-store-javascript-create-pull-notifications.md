@@ -160,4 +160,6 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 [Notificações periódicas]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

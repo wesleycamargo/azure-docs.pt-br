@@ -127,4 +127,6 @@ Este tutorial exige o seguinte:
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

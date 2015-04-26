@@ -68,4 +68,6 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/develop/mobile/how-to-guides/work-with-net-client-library
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

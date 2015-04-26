@@ -17,4 +17,5 @@ Um registro CNAME mapeia um nome DNS *specific*, como **mail.contoso.com** ou **
 Depois que o tráfego chega ao Gerenciador de Tráfego, ele encaminha o tráfego para o site, usando o método de balanceamento de carga para o qual está configurado. Isso é completamente transparente para os visitantes do site. Eles verão apenas o nome de domínio personalizado no navegador.
 
 > [AZURE.NOTE] Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como **www.contoso.com**, e não nomes de raiz, como **contoso.com**. Para mais informações sobre registros CNAME, consulte a documentação fornecida pelo seu registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia no registro CNAME</a> ou o documento <a href="http://tools.ietf.org/html/rfc1035">Nomes de Domínio IETF - Implementação e Especificação</a>.
+
 <!--HONumber=42-->

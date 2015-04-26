@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Implantar Trabalhos Web usando o Visual Studio" 
 	description="Aprenda como implantar Trabalhos Web do Azure para Aplicativos Web do Serviço de Aplicativo do Azure usando o Visual Studio." 
 	services="app-service\web" 
@@ -127,7 +127,7 @@ A caixa de diálogo **Adicionar Trabalho Web do Azure** habilita inserir as conf
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+Os campos nessa caixa de diálogo correspondem aos campos na caixa de diálogo **Novo Trabalho** do Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 Para um Trabalho Web agendado (e não para Trabalhos Web contínuos), o Visual Studio cria uma coleção de trabalhos do [Agendador do Azure](/services/scheduler/) caso ainda não exista uma, e cria um trabalho na coleção:
 

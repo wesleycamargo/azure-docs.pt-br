@@ -1,2 +1,4 @@
 ﻿Arquivo de imagem disponível publicamente convertido para dados CSV.<p> </p>O código para converter a imagem é fornecido na página de detalhes do modelo <strong>Quantização de cor usando armazenamento em cluster K-Means</strong>.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

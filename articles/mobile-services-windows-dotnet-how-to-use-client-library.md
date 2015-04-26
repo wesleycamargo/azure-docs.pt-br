@@ -750,4 +750,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -121,4 +121,6 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -1356,4 +1356,5 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 * Para obter mais informações sobre o desenvolvimento com SCP, consulte [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# no Storm no HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [azure-portal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

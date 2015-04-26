@@ -21,7 +21,7 @@
 Este tópico explica como carregar um site Java personalizado no Azure. Há informações que se aplicam a qualquer site Java e também alguns exemplos para aplicativos específicos.
 
 Observe que o Azure fornece um meio para criar sites Java usando a interface do usuário de configuração do portal do Azure e a galeria de aplicativos do Azure, conforme documentado em [Introdução aos sites do Azure e ao Java
-](../web-sites-java-get-started). Este tutorial destina-se a cenários em que você não deseja usar a interface do usuário de configuração do Azure ou a galeria de aplicativos do Azure.  
+](web-sites-java-get-started.md). Este tutorial destina-se a cenários em que você não deseja usar a interface do usuário de configuração do Azure ou a galeria de aplicativos do Azure.  
 
 # Diretrizes de configuração
 
@@ -231,6 +231,7 @@ Sob o bloco **httpPlatform**, o **requestTimeout** é definido como "00:10:00". 
 Depois de fazer essas alterações, reinicie seu site executando o Liferay. Em seguida, abra http://yoursite.  O portal do Liferay está disponível na raiz do site. 
 
 Para obter mais informações sobre o Liferay, consulte [http://www.liferay.com](http://www.liferay.com).
+
 
 
 

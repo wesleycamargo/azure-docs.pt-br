@@ -621,4 +621,5 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Cartaz dos Serviços de Mídia do Azure]: http://azure.microsoft.com/documentation/infographics/media-services/
 
+
 <!--HONumber=42-->

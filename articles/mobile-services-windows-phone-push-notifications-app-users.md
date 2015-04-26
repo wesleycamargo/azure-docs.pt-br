@@ -22,4 +22,6 @@ Este tópico foi preterido. Em vez disso, siga as orientações atualizadas nest
 
 + [Adicionar notificações por push a seu aplicativo de serviços móveis](/ pt-br/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>Atualize seu serviço móvel da TodoList para usar Hubs de Notificação do Azure para enviar notificações aos usuários do aplicativo de exemplo da TodoList. 
 + [Enviar notificações por push para usuários autenticados](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)<br/>Estende o tutorial anterior para permitir apenas usuários conectados ao se registrar para notificações.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

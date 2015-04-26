@@ -125,4 +125,6 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versão de back-end do .NET]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

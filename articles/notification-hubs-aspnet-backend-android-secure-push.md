@@ -1,8 +1,8 @@
 ﻿<properties 
 	pageTitle="Push Seguro dos Hubs de Notificação do Azure" 
-	description="Saiba como enviar notificações por push seguro para um aplicativo Android do Azure. Exemplos de códigos escritos em Java e c#." 
+	description="Saiba como enviar notificações por push seguro para um aplicativo Android do Azure.  Exemplos de códigos escritos em Java e c#." 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="ricksal"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
+    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
+
+#Visão geral
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. 
 
-Devido a restrições regulatórias ou de segurança, às vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitido por meio da infraestrutura de notificação por push padrão. Este tutorial descreve como obter a mesma experiência ao enviar informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo cliente e o back-end do aplicativo.
+Devido a restrições regulatórias ou de segurança, às vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitido por meio da infraestrutura de notificação por push padrão.  Este tutorial descreve como obter a mesma experiência ao enviar informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo cliente e o back-end do aplicativo.
 
 Em um nível superior, o fluxo é o seguinte:
 
@@ -36,20 +38,20 @@ Em um nível superior, o fluxo é o seguinte:
 	- O dispositivo entra em contato com o back-end solicitando a carga segura.
 	- O aplicativo pode mostrar a carga como uma notificação no dispositivo.
 
-É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
+É importante observar que no fluxo anterior (e neste tutorial), presumimos que o dispositivo armazena um token de autenticação em armazenamento local, após o usuário fazer logon. Isso garante uma experiência completamente ininterrupta, uma vez que o dispositivo pode recuperar a carga segura da notificação usando esse token.  Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo.  Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
+Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura.  O tutorial baseia-se no tutorial **Notificação de usuários**, por isso, você deve concluir as etapas nesse tutorial primeiro.
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Android)](http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started/).
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Android)]notification-hubs-android-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificar o projeto Android
 
-Agora que você modificou o back-end do aplicativo para enviar apenas a  *id* de uma notificação, é preciso alterar o aplicativo iOS para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
-Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android Saiba como autenticar-se com o back-end ao receber as notificações de envio.
+Agora que você modificou o back-end do aplicativo para enviar apenas a  *id* de uma notificação, é preciso alterar o aplicativo Android para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
+Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android saiba como se autenticar com o back-end ao receber as notificações por push.
 
-Agora, modificaremos o fluxo *login* para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas de seu aplicativo. Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisará usar sem solicitar as credenciais do usuário.
+Agora, modificaremos o fluxo de  *logon* para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas do seu aplicativo.  Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisará usar sem solicitar as credenciais do usuário.
 
 1. No projeto do aplicativo Android, adicione as seguintes constantes na parte superior da classe **MainActivity**:
 
@@ -70,7 +72,7 @@ Agora, modificaremos o fluxo *login* para salvar o valor do cabeçalho de autent
     		return basicAuthHeader;
 		}
 
-3. Adicione as seguintes instruções  `import` na parte superior do arquivo **MainActivity**:
+3. Adicione as seguintes instruções  `importar` na parte superior do arquivo **MainActivity**:
 
 		import android.content.SharedPreferences;
 
@@ -114,20 +116,20 @@ Agora, alteraremos o manipulador que é chamado quando a notificação é recebi
 		}
 		
 
-Esse método chama o back-end do seu aplicativo para recuperar o conteúdo da notificação usando as credenciais armazenadas nas preferências compartilhadas e o exibe como uma notificação normal. Para o usuário do aplicativo, a notificação tem exatamente a mesma aparência que qualquer outra notificação por push.
+Esse método chama o back-end do seu aplicativo para recuperar o conteúdo da notificação usando as credenciais armazenadas nas preferências compartilhadas e o exibe como uma notificação normal.  Para o usuário do aplicativo, a notificação tem exatamente a mesma aparência que qualquer outra notificação por push.
 
-Observe que é preferível manipular os casos de propriedade de cabeçalho de autenticação ausente ou de rejeição por meio do back-end. A manipulação específica desses casos depende em grande parte da sua meta de experiência do usuário. Uma opção é exibir uma notificação com um aviso genérico para que o usuário realize a autenticação para recuperar a notificação real.
+Observe que é preferível manipular os casos de propriedade de cabeçalho de autenticação ausente ou de rejeição por meio do back-end.  A manipulação específica desses casos depende em grande parte da sua meta de experiência do usuário.  Uma opção é exibir uma notificação com um aviso genérico para que o usuário realize a autenticação para recuperar a notificação real.
 
 ## Executar o aplicativo
 
 Para executar o aplicativo, faça o seguinte:
 
-1. Certifique-se de que o **AppBackend** esteja implantado no Azure. Se estiver usando o Visual Studio, execute o aplicativo da API Web **AppBackend**. Uma página da Web do ASP.NET é exibida.
+1. Certifique-se de que o **AppBackend** esteja implantado no Azure.  Se estiver usando o Visual Studio, execute o aplicativo da API Web **AppBackend**.  Uma página da Web do ASP.NET é exibida.
 
 2. No Eclipse, execute o aplicativo em um dispositivo Android físico ou no emulador.
 
-3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
+3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha.  Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
 
-4. Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
+4. Na interface do usuário do aplicativo Android, clique em **Logon**.  Em seguida, clique em **Enviar push**.
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

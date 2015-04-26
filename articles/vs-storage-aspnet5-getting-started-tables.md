@@ -193,4 +193,5 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte também [Procurar recursos de armazenamento no Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+
 <!--HONumber=42-->

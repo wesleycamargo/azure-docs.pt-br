@@ -255,4 +255,5 @@ Quando um push é cancelado, o `PushAsync` gerará uma `MobileServicePushFailedE
 [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data/
 
+
 <!--HONumber=42-->

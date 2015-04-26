@@ -286,7 +286,7 @@ Para obter mais informações sobre configuração e uso do provedor de estado d
 Agora que você aprendeu o básico de cache Redis do Azure,siga os links para saber como realizar tarefas de cache mais complexas.
 
 -	[Habilite o diagnóstico de cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que você possa [monitorar](https://msdn.microsoft.com/library/azure/dn763945.aspx) a integridade do cache. Você pode exibir as métricas no portal e também pode [baixá-las e analisá-las](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando as ferramentas de sua escolha.
--	Aprenda mais sobre o cliente StackExchange.Redis: [Documentação de cliente de cache Redis StackExchange.Redis][]
+-	Aprenda mais sobre o cliente StackExchange.Redis: [documentação de cliente de cache StackExchange.Redis][]
 	-	O Cache Redis do Azure pode ser acessado por meio de muitos clientes Redis e linguagens de desenvolvimento. Para obter mais informações, consulte [http://redis.io/clients][] e [Desenvolver em outras linguagens para o Cache Redis do Azure][].
 	-	O Cache Redis do Azure também pode ser usado com serviços como Redsmin. Para obter mais informações, consulte [Como recuperar uma cadeia de conexão do Redis do Azure e usá-la com Redsmin][].
 -	Consulte a documentação do [Redis][] e leia sobre [tipos de dados de Redis][] e [uma introdução de quinze minutos aos tipos de dados de Redis][].
@@ -341,7 +341,7 @@ Agora que você aprendeu o básico de cache Redis do Azure,siga os links para sa
 [http://redis.io/clients]: http://redis.io/clients
 [Desenvolver em outras linguagens para o Cache Redis do Azure]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [Como recuperar uma cadeia de conexão do Redis do Azure e usá-la com Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Provedor de estado de sessão do Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
+[Provedor de estado de sessão de Redis do Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Portal de Gerenciamento do Azure]: http://windows.azure.com/
 [Como: Configurar um cliente de cache de modo programático]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Provedor de Estado de Sessão para Cache do Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -374,7 +374,7 @@ Agora que você aprendeu o básico de cache Redis do Azure,siga os links para sa
 [Usando os grupos de recursos para gerenciar seus recursos do Azure]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[Documentação de cliente de cache Redis StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[documentação de cliente de cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
 [Tipos de dados de Redis]: http://redis.io/topics/data-types

@@ -94,4 +94,5 @@ Para associar seu domínio personalizado a um site do Azure, você deve adiciona
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 
+
 <!--HONumber=42-->

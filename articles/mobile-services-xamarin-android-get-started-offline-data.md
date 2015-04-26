@@ -172,4 +172,6 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [Extensão Xamarin]: http://xamarin.com/visual-studio
 [Suplemento do NuGet para Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

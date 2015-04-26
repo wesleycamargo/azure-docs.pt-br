@@ -51,4 +51,5 @@
    	Observe que o método  `Skip(3)` foi convertido na opção de consulta `$skip=3` no URI da consulta.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+<!--HONumber=42-->

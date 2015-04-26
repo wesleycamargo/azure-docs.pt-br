@@ -37,12 +37,12 @@ Será necessário ter os seguintes pacotes instalados:
 - `php5`
 - `php5-mysql`
 
-Após executar  `apt-get update` para atualizar os pacotes de lista local, você pode instalar esses pacotes com um simples comando  `apt-get install`:
+Após executar `apt-get update` para atualizar a lista local de pacotes, você pode instalar esses pacotes com um simples comando `apt-get install`:
 
 	# sudo apt-get update
 	# sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-Após executar o comando acima, você será solicitado a instalar esses pacotes e algumas outras dependências.  Pressione 'y' e 'Enter' para continuar e siga os avisos para definir uma senha administrativa para MySQL.
+Após executar o comando acima, você será solicitado a instalar esses pacotes e algumas outras dependências.  Pressione 'y' and then 'Enter' para continuar e siga os avisos para definir uma senha administrativa para o MySQL.
 
 Serão instaladas as solicitações mínimas das extensões PHP necessárias para se usar o PHP com o MySQL. Execute o comando a seguir para ver outras extensões PHP que estão disponíveis em pacotes:
 
@@ -59,18 +59,18 @@ Será necessário ter os seguintes pacotes instalados:
 - `php`
 - `php-mysql`
 
-Você pode instalar esses pacotes com um simples comando  `yum install`:
+Você pode instalar esses pacotes com um simples comando `yum install`:
 
 	# sudo yum install httpd mysql mysql-server php php-mysql
 
-Após executar o comando acima, você será solicitado a instalar esses pacotes e algumas outras dependências.  Pressione 'y' e 'Enter' para continuar.
+Após executar o comando acima, você será solicitado a instalar esses pacotes e algumas outras dependências.  Pressione 'y' and then 'Enter' para continuar.
 
 Serão instaladas as solicitações mínimas das extensões PHP necessárias para se usar o PHP com o MySQL. Execute o comando a seguir para ver outras extensões PHP que estão disponíveis em pacotes:
 
 	# yum search php
 
 
-## Instalando o servidor do SUSE Linux Enterprise
+## Instalando o SUSE Linux Enterprise Server
 
 Será necessário ter os seguintes pacotes instalados:
 
@@ -79,11 +79,11 @@ Será necessário ter os seguintes pacotes instalados:
 - apache2-mod_php53
 - php53-mysql
 
-Você pode instalar esses pacotes com um simples comando  `zypper install`:
+Você pode instalar esses pacotes com um simples comando `zypper install`:
 
 	# sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-Após executar o comando acima, você será solicitado a instalar esses pacotes e algumas outras dependências.  Pressione 'y' e 'Enter' para continuar.
+Após executar o comando acima, você será solicitado a instalar esses pacotes e algumas outras dependências.  Pressione 'y' and then 'Enter' para continuar.
 
 Serão instaladas as solicitações mínimas das extensões PHP necessárias para se usar o PHP com o MySQL. Execute o comando a seguir para ver outras extensões PHP que estão disponíveis em pacotes:
 
@@ -97,23 +97,23 @@ Configurando
 
 	- Execute o comando a seguir para assegurar que o servidor Web Apache foi iniciado:
 
-		- Ubuntu & SLES: `sudo service apache2 restart`
+		- Ubuntu e SLES: `sudo service apache2 restart`
 
-		- CentOS & Oracle: `sudo service httpd restart`
+		- CentOS e Oracle: `sudo service httpd restart`
 
 	- Apache ouve na porta 80 por padrão. Você precisa abrir o ponto de extremidade para acessar o servidor Apache remotamente.  Consulte a documentação em [configuração de pontos de extremidade](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) para obter instruções mais detalhadas.
 
-	- Você pode verificar agora se o Apache está executado e fazendo a manutenção do conteúdo. Aponte o servidor para  `http://[MYSERVICE].cloudapp.net`, onde **[[MYSERVICE]]** é o nome do serviço de nuvem onde sua máquina virtual está. Em algumas distribuições você pode simplesmente encontrar uma página da Web padrão dizendo apenas "Está funcionando". Em outras, você pode ver uma página da Web completa com links para documentação e conteúdo adicional para a configuração do servidor Apache.
+	- Você pode verificar agora se o Apache está executado e fazendo a manutenção do conteúdo. Aponte o navegador para `http://[MYSERVICE].cloudapp.net`, onde **[[MYSERVICE]]** é o nome do serviço de nuvem onde reside sua máquina virtual. Em algumas distribuições você pode simplesmente encontrar uma página da Web padrão dizendo apenas "Está funcionando". Em outras, você pode ver uma página da Web completa com links para documentação e conteúdo adicional para a configuração do servidor Apache.
 
 2. Configurar **MySQL**
 
-	- Observe que esse passo não é necessário no Ubuntu, o qual o solicita uma senha  `root` MySQL quando o pacote do servidor MySQL for instalado.
+	- Observe que esta etapa não é necessária no Ubuntu, que solicita a senha de `root` do MySQL de quando o pacote do servidor MySQL for instalado.
 
 	- Em outras distribuições, defina a senha raiz para MySQL, executando o seguinte comando:
 
 			# mysqladmin -u root -p password yourpassword
 
-	- Você pode gerenciar o MySQL usando os utilitários  `mysql` ou  `mysqladmin`.
+	- Você pode gerenciar o MySQL usando os utilitários `mysql` ou `mysqladmin`.
 
 
 ##Leitura adicional
@@ -121,4 +121,5 @@ Configurando
 Há muitos recursos para configurar uma pilha de LÂMPADA no Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

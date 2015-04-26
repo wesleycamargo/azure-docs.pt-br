@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução às notificações por push (Windows Store) | Centro de Desenvolvimento de Serviços Móveis" 
 	description="Saiba como usar serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo da Windows Store." 
 	services="mobile-services, notification-hubs" 
@@ -197,7 +197,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Introdução aos dados]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-data
 [Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-windows-phone-get-started-users
 
-[Configurando um serviço web autenticado para enviar notificações por push para o Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Configurando um serviço Web autenticado para enviar notificações por push ao Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
@@ -209,4 +209,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar notificações de transmissão para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
 [Enviar notificações baseadas em modelo para assinantes]: /pt-br/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
 
-\<!--HONumber=42-->
+
+<!--HONumber=42-->

@@ -85,4 +85,5 @@ Agora que você configurou seu computador e criou uma solução do Visual Studio
 [Como criar um ativo criptografado e carregar no armazenamento]: ../media-services-create-encrypted-asset-upload-storage/
 
 
+
 <!--HONumber=42-->

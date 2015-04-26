@@ -46,4 +46,5 @@ Antes de poder realizar qualquer coisa com um blob, será necessário obter a ca
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
+
 <!--HONumber=42-->

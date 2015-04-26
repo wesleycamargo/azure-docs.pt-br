@@ -122,4 +122,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Como usar um cliente .NET para os Serviços Móveis do Azure]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 
+
 <!--HONumber=42-->

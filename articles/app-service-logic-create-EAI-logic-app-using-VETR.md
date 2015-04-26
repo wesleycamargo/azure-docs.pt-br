@@ -1,6 +1,6 @@
 ﻿<properties 
    pageTitle="Criar Aplicativo Lógico de EAI usando VETR" 
-   description="Este tópico aborda os recursos de Validar, Codificar e Transformar dos serviços XML do BizTalk." 
+   description= "Este tópico aborda os recursos de Validar, Codificar e Transformar dos serviços XML do BizTalk." 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 

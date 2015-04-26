@@ -1,21 +1,9 @@
-﻿<properties 
-	pageTitle="Recomendações de Aprendizado de Máquina do Azure -  
-Documentação da API" 
-	description="Recomendações de aprendizado de máquina do Azure - 
-documentação do API" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
-	editor="cgronlun"/>
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="AharonGumnik"/>
+﻿<properties title="Azure Machine Learning Recommendations - 
+API documentation" pageTitle="Recomendações de Aprendizado de Máquina do Azure -  
+Documentação da API" description="Recomendações de aprendizado de máquina do Azure - 
+documentação do API" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="AharonGumnik" />
 
 #Recomendações de Aprendizado de Máquina do Azure - <br>Documentação da API
 
@@ -230,7 +218,7 @@ Recupera todos os modelos do usuário atual
 
 | Método HTTP | URI |
 |:--------|:--------|
-|DELETE     |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>Exemplo:<br>`<rootURI>/GetAllModels?apiVersion=%271.0%27`|
+|DELETE     |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>Exemplo:<br>"<rootURI>/GetAllModels?apiVersion=%271.0%27"|
 
 |	Nome do parâmetro	|	Valores válidos						|
 |:--------			|:--------								|
@@ -244,20 +232,20 @@ HTTP Status code: 200
 
 OData XML
 
-	feed/entry/content/properties/Id – Model unique id
-	feed/entry/content/properties/Name – Model name
-	feed/entry/content/properties/Date – Model creation date
-	feed/entry/content/properties/Status – Model status. One of the following:
+	feed/entry/content/properties/Id - Model unique id
+	feed/entry/content/properties/Name - Model name
+	feed/entry/content/properties/Date - Model creation date
+	feed/entry/content/properties/Status - Model status. One of the following:
 	•	Created - model is created and does not contains Catalog and Usage
-	•	ReadyForBuild – model is created and contains Catalog and Usage
-	feed/entry/content/properties/HasActiveBuild – indicate if model was built successfully
-	feed/entry/content/properties/BuildId – Model active BuildId
-	feed/entry/content/properties/Mpr – Model MPR (see ModelInsight for more information)
-	feed/entry/content/properties/UserName – Model internal username
-	feed/entry/content/properties/UsageFileNames – List of model usage files separated by comma
-	feed/entry/content/properties/CatalogId – Model Catalog Id
-	feed/entry/content/properties/Description – Model description
-	feed/entry/content/properties/CatalogFileName – Model Catalog file name
+	•	ReadyForBuild - model is created and contains Catalog and Usage
+	feed/entry/content/properties/HasActiveBuild - indicate if model was built successfully
+	feed/entry/content/properties/BuildId - Model active BuildId
+	feed/entry/content/properties/Mpr - Model MPR (see ModelInsight for more information)
+	feed/entry/content/properties/UserName - Model internal username
+	feed/entry/content/properties/UsageFileNames - List of model usage files separated by comma
+	feed/entry/content/properties/CatalogId - Model Catalog Id
+	feed/entry/content/properties/Description - Model description
+	feed/entry/content/properties/CatalogFileName - Model Catalog file name
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -647,7 +635,7 @@ This API returns model insight on the active build or if given on a specific bui
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 |	modelId	|	The unique identifier of the model. |
-|	buildId	|	Optional – a number that identifies a successfully build. |
+|	buildId	|	Optional - a number that identifies a successfully build. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -900,9 +888,9 @@ HTTP Status code: 200
 
 OData XML
 
-	feed/entry/content/properties/Id – The unique identifier of this rule
-	feed/entry/content/properties/Type – The type of the rule. BlockList or Upsale
-	feed/entry/content/properties/Parameter – The rule parameter
+	feed/entry/content/properties/Id - The unique identifier of this rule
+	feed/entry/content/properties/Type - The type of the rule. BlockList or Upsale
+	feed/entry/content/properties/Parameter - The rule parameter
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -1039,8 +1027,8 @@ HTTP Status code: 200
 
 OData XML
 
-	feed\entry\content\properties\LineCount – number of lines accepted
-	feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
+	feed\entry\content\properties\LineCount - number of lines accepted
+	feed\entry\content\properties\ErrorCount - number of lines that were not inserted due to an error
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -1187,12 +1175,12 @@ OData XML
 
 	The response includes one entry per catalog item, each entry has the following data:
 
-	feed/entry/content/properties/ExternalId – Catalog item external Id, the one provided by the customer
-	feed/entry/content/properties/InternalId – Catalog item internal Id, the one that Azure ML Recommendations has generated
-	feed/entry/content/properties/Name – Catalog item name
-	feed/entry/content/properties/Category – Catalog item category
-	feed/entry/content/properties/Description – Catalog item description
-	feed/entry/content/properties/Metadata – Catalog item metadata
+	feed/entry/content/properties/ExternalId - Catalog item external Id, the one provided by the customer
+	feed/entry/content/properties/InternalId - Catalog item internal Id, the one that Azure ML Recommendations has generated
+	feed/entry/content/properties/Name - Catalog item name
+	feed/entry/content/properties/Category - Catalog item category
+	feed/entry/content/properties/Description - Catalog item description
+	feed/entry/content/properties/Metadata - Catalog item metadata
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalogItemsByToken" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -1234,7 +1222,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 | nome do arquivo | Identificador textual do catálogo.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hífens (-) e sublinhado (_)<br>Comprimento máximo: 50 |
 |	apiVersion		| 1.0 |
 |||
-| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id de usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador exclusivo de um usuário</td></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, Comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, também deve colocar a data</td><td>Um dos seguintes:<br>• Clique<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo de arquivo 200 MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corpo da solicitação | Dados de uso. Formato:<br>"<User Id>,<Item Id>[,<Time>,<Event>]"<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id de usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador exclusivo de um usuário</td></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, Comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, também deve colocar a data</td><td>Um dos seguintes:<br>• Clique<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo de arquivo 200 MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -1242,9 +1230,9 @@ HTTP Status code: 200
 
 OData XML
 
-	Feed\entry\content\properties\LineCount – number of lines accepted
-	Feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
-	Feed\entry\content\properties\FileId – the file identifier
+	Feed\entry\content\properties\LineCount - number of lines accepted
+	Feed\entry\content\properties\ErrorCount - number of lines that were not inserted due to an error
+	Feed\entry\content\properties\FileId - the file identifier
 
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
@@ -1463,9 +1451,9 @@ OData XML
 
 	A collection of key/value that each one contains the sum of events for a specific event type grouped by hour.
 	The key:
-		feed\entry[i]\content\properties\Key – contains the time (grouped by hours) and the event type.
+		feed\entry[i]\content\properties\Key - contains the time (grouped by hours) and the event type.
 	The value:
-		feed\entry[i]\content\properties\Value – total event count
+		feed\entry[i]\content\properties\Value - total event count
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -1679,18 +1667,18 @@ HTTP Status code: 200
 
 OData XML
 
-	This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
+	This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the "Get Builds Status of a Model" API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
 	You cannot consume recommendations till the build ends.
 
 	Valid build status:
 
-	* Create – model was created
-	* Queued – model build was triggered and it is queued
-	* Building – the model is being build
-	* Success – the build ended successfully
-	* Error – the build ended with a failure
-	* Cancelled – build was canceled
-	* Cancelling – build is being cancelled
+	* Create - model was created
+	* Queued - model build was triggered and it is queued
+	* Building - the model is being build
+	* Success - the build ended successfully
+	* Error - the build ended with a failure
+	* Cancelled - build was canceled
+	* Cancelling - build is being cancelled
 
 	Feed\entry\content\properties\Id - contains the build id
 
@@ -2221,10 +2209,10 @@ HTTP Status code: 200
 OData XML
 
     The response includes one entry per recommended item, each entry has the following data:
-		* Feed\entry\content\properties\Id – The recommended item id
-		* Feed\entry\content\properties\Name – The name of the item 
-		* Feed\entry\content\properties\Rating – The rating of the recommendation, higher number means higher confidence
-		* Feed\entry\content\properties\Reasoning – the recommendation reasoning
+		* Feed\entry\content\properties\Id - The recommended item id
+		* Feed\entry\content\properties\Name - The name of the item 
+		* Feed\entry\content\properties\Rating - The rating of the recommendation, higher number means higher confidence
+		* Feed\entry\content\properties\Reasoning - the recommendation reasoning
 
     The example response below includes 10 recommended items:
 

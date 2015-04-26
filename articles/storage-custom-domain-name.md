@@ -159,4 +159,5 @@ contêiner **myforms**:
 ## Recursos adicionais
 
 -   <a href="http://msdn.microsoft.com/library/windowsazure/gg680307.aspx">Como mapear o conteúdo da CDN para um domínio personalizado</a>
+
 <!--HONumber=42-->

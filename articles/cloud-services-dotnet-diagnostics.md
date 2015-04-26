@@ -789,8 +789,8 @@ A tabela a seguir compara os recursos com suporte pelas versões de Diagnóstico
 [Coletar dados do log usando o Diagnóstico do Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Práticas recomendadas para solução de problemas no desenvolvimento de aplicativos do Azure]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
 [Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure]:http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[Avaliação gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Avaliação gratuita]: http://azure.microsoft.com/ pricing/free-trial/
+[Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Esquema de configuração do Diagnóstico do Azure 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx

@@ -190,4 +190,6 @@ As mudanças geradas em seu aplicativo foram extraídas do seu serviço móvel p
 [SMS]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

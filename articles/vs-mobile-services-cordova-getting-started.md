@@ -93,4 +93,5 @@ Excluir uma linha em uma tabela de dados usando o método **del**. Chame o méto
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Como usar o serviço de email SendGrid (Node.js) - Azure" 
 	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js." 
 	services="" 
@@ -186,8 +186,7 @@ Os exemplos a seguir demonstram os filtros de rodapé e de acompanhamento de cli
 Algumas propriedades de email podem ser substituídas usando **set*Property*** ou acrescentadas usando **add*Property***. Por exemplo, você pode adicionar destinatários adicionais ao usar
 
     email.addTo('jeff@contoso.com');
-
-ou definir um filtro usando
+    or set a filter by using
 
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');

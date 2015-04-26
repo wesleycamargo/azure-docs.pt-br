@@ -269,4 +269,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar notificações de difusão para assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-breaking-news/
 [Enviar notificações baseadas em modelo aos assinantes]: /pt-br/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

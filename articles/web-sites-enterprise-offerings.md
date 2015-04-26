@@ -149,4 +149,5 @@ O Sites do Microsoft Azure oferece uma solução flexível, econômica e respons
 Para obter mais informações sobre o serviço de Websites do Microsoft Azure, acesse [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites), no qual mais informações podem ser obtidas, e se inscreva para uma versão de avaliação hoje mesmo em [http://aka.ms/azuretrial](http://aka.ms/azuretrial) para avaliar o serviço e descobrir os benefícios para sua empresa.
 
 
+
 <!--HONumber=42-->

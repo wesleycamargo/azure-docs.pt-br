@@ -308,4 +308,5 @@ Agora que você compreende como obter dados no HDInsight, use os seguintes artig
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
+
 <!--HONumber=42-->

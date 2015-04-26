@@ -9,13 +9,13 @@ Para gerenciar as configurações da máquina virtual e os aplicativos executado
 
 Este tutorial mostra como usar o programa PuTTY para acessar a máquina virtual.
 
-1. Encontre o **Nome do Host** e as **Informações da porta** no Portal de gerenciamento. Você pode encontrar as informações que você precisa no painel da máquina virtual. Clique no nome da máquina virtual e procure os **Detalhes de SSH** na seção **Visão Rápida** do painel de controle.
+1. Encontre o **Nome do Host** e as **Informações da porta** no Portal de Gerenciamento. Você pode encontrar as informações que você precisa no painel da máquina virtual. Clique no nome da máquina virtual e procure os **Detalhes de SSH** na seção **Visão Rápida** do painel de controle.
 
 	![Find SSH details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/SSHdetails.png)
 
 2. Abra o programa PuTTY.
 
-3. Insira o **Nome do Host** e as **Informações da porta** que você coletou no painel e clique em **Abrir**.
+3. Insira o **Nome do Host** e as **Informações da porta** coletadas no painel e clique em **Abrir**.
 
 	![Enter the host name and port information](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/putty.png)
 
@@ -30,11 +30,11 @@ Este tutorial mostra como usar o programa PuTTY para acessar a máquina virtual.
 
 Seu aplicativo pode precisar armazenar dados. Para configurar isso, você pode anexar um disco de dados à máquina virtual criada anteriormente. A maneira mais fácil de fazer isso é anexar um disco de dados vazio à máquina.
 
-No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia do usuário do Azure Linux Agent](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) para obter mais informações.
+No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, o disco de dados do Linux pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) para obter mais informações.
 
 >[AZURE.NOTE] Não armazene dados no disco de recursos. Este disco oferece armazenamento temporário para aplicativos e processos e é usado para armazenar dados que não são mais necessários, como arquivos de permuta. Os discos de dados ficam localizados no Armazenamento do Azure, como arquivos .vhd em blobs de páginas, e oferecem redundância de armazenamento para proteger seus dados. Para obter detalhes, consulte [Sobre discos e imagens no Azure](http://msdn.microsoft.com/library/jj672979.aspx).
 
-1. Se você ainda não fez isso, entre no Portal de Gerenciamento do Azure.
+1. Se você ainda não tiver feito isso, entre no Portal de Gerenciamento do Azure.
 
 2. Clique em **Máquinas Virtuais** e, em seguida, selecione a máquina virtual **MyTestVM1** criada anteriormente.
 
@@ -42,7 +42,7 @@ No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do A
 	
 	A caixa de diálogo **Anexar Disco Vazio** é exibida.
 
-	![Definir detalhes do disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
+	![Define disk details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. O **Nome da Máquina Virtual**, **Local de Armazenamento** e **Nome do Arquivo** já estão definidos para você. Tudo o que você precisa fazer é digitar o tamanho desejado para o disco. Digite **5** no campo **Tamanho**.
 
@@ -57,7 +57,7 @@ No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do A
 	![Attach disk success](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachemptysuccess.png)
 
 
-O disco de dados que você acabou de anexar à máquina virtual está offline e não será inicializado depois de anexá-lo. Você deve fazer logon no computador e inicializar o disco para usá-lo para armazenar dados.
+O disco de dados que você acabou de anexar à máquina virtual está offline e não será inicializado depois de adicioná-lo. Você deve fazer logon no computador e inicializar o disco para usá-lo para armazenar dados.
 
 1. Conecte-se à máquina virtual usando as etapas listadas acima, em **Como fazer logon na máquina virtual depois de criá-la**.
 
@@ -75,7 +75,7 @@ O disco de dados que você acabou de anexar à máquina virtual está offline e 
 
 	`sudo fdisk /dev/sdc`
 
-	>[AZURE.NOTE] Neste exemplo, você talvez precise usar  `sudo -i` em algumas distribuições se /sbin ou /usr/sbin não estiverem em seu `$PATH`.
+	>[AZURE.NOTE] Neste exemplo, você talvez precise usar `sudo -i` em algumas distribuições se /sbin ou /usr/sbin não estiverem em seu `$PATH`.
 
 
 4. Digite **n** para criar uma nova partição.
@@ -131,9 +131,9 @@ O disco de dados que você acabou de anexar à máquina virtual está offline e 
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	>[AZURE.NOTE] O blkid pode não exigir acesso sudo em todos os casos, no entanto, pode ser mais fácil executar com `sudo -i` em algumas distribuições se /sbin ou/usr/sbin não estiverem em seu '$PATH'.
+	>[AZURE.NOTE] O blkid pode não exigir acesso sudo em todos os casos, no entanto, pode ser mais fácil executar com `sudo -i` em algumas distribuições se /sbin ou /usr/sbin não estiverem em seu `$PATH`.
 
-	**Cuidado:** edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar esse arquivo adequadamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
+	**Cuidado:** a edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editar esse arquivo adequadamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
 
 	Usando um editor de texto, insira as informações sobre o novo sistema de arquivos no final do arquivo /etc/fstab.  Neste exemplo, usaremos o valor UUID para o novo dispositivo **/dev/sdc1** que foi criado nas etapas anteriores, e também o ponto de montagem **/datadrive**:
 
@@ -145,7 +145,7 @@ O disco de dados que você acabou de anexar à máquina virtual está offline e 
 
 	Se as partições ou unidades de dados adicionais forem criadas será necessário inseri-las separadamente em/etc/fstab também.
 
-	Agora você pode testar se o sistema de arquivo é montado corretamente ao simplesmente desmontar e, em seguida, montar novamente o sistema de arquivo, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores: 
+	Agora você pode testar se o sistema de arquivos está montado corretamente: basta desmontar e remontar o sistema de arquivos, isto é, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores: 
 
 		`sudo umount /datadrive`
 		`sudo mount /datadrive`
@@ -153,7 +153,8 @@ O disco de dados que você acabou de anexar à máquina virtual está offline e 
 	Se o segundo comando produzir um erro, verifique o arquivo /etc/fstab para obter a sintaxe correta.
 
 
-	>[AZURE.NOTE] Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta é uma ocorrência comum, então a maioria das distribuições fornecem tanto as opções  `nofail` e/ou `nobootwait` fstab que permitirá que o sistema inicialize o mesmo se o disco não estiver presente. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+	>[AZURE.NOTE] Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta é uma ocorrência comum, então a maioria das distribuições fornecem tanto as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema inicialize mesmo se o disco não estiver presente. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 
