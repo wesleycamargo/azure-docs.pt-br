@@ -1,6 +1,6 @@
 ﻿
 Esta seção mostra como enviar notificações por meio de um aplicativo de console .NET e de qualquer outro.
-Se você estiver usando os serviços móveis, consulte os tutoriais [Introdução ao Push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação a partir de Java/PHP](notification-hubs-java-backend-how-to.md). Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
+Se você estiver usando os Serviços Móveis, consulte os tutoriais [Introdução ao Push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) .  Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação por meio de Java/PHP](notification-hubs-java-backend-how-to.md).  Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
 
 O código a seguir envia notificações à Windows Store, Windows Phone, iOS e dispositivos Android. 
 
@@ -69,9 +69,9 @@ Ignore as etapas 1 a 3, se você tiver criado um aplicativo de console quando co
             }
 		 }
 
-	Este código envia notificações para cada uma das seis marcas na matriz de cadeia de caracteres para a Windows Store, dispositivos com iOS e Windows Phone. O uso de marcas certifica-se de que dispositivos recebam notificações somente para as categorias de marcas.
+	Este código envia notificações para cada uma das seis marcas na matriz de cadeia de caracteres para a Windows Store, dispositivos com iOS e Windows Phone.  O uso de marcas certifica-se de que dispositivos recebam notificações somente para as categorias de marcas.
 	
-	> [AZURE.NOTE] Esse código de back-end oferece suporte a Windows Store, clientes de iOS, Windows Phone e Android. Envie métodos retornam uma resposta de erro quando o hub de notificação ainda não foi configurado para uma plataforma de cliente específico. 
+	> [AZURE.NOTE] Esse código de back-end oferece suporte a Windows Store, clientes de iOS, Windows Phone e Android.  Envie métodos retornam uma resposta de erro quando o hub de notificação ainda não foi configurado para uma plataforma de cliente específico. 
 
 6. No código acima, substitua os espaços reservados "<hub name>" e "<connection string with listen access>" com o nome de seu hub de notificação e a cadeia de conexão para *DefaultFullSharedAccessSignature* que você tiver obtido anteriormente.
 
@@ -92,13 +92,13 @@ Ignore as etapas 1 a 3, se você tiver criado um aplicativo de console quando co
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /pt-br/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Usando os Hubs de notificação para enviar notificações aos usuários]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
+[introdução]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[Usar os Hubs de notificação para enviar notificações aos usuários]: ../articles/tutorial-notify-users-mobileservices.md
+[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started/#create-new-service
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Interface REST de Hubs de Notificação]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

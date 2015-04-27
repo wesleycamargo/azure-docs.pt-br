@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Descreve o que foi alterado em seu projeto do Visual Studio após a execução do assistente do Active Directory do Azure." 
+	description="Descreve o que foi alterado no projeto do Visual Studio depois que você executou o assistente do Active Directory do Azure" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -15,6 +15,8 @@
 	ms.topic="article" 
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
+
+# O que aconteceu com meu projeto?
 
 > [AZURE.SELECTOR]
 > - [Introdução](vs-active-directory-webapi-getting-started.md)
@@ -50,11 +52,11 @@ Referências foram adicionadas.
 
 #####Arquivos de código foram adicionados ao seu projeto 
 
-Uma classe de inicialização de autenticação, a **App_Start/Startup.Auth.cs** foi adicionada ao seu projeto contendo lógica de inicialização para autenticação do Azure AD. 
+Uma classe de inicialização de autenticação, a **App_Start/Startup.Auth.cs** foi adicionada ao seu projeto contendo lógica de inicialização para a autenticação do Azure AD. 
 
 #####O código de inicialização foi adicionado ao seu projeto 
 
-Se você já possuía uma classe Startup no projeto, o método **Configuration** foi atualizado para incluir uma chamada para `ConfigureAuth(app)` e adicionado ao método. Caso contrário, uma classe Startup foi adicionada ao projeto. 
+Se você já tiver uma classe de Inicialização em seu projeto, o método **Configuração** terá sido atualizado para incluir uma chamada para  `ConfigureAuth(app)`, que foi incluída nesse método.  Caso contrário, uma classe Startup foi adicionada ao projeto. 
 
 
 #####Seu arquivo app.config ou web.config possui novos valores de configuração.
@@ -72,6 +74,6 @@ As entradas de configuração a seguir foram adicionadas.
 Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
 
-[Saiba mais sobre o Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

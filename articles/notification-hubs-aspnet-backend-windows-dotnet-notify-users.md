@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Notificação de Usuários nos Hubs de Notificação do Azure" 
-	description="Saiba como enviar notificações por push seguro no Azure. Exemplos de códigos escritos em C# usando a API do .NET." 
+	description="Saiba como enviar notificações por push seguro no Azure.  Amostras de código escrito em C# usando a API .NET." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -13,35 +13,46 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
-	ms.author="glenga"/>
+	ms.date="2/16/2015" 
+	ms.author="wesmc"/>
 
 #Notificação de Usuários nos Hubs de Notificação do Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/pt-br/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/pt-br/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, como mostrado no tópico de instrução[ Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial baseia-se no hub de notificação que você criou no tutorial **Introdução aos Hubs de Notificação**.
+##Visão geral
 
-Este tutorial também é um pré-requisito para o tutorial **Push Seguro**. Após ter concluído as etapas deste tutorial **Notificação de Usuários**, você poderá seguir para o tutorial **Push Seguro**, que mostra como modificar o código de **Notificação de Usuários** para enviar uma notificação por push com segurança. 
+O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.  Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico.  Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, como mostrado no tópico de instrução[ Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx).  Este tutorial baseia-se no hub de notificação que você criou no tutorial [Introdução aos Hubs de Notificação].
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Windows Store)](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
-> Se você estiver usando Serviços móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) deste tutorial.
->Observe também que neste tutorial você criará aplicativo 8.1 da Windows Phone Store. O mesmo código pode ser usado para aplicativos da Windows Store e Windows Universal. Todos esses aplicativos precisam usar credenciais do Windows (e não do Windows Phone).
+Este tutorial também é um pré-requisito para o tutorial [Push Seguro].  Depois de concluir as etapas deste tutorial, você pode prosseguir para o tutorial [Proteger Push], que mostra como modificar o código neste tutorial para enviar uma notificação por push com segurança. 
+
+
+##Pré-requisitos 
+
+Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
+
++ [Introdução aos Hubs de Notificação]<br/>Criar seu hub de notificação, reservar o nome do aplicativo e se registrar para receber notificações neste tutorial.
+
+
+
+
+> [AZURE.NOTE] Se você estiver usando Serviços Móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) deste tutorial.
+
 
 ## Criar e configurar o hub de notificação
 
-Antes de começar este tutorial, você deve criar um nome de aplicativo e, em seguida, criar um Hub de Notificação do Azure e conectá-lo ao aplicativo. Siga as etapas descritas em [Introdução aos Hubs de Notificação (Windows Store)](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/); especificamente, as seções [Registrar seu aplicativo para a Windows Store](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) e [Configurar seu Hub de Notificação](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Especificamente, não se esqueça de inserir os valores de **SID do Pacote** e **Segredo do Cliente** no portal, na guia **Configurar** de seu hub de notificação. Esse procedimento de configuração é descrito na seção [Configurar seu Hub de Notificação](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Esta é uma etapa importante: se as credenciais no portal não corresponderem àquelas especificadas para o nome do aplicativo escolhido, a notificação por push não será bem-sucedida.
+Antes de começar este tutorial, você deve criar um nome de aplicativo e, em seguida, criar um Hub de Notificação do Azure e conectá-lo ao aplicativo.  Siga as etapas em [Introdução aos Hubs de notificação (Windows Store)](http://azure.microsoft.comnotification-hubs-windows-store-dotnet-get-started.md); especificamente, as seções [Registrar o seu aplicativo na Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register) e [Configurar seu Hub de notificação](notification-hubs-windows-store-dotnet-get-started.md#configure-hub).  Especificamente, não se esqueça de inserir os valores de **SID do Pacote** e **Segredo do Cliente** no portal, na guia **Configurar** de seu hub de notificação.  Esse procedimento de configuração é descrito na seção [Configurar seu Hub de Notificação](notification-hubs-windows-store-dotnet-get-started.md#configure-hub).  Esta é uma etapa importante: se as credenciais no portal não corresponderem àquelas especificadas para o nome do aplicativo escolhido, a notificação por push não será bem-sucedida.
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Criar o projeto do Windows Phone
 
-A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse projeto à solução atual, faça o seguinte:
+A próxima etapa é criar o aplicativo do Windows Phone.  Para adicionar esse projeto à solução atual, faça o seguinte:
 
-1. No Gerenciador de Soluções, clique com o botão direito no nó do nível superior da solução (**Solution NotifyUsers** nesse caso), em seguida, clique em **Adicionar** e, em seguida, clique em **Novo Projeto**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no nó do nível superior da solução (**Solution NotifyUsers** nesse caso), em seguida, clique em **Adicionar** e depois em **Novo Projeto**.
 
 2. Expanda **Aplicativos da Loja** e clique em **Aplicativos do Windows Phone** e em **Aplicativo em Branco (Windows Phone)**.
 
@@ -50,7 +61,7 @@ A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse pro
 3. No campo **Nome**, digite **NotifyUserWindowsPhone** e clique em **OK** para gerar o projeto.
 
  
-4. Associe esse aplicativo à Windows Phone Store: no Gerenciador de Soluções, clique com o botão direito em **NotifyUserWindowsPhone (Windows Phone 8.1)**, clique em **Loja** e, em seguida, clique em **Associar Aplicativo à Loja...**.
+4. Associe esse aplicativo à Windows Phone Store: no Gerenciador de Soluções, clique com o botão direito do mouse em **NotifyUserWindowsPhone (Windows Phone 8.1)**, clique em **Loja** e, em seguida, clique em **Associar Aplicativo à Loja...**.
 
 	![][10]
  
@@ -58,21 +69,21 @@ A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse pro
 
 	![][11]
 	
-	> [AZURE.NOTE] Lembre-se de anotar o nome do aplicativo que você escolheu durante esse procedimento. Você deve configurar o hub de notificação no portal usando as credenciais obtidas no [Centro de Desenvolvimento do Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) para esse nome de aplicativo específico reservado. Esse procedimento de configuração é descrito em [Configurar seu Hub de Notificação](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Esta é uma etapa importante: se as credenciais no portal não corresponderem àquelas especificadas para o nome do aplicativo escolhido, a notificação por push não será bem-sucedida.
+	> [AZURE.NOTE] Lembre-se de anotar o nome do aplicativo que você escolheu durante esse procedimento.  Você deve configurar o hub de notificação no portal usando as credenciais obtidas no [Centro de Desenvolvimento do Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) para esse nome de aplicativo específico reservado.  Esse procedimento de configuração é descrito em [Configurar seu Hub de Notificação](notification-hubs-windows-store-dotnet-get-started.md#configure-hub).  Esta é uma etapa importante: se as credenciais no portal não corresponderem àquelas especificadas para o nome do aplicativo escolhido, a notificação por push não será bem-sucedida.
 
-6. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto**NotifyUserWindowsPhone (Windows Phone 8.1)** e em **Gerenciar Pacotes NuGet**.
+6. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)** e em **Gerenciar Pacotes NuGet**.
 
 7. No lado esquerdo, clique em **Online**.
 
 8. Na caixa **Pesquisar**, digite **Http Client**.
 
-9. Na lista de resultados, clique em **Bibliotecas de Cliente HTTP da Microsoft** e em **Instalar**. Conclua a instalação.
+9. Na lista de resultados, clique em **Bibliotecas de Cliente HTTP da Microsoft** e em **Instalar**.  Conclua a instalação.
 
-10. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**. Instale o pacote **Json.NET** e feche a janela do Gerenciador de Pacotes NuGet.
+10. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**.  Instale o pacote **Json.NET** e feche a janela do Gerenciador de Pacotes NuGet.
 
 11. No Gerenciador de Soluções, no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)**, clique duas vezes em **MainPage.xaml** para abri-lo no editor do Visual Studio.
 
-12. No código XML **MainPage.xaml**, substitua a seção `<Grid>` pelo código a seguir:
+12. No código de XML de **MainPage.xaml**, substitua a seção `<Grid>` pelo seguinte código:
 
 		<Grid>
 	        <Grid.RowDefinitions>
@@ -105,9 +116,9 @@ A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse pro
     	</Grid>
 
 
-13. No Gerenciador de Soluções, clique com o botão direito no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)**, clique em **Adicionar** e, em seguida, em **Classe**. Nomeie a classe como **RegisterClient.cs** e clique em **OK** para gerar a classe. Esse componente implementa as chamadas do REST necessárias para entrar em contato com o back-end do aplicativo para se registrar para as notificações por push. Ele também armazena localmente os *registrationIds* criados pelo Hub de Notificação, conforme detalhado em[ Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Observe que ele usa um token de autorização armazenado localmente quando você clica no botão **Fazer logon e registrar-se**.
+13. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)**, clique em **Adicionar** e, em seguida, em **Classe**.  Nomeie a classe como **RegisterClient.cs** e clique em **OK** para gerar a classe.  Esse componente implementa as chamadas do REST necessárias para entrar em contato com o back-end do aplicativo para se registrar para as notificações por push.  Ele também armazena localmente os  *registrationIds* criados pelo Hub de Notificação, conforme detalhado em [Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx).  Observe que ele usa um token de autorização armazenado localmente quando você clica no botão **Fazer logon e registrar-se**.
 
-14. Adicione o código a seguir na definição de classe `RegisterClient`. Certifique-se de ter substituído `{backend endpoint}` pelo ponto de extremidade de back-end obtido na seção anterior:
+14. Adicione o código a seguir à definição de classe `RegisterClient`.  Certifique-se de ter substituído `{backend endpoint}` pelo ponto de extremidade de back-end obtido na seção anterior:
 
 		private string POST_URL = "{backend endpoint}/api/register";
 
@@ -188,7 +199,7 @@ A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse pro
         }
 
 
-15. Adicione as seguintes instruções `using` na parte superior do arquivo RegisterClient.cs:
+15. Adicione as seguintes instruções `using` à parte superior do arquivo RegisterClient.cs:
 
 		using Windows.Storage;
 		using System.Net;
@@ -196,9 +207,9 @@ A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse pro
 		using System.Net.Http.Headers;
 		using Newtonsoft.Json;
 		
-16. Adicione códigos para botões em MainPage.xaml.cs.  O retorno de chamada para **Fazer Logon e Registrar** armazena o token de autenticação básica localmente (observe que isso representa qualquer token usado pelo seu esquema de autenticação) e, em seguida, usa  `RegisterClient` para chamar o back-end. O retorno de chamada para **AppBackend** chama o back-end para disparar uma notificação segura a todos os dispositivos desse usuário. 
+16. Adicione códigos para botões em MainPage.xaml.cs.  O retorno de chamada para **Fazer logon e registrar-se** armazena o token de autenticação básica localmente (observe que isso representa qualquer token usado pelo seu esquema de autenticação) e, em seguida, usa  `RegisterClient` para chamar o back-end.  O retorno de chamada para **AppBackend** chama o back-end para disparar uma notificação segura a todos os dispositivos desse usuário. 
 
-	Adicione o código a seguir a MainPage.xaml.cs após o método  `OnNavigatedTo()`. Lembre-se de substituir  `{backend endpoint}` pelo ponto de extremidade de back-end obtido na seção anterior:
+	Adicione o código a seguir à MainPage.xaml.cs após o método  `OnNavigatedTo()`.  Lembre-se de substituir  `{backend endpoint}` pelo ponto de extremidade de back-end obtido na seção anterior:
 
 		private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -247,11 +258,11 @@ A próxima etapa é criar o aplicativo do Windows Phone. Para adicionar esse pro
 
 Para executar o aplicativo, faça o seguinte:
 
-1. No Visual Studio, execute o aplicativo do Windows Phone **NotifyUserWindowsPhone (Windows Phone 8.1)**. O emulador do Windows Phone executa e carrega o aplicativo automaticamente.
+1. No Visual Studio, execute o aplicativo do Windows Phone **NotifyUserWindowsPhone (Windows Phone 8.1)**.  O emulador do Windows Phone executa e carrega o aplicativo automaticamente.
 
-2. Na interface do usuário do aplicativo **NotifyUserWindowsPhone**, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
+2. Na interface do usuário do aplicativo **NotifyUserWindowsPhone**, insira um nome de usuário e senha.  Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
 
-3. No**NotifyUserWindowsPhone**, clique em **Fazer logon e registrar-se**. Em seguida, clique em **Enviar push**.
+3. Na interface do usuário do aplicativo **NotifyUserWindowsPhone**, clique em **Fazer logon e registrar-se**.  Em seguida, clique em **Enviar push**.
 
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
@@ -260,4 +271,10 @@ Para executar o aplicativo, faça o seguinte:
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
 
-<!--HONumber=45--> 
+
+
+<!-- URLs. -->
+[Introdução aos Hubs de Notificação]: notification-hubs-windows-store-dotnet-get-started.md
+[Envio seguro por push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+
+<!--HONumber=49-->
