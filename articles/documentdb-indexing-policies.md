@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Políticas de Indexação do Banco de Dados de Documentos | Azure" 
 	description="Compreender como a indexação funciona no Banco de Dados de Documentos e saber como configurar a política de indexação." 
 	services="documentdb" 
@@ -152,7 +152,7 @@ Escolhendo um tipo de índice **intervalo** permite consultas de intervalo (usan
 Se o seu caso de uso não requer consultas de intervalo eficientes, o padrão de índices de hash oferece uma melhor relação de armazenamento e desempenho. Observe que, para oferecer suporte a consultas de intervalo, você deve especificar uma política de índice personalizado.
 
 > [AZURE.NOTE] Índices de intervalo têm suporte somente para valores numéricos.
-  
+  
 O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em uma coleção usando o SDK do .NET. Observe que isso usa um caminho especial "/" - que é explicado na próxima seção.
 
 
