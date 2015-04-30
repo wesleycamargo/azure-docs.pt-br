@@ -1,4 +1,4 @@
-﻿
+
 O projeto de serviço móvel que você baixa permite executar seu novo serviço móvel no computador local ou na máquina virtual. Isso facilita a depuração do código do serviço antes mesmo de você publicá-lo no Azure.
 
 Nesta seção, você testará seu novo aplicativo no serviço móvel em execução localmente.
@@ -9,7 +9,7 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	Uma página da web é exibida depois que o serviço móvel é iniciado com êxito.
+	Uma página da Web é exibida depois que o serviço móvel é iniciado com êxito.
 
 3. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em seu projeto de aplicativo cliente e clique em **Definir como Projeto de Inicialização** e, em seguida, pressione a chave **F5** para recompilar o projeto e iniciar o aplicativo.
 
@@ -19,5 +19,4 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 	Isso envia uma solicitação POST ao serviço móvel local. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
-
-<!--HONumber=42-->
+<!--HONumber=52--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Conectando-se a conta dos serviços de mídia usando o .NET" 
 	description="Este tópico demonstra como se conectar os serviços de mídia usando o .NET." 
 	services="media-services" 
@@ -19,7 +19,7 @@
 
 # Conectando-se a conta dos serviços de mídia usando o SDK dos serviços de mídia para .NET
 
-Este artigo faz parte das séries do [fluxo de trabalho de vídeo por demanda dos Serviços de Mídia](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md). e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
 
 Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o SDK dos serviços de mídia para .NET.
 
@@ -63,7 +63,7 @@ Esta seção mostra como reutilizar tokens do serviço de controle de acesso usa
 
 O [Controle de acesso do Active Directory do Azure](https://msdn.microsoft.com/library/hh147631.aspx) (também conhecido como Serviço de controle de acesso ou ACS) é um serviço baseado em nuvem que fornece uma maneira fácil de autenticar e autorizar os usuários para ganhar acesso a seus aplicativos Web. Os serviços de mídia do Microsoft Azure controla o acesso a seus serviços embora o protocolo OAuth que requer um token ACS. Os serviços de mídia recebem os tokens ACS de um servidor de autorização.
 
-Ao desenvolver com o SDK dos serviços de mídia, você pode optar por não lidar com tokens, porque o código do SDK o gerencia pra você. No entanto, permitir que o SDK gerencie completamente os tokens ACS leva a solicitações de token desnecessárias. Solicitar tokens leva tempo e consome os recursos de cliente e servidor. Além disso, o servidor ACS acelera as solicitações se a taxa for muito alta. O limite é de 30 solicitações por segundo, consulte [Limitações de serviço ACS](https://msdn.microsoft.com/library/gg185909.aspx) para obter mais detalhes.
+Ao desenvolver com o SDK dos serviços de mídia, você pode optar por não lidar com tokens, porque o código do SDK o gerencia pra você. No entanto, permitir que o SDK gerencie completamente os tokens ACS leva a solicitações de token desnecessárias. Solicitar tokens leva tempo e consome os recursos de cliente e servidor. Além disso, o servidor ACS acelera as solicitações se a taxa for muito alta. O limite é de 30 solicitações por segundo. Consulte [Limitações do Serviço ACS](https://msdn.microsoft.com/library/gg185909.aspx) para obter mais detalhes.
 
 Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível reutilizar os tokens ACS. Os construtores do **CloudMediaContext** que usam **MediaServicesCredentials** como um parâmetro habilitam o compartilhamento de tokens ACS entre vários contextos. A classe MediaServicesCredentials encapsula as credenciais de serviços de mídia. Se um token ACS está disponível e seu tempo de expiração é conhecido, você pode criar uma nova instância de MediaServicesCredentials com o token e passá-la para o construtor do CloudMediaContext. Observe que o SDK dos serviços de mídia atualiza automaticamente os tokens assim que eles expiram. Há duas maneiras de reutilizar os tokens ACS, conforme mostrado nos exemplos a seguir.
 
@@ -191,4 +191,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

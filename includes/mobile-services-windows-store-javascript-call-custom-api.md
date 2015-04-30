@@ -56,11 +56,10 @@
 
 3. Repita a etapa anterior até que tenha incluído vários itens pendentes na lista.
 
-4. Clique no botão **Tudo Concluído**.
+4. Clique no botão **Concluir Tudo**.
 
   	![](./media/mobile-services-windows-store-javascript-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

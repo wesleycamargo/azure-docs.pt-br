@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Monitorar uma conta do Serviços de Mídia - Azure" 
+	pageTitle="Monitorar uma conta dos Serviços de Mídia - Azure" 
 	description="Descreve como configurar o monitoramento de sua conta de Serviços de Mídia no Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -20,9 +20,9 @@
 
 
 
-# <a id="monitormediaservicesaccount"></a>Como monitorar uma conta de Serviços de Mídia
+# <a id="monitormediaservicesaccount"></a>Como monitorar uma conta dos Serviços de Mídia
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow). 
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md). 
 
 O painel Serviços de Mídia do Azure apresenta métricas de uso e informações sobre a conta que você pode usar para gerenciar sua conta de Serviços de Mídia.
 
@@ -34,7 +34,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e clique no nome da conta dos Serviços de Mídia para abrir o painel. 
 
-	![MediaServices_Dashboard][dashboard]
+	![MediaServices_Dashboard][painel]
 
 2. Para monitorar seus trabalhos ou dados de codificação, basta começar a enviar trabalhos de codificação aos Serviços de Mídia ou iniciar a transmissão de conteúdo aos clientes usando o Streaming de Mídia por Demanda do Azure. Você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
 
@@ -50,11 +50,11 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 -  Para definir o nível de monitoramento, selecione uma das seguintes opções:
 
-      **Mínimo** - Coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos, que são agregadas aos serviços de Blob, Tabela e Fila.
+      **Mínimo** - coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos, que são agregadas aos serviços de Blob, Tabela e Fila.
 
-      **Detalhado** - Além das métricas mínimas, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do Serviço de Armazenamento do Azure. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo. 
+      **Detalhado** - além das métricas mínimas, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do Serviço de Armazenamento do Azure. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo. 
 
-      **Desativar** - Desativa o monitoramento. Os dados de monitoramento existentes são mantidos até o final do período de retenção.
+      **Desativado** - desativa o monitoramento. Os dados de monitoramento existentes são mantidos até o final do período de retenção.
 
 - Para definir a política de retenção de dados, em **Retenção (em dias)**, digite o número de dias de dados a serem retidos, de 1 a 365 dias. Se não quiser definir uma política de retenção, digite zero. Se não houver nenhuma política de retenção, cabe a você excluir os dados de monitoramento. É recomendável configurar uma política de retenção com base em quanto tempo você deseja manter os dados de análise do armazenamento de sua conta para que os dados de análise antigos e não usados possam ser excluídos pelo sistema sem custo adicional.
 
@@ -64,8 +64,8 @@ As métricas são armazenadas na conta de armazenamento em quatro tabelas intitu
 
 
 <!-- Images -->
-[dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
+[painel]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

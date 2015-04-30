@@ -15,4 +15,4 @@ são:
 
 Se a versão micro (terceiro dígito) for especificada, ela será ignorada.
 
-<!--HONumber=49-->
+<!--HONumber=52--> 

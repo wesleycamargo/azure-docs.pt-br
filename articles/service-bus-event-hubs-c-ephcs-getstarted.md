@@ -30,11 +30,11 @@ Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando
 
 Para concluir este tutorial, você precisará do seguinte:
 
-+ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
++ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](virtual-machines-linux-tutorial.md) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
 
 + Microsoft Visual Studio Express 2013 para Windows
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
 ## Criar um Hub de Evento
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com *Send* direitos, adicione outra regra chamada **ReceiveRule** com *Manage, Send, Listen* direitos e clique **Salvar**.
+6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** com direitos *Manage, Send, Listen* e clique em **Salvar**.
 
    	![][5]
 
@@ -104,4 +104,5 @@ Agora você está pronto para executar os aplicativos.
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão Geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-<!--HONumber=47-->
+
+<!--HONumber=52-->

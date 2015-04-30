@@ -1,127 +1,128 @@
 <properties 
-	pageTitle="Criar um aplicativo de linha de negócios em Sites do Azure" 
-	description="Este guia fornece uma visão geral técnica de como usar sites do Azure para criar aplicativos de linha de negócios da intranet. Isso inclui estratégias de autenticação, retransmissão do barramento de serviço e monitoramento." 
+	pageTitle="Criar um aplicativo Web de linha de negócios no Serviço de Aplicativo do Azure" 
+	description="Este guia fornece uma visão geral técnica de como usar Aplicativos Web do Serviço de Aplicativo do Azure para criar aplicativos de linha de negócios de intranet. Isso inclui estratégias de autenticação, retransmissão do barramento de serviço e monitoramento." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2014" 
+	ms.date="04/08/2015" 
 	ms.author="cephalin"/>
 
 
 
-# Criar um aplicativo de linha de negócios em Sites do Azure
+# Criar um aplicativo Web de linha de negócios no Serviço de Aplicativo do Azure
 
-Os [Websites do Azure] são uma ótima opção para aplicativos de linha de negócios. Esses aplicativos são aplicativos de intranet que devem ser protegidos para uso comercial interno. Geralmente, eles exigem autenticação, normalmente em um diretório corporativo e algum acesso ou integração com dados no local e serviços. 
+Os Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) são uma ótima opção para aplicativos de linha de negócios. Esses são aplicativos de intranet que devem ser protegidos para uso comercial interno. Geralmente, eles exigem autenticação, normalmente em relação a um diretório corporativo, e algum acesso ou integração a dados e serviços locais. 
 
-Há benefícios principais da mudança de aplicativos de linha de negócios para Websites do Azure, tais como:
+Há grandes benefícios ao mover aplicativos de linha de negócios para Aplicativos Web do Serviço de Aplicativo, como:
 
--  aumentar e diminuir cargas de trabalho dinâmicas, como um aplicativo que lida com revisões de desempenho anual. Mas durante o período de revisão, o tráfego terá picos de altos níveis para uma grande empresa. O Azure fornece opções de escala que permitem que a empresa seja escalada horizontalmente para lidar com a carga durante o período de análise de tráfego intenso, poupando dinheiro através da escala de volta para o restante do ano. 
--  se concentra mais no desenvolvimento de aplicativos e menos na aquisição de infraestrutura e gerenciamento
--  maior suporte para funcionários e parceiros para usar o aplicativo de qualquer lugar. Os usuários não precisam estar conectados à rede corporativa para poder usar o aplicativo, e o grupo de TI evita soluções complexas de proxy reverso. Há várias opções de autenticação para certificar-se de que o acesso aos aplicativos da empresa estão protegidos.
+-  escalar verticalmente e horizontalmente com cargas de trabalho dinâmicas, como um aplicativo que lida com revisões de desempenho anuais. Durante o período de revisão, o tráfego terá picos de altos níveis para uma grande empresa. O Azure fornece opções de escala que permitem que a empresa seja escalada horizontalmente para lidar com a carga durante o período de análise de tráfego intenso, poupando dinheiro através da escala de volta para o restante do ano. 
+-  concentrar-se mais no desenvolvimento de aplicativos e menos na aquisição de infraestrutura e gerenciamento
+-  maior suporte para funcionários e parceiros para usar o aplicativo em qualquer lugar. Os usuários não precisam estar conectados à rede corporativa para poder usar o aplicativo, e o grupo de TI evita soluções complexas de proxy reverso. Há várias opções de autenticação para certificar-se de que o acesso aos aplicativos da empresa estão protegidos.
 
-Abaixo está um exemplo de um aplicativo de linha de negócios em execução em Websites do Azure. Ele demonstra o que você pode fazer simplesmente ao compor Websites do Azure junto com outros serviços com investimentos técnicos mínimos. **Clique em um elemento na topografia para ler mais sobre ele.** 
+A seguir há um exemplo de um aplicativo de linha de negócios em execução nos Aplicativos Web do Serviço de Aplicativo. Ele demonstra o que você pode fazer simplesmente reunindo Aplicativos Web a outros serviços, com investimento técnico mínimo. **Clique em um elemento na topografia para ler mais sobre ele.** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-<div class="dev-callout">
-<strong>Observação</strong>
-<p>Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas com aplicativos de linha de negócios. No entanto, há outros recursos de sites do Azure que você pode usar em sua implementação específica. Para rever esses recursos, consulte também as outras guias no <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">Presença Global da Web</a> e <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campanhas de Marketing Digital</a>.</p>
-</div>
+> [AZURE.NOTE]
+> Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas aos aplicativos de linha de negócios. No entanto, há outros recursos dos Aplicativos Web do Serviço de Aplicativo do Azure que você pode usar em sua implementação específica. Para examinar esses recursos, consulte os outros guias em [Presença Global na Web](web-sites-global-web-presence-solution-overview.md) e em [campanhas de Marketing Digital](web-sites-digital-marketing-application-solution-overview.md).
 
-### Colocar ativos existentes
+## Incluir ativos existentes
 
-Coloque os ativos da web existentes para Websites do Azurea partir de uma variedade de linguagens e estruturas.
+Inclua seus ativos da Web existentes nos Aplicativos Web do Serviço de Aplicativo com uma variedade de linguagens e estruturas.
 
-Os ativos da web existentes podem executar em Websites do Azure, independentemente de serem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para Websites do Azure usando as ferramentas [FTP] familiares ou o sistema de gerenciamento de controle de origem. Os Websites do Azure oferecem suporte de publicação direta a partir das opções de controle de origem popular, como [Visual Studio], [Visual Studio Online] e [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta de opções de controle de código-fonte populares, como [Visual Studio], [Visual Studio Online] e [Git] (local, GitHub, BitBucket, DropBox, Mercurial etc.).
 
-### Proteger os ativos
+## Proteger seus ativos
 
-Protege ativos, criptografia, autentica usuários corporativos se eles estão no local ou remoto e autoriza o uso de ativos. 
+Proteja os ativos com criptografia, autentique usuários corporativos no local ou remotamente e autorize seu uso dos ativos. 
 
-Protege ativos internos contra esses interceptadores com [HTTPS]. O nome do domínio **\*.azurewebsites.net** já vem com um certificado SSL e se você usar seu domínio personalizado, você pode colocar seu certificado SSL para ele para os Websites do Azure. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, consulte [Detalhes do preço dos sites].
+Proteja os ativos internos contra interceptadores com o [HTTPS]. O nome de domínio **\*.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web do Serviço de Aplicativo. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, consulte [Detalhes de Preços do Serviço de Aplicativo].
 
-[Autenticar usuários] no diretório corporativo. Os Websites do Azure podem autenticar usuários com provedores de identidade local, como os serviços de Federação do Active Directory (AD FS), ou com um locatário do Active Directory do Azure que foi sincronizado com a implantação corporativa do Active Directory. Os usuários podem acessar as propriedades da web nos Websites do Azure por meio de logon único quando estiverem no local e quando estiverem no campo. Os serviços existentes, como o Office 365 ou Windows Intune, já usam o Active Directory do Azure. Por meio de [Autenticação simples], ativar a autenticação com o mesmo locatário do Active Directory do Azure para seu site é muito fácil. 
+[Autentique usuários] em relação ao diretório corporativo. Os aplicativos Web do Serviço de Aplicativo podem autenticar usuários com provedores de identidade locais, como AD FS (Serviços de Federação do Active Directory), ou com um locatário do Active Directory do Azure que foi sincronizado com sua implantação corporativa do Active Directory. Os usuários podem acessar as propriedades da Web em aplicativos Web por meio de logon único quando estão no local e quando estão em campo. Serviços existentes, como o Office 365 ou o Windows Intune, já usam o Active Directory do Azure. Por meio do recurso de [Autenticação Fácil], é muito fácil ativar a autenticação com o mesmo locatário do Active Directory do Azure para seu aplicativo Web. 
 
-[Autorizar usuários] para seu uso das propriedades da web. Com o mínimo de código adicional, você pode colocar o mesmo padrão de codificação do ASP.NET local para Websites do Azure usando a decoração `[Autorizar]`, por exemplo. Manter a mesma flexibilidade para controle de acesso refinado que os aplicativos que você mantém no local.
+[Autorize usuários] para seu uso de propriedades da Web. Com código adicional mínimo, você pode incluir o mesmo padrão de codificação local do ASP.NET em aplicativos Web do Serviço de Aplicativo usando a  decoração `[Authorize]`, por exemplo. Você mantém a mesma flexibilidade para controle de acesso refinado que os aplicativos que você mantém no local.
 
-### Conectar-se a recursos locais ###
+## Conectar-se a recursos locais ##
 
-Conecte-se aos dados do site ou recursos, se ele estiver na nuvem para desempenho ou locais para fins de conformidade. Para obter mais informações sobre como manter os dados no Azure, consulte [Central de confiabilidade do Azure]. 
+Conecte-se a seus dados de aplicativos Web ou recursos, se eles estiverem na nuvem para desempenho ou no local para conformidade. Para obter mais informações sobre como manter os dados no Azure, consulte [Central de Confiabilidade do Azure]. 
 
-Você tem vários back-ends de banco de dados no Azure para atender às necessidades do seu site, incluindo [Banco de Dados SQL Azure] e [MySQL]. Mantendo seus dados com segurança no Azure faz com que os dados se aproximem de seu site geograficamente e otimiza o desempenho.
+Você pode escolher dentre vários back-ends de banco de dados no Azure para atender às necessidades de seu aplicativo Web, incluindo o [Banco de Dados SQL do Azure] e [MySQL]. Manter seus dados com segurança no Azure aproxima os dados de seu aplicativo Web em termos geográficos e otimiza o desempenho.
 
-No entanto, sua empresa pode exigir que seus dados sejam mantidos no local. Os Websites Azure permitem que você configure facilmente uma [conexão híbrida] para o recurso local como um back-end do banco de dados. Se você quiser gerenciamento unificado de suas conexões locais, integre vários Websites do Azure com uma [Rede Virtual do Azure] que tem uma VPN site a site. Você pode então acessar recursos locais como se seus Websites do Azure estivessem no local. [Enterprise Pizza - Conectando Sites da Web no local usando o barramento de serviço][enterprisepizza]
+No entanto, sua empresa pode necessitar que seus dados sejam mantidos no local. Os Aplicativos Web do Serviço de Aplicativo permitem configurar facilmente uma [conexão híbrida] para seu recurso local, como um back-end de banco de dados. Para permitir o gerenciamento unificado de suas conexões locais, integre vários aplicativos Web com uma [Rede Virtual do Azure] que tenha uma VPN site a site. Você pode então acessar recursos locais como se seus aplicativos Web estivessem no local.
 
-### Otimizar
+## Otimizar
 
-Otimize seu aplicativo de linha de negócio, dimensionando automaticamente com o dimensionamento automático, armazenamento em cache com Cache Redis do Azure, executando tarefas em segundo plano com o WebJobs e mantendo a alta disponibilidade com o Azure Traffic Manager.
+Otimize seu aplicativo de linha de negócios dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Websites do Azure para [dimensionar] atende à necessidade do seu aplicativo de linha de negócios, independentemente do tamanho da carga de trabalho. Dimensione seu site manualmente através do [Portal de gerenciamento do Azure], de forma programática por meio de [API de gerenciamento de serviço] ou [script do PowerShell], ou automaticamente por meio do recurso de dimensionamento automático. No plano de hospedagem **padrão**, o dimensionamento automático permite expandir um site automaticamente com base na utilização da CPU. Para práticas recomendadas, consulte [10 coisas que eu aprendi sobre como dimensionar rapidamente sites com o Azure] do [Troy Hunt].
+A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu aplicativo de linha de negócios, independentemente do porte de sua carga de trabalho. Escale horizontalmente seu aplicativo Web de forma manual por meio do [Portal de Gerenciamento do Azure], de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, consulte o artigo de [Troy Hunt]: [Dez coisas que aprendi sobre como escalar horizontalmente com rapidez os aplicativos Web com o Azure].
 
-Torne seu site mais responsivo com o [Cache Redis do Azure]. Use-o em dados em cache a partir dos bancos de dados de back-end e outras coisas, como o [estado da sessão ASP.NET] e [cache de saída].
+Torne seu aplicativo Web mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
-Mantenha a alta disponibilidade do seu site usando [Azure Traffic Manager]. Usando o método **Failover**, o Traffic Manager automaticamente roteia o tráfego para um site secundário, se houver um problema no site primário.
+Mantenha a alta disponibilidade de seu aplicativo Web usando o [Gerenciador de Tráfego do Azure]. Usando o método de **Failover**, o Gerenciador de Tráfego roteia automaticamente o tráfego para um site secundário, se houver um problema no site primário.
 
-### Monitorar e analisar
+## Monitorar e analisar
 
-Mantenha-se atualizado sobre o desempenho do seu site com o Azure ou ferramentas de terceiros. Receba alertas sobre eventos críticos do site. Obtenha informações do usuário facilmente com o Application Insight ou análise de log da web do HDInsight. 
+Mantenha-se atualizado sobre o desempenho de seu aplicativo Web com o Azure ou com ferramentas de terceiros. Receba alertas sobre eventos críticos do aplicativo Web. Obtenha facilmente percepções sobre o usuário com o Application Insights ou com a análise de log da Web do HDInsight. 
 
-Obtenha uma [visão rápida] das métricas de desempenho atual do site e recursos de cotas no painel do Websites do Azure. Para uma exibição de 360° do seu aplicativo sobre disponibilidade, desempenho e uso, use o [Azure Application Insights] para fornecer solução de problemas, diagnósticos e informações de uso rápido e eficaz. Ou use uma ferramenta de terceiros como [Nova Relíquia] para fornecer dados de monitoramento avançados para seus sites.
+Obtenha uma [visão rápida] das métricas de desempenho atuais do aplicativo Web e das cotas de recursos na folha do aplicativo Web no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para lhe fornecer percepções rápidas e poderosas sobre solução de problemas, diagnósticos e uso. Ou então, use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus aplicativos Web.
 
-No plano de hospedagem **padrão**, monitore as notificações de email de recepção da capacidade de resposta do site sempre que seu site ficar sem resposta. Para obter mais informações, consulte [Como: Receber notificações de alerta e Gerenciar regras de alerta no Azure].
+Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba notificações por email sempre que seu aplicativo não responder. Para obter mais informações, consulte [Como: Receber notificações de alertas e gerenciar regras de alertas no Azure].
 
-## Mais recursos
+## Mais Recursos
 
-- [Documentação dos Websites do Azure](/pt-br/documentation/services/websites/)
-- [Mapa de aprendizado para Websites do Azure](websites-learning-map.md)
-- [Blog de Web do Azure](/blog/topics/web/)
+- [Documentação de Aplicativos Web do Serviço de Aplicativo](/services/app-service/web/)
+- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](websites-learning-map.md)
+- [Blog do Azure](/blog/topics/web/)
+
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+
+## O que mudou
+* Para obter um guia para a alteração de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a alteração do portal antigo para o novo portal, consulte: [Referência à navegação pelo portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
+[Serviço de Aplicativo do Azure]: /services/app-service/web/
 
-[Websites do Azure]:/pt-br/services/websites/
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[FTP]:/pt-br/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/pt-br/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/pt-br/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/pt-br/documentation/articles/web-sites-publish-source-control/
+[HTTPS]:web-sites-configure-ssl-certificate.md
+[Detalhes de Preços do Serviço de Aplicativo]: /pricing/details/app-service/#ssl-connections
+[Autentique usuários]:web-sites-authentication-authorization.md
+[Autenticação Fácil]:/blog/2014/11/13/azure-websites-authentication-authorization/
+[Autorize usuários]:web-sites-authentication-authorization.md
 
-[HTTPS]:/pt-br/documentation/articles/web-sites-configure-ssl-certificate/
-[Detalhes do preço dos sites]:/pt-br/pricing/details/web-sites/#service-ssl
-[Autenticar usuários]:/pt-br/documentation/articles/web-sites-authentication-authorization/
-[Autenticação simples]:/blog/2014/11/13/azure-websites-authentication-authorization/
-[Autorizar usuários]:/pt-br/documentation/articles/web-sites-authentication-authorization/
+[Central de confiabilidade do Azure]:/support/trust-center/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Banco de Dados SQL do Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[conexão híbrida]:web-sites-hybrid-connection-get-started.md
+[Rede Virtual do Azure]:web-sites-integrate-with-vnet.md
 
-[Central de confiabilidade do Azure]:/pt-br/support/trust-center/
-[MySQL]:/pt-br/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Banco de Dados SQL Azure]:/pt-br/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[Conexão híbrida]:/pt-br/documentation/articles/web-sites-hybrid-connection-get-started/
-[Rede Virtual do Azure]:/pt-br/documentation/articles/web-sites-integrate-with-vnet/
-
-[dimensionar]:/pt-br/manage/services/web-sites/how-to-scale-websites/
+[escalar verticalmente e horizontalmente]:web-sites-scale.md
 [Portal de Gerenciamento do Azure]:http://manage.windowsazure.com/
-[API de gerenciamento de serviço]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[Script do PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[API de Gerenciamento de Serviços]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[scripts do PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
-[10 coisas que eu aprendi sobre como dimensionar rapidamente sites com o Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Dez coisas que aprendi sobre como escalar horizontalmente com rapidez os aplicativos Web com o Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis do Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[Estado da sessão ASP.NET]:https://msdn.microsoft.com/pt-br/library/azure/dn690522.aspx
-[cache de saída]:https://msdn.microsoft.com/pt-br/library/azure/dn798898.aspx
+[estado da sessão ASP.NET]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[cache de saída]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[visão rápida]:/pt-br/manage/services/web-sites/how-to-monitor-websites/
+[visão rápida]:web-sites-monitor.md
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[Nova Relíquia]:/pt-br/develop/net/how-to-guides/new-relic/
-[Como: receber notificações de alerta e gerenciar regras de alerta no Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
+[Como: Receber notificações de alertas e gerenciar regras de alertas no Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

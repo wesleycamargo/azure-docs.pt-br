@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-phonegap" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
@@ -59,7 +59,7 @@ Nesta seção você criará um novo aplicativo PhoneGap que está conectado ao s
 
 3. Se ainda não o fez, baixe e instale o PhoneGap e pelo menos uma das ferramentas de desenvolvimento da plataforma (Windows Phone, iOS e Android).
 
-4. Clique em **Criar tabela TodoItems** para criar uma tabela para armazenar os dados do aplicativo.
+4. Clique em **Criar tabela TodoItem** para criar uma tabela para armazenar os dados do aplicativo.
 
 5. Em **Baixar e executar o aplicativo**, clique em **Baixar**. 
 
@@ -108,7 +108,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	> [AZURE.IMPORTANTE] As alterações neste projeto de plataforma serão substituídas se o projeto principal for recriado com as ferramentas do PhoneGap. Em vez disso, faça alterações no diretório www raiz do projeto, conforme descrito na seção a seguir.
 
-4. No Portal de Gerenciamento, clique na guia <strong>Dados</strong> e, em seguida na tabela <strong>TodoItems</strong>.
+4. No Portal de Gerenciamento, clique na guia <strong>Dados</strong> e, em seguida na tabela <strong>TodoItem</strong>.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -148,7 +148,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 >[AZURE.NOTE]Você pode examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo js/index.js.
 
-## <a name="next-steps"> </a>Próximas Etapas
+## <a name="next-steps"> </a>Próximas etapa
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
 
 * [Introdução aos dados]
@@ -165,15 +165,13 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-html-get-started-data
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-html-get-started-users
-[Introdução às notificações por push]: /pt-br/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Introdução aos dados]: mobile-services-html-get-started-data.md
+[Introdução à autenticação]: mobile-services-html-get-started-users.md
+[Introdução às notificações por push]: /develop/mobile/tutorials/mobile-services-html-get-started-push
 [SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
+[Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

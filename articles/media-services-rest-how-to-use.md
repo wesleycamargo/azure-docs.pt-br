@@ -3,7 +3,7 @@
 	description="Visão geral da API de REST de serviços de mídia" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -30,9 +30,9 @@ Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeç
 <table border="1">
 <tr><th>Cabeçalho</th><th>Tipo</th><th>Valor</th></tr>
 <tr><td>Autorização</td><td>Portador</td><td>Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo ACS.</td></tr>
-<tr><td>x-ms-version</td><td>Decimal</td><td>2.9</td></tr>
-<tr><td>DataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
-<tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
+<tr><td>x-ms-version</td><td>Decimal</td><td>2,9</td></tr>
+<tr><td>DataServiceVersion</td><td>Decimal</td><td>3,0</td></tr>
+<tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3,0</td></tr>
 </table><br/>
 
 
@@ -103,4 +103,4 @@ Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os m
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

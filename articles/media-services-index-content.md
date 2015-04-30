@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Indexando arquivos de mídia com o Indexador de Mídia do Azure" 
 	description="O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar o indexador de mídia." 
 	services="media-services" 
@@ -10,18 +10,18 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="juliako"/>
 
 
 # Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) . 
 
-O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote. Você também pode indexar os arquivos que estão disponíveis publicamente na Internet especificando URLs dos arquivos no arquivo de manifesto.
+O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.  
 
 >[AZURE.NOTE] Quanto a indexação de conteúdo, certifique-se de usar os arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio no microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras e apresentações registradas. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, tudo com áudio misto e efeitos de som, com conteúdo mal gravado com ruídos de fundo (assovio).
 
@@ -38,7 +38,7 @@ Um trabalho de indexação gera quatro saídas para todo arquivo de indexação:
 	Para obter mais informações, consulte [Usando arquivos de AIB com o indexador de mídia do Azure e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
-Este tópico mostra como criar trabalhos de indexação para **Indexar um ativo**, **Indexar vários arquivos**, e **arquivos publicamente disponíveis na Internet**.
+Este tópico mostra como criar trabalhos de indexação **indexar um ativo** e **indexar vários arquivos**.
 
 Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos serviços de mídia](http://azure.microsoft.com/blog/topics/media-services/).
 
@@ -58,53 +58,53 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
 	
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
-	    // Create an asset and upload the input media file to storage.
+	    // Criar um ativo e carregar o arquivo de mídia de entrada no armazenamento.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
 	
-	    // Declare a new job.
+	    // Declarar um novo trabalho.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Azure Media Indexer.
+	    // Obter uma referência para o indexador de mídia do Azure.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Read configuration from file if specified.
+	    // Ler a configuração do arquivo, se especificada.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
 	
-	    // Create a task with the encoding details, using a string preset.
+	    // Criar uma tarefa com os detalhes de codificação, usando uma predefinição de cadeia de caracteres.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Specify the input asset to be indexed.
+	    // Especificar o ativo de entrada a ser indexado.
 	    task.InputAssets.Add(asset);
 	
-	    // Add an output asset to contain the results of the job. 
+	    // Adicionar um ativo de saída para conter o resultado do trabalho. 
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
 	
-	    // Use the following event handler to check job progress.  
+	    // Usar o manipulador de eventos a seguir para verificar o andamento do trabalho.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Launch the job.
+	    // Iniciar o trabalho.
 	    job.Submit();
 	
-	    // Check job execution and wait for job to finish. 
+	    // Verificar a execução do trabalho e aguardar até que o trabalho seja concluído. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
+	    // Se o estado do trabalho for Erro, o método de manipulação de eventos 
+	    // para o andamento do trabalho deverá registrar erros.  Aqui, verificamos 
+	    // o estado de erro e saímos, se necessário.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Download the job outputs.
+	    // Baixar as saídas de trabalho.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -184,59 +184,59 @@ Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo.
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
-	    // Create an asset and upload to storage.
+	    // Criar um ativo e carregar no armazenamento.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
 	
-	    // Create a manifest file that contains all the asset file names and upload to storage.
+	    // Criar um arquivo de manifesto que contém todos os nomes de arquivos ativos e carregar no armazenamento.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
 	
-	    // Declare a new job.
+	    // Declarar um novo trabalho.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Azure Media Indexer.
+	    // Obter uma referência para o indexador de mídia do Azure.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
 	    string configuration = File.ReadAllText("batch.config");
 	
-	    // Create a task with the encoding details, using a string preset.
+	    // Criar uma tarefa com os detalhes de codificação, usando uma predefinição de cadeia de caracteres.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Specify the input asset to be indexed.
+	    // Especificar o ativo de entrada a ser indexado.
 	    task.InputAssets.Add(asset);
 	
-	    // Add an output asset to contain the results of the job.
+	    // Adicionar um ativo de saída para conter o resultado do trabalho.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
 	
-	    // Use the following event handler to check job progress.  
+	    // Usar o manipulador de eventos a seguir para verificar o andamento do trabalho.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Launch the job.
+	    // Iniciar o trabalho.
 	    job.Submit();
 	
-	    // Check job execution and wait for job to finish. 
+	    // Verificar a execução do trabalho e aguardar até que o trabalho seja concluído. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
+	    // Se o estado do trabalho for Erro, o método de manipulação de eventos 
+	    // para o andamento do trabalho deverá registrar erros.  Aqui, verificamos 
+	    // o estado de erro e saímos, se necessário.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Download the job outputs.
+	    // Baixar as saídas de trabalho.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -284,7 +284,7 @@ Alias: nome do arquivo de saída correspondente.
 <br/><br/>
 MediaLength: tamanho do arquivo de mídia de entrada, em segundos. Pode ser 0 se o erro ocorreu para esta entrada.
 <br/><br/>
-Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, caso contrário, falha. Consulte <a href="#error_codes">Códigos de Erro</a> para erros concretos.
+Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, caso contrário, falha. Please refer to <a href="#error_codes">Error Codes</a> for concrete errors.
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>Arquivo #0 - indexação de áudio de arquivo de blob.</td></tr>
@@ -305,81 +305,6 @@ Se nem todos os arquivos de mídia de entrada são indexados com êxito, o traba
 
 As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada estão com falha, de acordo com os valores da coluna de erro. Para arquivos de entrada com falha, o AIB, SAMI, TTML e arquivos de palavra-chave resultantes não serão gerados.
 
-##Arquivos de índice da Internet
-
-Para arquivos de mídia disponíveis publicamente na Internet, você também pode indexá-los sem copiá-los para o armazenamento do Azure. Você pode usar o arquivo de manifesto para especificar as URLs dos arquivos de mídia. Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
-
-Observe que os protocolos de URL HTTP e HTTPS são suportados.
-
-O método e a configuração a seguir criam um trabalho para indexar um arquivo de mídia na internet.
-	
-	static bool RunIndexingJobWithPublicUrl(string inputMediaUrl, string outputFolder)
-	{
-	    // Create the manifest file that contains the input media URL
-	    string manifestFile = "input.lst";
-	    File.WriteAllLines(manifestFile, new string[] { inputMediaUrl });
-	
-	    // Create an asset and upload the manifest file to storage.
-	    IAsset asset = CreateAssetAndUploadSingleFile(manifestFile,
-	        "My Indexing Input Asset - Public URL",
-	        AssetCreationOptions.None);
-	
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
-	
-	    // Get a reference to the Azure Media Indexer.
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
-	    // Read configuration.
-	    string configuration = File.ReadAllText("public.config");
-	
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task - Public URL",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
-	
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset - Public URL", AssetCreationOptions.None);
-	
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
-	    // Launch the job.
-	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
-	
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
-	    return true;
-	}
-
-###Arquivos de saída
-
-Para obter descrições dos arquivos de saída, consulte [arquivos de saída](#output_files). 
-
-
-##Arquivos protegidos do processo
-
-O indexador oferece suporte à autenticação básica com o nome de usuário e senha ao baixar arquivos da internet via http ou https.
-
-Você pode especificar o **nome de usuário** e **senha** na configuração da tarefa, conforme descrito em [predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Códigos do Erro
 
@@ -418,4 +343,4 @@ Atualmente, há suporte para apenas o idioma inglês.
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

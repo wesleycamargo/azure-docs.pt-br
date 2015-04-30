@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Aplicativo local/na nuvem híbrido (.NET) - Azure" 
 	description="Aprenda a criar um aplicativo .NET local/na nuvem híbrida usando a Retransmissão do Barramento de Serviço do Azure." 
 	services="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+	ms.date="03/17/2015" 
 	ms.author="sethm"/>
 
 
@@ -25,13 +25,15 @@
 
 ##Introdução
 
-Desenvolver aplicativos em nuvem híbridos com o Azure é fácil usando o
+É fácil desenvolver aplicativos de nuvem híbrida com o Microsoft Azure usando o
 Visual Studio 2013 e o SDK do Azure para .NET gratuito. Este guia pressupõe que você não tem experiência anterior com o Azure. Em menos de 30 minutos, você terá um aplicativo que usa vários recursos do Azure em funcionamento na nuvem.
 
 Você aprenderá:
 
--   Criar ou adaptar um serviço Web existente para consumo por uma solução de Web.
--   Usar a Retransmissão do Barramento de Serviço para compartilhar dados entre um aplicativo do Azure e um serviço Web hospedado em outro lugar.
+-   Criar ou adaptar um serviço Web existente para consumo por uma
+    solução da Web.
+-   Como usar a retransmissão do Barramento de Serviço do Azure para compartilhar dados entre
+    um aplicativo do Azure e um serviço Web hospedado em outro lugar.
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -41,13 +43,12 @@ As soluções de negócios geralmente são compostas por uma combinação de có
 
 Os arquitetos de solução estão começando a utilizar a nuvem para obter um manuseio mais fácil de requisitos de escala e custos operacionais mais baixos. Ao fazer isso, eles descobrem serviços ativos existentes que gostariam de aproveitar, como blocos de construção para suas soluções estão dentro do firewall corporativo e fora de alcance fácil para acesso pela solução de nuvem. Muitos serviços internos não são construídos ou hospedados de forma que possam ser facilmente expostos na borda da rede corporativa.
 
-A *Retransmissão do Barramento de Serviço* foi projetada para o caso de uso em que se utiliza
-Serviços Web do Windows Communication Foundation (WCF) existentes e para tornar esses serviços acessíveis com segurança para soluções que residem fora do perímetro corporativo, sem exigir alterações intrusivas na infraestrutura da rede corporativa. Esses serviços de retransmissão do Barramento de Serviço ainda estão hospedados dentro de seu ambiente existente, mas delegam a escuta de entrada sessões e solicitações para o Barramento de Serviço hospedado na nuvem. O
-Barramento de serviço também protege esses serviços contra acesso não autorizado usando o Controle de Acesso do Active Directory do Azure.
+O *Service Bus Relay* foi projetado para o caso de uso de obter
+Serviços Web do WCF (Windows Communication Foundation) existentes e tornar esses serviços acessíveis com segurança para soluções que residem fora do perímetro corporativo, sem exigir alterações intrusivas na infraestrutura da rede corporativa. Tais serviços de retransmissão do Barramento de Serviço ainda são hospedados dentro de seu ambiente existente, mas delegam a escuta para sessões de entrada e solicitações ao Barramento de Serviço hospedado na nuvem. O Barramento de Serviço também protege esses serviços contra acesso não autorizado usando a autenticação [SAS (Assinatura de Acesso Compartilhado)](https://msdn.microsoft.com/library/dn170478.aspx).
 
 ##O cenário da solução
 
-Neste tutorial, você irá criar um site ASP.NET MVC 4 que lhe permitirá ver uma lista de produtos na página de inventário de produtos.
+Neste tutorial, você criará um site ASP.NET MVC 4 que o habilitará a ver uma lista de produtos na página de inventário de produtos.
 
 ![][0]
 
@@ -59,7 +60,7 @@ A captura de tela da página inicial do aplicativo Web completo é mostrada abai
 
 ##Configurar o ambiente de desenvolvimento
 
-Antes de começar a desenvolver seu aplicativo do Azure, é necessário obter as ferramentas e configurar seu ambiente de desenvolvimento.
+Para poder começar a desenvolver seu aplicativo do Azure, baixe as ferramentas e configure seu ambiente de desenvolvimento.
 
 1.  Para instalar o SDK do Azure para .NET, clique no link a seguir:
 
@@ -73,35 +74,43 @@ Antes de começar a desenvolver seu aplicativo do Azure, é necessário obter as
 
     ![][2]
 
-5.  No **Web Platform Installer**, clique em **Instalar** e continue a instalação:
+5.  No **Web Platform Installer,** clique em **Instalar** e continue a instalação:
 
     ![][3]
 
-6.  Quando a instalação for concluída, você terá tudo o que é necessário para iniciar o desenvolvimento. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio. Se você não tiver instalado o Visual Studio, o SDK também instala o Visual Studio Express gratuito.
+6.  Assim que a instalação estiver concluída, você terá tudo
+    que é necessário para iniciar o desenvolvimento. O SDK inclui ferramentas que permitem a você
+    desenvolver facilmente aplicativos do Azure no Visual Studio. Se você
+    não tiver o Visual Studio instalado, o SDK também instalará o
+    Visual Studio Express, que é gratuito.
 
-##Criar um namespace de serviço
+## Criar um namespace de serviço
 
 Para começar a usar os recursos de Barramento de Serviço no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. 
 
 Você pode gerenciar namespaces e entidades de mensagens do Barramento de Serviço usando o [Portal de Gerenciamento do Azure][] ou o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces de dentro do portal.
 
-###Para criar um namespace usando o portal:
+### Para criar um namespace usando o portal:
 
 1.  Faça logon no [Portal de Gerenciamento do Azure][].
 
-2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em
+2.  No painel de navegação esquerdo do portal de gerenciamento, clique em
     **Barramento de Serviço**.
 
-3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.   
+3.  No painel inferior do portal de gerenciamento, clique em **Criar**.   
     ![][5]
 
 4.  Na caixa de diálogo **Adicionar um novo namespace**, digite um nome de namespace.
     O sistema imediatamente verifica para ver se o nome está disponível.   
     ![][6]
 
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
+5.  Depois de verificar se o nome do namespace está disponível, escolha o
+    país ou região no qual o namespace deve ser hospedado (certifique-se de
+    usar o mesmo país/região em que você está implantando os
+    recursos de computação).
 
-    IMPORTANTE: Selecione a **mesma região** que você pretende escolher para implantar seu aplicativo. Isso lhe dará o melhor desempenho.
+    IMPORTANTE: Selecione a **mesma região** que você pretende selecionar para
+    implantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
 6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
@@ -109,7 +118,7 @@ Você pode gerenciar namespaces e entidades de mensagens do Barramento de Servi�
 
 O namespace que você criou aparecerá no portal de gerenciamento, no entanto, ele pode levar um tempo para ser ativado. Aguarde até que o status seja **Ativo** antes de prosseguir.
 
-##Obter as credenciais de gerenciamento padrão do namespace
+## Obter as credenciais de gerenciamento padrão do namespace
 
 Para executar operações de gerenciamento no novo namespace, como a criação de entidades de mensagens, você precisa obter as credenciais para o namespace.
 
@@ -128,9 +137,9 @@ Para executar operações de gerenciamento no novo namespace, como a criação d
 	![][45]
     
 
-4.  Anote a chave ou copie-a na área de transferência.
+4.  Anote estas credenciais ou copie-as para a área de transferência.
 
-##Gerencie um namespace de serviço com o Gerenciador de Servidores do Visual Studio
+## Gerencie um namespace de serviço com o Gerenciador de Servidores do Visual Studio
 
 Para gerenciar um namespace e obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui](http://http://msdn.microsoft.com/library/ff687127.aspx), na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Barramento de Serviço** na árvore **Microsoft Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio. 
 
@@ -139,47 +148,67 @@ Para gerenciar um namespace e obter informações de conexão usando o Visual St
 Anote o valor **SharedAccessKey** ou copie-o para a área de transferência.
 
 
-##Criar um servidor local
+## Criar um servidor local
 
 Primeiro você criará um sistema de catálogo de produtos (fictício) local. Será muito simples, você pode ver isso como uma representação de um sistema de catálogo de produtos real local com uma superfície de serviço completa que estamos tentando integrar.
 
-Este projeto será iniciado como um aplicativo de console do Visual Studio. O projeto utiliza o pacote NuGet de Barramento de Serviço para incluir as bibliotecas de Barramento de Serviço e as definições de configuração. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. Para obter mais detalhes sobre como usar o NuGet e o pacote de Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barramento de Serviço][].
+Esse projeto é iniciado como um aplicativo de console do Visual Studio. O projeto utiliza o pacote NuGet de Barramento de Serviço para incluir as bibliotecas de Barramento de Serviço e as definições de configuração. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. Para obter mais detalhes sobre como usar o NuGet e o pacote de Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barramento de Serviço][].
 
-###Criar o projeto
+### Criar o projeto
 
-1.  Utilizando os privilégios de administrador, inicialize o Microsoft Visual Studio 2013 ou o Microsoft Visual Studio Express. Para iniciar o Visual Studio com os privilégios de administrador, clique com o botão direito em**Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e, em seguida, clique em **Executar como administrador**.
-2.  No Visual Studio, no menu **Arquivo**, clique em **Novo** e, em seguida, clique em **Projeto**.
+1.  Utilizando privilégios de administrador, inicie o Microsoft Visual
+    Studio 2013 ou então o Microsoft Visual Studio Express. Para
+    iniciar o Visual Studio com privilégios de administrador, clique com o botão direito do mouse em
+    **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e clique em **Executar como administrador**.
+
+2.  No Visual Studio, no menu **Arquivo**, clique em **Novo** e, em seguida,
+    clique em **Projeto**.
 
     ![][10]
 
-3.  Em **Modelos instalados**, abaixo de **Visual C#**, clique em **Aplicativo de console**. Na caixa **Nome**, digite o nome **ProductsServer**:
+3.  Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo de
+    Console**. Na caixa **Nome**, digite o nome
+    **ProductsServer**:
 
     ![][11]
 
 4.  Clique em **OK** para criar o projeto **ProductsServer**.
 
-5.  Em **Gerenciador de Soluções**, clique com o botão direito em **ProductsServer** e, em seguida, clique em **Propriedades**.
-6.  Clique na guia **Aplicativo** à esquerda, e certifique-se de que o **.NET Framework 4** ou o **.NET Framework 4.5** aparece no menu suspenso **Estrutura de destino:**. Caso contrário, selecione-o na lista suspensa e, em seguida, clique em **Sim** quando for solicitado para recarregar o projeto.
+5.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **ProductsServer** e
+    clique em **Propriedades**.
+
+6.  Clique na guia **Aplicativo** à esquerda, e verifique se o **.NET
+    Framework 4** ou **.NET Framework 4.5** aparece no menu suspenso **Estrutura de destino:**. Se ele não aparecer, selecione o menu suspenso e, em seguida, clique em **Sim**
+    quando for solicitado que você recarregue o projeto.
 
     ![][12]
 
 7.  Se você já tiver instalado o Gerenciador de Pacotes NuGet para Visual Studio, vá para a próxima etapa. Caso contrário, visite [NuGet][] e clique em [Instalar o NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Siga os prompts para instalar o Gerenciador de Pacotes NuGet e, em seguida, reinicie o Visual Studio.
 
-7.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**...
+7.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e, em seguida, clique em
+    **Gerenciar Pacotes NuGet**...
+
 8.  Na coluna à esquerda da caixa de diálogo NuGet, clique em **Online**.
 
-9. 	Na coluna à direita, clique na caixa **Pesquisa** , digite "**Barramento de Serviço**" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e, em seguida, feche essa caixa de diálogo.
+9. 	Na coluna à direita, clique na caixa **Pesquisar**, digite "**Barramento de Serviço**" e selecione o item **Barramento de Serviço do Microsoft
+    Azure**. Clique em **Instalar** para concluir a
+    instalação, em seguida feche essa caixa de diálogo.
 
     ![][13]
 
     Observe que os assemblies do cliente necessários agora são referenciados.
 
-9.  Adicione uma nova classe para seu contrato de produto. No **Gerenciador de Soluções**, clique com o botão direito no projeto **ProductsServer** e clique em **Adicionar** e, em seguida clique em **Classe**.
+9.  Adicione uma nova classe para seu contrato de produto. No **Gerenciador de Soluções**,
+    clique com o botão direito do mouse no projeto **ProductsServer** e clique em **Adicionar**. Em seguida, clique em
+    **Classe**.
 
     ![][14]
 
-10. Na caixa **Nome**, digite o nome **ProductsContract.cs**. Clique em **Adicionar**.
-11. Em **ProductsContract.cs**, substitua a definição do namespace pelo código a seguir, que define o contrato do serviço:
+10. Na caixa **Nome**, digite o nome **ProductsContract.cs**. Em seguida,
+    clique em **Adicionar**.
+
+11. Em **ProductsContract.cs**, substitua a definição do namespace pelo
+    código a seguir, que define o contrato para o serviço:
 
         namespace ProductsServer
         {
@@ -214,7 +243,8 @@ Este projeto será iniciado como um aplicativo de console do Visual Studio. O pr
             }
         }
 
-12. Em Program.cs, substitua a definição do namespace pelo código a seguir, que adiciona o serviço de perfil e o host para ele:
+12. Em Program.cs, substitua a definição do namespace pelo seguinte
+    código, que adiciona o serviço de perfil e o host para ele:
 
         namespace ProductsServer
         {
@@ -267,15 +297,20 @@ Este projeto será iniciado como um aplicativo de console do Visual Studio. O pr
             }
         }
 
-13. No **Gerenciador de Soluções**, clique duas vezes no arquivo **App.config** para abri-lo no editor do **Visual Studio**. Substitua o conteúdo de **&lt;system.ServiceModel&gt;** pelo código XML a seguir. Certifique-se de substituir *yourServiceNamespace* pelo nome do seu namespace de serviço e *yourKey* pela chave SAS que você recuperou anteriormente no portal de gerenciamento do Azure:
+13. No **Gerenciador de Soluções**, clique duas vezes no arquivo **App.config** para
+    abri-lo no editor do **Visual Studio**. Substitua o conteúdo de
+    **&lt;system.ServiceModel&gt;** pelo código XML a seguir. Certifique-se de
+    substituir *yourServiceNamespace* pelo nome do namespace de seu serviço
+    e *yourKey* pela chave SAS que você recuperou anteriormente
+    do portal de gerenciamento do Azure:
 
         <system.serviceModel>
           <extensions>
              <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </behaviorExtensions>
               <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </bindingExtensions>
           </extensions>
           <services>
@@ -299,31 +334,40 @@ Este projeto será iniciado como um aplicativo de console do Visual Studio. O pr
 
 14. Pressione **F6** ou, no menu **Compilar**, clique em **Compilar Solução** para compilar o aplicativo a usar para verificar a precisão de seu trabalho até o momento.
 
-##Criar um aplicativo ASP.NET MVC
+## Criar um aplicativo ASP.NET MVC
 
 Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados recuperados do seu serviço de produto.
 
-###Criar o projeto
+### Criar o projeto
 
-1.  Certifique-se de que o Visual Studio está sendo executado com os privilégios de administrador. Se não estiver, inicie o Visual Studio com privilégios de administrador, clique com o botão direito em **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Microsoft Azure, abordado mais à frente neste guia, exige que o Visual Studio seja iniciado com privilégios de administrador.
+1.  Certifique-se de que o Visual Studio está sendo executado com os privilégios de administrador. Caso contrário, para
+    iniciar o Visual Studio com privilégios de administrador, clique com botão direito em
+    **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e clique em **Executar como administrador**. O emulador de computação do Microsoft Azure, discutido posteriormente neste guia, requer que
+    o Visual Studio seja iniciado com privilégios de administrador.
 
-2.  No Visual Studio, no menu **Arquivo**, clique em **Novo** e, em seguida, clique em **Projeto**.
+2.  No Visual Studio, no menu **Arquivo**, clique em **Novo** e, em seguida,
+    clique em **Projeto**.
 
-3.  Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo Web ASP.NET MVC**. Nomeie o projeto **ProductsPortal**. Em seguida, clique em **OK**.
+3.  Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo Web ASP.NET MVC**. Nomeie o projeto **ProductsPortal**. Em seguida,
+    clique em **OK**.
 
     ![][15]
 
-4.  Na lista **Selecione um modelo**, clique em **MVC** e, em seguida, clique em **OK**.
+4.  Na lista **Selecionar um modelo**, clique em **MVC** e
+    clique em **OK**.
 
     ![][16]
 
-5.  Em **Gerenciador de Soluções**, clique com o botão direito em **Modelos** e clique em **Adicionar** e, em seguida, clique em **Classe**. Na caixa **Nome**, digite o nome **Product.cs**. Clique em **Adicionar**.
+5.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Modelos** e clique em **Adicionar**.
+    Em seguida, clique em **Classe**. Na caixa **Nome**, digite o nome
+    **Product.cs**. Clique em **Adicionar**.
 
     ![][17]
 
-###Modificar o aplicativo web
+### Modificar o aplicativo web
 
-1.  No arquivo Product.cs no Visual Studio, substitua a definição do namespace existente com o código a seguir:
+1.  No arquivo Product.cs no Visual Studio, substitua a
+    definição de namespace existente pelo seguinte código:
 
         // Declare properties for the products inventory
         namespace ProductsWeb.Models
@@ -336,7 +380,8 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
             }
         }
 
-2.  No arquivo HomeController.cs no Visual Studio, substitua a definição do namespace existente pelo código a seguir:
+2.  No arquivo HomeController.cs no Visual Studio, substitua a
+    definição de namespace existente pelo seguinte código:
 
         namespace ProductsWeb.Controllers
         {
@@ -409,20 +454,23 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 		</table>
 
 
-9.  Para verificar a precisão de seu trabalho até o momento, você pode pressionar **F6** ou **Ctrl+Shift+B** para compilar o projeto.
+9.  Para verificar a precisão de seu trabalho até agora, você pode pressionar **F6** ou
+    **Ctrl+Shift+B** para compilar o projeto.
 
 
-###Execute seu aplicativo localmente
+### Execute seu aplicativo localmente
 
 Execute o aplicativo para verificar se ele funciona.
 
-1.  Certifique-se de que **ProductsPortal** é o projeto ativo. Clique com o botão direito no nome do projeto em **Gerenciador de Soluções** e selecione **Definir como Projeto de Inicialização**
+1.  Certifique-se de que **ProductsPortal** é o projeto ativo. Clique com o botão direito do mouse
+    no nome do projeto no **Gerenciador de Soluções** e selecione **Definir como
+    Projeto de Inicialização**
 2.  No **Visual Studio**, pressione **F5**.
 3.  Seu aplicativo deve aparecer em execução em um navegador:
 
     ![][21]
 
-##Tornar seu aplicativo pronto para implantação no Azure
+## Tornar seu aplicativo pronto para implantação no Azure
 
 É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][executionmodels]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta seção contém etapas detalhadas para implantar o aplicativo em um serviço de nuvem do Azure.
 
@@ -434,21 +482,31 @@ Para implantar seu aplicativo em um serviço de nuvem, você adicionará um proj
 
 2.  Para testar o aplicativo, pressione **F5**.
 
-3.  Isso iniciará o emulador de computação do Azure. O emulador de computação usará o computador local para emular seu aplicativo em execução no Azure. É possível confirmar se o emulador foi iniciado examinando a bandeja do sistema:
+3.  Isso iniciará o emulador de computação do Azure. O emulador de
+        computação usará o computador local para emular seu aplicativo
+        em execução no Azure. Você pode confirmar que o emulador
+        foi iniciado examinando a bandeja do sistema:
 
        ![][23]
 
-4.  Um navegador ainda exibirá seu aplicativo em execução localmente, e ele será semelhante e funcionará da mesma maneira como na execução anterior como um aplicativo ASP.NET MVC 4 normal.
+4.  Um navegador exibirá ainda seu aplicativo sendo executado localmente,
+        e ele terá aparência e funcionamento semelhantes aos que tinha quando você o executava,
+        anteriormente, como um aplicativo ASP.NET MVC 4 normal.
 
-##Juntar as peças
+## Juntar as peças
 
 A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.NET MVC.
 
-1.  Se ele ainda não estiver aberto, no Visual Studio reabra o projeto **ProductsPortal** criado na sessão "Criando um aplicativo ASP.NET MVC".
+1.  Se ainda não estiver aberto, no Visual Studio, reabra o projeto
+        **ProductsPortal** que você criou na seção "Criando um
+        aplicativo ASP.NET MVC".
 
-2.  Semelhante à etapa na seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito em **Referências** e clique em **Gerenciar Pacotes NuGet**.
+2.  Semelhante à etapa na seção "Criar Um Servidor
+        Local", adicione o pacote NuGet às Referências do projeto. No
+        Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e, em seguida, clique em
+        **Gerenciar Pacotes NuGet**.
 
-3.  Pesquise por "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Em seguida, conclua a instalação e feche essa caixa de diálogo.
+3.  Pesquise "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Em seguida, conclua a instalação e feche essa caixa de diálogo.
 
 4.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProductsPortal**, depois clique em **Adicionar** e, em seguida, em **Item existente**.
 
@@ -456,7 +514,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 
 	![][24]
 
-6.  Agora abra o arquivo **HomeController.cs** no editor do Visual Studio e substitua a definição do namespace com o código a seguir. Certifique-se de substituir *yourServiceNamespace* pelo nome do seu namespace de serviço e *yourKey* pela sua chave SAS. Isso permitirá que o cliente chame o serviço local, retornando o resultado da chamada.
+6.  Agora abra o arquivo **HomeController.cs** no editor do Visual Studio e substitua a definição do namespace com o código a seguir. Substitua *yourServiceNamespace* pelo nome do namespace de seu serviço e *yourKey* por sua chave SAS. Isso permitirá que o cliente chame o serviço local, retornando o resultado da chamada.
 
             namespace ProductsWeb.Controllers
             {
@@ -495,33 +553,51 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
                     }
                 }
             }
-7.  No Gerenciador de Soluções, clique com o botão direito do mouse na solução **ProductsPortal**, clique em **Adicionar** e em **Projeto Existente**.
+7.  No Gerenciador de Soluções, clique com o botão direito do mouse na solução **ProductsPortal**,
+        clique em **Adicionar** e, por fim, clique em **Projeto Existente**.
 
-8.  Navegue até o projeto **ProductsServer** e clique duas vezes no arquivo de solução **ProductsServer.csproj** para adicioná-lo.
+8.  Navegue até o projeto **ProductsServer** e clique duas vezes
+        no arquivo de solução **ProductsServer.csproj** para adicioná-lo.
 
-9.  No Gerenciador de Soluções, clique com o botão direito do mouse na solução **ProductsPortal** e, em seguida, clique em **Propriedades**.
+9.  No Gerenciador de Soluções, clique com o botão direito do mouse na solução **ProductsPortal**
+        e clique em **Propriedades**.
 
-10. No lado esquerdo, clique em **Projeto de Inicialização**. No lado direito, clique em **Vários projetos de inicialização**. Verifique se **ProductsServer**, **ProductsPortal.Azure** e **ProductsPortal** apareceram, nessa ordem, com a opção **Iniciar** definida como a ação para **ProductsServer** e **ProductsPortal.Azure**, e **Nenhuma** definida como a ação para **ProductsPortal**. Por exemplo:
+10. No lado esquerdo, clique em **Projeto de Inicialização**. No lado
+        direito, clique em **Vários projetos de inicialização**. Verifique se
+        **ProductsServer**, **ProductsPortal.Azure** e
+        **ProductsPortal** aparecem, nessa ordem, com **Iniciar** definido como
+        a ação para **ProductsServer** e **ProductsPortal.Azure**
+        e **Nenhuma** definida como a ação para **ProductsPortal**. Por
+        exemplo:
 
       ![][25]
 
-11. Ainda na caixa de diálogo Propriedades, clique em **ProjectDependencies** no lado esquerdo.
+11. Ainda na caixa de diálogo Propriedades, clique em **ProjectDependencies** no
+        lado esquerdo.
 
-12. Na lista suspensa **Projetos**, clique em **ProductsServer**. Certifique-se de que **ProductsPortal** está desmarcado e **ProductsPortal.Azure** está marcado. Em seguida, clique em **OK**:
+12. No menu suspenso **Projetos**, clique em
+        **ProductsServer**. Verifique se **ProductsPortal** está desmarcado
+        e **ProductsPortal.Azure** está marcado. Em seguida, clique em **OK**:
 
     ![][26]
 
-##Executar o aplicativo
+## Executar o aplicativo
 
 1.  No menu **Arquivo** no Visual Studio, clique em **Salvar Tudo**.
 
-2.  Pressione **F5** para compilar e executar o aplicativo. O servidor local (o aplicativo do console **ProductsServer**) deve iniciar primeiro, em seguida, o aplicativo **ProductsWeb** deve iniciar em uma janela do navegador, como mostrado na captura de tela abaixo. Desta vez, você verá que o inventário de produtos lista dados recuperados do sistema local de serviço de produto.
+2.  Pressione **F5** para compilar e executar o aplicativo. O servidor
+        local (o aplicativo de console **ProductsServer**) deve ser iniciado
+        primeiro e, em seguida o aplicativo **ProductsWeb** deve ser iniciado em uma
+        janela de navegador, conforme mostrado na captura de tela abaixo. Dessa vez, você
+        verá que o inventário de produtos lista os dados recuperados do
+        sistema local do serviço de produto.
 
     ![][1]
 
-##Implantar seu aplicativo no Azure
+## Implantar seu aplicativo no Azure
 
-1.  Clique com o botão direito do mouse no projeto **ProductsPortal** no **Gerenciador de Soluções** e depois clique em **Publicar no Microsoft Azure**.
+1.  Clique com o botão direito do mouse no projeto **ProductsPortal** no **Gerenciador de
+        Soluções** e clique em **publicar no Microsoft Azure**.
 
 2.  Talvez seja necessário entrar para ver todas as suas assinaturas.
 
@@ -529,36 +605,59 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 
     ![][27]
 
-3.  Entre utilizando sua conta da Microsoft.
+3.  Entre usando sua Conta da Microsoft.
 
 
-8.  Clique em **Avançar**. Se sua assinatura ainda não contém nenhum serviço hospedado, será solicitada a criação de um. O serviço hospedado atua como um contêiner para seu aplicativo em sua assinatura do Azure. Insira um nome que identifique seu aplicativo e escolha a região para a qual o aplicativo deve ser otimizado. (Você pode esperar um tempo de carregamento mais rápido para os usuários que o estão acessando nesta região).
+8.  Clique em **Avançar**. Se sua assinatura ainda não contém nenhum serviço
+        hospedado, será solicitado que você crie um. O serviço hospedado
+        atua como um contêiner para seu aplicativo em sua 
+        assinatura do Azure. Digite um nome que identifica seu
+        aplicativo e escolha a região para a qual o aplicativo
+        deve ser otimizado. (Você pode esperar tempos de carregamento mais rápidos para
+        usuários acessando-o desta região.)
 
-9.  Selecione o serviço hospedado no qual você deseja publicar seu aplicativo. Mantenha os padrões conforme mostrado abaixo para o restante das configurações. Clique em **Avançar**:
+9.  Selecione o serviço hospedado para o qual você deseja publicar seu
+        aplicativo. Mantenha os padrões conforme mostrado abaixo para o
+        restante das configurações. Clique em **Avançar**:
 
     ![][33]
 
-10. Na última página, clique em **Publicar** para iniciar o processo de implantação:
+10. Na última página, clique em **Publicar** para iniciar o processo de
+        implantação:
 
     ![][34]
 
-Isso levará aproximadamente cinco a sete minutos. Como esta é a primeira vez que você está publicando, o Azure provisiona uma máquina virtual (VM), executa a proteção de segurança, cria uma função de Web no computador virtual para hospedar seu aplicativo, implanta seu código para a função de Web e, finalmente, configura o balanceador de carga e a rede para que seu aplicativo fique disponível para o público.
+Isso levará aproximadamente cinco a sete minutos. Como essa é a
+        primeira vez que você está publicando, o Azure provisiona uma
+        máquina virtual (VM), executa o robustecimento da segurança, cria uma função
+        da Web na VM para hospedar o aplicativo, implanta seu código
+        nessa função Web e finalmente configura o balanceador de carga e
+        rede para que seu aplicativo esteja disponível ao público.
 
-11. Enquanto a publicação estiver em andamento é possível monitorar a atividade na janela **Log de atividades do Azure**, que normalmente é encaixada na parte inferior do Visual Studio ou do Visual Web Developer:
+11. Enquanto a publicação estiver em andamento, você será capaz de monitorar a
+        atividade na janela **Log de Atividades do Azure**, que, normalmente,
+        fica encaixada na parte inferior do Visual Studio ou Visual Web
+        Developer:
 
     ![][35]
 
-12. Quando a implantação for concluída, você poderá exibir seu site clicando no link **URL do site** na janela de monitoramento.
+12. Quando a implantação for concluída, você poderá exibir seu site
+        clicando no link **URL do Site** na janela de monitoramento.
 
     ![][36]
 
-    Seu site depende de seu servidor local, portanto, você deve executar o aplicativo **ProductsServer** localmente para o site funcionar corretamente. À medida que você executar solicitações no site de nuvem, verá solicitações chegando no seu aplicativo de console local conforme indicado pela saída de "GetProducts called" exibida na captura de tela a seguir.
+    Seu site depende de seu servidor local, por isso, você deve
+        executar o aplicativo **ProductsServer** localmente para que o site
+        funcione corretamente. Já que você realiza solicitações no site de nuvem,
+        você verá solicitações que chegam ao seu aplicativo de console
+        local, conforme indicado pela saída "GetProducts called"
+        exibida na captura de tela abaixo.
 
     ![][37]
 
 Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][executionmodels].
 
-##Parar e excluir seu aplicativo
+## Parar e excluir seu aplicativo
 
 Depois de implantar seu aplicativo, você talvez queira desabilitá-lo para que possa criar e implantar outros aplicativos com as 750horas/mês (31 dias/mês) gratuitas do tempo do servidor.
 
@@ -567,9 +666,10 @@ Uma conta gratuita inclui 750 horas/mês (31 dias/mês) de tempo de servidor ded
 
 As etapas a seguir mostram como parar e excluir o aplicativo.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure], clique em Serviços de Nuvem e, em seguida, clique no nome do serviço.
+1.  Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços de Nuvem** e, em seguida, clique no nome do serviço.
 
-2.  Clique na guia **Painel** e, em seguida, clique em **Parar** para suspender temporariamente o aplicativo. Você poderá iniciá-lo novamente apenas clicando em Iniciar. Clique em **Excluir** para remover completamente seu aplicativo do Azure sem possibilidade de restaurá-lo.
+2.  Clique na guia **Painel** e, em seguida, clique em **Parar** para suspender temporariamente o aplicativo. Você poderá
+        iniciá-lo novamente apenas clicando em Iniciar. Clique em **Excluir** para remover completamente seu aplicativo do Azure sem possibilidade de restaurá-lo.
 
 	![][43]
 
@@ -596,7 +696,7 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   
   
   
-  [Utilizando o pacote NuGet de Barramento de Serviço]: http://go.microsoft.com/fwlink/?LinkId=234589
+  [Usando o Pacote NuGet de Barramento de Serviço]: http://go.microsoft.com/fwlink/?LinkId=234589
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [12]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
@@ -639,4 +739,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
-<!--HONumber=47-->
+<!--HONumber=52-->

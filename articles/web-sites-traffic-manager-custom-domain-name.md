@@ -1,31 +1,28 @@
 ﻿<properties 
-	pageTitle="Configurar um nome de domínio personalizado para um site do Azure que usa o Gerenciador de tráfego" 
-	description="" 
-	services="web-sites" 
+	pageTitle="Configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que usa o Gerenciador de Tráfego" 
+	description="Use um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga." 
+	services="app-service\web" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr, jroth"/>
+	ms.date="03/24/2015" 
+	ms.author="cephalin"/>
 
-#Configurando um nome de domínio personalizado para um site do Azure usando o Gerenciador de Tráfego
+#Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Domínio personalizado</a><a href="/pt-br/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/pt-br/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">soluções de rede</a><a href="/pt-br/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/pt-br/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/pt-br/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/pt-br/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/pt-br/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/pt-br/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/pt-br/documentation/articles/web-sites-custom-domain-name/" title="Websites">Site</a> | <a href="/pt-br/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Website using Traffic Manager" class="current">Site usando o Gerenciador de Tráfego</a></div>
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [web-selector](../includes/websites-custom-domain-selector.md)]
 
 [AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Este artigo fornece instruções genéricas sobre como usar um nome de domínio personalizado com sites do Azure que usem o Gerenciador de Tráfego no balanceamento de carga. Marque as guias na parte superior deste artigo para ver se o registrador de domínio está listado. Em caso afirmativo, selecione essa guia para etapas específicas do registrador.
+Este artigo fornece instruções genéricas sobre como usar um nome de domínio personalizado com o Serviço de Aplicativo do Azure que usa o Gerenciador de Tráfego para balanceamento de carga.
 
 [AZURE.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -34,38 +31,46 @@ Este artigo fornece instruções genéricas sobre como usar um nome de domínio 
 Neste artigo:
 
 -   [Compreendendo os registros DNS](#understanding-records)
--   [Configurar seus sites para modo padrão](#bkmk_configsharedmode)
+-   [Configurar seus aplicativos Web para o modo Padrão](#bkmk_configsharedmode)
 -   [Adicionar um registro DNS a seu domínio personalizado](#bkmk_configurecname)
--   [Habilitar o Gerenciador de Tráfego para o seu site](#enabledomain)
+-   [Habilitar o Gerenciador de Tráfego para seu aplicativo Web](#enabledomain)
 
-<h2><a name="understanding-records"></a>Compreendendo os registros DNS</h2>
+<a name="understanding-records"></a>
+## Compreendendo os registros DNS
 
 [AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
-<h2><a name="bkmk_configsharedmode"></a>Configurar seus sites para modo padrão</h2>
+<a name="bkmk_configsharedmode"></a>
+## Configurar seus aplicativos Web para o modo Padrão
 
-[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
+[AZURE.INCLUDE [modos](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-<a name="bkmk_configurecname"></a><h2>Adicionar um registro DNS a seu domínio personalizado</h2>
+<a name="bkmk_configurecname"></a>
+## Adicionar um registro DNS a seu domínio personalizado
 
-Para associar seu domínio personalizado a um site do Azure, você deve adicionar uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo registrador de domínio do qual comprou seu nome de domínio. Use as seguintes etapas para localizar e usar as ferramentas DNS.
+Para associar seu domínio personalizado a um aplicativo Web no Serviço de Aplicativo do Azure, você deve adicionar uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo registrador de domínio do qual comprou seu nome de domínio. Use as seguintes etapas para localizar e usar as ferramentas DNS.
 
-1. Faça logon na sua conta em seu registrador de domínio e procure uma página de gerenciamento de registros DNS. Procure links ou áreas do site rotuladas como **Nome de domínio****, DNS**, ou **Gerenciamento de servidor de nome**. Normalmente, um link para essa página pode ser encontrado exibindo-se as informações de conta e procurando-se um link como **Meus domínios**.
+1. Faça logon na sua conta em seu registrador de domínio e procure uma página de gerenciamento de registros DNS. Procure links ou áreas do site rotuladas como **Nome de domínio**, **DNS** ou **Gerenciamento de servidor de nome**. Normalmente, um link para essa página pode ser encontrado exibindo-se as informações de conta e procurando-se um link como **Meus domínios**.
 
 4. Depois de localizar a página de gerenciamento para seu nome de domínio, procure um link que permita editar os registros DNS. Ele pode estar listado como um **Arquivo de zona**, **Registros DNS** ou como um link de configuração **Avançado**.
 
-	* A página deverá ter poucos registros já criados, como uma associação de entrada '**@**' ou '\*' com uma página 'domain parking'. Ela também pode conter registros para subdomínios comuns como **www**.
-	* A página mencionará **registros CNAME** ou fornecerá uma lista suspensa para selecionar um tipo de registro. Ela também pode mencionar outros registros, como **registros A** e **registros MX**. Em alguns casos, registros CNAME serão chamados por outros nomes como um **Registro de Alias**.
-	* A página também terá campos que permitem **mapear** de um **Nome do host** ou **Nome de domínio** para outro nome de domínio.
+	* A página deverá ter alguns poucos registros já criados, como uma associação de entrada '**@**' ou '\*' com uma página de 'domain parking'. Ela também pode conter registros para subdomínios comuns como **www**.
+	*  A página mencionará **registros CNAME** ou fornecerá uma lista suspensa para a seleção de um tipo de registro. Ela também pode mencionar outros registros, como **registros A** e **registros MX**. Em alguns casos, registros CNAME serão chamados por outros nomes como um **Registro de Alias**.
+	* A página também terá campos que permitem **mapear** de um **Nome de host** ou **Nome de domínio** para outro nome de domínio.
 
-5. Embora as especificidades de cada registrador variem, em geral, você mapeia  *from* seu nome de domínio personalizado (como **contoso.com**,) *to* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) usado no site do Azure.
+5. Embora as especificidades de cada registrador variem, em geral, você mapeia *from* o nome de domínio personalizado (como **contoso.com**)  *to* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) usado para o aplicativo Web.
 
 6. Depois de terminar a adição ou a modificação de registros DNS no registrador, salve as alterações.
 
-<h2><a name="enabledomain"></a>Habilitar o site do Gerenciador de Tráfego</h2>
+<a name="enabledomain"></a>
+## Habilitar o Gerenciador de tráfego
 
-[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+[AZURE.INCLUDE [modos](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
+## O que mudou
+* Para obter um guia para a alteração de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a alteração do portal antigo para o novo portal, consulte: [Referência à navegação pelo portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=42-->
+<!--HONumber=52-->

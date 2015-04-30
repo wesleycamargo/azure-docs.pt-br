@@ -1,4 +1,4 @@
-﻿<h2><a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento</h2>
+﻿## <a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento
 
 Para começar, configure o ambiente de desenvolvimento instalando o [SDK do Azure para o Visual Studio 2013][].
 
@@ -8,4 +8,4 @@ Se você não tiver o Visual Studio instalado, o Visual Studio Express para a We
 
 [SDK do Azure para Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!--HONumber=49-->
+<!--HONumber=52--> 

@@ -16,7 +16,7 @@
 	ms.date="02/27/2015" 
 	ms.author="juliako"/>
 
-#Codecs e formatos do Codificador de Mídia do Azure
+# Codecs e formatos do Codificador de Mídia do Azure
 
 Os codificadores compactam mídia digital usando codecs. Normalmente, os codificadores têm várias configurações que permitem especificar propriedades da mídia gerada, por exemplo, os codecs usados, o formato do arquivo, a resolução e taxa de bits. Formatos de arquivo são contêineres que armazenam o vídeo compactado, bem como informações sobre quais codecs foram usados para compactar o vídeo. 
 
@@ -32,11 +32,11 @@ Este documento contém uma lista dos formatos de arquivo de importação e impor
 [Formatos de exportação do Codificador de Mídia](#export_formats)
 
 
-##<a id="import_formats"></a>Formatos de importação do Codificador de Mídia 
+## <a id="import_formats"></a>Formatos de importação do Codificador de Mídia 
 
 A seção a seguir lista os codecs e formatos de arquivo com suporte para importação.
 
-###Codecs de vídeo
+### Codecs de vídeo
 
 - H.264 (Perfis Linha de base, Principal e Alto)
 - MPEG-1 (incluindo MPEG-PS)
@@ -47,14 +47,14 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte para import
 - DV (DVC, DVHD, DVSD, DVSL)
 - Grass Valley HQ/HQX
  
-###Codecs de áudio
+### Codecs de áudio
 
 - AC-3 (áudio Dolby Digital)
 - AAC (AAC-LC, HE-AAC v1 com núcleo AAC-LC e HE-AAC v2 com núcleo AAC-LC)
 - MP3
 - Áudio do Windows Media 9 (Windows Media Audio Standard, Windows Media Audio Professional e Windows Media Audio Lossless)
 
-###Formatos de arquivo de vídeo
+### Formatos de arquivo de vídeo
  
 <table border="1">
 <tr><th>Formato de arquivo</th><th>Extensões de arquivo</th></tr>
@@ -75,7 +75,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte para import
 
 Há suporte para alguns formatos descompactados. Para obter mais informações, consulte [Formatos de vídeo descompactado compatíveis](#uncompressed)
 
-###Formatos de arquivo de áudio
+### Formatos de arquivo de áudio
 
 <table border="1">
 <tr><th>Formato de arquivo</th><th>Extensões de arquivo</th></tr>
@@ -89,7 +89,7 @@ Há suporte para alguns formatos descompactados. Para obter mais informações, 
 <tr><td>Áudio do Windows Media</td><td>.wma</td></tr>   
 </table>
 
-###Formatos de arquivo de imagem
+### Formatos de arquivo de imagem
 
 <table border="1">
 <tr><th>Formato de arquivo</th><th>Extensões de arquivo</th></tr>
@@ -102,7 +102,7 @@ Há suporte para alguns formatos descompactados. Para obter mais informações, 
 </table>
 
 
-##<a id="export_formats"></a>Formatos de exportação do Codificador de Mídia
+## <a id="export_formats"></a>Formatos de exportação do Codificador de Mídia
 
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.
 
@@ -118,7 +118,7 @@ AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
 
 Para obter codecs com suporte adicionais e filtros nos Serviços de Mídia, consulte [Filtros do Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
-##<a id="uncompressed"></a>Formatos de vídeo descompactado compatíveis 
+## <a id="uncompressed"></a>Formatos de vídeo descompactado com suporte 
 
 Os Serviços de Mídia do Azure dão suporte à importação de dados de vídeos descompactados.
 
@@ -137,4 +137,4 @@ Esta é uma lista parcial de formatos descompactados com suporte.
 <tr><td>Formato YVU9 produzido em Indeo</td><td>Formato YVU9 produzido em Indeo com informações adicionais sobre as diferenças do último quadro. 9,5 bits por pixel, mas relatado como 9.</td></tr>
 </table>
 
-<!--HONumber=47-->
+<!--HONumber=52-->

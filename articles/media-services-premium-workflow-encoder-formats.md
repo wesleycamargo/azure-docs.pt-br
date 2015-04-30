@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/05/2015" 
 	ms.author="juliako"/>
 
-#Codecs e formatos de fluxo de trabalho do Media Encoder Premium
+# Codecs e formatos de fluxo de trabalho do Media Encoder Premium
 
 
 **Observação** processador de mídia de fluxo de trabalho do Media Encoder Premium discutido neste tópico, não está disponível na China.
@@ -27,14 +27,14 @@ Este documento contém uma lista de formatos de arquivo de entrada e saída e co
 
 [Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium](#output_formats)
 
-**Fluxo de trabalho do Media Encoder Premium** dá suporte a legendas codificadas descritas [nesta](#closed_captioning) seção. 
+**Fluxo de trabalho do Media Encoder Premium** dá suporte a legendas codificadas descritas [nesta](#closed_captioning) . 
 
 
-##<a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
+## <a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
 
 A seção a seguir lista os codecs e formatos de arquivo aos quais esse processador de mídia dá suporte como entrada.
 
-###Formatos de arquivo/contêiner de entrada
+### Formatos de arquivo/contêiner de entrada
 
 - Adobe(r) Flash(r) F4V
 - MXF/SMPTE 377M
@@ -45,7 +45,7 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 - Windows Media/ASF
 - AVI (8 bits/10 bits descompactado)
 
-###Codecs de vídeo de entrada
+### Codecs de vídeo de entrada
 
 - AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra
 - DNxHD ávido (em MXF)
@@ -55,23 +55,22 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 - MPEG-1
 - Windows Media Video/VC-1
 
-###Codecs de áudio de entrada
+### Codecs de áudio de entrada
 
 - AES (SMPTE 331M e 302M, AES3-2003)
 - Dolby(r) E
 - Dolby(r) Digital (AC3)
-- Dolby(r) Digital Plus (E-AC3)
 - AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
 - MPEG Layer 2
 - MP3 (MPEG-1 Audio Layer 3)
 - Áudio do Windows Media
 - WAV/PCM
  
-##<a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
+## <a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
 
 A seção a seguir lista os codecs e formatos de arquivo com suporte como a saída desse processador de mídia.
 
-###Formatos de contêiner/arquivo de saída
+### Formatos de contêiner/arquivo de saída
 
 - Adobe(r) Flash(r) F4V
 - MXF (OP1a, XDCAM e AS02)
@@ -83,7 +82,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 - Formato de arquivo do Smooth Streaming (PIFF 1.3)
 
 
-###Codecs de vídeo de saída
+### Codecs de vídeo de saída
 
 - AVC (H. 264; 8 bits; até perfil, nível elevado 5.2; 4K Ultra HD; Intra AVC)
 - DNxHD ávido (em MXF)
@@ -93,7 +92,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 - Windows Media Video/VC-1
 - Criação de miniaturas JPEG
 
-###Codecs de áudio de saída
+### Codecs de áudio de saída
 
 - AES (SMPTE 331M e 302M, AES3-2003)
 - Dolby(r) Digital (AC3)
@@ -103,18 +102,28 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 - MP3 (MPEG-1 Audio Layer 3)
 - Áudio do Windows Media
 
-##<a id="closed_captioning"></a>Suporte a legenda codificada
+## <a id="closed_captioning"></a>Suporte a legenda codificada
 
-Atualmente, o processador de mídia de **Fluxo de Trabalho do Media Encoder Premium** dá suporte  legenda codificada quando ela é intercalada no arquivo de mídia de origem ou de entrada: essencialmente, CEA-608/CEA-708 transportado como dados de usuário (mensagens SEI de fluxos elementares H.264, ATSC/53, SCTE20) ou transportada como dados auxiliares em arquivos MXF/GXF.
+Na ingestão, o **fluxo de trabalho do Media Encoder Premium** dá suporte a:
 
-Na saída, as seguintes opções estão disponíveis para reempacotamento CEA 608/708 na entrada:
+1. Arquivos SCC
+1. Arquivos SMPTE-TT
+1. CEA-608/CEA-708 - transportados como dados de usuário (mensagens SEI de fluxos elementares H.264, ATSC/53, SCTE20) ou executados como dados complementares em arquivos MXF/GXF
+1. Arquivos de legenda STL
 
-- Tradução de CEA-608 para CEA-708
-- Transmissão CEA-608/CEA-708 (integrada em mensagens SEI para fluxos elementares H.264, ou carregada como dados auxiliares nos arquivos MXF)
-- SCC
-- Texto cronometrado de SMPTE (de origem CEA-608 por SMPTE RP2052, inclusive criação de arquivo DFXP)
-- Arquivo de legenda SRT
-- Fluxos de legenda DVB
+Na saída, as seguintes opções estão disponíveis:
+
+1. Tradução de CEA-608 para CEA-708
+1. Transmissão CEA-608/CEA-708 (integrada em mensagens SEI para fluxos elementares H.264, ou carregada como dados auxiliares nos arquivos MXF)
+1. SCC
+1. Texto cronometrado de SMPTE (de origem CEA-608 por SMPTE RP2052, inclusive criação de arquivo DFXP)
+1. Arquivo de legenda SRT
+1. Fluxos de legenda DVB
 
 Observação: nem todos os formatos de saída acima têm suporte para fornecimento por meio de streaming nos Serviços de Mídia do Azure.
-<!--HONumber=47-->
+
+## Problemas conhecidos
+
+Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
+
+<!--HONumber=52-->

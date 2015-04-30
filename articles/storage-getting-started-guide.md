@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introdução aos blobs, tabelas e filas do Azure em 5 minutos" 
 	description="Entenda rapidamente sobre os blobs, tabelas e filas do Microsoft Azure usando guias de início rápido do Azure e o Visual Studio." 
 	services="storage" 
@@ -25,7 +25,7 @@ O tutorial inclui dois cenários principais para uma compreensão rápida sobre 
 - Executar seu primeiro aplicativo do Armazenamento do Azure no Emulador de Armazenamento do Azure
 - Executar seu primeiro aplicativo do Armazenamento do Azure no Serviço de Armazenamento do Azure
 
-Se você quiser saber sobre o Armazenamento do Azure antes de entrarmos no código, consulte [Próximas etapas][].
+Se você quiser saber sobre o Armazenamento do Azure antes de entrarmos no código, consulte [Próximas etapas](#next-steps).
 
 ## Executar seu primeiro aplicativo do Armazenamento do Azure no Emulador de Armazenamento do Azure
 
@@ -56,13 +56,13 @@ Execute então o aplicativo de exemplo usando o [Emulador de Armazenamento do Az
 2.	No Visual Studio, selecione **Implantar Solução** no menu **Compilar**. 
 3.	No menu **Depurar**, pressione **F11** para executar a solução passo a passo ou pressione **F5** para executar a solução.
 
-## Executar seu primeiro aplicativo do Armazenamento do Azure no Serviço de Armazenamento do Azure
+## Executar seu primeiro aplicativo do Armazenamento do Azure no Armazenamento do Azure na nuvem
 Esta seção demonstra como programar em **Blobs**, **Tabelas**, e **Filas** do Armazenamento do Azure desenvolvendo um aplicativo de exemplo acessando o [Serviço de Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/).
 
 Para concluir esta seção, certifique-se primeiro de executar as seguintes tarefas de pré-requisito:
 
 1. Para compilar e criar o aplicativo, você precisa ter o [Visual Studio](http://www.visualstudio.com/visual-studio-homepage-vs.aspx) instalado em seu computador. Se você não tiver instalado o Visual Studio, poderá instalar o Visual Studio Express para Web ao instalar o [SDK do Azure 2.5 para Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) ou posterior. 
-2. Verifique se você tem [SDK do Azure 2.5 para Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) ou posterior instalado no seu computador, pois ele inclui os projetos de exemplo de início rápido do Azure e a [Biblioteca de Cliente de Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).  
+2. Verifique se você tem o [SDK do Azure 2.5 para Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) ou posterior instalado no seu computador, pois ele inclui os projetos de exemplo de início rápido do Azure e a [Biblioteca de Cliente de Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).  
 3. Verifique se você tem o [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) instalado no computador, pois os projetos de exemplo de início rápido do Azure necessitam dele. Se você não tiver certeza de qual versão do .NET Framework está instalada no seu computador, consulte [Como: Determinar quais versões do .NET Framework estão instaladas](https://msdn.microsoft.com/vstudio/hh925568.aspx). Ou pressione o botão **Iniciar** ou a tecla Windows, digite **Painel de Controle**. Em seguida, clique em **Programas** > **Programas e Recursos**. Verifique se o .NET Framework 4.5 está listado entre todos os programas instalados.
 4.	Obtenha uma assinatura do Azure (se você ainda não tiver uma) e crie também uma conta de **Armazenamento padrão**:
 	- Para obter uma assinatura do Azure, consulte [Avaliação gratuita](, http://azure.microsoft.com/pricing/free-trial/)[Opções de compra](http://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) (para membros de outros programas da Microsoft, MSDN, Microsoft Partner Network e BizSpark).
@@ -112,4 +112,4 @@ Se você quiser saber mais sobre eles, siga estes links:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

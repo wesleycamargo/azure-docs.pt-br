@@ -1,8 +1,21 @@
-﻿<properties pageTitle="Cotas e limitações dos Serviços de Mídia" description="Este tópico descreve as cotas e limitações associadas aos serviços de mídia do Microsoft Azure." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+<properties 
+	pageTitle="Cotas e limitações dos Serviços de Mídia" 
+	description="Este tópico descreve as cotas e limitações associadas aos Serviços de Mídia do Microsoft Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" />
 
-<tags ms.service="media-services" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/23/2015" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.devlang="" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="" 
+	ms.workload="media" 
+	ms.date="01/23/2015" 
+	ms.author="juliako" />
 
-# Cotas e limitações
+#Cotas e limitações
 
 Este tópico descreve as cotas e limitações associadas aos serviços de mídia do Microsoft Azure.
 
@@ -20,7 +33,7 @@ Este tópico descreve as cotas e limitações associadas aos serviços de mídia
  
 - O número máximo de trabalhos em sua conta não deve exceder 50.000.
  
-- Você pode excluir os trabalhos antigos usando solicitação HTTP de **IJob.Delete** ou **DELETE**. Para obter mais informações, consulte [limite de registro de trabalho para o Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) e [gerenciamento de ativos](https://msdn.microsoft.com/pt-br/library/azure/dn642436.aspx). 
+- Você pode excluir os trabalhos antigos usando solicitação HTTP de **IJob.Delete** ou **DELETE**. Para obter mais informações, consulte [Limite de registro de trabalho para o Codificador de Mídia do Azure](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) e [Gerenciando ativos](https://msdn.microsoft.com/library/azure/dn642436.aspx). 
  
 - Ao fazer uma solicitação para listar as entidades de trabalho, será retornado um máximo de 1.000 por solicitação. Se você precisar manter o controle dos de todos os trabalhos enviados, você pode usar superior/pular conforme descrito em [Opções de consulta OData sistema](http://msdn.microsoft.com/library/gg309461.aspx).  
 
@@ -54,9 +67,9 @@ Este tópico descreve as cotas e limitações associadas aos serviços de mídia
 	**Importante**
 	Não crie mais contas de serviços de mídia para aumentar os limites, em vez disso, envie um tíquete de suporte.
 
-## Como solicitar um limite superior para cotas atualizáveis
+##Como solicitar um limite superior para cotas atualizáveis
 
-### Cotas atualizáveis
+###Cotas atualizáveis
 
 Você pode solicitar para atualizar os limites para as seguintes cotas abrindo um tíquete de suporte.
 - Unidades de codificação
@@ -67,7 +80,7 @@ Você pode solicitar para atualizar os limites para as seguintes cotas abrindo u
  
 - Unidades de streaming
 
-### Abra um tíquete de suporte
+###Abra um tíquete de suporte
 
 Para abrir um tíquete de suporte, faça o seguinte:
 
@@ -89,4 +102,5 @@ Para abrir um tíquete de suporte, faça o seguinte:
  
 1. Clique em Enviar para abrir o tíquete.
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introdução aos Serviços Móveis do Azure e ao Sencha" 
 	description="Siga este tutorial para começar a desenvolver com os serviços móveis e a estrutura de aplicativos móveis Sencha HTML5." 
 	services="mobile-services" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-sencha" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/22/2014" 
 	ms.author="sencha"/>
 
@@ -41,37 +41,37 @@ Uma captura de tela do aplicativo completo é mostrada abaixo:
 
 - Java Runtime Environment (JRE) ou Java Development Kit (se você estiver criando aplicativos para o Android)
 
-## <a name="create-new-service"></a>Criar um novo serviço móvel
+## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ##Criar uma tabela TodoItems
 
-Depois de criar seu serviço móvel, você pode seguir um início rápido fácil no Portal de gerenciamento para criar
+Depois de criar seu serviço móvel, você pode seguir um início rápido fácil no Portal de Gerenciamento para criar
 uma nova tabela de banco de dados para uso em seu serviço móvel.
 
-1. No Portal de Gerenciamento, clique em **Serviços Móveise**, em seguida, clique no serviço móvel que você acabou de criar.
+1. No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
 
 2. Na guia de início rápido, clique em **HTML** em **Escolher plataforma** e expanda **Criar um novo aplicativo HTML**.
 
-    ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
+    ![Início rápido móvel de HTML](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
     Isso exibirá as três etapas fáceis para a criação e a hospedagem de um aplicativo HTML conectado ao seu serviço móvel.
 
-    ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
+    ![Início rápido móvel de HTML](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
-3. Clique em **Criar tabela TodoItems** para criar uma tabela para armazenar dados do aplicativo.
+3. Clique em **Criar tabela TodoItems** para criar uma tabela para armazenar os dados do aplicativo.
 
 	> [AZURE.NOTE] NÃO baixe o aplicativo HTML do Portal de Gerenciamento. Em vez disso, criaremos manualmente um aplicativo do Sencha Touch na seção abaixo.
 
 
 1. Anote o **appKey** e o **appUrl** no Portal de Gerenciamento. Você irá usá-los em outras seções deste tutorial.
 
-    ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
+    ![chave do aplicativo](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
-1. Na guia **Configurar**, verifique se  `localhost` já está relacionado na lista **Permitir solicitações de nomes de host** em **Compartilhamento de Recursos entre Origens (CORS)**. Se ele não estiver, digite  `localhost` no campo **Nome do host** e clique em **Salvar**.
+1. Na guia **Configurar**, verifique se `localhost` já está relacionado na lista **Permitir solicitações de nomes de host** em **CORS (Compartilhamento de Recursos entre Origens)**. Se não estiver, digite`localhost` no campo **Nome do host** e clique em **Salvar**.
 
-    ![Setup CORS for localhost](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
+    ![Instalar CORS no host local](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
 ##Gerar o seu aplicativo do Touch
 
@@ -81,7 +81,7 @@ No diretório onde você instalou a estrutura do Touch, emita o seguinte comando
 
 	$ sencha generate app Basic /path/to/application
 
-Isso gera um aplicativo do modelo do Touch com um nome de aplicativo  'Basic'. Para iniciar o aplicativo, basta apontar seu navegador para o diretório /path/to/application. A amostra do aplicativo do Touch padrão será exibido.
+Isso gera um aplicativo do modelo do Touch com um nome de aplicativo 'Basic'. Para iniciar o aplicativo, basta apontar seu navegador para o diretório /path/to/application. A amostra do aplicativo do Touch padrão será exibido.
 
 ##Instalando as extensões do Sencha Touch para o Azure
 
@@ -169,7 +169,7 @@ Agora que a extensão do Azure foi baixada e instalada no diretório de aplicati
 
 	Este exemplo mostra uma configuração e inicialização muito simples do Azure, por meio do fornecimento de apenas a chave do aplicativo e URL:
 
-	    Ext.application ({
+	    Ext.application({
     	    name: 'Basic',
 
         	requires: [ 'Ext.azure.Azure' ],
@@ -205,7 +205,7 @@ Seu aplicativo do Touch se comunicará com o serviço móvel por meio de um prox
 
 Os modelos do Sencha Touch fornecem a definição dos registros de dados que você usará em seu aplicativo. Eles permitem não apenas definir os campos de dados, mas também fornecem a configuração sobre o proxy que manipulará a comunicação entre o aplicativo e o serviço móvel do Azure.
 
-No código abaixo, é possível observar que definimos os campos (e seus tipos) para o modelo e também fornecemos uma configuração de proxy. Ao configurar seu proxy, você precisa dar a ele um tipo (nesse caso  'azure'), o nome da tabela do serviço móvel (ToDoItem) e outros parâmetros opcionais. Neste exemplo, passaremos para a paginação de proxy para que possamos avançar e voltar as páginas de forma perfeita por meio dos itens da lista.
+No código abaixo, é possível observar que definimos os campos (e seus tipos) para o modelo e também fornecemos uma configuração de proxy. Ao configurar seu proxy, você precisa dar a ele um tipo (nesse caso, 'azure'), o nome da tabela do serviço móvel (ToDoItem) e outros parâmetros opcionais. Neste exemplo, passaremos para a paginação de proxy para que possamos avançar e voltar as páginas de forma perfeita por meio dos itens da lista.
 
 O proxy do Azure definirá automaticamente todos os cabeçalhos HTTP com as operações CRUD adequadas esperadas pela API do Azure (incluindo as credenciais de autenticação, se aplicáveis).
 
@@ -250,7 +250,7 @@ O proxy do Azure definirá automaticamente todos os cabeçalhos HTTP com as oper
 
 Os armazenamentos do Sencha Touch são usados para armazenar conjuntos de registros de dados (modelos) que podem ser usados como fontes para os componentes do Touch para exibir os registros de diferentes maneiras. Isso pode incluir Grades, Gráficos, Listas e outros.
 
-Aqui definimos uma loja que será usada para armazenar todos os seus itens da lista ToDo da loja que são recuperados do serviço móvel do Azure. Observe que a configuração da loja contém o nome do tipo de modelo (Basic.model.TodoItem definido acima). Isso define a estrutura dos registros que estão contidos na loja.
+Aqui definimos uma loja que será usada para armazenar todos os seus itens da lista ToDo da loja que são recuperados do serviço móvel do Azure. Observe que a configuração da loja contém o nome do tipo de modelo (Basic.model.TodoItem - definido acima). Isso define a estrutura dos registros que estão contidos na loja.
 
 Também temos algumas opções de configuração adicionais para a loja, como especificar o tamanho da página (8 registros) e que a classificação de registros para esta loja é feita remotamente pelo serviço móvel do Azure (nenhuma classificação é feita localmente na própria loja).
 
@@ -662,7 +662,8 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
   2. Usando o Sencha Cmd, execute os comandos a seguir:
 
-    * *sencha app refresh* : Este comando instruirá o Sencha Cmd a localizar todas as dependências do aplicativo e baixar os pacotes necessários (por exemplo, [Extensões do Sencha Touch para o Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh* : Isso instruirá o Sencha Cmd a localizar todas as dependências de aplicativo
+      e baixar os pacotes necessários (por exemplo, [Extensões do Sencha Touch para Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
 
     * *sencha web start* : Este comando iniciará um servidor Web local para testar o aplicativo.
 
@@ -670,15 +671,15 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
   3. Abra a URL listada no seu terminal em um navegador da Web para iniciar o aplicativo (por ex., http://localhost:1841).
 
-  4. No aplicativo, digite um texto significativo, como "Concluir o tutorial" e clique em **Adicionar**.
+  4. No aplicativo, digite um texto significativo, como "Complete the tutorial", e clique em **Adicionar**.
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
-    Isso envia uma solicitação de POST ao novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem.
+    Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem.
 
-  5. No Portal de Gerenciamento, clique na guia **Dados** e na tabela TodoItems.
+  5. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela TodoItems.
 
-    ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+    ![Tabela TodoItems](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
     Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
@@ -691,7 +692,7 @@ Agora que você concluiu o Guia de Introdução, saiba como realizar tarefas adi
 
 Em seguida, obtenha mais informações sobre as Extensões do Sencha Touch para o Azure:
 
-  * Exemplo do aplicativo [walkthrough](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
+  * [Passo a passo](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) de exemplo do aplicativo
   * Obtenha ajuda nos [Fóruns do Sencha](http://www.sencha.com/forum)
   * Leia a [Documentação do Sencha](http://docs.sencha.com/)
   * Usando o Sencha com os Serviços Móveis do Azure: [(Vídeo)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
@@ -712,6 +713,4 @@ Para obter mais informações sobre como começar a usar o Sencha Touch, acesse 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

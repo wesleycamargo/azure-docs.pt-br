@@ -18,10 +18,10 @@
 
 
 
-#Carregar arquivos em uma conta de serviços de mídia usando o .NET
+# Carregar arquivos em uma conta de serviços de mídia usando o .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md). 
 
 No Serviços de Mídia, você carrega (ou insere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
 
@@ -35,13 +35,15 @@ Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
 - **EnvelopeEncrypted** - use esta opção se você estiver carregando HSL criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 - **StorageEncrypted** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 
-	Observe que os Serviços de Mídia fornecem criptografia para armazenamento em disco para seus ativos, não por conexão, como o DRM (Gerenciador de Direitos Digitais).
+	Os Serviços de Mídia fornecem criptografia para armazenamento em disco para seus ativos, não por conexão, como o DRM (Gerenciador de Direitos Digitais).
 
-Se você especificar para o ativo a ser criptografado com uma opção **CommonEncrypted** ou uma opção **EnvelopeEncypted**, você precisará associar seu ativo com um **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](../media-services-dotnet-create-contentkey). 
+	Se seu ativo tiver o armazenamento criptografado, você deverá configurar apolítica de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
+
+Se você especificar para o ativo a ser criptografado com uma opção **CommonEncrypted** ou uma opção **EnvelopeEncypted**, você precisará associar seu ativo com um **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](media-services-dotnet-create-contentkey.md). 
 
 Se você especificar para o ativo ser criptografado com uma opção **StorageEncrypted**, o SDK dos serviços de mídia para .NET criará um **StorateEncrypted****ContentKey** para o ativo.
 
->[AZURE.NOTE]Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Nome** não pode ter qualquer um dos seguintes [caracteres reservados para codificação de porcentagem](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+>[AZURE.NOTE]Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Nome** não pode ter nenhum um dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia, bem como extensões do SDK do .NET dos Serviços de Mídia para carregar arquivos em um ativo dos serviços de mídia.
 
@@ -55,7 +57,7 @@ O código de exemplo abaixo usa o SDK do .NET para executar as seguintes tarefas
 - Cria um ativo vazio.
 - Cria uma instância de AssetFile que desejamos associar ao ativo.
 - Cria uma instância de AccessPolicy que define as permissões e a duração do acesso ao ativo.
-- Cria uma instância de localizador que fornece acesso ao ativo.
+- Cria uma instância de Locator que fornece acesso ao ativo.
 - Carrega um único arquivo de mídia nos Serviços de Mídia. 
 
 		
@@ -92,7 +94,7 @@ O código de exemplo abaixo usa o SDK do .NET para executar as seguintes tarefas
             return inputAsset;
 		}
 
-###Carregar vários arquivos
+### Carregar vários arquivos
 
 O código a seguir mostra como criar um ativo e carregar vários arquivos.
 
@@ -179,7 +181,7 @@ Ao carregar um grande número de ativos, considere o seguinte.
  
 - Mantenha ParallelTransferThreadCount no valor padrão de 10.
  
-###Ingestão de ativos em massa 
+### Ingestão de ativos em massa 
 
 O carregamento de grandes arquivos de ativo pode ser um afunilamento durante a criação do ativo. A ingestão de ativos em massa, ou "Ingestão em massa", envolve a dissociação da criação do ativo do processo de carregamento. Para usar uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo e seus arquivos associados. Em seguida, use o método de carregamento de sua escolha para carregar os arquivos associados ao contêiner de blob do manifesto. Os serviços de mídia do Microsoft Azure observa o contêiner de blob associado ao manifesto. Depois que um arquivo é carregado para o contêiner de blob, os serviços de mídia do Microsoft Azure concluem a criação do ativo com base na configuração do ativo no manifesto (IngestManifestAsset).
 
@@ -190,7 +192,7 @@ Para criar um novo IngestManifest chame o método Criar exposto pela coleção I
 
 Crie os ativos que serão associados a IngestManifest em massa. Configure as opções de criptografia desejadas no ativo para a ingestão em massa.
 
-	// Create the assets that will be associated with this bulk ingest manifest
+	// Crie os ativos que serão associados a esse manifesto de ingestão em massa
 	IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
 	IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 
@@ -276,7 +278,7 @@ O exemplo a seguir demonstra a sondagem em um IngestManifest pela sua **ID**.
 	
 
 
-##Carregar arquivos usando as extensões do SDK do .NET 
+## Carregar arquivos usando as extensões do SDK do .NET 
 
 O exemplo a seguir mostra como carregar um único arquivo usando as extensões do SDK do .NET. Nesse caso, o método **CreateFromFile** é usado, mas a versão assíncrona também está disponível (**CreateFromFileAsync**). O método **CreateFromFile** permite que você especifique o nome do arquivo, a opção de criptografia e um retorno de chamada para relatar o progresso do carregamento do arquivo.
 
@@ -302,9 +304,9 @@ O exemplo a seguir chama a função UploadFile e especifica a criptografia de ar
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
-##Próximas etapas
+## Próximas etapas
 Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][].
 
-[Como obter um processador de mídia]: ../media-services-get-media-processor/
+[Como obter um processador de mídia]: media-services-get-media-processor.md
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-#Como dimensionar a codificação
+# Como dimensionar a codificação
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) .
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
-##Visão geral
+## Visão geral
 
 Uma conta de serviços de mídia está associada a um tipo de unidade reservada que determina a velocidade com que seus trabalhos de codificação são processados. Você pode escolher entre os seguintes tipos de unidade reservada: **Básica**, **Standard** ou **Premium**. Por exemplo, o mesmo trabalho de codificação é executado mais rápido quando se usa o tipo de unidade reservada **Standard** em comparação com aquela do tipo **Básico**. Para obter mais informações, consulte [Tipos de unidade reservada para codificação](http://azure.microsoft.com/blog/author/milanga).
 
@@ -38,7 +38,7 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 	Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use controle deslizante **CODIFICAÇÃO**. 
 	
 	
-	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png)
+	![Página Processadores](./media/media-services-how-to-scale/media-services-encoding-scale.png)
 
 	  
 	>[Azure.Note] Os centros de dados a seguir não oferecem o tipo de unidade reservada Premium: Singapura, Hong Kong, Osaka, Beijing, Xangai.
@@ -49,12 +49,12 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 
 	>[Azure.Note] O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
 
-##Cotas e limitações
+## Cotas e limitações
 
-Para obter informações sobre como abrir um tíquete de suporte e cotas e limitações, consulte [Quotas e limitações](../media-services-quotas-and-limitations).
-
-
+Para obter informações sobre como abrir um tíquete de suporte e cotas e limitações, consulte [Quotas e limitações](media-services-quotas-and-limitations.md).
 
 
 
-<!--HONumber=47-->
+
+
+<!--HONumber=52-->

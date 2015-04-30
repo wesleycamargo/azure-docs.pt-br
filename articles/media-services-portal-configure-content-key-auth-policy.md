@@ -21,7 +21,7 @@
 #Configurar a Política de Autorização de Chave de Conteúdo 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md). 
 
 
 ##Visão geral
@@ -37,11 +37,11 @@ Se você planeja ter várias chaves de conteúdo ou deseja especificar uma URL d
 
 [Configurar política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia](media-services-dotnet-configure-content-key-auth-policy.md)
 
-[Configurar política de autorização de chave de conteúdo usando a API REST dos serviços de mídia](media-services-rest-configure-content-key-auth-policy.md)
+[Configurar política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia](media-services-rest-configure-content-key-auth-policy.md)
 
 ###Algumas considerações se aplicam:
 
-- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins#scale_streaming_endpoints.md). 
+- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de streaming reservada. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints). 
 - O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).  
 - O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
 
@@ -62,11 +62,11 @@ A restrição **aberta** significa que o sistema fornecerá a chave para qualque
 
 Para escolher a política de token restrito, pressione o botão **TOKEN**.
 
-A política restrita do **token** deve ser acompanhada por um token emitido por um **Secure Token Service** (STS). Os serviços de mídia oferecem suporte a tokens no formato **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e no formato **JSON Web Token** (JWT). Para obter informações, consulte [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+A política restrita do **token** deve ser acompanhada por um token emitido por um **STS** (Secure Token Service). Os Serviços de Mídia dão suporte a tokens no formato [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) **(Simple Web Tokens)** e no formato JWT (**JSON Web Token**). Para obter informações, consulte [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Os serviços de mídia não fornecem **Secure Token Services**. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo. Para obter mais informações, consulte [Uso do Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+Os Serviços de Mídia não fornecem **Secure Token Services**. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo. Para obter mais informações, consulte [Uso do Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
-Ao configurar a política restrita do **TOKEN**, você deve definir valores para **chave de verificação**, **emissor** e **audiência**. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.  
+Ao configurar a política restrita do **TOKEN**, você deve definir valores para **chave de verificação**, **emissor** e **audiência**. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.  
 
 ###PlayReady
 
@@ -87,11 +87,11 @@ Ao proteger o conteúdo com **PlayReady**, uma das coisas que você precisa espe
 Você pode clicar no botão **Importar a política XML** e fornecer um XML diferente que está em conformidade com o esquema XML definido [aqui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ##Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [como: Usar o Portal de Gerenciamento do Azure para habilitar a criptografia](media-services-manage-content#encrypt.md) .
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [como: Usar o Portal de Gerenciamento do Azure para habilitar o tópico](media-services-manage-content#encrypt.md) de criptografia.
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

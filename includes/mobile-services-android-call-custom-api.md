@@ -38,11 +38,11 @@
 
 4. Abra o arquivo res\values\string.xml e adicione a seguinte linha de código:
 
-    	<string name="complete_button_text">Complete All</string>
+    	<string name="complete_button_text">Tudo Concluído</string>
 
 
 
-5. No Explorador de Projeto, clique com botão direito no nome do projeto na pasta *src* (`com.example.{your projects name}`), escolha **Novo** e **Classe**. Na caixa de diálogo, digite **MarkAllResult** no campo do nome da classe, escolha OK e substitua a definição da classe resultante pelo seguinte código:
+5. No Explorador de Projeto, clique com o botão direito do mouse no nome do projeto na pasta *src* (`com.example.{your projects name}`), escolha **Novo** e **Classe**. Na caixa de diálogo, digite **MarkAllResult** no campo do nome da classe, escolha OK e substitua a definição da classe resultante pelo seguinte código:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -99,7 +99,7 @@
 
 1. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador do Android, ou em um dispositivo Android conectado.
 
-	Isso executa seu aplicativo, criado com o SDK do Android, que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
+	Isso executa seu aplicativo criado com o SDK do Android que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
 
 
 2. No aplicativo, digite um texto em **Inserir um TodoItem** e clique em **Adicionar**.
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
-<!--HONumber=47-->
+
+<!--HONumber=52-->

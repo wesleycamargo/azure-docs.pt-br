@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Configurar políticas de entrega de ativos usando o .NET" 
 	description="Este tópico mostra como configurar políticas de entrega de ativos diferentes." 
 	services="media-services" 
@@ -19,13 +19,13 @@
 #Como: Configurar políticas de entrega de ativos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow) . 
+Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
 
 Uma das etapas do fluxo de trabalho de fornecimento de conteúdo de serviços de mídia está configurando políticas de entrega de ativos que você deseja que sejam transmitidas. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum). 
 
 Este tópico discute por que e como criar e configurar políticas de entrega de ativos. 
 
->[AZURE.NOTE]Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE] Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints). 
 >
 >Além disso, o ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável.      
 
@@ -53,7 +53,7 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Para obter instruções sobre como publicar um ativo e compilar uma URL de streaming, consulte [Criar uma URL de streaming](../media-services-deliver-streaming-content).
+Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 
 ##Política de entrega de ativos clara 
 
@@ -74,7 +74,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 ##Política de entrega de ativos DynamicCommonEncryption 
 
 
-O seguinte método **CreateAssetDeliveryPolicy** cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (serão bloqueados outros protocolos de streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**, para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-dotnet-create-contentkey#common_contentkey)).
+O seguinte método **CreateAssetDeliveryPolicy** cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (serão bloqueados outros protocolos de streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**, para obter mais informações, consulte: [Criando uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte o [tipos usados ao definir AssetDeliveryPolicy](#types) . 
 
@@ -107,7 +107,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 ##Política de entrega de ativos DynamicEnvelopeEncryption 
 
-O seguinte método **CreateAssetDeliveryPolicy** cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para protocolos HLS e DASH (serão bloqueados outros protocolos de streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**, para obter mais informações, consulte: [Criando uma chave de conteúdo](../media-services-dotnet-create-contentkey#envelope_contentkey)).
+O seguinte método **CreateAssetDeliveryPolicy** cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para protocolos HLS e DASH (serão bloqueados outros protocolos de streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**, para obter mais informações, consulte: [Criando uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte o [tipos usados ao definir AssetDeliveryPolicy](#types) .   
@@ -290,4 +290,5 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         /// </summary>
         EnvelopeEncryptionIV,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Serviços Móveis do Azure para o Appcelerator Titanium" 
 	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento Appcelerator." 
 	services="mobile-services" 
@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 
-# <a name="getting-started"></a>Introdução aos Serviços Móveis
+# <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
@@ -30,7 +30,7 @@ Se estiver criando para iOS, você também precisará do Xcode 5.1 e iOS 7.1 SDK
 
 Para criação para Android, você também precisará do Android 4.3 ou SDK superior.
 
-## <a name="create-new-service"></a>Criar um novo serviço móvel
+## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
@@ -40,9 +40,9 @@ Para criação para Android, você também precisará do Android 4.3 ou SDK supe
 
 2. Clique em **Adicionar uma Tabela** e crie uma nova tabela denominada **TodoItem**.
 
-3. Baixe o novo [aplicativo Todolist] do Appcelerator e descompacte o projeto.
+3. Baixe o novo aplicativo [Todolist do Appcelerator] e descompacte o projeto.
 
-4. Se ainda não tiver tiver&#39;t feito isso, baixe e instale o [Appcelerator Titanium Studio][Appcelerator Titanium] e v3.2.1 SDK ou maior. Você também precisará do Xcode (v 5.0 +) e/ou Android SDK (v 4.3+) para executar o projeto.
+4. Se ainda não tiver feito isso, baixe e instale o [Appcelerator Titanium Studio][Appcelerator Titanium] e o SDK v3.2.1 ou posterior. Você também precisará do Xcode (v 5.0 +) e/ou Android SDK (v 4.3+) para executar o projeto.
 
 5. De volta no portal dos Serviços Móveis, em **Painel**, escolha **Gerenciar Chaves** e copie a **Chave do Aplicativo**.
 
@@ -56,7 +56,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
     ![][0]
 
-2.	Na tela seguinte, selecione **Projetos existentes no espaço de trabalho** e clique em **Avançar**.
+2.	Na tela seguinte, selecione **Projetos existentes** no espaço de trabalho e clique em **Próximo**.
 
     ![][1]
 
@@ -100,7 +100,7 @@ Isso envia uma solicitação POST para o novo serviço móvel hospedado no Micro
    	![][10]
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"> </a>Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
 
 * [Introdução à autenticação]
@@ -125,11 +125,9 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[Aplicativo Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
+[Todolist do Appcelerator]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Introdução à autenticação]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Introdução às notificações por push]: /pt-br/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Introdução à autenticação]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[Introdução às notificações por push]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

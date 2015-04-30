@@ -14,15 +14,15 @@
 	ms.devlang="java" 
 	ms.topic="hero-article" 
 	ms.date="02/13/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.author="ricksal;glenga"/>
 
-# <a name="getting-started"></a>Introdução aos Serviços Móveis
+# <a name="getting-started"> </a>Introdução aos Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started-EC.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Android usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples <em>To do list</em> que armazena dados do aplicativo no novo serviço móvel.</p>
+<p>Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Android usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples de <em>Lista de tarefas Pendentes</em> que armazena dados do aplicativo no novo serviço móvel.</p>
 <p>Uma captura de tela do aplicativo completo está disponível abaixo:</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a><span class="time">07:26</span></div>
@@ -34,13 +34,13 @@ A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Andro
 
 O projeto de início rápido baixado contém o SDK de Serviços Móveis para Android. Enquanto este projeto requer Android 4.2 ou uma versão posterior, o SDK dos Serviços Móveis exige apenas Android 2.2 ou uma versão posterior.
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 <!-- -->
 
 >[AZURE.NOTE] Se você gostaria de ver o código-fonte do aplicativo concluído, clique <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">aqui</a>.
 
-## <a name="create-new-service"></a>Criar um novo serviço móvel
+## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
@@ -60,7 +60,7 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 
   	![][7]
 
-3. Se ainda não fez isso, baixe e instale [Android Developer Tools][SDK do Android] em seu computador local ou máquina virtual.
+3. Se ainda não fez isso, baixe e instale o [Android Developer Tools][Android SDK] em seu computador local ou máquina virtual.
 
 4. Clique em **Criar tabela TodoItem** para criar uma tabela para armazenar os dados do aplicativo.
 
@@ -75,7 +75,7 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 
 O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
-2. No Eclipse, clique em **Arquivo**, em **Importar**, expanda **Android**, clique em **Código Android existente no espaço de trabalho**, e clique em **Avançar.** 
+2. No Eclipse, clique em **Arquivo**, em **Importar**, expanda **Android**, clique em **Código Android Existente no Espaço de Trabalho** e clique em **Avançar**. 
 
  	![][14]
 
@@ -115,7 +115,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
    	![][12]
 
-## <a name="next-steps"> </a>Próximas Etapas
+## <a name="next-steps"> </a>Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
 
 * [Introdução aos dados]
@@ -152,12 +152,13 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introdução aos dados]: /documentation/articles/mobile-services-android-get-started-data/
-[Introdução à autenticação]: /documentation/articles/mobile-services-android-get-started-users/
-[Introdução às notificações por push]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Introdução aos dados]: mobile-services-android-get-started-data.md
+[Introdução à autenticação]: mobile-services-android-get-started-users.md
+[Introdução às notificações por push]: mobile-services-javascript-backend-android-get-started-push.md
 [SDK para Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=52-->

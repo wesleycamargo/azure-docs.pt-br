@@ -14,11 +14,11 @@ Observação: Ao usar essa opção, certifique-se de compilar o pacote usando um
 
 Se o pacote não for instalado porque exige um compilador, você pode instalar o compilador em sua máquina local e criar um disco para o pacote, que em seguida, você incluirá no repositório.
 
-Usuários de Mac/Linux: Se você não tiver acesso a uma máquina do Windows, consulte [Criar uma máquina Virtual executando Windows][] para saber como criar uma máquina virtual no Azure.  Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar. 
+Usuários de Mac/Linux: Se você não tiver acesso a uma máquina do Windows, consulte [Criar uma Máquina Virtual executando Windows][] para saber como criar uma máquina virtual no Azure.  Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar. 
 
 Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][].
 
-Para o Python 3.4, você pode instalar o [Microsoft Visual C++ 2010 Express][].
+Para o Python 3.4, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][].
 
 Para criar os discos, você precisará do pacote de discos:
 
@@ -68,4 +68,4 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 [Compilador do Microsoft Visual C++ para o Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!--HONumber=49-->
+<!--HONumber=52--> 

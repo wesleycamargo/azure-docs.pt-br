@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introdução aos Hubs de Evento" 
 	description="Siga este tutorial para começar a usar os Hubs de evento do Azure enviando eventos com Java e recebendo em C# usando o EventProcessorHost" 
 	services="service-bus" 
@@ -24,7 +24,7 @@
 
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
-Para obter mais informações, consulte [Visão Geral de Hubs de Evento].
+Para obter mais informações, consulte[Visão geral de Hubs de Evento].
 
 Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando um aplicativo de console em Java, e recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
 
@@ -34,7 +34,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio Express 2013 para Windows
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
 ## Criar um Hub de Evento
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com *Send* direitos, adicione outra regra chamada **ReceiveRule** com *Manage, Send, Listen* direitos e clique **Salvar**.
+6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** comdireitos  *Manage, Send, Listen* e clique em **Salvar**.
 
    	![][5]
 
@@ -105,4 +105,4 @@ Agora você está pronto para executar os aplicativos.
 [Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão Geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

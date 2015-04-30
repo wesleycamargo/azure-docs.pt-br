@@ -1,75 +1,62 @@
-﻿<properties 
-	pageTitle="Configurar o Python com os Sites do Azure" 
-	description="Este tutorial descreve opções para criar e configurar um aplicativo Phyton compatível com Web server Gateway Interface (WSGI) básica nos sites do Azure." 
-	services="web-sites" 
+<properties 
+	pageTitle="Configurando o Python com os Sites do Azure" 
+	description="Este tutorial descreve opções para criar e configurar um aplicativo Python compatível com Web server Gateway Interface (WSGI) básica nos sites do Azure." 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
 
-# Configurar o Python com os Sites do Azure
+# Configurando o Python com os Sites do Azure
 
-Este tutorial descreve opções para criar e configurar um aplicativo Phyton compatível com Web server Gateway Interface (WSGI) básica nos sites do Azure.
+Este tutorial descreve as opções para criação e configuração de uma Web Server Gateway Interface (WSGI) básica compatível com aplicativos Python nos sites do Azure.
 
 Ele descreve os recursos adicionais de implantação do Git, como o ambiente virtual e a instalação do pacote usando requirements.txt.
 
-+ [Garrafa, Django ou bulbo?](#bottle-django-flask)
-+ [Criação de sites no Portal](#website-creation-on-portal)
-+ [Publicação Git](#git-publishing)
-+ [Visão Geral do Aplicativo](#application-overview)
-+ [Manipulador WSGI](#wsgi-handler)
-+ [Ambiente virtual](#next-steps)
-+ [Gerenciamento de pacote](#next-steps)
-+ [Versão do Python](#next-steps)
-+ [Proxy do ambiente virtual](#virtual-environment-proxy)
-+ [Personalizar a implantação do Git](#customize-git-deployment)
-+ [Solução de problemas - implantação](#troubleshooting-deployment)
-+ [Solução de problemas - instalação do pacote](#troubleshooting-package-installation)
-+ [Solução de problemas - ambiente Virtual](#troubleshooting-virtual-environment)
+
+## Bottle, Django ou Flask?
+
+A galeria do Azure contém modelos para as estruturas Bottle, Django e Flask.  Se você estiver desenvolvendo seu primeiro site do Azure ou se não estiver familiarizado com o Git, recomendamos que você siga um destes tutoriais, que incluem instruções passo a passo para criar um aplicativo funcional da galeria usando a implantação do Git do Windows ou Mac:
+
+- [Criando sites com Bottle][]
+- [Criando Sites com Django][]
+- [Criando sites com Flask][]
 
 
-<h2><a name="bottle-django-flask"></a>Garrafa, Django ou bulbo?</h2>
-
-A galeria do Azure contém modelos para as estruturas da garrafa, Django e bulbo.  Se você estiver desenvolvendo seu primeiro Website do Azure, ou você não estiver familiarizado com o Git, recomendamos que você siga um destes tutoriais, que incluem instruções passo a passo para criar um aplicativo funcional a partir da galeria usando a implantação do Git a partir do Windows ou Mac:
-
-- [Criando sites com garrafa][]
-- [Criando Sites com o Django][]
-- [Criando sites com bulbo][]
-
-
-<h2><a name="website-creation-on-portal"></a>Criação de sites no Portal</h2>
+## Criação de sites no Portal
 
 Este tutorial assume uma assinatura existente do Azure e acesso ao Portal de Gerenciamento do Azure.
 
-Se você não tiver um site já existente você pode criar um no Portal de Gerenciamento do Azure.  Clique no botão NOVO no canto inferior esquerdo. Uma janela será exibida. Clique em Computar, Site da web e depois em Criação rápida.
+Se não tiver um site já existente, você poderá criar um por meio do Portal de Gerenciamento do Azure.  Clique no botão NOVO no canto inferior esquerdo. Uma janela será exibida. Clique em COMPUTAR, SITE e, depois, em CRIAÇÃO RÁPIDA.
 
 ![](./media/web-sites-python-configure/configure-python-create-website.png)
 
 
-<h2><a name="git-publishing"></a>Publicação Git</h2>
+## Publicação Git
 
-Use as guias INÍCIO RÁPIDO ou PAINEL DE CONTROLE para o site recém criado para configurar a publicação Git.  Este tutorial usa Git para criar, gerenciar e publicar nosso site Python para sites do Azure.
+Use as guias INÍCIO RÁPIDO ou PAINEL DE CONTROLE para o site recém-criado para configurar a publicação Git.  Este tutorial usa Git para criar, gerenciar e publicar nosso site Python para sites do Azure.
 
 ![](./media/web-sites-python-configure/configure-python-git.png)
 
 Depois que a publicação Git estiver configurada, um repositório Git será criado e associado ao seu site.  A URL do repositório será exibida e poderá ser usada para enviar por push dados do ambiente de desenvolvimento local para a nuvem. Para publicar aplicativos via Git, certifique-se de que um cliente Git também esteja instalado e use as instruções fornecidas para enviar por push o conteúdo do site para sites do Azure.
 
 
-<h2><a name="application-overview"></a>Visão Geral do Aplicativo</h2>
+## Visão geral do aplicativo
 
-Nas próximas seções, os seguintes arquivos são criados.  Eles devem ser colocados na raiz do repositório Git.
+Nas próximas seções, os arquivos a seguir são criados.  Eles devem ser colocados na raiz do repositório Git.
 
     app.py
     requirements.txt
@@ -78,9 +65,9 @@ Nas próximas seções, os seguintes arquivos são criados.  Eles devem ser colo
     ptvs_virtualenv_proxy.py
 
 
-<h2><a name="wsgi-handler"></a>Manipulador WSGI</h2>
+## Manipulador WSGI
 
-WSGI é um padrão de Python descrito por [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definindo uma interface entre o servidor Web e o Python. Ele fornece uma interface padronizada para escrever vários aplicativos da web e estruturas usando o Python.  As estruturas web populares Python de hoje usam a WSGI.  Os sites do Azure dão suporte para tais estruturas; Além disso, os usuários avançados podem até mesmo criar seus próprios, desde que o manipulador personalizado siga as diretrizes de especificação WSGI.
+WSGI é um padrão de Python descrito por [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definindo uma interface entre o servidor web e o Python. Ele fornece uma interface padronizada para escrever vários aplicativos da web e estruturas usando o Python.  As estruturas web populares Python de hoje usam a WSGI.  Os sites do Azure dão suporte para tais estruturas; Além disso, os usuários avançados podem até mesmo criar seus próprios, desde que o manipulador personalizado siga as diretrizes de especificação WSGI.
 
 Aqui está um exemplo de um `app.py` que define um manipulador personalizado:
 
@@ -97,30 +84,30 @@ Aqui está um exemplo de um `app.py` que define um manipulador personalizado:
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-Você pode executar esse aplicativo localmente com `python app.py`, então, navegar até `http://localhost:5555`no navegador da Web.
+Você pode executar esse aplicativo localmente com `python app.py` e, em seguida, navegar até `http://localhost:5555` no seu navegador da Web.
 
 
-<h2><a name="virtual-environment"></a>Ambiente virtual</h2>
+## Ambiente virtual
 
-Embora o aplicativo de exemplo acima não requer quaisquer pacotes externos, é provável que seu aplicativo exija algum.
+Embora o aplicativo de exemplo acima não exija pacotes externos, é provável que seu aplicativo exija alguns.
 
-Para ajudar a gerenciar as dependências do pacote externo, a implantação do Git do Azure suporta a criação de ambientes virtuais.
+Para ajudar a gerenciar as dependências do pacote externo, a implantação do Git do Azure dá suporte à criação de ambientes virtuais.
 
-Quando o Azure detecta um requirements.txt na raiz do repositório, ele cria automaticamente um ambiente virtual chamado `env`.  Isso ocorre apenas na primeira implantação ou durante qualquer implantação após o tempo de execução do Python selecionado ser alterado.
+Quando o Azure detecta um arquivo requirements.txt na raiz do repositório, ele cria automaticamente um ambiente virtual chamado `env`.  Isso ocorre apenas na primeira implantação ou durante qualquer implantação depois que o tempo de execução do Python selecionado é alterado.
 
 Você provavelmente desejará criar um ambiente virtual localmente para desenvolvimento, mas não o inclua em seu repositório Git.
 
 
-<h2><a name="package-management"></a>Gerenciamento de pacote</h2>
+## Gerenciamento de pacote
 
-Os pacotes listados no requirements.txt serão instalados automaticamente no ambiente virtual usando pip.  Isso ocorre em cada implantação, mas o pip ignorará a instalação se um pacote já estiver instalado.
+Os pacotes listados no arquivo requirements.txt serão instalados automaticamente no ambiente virtual usando pip.  Isso ocorre em todas as implantações, mas pip ignorará a instalação se um pacote já estiver instalado.
 
 Exemplo `requirements.txt`:
 
     azure==0.8.4
 
 
-<h2><a name="python-version"></a>Versão do Python</h2>
+## Versão do Python
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
@@ -129,15 +116,15 @@ Exemplo `runtime.txt`:
     python-2.7
 
 
-<h2><a name="web-config"></a>Web.config</h2>
+## Web.config
 
-Você precisará criar um arquivo web.config para especificar como o servidor deve manipular as solicitações.
+Você precisará criar um arquivo web.config para especificar como o servidor deve manipular solicitações.
 
-Observe que, se você tiver um arquivo web.x.y.config no repositório, onde x. y coincide com o tempo de execução do Python selecionado, então o Azure copia automaticamente o arquivo apropriado como web.config.
+Observe que, se você tiver um arquivo web.x.y.config no repositório, em que x.y corresponde ao tempo de execução do Python selecionado, o Azure copiará automaticamente o arquivo apropriado como web.config.
 
 Os exemplos de web.config a seguir contam com um script de proxy do ambiente virtual, que é descrito na próxima seção.  Eles funcionam com o manipulador WSGI usado no exemplo `app.py` acima.
 
-Exemplo `web.config` para o Python 2.7:
+Exemplo `web.config` para Python 2.7:
 
     <?xml version="1.0"?>
     <configuration>
@@ -186,7 +173,7 @@ Exemplo `web.config` para o Python 2.7:
     </configuration>
 
 
-Exemplo `web.config` para o Python 3.4:
+Exemplo `web.config` para Python 3.4:
 
     <?xml version="1.0"?>
     <configuration>
@@ -233,39 +220,39 @@ Exemplo `web.config` para o Python 3.4:
     </configuration>
 
 
-Os arquivos estáticos são manipulados pelo servidor da Web diretamente, sem passar pelo código do Python, para melhorar o desempenho.
+Arquivos estáticos são manipulados pelo servidor Web diretamente, sem passar pelo código do Python, para melhorar o desempenho.
 
-Nos exemplos acima, o local dos arquivos estáticos no disco deve corresponder ao local na URL.  Isso significa que uma solicitação de `http://pythonapp.azurewebsites.net/static/site.css` atenderá ao arquivo no disco em `\static\site.css`.
+Nos exemplos acima, o local dos arquivos estáticos no disco deve corresponder ao local na URL.  Isso significa que uma solicitação para `http://pythonapp.azurewebsites.net/static/site.css` fornecerá o arquivo no disco em `\static\site.css`.
 
-É possível configurar a regra `Static Files` para servir arquivos de um local no disco que seja diferente do local na URL.  Na definição da regra seguinte, uma solicitação de `http://pythonapp.azurewebsites.net/static/site.css` atenderá o arquivo no disco em `\FlaskWebProject\static\site.css`, em vez de `\static\site.css`.
+É possível configurar a regra `Static Files` para fornecer arquivos de um local no disco que seja diferente do local na URL.  Na definição da regra a seguir, uma solicitação de `http://pythonapp.azurewebsites.net/static/site.css` fornecerá o arquivo no disco em `\FlaskWebProject\static\site.css`, em vez de `\static\site.css`.
 
     <rule name="Static Files" stopProcessing="true">
       <match url="^/static/.*" ignoreCase="true" />
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER`é onde você especifica o manipulador WSGI.  Nos exemplos acima, ele tem `app.wsgi_app` porque o manipulador é uma função chamada `wsgi_app` em `app.py` na pasta raiz.
+`WSGI_ALT_VIRTUALENV_HANDLER` é onde você especifica o manipulador WSGI.  Nos exemplos acima, é `app.wsgi_app` porque o manipulador é uma função chamada `wsgi_app` em `app.py` na pasta raiz.
 
-`PYTHONPATH`pode ser personalizado, mas se você instalar todas as suas dependências no ambiente virtual especificando-os em requirements.txt, não é necessário alterá-lo.
+`PYTHONPATH` pode ser personalizado, mas se você instalar todas as suas dependências no ambiente virtual especificando-as em requirements.txt, não deverá precisar alterá-lo.
 
 
-<h2><a name="virtual-environment-proxy"></a>Proxy do ambiente virtual</h2>
+## Proxy de ambiente virtual
 
-O script a seguir é usado para recuperar o manipulador WSGI, ativar o ambiente virtual e os erros de log. Destina-se para ser genérico e usado sem modificações.
+O script a seguir é usado para recuperar o manipulador WSGI, ativar o ambiente virtual e registrar os erros em log. Foi projetado para ser genérico e ser usado sem modificações.
 
-Conteúdo do `ptvs_virtualenv_proxy.py`:
+Conteúdo de `ptvs_virtualenv_proxy.py`:
 
      # ############################################################################
      #
      # Copyright (c) Microsoft Corporation. 
      #
-     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
-     # copy of the license can be found in the License.html file at the root of this distribution. If 
-     # you cannot locate the Apache License, Version 2.0, please send an email to 
-     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
-     # by the terms of the Apache License, Version 2.0.
+     # Esse código-fonte está sujeito aos termos e condições da licença do Apache, versão 2.0. Uma 
+     # cópia da licença pode ser encontrada no arquivo License.html na raiz da distribuição. Se 
+     # não for possível localizar a licença do Apache, versão 2.0, envie um email para 
+     # vspython@microsoft.com. Usando esse código-fonte de qualquer forma, você concorda em ser vinculado 
+     # aos termos da licença do Apache, versão 2.0.
      #
-     # You must not remove this notice, or any other, from this software.
+     # Você não deve remover este ou qualquer outro aviso deste software.
      #
      # ###########################################################################
 
@@ -375,31 +362,29 @@ Conteúdo do `ptvs_virtualenv_proxy.py`:
         return handler
 
 
-<h2><a name="customize-git-deployment"></a>Personalizar a implantação do Git</h2>
+## Personalizar a implantação do Git
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
 
 
-<h2><a name="troubleshooting-deployment"></a>Solução de problemas - implantação</h2>
+## Solução de problemas - implantação
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>Solução de problemas - instalação do pacote</h2>
+## Solução de problemas - Instalação de pacotes
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>Solução de problemas - ambiente Virtual</h2>
+## Solução de problemas - Ambiente virtual
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 
-[Criando sites com garrafa]: ../web-sites-python-create-deploy-bottle-app
-[Criando Sites com o Django]: ../web-sites-python-create-deploy-django-app
-[Criando sites com bulbo]: ../web-sites-python-create-deploy-flask-app
+[Criando sites com Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Criando Sites com Django]: web-sites-python-create-deploy-django-app.md
+[Criando sites com Flask]: web-sites-python-create-deploy-flask-app.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

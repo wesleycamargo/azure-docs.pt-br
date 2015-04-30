@@ -18,7 +18,7 @@
 
 #Como: Verificar o andamento do trabalho
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) . 
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos de Serviços de Mídia](media-services-video-on-demand-workflow.md). 
 
 ##Usar o Portal para verificar o status do trabalho
 
@@ -31,9 +31,9 @@ Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de 
 
 ##Próxima etapa
 
-Publicar seu conteúdo. Para obter mais informações, consulte [Como: codificar um ativo](../media-services-manage-content#publish). 
+Publicar seu conteúdo. Para obter mais informações, consulte [Como: Codificar um Ativo](media-services-manage-content#publish.md). 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png
 
-<!--HONumber=47-->
+<!--HONumber=52-->

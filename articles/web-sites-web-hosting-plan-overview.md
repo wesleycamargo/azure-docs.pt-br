@@ -16,9 +16,9 @@
 	ms.date="11/17/2014" 
 	ms.author="adamab"/>
 
-#  O que é um plano de hospedagem na Web? #
+# O que é um plano de hospedagem na Web? #
 
-Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Os planos de hospedagem na Web dão suporte a algumas faixas de preço (por exemplo, Grátis, Compartilhado, Básico e Padrão) em que cada faixa tem seus próprios recursos.  Sites na mesma assinatura, grupo de recursos e localização geográfica podem compartilhar um plano de hospedagem na Web.
+Os planos de hospedagem na Web representam um conjunto de recursos e habilidades que você pode compartilhar através de seus sites.  Os planos de hospedagem na Web dão suporte a algumas faixas de preço (por exemplo, Grátis, Compartilhado, Básico e Padrão) em que cada faixa tem seus próprios recursos.  Sites na mesma assinatura, grupo de recursos e localização geográfica podem compartilhar um plano de hospedagem na Web.  Você pode alterar rapidamente o plano de hospedagem que um site está usando, sem tempo de inatividade, desde que o plano de hospedagem de destino exista no mesmo grupo de recursos e localização geográfica.
 
 ## Recursos em planos de hospedagem na Web ##
 
@@ -27,8 +27,10 @@ Cada faixa de preço (por exemplo, Grátis, Compartilhado, Básico e Padrão) te
 Aqui estão algumas dicas úteis sobre planos e recursos de hospedagem na Web:
 
 - É possível alterar a faixa de preço do plano de hospedagem na Web a qualquer momento com tempo de inatividade zero.
+- Para otimizar os gastos, os sites na mesma assinatura, local e grupo de recursos podem todos compartilhar um plano de hospedagem na Web. 
 - Sites na mesma assinatura, local e grupo de recursos podem todos compartilhar um plano de hospedagem na Web. 
-- Recursos como a escala automática funcionam segmentando-se um plano de hospedagem na Web.  Se quiser usar a escala automática em sites individuais, você deverá dedicar um plano de hospedagem na Web para esse site.
+- Sites individuais e slots de implantação podem alterar seu plano de hospedagem na Web com zero tempo de inatividade, desde que o plano de hospedagem de destino exista no mesmo grupo de recursos que o plano original.
+- Recursos como a escala automática funcionam segmentando-se um plano de hospedagem na Web.  Se quiser usar a autoescala em sites individuais, você deverá dedicar um plano de hospedagem na Web para esse site.
 
 [Saiba mais sobre como gerenciar planos de hospedagem na Web](http://go.microsoft.com/fwlink/?LinkID=394411).
 
@@ -38,7 +40,7 @@ Os planos de hospedagem na Web das faixas Grátis e Compartilhado fornecem sites
 
 Os planos de hospedagem na Web das faixas Básico e Padrão fornecem sites com uma infraestrutura dedicada, o que significa que apenas o site ou os sites escolhidos por você para associação a esse plano serão executados nesses recursos.  Nessa faixa, é possível configurar o plano de hospedagem na Web para usar uma ou mais instâncias de máquinas virtuais.  Há suporte para instâncias pequenas, médias e grandes.  Essas máquinas virtuais são gerenciadas em seu nome, o que significa que você jamais precisará se preocupar com atualizações do sistema operacional ou algo parecido.  
 
-Uma observação sobre a faixa Compartilhado (visualização).  Em todas as faixas, exceto "Compartilhado", você paga um preço pelo plano com base na faixa e na capacidade escolhida, não havendo cobrança adicional para cada site que usa o plano. Os planos de hospedagem na Web compartilhados são diferentes.  Devido à natureza da infraestrutura compartilhada, você é cobrado separadamente pelo site no plano.  
+Uma observação sobre a faixa Compartilhado (visualização).  Em todas as camadas, exceto 'Shared', você paga um preço pelo plano com base na camada e na capacidade escolhida, não havendo cobrança adicional para cada site que usa o plano. Os planos de hospedagem na Web compartilhados são diferentes.  Devido à natureza da infraestrutura compartilhada, você é cobrado separadamente pelo site no plano.  
 
 ### Os planos de hospedagem na Web e o novo Portal de Visualização do Azure ###
 
@@ -46,19 +48,13 @@ O novo Portal de Visualização do Azure permite associar sites existentes ou no
 
 Durante a criação de um novo site, o portal perguntará a qual plano de hospedagem na Web associá-lo.  É possível criar um novo plano de hospedagem na Web ou selecione um plano existente.  Para usar um plano existente o novo site deve estar na mesma assinatura, no mesmo local geográfico e no mesmo grupo de recursos do plano existente.  Durante a criação de um novo site vazio, o Azure assumirá como padrão o último plano de hospedagem na Web para ajudar a usar melhor os planos já criados por você.  Durante a criação de um site com um banco de dados, a opção de reutilizar um plano existente não estará disponível.
 
-É possível ver todos os planos de hospedagem na Web em todas as assinaturas usando o botão **Procurar** na barra de menus à esquerda e, em seguida, clicando em **Tudo** na parte superior direita do painel de atividade exibido na tela.
+É possível ver todos os planos de hospedagem na Web em todas as assinaturas usando-se o botão **Procurar** na barra de menus à esquerda e, em seguida, clique em **Planos de hospedagem na Web** na parte superior direita do painel de atividade exibido na tela.
 
 ![][BrowseEverythingScreenshot]
-![][BrowseWebHostingPlansScreenshot]
 
-Também é possível ver a qual plano de hospedagem na Web cada site está associado observando-se a representação gráfica do grupo de recursos exibido na parte superior do blade do site.
+Você pode ver a qua plano de hospedagem na Web cada site está associado examinando a seção Fundamentos que aparece na parte superior da folha do site.  Clicar no plano iniciará uma folha que permite gerenciar o plano de hospedagem na Web.  [Saiba mais sobre como gerenciar planos de hospedagem na Web](http://go.microsoft.com/fwlink/?LinkID=394411).
 
-![][WebHostingPlanResourceMapScreenshot]
-
-Clicar no plano iniciará um blade que permite gerenciar o plano de hospedagem na Web.  [Saiba mais sobre como gerenciar planos de hospedagem na Web](http://go.microsoft.com/fwlink/?LinkID=394411).
-
-![][WebHostingPlanBladeScreenshot]
-	
+![][WebsiteEssentials]
 
 ### Próximas etapas ###
 
@@ -66,8 +62,8 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
-[WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
-[WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
-[BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+[WebsiteEssentials]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 
-<!--HONumber=46--> 
+
+
+<!--HONumber=52-->

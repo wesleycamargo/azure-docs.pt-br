@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de Evento" 
 	description="Siga este tutorial para começar a usar Hubs de eventos do Azure enviando eventos com C e recebendo-os em um cluster do Apache Storm" 
 	services="service-bus" 
@@ -30,11 +30,11 @@ Neste tutorial, você aprenderá como receber mensagens em um Hub de Eventos usa
 
 Para concluir este tutorial, você precisará do seguinte:
 
-+ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
++ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](virtual-machines-linux-tutorial.md) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
 
 + Um ambiente de desenvolvimento Java configurado para executar [Maven](http://maven.apache.org/). Para este tutorial, vamos pressupor o [Eclipse](https://www.eclipse.org/).
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais informações, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>
 
 ## Criar um Hub de Evento
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com *Send* direitos, adicione outra regra chamada **ReceiveRule** com *Listen* direitos e clique **Salvar**.
+6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** com direitos *Listen* e clique em **Salvar**.
 
    	![][5]
 
@@ -81,14 +81,14 @@ Agora você está pronto para executar os aplicativos.
 
    	![][23]
 
-> [AZURE.NOTE] Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Consulte a [Visão geral do HDInsight Storm] e a documentação oficial do [Apache Storm] para obter mais informações de implantações e padrões do Storm.
+> [AZURE.NOTE] Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Consulte a [Visão geral do Storm no HDInsight] e a documentação oficial do [Apache Storm] para obter mais informações de implantações e padrões do Storm.
 
 ## Próximas etapas
 
 Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos integrando Hubs e Storm.
 
 - [Analisar dados do sensor com o Storm e do HDInsight] é um tutorial de cenário integral usando Hubs de Evento, Storm e HBase para receber dados do sensor em um cluster do Hadoop.
-- [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm e HDInsight] é um tutorial sobre como escrever tubulações do Storm usando C#.
+- [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# em Storm e HDInsight] é um tutorial sobre como escrever tubulações do Storm usando C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -106,8 +106,9 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão Geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-[O Apache Storm]: https://storm.incubator.apache.org
+[Apache Storm]: https://storm.incubator.apache.org
 [Visão geral do Storm no HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Analisando dados do sensor com Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Analisar dados do sensor com o Storm e do HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Desenvolver aplicativos de processamento de dados de streaming com SCP.NET e C# em Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

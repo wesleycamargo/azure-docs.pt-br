@@ -18,16 +18,16 @@
 
 #Guias de início rápido dos serviços de mídia
 
-##<a id="vod_quickstart"></a>Vídeo por demanda 
+##<a id="vod_quickstart"></a>Vídeo sob Demanda 
 
 Optar por exibir o quickstart implementado com .NET ou REST.
  
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
-##<a id="live_quickstart"></a>Streaming ao vivo
+##<a id="live_quickstart"></a>Transmissão ao Vivo
  
 [Introdução ao .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

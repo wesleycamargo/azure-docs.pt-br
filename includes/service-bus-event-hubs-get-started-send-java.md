@@ -1,5 +1,5 @@
-﻿## Enviar mensagens ao Hub de Eventos
-Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos para o seu hub de eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é análogo a usar tópicos e filas do barramento de serviço com AMQP por meio de Java, como mostrado [aqui](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Para obter mais informações, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e [serviço de mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
+## Enviar mensagens ao Hub de Eventos
+Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos para o seu hub de eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é análogo a usar tópicos e filas do barramento de serviço com AMQP por meio de Java, como mostrado [aqui](../articles/service-bus-java-how-to-use-jms-api-amqp.md). Para obter mais informações, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e [serviço de mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. No Eclipse, crie um novo projeto Java chamado **Remetente**.
 
@@ -13,18 +13,18 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 
 5. Crie um arquivo chamado **servicebus.properties** na raiz do projeto **Remetente**, com o seguinte conteúdo. Lembre-se de substituir o valor para o nome do Hub de Evento e o nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar a URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
 
-		# servicebus.properties - sample JNDI configuration
+		# servicebus.properties - exemplo de configuração de JNDI
 
-		# Register a ConnectionFactory in JNDI using the form:
+		# Registre um ConnectionFactory no JNDI usando o formato:
 		# connectionfactory.[jndi_name] = [ConnectionURL]
 		connectionfactory.SBCF = amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/?sync-publish=false
 
-		# Register some queues in JNDI using the form
+		# Registre um ConnectionFactory no JNDI usando o formato:
 		# queue.[jndi_name] = [physical_name]
-		# topic.[jndi_name] = [physical_name]
-		queue.EventHub = {event hub name}
+		# queue.[jndi_name] = [physical_name]
+		queue.EventHub = {nome do hub de evento}
 
-5. Crie uma nova classe chamada **Remetente**. Adicione as instruções `import` a seguir:
+5. Crie uma nova classe chamada **Remetente**. Adicione o seguinte `import` instruções:
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -47,7 +47,7 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 
 		public static void main(String[] args) throws NamingException,
 				JMSException, IOException, InterruptedException {
-			// Configure JNDI environment
+			// Configurar o ambiente JNDI
 			Hashtable<String, String> env = new Hashtable<String, String>();
 			env.put(Context.INITIAL_CONTEXT_FACTORY,
 					"org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
@@ -58,16 +58,16 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 	
 			Destination queue = (Destination) context.lookup("EventHub");
 	
-			// Create Connection
+			// Criar conexão
 			Connection connection = cf.createConnection();
 	
-			// Create sender-side Session and MessageProducer
+			// Criar sessão para o remetente e MessageProducer no lado do remetente
 			Session sendSession = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
 			MessageProducer sender = sendSession.createProducer(queue);
 	
-			System.out.println("Press Ctrl-C to stop the sender process");
-			System.out.println("Press Enter to start now");
+			System.out.println("Pressione Ctrl-C para interromper o processo de remetente");
+			System.out.println("Pressione Enter para iniciar agora");
 			BufferedReader commandLine = new java.io.BufferedReader(
 					new InputStreamReader(System.in));
 			commandLine.readLine();
@@ -93,4 +93,5 @@ Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos
 
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=47-->
+
+<!--HONumber=52--> 

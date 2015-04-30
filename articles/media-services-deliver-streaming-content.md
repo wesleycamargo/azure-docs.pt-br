@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia do Azure" 
 	description="Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	authors="juliako" 
@@ -20,11 +20,11 @@
 # Como: Fornecer conteúdo de streaming
 
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](../media-services-video-on-demand-workflow) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](../media-services-live-streaming-workflow).  
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).  
 
 ## Visão geral
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [Codificando um ativo](../media-services-encode-asset) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](../media-services-dotnet-configure-asset-delivery-policy) tópico. 
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [Codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico. 
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
@@ -151,4 +151,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

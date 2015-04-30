@@ -1,6 +1,6 @@
 ﻿##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-1. No Visual Studio 2012 Express para Windows Phone, abra o arquivo MainPage.xaml em seu projeto de quickstart, localize o elemento **Botão** chamado  `ButtonRefresh` e substitua-o pelo seguinte código XAML: 
+1. No Visual Studio, abra o arquivo MainPage.xaml em seu projeto de início rápido, localize o elemento **Botão** chamado `ButtonRefresh` e substitua-o pelo código XAML a seguir: 
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button Width="225" Name="ButtonRefresh" 
@@ -11,7 +11,7 @@
 
 	Isso adiciona um novo botão à página. 
 
-2. Abra o arquivo de código MainPage.xaml.cs e adicione o seguinte código de definição da classe:
+2. Abra o arquivo de código MainPage.xaml.cs e adicione o seguinte código de definição de classe:
 
 	    public class MarkAllResult
 	    {
@@ -64,5 +64,4 @@
 
 	É exibida uma caixa de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

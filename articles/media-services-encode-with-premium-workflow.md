@@ -26,15 +26,15 @@ Os Serviços de Mídia do Microsoft Azure estão apresentando a demonstração p
 
 Os tópicos a seguir descrevem os detalhes relacionados a **fluxo de trabalho do Media Encoder Premium**: 
 
-- [Formatos com suporte pelo fluxo de trabalho do Media Encoder Premium](../media-services-premium-workflow-encoder-formats) - Discute os formatos de arquivo e codecs com suporte pelo **fluxo de trabalho do Media Encoder Premium**.
+- [Formatos com suporte pelo fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md) - Discute os formatos de arquivo e codecs com suporte pelo **fluxo de trabalho do Media Encoder Premium**.
 
-- A seção [comparar codificadores](../media-services-encode-asset#compare_encoders) compara os recursos de codificação do **fluxo de trabalho do Media Encoder Premium** e do **Azure Media Encoder**.
+- A seção [comparar codificadores](media-services-encode-asset.md#compare_encoders) compara os recursos de codificação do **fluxo de trabalho do Media Encoder Premium** e do **Azure Media Encoder**.
 
 Este tópico demonstra como codificar com **fluxo de trabalho do Media Encoder Premium** usando o .NET.
 
 ##Codificar
 
-Codificação de tarefas para o **fluxo de trabalho do Media Encoder Premium** requerem um arquivo de configuração separado, chamado de arquivo de Fluxo de trabalho. Esses arquivos têm uma extensão de .workflow e são criados usando a ferramenta [Designer de Fluxo de Trabalho](../media-services-workflow-designer) .
+Codificação de tarefas para o **fluxo de trabalho do Media Encoder Premium** requerem um arquivo de configuração separado, chamado de arquivo de Fluxo de trabalho. Esses arquivos têm uma extensão de .workflow e são criados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
 
 Você também pode obter arquivos de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição desses arquivos.
 
@@ -59,7 +59,8 @@ A cadeia de caracteres de configuração para essa tarefa deve estar vazia.
 
 6. Envie o trabalho de codificação.
 
-O exemplo a seguir é um exemplo completo. Para obter informações sobre como configurar com desenvolvimento .NET de serviços de mídia, consulte [Desenvolvimento de serviços de mídia com o .NET](../media-services-dotnet-how-to-use).
+O exemplo a seguir é um exemplo completo. Para obter informações sobre como configurar com desenvolvimento .NET de serviços de mídia, consulte [Desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md). 
+
 
 
  	using System; 
@@ -144,39 +145,39 @@ O exemplo a seguir é um exemplo completo. Para obter informações sobre como c
 	        {
 	            // Declare a new job.
 	            IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-	            // Get a media processor reference, and pass to it the name of the 
-	            // processor to use for the specific task.
+	            // Obter uma referência de processador de mídia e passar a ela o nome do 
+	            // processador a ser usado para a tarefa específica.
 	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 	
-	            // Create a task with the encoding details, using a string preset.
+	            // Criar uma tarefa com os detalhes de codificação, usando uma predefinição de cadeia de caracteres.
 	            ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
 	                processor,
 	                "",
 	                TaskOptions.None);
 	
-	            // Specify the input asset to be encoded.
+	            // Especificar o ativo de entrada a ser codificado.
 	            task.InputAssets.Add(workflow);
-	            task.InputAssets.Add(video); // we add one asset
-	            // Add an output asset to contain the results of the job. 
-	            // This output is specified as AssetCreationOptions.None, which 
-	            // means the output asset is not encrypted. 
+	            task.InputAssets.Add(video); // // adicionamos um ativo
+	            // Adicionar um ativo de saída para conter o resultado do trabalho. 
+	            // Essa saída é especificada como AssetCreationOptions.None, que 
+	            // significa que o ativo de saída não está criptografado. 
 	            task.OutputAssets.AddNew("Output asset",
 	                AssetCreationOptions.None);
 	
-	            // Use the following event handler to check job progress.  
+	            // Usar o manipulador de eventos a seguir para verificar o andamento do trabalho.  
 	            job.StateChanged += new
 	                    EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	            // Launch the job.
+	            // Iniciar o trabalho.
 	            job.Submit();
 	
-	            // Check job execution and wait for job to finish. 
+	            // Verificar a execução do trabalho e aguardar até que o trabalho seja concluído. 
 	            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	            progressJobTask.Wait();
 	
-	            // If job state is Error the event handling 
-	            // method for job progress should log errors.  Here we check 
-	            // for error state and exit if needed.
+	            // Se o estado do trabalho for Erro, o método de manipulação de eventos 
+	            // para o andamento do trabalho deverá registrar erros.  Aqui, verificamos 
+	            // o estado de erro e saímos, se necessário.
 	            if (job.State == JobState.Error)
 	            {
 	                throw new Exception("\nExiting method due to job error.");
@@ -260,4 +261,10 @@ O exemplo a seguir é um exemplo completo. Para obter informações sobre como c
 	        }
 	    }
 	}
-<!--HONumber=47-->
+
+
+##Problemas conhecidos
+
+Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
+
+<!--HONumber=52-->

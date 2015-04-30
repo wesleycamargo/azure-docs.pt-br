@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Como compilar um aplicativo de página única AngularJS com o AD do Azure" 
 	description="Demonstra o uso da Active Directory Authentication Library (ADAL) para Javascript para proteger um AngularJS com base em aplicativos de única página, implementados com uma API Web back-end do ASP.NET, que chama outra API Web ASP.NET usando CORS." 
-	services="" 
+	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="terrylan" 
@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="identity" 
-	ms.date="02/20/2015" 
+	ms.date="04/01/2015" 
 	ms.author="justinha"/>
 
 
@@ -50,7 +50,7 @@ No shell ou na linha de comando:
 6. Clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
 7. Insira um nome amigável para o aplicativo, por exemplo, "Ir para API", selecione **Aplicativo Web** e/ou **API Web** e clique em **Avançar**.
 8. Para a URL de logon, insira a URL base para o exemplo, que é, por padrão, `https://localhost:44327/`.
-9. Para o URI de ID do aplicativo, insira  `https://<your_directory_name>/ToGoAPI`, substituindo `<your_directory_name>` pelo nome do seu diretório do AD do Azure.  Salve a configuração.
+9. Para o URI de ID do aplicativo, insira `https://<your_directory_name>/ToGoAPI`, substituindo `<your_directory_name>` pelo nome do seu diretório do AD do Azure. Salve a configuração.
 
 Tudo feito!  Antes de passar para a próxima etapa, você precisa localizar o URI de ID do aplicativo de sua API.
 
@@ -60,26 +60,26 @@ Tudo feito!  Antes de passar para a próxima etapa, você precisa localizar o UR
 ## Configure o Ir para a API para usar o seu locatário do Active Directory do Azure
 
 1. Abra a solução no Visual Studio 2013.
-2. No projeto ToGoAPI, abra o arquivo  `web.config`.
+2. No projeto ToGoAPI, abra o arquivo `web.config`.
 3. Localize a chave do aplicativo `ida:Tenant` e substitua o valor pelo nome de locatário do AD do Azure.
 4. Localize a chave do aplicativo `ida:Audience` e substitua o valor pelo URI de ID do aplicativo que você copiou do portal do Azure.
-5. No projeto ToGoAPI, abra o arquivo  `Controllers/ToGoListController.cs`.  No atributo `[EnableCors...]`, digite o local do cliente para Fazer SPA.  Por padrão, ele é `https://localhost:44326`.  Certifique-se de omitir a barra à direita.
+5. Também no projeto ToGoAPI, abra o arquivo `Controllers/ToGoListController.cs`.  No atributo `[EnableCors...]`, digite o local do cliente para Fazer SPA.  Por padrão, ele é `https://localhost:44326`.  Certifique-se de omitir a barra à direita.
 5. No projeto TodoSPA, abra o arquivo  `App/Scripts/App.js` e localize a declaração do objeto  `endpoints`.
-6. Insira um mapeamento do local de ponto de extremidade de Ir para API para o seu identificador de recurso ou URI de ID do aplicativo.  O nome da propriedade do objeto  `endpoints` deve ser o local de Ir para API.  Por padrão, ele é  `https://localhost:44327/`.  O valor dessa propriedade deve ser o URI de ID do aplicativo copiado do portal, por exemplo,  `https://<your_tenant_name>/ToGoAPI`.
+6. Insira um mapeamento do local de ponto de extremidade de Ir para API para o seu identificador de recurso ou URI de ID do aplicativo.  O nome da propriedade do objeto  `endpoints` deve ser o local de Ir para API.  Por padrão, ele está `https://localhost:44327/`. o valor dessa propriedade deve ser o URI de ID do aplicativo copiada do portal, por exemplo, `https://<your_tenant_name>/ToGoAPI`.
 8. Não se preocupe ainda com os outros valores de configuração nesse arquivo, vamos voltar para eles em instantes.
-9. No projeto TodoSPA, abra o arquivo  `App/Scripts/toGoListSvc.js`.  Substitua o valor da variável  `apiEndpoint` pelo local de seu IR para API.  Por padrão, ele é `https://localhost:44327/`.
+9. No projeto TodoSPA, abra o arquivo  `App/Scripts/toGoListSvc.js`.  Substitua o valor da variável `apiEndpoint` pelo local de seu IR para API.  Por padrão, ele é `https://localhost:44327/`.
 
 ## Registre o Fazer aplicativo de página única com seu locatário do Active Directory do Azure
 
 1. Entre novamente no [Portal de gerenciamento do Azure](https://manage.windowsazure.com).
 2. Clique em **Active Directory** no NAV à esquerda.
-3. Clique no locatário do diretório onde você deseja registrar o aplicativo de exemplo.
+3. Clique no locatário onde você deseja registrar o aplicativo de exemplo.
 4. Clique na guia **Aplicativos**.
 5. Na gaveta, clique em **Adicionar**.
 6. Clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
 7. Insira um nome amigável para o aplicativo, por exemplo, "Fazer SPA", selecione o **Aplicativo Web e/ou API Web**e clique em **Avançar**.
 8. Para a URL de logon, insira a URL base para o exemplo, que é, por padrão, `https://localhost:44326/`.
-9. Para o URI de ID do aplicativo, insira  `https://<your_directory_name>/ToDoSPA`, substituindo `<seu_nome_de_diretório>` pelo nome do seu diretório do AD do Azure.
+9. Para o URI de ID do aplicativo, insira `https://<your_directory_name>/ToDoSPA`, substituindo `<your_directory_name>` pelo nome do seu diretório do AD do Azure.
 10. Na seção **Permissões para outros aplicativos**, clique em **Adicionar aplicativo**.  Selecione **Outros** na lista suspensa **Mostrar** e clique na marca de seleção superior.  Localize e clique em Ir para API e clique na marca de seleção da parte inferior para adicionar o aplicativo.  Selecione **Acessar Ir para API** da lista suspensa **Permissões delegadas** e salve a configuração.
 
 Tudo feito!  Antes de passar para a próxima etapa, você precisa localizar a ID de cliente do seu aplicativo.
@@ -100,12 +100,12 @@ Por padrão, os aplicativos provisionados no AD do Azure não são habilitados p
 ## Configure o Fazer SPA para usar o seu locatário do Active Directory do Azure
 
 1. Abra a solução no Visual Studio 2013.
-2. No projeto TodoSPA, abra o arquivo  `web.config`.
-3. Localize a chave do aplicativo  `ida:Tenant` e substitua o valor pelo nome do diretório do AD do Azure.
-4. Localize a chave do aplicativo  `ida:Audience` e substitua o valor pela ID do cliente no portal do Azure.
+2. No projeto TodoSPA, abra o arquivo `web.config`.
+3. Localize a chave do aplicativo `ida:Tenant` e substitua o valor pelo nome do diretório do AD do Azure.
+4. Localize a chave do aplicativo `ida:Audience` e substitua o valor pela ID do cliente no portal do Azure.
 5. Também no projeto TodoSPA, abra o arquivo  `App/Scripts/App.js` novamente e localize a linha `adalAuthenticationServiceProvider.init(`.
 6. Substitua o valor de  `tenant` pelo seu nome de diretório do AD do Azure.
-7. Substitua o valor de  `clientId` pela ID do cliente no portal do Azure.
+7. Substitua o valor de `clientId` pela ID do cliente no portal do Azure.
 
 ## Execute o exemplo
 
@@ -134,8 +134,8 @@ Para implantar o SPA para fazer e a API para ir para sites do Azure, crie dois s
 ### Atualize ambos os projetos para usar Sites do Azure
 
 1. No Visual Studio, vá para o projeto TodoSPA.
-2. Duas alterações são necessárias.  Em  `App\Scripts\app.js`, substitua o nome da propriedade do objeto  `endpoints` para o novo local do seu Ir para API, por exemplo,  `https://togo-contoso.azurewebsites.net/`.  em `App\Scripts\toGoListSvc.js`, substitua a variável  `apiEndpoint` pelo mesmo valor.
-3. No projeto ToGoAPI, apenas uma alteração será necessária. Em  `Controllers\ToGoListController.cs`, atualize o atributo `[EnableCors...]` para refletir a nova localização para Fazer SPA, por exemplo,  `https://todo-contoso.azurewebsites.net`.  Mais uma vez, certifique-se de omitir a barra à direita.
+2. Duas alterações são necessárias.  Em `App\Scripts\app.js`, substitua o nome da propriedade do objeto  `endpoints` para o novo local do seu Ir para API, por exemplo, `https://togo-contoso.azurewebsites.net/`.  Em `App\Scripts\toGoListSvc.js`, substitua a variável `apiEndpoint` pelo mesmo valor.
+3. No projeto ToGoAPI, apenas uma alteração será necessária. Em `Controllers\ToGoListController.cs`, atualize o atributo `[EnableCors...]` para refletir a nova localização para Fazer SPA, por exemplo, `https://todo-contoso.azurewebsites.net`.  Mais uma vez, certifique-se de omitir a barra à direita.
 
 ### Publicar o Ir para API para Sites do Azure
 
@@ -183,4 +183,4 @@ Aqui estão alguns recursos adicionais para ajudá-lo a usar o AD do Azure para 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->
