@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Proteger um aplicativo de API do Azure" 
 	description="Saiba como proteger um aplicativo de API do Azure usando o Visual Studio." 
 	services="app-service\api" 
@@ -69,7 +69,7 @@ A maneira mais simples de verificar se seu aplicativo de API é acessível publi
 ## Proteger o aplicativo de API
 
 Quando implantou o aplicativo de API, você o implantou em um grupo de recursos.  Você pode adicionar aplicativos Web e outros aplicativos de API ao mesmo grupo de recursos, e cada aplicativo de API no grupo de recursos pode ter uma das três configurações de acessibilidade:
-<!-todo: diagrama mostrando diferentes configurações de acessibilidade-->
+<!--todo: diagrama mostrando diferentes configurações de acessibilidade-->
 
 - **Público (anônimo)** - qualquer pessoa pode chamar o aplicativo de API de fora do grupo de recursos sem estar conectado.
 - **Público (autenticado)** - somente usuários autenticados têm permissão para chamar o aplicativo de API de fora do grupo de recursos.
@@ -139,7 +139,7 @@ No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Ac
 
 ## Verifique se a autenticação funciona 
 
-1. Abra uma janela do navegador e, na barra de endereços, digite a URL que chama o método 'Get' do seu aplicativo de API, como fez anteriormente.
+1. Abra uma janela do navegador e, na barra de endereços, digite a URL que chama o método `Get` do seu aplicativo de API, como fez anteriormente.
 
 	Neste momento a tentativa de acessar o aplicativo de API resulta em uma mensagem de erro.
 
@@ -172,7 +172,7 @@ No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Ac
 	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
-	<!--todo: substituir por imagem mostrando nomes fictícios - >
+	<!--todo: substituir por imagem mostrando nomes fictícios -->
 
 ## Usar o Postman para enviar uma solicitação Post
 
@@ -198,7 +198,7 @@ Estas instruções mostram como usar a ferramenta Postman no navegador Chrome, m
 
 6. Abra a extensão Postman.
 
-7. No campo URL de Solicitação, digite a URL para o método Get do aplicativo de API que você usou anteriormente, mas omita "get/" do final.
+7. No campo URL de Solicitação, digite a URL para o método Get do aplicativo de API que você usou anteriormente, mas omita `get/` do final.
  
 		http://[apiappurl]/api/contacts
     
@@ -228,6 +228,7 @@ Você viu como proteger um aplicativo de API do Azure exigindo autenticação do
 
 [portal antigo]: https://manage.windowsazure.com/
 [Portal do Azure]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/
 
 
 <!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Regras do BizTalk" 
    description="Este tópico aborda os recursos das Regras do BizTalk e fornece instruções sobre seu uso" 
    services="app-service\logic" 
@@ -113,7 +113,7 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
  
    ![Alt text][4]
 
-2. Em seguida, clique em "Definições de vocabulário".  Isso exibe a tela de Criação de Vocabulário.  Clique em "Adicionar" para começar a adicionar novas definições de vocabulário.
+2.Em seguida, clique em "Definições de vocabulário".  Isso exibe a tela de Criação de Vocabulário.  Clique em "Adicionar" para começar a adicionar novas definições de vocabulário.
 Dois tipos de definições de vocabulário têm suporte - Literal e XML.
 
 ## Definição literal

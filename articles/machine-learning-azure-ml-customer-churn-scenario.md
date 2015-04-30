@@ -18,17 +18,17 @@
 
 # Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
 
-##Visão geral
+## Visão geral
 Este tópico apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando o Estúdio de Aprendizado de Máquina do Azure.  Ele aborda modelos genéricos associados para resolver holisticamente o problema de variação de cliente industrial.  Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.  
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
-##O problema da variação do cliente
+## O problema da variação do cliente
 Empresas no mercado consumidor e em todos os setores empresariais precisam lidar com a variação.  Algumas vezes a variação é excessiva e influencia decisões de política.  A solução tradicional é prever índices de variação de alta propensão e tratar de suas necessidades por meio de um serviço de concierge, campanhas de marketing ou fazendo uso de isenções especiais.  Essas abordagens podem variar de setor para setor e até mesmo de um cluster de consumidor específico para outro dentro de um setor (por exemplo, telecomunicações). 
 
 O fator comum é que as empresas precisam minimizar esses esforços especiais para a retenção de clientes.  Assim, uma metodologia natural seria classificar cada cliente com a probabilidade de variação e o endereço dos N maiores.  Os maiores clientes podem ser os mais lucrativos, por exemplo, em cenários mais sofisticados, uma função de lucro é aplicada durante a seleção de candidatos para isenção especial.  Todavia, essas considerações são somente uma parte da estratégia holística para gerenciar a variação.  As empresas também precisam levar em consideração o risco (e a tolerância a risco associada), o nível e o custo de intervenção, além da segmentação plausível de clientes.  
 
-##Abordagens e perspectiva industriais
+## Abordagens e perspectiva industriais
 O gerenciamento sofisticado da variação é um sinal de uma indústria madura.  O exemplo clássico é o da indústria de telecomunicações, na qual sabe-se que os assinantes frequentemente mudam de um provedor para outro.  Essa variação voluntária é uma preocupação primária.  Além disso, provedores acumulam conhecimento significativo sobre *churn drivers*, que são os fatores que orientam os clientes a mudar. 
 
 Por exemplo, a escolha de telefone ou dispositivo é um motivador bem conhecido no setor de telefonia móvel.  Como resultado, uma política popular é subsidiar o preço de um aparelho para novos assinantes e cobrar o preço total para os clientes existentes para uma atualização.  Historicamente, essa política fez com que clientes mudassem de um provedor para outro para obter um novo desconto, o que, por sua vez, fez com que os provedores refinassem suas estratégias. 
@@ -39,7 +39,7 @@ O resultado final para a criação de um modelo é que você não pode criar uma
 
 Usando conjuntos de big data com seus clientes, as organizações estão realizando análises de big data, em particular a detecção de variação baseada em big data, como uma abordagem eficaz para o problema.  Você pode saber mais sobre a abordagem de big data para o problema da variação na seção Recomendações de ETL.  
 
-##Metodologia para modelagem da variação do cliente
+## Metodologia para modelagem da variação do cliente
 Um processo comum de solução de problemas para resolver variação do cliente é descrito nas Figuras 1 a 3:  
 
 1.	Um modelo de risco permite que você considere como as ações afetam as probabilidades e o risco.
@@ -61,7 +61,7 @@ O ciclo total de segmentação/decomposição de risco-decisão-marketing ainda 
 Uma adição interessante nesse caso é a análise de big data.  As empresas de telecomunicações e varejo coletam dados sobre seus clientes de modo exaustivo, de modo que podemos prever facilmente que a necessidade de uma conectividade multimodelo se tornará uma tendência comum, dadas as tendências emergentes como a "Internet das coisas" e os dispositivos ubíquos, que permitem que a empresa aplique soluções inteligentes em múltiplos níveis.  
 
  
-##Implementando o arquétipo modelagem no Estúdio de Aprendizado de Máquina 
+## Implementando o arquétipo modelagem no Estúdio de Aprendizado de Máquina 
 Dado o problema descrito acima, como podemos implementar uma abordagem integrada de modelagem e pontuação?  Nesta seção, demonstraremos como conseguimos isso usando o Estúdio do Aprendizado de Máquina do Azure.  
 
 A abordagem multimodelo é essencial ao projetar um arquétipo global para variação.  Até mesmo a parte de pontuação (preditiva) da abordagem deve ser multimodelo.  
@@ -74,7 +74,7 @@ O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritm
 
 As seções a seguir fornecem mais detalhes sobre o protótipo de modelo de pontuação que implementamos usando o Estúdio de Aprendizado de Máquina.  
 
-###Seleção e preparação de dados
+### Seleção e preparação de dados
 Os dados usados para criar os modelos e atribuir pontuação aos clientes foram obtidos por meio de uma solução vertical de CRM, com os dados ofuscados para proteger a privacidade dos clientes.  Os dados contém informações sobre 8.000 assinaturas nos EUA e combinam três fontes: dados de provisionamento (metadados de assinatura), dados de atividade (uso do sistema) e dados de atendimento ao cliente.  Os dados não incluem nenhuma informação relacionada à empresa sobre os clientes; por exemplo, não inclui metadados de fidelidade ou pontuação de crédito.  
 
 Para simplificar, os processos de ETL e limpeza dos dados estão fora do escopo porque presumimos que a preparação dos dados já foi realizada em outra instância.   
@@ -96,7 +96,7 @@ Os diagramas a seguir ilustram os dados que foram usados:
  
 *Figura 7:  Recursos extraídos da fonte de dados*
  
-###Algoritmos usados no protótipo
+### Algoritmos usados no protótipo
 
 Usamos os quatro algoritmos de aprendizado de máquina a seguir para criar o protótipo (sem personalização):  
 
@@ -113,15 +113,15 @@ O diagrama a seguir ilustra uma parte da superfície de design do teste, que ind
  
 *Figura 8:  Criar modelos no Estúdio de Aprendizado de Máquina*  
 
-###Métodos de pontuação
+### Métodos de pontuação
 Pontuamos quatro modelos usando um conjunto de dados de treinamento rotulado.  
 
 Também enviamos o conjunto de dados para um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12.  Medimos a precisão do modelo SAS e todos os quatro modelos do Estúdio de Aprendizado de Máquina.  
 
-##Resultados 
+## Resultados 
 Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.  
 
-###Precisão e exatidão da pontuação
+### Precisão e exatidão da pontuação
 Em geral, a implementação no Aprendizado de Máquina é inferior ao SAS em precisão em aproximadamente 10% a 15% (Área sob a Curva ou AUC).  
 
 No entanto, a métrica mais importante na variação é a taxa de classificação incorreta, ou seja, dos maiores N variantes previstos pelo classificador, quais deles **não** variaram de fato e ainda assim receberam tratamento especial?  O diagrama a seguir compara essa taxa de classificação incorreta em todos os modelos:  
@@ -131,12 +131,12 @@ No entanto, a métrica mais importante na variação é a taxa de classificaçã
  
 *Figura 9:  Área sob a curva do protótipo de Passau* 
 
-###Usando AUC para comparar resultados
+### Usando AUC para comparar resultados
 AUC (Área sob a Curva) é uma métrica que representa uma medição global de *separability* entre as distribuições de pontos para populações positivas e negativas.  É semelhante ao gráfico ROC (Característica de Operador do Receptor) tradicional, mas uma diferença importante é que a métrica AUC não exige que você escolha um valor de limite.  Em vez disso, ela resume os resultados relativos a **todas** as escolhas possíveis.  Em contraste, o gráfico ROC tradicional exibe a taxa de resultados positivos no eixo vertical e a taxa de falsos positivos no eixo horizontal, sendo que o limite de classificação varia.   
 
 AUC geralmente é usada como uma medida de valor para algoritmos diferentes (ou sistemas diferentes), porque permite que os modelos sejam comparados por meio do valor de AUC que apresentam.  Essa é uma abordagem popular em setores como meteorologia e biociência.  Assim, a AUC representa uma ferramenta popular para avaliar o desempenho de um classificador.  
 
-###Comparando as taxas de classificação incorreta
+### Comparando as taxas de classificação incorreta
 Comparamos as taxas de erro na classificação no conjunto de dados em questão usando os dados de CRM de aproximadamente 8.000 assinaturas.  
 
 -	A taxa de erro na classificação da SAS foi de 10 a 15%.
@@ -152,7 +152,7 @@ O diagrama a seguir, da Wikipédia, representa a relação em um gráfico vívid
  
 *Figura 10:  Troca entre exatidão e precisão*
 
-###Resultados de precisão e exatidão para modelo de árvore de decisão aprimorado  
+### Resultados de precisão e exatidão para modelo de árvore de decisão aprimorado  
 
 O gráfico a seguir exibe os resultados brutos de pontuação usando o protótipo de Aprendizado de Máquina para o modelo de árvore de decisão aprimorado, que vem a ser o mais preciso dentre os quatro modelos:  
 
@@ -160,7 +160,7 @@ O gráfico a seguir exibe os resultados brutos de pontuação usando o protótip
 
 *Figura 11:  Características do modelo de árvore de decisão aprimorado*
 
-##Comparação de desempenho 
+## Comparação de desempenho 
 Comparamos a velocidade na qual os dados foram pontuados usando os modelos do Estúdio de Aprendizado de Máquina e um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12.1.  
 
 A tabela a seguir resume o desempenho dos algoritmos:  
@@ -173,7 +173,7 @@ Modelo médio|	O melhor modelo|	Subdesempenhando|	Modelo médio
 
 Os modelos hospedados no Estúdio do Aprendizado de Máquina superaram o desempenho de SAS em 15% a 25% para velocidade de execução, mas a precisão permaneceu amplamente no mesmo nível.  
 
-##Discussão e recomendações
+## Discussão e recomendações
 Na indústria de telecomunicações, diversas práticas surgiram para analisar a variação, incluindo:  
 
 -	As métricas se derivam de quatro categorias essenciais:
@@ -193,7 +193,7 @@ Outro recurso interessante do Aprendizado de Máquina do Azure é a capacidade d
 
 Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.
   
-##Conclusão
+## Conclusão
 Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica.  Consideramos um protótipo para modelos de pontuação e o implementamos usando o Aprendizado de Máquina do Azure.  Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
 
 **Para mais informações:**  
@@ -207,7 +207,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [Enviar comentários](mailto:sqlfback@microsoft.com).
  
-##Referências
+## Referências
 [1] Predictive Analytics:  Beyond the Predictions, W. McKnight, Information Management, Julho/Agosto de 2011, p. 18 a 20.  
 
 [2][Precisão e exatidão](http://en.wikipedia.org/wiki/Accuracy_and_precision) na Wikipédia 
@@ -218,7 +218,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [5][ Marketing de Big Data:  Envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
  
-##Apêndice
+## Apêndice
 
 ![][10]
  

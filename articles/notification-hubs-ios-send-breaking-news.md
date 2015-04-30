@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tutorial de últimas notícias de Hubs de Notificação - iOS" 
 	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações de últimas notícias para dispositivos iOS." 
 	services="notification-hubs" 
@@ -104,7 +104,7 @@ A primeira etapa é adicionar os elementos da interface do usuário ao seu story
 
 		self.notifications = [[Notifications alloc] init];
 
-	The initializes the Notification singleton.
+	Isso inicializa o singleton Notification.
 
 10. No método **didRegisterForRemoteNotificationsWithDeviceToken** em BreakingNewsAppDelegate.m, remova a chamada para **registerNativeWithDeviceToken** e adicione o seguinte código:
 
@@ -264,5 +264,6 @@ Neste tutorial, aprendemos como enviar as notícias mais recentes por categoria.
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Instruções sobre Hubs de Notificação para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [introdução]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
+[get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
 <!--HONumber=49-->

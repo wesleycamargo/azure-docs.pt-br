@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de notificação do Azure" 
 	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
 	services="notification-hubs" 
@@ -59,7 +59,7 @@ Depois que você tiver uma conta Baidu ativada, faça o logon para o [Portal do 
 
 ##Registrar-se como desenvolvedor Baidu
 
-1. Depois de fazer logon no [portal do Baidu], clique em **更多>> (mais)*.*
+1. Depois de fazer logon no [portal do Baidu], clique em **更多>> (mais)**.
 
   	![][5]
 
@@ -85,7 +85,7 @@ Depois que você tiver uma conta Baidu ativada, faça o logon para o [Portal do 
 
 7. Insira o número de verificação da mensagem no **验证码 (Código de confirmação)**. 
 
-8. Conclua o registro de desenvolvedor aceitando o contrato do Baidu e clicando em **提交 (Enviar)*.*  Você verá a seguinte página na conclusão bem-sucedida do registro:
+8. Conclua o registro de desenvolvedor aceitando o contrato do Baidu e clicando em **提交 (Enviar)**.  Você verá a seguinte página na conclusão bem-sucedida do registro:
 
   	![][11] 
 
@@ -93,7 +93,7 @@ Depois que você tiver uma conta Baidu ativada, faça o logon para o [Portal do 
 
 Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de aplicativo, chave API e a chave secreta.
 
-1. Depois de fazer logon no [portal do Baidu], clique em **更多>> (mais)*.*
+1. Depois de fazer logon no [portal do Baidu], clique em **更多>> (mais)**.
 
   	![][5]
 
@@ -477,7 +477,9 @@ Para testar este aplicativo com o emulador:
 
 <!-- URLs. -->
 [SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[SDK dos Serviços Móveis do Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [SDK do Android Push Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[SDK de Android por Push do Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Portal do Baidu]: http://www.baidu.com/
 

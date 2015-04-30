@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Criar um aplicativo lógico" 
 	description="Introdução à criação de um aplicativo lógico básico" 
 	authors="stepsic-microsoft-com" 
@@ -167,5 +167,7 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 <!-- Shared links -->
 [Portal do Azure]: https://portal.azure.com
 [Usar recursos de aplicativo lógico]: app-service-logic-use-logic-app-features.md
+[Usar recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
+[Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
 
 <!--HONumber=49-->

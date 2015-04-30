@@ -24,11 +24,11 @@ Este tópico mostra como autenticar usuários de um aplicativo móvel do serviç
 
 Este tutorial se baseia no início rápido do aplicativo móvel.  Você também deve primeiro concluir o tutorial [Introdução ao seu aplicativo móvel]. 
 
-##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
+## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-##<a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
@@ -41,7 +41,7 @@ Este tutorial se baseia no início rápido do aplicativo móvel.  Você também 
 
 Em seguida, você irá atualizar o aplicativo para autenticar os usuários antes de solicitar recursos do seu Serviço de Aplicativo.
 
-##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)] 
 
@@ -49,7 +49,7 @@ Em seguida, você irá atualizar o aplicativo para autenticar os usuários antes
 [AZURE.NOTE] Depois de registrar as informações do pacote do aplicativo da Windows Store com os Serviços de Aplicativos, você deve chamar o método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> fornecendo um valor de <strong>true</strong> ao parâmetro <em>useSingleSignOn</em>.  Se você não fizer isso, uma solicitação de logon ainda será apresentada aos usuários toda vez que o método de logon for chamado.
 
 
-##<a name="tokens"></a>Armazenar o token de autenticação no cliente
+## <a name="tokens"></a>Armazenar o token de autenticação no cliente
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)] 
 

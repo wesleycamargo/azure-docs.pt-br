@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de notificação do Azure" 
 	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
 	services="notification-hubs" 
@@ -186,7 +186,7 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 
 ##Enviar notificação de seu back-end
 
-Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>.  Neste tutorial você envia as notificações com um aplicativo de console do .NET.  Para um exemplo de como enviar notificações por push de um back-end do Serviços Móveis do Azure integrado com hubs de notificação, consulte **Introdução às notificações por push nos Serviços Móveis** ([back-end do .NET](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Back-end do JavaScript](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).    Para obter um exemplo de como enviar notificações usando as APIs REST, consulte** Como usar os Hubs de notificação do Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>.  Neste tutorial você envia as notificações com um aplicativo de console do .NET.  Para um exemplo de como enviar notificações por push de um back-end do Serviços Móveis do Azure integrado com hubs de notificação, consulte **Introdução às notificações por push nos Serviços Móveis** ([back-end do .NET](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Back-end do JavaScript](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).    Para obter um exemplo de como enviar notificações usando as APIs REST, consulte **Como usar os Hubs de notificação do Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 1. Clique com o botão direito do mouse, selecione **Adicionar** e **Novo Projeto**, em seguida, em **Visual C#** clique em **Windows** e **Aplicativo de console** e clique em **OK**. 
 
@@ -233,7 +233,7 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
 
 	Você receberá uma notificação do sistema em todos os dispositivos registrados.  Clicar ou tocar no banner de notificação do sistema carrega o aplicativo.
 
-Você pode encontrar todas as cargas com suporte nos tópicos do [catálogo de notificações do sistema][, no catálogo de blocos] e na [visão geral da notificação] no MSDN.
+Você pode encontrar todas as cargas com suporte nos tópicos do [catálogo de notificações do sistema], [no catálogo de blocos] e na [visão geral da notificação] no MSDN.
 
 ##Próximas etapas
 
@@ -270,9 +270,12 @@ Neste exemplo simples você envia notificações de difusão para todos os seus 
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Usar hubs de notificação para enviar notícias recentes]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[no catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[visão geral da notificação]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 <!--HONumber=49-->

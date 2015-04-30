@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de notificação do Azure" 
 	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
 	services="notification-hubs" 
@@ -142,7 +142,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 
 ##Enviar notificações de seu back-end
 
-Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).  Neste tutorial você envia as notificações com um aplicativo de console do .NET.  Para um exemplo de como enviar notificações por push de um back-end do Serviços Móveis do Azure integrado com hubs de notificação, consulte **Introdução às notificações por push nos Serviços Móveis** ([back-end do .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [Back-end do JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)).    Para obter um exemplo de como enviar notificações usando as APIs REST, consulte** Como usar os Hubs de notificação do Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).  Neste tutorial você envia as notificações com um aplicativo de console do .NET.  Para um exemplo de como enviar notificações por push de um back-end do Serviços Móveis do Azure integrado com hubs de notificação, consulte **Introdução às notificações por push nos Serviços Móveis** ([back-end do .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [Back-end do JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)).    Para obter um exemplo de como enviar notificações usando as APIs REST, consulte **Como usar os Hubs de notificação do Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 1. No Visual Studio, no menu **Arquivo** selecione **Novo** e depois **Projeto...**, em seguida, em **Visual C#** clique em**Windows** e**Aplicativo do console** e clique em**OK**.  
 
@@ -279,8 +279,10 @@ Neste simples exemplo, você difunde notificações para todos os seus dispositi
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
 [Usar hubs de notificação para enviar notícias recentes]: notification-hubs-ios-send-breaking-news.md
+[Usar Hubs de Notificação para enviar notícias de última hora]: notification-hubs-ios-send-breaking-news.md
 
 [Guia de Programação Local e de Notificações por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guia de Programação Local e de Notificação por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 
 <!--HONumber=49-->

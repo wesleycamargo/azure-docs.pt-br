@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução aos Hubs de notificação do Azure" 
 	description="Saiba como usar os Hubs de notificação do Azure para notificações por push." 
 	services="notification-hubs" 
@@ -302,12 +302,15 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 
 <!-- URLs. -->
 [SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[SDK de Serviços Móveis do Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[SDK dos Serviços Móveis do Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Fazendo referência a um projeto de biblioteca]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-android-notify-users.md
 [Usar hubs de notificação para enviar notícias recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Usar Hubs de Notificação para enviar notícias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
 
 <!--HONumber=49-->

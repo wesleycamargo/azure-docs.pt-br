@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Criar e carregar dados nas tabelas Hive do armazenamento de blobs do Azure | Azure" 
 	description="Criar tabelas Hive e carregar dados em blobs para tabelas hive" 
 	metaKeywords="" 
@@ -19,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#Criar e carregar dados nas tabelas Hive do armazenamento de blobs do Azure
+# Criar e carregar dados nas tabelas Hive do armazenamento de blobs do Azure
  
 Neste documento, são apresentadas consultas de Hive genéricas que criam tabelas Hive e carregam dados do armazenamento de blobs do Azure.  Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
 
@@ -140,7 +140,7 @@ Os usuários não podem carregar dados diretamente do armazenamento de blob em t
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> SELECT * FROM <database name>.<external textfile table name>;
 
->[AZURE.NOTE] Se a tabela ARQUIVO DE TEXTO `<nome do banco de dados>.<nome da tabela de arquivo de texto externa>` tiver partições, na ETAPA 3, `SELECT * FROM <database name>.<external textfile table name>` você deverá selecionar a variável de partição como um campo do conjunto de dados retornado.  Inseri-lo no `<nome do banco de dados>.<nome da tabela ORC>` falhará, pois `<nome do banco de dados>.<nome da tabela ORC>` não tem a variável de partição como um campo no esquema de tabela.  Nesse caso, os usuários precisam selecionar especificamente os campos que serão inseridos ao `<nome do banco de dados>.<nome da tabela ORC>`, como mostrado a seguir:
+[AZURE.NOTE] Se a tabela ARQUIVO DE TEXTO `<nome do banco de dados>.<nome da tabela de arquivo de texto externa>` tiver partições, na ETAPA 3, `SELECT * FROM <database name>.<external textfile table name>` você deverá selecionar a variável de partição como um campo do conjunto de dados retornado.  Inseri-lo no `<nome do banco de dados>.<nome da tabela ORC>` falhará, pois `<nome do banco de dados>.<nome da tabela ORC>` não tem a variável de partição como um campo no esquema de tabela.  Nesse caso, os usuários precisam selecionar especificamente os campos que serão inseridos ao `<nome do banco de dados>.<nome da tabela ORC>`, como mostrado a seguir:
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		      SELECT field1, field2, ..., fieldN

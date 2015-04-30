@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como configurar a autenticação do Active Directory do Azure para seu aplicativo de Serviços de Aplicativos" 
 	description="Saiba como configurar a autenticação do Active Directory do Azure para seu aplicativo de Serviços de Aplicativos." 
 	authors="mattchenderson,wesmc7777" 
@@ -69,6 +69,7 @@ Autentique os usuários do aplicativo móvel com o logon único do Active Direct
 <!-- URLs. -->
 
 [Visualizar o Portal de Gerenciamento do Azure]: https://portal.azure.com/
+[Portal de Gerenciamento do Azure de Visualização]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [ios-adal]: app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
 

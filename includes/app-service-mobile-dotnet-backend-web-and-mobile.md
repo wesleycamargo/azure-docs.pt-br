@@ -18,7 +18,7 @@ Em seguida, você criará um aplicativo Web, usando o mesmo banco de dados como 
 
 Nesta seção, você criará um novo aplicativo Web usando uma solução de exemplo de aplicativo Web. Você modificará o exemplo para usar o mesmo nome do esquema de banco de dados e a mesma cadeia de conexão que o aplicativo móvel.
 
-   > [AZURE.NOTE] Antes de concluir essas etapas, certifique-se de ter inicializado o banco de dados de back-end do aplicativo móvel, conectando a ele um cliente. Caso contrário, o aplicativo Web não poderá se conectar ao mesmo banco de dados.
+    > [AZURE.NOTE] Antes de concluir essas etapas, certifique-se de ter inicializado o banco de dados de back-end do aplicativo móvel, conectando a ele um cliente. Caso contrário, o aplicativo Web não poderá se conectar ao mesmo banco de dados.
 
 1. No [Portal do Azure](https://portal.azure.com/), crie um novo aplicativo Web usando o mesmo Grupo de Recursos e Plano de Hospedagem como seu aplicativo móvel.
 

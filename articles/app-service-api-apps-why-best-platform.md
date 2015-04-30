@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="O que são Aplicativos de API?" 
 	description="Saiba por que o Serviço de Aplicativo do Azure é a melhor plataforma para desenvolver, publicar e hospedar APIs RESTful." 
 	services="app-service\api" 
@@ -39,7 +39,7 @@ Os aplicativos de API do Serviço de Aplicativo do Azure facilitam o desenvolvim
 - **Use o melhor IDE do mercado** - A integração com o [Visual
 Studio](/campaigns/visual-studio-2013/) simplifica a criação, depuração, empacotamento e publicação das APIs e permite o gerenciamento do ciclo de vida completo do aplicativo.
 
-<!-removendo por orientação para reduzir o tamanho desta seção
+<!--removendo por orientação para reduzir o tamanho desta seção
 - **Sem ops** - Execute seus aplicativos de API em um ambiente de alta disponibilidade, com aplicação automática de patch.  Aplicativos de API implantados com o Serviço de Aplicativo do Azure são isolados e hospedados em máquinas virtuais dedicadas aos seus aplicativos, garantindo isolamento de segurança e desempenho previsível.
 
 - **Dimensione automaticamente** - o Serviço de Aplicativo do Azure permite que você escale verticalmente ou horizontalmente rapidamente a escala, para lidar com qualquer demanda de carga dos clientes.  Selecione manualmente o número e tamanho das máquinas virtuais ou configure o

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Introdução aos Hubs de Notificação para aplicativos Xamarin iOS"
 	description="Aprenda a usar Hubs de notificação do Azure para enviar notificações por push para um aplicativo do iOS Xamarin."
 	services="notification-hubs"
@@ -472,8 +472,10 @@ Neste simples exemplo, você difunde notificações para todos os seus dispositi
 
 [Usar hubs de notificação para enviar notificações por push aos usuários]: /manage/services/notification-hubs/notify-users-aspnet
 [Usar hubs de notificação para enviar notícias recentes]: /manage/services/notification-hubs/breaking-news-dotnet
+[Usar Hubs de Notificação para enviar notícias de última hora]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Guia de Programação Local e de Notificações por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guia de Programação Local e de Notificação por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/

@@ -107,7 +107,7 @@ Os IPython Notebooks fornecem uma maneira fácil para que os usuários carreguem
 ![Create workspace][23]
 
 
-##<a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
+## <a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
 
 As máquinas virtuais do Azure são cobradas como **pague somente pelo que usa**.  Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (desalocado)** quando não estiver em uso.
 

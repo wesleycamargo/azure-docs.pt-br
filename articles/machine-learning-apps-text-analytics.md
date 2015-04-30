@@ -50,7 +50,7 @@ Cabeçalhos:
                
 	Where <creds> = ConvertToBase64("AccountKey:" + yourActualAccountKey);  
 
-Obtenha a chave da conta [aqui[[. 
+Obtenha a chave da conta [aqui]( https://datamarket.azure.com/account/keys). 
 
 **Exemplo de resposta**
 
