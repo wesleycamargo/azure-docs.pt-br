@@ -1,30 +1,25 @@
-﻿<properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Gerenciamento: Modo de Distribuição do Balanceador de Carga (afinidade IP de origem)" 
-   description="Recursos de gerenciamento para o modo de distribuição do balanceador de carga do Azure" 
-   services="virtual-network" 
-   />
+<properties 
+	authors="danielceckert" 
+	documentationCenter="dev-center-name" 
+	editor=""
+	manager="jefco" 
+	pageTitle="Gerenciamento: Modo de Distribuição do Balanceador de Carga (afinidade IP de origem)" 
+	description="Recursos de gerenciamento para o modo de distribuição do balanceador de carga do Azure" 
+	services="virtual-network"/>
 
 <tags
-   ms.author="danecke"
-   ms.date="02/20/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-   />
-   
+	ms.author="danecke"
+	ms.date="02/20/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
+
+<!-- HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md -->
+
 # Gerenciar a rede virtual: Modo de distribuição do Balanceador de Carga (afinidade IP de origem)
-=======
-   /> 
-   
-# Gerenciar a rede virtual: Modo de distribuição do balanceador de carga (afinidade IP de origem)
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+
 
 **Afinidade de IP de origem** (também conhecido como **afinidade de sessão** ou **afinidade IP do cliente**), um modo de distribuição do balanceador de carga do Azure, une conexões de um único cliente com um único servidor hospedado do Azure, em vez de distribuir cada conexão do cliente dinamicamente para diferentes servidores hospedados do Azure (o comportamento padrão do balanceador de carga).
 

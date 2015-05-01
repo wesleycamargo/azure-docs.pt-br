@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Chamar uma API personalizada de um cliente da Windows Store - Serviços Móveis" 
-	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo da Windows Store que usa serviços móveis do Azure. 
+	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo da Windows Store que usa serviços móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

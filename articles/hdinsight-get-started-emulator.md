@@ -1,10 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução ao emulador do HDInsight | Azure" 
 	description="Saiba como usar o emulador do HDInsight para Azure." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
-	author="nitinme" 
 	authors="nitinme" 
 	documentationCenter=""/>
 
