@@ -395,4 +395,5 @@ Para obter um token de teste com base na restrição de token que foi usada para
 ## Próximas etapas
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md) .
 
+
 <!--HONumber=52-->

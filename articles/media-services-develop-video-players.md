@@ -65,4 +65,5 @@ Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo p
 
 Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
+
 <!--HONumber=52-->

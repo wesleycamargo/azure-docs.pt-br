@@ -59,4 +59,5 @@ Monitore o progresso do trabalho usando o **Portal de Gerenciamento do Azure**, 
 
 [Cotas e limitações](media-services-quotas-and-limitations.md) - descreve as cotas usadas e as limitações do Codificador dos Serviços de Mídia
 
+
 <!--HONumber=52-->

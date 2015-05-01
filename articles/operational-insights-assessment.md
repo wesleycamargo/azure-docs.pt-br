@@ -132,4 +132,5 @@ Você pode resumir avaliações de conformidade para sua infraestrutura e então
 
 4. Execute ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
+
 <!--HONumber=52-->

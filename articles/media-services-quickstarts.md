@@ -30,4 +30,5 @@ Optar por exibir o quickstart implementado com .NET ou REST.
 [Introdução ao .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
+
 <!--HONumber=52-->

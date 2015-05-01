@@ -125,4 +125,5 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 [Como: Receber notificações de alertas e gerenciar regras de alertas no Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
+
 <!--HONumber=52-->

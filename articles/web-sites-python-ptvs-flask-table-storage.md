@@ -216,4 +216,5 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 [Armazenamento do Azure]: http://azure.microsoft.com/documentation/services/storage/
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
+
 <!--HONumber=52-->

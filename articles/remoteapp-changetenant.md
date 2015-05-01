@@ -46,4 +46,5 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 
 Agora você pode usar o novo locatário do AD do Azure para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no RemoteApp.
 
+
 <!--HONumber=52-->

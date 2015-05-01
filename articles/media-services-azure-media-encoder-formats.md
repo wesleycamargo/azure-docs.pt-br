@@ -137,4 +137,5 @@ Esta é uma lista parcial de formatos descompactados com suporte.
 <tr><td>Formato YVU9 produzido em Indeo</td><td>Formato YVU9 produzido em Indeo com informações adicionais sobre as diferenças do último quadro. 9,5 bits por pixel, mas relatado como 9.</td></tr>
 </table>
 
+
 <!--HONumber=52-->

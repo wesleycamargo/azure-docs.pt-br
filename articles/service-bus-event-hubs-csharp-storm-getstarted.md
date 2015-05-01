@@ -101,4 +101,5 @@ Agora você está pronto para executar os aplicativos.
 [Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
+
 <!--HONumber=52-->

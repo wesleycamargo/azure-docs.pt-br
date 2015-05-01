@@ -208,4 +208,5 @@ Juntas, a assinatura de acesso compartilhado e a política de acesso armazenado 
 
 Para revogar o acesso a assinaturas de acesso compartilhado que usam a mesma política de acesso armazenado, remova a política armazenada do recurso de armazenamento substituindo a lista de políticas armazenadas por uma nova lista que não contém o nome da política. Para alterar as configurações de acesso de uma política de acesso armazenado, substitua a lista de políticas armazenadas por uma nova lista que contenha uma política de mesmo nome que tenha detalhes do novo controle de acesso.
 
+
 <!--HONumber=52-->

@@ -219,4 +219,5 @@ Há algumas coisas a serem observadas aqui:
 Conforme ilustrado no código de exemplo anterior, se você definir **deleteAfterPlay** como **YES**, esse anúncio será executado apenas uma vez. E se você definir **deleteAfterPlay** como **NO**, esse anúncio continuará a ser executado, o que chamamos de "anúncio adesivo".
 ### Consulte o [wiki do Media Player Framework do Azure (a página pode estar em inglês)](https://github.com/WindowsAzure/azure-media-player-framework/wiki) para obter mais informações.
 
+
 <!--HONumber=52-->

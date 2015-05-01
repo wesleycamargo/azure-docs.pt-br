@@ -36,4 +36,5 @@ Escolha **.NET** ou **API REST** para conectar-se aos serviços de mídia do Azu
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
+
 <!--HONumber=52-->

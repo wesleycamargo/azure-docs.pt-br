@@ -106,4 +106,5 @@ Para tutoriais de ponta a ponta, visite a página [centro de desenvolvedores de 
 [Preços do Serviço de Aplicativos]: /pricing/details/app-service/
 [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: web-sites-scale.md
 
+
 <!--HONumber=52-->

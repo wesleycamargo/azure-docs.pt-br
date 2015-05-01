@@ -489,4 +489,5 @@ Adicionar AuthorizationPolicy para o ContentKey, como mostrado [aqui](#AddAuthor
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
 
+
 <!--HONumber=52-->

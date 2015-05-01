@@ -357,4 +357,5 @@ O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
+
 <!--HONumber=52-->

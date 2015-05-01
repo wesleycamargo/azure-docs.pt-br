@@ -34,4 +34,5 @@ Configurar políticas de entrega de ativos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  
 
+
 <!--HONumber=52-->

@@ -422,4 +422,5 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentação do Flask]: http://flask.pocoo.org/ 
 
+
 <!--HONumber=52-->

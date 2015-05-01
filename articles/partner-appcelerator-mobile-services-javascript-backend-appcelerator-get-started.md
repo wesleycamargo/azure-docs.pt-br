@@ -130,4 +130,5 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução à autenticação]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
 [Introdução às notificações por push]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
+
 <!--HONumber=52-->

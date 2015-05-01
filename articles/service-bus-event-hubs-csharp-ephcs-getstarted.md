@@ -106,4 +106,5 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [Expansão do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
 
+
 <!--HONumber=52-->

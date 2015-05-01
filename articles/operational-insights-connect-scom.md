@@ -39,4 +39,5 @@ Você pode se conectar ao Insights operacional em um ambiente existente do Syste
 
 [Definir as configurações de Proxy e Firewall (opcional)](https://msdn.microsoft.com/library/azure/dn884643.aspx)
 
+
 <!--HONumber=52-->

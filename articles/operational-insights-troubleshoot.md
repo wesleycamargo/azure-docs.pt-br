@@ -56,4 +56,5 @@ Se os dois problemas forem verdadeiros, você precisa instalar o SQL Server 2008
 Depois de instalar o service pack, você deve ver dados do Insights Operacionais para o servidor dentro de 24 horas.
 
 
+
 <!--HONumber=52-->

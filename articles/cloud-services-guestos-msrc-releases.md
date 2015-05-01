@@ -130,4 +130,5 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [arquivo]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [família-explicação]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
 
+
 <!--HONumber=52-->

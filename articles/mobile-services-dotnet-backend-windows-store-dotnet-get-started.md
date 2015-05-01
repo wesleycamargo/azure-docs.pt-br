@@ -133,4 +133,5 @@ Para obter mais informações sobre aplicativos Windows universais, consulte [Su
 [Introdução aos dados nos Serviços Móveis usando o Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 [Solucionar um problema de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
+
 <!--HONumber=52-->

@@ -79,4 +79,5 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Barramento 
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
+
 <!--HONumber=52-->

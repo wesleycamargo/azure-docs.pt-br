@@ -104,4 +104,5 @@ Por exemplo, a cadeia de conexão deve ser semelhante ao seguinte exemplo de cad
 	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
 
 
+
 <!--HONumber=52-->

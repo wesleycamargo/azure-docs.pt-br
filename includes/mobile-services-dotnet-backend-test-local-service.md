@@ -6,4 +6,5 @@ O projeto de serviço móvel permite que você execute seu novo serviço móvel 
 
 2. Pressione a tecla **F5** para recompilar o projeto e iniciar o serviço móvel localmente. Uma página da Web é exibida depois que o serviço móvel é iniciado com êxito.
 
+
 <!--HONumber=52--> 

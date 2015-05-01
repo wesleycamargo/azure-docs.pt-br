@@ -120,4 +120,5 @@ Para obter mais informações sobre aplicativos Windows universais, consulte [Su
 [Versão do JavaScript]: mobile-services-windows-store-get-started.md
 [Introdução aos dados nos Serviços Móveis usando o Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
+
 <!--HONumber=52-->

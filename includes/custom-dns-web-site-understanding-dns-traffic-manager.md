@@ -18,4 +18,5 @@ Depois que o tráfego chega ao Gerenciador de Tráfego, ele encaminha o tráfego
 
 > [AZURE.NOTE] Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME como **www.contoso.com**, e não ao usar nomes raiz como **contoso.com**. Para obter mais informações sobre registros CNAME, consulte a documentação fornecida por seu registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia sobre o registro CNAME</a>, ou o documento <a href="http://tools.ietf.org/html/rfc1035">Nomes de Domínio IETF - Implementação e Especificação</a>.
 
+
 <!--HONumber=52--> 

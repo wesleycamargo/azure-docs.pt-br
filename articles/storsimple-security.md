@@ -245,4 +245,5 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 [Introdução ao dispositivo físico](https://msdn.microsoft.com/library/azure/dn772410.aspx)
 
+
 <!--HONumber=52-->

@@ -495,4 +495,5 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Manipulando notificações de trabalho de Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

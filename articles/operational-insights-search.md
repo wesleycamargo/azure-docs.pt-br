@@ -52,4 +52,5 @@ Você pode usar facetas e controles de filtro para restringir os resultados. Dig
 - [Equivalentes de pesquisas do OpInsights das regras de alerta de evento do pacote de gerenciamento do IIS](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Coleção de consultas de pesquisa úteis do Insights Operacionais](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
+
 <!--HONumber=52-->

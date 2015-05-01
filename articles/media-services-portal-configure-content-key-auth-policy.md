@@ -94,4 +94,5 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
 
+
 <!--HONumber=52-->

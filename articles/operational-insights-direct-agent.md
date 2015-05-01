@@ -82,4 +82,5 @@ Se você tiver servidores proxy ou firewalls em seu ambiente que restrinjam o ac
 - [Postagem no blog: Habilitar Insights Operacionais para máquinas virtuais do Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 
+
 <!--HONumber=52-->

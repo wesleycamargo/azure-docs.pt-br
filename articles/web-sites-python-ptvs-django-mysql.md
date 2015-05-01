@@ -210,4 +210,5 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Documentação do Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
+
 <!--HONumber=52-->

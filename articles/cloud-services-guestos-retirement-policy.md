@@ -87,4 +87,5 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 
 Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como "[Tarefas de Inicialização](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS - infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
 
+
 <!--HONumber=52-->

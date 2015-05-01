@@ -101,4 +101,5 @@ Este tópico conclui os tópicos Usando os Serviços de Mídia do Azure. Abordam
 [Criando aplicativos com o SDK dos Serviços de Mídia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
 [Fórum dos Serviços de Mídia]: http://social.msdn.microsoft.com/Forums/MediaServices/threads
 
+
 <!--HONumber=52-->

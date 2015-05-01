@@ -50,4 +50,5 @@ Este documento descreve um padrão para fornecer acesso a serviços Web ou conte
 [Camada de Processamento em Lote](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
 
+
 <!--HONumber=52-->

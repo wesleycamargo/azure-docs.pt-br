@@ -52,4 +52,5 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 
 4. Em qualquer página em Pesquisa, você pode **Exportar** os detalhes de resultados em um arquivo CSV que você pode abrir com o Excel ou outro aplicativo que você então você pode exibir ou modificar.
 
+
 <!--HONumber=52-->

@@ -22,4 +22,5 @@
 
 Uma das vantagens do RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
 
+
 <!--HONumber=52-->

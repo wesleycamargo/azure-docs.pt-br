@@ -113,4 +113,5 @@ Para obter informações sobre dimensionamento de unidades de streaming, consult
 
 [live-overview]: ./media/media-services-overview/media-services-live-streaming-current.png
 
+
 <!--HONumber=52-->

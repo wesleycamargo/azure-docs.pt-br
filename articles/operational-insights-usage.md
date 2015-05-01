@@ -56,4 +56,5 @@ O painel **Uso** exibe as seguintes informações:
 3. Se houver um grupo de gerenciamento que não esteja enviando dados, clique em **Solucionar Problemas** para obter informações detalhadas para a solução de problemas. Se não desejar manter um grupo de gerenciamento e todos os agentes que se reportam a ele, clique em **Remover**.
 
 
+
 <!--HONumber=52-->

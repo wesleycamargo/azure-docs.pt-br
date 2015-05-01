@@ -121,4 +121,5 @@ As análises o levam para a pesquisa e exibem o carimbo de data/hora dos último
 
 Essa página também apresenta informações de medição (não usa o índice de pesquisa, mas o sistema de cobrança, é atualizado a cada duas horas) sobre as quantidades de dados enviados ao serviço divididas por Pacote de Inteligência.
 
+
 <!--HONumber=52-->

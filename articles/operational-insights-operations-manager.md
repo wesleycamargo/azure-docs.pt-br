@@ -100,4 +100,5 @@ Por exemplo, se você presumir um tamanho de carregamento diário de 100 KB por 
 Se você deseja analisar os dados dos servidores em diferentes localizações geográficas, considere ter um grupo de gerenciamento por local. Isso pode melhorar o desempenho de transferência de dados do agente para o grupo de gerenciamento.
 
 
+
 <!--HONumber=52-->

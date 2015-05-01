@@ -143,4 +143,5 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
   
   [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
 
+
 <!--HONumber=52-->

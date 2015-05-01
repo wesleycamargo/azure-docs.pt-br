@@ -274,4 +274,5 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Nuget do SDK do aplicativo móvel do Azure]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [Armazenamento do SQLite Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
+
 <!--HONumber=52-->

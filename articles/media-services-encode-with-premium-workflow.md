@@ -267,4 +267,5 @@ O exemplo a seguir é um exemplo completo. Para obter informações sobre como c
 
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
 
+
 <!--HONumber=52-->

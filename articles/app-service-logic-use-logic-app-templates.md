@@ -40,4 +40,5 @@ Modelos simples que se integram a serviços de mídia social, como Twitter, Yamm
 
 Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio aplicativo lógico.  Consulte [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md.md).
 
+
 <!--HONumber=52-->

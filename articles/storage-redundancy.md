@@ -125,4 +125,5 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Emulador de Armazenamento do Microsoft Azure 3.1 com RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Artigo SOSP de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+
 <!--HONumber=52-->

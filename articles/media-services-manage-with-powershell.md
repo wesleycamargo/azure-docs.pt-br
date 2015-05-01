@@ -106,4 +106,5 @@ Quando você estiver pronto para excluir a conta de mídia do Azure, use [Remove
 	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
 
+
 <!--HONumber=52-->

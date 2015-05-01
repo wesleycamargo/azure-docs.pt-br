@@ -739,4 +739,5 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
+
 <!--HONumber=52-->

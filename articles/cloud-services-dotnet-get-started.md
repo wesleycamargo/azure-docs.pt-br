@@ -814,4 +814,5 @@ Para obter mais informações, consulte os recursos a seguir:
 * [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
 
+
 <!--HONumber=52-->

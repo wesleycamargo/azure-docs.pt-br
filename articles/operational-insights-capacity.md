@@ -161,4 +161,5 @@ Usando a ferramenta de projeção, você pode exibir as tendências históricas 
 4. Na **ferramenta Projeção**, mova o controle deslizante de data para exibir uma projeção da capacidade que será usada na data que você escolher.
 
 
+
 <!--HONumber=52-->

@@ -51,4 +51,5 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 - Nunca altere o script, as validações existem para sua conveniência.
 - Se o arquivo vhd for bloqueado durante o carregamento, copie o arquivo ou mova-o para um novo local e tente novamente. Pode haver algum processo do Windows impedindo o carregamento.  
 
+
 <!--HONumber=52-->

@@ -217,4 +217,5 @@ O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém
 [Como verificar o andamento do trabalho]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Predefinição de tarefa para o empacotador de mídia do Azure]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
+
 <!--HONumber=52-->

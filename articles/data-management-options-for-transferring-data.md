@@ -269,4 +269,5 @@ Observações sobre a árvore de decisão:
 [sincronizar]: http://msdn.microsoft.com/library/azure/hh456371.aspx
 [híbrido]: integration-hybrid-connection-overview.md
 
+
 <!--HONumber=52-->

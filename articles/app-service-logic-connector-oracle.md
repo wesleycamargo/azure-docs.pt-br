@@ -171,4 +171,5 @@ Você pode testar o aplicativo lógico adicionando um novo registro na tabela qu
 [Configurando o cliente Oracle]: https://msdn.microsoft.com/pt-br/library/dd787872.aspx
 
 
+
 <!--HONumber=52-->

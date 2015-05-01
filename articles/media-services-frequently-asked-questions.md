@@ -41,4 +41,5 @@ P: Os Serviços de Mídia do Azure dão suporte ao armazenamento de imagens?
 
 R: Se quiser apenas armazenar imagens JPEG ou PNG, você deverá mantê-las no Armazenamento de Blob do Azure. Não há benefício em colocá-las em sua conta dos Serviços de Mídia, a menos que deseje mantê-las associadas a seus ativos de vídeo ou áudio. Ou então, se talvez você precisar usar as imagens como sobreposições no codificador de vídeo. O codificador dos Serviços de Mídia dá suporte à sobreposição de imagens sobre vídeos, e é por isso que ele lista JPEG e PNG como formatos de entrada com suporte. Para obter mais informações, consulte [Criando sobreposições](https://msdn.microsoft.com/library/azure/dn640496.aspx).
 
+
 <!--HONumber=52-->

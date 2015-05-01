@@ -126,4 +126,5 @@ Observação: nem todos os formatos de saída acima têm suporte para fornecimen
 
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
 
+
 <!--HONumber=52-->

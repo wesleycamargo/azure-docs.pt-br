@@ -217,4 +217,5 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 [Como excluir uma conta de armazenamento de uma assinatura do Azure]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
+
 <!--HONumber=52-->

@@ -55,4 +55,5 @@ Se você vir um dos erros anteriores, consulte os seguintes procedimentos:
 - Verifique se as credenciais para ingresso no domínio estão corretas ou têm as permissões de associação de domínio apropriadas
 - Verifique se a UO (unidade organizacional) está formatada corretamente e existe no Active Directory.
 
+
 <!--HONumber=52-->

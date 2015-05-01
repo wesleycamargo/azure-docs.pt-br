@@ -93,4 +93,5 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector de Arqu
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 
+
 <!--HONumber=52-->

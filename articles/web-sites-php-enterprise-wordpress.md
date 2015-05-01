@@ -283,4 +283,5 @@ Para fazer isto... | Use isto...
 [storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
 [cdn]: cdn-how-to-use.md
 
+
 <!--HONumber=52-->

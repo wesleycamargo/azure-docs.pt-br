@@ -68,4 +68,5 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 [Compilador do Microsoft Visual C++ para o Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
+
 <!--HONumber=52--> 

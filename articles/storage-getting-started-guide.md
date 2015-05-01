@@ -112,4 +112,5 @@ Se você quiser saber mais sobre eles, siga estes links:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
+
 <!--HONumber=52-->

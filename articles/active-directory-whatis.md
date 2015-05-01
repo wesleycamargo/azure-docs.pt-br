@@ -46,4 +46,5 @@ O AD do Azure tem um número de níveis funcionais, abrangendo desde um diretór
 * [Identidade do Azure](/manage/windows/fundamentals/identity/)
 * [Biblioteca do AD do Azure no MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 
+
 <!--HONumber=52-->

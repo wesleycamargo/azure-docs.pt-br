@@ -421,4 +421,5 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Documentação do Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
 
+
 <!--HONumber=52-->

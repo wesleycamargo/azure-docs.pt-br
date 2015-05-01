@@ -100,4 +100,5 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Yammer como
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
+
 <!--HONumber=52-->

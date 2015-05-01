@@ -56,4 +56,5 @@ Cada uma das áreas principais de serviço são descritas em mais detalhes no di
 
 [Camada de Processamento em Lote](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
+
 <!--HONumber=52-->
