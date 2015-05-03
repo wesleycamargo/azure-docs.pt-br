@@ -1,6 +1,6 @@
 ﻿<properties 
-   pageTitle = "Quais são os componentes do StorSimple?" 
-   description="Descreve o dispositivo, os serviços e as tecnologias de gerenciamento do StorSimple". 
+   pageTitle="Quais são os componentes do StorSimple?" 
+   description="Descreve o dispositivo, os serviços e as tecnologias de gerenciamento do StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
