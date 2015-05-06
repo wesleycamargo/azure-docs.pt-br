@@ -25,7 +25,7 @@ O Azure Media Encoder dá suporte à codificação **Dolby(r) Digital Plus**. Do
 
 ###Obtenha o processador do Azure Media Encoder 
 
-O Azure Media Encoder dá suporte ao Dolby Digital Plus. Para obter uma referência ao **Codificador de Mídia do Azure**, consulte o tópico [Obter processadores de mídia](media-services-get-media-processor.md.
+O Azure Media Encoder dá suporte ao Dolby Digital Plus. Para obter uma referência ao **Codificador de Mídia do Azure**, consulte o tópico [Obter processadores de mídia](media-services-get-media-processor.md).
 
 ###<a id="configure_preset"></a>Definir configurações do Codificador de Mídia do Azure
 
