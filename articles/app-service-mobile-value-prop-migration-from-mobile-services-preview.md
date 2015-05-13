@@ -1,6 +1,6 @@
-﻿<properties
-	pageTitle="Eu uso Serviços Móveis, como o Serviço de Aplicativo ajuda?"
-	description="Saiba quais são as vantagens do Serviço de Aplicativo para projetos de serviços móveis existentes."
+<properties
+	pageTitle="Eu uso os serviços móveis, como o serviço de aplicativo ajuda?"
+	description="Saiba quais são as vantagens que o Serviço de Aplicativo traz para os projetos de serviços móveis existentes."
 	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="kirillg"
@@ -16,56 +16,56 @@
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
-# <a name="getting-started"></a>Eu uso Serviços Móveis, como o Serviço de Aplicativo ajuda?
+# <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
 
 ##Visão geral
-Seu serviço móvel existente é seguro e permanecerá com suporte.  No entanto, há várias vantagens que a plataforma *Azure App Service* fornece para seu aplicativo móvel que não estão disponíveis com os serviços móveis:  
+Seu serviço móvel existente é seguro e permanecerá com suporte. No entanto, há uma série de vantagens que a plataforma *Serviço de Aplicativo do Azure* oferece para seu aplicativo móvel que não estão disponíveis hoje com os serviços móveis:
 
-- Oferta mais simples, fácil e econômica para aplicativos que incluem clientes Web e móveis
-- Novos recursos de host, incluindo trabalhos Web, CNames personalizados e melhor monitoramento
-- Integração completa com o Office 365, Dynamics CRM, Salesforce e outras APIs SaaS vitais.
-- Suporte para código de back-end Java e PHP, além de Node. js e .NET 
-- Integração completa com o Gerenciador de Tráfego
+- Oferta mais simples, mais fácil e mais econômica para aplicativos que incluem tanto Web quanto clientes móveis
+- Novos recursos de host, incluindo Trabalhos da Web, CNames personalizados, melhor monitoramento
+- Integração pronta para uso com o Office 365, Dynamics CRM, Salesforce e outras APIs SaaS vitais.
+- Suporte a código de back-end Java e PHP, além do Node.js e .NET 
+- Integração pronta para uso com o Gerenciador de Tráfego
 - Conectividade com seus recursos locais e VPNs usando VNet, além de conexões híbridas
-- Monitoramento e solução de problemas do seu aplicativo usando NewRelic ou AppInsights, bem como alertas
-- Espectro mais avançado de recursos de computação subjacente, por exemplo, tamanhos de VM 
-- Dimensionamento automático, balanceamento de carga e monitoramento de desempenho internos.
-- Recursos internos de preparação, backup, reversão e testes em produção 
+- Monitoramento e solução de problemas do seu aplicativo usando NewRelic ou AppInsights, além de alertas
+- Espectro mais avançado de recursos de computação subjacentes, por exemplo, tamanhos de VM 
+- Dimensionamento automático interno, balanceamento de carga e monitoramento de desempenho.
+- Recursos de preparação integrada, backup, reversão e testes em produção 
 
 ## Novos recursos de hospedagem
-Em *Azure App Service*, o *Mobile App* código de back-end é executado no mesmo contêiner que o Aplicativo Web e o Aplicativo de API.  Dessa forma, você pode tirar proveito de todos os recursos nesse contêiner, incluindo alguns que não estão atualmente presentes nos serviços móveis: 
+Em *Serviço de Aplicativo do Azure*, o código de back-end *Aplicativo Móvel* é executado no mesmo contêiner como Aplicativo Web e Aplicativo de API. Desse modo você pode tirar proveito de todos os recursos nesse contêiner, incluindo alguns que não estão atualmente presentes nos serviços móveis:
 
-- adicionar lógica de back-end em execução contínua por meio de trabalhos Web 
-- garanta que o código de back-end esteja sempre em execução
-- use CNames personalizados para fornecer nomes amigáveis e estáveis para seus pontos de extremidade móvel de back-end
-- dimensione seu aplicativo geograficamente com o Gerenciador de Tráfego
+- adicionar lógica de back-end em execução contínua por meio de trabalhos da Web 
+- assegurar que seu código de back-end esteja sempre em execução
+- usar CNames personalizado para fornecer nomes amigáveis e estáveis para seus pontos de extremidade móveis de back-end
+- realizar o geodimensionamento de seu aplicativo com o Gerenciador de Tráfego
 
 
-##Conecte seu *Mobile App* à API de SaaS
-O *Serviço de Aplicativo do Azure* torna fácil conectar seu Aplicativo Móvel a APIs de SaaS, incluindo Office 365, Dynamics, Salesforce, SAP e muito mais. O *Azure App Service* oferece autenticação completa em nome do usuário e permite executar verdadeiro logon único entre todas as APIs de SaaS que você usa associando tokens a APIs de SaaS individuais à sua identidade primária
+##Conectar seu *aplicativo móvel* à API SaaS
+O *Serviço de Aplicativo do Azure* torna mais fácil conectar seu aplicativo móvel a APIs de SaaS, incluindo o Office 365, Dynamics, Salesforce, SAP e mais. O *Serviço de Aplicativo do Azure* oferece autenticação pronta para uso em nome do usuário e permite que você execute logon único verdadeiro entre todas as APIs de SaaS usadas por você, associando tokens para APIs de SaaS individuais à sua identidade primária
 
 ##Acessar dados locais usando VNet
-Com os serviços móveis hoje, você já pode usar conexões híbridas para acessar os recursos locais.  No entanto, há situações em que uma solução VPN é preferencial.  Com *Azure App Service*, você pode usar o Azure VNet para seu código de back-end do Aplicativo Móvel.
+Com os serviços móveis, hoje, você já pode usar conexões híbridas para acessar os recursos locais. No entanto, há situações em que uma solução VPN é preferível. Com o *Serviço de Aplicativo do Azure* você pode usar o Azure VNet para seu código de back-end de aplicativo móvel.
 
-##Use sua linguagem favorita de back-end
-O *Serviço de Aplicativo do Azure* dá suporte mais amplo e mais avançado para plataformas de desenvolvimento, incluindo Java, PHP e Python, além de .NET e Node. js, que têm suporte nos Serviços Móveis.
+##Use sua linguagem de back-end favorita
+O *Serviço de Aplicativo do Azure* oferece suporte mais amplo e mais avançado para plataformas de desenvolvimento incluindo Java, PHP e Python, além de .NET e Node.js, com suporte nos Serviços Móveis.
 
-##Configurar a escala automática
-Com os serviços móveis, todas as instâncias do seu código de back-end estavam executando em pequenas VMs. O *Azure App Service* permite que você selecione o tamanho das VMs de um conjunto muito mais avançado de opções.  Você também pode escalar verticalmente ou horizontalmente rapidamente para lidar com qualquer carga de cliente de entrada com base em várias métricas de desempenho. 
+##Configurar o dimensionamento automático
+Com os serviços móveis, todas as instâncias do seu código de back-end estavam sendo executados em VMs pequenas. O *Serviço de Aplicativo do Azure* permite que você selecione o tamanho das VMs de um conjunto muito mais rico de opções. Você também pode dimensionar rapidamente para mais ou menos para lidar com qualquer carga de cliente de entrada, com base em várias métricas de desempenho.
 
-##Fique "por dentro"
-Reaja aos problemas em tempo real com monitoramento e alertas para notificar automaticamente você e sua equipe.  Integre a funcionalidade avançada de análise e monitoramento de aplicativos do New Relic e AppInsights para compreender ainda melhor o desempenho do seu aplicativo móvel.  Com o *Azure App Service*, você agora pode configurar programaticamente e por meio de alertas de configuração do portal baseados em uma várias métricas de desempenho
+##Estar no "saber"
+Reaja aos problemas em tempo real com monitoramento e alertas para notificar automaticamente você e sua equipe. Integre a análise avançada de aplicativos e monitoramento de funcionalidades a partir do New Relic e AppInsights para obter uma compreensão ainda melhor do desempenho do seu aplicativo móvel. Com o *Serviço de Aplicativo do Azure*, você pode agora configurar alertas programaticamente e por meio do portal com base em várias métricas de desempenho
 
-##Proteja seus ativos
-Faça backup automático seu back-end e banco de dados.  Seu código e dados estão protegidos contra desastres e podem ser facilmente restaurados, permitindo que você administre seus negócios com confiança.
+##Mantenha seus ativos seguros
+Faça backup automático de seu back-end e banco de dados. O seu código e dados são protegidos contra desastres e facilmente restaurados, permitindo a você gerir seus negócios com confiança.
 
-##Preparar, Apontar, Fogo!
-Com *Azure App Service* agora você pode criar vários ambientes de teste e preparação privados para seus aplicativos móveis.  Use-os para executar testes antes de implantar.  Alterne para a produção sem tempo de inatividade.  Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
-
-
-
-No momento em que o *Azure App Service Mobile App* recurso fica disponível, fornecemos a experiência de migração perfeita para os serviços móveis existentes para o Serviço de Aplicativo se você optar por migrar.  Enquanto isso, você pode começar a explorar *App Service* e tirar proveito *App Service* para seu serviço móvel existente seguindo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
+##Preparar, apontar, fogo!
+Com o *Serviço de Aplicativo do Azure*, agora você pode criar vários ambientes particulares de teste e preparo para seus aplicativos móveis. Use-os para executar testes antes de implantar. Alterne para a produção sem tempo de inatividade. Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
 
 
 
-<!--HONumber=49-->
+Até que o recurso *Aplicativo Móvel do Serviço de Aplicativo do Azure* fique disponível, forneceremos uma experiência de migração perfeita para seus serviços móveis existentes para o serviço de aplicativo, se você optar por migrar. Enquanto isso, você pode começar a explorar o *Serviço de Aplicativo* e tirar proveito do *Serviço de Aplicativo* para seu serviço móvel existente seguindo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
+
+
+
+<!--HONumber=52-->

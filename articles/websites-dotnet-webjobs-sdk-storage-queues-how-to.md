@@ -477,7 +477,7 @@ Por exemplo, suponha que você deseje usar uma fila denominada logqueuetest no a
 		    Console.WriteLine(logMessage);
 		}
 
-Your `NameResolver` class could then get the queue name from `appSettings` as shown in the following example:
+A classe `NameResolver` pode, em seguida, obter o nome da fila de `appSettings`, conforme mostrado no exemplo a seguir: 
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -582,6 +582,5 @@ E em uma tabela do Azure, os logs `Console.Out` e `Console.Error` têm esta apar
 ## <a id="nextsteps"></a> Próximas etapas
 
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure - Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
-
 
 <!--HONumber=52-->

@@ -1,11 +1,8 @@
-﻿Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual executando o CentOS Linux.
+Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual executando o CentOS Linux.
 
-<div class="dev-callout">
-<b>Aviso</b>
-<p>Os recursos de segurança do MongoDB, como autenticação e associação com o endereço IP, não são habilitados por padrão. Os recursos de segurança devem ser habilitados antes de implantar o MongoDB em um ambiente de produção.  Consulte <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Segurança e Autenticação</a> para obter mais informações.</p>
-</div>
+> [AZURE.WARNING]Os recursos de segurança do MongoDB, como autenticação e associação com o endereço IP, não são habilitados por padrão. Os recursos de segurança devem ser ativados antes de implantar o MongoDB em um ambiente de produção. Consulte [Segurança e autenticação](http://www.mongodb.org/display/DOCS/Security+and+Authentication) para obter mais informações.
 
-1. Configure o Sistema de Gerenciamento de Pacote (YUM) para que você possa instalar o MongoDB. Crie um arquivo */etc/yum.repos.d/10gen.repo* para reter informações sobre seu repositório e inclua o seguinte:
+1. Configure o Sistema de Gerenciamento de Pacote \(YUM\) para que você possa instalar o MongoDB. Crie um */etc/yum.repos.d/10gen.repo* arquivo para armazenar informações sobre o repositório e adicione o seguinte:
 
 		[10gen]
 		name=10gen Repository
@@ -23,18 +20,18 @@
 
 	Aguarde enquanto o MongoDB é baixado e instalado.
 
-4. Crie um diretório de dados. Por padrão, MongoDB armazena dados no diretório */data/db*, mas você deve criar esse diretório. Para criá-lo, execute:
+4. Crie um diretório de dados. Por padrão, o MongoDB armazena dados no diretório */data/db*, mas você deve criar esse diretório. Para criá-lo, execute:
 
 		$ sudo mkdir -p /srv/datadrive/data
 		$ sudo chown `id -u` /srv/datadrive/data
 
-	Para obter mais informações sobre instalar o MongoDB no Linux, consulte [Início rápido do Unix][QuickstartUnix].
+	Para obter mais informações sobre como instalar o MongoDB no Linux, consulte [Quickstart Unix][QuickstartUnix].
 
 5. Para iniciar o banco de dados, execute:
 
 		$ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
 
-	Todas as mensagens de log serão direcionadas ao arquivo */srv/datadrive/data/mongod.log*, assim que o servidor MongoDB iniciar e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
+	Todas as mensagens de log serão direcionadas para o arquivo */srv/datadrive/data/mongod.log*, quando o servidor MongoDB for iniciado e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
 
 6. Para iniciar o shell administrativo do MongoDB, abra uma janela separada do SSH ou PuTTY e execute:
 
@@ -50,20 +47,20 @@
 
 	O banco de dados é criado pelo comando insert.
 
-7. Depois que o MongoDB for instalado, você deverá configurar um ponto de extremidade para que o MongoDB possa ser acessado remotamente. No Portal de Gerenciamento, clique em **Máquinas Virtuais**, em seguida, clique no nome de sua nova máquina virtual, depois clique em **Pontos de extremidade**.
+7. Depois que o MongoDB for instalado, você deverá configurar um ponto de extremidade para que o MongoDB possa ser acessado remotamente. No Portal de Gerenciamento, clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e depois clique em **Pontos de extremidade**.
 	
-	![Endpoints][Image7]
+	![Pontos de extremidade][Image7]
 
 8. Clique em **Adicionar Ponto de Extremidade** na parte inferior da página.
 	
-	![Endpoints][Image8]
+	![Pontos de extremidade][Image8]
 
 9. Adicione um ponto de extremidade com as configurações a seguir:
 
- - **Nome**:Mongo
- - **Protocolo**:TCP
- - **Porta pública**:27017
- - **Porta privada**:27017
+ - **Nome**: Mongo
+ - **Protocolo**: TCP
+ - **Porta pública**: 27017
+ - **Porta privada**: 27017
  
  Isso permitirá que o MongoDB seja acessado remotamente.
 
@@ -75,4 +72,4 @@
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!--HONumber=35.1-->
+<!--HONumber=52-->

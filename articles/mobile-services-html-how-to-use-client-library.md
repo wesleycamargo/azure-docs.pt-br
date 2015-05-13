@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar um cliente HTM - Serviços Móveis do Azure" 
 	description="Saiba como usar um cliente HTML para serviços móveis do Azure." 
 	services="mobile-services" 
@@ -643,10 +643,15 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [Vinculação de dados (aplicativos da Windows Store usando JavaScript e HTML]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Associação de dados (aplicativos da Windows Store usando JavaScript e HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [Início rápido de JavaScript da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
+[Início rápido do JavaScript da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
 [Início rápido de HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[Início rápido do HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
 [Introdução aos dados no JavaScript da Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[Introdução aos dados em JavaScript na Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
 [Introdução aos dados no HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[Introdução aos dados em HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [Você pode ver um exemplo completo de como configurar este cenário aqui]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Introdução aos dados]: /pt-br/develop/mobile/tutorials/get-started-with-data-html
 [Validar e modificar dados com scripts]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-html
@@ -656,8 +661,7 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [Autenticar seu aplicativo com logon único]: /pt-br/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI para gerenciar tabelas de Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-
-
 
 <!--HONumber=42-->

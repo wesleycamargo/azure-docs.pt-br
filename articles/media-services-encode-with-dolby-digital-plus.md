@@ -46,7 +46,7 @@ Para codificar para Dolby Digital Plus 5.1 multicanal, defina os atributos Codec
 
 A predefinição XML a seguir contém uma predefinição completa do Azure Media Encoder XML que produz um arquivo MP4 com banda larga H264, vídeo 1080p e áudio multicanal 5.1 Dolby Digital Plus. Essa predefinição também especifica para codificar um canal de baixa frequência LFE (efeitos), que é especificada definindo o atributo LFEOn como true. Quaisquer atributos não especificados terão seus valores padrão.
 
-Esta predefinição XML deve ser passada ao **Codificador de Mídia do Azure** para criar um trabalho de codificação, conforme descrito [neste] tópico (media-services-dotnet-encode-asset.md) (em vez de uma cadeia de caracteres de predefinição predefinida, você passará a predefinição XML inteira, como descrito [aqui](#configure_preset)).
+Esta predefinição XML deve ser passada ao **Codificador de Mídia do Azure** para criar um trabalho de codificação, conforme descrito [neste](media-services-dotnet-encode-asset.md) tópico (em vez de uma cadeia de caracteres de predefinição predefinida, você passará a predefinição XML inteira, como descrito [aqui](#configure_preset)).
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -649,6 +649,5 @@ Cada atributo é descrito abaixo.
 **SamplePeak** -este resultado contém o maior valor de amostra absoluto em qualquer canal desde que a medição foi redefinida, e varia de -70 a + 10 dBFS.
 
 **TruePeak** -este resultado contém o maior valor absoluto true‐peak em qualquer canal desde que a medição foi redefinida. Para obter uma descrição de true-peak, consulte ITU‐R BS.1770‐2. Os valores podem variar de -70 a 12.04 dBTP.
-
 
 <!--HONumber=52-->

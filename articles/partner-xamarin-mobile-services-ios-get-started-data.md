@@ -115,13 +115,13 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
         private MobileServiceClient client;
 
-   Isso cria uma propriedade que representa o MobileServiceClient que se conecta ao serviço
+   	Isso cria uma propriedade que representa o MobileServiceClient que se conecta ao serviço
 
 8. Na classe **TodoService**, remova o comentário da seguinte linha de código:
 
         private IMobileServiceTable<TodoItem> todoTable;  
 
-   Isso cria uma representação de propriedade para a tabela de serviços móveis.
+    Isso cria uma representação de propriedade para a tabela de serviços móveis.
 
 9. Remova o comentário das seguintes linhas no construtor **TodoService**:
 
@@ -184,7 +184,7 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 Isso conclui o tutorial **Introdução aos dados** para Xamarin.iOS.
 
 ## Obtenha o exemplo concluído
-Baixe o [o projeto de exemplo concluído]. Lembre-se de atualizar as variáveis **applicationURL** e **applicationKey** com suas próprias configurações do Azure. 
+Baixe o [projeto de exemplo concluído]. Lembre-se de atualizar as variáveis **applicationURL** e **applicationKey** com suas próprias configurações do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -243,7 +243,6 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
 [projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331302
-
 
 
 <!--HONumber=42-->

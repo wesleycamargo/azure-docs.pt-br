@@ -115,6 +115,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 [executar testes A/B]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
 [Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[Criar um aplicativo MVC ASP.NET com autenticação e Banco de Dados SQL e implantar no Serviço de Aplicativo do Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 
 [Serviços de Mídia do Azure]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
 [Serviço SendGrid no Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
@@ -139,9 +140,9 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
 [New Relic]:/develop/net/how-to-guides/new-relic/
 [Como: Receber notificações de alertas e gerenciar regras de alertas no Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[Como: Receba notificações de alertas e gerencie as regras de alertas no Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
   
   [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
-
 
 <!--HONumber=52-->

@@ -464,6 +464,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 
 <!-- URLs. -->
 [Fórum do MSDN dos Serviços de Mídia do Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Fórum MSDN de Serviços de Mídia do Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Referência da API REST dos Serviços de Mídia do Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
 [Detalhes dos preços dos Serviços de Mídia]: http://azure.microsoft.com/pricing/details/media-services/
 [Metadados de entrada]: http://msdn.microsoft.com/library/azure/dn783120.aspx
@@ -473,10 +474,13 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Trabalhando com Live Streaming dos Serviços de Mídia do Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [Utilizando criptografia dinâmica AES-128 e serviço de entrega de chaves]: http://msdn.microsoft.com/library/azure/dn783457.aspx
+[Usando o serviço de entrega de chave e criptografia dinâmica do AES-128]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Usando o serviço de entrega de licença e criptografia dinâmica PlayReady]: http://msdn.microsoft.com/library/azure/dn783467.aspx
+[Usando o serviço de entrega de licença e criptografia dinâmica do PlayReady]: http://msdn.microsoft.com/library/azure/dn783467.aspx
 [Recursos de visualização]: http://azure.microsoft.com/services/preview/
 [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Fornecendo conteúdo criptografado do armazenamento]: http://msdn.microsoft.com/library/azure/dn783451.aspx
+[Streaming de conteúdo criptografado de armazenamento]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
 [Empacotamento dinâmico]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Blog de Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
@@ -484,6 +488,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Lógica de repetição no SDK dos Serviços de Mídia para .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
 [Grass Valley anuncia Streaming EDIUS 7 pela nuvem]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Controlando nomes de arquivos de saída de codificador do Serviço de Mídia]: http://msdn.microsoft.com/library/azure/dn303341.aspx
+[Controlando nomes de arquivo de saída do Codificador do Serviço de Mídia]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Criando sobreposições]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Unindo segmentos de vídeo]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [SDK do .NET dos Serviços de Mídia do Azure 3.0.0.1 e 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
@@ -494,6 +499,6 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Manipulando notificações de trabalho de Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
+[Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
 <!--HONumber=52-->

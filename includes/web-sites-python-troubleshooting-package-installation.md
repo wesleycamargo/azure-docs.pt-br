@@ -1,4 +1,4 @@
-﻿Alguns pacotes podem não ser instalados usando pip durante a execução do Azure.  É possível simplesmente que o pacote não esteja disponível no índice de pacotes de Python.  Talvez um compilador seja necessário (um compilador não está disponível no computador executando o site do Azure).
+Alguns pacotes podem não ser instalados usando pip durante a execução do Azure.  É possível simplesmente que o pacote não esteja disponível no índice de pacotes de Python.  Talvez um compilador seja necessário (um compilador não está disponível no computador executando o site do Azure).
 
 Nesta seção, examinaremos modos de lidar com esse problema.
 
@@ -18,7 +18,7 @@ Usuários de Mac/Linux: Se você não tiver acesso a uma máquina do Windows, co
 
 Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][].
 
-Para o Python 3.4, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][].
+Para o Python 3.4, você pode instalar o [Microsoft Visual C++ 2010 Express][].
 
 Para criar os discos, você precisará do pacote de discos:
 
@@ -65,8 +65,10 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 
 
 [Criar uma Máquina virtual executando o Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Criar uma Máquina Virtual executando Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilador do Microsoft Visual C++ para o Python 2.7]: http://aka.ms/vcpython27
+[compilador Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
+[Compilador do Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 
 <!--HONumber=52--> 

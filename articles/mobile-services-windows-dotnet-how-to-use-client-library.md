@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Trabalhando com a biblioteca de cliente do .NET para Serviços Móveis" 
 	description="Aprenda a usar um cliente .NET para serviços móveis do Azure." 
 	services="" 
@@ -330,9 +330,9 @@ Observe que esta é uma chamada de método tipada, que exige que o tipo de retor
 
 Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O Controle de Simultaneidade Otimista pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
 
-Os Serviços Móveis oferecem suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema __version que é definida para cada tabela criada pelos Serviços Móveis. Cada vez que um registro é atualizado, os Serviços Móveis definem a propriedade __version desse registro como um novo valor. Durante cada solicitação de atualização, a propriedade __version do registro incluído na solicitação é comparada à mesma propriedade do registro no servidor. Se a versão passada com a solicitação não coincide com o servidor, a biblioteca de cliente .NET dos serviços móveis gera uma `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do servidor que contém a versão do registro encontrada no servidor. O aplicativo pode usar essas informações para decidir se deve executar a solicitação de atualização novamente com o valor __version correto do servidor para confirmar as alterações.  
+Os Serviços Móveis oferecem suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema `__version` que é definida para cada tabela criada pelos Serviços Móveis. Cada vez que um registro é atualizado, os Serviços Móveis definem a propriedade `__version` desse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `__version` do registro incluído na solicitação é comparada à mesma propriedade do registro no servidor. Se a versão passada com a solicitação não coincide com o servidor, a biblioteca de cliente .NET dos serviços móveis gera uma `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do servidor que contém a versão do registro encontrada no servidor. O aplicativo pode usar essas informações para decidir se deve executar a solicitação de atualização novamente com o valor `__version` correto do servidor para confirmar as alterações.  
 
-Para habilitar a simultaneidade otimista, o aplicativo define uma coluna na classe da tabela para a propriedade do sistema __version. A definição a seguir fornece um exemplo.
+Para habilitar a simultaneidade otimista, o aplicativo define uma coluna na classe da tabela para a propriedade do sistema `__version`. A definição a seguir fornece um exemplo.
 
     public class TodoItem
     {
@@ -356,7 +356,7 @@ Aplicativos que usam tabelas não tipadas habilitam a simultaneidade otimista de
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
-O código a seguir mostra como resolver um conflito de gravação quando detectado. O valor correto de __version deve ser incluído na chamada de `UpdateAsync()` para confirmar uma resolução.
+O código a seguir mostra como resolver um conflito de gravação quando detectado. O valor correto de `__version` deve ser incluído na chamada de `UpdateAsync()` para confirmar uma resolução.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -493,7 +493,7 @@ Se você estiver usando um provedor de identidade além do Facebook, altere o va
 Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. O [método LoginAsync] retorna um [MobileServiceUser], que fornece a [userId] do usuário autenticado e o [MobileServiceAuthenticationToken] como um JWT (token da web JSON). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache].
 
 > [AZURE.NOTE] **Aplicativo da Windows Store**
-Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote do aplicativo nos Serviços Móveis. Ao registrar as informações do pacote do aplicativo da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de logon da conta da Microsoft para obter uma experiência de logon único. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/pt-br/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Depois que as informações do pacote estiverem registradas nos Serviços Móveis, chame o método LoginAsync fornecendo um valor **verdadeiro** para o parâmetro useSingleSignOn para reutilizar as credenciais.
+Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote do aplicativo nos Serviços Móveis. Ao registrar as informações do pacote do aplicativo da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de logon da conta da Microsoft para obter uma experiência de logon único. Se você não fizer isso, os usuários de logon da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/pt-br/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Depois que as informações do pacote estiverem registradas nos Serviços Móveis, chame o método [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") fornecendo um valor **verdadeiro** para o parâmetro useSingleSignOn para reutilizar as credenciais.
 
 <h3>Fluxo de cliente</h3>
 
@@ -740,6 +740,7 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI para gerenciar tabelas de Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Tutorial de simultaneidade otimista]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
@@ -747,9 +748,9 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizada nos SDKs de cliente de Serviços Móveis do Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
+[API personalizada nas SDKs do cliente dos Serviços Móveis do Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Chamar uma API personalizada do cliente]: /pt-br/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-
 
 
 <!--HONumber=42-->

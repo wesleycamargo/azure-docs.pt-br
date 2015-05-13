@@ -205,7 +205,7 @@ A home page do aplicativo Tasklist deve listar todas as tarefas existentes e per
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Por fim, você deve inserir o formulário que fornece dados para o script de inserção de tarefa e concluir o HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -427,6 +427,5 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
-
 
 <!--HONumber=52-->

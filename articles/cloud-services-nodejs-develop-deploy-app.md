@@ -67,10 +67,9 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
         **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**: 
         Arquivos específicos do Azure necessários para publicar seu aplicativo.
 		Para obter mais informações, consulte
-        [Overview of Creating a Hosted Service for Azure][].
+        [Visão geral da criação de um serviço hospedado para o Azure][].
 
-	-   **deploymentSettings.json**: Stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json**: armazena configurações locais que são usadas peloscmdlets de implantação do Azure PowerShell.
 
 4.  Digite o seguinte comando para adicionar uma nova função da Web:
 
@@ -80,7 +79,7 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
 
 	O **Add-AzureNodeWebRole** cria um aplicativo básico do Node.js. Ele também modifica os arquivos **.csfg** e **.csdef** para adicionar entradas de configuração para a nova função.
 
-	> [AZURE.NOTE] Se você não especificar um nome de função, um nome padrão será usado. Você pode fornecer um nome como o primeiro parâmetro do cmdlet: 'Add-AzureNodeWebRole MyRole'
+	> [AZURE.NOTE] Se você não especificar um nome de função, um nome padrão será usado. Você pode fornecer um nome como o primeiro parâmetro do cmdlet: `Add-AzureNodeWebRole MyRole`
 
 
 O aplicativo do Node.js é definido no arquivo **server.js**, localizado no diretório da função Web (**WebRole1** por padrão). Eis o código:
@@ -207,6 +206,7 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 [nodejs.org]: http://nodejs.org/
 [Uma lista de diretórios da pasta helloworld.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
 [Visão geral de como criar um serviço hospedado para o Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+[Visão geral da criação de um serviço hospedado para o Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Uma lista de diretórios da pasta WebRole1]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
 [O menu exibido ao clicar duas vezes no emulador do Azure da barra de tarefas.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
 [Uma janela do navegador exibindo http://www.windowsazure.com/ com o link de avaliação gratuita destacado]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
@@ -216,6 +216,5 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 [A saída de status completo do comando Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [Como excluir uma conta de armazenamento de uma assinatura do Azure]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
-
 
 <!--HONumber=52-->
