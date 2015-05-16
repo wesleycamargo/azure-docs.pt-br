@@ -1,7 +1,21 @@
+﻿
+<properties 
+ pageTitle="Definir e recuperar as Propriedades e os Metadados para o Armazenamento de Blob \| Microsoft Azure" 
+ description="Saiba como definir e recuperar as propriedades e os metadados para os contêineres e blobs de Armazenamento do Azure." 
+ services="storage" 
+ documentationCenter="" 
+ authors="tamram" 
+ manager="adinah" 
+ editor=""/>
 
-\<properties pageTitle="Definir e recuperar as Propriedades e os Metadados para o Armazenamento de Blob \| Microsoft Azure" description="Saiba como definir e recuperar as propriedades e os metadados para os contêineres e blobs de Armazenamento do Azure." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/\>
-
-\<tags ms.service="storage" ms.workload="storage" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="04/21/2015" ms.author="tamram"/\>
+<tags 
+ ms.service="storage" 
+ ms.workload="storage" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="na" 
+ ms.topic="article" 
+ ms.date="04/21/2015" 
+ ms.author="tamram"/>
 
 
 # Definir e Recuperar as Propriedades e os Metadados #

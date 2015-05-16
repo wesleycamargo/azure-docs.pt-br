@@ -1,10 +1,11 @@
-<properties 
-	pageTitle="Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure" description="Saiba como criar um pacote de aplicativos de API do Node.js e implantá-lo no serviço de aplicativo do Azure." 
-	services="app-service\\api" 
+﻿<properties 
+	pageTitle="Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure"
+	description="Saiba como criar um pacote de aplicativos de API do Node.js e implantá-lo no serviço de aplicativo do Azure." 
+	services="app-service\api" 
 	documentationCenter="nodejs" 
 	authors="pkefal" 
 	manager="" 
-	editor=""/\>
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
