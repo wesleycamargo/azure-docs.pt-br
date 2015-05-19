@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar tópicos do Barramento de Serviço (PHP) - Azure" 
 	description="Saiba como usar tópicos do barramento de serviço com PHP no Azure." 
 	services="service-bus" 
@@ -336,10 +336,10 @@ Agora que você aprendeu os conceitos básicos das filas do barramento de servi�
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+[Filas, Tópicos e Assinaturas]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 
-[require-once]: http://php.net/require_once
+[require_once]: http://php.net/require_once
 
 <!--HONumber=47-->

@@ -43,27 +43,27 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 2. Clique em **Serviços de Aplicativo**, em **Service Bus**, em **Hub de Notificação** e, em seguida, **Criação Rápida**.
 
-   ![][7]
+   	![][7]
 
 3. Digite um nome para o hub de notificação, selecione a região desejada e clique em **Criar um novo Hub de Notificação**.
 
-   ![][8]
+   	![][8]
 
 4. Clique no namespace que você acabou de criar \(geralmente ***nome do hub de notificação* -ns**\) e clique na guia **Configurar** na parte superior.
 
-   ![][9]
+   	![][9]
 
 5. Clique na guia **Hubs de Notificação** na parte superior e clique no hub de notificação que você acabou de criar.
 
-   ![][10]
+   	![][10]
 
 6. Clique em **Informações da Conexão** na parte inferior. Anote as duas cadeias de conexão.
 
-   ![][12]
+   	![][12]
 
 7. Clique na guia **Configurar** e, em seguida, clique na caixa de seleção **Habilitar as notificações por push sem autenticação** na seção **Configurações de notificações do Windows Phone**.
 
-   ![][15]
+   	![][15]
 
 Agora, você tem as cadeias de conexão necessárias para registrar seu aplicativo do Windows Phone 8 e enviar notificações.
 
@@ -73,9 +73,9 @@ Agora, você tem as cadeias de conexão necessárias para registrar seu aplicati
 
 1. No Visual Studio, crie um novo aplicativo de console do Windows Phone 8.
 
-   ![][13]
+   	![][13]
 
-	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
+	No Visual Studio 2013 Atualização 2 ou posterior, você cria um aplicativo do Windows Phone Silverlight.
 	
 	![][11]	
 
@@ -118,7 +118,7 @@ Agora, você tem as cadeias de conexão necessárias para registrar seu aplicati
 
    ![][14]
 
-   Isso garante que seu aplicativo receba notificações por push.
+   	Isso garante que seu aplicativo receba notificações por push.
 	
 7. Pressione a tecla F5 para executar o aplicativo.
 
@@ -130,9 +130,9 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
 
 1. Clique com o botão direito do mouse na solução, selecione **Adicionar** e **Novo Projeto...**, em **Visual C\#** clique em **Windows** e **Aplicativo do Console** e em **OK**. 
 
-   ![][6]
+   	![][6]
 
-	This adds a new Visual C# console application to the solution. You can also do this in a separate solution. 
+	Isso adiciona um novo aplicativo de console do Visual C# à solução. Você também pode fazer isso em uma solução separada. 
 
 4. Clique com o botão direito do mouse em **Ferramentas**, em **Gerenciador de Pacotes da Biblioteca** e em **Console do Gerenciador de Pacotes**. 
 

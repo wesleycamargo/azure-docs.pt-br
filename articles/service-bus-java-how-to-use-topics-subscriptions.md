@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar tópicos do barramento de serviço (Java) - Azure" 
 	description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Exemplos de código são escritos para aplicativos Java." 
 	services="service-bus" 
@@ -249,6 +249,6 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
   [Captura de tela da lista de namespaces]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Captura de tela do painel Propriedades]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Captura de tela da chave padrão]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Filas, tópicos e assinaturas de barramento de serviço]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Filas, tópicos e assinaturas do Barramento de Serviço]: http://msdn.microsoft.com/library/hh367516.aspx
 
 <!--HONumber=47-->
