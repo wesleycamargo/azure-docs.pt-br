@@ -25,8 +25,8 @@ O RemoteApp utiliza o protocolo RDP e RemoteFX para fornecer redirecionamento.
 ## Qual redirecionamento está habilitado por padrão?
 Quando você usa o RemoteApp, os redirecionamentos a seguir são habilitados por padrão. As informações entre parênteses mostram a configuração do RDP.
 
-- Reproduzir sons no computador local \(\*\*Reproduzir neste computador\*\*\). \(audiomode:i:0\)
-- Capturar áudio do computador local e enviar para o computador remoto \(\*\*Gravar deste computador\*\*\). \(audiocapturemode:i:1\)
+- Reproduzir sons no computador local \(**Reproduzir neste computador**). \(audiomode:i:0\)
+- Capturar áudio do computador local e enviar para o computador remoto \(**Gravar deste computador**). \(audiocapturemode:i:1\)
 - Imprimir em impressoras locais \(redirectprinters:i:1\)
 - Portas COM \(redirectcomports:i:1\)
 - Dispositivo de cartão inteligente \(redirectsmartcards:i:1\)
@@ -77,7 +77,8 @@ Se você quiser usar o redirecionamento de USB em um computador que se conecta a
 > [AZURE.NOTE]O redirecionamento de USB com o RemoteApp do Azure só tem suporte para computadores com Windows.
 
 ### Habilitar o redirecionamento de USB para a coleção do RemoteApp
-Use o cmdlet a seguir para habilitar o redirecionamento de USB no nível de coleção: Set-AzureRemoteAppCollection - CollectionName <collection_name> - CustomRdpProperty "nusbdevicestoredirect:s:\*"
+Use o cmdlet a seguir para habilitar o redirecionamento de USB no nível de coleção:
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Habilitar o redirecionamento de US para o computador cliente
 
@@ -102,4 +103,5 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 6. Clique duas vezes em **Permitir redirecionamento de RDP de outros dispositivos USB RemoteFX com suporte deste computador**.
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 8. Clique em **OK**. 
+
 <!--HONumber=54-->
