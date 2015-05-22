@@ -103,7 +103,7 @@ Localize todos os itens com o mesmo valor da propriedade:
 
 Obtenha todas o solicitações com tempo de resposta \> 5 s. Tempos são representados em tiques: 10.000 tiques = 1 ms.
 
-!\["Tempo de resposta":\(threshold TO *\)\](./media/app-insights-diagnostic-search/11-responsetime.png\)
+!["Tempo de resposta":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
