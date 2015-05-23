@@ -4,15 +4,15 @@
 	services="azure-portal" 
 	documentationCenter="na" 
 	authors="alancameronwills" 
-	manager="keboyd"\> 
+	manager="keboyd"/> 
 <tags 
 	ms.service="azure-portal" 
 	ms.workload="na" 
-	ms.tgt\_pltfrm="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/28/2015" 
-	ms.author="awills"\> 
+	ms.author="awills"/> 
 
 # Monitorar desempenho do aplicativo 
 
