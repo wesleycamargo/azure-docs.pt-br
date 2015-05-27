@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
         pageTitle="Autenticar os usuários do aplicativo iOS com o Logon Único do Active Directory do Azure" 
         description="Saiba como fazer logon de usuários em seu aplicativo iOS com a biblioteca de autenticação do Active Directory." 
         documentationCenter="Mobile" 
@@ -16,11 +16,11 @@ ms.author="mahender" />
 
 # Adicionar logon único do Active Directory do Azure ao seu aplicativo iOS
 
-[WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
-Neste tutorial, adicione a autenticação ao projeto de início rápido usando uma Biblioteca de autenticação do Active Directory.
+Neste tutorial, adicione a autenticação ao projeto de início rápido usando uma Biblioteca de autenticação do diretório ativo.
 
-Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com seu locatário do AAD (Active Directory do Azure).  Isso é feito em duas etapas.  Primeiro, você deve registrar seu serviço de aplicativo e expor permissões nele.  Em segundo lugar, você deve registrar seu aplicativo iOS e conceder acesso com essas permissões.
+Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com seu locatário do AAD (Active Directory do Azure). Isso é feito em duas etapas. Primeiro, você deve registrar seu serviço de aplicativo e expor permissões nele. Em segundo lugar, você deve registrar seu aplicativo iOS e conceder acesso com essas permissões.
 
 Este tutorial exige o seguinte:
 
@@ -31,7 +31,7 @@ Este tutorial exige o seguinte:
 
 ## <a name="register-application"></a>Registrar seu aplicativo com o Active Directory do Azure
 
-[WACOM.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
+[AZURE.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
 
 ## <a name="require-authentication"></a>Configurar o aplicativo para exigir autenticação
 
@@ -41,11 +41,11 @@ Este tutorial exige o seguinte:
 
 1. Baixe a [Biblioteca de Autenticação do Active Directory para iOS].
 
-2. No navegador do Xcode, selecione seu projeto e clique em **Arquivo** e escolha **Adicionar Arquivos a...**.  Navegue até onde você baixou a biblioteca e selecione **ADALiOS.xcodeproj**.
+2. No navegador do Xcode, selecione seu projeto e clique em **Arquivo** e escolha **Adicionar Arquivos a...**. Navegue até onde você baixou a biblioteca e selecione **ADALiOS.xcodeproj**.
 
-3. Selecione o projeto novamente e abra a guia **Configurações da Compilação**.  Navegue até a seção **Vinculação** e adicione `-ObjC` a **Outros Sinalizadores do Vinculador**.
+3. Selecione o projeto novamente e abra a guia **Configurações da Compilação**. Navegue até a seção **Vinculação** e adicione `-ObjC` a **Outros Sinalizadores do Vinculador**.
 
-4. Selecione a guia **Fases de Compilação**.  Em **Dependências de Destino**, adicione `ADALiOS`.
+4. Selecione a guia **Fases de Compilação**. Em **Dependências de Destino**, adicione `ADALiOS`.
 
 5. Em **Vincular Binário com Bibliotecas**, adicione `libADALiOS.a`.
 
@@ -92,15 +92,15 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
             }];
         }
 
-4. No código para o método `loginAndGetData` acima, substitua **INSERIR AUTORIDADE AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com.  Esse valor pode ser copiado da guia Domínio em seu Active Directory do Azure no [Portal de Gerenciamento do Azure].
+4. No código para o método `loginAndGetData` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal de Gerenciamento do Azure].
 
-5. No código para o método `loginAndGetData` acima, substitua **INSERIR-RECURSO-URI-AQUI** por **URI da ID do Aplicativo** para o seu Aplicativo Móvel.  Se você tiver acompanhado o tópico [Como configurar seu Aplicativo Móvel com o Active Directory do Azure], o URI da ID do aplicativo deve ser semelhante a https://contosogateway.azurewebsites.net/login/aad.
+5. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DO-RECURSO-AQUI** pelo URI da **ID do Aplicativo** para o seu Aplicativo Móvel. Se você acompanhou o tópico [Como configurar seu aplicativo móvel com o Active Directory do Azure], o URI da ID do aplicativo deve ser similar a https://contosogateway.azurewebsites.net/login/aad.
 
-6. No código, para o método `loginAndGetData` acima, substitua **INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
+6. No código, para o método `loginAndGetData` acima, substitua **￼INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
 
-7. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DE-REDIRECIONAMENTO-AQUI** pelo ponto de extremidade de logon/feito para seu Gateway do Serviço de Aplicativo.  Isso deve ser similar a https://contosogateway.azurewebsites.net/login/done.
+7. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DE-REDIRECIONAMENTO-AQUI** pelo ponto de extremidade de logon/feito para seu Gateway do Serviço de Aplicativo. Esse deve ser semelhante a https://contosogateway.azurewebsites.net/login/done.
 
-8. Em QSTodoListViewController, modifique `ViewDidLoad` substituindo `[autoatualização]` pelo seguinte:
+8. No QSTodoListViewController, modifique `viewDidLoad` substituindo `[self refresh]` pelo seguinte:
 
         [self loginAndGetData];
 
@@ -114,6 +114,6 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
 [Como configurar seu aplicativo móvel com o Active Directory do Azure]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

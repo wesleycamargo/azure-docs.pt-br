@@ -24,9 +24,9 @@
 </div>
 
 
-Este guia mostra como executar cenários comuns usando o cliente Android para os Serviços Móveis do Azure.  Os cenários abordados incluem consulta de dados, inserção, atualização e exclusão de dados, autenticação de usuários, tratamento de erros e personalização do cliente. 
+Este guia mostra como executar cenários comuns usando o cliente Android para os Serviços Móveis do Azure. Os cenários abordados incluem consulta de dados, inserção, atualização e exclusão de dados, autenticação de usuários, tratamento de erros e personalização do cliente.
 
-Se for iniciante em Serviços Móveis, deve primeiro concluir o [Início rápido dos Serviços Móveis][Introdução aos Serviços Móveis]. A conclusão com êxito do tutorial garante que você instalou o Android Studio; ele o ajudará a configurar sua conta e criar seu primeiro serviço móvel e instalar o SDK de serviços móveis, que oferece suporte ao Android versão 2.2 ou posterior, mas recomendamos compilar com base no Android versão 4.2 ou posterior.
+Se for novo nos Serviços Móveis, você deve primeiro concluir o [Início rápido dos Serviços Móveis][Get started with Mobile Services]. A conclusão com êxito do tutorial garante que você instalou o Android Studio; ele o ajudará a configurar sua conta e criar seu primeiro serviço móvel e instalar o SDK de serviços móveis, que oferece suporte ao Android versão 2.2 ou posterior, mas recomendamos compilar com base no Android versão 4.2 ou posterior.
 
 
 
@@ -36,11 +36,11 @@ Se for iniciante em Serviços Móveis, deve primeiro concluir o [Início rápido
 
 <h2><a name="setup"></a>Configuração e pré-requisitos</h2>
 
-Suponhamos que você tenha criado um serviço móvel e uma tabela. Para obter mais informações, consulte [Criar uma tabela](http://go.microsoft.com/fwlink/p/?LinkId=298592). No código usado neste tópico, supomos que a tabela é denominada *ToDoItem*, e tem as seguintes colunas:
+Vamos pressupor que você criou um serviço móvel e uma tabela. Para obter mais informações, consulte [Criar uma tabela](http://go.microsoft.com/fwlink/p/?LinkId=298592). No código usado neste tópico, supomos que a tabela é denominada *ToDoItem* e tem as seguintes colunas:
 
 <ul>
-<li>id</li>
-<li>texto</li>
+<li>ID</li>
+<li>text</li>
 <li>concluído</li>
 
 </ul>
@@ -53,24 +53,24 @@ O objeto tipado do lado do cliente correspondente é o seguinte:
 		private Boolean complete;
 	}
 	
-Quando o esquema dinâmico está habilitado, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto da solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico]( http://go.microsoft.com/fwlink/p/?LinkId=296271).
+Quando o esquema dinâmico está habilitado, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto da solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
-<h2><a name="create-client"></a>Como: Criar o cliente de Serviços Móveis</h2>
+<h2><a name="create-client"></a>Como criar o cliente dos Serviços Móveis</h2>
 
-O código a seguir cria o objeto [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) que é usado para acessar seu serviço móvel. O código entra no método `onCreate` da classe Activity especificada em *AndroidManifest.xml* como uma ação **principal** e de categoria **INICIADOR**.
+O código a seguir cria o objeto [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) que é usado para acessar seu serviço móvel. O código entra no método `onCreate` da classe Activity especificada em *AndroidManifest.xml* como uma ação **PRINCIPAL** e de categoria **INICIADOR**.
 
 			MobileServiceClient mClient = new MobileServiceClient(
 					"MobileServiceUrl", // Replace with the above Site URL
 					"AppKey", 			// replace with the Application Key 
 					this)
 
-No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e clicando em *Dashboard*.
+No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e, em seguida, clicando em *Painel*.
 
-<h2><a name="instantiating"></a>Como: Criar uma referência de tabela</h2>
+<h2><a name="instantiating"></a>Como criar uma referência de tabela</h2>
 
-A maneira mais fácil de consultar ou modificar dados no serviço móvel é usando o *typed programming model*, já que o Java é uma linguagem fortemente tipada (posteriormente, discutiremos o modelo *untyped* não tipado). Esse modelo fornece perfeita serialização e desserialização para JSON usando a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> ao enviar dados entre o cliente e o serviço móvel: o desenvolvedor não precisa fazer nada, a estrutura lida com tudo isso.
+A maneira mais fácil de consultar ou modificar dados no serviço móvel é usando o *modelo de programação tipado*, pois o Java é uma linguagem fortemente tipada (posteriormente, discutiremos o modelo *não tipado*). Esse modelo fornece perfeita serialização e desserialização para JSON usando a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> ao enviar dados entre o cliente e o serviço móvel: o desenvolvedor não precisa fazer nada, a estrutura lida com tudo isso.
 
-A primeira tarefa que você executa para consultar ou modificar dados é criar um objeto [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835), chamando o método **getTable** no [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  Examinaremos duas sobrecargas desse método:
+A primeira tarefa que você executa para consultar ou modificar dados é criar um objeto [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835), chamando o método **getTable** no [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Examinaremos duas sobrecargas desse método:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -79,7 +79,7 @@ A primeira tarefa que você executa para consultar ou modificar dados é criar u
 
 No código a seguir, *mClient* é uma referência para seu cliente de serviço móvel.
 
-A [primeira sobrecarga](http://go.microsoft.com/fwlink/p/?LinkId=296839) é usada onde o nome de classe e o nome da tabela são iguais:
+A [primeira sobrecarga](http://go.microsoft.com/fwlink/p/?LinkId=296839) é usada onde o nome da classe e o nome da tabela são iguais:
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
@@ -93,16 +93,16 @@ A [2ª sobrecarga](http://go.microsoft.com/fwlink/p/?LinkId=296840) é usada qua
 
 ## <a name="api"></a>A estrutura API
 
-Desde a versão 2.0 da biblioteca de cliente, as operações da tabela de serviços móveis usam os objetos [Futuro](http://developer.android.com/reference/java/util/concurrent/Future.html) e [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) em todas as operações assíncronas, como os métodos que envolvem consultas e operações, como inserções, atualizações e exclusões. Isso torna mais fácil executar várias operações (enquanto estiver em um thread em segundo plano) sem ter que lidar com vários retornos de chamadas aninhados.
+Desde a versão 2.0 da biblioteca de cliente, as operações da tabela de serviços móveis usam os objetos[Futuro](http://developer.android.com/reference/java/util/concurrent/Future.html) e [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) em todas as operações assíncronas, como os métodos que envolvem consultas e operações, como inserções, atualizações e exclusões. Isso torna mais fácil executar várias operações (enquanto estiver em um thread em segundo plano) sem ter que lidar com vários retornos de chamadas aninhados.
 
 
-<h2><a name="querying"></a>Como: Consultar dados por meio de um serviço móvel</h2>
+<h2><a name="querying"></a>Como consultar dados de um Serviço Móvel</h2>
 
 Esta seção descreve como emitir consultas para o serviço móvel. As subseções descrevem diferentes aspectos, como classificação, filtragem e paginação. Finalmente, discutiremos como você pode concatenar essas operações juntas.
 
-### <a name="showAll"></a>Como: Retornar todos os itens de uma tabela
+### <a name="showAll"></a>Retornar todos os itens de uma tabela
 
-O código a seguir retorna todos os itens da tabela *ToDoItem*. Ele os exibe na interface do usuário ao adicionar os itens a um adaptador. Este código é semelhante ao que está no [Início rápido dos Serviços Móveis][Introdução aos Serviços Móveis]. 
+O código a seguir retorna todos os itens da tabela*ToDoItem*. Ele os exibe na interface do usuário ao adicionar os itens a um adaptador. Este código é semelhante ao que está no [Início rápido dos Serviços Móveis][Get started with Mobile Services].
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -131,12 +131,12 @@ O código a seguir retorna todos os itens da tabela *ToDoItem*. Ele os exibe na 
 
 Consultas como essa usam o objeto [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html).
 
-A variável *result* retorna o conjunto de resultados da consulta e o código após a instrução `mToDoTable.execute().get()` mostra como exibir as linhas individuais.
+A variável de *resultado* retorna o conjunto de resultados da consulta e o código após a instrução `mToDoTable.execute().get()` mostra como exibir as linhas individuais.
 
 
-### <a name="filtering"></a>Como: Filtrar dados retornados
+### <a name="filtering"></a>Como filtrar dados retornados
 
-O código a seguir retorna todos os itens da tabela *ToDoItem* cujo campo *complete* é igual a .*false* *mToDoTable* é a referência à tabela de serviços móveis que criamos anteriormente. 
+O código a seguir retorna todos os itens da tabela *ToDoItem* cujo campo *complete* é igual a *false*. *mToDoTable* é a referência à tabela de serviços móveis que criamos anteriormente.
 
         new AsyncTask<Void, Void, Void>() {
             @Override
@@ -160,7 +160,7 @@ Você inicia um filtro com uma chamada do método [**where**](http://go.microsof
 
 Isso é suficiente para comparar os campos de número e de cadeia de caracteres com valores específicos. Mas, você pode fazer muito mais.
 
-Por exemplo, você pode filtrar por datas. Você pode comparar todo o campo de data, mas também pode comparar partes da data, com métodos como [**year**](http://go.microsoft.com/fwlink/p/?LinkId=298467), [**month**](http://go.microsoft.com/fwlink/p/?LinkId=298468), [**day**](http://go.microsoft.com/fwlink/p/?LinkId=298469), [**hour**](http://go.microsoft.com/fwlink/p/?LinkId=298470), [**minute**](http://go.microsoft.com/fwlink/p/?LinkId=298471) e [**second**](http://go.microsoft.com/fwlink/p/?LinkId=298472). O código parcial a seguir adiciona um filtro a itens cuja *due date* é igual a 2013.
+Por exemplo, você pode filtrar por datas. Você pode comparar todo o campo de data, mas também pode comparar partes da data, com métodos como [**year**](http://go.microsoft.com/fwlink/p/?LinkId=298467), [**month**](http://go.microsoft.com/fwlink/p/?LinkId=298468), [**day**](http://go.microsoft.com/fwlink/p/?LinkId=298469), [**hour**](http://go.microsoft.com/fwlink/p/?LinkId=298470), [**minute**](http://go.microsoft.com/fwlink/p/?LinkId=298471) e [**second**](http://go.microsoft.com/fwlink/p/?LinkId=298472). O código parcial a seguir adiciona um filtro para itens cuja *data de vencimento* é igual a 2013.
 
 		mToDoTable.where().year("due").eq(2013).execute().get();
 
@@ -188,9 +188,9 @@ E você pode agrupar e aninhar operadores lógicos, conforme mostrado neste cód
 
 Para obter uma discussão mais detalhada e exemplos de filtragem, consulte [Explorando a riqueza do modelo de consulta de cliente dos Serviços Móveis do Android](http://hashtagfail.com/post/46493261719/mobile-services-android-querying).
 
-### <a name="sorting"></a>Como: Classificar dados retornados
+### <a name="sorting"></a>Como classificar dados retornados
 
-O código a seguir retorna todos os itens de uma tabela de *ToDoItems* classificada em ordem crescente pelo *text* campo. *mToDoTable* é a referência à tabela de serviços móveis que criamos anteriormente.
+O código a seguir retorna todos os itens de uma tabela *ToDoItem* classificada em ordem crescente pelo campo *text*. *mToDoTable* é a referência à tabela de serviços móveis que criamos anteriormente.
 
 		mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
@@ -200,9 +200,9 @@ O segundo parâmetro usa a enumeração [**QueryOrder**](http://go.microsoft.com
 
 Observe que, se você estiver filtrando usando o método ***where***, o método ***where*** deverá ser invocado antes do método ***orderBy***.
 
-### <a name="paging"></a>Como: Retornar dados em páginas
+### <a name="paging"></a>Como retornar dados em páginas
 
-O primeiro exemplo mostra como selecionar os 5 primeiros itens de uma tabela. A consulta retorna os itens de uma tabela  *ToDoItems*. *mToDoTable* é a referência à tabela de serviços móveis criada anteriormente.
+O primeiro exemplo mostra como selecionar os 5 primeiros itens de uma tabela. A consulta retorna os itens de uma tabela *ToDoItem*. *mToDoTable* é a referência à tabela de serviços móveis criada anteriormente.
 
        final MobileServiceList<ToDoItem> result = mToDoTable.top(5).execute().get();
 
@@ -212,9 +212,9 @@ Em seguida, definiremos uma consulta que ignorará os 5 primeiros itens e, em se
 		mToDoTable.skip(5).top(5).execute().get();
 
 
-### <a name="selecting"></a>Como: Selecionar colunas específicas
+### <a name="selecting"></a>Como selecionar colunas específicas
 
-O código a seguir ilustra como retornar todos os itens de uma tabela de  *ToDoItems*, mas exibe apenas os campos *complete* e *text*. *mToDoTable* é a referência à tabela de serviços móveis que criamos anteriormente.
+O código a seguir ilustra como retornar todos os itens de uma tabela *ToDoItem*, mas exibe apenas os campos *complete* e *text*. *mToDoTable* é a referência à tabela de serviços móveis que criamos anteriormente.
 
 		mToDoTable.select("complete", "text").execute().get();
 
@@ -223,11 +223,11 @@ Aqui, os parâmetros para a função select são os nomes de cadeia de caractere
 
 O método [**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) precisa seguir métodos como [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296) e [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313), se eles estiverem presentes. Ele pode ser seguido por métodos como [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731).
 
-### <a name="chaining"></a>Como: Concatenar métodos de consulta 
+### <a name="chaining"></a>Como concatenar métodos de consulta 
 
 Os métodos usados na consulta de tabelas de serviços móveis podem ser concatenados. Isso lhe permitirá executar tarefas como selecionar colunas específicas ou linhas filtradas que são classificadas e paginadas. Você pode criar filtros lógicos bastante complexos.
 
-O que faz isso funcionar é que os métodos de consulta usados retornam objetos [**MobileServiceQuery&lt;T&gt;**](http://go.microsoft.com/fwlink/p/?LinkId=298551) que, por sua vez, podem ter métodos adicionais invocados neles. Para encerrar a série de métodos e realmente executar a consulta, chame o método [**execute**](http://go.microsoft.com/fwlink/p/?LinkId=298554).
+O que faz isso funcionar é que os métodos de consulta usados retornam objetos [**MobileServiceQuery&lt;T&gt;**](http://go.microsoft.com/fwlink/p/?LinkId=298551), que, por sua vez, podem ter métodos adicionais invocados neles. Para encerrar a série de métodos e realmente executar a consulta, chame o método [**execute**](http://go.microsoft.com/fwlink/p/?LinkId=298554).
 
 Este é um exemplo de código onde *mToDoTable* é uma referência à tabela *ToDoItem* de serviços móveis.
 
@@ -241,7 +241,7 @@ Este é um exemplo de código onde *mToDoTable* é uma referência à tabela *To
 O principal requisito no encadeamento de métodos é que o método *where* e os predicados precisam vir primeiro. Depois disso, você poderá chamar métodos subsequentes na ordem que melhor atenda às necessidades do seu aplicativo.
 
 
-<h2><a name="inserting"></a>Como: Inserir dados em um serviço móvel</h2>
+<h2><a name="inserting"></a>Como inserir dados em um serviço móvel</h2>
 
 O código a seguir mostra como inserir uma nova linha em uma tabela.
 
@@ -277,7 +277,7 @@ Primeiro, crie uma instância da classe *ToDoItem* e defina suas propriedades.
 
 Esse código insere um novo item e o adiciona ao adaptador para que o exiba na interface de usuário.
 
-Os Serviços Móveis dão suporte a valores exclusivos e personalizados de cadeia de caracteres para a ID da tabela. Isso permite que os aplicativos usem valores personalizados, como endereços de email ou nomes de usuário, para a coluna de id de uma tabela dos Serviços Móveis. Por exemplo, se você quiser identificar cada registro por um endereço de email, poderá usar o seguinte objeto JSON.
+Os Serviços Móveis oferecem suporte a valores exclusivos e personalizados de cadeia de caracteres para a id da tabela. Isso permite que os aplicativos usem valores personalizados, como endereços de email ou nomes de usuário, para a coluna de id de uma tabela dos Serviços Móveis. Por exemplo, se você quiser identificar cada registro por um endereço de email, poderá usar o seguinte objeto JSON.
 
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.id = "myemail@mydomain.com";
@@ -288,11 +288,11 @@ Se um valor de id de cadeia de caracteres não for fornecido ao inserir novos re
 
 O suporte às ids de cadeia de caracteres oferece as seguintes vantagens aos desenvolvedores
 
-+ As Ids podem ser geradas sem fazer uma varredura no banco de dados.
++ Os Ids podem ser gerados sem fazer uma varredura no banco de dados.
 + Os registros são mais fáceis de mesclar a partir de tabelas ou bancos de dados diferentes.
 + Os valores de ids podem integrar-se melhor a uma lógica do aplicativo.
 
-Você também pode usar scripts de servidor para definir valores de ids. O exemplo de script a seguir gera um GUID personalizado e o atribui a um novo id de registro. Isso é semelhante ao valor de id que os Serviços Móveis gerariam se você não transmitisse um valor para um id de registro.
+Você também pode usar scripts de servidor para definir valores de ids. O exemplo de script a seguir gera um GUID personalizado e o atribui a uma nova id de registro. Esse é semelhante ao valor da id que os Serviços Móveis gerariam se você não passasse um valor para uma id de registro.
 
 	//Example of generating an id. This is not required since Mobile Services
 	//will generate an id if one is not passed in.
@@ -311,13 +311,13 @@ Se um aplicativo fornecer um valor para uma id, os Serviços Móveis irão armaz
 O valor da `id` deve ser exclusivo e não deve incluir caracteres dos seguintes conjuntos:
 
 + Caracteres de controle: [0x0000-0x001F] e [0x007F-0x009F]. Para obter mais informações, consulte [Códigos de controle ASCII C0 e C1].
-+  Caracteres de impressão: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  Caracteres imprimíveis: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **\`** (0x0060)
 +  Os ids "." e ".."
 
-Como alternativa, você pode usar Ids de números inteiros para suas tabelas. Para usar um Id de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis].
+Como alternativa, você pode usar Ids de números inteiros para suas tabelas. Para usar uma Id de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis].
 
 
-<h2><a name="updating"></a>Como: Atualizar dados em um serviço móvel</h2>
+<h2><a name="updating"></a>Como atualizar dados em um serviço móvel</h2>
 
 O código a seguir mostra como atualizar dados em uma tabela. Neste exemplo, *item* é uma referência a uma linha na tabela *ToDoItem*, a qual sofreu algumas alterações. O método a seguir atualiza a tabela e o adaptador de interface do usuário.
 
@@ -348,7 +348,7 @@ O código a seguir mostra como atualizar dados em uma tabela. Neste exemplo, *it
 		    }.execute();
 }
 
-<h2><a name="deleting"></a>Como: Excluir dados em um serviço móvel</h2>
+<h2><a name="deleting"></a>Como excluir dados em um serviço móvel</h2>
 
 O código a seguir mostra como excluir dados de uma tabela. Ele exclui um item existente da tabela ToDoItem que teve a caixa de seleção **Concluído** marcada na interface do usuário.
 
@@ -407,8 +407,8 @@ O código a seguir ilustra uma outra maneira de fazer isso. Ele exclui um item e
 	        }.execute();
 	    }
 
-<h2><a name="lookup"></a>Como: Pesquisar um item específico</h2>
-Às vezes, você deseja pesquisar um item específico por sua *id*, diferentemente da consulta, onde você geralmente obtém uma coleção de itens que atende a alguns critérios. O código a seguir mostra como fazer isso, para *id* = "0380BAFB-BCFF-443C-B7D5-30199F730335". Em um aplicativo real, você deve pegar a ID de alguma forma e passá-la como uma variável. Aqui, para simplificar o teste, você pode ir ao portal de serviços móveis do Azure para seu serviço, clique na guia **Dados** e copie uma ID que você deseja testar.
+<h2><a name="lookup"></a>Como pesquisar um item específico</h2>
+Às vezes, você deseja pesquisar um item específico por sua *id*, diferentemente da consulta where, você geralmente obtém uma coleção de itens que atendem a alguns critérios. O código a seguir mostra como fazer isso, para a *id* = "0380BAFB-BCFF-443C-B7D5-30199F730335". Em um aplicativo real, você deve pegar a ID de alguma forma e passá-la como uma variável. Aqui, para simplificar o teste, você pode ir ao portal de serviços móveis do Azure para seu serviço, clique na guia **Dados** e copie uma ID que você deseja testar.
 
 	    /**
 	     * Lookup specific item from table and UI
@@ -436,16 +436,16 @@ O código a seguir ilustra uma outra maneira de fazer isso. Ele exclui um item e
 	        }.execute();
 	    }
 
-<h2><a name="untyped"></a>Como: Trabalhar com dados não tipados</h2>
+<h2><a name="untyped"></a>Como trabalhar com dados não tipados</h2>
 
 O modelo de programação não tipado oferece um controle exato sobre a serialização JSON, e há alguns cenários onde você pode querer usá-lo, por exemplo, se a sua tabela de serviços móveis contiver um grande número de colunas e você só precisa fazer referência a algumas delas. O uso do modelo tipado requer que você defina todas as colunas da tabela de serviços móveis na sua classe de dados. Mas, com o modelo não tipado, você define apenas as colunas que precisa usar.
 
-A maioria das chamadas API para acessar dados são semelhante às chamadas de programação tipadas. A principal diferença é que o modelo não tipado você invocar métodos no objeto **MobileServiceJsonTable**, em vez do objeto **MobileServiceTable**. 
+A maioria das chamadas API para acessar dados são semelhante às chamadas de programação tipadas. A principal diferença é que o modelo não tipado você invocar métodos no objeto **MobileServiceJsonTable**, em vez do objeto **MobileServiceTable**.
 
 
-### <a name="json_instance"></a>Como: Criar uma instância de uma tabela não tipada
+### <a name="json_instance"></a>Como criar uma instância de uma tabela não tipada
 
-Semelhante ao modelo tipado, você começa obtendo uma referência de tabela, mas, nesse caso, é um objeto [MobileServicesJsonTable](http://go.microsoft.com/fwlink/p/?LinkId=298733). Você obtém a referência chamando o método [getTable()](http://go.microsoft.com/fwlink/p/?LinkId=298734) em uma instância do cliente de Serviços Móveis.
+Semelhante ao modelo tipado, você começa obtendo uma referência de tabela, mas, nesse caso, é um objeto[MobileServicesJsonTable](http://go.microsoft.com/fwlink/p/?LinkId=298733). Você obtém a referência chamando o método [getTable()](http://go.microsoft.com/fwlink/p/?LinkId=298734) em uma instância do cliente de Serviços Móveis.
 
 Primeiro, defina a variável:
 
@@ -456,7 +456,7 @@ Primeiro, defina a variável:
 
 
 
-Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate** (aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
+Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate **(aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
 
 
             // Get the Mobile Service Json Table to use
@@ -464,9 +464,9 @@ Depois de criar uma instância do cliente de Serviços Móveis no método **onCr
 
 Após criar uma instância de **MobileServiceJsonTable**, você poderá chamar praticamente todos os métodos possíveis que ela contém com o modelo de programação tipado. No entanto, em alguns casos, os métodos usam um parâmetro não tipado, como podemos ver nos exemplos a seguir.
 
-### <a name="json_insert"></a>Como: Inserir em uma tabela não tipada
+### <a name="json_insert"></a>Como inserir em uma tabela não tipada
 
-O código a seguir mostra como fazer uma inserção. A primeira etapa consiste em criar um [**JsonObject**](http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html), que faz parte da biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> .
+O código a seguir mostra como fazer uma inserção. A primeira etapa consiste em criar um [**JsonObject**](http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html), que faz parte da biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a>.
 
 		JsonObject item = new JsonObject();
 		item.addProperty("text", "Wake up");
@@ -495,7 +495,7 @@ Se você precisar obter a ID do objeto inserido, use esta chamada de método:
 		        jsonObject.getAsJsonPrimitive("id").getAsInt());
 
 
-### <a name="json_delete"></a>Como: Excluir em uma tabela não tipada
+### <a name="json_delete"></a>Como excluir de uma tabela não tipada
 
 O código a seguir mostra como excluir uma instância, neste caso, a mesma instância de um **JsonObject** criado no exemplo *insert* anterior. Observe que o código é igual ao do caso tipado, mas o método tem uma assinatura diferente, uma vez que ele faz referência a um **JsonObject**.
 
@@ -503,13 +503,13 @@ O código a seguir mostra como excluir uma instância, neste caso, a mesma inst�
          mToDoTable.delete(item);
 
 
-Você também pode excluir uma instância diretamente, usando sua ID: 
+Você também pode excluir uma instância diretamente, usando sua ID:
 		
 		 mToDoTable.delete(ID);
 
 
 
-### <a name="json_get"></a>Como: Retornar todas as linhas de uma tabela não tipada
+### <a name="json_get"></a>Como retornar todas as linhas de uma tabela não tipada
 
 O código a seguir mostra como recuperar uma tabela inteira. Como você está usando uma tabela Json, você pode recuperar seletivamente apenas algumas das colunas da tabela.
 
@@ -548,7 +548,7 @@ O código a seguir mostra como recuperar uma tabela inteira. Como você está us
 Você pode fazer filtragem, classificação e paginação, concatenando os métodos que têm os mesmos nomes que os usados no modelo de programação tipado.
 
 
-<h2><a name="binding"></a>Como: Associar dados à interface com o usuário</h2>
+<h2><a name="binding"></a>Como associar dados à interface do usuário</h2>
 
 A associação de dados envolve três componentes:
 
@@ -556,13 +556,13 @@ A associação de dados envolve três componentes:
 - o layout da tela
 - e o adaptador que vincula esses dois.
 
-Em nosso código de exemplo, retornamos os dados da tabela de serviços móveis *ToDoItem* em uma matriz. Esse é um padrão muito comum para aplicativos de dados: as consultas de banco de dados geralmente retornam uma coleção de linhas que o cliente obtém em uma lista ou uma matriz. Neste exemplo, a matriz é a fonte de dados. 
+No nosso código de exemplo, retornamos os dados da tabela de serviços móveis *ToDoItem* em uma matriz. Esse é um padrão muito comum para aplicativos de dados: as consultas de banco de dados geralmente retornam uma coleção de linhas que o cliente obtém em uma lista ou uma matriz. Neste exemplo, a matriz é a fonte de dados.
 
-O código especifica um layout de tela que define a exibição dos dados que serão exibidos no dispositivo. 
+O código especifica um layout de tela que define a exibição dos dados que serão exibidos no dispositivo.
 
 E os dois são associados juntos com um adaptador, que, nesse código, é uma extensão da classe *ArrayAdapter&lt;ToDoItem&gt;*.
 
-### <a name="layout"></a>Como: Definir o layout
+### <a name="layout"></a>Como definir o layout
  
 O layout é definido por vários trechos de código XML. Com base em um layout existente, vamos supor que o código a seguir representa a **ListView** que queremos preencher com nossos dados de servidor.
 
@@ -589,11 +589,11 @@ No código acima, o atributo *listitem* especifica a id do layout para uma linha
 		</LinearLayout>
 		
 
-### <a name="adapter"></a>Como: Definir o adaptador
+### <a name="adapter"></a>Como definir o adaptador
 	
-Como a fonte de dados da nossa exibição é uma matriz de *ToDoItem*, criamos a subclasse de nosso adaptador de uma classe *ArrayAdapter&lt;ToDoItem&gt;*. Essa subclasse produzirá uma exibição para cada *ToDoItem* usando o layout *row_list_to_do*.
+Como a fonte de dados da nossa exibição é uma matriz de *ToDoItem*, podemos criar uma subclasse do nosso adaptador de uma classe *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclasse produzirá uma exibição para cada *ToDoItem* usando o layout *row_list_to_do*.
 
-No nosso código, definimos a seguinte classe que é uma extensão da classe *ArrayAdapter&lt;E&gt;*:
+No nosso código, definimos a seguinte classe que é uma extensão da classe *ArrayAdapter&lt;ToDoItem&gt;*:
 
 		public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -626,15 +626,15 @@ Criamos uma instância dessa classe em nossa atividade, da seguinte forma:
 		ToDoItemAdapter mAdapter;
 		mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
-Observe que o segundo parâmetro para o construtor ToDoItemAdapter é uma referência ao layout. A chamada para o construtor é seguida pelo código a seguir que primeiro obtém uma referência à **ListView**, e, em seguida, chama *setAdapter* para configurar a si próprio e usar o adaptador que acabamos de criar:
+Observe que o segundo parâmetro para o construtor ToDoItemAdapter é uma referência ao layout. A chamada para o construtor é seguida pelo código a seguir que primeiro obtém uma referência à **ListView** e, em seguida, chama *setAdapter* para se configurar e usar o adaptador que acabamos de criar:
 
 		ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 		listViewToDo.setAdapter(mAdapter);
 
 
-### <a name="use-adapter"></a>Como: Usar o adaptador
+### <a name="use-adapter"></a>Como usar o adaptador
 
-Agora você está pronto para usar a vinculação de dados. O código a seguir mostra como obter os itens na tabela de serviços móveis, limpar o adaptador e, em seguida, chamar o método *add* do adaptador para preenchê-lo com os itens retornados.
+Agora você está pronto para usar a associação de dados. O código a seguir mostra como obter os itens na tabela de serviços móveis, limpar o adaptador e, em seguida, chamar o método *add* do adaptador para preenchê-lo com os itens retornados.
 
 	    public void showAll(View view) {
 	        new AsyncTask<Void, Void, Void>() {
@@ -660,14 +660,14 @@ Agora você está pronto para usar a vinculação de dados. O código a seguir m
 	        }.execute();
 	    }
 
-Você também deverá chamar o adaptador sempre que modificar a tabela *ToDoItem* se quiser exibir os resultados desse procedimento. Como as modificações são feitas de registro em registro, você estará lidando com uma única linha, em vez de uma coleção. Ao inserir um item, você chama o método *add* no adaptador e, ao excluir, você chama o método *remove*.
+Você também deverá chamar o adaptador sempre que modificar a tabela *ToDoItem* se desejar exibir os resultados desse procedimento. Como as modificações são feitas de registro em registro, você estará lidando com uma única linha, em vez de uma coleção. Ao inserir um item, você chama o método *add* no adaptador e, ao excluir, você chama o método *remove*.
 
 
-<h2><a name="authentication"></a>Como: Autenticar usuários</h2>
+<h2><a name="authentication"></a>Como autenticar usuários</h2>
 
-Os Serviços Móveis dão suporte à autenticação e à autorização de usuários de aplicativos usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Active Directory do Azure. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte [Introdução à autenticação](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Os Serviços Móveis oferecem suporte à autenticação e à autorização de usuários de aplicativo, usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e o Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte [Comece a usar a autenticação](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
-Dois fluxos de autenticação são suportados: um fluxo *server* e um fluxo *client*. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos do dispositivo, como logon único, uma vez que depende de provedores específicos e SDKs específicos do dispositivo.
+Dois fluxos de autenticação têm suporte: um fluxo de *servidor* e um fluxo de *cliente*. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos do dispositivo, como logon único, uma vez que depende de provedores específicos e SDKs específicos do dispositivo.
 
 Três etapas são necessárias para habilitar a autenticação no seu aplicativo:
 
@@ -685,11 +685,11 @@ Os Serviços Móveis oferecem suporte aos seguintes provedores de identidade exi
 - Google 
 - Azure Active Directory
 
-Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a ID de um usuário autenticado para modificar solicitações. 
+Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a ID de um usuário autenticado para modificar solicitações.
 
-Essas duas primeiras tarefas são feitas usando o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/). Para obter mais informações, consulte [Introdução à autenticação](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Essas duas primeiras tarefas são feitas usando o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/). Para obter mais informações, consulte [Comece a usar a autenticação](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
-### <a name="caching"></a>Como: Adicionar código de autenticação ao seu aplicativo
+### <a name="caching"></a>Como adicionar código de autenticação para seu aplicativo
 
 1.  Adicione as instruções de importação a seguir ao arquivo de atividade do seu aplicativo.
 
@@ -725,20 +725,19 @@ Essas duas primeiras tarefas são feitas usando o [Portal de Gerenciamento do Az
 
     Esse código autentica o usuário usando um logon do Google. Será exibida uma caixa de diálogo que exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
-    > [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o método **login** acima para um dos seguintes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _WindowsAzureActiveDirectory_.
-    </div>
+    > [AZURE.NOTE]Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o método **login** acima para um destes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _WindowsAzureActiveDirectory_. </div>
 
 
-3. Quando você executar o aplicativo, entrar com seu provedor de identidade escolhido. 
+3. Quando você executar o aplicativo, entrar com seu provedor de identidade escolhido.
 
 
-### <a name="caching"></a>Como: Armazenar tokens de autenticação em cache
+### <a name="caching"></a>Como armazenar tokens de autenticação em cache
 
 Esta seção mostra como armazenar um token de autenticação no cache. Faça isso para impedir que os usuários tenham que se autenticar novamente enquanto o token ainda for válido se o aplicativo estiver "hibernando".
 
-Armazenar em cache os tokens de autenticação exige que você armazene uma ID de usuário e o token de autenticação localmente no dispositivo. Na próxima vez que o aplicativo iniciar, você verificará o cache e, se esses valores estiverem presentes, poderá ignorar o procedimento de logon e reidratar o cliente com esses dados. No entanto, esses dados são confidenciais e, para segurança, devem ser armazenados criptografados caso o telefone seja roubado. 
+Armazenar em cache os tokens de autenticação exige que você armazene uma ID de usuário e o token de autenticação localmente no dispositivo. Na próxima vez que o aplicativo iniciar, você verificará o cache e, se esses valores estiverem presentes, poderá ignorar o procedimento de logon e reidratar o cliente com esses dados. No entanto, esses dados são confidenciais e, para segurança, devem ser armazenados criptografados caso o telefone seja roubado.
 
-O seguinte trecho de código demonstra a obtenção de um token para um logon de conta da Microsoft. O token é armazenado em cache e recarregado se o cache for encontrado. 
+O seguinte trecho de código demonstra a obtenção de um token para um logon de conta da Microsoft. O token é armazenado em cache e recarregado se o cache for encontrado.
 
 	private void authenticate() {
 		if (LoadCache())
@@ -796,9 +795,9 @@ O seguinte trecho de código demonstra a obtenção de um token para um logon de
 O que acontecerá se o token expirar? Nesse caso, quando você tentar usá-lo para se conectar, receberá a resposta *401 não autorizado*. O usuário deverá fazer logon obter novos tokens. Para não precisar escrever um código para lidar com isso em cada local no seu aplicativo que chamar os Serviços Móveis, use filtros, que lhe permitirão interceptar as chamadas para os Serviços Móveis e as respostas desses serviços. Em seguida, o código do filtro testará a resposta para um 401, disparará o processo de logon, se necessário e, em seguida, retomará a solicitação que gerou o 401.
 
 
-<h2><a name="customizing"></a>Como: Personalizar o cliente</h2>
+<h2><a name="customizing"></a>Como personalizar o cliente</h2>
 
-### <a name="headers"></a>Como: Personalizar cabeçalhos de solicitação
+### <a name="headers"></a>Como personalizar cabeçalhos de solicitação
 
 Você talvez queira anexar um cabeçalho personalizado a cada solicitação de saída. Você pode fazer isso configurando um ServiceFilter como este:
 
@@ -825,14 +824,11 @@ Você talvez queira anexar um cabeçalho personalizado a cada solicitação de s
 	            }
 	        }
 
-### <a name="serialization"></a>Como: Personalizar a serialização
+### <a name="serialization"></a>Como personalizar a serialização
 
 Os Serviços Móveis pressupõem, por padrão, que os nomes de tabela, os nomes de coluna e os tipos de dados no servidor correspondem exatamente aos existentes no cliente. Porém, há vários motivos para que não haja correspondência dos nomes de servidor com os nomes de cliente. Por exemplo, se você tiver um cliente existente que queira alterar para que ele use os Serviços Móveis do Azure, em vez do produto de um concorrente.
 
-Você talvez quisesse fazer os seguintes tipos de personalizações:
-<ul>
-<li>
-Os nomes de coluna usados na tabela de serviços móveis não correspondem aos nomes que você está usando no cliente</li>
+Talvez você deseje fazer os seguintes tipos de personalização: <ul> <li> Os nomes de coluna usados na tabela de serviços móveis não correspondem aos nomes que você está usando no cliente</li>
 
 <li>Usar uma tabela de serviços móveis que tenha um nome diferente da classe para a qual ela mapeia no cliente</li>
 <li>Ativar a capitalização automática de propriedade</li>
@@ -841,18 +837,13 @@ Os nomes de coluna usados na tabela de serviços móveis não correspondem aos n
 
 </ul>
 
-### <a name="columns"></a>Como: Mapear nomes diferentes de cliente e servidor
+### <a name="columns"></a>Como mapear nomes diferentes de cliente e servidor
 
-Suponha que o seu código de cliente Java use nomes de estilo Java padrão para as propriedades do objeto *ToDoItem* como a seguinte. 
-<ul>
-<li>mId</li>
-<li>mText</li>
-<li>mComplete</li>
-<li>mDuration</li>
+Suponha que o seu código de cliente Java use nomes de estilo Java padrão para as propriedades do objeto *ToDoItem*, como a seguinte. <ul> <li>mId</li> <li>mText</li> <li>mComplete</li> <li>mDuration</li>
 
 </ul>
 
-Você precisa serializar os nomes de cliente em nomes JSON que correspondam aos nomes de coluna da tabela *ToDoItem* no servidor. O código a seguir, que usa a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> faz isso.
+Você precisa serializar os nomes de cliente em nomes JSON que correspondam aos nomes de coluna da tabela*ToDoItem* no servidor. O código a seguir, que usa a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a>, faz isso.
 
 	@com.google.gson.annotations.SerializedName("text")
 	private String mText;
@@ -866,19 +857,18 @@ Você precisa serializar os nomes de cliente em nomes JSON que correspondam aos 
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
-### <a name="table"></a>Como: Mapear nomes de tabela diferentes entre o cliente e os serviços móveis
+### <a name="table"></a>Como mapear nomes de tabela diferentes entre o cliente e os serviços móveis
 
-Mapeando o nome da tabela de cliente para um nome diferente de tabela de serviços móveis é fácil, podemos simplesmente usar uma das substituições da função
-<a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> , como mostrada no código a seguir.
+O mapeamento do nome da tabela de cliente para um nome diferente de tabela de serviços móveis é fácil, apenas usamos uma das substituições da função <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> conforme mostrado no código a seguir.
 
 		mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 
-### <a name="conversions"></a>Como: Automatizar os mapeamentos de nome de coluna
+### <a name="conversions"></a>Como automatizar os mapeamentos de nome de coluna
 
-O mapeamento de nomes de coluna para uma tabela estreita com apenas algumas colunas não é um grande problema, conforme observado na seção anterior. Mas, suponha que a nossa tabela tenha muitas colunas, digamos 20 ou 30. Acontece que podemos chamar a API <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> e especificar uma estratégia de conversão que se aplicará a todas as colunas, evitando assim ter de anotar cada nome de coluna.
+O mapeamento de nomes de coluna para uma tabela estreita com apenas algumas colunas não é um grande problema, conforme observado na seção anterior. Mas, suponha que a nossa tabela tenha muitas colunas, digamos 20 ou 30. Acontece que podemos chamar a API <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> e especificar uma estratégia de conversão que se aplicará a todas as colunas e evitar a anotação de cada nome de coluna.
 
-Para fazer isso, usamos a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> que é usada pela biblioteca do cliente Android em segundo plano para serializar objetos Java para dados JSON, que são enviados aos Serviços Móveis do Azure.
+Para isso, usamos a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> que é usada pela biblioteca de cliente Android de forma oculta para serializar objetos Java para dados JSON, que são enviados aos Serviços Móveis do Azure.
 
 O código a seguir usa o método *setFieldNamingStrategy()*, em que definimos um método *FieldNamingStrategy()*. Esse método diz para excluir o caractere inicial (um "m") e, em seguida, a minúscula do próximo caractere, para cada nome de campo. Este código também permite que uma bela impressão da saída JSON.
 
@@ -898,51 +888,51 @@ O código a seguir usa o método *setFieldNamingStrategy()*, em que definimos um
 
 Esse código deve ser executado antes de qualquer chamada de método no objeto de cliente de Serviços Móveis.
 
-### <a name="complex"></a>Como: Armazenar uma propriedade de objeto ou matriz em uma tabela 
+### <a name="complex"></a>Como armazenar uma propriedade de objeto ou matriz em uma tabela 
 
 Até agora, todos os nossos exemplos de serialização envolveram tipos primitivos, como inteiros e cadeias de caracteres que serializam facilmente em JSON e na tabela de serviços móveis. Suponha que desejemos adicionar um objeto complexo ao nosso tipo de cliente, que não serializa automaticamente em JSON e na tabela. Por exemplo, talvez desejemos adicionar uma matriz de cadeias de caracteres ao objeto de cliente. Agora, cabe a nós especificar como fazer a serialização e como armazenar a matriz na tabela de serviços móveis.
 
-Para ver um exemplo de como fazer isso, confira a postagem do blog <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">Personalizando a serialização usando a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> no cliente de Serviços Móveis do Android</a>.
+Para ver um exemplo de como fazer isso, verifique a postagem de blog <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">Personalizando a serialização usando a biblioteca <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> no cliente de Serviços Móveis do Android</a>.
 
 Esse método geral pode ser usado sempre que tivermos um objeto complexo não serializável automaticamente em JSON e na tabela de serviços móveis.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A referência do Javadocs para a API do cliente Android está em [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "here")
+A referência do Javadocs para a API do cliente Android está em [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "aqui")
 
 <!-- Anchors. -->
 
-[O que são Serviços Móveis]: #what-is
-[Conceitos]: #concepts
-[Como: Criar o cliente de Serviços Móveis]: #create-client
-[Como: Criar uma referência de tabela]: #instantiating
-[A estrutura API]: #api
-[Como: Consultar dados por meio de um serviço móvel]: #querying
-[Retornar todos os itens]: #showAll
-[Filtrar dados retornados]: #filtering
-[Classificar dados retornados]: #sorting
-[Retornar dados em páginas]: #paging
-[Selecionar colunas específicas]: #selecting
-[Como: Concatenar métodos de consulta]: #chaining
-[Como: Associar dados à interface com o usuário]: #binding
-[Como: Definir o layout]: #layout
-[Como: Definir o adaptador]: #adapter
-[Como: Usar o adaptador]: #use-adapter
-[Como: Inserir dados em um serviço móvel]: #inserting
-[Como: atualizar dados em um serviço móvel]: #updating
-[Como: Excluir dados em um serviço móvel]: #deleting
-[Como: Pesquisar um item específico]: #lookup
-[Como: Trabalhar com dados não tipados]: #untyped
-[Como: Autenticar usuários]: #authentication
-[Armazenar tokens de autenticação em cache]: #caching
-[Como: Tratar erros]: #errors
-[Como: Projetar testes da unidade]: #tests
-[Como: Personalizar o cliente]: #customizing
-[Personalizar cabeçalhos de solicitação]: #headers
-[Personalizar a serialização]: #serialization
-[Próximas etapas]: #next-steps
-[Configuração e pré-requisitos]: #setup
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #instantiating
+[The API structure]: #api
+[How to: Query data from a mobile service]: #querying
+[Return all Items]: #showAll
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Concatenate query methods]: #chaining
+[How to: Bind data to the user interface]: #binding
+[How to: Define the layout]: #layout
+[How to: Define the adapter]: #adapter
+[How to: Use the adapter]: #use-adapter
+[How to: Insert data into a mobile service]: #inserting
+[How to: update data in a mobile service]: #updating
+[How to: Delete data in a mobile service]: #deleting
+[How to: Look up a specific item]: #lookup
+[How to: Work with untyped data]: #untyped
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #tests
+[How to: Customize the client]: #customizing
+[Customize request headers]: #headers
+[Customize serialization]: #serialization
+[Next Steps]: #next-steps
+[Setup and Prerequisites]: #setup
 
 <!-- Images. -->
 
@@ -964,10 +954,10 @@ A referência do Javadocs para a API do cliente Android está em [http://dl.wind
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-android/
-[SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-android/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android/
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI para gerenciar tabelas de Serviços Móveis]: http://azure.microsoft.com/documentation/articles/command-line-tools/#Commands_to_manage_mobile_services
 
-<!--HONumber=47-->
+<!--HONumber=54-->

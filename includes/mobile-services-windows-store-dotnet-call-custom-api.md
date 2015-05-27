@@ -1,4 +1,4 @@
-﻿
+
 ##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
 1. No Visual Studio, abra o arquivo MainPage.xaml em seu projeto de início rápido, localize o elemento **Botão** chamado `ButtonRefresh` e substitua-o pelo código XAML a seguir: 
@@ -10,7 +10,7 @@
 	                Click="ButtonCompleteAll_Click">Complete All</Button>
 	    </StackPanel>
 
-	Isso adiciona um novo botão à página. 
+	Isso adiciona um novo botão à página.
 
 2. Abra o arquivo de código MainPage.xaml.cs e adicione o seguinte código de definição da classe:
 
@@ -19,9 +19,9 @@
 	        public int Count { get; set; }
 	    }
 
-	Essa classe é usada para armazenar o valor da contagem de linhas retornado pela API personalizada. 
+	Essa classe é usada para armazenar o valor da contagem de linhas retornado pela API personalizada.
 
-3. Localize o método **RefreshTodoItems** na classe **MainPage** e verifique se a  `query` está definida usando o seguinte método **Where**:
+3. Localize o método **RefreshTodoItems** na classe **MainPage** e verifique se a `query` está definida usando o seguinte método **Where**:
 
         .Where(todoItem => todoItem.Complete == false)
 
@@ -67,5 +67,4 @@
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-
-<!--HONumber=52-->
+<!--HONumber=54-->

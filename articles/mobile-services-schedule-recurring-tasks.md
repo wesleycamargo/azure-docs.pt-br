@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Agendar tarefas de back-end com o Agendador - Serviços Móveis" 
 	description="Use o Agendador dos serviços móveis do Azure para agendar trabalhos para seu aplicativo móvel." 
 	services="mobile-services" 
@@ -19,8 +19,8 @@
 # Agendar trabalhos recorrentes nos Serviços Móveis 
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Qualquer | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Qualquer | JavaScript)](mobile-services-schedule-recurring-tasks.md)
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Portal de Gerenciamento para definir o código de script que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
 
@@ -31,20 +31,20 @@ Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Port
 Este tutorial explica as etapas de como usar o agendador de trabalhos para criar um trabalho agendado que solicita dados de tweet do Twitter e armazena os tweets em uma nova tabela de atualizações:
 
 + [Registrar-se para acesso ao Twitter e armazenar as credenciais]
-+ [Criar a nova tabela de Atualizações]
++ [Criar a nova tabela de atualizações]
 + [Criar um novo trabalho agendado]
 
 ##<a name="get-oauth-credentials"></a>Registrar-se para acesso às APIs do Twitter v1.1 e armazenar as credenciais
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-##<a name="create-table"></a>Criar a nova tabela de Atualizações
+##<a name="create-table"></a>Criar a nova tabela de atualizações
 
 Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 
 2. No Portal de Gerenciamento, clique na guia **Dados** de seu serviço móvel e clique em **+Criar**.
 
-3. Em **Nome da tabela**, digite _Atualizações_ e então clique no botão de seleção.
+3. Em **Nome da tabela** digite _Atualizações_ e clique no botão de seleção.
 
 ##<a name="add-job"></a>Criar um novo trabalho agendado  
 
@@ -52,13 +52,13 @@ Agora, você pode criar o trabalho agendado que acessa o Twitter e armazena dado
 
 2. Clique na guia **Agendador** e clique em **+Criar**. 
 
-    >[AZURE.NOTE]Quando você executa seu serviço móvel na camada <em>Gratuita</em>, pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados simultaneamente.
+    >[AZURE.NOTE]Quando você executa o serviço móvel na camada <em>Gratuita</em>, pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados ao mesmo tempo.
 
-3. Na caixa de diálogo Agendador, digite _getUpdates_ para o **Nome do Trabalho**, defina o intervalo e as unidades do agendamento e clique no botão de seleção. 
+3. Na caixa de diálogo Agendador, digite _getUpdates_ para o **Nome do Trabalho**, defina o intervalo e as unidades do agendamento e clique no botão de seleção.
 
-   	Isso cria um novo trabalho chamado **getUpdates**. 
+   	Isso cria um novo trabalho chamado **getUpdates**.
 
-4. Clique no novo trabalho que você acabou de criar, clique na guia **Script** e substitua a função de espaço reservado **getUpdates** pelo código a seguir:
+4. Clique no novo trabalho que você acabou de criar, clique na guia **Script** e substitua a função de espaço reservado **getUpdates** pelo seguinte código:
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -136,9 +136,9 @@ Agora, você pode criar o trabalho agendado que acessa o Twitter e armazena dado
 
    	Esse script chama a API de consulta do Twitter usando as credenciais armazenadas para solicitar tweets recentes que contêm a hashtag `#mobileservices`. Respostas e tweets duplicados são removidos dos resultados antes de serem armazenados na tabela.
 
-    >[AZURE.NOTE]Esse exemplo pressupõe que apenas algumas linhas são inseridas na tabela durante cada execução agendada. Em casos onde várias linhas são inseridas em um loop, você pode esgotar as conexões ao executar na camada Gratuita. Nesse caso, você deve executar inserções em lotes. Para obter mais informações, consulte <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Como: Executar inserções em massa</a>.
+    >[AZURE.NOTE]Esse exemplo pressupõe que apenas algumas linhas são inseridas na tabela durante cada execução agendada. Em casos onde várias linhas são inseridas em um loop, você pode esgotar as conexões ao executar na camada Gratuita. Nesse caso, você deve executar inserções em lotes. Para saber mais, confira <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Como executar inserções em massa</a>.
 
-6. Clique em **Executar uma vez** para testar o script. 
+6. Clique em **Executar uma vez** para testar o script.
 
    	Isso salva e executa o trabalho enquanto ele permanece desabilitado no Agendador.
 
@@ -150,16 +150,15 @@ Agora, você pode criar o trabalho agendado que acessa o Twitter e armazena dado
 
 Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móvel. Esse trabalho será executado conforme programado até que você o desabilite ou modifique.
 
-## <a name="nextsteps"> </a>Próximas Etapas
+## <a name="nextsteps"> </a>Próximas etapas
 
-* [Referência de script de servidor dos Serviços Móveis]
-  <br/>Saiba mais sobre como registrar e usar scripts de servidor.
+* [Referência de script de servidor dos Serviços Móveis] <br/>Saiba mais sobre como registrar e usar scripts de servidor.
 
 <!-- Anchors. -->
 [Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
-[Criar a nova tabela de Atualizações]: #create-table
+[Criar a nova tabela de atualizações]: #create-table
 [Criar um novo trabalho agendado]: #add-job
-[Próximas etapas]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
@@ -178,9 +177,9 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Registrar seus aplicativos para logon do Twitter com os Serviços Móveis]: /develop/mobile/how-to-guides/register-for-twitter-authentication
-[Desenvolvedores do Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=49-->
+<!--HONumber=54-->

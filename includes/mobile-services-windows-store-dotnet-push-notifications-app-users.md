@@ -1,15 +1,13 @@
-﻿
+
 Em seguida, você precisa alterar a maneira que as notificações por push são registradas para garantir que o usuário seja autenticado antes da tentativa do registro. As atualizações do aplicativo do cliente dependem da maneira na qual você implementou as notificações por push.
 
 ###Usando o Assistente para adicionar notificações por push no Visual Studio 2013 atualização 2 ou uma versão posterior
 
 Neste método, o assistente gera um arquivo novo push.register.cs no seu projeto.
 
->[AZURE.NOTE]O assistente para adicionar notificações por push atualmente só tem suporte para um serviço móvel de back-end do .NET.
-
 1. No Gerenciador de Soluções do Visual Studio, abra o arquivo de projeto app.xaml e no manipulador de eventos **OnLaunched** comente ou exclua a chamada para o método **UploadChannel**. 
 
-2. Abra o arquivo de projeto push.register.cs e substitua o método **UploadChannel** pelo seguinte código:
+2. Abra o arquivo de projeto push.register.cs e substitua o método **UploadChannel**, com o seguinte código:
 
 		public async static void UploadChannel()
 		{
@@ -40,7 +38,7 @@ Neste método, o assistente gera um arquivo novo push.register.cs no seu projeto
             RefreshTodoItems();
         }
 
-	Neste código, você deve substituir o nome da classe do push gerado (`todolistPush`) com o nome da classe gerado pelo assistente, usualmente no formato por push <code><em>mobile_service</em></code>.
+	Neste código, você deve substituir o nome da classe do push gerada (`todolistPush`) pelo nome da classe gerada pelo assistente, normalmente no formato <code><em>serviço_móvel</em>Push</code>.
 
 ###Notificações por push habilitadas manualmente		
 
@@ -48,7 +46,7 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
 
 1. No Gerenciador de Soluções do Visual Studio, abra o arquivo de projeto app.xaml e no manipulador de eventos **OnLaunched** comente ou exclua a chamada para o método **InitNotificationsAsync**. 
  
-2. Alterar a acessibilidade do método **InitNotificationsAsync** de  `private` para  `public` e adicione o modificador  `static`. 
+2. Altere a acessibilidade do método **InitNotificationsAsync** de `private` para `public` e adicione o modificador `static`.
 
 3. Abra o arquivo de projeto MainPage.xaml.cs, e substitua o método **OnNavigatedTo** existente pelo seguinte:
 
@@ -58,6 +56,4 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

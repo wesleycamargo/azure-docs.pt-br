@@ -1,5 +1,5 @@
-﻿<properties
-	pageTitle="Adicionar autenticação ao aplicativo Serviços Móveis do Azure (iOS) existente | Centro de desenvolvimento de Serviços Móveis"
+<properties
+	pageTitle="Adicionar autenticação ao aplicativo Serviços Móveis do Azure (iOS) existente | Centro de Desenvolvimento para Serviços Móveis"
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -10,17 +10,17 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="04/13/2015"
 	ms.author="krisragh"/>
 
 # Adicionar autenticação ao aplicativo Serviços Móveis do Azure existente
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Neste tutorial, você adiciona a autenticação ao projeto de Início Rápido usando um provedor de identidade com suporte. Este tutorial se baseia no [tutorial de Início Rápido dos Serviços Móveis], que você deve concluir primeiro.
+Neste tutorial, você adiciona a autenticação ao projeto de Início Rápido usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial de [Início Rápido dos Serviços Móveis], que você deve concluir primeiro.
 
 ##<a name="register"></a>Registrar o aplicativo para a autenticação e configurar os Serviços Móveis
 
@@ -47,22 +47,22 @@ No Xcode, abra o projeto. Pressione o botão **Executar** para iniciar o aplicat
 No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móveis], você fornecerá ao usuário o valor da ID de usuário para filtrar os dados retornados.
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
-[Restringir permissões de tabela para usuários autenticados]: #permissions
-[Adicionar autenticação ao aplicativo]: #add-authentication
-[Próximas etapas]:#next-steps
-[Armazenando tokens de autenticação no seu aplicativo]:#store-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
+[Storing authentication tokens in your app]: #store-authentication
 
 <!-- URLs. -->
 [Autorização de serviço de usuários dos Serviços Móveis]: mobile-services-dotnet-backend-service-side-authorization.md
-[Tutorial de Início Rápido dos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
-[Introdução aos dados]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Introdução à autenticação]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Introdução às notificações por push]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Autorizar usuários com scripts]: mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
+[Início Rápido dos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial de .NET de Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

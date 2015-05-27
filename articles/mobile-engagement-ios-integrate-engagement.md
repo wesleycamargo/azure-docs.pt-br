@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Integração do SDK do iOS do Azure Mobile Engagement" 
-	description="Atualizações mais recentes e procedimentos para o SDK do iOS do Azure Mobile Engagement"
+	description="Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -16,34 +16,36 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS" class="current">iOS</a><a href="/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
-
-
 #Como integrar o Engagement no iOS
 
-> [AZURE.IMPORTANT] O SDK do Engagement exige iOS4+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 4.
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
 
 Este procedimento descreve a maneira mais simples de ativar as funções de Analítica e Monitoramento do Engagement em seu aplicativo iOS.
 
-As etapas a seguir são suficientes para ativar o relatório de logs necessário para calcular todas as estatísticas sobre Usuários, Sessões, Atividades, Falhas e Suporte Técnico. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Eventos e Erros deve ser feito manualmente usando a API do Engagement (consulte ios-sdk-engagement-advanced) como essas estatísticas são dependentes do aplicativo.
+> [AZURE.IMPORTANT]O SDK do Engagement exige iOS4+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 4.
+
+As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
 
 ##Incorporar o SDK do Engagement em seu projeto do iOS
 
-Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode 4, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta  `EngagementSDK`.
+Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode 4, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta `EngagementSDK`.
 
-O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e no menu **"Link binário com bibliotecas"** e adicione essas estruturas:
+O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e no menu **"Link binário com bibliotecas"**, adicione essas estruturas:
 
-> -   `AdSupport.framework` -Defina o link como  `opcional`
+> -   `AdSupport.framework` -defina o link como opcional `Optional`
 > -   `SystemConfiguration.framework`
 > -   `CoreTelephony.framework`
 > -   `CFNetwork.framework`
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] A estrutura AdSupport pode ser removida. O Engagement precisa dessa estrutura para coletar o IDFA. Porém, a coleta de IDFA pode ser desabilitada \<ios-sdk-engagement-idfa\> para cumprir com a nova política da Apple sobre essa ID.
+> [AZURE.NOTE]A estrutura AdSupport pode ser removida. O Engagement precisa dessa estrutura para coletar o IDFA. No entanto, a coleção de IDFA pode ser desabilitada < ios-sdk-contrato-idfa > de acordo com a nova política Apple em relação a essa ID.
 
-##Inicializar o SDK do Engagement
+##Inicialize o SDK do Engagement
 
 Você precisa modificar seu representante de Aplicativo:
 
@@ -52,7 +54,7 @@ Você precisa modificar seu representante de Aplicativo:
 			[...]
 			#import "EngagementAgent.h"
 
--   Inicialize o Engagement dentro do método '**applicationDidFinishLaunching:**'ou'**application: didFinishLaunchingWithOptions:**':
+-   Inicialize o Engagement dentro do método '**applicationDidFinishLaunching:**'ou '**application: didFinishLaunchingWithOptions:**':
 
 			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 			{
@@ -63,11 +65,11 @@ Você precisa modificar seu representante de Aplicativo:
 
 ##Relatórios básicos
 
-### Método recomendado: sobrecarregar suas classes `UIViewController` 
+### Método recomendado: sobrecarregar suas classes `UIViewController`
 
-Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular os Usuários, Sessões, Atividades, Falhas e Estatísticas Técnicas, você pode simplesmente fazer todas as suas subclasses  `UIViewController` herdarem as classes  `EngagementViewController` (mesma regra para  `UITableViewController` -\ > `EngagementTableViewController`).
+Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular os Usuários, Sessões, Atividades, Falhas e Estatísticas Técnicas, você pode simplesmente fazer todas as suas subclasses `UIViewController` herdarem as classes `EngagementViewController` (mesma regra para `UITableViewController` -\\ > `EngagementTableViewController`).
 
-**Sem o Engagement:**
+**Sem o Engagement :**
 
 			#import <UIKit/UIKit.h>
 			
@@ -79,7 +81,7 @@ Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-**Com o Engagement:**
+**Com o Engagement :**
 
 			#import <UIKit/UIKit.h>
 			#import "EngagementViewController.h"
@@ -92,11 +94,11 @@ Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-### Método alternativo: chamar o  `startActivity()` manualmente
+### Método alternativo: chame `startActivity()` manualmente
 
-Se você não pode ou não quer sobrecarregar as suas classes  `UIViewController`, em vez disso, é possível iniciar suas atividades chamando  `EngagementAgent` de métodos diretamente.
+Se você não pode ou não quer sobrecarregar as suas classes `UIViewController`, em vez disso, é possível iniciar suas atividades chamando os métodos de `EngagementAgent` diretamente.
 
-> [AZURE.IMPORTANT] O SDK do iOS chama automaticamente o método  `endActivity()` quando o aplicativo é fechado. Portanto, é  *ALTAMENTE* recomendado chamar o método  `startActivity` sempre que alterar a atividade do usuário e  *NUNCA* chamar o método  `endActivity`, pois chamar esse método força a sessão atual a ser encerrada.
+> [AZURE.IMPORTANT]O SDK do iOS chama automaticamente o `endActivity()` método quando o aplicativo é fechado. Portanto, é *ALTAMENTE* recomendado chamar o método `startActivity` sempre que a atividade do usuário for alterada e *NUNCA* chamar o método `endActivity`, visto que chamar esse método força o encerramento da sessão atual.
 
 ##Relatórios de local
 
@@ -123,8 +125,7 @@ Para habilitar o relatório de local de área lenta, adicione a seguinte linha d
 
 Os relatórios de local em tempo real permitem relatar a latitude e a longitude associados aos dispositivos. Por padrão, esse tipo de relatório local usa apenas os locais de rede (com base na ID da célula ou WIFI) e o relatório estará disponível apenas quando o aplicativo for executado em primeiro plano (ou seja, durante uma sessão).
 
-Os locais em tempo real  *NÃO* são usados para calcular estatísticas. Sua única finalidade é permitir o uso em tempo real
-Critério geo-fencing \<Reach-Audience-geofencing\> nas campanhas do Reach.
+Os locais em tempo real *NÃO* são usados para calcular estatísticas. Sua única finalidade é permitir o uso do critério de isolamento geográfico em tempo real <Reach-Audience-geofencing> em campanhas do Reach.
 
 Para habilitar o relatório de local em tempo real, adicione a seguinte linha depois de inicializar o agente do Engagement:
 
@@ -142,7 +143,7 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
 
 			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
-> [AZURE.NOTE] Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
+> [AZURE.NOTE]Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
 
 A implementação dessa função chamará [startMonitoringSignificantLocationChanges] quando o aplicativo entra em segundo plano. Lembre-se de que ele reinicia automaticamente o seu aplicativo em segundo plano caso chegue um novo evento local.
 
@@ -150,19 +151,18 @@ A implementação dessa função chamará [startMonitoringSignificantLocationCha
 
 Opcionalmente, se você deseja relatar trabalhos, erros e eventos específicos do aplicativo, você precisa usar a API do Engagement por meio dos métodos da classe `EngagementAgent`. Um objeto dessa classe pode ser recuperado chamando o método estático `[EngagementAgent shared]`.
 
-A API do Engagement permite usar todos os recursos avançados do Engagement e detalhada em Como usar a
-API do Engagement no iOS (além da documentação técnica da classe  `EngagementAgent`).
+A API do Engagement permite usar todos os recursos avançados do Engagement e é detalhada em Como usar a API do Engagement no iOS (além da documentação técnica da classe `EngagementAgent`).
 
 ##Desabilitar a coleta de IDFA
 
-Por padrão, o Engagement usará o [IDFA] para identificar exclusivamente um usuário. Mas se não estiver usando anúncios em outro lugar no aplicativo, você pode ser rejeitado pelo processo de revisão do App Store. A coleção IDFA pode ser desabilitada, adicionando a macro do pré-processador `ENGAGEMENT_DISABLE_IDFA` em seu arquivo pch (ou em  `Compilar configurações` de seu aplicativo). Isso garantirá que não há nenhuma referência a  `ASIdentifierManager`, a  `advertisingIdentifier` ou a  `isAdvertisingTrackingEnabled` na compilação do aplicativo.
+Por padrão, o Engagement usará o [IDFA] para identificar exclusivamente um usuário. Mas se não estiver usando anúncios em outro lugar no aplicativo, você pode ser rejeitado pelo processo de revisão do App Store. A coleção IDFA pode ser desabilitada, adicionando a macro do pré-processador `ENGAGEMENT_DISABLE_IDFA` em seu arquivo pch (ou em `Build Settings` de seu aplicativo). Isso garantirá que não há nenhuma referência a `ASIdentifierManager`, a `advertisingIdentifier` ou a `isAdvertisingTrackingEnabled` na compilação do aplicativo.
 
 Integração no arquivo **prefix.pch**:
 
 			#define ENGAGEMENT_DISABLE_IDFA
 			...
 
-Você pode verificar se a coleção IDFA está corretamente desabilitada em seu aplicativo, verificando os logs de teste do Engagement. Consulte a documentação de integração do Test\<ios-sdk-engagement-test-idfa\> para obter mais informações.
+Você pode verificar se a coleção IDFA está corretamente desabilitada em seu aplicativo, verificando os logs de teste do Engagement. Consulte a documentação de Integração de teste < ios-sdk-contrato-teste-idfa > para obter mais informações.
 
 ##Desabilitar o relatório de log
 
@@ -172,15 +172,15 @@ Se desejar que o Engagement pare de enviar logs, você pode chamar:
 
 			[[EngagementAgent shared] setEnabled:NO];
 
-Essa chamada é persistente: usa  `NSUserDefaults` para armazenar as informações.
+Essa chamada é persistente: usa `NSUserDefaults` para armazenar as informações.
 
-Você pode habilitar o log de relatórios novamente chamando a mesma função com  `SIM`.
+Você pode habilitar o log de relatórios novamente chamando a mesma função com `YES`.
 
 ### Integração no pacote de configurações
 
-Em vez de chamar essa função, você também pode integrar essa configuração diretamente no seu arquivo  `Settings.bundle`. A cadeia de caracteres  `engagement_agent_enabled` deve ser usada como um identificador de preferência e ele deve estar associado a um switch de alternância (`PSToggleSwitchSpecifier`).
+Em vez de chamar essa função, você também pode integrar essa configuração diretamente no seu arquivo `Settings.bundle`. A cadeia de caracteres `engagement_agent_enabled` deve ser usada como um identificador de preferência e ele deve estar associado a um switch de alternância(`PSToggleSwitchSpecifier`).
 
-O exemplo a seguir de  `Settings.bundle` mostra como implementá-lo:
+O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 
 			<dict>
 			    <key>PreferenceSpecifiers</key>
@@ -202,9 +202,9 @@ O exemplo a seguir de  `Settings.bundle` mostra como implementá-lo:
 
 <!-- URLs. -->
 [API do dispositivo]: http://go.microsoft.com/?linkid=9876094
-[NSLocationWhenInUseUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26
-[NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
-[startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
-[IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
+[NSLocationWhenInUseUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26
+[NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
+[startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
+[IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!--HONumber=47-->
+<!--HONumber=54-->

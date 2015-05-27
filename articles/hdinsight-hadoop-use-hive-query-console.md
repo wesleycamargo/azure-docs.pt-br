@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Usar o Hive do Hadoop no HDInsight | Azure"
-   description="Aprenda a usar o Hive com o console de consulta do HDInsight baseado na Web."
+<properties
+   pageTitle="Usar o Hive do Hadoop no Console de Consulta no HDInsight | Microsoft Azure"
+   description="Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop por meio do seu navegador."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
 # Executar consultas Hive usando o Console de Consulta
@@ -22,7 +22,7 @@
 
 Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop pelo seu navegador.
 
-> [AZURE.NOTE] O Console de Consulta está disponível somente em clusters HDInsight baseados no Windows
+> [AZURE.NOTE]O Console de Consulta está disponível somente em clusters HDInsight baseados no Windows.
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -34,15 +34,15 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 ##<a id="run"></a> Executar consultas Hive usando o Console de Consulta
 
-1. Abra o <a href="https://manage.windowsazure.com" target="_blank">Portal de gerenciamento do Azure</a> e selecione o cluster HDInsight. Na parte inferior da página, selecione **Console de Consulta**. Quando solicitado, insira o nome de usuário e senha que você usou para criar o cluster.
+1. Abra o <a href="https://manage.windowsazure.com" target="_blank">Portal do Azure</a> e selecione seu cluster HDInsight. Na parte inferior da página, selecione **Console de Consulta**. Quando solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
 
-    > [AZURE.NOTE] Você também pode acessar o Console de Consulta digitando **https://CLUSTERNAME.azurehdinsight.net** no seu navegador.
+    > [AZURE.NOTE]Você também pode acessar o Console de consulta digitando **https://CLUSTERNAME.azurehdinsight.net** no seu navegador.
 
-2. Nos links na parte superior da página, selecione **Editor Hive**. Isso exibe um formulário que pode ser usado para inserir instruções HiveQL que você deseja executar no cluster HDInsight. 
-	
-	![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
-	
-	Substitua o texto `Select * from hivesampletable` pelas seguintes instruções HiveQL.
+2. Nos links na parte superior da página, selecione **Editor Hive**. Isso exibe um formulário que pode ser usado para inserir instruções HiveQL que você deseja executar no cluster HDInsight.
+
+	![o editor de hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
+
+	Substitua o texto `Select * from hivesampletable` pelas seguintes instruções HiveQL:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -50,43 +50,43 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-    Essas instruções executam as seguintes ações.
+    Essas instruções executam as seguintes ações:
 
-    * **DROP TABLE** - exclui a tabela e o arquivo de dados, caso a tabela já exista
-    * **CREATE EXTERNAL TABLE** - cria uma nova tabela  'externa' no Hive. As tabelas externas apenas armazenam a definição da tabela em Hive - os dados são deixados no local original
+    * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
+    * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
 
-    > [AZURE.NOTE] As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
+    > [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
     >
-    > Descartar uma tabela externa **não** exclui os dados, apenas a definição da tabela.
+    > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
-    * **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada registro são separados por um espaço
-    * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados), e armazenados como texto
-    * **SELECT** - seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** já que existem três linhas que contêm esse valor
+    * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+    * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto
+    * **SELECT**: selecione uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
 
-2. Selecione **Enviar**. O **Sessão de Trabalho** na parte inferior da página deve exibir detalhes do trabalho.
+2. Clique em **Enviar**. A **Sessão de Trabalho** na parte inferior da página deve exibir detalhes do trabalho.
 
-3. Uma vez que o campo **Status** for alterado para **Concluído**, selecione **Exibir Detalhes** para o trabalho. Na página de detalhes, a **Saída de Trabalho** conterá '[ERROR] 3'. Você pode usar o botão **Download** abaixo desse campo para baixar um arquivo que contém a saída do trabalho.
+3. Uma vez que o campo **Status** for alterado para **Concluído**, selecione **Exibir Detalhes** para o trabalho. Na página de detalhes, a **Saída de Trabalho** contém `[ERROR]	3`. Você pode usar o botão **Download** abaixo desse campo para baixar um arquivo que contém a saída do trabalho.
 
 
 ##<a id="summary"></a>Resumo
 
-Como você pode ver, o Console de Consulta fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída. 
+Como você pode ver, o Console de Consulta fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-Para saber mais sobre o Hive usando o Console de Consulta, selecione **Introdução** na parte superior do Console de Consulta e use os exemplos. Cada exemplo percorre o processo de análise de dados usando o Hive, incluindo explicações sobre as instruções HiveQL usadas no exemplo.
+Para saber mais sobre o Hive usando o Console de Consulta para executar trabalhos Hive, selecione **Introdução** na parte superior do Console de Consulta e use os exemplos fornecidos. Cada exemplo percorre o processo de análise de dados usando o Hive, incluindo explicações sobre as instruções HiveQL usadas no exemplo.
 
 ##<a id="nextsteps"></a>Próximas etapas
 
-Para obter informações gerais sobre o Hive no HDInsight.
+Para obter informações gerais sobre o Hive no HDInsight:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
-Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight.
+Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
+[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -101,23 +101,23 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=47-->
+<!--HONumber=54-->

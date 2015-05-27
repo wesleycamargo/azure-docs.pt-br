@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução à autenticação (Appcelerator) | Centro de desenvolvimento dos Serviços Móveis" 
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Este tópico mostra como autenticar usuários nos Serviços Móveis do Microsoft Azure do seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Microsoft Azure do seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, é preciso ter o Appcelerator Titanium Studio 3.2.1
 
 3.	No Appcelerator Titanium Studio, abra o projeto que você criou ao concluir o tutorial [Introdução aos Serviços Móveis].
 
-4.	Pressione o botão Executar para criar o projeto e iniciar o aplicativo no emulador do iPhone. Verifique se uma exceção sem tratamento com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.
+4.	Pressione o botão Executar para criar o projeto e iniciar o aplicativo no emulador do iPhone. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.
     
     Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela TodoItem agora exige autenticação.
 
@@ -50,7 +50,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-1.	Abra o arquivo de projeto index.js e no método Ouvinte de eventos da tabela, procure por `case 2:`
+1.	Abra o arquivo de projeto index.js e, no método Ouvinte de eventos da tabela, procure por `case 2:`
 
     Em seu aplicativo, você pode informar ao usuário os provedores de identidade disponíveis ou fornecer automaticamente um dos provedores de identidade.
 
@@ -94,7 +94,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
             }
         });
 
->[AZURE.NOTE] Se estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes: *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[AZURE.NOTE]Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para **authorizeClient** para um dos seguintes: *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
 4.	Pressione o botão Executar para criar o projeto, inicie o aplicativo no simulador do iPhone ou em um emulador do Android e clique na opção Com Logon para fazer logon no provedor de identidade.
 
@@ -111,6 +111,4 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
-<!--HONumber=49--> 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

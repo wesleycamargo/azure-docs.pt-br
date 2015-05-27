@@ -1,4 +1,4 @@
-﻿O Azure determinará que o aplicativo usa Python **se essas duas condições forem verdadeiras**:
+O Azure determinará que o aplicativo usa Python **se estas duas condições forem verdadeiras**:
 
 - arquivo requirements.txt na pasta raiz
 - qualquer arquivo .py na pasta raiz OU um runtime.txt que especifica o python
@@ -14,24 +14,23 @@ Você pode controlar determinados aspectos das etapas de implantação padrão s
 
 Se você quiser ignorar todas as etapas de implantação específica de Python, você pode criar esse arquivo vazio:
 
-    \.skipPythonDeployment
+    .skipPythonDeployment
 
 Se você quiser ignorar a coleção de arquivos estáticos para seu aplicativo Django:
 
-    \.skipDjango 
+    .skipDjango 
 
 Para obter mais controle sobre a implantação, você pode substituir o script de implantação padrão ao criar os seguintes arquivos:
 
-    \.deployment
+    .deployment
     \deploy.cmd
 
-Você pode usar a [interface de linha de comando do Azure][] para criar os arquivos.  Use este comando da pasta do projeto:
+Você pode usar a [interface de linha de comando do Azure][] para criar os arquivos. Use este comando da pasta do projeto:
 
     azure site deploymentscript --python
 
-Quando esses arquivos não existem, o Azure cria um script de implantação temporária e o executa.  Ele é idêntico àquele que você cria com o comando acima.
+Quando esses arquivos não existem, o Azure cria um script de implantação temporária e o executa. Ele é idêntico àquele que você cria com o comando acima.
 
-[Interface de linha de comando do Azure]: http://azure.microsoft.com/downloads/
+[interface de linha de comando do Azure]: http://azure.microsoft.com/downloads/
 
-
-<!--HONumber=52--> 
+<!--HONumber=54-->

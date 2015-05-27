@@ -1,25 +1,12 @@
-﻿
 
-1. No arquivo de script default.js logo abaixo a linha do código que define a lista todoItems, adicione a seguinte definição de função:
- 
-        // Add a filter that adds a header to prevent caching. This makes sure that the 
-		// latest data is returned when the 'Refresh; button is clicked.        
-        var noCachingFilter = function (request, next, callback) {
-            if (request.type === 'GET' && !request.headers['If-Modified-Since']) {
-                request.headers['If-Modified-Since'] = 'Mon, 27 Mar 1972 00:00:00 GMT';
-            }
-            next(request, callback);
-        };
 
-	Isso define uma função de filtro, que adiciona o cabeçalho  `If-Modified-Since` para impedir o cache no cliente.
- 
-2. Em seguida, remova os comentários ou adicione a seguinte linha de código e substitua `<yourClient>` com a variável adicionada ao arquivo service.js quando você conecta seu projeto ao serviço móvel:
+1. Em seguida, remova os comentários ou adicione a linha de código a seguir e substitua `<yourClient>` pela variável adicionada ao arquivo service.js quando você conectou seu projeto ao serviço móvel:
 
-		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
+		var todoTable = <yourClient>.getTable('TodoItem');
 
-   	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
+   	Esse código criará um objeto proxy (**todoTable**) para a nova tabela de banco de dados, usando o filtro de cache.
 
-3. Replace the **InsertTodoItem** function with the following code:
+2. Substitua a função **InsertTodoItem** pelo seguinte código:
 
 		var insertTodoItem = function (todoItem) {
 		    // Inserts a new row into the database. When the operation completes
@@ -43,7 +30,7 @@
             });
         };
 
-   	Isso define a associação à coleção de itens em todoTable, que contém todos os objetos **TodoItem** retornados do serviço móvel. 
+   	Isso define a associação à coleção de itens em todoTable, que contém todos os objetos **TodoItem** retornados do serviço móvel.
 
 4. Substitua a função **UpdateCheckedTodoItem** pelo seguinte código:
         
@@ -58,5 +45,4 @@
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

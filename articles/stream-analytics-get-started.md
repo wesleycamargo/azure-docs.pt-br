@@ -1,304 +1,256 @@
-﻿<properties 
-	pageTitle="Introdução ao uso da Análise de fluxo do Azure | Azure" 
-	description="Comece a usar a análise de fluxo do Azure para processar e transformar eventos no Hub de eventos de barramento de serviço do Azure e armazenar os resultados no banco de dados SQL do Azure." 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Introdução à Stream Analytics: detecção de fraudes em tempo real | Microsoft Azure"
+	description="Saiba como usar a Stream Analytics para criar uma solução de detecção de fraudes em tempo real sobre os dados de telecomunicação gerados."
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="2/17/2015" 
-	ms.author="jgao" />
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="04/28/2015"
+	ms.author="jeffstok" />
 
 
-# Introdução ao uso da Análise de fluxo do Azure
 
-A Análise de fluxo do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Para obter mais informações, consulte a [Introdução à análise de fluxo do Azure][stream.analytics.introduction] e a [documentação da Análise de fluxo do Azure][stream.analytics.documentation].
+# Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
-Para ajudar você a começar a usar a Análise de fluxo rapidamente, este tutorial mostrará como consumir temperatura de dispositivo lendo dados de um [Hub de eventos do barramento de serviço do Azure][azure.event.hubs.documentation] e processar os dados, exibindo os resultados em um [Banco de Dados SQL do Azure][azure.sql.database.documentation].  O diagrama a seguir mostra o fluxo de eventos de entrada para o processamento de saída:
-  
-![Azure Stream Analytics get started flow][img.get.started.flowchart]
+A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Para obter mais informações, consulte [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md).
 
-##Gerar dados de exemplo do Hub de evento
-Este tutorial aproveitará o aplicativo de Introdução aos hubs de evento de Barramento de Serviço, um exemplo de código CodeGallery do MSDN, para criar um novo Hub de evento, gerar leituras de temperatura do dispositivo de exemplo e enviar o dispositivo de leitura de dados para o Hub de evento.
+Aprenda a criar uma solução de ponta a ponta para detecção de fraudes em tempo real com a Stream Analytics. Exibir eventos nos Hubs de eventos do Azure, escrever consultas de Stream Analytics para agregação ou alerta e enviar os resultados em um coletor de saída para obter informações sobre os dados em tempo real.
 
-###Criar um namespace do Barramento de Serviço
-O aplicativo de exemplo criará um Hub de evento em um namespace preexistente do barramento de serviço.  Você pode usar um namespace do Barramento de Serviço já provisionado ou seguir as etapas abaixo para criar um novo:
+##Cenário: Fraude de telecomunicações e SIM
 
-1.	Entre no [Portal de Gerenciamento do Azure][azure.management.portal].
-2.	Clique em **﻿﻿CRIAR** na parte inferior da página de Barramento de Serviço e siga as instruções para criar um namespace. Use **﻿﻿MENSAGENS** como o tipo.
-3.	Clique no namespace recém-criado e em **﻿﻿INFORMAÇÕES DE CONEXÃO** na parte inferior da página.
-4.	Copie a cadeia de conexão. Você a usará mais tarde no tutorial.
+Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. Eles desejam reduzir esses dados a um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e as regiões geográficas. Eles também estão muito interessados na detecção de fraudes de SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que eles possam responder facilmente notificando os clientes ou desligando o serviço. São a Internet das Coisas (IoT) canônica como cenários onde há uma tonelada de telemetria ou dados de sensor que estão sendo gerados – e os clientes desejam agregá-los ou alertar sobre anomalias.
 
-###Criar uma conta de Armazenamento do Azure
+##Pré-requisitos
 
-Este aplicativo de exemplo requer uma conta de Armazenamento do Azure ou um emulador de armazenamento para manter o estado do aplicativo. Você pode usar uma conta de Armazenamento existente ou seguir as etapas abaixo para criar uma: 
+Este cenário utiliza um gerador de evento localizado no GitHub. Baixe-o [aqui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) e siga as etapas deste tutorial para configurar a sua solução.
 
-1.	No portal, crie uma nova Conta de armazenamento clicando em **NOVA**, **﻿﻿SERVIÇOS DE DADOS**, **﻿﻿ARMAZENAMENTO**, **﻿﻿CRIAÇÃO RÁPIDA** e siga as instruções.
-2.	Selecione a conta de armazenamento criada recentemente e, em seguida, clique em **﻿﻿GERENCIAR CHAVES DE ACESSO** na parte inferior da página.
-3.	Copie o nome da conta de armazenamento e uma das chaves de acesso.
+## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
-###Gerar dados de exemplo do Hub de evento
+O aplicativo de exemplo gerará eventos e os enviará por push a uma instância do Hub de eventos. Os Hubs de evento do Barramento de Serviço são o método preferencial de ingestão de eventos para Stream Analytics e você pode aprender mais sobre os Hubs de eventos na [Documentação do barramento de serviço do Azure](/documentation/services/service-bus/).
 
-1.	Baixe e descompacte o [Service Bus evento Hubs obtendo Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097) na sua estação de trabalho.
-2.	Abra o arquivo de solução **EventHubSample.sln** no Visual Studio.
-3.	Abra o **App. config**.
-4.	Especifique o Barramento de Serviço e as cadeias de conexão da conta de Armazenamento. Os nomes de chave são **Microsoft.ServiceBus.ConnectionString** e **AzureStorageConnectionString**. A cadeia de conexão da conta de armazenamento será no seguinte formato: 	
+Siga as etapas abaixo para criar um Hub de Eventos.
 
-		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
-5.	Compilar a solução.
-6.	Execute o aplicativo da pasta bin.  A utilização é o seguinte: 
+1.	No [Portal do Azure](https://manage.windowsazure.com/) clique em **Novo** > **Serviços de Aplicativos** > **Barramento de Serviço** > **Hub de eventos** > **Criação rápida**. Forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de eventos.  
+2.	Como prática recomendada, cada trabalho de Stream Analytics deve ser lido por meio de um único Grupo de Consumidores de Hub de Eventos. Vamos orientá-lo abaixo ao longo do processo de criação de um Grupo de Consumidores, e você poderá [saber mais sobre esses Grupos de Consumidores](https://msdn.microsoft.com/library/azure/dn836025.aspx). Para criar um Grupo de Consumidores, navegue até o Hub de Eventos recém-criado e clique na guia **Grupos de Consumidores**. Em seguida, clique em **Criar** na parte inferior da página e forneça um nome para o seu Grupo de Consumidores.
+3.	Para conceder acesso ao Hub de Eventos, precisamos criar uma política de acesso compartilhado. Clique na guia **Configurar** de seu Hub de Eventos.
+4.	Em **Políticas de acesso compartilhado**, crie uma nova política com permissões para **Gerenciar**.
 
-		BasicEventHubSample <eventhubname> <NumberOfMessagesToSend> <NumberOfPartitions> 
+	![Políticas de Acesso Compartilhado em que você pode criar uma política com permissões para Gerenciar.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
-O exemplo a seguir cria um novo Hub de evento chamado **devicereadings** com **16** partições e, em seguida, envia **200** eventos para o Hub de eventos: 
+5.	Na parte inferior da página, clique em **Salvar**.
+6.	Navegue até o **Painel**, clique em **Informações de conexão** na parte inferior da página, copie e salve as informações de conexão.
 
-		BasicEventHubSample devicereadings 200 16
+## Configurar e iniciar o aplicativo gerador de evento
 
- 	![insert image here][img.stream.analytics.event.hub.client.output] 
- 	
+Nós fornecemos um aplicativo cliente que gerará metadados de chamadas de entrada de exemplo e os enviará por push ao Hub de eventos. Siga as etapas abaixo para configurar este aplicativo.
 
-###Crie uma Política de acesso compartilhado do hub de evento 
-Enquanto houver uma Política de acesso compartilhado no namespace de Barramento de Serviço que pode ser usado para conectar-se a tudo dentro do espaço, para práticas recomendadas de segurança criaremos uma política separada somente para o Hub de eventos.
+1.	Baixar a solução de TelcoGenerator de [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
+2.	Substitua os valores Microsoft.ServiceBus.ConnectionString e EventHubName em App.Config pela cadeia de conexão e pelo nome do Hub de Eventos.
+3.	Compile a solução para disparar o download de pacotes nuget necessários.
+4.	Inicie o aplicativo. A utilização é o seguinte:
 
-1.	No espaço de trabalho de Barramento de Serviço no portal, clique no nome do namespace de Barramento de Serviço.
-2.	Clique em **HUBS DE EVENTO** na parte superior da página.
-3.	Clique em **devicereadings**, o Hub de eventos para este tutorial.
-4.	Clique em **CONFIGURAR** na parte superior da página.
-5.	Em Políticas de acesso compartilhado, crie uma nova política com permissões para **Gerenciar**.
+    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-	![][img.stream.analytics.event.hub.shared.access.policy.config]
-6.	Clique em **﻿﻿﻿﻿SALVAR** na parte inferior da página.
-7.	Se o Hub de eventos estiver em uma assinatura diferente da que o trabalho de Análise de fluxo estará, você precisará copiar e salvar as informações de conexão para mais tarde.  Para fazer isso, clique em **﻿PAINEL**, clique em **﻿﻿INFORMAÇÕES DE CONEXÃO** na parte inferior da página e salve a Cadeia de conexão.
+O exemplo a seguir gerará 1000 eventos com uma probabilidade de 20% de fraude ao longo de 2 horas:
+
+    TelcoDataGen.exe 1000 .2 2
+
+Você verá os registros que estão sendo enviados para o Hub de eventos. Alguns campos-chave que vamos usar neste aplicativo são definidos aqui:
+
+| Registro | Definição |
+| ------------- | ------------- |
+| CallrecTime | Carimbo de data/hora para a hora de início da chamada |
+| SwitchNum | Chave do telefone usada para se conectar à chamada |
+| CallingNum | Número de telefone do chamador |
+| CallingIMSI | Identidade do Assinante Móvel Internacional (IMSI). Identificador exclusivo do chamador |
+| CalledNum | Número de telefone do destinatário da chamada |
+| CalledIMSI | Identidade do Assinante Móvel Internacional (IMSI). Identificador exclusivo do destinatário da chamada |
 
 
-##Preparar um Banco de Dados SQL do Azure para armazenar dados de saída
-A Análise de fluxo do Azure pode produzir dados ao Banco de Dados SQL do Azure, armazenamento de ﻿﻿Blobs do Azure e Hub de eventos do Azure. Neste tutorial, você definirá um trabalho que gera um Banco de Dados SQL do Azure. Para obter mais informações, consulte a Introdução ao Banco de Dados SQL do Microsoft Azure.
+## Criar um trabalho de Stream Analytics
+Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um trabalho de Stream Analytics para analisar esses eventos em tempo real.
 
-###Criar um Banco de Dados SQL do Azure
-Se já tiver um Banco de Dados SQL do Azure para usar neste tutorial, ignore esta seção.
+### Provisionar um trabalho de análise de fluxo
 
-1.	No Portal de Gerenciamento, clique em **﻿﻿NOVO**, ﻿﻿**SERVIÇOS DE DADOS**, **﻿﻿﻿BANCO DE DADOS SQL**, **﻿﻿CRIAÇÃO RÁPIDA**.  Especifique um nome de banco de dados existente ou um novo servidor de banco de dados SQL.
-2.	Selecione o banco de dados recém-criado
-3.	Clique em **﻿PAINEL**, clique em **Mostrar cadeias de conexão** no painel à direita da página e copie a cadeia de conexão **ADO.NET**. Você a usará mais tarde no tutorial.  
-4.	Verifique se que as configurações de firewall de nível de servidor permitem que você se conecte ao banco de dados.  Você pode fazer isso adicionando uma nova regra IP no guia de configuração do servidor. Para obter mais detalhes, incluindo como lidar com IP dinâmico, consulte [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
+1.	No portal do Azure, clique em **Novo** > **Serviços de Dados** > **Stream Analytics** > **Criação rápida**.
+2.	Especifique os seguintes valores e, em seguida, clique em **Criar trabalho de Stream Analytics**:
 
-###Criar tabelas de saída
-1.	Abra o Visual Studio ou o SQL Server Management Studio.
-2.	Conecte-se ao Banco de Dados SQL do Azure.
-3.	Use as seguintes instruções T-SQL para criar duas tabelas no banco de dados:
+	* **Nome do Trabalho**: Insira um nome de trabalho.
 
-		CREATE TABLE [dbo].[PassthroughReadings] (
-		    [DeviceId]      BIGINT NULL,
-			[Temperature] BIGINT    NULL
-		);
+	* **Região**: Selecione a região onde você deseja executar o trabalho. Considere a opção de colocar o trabalho e o hub de eventos na mesma região para garantir um desempenho melhor e assegurar que você não pague para transferir dados entre regiões.
 
-		GO
-		CREATE CLUSTERED INDEX [PassthroughReadings]
-		    ON [dbo].[PassthroughReadings]([DeviceId] ASC);
-		GO
+	* **Conta de Armazenamento**: Escolha a Conta de armazenamento que você deseja usar para armazenar dados de monitoramento de todos os trabalhos do Stream Analytics executados nesta região. Você tem a opção de escolher uma conta de armazenamento existente ou criar uma nova.
 
-		CREATE TABLE [dbo].[AvgReadings] (
-		    [WinStartTime]   DATETIME2 (6) NULL,
-		    [WinEndTime]     DATETIME2 (6) NULL,
-		    [DeviceId]      BIGINT NULL,
-			[AvgTemperature] FLOAT (53)    NULL,
-			[EventCount] BIGINT null
-		);
-		
-		GO
-		CREATE CLUSTERED INDEX [AvgReadings]
-		    ON [dbo].[AvgReadings]([DeviceId] ASC);
+3.	Clique em **Stream Analytics** no painel esquerdo para listar os trabalhos do Stream Analytics.
 
->[WACOM.NOTE] Índices clusterizados são necessárias em todas as tabelas de banco de dados SQL para inserir dados.
-	   
-##Criar um trabalho de análise de fluxo
+	![Ícone do serviço Stream Analytics](./media/stream-analytics-get-started/stream-analytics-service-icon.png)
 
-Depois de ter criado o Hub de evento do Barramento de Serviço do Azure, o banco de dados SQL do Azure e as tabelas de saída, você está pronto para criar um trabalho de Análise de fluxo.
+4.	O novo trabalho será mostrado com um status de **Criado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Você deve configurar a entrada, a saída, a consulta do trabalho e assim por diante antes de iniciar o trabalho.
 
-###Provisionar um trabalho de análise de fluxo
-1.	No Portal de Gerenciamento, clique em **﻿﻿NOVO**, ﻿﻿**SERVIÇOS DE DADOS**, **﻿﻿﻿ANÁLISE DE FLUXO**, **﻿﻿CRIAÇÃO RÁPIDA**. 
-2.	Especifique os seguintes valores e, em seguida, clique em **﻿﻿CRIAR TRABALHO DE ANÁLISE DE FLUXO**:
+### Especificar entrada de trabalho
+1.	No trabalho de Stream Analytics, clique em **Entradas** na parte superior da página e clique em **Adicionar entrada**. A caixa de diálogo que se abre orientará você por algumas etapas para configurar sua entrada.
+2.	Selecione **Fluxo de Dados** e então clique no botão direito.
+3.	Selecione **Hub de Eventos** e então clique no botão direito.
+4.	Digite ou selecione os seguintes valores na terceira página:
 
-	- **NOME DO TRABALHO**: Digite um nome de trabalho. Por exemplo, **DeviceTemperatures**.
-	- **REGIÃO**: Selecione a região onde você deseja executar o trabalho. Análise de fluxo do Azure está disponível atualmente apenas em 2 regiões durante a visualização. Para obter mais informações, consulte [Limitações e problemas conhecidos da Análise de fluxo do Azure][stream.analytics.limitations]. Considere colocar o trabalho e o Hub de eventos na mesma região para garantir um desempenho melhor e que você não estará pagando para transferir dados entre regiões.
-	- **CONTA DE ARMAZENAMENTO**: Escolha a conta de armazenamento que você deseja usar para armazenar dados de monitoramento de todos os trabalhos de análise de fluxo em execução nessa região. Você tem a opção de escolher uma conta de armazenamento existente ou criar uma nova.
-	
-3.	Clique em **﻿﻿ANÁLISE DE FLUXO** no painel à esquerda para listar os trabalhos de Análise de fluxo.
+	* **Alias de entrada**: Insira um nome amigável para a entrada do trabalho, como *CallStream*. Observe que você usará esse nome na consulta posteriormente.
+	* **Hub de Eventos**: Se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione o namespace que contém o hub de eventos.
 
-	![][img.stream.analytics.portal.button]
- 
-O novo trabalho será listado com um status de **﻿﻿NÃO INICIADO**.  Observe que o botão **﻿INICIAR**, na parte inferior da página, está desabilitado. Você deve configurar o trabalho de entrada, saída, consulta e assim por diante antes de iniciar o trabalho. 
+	Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para **Namespace do Service Bus**, **Nome do Hub de Eventos**, **Nome da Política do Hub de Eventos**, **Chave de Política do Hub de Eventos** e **Contagem de Partições do Hub de Eventos**.
 
-###Especificar entrada de trabalho
+	* **Nome do hub de eventos**: Selecione o nome do Hub de Eventos
 
-1.	Clique no nome do trabalho.
-2.	Clique em **ENTRADAS** da parte superior da página e, em seguida, clique em **﻿ADICIONAR ENTRADA**. A caixa de diálogo que se abre vai orientá-lo por meio de uma série de etapas para configurar sua Entrada.
-3.	Selecione o **﻿﻿FLUXO DE DADOS** e, em seguida, clique no botão à direita.
-4.	Selecione o **HUB DE EVENTO** e, em seguida, clique no botão à direita
-5.	Digite ou selecione os seguintes valores na terceira página: 
+	* **Nome de política do hub de eventos**: Selecione a política de hub de eventos criada anteriormente neste tutorial.
 
-	- **ALIAS DE ENTRADA**: Digite um nome amigável para este trabalho de entrada. Observe que você usará esse nome na consulta posteriormente.
-	- **HUB DE EVENTOS**: Se o Hub de eventos que você criou na mesma assinatura que o trabalho de análise de fluxo, selecione o namespace que é o Hub de eventos no.
+	* **Grupo de consumidores do hub de eventos**: Digite o Grupo de Consumidores criado anteriormente neste tutorial.
+5.	Clique no botão direito.
+6.	Especifique os seguintes valores:
 
-		Se o seu Hub de evento for em uma assinatura diferente, selecione **Usar o hub de eventos de outra assinatura** e insira manualmente o **NAMESPACE ﻿﻿DO BARRAMENTO DE SERVIÇO**, **﻿﻿﻿NOME DO HUB DE EVENTO**, **﻿﻿﻿NOME DE POLÍTICA DO HUB DE EVENTO**, **﻿﻿﻿CHAVE DE POLÍTICA DE HUB DE EVENTO** e **﻿﻿﻿A CONTAGEM DE PARTIÇÃO DO HUB DE EVENTOS**.  
+	* **Formato do Serializador de Evento**: JSON
+	* **Codificação**: UTF8
+7.	Clique no botão de verificação para adicionar essa fonte e para verificar se o Stream Analytics pode se conectar com êxito ao hub de eventos.
 
-		>[WACOM.NOTE] Este exemplo usa o número padrão de partições, que é 16.
-		
-	- **NOME DO HUB DE EVENTOS**: Selecione o nome do Hub de eventos do Azure que você criou. Para este tutorial use **devicereadings**.
-	- **NOME DA POLÍTICA DO HUB DE EVENTOS**: Selecione a política de Hub de eventos criada anteriormente neste tutorial.
- 
-	![][img.stream.analytics.config.input]
+### Especifique a consulta de trabalho
 
-6.	Clique no botão direito.
-7.	Especifique os seguintes valores:
+A Análise de fluxo dá suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados de chamada.
 
-	- **FORMATO DE SERIALIZADOR DE EVENTO**: JSON
-	- **CODIFICAÇÃO**: UTF8
+#### Opcional: Dados de entrada de exemplo
+Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo de amostra [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) para fins de teste.
 
-8.	Clique no botão de seleção para adicionar essa fonte e verificar se a Análise de fluxo pode se conectar com êxito ao Hub de eventos.
+1.	Selecione a entrada do seu Hub de Eventos e clique em **Dados de exemplo** na parte inferior da página.
+2.	Na caixa de diálogo que será exibida, especifique uma **Hora de início** para iniciar a coleta de dados e uma **Duração** para indicar quantos dados adicionais devem ser consumidos.
+3.	Clique no botão de verificação para iniciar os dados de amostragem da entrada. Pode levar um ou dois minutos para o arquivo de dados ser produzido. Quando o processo estiver concluído, clique em **Detalhes**, faça o download e salve o arquivo .JSON que é gerado.
 
-###Especifique a saída do trabalho
-1.	Clique em **﻿﻿SAÍDA** da parte superior da página, clique em **﻿﻿﻿﻿ADICIONAR SAÍDA**.
-2.	Selecione o **BANCO DE DADOS SQL** e, em seguida, clique no botão à direita.
-3.	Digite ou selecione os valores a seguir.  Use a cadeia de conexão do banco de dados ADO.NET para preencher os seguintes campos:
+	![Baixe e salve os dados processados em um arquivo JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
-	- **﻿﻿﻿BANCO DE DADOS SQL**: Escolha o Banco de Dados SQL criado anteriormente no tutorial.  Se ele estiver em - a mesma assinatura, selecione o banco de dados no menu suspenso.   Caso contrário, insira manualmente os campos Nome do servidor e Banco de dados. 
-	- **﻿NOME DE USUÁRIO**: Insira o nome de logon do Banco de dados SQL.
-	- **﻿SENHA**: Insira a senha de logon do Banco de dados SQL.
-	- **﻿TABELA**: Especifique a tabela que você deseja enviar a saída.  Por enquanto, use **PassthroughReadings**.
+#### Consulta de passagem
 
-	![][img.stream.analytics.config.output]
+Se deseja arquivar todos os eventos, você pode usar uma consulta de passagem para ler todos os campos na carga do evento ou da mensagem. Para começar, faça uma consulta de passagem simples que projete todos os campos em um evento.
 
-4.	Clique no botão de seleção para criar a saída e verificar se a análise de fluxo com êxito pode se conectar ao banco de dados SQL conforme especificado.
-
-###Especifique a consulta de trabalho
-A Análise de fluxo dá suporte a um modelo de consulta simples e declarativo para descrever as transformações.  Para saber mais sobre a linguagem, consulte a Referência de linguagem de consulta da análise de fluxo do Azure.  
-
-Este tutorial começa com uma consulta de passagem simples que gera leituras de temperatura do dispositivo em uma tabela do Banco de Dados SQL.
-
-1.	Clique em **Consulta** na parte superior da página 
+1.	Clique em **Consulta** na parte superior da página do trabalho de Stream Analytics.
 2.	Adicione o seguinte ao editor de código:
 
-		﻿SELECIONE DeviceId, Temperatura DA entrada
-Certifique-se de que o nome da fonte de entrada corresponde ao nome da entrada que você especificou anteriormente.
-3.	Clique em **﻿SALVAR** na parte inferior da página e em **﻿SIM** para confirmar.
+		SELECT * FROM CallStream
 
-##Iniciar o trabalho
-Como padrão, os trabalhos de Análise de fluxo começam a ler eventos de entrada no momento em que o trabalho é iniciado.  Como o Hub de evento contém dados existentes para processar, precisamos configurar o trabalho para consumir esses dados históricos.  
+	> Certifique-se de que o nome da fonte de entrada corresponde ao nome da entrada que você especificou anteriormente.
 
-1.	Clique em **﻿CONFIGURAR** na parte superior da página.
-2.	Altere o valor de **﻿﻿SAÍDA DE INÍCIO** para **﻿﻿TEMPO PERSONALIZADO** e especifique uma hora de início.  Certifique-se de que a hora de início é um dia antes da hora em que você executou BasicEventHubSample.  
-3.	Clique em **﻿SALVAR** na parte inferior da página e em **﻿SIM** para confirmar.
-3.	Clique em **﻿PAINEL** na parte superior da página, clique em **﻿INICIAR** na parte inferior da página e em **﻿SIM** para confirmar.  No painel **de visão rápida**, o **STATUS** será alterado para **Iniciando** e pode levar alguns minutos para concluir o processo inicial e mover para o estado de **Execução**.   
+3.	Clique em **Teste** no editor de consultas
+4.	Forneça um arquivo de teste, um que você criou usando as etapas acima ou o [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)
+5.	Clique no botão verificar e veja o resultado exibido abaixo da definição de consulta.
+
+	![Resultados da definição de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
 
 
-##Exibir saída de trabalho
+### Projeção de coluna
 
-1.	No Visual Studio ou o SQL Server Management Studio, conecte-se ao SEU banco de dados SQL e execute a seguinte consulta: 
+Agora diminuiremos os campos retornados para um conjunto menor.
 
-		SELECT * FROM PassthroughReadings
+1.	Altere a consulta no editor de código para:
 
-2.	Você verá os registros correspondentes aos eventos de leitura do Hub de eventos.   
+		SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum
+		FROM CallStream
 
-	![][img.stream.analytics.job.output1]
+2.	Clique em **Executar novamente** no editor de consultas para ver os resultados da consulta.
 
-	Você pode executar novamente o aplicativo BasicEventHubSample para gerar novos eventos e vê-los a se propagar para a saída em tempo real executando novamente a seleção * consulta.
-	
-	Se você tiver problemas com a saída ausente ou inesperado, exiba os Logs de operação para o trabalho, vinculado no painel à direita da página do Painel.
+	![Saída no editor de consultas.](./media/stream-analytics-get-started/stream-analytics-query-editor-output.png)
 
-##Parar, atualizar e reiniciar o Trabalho
-Agora, vamos fazer uma consulta mais interessante sobre os dados.
-1.	Na página do **﻿﻿PAINEL** ou do **MONITOR**, clique em **﻿PARAR**.
-2.	Na página de **﻿﻿CONSULTA**, substitua a consulta existente pela seguinte e, em seguida, clique em **﻿SALVAR**:
+### Contagem de chamadas de entrada por região: janela em cascata com agregação
 
-		SELECT DateAdd(second,-5,System.TimeStamp) as WinStartTime, system.TimeStamp as WinEndTime, DeviceId, Avg(Temperature) as AvgTemperature, Count(*) as EventCount 
-		FROM input
-		GROUP BY TumblingWindow(second, 5), DeviceId
+Para comparar a quantidade de chamadas de entrada por região, aproveitaremos uma [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obter a contagem de chamadas de entrada agrupadas por SwitchNum a cada 5 segundos.
 
-	Essa nova consulta usará a hora em que o evento foi enviado para o Hub de eventos como o carimbo de data/hora, localizando e projetar a temperatura média 5 segundos e o número de eventos que se enquadram nessa janela segundo 5 de leitura.
-3.	Na página de **﻿﻿SAÍDA**, clique em **﻿EDITAR**.  Alterar a tabela de saída de PassthroughReadings para AvgReadings e, em seguida, clique no ícone de verificação.
+1.	Altere a consulta no editor de código para:
 
-4.	Na página do **﻿PAINEL**, clique em **﻿INICIAR**.
+		SELECT System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount
+		FROM CallStream TIMESTAMP BY CallRecTime
+		GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
 
-##Exibir saída de trabalho
+	Essa consulta usa a palavra-chave **Timestamp By** para especificar um campo de carimbo de data/hora na carga a ser usada na computação temporal. Se esse campo não fosse especificado, a operação em janela seria realizada usando a hora em que cada evento chegou ao Hub de Eventos. Consulte ["Hora de chegada versus hora do aplicativo" na Referência de linguagem de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-1.	No Visual Studio ou o SQL Server Management Studio, conecte-se ao banco de dados SQL e execute a seguinte consulta:
+	Observe que você pode acessar um carimbo de data/hora para o final de cada janela usando a propriedade System.Timestamp.
 
-		SELECT * from AvgReadings
+2.	Clique em **Executar novamente** no editor de consultas para ver os resultados da consulta.
 
-2.	Você verá registros de intervalos de 5 segundos mostrando a temperatura média e o número de eventos de cada dispositivo: 
+	![Resultados da consulta para Timestand By](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
-	![][img.stream.analytics.job.output2]
- 
-3.	 Para continuar a receber eventos processados pelo trabalho em execução, execute novamente o aplicativo BasicEventHubSample.
+### Identificando fraude de SIM com uma associação a si mesmo
 
+Para identificar o uso potencialmente fraudulento vamos observar as chamadas originadas do mesmo usuário, mas em locais diferentes em menos de 5 segundos. Nós [ingressamos](https://msdn.microsoft.com/library/azure/dn835026.aspx) no fluxo de eventos de chamada com ele próprio para verificar esses casos.
 
+1.	Altere a consulta no editor de código para:
 
+		SELECT System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
+		CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
+		FROM CallStream CS1 TIMESTAMP BY CallRecTime
+		JOIN CallStream CS2 TIMESTAMP BY CallRecTime
+		ON CS1.CallingIMSI = CS2.CallingIMSI
+		AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+		WHERE CS1.SwitchNum != CS2.SwitchNum
 
+2.	Clique em **Executar novamente** no editor de consultas para ver os resultados da consulta.
 
+	![Resultados da consulta de uma associação](./media/stream-analytics-get-started/stream-ananlytics-query-editor-join.png)
 
+### Criar coletor de saída
 
-##<a name="nextsteps"></a>Próximas etapas
-Neste tutorial, você aprendeu a usar a Análise de fluxo para processar os dados meteorológicos. Para saber mais, consulte os seguintes artigos:
+Agora que definimos um fluxo de eventos, uma entrada de Hub de Eventos para a ingestão de eventos e uma consulta para executar uma transformação no fluxo, a última etapa é definir um coletor de saída para o trabalho. Vamos escrever eventos para comportamento fraudulento no armazenamento de blob.
 
+Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se ainda não tiver um.
 
-- [Introdução à análise de fluxo do Azure][stream.analytics.introduction]
-- [Guia de desenvolvedor da Análise de fluxo do Azure][stream.analytics.developer.guide]
-- [Escalonar trabalhos de Análise de fluxo do Azure][stream.analytics.scale]
-- [Limitações e problemas conhecidos da Análise de fluxo do Azure][stream.analytics.limitations]
-- [Referência da linguagem de consulta da Análise de fluxo do Azure][stream.analytics.query.language.reference]
-- [Referência da API REST do gerenciamento da Análise de fluxo do Azure ][stream.analytics.rest.api.reference]
+1.	Use uma conta de Armazenamento existente ou crie uma nova conta de Armazenamento clicando em **NOVO** > **SERVIÇOS DE DADOS** > **ARMAZENAMENTO** > **CRIAÇÃO RÁPIDA** e seguindo as instruções.
+2.	Selecione a conta de Armazenamento, clique em **CONTÊINERES** na parte superior da página e depois em **ADICIONAR**.
+3.	Especifique um **NOME** para seu contêiner e defina seu **ACESSO** como Blob Público.
 
+## Especifique a saída do trabalho
 
+1.	No trabalho de Stream Analytics, clique em **SAÍDA** na parte superior da página e depois em **ADICIONAR SAÍDA**. A caixa de diálogo que será aberta o orientará ao longo de uma série de etapas para configurar a saída.
+2.	Selecione **ARMAZENAMENTO DE BLOB** e, em seguida, clique no botão à direita.
+3.	Digite ou selecione os seguintes valores na terceira página:
 
+	* **ALIAS DE SAÍDA**: insira um nome amigável para essa saída de trabalho.
+	* **ASSINATURA**: se o Armazenamento de Blob que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para **CONTA DE ARMAZENAMENTO**, **CHAVE DA CONTA DE ARMAZENAMENTO** e **CONTÊINER**.
+	* **CONTA DE ARMAZENAMENTO**: selecione o nome da conta de armazenamento.
+	* **CONTÊINER**: selecione o nome do contêiner.
+	* **PREFIXO DE NOME DE ARQUIVO**: digite um prefixo de arquivo a ser usado durante a gravação da saída do blob.
 
-[img.stream.analytics.event.hub.client.output]: .\media\stream-analytics-get-started\AzureStreamAnalyticsEHClientOuput.png
-[img.stream.analytics.event.hub.shared.access.policy.config]: .\media\stream-analytics-get-started\AzureStreamAnalyticsEHSharedAccessPolicyConfig.png
-[img.stream.analytics.job.output2]: .\media\stream-analytics-get-started\AzureStreamAnalyticsSQLOutput2.png
-[img.stream.analytics.job.output1]: .\media\stream-analytics-get-started\AzureStreamAnalyticsSQLOutput1.png
-[img.stream.analytics.config.output]: .\media\stream-analytics-get-started\AzureStreamAnalyticsConfigureOutput.png
-[img.stream.analytics.config.input]: .\media\stream-analytics-get-started\AzureStreamAnalyticsConfigureInput.png
+4.	Clique no botão direito.
+5.	Especifique os seguintes valores:
 
+	* **FORMATO DO SERIALIZADOR DE EVENTO**: JSON
+	* **CODIFICAÇÃO**: UTF8
 
+6.	Clique no botão de seleção para adicionar essa fonte e verificar se o Stream Analytics pode se conectar com êxito à conta de armazenamento.
 
-[img.get.started.flowchart]: ./media/stream-analytics-get-started/StreamAnalytics.get.started.flowchart.png
-[img.job.quick.create]: ./media/stream-analytics-get-started/StreamAnalytics.quick.create.png
-[img.stream.analytics.portal.button]: ./media/stream-analytics-get-started/StreamAnalyticsPortalButton.png
-[img.event.hub.policy.configure]: ./media/stream-analytics-get-started/StreamAnalytics.Event.Hub.policy.png
-[img.create.table]: ./media/stream-analytics-get-started/StreamAnalytics.create.table.png
-[img.stream.analytics.job.output]: ./media/stream-analytics-get-started/StreamAnalytics.job.output.png
-[img.stream.analytics.operation.logs]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.png
-[img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
+## Iniciar trabalho
 
+Como uma entrada de trabalho, uma consulta e uma saída foram especificadas, estamos prontos para iniciar o trabalho de Stream Analytics.
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
+1.	No trabalho **PAINEL**, clique em **INICIAR** na parte inferior da página.
+2.	Na caixa de diálogo que será exibida, selecione **HORA DE INÍCIO DO TRABALHO** e clique no botão de verificação na parte inferior da caixa de diálogo. O status do trabalho será alterado para **Iniciando** e logo mudará para **Em execução**.
 
-[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.sdk.net]: ../dotnet-sdk/
+## Exibir saída
 
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.scale]: ../stream-analytics-scale-jobs/
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512093
+Use uma ferramenta como o [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para exibir eventos fraudulentos conforme eles forem gravados para a sua saída em tempo real.
 
+![Eventos fraudulentos exibidos em tempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+
+## Obtenha suporte
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
+## Próximas etapas
 
-[azure.management.portal]: https://manage.windowsazure.com
+- [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+- [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+- [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+- [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
 
-
-<!--HONumber=46--> 
+<!--HONumber=54-->

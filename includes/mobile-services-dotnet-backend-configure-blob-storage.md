@@ -1,10 +1,11 @@
-﻿##<a name="storage-client-server"></a>Instalar o cliente de armazenamento no projeto de serviço móvel
 
-Para gerar uma SAS para carregar imagens no armazenamento de Blob, primeiro adicione o pacote NuGet que instala a biblioteca de cliente de armazenamento no projeto do serviço móvel. 
+##<a name="storage-client-server"></a>Instalar o cliente de armazenamento do projeto de serviço móvel
+
+Para gerar uma SAS para carregar imagens no armazenamento de Blob, primeiro adicione o pacote NuGet que instala a biblioteca de cliente de armazenamento no projeto do serviço móvel.
 
 1. Em **Gerenciador de Soluções** no Visual Studio, clique com o botão direito do mouse no projeto do serviço móvel e selecione **Gerenciar Pacotes NuGet**.
 
-2. No painel esquerdo, selecione a categoria **Online**, selecione **Apenas Estáveis**, pesquise **WindowsAzure.Storage**, clique em **Instalar** no pacote **Armazenamento do Azure** e aceite os contratos de licença. 
+2. No painel esquerdo, selecione a categoria **Online**, selecione **Apenas Estáveis**, pesquise **WindowsAzure.Storage**, clique em **Instalar** no pacote **Armazenamento do Azure** e aceite os contratos de licença.
 
   	![](./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
@@ -23,24 +24,20 @@ A classe TodoItem define o objeto de dados, e é necessário adicionar a essa cl
 		public string sasQueryString { get; set; }
 		public string imageUri { get; set; } 
 
-	Essas propriedades são utilizadas para gerar a SAS e armazenar informações de imagem. Observe as maiúsculas e minúsculas nessas propriedades correspondem à versão back-end do JavaScript. 
+	Essas propriedades são utilizadas para gerar a SAS e armazenar informações de imagem. Observe as maiúsculas e minúsculas nessas propriedades correspondem à versão back-end do JavaScript.
 
-	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE]Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 ##<a name="update-scripts"></a>Atualizar o controlador de TodoItem para gerar uma assinatura de acesso compartilhado 
 
-O **TodoItemController** existente é atualizado para que o método **PostTodoItem** gere uma SAS quando um novo TodoItem é inserido. Você também 
+O **TodoItemController** existente é atualizado para que o método **PostTodoItem** gere uma SAS quando um novo TodoItem é inserido. Você também
 
 0. Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento].
 
-1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**. 
-
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
+1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**.
 
 2. Anote o **Nome da Conta de Armazenamento** e a **Chave de Acesso**.
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
-
+ 
 3. No seu serviço móvel, clique na guia **Configurar**, role para baixo até **Configurações do aplicativo** e digite um par de **Nome** e **Valor** para cada uma das opções a seguir que você adquiriu da conta de armazenamento e clique em **Salvar**.
 
 	+ `STORAGE_ACCOUNT_NAME`
@@ -48,14 +45,14 @@ O **TodoItemController** existente é atualizado para que o método **PostTodoIt
 
 	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-	A chave de acesso da conta de armazenamento é armazenada criptografada nas configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
+	A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
 
 4. No Gerenciador de Soluções no Visual Studio, abra o arquivo Web.config do projeto do serviço móvel e adicione as novas configurações de aplicativo a seguir, substituindo os espaços reservados pelo nome da conta de armazenamento e pela chave de acesso que você acabou de definir no portal:
 
 		<add key="STORAGE_ACCOUNT_NAME" value="**your_account_name**" />
 		<add key="STORAGE_ACCOUNT_ACCESS_KEY" value="**your_access_token_secret**" />
 
-	O serviço móvel usa essas configurações armazenadas quando é executado no computador local, o que permite testar o código antes de publicá-lo. Ao executar no Azure, o serviço móvel usa o conjunto de valores das configurações do aplicativo no portal e ignora essas configurações do projeto. 
+	O serviço móvel usa essas configurações armazenadas quando é executado no computador local, o que permite testar o código antes de publicá-lo. Ao executar no Azure, o serviço móvel usa o conjunto de valores das configurações do aplicativo no portal e ignora essas configurações do projeto.
 
 7.  Na pasta Controllers, abra o arquivo TodoItemController.cs e adicione as seguintes diretivas **using**:
 
@@ -121,10 +118,9 @@ O **TodoItemController** existente é atualizado para que o método **PostTodoIt
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-   	Esse método POST agora gera uma nova SAS para o item inserido, que é válida por cinco minutos, e atribui o valor da SAS gerada à propriedade  `sasQueryString` do item retornado. A propriedade  `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
+   	Esse método POST agora gera uma nova SAS para o item inserido, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade `sasQueryString` do item devolvido. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
 
-	>[AZURE.NOTE]  Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando o mesmo SAS, você poderá chamar o método <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature</a> com um nome de recurso de blob vazio, assim: 
-	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">método generateSharedAccessSignature</a> com um nome de recurso de blob vazio, da seguinte forma:<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalidade de carregamento de imagem usando a SAS gerada em Inserir.
  
@@ -144,7 +140,7 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 [10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
+[Como criar uma conta de armazenamento]: /manage/services/storage/how-to-create-a-storage-account
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=42-->
+<!--HONumber=54-->

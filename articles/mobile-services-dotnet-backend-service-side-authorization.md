@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Autorização de serviço de usuários nos Serviços Móveis com o Backend .NET | Centro de Desenvolvimento Móvel"
 	description="Saiba como autorizar usuários no backend .NET dos Serviços Móveis do Azure."
 	services="mobile-services"
@@ -17,22 +17,22 @@
 # Autorização de serviço de usuários nos serviços móveis
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Qualquer | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Qualquer | JavaScript)](mobile-services-javascript-backend-service-side-authorization.md)
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-Este tópico mostra como usar a lógica de servidor para autorizar usuários.  Neste tutorial, você modifica os métodos de acesso de dados no .NET, filtra consultas com base nas IDs de usuário e concede acesso aos usuários apenas para seus próprios dados.
+Este tópico mostra como usar a lógica de servidor para autorizar usuários. Neste tutorial, você modifica os métodos de acesso de dados no .NET, filtra consultas com base nas IDs de usuário e concede acesso aos usuários apenas para seus próprios dados.
 
-Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no tutorial [Adicionar autenticação ao aplicativo de serviços móveis existentes]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existente] primeiro.
+Este tutorial se baseia no Início Rápido dos Serviços Móveis e se baseia no tutorial [Adicionar autenticação a um aplicativo de Serviços Móveis existente]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existente] primeiro.
 
-## <a name="register-scripts"></a>Modificar os métodos de acesso de dados
+## <a name="register-scripts"></a>Modificar os métodos de acesso a dados
 
-1. No Visual Studio, abra o projeto móvel, expanda a pasta DataObjects e abra **TodoItem.cs**. A classe **TodoItem** define o objeto de dados, e você precisa adicionar uma propriedade **UserId** a ser usada na filtragem. Adicione a nova propriedade UserId a seguir à classe **TodoItem**:
+1. No Visual Studio, abra o projeto móvel, expanda a pasta DataObjects e abra **TodoItem.cs**. A classe **TodoItem** define o objeto de dados, e é necessário adicionar uma propriedade **UserId** a ser usada na filtragem. Adicione as novas propriedades UserId a seguir à classe **TodoItem**:
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as [Migrações Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE]Para fazer com que este modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as [Migrações Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. No Visual Studio, expanda a pasta Controladores e abra **TodoItemController.cs**. Localize o método **PostTodoItem** e adicione o seguinte código no começo do método. Esse código adiciona a ID de usuário do usuário autenticado para o item, antes que ele seja inserido na tabela TodoItem.
+2. No Visual Studio, expanda a pasta Controladores e abra **TodoItemController.cs**. Localize o método **PostTodoItem** e adicione o código a seguir no começo do método. Esse código adiciona a ID de usuário do usuário autenticado para o item, antes que ele seja inserido na tabela TodoItem.
 
 			// Get the logged in user
 			var currentUser = User as ServiceUser;
@@ -40,7 +40,7 @@ Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no t
 			// Set the user ID on the item
 			item.UserId = currentUser.Id;
 
-3. Localize o método **GetAllTodoItems** e substitua a instrução **return** existente com a seguinte linha de código: Essa consulta filtra os objetos de TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele.
+3. Localize o método **GetAllTodoItems** e substitua a instrução **return** existente pela linha de código a seguir. Essa consulta filtra os objetos de TodoItem retornados para que cada usuário receba apenas os itens inseridos por ele.
 
 				// Get the logged in user
 				var currentUser = User as ServiceUser;
@@ -59,19 +59,20 @@ Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no t
 
 
 <!-- Anchors. -->
-[Registrar scripts de servidor]: #register-scripts
-[Próximas etapas]:#next-steps
+[Register server scripts]: #register-scripts
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Adicionar autenticação ao aplicativo de serviços móveis existentes]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Adicionar autenticação a um aplicativo de Serviços Móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 
-[Referência conceitual do tutorial de .NET de Serviços Móveis]: /pt-br/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

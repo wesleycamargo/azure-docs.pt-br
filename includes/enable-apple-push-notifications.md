@@ -1,9 +1,9 @@
 
-O APNS \(Serviço de Notificação por Push da Apple\) usa certificados para autenticar seu serviço móvel. Siga estas instruções para criar os certificados necessários e carregá-los no seu Serviço Móvel. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
+O APNS (Serviço de Notificação por Push da Apple) usa certificados para autenticar seu serviço móvel. Siga estas instruções para criar os certificados necessários e carregá-los no seu Serviço Móvel. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 ## <a id="certificates"></a>Gerar o arquivo de Solicitação de Assinatura de Certificado
 
-Primeiro, gere o arquivo CSR \(Solicitação de Assinatura de Certificado\), que é usado pela Apple para gerar um certificado assinado.
+Primeiro, gere o arquivo CSR (Solicitação de Assinatura de Certificado), que é usado pela Apple para gerar um certificado assinado.
 
 1. Na pasta Utilities, execute a ferramenta Acesso do Conjunto de Chaves.
 
@@ -15,7 +15,7 @@ Primeiro, gere o arquivo CSR \(Solicitação de Assinatura de Certificado\), que
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png)
 
-4. Digite um nome para o arquivo CSR \(Solicitação de Assinatura de Certificado\) em **Salvar como**, selecione o local em **Onde** e, em seguida, clique em **Salvar**.
+4. Digite um nome para o arquivo CSR (Solicitação de Assinatura de Certificado) em **Salvar como**, selecione o local em **Onde** e, em seguida, clique em **Salvar**.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png)
 
@@ -25,9 +25,9 @@ Em seguida, você registrará seu aplicativo na Apple, habilitará as notificaç
 
 ## <a id="register"></a>Registrar seu aplicativo para notificações por push
 
-Para poder enviar notificações por push para um aplicativo iOS dos serviços móveis, você deve registrar seu aplicativo na Apple e também se registrar para notificações por push.
+Para poder enviar notificações por push para um aplicativo iOS dos serviços móveis, você deve registrar seu aplicativo na Apple e também registrar para notificações por push.
 
-1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, faça logon com a sua Apple ID, clique em **Identificadores**, em seguida clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **++￼￼￼￼￼￼￼** para registrar um novo aplicativo.
+1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, faça logon com a sua Apple ID, clique em **Identificadores**, em seguida, clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **+￼￼￼￼￼￼￼** para registrar um novo aplicativo.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
@@ -80,15 +80,15 @@ Para poder enviar notificações por push para um aplicativo iOS dos serviços m
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
 
-    > [AZURE.NOTE]Por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado **aps\_development.cer**..
+    > [AZURE.NOTE]Por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado **aps_development.cer**..
 
-7. Clique duas vezes no certificado de push baixado, **aps\_development.cer**.
+7. Clique duas vezes no certificado de push baixado, **aps_development.cer**.
 
    	Isso instalará o novo certificado no Conjunto de Chaves, conforme mostrado abaixo:
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step10.png)
 
-    > [AZURE.NOTE]O nome em seu certificado pode ser diferente, mas ele será prefixado como **Serviços de Notificação por Push do iOS para Desenvolvimento da Apple:**.
+    > [AZURE.NOTE]O nome em seu certificado pode ser diferente, mas ele será prefixado com **Serviços de Notificação por Push do iOS para Desenvolvimento da Apple:**.
 
 Posteriormente, você usará esse certificado para gerar um arquivo. p12 e carregá-lo para os Serviços Móveis para habilitar a autenticação com APNS.
 

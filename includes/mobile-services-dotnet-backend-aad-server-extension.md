@@ -1,8 +1,8 @@
-﻿### (Opcional) Configure seu serviço móvel do .NET para o Active Directory do Azure
+### (Opcional) Configure seu serviço móvel do .NET para o Active Directory do Azure
 
->[AZURE.NOTE] Essas etapas são opcionais porque apenas se aplicam ao provedor de logon do Active Directory do Azure.
+>[AZURE.NOTE]Essas etapas são opcionais porque apenas se aplicam ao provedor de logon do Active Directory do Azure.
 
-1. Instalar o [pacote NuGet WindowsAzure.MobileServices.Backend.Security](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Security).
+1. Instale o [pacote NuGet WindowsAzure.MobileServices.Backend.Security.](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Security)
 
 2. No Visual Studio, expanda o App_Start e abra o WebApiConfig.cs. Adicione a seguinte instrução `using` na parte superior:
 
@@ -13,4 +13,4 @@
         options.LoginProviders.Remove(typeof(AzureActiveDirectoryLoginProvider));
         options.LoginProviders.Add(typeof(AzureActiveDirectoryExtendedLoginProvider));
 
-<!--HONumber=49-->
+<!--HONumber=54-->

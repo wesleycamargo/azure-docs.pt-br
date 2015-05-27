@@ -1,4 +1,4 @@
-Nesta seção, você adicionará dois novos usuários a seu diretório, juntamente com o novo grupo Vendas. Será concedida, a um desses usuários, associação ao grupo Vendas. Ao outro usuário, não será concedida a associação. 
+Nesta seção, você adicionará dois novos usuários a seu diretório, juntamente com o novo grupo Vendas. Será concedida, a um desses usuários, associação ao grupo Vendas. Ao outro usuário, não será concedida a associação.
 
 ### Criar os usuários
 
@@ -9,7 +9,7 @@ Nesta seção, você adicionará dois novos usuários a seu diretório, juntamen
 4. Crie outro usuário chamado **Dave**. Anote a senha temporária para esse usuário.
 5. Os novos usuários devem parecer similares quanto ao que é mostrado abaixo.
 
-    ![](./media/mobile-services-aad-rbac-create-sales-group/users.png)    
+    ![](./media/mobile-services-aad-rbac-create-sales-group/users.png)
 
 
 ### Criar o grupo Vendas
@@ -28,13 +28,12 @@ Nesta seção, você adicionará dois novos usuários a seu diretório, juntamen
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/group-membership.png)
 
-3. Na página Grupo de vendas, clique em **Propriedades** e, em seguida, copie a **ID de objeto** para o grupo de vendas na parte inferior da página. 
+3. Na página Grupo de vendas, clique em **Propriedades** e, em seguida, copie a **ID de objeto** para o grupo de vendas na parte inferior da página.
 
    
-   ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
+    ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
-4. Navegue de volta para sua página de configuração do serviço móvel e adicione a ID de objeto como uma configuração de aplicativo chamada **AAD\_SALES\_GROUP\_ID**. Este tutorial usa a ID do objeto do grupo como uma configuração de aplicativo, em vez de procurar a identificação com base no nome do grupo. Isso porque o nome do grupo pode mudar, mas a ID permanece a mesma.
+4. Navegue de volta para sua página de configuração do serviço móvel e adicione a ID de objeto como uma configuração de aplicativo chamada **AAD\\_SALES\\_GROUP\\_ID**. Este tutorial usa a ID do objeto do grupo como uma configuração de aplicativo, em vez de procurar a identificação com base no nome do grupo. Isso porque o nome do grupo pode mudar, mas a ID permanece a mesma.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
-
-<!--HONumber=49-->
+<!--HONumber=54-->

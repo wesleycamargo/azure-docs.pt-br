@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Integração do SDK do Windows Phone para o Mobile Engagement do Azure" 
-	description="Como usar o API do Engagement no Windows Phone" 					
+	pageTitle="Como usar o API do Engagement no Windows Phone Silverlight" 
+	description="Como usar o API do Engagement no Windows Phone Silverlight"	
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
-	editor="" /> 
+	editor="" />
 
 <tags 
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-# Como usar o API do Engagement no Windows Phone
+#Como usar o API do Engagement no Windows Phone Silverlight
 
-Este documento é um complemento para o documento [Como integrar o Mobile Engagement em seu aplicativo do Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
+Este documento é um complemento para o documento [Como integrar o Mobile Engagement em seu aplicativo do Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
 
 Se você desejar apenas relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todas as suas subclasses `PhoneApplicationPage` herdarem da classe `EngagementPage`.
 
@@ -28,17 +28,17 @@ A API do Engagement é fornecida pela classe `EngagementAgent`. Você pode obter
 
 Mesmo se o módulo de agente não foi inicializado, cada chamada para a API é adiada e será executada novamente quando o agente está disponível.
 
-## Conceitos de Engagement
+##Conceitos de Engagement
 
 As seguintes partes refinam os Conceitos de Mobile Engagement para a plataforma do Windows Phone.
 
-### `Sessão` e `Activity`
+### `Session` e `Activity`
 
-Uma *atividade* geralmente está associada com uma página de aplicativo, isso significa que a *atividade* inicia quando a página é exibida e é interrompida quando a página for fechada: esse é o caso quando o SDK do Engagement é integrado usando as classes `EngagementPage` .
+Uma *atividade* geralmente está associada com uma página de aplicativo, isso significa que a *atividade* inicia quando a página é exibida e é interrompida quando a página for fechada: esse é o caso quando o SDK Engagement é integrado usando a classe `EngagementPage`.
 
 Mas as *atividades* também podem ser controladas manualmente usando a API do Engagement. Isso permite dividir uma determinada página em várias partes secundárias para obter mais detalhes sobre o uso desta página (por exemplo para saber com que frequência e por quanto tempo as caixas de diálogo são usadas dentro desta página).
 
-## Relatório de atividades
+##Relatório de atividades
 
 ### O usuário inicia uma nova atividade
 
@@ -48,7 +48,7 @@ Mas as *atividades* também podem ser controladas manualmente usando a API do En
 
 É necessário chamar `StartActivity()` sempre que houver alterações de atividade do usuário. A primeira chamada para essa função inicia uma nova sessão de usuário.
 
-> [AZURE.IMPORTANT] O SDK do Windows Phone chama automaticamente o método EndActivity quando o aplicativo é fechado. Portanto, é ALTAMENTE recomendado chamar o método StartActivity sempre que a atividade do usuário for alterada para NUNCA chamar o método EndActivity, visto que chamar esse método força o encerramento da sessão atual.
+> [AZURE.IMPORTANT]O SDK chama automaticamente o método EndActivity quando o aplicativo é fechado. Portanto, é ALTAMENTE recomendado chamar o método StartActivity sempre que a atividade do usuário for alterada para NUNCA chamar o método EndActivity, visto que chamar esse método força o encerramento da sessão atual.
 
 #### Exemplo
 
@@ -60,13 +60,13 @@ Mas as *atividades* também podem ser controladas manualmente usando a API do En
 
 			void EndActivity()
 
-Isso encerra a atividade e a sessão. Você não deve chamar esse método, a menos que você realmente sabe o que está fazendo.
+É necessário chamar `EndActivity()` pelo menos uma vez quando o usuário conclui sua última atividade. Isso informa o SDK do Engagement que o usuário está ocioso no momento e que a sessão do usuário precisa ser fechada quando o tempo limite da sessão expirar (se você chamar `StartActivity()` antes de expirar o tempo limite da sessão, a sessão será simplesmente retomada).
 
 #### Exemplo
 
 			EngagementAgent.Instance.EndActivity();
 
-## Relatório de trabalhos
+##Relatório de trabalhos
 
 ### Iniciar um trabalho
 
@@ -102,9 +102,9 @@ Assim que uma tarefa controlada por um trabalho foi finalizada, você deve chama
 			
 			EngagementAgent.Instance.EndJob("uploadData");
 
-## Eventos de relatório
+##Eventos de relatório
 
-Há três tipos de eventos:
+Há três tipos de eventos :
 
 -   Eventos autônomos
 -   Eventos de sessão
@@ -140,7 +140,7 @@ Eventos de sessão são geralmente usados para relatar as ações executadas por
 			
 			EngagementAgent.Instance.SendSessionEvent("sessionEvent", null);
 
-**With data :**
+**Com dados :**
 
 			Dictionary<object, object> extras = new Dictionary<object,object>();
 			extras.Add("name", "data");
@@ -158,7 +158,7 @@ Eventos de trabalho são geralmente usados para relatar as ações executadas po
 
 			EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
 
-## Erros de relatório
+##Erros de relatório
 
 Há três tipos de erros:
 
@@ -202,7 +202,7 @@ Os erros podem estar relacionados a um trabalho em execução, em vez de serem r
 
 			EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
-## Falhas de relatórios
+##Relatórios de falhas
 
 O agente fornece dois métodos para lidar com falhas.
 
@@ -214,11 +214,11 @@ O agente fornece dois métodos para lidar com falhas.
 
 #### Exemplo
 
-Você pode enviar uma exceção a qualquer momento chamando:
+Você pode enviar uma exceção a qualquer momento chamando :
 
 			EngagementAgent.Instance.SendCrash(aCatchedException);
 
-Você também pode usar um parâmetro opcional para encerrar a sessão do engagement ao mesmo tempo que envia a falha. Para fazer isso, chame:
+Você também pode usar um parâmetro opcional para encerrar a sessão do engagement ao mesmo tempo que envia a falha. Para fazer isso, chame :
 
 			EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
@@ -232,11 +232,11 @@ Se você fizer isso, os trabalhos e a sessão serão fechados apenas após o env
 
 O Engagement também fornece um método para enviar as exceções sem tratamento. Isso é especialmente útil quando usado dentro do manipulador de eventos do aplicativo UnhandledException do silverlight.
 
-Esse método **SEMPRE** encerrará a sessão do engagement depois de ser chamado.
+Esse método **SEMPRE** encerrará a sessão de engagement depois de ser chamado.
 
 #### Exemplo
 
-Você pode usá-lo para implementar seu próprio manipulador UnhandledException (especialmente se você tiver desativado a recurso de relatório de falhas automático do Engagement). Por exemplo, no método `Application_UnhandledException` do arquivo `App.xaml.cs`:
+Você pode usá-lo para implementar seu próprio manipulador UnhandledException (especialmente se você tiver desativado a recurso de relatório de falhas automático do Engagement). Por exemplo, no método `Application_UnhandledException` do arquivo `App.xaml.cs` :
 
 			// In your App.xaml.cs file
 			
@@ -248,7 +248,7 @@ Você pode usá-lo para implementar seu próprio manipulador UnhandledException 
 			  EngagementAgent.Instance.SendCrash(e);
 			}
 
-## OnActivated
+##OnActivated
 
 ### Referência
 
@@ -269,13 +269,13 @@ Você precisa inserir `EngagementAgent.Instance.OnActivated(e)` no método `Appl
 			  EngagementAgent.Instance.OnActivated(e);
 			}
 
-## Id do dispositivo
+##Id do dispositivo
 
 			String GetDeviceId()
 
 Você pode obter a id do dispositivo do engagement chamando esse método.
 
-## Parâmetros adicionais
+##Parâmetros adicionais
 
 Dados arbitrários podem ser anexados a um evento, um erro, uma atividade ou um trabalho. Esses dados podem ser estruturados usando um dicionário. Chaves e valores podem ser de qualquer tipo.
 
@@ -316,7 +316,7 @@ Criamos uma nova classe "Person".
 			  }
 			}
 
-Depois, adicionaremos uma instância `Person` para um adicional.
+Depois, adicionaremos uma instância `Person` para um arquivo extra.
 
 			Person person = new Person("Engagement Haddock", 51);
 			var extras = new Dictionary<object, object>();
@@ -324,23 +324,23 @@ Depois, adicionaremos uma instância `Person` para um adicional.
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING] Se você colocar outros tipos de objetos, verifique se o método ToString () é implementado para retornar uma cadeia de caracteres legível humana.
+> [AZURE.WARNING]Se você colocar outros tipos de objetos, verifique se o método ToString () é implementado para retornar uma cadeia de caracteres legível humana.
 
 ### Limites
 
 #### simétricas
 
-Cada chave no objeto deve corresponder a seguinte expressão regular:
+Cada chave no objeto deve corresponder à seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
 
 #### Tamanho
 
-Os adicionais estão limitados à **1024** caracteres por chamada.
+Os extras estão limitados à **1024** caracteres por chamada.
 
-## Relatório de informações de aplicativo
+##Relatório de informações de aplicativo
 
 ### Referência
 
@@ -348,7 +348,7 @@ Os adicionais estão limitados à **1024** caracteres por chamada.
 
 Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função SendAppInfo().
 
-Observe que essas informações podem ser enviadas de forma incremental: somente o último valor para uma determinada chave será mantido por um determinado dispositivo. Como o evento adicional, use um Dictionary\<object, object\> para anexar informações.
+Observe que essas informações podem ser enviadas de forma incremental: somente o último valor para uma determinada chave será mantido por um determinado dispositivo. Como eventos extras, use um Dictionary<object, object> para anexar informações.
 
 ### Exemplo
 
@@ -364,18 +364,18 @@ Observe que essas informações podem ser enviadas de forma incremental: somente
 
 #### simétricas
 
-Cada chave no objeto deve corresponder a seguinte expressão regular:
+Cada chave no objeto deve corresponder à seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
 
 #### Tamanho
 
-As informações do aplicativo estão limitadas à **1024** caracteres por chamada.
+As informações do aplicativo estão limitadas a **1024** caracteres por chamada.
 
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"subscription":"2013-12-07","premium":"true"}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

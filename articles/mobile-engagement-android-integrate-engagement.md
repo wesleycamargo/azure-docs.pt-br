@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -16,23 +16,25 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" class="current">Android</a></div>
-
-
 #Como integrar o Engagement ao Android
 
-> [AZURE.IMPORTANT] O nível mínimo de API do Android SDK deve ser 10 ou superior (Android 2.3.3 ou superior).
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
 
-Este procedimento descreve a maneira mais simples de ativar as funções de Analítica e Monitoramento do Engagement em seu aplicativo Android.
+Este procedimento descreve a maneira mais simples de ativar as funções de Análise e Monitoramento do Engagement em seu aplicativo Android.
 
-As etapas a seguir são suficientes para ativar o relatório de logs necessário para calcular todas as estatísticas referentes a Usuários, Sessões, Atividades, Falhas e Suporte Técnico. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Eventos e Erros deve ser feito manualmente usando a API do Engagement (consulte android-sdk-engagement-advanced) como essas estatísticas são dependentes do aplicativo.
+> [AZURE.IMPORTANT]O nível mínimo de API do Android SDK deve ser 10 ou superior (Android 2.3.3 ou superior).
+ 
+As etapas a seguir são suficientes para ativar o relatório de logs necessário para calcular todas as estatísticas referentes a Usuários, Sessões, Atividades, Falhas e Suporte Técnico. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement em seu Android](mobile-engagement-android-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
 
-##Incorpore o SDK e serviço do Engagement em seu projeto Android
+##Incorpore o SDK e o serviço do Engagement em seu projeto Android
 
-Obtenha `mobile-engagement-VERSION.jar` e coloque-as na pasta `libs` do seu projeto Android (crie a pasta das bibliotecas se ela ainda não existir).
+Obtenha `mobile-engagement-VERSION.jar` e coloque-os na pasta `libs` do seu projeto Android (crie a pasta das bibliotecas se ela ainda não existir).
 
-> [AZURE.IMPORTANT]
-> Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter algumas classes. Você pode usar o seguinte snippet de configuração:
+> [AZURE.IMPORTANT]Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter algumas classes. Você pode usar o seguinte trecho de código de configuração:
 >
 > 
 			-keep public class * extends android.os.IInterface
@@ -48,12 +50,12 @@ Especifique a cadeia de conexão do Engagement chamando o método a seguir na at
 
 A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 
--   Se estiver faltando, adicione as seguintes permissões Android (antes da marca `<application>`):
+-   Se estiver faltando, adicione as seguintes permissões do Android (antes da marca `<application>`):
 
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   Em alguns modelos de dispositivo, não é possível gerar o identificador de dispositivo do Engagement por meio do ANDROID\_ID (pode conter bugs ou estar indisponível). Nesse caso, o SDK gera um identificador aleatório de dispositivo e tenta salvá-lo no armazenamento externo desse dispositivo, para que outros aplicativos do Engagement possam compartilhar o mesmo identificador de dispositivo (ele também é salvo como uma preferência compartilhada, para garantir que o próprio aplicativo use sempre o mesmo identificador de dispositivo, independentemente do que acontecer com o armazenamento externo). Para que esse mecanismo funcione corretamente, você precisa adicionar a permissão a seguir se ele estiver ausente (antes da marca `<application>`):
+-   Em alguns modelos de dispositivo, não é possível gerar o identificador de dispositivo do Engagement por meio do ANDROID_ID (pode conter bugs ou estar indisponível). Nesse caso, o SDK gera um identificador aleatório de dispositivo e tenta salvá-lo no armazenamento externo desse dispositivo, para que outros aplicativos do Engagement possam compartilhar o mesmo identificador de dispositivo (ele também é salvo como uma preferência compartilhada, para garantir que o próprio aplicativo use sempre o mesmo identificador de dispositivo, independentemente do que acontecer com o armazenamento externo). Para que esse mecanismo funcione corretamente, você precisa adicionar a permissão a seguir se ele estiver ausente (antes da marca `<application>`):
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -65,13 +67,13 @@ A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 			  android:label="<Your application name>Service"
 			  android:process=":Engagement"/>
 
--   Altere `<Your application name>` pelo nome do seu aplicativo.
+-   Substitua `<Your application name>` pelo nome do seu aplicativo.
 
-> [AZURE.TIP] O atributo `android:label` permite que você escolha o nome do serviço do Engagement como ele aparecerá para os usuários finais na tela "Serviços em execução" dos seus telefones. É recomendável definir esse atributo como `"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
+> [AZURE.TIP]O atributo `android:label` permite que você escolha o nome do serviço do Engagement como ele aparecerá para os usuários finais na tela "Serviços em execução" dos seus respectivos telefones. É recomendável definir esse atributo para `"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
 
-Especificar o atributo `android:process` garante que o serviço do Engagement será executado em seu próprio processo (executando o Engagement no mesmo processo que seu aplicativo fará o thread principal/de interface de usuário potencialmente menos responsivo).
+Especificar o atributo `android:process` garante que o serviço do Engagement será executado em seu próprio processo (executando o Engagement no mesmo processo que seu aplicativo fará o thread/interface de usuário principal potencialmente menos responsivos).
 
-> [AZURE.NOTE] Qualquer código que você colocar em `Application.onCreate()` e outros retornos de chamada do aplicativo serão executados para todos os processos de seu aplicativo, incluindo o serviço Engagement. Ele pode ter efeitos colaterais indesejados (como alocações desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados).
+> [AZURE.NOTE]Qualquer código que você colocar em `Application.onCreate()` e outros retornos de chamada do aplicativo serão executados para todos os processos de seu aplicativo, incluindo o serviço Engagement. Ele pode ter efeitos colaterais indesejados (como alocações desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados).
 
 Se você substituir `Application.onCreate()`, recomenda-se adicionar o seguinte trecho de código no início da sua função `Application.onCreate()`:
 
@@ -85,15 +87,15 @@ Se você substituir `Application.onCreate()`, recomenda-se adicionar o seguinte 
 
 Você pode fazer a mesma coisa para `Application.onTerminate()`, `Application.onLowMemory()` e `Application.onConfigurationChanged(...)`.
 
-Você também pode estender `EngagementApplication` em vez de ampliar `Application`: o retorno de chamada `Application.onCreate()` faz a verificação do processo e chama `Application.onApplicationProcessCreate()` somente se o processo atual não for aquele que hospeda o serviço do Engagement; as mesmas regras aplicam-se aos outros retornos de chamada.
+Você também pode estender `EngagementApplication` em vez de ampliar `Application`: o retorno de chamada `Application.onCreate()` faz a verificação do processo e chama `Application.onApplicationProcessCreate()` somente se o processo atual não for aquele que hospeda o serviço do Engagement. As mesmas regras se aplicam para os outros retornos de chamada.
 
 ##Relatórios básicos
 
 ### Método recomendado: sobrecarregar suas classes `Activity`
 
-Para ativar o relatório de todos os logs, exigido pelo Engagement para calcular os usuários, sessões, atividades, falhas e estatísticas técnicas, você só precisa fazer todas as suas subclasses`*Activity` herdem classes `Engagement*Activity` correspondentes (por exemplo, se sua atividade herdada estende `ListActivity`, faça com que ela estenda `EngagementListActivity`).
+Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular os Usuários, Sessões, Atividades, Falhas e Estatísticas técnicas, você só precisa fazer com que todas as suas subclasses `*Activity` herdem classes `Engagement*Activity` correspondentes (por exemplo, se sua atividade herdada estende `ListActivity`, faça com que ela estenda `EngagementListActivity`).
 
-**Sem o Engagement:**
+**Sem o Engagement :**
 
 			package com.company.myapp;
 			
@@ -110,7 +112,7 @@ Para ativar o relatório de todos os logs, exigido pelo Engagement para calcular
 			  }
 			}
 
-**Com o Engagement:**
+**Com o Engagement :**
 
 			package com.company.myapp;
 			
@@ -127,7 +129,7 @@ Para ativar o relatório de todos os logs, exigido pelo Engagement para calcular
 			  }
 			}
 
-> [AZURE.IMPORTANT] Ao usar `EngagementListActivity` ou `EngagementExpandableListActivity`, certifique-se de que qualquer chamada para `requestWindowFeature(...);` seja feita antes da chamada para `super.onCreate(...);`, caso contrário, ocorrerá uma falha.
+> [AZURE.IMPORTANT]Ao usar `EngagementListActivity` ou `EngagementExpandableListActivity`, certifique-se de que qualquer chamada para `requestWindowFeature(...);` seja feita antes da chamada para `super.onCreate(...);`, caso contrário, ocorrerá uma falha.
 
 Fornecemos subclasses de `FragmentActivity` e `MapActivity`, mas para evitar problemas com aplicativos que usam **ProGuard**, não as incluímos em `engagement.jar`.
 
@@ -135,9 +137,9 @@ Você pode encontrar essas classes na pasta `src` e copiá-las para seu projeto.
 
 ### Método alternativo: chame `startActivity()` e `endActivity()` manualmente
 
-Se você não pode ou não quer sobrecarregar as suas classes `Activity`, é possível em vez disso iniciar suas atividades chamando diretamente os métodos de `EngagementAgent`.
+Se você não pode ou não quer sobrecarregar as suas classes `Activity`, é possível iniciar suas atividades chamando diretamente os métodos de `EngagementAgent`.
 
-> [AZURE.IMPORTANT] O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, aplicativos nunca são, na verdade, fechados). Assim, é *ALTAMENTE* recomendado chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades, e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
+> [AZURE.IMPORTANT]O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, aplicativos nunca são, na verdade, fechados). Assim, é *ALTAMENTE* recomendado chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades, e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
 
 Aqui está um exemplo:
 
@@ -159,24 +161,23 @@ Aqui está um exemplo:
 			  }
 			}
 
-Este exemplo muito semelhante à classe `EngagementActivity` e suas variantes, cujo código-fonte é fornecido na pasta `src`.
+Este exemplo é muito semelhante à classe `EngagementActivity` e suas variantes, cujo código-fonte é fornecido na pasta `src`.
 
 ##Teste
 
-Agora, verifique sua integração lendo Como testar a integração do Engagement em Android.
+Agora, verifique sua integração lendo Como Testar a Integração do Engagement em Android.
 
 As seções a seguir são opcionais.
 
 ##Relatórios de local
 
-Se você quiser que locais sejam informados, você precisa adicionar algumas linhas de configuração (entre as marcas `<application>` e `</application>`).
+Se quiser que locais sejam informados, você precisa adicionar algumas linhas de configuração (entre as marcas `<application>` e `</application>`).
 
 ### Relatórios de local de área lenta
 
 O relatório de local de área lenta permite relatar o país, a região e a localidade associados aos dispositivos. Esse tipo de relatório de local usa apenas os locais de rede (com base na ID da célula ou WIFI). A área de dispositivo é relatada no máximo uma vez por sessão. O GPS nunca é usado e, portanto, esse tipo de relatório de local tem pouco impacto (ou quase nenhum) sobre a bateria.
 
-As áreas relatadas são usadas para computar as estatísticas geográficas sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach. A última área conhecida relatada para um dispositivo pode ser recuperada graças à [API
-do dispositivo].
+As áreas relatadas são usadas para computar as estatísticas geográficas sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach. A última área conhecida relatada para um dispositivo pode ser recuperada graças à [API do dispositivo].
 
 Para habilitar o relatório de local de área lenta, adicione:
 
@@ -190,14 +191,13 @@ Você também precisa adicionar a permissão a seguir, se ausente:
 
 Os relatórios de local em tempo real permitem relatar a latitude e a longitude associados aos dispositivos. Por padrão, esse tipo de relatório local usa apenas os locais de rede (com base na ID da célula ou WIFI) e o relatório estará disponível apenas quando o aplicativo for executado em primeiro plano (ou seja, durante uma sessão).
 
-Os locais em tempo real  *NÃO* são usados para calcular estatísticas. Sua única finalidade é permitir o uso em tempo real
-Critério geo-fencing \<Reach-Audience-geofencing\> nas campanhas do Reach.
+Os locais em tempo real *NÃO* são usados para calcular estatísticas. Sua única finalidade é permitir o uso do critério de isolamento geográfico em tempo real <Reach-Audience-geofencing> em Campanhas de alcance.
 
 Para habilitar o relatório de local em tempo real, adicione:
 
 			<meta-data android:name="engagement:locationReport:realTime" android:value="true" />
 
-Você também precisa adicionar a permissão a seguir, se ausente:
+Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
@@ -207,7 +207,7 @@ Por padrão, os relatórios de local em tempo real usam apenas locais com base e
 
 			<meta-data android:name="engagement:locationReport:realTime:fine" android:value="true" />
 
-Você também precisa adicionar a permissão a seguir, se ausente:
+Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
@@ -217,7 +217,7 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
 
 			<meta-data android:name="engagement:locationReport:realTime:background" android:value="true" />
 
-> [AZURE.NOTE] Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
+> [AZURE.NOTE]Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
 
 O relatório de local de segundo plano será interrompido se o usuário reiniciar o dispositivo; você pode adicionar isso para fazê-lo reiniciar automaticamente no momento de inicialização:
 
@@ -228,16 +228,15 @@ O relatório de local de segundo plano será interrompido se o usuário reinicia
 			   </intent-filter>
 			</receiver>
 
-Você também precisa adicionar a permissão a seguir, se ausente:
+Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 ##Relatórios avançados
 
-Opcionalmente, se você deseja relatar trabalhos, erros e eventos específicos do aplicativo, você precisa usar a API do Engagement por meio dos métodos da classe `EngagementAgent`. Um objeto dessa classe pode ser recuperado chamando o método estático `EngagementAgent.getInstance()`.
+Opcionalmente, se deseja relatar trabalhos, erros e eventos específicos do aplicativo, você precisa usar a API do Engagement por meio dos métodos da classe `EngagementAgent`. Um objeto dessa classe pode ser recuperado chamando o método estático `EngagementAgent.getInstance()`.
 
-A API do Engagement permite usar todos os recursos avançados do Engagement e detalhada em Como usar a
-API do Engagement no Android (além da documentação técnica da classe `EngagementAgent`).
+A API do Engagement permite usar todos os recursos avançados do Engagement e é detalhada em Como usar a API do Engagement em Android (além da documentação técnica da classe `EngagementAgent`).
 
 ##Configuração avançada (em Androidmanifest.xml)
 
@@ -245,11 +244,11 @@ Se quiser ter certeza de que as estatísticas são enviadas em tempo real ao usa
 
 			<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-Se você deseja desabilitar relatórios de falha, adicione isso (entre as marcas `<application>` e `</application>`):
+Se você deseja desabilitar relatórios de falha, adicione (entre as marcas `<application>` e `</application>`):
 
 			<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
-Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal (isso é chamado de "modo de intermitência"). Para fazer isso, adicione isso (entre as marcas `<application>` e `</application>`):
+Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal (isso é chamado de "modo de intermitência"). Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
 
 			<meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
 
@@ -259,7 +258,7 @@ Por padrão, o serviço Engagement estabelece a conexão com nossos servidores a
 
 			<meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
 
-Por padrão, uma sessão é encerrada 10s após o término de sua última atividade (que geralmente ocorre pressionando a tecla Página Inicial ou Voltar, definindo o telefone como ocioso ou indo diretamente para outro aplicativo). Isso é para evitar uma divisão de sessão cada vez que o usuário sair e retornar para o aplicativo rapidamente (o que pode acontecer quando ele pegar uma imagem, verificar uma notificação, etc.). Convém modificar esse parâmetro. Para fazer isso, adicione isso (entre as marcas `<application>` e `</application>`):
+Por padrão, uma sessão é encerrada 10s após o término de sua última atividade (que geralmente ocorre pressionando a tecla Página Inicial ou Voltar, definindo o telefone como ocioso ou indo diretamente para outro aplicativo). Isso é para evitar uma divisão de sessão cada vez que o usuário sair e retornar para o aplicativo rapidamente (o que pode acontecer quando ele pegar uma imagem, verificar uma notificação, etc.). Convém modificar esse parâmetro. Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
 
 			<meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
 
@@ -277,16 +276,16 @@ Se o Engagement está ativo quando você chama essa função, pode levar um minu
 
 Você pode habilitar o log de relatórios novamente chamando a mesma função com `true`.
 
-### Integração no seu próprio `PreferenceActivity`
+### Integração em seu próprio `PreferenceActivity`
 
-Em vez de chamar essa função, você também pode integrar essa configuração diretamente no seu arquivo `PreferenceActivity` existente.
+Em vez de chamar essa função, você também pode integrar esta configuração diretamente em seu arquivo existente `PreferenceActivity`.
 
-Você pode configurar o Engagement para usar o arquivo de preferências (com o modo desejado) no arquivo  `AndroidManifest.xml` com `application meta-data`:
+Você pode configurar o Engagement para usar o arquivo de preferências (com o modo desejado) no arquivo `AndroidManifest.xml` com `application meta-data`:
 
 -   A chave `engagement:agent:settings:name` é usada para definir o nome do arquivo de preferências compartilhado.
--   A chave `engagement:agent:settings:mode` é usada para definir o nome do arquivo de preferências compartilhado, você deve usar o mesmo modo que em seu `PreferenceActivity`. O modo deve ser passado como um número: se você estiver usando uma combinação de sinalizadores constantes em seu código, verifique o valor total.
+-   A chave `engagement:agent:settings:mode` é usada para definir o modo do arquivo de preferências compartilhado. Você deve usar o mesmo modo que em seu `PreferenceActivity`. O modo deve ser passado como um número: se você estiver usando uma combinação de sinalizadores constantes em seu código, verifique o valor total.
 
-O Engagement sempre usa a chave booliana `engagement:key` dentro do arquivo de preferências para gerenciar essa configuração.
+O Engagement sempre usa a chave booliana `engagement:key` dentro do arquivo de preferências para gerenciar esta configuração.
 
 O exemplo a seguir de `AndroidManifest.xml` mostra os valores padrão:
 
@@ -299,7 +298,7 @@ O exemplo a seguir de `AndroidManifest.xml` mostra os valores padrão:
 			      android:name="engagement:agent:settings:mode"
 			      android:value="0" />
 
-Em seguida, você pode adicionar uma `CheckBoxPreference` em seu layout de preferência como o seguinte:
+Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de preferência como o seguinte:
 
 			<CheckBoxPreference
 			  android:key="engagement:enabled"
@@ -311,4 +310,4 @@ Em seguida, você pode adicionar uma `CheckBoxPreference` em seu layout de prefe
 <!-- URLs. -->
 [API do dispositivo]: http://go.microsoft.com/?linkid=9876094
 
-<!--HONumber=47-->
+<!--HONumber=54-->

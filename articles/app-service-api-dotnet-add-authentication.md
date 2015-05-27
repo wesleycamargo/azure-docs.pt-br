@@ -16,16 +16,16 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Proteger um aplicativo de API:  Adicionar autenticação do Active Directory do Azure ou do provedor
+# Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social
 
 ## Visão geral
 
-No tutorial [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md), você implantou um aplicativo de API com nível de acesso **Disponível para qualquer pessoa**.  Este tutorial mostra como proteger um aplicativo de API para que somente usuários autenticados possam acessá-lo.
+No tutorial [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md), você implantou um aplicativo de API com nível de acesso **Disponível para qualquer pessoa**. Este tutorial mostra como proteger um aplicativo de API para que somente usuários autenticados possam acessá-lo.
 
 Você executará as seguintes etapas:
 
 - Chamar o aplicativo de API para verificar se ele está funcionando.
-- Aplica regras de autenticação ao aplicativo de API.
+- Aplicar regras de autenticação ao aplicativo de API.
 - Chamar o aplicativo de API novamente para verificar se ele rejeita as solicitações não autenticadas.
 - Fazer logon no provedor configurado.
 - Chamar o aplicativo de API novamente para verificar se o acesso autenticado funciona.
@@ -34,25 +34,25 @@ Você executará as seguintes etapas:
 
 Este tutorial funciona com o aplicativo de API que você criou em [Criar um aplicativo de API](app-service-dotnet-create-api-app.md) e implantou em [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md).
 
-## Use o navegador para chamar o aplicativo de API 
+## Usar o navegador para chamar o aplicativo de API 
 
 A maneira mais simples de verificar se seu aplicativo de API é acessível publicamente é chamá-lo em um navegador.
 
-1. Em seu navegador, vá para o [Portal Azure].
+1. Em seu navegador, vá para o [Portal de visualização do Azure].
 
 3. Na home page, clique em **Procurar > Aplicativos de API** e clique no nome do aplicativo de API que você deseja proteger.
 
-	![Browse](./media/app-service-api-dotnet-add-authentication/browse.png)
+	![Procurar](./media/app-service-api-dotnet-add-authentication/browse.png)
 
-	![Select API app](./media/app-service-api-dotnet-add-authentication/select.png)
+	![Selecionar aplicativo de API](./media/app-service-api-dotnet-add-authentication/select.png)
 
-3. Na lâmina **Aplicativo de API**, clique na **URL** para abrir uma janela do navegador que chama o Aplicativo de API.
+3. Na folha **Aplicativo de API**, clique na **URL** para abrir uma janela do navegador que chama o Aplicativo de API.
 
-	![API App blade](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
+	![Folha Aplicativo de API](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
 
-2. Adicione `api/contcts/get/` à URL na barra de endereço do navegador.
+2. Adicione `/api/contacts/get/` à URL na barra de endereço do navegador.
 
-	Por exemplo, se a URL do seu aplicativo de API fosse:
+	Por exemplo, se a URL do seu aplicativo de API for:
 
     	https://microsoft-apiappeeb5bdsasd744e188be7fa26f239bd4b.azurewebsites.net/
 
@@ -60,58 +60,61 @@ A maneira mais simples de verificar se seu aplicativo de API é acessível publi
 
     	https://microsoft-apiappeeb5bdsasd744e188be7fa26f239bd4b.azurewebsites.net/api/contacts/get/
 
-	Navegadores diferentes controlam chamadas de API de maneiras diferentes.  A imagem mostra uma chamada bem-sucedida de um navegador Chrome.
+	Navegadores diferentes controlam chamadas de API de maneiras diferentes. A imagem mostra uma chamada bem-sucedida de um navegador Chrome.
 
-	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+	![Resposta Get do Chrome](./media/app-service-api-dotnet-add-authentication/chromeget.png)
 
 2. Salve a URL usada. Você vai usá-la novamente mais tarde no tutorial.
 
 ## Proteger o aplicativo de API
 
-Quando implantou o aplicativo de API, você o implantou em um grupo de recursos.  Você pode adicionar aplicativos Web e outros aplicativos de API ao mesmo grupo de recursos, e cada aplicativo de API no grupo de recursos pode ter uma das três configurações de acessibilidade:
-<!--todo: diagrama mostrando diferentes configurações de acessibilidade-->
+Quando implantou o aplicativo de API, você o implantou em um grupo de recursos. Você pode adicionar aplicativos Web e outros aplicativos de API ao mesmo grupo de recursos, e cada aplicativo de API no grupo de recursos pode ter uma das três configurações de acessibilidade :<!--todo: diagram showing different accessibility settings-->
 
-- **Público (anônimo)** - qualquer pessoa pode chamar o aplicativo de API de fora do grupo de recursos sem estar conectado.
-- **Público (autenticado)** - somente usuários autenticados têm permissão para chamar o aplicativo de API de fora do grupo de recursos.
-- **Interno** - somente outros aplicativos de API ou Web do mesmo grupo de recursos têm permissão para chamar o aplicativo de API.
+- **Público (anônimo)** - Qualquer pessoa pode chamar o aplicativo de API de fora do grupo de recursos sem estar conectado.
+- **Público (autenticado)** - Somente usuários autenticados têm permissão para chamar o aplicativo de API de fora do grupo de recursos.
+- **Interno** - Somente outros aplicativos de API ou Web do mesmo grupo de recursos têm permissão para chamar o aplicativo de API. (Chamadas de aplicativos Web são consideradas externas mesmo que os aplicativos Web estejam no mesmo grupo de recursos.)
 
-Quando o Visual Studio criou o grupo de recursos para você, ele também criou um *gateway*.  Um gateway é um aplicativo Web especial que processa todas as solicitações destinadas a aplicativos de API no grupo de recursos.
+Quando o Visual Studio criou o grupo de recursos para você, ele também criou um *gateway*. Um gateway é um aplicativo Web especial que processa todas as solicitações destinadas a aplicativos de API no grupo de recursos.
 
-Quando vai até a lâmina do grupo de recursos no [Portal Azure], você pode ver seu aplicativo de API e o gateway no diagrama.
+Quando vai até a folha do grupo de recursos no [Portal de visualização do Azure], você pode ver seu aplicativo de API e o gateway no diagrama.
 
-![Resource group diagram](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
+![Diagrama do grupo de recursos](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-Para configurar seu aplicativo de API para aceitar somente solicitações autenticadas, você definirá sua acessibilidade como **Público (autenticado)** e configurará o gateway para exigir a autenticação de um provedor, como o Active Directory do Azure, Google ou Facebook.
+### Configurar o aplicativo de API para exigir autenticação
 
-1. Volte para a lâmina **Aplicativo de API** do aplicativo de API que você deseja proteger.
+Para configurar seu aplicativo de API para aceitar somente solicitações autenticadas, você definirá o acesso como **Público (autenticado)** e configurará o gateway para exigir a autenticação de um provedor, como o Active Directory do Azure, Google ou Facebook.
 
-2. Na folha do **Aplicativo de API**, clique em **Configurações** e em **Configurações do Aplicativo**.
+1. Volte para a folha **Aplicativo de API** do aplicativo de API que você quer proteger.
 
-	![Click Settings](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
+2. Na folha **Aplicativo de API**, clique em **Configurações** e em **Configurações do aplicativo**.
 
-	![Click Application settings](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
+	![Clique em Configurações](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
 
-3. Na lâmina **Configurações do Aplicativo**, altere o **Nível de Acesso** para **Público (autenticado)** e clique em **Salvar**.
+	![Clique em Configurações do aplicativo](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
 
-	![Click Basic settings](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
+3. Na folha **Configurações do aplicativo**, altere o **Nível de Acesso** para **Público (autenticado)** e clique em **Salvar**.
 
-	Você protegeu o aplicativo de API de acessos não autenticados.  Em seguida, você precisa configurar o gateway para especificar o provedor de autenticação a ser usado.
+	![Clique em Configurações básicas](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
 
-4. Role para a lâmina **Aplicativo de API** à esquerda e clique no link para o gateway.
+	Você protegeu o aplicativo de API de acessos não autenticados. Em seguida, você precisa configurar o gateway para especificar o provedor de autenticação a ser usado.
 
-	![Click gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
+### <a id="gateway"></a>Configurar o gateway para usar um provedor de autenticação
 
-7. Na lâmina **Gateway**, clique em **Configurações** e em **Identidade**.
+4. Role à esquerda de volta para a folha **Aplicativo de API** e clique no link para o gateway.
 
-	![Click Settings](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
+	![Clique em gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
 
-	![Click Identity](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
+7. Na folha **Gateway**, clique em **Configurações** e em **Identidade**.
 
-	Da lâmina **Identidade**, você pode navegar para diferentes lâminas para configurar a autenticação usando o Active Directory do Azure e vários outros provedores.
+	![Clique em Configurações](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
 
-	![Identity blade](./media/app-service-api-dotnet-add-authentication/identityblade.png)
+	![Clique em Identidade](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
+
+	Da folha **Identidade**, você pode navegar para diferentes folhas para configurar a autenticação usando o Active Directory do Azure e vários outros provedores.
+
+	![Folha de identidade](./media/app-service-api-dotnet-add-authentication/identityblade.png)
   
-3. Escolha o provedor de identidade que você deseja usar e siga as etapas no artigo correspondente para configurar seu aplicativo de API com o provedor.  Esses artigos foram escritos para aplicativos móveis, mas os procedimentos são os mesmos para os aplicativos de API.  Alguns dos procedimentos requerem que você use o [portal antigo]. 
+3. Escolha o provedor de identidade que você quer usar e siga as etapas no artigo correspondente para configurar seu aplicativo de API com esse provedor. Esses artigos foram escritos para aplicativos móveis, mas os procedimentos são os mesmos para os aplicativos de API. Alguns dos procedimentos requerem que você use o [portal do Azure].
 
  - [Conta da Microsoft](app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
  - [Logon no Facebook](app-service-mobile-how-to-configure-facebook-authentication-preview.md)
@@ -119,94 +122,99 @@ Para configurar seu aplicativo de API para aceitar somente solicitações autent
  - [Logon no Google](app-service-mobile-how-to-configure-google-authentication-preview.md)
  - [Active Directory do Azure](app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
 
-Por exemplo, as capturas de tela a seguir mostram o que você verá nas páginas do [portal antigo] e nas lâminas do [Portal do Azure] depois de configurar a autenticação do Active Directory do Azure.
+Por exemplo, as capturas de tela a seguir mostram o que você verá nas páginas do [portal do Azure] e nas folhas do [portal de visualização do Azure] depois de ativar a autenticação do Active Directory do Azure.
 
-No Portal do Azure, a lâmina **Active Directory do Azure** tem uma **ID do Cliente** do aplicativo que você criou na guia do Active Directory do Azure do portal antigo, e **Locatários Permitidos** tem seu locatário do Active Directory do Azure (por exemplo, "contoso.onmicrosoft.com").
+No Portal do Azure, a folha **Active Directory do Azure** tem uma **ID de Cliente** do aplicativo que você criou na guia Active Directory do Azure do portal do Azure, e a função **Locatários Permitidos** tem seu locatário do Active Directory do Azure (por exemplo, "contoso.onmicrosoft.com").
 
-![Azure Active Directory blade](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
+![Folha do Active Directory do Azure](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
 
-No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Active Directory do Azure** tem a **URL de Logon**, o **URI da ID do Aplicativo** e a **URL de Resposta** da lâmina **Active Directory do Azure** no Portal do Azure.
+No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Active Directory do Azure** tem a **URL de Logon**, o **URI de ID do Aplicativo** e a **URL de Resposta** da folha **Active Directory do Azure** no portal de visualização do Azure.
 
-![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
+![](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
 
-![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
+![](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
 
-![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
+![](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
 
-![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
+![](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
 
-(A URL de resposta na imagem mostra a mesma URL duas vezes, uma vez com `http:` e uma com `https:`.)
+(A URL de resposta na imagem mostra a mesma URL duas vezes, uma vez com `http:` e uma vez com `https:`.)
 
-## Verifique se a autenticação funciona 
+## Verificar se a autenticação funciona
 
-1. Abra uma janela do navegador e, na barra de endereços, digite a URL que chama o método `Get` do seu aplicativo de API, como fez anteriormente.
+**Observação:** se você tiver problema de logon ao realizar as etapas a seguir, tente abrir uma janela privada ou incógnita.
+ 
+1. Abra uma janela do navegador e, na barra de endereços, digite a URL que chama o método `Get` do aplicativo de API, como fez anteriormente.
 
 	Neste momento a tentativa de acessar o aplicativo de API resulta em uma mensagem de erro.
 
-	![Chrome Get response fail](./media/app-service-api-dotnet-add-authentication/chromegetfail.png)
+	![Falha na resposta Get do Chrome](./media/app-service-api-dotnet-add-authentication/chromegetfail.png)
 
-2. No navegador, vá para a URL de logon: 
+2. No navegador, vá para a URL de logon. A URL segue este padrão:
 
-    	http://[resourcegroupname]gateway.azurewebsites.net/login/[providername]
+    	http://[gatewayurl]/login/[providername]
 
-	Por exemplo, se você denominar seu grupo de recursos myfirstrg e configurar o gateway para a autenticação do Active Directory do Azure, a URL será a seguinte:
+	Você pode obter a URL do gateway na folha **Gateway** no [Portal de visualização do Azure]. (Para obter a folha **Gateway**, clique em gateway no diagrama mostrado na folha **Grupo de recursos**.)
 
-    	http://myfirstrggateway.azurewebsites.net/login/aad
+	![URL de gateway](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	Observe que diferentemente da URL anterior, esta não inclui o nome de seu aplicativo de API:  o gateway está autenticando você, não o aplicativo de API.  O gateway controla a autenticação de todos os aplicativos de API do grupo de recursos.
+	O valor de [providername] é "microsoftaccount", "facebook", "twitter", "google", ou "aad".
 
-	(Se você tiver problemas para entrar, tente abrir uma janela particular ou incógnito).
+	Aqui está um exemplo de URL de logon para o Active Directory do Azure:
 
-3. Insira suas credenciais quando o navegador exibir uma página de logon. 
+		https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
+
+	Observe que, diferentemente da URL anterior, esta não inclui o nome de seu aplicativo de API: o gateway está autenticando você, não o aplicativo de API. O gateway controla a autenticação de todos os aplicativos de API do grupo de recursos.
+
+3. Insira suas credenciais quando o navegador exibir uma página de logon.
  
-	Se você tiver configurado o logon do Active Directory do Azure, use um dos usuários listados na guia **Usuários** do aplicativo que você criou na guia do Active Directory do Azure do [portal antigo], como admin@contoso.onmicrosoft.com.
+	Se você tiver configurado logon do Active Directory do Azure, use um dos usuários listados na guia **Usuários** para o aplicativo criado na guia do Active Directory do Azure no [Portal Azure], como admin@contoso.onmicrosoft.com.
 
-	![AAD users](./media/app-service-api-dotnet-add-authentication/aadusers.png)
+	![Usuários do AAD](./media/app-service-api-dotnet-add-authentication/aadusers.png)
 
-	![Login page](./media/app-service-api-dotnet-add-authentication/ffsignin.png)
+	![Página de logon](./media/app-service-api-dotnet-add-authentication/ffsignin.png)
 
 4. Quando a mensagem de "logon concluído" for exibida, insira a URL para o método Get do aplicativo de API novamente.
 
-	Dessa vez, como você foi autenticado, a chamada será bem-sucedida.  O gateway reconhece que você é um usuário autenticado e passa a solicitação para seu aplicativo de API.
+	Dessa vez, como você foi autenticado, a chamada é bem-sucedida. O gateway reconhece que você é um usuário autenticado e passa a solicitação para seu aplicativo de API.
 
-	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
+	![Logon concluído](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
-	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
-	<!--todo: substituir por imagem mostrando nomes fictícios -->
+	![Resposta Get do Chrome](./media/app-service-api-dotnet-add-authentication/chromeget.png)
 
 ## Usar o Postman para enviar uma solicitação Post
 
-Quando você faz logon no gateway, o gateway envia de volta um token de autenticação.  Esse token deve ser incluído em todas as solicitações de fontes externas que passam pelo gateway.  Quando você acessa uma API com um navegador, o navegador normalmente armazena o token em um cookie e o envia com todas as chamadas posteriores para a API.
+Quando você faz logon no gateway, o gateway envia de volta um token de autenticação. Esse token deve ser incluído em todas as solicitações de fontes externas que passam pelo gateway. Quando você acessa uma API com um navegador, o navegador normalmente armazena o token em um cookie e o envia com todas as chamadas posteriores para a API.
 
-Para ver o que está acontecendo na telad de fundo, nesta seção você usa uma ferramenta de navegação para criar e enviar uma solicitação Post e obtém o token de autorização do cookie e o inclui em um cabeçalho HTTP.
+Para ver o que está acontecendo em segundo plano, nesta seção você usa uma ferramenta de navegação para criar e enviar uma solicitação Post e obtém o token de autorização do cookie e o inclui em um cabeçalho HTTP. Esta seção é opcional: na seção anterior, você já verificou que o aplicativo de API aceita apenas acesso autenticado.
 
 Estas instruções mostram como usar a ferramenta Postman no navegador Chrome, mas você pode fazer a mesma coisa com qualquer ferramenta de cliente REST e quaisquer ferramentas de desenvolvedor do navegador.
 
 1. Em uma janela do navegador Chrome, percorra as etapas mostradas na seção anterior para autenticar e as ferramentas do desenvolvedor (F12).
 
-	![Go to Resources tab](./media/app-service-api-dotnet-add-authentication/resources.png)
+	![Vá para a guia Recursos](./media/app-service-api-dotnet-add-authentication/resources.png)
 
-3. Na guia **Recursos** das ferramentas de desenvolvedor do Chrome, localize os cookies do seu gateway e clique três vezes no valor do cookie **zumo-x-auth** para selecionar tudo.
+3. Na guia **Recursos** das ferramentas de desenvolvedor do Chrome, localize os cookies do seu gateway e clique três vezes no valor do cookie **x-zumo-auth** para selecionar tudo.
 
-	**Observação:** certifique-se de obter todo o valor do cookie. Se clicar duas vezes, você obterá apenas a primeira parte dele.
+	**Observação:** Certifique-se de obter todo o valor do cookie. Se você clicar duas vezes, poderá receber apenas a primeira parte dele.
 
-5. Clique com o botão direito do mouse no **Valor** do cookie **zumo-x-auth** e clique em **Copiar**.
+5. Clique com o botão direito do mouse no **Valor** do cookie **x-zumo-auth** e clique em **Copiar**.
 
-	![Copy auth token](./media/app-service-api-dotnet-add-authentication/copyzumotoken.png)
+	![Copiar token de autorização](./media/app-service-api-dotnet-add-authentication/copyzumotoken.png)
 
-4. Instale a extensão do Postman no navegador Chrome se você ainda não tiver feito isso.
+4. Instale a extensão do Postman no navegador Chrome se ainda não o fez.
 
 6. Abra a extensão Postman.
 
-7. No campo URL de Solicitação, digite a URL para o método Get do aplicativo de API que você usou anteriormente, mas omita `get/` do final.
+7. No campo URL de Solicitação, digite a URL do método Get do aplicativo de API que você usou anteriormente, mas omita `get/` do final.
  
 		http://[apiappurl]/api/contacts
     
-8. Clique em **Cabeçalhos** e adicione um cabeçalho *zumo-x-auth*.  Cole o valor do token da área de transferência para campo **Valor**.
+8. Clique em **Cabeçalhos** e adicione um cabeçalho *x-zumo-auth*. Cole o valor do token da área de transferência do campo **Valor**.
 
-9. Adicione um cabeçalho *Content-Type* com o valor *application/json*.
+9. Adicione um cabeçalho de *Tipo de Conteúdo* com o valor *application/json*.
 
-10. Clique em **form-data** e adicione uma chave de *contato* com o seguinte valor:
+10. Clique em **dados de formulário** e adicione uma chave de *contato* com o seguinte valor:
 
 		{   "Id": 0,   "Name": "Li Yan",   "EmailAddress": "yan@contoso.com" }
 
@@ -214,21 +222,21 @@ Estas instruções mostram como usar a ferramenta Postman no navegador Chrome, m
 
 	A aplicativo de API retorna uma resposta *201 Criado*.
 
-	![Add headers and body](./media/app-service-api-dotnet-add-authentication/addcontact.png)
+	![Adicionar cabeçalhos e corpo](./media/app-service-api-dotnet-add-authentication/addcontact.png)
 
 12. Para verificar se a solicitação não funciona sem o token de autenticação, exclua o cabeçalho de autenticação e clique em Enviar novamente.
 
 	Você obtém uma resposta *403 Proibido*.
 
-	![403 Forbidden response](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
+	![Resposta 403 Proibido](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
 ## Próximas etapas
 
-Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou provedor social.  Para saber mais, consulte [O que são Aplicativos de API?](app-service-api-apps-why-best-platform.md). 
+Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou do provedor social. Para obter mais informações, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
 
-[portal antigo]: https://manage.windowsazure.com/
-[Portal do Azure]: https://portal.azure.com/
-[Portal Azure]: https://portal.azure.com/
+[Portal Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://manage.windowsazure.com/
+[Portal de visualização do Azure]: https://portal.azure.com/
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Notas de versão do SDK do iOS no Mobile Engagement do Azure" 
 	description="Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
 	services="mobile-engagement" 
@@ -18,6 +18,13 @@
 
 #Notas de versão
 
+##2.1.0 (24/04/2015)
+
+-   Adicione compatibilidade com Swift.
+-   Ao clicar em uma notificação, a URL de ação agora é executada logo após o aplicativo ser aberto.
+-   Arquivo de cabeçalho ausente adicionado no pacote SDK.
+-   Corrigiu um problema quando o gerador de relatórios de falha do Mobile Engagement foi desabilitado.
+
 ##2.0.0 (17/02/2015)
 
 -   Versão Inicial do Mobile Engagement do Azure
@@ -28,4 +35,4 @@
 -   Controle SmartAd removido.
 
 
-<!--HONumber=47-->
+<!--HONumber=54-->

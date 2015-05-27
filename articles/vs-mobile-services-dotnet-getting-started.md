@@ -1,34 +1,34 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Como começar a trabalhar com os Serviços Móveis do Azure em um projeto .NET do Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Introdução aos serviços móveis (Projetos .NET)
 
 > [AZURE.SELECTOR]
-> - [Introdução](vs-mobile-services-dotnet-getting-started.md)
-> - [O que aconteceu](vs-mobile-services-dotnet-what-happened.md)
-
-## Introdução aos serviços móveis (Projetos .NET)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 A primeira etapa necessária para seguir o código nesses exemplos depende de a qual tipo de serviço móvel você está conectado.
 
-Para obter um serviço móvel de back-end JavaScript, crie uma tabela chamada TodoItem.  Para criar uma tabela, localize o serviço móvel sob o nó Azure no Gerenciador de servidores, clique com o botão direito no nó do serviço móvel para abrir o menu de contexto e escolha **Criar Tabela**. Digite "TodoItem" como o nome da tabela.
+Para obter um serviço móvel de back-end JavaScript, crie uma tabela chamada TodoItem. Para criar uma tabela, localize o serviço móvel sob o nó Azure no Gerenciador de servidores, clique com o botão direito no nó do serviço móvel para abrir o menu de contexto e escolha **Criar Tabela**. Digite "TodoItem" como o nome da tabela.
 
 Se ao invés de você ter um serviço móvel de back-end .NET, já houver uma tabela TodoItem no modelo do projeto padrão que o Visual Studio criou para você, será necessário publicá-lo no Azure. Para publicá-lo, abra o menu de contexto do projeto de serviço móvel no Gerenciador de servidores e escolha **Publicar na Web**. Aceite os padrões e escolha o botão **Publicar**.
 
-#####Obtenha referência para uma tabela
+#####Obtenha referência de uma tabela
 
 O código a seguir obtém uma referência de uma tabela que contém dados para um TodoItem, que pode ser usada em operações posteriores para ler e atualizar a tabela de dados. Você precisará da classe TodoItem com atributos preparados para interpretar o JSON enviado pelo serviço móvel em resposta às suas consultas.
 
@@ -45,7 +45,7 @@ O código a seguir obtém uma referência de uma tabela que contém dados para u
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-Este código funcionará se sua tabela possuir permissões definidas para **Qualquer um com uma chave de aplicativo**. Se você alterar as permissões para proteger seu serviço móvel, precisará adicionar suporte à autenticação de usuário. Consulte [Introdução à autenticação](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+Este código funcionará se sua tabela possuir permissões definidas para **Qualquer um com uma chave de aplicativo**. Se você alterar as permissões para proteger seu serviço móvel, precisará adicionar suporte à autenticação de usuário. Consulte [Introdução à autenticação](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 #####Adicionar entrada 
 
@@ -84,6 +84,4 @@ Excluir uma linha no banco de dados. O item do parâmetro é o objeto TodoItem a
 
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integração do Reach SDK do iOS no Mobile Engagement do Azure" 
 	description="Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
 	services="mobile-engagement" 
@@ -18,15 +18,15 @@
 
 #Como integrar o Engagement Reach no iOS
 
-> [AZURE.IMPORTANT] Você deve seguir o procedimento de integração descrito em Como integrar o Engagement no documento iOS antes de seguir este guia.
+> [AZURE.IMPORTANT]Você deve seguir o procedimento de integração descrito em Como integrar o Engagement no documento iOS antes de seguir este guia.
 
 ##Etapas de integração
 
 ### Incorporar o SDK do Engagement Reach em seu projeto iOS
 
--   Adicione o sdk Reach em seu projeto Xcode. No Xcode, vá para **projeto \> Adicionar ao projeto** e escolha a `EngagementReach` pasta.
+-   Adicione o sdk Reach em seu projeto Xcode. No Xcode, vá para **Projeto > Adicionar ao projeto** e escolha a pasta `EngagementReach`.
 
-### Modificar seu Representante de aplicativo
+### Modifique seu Representante do Aplicativo
 
 -   Na parte superior do seu arquivo de implementação, importe o módulo do Engagement Reach:
 
@@ -44,7 +44,7 @@
 			}
 
 -   Modifique a cadeia de caracteres **'icon.png'** com o nome da imagem que você deseja definir como o ícone de notificação.
--   Se você quiser usar a opção *valor de notificação de atualização* em campanhas Reach ou se você deseja usar o envio nativo de campanhas \</SaaS/Reach API/Campaign format/Native Push\>, você deve deixar o módulo Reach gerenciar o ícone de notificação em si (ele apagará automaticamente a notificação do aplicativo e também redefinirá o valor armazenado pelo Engagement sempre que o aplicativo for iniciado ou colocado em segundo plano). Isso é feito adicionando a seguinte linha após a inicialização do módulo Reach:
+-   Se você quiser usar a opção *Valor de notificação de atualização* em campanhas Reach ou se você deseja usar o envio nativo de campanhas </SaaS/Reach API/Campaign format/Native Push>, você deve deixar o módulo Reach gerenciar o ícone de notificação em si (ele apagará automaticamente a notificação do aplicativo e também redefinirá o valor armazenado pelo Engagement sempre que o aplicativo for iniciado ou colocado em segundo plano). Isso é feito adicionando a seguinte linha após a inicialização do módulo Reach:
 
 			[reach setAutoBadgeEnabled:YES];
 
@@ -69,7 +69,7 @@
 
 ### Categoria
 
-O parâmetro de categoria é opcional quando você criar uma campanha de envio de dados e permitir que você filtre o envio de dados. Isso será útil se você deseja enviar tipos diferentes de dados na `Base64` e desejar identificar seu tipo antes da analisá-los.
+O parâmetro de categoria é opcional quando você criar uma campanha de envio de dados e permitir que você filtre o envio de dados. Isso será útil se você deseja enviar tipos diferentes de dados `Base64` e desejar identificar seu tipo antes da analisá-los.
 
 **Seu aplicativo agora está pronto para receber e exibir o conteúdo do alcance!**
 
@@ -81,7 +81,7 @@ Para habilitar essa funcionalidade, você precisará preparar seu aplicativo par
 
 ### Preparar seu aplicativo para notificações de push da Apple
 
-Siga o guia: Como preparar seu aplicativo para notificações de Push da Apple.
+Siga o guia : Como preparar seu aplicativo para notificações por push da Apple
 
 ### Adicione o código de cliente necessário
 
@@ -215,13 +215,13 @@ Notificações no aplicativo são feitas de uma exibição que é adicionada din
 
 #### Layout
 
-Para modificar a aparência de suas notificações no aplicativo, você pode simplesmente modificar o arquivo `AENotificationView.xib` às suas necessidades, desde que você mantenha os valores de marca e tipos das subexibições existentes.
+Para modificar a aparência de suas notificações no aplicativo, você pode simplesmente modificar o arquivo `AENotificationView.xib` conforme as suas necessidades, desde que você mantenha os valores de marca e tipos das subexibições existentes.
 
 Por padrão, as notificações no aplicativo são apresentadas na parte inferior da tela. Se você preferir exibi-los na parte superior da tela, edite o `AENotificationView.xib` fornecido e altere a propriedade `AutoSizing` do modo de exibição principal para que possa ser mantido na parte superior da sua visão.
 
 #### Categorias
 
-Quando você modifica o layout fornecido, você pode modificar a aparência de todas as notificações. As categorias permitem que você defina várias aparências direcionadas (possíveis comportamentos) para as notificações. Uma categoria pode ser especificada quando você criar uma campanha de alcance. Tenha em mente que categorias também permitem personalizar anúncios e pesquisas, como está descrito mais adiante neste documento.
+Quando você modifica o layout fornecido, você pode modificar a aparência de todas as notificações. As categorias permitem que você defina várias aparências direcionadas (possíveis comportamentos) para as notificações. Uma categoria pode ser especificada quando você cria uma campanha de Reach. Tenha em mente que categorias também permitem personalizar anúncios e pesquisas, como está descrito mais adiante neste documento.
 
 Para registrar um manipulador de categoria para as notificações, você precisa adicionar uma chamada depois que o módulo reach for inicializado.
 
@@ -257,7 +257,7 @@ O arquivo nib fornecido deve respeitar as regras a seguir:
 -   Subexibições devem ser dos mesmos tipos que aquelas dentro do arquivo nib fornecido chamado `AENotificationView.xib`
 -   Subexibições devem ter as mesmas marcas que aqueles fornecidos dentro do arquivo nib chamado `AENotificationView.xib`
 
-> [AZURE.TIP] Apenas copie o arquivo nib fornecido, chamado `AENotificationView.xib`e comece a trabalhar a partir daí. Mas tenha cuidado, o modo de exibição dentro desse arquivo nib é associado à classe `AENotificationView`. Essa classe redefiniu o método `layoutSubViews` para mover e redimensionar suas subexibições de acordo com o contexto. Você pode substituí-lo com um `UIView` ou classe de modo de exibição personalizada.
+> [AZURE.TIP]Apenas copie o arquivo nib fornecido, chamado `AENotificationView.xib` e comece a trabalhar a partir daí. Mas tenha cuidado, o modo de exibição dentro desse arquivo nib é associado à classe `AENotificationView`. Essa classe redefiniu o método `layoutSubViews` para mover e redimensionar suas subexibições de acordo com o contexto. Você pode substituí-lo por um `UIView` ou classe de modo de exibição personalizada.
 
 Se precisar de personalização mais profunda das suas notificações (se você quiser, por exemplo para carregar a exibição diretamente do código), é recomendável examinar a documentação de código e a classe de fonte fornecido de `Protocol ReferencesDefaultNotifier` e `AENotifier`.
 
@@ -272,7 +272,7 @@ Você também pode redefinir a notificação padrão como esta:
 
 Ao usar a categoria padrão, alguns métodos de ciclo de vida são chamados no objeto `AEReachContent` para relatar estatísticas e atualizar o estado de campanha:
 
--   Quando a notificação é exibida no aplicativo, o método `displayNotification` é chamado (que relata estatísticas) por `AEReachModule` se `handleNotification:` retornar `SIM`.
+-   Quando a notificação é exibida no aplicativo, o método `displayNotification` é chamado (que relata estatísticas) por `AEReachModule` se`handleNotification:` retornar `YES`.
 -   Se a notificação é liberada, o método `exitNotification` é chamado, a estatística é relatada e as próximas campanhas agora podem ser processadas.
 -   Se a notificação é clicada, `actionNotification` é chamado, a estatística é relatada e a ação associada é executada.
 
@@ -281,7 +281,7 @@ Se sua implementação de `AENotifier` ignora o comportamento padrão, você pre
 -   Você não precisa estender `AEDefaultNotifier`, por exemplo, você implementou o tratamento de categoria a partir do zero.
 -   Você substitui `prepareNotificationView:forContent:`, certifique-se de mapear pelo menos `onNotificationActioned` ou `onNotificationExited` para um dos seus controles de interface de usuário.
 
-> [AZURE.WARNING] Se `handleNotification:` lança uma exceção, o conteúdo será excluído e `drop` é chamado, isso é informado em estatísticas e as próximas campanhas agora podem ser processadas.
+> [AZURE.WARNING]Se `handleNotification:` lança uma exceção, o conteúdo será excluído e `drop` é chamado, isso é informado em estatísticas e as próximas campanhas agora podem ser processadas.
 
 #### Incluir notificação como parte de uma exibição existente
 
@@ -293,7 +293,7 @@ Você pode optar por incluir o layout de notificação em exibições existentes
 
 1.  Adicionar a exibição de notificação usando o construtor de interface
 
-	-   Abra o  *Construtor de Interface*
+	-   Abra o *Interface Builder*
 	-   Insira um 320 x 60 (ou 768 x 60 se você estiver no iPad) `UIView` onde você deseja que a notificação seja exibida
 	-   Defina o valor da marca para esse modo de exibição: **36822491**
 
@@ -305,7 +305,7 @@ Você pode optar por incluir o layout de notificação em exibições existentes
 
 A macro `NOTIFICATION_AREA_VIEW_TAG` pode ser encontrada em `AEDefaultNotifier.h`.
 
-> [AZURE.NOTE] A notificação padrão automaticamente detecta que o layout de notificação está incluído nessa exibição e não adicionará uma sobreposição para ela.
+> [AZURE.NOTE]A notificação padrão automaticamente detecta que o layout de notificação está incluído nessa exibição e não adicionará uma sobreposição para ela.
 
 ### Anúncios e pesquisas
 
@@ -324,7 +324,7 @@ Para criar uma categoria para um anúncio, você deve estender **AEAnnouncementV
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE] Cada vez que um usuário for clicar em uma notificação para um anúncio com a categoria "my\_category", o controlador de exibição registrado (nesse caso `MyCustomAnnouncementViewController`) será inicializado chamando o método `initWithAnnouncement:` e a exibição será adicionada à janela do aplicativo atual.
+> [AZURE.NOTE]Cada vez que um usuário for clicar em uma notificação para um anúncio com a categoria “my\\_category”, o controlador de exibição registrado (nesse caso `MyCustomAnnouncementViewController`) será inicializado chamando o método `initWithAnnouncement:` e a exibição será adicionada à janela do aplicativo atual.
 
 Na implementação da classe `AEAnnouncementViewController` você terá que ler a propriedade `announcement` para inicializar as subexibições. Considere o exemplo a seguir, onde dois rótulos são inicializados usando as propriedades `title` e `body` da classe `AEReachAnnouncement`:
 
@@ -344,7 +344,7 @@ Na implementação da classe `AEAnnouncementViewController` você terá que ler 
 			    [self.view addSubview:bodyLabel];
 			}
 
-Se você não deseja carregar suas exibições por conta própria, mas apenas deseja reutilizar o layout de exibição do anúncio padrão, você pode simplesmente fazer o controlador de exibição personalizada estender a classe fornecida `AEDefaultAnnouncementViewController`. Nesse caso, duplique o arquivo nib `AEDefaultAnnouncementView.xib` e o renomeie para que possa ser carregado pelo controlador de exibição personalizada (para um controlador chamado `CustomAnnouncementViewController`, você deve chamar seu arquivo nib `CustomAnnouncementView.xib`).
+Se você não deseja carregar suas exibições por conta própria, mas apenas deseja reutilizar o layout de exibição do anúncio padrão, você pode simplesmente fazer o controlador de exibição personalizada estender a classe `AEDefaultAnnouncementViewController` fornecida. Nesse caso, duplique o arquivo `AEDefaultAnnouncementView.xib` nib e o renomeie para que possa ser carregado pelo controlador de exibição personalizada (para um controlador chamado `CustomAnnouncementViewController`, você deve chamar seu arquivo nib `CustomAnnouncementView.xib`).
 
 Para substituir a categoria padrão de anúncios, basta registrar seu controlador de exibição personalizado para a categoria definida no `kAEReachDefaultCategory`:
 
@@ -357,7 +357,7 @@ Pesquisas podem ser personalizadas da mesma forma:
 
 Neste momento, os `MyCustomPollViewController` fornecidos devem estender `AEPollViewController`. Ou você pode optar por estender a partir do controlador padrão: `AEDefaultPollViewController`.
 
-> [AZURE.IMPORTANT] Não se esqueça de chamar a ação `também` (`submitAnswers:` para controladores de exibição de pesquisa personalizada) ou o método `sair` antes que o controlador de exibição estar descartado. Caso contrário, as estatísticas não serão enviadas (ou seja, sem análise da campanha) e, mais importante, as próximas campanhas não serão notificadas quando o processo do aplicativo for reiniciado.
+> [AZURE.IMPORTANT]Não se esqueça de chamar `action` (`submitAnswers:` para controladores de exibição de pesquisa personalizada) ou o método `exit` antes do controlador de exibição ser descartado. Caso contrário, as estatísticas não serão enviadas (ou seja, sem análise da campanha) e, mais importante, as próximas campanhas não serão notificadas quando o processo do aplicativo for reiniciado.
 
 ##### Exemplo de implementação
 
@@ -457,4 +457,4 @@ Como para personalização da notificação avançada, é recomendável examinar
 			
 			@end
 
-<!--HONumber=47-->
+<!--HONumber=54-->

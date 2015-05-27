@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar a API do Engagement no Android" 
 	description="SDK mais recente do Android - Como usar a API do Engagement no Android"
 	services="mobile-engagement" 
@@ -18,54 +18,54 @@
 
 #Como usar a API do Engagement no Android
 
-Este documento é um complemento para o documento [Como integrar o Engagement no Android](mobile-engagement-android-integrate-engagement.md): fornece detalhes aprofundado sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
+Este documento é um complemento para o documento [Como integrar o Engagement no Android](mobile-engagement-android-integrate-engagement.md): ele fornece detalhes aprofundados sobre como usar a API Engagement para relatar as estatísticas do aplicativo.
 
-Tenha em mente que se desejar que o Engagement somente relate as sessões, atividades, falhas e informações técnicas do seu aplicativo, a maneira mais simples é fazer com que todas as suas subclasses  `Activity` herdam da classe  `EngagementActivity` correspondente.
+Tenha em mente que se desejar que o Engagement somente relate as sessões, atividades, falhas e informações técnicas do seu aplicativo, a maneira mais simples é fazer com que todas as suas subclasses `Activity` herdem da classe `EngagementActivity` correspondente.
 
-Se você quiser fazer mais, por exemplo, se precisar relatar eventos, erros e trabalhos específicos do aplicativo, ou se você tiver que relatar as atividades do seu aplicativo de maneira diferente daquela implementada nas classes  `EngagementActivity`, você precisará usar a API do Engagement.
+Se você quiser fazer mais, por exemplo, se você precisar reportar eventos, erros e trabalhos específicos do aplicativo ou se você tiver que relatar as atividades do seu aplicativo de maneira diferente de um implementado nas classes `EngagementActivity`, você precisará usar a API do Engagement.
 
-A API do Engagement é fornecida pela classe  `EngagementAgent`. Uma instância desta classe pode ser recuperada chamando o método estático  `EngagementAgent.getInstance(Context)` (Observe que o objeto  `EngagementAgent` retornado é um singleton).
+A API do Engagement é fornecida pela classe `EngagementAgent`. Uma instância desta classe pode ser recuperada chamando o método estático `EngagementAgent.getInstance(Context)` (observe que o objeto `EngagementAgent` retornado é um singleton).
 
-##Conceitos de contrato
+##Conceitos de Engagement
 
-As seguintes partes refinam os [Conceitos do Mobile Engagement] comuns(mobile-engagement-concepts.md), para a plataforma Android.
+As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagement-concepts.md) usuais para a plataforma Android.
 
-### `Sessão` e  `Atividade`
+### `Session` e `Activity`
 
-Se o usuário permanecer mais de alguns segundos ocioso entre duas  *atividades*, a sua sequência de  *atividades* é dividida em duas  *sessões* diferentes. Esses poucos segundos são chamados de "tempo limite da sessão".
+Se o usuário permanecer mais de alguns segundos ocioso entre duas *atividades*, a sua sequência de *atividades* é dividida em duas *sessões* diferentes. Esses poucos segundos são chamados de "tempo limite da sessão".
 
-Uma  *atividade* geralmente está associada a uma tela do aplicativo, isso significa que a  *atividade* é iniciada quando a tela é exibida e é interrompida quando a tela é fechada: esse é o caso quando o SDK do contrato é integrado usando as classes  `EngagementActivity`.
+Uma *atividade* geralmente está associada com uma tela do aplicativo, isso significa que a *atividade* inicia quando a tela é exibida e é interrompida quando a tela for fechada: esse é o caso quando o SDK Engagement é integrado usando as classes `EngagementActivity`.
 
-Mas as  *atividades* também podem ser controladas manualmente usando a API do Engagement. Isso permite dividir uma determinada tela em várias subpartes para obter mais detalhes sobre o uso desta tela (por exemplo, para saber a frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
+Mas as *atividades* também podem ser controladas manualmente usando a API Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
 
 ##Relatório de atividades
 
-> [AZURE.IMPORTANT] Não é necessário relatório de atividades, como descrito nesta seção se você estiver usando a classe  `EngagementActivity` e suas variantes, conforme explicado em Como integrar o Engagement em documento Android.
+> [AZURE.IMPORTANT]Não é necessário relatório de atividades, como descrito nesta seção se você estiver usando a classe `EngagementActivity` e suas variantes, conforme explicado em Como integrar o Engagement em documento Android.
 
-### Usuário inicia uma nova atividade
+### O usuário inicia uma nova atividade
 
 			EngagementAgent.getInstance(this).startActivity(this, "MyUserActivity", null);
 			// Passing the current activity is required for Reach to display in-app notifications, passing null will postpone such announcements and polls.
 
-É necessário chamar o  `startActivity()` sempre que o usuário altera a atividade. A primeira chamada para essa função inicia uma nova sessão de usuário.
+É necessário chamar `startActivity()` sempre que houver alterações de atividade do usuário. A primeira chamada para essa função inicia uma nova sessão de usuário.
 
-O melhor lugar para chamar essa função é em cada retorno de chamada  `onResume` de atividade.
+O melhor lugar para chamar essa função é em cada retorno de chamada de `onResume` da atividade.
 
-### Usuário encerra sua atividade atual
+### O usuário encerra sua atividade atual
 
 			EngagementAgent.getInstance(this).endActivity();
 
-É necessário chamar  `endActivity()` pelo menos uma vez quando o usuário conclui sua última atividade. Isso informa o SDK do Engagement que o usuário está ocioso no momento e que a sessão do usuário precisa ser fechada quando o tempo limite da sessão expirar (se você chamar  `startActivity()` antes de expirar o tempo limite da sessão, a sessão será simplesmente retomada).
+É necessário chamar `endActivity()` pelo menos uma vez quando o usuário conclui sua última atividade. Isso informa o SDK do Engagement que o usuário está ocioso no momento e que a sessão do usuário precisa ser fechada quando o tempo limite da sessão expirar (se você chamar `startActivity()` antes de expirar o tempo limite da sessão, a sessão será simplesmente retomada).
 
-O melhor lugar para chamar essa função é em cada retorno de chamada  `onPause` de atividade.
+O melhor lugar para chamar essa função é em cada retorno de chamada de `onPause` da atividade.
 
 ##Eventos de relatório
 
 ### Eventos de sessão
 
-Os eventos de sessão são geralmente usados para relatar as ações executadas por um usuário durante a sessão.
+Eventos de sessão são geralmente usados para relatar as ações executadas por um usuário durante a sessão.
 
-**Exemplo sem dados extras:**
+**Exemplo sem dados adicionais:**
 
 			public MyActivity extends EngagementActivity {
 			   [...]
@@ -76,7 +76,7 @@ Os eventos de sessão são geralmente usados para relatar as ações executadas 
 			   [...]
 			}
 
-**Exemplo com dados extras:**
+**Exemplo com dados adicionais:**
 
 			public MyActivity extends EngagementActivity {
 			  [...]
@@ -89,7 +89,7 @@ Os eventos de sessão são geralmente usados para relatar as ações executadas 
 			  [...]
 			}
 
-### Eventos independentes
+### Eventos autônomos
 
 Ao contrário dos eventos de sessão, os eventos independentes podem ocorrer fora do contexto de uma sessão.
 
@@ -107,11 +107,11 @@ Suponha que você deseja relatar eventos que ocorrem quando um receptor de difus
 			  [...]
 			}
 
-##Relatório de erros
+##Erros de relatório
 
 ### Erros de sessão
 
-Os erros de sessão são geralmente usados para relatar os erros que afetam o usuário durante a sessão.
+Erros de sessão são geralmente usados para relatar os erros que afetam o usuário durante a sessão.
 
 **Exemplo:**
 
@@ -127,9 +127,9 @@ Os erros de sessão são geralmente usados para relatar os erros que afetam o us
 			  [...]
 			}
 
-### Erros de independentes
+### Erros autônomos
 
-Ao contrário dos erros de sessão, podem ocorrer erros independentes fora do contexto de uma sessão.
+Ao contrário dos erros de sessão, os erros autônomos podem ocorrer fora do contexto de uma sessão.
 
 **Exemplo:**
 
@@ -147,7 +147,7 @@ O exemplo a seguir mostra como relatar um erro sempre que a memória diminui no 
 
 ### Exemplo
 
-Suponha que você deseja relatar durante o processo de logon:
+Suponha que você deseja relatar a duração do processo de logon:
 			
 			[...]
 			public void signIn(Context context, ...) {
@@ -167,14 +167,13 @@ Suponha que você deseja relatar durante o processo de logon:
 
 ### Relatar erros durante um trabalho
 
-Os erros podem estar relacionados a um trabalho em execução, em vez de estarem relacionados à sessão de usuário atual.
+Os erros podem estar relacionados a um trabalho em execução, em vez de serem relacionados a sessão do usuário atual.
 
 **Exemplo:**
 
 Suponha que você deseja relatar um erro durante o seu processo de logon:
 
-[...]
-public void signIn(Context context, ...) {
+[...] public void signIn(Context context, ...) {
 
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
@@ -203,11 +202,11 @@ public void signIn(Context context, ...) {
 
 ### Relatar eventos durante um trabalho
 
-Os erros podem estar relacionados a um trabalho em execução, em vez de estarem relacionados à sessão de usuário atual.
+Os erros podem estar relacionados a um trabalho em execução, em vez de serem relacionados a sessão do usuário atual.
 
 **Exemplo:**
 
-Suponha que temos uma rede social e usamos um trabalho de relatório durante todo o tempo que o usuário está conectado ao servidor. O usuário pode permanecer conectado em segundo plano, mesmo quando ele estiver usando outro aplicativo ou quando o telefone estiver em repouso, portanto, não há nenhuma sessão.
+Suponha que temos uma rede social e usamos um trabalho para relatar o tempo total durante o qual o usuário está conectado ao servidor. O usuário pode permanecer conectado em segundo plano, mesmo quando ele estiver usando outro aplicativo ou quando o telefone estiver em repouso, portanto, não há nenhuma sessão.
 
 O usuário pode receber mensagens de seus amigos, esse é um evento de trabalho.
 			
@@ -228,15 +227,15 @@ O usuário pode receber mensagens de seus amigos, esse é um evento de trabalho.
 			}
 			[...]
 
-##Parâmetros extras
+##Parâmetros adicionais
 
-Os dados arbitrários podem ser anexados a trabalhos, atividades, erros e eventos.
+Os dados arbitrários podem ser anexados aos eventos, erros, atividades e trabalhos.
 
 Esses dados podem ser estruturados, eles usam a classe de pacote do Android (na verdade, eles funcionam como parâmetros extras no Android Intents). Observe que um pacote pode conter matrizes ou outras instâncias de pacote.
 
-> [AZURE.IMPORTANT] Se você colocar os parâmetros parceláveis ou serializáveis, certifique-se de que o seu método  `toString()` seja implementado para retornar uma cadeia de caracteres legível. As classes serializáveis que contêm campos não transitórios que não são serializáveis farão com que o Android falhe quando você chamar `bundle.putSerializable("key",value);`
+> [AZURE.IMPORTANT]Se você colocar os parâmetros parceláveis ou serializáveis, certifique-se de que o seu método `toString()` seja implementado para retornar uma cadeia de caracteres legível. As classes serializáveis que contêm campos não transitórios que não são serializáveis farão com que o Android falhe quando você chamar `bundle.putSerializable("key",value);`
 
-> [AZURE.WARNING] Não há suporte para matrizes esparsas em parâmetros extras, ou seja, ela não será serializada como uma matriz. Você deve convertê-las em matrizes padrão antes de usá-las em parâmetros extras.
+> [AZURE.WARNING]Não há suporte para matrizes esparsas em parâmetros extras, ou seja, ela não será serializada como uma matriz. Você deve convertê-las em matrizes padrão antes de usá-las em parâmetros extras.
 
 ### Exemplo
 
@@ -249,25 +248,25 @@ Esses dados podem ser estruturados, eles usam a classe de pacote do Android (na 
 
 #### simétricas
 
-Cada chave no  `Bundle` deve coincidir com a seguinte expressão regular:
+Cada chave no `Bundle` deve corresponder à seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
 
 #### Tamanho
 
 Os extras são limitados a **1024** caracteres por chamada (uma vez codificado em JSON pelo serviço do Engagement).
 
-No exemplo anterior, o JSON enviado para o servidor tem 58 caracteres de comprimento:
+No exemplo anterior, o JSON enviado para o servidor tem 58 caracteres:
 
-			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
+			{"ref_click":"http://foobar.com/blog","video_id":"123"}
 
 ##Relatório de informações de aplicativo
 
-Você pode relatar informações manualmente (ou quaisquer outras informações específicas do aplicativo) de controle usando a função  `sendAppInfo()`.
+Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função `sendAppInfo()`.
 
-Observe que essas informações podem ser enviadas incrementalmente: somente o último valor para uma determinada chave será mantido por um determinado dispositivo.
+Observe que essas informações podem ser enviadas de forma incremental: somente o último valor para uma determinada chave será mantido por um determinado dispositivo.
 
 Assim como os extras de evento, a classe de pacote é usada para abstrair as informações do aplicativo, observe que as matrizes ou subpacotes serão tratados como cadeias de caracteres simples (usando a serialização JSON).
 
@@ -284,18 +283,18 @@ Aqui está um exemplo de código para enviar a data de nascimento e sexo do usu�
 
 #### simétricas
 
-Cada chave no  `Bundle` deve coincidir com a seguinte expressão regular:
+Cada chave no `Bundle` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
 
 #### Tamanho
 
 As informações do aplicativo são limitadas a **1024** caracteres por chamada (uma vez codificadas em JSON pelo serviço do Engagement).
 
-No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres de comprimento:
+No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"expiration":"2016-12-07","status":"premium"}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

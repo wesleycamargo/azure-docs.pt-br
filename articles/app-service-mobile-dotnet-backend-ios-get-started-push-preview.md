@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Adicionar notificações por push ao aplicativo iOS com o Serviço de Aplicativo do Azure" 
 	description="Aprenda a usar o Serviço de Aplicativo do Azure para enviar notificações por push para o aplicativo iOS." 
 	services="app-service\mobile" 
 	documentationCenter="ios" 
 	manager="dwrede"
 	editor="" 
-	authors="yuaxu"/>
+	authors="ysxu"/>
 
 <tags 
 	ms.service="app-service-mobile" 
@@ -21,12 +21,12 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-Este tópico mostra como usar o Serviço de Aplicativo do Azure para enviar notificações por push para um aplicativo iOS com o serviço de notificação por push da Apple (APNS).  Após a conclusão, o back-end do .NET enviará uma notificação por push para o seu aplicativo QuickStart ToDo cada vez que um registro for inserido.  O aplicativo é compatível com iOS 8 e versões anteriores.
+Este tópico mostra como usar o Serviço de Aplicativo do Azure para enviar notificações por push para um aplicativo iOS com o APNS (serviço de notificação por push da Apple). Após a conclusão, o back-end do .NET enviará uma notificação por push para o seu aplicativo QuickStart ToDo cada vez que um registro for inserido. O aplicativo é compatível com iOS 8 e versões anteriores.
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
 1. [Gerar solicitação de assinatura do certificado do iOS]
-2. [Registrar o aplicativo e habilitar notificações por push]
+2. [Registrar seu aplicativo e habilitar as notificações por push]
 3. [Criar um perfil de provisionamento para o aplicativo]
 4. [Configurar seu back-end móvel para enviar solicitações por push]
 5. [Atualizar o servidor para enviar notificações por push](#update-server)
@@ -36,17 +36,17 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 Este tutorial exige o seguinte:
 
-+ [SDK do Aplicativo móvel do Serviço de Aplicativo iOS]
-+ [Nuget de hubs de notificação do Azure ]
-+ [XCode 4.5][Instalar o Xcode]
-+ Um dispositivo compatível com o iOS 6.0 (ou versão posterior)
++ [SDK do iOS de aplicativo móvel do Azure]
++ [Nuget de hubs de notificação do Azure]
++ [XCode 6.0][Install Xcode]
++ Um dispositivo compatível com iOS 6.0 (ou versão posterior)
 + Associação no Programa de Desenvolvedores de iOS
 
-   > [AZURE.NOTE] Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
+   >[AZURE.NOTE]Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
 
-Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Serviço de Aplicativo.  Antes de iniciar este tutorial, você deve primeiro concluir uma [Introdução aos aplicativos móveis do Serviço de Aplicativo].
+Este tutorial baseia-se no início rápido do aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir uma [Introdução aos aplicativos móveis do Serviço de Aplicativo].
 
-[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Habilitar Notificações por push da Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Configurar o aplicativo móvel para enviar solicitações por push
 
@@ -54,53 +54,46 @@ Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Servi
 
 ##<a id="update-server"></a>Atualizar o servidor para enviar notificações por push
 
-1. No Visual Studio, clique com o botão direito do mouse, em seguida, clique em **Gerenciar Pacotes NuGet**.
+1. No Visual Studio, clique com o botão direito do mouse na solução e, em seguida, clique em **Gerenciar Pacotes NuGet**.
 
-2. Pesquise por **Microsoft.Azure.NotificationHubs** e clique em **instalar** para todos os projetos na solução.
+2. Pesquise por **Microsoft.Azure.NotificationHubs** e clique em **Instalar** para todos os projetos na solução.
 
-3. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controladores** no projeto do back-end móvel.  Abra o TodoItemController.cs.  Na parte superior do arquivo, adicione as seguintes instruções `using`:
+3. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controladores** no projeto do back-end móvel. Abra o TodoItemController.cs. Na parte superior do arquivo, adicione as seguintes instruções `using`:
 
 		using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
 
-4. Adicione o seguinte fragmento ao `PostTodoItem` método após a chamada **InsertAsync**:  
+4. Adicione o seguinte fragmento ao método `PostTodoItem` após a chamada **InsertAsync**:
 
         // get Notification Hubs credentials associated with this Mobile App
         string notificationHubName = this.Services.Settings.NotificationHubName;
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // iOS payload
-        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
 
-        try
-        {
-            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw;
-        }
+        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
-    Esse código informa o hub de notificação associado a esse aplicativo móvel para enviar uma notificação de envio depois de uma inserção de item todo.
+    Esse código informa o hub de notificação associado a esse aplicativo móvel para enviar uma notificação por push após uma inserção de item de tarefa.
 
 
-<h2><a name="publish-the-service"></a>Publicar o back-end móvel no Azure</h2>
+## <a name="publish-the-service"></a>Publicar o back-end móvel no Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Adicionar notificações por push ao seu aplicativo
+## Adicionar notificações de push para seu aplicativo
 1. Baixe e adicione a referência ao SDK do cliente de aplicativo móvel do Serviço de Aplicativo no xcode.
 
-2. Em **QSAppDelegate.m**, adicione o seguinte em **application:didFinishLaunchingWithOptions** para registrar o cliente com o serviço de notificação de envio da Apple:
+2. Em **QSAppDelegate.m**, adicione o seguinte em **application:didFinishLaunchingWithOptions** para registrar o cliente com o serviço de notificação por push da Apple:
 
         // register iOS8 or previous devices for notifications
-        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && 	
+        	[[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
             [[UIApplication sharedApplication] registerForRemoteNotifications];
-        }
-        else {
+        } else {
             // Register for remote notifications
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
             UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
@@ -109,8 +102,8 @@ Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Servi
 3. No mesmo arquivo, adicione o seguinte método manipulador dentro da implementação **QSAppDelegate**:
 
         // registration with APNs is successful
-        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
-        (NSData *)deviceToken {
+        - (void)application:(UIApplication *)application 
+            didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
             // make sure you have imported "QSTodoService.h"
             QSTodoService *todoService = [QSTodoService defaultService];
@@ -131,33 +124,35 @@ Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Servi
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-5. Em QSAppDelegate.m, adicione o método de manipulador a seguir dentro da implementação:  
+5. Em QSAppDelegate.m, adicione o método de manipulador a seguir dentro da implementação:
 
         // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
+        - (void)application:(UIApplication *)application 
+              didReceiveRemoteNotification:(NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             
-            NSDictionary *apsPayload = [userInfo objectForKey:@"aps"];
-            NSString *alertString = [apsPayload objectForKey:@"alert"];
+            NSDictionary *apsPayload = userInfo[@"aps"];
+            NSString *alertString = apsPayload[@"alert"];
     
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-                          alertString delegate:nil cancelButtonTitle:
-                          @"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" 
+                                                            message:alertString 
+                                                           delegate:nil 
+                                                  cancelButtonTitle:@"OK" 
+                                                  otherButtonTitles:nil];
             [alert show];
         }
 
-Seu aplicativo foi atualizado para dar suporte a notificações por push.
+Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
-## Testar notificações por push em seu aplicativo
+## Testar notificações por push no seu aplicativo
 
 1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push
 
   	![][23]
 
-    > [AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo.  Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+    > [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite um texto significativo, por exemplo, _Uma nova tarefa de Serviços Móveis_, e clique no ícone de adição (**+**).
+2. No aplicativo, digite um texto significativo, como por exemplo _Uma nova tarefa de Serviços Móveis_ e clique no ícone de adição (**+**).
 
   	![][24]
 
@@ -173,11 +168,11 @@ Este tutorial foi concluído com êxito.
 
 <!-- Anchors.  -->
 [Gerar solicitação de assinatura do certificado do iOS]: #certificates
-[Registrar o aplicativo e habilitar notificações por push]: #register
+[Registrar seu aplicativo e habilitar as notificações por push]: #register
 [Criar um perfil de provisionamento para o aplicativo]: #profile
 [Adicionar notificações por push ao aplicativo]: #add-push
 [Configurar seu back-end móvel para enviar solicitações por push]: #configure
-[Atualizar o servidor para enviar notificações por push]: #update-server
+[Update the server to send push notifications]: #update-server
 [Publicar o back-end móvel no Azure]: #publish-mobile-service
 [Testar seu aplicativo]: #test-the-service
 
@@ -219,13 +214,13 @@ Este tutorial foi concluído com êxito.
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
-[Instalar o Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portal de Provisionamento do iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[SDK do iOS móvel de Serviço de Aplicativo]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Nuget de hubs de notificação do Azure ]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
-[Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[objeto APNs]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[SDK do iOS de aplicativo móvel do Azure]: https://go.microsoft.com/fwLink/?LinkID=529823
+[Nuget de hubs de notificação do Azure]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!--HONumber=49-->
+<!--HONumber=54-->

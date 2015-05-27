@@ -1,8 +1,8 @@
-﻿<properties 
+<properties 
 	pageTitle="Registrar o usuário atual para notificações por push usando um serviço móvel - Hubs de Notificação" 
 	description="Saiba como solicitar o registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado por serviços móveis do Azure." 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="" 
+	services="notification-hubs" 
+	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,21 +10,21 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="04/24/2015" 
 	ms.author="yuaxu"/>
 
 # Registrar o usuário atual para notificações por push usando um serviço móvel
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/pt-br/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">C# da Windows Store</a><a href="/pt-br/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="C# da Windows Store ">C# da Windows Store</a><a href="/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-Este tópico mostra como solicitar o registro de notificações por push com os Hubs de Notificação do Azure, quando o registro é executado pelos Serviços Móveis do Azure. Este tópico estende o tutorial [Notificar usuários com Hubs de Notificação]. Você já deve ter concluído as etapas necessárias nesse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de notificação aos usuários, consulte [Notificar os usuários com os Hubs de Notificação].  
+Este tópico mostra como solicitar o registro de notificações por push com os Hubs de Notificação do Azure, quando o registro é executado pelos Serviços Móveis do Azure. Este tópico estende o tutorial [Notificar usuários com Hubs de Notificação]. Você já deve ter concluído as etapas necessárias nesse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de notificação aos usuários, consulte [Notificar os usuários com os Hubs de Notificação].
 
-1. No Xcode, abra o arquivo QSTodoService.h no projeto que você criou quando concluiu o tutorial de pré-requisito [Introdução à autenticação]e adicione a seguinte propriedade **deviceToken**:
+1. No Xcode, abra o arquivo QSTodoService.h no projeto que você criou quando concluiu o tutorial de pré-requisito [Introdução à autenticação] e adicione a seguinte propriedade **deviceToken**:
 
 		@property (nonatomic) NSData* deviceToken;
 
@@ -57,7 +57,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 	Isso atualiza a propriedade **deviceToken**.
 
-	> [AZURE.NOTE] Neste ponto, não deve haver nenhum outro código nesse método. Se você já tiver uma chamada para o método **registerNativeWithDeviceToken** que foi adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação](/pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") , você deve comentar ou remover essa chamada.
+	> [AZURE.NOTE]Neste ponto, não deve haver nenhum outro código nesse método. Se já houver uma chamada para o método **registerNativeWithDeviceToken** adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), será necessário comentar ou remover essa chamada.
 
 5.  (Opcional) No arquivo QSAppDelegate.m, adicione o seguinte método de manipulador:
 
@@ -74,7 +74,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 6. No arquivo QSTodoListViewController.m, adicione o método **registerForNotificationsWithBackEnd**:
 
 			- (void)registerForNotificationsWithBackEnd {
-			    NSString* json = [NSString  stringWithFormat:@"{\"platform\":\"ios\", \"deviceToken\":\"%@\"}", [self.todoService getDeviceTokenInHex] ];
+			    NSString* json = [NSString  stringWithFormat:@"{"platform":"ios", "deviceToken":"%@"}", [self.todoService getDeviceTokenInHex] ];
 
 			    [self.todoService.client invokeAPI:@"register_notifications" data:[json dataUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error) {
 			        if (error != nil) {
@@ -105,7 +105,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 			    }];
 			}
 
-	> [AZURE.NOTE] Isso garante que o registro seja solicitado sempre que a página for carregada. Em seu aplicativo, convém fazer esse registro periodicamente apenas para garantir que o registro seja atual.
+	> [AZURE.NOTE]Isso garante que o registro seja solicitado sempre que a página for carregada. Em seu aplicativo, convém fazer esse registro periodicamente apenas para garantir que o registro seja atual.
 	
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
@@ -115,12 +115,12 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 
 
 <!-- URLs. -->
-[Notificar usuários com Hubs de Notificação]: /pt-br/manage/services/notification-hubs/notify-users
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios/
+[Notificar os usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users
+[Notificar os usuários com os Hubs de Notificação]: /manage/services/notification-hubs/notify-users
+[Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users
+[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-ios/
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Introdução aos Hubs de Notificação]: /pt-br/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

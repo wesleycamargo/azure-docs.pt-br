@@ -1,9 +1,9 @@
-﻿
+
 1. Abra o arquivo do projeto MainPage.cs compartilhado e adicione a seguinte instrução usando:
 
         using Windows.UI.Popups;
 
-2. Adicione o seguinte trecho de código para a classe MainPage:
+2. Adicione o seguinte snippet de código para a classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,15 +35,15 @@
             }
         }
 
-    Esse usuário é autenticado usando um logon do Facebook.  Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
+    Esse usuário é autenticado usando um logon do Facebook. Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
 
 3. Comente ou exclua a chamada para o método **RefreshTodoItems** na substituição do método **OnNavigatedTo** existente.
 
 	Isso evita que os dados sejam carregados antes que o usuário seja autenticado.
 
-	>[AZURE.NOTE]Para autenticar com sucesso por um aplicativo da Loja Windows Phone 8.1, você deve chamar o LoginAsync depois que o método **OnNavigated** tenha sido chamado e depois que o evento **Loaded** da página tenha sido levantado.  Nesse tutorial, esse esclarecimento é feito pela adição de um botão **Entrar** ao aplicativo.
+	>[AZURE.NOTE]Para autenticar com sucesso por um aplicativo da Loja Windows Phone 8.1, você deve chamar o LoginAsync depois que o método **OnNavigated** tiver sido chamado e depois que o evento **Loaded** da página tiver sido lançado. Nesse tutorial, esse esclarecimento é feito pela adição de um botão **Entrar** ao aplicativo.
 
-4. Adicione o seguinte trecho de código para a classe MainPage:
+4. Adicione o seguinte snippet de código para a classe MainPage:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -83,12 +83,11 @@
             base.OnActivated(args);
         }
 
-	Se o método **OnActivated** já existe, basta adicionar o bloco de código '#if...#endif'.
+	Se o método **OnActivated** já existe, basta adicionar o bloco de código `#if...#endif`.
 
-9. Pressione a tecla F5 para executar o aplicativo da Windows Store, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. 
+9. Pressione a tecla F5 para executar o aplicativo da Windows Store, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido.
 
    	Quando você entrar com êxito, o aplicativo deverá ser executado sem erros e você deverá conseguir consultar o aplicativo móvel e fazer atualizações nos dados.
 
-10. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.  
-
-<!--HONumber=49-->
+10. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
+<!--HONumber=54-->

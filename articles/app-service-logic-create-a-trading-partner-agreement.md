@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Criar um acordo entre parceiros comerciais no Serviço de Aplicativo do Microsoft Azure" 
    description="Criar acordos entre parceiros comerciais" 
    services="app-service\logic" 
@@ -19,7 +19,7 @@
 
 # Criando um acordo entre parceiros comerciais   
 
-Parceiros comerciais são as entidades envolvidas em comunicações B2B (business-to-business).  Quando dois parceiros estabelecem uma relação, ela é chamada de *Agreement*. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação ao transporte ou protocolo.  Os diferentes transportes e protocolos B2B com suporte  O Serviço de Aplicativo do Azure inclui:
+Parceiros comerciais são as entidades envolvidas em comunicações B2B (Entre Empresas). Quando dois parceiros estabelecem uma relação, isso é chamado de um *Acordo*. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo. Os diferentes transportes e protocolos B2B com suporte do Serviço de Aplicativo do Azure incluem:
 
 - AS2 (Applicability Statement 2)
 - EDIFACT (Nações Unidas/Intercâmbio Eletrônico de Dados para Administração, Comércio e Transporte (UN/EDIFACT))
@@ -34,7 +34,7 @@ Os seguintes aplicativos de API habilitam esses recursos usando uma experiência
 - Armazenamento e gerenciamento de Esquemas EDI
 - Armazenamento e gerenciamento de certificados (usado no protocolo AS2)
 - Criação e gerenciamento de Acordos AS2
-- Criação e gerenciamento de Acordos EDIFACT (inclui processamento em lote no lado do envio)
+- Criação e gerenciamento de Acordos EDIFACT (inclui envio em lote no lado do envio)
 - Criação e gerenciamento de Acordos X12 (inclui processamento em lote no lado do envio)
 
 ![][1]
@@ -62,11 +62,11 @@ Como mencionado anteriormente, aplicativos de API AS2, X12 e EDIFACT precisam de
 ## Introdução
 Para criar acordos entre parceiros comerciais:
 
-1. Crie uma instância do conector do **Gerenciamento de Parceiros Comerciais do BizTalk**.  Ela precisa de um Banco de Dados SQL em branco para funcionar.  Antes de iniciar, certifique-se ter um banco de dados em branco disponível e pronto para uso.
-2. Carregue esquemas e certificados conforme exigido pelos acordos.  Isso deve ser feito procurando a instância de TPM criada e acessando a parte "Esquemas" e/ou "Certificados"
+1. Crie uma instância do conector do **Gerenciamento de Parceiros Comerciais do BizTalk**. Isso requer um Banco de Dados SQL em branco para funcionar. Antes de iniciar, certifique-se ter um banco de dados em branco disponível e pronto para uso.
+2. Carregue esquemas e certificados conforme exigido pelos acordos. Isso deve ser feito procurando a instância de TPM criada e acessando a parte “Esquemas” e/ou “Certificados”
 3. Navegue até a instância de TPM criada e acesse a parte **Parceiros**
-4. Crie os parceiros conforme desejado.  Edite os perfis conforme apropriado e adicione as identidades necessárias
-5. Agora, use a seção **Acordos** parte criar acordos.  Durante a criação do acordo, uma das etapas iniciais é escolher o protocolo.  O restante da configuração do acordo ocorre com base no protocolo escolhido.
+4. Crie os parceiros conforme desejado. Edite os perfis conforme apropriado e adicione as identidades necessárias
+5. Agora, use a seção **Acordos** para criar acordos. Durante a criação do acordo, uma das etapas iniciais é escolher o protocolo. O restante da configuração do acordo ocorre com base no protocolo escolhido.
 
 ![][2]
 
@@ -77,5 +77,4 @@ Para criar acordos entre parceiros comerciais:
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

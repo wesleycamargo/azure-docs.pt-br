@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -13,51 +13,52 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="05/04/2015" 
 	ms.author="kapiteir" />
 
 
-#SDK do Android para Azure Mobile Engagement v3.0.0
-Comece aqui a obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo Android. Se você quiser experimentá-lo pela primeira vez, não deixe de ler o nosso [tutorial em 15 minutos](mobile-engagement-android-get-started.md).
+#SDK do Android do Mobile Engagement do Azure
 
-Clique para ver o [Conteúdo do SDK](mobile-engagement-android-sdk-content.md)
+Comece aqui a obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo Android. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-android-get-started.md).
+
+Clique para ver o [Conteúdo do SDK](mobile-engagement-android-sdk-content.md).
 
 ##Procedimentos de integração
-1. Comece aqui: [Como integrar o Mobile Engagement em seu aplicativo Android](mobile-engagement-android-integrate-engagement.md)
+1. Comece aqui: [como integrar o Mobile Engagement em seu aplicativo Android](mobile-engagement-android-integrate-engagement.md)
 
-2. Para notificações: [Como integrar o Reach (notificações) em seu aplicativo Android](mobile-engagement-android-integrate-engagement-reach.md)
-	1. GCM (Google Cloud Messaging): [Como integrar GCM ao Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. ADM (Amazon Device Messaging): [Como integrar ADM ao Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+2. Para Notificações: [como integrar o Reach (Notificações) em seu aplicativo Android](mobile-engagement-android-integrate-engagement-reach.md)
+	1. GCM (Google Cloud Messaging): [como integrar o GCM com o Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. ADM (Amazon Device Messaging): [como integrar o ADM com o Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Implementação do plano de marca: [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo Android](mobile-engagement-android-use-engagement-api.md)
+3. Implementação do plano de marcação: [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo Android](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Notas de versão
 
 ###3.0.0 (17/02/2015)
 
--   Versão inicial do Azure Mobile Engagement
--   A configuração do appId é substituída por uma configuração de cadeia de conexão.
--   API removida para enviar e receber mensagens XMPP arbitrárias de entidades XMPP arbitrárias.
--   API removida para enviar e receber mensagens entre dispositivos.
--   Aprimoramentos de segurança.
--   Acompanhamento do Google Play e SmartAd removido.
+-   Versão Inicial do Mobile Engagement do Azure
+-   a configuração appId é substituída por uma configuração de cadeia de conexão
+-   Removida a API para enviar e receber mensagens XMPP arbitrárias de entidades XMPP arbitrárias
+-   Removida a API para enviar e receber mensagens entre dispositivos
+-   Aprimoramentos de segurança
+-   Acompanhamento do Google Play e SmartAd removido
 
-Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md)
+Para versões anteriores, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md).
 
 ##Procedimentos de atualização
 
-Se já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
+Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
 
-Talvez você precise seguir vários procedimentos se perdeu várias versões do SDK, consulte os [procedimentos de atualização] completos(mobile-engagement-android-upgrade-procedure.md). Por exemplo, se você migrar do 1.4.0 para o 1.6.0 que você seguiu pela primeira vez, siga o procedimento "de 1.4.0 para 1.5.0" e, em seguida, o procedimento "de 1.5.0 para 1.6.0".
+Talvez você precise seguir vários procedimentos; se perdeu várias versões do SDK, consulte os [Procedimentos de atualização](mobile-engagement-android-upgrade-procedure.md) completos. Por exemplo, se você migrar do 1.4.0 para 1.6.0 primeiro tem que seguir o procedimento "de 1.4.0 a 1.5.0” e depois o procedimento "de 1.5.0 a 1.6.0".
 
 Seja qual for a versão de atualização, você precisa substituir todos os `mobile-engagement-VERSION.jar` pelos novos.
 
 ###De 2.4.0 a 3.0.0
 
-A seguir, está descrito como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo com o Azure Mobile Engagement. 
+O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 2.4.0 e depois aplicar o procedimento a seguir
 
->[AZURE.IMPORTANT] Capptain e Mobile Engagement não são os mesmos serviços e o procedimento abaixo realça apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores Mobile Engagement
+>[AZURE.IMPORTANT]O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement.
 
 #### Arquivo JAR
 
@@ -65,7 +66,7 @@ Substitua `capptain.jar` por `mobile-engagement-VERSION.jar` em sua pasta `libs`
 
 #### Arquivos de recurso
 
-Cada arquivo de recursos que fornecemos (antecedidos por `capptain_`) precisa ser substituído por novos(prefixados com `engagement_`).
+Cada arquivo de recursos que fornecemos (antecedidos por `capptain_`) precisa ser substituído por novos (prefixados com `engagement_`).
 
 Se você personalizou os arquivos, precisará reaplicar sua personalização nos novos arquivos, **todos os identificadores nos arquivos de recursos também foram renomeados**.
 
@@ -81,27 +82,27 @@ Você precisa usar um método `EngagementAgent.init` em sua atividade de inicial
 
 A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 
-Remova todas as chamadas de `CapptainAgent.configure` conforme o `EngagementAgent.init` substitui esse método.
+Remova todas as chamadas de `CapptainAgent.configure` já que `EngagementAgent.init` substitui esse método.
 
 O `appId` não pode ser configurado usando `AndroidManifest.xml`.
 
-Remova essa seção do seu `AndroidManifest.xml` se você tiver:
+Remova esta seção de seu `AndroidManifest.xml` se você tiver:
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
 #### API Java
 
-Cada chamada a qualquer classe Java do nosso SDK precisa ser renomeada, por exemplo,  `CapptainAgent.getInstance(this)` deve ser renomeado para  `EngagementAgent.getInstance(this)`, `extends CapptainActivity` deve ser renomeado para  `extends EngagementActivity`, etc...
+Cada chamada a qualquer classe Java do nosso SDK precisa ser renomeada; por exemplo, `CapptainAgent.getInstance(this)` deve ser renomeado para `EngagementAgent.getInstance(this)`, `extends CapptainActivity` deve ser renomeado para `extends EngagementActivity`, etc...
 
-Se elas tiverem sido integradas com arquivos de preferência do agente padrão, o nome de arquivo padrão é agora  `engagement.agent` e a chave é  `engagement:agent`.
+Se elas tiverem sido integradas com arquivos de preferência do agente padrão, o nome de arquivo padrão é agora `engagement.agent` e a chave é `engagement:agent`.
 
-Ao criar anúncios da web, o associador de Javascript é agora  `engagementReachContent`.
+Ao criar anúncios da Web, o associador de Javascript é agora `engagementReachContent`.
 
 #### AndroidManifest.xml
 
 Ocorreram muitas alterações, o serviço não está mais compartilhado e muitos destinatários não são mais exportáveis.
 
-Agora, a declaração de serviço é mais simples, remova o filtro intencional e todos os metadados de dentro dele e adicione  `exportable=false`.
+Agora, a declaração de serviço é mais simples: remova o filtro intencional e todos os metadados de dentro dele e adicione `exportable=false`.
 
 Além disso, tudo é renomeado para usar o Engagement.
 
@@ -209,9 +210,9 @@ As atividades do Reach agora são declaradas conforme segue:
 			  </intent-filter>
 			</activity>
 			
-Se tiver atividades Reach personalizadas, você só precisa alterar as ações intencionais para corresponder  `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` ou  `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+Se tiver atividades do Reach personalizadas, você só precisa alterar as ações intencionais para corresponder a `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` ou `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
-Os receptores de transmissão foram renomeados e agora adicionamos  `exported=false`. Aqui está a lista completa de destinatários com a nova especificação (renomeie apenas aqueles que for usar):
+Os receptores de transmissão foram renomeados e agora adicionamos `exported=false`. Aqui está a lista completa de destinatários com a nova especificação (renomeie apenas aqueles que for usar):
 
 			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
 			  android:exported="false">
@@ -299,7 +300,7 @@ O receptor de acompanhamento foi removido, você precisará remover esta seção
 		    </intent-filter>
 		  </receiver>
 
-Observe que a declaração da sua implementação do receptor de difusão **EngagementMessageReceiver** mudou no  `AndroidManifest.xml`. Isso ocorre porque a API envia e remove mensagens XMPP arbitrárias de entidades XMPP arbitrárias e a API envia e recebe mensagens entre dispositivos que foram removidos. Portanto, você também precisa excluir os seguintes retornos de chamada de sua implementação **EngagementMessageReceiver**:
+Observe que a declaração de sua implementação do receptor de difusão **EngagementMessageReceiver** mudou no `AndroidManifest.xml`. Isso ocorre porque a API envia e remove mensagens XMPP arbitrárias de entidades XMPP arbitrárias e a API envia e recebe mensagens entre dispositivos que foram removidos. Portanto, você também precisa excluir os seguintes retornos de chamada de sua implementação **EngagementMessageReceiver**:
 
 			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -327,4 +328,4 @@ A configuração ProGuard pode ser afetada por mudanças de marca, as regras ago
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

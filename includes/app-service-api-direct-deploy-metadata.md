@@ -1,4 +1,8 @@
-A maioria das propriedades no arquivo *apiapp.json* e nos arquivos da pasta *Metadata* afetam o modo como um pacote de aplicativos de API é apresentado no Azure Marketplace. As seções a seguir explicam quais arquivos e propriedades afetam aplicativos de API quando você implanta o código diretamente, em vez de instalar um aplicativo de API do Marketplace.
+## Metadados do aplicativo de API
+
+Esta seção fornece informações adicionais sobre metadados de aplicativo de API que você pode personalizar.
+
+A maioria das propriedades no arquivo *apiapp.json* e nos arquivos da pasta *Metadata* afetam o modo como um pacote de aplicativos de API é apresentado no Azure Marketplace. As seções a seguir explicam quais arquivos e propriedades afetam os aplicativos de API quando você implanta o código em um aplicativo de API na assinatura do Azure.
 
 ### ID do aplicativo de API 
 
@@ -35,4 +39,4 @@ Deixe `endpoints.apiDefinition` fora do arquivo *apiapp.json* ou definir seu val
 Para obter mais informações sobre o arquivo *apiapp.json* e a pasta *Metadata*, consulte [Criar um pacote de aplicativos de API](app-service-api-create-package.md).
 
 
-<!--HONumber=52-->
+<!--HONumber=54-->

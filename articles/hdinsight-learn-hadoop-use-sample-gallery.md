@@ -1,6 +1,6 @@
-﻿<properties 
-   pageTitle="Saiba mais sobre o Hadoop no HDInsight usando a Galeria de Exemplos" 
-   description="Saiba mais sobre o Hadoop no HDInsight usando a Galeria de Exemplos do HDInsight" 
+<properties 
+   pageTitle="Saiba mais sobre o Hadoop no HDInsight usando a Galeria de Exemplos | Microsoft Azure" 
+   description="A Galeria de Introdução do HDInsight é uma maneira rápida de aprender a trabalhar com o Hadoop, executando aplicativos de exemplo no HDInsight. Alguns exemplos têm dados de exemplo, ou você pode fornecer os seus próprios." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,12 +13,12 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="1/29/2015" 
+   ms.date="03/31/2015" 
    ms.author="jgao"/>
 
 # Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight
 
-A Galeria de Introdução do HDInsight fornece uma maneira fácil e rápida de executar aplicativos de exemplo do Hadoop no HDInsight. Alguns dos exemplos vêm com dados de exemplo. Você pode fornecer seus próprios dados para o restante dos exemplos. Atualmente, há 6 amostras, com mais em breve:
+A Galeria de Introdução do HDInsight fornece uma maneira fácil e rápida de aprender a trabalhar com o Hadoop, executando aplicativos de exemplo no HDInsight. Alguns dos exemplos vêm com dados de exemplo. Você pode fornecer seus próprios dados para o restante dos exemplos. Atualmente, há os seguintes exemplos seis exemplos (com mais a caminho):
 
 - Soluções com os dados do Azure
 	- Análise de log de site do Microsoft Azure
@@ -29,29 +29,29 @@ A Galeria de Introdução do HDInsight fornece uma maneira fácil e rápida de e
 	- Análise de log do Website
 	- Recomendação de filme do Mahout
 
-![HDInsight Hadoop/Storm/HBase Getting Started Gallery][hdinsight.sample.gallery]
+![Soluções de Hadoop do HDInsight, Storm e Galeria de Introdução ao HBase, incluindo dados de exemplo.][hdinsight.sample.gallery]
 
 O clipe de vídeo a seguir mostra como executar o exemplo de análise de tendência do Twitter:
 
-<center><iframe width="650" height="388" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
+<center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
 
 **Para executar um exemplo da Galeria de Introdução**
 
-1.	Entre no [Portal de Gerenciamento do Azure][azure.management.portal].
+1.	Entre no [Portal do Azure][azure.portal].
 2.	Clique em **HDInsight** no menu à esquerda. Você verá uma lista de clusters HDInsight existentes, incluindo clusters Hadoop, Storm e HBase. 
 3.	Clique no cluster onde você deseja executar o exemplo.
-4.	Clique em **QUERY CONSOLE** da parte inferior.
+4.	Na parte inferior da página, selecione **CONSOLE DE CONSULTA**.
 5.	Insira o nome de usuário do Hadoop e a senha para o cluster.
-6.	Clique em **Galeria de Introdução** no topo.
+6.	Clique em **Galeria de Introdução** no topo da página.
 7.	Clique em um dos exemplos. Cada exemplo fornece etapas detalhadas para executá-lo. A imagem a seguir mostra o exemplo de análise de tendência do Twitter:
 
-	![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
+	![Exemplo de análise de tendência de Twitter do HDInsight][hdinsight.twitter.sample]
 
 ## Próximas etapas
 Outras maneiras de saber mais sobre o HDInsight incluem:
 
-- [Mapa de aprendizado do HDInsight][hdinsight.learning.map]
+- [Mapa de aprendizado do HDInsight][hdinsight.learn.map]
 - [Infográfico do HDInsight][hdinsight.infographic]
 
 <!--Image references-->
@@ -59,7 +59,7 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: ../hdinsight-learning-map/
+[hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-
-<!--HONumber=47-->
+[azure.portal]: https://manage.windowsazure.com
+<!--HONumber=54-->

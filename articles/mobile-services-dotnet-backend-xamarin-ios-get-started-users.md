@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introdução à autenticação em Serviços Móveis para aplicativos Xamarin iOS - Serviços Móveis do Azure" 
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS Xamarin por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -10,25 +10,25 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="04/13/2015" 
 	ms.author="donnam"/>
 
-# Adicionar autenticação ao seu aplicativo de Serviços Móveis
+# Adicionar autenticação ao aplicativo de Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade aos quais os Serviços Móveis dão suporte. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID de usuário é exibido.
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
-1. [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]
+1. [Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 
-Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis]. 
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
@@ -41,7 +41,7 @@ Este tutorial baseia-se no Início Rápido dos Serviços Móveis. Você também 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="6">
-<li><p>No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou simulador. Verifique se uma exceção sem tratamento com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.</p>
+<li><p>No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou simulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.</p>
    
    	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
 </ol>
@@ -50,7 +50,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-Nesta seção, você modificará o aplicativo para exibir uma tela de logon antes de exibir os dados. Quando o aplicativo iniciar, ele não se conectará a seu serviço móvel e não exibirá dados. Depois que o usuário executar pela primeira vez o gesto de atualização, a tela de logon aparecerá e, após o êxito no logon, a lista de itens de tarefas pendentes será exibida.
+Nesta seção, você modificará o aplicativo para exibir uma tela de logon antes de exibir os dados. Quando o aplicativo iniciar, ele não se conectará a seu serviço móvel e não exibirá dados. Depois que o usuário executar pela primeira vez um gesto de atualização, a tela de logon aparecerá e, após o êxito no logon, a lista de itens de tarefas pendentes será exibida.
 
 1. No projeto cliente, abra o arquivo **QSTodoService.cs** e adicione as seguintes declarações ao QSTodoService:
 
@@ -72,9 +72,9 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
             }
         }
 
-> [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado ao **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE]Se você estiver usando um provedor de identidade que não seja o Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Abra o **QSTodoListViewController.cs**. Modifique a definição de método de **ViewDidLoad** para remover a chamada para **RefreshAsync()** perto do final:
+3. Abra o **QSTodoListViewController.cs**. Modifique a definição do método de **ViewDidLoad** para remover a chamada para **RefreshAsync()** perto do final:
 
 		public override async void ViewDidLoad ()
 		{
@@ -108,7 +108,7 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 		}
 		// rest of RefreshAsync method
 	
-5. Pressione o botão **Run** para compilar o projeto e iniciar o aplicativo no simulador do iPhone. Verifique se o aplicativo não exibe dados. 
+5. Pressione o botão **Executar** para criar o projeto e iniciar o aplicativo no simulador do iPhone. Verifique se o aplicativo não exibe dados.
 
 	Faça um gesto de atualização pressionando a lista de itens, o que fará com que a tela de logon apareça. Depois de inserir credenciais válidas com êxito, o aplicativo exibirá a lista de itens de tarefas pendentes e você poderá fazer a atualização dos dados.
 
@@ -116,24 +116,23 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
- 
 <!-- Anchors. -->
-[Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
+[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
 [Restringir permissões de tabela para usuários autenticados]: #permissions
 [Adicionar autenticação ao aplicativo]: #add-authentication
-[Próximas etapas]:#next-steps
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
-[Introdução à autenticação]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
-[Introdução às notificações por push]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
-[Autorizar usuários com scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript e HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Get started with authentication]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

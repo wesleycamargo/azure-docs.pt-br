@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Como usar o cliente do Componente Xamarin - guia de recursos de serviços móveis do Azure" 
+	pageTitle="Como usar o cliente Componente Xamarin - Guia de recursos dos Serviços Móveis do Azure" 
 	description="Aprenda a usar o cliente componente Xamarin para os serviços móveis do Azure." 
 	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services" 
-	documentationCenter=""/>
+	documentationCenter="xamarin"/>
 
 <tags 
 	ms.service="mobile-services" 
@@ -13,46 +13,19 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
-	ms.author="donnam"/>
+	ms.date="04/24/2015" 
+	ms.author="lindydonna"/>
 
 # Como usar a biblioteca de cliente Componente Xamarim para os Serviços Móveis do Azure
+[AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
 
-<div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/pt-br/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
-  	<a href="/pt-br/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android"></a><a href="/pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="AndroidXamarin" class="current">Xamarin</a>
-</div>
+Este guia mostra como executar cenários comuns usando um cliente Componente Xamarim para os Serviços Móveis do Azure, em aplicativos Xamarin para iOS e Android. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se você não tiver muita experiência com os Serviços Móveis, você deve considerar concluir o tutorial "Guia de início rápido dos Serviços Móveis" ([Xamarin.iOS][Xamarin.iOS quickstart tutorial]/[Xamarin.Android][Xamarin.Android quickstart tutorial]) e o tutorial "Introdução aos dados no .NET" ([Xamarin.iOS][Xamarin.iOS data tutorial]/[Xamarin.Android][Xamarin.Android data tutorial]). O tutorial Guia de início rápido requer [Xamarin][Xamarin download] o [SDK dos Serviços Móveis] e ajuda a configurar sua conta e a criar seu primeiro serviço móvel.
 
-
-Este guia mostra como executar cenários comuns usando um cliente Componente Xamarim para os Serviços Móveis do Azure, em aplicativos Xamarin para iOS e Android. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se você for novo nos serviços móveis, você deverá considerar primeiro concluir o tutorial "Quickstart de serviços móveis" ([Xamarin.iOS][tutorial de início rápido do Xamarin.iOS]/[Xamarin.Android][tutorial de início rápido do Xamarin]) e o tutorial "Introdução com dados no .NET" ([Xamarin.iOS][tutorial de dados Xamarin]/[Xamarin.Android][tutorial de dados Xamarin]). O tutorial Guia de início rápido requer [Xamarin][Download do Xamarin] o [SDK dos Serviços Móveis] e ajuda a configurar sua conta e a criar seu primeiro serviço móvel.
-
-
-## Sumário
-
-- [O que são Serviços Móveis]
-- [Conceitos]
-- [Como: Criar o cliente de Serviços Móveis]
-- [Como: Criar uma referência de tabela]
-- [Como: Consultar dados a partir de um serviço móvel]
-	- [Filtrar dados retornados]
-    - [Classificar dados retornados]
-	- [Retornar dados em páginas]
-	- [Selecionar colunas específicas]
-	- [Pesquisar dados por ID]
-- [Como: Inserir dados em um serviço móvel]
-- [Como: Modificar dados em um serviço móvel]
-- [Como: Excluir dados em um serviço móvel]
-- [Como: Autenticar usuários]
-- [Como: Tratar erros]
-- [Como: Trabalhar com dados não tipados]
-- [Como: Projetar testes da unidade]
-- [Próximas etapas]
-	
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-<h2><a name="setup"></a>Configuração e pré-requisitos</h2>
+## <a name="setup"></a>Configuração e pré-requisitos
 
-Suponhamos que você tenha criado um serviço móvel e uma tabela. Para obter mais informações, consulte [Criar uma tabela](http://go.microsoft.com/fwlink/?LinkId=298592). No código usado neste tópico, a tabela é denominada  `TodoItem` e terá as seguintes colunas: `id`, `Text` e `Complete`.
+Vamos pressupor que você criou um serviço móvel e uma tabela. Para obter mais informações, consulte [Criar uma tabela](http://go.microsoft.com/fwlink/?LinkId=298592). No código usado neste tópico, a tabela é denominada `TodoItem` e terá as seguintes colunas: `id`, `Text` e `Complete`.
 
 O tipo .NET do lado do cliente tipado correspondente é o seguinte:
 
@@ -70,33 +43,33 @@ O tipo .NET do lado do cliente tipado correspondente é o seguinte:
 	
 Quando o esquema dinâmico está habilitado, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto de solicitações de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/?LinkId=296271).
 
-<h2><a name="create-client"></a>Como: Criar o cliente de Serviços Móveis</h2>
+## <a name="create-client"></a>Como criar o cliente dos Serviços Móveis
 
-O código a seguir cria o objeto  `MobileServiceClient` que é usado para acessar seu serviço móvel. 
+O código a seguir cria o objeto `MobileServiceClient` que é usado para acessar o seu serviço móvel.
 			
 	MobileServiceClient client = new MobileServiceClient( 
 		"AppUrl", 
 		"AppKey" 
 	); 
 
-No código acima, substitua  `AppUrl` e  `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e clicando em "Painel".
+No código acima, substitua `AppUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e clicando em "Painel".
 
-<h2><a name="instantiating"></a>Como: Criar uma referência de tabela</h2>
+## <a name="instantiating"></a>Como criar uma referência de tabela
 
-Todo código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto  `MobileServiceTable`. Você obtém uma referência à tabela chamando a função [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) em uma instância do  `MobileServiceClient`. 
+Todo o código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando a função [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) em uma instância do `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
 		client.GetTable<TodoItem>();
 
 Esse é o modelo de serialização tipado. Consulte a discussão sobre o <a href="#untyped">modelo de serialização não tipado</a> abaixo.
 			
-<h2><a name="querying"></a>Como: Consultar dados de um serviço móvel</h2>
+## <a name="querying"></a>Como consultar dados de um Serviço Móvel 
 
-Esta seção descreve como emitir consultas para o serviço móvel. As subseções descrevem diferentes aspectos, como classificação, filtragem e paginação. 
+Esta seção descreve como emitir consultas para o serviço móvel. As subseções descrevem diferentes aspectos, como classificação, filtragem e paginação.
 			
-### <a name="filtering"></a>Como: Filtrar dados retornados
+### <a name="filtering"></a>Como filtrar dados retornados
 
-O código a seguir ilustra como filtrar dados incluindo uma cláusula  `Where` em uma consulta. Ele retorna todos os itens de  `todoTable` cuja propriedade  `Complete` é igual a  `false`. A função  `Where` aplica um predicado de filtragem de linha à consulta na tabela. 
+O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable` cuja propriedade `Complete` é igual a `false`. A função `Where` aplica um predicado de filtragem de linha à consulta na tabela.
 	
 
 	// This query filters out completed TodoItems and 
@@ -105,7 +78,7 @@ O código a seguir ilustra como filtrar dados incluindo uma cláusula  `Where` e
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
 
-Você pode exibir o URI da solicitação enviado ao serviço móvel usando software de inspeção de mensagem, como as ferramentas de desenvolvedor do navegador ou Fiddler. Se você examinar o URI abaixo, observe que estamos modificando a própria cadeia de caracteres da consulta:
+Você pode exibir o URI da solicitação enviado ao serviço móvel usando software de inspeção de mensagem, como as ferramentas de desenvolvedor do navegador ou o Fiddler. Se você examinar o URI abaixo, observe que estamos modificando a própria cadeia de caracteres da consulta:
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1				   
 Essa solicitação normalmente é traduzida aproximadamente para a seguinte consulta SQL no lado do servidor:
@@ -114,7 +87,7 @@ Essa solicitação normalmente é traduzida aproximadamente para a seguinte cons
 	FROM TodoItem 			
 	WHERE ISNULL(complete, 0) = 0
 			
-A função passada para o método  `Where` pode ter um número arbitrário de condições. Por exemplo, a linha abaixo:
+A função passada para o método `Where` pode ter um número arbitrário de condições. Por exemplo, a linha abaixo:
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
@@ -129,7 +102,7 @@ A função passada para o método  `Where` pode ter um número arbitrário de co
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
-A instrução  `where` acima localizará itens com o status  `Complete` definido como falso com  `Text` não nulo.
+A instrução `where` acima localizará itens com o status `Complete` definido como falso com `Text` não nulo.
 
 Em vez disso, também poderíamos ter escrito isso em várias linhas:
 
@@ -138,17 +111,17 @@ Em vez disso, também poderíamos ter escrito isso em várias linhas:
 	   .Where(todoItem => todoItem.Text != null)
 	   .ToListAsync();
 
-Os dois métodos são equivalentes e podem ser usados de maneira intercambiável.  A opção anterior -- de concatenar vários predicados em uma consulta - é mais compacta e recomendada.
+Os dois métodos são equivalentes e podem ser usados de maneira intercambiável. A opção anterior -- de concatenar vários predicados em uma consulta – é mais compacta e recomendada.
 
-A cláusula  `where` oferece suporte a operações que são traduzidas para o subconjunto OData dos Serviços Móveis. Isso inclui os operadores relacionais (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisão de número (Math.Floor, Math.Ceiling), funções de cadeias de caracteres (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propriedades de data (Year, Month, Day, Hour, Minute, Second), propriedades de acesso de um objeto e expressões que combinam todos eles.
+A cláusula `where` dá suporte a operações que são convertidas para o subconjunto OData dos Serviços Móveis. Isso inclui os operadores relacionais (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisão de número (Math.Floor, Math.Ceiling), funções de cadeias de caracteres (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propriedades de data (ano, mês, dia, hora, minuto, segundo), propriedades de acesso de um objeto e expressões que combinam todos eles.
 
-### <a name="sorting"></a>Como: Classificar dados retornados
+### <a name="sorting"></a>Como classificar dados retornados
 
-O código a seguir ilustra como classificar dados incluindo uma função  `OrderBy` ou  `OrderByDescending` na consulta. Ele retorna os itens da  `todoTable` classificada em ordem crescente pelo campo  `Text`. Por padrão, o servidor retorna apenas os 50 primeiros elementos. 
+O código a seguir ilustra como classificar dados incluindo uma função `OrderBy` ou `OrderByDescending` na consulta. Ele retorna os itens da `todoTable` classificada em ordem crescente pelo campo `Text`. Por padrão, o servidor retorna apenas os 50 primeiros elementos.
 
-> [AZURE.NOTE] Um tamanho da página de servidor controlado por nós usado por padrão para prevenir todos os elementos de serem retornados. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço.
+> [AZURE.NOTE]Um tamanho da página de servidor controlado por nós usado por padrão para prevenir todos os elementos de serem retornados. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço.
 
-Você pode aumentar o número de itens a ser retornado pela chamada  `Take` conforme descrito na próxima seção.
+Você pode aumentar o número de itens a ser retornado pela chamada `Take` conforme descrito na próxima seção.
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -160,9 +133,9 @@ Você pode aumentar o número de itens a ser retornado pela chamada  `Take` conf
 					.OrderByDescending(todoItem => todoItem.Text)       
  	List<TodoItem> items = await query.ToListAsync();			
 
-### <a name="paging"></a>Como: Retornar dados em páginas
+### <a name="paging"></a>Como retornar dados em páginas
 
-O código a seguir mostra como implementar a paginação de dados retornados usando as cláusulas  `Take` e  `Skip` na consulta.  A consulta a seguir, quando executada, retorna os três itens principais na tabela. 
+O código a seguir mostra como implementar a paginação de dados retornados usando as cláusulas `Take` e `Skip` na consulta. A consulta a seguir, quando executada, retorna os três itens principais na tabela.
 
 	// Define a filtered query that returns the top 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -181,11 +154,11 @@ Você também pode usar o método [IncludeTotalCount](http://msdn.microsoft.com/
 
 	query = query.IncludeTotalCount();
 
-Esse é um cenário simplificado de passagem de valores de paginação embutidos em código para os métodos  `Take` e  `Skip`. Em um aplicativo do mundo real, você pode usar consultas semelhantes às mencionadas acima com um controle de paginação ou interface do usuário comparável para permitir que os usuários naveguem para páginas anteriores e posteriores. 
+Esse é um cenário simplificado de passagem de valores de paginação embutidos em código para os métodos `Take` e `Skip`. Em um aplicativo do mundo real, você pode usar consultas semelhantes às mencionadas acima com um controle de paginação ou interface do usuário comparável para permitir que os usuários naveguem para páginas anteriores e posteriores.
 
-### <a name="selecting"></a>Como: Selecionar colunas específicas
+### <a name="selecting"></a>Como selecionar colunas específicas
 
-Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula  `Select` à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
+Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula `Select` à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
 
 	// Select one field -- just the Text
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -206,22 +179,22 @@ Todas as funções descritas até agora são aditivas, portanto, podemos continu
 					.Take(3);
 	List<string> items = await query.ToListAsync();
 	
-### <a name="lookingup"></a>Como: Pesquisar dados por ID
+### <a name="lookingup"></a>Como pesquisar dados pela ID
 
-A função  `LookupAsync` pode ser usada para procurar objetos do banco de dados com uma determinada ID. 
+A função `LookupAsync` pode ser usada para procurar objetos do banco de dados com uma determinada ID.
 
 	// This query filters out the item with the ID of 25
 	TodoItem item25 = await todoTable.LookupAsync(25);
 
-<h2><a name="inserting"></a>Como: Inserir dados em um serviço móvel</h2>
+## <a name="inserting"></a>Como inserir dados em um serviço móvel
 
-> [AZURE.NOTE] Se você desejar executar operações de inserção, pesquisa, exclusão ou atualização em um tipo, será necessário criar um membro chamado **Id** (independentemente do caso). É por isso que a classe de exemplo **TodoItem** tem um membro de nome **Id**. Um valor de ID não deve ser definido como qualquer coisa diferente do valor padrão durante as operações de inserção. Por outro lado, o valor de ID deve sempre ser definido como um valor não padrão e presente nas operações de atualização e exclusão.
+> [AZURE.NOTE]Se você desejar executar operações de inserção, pesquisa, exclusão ou atualização em um tipo, será necessário criar um membro chamado **Id** (independentemente do caso). É por isso que a classe de exemplo **TodoItem** tem um membro de nome **Id**. Um valor de ID não deve ser definido como qualquer coisa diferente do valor padrão durante as operações de inserção. Por outro lado, o valor de ID deve sempre ser definido como um valor não padrão e presente nas operações de atualização e exclusão.
 
 O código a seguir ilustra como inserir novas linhas em uma tabela. O parâmetro contém os dados a serem inseridos como um objeto .NET.
 
 	await todoTable.InsertAsync(todoItem);
 
-Depois de esperar o retorno da chamada  `todoTable.InsertAsync`, a ID do objeto no servidor é preenchido para o objeto  `todoItem` no cliente. 
+Depois de esperar o retorno da chamada `todoTable.InsertAsync`, a ID do objeto no servidor é preenchida para o objeto `todoItem` no cliente.
 
 Para inserir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado abaixo. Novamente, observe que não deve ser especificada uma ID ao inserir um objeto.
 
@@ -230,16 +203,16 @@ Para inserir dados não tipados, você pode tirar proveito do Json.NET conforme 
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
-Se você tentar inserir um item com o campo "Id" já definido, você obterá um  `MobileServiceInvalidOperationException` do serviço. 
+Se você tentar inserir um item com o campo "Id" já definido, você obterá um `MobileServiceInvalidOperationException` do serviço.
 
-<h2><a name="modifying"></a>Como: Modificar dados em um serviço móvel</h2>
+## <a name="modifying"></a>Como modificar dados em um serviço móvel
 
 O código a seguir ilustra como atualizar uma instância existente com a mesma ID com novas informações. O parâmetro contém os dados a serem atualizados como um objeto .NET.
 
 	await todoTable.UpdateAsync(todoItem);
 
 
-Para inserir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado a seguir. Observe que quando você faz uma atualização, uma ID deve ser especificada, porque essa é a maneira como o serviço móvel identifica a instância a ser atualizada. A ID a ser passada pode ser obtida do resultado da chamada de  `InsertAsync`.
+Para inserir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado a seguir. Observe que quando você faz uma atualização, uma ID deve ser especificada, porque essa é a maneira como o serviço móvel identifica a instância a ser atualizada. A ID pode ser obtida do resultado da chamada de `InsertAsync`.
 
 	JObject jo = new JObject(); 
 	jo.Add("Id", 52);
@@ -247,35 +220,35 @@ Para inserir dados não tipados, você pode tirar proveito do Json.NET conforme 
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 			
-Se você tentar atualizar um item sem o campo "Id" já estar definido, o serviço não poderá identificar qual instância atualizar e, portanto, você obterá uma  `MobileServiceInvalidOperationException` do serviço. Da mesma forma, se tentar atualizar um item não tipado sem o campo "Id" já definido, você também obterá uma  `MobileServiceInvalidOperationException` do serviço. 
+Se você tentar atualizar um item sem o campo "Id" já estar definido, o serviço não poderá identificar qual instância atualizar e, portanto, você obterá um `MobileServiceInvalidOperationException` do serviço. Da mesma forma, se tentar atualizar um item não tipado sem o campo "Id" já definido, você também obterá uma `MobileServiceInvalidOperationException` do serviço.
 			
 			
-<h2><a name="deleting"></a>Como: Excluir dados em um serviço móvel</h2>
+## <a name="deleting"></a>Como excluir dados em um serviço móvel
 
-O código a seguir ilustra como excluir dados de uma instância existente. A instância é identificada pelo campo "Id" definido em  `todoItem`.
+O código a seguir ilustra como excluir dados de uma instância existente. A instância é identificada pelo campo "Id" definido em `todoItem`.
 
 	await todoTable.DeleteAsync(todoItem);
 
-Para excluir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado a seguir. Observe que quando você faz uma solicitação de exclusão, uma ID deve ser especificada, porque essa é a maneira como o serviço móvel identifica a instância a ser excluída. Uma solicitação de exclusão precisa apenas da ID. Outras propriedades não são passadas para o serviço e, se for passada alguma propriedade, ela será ignorada no serviço. O resultado de uma chamada de  `DeleteAsync`, geralmente, também é  `null`. A ID a ser passada pode ser obtida do resultado da chamada de  `InsertAsync`.
+Para excluir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado a seguir. Observe que quando você faz uma solicitação de exclusão, uma ID deve ser especificada, porque essa é a maneira como o serviço móvel identifica a instância a ser excluída. Uma solicitação de exclusão precisa apenas da ID. Outras propriedades não são passadas para o serviço e, se for passada alguma propriedade, ela será ignorada no serviço. O resultado de uma chamada de `DeleteAsync`, geralmente, também é `null`. A ID a ser passada pode ser obtida do resultado da chamada de `InsertAsync`.
 
 	JObject jo = new JObject(); 
 	jo.Add("Id", 52);
 	await table.DeleteAsync(jo);
 			
-Se você tentar excluir um item sem o campo "Id" já estar definido, o serviço não poderá identificar qual instância excluir e, portanto, você obterá uma  `MobileServiceInvalidOperationException` do serviço. Da mesma forma, se tentar excluir um item não tipado sem o campo "Id" já definido, você também obterá uma  `MobileServiceInvalidOperationException` do serviço. 
+Se você tentar excluir um item sem o campo "Id" já estar definido, o serviço não poderá identificar qual instância excluir e, portanto, você obterá uma `MobileServiceInvalidOperationException` do serviço. Da mesma forma, se tentar excluir um item não tipado sem o campo "Id" já definido, você obterá novamente uma `MobileServiceInvalidOperationException` do serviço.
 		
 
 
-<h2><a name="authentication"></a>Como: Autenticar usuários</h2>
+## <a name="authentication"></a>Como autenticar usuários
 
-Os Serviços Móveis dão suporte à autenticação e à autorização de usuários de aplicativos usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Active Directory do Azure. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial "Introdução à autenticação ([Xamarin.iOS][autenticação do Xamarin.iOS][/Xamarin.Android][autenticação do Xamarin.Android]).
+Os Serviços Móveis oferecem suporte à autenticação e à autorização de usuários de aplicativo, usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e o Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial "Introdução à autenticação" ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
-Dois fluxos de autenticação têm suporte: um _server flow_ e um _client flow_. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos ao dispositivo pois depende dos SDKs específicos ao provedor e ao dispositivo.
+Dois fluxos de autenticação têm suporte: um _fluxo de servidor_ e um _fluxo de cliente_. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos ao dispositivo pois depende dos SDKs específicos ao provedor e ao dispositivo.
 
-<h3>Fluxo de servidor</h3>
-Para que os Serviços Móveis gerenciem o processo de autorização em seu aplicativo da Windows Store ou do Windows Phone, você deve registrar seu aplicativo com o provedor de identidade. Em seguida, no seu serviço móvel, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor. Para obter mais informações, consulte o tutorial "Introdução à autenticação ([Xamarin.iOS][autenticação do Xamarin.iOS][/Xamarin.Android][autenticação do Xamarin.Android]).
+### Fluxo de servidor
+Para que os Serviços Móveis gerenciem o processo de autorização em seu aplicativo da Windows Store ou do Windows Phone, você deve registrar seu aplicativo com o provedor de identidade. Em seguida, no seu serviço móvel, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor. Para obter mais informações, consulte o tutorial "Introdução à autenticação" ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
-Depois de registrar o provedor de identidade, basta chamar o [método LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia um logon de fluxo de servidor usando o Facebook. 
+Depois de registrar o provedor de identidade, basta chamar o [método LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia um logon de fluxo de servidor usando o Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -305,11 +278,11 @@ Se você estiver usando um provedor de identidade além do Facebook, altere o va
 
 Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. O [método LoginAsync] retorna um [MobileServiceUser], que fornece a [userId] do usuário autenticado e o [MobileServiceAuthenticationToken] como um JWT (token da web JSON). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache].
 
-<h3>Fluxo de cliente</h3>
+### Fluxo de cliente
 
-Seu aplicativo também pode entrar em contato independentemente com o provedor de identidade e fornecer o token retornado aos Serviços Móveis para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade. 
+Seu aplicativo também pode entrar em contato independentemente com o provedor de identidade e fornecer o token retornado aos Serviços Móveis para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
 
-No formulário mais simplificado, você pode usar o fluxo de cliente conforme mostrado neste trecho de código para o Facebook ou o Google. 
+No formulário mais simplificado, você pode usar o fluxo de cliente conforme mostrado neste trecho de código para o Facebook ou o Google.
 
 	var token = new JObject();
 	// Replace access_token_value with actual value of your access token obtained 
@@ -342,8 +315,8 @@ No formulário mais simplificado, você pode usar o fluxo de cliente conforme mo
 		}
 	}
 
-<h3><a name="caching"></a>Armazenando o token de autenticação em cache</h3>
-Em alguns casos, a chamada para o método de logon pode ser evitada após a primeira vez que o usuário é autenticado. Você pode usar um armazenamento seguro local (como[Xamarin.Auth][componente Xamarin.Auth]) para armazenar a identidade do usuário atual em cache na primeira vez que ele fizer logon e em todas as vezes subsequentes que verificar se você já tem a identidade do usuário em seu cache. Quando o cache estiver vazio, ainda será necessário enviar o usuário pelo processo de logon. 
+### <a name="caching"></a>Armazenando em cache o token de autenticação
+Em alguns casos, a chamada para o método login pode ser evitada após a primeira vez que o usuário é autenticado. Você pode usar um armazenamento seguro local (como [Xamarin.Auth][Xamarin.Auth component]) para armazenar a identidade do usuário atual em cache na primeira vez que ele fizer logon e em todas as vezes subsequentes que verificar se você já tem a identidade do usuário em seu cache. Quando o cache estiver vazio, ainda será necessário enviar o usuário pelo processo de logon.
 
 	using Xamarin.Auth;
 	var accountStore = AccountStore.Create(); // Xamarin.iOS
@@ -375,9 +348,9 @@ Em alguns casos, a chamada para o método de logon pode ser evitada após a prim
 	accountStore.Delete(account, "Facebook");
 
 
-<h2><a name="errors"></a>Como: Tratar erros</h2>
+## <a name="errors"></a>Como tratar erros
 
-Há várias maneiras de encontrar, validar e resolver erros nos Serviços Móveis. 
+Há várias maneiras de encontrar, validar e resolver erros nos Serviços Móveis.
 
 Por exemplo, os scripts de servidor são registrados em um serviço móvel e podem ser usados para executar um grande intervalo de operações nos dados que estão sendo inseridos e atualizados, incluindo validação e modificação de dados. Imagine definir e registrar um script de servidor que valide e modifique dados, da seguinte forma:
 
@@ -390,9 +363,9 @@ Por exemplo, os scripts de servidor são registrados em um serviço móvel e pod
 	   }
 	}
 
-Esse script do lado do servidor valida o tamanho dos dados da cadeia de caracteres enviados ao serviço móvel e rejeita as cadeias de caracteres que são muito longas, neste caso mais de 10 caracteres.
+Esse script do lado do servidor valida o comprimento dos dados da cadeia de caracteres enviados ao serviço móvel e rejeita as cadeias de caracteres que são muito longas, neste caso mais de 10 caracteres.
 
-Agora que o serviço móvel está validando dados e enviando respostas de erros no lado do servidor, você pode atualizar seu aplicativo .NET para poder tratar de respostas de erros de validação.
+Agora que o serviço móvel está validando dados e enviando respostas de erros no lado do servidor, você pode atualizar seu aplicativo .NET para que possa tratar respostas de erros na validação.
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -409,7 +382,7 @@ Agora que o serviço móvel está validando dados e enviando respostas de erros 
 		}
 	}
 
-<h2><a name="untyped"></a>Como: Trabalhar com dados não tipados</h2>
+## <a name="untyped"></a>Como trabalhar com dados não tipados
 
 O cliente Componente Xamarin foi desenvolvido para cenários fortemente tipados. No entanto, às vezes, uma experiência menos rígida é conveniente, por exemplo, ao lidar com objetos com esquema aberto. Esse cenário é habilitado da seguinte forma. Em consultas, você abandona o LINQ e usa o formato de conexão.
 
@@ -421,89 +394,81 @@ O cliente Componente Xamarin foi desenvolvido para cenários fortemente tipados.
 
 Você recupera valores JSON que podem ser usados como um recipiente de propriedades. Para obter mais informações sobre JToken e Json.NET, consulte [Json.NET](http://json.codeplex.com/)
 
-<h2><a name="unit-testing"></a>Como: Projetar testes da unidade</h2>
+## <a name="unit-testing"></a>Como criar testes de unidade
 
-O valor retornado por  `MobileServiceClient.GetTable` e as consultas são interfaces. Isso os torna fácil de reproduzir para fins de teste, portanto, você pode criar um  `MyMockTable : IMobileServiceTable<TodoItem>` que implementa a lógica do teste.
+O valor retornado por `MobileServiceClient.GetTable` e as consultas são interfaces. Isso os torna fácil de reproduzir para fins de teste, portanto, você pode criar um `MyMockTable : IMobileServiceTable<TodoItem>` que implementa a lógica do teste.
 
-<h2><a name="nextsteps"></a>Próximas etapas</h2>
+## <a name="nextsteps"></a>Próximas etapas
 
 Agora que você concluiu as instruções deste tópico de referência conceitual, saiba como executar tarefas importantes nos Serviços Móveis em detalhes:
 
-* Introdução aos Serviços Móveis ([Xamarin.iOS][Introdução aos Serviços Móveis iOS][/Xamarin.Android][Introdução aos Serviços Móveis Android])
-  <br/>Aprenda os conceitos básicos de como usar os Serviços Móveis.
+* Introdução aos Serviços Móveis ([Xamarin.iOS][Get started with Mobile Services iOS]/[Xamarin.Android][Get started with Mobile Services Android]) <br/>Aprenda as noções básicas de como usar os Serviços Móveis.
 
-* Introdução aos dados ([Xamarin.iOS][Introdução aos dados iOS][/Xamarin.Android][Introdução aos dados Android])
-  <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
+* Introdução aos dados ([Xamarin.iOS][Get started with data iOS]/[Xamarin.Android][Get started with data Android]) <br/>Aprenda mais sobre como armazenar e consultar dados usando os Serviços Móveis.
 
-* Introdução à autenticação([Xamarin.iOS][Introdução à autenticação iOS][/Xamarin.Android][Introdução à autenticação Android])
-  <br/>Aprenda a autenticar usuários do aplicativo com um provedor de identidade.
+* Introdução à autenticação ([Xamarin.iOS][Get started with authentication iOS]/[Xamarin.Android][Get started with authentication Android]) <br/>Aprenda como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* Validar e modificar dados com scripts ([Xamarin.iOS][Validar e modificar dados com scripts iOS][/Xamarin.Android][Validar e modificar dados com scripts Android])
-  <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
+* Validar e modificar os dados com scripts ([Xamarin.iOS][Validate and modify data with scripts ios]/[Xamarin.Android][Validate and modify data with scripts android]) <br/>Saiba mais sobre como usar scripts de servidor nos Serviços Móveis para validar e alterar os dados enviados do seu aplicativo.
 
-* Refinar consultas com paginação ([Xamarin.iOS][Refinar consultas com paginação iOS][/Xamarin.Android][Refinar consultas com paginação Android])
-  <br/>Saiba como usar a paginação em consultas para controlar a quantidade de dados processada em uma única solicitação.
+* Refinar consultas com paginação ([Xamarin.iOS][Refine queries with paging iOS]/[Xamarin.Android][Refine queries with paging Android]) <br/>Saiba como usar a paginação em consultas para controlar a quantidade de dados tratados em uma única solicitação.
 
-* Autorizar usuários com scripts ([Xamarin.iOS][Autorizar usuários com scripts iOS][/Xamarin.Android][Autorizar usuários com scripts Android])
-  <br/>Saiba como usar o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usá-lo para filtrar os dados retornados pelos Serviços Móveis. 
+* Autorizar usuários com scripts ([Xamarin.iOS][Authorize users with scripts iOS]/[Xamarin.Android][Authorize users with scripts Android]) <br/>Saiba como usar o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usá-lo para filtrar os dados retornados pelos Serviços Móveis.
 
 <!-- Anchors. -->
-[O que são Serviços Móveis]: #what-is
-[Conceitos]: #concepts
-[Como: Criar o cliente de Serviços Móveis]: #create-client
-[Como: Criar uma referência de tabela]: #instantiating
-[Como: Consultar dados a partir de um serviço móvel]: #querying
-[Filtrar dados retornados]: #filtering
-[Classificar dados retornados]: #sorting
-[Retornar dados em páginas]: #paging
-[Selecionar colunas específicas]: #selecting
-[Pesquisar dados por ID]: #lookingup
-[Como: Vincular dados à interface do usuário em um serviço móvel]: #binding
-[Como: Inserir dados em um serviço móvel]: #inserting
-[Como: Modificar dados em um serviço móvel]: #modifying
-[Como: Excluir dados em um serviço móvel]: #deleting
-[Como: Autenticar usuários]: #authentication
-[Como: Tratar erros]: #errors
-[Como: Projetar testes da unidade]: #unit-testing 
-[Como: Consultar dados a partir de um serviço móvel]: #querying
-[Como: Personalizar o cliente]: #customizing
-[Como: Trabalhar com dados não tipados]: #untyped
-[Personalizar cabeçalhos de solicitação]: #headers
-[Personalizar a serialização]: #serialization
-[Próximas etapas]: #nextsteps
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #instantiating
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[Look up data by ID]: #lookingup
+[How to: Bind data to user interface in a mobile service]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Delete data in a mobile service]: #deleting
+[How to: Authenticate users]: #authentication
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Query data from a mobile service]: #querying
+[How to: Customize the client]: #customizing
+[How to: Work with untyped data]: #untyped
+[Customize request headers]: #headers
+[Customize serialization]: #serialization
+[Next steps]: #nextsteps
 [Armazenando o token de autenticação em cache]: #caching
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis iOS]: /pt-br/develop/mobile/tutorials/get-started-xamarin-ios
-[Introdução aos Serviços Móveis Android]: /pt-br/develop/mobile/tutorials/get-started-xamarin-android
-[Download do Xamarin]: http://xamarin.com/download/
-[SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Tutorial de início rápido do Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-xamarin-ios/
-[Tutorial de início rápido do Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-xamarin-android/
-[Tutorial de dados do Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
-[Tutorial de dados do Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android/
-[Autenticação do Xamarin.iOS]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
-[Autenticação do Xamarin.Android]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android/
-[SDK dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Componente Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth
+[Get started with Mobile Services iOS]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with Mobile Services Android]: /develop/mobile/tutorials/get-started-xamarin-android
+[Xamarin download]: http://xamarin.com/download/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Xamarin.iOS quickstart tutorial]: /develop/mobile/tutorials/get-started-xamarin-ios/
+[Xamarin.Android quickstart tutorial]: /develop/mobile/tutorials/get-started-xamarin-android/
+[Xamarin.iOS data tutorial]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios/
+[Xamarin.Android data tutorial]: /develop/mobile/tutorials/get-started-with-data-xamarin-android/
+[Xamarin.iOS authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios/
+[Xamarin.Android authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Xamarin.Auth component]: https://components.xamarin.com/view/xamarin.auth
 
 [SDK dos Serviços Móveis]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Introdução aos dados iOS]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Introdução aos dados Android]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Introdução à autenticação iOS]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Introdução à autenticação Android]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Validar e modificar dados com scripts iOS]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
-[Validar e modificar dados com scripts Android]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-[Refinar consultas com paginação iOS]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
-[Refinar consultas com paginação Android]: /pt-br/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-[Autorizar usuários com scripts iOS]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Autorizar usuários com scripts Android]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-[Método LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[Get started with data iOS]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with data Android]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication iOS]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with authentication Android]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Validate and modify data with scripts ios]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+[Validate and modify data with scripts android]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+[Refine queries with paging iOS]: /develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Refine queries with paging Android]: /develop/mobile/tutorials/add-paging-to-data-xamarin-android
+[Authorize users with scripts iOS]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Authorize users with scripts Android]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[método LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

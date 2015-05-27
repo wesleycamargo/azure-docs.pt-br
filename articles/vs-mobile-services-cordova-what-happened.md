@@ -1,24 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Descreve o que aconteceu com seu projeto de Serviços Móveis do Azure no Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# O que aconteceu com meu projeto?
 
 > [AZURE.SELECTOR]
-> - [Introdução](vs-mobile-services-cordova-getting-started.md)
-> - [O que aconteceu](vs-mobile-services-cordova-what-happened.md)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">O que aconteceu com meu projeto?</span>
 
@@ -28,7 +30,7 @@ O plug-in do Cliente do Serviço Móvel do Azure está incluído em todos os Apl
   
 #####Valores de cadeia de conexão para Serviços Móveis
 
-Sob  `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um **MobileServiceClient** foi gerado contendo o URL do aplicativo do serviço móvel selecionado e uma chave do aplicativo. O arquivo contém a inicialização de um objeto de cliente de serviço móvel, semelhante ao código a seguir.
+Em `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um **MobileServiceClient** foi gerado contendo o URL do aplicativo do serviço móvel selecionado e uma chave do aplicativo. O arquivo contém a inicialização de um objeto de cliente de serviço móvel, semelhante ao código a seguir.
 
 	var mobileServiceClient;
 	document.addEventListener("deviceready", function() {
@@ -38,6 +40,4 @@ Sob  `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um
 	    );
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

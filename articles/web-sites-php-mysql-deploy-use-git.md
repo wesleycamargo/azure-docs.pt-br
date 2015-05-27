@@ -1,40 +1,40 @@
-<properties 
-	pageTitle="Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git" 
-	description="Um tutorial que demonstra como criar um aplicativo Web PHP que armazene dados no MySQL e como usar implantação Git no Azure." 
-	services="app-service\web" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor="mollybos"/>
+<properties
+	pageTitle="Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git"
+	description="Um tutorial que demonstra como criar um aplicativo Web PHP que armazena dados no MySQL e como usar implantação Git no Azure."
+	services="app-service\web"
+	documentationCenter="php"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor="mollybos"
+	tags="mysql"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="04/29/2015"
 	ms.author="tomfitz"/>
 
 #Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
 
-Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará [PHP][install-php], a ferramenta de linha de comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web, e [Git][install-git] instalados em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
- 
-Você aprenderá:
+Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados no seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
+
+Você aprenderá a:
 
 * Como criar um aplicativo Web e um banco de dados MySQL usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Já que o PHP está habilitado nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) por padrão, não é necessário nada de especial para executar seu código PHP.
 * Como publicar e publicar novamente o aplicativo no Azure usando o Git.
- 
-Seguindo este tutorial, você compilará um aplicativo Web de registro simples em PHP. O aplicativo será hospedado em aplicativos Web. Abaixo, uma captura de tela do aplicativo concluído:
 
-![Azure PHP web site][running-app]
+Seguindo este tutorial, você compilará um aplicativo Web de registro simples em PHP. O aplicativo será hospedado em aplicativos Web. A seguinte é uma captura de tela do aplicativo concluído:
+
+![Site PHP do Azure][running-app]
 
 ##Configurar o ambiente de desenvolvimento
 
-Este tutorial pressupõe que você tenha o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados em seu computador.
+Este tutorial pressupõe que você tem o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor web e o [Git][install-git] instalados no seu computador.
 
-> [AZURE.NOTE]
-> Se você estiver executando este tutorial no Windows, poderá configurar seu computador para o PHP e configurar automaticamente o IIS (o servidor Web interno do Windows) instalando o <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK do Azure para PHP</a>.
+> [AZURE.NOTE]Se você estiver executando este tutorial no Windows, poderá configurar seu computador para o PHP e configurar automaticamente o IIS (o servidor Web interno do Windows) instalando o <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK do Azure para PHP</a>.
 
 ##<a id="create-web-site-and-set-up-git"></a>Criar um aplicativo Web e configurar a publicação Git
 
@@ -43,40 +43,44 @@ Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 1. Faça logon no [Portal do Azure][management-portal].
 2. Clique no ícone **Novo** na parte inferior esquerda do portal.
 
-	![Create New Azure web site][new-website]
+	![Criar um novo aplicativo Web do Azure][new-website]
 
-3. Clique em **Web + Móvel** e, em seguida, em **Aplicativo Web + MySQL**.
+3. Clique em **Web + Móvel** e em **Azure Marketplace**.
 
-	![Custom Create a new web site][custom-create]
-	
+	![Criação personalizada de um novo aplicativo Web][custom-create]
+
+4. Clique em **Aplicativos Web** e em **Aplicativo Web + MySQL**. Em seguida, clique em **Criar**.
+
+	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
+
 4. Insira um nome válido para o grupo de recursos.
 
-    ![Set resource group name][resource-group]
+    ![Definir nome do grupo de recursos][resource-group]
 
 5. Insira valores para seu novo aplicativo Web.
 
-    ![Create web app][new-web-app]
+    ![Criar um aplicativo Web][new-web-app]
 
 6. Insira valores para seu novo banco de dados, incluindo concordar com os termos legais.
 
-	![Create new MySQL database][new-mysql-db]
+	![Criar novo banco de dados MySQL][new-mysql-db]
 
 7. Quando o aplicativo Web tiver sido criado, você verá o novo grupo de recursos. Clique no nome do aplicativo Web para definir suas configurações.
 
-	![Open web app][go-to-webapp]
+	![Abrir um aplicativo Web][go-to-webapp]
 
-7. Clique em **Configurar implantação contínua**. 
+7. Clique em **Configurar implantação contínua**.
 
-	![Set up Git publishing][setup-publishing]
+	![Configurar a publicação do Git][setup-publishing]
 
 8. Selecione **Repositório Git local** como a fonte.
 
-    ![Set up Git repository][setup-repository]
+    ![Configurar o repositório Git][setup-repository]
 
 
-9. Para habilitar a publicação Git, você deve fornecer um nome de usuário e uma senha. Anote o nome de usuário e a senha que você criar. (Se você tiver configurado um repositório Git anteriormente, pule esta etapa.)
+9. Para habilitar a publicação do Git, você deve fornecer um nome de usuário e uma senha. Anote o nome do usuário e a senha que você criou. (Se você tiver configurado um repositório de Git antes, esta etapa será ignorada.)
 
-	![Create publishing credentials][credentials]
+	![Criar credenciais de publicação][credentials]
 
 
 ##Obter informações da conexão MySQL remota
@@ -85,25 +89,25 @@ Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos
 
 1. No seu grupo de recursos, verifique o banco de dados:
 
-	![Select database][select-database]
+	![Selecionar um banco de dados][select-database]
 
 2. No resumo do banco de dados, selecione **Propriedades**.
 
-    ![Select properties][select-properties]
-	
+    ![Selecionar propriedades][select-properties]
+
 2. Anote os valores de `Database`, `Host`, `User Id` e `Password`.
 
-    ![Note properties][note-properties]
+    ![Anotar propriedades][note-properties]
 
 ##Compilar e testar o aplicativo localmente
 
-Agora que criou um aplicativo Web, você pode desenvolvê-lo localmente e então implantá-lo após o teste. 
+Agora que criou um aplicativo Web, você pode desenvolvê-lo localmente e então implantá-lo após o teste.
 
 O aplicativo Registro é um aplicativo simples do PHP que permite que você se registre em um evento fornecendo seu nome e endereço de email. As informações sobre inscritos anteriores são exibidas em uma tabela. As informações de registro são armazenadas em um banco de dados MySQL. O aplicativo consiste em um arquivo (copie/cole o código disponível abaixo):
 
-* **index.php**: Exibe um formulário de registro e uma tabela que contém informações de registro.
+* **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
 
-Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas presumem que você tem PHP, a ferramenta de linha de comando do MySQL (parte do MySQL) e um servidor Web configurados no seu computador local e que você habilitou a [Extensão PDO para MySQL][pdo-mysql].
+Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas presumem que o PHP, a ferramenta de linha de comando do MySQL (parte do MySQL) e um servidor Web estão configurados no seu computador local e que você habilitou a [extensão PDO do MySQL][pdo-mysql].
 
 1. Conecte-se ao servidor MySQL remoto usando os valores de `Data Source`, `User Id`, `Password` e `Database` que você recuperou anteriormente:
 
@@ -117,7 +121,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. No diretório raiz do servidor Web, crie uma pasta chamada `registration` e crie um arquivo chamado `index.php`.
+4. No diretório raiz do servidor web, crie uma pasta chamada `registration` e crie um arquivo chamado `index.php`.
 
 5. Abra o arquivo **index.php** em um editor de texto ou IDE, adicione o código a seguir e conclua as alterações necessárias marcadas com os comentários `//TODO:`.
 
@@ -170,7 +174,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 				$email = $_POST['email'];
 				$date = date("Y-m-d");
 				// Insert data
-				$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+				$sql_insert = "INSERT INTO registration_tbl (name, email, date)
 						   VALUES (?,?,?)";
 				$stmt = $conn->prepare($sql_insert);
 				$stmt->bindValue(1, $name);
@@ -186,7 +190,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 			// Retrieve data
 			$sql_select = "SELECT * FROM registration_tbl";
 			$stmt = $conn->query($sql_select);
-			$registrants = $stmt->fetchAll(); 
+			$registrants = $stmt->fetchAll();
 			if(count($registrants) > 0) {
 				echo "<h2>People who are registered:</h2>";
 				echo "<table>";
@@ -211,30 +215,29 @@ Agora você pode navegar até **http://localhost/registration/index.php** para t
 
 ##Publicar seu aplicativo
 
-Depois de testar seu aplicativo localmente, você poderá publicá-lo para aplicativos Web usando Git. Você inicializará seu repositório Git local e publicará o aplicativo.
+Depois de testar seu aplicativo localmente, você poderá publicá-lo para aplicativos Web usando Git. Você inicializara seu repositório local do Git e publicará o aplicativo.
 
-> [AZURE.NOTE]
-> Estas são as mesmas etapas mostradas no portal no final da seção Criar um aplicativo Web e Configurar a publicação Git, apresentada acima.
+> [AZURE.NOTE]Estas são as mesmas etapas mostradas no portal no final da seção Criar um aplicativo Web e Configurar a publicação Git, apresentada acima.
 
 1. (Opcional) Se você tiver esquecido a URL de seu repositório Git remoto, navegue até as propriedades do aplicativo Web no portal.
-	
-1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+
+1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
 
 		git init
 		git add .
 		git commit -m "initial commit"
-		git remote add azure [URL para repositório remoto]
+		git remote add azure [URL for remote repository]
 		git push azure master
 
 	Será solicitada a senha que você criou anteriormente.
 
 	![Envio por push inicial ao Azure via Git][git-initial-push]
 
-2. Navegue até **http://[nome do site].azurewebsites.net/index.php** para começar a usar o aplicativo (essas informações serão armazenadas no painel de sua conta):
+2. Navegue até **http://[site nome].azurewebsites.net/index.php** para começar a usar o aplicativo (essas informações serão armazenadas no painel de sua conta):
 
-	![Site em PHP do Azure][running-app]
+	![Site PHP do Azure][running-app]
 
-Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
+Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo.
 
 ##Publicar alterações em seu aplicativo
 
@@ -244,22 +247,22 @@ Para publicar alterações em seu aplicativo, siga essas etapas:
 2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo e execute os seguintes comandos:
 
 		git add .
-		git commit -m "comentário descrevendo as alterações"
+		git commit -m "comment describing changes"
 		git push azure master
 
 	Será solicitada a senha que você criou anteriormente.
 
-	![Pushing site changes to Azure via Git][git-change-push]
+	![Enviando alterações por push ao Site do Azure via Git][git-change-push]
 
-3. Navegue até **http://[site name].azurewebsites.net/index.php** para ver seu aplicativo e quaisquer alterações feitas por você:
+3. Navegue até **http://[site nome].azurewebsites.net/index.php** para ver seu aplicativo e todas as alterações feitas:
 
-	![Azure PHP web site][running-app]
+	![Site PHP do Azure][running-app]
 
->[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia para a mudança de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a mudança do portal antigo para o novo portal, consulte: [Referência para navegação no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -292,4 +295,4 @@ Para publicar alterações em seu aplicativo, siga essas etapas:
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
-<!--HONumber=49-->
+<!--HONumber=54-->

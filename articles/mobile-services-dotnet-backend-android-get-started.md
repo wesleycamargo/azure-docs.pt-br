@@ -1,4 +1,4 @@
-﻿
+
 <properties 
 	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos Android" 
 	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento Android." 
@@ -15,10 +15,10 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="02/13/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.author="ricksal"/>
 
 
-# <a name="getting-started"> </a>Introdução aos Serviços Móveis
+# <a name="getting-started"></a>Introdução aos Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
@@ -28,15 +28,15 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 ![][0]
 
-A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Android][Android Studio], que inclui o Ambiente de Desenvolvimento Eclipse integrado e a mais recente plataforma Android. Android 4.2 ou uma versão posterior é necessária.  
+A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Android][Android Studio], que incluem o ambiente de desenvolvimento integrado do Android Studio e a plataforma Android mais recente. Android 4.2 ou uma versão posterior é necessária.
 
-O projeto de início rápido baixado contém o SDK de Serviços Móveis para Android. 
+O projeto de início rápido baixado contém o SDK de Serviços Móveis para Android.
 
-> [AZURE.IMPORTANTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 <!-- -->
 
-> [AZURE.NOTE] Se você gostaria de ver a versão Eclipse deste tutorial, vá para: [Introdução (Eclipse)].
+> [AZURE.NOTE]Para ver a versão Eclipse deste tutorial, vá para : [Introdução (Eclipse)].
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -48,16 +48,16 @@ Agora que você criou o serviço móvel, baixe o projeto de serviço móvel pers
 
 1. Clique no serviço móvel que você acabou de criar, em seguida, na guia quickstart, clique em **Android** em **Escolher plataforma** e expanda **Criar um novo aplicativo Android**.
 
-	![][1]  
+	![][1]
 
-2. Se ainda não tiver feito isso, baixe e instale o [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934), ou uma versão posterior.
+2. Se ainda não tiver feito isso, baixe e instale o [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou uma versão posterior.
 
 3. Na etapa 2, clique em **Baixar** em **Baixar e publicar o serviço na nuvem**.
 
 	Isso baixa o projeto do Visual Studio que implementa o serviço móvel. Salve o arquivo de projeto compactado em seu computador local e anote onde ele foi salvo.
 
 <!--
-4. Além disso, baixe seu perfil de publicação, salve o arquivo baixado no computador local e anote o local onde o salvou.
+4. Also, download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
 -->
 
 ## Testar o serviço móvel
@@ -72,42 +72,38 @@ Agora que você criou o serviço móvel, baixe o projeto de serviço móvel pers
 
 Nesta seção você criará um novo aplicativo Android que está conectado ao seu serviço móvel.
 
-1. No [Portal de Gerenciamento], clique em **Serviços Móveis**, e clique no serviço móvel que você acabou de criar.
+1. No [Portal de Gerenciamento], clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
 
-2. Na guia de início rápido, clique em **Android** em **Escolher a plataforma** e expanda **Criar um novo aplicativo Android**. 
+2. Na guia de início rápido, clique em **Android** em **Escolher a plataforma** e expanda **Criar um novo aplicativo Android**.
  
-	![][2]  
+	![][2]
 
-3. Se ainda não fez isso, baixe e instale o [Android Developer Tools][Android SDK] em seu computador local ou máquina virtual.
+3. Se ainda não o fez, baixe e instale [Android Developer Tools][Android SDK] em seu computador local ou máquina virtual.
 
-4. Em **Baixar e executar o aplicativo**, clique em **Baixar**. 
+4. Em **Baixe e execute o aplicativo**, clique em **Baixar**.
 
-  	Isso baixa o projeto para o aplicativo de exemplo _To do list_ que está conectado ao seu serviço móvel. Salve o arquivo de projeto compactado em seu computador local e anote onde ele foi salvo.
+  	Isso baixa o projeto para o aplicativo de exemplo _To do list_ que está conectado ao seu serviço móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 
 ## Executar seu aplicativo Android
 
 [WACOM.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
-Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis: 
+Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
-* [Introdução aos dados]
-  <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
+* [Introdução aos dados] <br/> Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
 
-* [Introdução à autenticação]
-  <br/>Aprenda a autenticar usuários do aplicativo com um provedor de identidade.
+* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* [Introdução às notificações por push] 
-  <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Solucionar um problema de back-end do .NET de Serviços Móveis]
-  <br/> Saiba como diagnosticar e corrigir problemas que podem surgir com um back-end do .NET dos serviços móveis. 
+* [Solucionar problemas de back-end do .NET dos Serviços Móveis] <br/> Saiba como diagnosticar e corrigir problemas que podem surgir com o back-end do .NET dos Serviços Móveis.
 
 <!-- Anchors. -->
-[Introdução aos Serviços Móveis]:#getting-started
-[Criar um novo serviço móvel]:#create-new-service
-[Definir a instância do serviço móvel]:#define-mobile-service-instance
-[Próximas etapas]:#next-steps
+[Getting started with Mobile Services]: #getting-started
+[Create a new mobile service]: #create-new-service
+[Define the mobile service instance]: #define-mobile-service-instance
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
@@ -127,15 +123,15 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introdução (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-EC/
-[Introdução aos dados]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Introdução à autenticação]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[Introdução às notificações por push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push
-[SDK do Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Introdução (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
+[Introdução aos dados]: mobile-services-dotnet-backend-android-get-started-data.md
+[Introdução à autenticação]: mobile-services-dotnet-backend-android-get-started-users.md
+[Introdução às notificações por push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
-[SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Solucionar um problema de back-end do .NET dos Serviços Móveis]: /documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=54-->

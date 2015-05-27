@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Definir sua estratégia do Mobile Engagement" 
-	description="Saiba como usar carregamentos e otimizar seu Mobile Engagement com análises e notificações por push." 
+	description="Saiba como usar carregamentos e otimizar seu Mobile Engagement com Análises e Notificações por Push." 
 	services="mobile-engagement" 
 	documentationCenter="Mobile" 
 	authors="kpiteira" 
@@ -32,27 +32,27 @@ Mas, para isso, você terá que começar a **compreender seus usuários**, em se
 
 **A criação de sua estratégia do Mobile Engagement requer procurar primeiro os KPIs e os objetivos de seu aplicativo.**
 
-Iniciar definindo esses objetivos/KPIs ajuda a definir seus casos de uso do Engagement com o prisma correto. 
+Iniciar definindo esses objetivos/KPIs ajuda a definir seus casos de uso do Engagement com o prisma correto.
 
-Casos de uso são uma lista simples de campanhas que você gostaria de fazer para se comunicar com os usuários, desde uma simples Boas-vindas até a notificação de utilitário muito avançado disparada pelo seu sistema de TI. Um caso de uso bem-construído deve incluir pelo menos o trio  *o que-quando-onde*:
+Casos de uso são uma lista simples de campanhas que você gostaria de fazer para se comunicar com os usuários, desde uma simples Boas-vindas até a notificação de utilitário muito avançado disparada pelo seu sistema de TI. Um caso de uso bem-construído deve incluir pelo menos o trio *o que-quando-onde*:
 
 1. Uma designação muito curta (por exemplo, "Campanha de Boas-vindas")
-2. **O que**: Um exemplo de mensagem (por exemplo, "Feliz em tê-lo integrado! Lembre-se de fazer logon para obter seu primeiro mês gratuito!"). Esta mensagem não é, de forma alguma, a final; você poderá alterá-la sempre que desejar, mas geralmente é útil para começar a pensar sobre o que queremos dizer
-3. **Quem**: O segmento que receberá essa mensagem (por exemplo, "Todos os usuários que iniciaram o aplicativo pela primeira vez 3 dias atrás, visitaram a página de logon, mas não fizeram logon")
+2. **O que**: um exemplo de mensagem (por exemplo, "Estamos felizes em tê-lo conosco! Lembre-se de fazer logon para obter seu primeiro mês gratuito!"). Esta mensagem não é, de forma alguma, a final; você poderá alterá-la sempre que desejar, mas geralmente é útil para começar a pensar sobre o que queremos dizer
+3. **Quem**: o segmento que receberá essa mensagem (por exemplo, "Todos os usuários que iniciaram o aplicativo pela primeira vez 3 dias atrás, visitaram a página de logon, mas não fizeram logon")
 	- Sim, você pode fazer isso facilmente com o Azure Mobile Engagement:)
 	- Novamente, isso não precisa ser final, pois você pode definir os segmentos a qualquer momento, mas é importante definir seus critérios de segmentação para garantir que você colete os dados certos
-4. **Quando**: O tempo de sua campanha. Ele pode ser em uma determinada data ou depois de uma ação específica, com base em um gatilho. O Mobile Engagement oferece uma quantidade importante das possibilidades de tempo corretas em sua comunicação
+4. **Quando**: o tempo de sua campanha. Ele pode ser em uma determinada data ou depois de uma ação específica, com base em um gatilho. O Mobile Engagement oferece uma quantidade importante das possibilidades de tempo corretas em sua comunicação
 
 Uma vez definidos os casos de uso e o segmento, ele fornece uma diretriz para definir os dados que devem ser coletados em um aplicativo. Essa é a função de um *"Plano de Marca"*. Um plano de marca permite garantir que a coleta de dados seja especificada para os desenvolvedores. Dessa forma, os desenvolvedores são capazes de incorporar o Mobile Engagement à configuração certa para você trabalhar suas campanhas com os dados corretos. Também é muito importante executar testes para garantir que a integração esteja correta e que ela colete aquilo que você precisa.
 
 Com base na integração, depois que os aplicativos são publicados, como um Comerciantes poderão ver sua análise em tempo real, segmentar seu público-alvo e, em seguida, começar a enviar notificação por push inteligente e segmentada para se comunicar com usuários finais ou não do aplicativo.
 
 ###Casos de uso para começar
-1. Estratégia de boas-vindas: Crie várias campanhas de notificação por push com base no comportamento do usuário final na inicialização do aplicativo para envolver novamente D+2/5/10/15 após a primeira sessão e aumentar a primeira a retenção de execução.	
+1. Estratégia de boas-vindas: crie várias campanhas de notificação por push com base no comportamento do usuário final na inicialização do aplicativo para envolver novamente D+2/5/10/15 após a primeira sessão e aumentar a primeira a retenção de execução.	
 2. Promova um novo conteúdo (recurso, artigo/vídeo, produto, etc.) com base no comportamento do usuário final para enviar as informações somente para os usuários finais que têm mais probabilidade de se envolver.	
 3. Classifique o aplicativo: meta de menos de 1% de sua base de usuários com maior probabilidade de classificar o aplicativo como 5 estrelas no repositório.	
-4. Aumento de assinaturas: Promova conteúdo valioso para usuários finais que ainda não os viram para aumentar a assinatura.
-5. Tutorial: O tutorial não é mais obrigatório para todos. Por que não compilar tutoriais excelentes no aplicativo e, em seguida, acioná-los por meio de mensagens no aplicativo somente se o usuário parecer não usar ou ter dificuldades ao usar um recurso?
+4. Aumente as assinaturas: promova conteúdo valioso para usuários finais que ainda não os viram para aumentar as assinaturas.
+5. Tutorial: o tutorial não é mais obrigatório para todos. Por que não compilar tutoriais excelentes no aplicativo e, em seguida, acioná-los por meio de mensagens no aplicativo somente se o usuário parecer não usar ou ter dificuldades ao usar um recurso?
 
 ##Por que você precisa de Análise no Engage?
 
@@ -60,7 +60,7 @@ Como você pode perceber neste ponto, fazer uma notificação de envio de difus�
 
 Para ser o mais contextual possível quando envolver seu público, é crucial ter conhecimento sobre o comportamento dos usuários finais, para saber o status em tempo real. A coleta de dados permite que os comerciantes se concentrem no que realmente importa para executar casos de uso e atingir os objetivos da estratégia do Mobile Engagement. Atingir os objetivos acima também é a razão pela qual a prática recomendada é, de fato, não reunir tudo na análise, mas apenas aquilo que permite se concentrar naquilo se quer aprender e nos casos de uso. Essa é uma boa maneira de iniciar, experimentar, testar e aprender a usar a solução, direcionar uma notificação por push inteligente e aumentar a retenção de um aplicativo para colocá-lo em um nível de história de sucesso.
 
->[AZURE.NOTE] Lembre-se: muitos dados matam os dados!
+>[AZURE.NOTE]Lembre-se: muitos dados matam os dados!
 
 ###Casos de uso e práticas recomendadas
 
@@ -86,37 +86,34 @@ Colete quais produtos ou marcas é mais provável que um determinado público co
 
 ####Serviços bancários
 
-Colete se os usuários finais criaram uma conta na primeira inicialização do aplicativo. O objetivo é implantar uma estratégia de boas-vindas com notificação por push de destino e aumentar o número de assinaturas da conta. 
+Colete se os usuários finais criaram uma conta na primeira inicialização do aplicativo. O objetivo é implantar uma estratégia de boas-vindas com notificação por push de destino e aumentar o número de assinaturas da conta.
 
 ###Como criar um bom plano de marca?
 
 Um plano de marca deve ser como uma descrição do caminho de usuário ou um tipo de fluxo de trabalho do aplicativo, fornecendo todas as marcas necessárias (dados) que devem ser coletadas para que se tenha uma análise suficiente para entender o comportamento do usuário e segmentar corretamente a base de usuários. Isso não é um processo técnico. Portanto, os comerciantes são capazes de especificar os dados que desejam coletar, com base em sua estratégia do Mobile Engagement.
  
-O mínimo é marcar pelo menos todas as telas (chamadas de  `Atividades` no Mobile Engagement) de um aplicativo. Isso permitirá noções básicas sobre o caminho do usuário. 
+O mínimo é marcar pelo menos todas as telas (chamadas de `Activities` no Mobile Engagement) de um aplicativo. Isso permitirá noções básicas sobre o caminho do usuário.
 
-Uma atividade pode incorporar  `Eventos` que coletam informações sobre a ação como clicar em um botão. Isso permite coletar interação dentro do aplicativo. Portanto, os comerciantes são capazes de saber o que os usuários da tela estão visitando e o que eles estão fazendo. 
+Uma Atividade pode incorporar `Events` que coletam informações sobre a ação como clicar em um botão. Isso permite coletar interação dentro do aplicativo. Portanto, os comerciantes são capazes de saber o que os usuários da tela estão visitando e o que eles estão fazendo.
 
-`Trabalhos` são ações com uma duração. Isso é muito útil para o comerciante entender quanto tempo levará para um usuário criar uma conta ou fazer logon, por exemplo. Isso também pode ser útil para os desenvolvedores monitorarem quanto tempo levará para chamar um serviço Web. 
+`Jobs` são ações com uma duração. Isso é muito útil para o comerciante entender quanto tempo levará para um usuário criar uma conta ou fazer logon, por exemplo. Isso também pode ser útil para os desenvolvedores monitorarem quanto tempo levará para chamar um serviço Web.
 
-Os `Erros` também podem ser monitorados para saber se os usuários estão tendo problemas em seu aplicativo. Por exemplo, obter muitas vezes os problemas de conexão. 
+Os `Errors` também podem ser monitorados para saber se os usuários estão tendo problemas em seu aplicativo. Por exemplo, obter muitas vezes os problemas de conexão.
 
-Todos esses tipos de dados podem ser aumentados com Parâmetros (`informações extra` no Mobile Engagement) que permite coletar dados dinâmicos do aplicativo. Isso é importante para permitir uma segmentação bem refinada. Por exemplo, os comerciantes poderiam segmentar o usuário com base no tipo de conteúdo que consomem. O tipo de conteúdo será essas informações dinâmicas de uma  `atividade` ou de um  `evento`. 
+Todos esses tipos de dados podem ser aumentados com Parâmetros (`extra-information` no Mobile Engagement) que permite coletar dados dinâmicos do aplicativo. Isso é importante para permitir uma segmentação bem refinada. Por exemplo, os comerciantes poderiam segmentar o usuário com base no tipo de conteúdo que consomem. O tipo de conteúdo será essas informações dinâmicas de um `activity` ou um `event`.
 
-As `Informações de aplicativos`  são dados que permitem saber, em tempo real, o que é o status do aplicativo ou do usuário. Isso ajuda também a categorizar um público de base e de destino rapidamente. Pode ser, por exemplo, um status verdadeiro/falso se o usuário estiver fazendo logon ou não, ou sua data de expiração da assinatura.
+`App-information` de aplicativos são dados que permitem saber, em tempo real, o que é o status do aplicativo ou do usuário. Isso ajuda também a categorizar um público de base e de destino rapidamente. Pode ser, por exemplo, um status verdadeiro/falso se o usuário estiver fazendo logon ou não, ou sua data de expiração da assinatura.
 
 ####Exemplo de marcas
 
 *Caso de uso: Comportamento do público do segmento para direcionar o usuário final certo para o conteúdo certo da notificação por push*
 
-1.	Envie notificação por push para promover uma categoria de produto: colete dados de comportamento para o público do segmento com base na categoria de produto que eles visitaram x as vezes em um determinado período ou um item específico que eles adicionaram em um carrinho. Os dados coletados permitirão segmentar e, em seguida, enviar notificação por push para o público certo.
-2.	Avalie o aplicativo: Colete dados de acordo com o conteúdo compartilhado pelo público em rede social. O objetivo é o público-alvo do segmento, determinando os "Embaixadores" de seu aplicativo, que são o melhor público de seu aplicativo para fazer a classificação 5 estrelas de seu aplicativo na loja com um aplicativo de notificação por push.
+1.	Envie notificação por Push para promover uma categoria de produto: colete dados de comportamento para o público do segmento com base na categoria de produto que eles visitaram x as vezes em um determinado período ou um item específico que eles adicionaram em um carrinho. Os dados coletados permitirão segmentar e, em seguida, enviar notificação por push para o público certo.
+2.	Avalie o aplicativo: colete dados de acordo com o conteúdo compartilhado pelo público em rede social. O objetivo é o público-alvo do segmento, determinando os "Embaixadores" de seu aplicativo, que são o melhor público de seu aplicativo para fazer a classificação 5 estrelas de seu aplicativo na loja com um aplicativo de notificação por push.
 
 	![][1]
 
-*Caso de uso: Dados declarativos*
-1.	Notícias de alerta de segmento: Colete dados declarativos para o público do segmento com base nas suas preferências. Ele permite enviar notificação por push de um tópico específico que realmente interessa a um público específico.
-2.	Público do segmento com base no status de logon. Colete dados para saber se um usuário está conectado ou se criou uma conta. Ajuda no direcionamento de usuários finais que ainda não se conectaram e enviaram notificação por push para atrair os usuários finais a participarem.
-	![][2]
+*Caso de uso: dados declarativos* 1. Notícias sobre o alerta de segmento: colete dados declarativos para o público do segmento com base nas suas preferências. Ele permite enviar notificação por push de um tópico específico que realmente interessa a um público específico. 2. Público do segmento com base no status de logon. Colete dados para saber se um usuário está conectado ou se criou uma conta. Ajuda no direcionamento de usuários finais que ainda não se conectaram e enviaram notificação por push para atrair os usuários finais a participarem. ![][2]
 
 ### Próximas etapas
 - Visite os [Conceitos do Mobile Engagement] para saber mais sobre os conceitos básicos do Mobile Engagement.
@@ -130,4 +127,4 @@ As `Informações de aplicativos`  são dados que permitem saber, em tempo real,
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!--HONumber=47-->
+<!--HONumber=54-->

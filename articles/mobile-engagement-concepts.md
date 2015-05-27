@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Conceitos do Mobile Engagement" 
 	description="Conceitos do Mobile Engagement"
 	services="mobile-engagement" 
@@ -23,7 +23,7 @@ O Mobile Engagement define alguns conceitos comuns a todas as plataformas com su
 Esta página é um bom começo, se você for novo no Mobile Engagement. Além disso, certifique-se de ler a documentação específica para a plataforma que você está usando, como ela refinará os conceitos descritos nesta página com mais detalhes e exemplos, bem como possíveis limitações.
 
 ##Dispositivos e usuários
-O Mobile Engagement identifica os usuários gerando um identificador exclusivo para cada dispositivo. Esse identificador é chamado de identificador de dispositivo (ou  `deviceid`). Ele é gerado de forma que a execução de todos os aplicativos do mesmo dispositivo compartilha o mesmo identificador de dispositivo.
+O Mobile Engagement identifica os usuários gerando um identificador exclusivo para cada dispositivo. Esse identificador é chamado de identificador de dispositivo (ou `deviceid`). Ele é gerado de forma que a execução de todos os aplicativos do mesmo dispositivo compartilha o mesmo identificador de dispositivo.
 
 Implicitamente, significa que o Mobile Engagement considera que um dispositivo deve pertencer a um usuário e, assim, os usuários e dispositivos são conceitos equivalentes.
 
@@ -63,7 +63,7 @@ Um trabalho é identificado por um nome (limitado a 64 caracteres) e pode, opcio
 As Falhas são emitidas automaticamente pelo SDK do Mobile Engagement para falhas de aplicativo de relatório (ou seja, problemas não detectados pelo aplicativo que o fazem falhar).
 
 ##Informações do aplicativo
-As informações do aplicativo (ou  `app info`) são usadas para usuários de marca, por exemplo, para associar alguns dados aos usuários de um aplicativo (semelhante aos cookies da web, exceto que as informações do aplicativo são armazenadas no lado do servidor na plataforma do Mobile Engagement).
+As informações do aplicativo (ou `app info`) são usadas para usuários de marca, por exemplo, para associar alguns dados aos usuários de um aplicativo (semelhante aos cookies da web, exceto que as informações do aplicativo são armazenadas no lado do servidor na plataforma do Mobile Engagement).
 
 As informações de um aplicativo podem ser registradas usando a API do SDK do Mobile Engagement ou usando a API do dispositivo da plataforma do Mobile Engagement.
 
@@ -76,5 +76,5 @@ Os dados extras (ou extras) são alguns dados arbitrários que podem ser anexado
 
 Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de de uma árvore de pares chave/valor. As chaves são limitadas a 64 letras ASCII [a-zA-Z], números [0-9] e sublinhados [_]) e o tamanho total de extras é limitado a 1024 caracteres (uma vez codificados em JSON pelo SDK do Mobile Engagement).
 
-A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento "SciFi fans" composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content_viewed" com a chave extra "content_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
-<!--HONumber=47-->
+A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento “SciFi fans” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content_viewed" com a chave extra "content_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
+<!--HONumber=54-->

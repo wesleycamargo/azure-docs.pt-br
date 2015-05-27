@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Conector do Office 365" 
    description="Como usar o Conector do Office 365" 
    services="app-service\logic" 
@@ -17,9 +17,9 @@
    ms.author="sutalasi"/>
 
 
-# Usando o Conector do Office 365 em seu aplicativo lógico#
+#Usando o Conector do Office 365 em seu aplicativo lógico#
 
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.  O Conector do Office 365 permite enviar e receber emails, gerenciar calendários e contatos em sua conta do Office 365.  Você pode executar várias ações, como enviar, receber e obter emails, criar e excluir eventos de seu calendário e criar, atualizar, obter e excluir seus contatos.
+Aplicativos lógicos podem ser disparados com base em uma variedade de fontes de dados e oferecem conectores para obter e processar dados como uma parte do fluxo. O Conector do Office 365 permite enviar e receber emails, gerenciar calendários e contatos em sua conta do Office 365. Você pode executar várias ações, como enviar, receber e obter emails, criar e excluir eventos de seu calendário e criar, atualizar, obter e excluir seus contatos.
 
 **Ações básicas**
 
@@ -29,28 +29,36 @@ Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e
 - Enviar Evento
 - Adicionar Contato
 
+##Criar o aplicativo de API do conector O365##
+Para criar o aplicativo de API do conector O365, execute as seguintes etapas:
 
-## Criar um aplicativo lógico##
-Para usar o Conector do Office 365 em seu aplicativo lógico, o aplicativo de API do conector já deve ter sido criado ou você pode criá-lo rapidamente na seção de aplicativos lógicos.  Vamos criar um aplicativo lógico simples que é disparado quando um email é recebido (em sua ID de email de consulta de vendas - digamos, sales@contoso.com).  Ele cria um evento, adiciona um contato com os detalhes do remetente, envia um email à sua conta pessoal e, por fim, envia uma resposta com um reconhecimento.
+1.	Abra o Azure Marketplace usando a opção + NOVO na parte inferior direita do Portal do Azure.
+2.	Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e procure por “Office365”.
+3.	Configure o Conector do Office 365 fornecendo os detalhes do Plano de Hospedagem e o grupo de recursos e selecionando o nome do aplicativo de API.
 
-1.	Faça logon no Portal do Azure e clique em "Novo -> Web + Móvel -> Aplicativo Lógico"
+	![][21]
+
+
+##Criar um aplicativo lógico##
+Vamos criar um aplicativo lógico simples que é disparado quando um email é recebido (em sua ID de email de consulta de vendas - digamos sales@contoso.com). Ele cria um evento, adiciona um contato com os detalhes do remetente, envia um email à sua conta pessoal e, por fim, envia uma resposta com um reconhecimento.
+
+1.	Faça logon no Portal do Azure e clique em “Novo -> Web + Móvel -> Aplicativo Lógico”
 
 	![][1]
 
-2.	Na página "Criar aplicativo lógico", forneça os detalhes necessários, como nome, plano de serviço de aplicativo e local.
+2.	Na página “Criar aplicativo lógico”, forneça os detalhes necessários, como nome, plano de serviço de aplicativo e local.
 
 	![][2]
 
-3.	Clique em "Gatilhos e Ações" e a tela do editor de Aplicativos Lógicos aparecerá.
+3.	Clique em “Gatilhos e Ações” e a tela do editor do Aplicativo Lógico aparecerá.
 
 	![][3]
 
-4.	Expanda "Criar Novo" na Galeria para ver todos os aplicativos de API disponíveis.  Selecione "Office 365" na galeria e o "Gatilho do Office 365" será adicionado ao fluxo.
+4.	Selecione o gatilho do Office 365 na seção “Aplicativos de API neste grupo de recursos” na galeria para adicioná-lo ao fluxo.
+
 	![][4]
 
-5.	Isso cria um novo aplicativo de API do "Conector do Office 365" no mesmo grupo de recursos que o aplicativo lógico.  Serão necessários cerca de 30 segundos para que o aplicativo de API seja criado.
-
-6.	Após a criação do aplicativo, clique em "Autorizar" para fornecer credenciais de logon do Office 365.
+6.	A conexão com o Office 365 exige que você autorize o aplicativo lógico a ser capaz de acessar sua conta. Clique em “Autorizar” para fornecer as credenciais de logon do Office 365.
 
 	![][5]
 
@@ -60,22 +68,22 @@ Para usar o Conector do Office 365 em seu aplicativo lógico, o aplicativo de AP
 
 	![][7]
 
-8.	Quando a autorização for concluída, gatilhos do Office 365 serão exibidos.
+8.	Quando a autorização for concluída, os gatilhos do Office 365 serão exibidos.
 
 	![][8]
 
-9.	Selecione o gatilho "Nova Mensagem" e os parâmetros de entrada serão exibidos.
+9.	Selecione o gatilho “Novo Email” e os parâmetros de entrada serão exibidos.
 
 
-10.	Mude a frequência do gatilho para 'Minutes' e clique em ✓. 
+10.	Mude a frequência do gatilho para “Minutos” e clique em ✓.
 
 	![][9]
 
-11. O gatilho 'New Email' do Office 365 é configurado e você pode ver que os parâmetros de saída também são exibidos.
+11. O gatilho “Novo Email” do Office 365 é configurado e você pode ver que os parâmetros de saída também são exibidos.
 	
 	![][10]
 
-12.	Selecione "Conector do Office 365" na seção "Usados Recentemente" da galeria e uma nova ação do "Office 365" é adicionada.
+12.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
 13.	Selecione "Enviar Evento" na lista de ações e os parâmetros de entrada da ação "Enviar Evento" serão exibidos.
 
@@ -85,13 +93,13 @@ Para usar o Conector do Office 365 em seu aplicativo lógico, o aplicativo de AP
 
 	![][12]
 
-15.	Selecione "Conector do Office 365" na seção "Usados Recentemente" da galeria e uma nova ação do "Office 365" é adicionada.
+15.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
-16.	Selecione "Adicionar Contato" na lista de ações e os parâmetros de entrada da ação "Adicionar Contato" serão exibidos.
+16.	Selecione “Adicionar Contato” na lista de ações e os parâmetros de entrada da ação "Adicionar Contato" serão exibidos.
 
 	![][13]
 
-17.	Clique em "+" ao lado do campo 'Email Address' e selecione o valor 'From' do campo de saída do gatilho.
+17.	Clique em “+” ao lado do campo “Endereço de Email” e selecione o valor do campo de saída do gatilho.
 
 	![][14]
 
@@ -99,32 +107,32 @@ Para usar o Conector do Office 365 em seu aplicativo lógico, o aplicativo de AP
 
 	![][15]
 
-19.	Selecione "Conector do Office 365" na seção "Usados Recentemente" da galeria e uma nova ação do "Office 365" é adicionada.
+19.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
 
-20.	Selecione "Enviar Email" na lista de ações e os parâmetros de entrada da ação 'Enviar Email' serão exibidos.
+20.	Selecione “Enviar Email” na lista de ações e os parâmetros de entrada da ação 'Enviar Email' serão exibidos.
 
 	![][19]
 
-21.	Forneça os detalhes necessários para enviar o email.  Você pode criar uma mensagem digitando algo como o que está abaixo.  Uma vez que a ação 'Send Email' estiver configurada, clique em ✓.
+21.	Forneça os detalhes necessários para enviar o email. Você pode criar uma mensagem digitando algo como o que está abaixo. Uma vez que a ação estiver configurada, clique em ✓.
 
 		Body - @concat('You got a new sales enquiry from',triggers().output.body.From)
 
 	![][20]
-22.	Selecione "Conector do Office 365" na seção "Usados Recentemente" da galeria e uma nova ação do "Office 365" é adicionada.
+22.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
 
-23.	Selecione "Responder" na lista de ações e os parâmetros de entrada da ação "Responder" serão exibidos.
+23.	Selecione “Responder” na lista de ações e os parâmetros de entrada da ação “Responder” serão exibidos.
 
 	![][16]
 
-24.	Clique em "+" ao lado do campo 'From' e selecione o valor da ID da mensagem de saída do gatilho e clique em ✓.
+24.	Clique em “+” ao lado do campo e selecione o valor da ID da mensagem de saída do gatilho e clique em ✓.
 
 	![][17]
 
-25. Clique em OK na tela do editor de aplicativo lógico e clique em 'Create'.  Serão necessários cerca de 30 segundos para a conclusão da criação.
+25. Clique em OK na tela do editor do aplicativo lógico e clique em “Criar”. Serão necessários cerca de 30 segundos para a conclusão da criação.
 
-26. Envie um email para a conta com que você configurou o gatilho e você verá um email na sua conta de email pessoal e um evento de calendário e contato em sua conta de email profissional.  Além disso, você deve obter uma resposta confirmando que a consulte de venda será respondida em breve.
+26. Envie um email para a conta em que você configurou o gatilho e verá um email na sua conta de email pessoal e um evento de calendário e contato em sua conta de email profissional. Além disso, você deve obter uma resposta confirmando que a consulta de venda será respondida em breve.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-office365/1_New_Logic_App.png
@@ -147,6 +155,8 @@ Para usar o Conector do Office 365 em seu aplicativo lógico, o aplicativo de AP
 [18]: ./media/app-service-logic-connector-office365/18_Office365_Reply_To_Configured.png
 [19]: ./media/app-service-logic-connector-office365/19_Office365_Send_Inputs.png
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
+[21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
 
-<!--HONumber=49-->
+
+<!--HONumber=54-->

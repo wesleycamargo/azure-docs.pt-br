@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar as APIs de gerenciamento de serviços do Azure (PHP)" 
 	description="Saiba como usar as APIs de Gerenciamento de Serviços do PHP do Azure para gerenciar serviços de nuvem e outros aplicativos do Azure." 
-	services="" 
+	services="web-sites" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -18,64 +18,45 @@
 
 # Como usar o Gerenciamento de Serviços do PHP
 
-Este guia mostrará como executar tarefas de gerenciamento de serviços comuns de forma programática no PHP. A classe [ServiceManagementRestProxy] no [SDK do Azure para PHP][download-SDK-PHP] dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal de Gerenciamento][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de armazenamento e grupos de afinidade**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços. 
+Este guia mostrará como executar tarefas de gerenciamento de serviços comuns de forma programática no PHP. A classe [ServiceManagementRestProxy] no [SDK do Azure para PHP][download-SDK-PHP] oferece suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal de Gerenciamento][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de armazenamento e grupos de afinidade**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
-##Sumário
-
-* [O que é o Gerenciamento de Serviços](#WhatIs)
-* [Conceitos](#Concepts)
-* [Criar um aplicativo PHP](#CreateApplication)
-* [Obter as bibliotecas de cliente do Azure](#GetClientLibraries)
-* [Como: Conectar-se ao gerenciamento de serviço](#Connect)
-* [Como: Listar os locais disponíveis](#ListAvailableLocations)
-* [Como: Criar um serviço de nuvem](#CreateCloudService)
-* [Como: Excluir um serviço de nuvem](#DeleteCloudService)
-* [Como: Criar uma implantação](#CreateDeployment)
-* [Como: Atualizar uma implementação](#UpdateDeployment)
-* [Como: Mover as implantações entre o preparo e a produção](#MoveDeployments)
-* [Como: Excluir a implantação](#DeleteDeployment)
-* [Como: Criar um serviço de armazenamento](#CreateStorageService)
-* [Como: Excluir um serviço de armazenamento](#DeleteStorageService)
-* [Como: Criar um grupo de afinidade](#CreateAffinityGroup)
-* [Como: Excluir um grupo de afinidade](#DeleteAffinityGroup)
-
-##<a id="WhatIs"></a>O que é o Gerenciamento de Serviços
+## O que é o Gerenciamento de Serviços
 A API de Gerenciamento de Serviços fornece acesso programático a grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [Portal de Gerenciamento][management-portal]. O SDK do Azure para PHP permite que você gerencie os serviços de nuvem, as contas de armazenamento e os grupos de afinidade.
 
-Para usar a API de Gerenciamento de Serviços, será necessário [criar uma conta do Azure][win-azure-account]. 
+Para usar a API de Gerenciamento de Serviços, será necessário [criar uma conta do Azure][win-azure-account].
 
-##<a id="Concepts"></a>Conceitos
+## Conceitos
 O SDK do Azure para PHP encapsula a [API de Gerenciamento de Serviços do Azure][svc-mgmt-rest-api], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. O serviço de gerenciamento pode ser acessado em um serviço em execução no Azure ou diretamente pela Internet em qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta HTTPS.
 
-##<a id="CreateApplication"></a>Criar um aplicativo PHP
+## Criar um aplicativo PHP
 
 O único requisito para a criação de um aplicativo PHP que usa o Gerenciamento de Serviços é a referência das classes no SDK do Azure para PHP em seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
 
-Neste guia, você usará recursos de serviços que podem ser chamados em um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, uma função de trabalho ou um site.
+Neste guia, você usará os recursos de serviços que podem ser chamados em um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, uma função de trabalho ou um site.
 
-##<a id="GetClientLibraries"></a>Obter as bibliotecas de cliente do Azure
+## Obter as bibliotecas de cliente do Azure
 
 [AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-##<a id="Connect"></a>Como: Conectar-se ao gerenciamento de serviços
+## Como: conectar-se ao gerenciamento de serviços
 
 Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e do caminho para um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [Portal de Gerenciamento][management-portal] e criar certificados de gerenciamento de várias formas. Neste guia o [OpenSSL](http://www.openssl.org/) é usado, que você pode [baixar para o Windows (a página pode estar em inglês)](http://www.openssl.org/related/binaries.html) e executar em um console.
 
-Na verdade, você precisa criar dois certificados, um para o servidor (um arquivo  `.cer`) e um para o cliente (um arquivo  `.pem`). Para criar o arquivo  `.pem`, execute:
+Na verdade, você precisa criar dois certificados, um para o servidor (um arquivo `.cer`) e um para o cliente (um arquivo `.pem`). Para criar o arquivo `.pem`, execute isto:
 
 	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
-Para criar o certificado  `.cer`, execute:
+Para criar o certificado `.cer`, execute isto:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
 Para obter mais informações sobre certificados do Azure, consulte [Visão geral dos certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/azure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Se você baixou e importou seu arquivo de configurações de publicação usando as [Ferramentas de linha de comando do Azure][command-line-tools], você poderá usar o arquivo  `.pem` que as ferramentas criaram em vez de criar o seu próprio arquivo. As ferramentas criam um arquivo  `.cer` para você e o atualizam no Azure, colocam o arquivo  `.pem` correspondente no diretório do  `.azure` em seu computador (em seu diretório de usuário).
+Se você baixou e importou seu arquivo de configurações de publicação usando as [Ferramentas de linha de comando do Azure][command-line-tools], você poderá usar o arquivo `.pem` que as ferramentas criaram em vez de criar o seu próprio arquivo. As ferramentas criam um arquivo `.cer` para você e o atualizam no Azure, colocam o arquivo `.pem` correspondente no diretório do `.azure` em seu computador (em seu diretório de usuário).
 
-Depois de criar esses arquivos, você precisará carregar o arquivo  `.cer`no Azure por meio do [Portal de Gerenciamento][management-portal], e precisará anotar o local onde salvou o arquivo  `.pem`.
+Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio do [portal de gerenciamento][management-portal], e precisará anotar o local onde salvou o arquivo `.pem`.
 
-Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo  `.cer` no Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure criando uma cadeia de conexão e passando-a para o método **createServiceManagementService** na classe **ServicesBuilder**:
+Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo `.cer` no Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure criando uma cadeia de conexão e passando-a para o método **createServiceManagementService** na classe **ServicesBuilder**:
 
 	require_once 'vendor\autoload.php';
 	
@@ -85,9 +66,9 @@ Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o
 
 	$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
 
-No exemplo acima, a classe `$serviceManagementRestProxy` é um objeto [ServiceManagementRestProxy]. A classe **ServiceManagementRestProxy** é a classe primária usada para gerenciar serviços do Azure. 
+No exemplo acima, `$serviceManagementRestProxy` é um objeto [ServiceManagementRestProxy]. A classe **ServiceManagementRestProxy** é a classe primária usada para gerenciar serviços do Azure.
 
-##<a id="ListAvailableLocations"></a>Como: Listar os locais disponíveis
+## Como listar os locais disponíveis
 
 Para listar os locais que estão disponíveis para hospedar serviços, use o método **ServiceManagementRestProxy->listLocations**:
 
@@ -130,12 +111,11 @@ Quando cria um serviço de nuvem, um serviço de armazenamento ou um grupo de af
 - Oeste dos EUA 
 - Leste dos EUA
 
-> [AZURE.NOTE]
-> Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar os locais como enumerações usando a classe <code>WindowsAzure\ServiceManagement\Models\Locations</code> . Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar <code>Locations::WEST_US</code>.
+Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar locais como enumerações usando a classe <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar <code>Locations::WEST_US</code>.
 
-##<a id="CreateCloudService"></a>Como: Criar um serviço de nuvem
+## Como: criar um serviço de nuvem
 
-Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como  *hosted service* em versões anteriores do Azure). O método **createHostedServices** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (um nome de serviço hospedado codificado na base 64) e um objeto **CreateServiceOptions**. O objeto [CreateServiceOptions] permite que você defina o local  *or* do grupo de afinidade para o seu serviço. 
+Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **createHostedServices** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (um nome de serviço hospedado codificado na base 64) e um objeto **CreateServiceOptions**. O objeto [CreateServiceOptions] permite que você defina o local *ou* o grupo de afinidade para o seu serviço.
 
 	require_once 'vendor\autoload.php';
 
@@ -190,28 +170,28 @@ Se desejar obter informações sobre um determinado serviço hospedado, você po
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
 	echo "Location: ".$hosted_service->getLocation()."<br />";
 
-Após ter criado um serviço de nuvem, você pode implantar seu código ao serviço com o método [create_deployment](#CreateDeployment) .
+Depois de criar um serviço de nuvem, você pode implantar seu código de serviço com o método [createDeployment](#CreateDeployment).
 
-##<a id="DeleteCloudService"></a>Como: Excluir um serviço de nuvem
+##<a id="DeleteCloudService"></a>Como excluir um serviço de nuvem
 
 Você pode excluir um serviço de nuvem passando o nome do serviço para o método **deleteHostedService**:
 
 	$serviceManagementRestProxy->deleteHostedService("myhostedservice");
 
-Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Veja [Como: Excluir a implantação](#DeleteDeployment) para obter detalhes.)
+Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Consulte [Como excluir uma implantação](#DeleteDeployment) para obter detalhes.)
 
-##<a id="CreateDeployment"></a>Como: Criar uma implantação
+## Como criar uma implantação
 
 O método **createDeployment** carrega um novo [pacote de serviço] e cria uma nova implantação no ambiente de preparo ou de produção. Os parâmetros para esse método são os seguintes:
 
 * **$name**: o nome do serviço hospedado.
 * **$deploymentName**: o nome da implantação.
-* **$slot**: Uma enumeração indicando o slot de preparo ou de produção.
-* **$packageUrl**: A URL do pacote de implantação (um arquivo .cspgk). O arquivo do pacote deve ser armazenado em uma conta de Armazenamento de Blob do Azure sob a mesma assinatura que o serviço hospedado para o qual o pacote está sendo carregado. Você pode criar um pacote de implantação com os [cmdlets do PowerShell do Azure] ou com a [ferramenta de linha de comando cspack].
-* **$configuration**: O arquivo de configuração de serviço (arquivo .cscfg).
-* **$label**: O nome do serviço hospedado codificado na base 64.
+* **$slot**: uma enumeração indicando o slot de preparo ou de produção.
+* **$packageUrl**: a URL do pacote de implantação (um arquivo .cspgk). O arquivo do pacote deve ser armazenado em uma conta de Armazenamento de Blob do Azure sob a mesma assinatura que o serviço hospedado para o qual o pacote está sendo carregado. Você pode criar um pacote de implantação com os [cmdlets do PowerShell do Azure] ou com a [ferramenta de linha de comando cspack].
+* **$configuration**: o arquivo de configuração de serviço (arquivo .cscfg).
+* **$label**: o nome do serviço hospedado codificado na base 64.
 
-O exemplo a seguir cria uma nova implantação no slot de produção de um serviço hospedado chamado  `myhostedservice`:
+O exemplo a seguir cria uma nova implantação no slot de produção de um serviço hospedado chamado `myhostedservice`:
 
 
 	require_once 'vendor\autoload.php';
@@ -272,7 +252,7 @@ Você pode acessar as propriedades de implantação com o método **getDeploymen
 	}
 	echo "------<br />";
 
-##<a id="UpdateDeployment"></a>Como: Atualizar uma implantação
+## Como atualizar uma implantação
 
 Uma implantação pode ser atualizada usando o método **changeDeploymentConfiguration** ou o método **updateDeploymentStatus**.
 
@@ -310,7 +290,7 @@ O método **changeDeploymentConfiguration** permite carregar um novo arquivo de 
 
 Observe no exemplo acima que o status da operação **changeDeploymentConfiguration** pode ser recuperado passando o resultado retornado por **changeDeploymentConfiguration** para o método **getOperationStatus**.
 
-O método **updateDeploymentStatus** permite que você defina o status de uma implantação como EXECUTANDO ou SUSPENSO. O exemplo a seguir demonstra como definir o status para EXECUTANDO para uma implantação no slot de produção de um serviço hospedado chamado  `myhostedservice`:
+O método **updateDeploymentStatus** permite que você defina o status de uma implantação como EXECUTANDO ou SUSPENSO. O exemplo a seguir demonstra como definir o status para EXECUTANDO para uma implantação no slot de produção de um serviço hospedado chamado `myhostedservice`:
 
 	require_once 'vendor\autoload.php';
 
@@ -338,11 +318,11 @@ O método **updateDeploymentStatus** permite que você defina o status de uma im
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="MoveDeployments"></a>Como: Mover as implantações entre o preparo e a produção
+## Como mover implantações entre o preparo e a produção
 
 O Azure fornece dois ambientes de implantação: preparo e produção. Normalmente, um serviço é implantado no ambiente de preparo para que seja testado antes da implantação do serviço para o ambiente de produção. Quando for a hora de promover o serviço em preparo para o ambiente de produção, você pode fazê-lo sem reimplantar o serviço. Isso pode ser feito alternando as implantações. (Para obter mais informações sobre como permutar implantações, consulte [Visão geral do gerenciamento de implantações no Azure].)
 
-O exemplo a seguir mostra como usar o método **swapDeployment** para permutar duas implantações (com os nomes de implantação `v1` e `v2`). No exemplo, antes de chamar o método **swapDeployment**, a implantação `v1` está no slot de produção e a implantação `v2` está no slot de preparo. Após chamar o método **swapDeployment**, a implantação `v2` está em produção e a implantação `v1` está em preparo.  
+O exemplo a seguir mostra como usar o método **swapDeployment** para permutar duas implantações (com os nomes de implantação `v1` e `v2`). No exemplo, antes de chamar o método **swapDeployment**, a implantação `v1` está no slot de produção e a implantação `v2` está no slot de preparo. Após chamar **swapDeployment**, a implantação `v2` está em produção e a implantação `v1` está em preparo.
 
 	require_once 'vendor\autoload.php';	
 
@@ -364,7 +344,7 @@ O exemplo a seguir mostra como usar o método **swapDeployment** para permutar d
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="DeleteDeployment"></a>Como: Excluir uma implantação
+## Como: excluir uma implantação
 
 Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a seguir mostra como excluir uma implantação no ambiente de preparo usando o método **setSlot** em um objeto [GetDeploymentOptions] e passá-lo para **deleteDeployment**. Em vez de especificar uma implantação por slot, você pode usar o método **setName** na classe [GetDepolymentOptions] para especificar uma implantação pelo nome da implantação.
 
@@ -393,9 +373,9 @@ Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a 
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateStorageService"></a>Como: Criar um serviço de armazenamento
+## Como criar um serviço de armazenamento
 
-Um [serviço de armazenamento] fornece a você acesso aos [Blobs do Azure][azure-blobs], [tabelas][azure-tables], e [filas][azure-queues]. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), um rótulo (um nome com até 100 caracteres codificado em base 64 para o serviço) e um local ou um grupo de afinidade. Fornecer uma descrição para o serviço é opcional. O local, o grupo de afinidade e a descrição são definidos em um objeto [CreateServiceOptions], que é passado para o método **createStorageService**. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se quiser usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como: Criar um grupo de afinidade](#CreateAffinityGroup)) e configurá-lo com o método **CreateServiceOptions->setAffinityGroup**.
+Um [serviço de armazenamento] fornece acesso a [Blobs][azure-blobs], [Tabelas][azure-tables] e [Filas][azure-queues] do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), um rótulo (um nome com até 100 caracteres codificado em base 64 para o serviço) e um local ou um grupo de afinidade. Fornecer uma descrição para o serviço é opcional. O local, o grupo de afinidade e a descrição são definidos em um objeto [CreateServiceOptions], que é passado para o método **createStorageService**. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se desejar usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como criar um grupo de afinidade](#CreateAffinityGroup)) e defini-lo com o método **CreateServiceOptions->setAffinityGroup**.
 
 	require_once 'vendor\autoload.php';
 	 
@@ -428,7 +408,7 @@ Um [serviço de armazenamento] fornece a você acesso aos [Blobs do Azure][azure
 		echo $code.": ".$error_message."<br />";
 	}
 
-Observe no exemplo acima que o status da operação **createStorageService** pode ser recuperada passando o resultado retornado por **createStorageService** para o método **getOperationStatus**.  
+Observe no exemplo acima que o status da operação **createStorageService** pode ser recuperada passando o resultado retornado por **createStorageService** para o método **getOperationStatus**.
 
 Você pode listar suas contas de armazenamento e suas propriedades com o método **listStorageServices**:
 
@@ -445,7 +425,7 @@ Você pode listar suas contas de armazenamento e suas propriedades com o método
 		echo "------<br />";
 	}
 
-##<a id="DeleteStorageService"></a>Como: Excluir um serviço de armazenamento
+## Como excluir um serviço de armazenamento
 
 Você pode excluir um serviço de armazenamento passando o nome do serviço para o método **deleteStorageService**. A exclusão de um serviço de armazenamento excluirá todos os dados armazenados no serviço (blobs, tabelas e filas).
 
@@ -469,7 +449,7 @@ Você pode excluir um serviço de armazenamento passando o nome do serviço para
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateAffinityGroup"></a>Como: Criar um grupo de afinidade
+## Como criar um grupo de afinidade
 
 Um grupo de afinidade é um agrupamento lógico dos serviços do Azure que informa ao Azure para localizar os serviços para obter desempenho otimizado. Por exemplo, você pode criar um grupo de afinidade no local "Oeste dos Estados Unidos" e, em seguida, criar um [serviço de nuvem](#CreateCloudService) nesse grupo de afinidade. Se você criar um serviço de armazenamento no mesmo grupo de afinidade, o Azure saberá colocá-lo no local "Oeste dos Estados Unidos" e otimizá-lo no data center para obter melhor desempenho com os serviços de nuvem no mesmo grupo de afinidade.
 
@@ -505,7 +485,7 @@ Para criar um grupo de afinidade, você precisa de um nome, de um rótulo (nome 
 
 Depois de criar um grupo de afinidade, você pode especificar o grupo (em vez de um local) ao [criar um serviço de armazenamento](#CreateStorageService).
 
-Você pode listar grupos de afinidade e inspecionar suas propriedades chamando o método **listAffinityGroups** e, em seguida, chamando os métodos apropriados na classe [AffinityGroup]:
+Você pode listar grupos de afinidade e inspecionar suas propriedades chamando o método **listAffinityGroups** e, em seguida, chamando os métodos apropriados na classe [AffinityGroup]\:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
 	
@@ -518,7 +498,7 @@ Você pode listar grupos de afinidade e inspecionar suas propriedades chamando o
 		echo "------<br />";
 	}
 
-##<a id="DeleteAffinityGroup"></a>Como: Excluir um grupo de afinidade
+## Como excluir um grupo de afinidade
 	
 Você pode excluir um grupo de afinidade passando o nome do grupo para o método **deleteAffinityGroup**. Observe que para poder excluir um grupo de afinidade, o grupo de afinidade deve estar desassociado de qualquer serviço (ou os serviços que usam o grupo de afinidade devem ser excluídos).
 
@@ -543,36 +523,35 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[win-azure-account]: /pt-br/pricing/free-trial/
-[storage-account]: ../storage-create-storage-account/
+[win-azure-account]: /pricing/free-trial/
+[storage-account]: storage-create-storage-account.md
 
-[download-SDK-PHP]: ../php-download-sdk/
-[command-line-tools]: ../command-line-tools/
-[Compositor]: http://getcomposer.org/
+[download-SDK-PHP]: php-download-sdk.md
+[command-line-tools]: virtual-machines-command-line-tools.md
+[Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[serviço de nuvem]: ../cloud-services-what-is/
+[serviço de nuvem]: cloud-services-what-is.md
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
 [pacote de serviço]: http://msdn.microsoft.com/library/windowsazure/gg433093
-[Cmdlets do PowerShell do Azure]: ../install-configure-powershell/
+[cmdlets do PowerShell do Azure]: install-configure-powershell.md
 [ferramenta de linha de comando cspack]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
 [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
-[serviço de armazenamento]: ../storage-whatis-account/
-[azure-blobs]: ../storage-php-how-to-use-blobs/
-[azure-tables]: ../storage-php-how-to-use-table-storage/
-[azure-queues]: ../storage-php-how-to-use-queues/
+[serviço de armazenamento]: storage-whatis-account.md
+[azure-blobs]: storage-php-how-to-use-blobs.md
+[azure-tables]: storage-php-how-to-use-table-storage.md
+[azure-queues]: storage-php-how-to-use-queues.md
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
 [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

@@ -1,10 +1,8 @@
-﻿Um novo script de inserção está registrado e gerará uma SAS quando um novo item de Todo for inserido.
+Um novo script de inserção está registrado e gerará uma SAS quando um novo item de Todo for inserido.
 
 0. Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento].
 
-1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**. 
-
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
+1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**.
 
 2. Anote o **Nome da Conta de Armazenamento** e a **Chave de Acesso**.
 
@@ -17,11 +15,9 @@
 
 	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-	A chave de acesso da conta de armazenamento é armazenada criptografada nas configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
+	A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
 
-4. Clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**. 
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
+4. Clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
 5.  Em **todoitem**, clique na guia **Script** e selecione **Inserir**. Substitua a função de inserção pelo código a seguir e clique em **Salvar**:
 
@@ -37,7 +33,7 @@
 		
 		    if ((typeof item.containerName !== "undefined") && (
 		    item.containerName !== null)) {
-		        // Set the BLOB store container name on the item, que deve estar em minúsculas.
+		        // Set the BLOB store container name on the item, which must be lowercase.
 		        item.containerName = item.containerName.toLowerCase();
 		
 		        // If it does not already exist, create the container 
@@ -78,12 +74,9 @@
 		    }
 		}
 
- 	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
+   	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade `sasQueryString` do item devolvido. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
 
-   	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade  `sasQueryString` do item devolvido. A propriedade  `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
-
-	>[AZURE.NOTE]  Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando o mesmo SAS, você poderá chamar o método <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature</a> com um nome de recurso de blob vazio, assim: 
-	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">método generateSharedAccessSignature<pre> com um nome de recurso de blob vazio, da seguinte forma:</a><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalidade de carregamento de imagem usando a SAS gerada em Inserir.
  
@@ -92,7 +85,7 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 <!-- Images. -->
 
 <!-- URLs. -->
-[Como criar uma conta de armazenamento]: /pt-br/manage/services/storage/how-to-create-a-storage-account
+[Como criar uma conta de armazenamento]: /manage/services/storage/how-to-create-a-storage-account
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=42-->
+<!--HONumber=54-->

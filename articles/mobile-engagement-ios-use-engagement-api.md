@@ -17,29 +17,29 @@
 	ms.author="kapiteir" />
 
 
-# Como usar o API Engagement no iOS
+#Como usar o API Engagement no iOS
 
 Este documento é um complemento para o documento Como integrar o Engagement no iOS: ele fornece detalhes aprofundados sobre como usar a API Engagement para relatar as estatísticas do aplicativo.
 
-Tenha em mente que caso queira o Engagement apenas para relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todos os seus objetos `UIViewController` personalizados herdados da classe `EngagementViewController` correspondente.
+Tenha em mente que caso queira o Engagement apenas para relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todos os seus objetos personalizados `UIViewController` herdados da classe `EngagementViewController` correspondente.
 
 Se você quiser fazer mais, por exemplo, se você precisar reportar eventos, erros e trabalhos específicos do aplicativo ou se você tiver que relatar as atividades do seu aplicativo de maneira diferente de um implementado nas classes `EngagementViewController`, você precisará usar a API do Engagement.
 
-A API do Engagement é fornecida pela classe `EngagementAgent`. Uma instância desta classe pode ser recuperada chamando o método estático `[EngagementAgent shared]` (Observe que o objeto `EngagementAgent` retornado é um singleton).
+A API do Engagement é fornecida pela classe `EngagementAgent`. Uma instância desta classe pode ser recuperada chamando o método estático `[EngagementAgent shared]` (Observe que o objeto retornado `EngagementAgent` é um singleton).
 
-Antes de qualquer chamada de API, o objeto `EngagementAgent` deve ser inicializado chamando o método`[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
+Antes de qualquer chamada de API, o objeto `EngagementAgent` deve ser inicializado chamando o método `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
-## Conceitos de Engagement
+##Conceitos de Engagement
 
 As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagement-concepts.md) usuais para a plataforma iOS.
 
-### `Sessão` e `Atividade`
+### `Session` e `Activity`
 
 Uma *atividade* geralmente está associada com uma tela do aplicativo, isso significa que a *atividade* inicia quando a tela é exibida e é interrompida quando a tela for fechada: esse é o caso quando o SDK Engagement é integrado usando as classes `EngagementViewController`.
 
-Mas *atividades* também pode ser controladas manualmente usando a API Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
+Mas as *atividades* também podem ser controladas manualmente usando o API Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
 
-## Relatório de atividades
+##Relatório de atividades
 
 ### O usuário inicia uma nova atividade
 
@@ -51,9 +51,9 @@ Mas *atividades* também pode ser controladas manualmente usando a API Engagemen
 
 			[[EngagementAgent shared] endActivity];
 
-> [AZURE.WARNING] Você **NUNCA** deve chamar essa função por conta própria, exceto se você quiser dividir um uso de seu aplicativo em várias sessões: uma chamada para essa função encerraria a sessão atual imediatamente, portanto, uma chamada subsequente para `startActivity()` deveria iniciar uma nova sessão. Essa função é chamada automaticamente pelo SDK quando seu aplicativo é fechado.
+> [AZURE.WARNING]Você **NUNCA** deve chamar essa função por conta própria, exceto se você quiser dividir um uso de seu aplicativo em várias sessões: uma chamada para essa função encerraria a sessão atual imediatamente, portanto, uma chamada subsequente para `startActivity()` deveria iniciar uma nova sessão. Essa função é chamada automaticamente pelo SDK quando seu aplicativo é fechado.
 
-## Eventos de relatório
+##Eventos de relatório
 
 ### Eventos de sessão
 
@@ -98,7 +98,7 @@ Ao contrário dos eventos de sessão, os eventos autônomos podem ser usados for
 
 			[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
-## Relatório de erros
+##Erros de relatório
 
 ### Erros de sessão
 
@@ -126,7 +126,7 @@ Ao contrário dos erros de sessão, os erros autônomos podem ser usados fora do
 
 			[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
-## Relatório de trabalhos
+##Relatório de trabalhos
 
 **Exemplo:**
 
@@ -211,15 +211,15 @@ Suponha que temos uma rede social e usamos um trabalho para relatar o tempo tota
 			}
 			[...]
 
-## Parâmetros adicionais
+##Parâmetros adicionais
 
 Os dados arbitrários podem ser anexados aos eventos, erros, atividades e trabalhos.
 
 Esses dados podem ser estruturados, eles usam a classe NSDictionary do iOS.
 
-Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`.
+Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`. 
 
-> [AZURE.NOTE] Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
+> [AZURE.NOTE]Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
 >
 			 -(NSString*)JSONRepresentation; 
 >
@@ -240,7 +240,7 @@ Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
 
 #### Tamanho
 
@@ -248,9 +248,9 @@ Os adicionais estão limitados à **1024** caracteres por chamada (uma vez codif
 
 No exemplo anterior, o JSON enviado para o servidor tem 58 caracteres:
 
-			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
+			{"ref_click":"http://foobar.com/blog","video_id":"123"}
 
-## Relatório de informações de aplicativo
+##Relatório de informações de aplicativo
 
 Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função `sendAppInfo:`.
 
@@ -273,7 +273,7 @@ Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
 
 #### Tamanho
 
@@ -284,4 +284,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 			{"birthdate":"1983-12-07","gender":"female"}
 
 
-<!--HONumber=47-->
+<!--HONumber=54-->

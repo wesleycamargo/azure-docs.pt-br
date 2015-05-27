@@ -17,12 +17,12 @@
 # Autorização de serviço de usuários nos serviços móveis
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Qualquer | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Qualquer | JavaScript)](mobile-services-javascript-backend-service-side-authorization.md)
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 Este tópico mostra como usar scripts do servidor para autorizar usuários. Neste tutorial, você registra scripts nos Serviços Móveis do Azure, filtra consultas com base em IDs de usuário e fornece acesso aos usuários apenas para seus próprios dados.
 
-Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no tutorial [Adicionar autenticação ao aplicativo de serviços móveis existentes]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existentes] primeiro.
+Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis existentes]. Conclua primeiro [Adicionar autenticação ao aplicativo de Serviços Móveis existentes].
 
 ## <a name="register-scripts"></a>Registrar scripts
 
@@ -40,9 +40,9 @@ Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no t
         }
 
 
-    > [AZURE.NOTE] [O esquema dinâmico deve estar habilitado](https://msdn.microsoft.com/library/azure/jj193175.aspx) para isso funcionar. Essa configuração está habilitada por padrão para novos serviços móveis.
+    > [AZURE.NOTE] [Dynamic schema must be enabled](https://msdn.microsoft.com/library/azure/jj193175.aspx) para este trabalho. Essa configuração está habilitada por padrão para novos serviços móveis.
 
-5. Da mesma forma, substitua a operação **Read** com a função a seguir. Esse script filtra objetos TodoItem retornados para que um usuário receba apenas os itens que eles inserem.
+5. Da mesma forma, substitua a operação **Ler** com a função a seguir. Esse script filtra objetos TodoItem retornados para que um usuário receba apenas os itens que eles inserem.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
@@ -59,8 +59,8 @@ Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no t
 2. Se você tiver contas de logon adicionais, verifique se os usuários podem ver apenas seus próprios dados fechando e excluindo o aplicativo e executando novamente. Quando a caixa de diálogo de credenciais de logon for exibida, insira um logon diferente e verifique se os itens inseridos no logon anterior não são exibidos.
 
 <!-- Anchors. -->
-[Registrar scripts de servidor]: #register-scripts
-[Próximas etapas]:#next-steps
+[Register server scripts]: #register-scripts
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
@@ -70,14 +70,14 @@ Esse tutorial se baseia o Início Rápido dos Serviços Móveis e se baseia no t
 
 <!-- URLs. -->
 
-[Notificações por push e Live Connect do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=257677
-[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started/#create-new-service
-[Adicionar Serviços Móveis ao aplicativo existente]: /pt-br/develop/mobile/tutorials/get-started-with-data-ios
-[Adicionar autenticação ao aplicativo de serviços móveis existentes]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
-[Adicionar notificações por push ao aplicativo existente]: /pt-br/develop/mobile/tutorials/get-started-with-push-ios
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-with-data-ios
+[Adicionar autenticação ao aplicativo de Serviços Móveis existentes]: /develop/mobile/tutorials/get-started-with-users-ios
+[Add Push Notifications to Existing App]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

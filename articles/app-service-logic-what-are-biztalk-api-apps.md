@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="O que são Conectores e Aplicativos de API do BizTalk" 
+<properties 
+	pageTitle="O que são aplicativos de API do BizTalk e conectores" 
 	description="Saiba mais sobre Aplicativos de API, Conectores e Aplicativos de API do BizTalk" 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="joshtwist" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,47 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="jtwist"/>
+	ms.date="03/31/2015" 
+	ms.author="mandia"/>
 
-# O que são Conectores e Aplicativos de API do BizTalk
+# O que são aplicativos de API do BizTalk e conectores
 
-O produto de Serviços de Aplicativos do Azure é construído sobre um princípio de extensibilidade e conectividade comuns entre os Aplicativos da API.  Um *Connector* é um tipo de Aplicativo de API que se concentra na conectividade.  Conectores, como qualquer outro Aplicativo de API, são utilizados de aplicativos Web, aplicativos móveis e aplicativos lógicos.  Os conectores tornam fácil conectar-se a serviços existentes e ajudam a gerenciar a autenticação, fornecem monitoramento, análise e muito mais.
+O produto de Serviços de Aplicativos do Azure é construído sobre um princípio de extensibilidade e conectividade comuns entre os Aplicativos da API. Um *Conector* é um tipo de Aplicativo de API que se concentra na conectividade. Conectores, como qualquer outro Aplicativo de API, são utilizados de aplicativos Web, aplicativos móveis e aplicativos lógicos. Os conectores tornam fácil conectar-se a serviços existentes e ajudam a gerenciar a autenticação, fornecem monitoramento, análise e muito mais.
 
-Qualquer desenvolvedor pode criar seus próprios Aplicativos de API e implantá-los de maneira privada, e, no futuro, poderá compartilhar e comercializá-los por meio do marketplace. 
+Qualquer desenvolvedor pode criar seus próprios aplicativos de API e implantá-los em particular. No futuro, os desenvolvedores podem compartilhar e monetizar seus aplicativos de API personalizada criada por meio do Marketplace.
 
-![API Apps Marketplace](./media/app-service-learn-about-flows-preview/Marketplace.png)
+![Marketplace de aplicativos de API](./media/app-service-learn-about-flows-preview/Marketplace.png)
 
-Para agilizar os desenvolvedores que criam soluções com Serviços de Aplicativos do Azure, a equipe do Microsoft Azure adicionou vários conectores ao marketplace para atender a vários cenários comuns.  Além disso, para estender o alcance dos Serviços de Aplicativos para cenários de integração complexos e avançados, uma série de recursos Premium e BizTalk também está disponível.
+Para agilizar os desenvolvedores que criam soluções com Serviço de Aplicativo do Azure, a equipe do Azure adicionou vários conectores ao marketplace para atender a vários cenários comuns. Além disso, para estender o alcance do Serviço de Aplicativo para cenários de integração complexos e avançados, uma série de recursos Premium e BizTalk também está disponível.
 
-[Lista de Aplicativos de API e Conectores no Serviço de Aplicativo do Microsoft Azure](app-service-logic-connectors-list.md)
+No Serviço de Aplicativo do Azure, há diferentes "Níveis" de serviço disponíveis. Todos os níveis incluem todos os conectores e aplicativos de API, incluindo sua funcionalidade completa.
 
-
-## Conectores de protocolo
-O Serviços de Aplicativos nasceu da Web e favorece a comunicação usando HTTP e compartilhamento de metadados por meio de formatos abertos, como o Swagger.  Obviamente, as empresas precisam se comunicar através de uma variedade de protocolos.  Os conectores de protocolo podem preencher a lacuna e tornar a comunicação com serviços que usam os serviços FTP, SFTP, POP3/IMAP, SMTP e SOAP tão fácil quanto efetuar uma chamada HTTP.  
-
-[Conectores de protocolo no Serviço de Aplicativo do Microsoft Azure](app-service-logic-protocol-connectors.md)
+[Preços de Serviço de Aplicativo](http://azure.microsoft.com/pricing/details/app-service/) descreve esses níveis de serviços e também lista o que está incluído nesses níveis. As seções a seguir descrevem as diversas categorias de aplicativos de API do BizTalk e conectores.
 
 
-## Conectores SaaS
-Conectores SaaS do Serviços de Aplicativos proporcionam uma maneira completa de conectar aplicativos Web, móveis e lógicos a alguns dos principais nomes em SaaS atuais, incluindo Office 365, SalesForce, Sugar CRM, OneDrive, DropBox, Marketo, inclusive Facebook e muito mais.
-
-[Conectores sociais no Serviço de Aplicativo do Microsoft Azure](app-service-logic-social-connectors.md)
-
-[Aplicativo + Conectores de Serviços de Dados no Serviço de Aplicativo do Microsoft Azure](app-service-logic-data-connectors.md)
-
+## Conectores padrão
+O Serviço de Aplicativo vem com um conjunto avançado de conectores que proporcionam uma maneira fácil de conectar os aplicativos Web, móveis e lógicos a alguns dos principais nomes em SaaS atuais, incluindo Office 365, SalesForce, Sugar CRM, OneDrive, DropBox, Marketo, Facebook e muito mais. Ele também inclui um conjunto de conectores para se comunicar com serviços externos usando FTP, SFTP, POP3/IMAP, SMTP e SOAP, o que é tão fácil quanto efetuar uma chamada HTTP.
 
 ## Conectores Premium 
-Os conectores Premium estendem o alcance de Serviços de Aplicativos ainda mais na empresa, com conectividade para SAP, Siebel, Oracle, DB2 e muito mais.
+Os conectores Premium estendem o alcance dos Serviços de Aplicativos ainda mais na empresa com conectividade para SAP, Oracle, DB2, Informix e WebSphere MQ.
 
-[Conectores empresariais no Serviço de Aplicativo do Microsoft Azure](app-service-logic-enterprise-connectors.md)
+## Serviços EDI e EAI
+A criação de aplicativos críticos para os negócios exige mais do que apenas a conectividade. Baseado na base da plataforma de integração líder do setor da Microsoft - BizTalk Server - os aplicativos de API do BizTalk fornecem recursos de integração avançada que podem ser ajustados em aplicativos Web, móveis e de lógica com facilidade. Alguns desses recursos de integração incluem validação, extração, transformação, codificadores, gerenciamento de parceiros comerciais e suporte para formatos EDI como X12, EDIFACT e AS2.
 
 
-## Aplicativos de API do BizTalk
-A criação de aplicativos críticos de negócios exige mais do que apenas a conectividade.  Baseado na base da plataforma de integração líder do setor da Microsoft - BizTalk Server - os aplicativos de API do BizTalk fornecem recursos de integração avançada que podem ser ajustados em aplicativos Web, móveis e de lógica com facilidade.  Inclui a criação de lote e a desmontagem de lote, VETR (validar, extrair, transformar e encaminhar) e suporte para formatos EDI como X12, EDIFACT e AS2.
+## Regras
+As regras de negócios encapsulam as políticas e as decisões que controlam processos de negócios. Normalmente, as regras são dinâmicas e mudam com o tempo por diferentes motivos, incluindo planos de negócios, regulamentos entre muitos outros. O recurso de Regras do BizTalk nos Serviços de Aplicativos permite desassociar essas políticas do código de aplicativo e simplificar e agilizar o processo de alteração.
 
-[Conectores B2B e aplicativos de API no Serviço de Aplicativo do Microsoft Azure](app-service-logic-b2b-connectors.md)<br/>
 
-[Integração de aplicativos de API do BizTalk no Serviço de Aplicativo do Microsoft Azure](app-service-logic-integration-connectors.md)
+## Lista de conectores e aplicativos de API
+Consulte [Conectores e lista de aplicativos da API](app-service-logic-connectors-list.md) para obter uma lista completa dos conectores e API aplicativos presentes em cada categoria, incluindo conectores padrão, BizTalk EAI, conectores Premium etc.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

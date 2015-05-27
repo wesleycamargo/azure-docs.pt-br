@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Use a ação de Script no HDInsight para instalar o Giraph em cluster do Hadoop| Azure" 
 	description="Saiba como personalizar o cluster HDInsight para instalar o Giraph. Você usará uma opção de configuração de Ação de Script para usar um script para instalar o Giraph" 
 	services="hdinsight" 
@@ -18,52 +18,50 @@
 
 # Instalar e usar o Giraph em clusters Hadoop no HDInsight
 
-Você pode instalar Giraph em qualquer tipo de cluster no Hadoop no Azure HDInsight usando a personalização de cluster **Ação de Script**. A Ação de script permite executar scripts para personalizar um cluster somente quando o cluster está sendo criado. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
+Você pode instalar o Giraph em qualquer tipo de cluster em Hadoop no Azure HDInsight usando a **Ação de Script** para personalizar clusters. A Ação de Script permite executar scripts para personalizar um cluster somente quando o cluster está sendo criado. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
 
-Neste tópico, você aprenderá como instalar o Giraph usando a Ação de Script. Uma vez instalado o Giraph, você também aprenderá a usá-lo para aplicações mais comuns, ou seja, processamento de gráficos em grande escala.
+Neste tópico, você aprenderá a instalar o Giraph usando a Ação de Script. Depois de instalar o Giraph, você também aprenderá a usar o Giraph em suas aplicações mais comuns: processar gráficos em grande escala.
 
 
-## <a name="whatis"></a>O que é Giraph?
+## <a name="whatis"></a>O que é o Giraph?
 
-<a href="http://giraph.apache.org/" target="_blank">O Apache Giraph</a> permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure. Relações de modelo de tabelas entre objetos, como as conexões entre roteadores em uma rede grande como a Internet, ou relações entre pessoas em redes sociais (algumas vezes mencionadas como uma tabela social). O processamento de gráficos permite que você faça a análise das relações entre objetos em um gráfico, como:
+O <a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> permite executar processamento de gráficos usando o Hadoop e pode ser usado com o Azure HDInsight. Os gráficos modelam as relações entre objetos, como as conexões entre roteadores em uma rede grande, como a Internet, ou as relações entre as pessoas nas redes sociais (às vezes chamados de gráficos sociais). O processamento de tabelas permite que você faça a análise das relações entre objetos em uma tabela, como:
 
-- Identificando aliados em potencial com base em seus relacionamentos atuais.
-- Identificando a rota mais curta entre dois computadores em uma rede.
-- Calculando a classificação de página das páginas da Web.
+- Identificar possíveis amigos com base em suas relações atuais.
+- Identificar a menor rota entre dois computadores em uma rede.
+- Calcular a ordem de classificação de página da Web.
 
    
 ## <a name="install"></a>Como instalar o Giraph?
 
-Um exemplo de script para instalar o Giraph em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente para leitura em [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o portal do Azure. 
+Um script de exemplo para instalar o Giraph em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o portal do Azure.
 
-> [AZURE.NOTE] O script de exemplo funciona apenas com o cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [versões do cluster HDInsight](hdinsight-component-versioning.md).
+> [AZURE.NOTE]O script de exemplo funciona apenas com o cluster HDInsight versão 3.1. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
 
-1. Inicie o provisionamento de um cluster usando a opção **criação personalizada**, conforme descrito em [Provisionar um cluster usando opções personalizadas](hdinsight-provision-clusters.md#portal). 
-2. Na página **Ações de Script** do assistente, clique em **adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
+1. Comece provisionando um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, como descrito em [Provisionando um cluster usando opções personalizadas](hdinsight-provision-clusters.md#portal). 
+2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
-	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Use Script Action to customize a cluster")
+	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Usar Ação de Script para personalizar um cluster")
 	
 	<table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Nome</td>
-			<td>Especifique um nome para a ação de script. Por exemplo, <b>Instalar Giraph</b>.</td></tr>
-		<tr><td>URI do script</td>
-			<td>Especifique o URI (Uniform Resource Identifier) para o script que é chamado para personalizar o cluster. Por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-		<tr><td>Tipo de nó</td>
-			<td>Especifique os nós em que o script de personalização é executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós headnode</b> ou <b>Somente nós de trabalho</b>.
-		<tr><td>Parâmetros</td>
-			<td>Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro, portanto você pode deixá-los em branco.</td></tr>
-	</table>	
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Nome</td>
+		<td>Especifique um nome para a ação de script. Por exemplo, <b>Instalar o Giraph</b>.</td></tr>
+	<tr><td>URI do script</td>
+		<td>Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+	<tr><td>Tipo de nó</td>
+		<td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós principais</b> ou <b>Somente nós de trabalho</b>.
+	<tr><td>Parâmetros</td>
+		<td>Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.</td></tr>
+</table>Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para iniciar o provisionamento do cluster.
 
-	Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para iniciar o provisionamento do cluster.
-
-Você também pode usar o script para instalar o Giraph no HDInsight usando o PowerShell do Azure ou o SDK do .NET do HDInsight. Instruções para esses procedimentos são fornecidas posteriormente neste tópico.
+Você também pode usar o script para instalar o Giraph no HDInsight usando o PowerShell do Azure ou o HDInsight .NET SDK. Instruções para esses procedimentos são fornecidas posteriormente neste tópico.
 
 ## <a name="usegiraph"></a>Como usar o Giraph no HDInsight?
 
-Usamos o exemplo de SimpleShortestPathsComputation para demonstrar a implementação básica do <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> para encontrar o caminho mais curto entre objetos em um gráfico. Use as etapas a seguir para carregar os dados amostrais e o jar de exemplo, execute um trabalho usando o exemplo SimpleShortestPathsComputation e, então, visualize os resultados.
+Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementação básica <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> para encontrar o caminho mais curto entre objetos em um gráfico. Use as etapas a seguir para carregar os dados de exemplo e o jar do exemplo, executar um trabalho usando o exemplo SimpleShortestPathsComputation e exibir os resultados.
 
-1. Carregue um arquivo de dados de exemplo no Armazenamento de Blob do Azure. Em sua estação de trabalho local, crie um novo arquivo chamado **tiny_graph.txt**. Ele deve conter as seguintes linhas:
+1. Carregue um arquivo de dados de exemplo no armazenamento de Blob do Azure. Em sua estação de trabalho local, crie um novo arquivo chamado **tiny_graph.txt**. Ele deve conter as seguintes linhas:
 
 		[0,0,[[1,1],[3,3]]]
 		[1,0,[[0,1],[2,2],[3,1]]]
@@ -71,17 +69,17 @@ Usamos o exemplo de SimpleShortestPathsComputation para demonstrar a implementa�
 		[3,0,[[0,3],[1,1],[4,4]]]
 		[4,0,[[3,4],[2,4]]]
 
-	Carregue o arquivo tiny_graph.txt no armazenamento primário para o seu cluster HDInsight. Para obter instruções sobre como carregar dados, consulte [Carregar dados para trabalhos de Hadoop no HDInsight](hdinsight-upload-data.md).
+	Carregue o arquivo tiny_graph.txt no armazenamento primário para o seu cluster HDInsight. Para obter instruções sobre como carregar dados, consulte [Carregar dados de trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 
-	Esses dados descrevem uma relação entre objetos em uma tabela direcionada, usando o formato [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Cada linha representa uma relação entre um objeto **source\_id** e um ou mais objetos **dest\_id**. O **edge\_value** (ou peso) pode ser pensada como a intensidade ou a distância da conexão entre **source\_id** e **dest\_id**.
+	Esses dados descrevem uma relação entre objetos em um gráfico direcionado, usando o formato [source_id, source_value,[[dest_id], [edge_value],...]]. Cada linha representa uma relação entre um objeto **source_id** e um ou mais objetos **dest_id**. O **edge_value** (ou peso) pode ser pensado como a força ou a distância da conexão entre **source_id** e **dest_id**.
 
-	Desenhado e utilizando o valor (ou peso) como distância entre os objetos, os dados acima podem se parecer com os demonstrados aqui:
+	Se desenharmos usando o valor (ou peso) como distância entre os objetos, os dados acima poderiam se assemelhar a este esquema:
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
+	![tiny_graph.txt Desenhado como círculos com linhas de distância variável entre](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
 
 	
 
-4. Execute o exemplo SimpleShortestPathsComputation. Use os cmdlets do PowerShell do Azure a seguir para executar o exemplo usando o arquivo tiny_graph.txt como entrada. Isso requer que você tenha instalado e configurado o [PowerShell do Azure][powershell-install-configure].
+4. Execute o exemplo SimpleShortestPathsComputation. Use os seguintes cmdlets do PowerShell do Azure para executar o exemplo, usando o arquivo tiny_graph.txt como entrada. Isso requer que você tenha instalado e configurado o [PowerShell do Azure][powershell-install-configure].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -109,9 +107,9 @@ Usamos o exemplo de SimpleShortestPathsComputation para demonstrar a implementa�
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardOutput
 
-	No exemplo acima, substitua **clustername** pelo nome do seu cluster HDInsight que tem o Giraph instalado.
+	No exemplo acima, substitua **clustername** pelo nome do cluster HDInsight que tem o Giraph instalado.
 
-5. Exiba os resultados. Assim que o trabalho tiver sido concluído, os resultados serão armazenados em dois arquivos de saída na pasta __wasb:///example/out/shotestpaths__. Os arquivos são chamados __part-m-00001__ e __part-m-00002__. Execute as etapas a seguir para baixar e exibir a saída:
+5. Exibir os resultados. Concluído o trabalho, os resultados serão armazenados em dois arquivos de saída na pasta __wasb:///example/out/shotestpaths__. Os arquivos se chamam __part-m-00001__ e __part-m-00002__. Execute as seguintes etapas para baixar e exibir a saída:
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -128,9 +126,9 @@ Usamos o exemplo de SimpleShortestPathsComputation para demonstrar a implementa�
 		Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
 		Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
 
-	Isso criará a estrutura de diretórios __example/output/shortestpaths__ no diretório atual em sua estação de trabalho e baixará os dois arquivos de saída para esse local.
+	Isso criará a estrutura de diretório __example/output/shortestpaths__ no diretório atual em sua estação de trabalho e baixará os dois arquivos de saída nesse local.
 
-	Use o cmdlet __Cat__ para exibir o conteúdo dos arquivos: 
+	Use o cmdlet __Cat__ para exibir o conteúdo dos arquivos:
 
 		Cat example/output/shortestpaths/part*
 
@@ -143,16 +141,16 @@ Usamos o exemplo de SimpleShortestPathsComputation para demonstrar a implementa�
 		1	0.0
 		3	1.0
 
-	O exemplo SimpleShortestPathComputation é programado em código fixo para começar com a ID de objeto 1 e encontrar o caminho mais curto para outros objetos. Portanto, a saída deve ser lida como `destination_id distance`, onde a distância é o valor (ou peso) dos limites entre os quais se percorre entre a ID de objeto 1 e a ID de destino.
+	O exemplo SimpleShortestPathComputation está codificado para começar com a ID do objeto 1 e localizar o caminho mais curto para os outros objetos. Logo, a saída deve ser lida como `destination_id distance`, em que a distância é o valor (ou peso) dos perímetros percorridos entre a ID do objeto 1 e a ID de destino.
 	
-	Visualizando isso, você pode verificar os resultados percorrendo os caminhos mais curtos entre a ID 1 e todos os outros objetos. Observe que o caminho mais curto entre a ID 1 e a ID 4 é 5. Essa é a distância padrão entra a <span style="color:orange">ID 1 e 3</span>e entre a <span style="color:red">ID 3 e 4</span>.
+	Visualizando isso, você pode verificar os resultados percorrendo os caminhos mais curtos entre a ID 1 e todos os outros objetos. Observe que o caminho mais curto entre a ID 1 e a ID 4 é 5. Essa é a distância total entre <span style="color:orange">ID 1 e 3</span> e, em seguida, entre <span style="color:red">ID 3 e 4</span>.
 
-	![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png) 
+	![Desenho dos objetos como círculos com os percursos mais curtos entre](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png)
 
 
-## <a name="usingPS"></a>Instalar o Giraph em clusters Hadoop do HDInsight usando o PowerShell do Azure
+## <a name="usingPS"></a>Instalar o Giraph em clusters HDInsight Hadoop usando o PowerShell do Azure
 
-Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para chamar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, certifique-se de ter instalado e configurado o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do Powershell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 
 Execute as seguintes etapas:
 
@@ -168,7 +166,7 @@ Execute as seguintes etapas:
 		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
 		$version = "<HDInsightClusterVersion>"          # For example, "3.1"
 	
-2. Especifique os valores de configuração como nós no cluster e o armazenamento padrão a ser usado:
+2. Especifique os valores de configuração, como nós no cluster e o armazenamento padrão a ser usado:
 
 		# Specify the configuration options
 		Select-AzureSubscription $subscriptionName
@@ -177,7 +175,7 @@ Execute as seguintes etapas:
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
 	
-3. Use o cmdlet **AzureHDInsightScriptAction adicionar** para adicionar uma ação de script à configuração do cluster. Posteriormente, quando o cluster estiver sendo criado, a ação de script será executada. 
+3. Use o cmdlet **Add-AzureHDInsightScriptAction** para adicionar uma ação de script à configuração do cluster. Mais tarde, quando o cluster estiver sendo criado, a ação de script será executada.
 
 		# Add a script action to the cluster configuration
 		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Giraph" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
@@ -185,28 +183,28 @@ Execute as seguintes etapas:
 	O cmdlet **Add-AzureHDInsightScriptAction** usa os seguintes parâmetros:
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parâmetro</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definição</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">O objeto de configuração em que as informações da ação de script são adicionadas.</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome da ação de script.</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nós em que o script de personalização é executado. Os valores válidos são HeadNode (para instalar o nó de cabeçalho) ou DataNode (para instalar em todos os nós de dados). Você pode usar um ou ambos os valores.</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">URI para o script que é executado.</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros exigidos pelo script. O script de exemplo usado neste tópico não requer nenhum parâmetro e, portanto, você não vir esse parâmetro no trecho acima.
-	</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parâmetro</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definição</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Objeto de configuração ao qual as informações da ação de script são adicionadas.</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome da ação de script.</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nós nos quais o script de personalização é executado. Os valores válidos são HeadNode (para instalar no nó principal) ou DataNode (para instalar em todos os nós de dados). Você pode usar um ou ambos os valores.</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">URI para o script que é executado.</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros exigidos pelo script. O script de exemplo usado neste tópico não requer nenhum parâmetro e, portanto, você não vir esse parâmetro no trecho acima.
+</td></tr>
+</table>
 	
-4. Finalmente, inicie o provisionamento de um cluster personalizado com o Giraph instalado:  
+4. Por fim, comece a provisionar um cluster personalizado com Giraph instalado:
 	
 		# Start provisioning a cluster with Giraph installed
 		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
@@ -214,7 +212,7 @@ Execute as seguintes etapas:
 Quando solicitado, insira as credenciais para o cluster. Pode levar alguns minutos até que o cluster seja criado.
 
 
-## <a name="usingSDK"></a>Instalar o Giraph em clusters Hadoop do HDInsight Hadoop usando o SDK do .NET
+## <a name="usingSDK"></a>Instalar o Giraph em clusters HDInsight Hadoop usando o .NET SDK
 
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com o HDInsight em um aplicativo .NET Framework. Esta seção fornece instruções sobre como usar a Ação de Script do SDK para provisionar um cluster com o Giraph instalado. Os procedimentos a seguir devem ser executados:
 
@@ -230,43 +228,43 @@ Você pode instalar a compilação publicada mais recentemente do SDK no [NuGet]
 
 **Para criar um certificado autoassinado**
 
-Crie um certificado autoassinado, instale-o em sua estação de trabalho e o carregue para sua assinatura do Azure. Para obter instruções, consulte [Criar um certificado autoassinado](http://go.microsoft.com/fwlink/?LinkId=511138). 
+Crie um certificado autoassinado, instale-o em sua estação de trabalho e o carregue para sua assinatura do Azure. Para obter instruções, consulte [Criar um certificado autoassinado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 
 **Para criar um aplicativo do Visual Studio**
 
 1. Abra o Visual Studio 2013.
 
-2. No menu **Arquivo**, clique em **Novo** e **Projeto**.
+2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 
 3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 	
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriedade</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valor</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Categoria</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modelos/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modelo</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Aplicativo de console</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateGiraphCluster</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriedade</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valor</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Categoria</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modelos/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modelo</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Aplicativo de console</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateGiraphCluster</td></tr>
+</table>
 
 4. Clique em **OK** para criar o projeto.
 
-5. No menu **Ferramentas**, clique em **Gerenciador de Pacotes Nuget** e, em seguida, clique em **Console do Gerenciador de Pacotes**.
+5. No menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**.
 
-6. Execute o seguinte comando no console para instalar os pacotes:
+6. Execute o seguinte comando no console para instalar o pacote:
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
 	Esse comando adiciona as bibliotecas .NET e referências a elas a partir do projeto atual do Visual Studio.
 
-7. No Gerenciador de Soluções, clique duas vezes com o botão direito do mouse em **Program.cs** para abri-lo.
+7. No Gerenciador de Soluções, clique duas vezes em **Program.cs** para abri-lo.
 
 8. Adicione o seguinte usando as instruções na parte superior do arquivo :
 
@@ -313,7 +311,7 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
             Version = "3.1"
         };        
 
-10. Acrescente o seguinte código para a função Main() para usar a classe [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para invocar um script personalizado para instalar o Giraph:
+10. Acrescente o seguinte código à função Main () para usar a classe [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para invocar um script personalizado para instalar o Giraph:
 
 		// Add the script action to install Giraph
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -323,15 +321,15 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 		  null //Because the script used does not require any parameters
         ));
 
-11. Por último, crie o cluster:
+11. Por fim, crie o cluster:
 
 		client.CreateCluster(clusterInfo);
 
-12. Salve as alterações no aplicativo e crie a solução. 
+12. Salve as alterações no aplicativo e crie a solução.
 
 **Para executar o aplicativo**
 
-Abra um console do PowerShell do Azure, navegue até o local onde você salvou o projeto no Visual Studio, navegue até a pasta \bin\debug do projeto e, em seguida, execute o seguinte comando:
+Abra um console do PowerShell do Azure, navegue até o local onde você salvou o projeto do Visual Studio, navegue até a pasta \\bin\\debug do projeto e execute o seguinte comando:
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -339,9 +337,9 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 
 
 ## Consulte também##
-- [Instalar e usar Spark em clusters HDInsight][hdinsight-install-spark] para obter instruções sobre como usar o cluster de personalização para instalar e usar Spark em clusters Hadoop do HDInsight. O Spark é uma estrutura de processamento paralelo de código-fonte aberto que oferece suporte ao processamento de memória para melhorar o desempenho dos aplicativos analíticos de big data.
-- [Instalar R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters de Hadoop do HDInsight. R é uma linguagem de software livre e um ambiente de computação de estatísticas. O R fornece centenas de funções estatísticas internas e uma linguagem própria de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece recursos abrangentes de gráficos.
-- [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações poderosas nos dados armazenados.
+- [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark] para obter instruções sobre como usar o cluster de personalização para instalar e usar o Spark em clusters Hadoop no HDInsight. O Spark é uma estrutura de processamento paralelo de software livre que dá suporte a processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data.
+- [Instalar o R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters Hadoop no HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
+- [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite executar operações de pesquisa avançadas nos dados armazenados.
 
 
 
@@ -353,4 +351,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

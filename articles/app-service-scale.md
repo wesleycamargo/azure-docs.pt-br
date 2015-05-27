@@ -1,200 +1,129 @@
-﻿<properties 
-	pageTitle="Como dimensionar um aplicativo Web no Serviço de Aplicativo do Azure" 
-	description="Saiba como escalar verticalmente e horizontalmente um aplicativo Web no Serviço de Aplicativo do Azure, incluindo o dimensionamento automático." 
-	services="app-service\web" 
+<properties 
+	pageTitle="Dimensionar a camada de preços no Serviço de Aplicativo do Azure" 
+	description="Saiba como ajustar a escala de aplicativos Web, móveis, de api e lógicos no Serviço de Aplicativo do Azure, incluindo dimensionamento automático." 
+	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="stepsic-microsoft-com" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/25/2015" 
+	ms.author="stepsic"/>
 
-# Como dimensionar um aplicativo Web no Serviço de Aplicativo do Azure #
+# Dimensionar a camada de preços no Serviço de Aplicativo do Azure
 
-Para aumentar o desempenho e a produtividade de seus aplicativos Web no Microsoft Azure e habilitar mais funcionalidades para atender às suas necessidades comerciais, você pode usar o Portal de Gerenciamento do Azure para dimensionar seu plano de Serviço de Aplicativo do modo Gratuito para Compartilhado, Básico, Padrão e Premium (visualização). 
+Para aumentar o desempenho e a produtividade de seus aplicativos no Microsoft Azure, você pode usar o [Portal do Azure](https://portal.azure.com/) para escalar verticalmente seu plano de Serviço de Aplicativo do modo **Gratuito** para **Compartilhado**, **Básico**, **Padrão** ou **Premium**.
 
-Aumentar a escala em aplicativos Web do Azure envolve duas ações relacionadas: alterar o modo de plano do Serviço de Aplicativo para um nível mais alto de serviço e configurar determinados parâmetros depois de alternar para o nível mais alto de serviço.  Os dois tópicos são abordados neste artigo.  Níveis de serviço mais altos como o modo Padrão oferecem maior eficiência e flexibilidade para determinar como os recursos do Azure são usados.
+O nível de serviço que seu plano de Serviço de Aplicativo tem se baseia na [*Camada de preços* para o plano](/pricing/details/app-service/). Níveis de preço mais altos, como **Padrão** e **Premium**, oferecem maior eficiência e flexibilidade para determinar como os recursos do Azure são usados. Alterar a camada de preços afeta o número de núcleos e a quantidade de memória que seu serviço tem, e isso é conhecido como o *escala vertical* (ou *redução vertical*).
 
-A alteração e a configuração dos modos são realizadas facilmente na guia Escala do portal de gerenciamento.  Você pode expandir ou reduzir conforme necessário.  Essas alterações terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos Web em seu plano de serviço.  Não é necessário alterar seu código nem reimplantar seus aplicativos.
+Além de realizar a escala vertical da camada de preços, você pode aumentar o número de instâncias que o seu serviço tem. Isso é conhecido como *escala horizontal* ou *redução vertical*. Consulte o artigo sobre [Ajustar escala da contagem de instância manual ou automaticamente](insights-how-to-scale.md) para saber mais sobre *Escala horizontal* e *Redução horizontal*.
 
-Para obter informações sobre planos de Serviço de Aplicativo (anteriormente, planos de hospedagem Web), consulte [O que é um Plano de Hospedagem do Aplicativo de Serviço?](web-sites-web-hosting-plan-overview.md) e [Visão Geral Detalhada de Planos de Hospedagem de Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).  Para obter informações sobre os preços e recursos de planos individuais de Serviço de Aplicativo, consulte [Detalhes de Preços de Serviços de Aplicativo](http://http://azure.microsoft.com/pricing/details/web-sites/).  
+Para obter informações sobre planos de serviço de aplicativo, consulte [O que é um plano de Serviço de Aplicativo?](web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos de Serviço Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais de Serviço de Aplicativo, consulte [Detalhes de Preços de Serviços de Aplicativo](/pricing/details/app-service/).
 
-> [AZURE.NOTE] Antes de trocar de um aplicativo Web no modo **Gratuito** para o modo **Básico** ou **Padrão**, remova os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure.  Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE]Antes de alternar de um modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, você deve primeiro remover os limites de gastos em vigor para sua assinatura de Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
-## Dimensionando para o modo de plano Compartilhado ou Básico do Serviço de Aplicativo
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
-1. No seu navegador, abra o [Portal do Azure][portal].
-	
-2. Na folha de seu aplicativo Web, clique em **Todas as configurações** e, em seguida, clique em **Escala**, clique em **Atualizar de um plano Gratuito para adicionar instâncias e obter um melhor desempenho**.
-	
-	![Choose Hosting Plan][ChooseWHP]
-	
-4. Na folha **Escolha sua faixa de preços**, escolha **Compartilhado** ou um modo **Básico**, então clique em **Selecionar**.
+## Dimensionando a camada de preço
 
-	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída. 
+1. No navegador, abra o [Portal do Azure][portal] e navegue até o aplicativo cuja escala você deseja ajustar.
 	
-5. Deslize a barra de **Instância** da esquerda para a direita para aumentar o número de instâncias, então clique em **Salvar** na barra de comandos.  A opção de tamanho de instância não está disponível no modo **Compartilhado**.  Para obter mais informações sobre esses tamanhos de instâncias, consulte [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes].
-	
-	![Instance size for Basic mode][ChooseBasicInstances]
-	
-	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída. 
-	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
-## Dimensionando para o modo de plano de Serviço de Aplicativo padrão
-<!-- ================================= -->
+2. Em **Essentials** para seu aplicativo, clique no link **Plano/camada de preços do Serviço de Aplicativo**.
 
-> [AZURE.NOTE] Antes de alternar de um plano de Serviço de Aplicativo do modo **Livre** para o **Padrão**, você deve remover caps de gasto no local para a assinatura do Serviço de Aplicativo do Microsoft Azure.  Caso contrário, seu site correrá o risco de se tornar indisponível se você atingir os limites antes do término do período de cobrança.  Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
-
-1. Para dimensionar para o modo **Padrão** modo, siga as mesmas as etapas iniciais que para dimensionar para **Compartilhado** ou **Básico** e, em seguida, escolha um modo **Padrão** em **Escolha a sua faixa de preços**, clique em **Selecionar**. 
+3. Clique em **Camada de preços** e você verá a lista de níveis de serviço possíveis para o plano. Cada faixa é acompanhada por um preço estimado para dar uma ideia do custo médio para essa faixa.
 	
-	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída, e o **Modo de Dimensionamento Automático** será habilitado.
-
-	![Scale in Standard Mode][ScaleStandard]
-
-	Você ainda pode deslizar a barra **Instância** para dimensionar manualmente mais instâncias, assim como no modo **Básico** mostrado acima.  No entanto, aqui você aprenderá como usar o **Modo de Dimensionamento Automático**. 
-
-2. No **Modo de Dimensionamento Automático**, selecione **Desempenho** para dimensionamento automático com base nas métricas de desempenho.
+	![Escolher um plano](./media/app-service-scale/ChoosePricingTier.png)
 	
-	![Autoscale Mode set to Performance][Autoscale]
+4. Depois de escolher sua camada, clique em **Selecionar**.
 	
-3. Em **Intervalo da Instância**, mova os dois controles deslizantes para definir o número mínimo e máximo de instâncias para dimensionar automaticamente para o plano de Serviço de Aplicativo.  Para este tutorial, mova o controle deslizante máximo para **6** instâncias.
-
-4. Clique em **Salvar** na barra de comandos.
-
-4. Em **Métricas Alvo**, clique em **>** para configurar as regras de dimensionamento automático para a métrica padrão.  
-	
-	![Set Target Metrics][SetTargetMetrics]
-	
-	Você pode configurar as regras de dimensionamento automático para métricas de desempenho diferentes, incluindo CPU, memória, fila de disco, fila HTTP e fluxo de dados.  Aqui, você vai configurar o dimensionamento automático para o percentual de CPU que faz o seguinte:
-
-	- Escale verticalmente para mais em 1 instância se a CPU estiver acima de 70% nos últimos 10 minutos
-	- Escale verticalmente para mais em 3 instâncias se CPU estiver acima de 90% nos últimos 5 minutos
-	- Reduza verticalmente para menos em 1 instância se a CPU está abaixo de 50% nos últimos 30 minutos 
-
-
-4. Deixe a lista suspensa de **Métrica** como **Percentual de CPU**.
-	
-5. Em **Regras de escala vertical**, configure a primeira regra definindo **Condição** para **Maior**, **Limite** para **70** (%) **Nos últimos** para **10** (minutos), **Expandir** para **1** (instância) e **Esfriar** para **10** (minutos). 
-	
-	![Set First Autoscale Rule][SetFirstRule]
-
-	>[AZURE.NOTE] A configuração de **Esfriar** especifica quanto tempo que essa regra deve esperar após a ação de escala anterior para dimensionar novamente.
-	
-6. Clique em **Adicionar Regra de Escala Vertical** e, em seguida, configure a segunda regra definindo a **Condição** para **Maior**, **Limite** para **90** (%) **Nos últimos** para **1** (minutos), **Escalar verticamente por** para **3** (instância) e **Esfriar** para **1** (minutos).
-	
-	![Set Second Autoscale Rule][SetSecondRule]
-	
-5. Em **Regras de redução vertical**, configure a terceira regra definindo **Condição** para **Menos**, **Limite** para **50** (%) **Nos últimos** para **30** (minutos), **Reduzir por** para **1** (instância) e **Esfriar** para **60** (minutos). 
-	
-	![Set Third Autoscale Rule][SetThirdRule]
-	
-7. Clique em **Salvar** na barra de comandos.  A regra de escala automática agora deve ser refletida na folha **Escala**. 
-	
-	![Set Autoscale Rule Result][SetRulesFinal]
-	
+	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
+		
 <a name="ScalingSQLServer"></a>
-##Dimensionando um Banco de Dados do SQL Server conectado ao seu aplicativo Web
-Se você tiver um ou mais Bancos de Dados SQL Server vinculados ao seu aplicativo Web (independentemente do modo de plano de Serviço de Aplicativo), você pode dimensionar com base em suas necessidades rapidamente.
+##Dimensionando recursos relacionados
+Se seu aplicativo depender de outros serviços, como SQL ou armazenamento, você também poderá ajustar a escala com base em suas necessidades.
 
-1. Para dimensionar um banco de dados vinculado, abra a folha do aplicativo Web no [Portal do Azure][portal].  Na lista suspensa recolhível **Essentials**, clique no link **Grupo de Recursos**.  Em seguida, na parte de **Resumo** da folha de grupo de recursos, clique em um dos bancos de dados vinculados.
-	
-	![Linked database][ResourceGroup]
-	
-2. Na sua folha de Banco de Dados SQL vinculada, clique na parte de **Camada de preços**, selecione uma das camadas com base em suas necessidades de desempenho e clique em **Selecionar**. 
-	
-	![Scale your SQL Database][ScaleDatabase]
-	
-3. Você também pode configurar a replicação geográfica para aumentar os recursos de recuperação de desastres e alta disponibilidade do Banco de Dados SQL.  Para fazer isso, clique na parte **Replicação Geográfica**.
+1. Em **Essentials**, clique no link **Grupo de recursos**.
 
-	![Set up geo-replication for SQL Database][GeoReplication]
+2. Em seguida, na parte de **Resumo** da folha do grupo de recursos, clique em um dos bancos de dados (ou qualquer outro recurso que deseje dimensionar).
 
+	![Banco de dados vinculado](./media/app-service-scale/ResourceGroup.png)
+	
+3. Naquela folha do recurso vinculado, clique na parte de **Camada de preço**, selecione uma das camadas com base em suas necessidades de desempenho e clique em **Selecionar**.
+	
+	![Dimensione seu banco de dados SQL](./media/app-service-scale/ScaleDatabase.png)
+	
+4. Se seu aplicativo usar o armazenamento, a replicação geográfica é automaticamente configurada quando você escolhe uma camada de preços que dá suporte a ela. Para SQL, por outro lado, você precisa configurar manualmente a replicação geográfica para aumentar os recursos de recuperação de desastres alta disponibilidade do banco de dados SQL. Para fazer isso, clique na parte **Replicação Geográfica**.
+	
+	![Configurar a replicação geográfica para o banco de dados SQL](./media/app-service-scale/GeoReplication.png)
+	
 <a name="devfeatures"></a>
 ## Recursos de desenvolvedor
-Dependendo do modo do plano de serviço do aplicativo da web, os seguintes recursos para desenvolvedores estão disponíveis:
+Dependendo da camada de preços, os seguintes recursos para desenvolvedores estarão disponíveis:
 
 ### Número de bits ###
 
-- Os modos dos planos Básico e Padrão oferecem suporte a aplicativos de 32 e 64 bits.
-- O modos dos planos Gratuito e Compartilhado oferecem suporte apenas a aplicativos de 32 bits.
+- Os modos **Básico**, **Padrão** e **Premium** dão suporte a aplicativos de 32 e 64 bits.
+- O modos dos planos **Gratuito** e **Compartilhado** dão suporte apenas a aplicativos de 32 bits.
 
 ### Suporte ao depurador ###
 
-- Suporte do depurador está disponível para os modos de plano Gratuito, Compartilhado e Serviço de Aplicativo Básico em uma conexão simultânea por aplicativo.
-- Suporte do depurador está disponível para o modo de plano de Serviço de Aplicativo Padrão em cinco conexões simultâneas por aplicativo.
+- Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão simultânea por plano de Serviço de Aplicativo.
+- O suporte ao depurador está disponível para os modos **Padrão** e **Premium** em cinco conexões simultâneas por plano de Serviço de Aplicativo.
 
 <a name="OtherFeatures"></a>
 ## Outros recursos
 
-### Monitoramento do ponto de extremidade da web ###
+- Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](/pricing/details/web-sites/).
 
-- Monitoramento de ponto de extremidade Web está disponível nos modos de plano do Serviço de Aplicativo básico e padrão.  Para obter mais informações sobre o monitoramento de ponto de extremidade da web, consulte [Como monitorar aplicativos Web](web-sites-monitor.md).
+>[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-- Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de Preços do Serviço de Aplicativo](http://azure.microsoft.com/pricing/details/web-sites/).
-
-<a name="Next Steps"></a>	
+<a name="Next Steps"></a>
 ## Próximas etapas
 
-- Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
-
+- Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
 - Para obter informações sobre preços, suporte e SLA, visite os links a seguir.
 	
-	[Detalhes de preços de transferências de dados](http://azure.microsoft.com/pricing/details/data-transfers/)
+	[Detalhes de preços de transferências de dados](/pricing/details/data-transfers/)
 	
-	[Planos de suporte do Microsoft Azure](http://azure.microsoft.com/support/plans/)
+	[Planos de suporte do Microsoft Azure](/support/plans/)
 	
-	[Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/)
+	[Contratos de Nível de Serviço](/support/legal/sla/)
 	
-	[Detalhes de preços do banco de dados SQL](http://azure.microsoft.com/pricing/details/sql-database/)
+	[Detalhes de preços do banco de dados SQL](/pricing/details/sql-database/)
 	
 	[Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
 	
-	[Detalhes de Preços do Serviço de Aplicativo](http://azure.microsoft.com/pricing/details/web-sites/)
+	[Detalhes de Preços do Serviço de Aplicativo](/pricing/details/app-service/)
 	
-	[Detalhes de Preços do Serviço de Aplicativo - Conexões SSL](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
+	[Detalhes de Preços do Serviço de Aplicativo - Conexões SSL](/pricing/details/web-sites/#ssl-connections)
 
-- Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas Recomendadas:  Sites do Microsoft Azure (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
-- Vídeos sobre dimensionamento de sites do Azure:
+- Vídeos sobre como dimensionar aplicativos Web:
 	
-	[Quando dimensionar Sites do Azure - com Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	
-	[Dimensionamento automático de Sites do Azure, CPU ou programado - com Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
+	- [Quando dimensionar Sites do Azure - com Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [Dimensionamento automático de Sites do Azure, CPU ou programado - com Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [Como dimensionar sites do Azure - com Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
-	[Como dimensionar Sites do Azure - com Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
-
-
+## O que mudou
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
+[SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
+[azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
-[ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png
-[ChooseBasicInstances]: ./media/web-sites-scale/scale2InstancesBasic.png
-[SaveButton]: ./media/web-sites-scale/05SaveButton.png
-[BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
-[ScaleStandard]: ./media/web-sites-scale/scale3InstancesStandard.png
-[Autoscale]: ./media/web-sites-scale/scale4AutoScale.png
-[SetTargetMetrics]: ./media/web-sites-scale/scale5AutoScaleTargetMetrics.png
-[SetFirstRule]: ./media/web-sites-scale/scale6AutoScaleFirstRule.png
-[SetSecondRule]: ./media/web-sites-scale/scale7AutoScaleSecondRule.png
-[SetThirdRule]: ./media/web-sites-scale/scale8AutoScaleThirdRule.png
-[SetRulesFinal]: ./media/web-sites-scale/scale9AutoScaleFinal.png
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

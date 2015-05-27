@@ -1,22 +1,22 @@
-﻿<properties
-   pageTitle="Usar o Pig do Hadoop no HDInsight | Azure"
+<properties
+   pageTitle="Usar o Pig do Hadoop com .NET no HDInsight | Microsoft Azure"
    description="Aprenda a usar o SDK do .NET do Hadoop para enviar trabalhos do Pig para Hadoop no HDInsight."
    services="hdinsight"
-   documentationCenter=""
+   documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-#Executar trabalhos do Pig usando o SDK do .NET para Hadoop
+#Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
@@ -38,7 +38,7 @@ Para autenticar o aplicativo no Azure HDInsight, você deve criar um certificado
 
 Para obter instruções sobre como fazer isso, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Criar um certificado autoassinado</a>.
 
-> [AZURE.NOTE] Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
+> [AZURE.NOTE]Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
 
 ##<a id="subscriptionid"></a>Localizar sua ID de assinatura
 
@@ -61,27 +61,27 @@ Salve a ID da assinatura, que será usada mais tarde.
 3. Para o novo projeto, digite ou selecione os valores a seguir.
 
 	<table>
-	<tr>
-	<th>Propriedade</th>
-	<th>Valor</th>
-	</tr>
-	<tr>
-	<th>Categoria</th>
-	<th>Modelos/Visual C#/Windows</th>
-	</tr>
-	<tr>
-	<th>Modelo</th>
-	<th>Aplicativo de console</th>
-	</tr>
-	<tr>
-	<th>Nome</th>
-	<th>SubmitPigJob</th>
-	</tr>
-	</table>
+<tr>
+<th>Propriedade</th>
+<th>Valor</th>
+</tr>
+<tr>
+<th>Categoria</th>
+<th>Modelos/Visual C#/Windows</th>
+</tr>
+<tr>
+<th>Modelo</th>
+<th>Aplicativo de console</th>
+</tr>
+<tr>
+<th>Nome</th>
+<th>SubmitPigJob</th>
+</tr>
+</table>
 
 4. Clique em **OK** para criar o projeto.
 
-5. No menu **Ferramentas**, selecione **Library Package Manager** ou **Nuget Package Manager** e selecione **Package Manager Console**.
+5. No menu **Ferramentas**, selecione **Gerenciador de Pacotes da Biblioteca** ou **Gerenciador de Pacotes NuGet** e depois selecione **Console do Gerenciador de Pacotes**.
 
 6. Execute o seguinte comando no console para instalar os pacotes do SDK do .NET.
 
@@ -195,7 +195,7 @@ Salve a ID da assinatura, que será usada mais tarde.
 
 7. Salve o arquivo.
 
-##<a id="run"></a>Executar o aplicativo
+##<a id="run"></a>Execute o aplicativo.
 
 Use **F5** para iniciar o aplicativo. Quando solicitado, insira a **ID da Assinatura**, o **Nome amigável do certificado** e o **Nome do cluster HDInsight**. O aplicativo gerará várias linhas de informação enquanto ele é executado, terminando com algo semelhante ao seguinte.
 
@@ -229,4 +229,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

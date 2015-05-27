@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Plug-in do Smooth Streaming para o Open Source Media Framework" 
 	description="Saiba como usar o plug-in Smooth Streaming dos Serviços de Mídia do Azure para o Adobe Open Source Media Framework." 
 	services="media-services" 
@@ -33,7 +33,7 @@ Este documento pressupõe que o leitor tenha um conhecimento geral do trabalho c
 
 ###Plug-in do Smooth Streaming para OSMF 2.0
 
-O plug-in dá suporte para o carregamento e a reprodução de conteúdo de Smooth Streaming sob demanda com os seguintes recursos:
+O plug-in oferece suporte para o carregamento e a reprodução de conteúdo de Smooth Streaming sob demanda com os seguintes recursos:
 
 - Reprodução de Smooth Streaming sob demanda (reproduzir, pausar, buscar, parar)
 - Reprodução de Smooth Streaming ao vivo (reproduzir)
@@ -55,8 +55,8 @@ Os recursos sem suporte são os seguintes:
 
 Os problemas conhecidos são listados a seguir:
 
-- A reprodução de conteúdo de Smooth Streaming com faixas de áudio de 48 KHz tem problemas. O tempo de execução do Flash tem um problema conhecido para renderizar conteúdo de áudio de 48 KHz. Por causa desse problema, o conteúdo do Smooth Streaming codificado com configurações de 48 Khz pode não funcionar como o esperado. Consulte: [Usando o Flash Player](http://forums.adobe.com/message/4483498#4483498) e [Adobe Flash Player 11.3  -  Bug 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) para obter mais informações.
-- Várias reproduções de conteúdo de Smooth Streaming em uma única página podem provocar problemas. Esse é um problema conhecido com o OSMF.
+- A reprodução de conteúdo de Smooth Streaming com faixas de áudio de 48 KHz tem problemas. O tempo de execução do Flash tem um problema conhecido para renderizar conteúdo de áudio de 48 KHz. Por causa desse problema, o conteúdo do Smooth Streaming codificado com configurações de 48 Khz pode não funcionar como o esperado. Consulte: [Usando o Flash Player](http://forums.adobe.com/message/4483498#4483498) e [Adobe Flash Player 11.3 - Bug 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) para obter mais informações.
+- Várias reproduções de conteúdo de Smooth Streaming em uma única página pode provocar problemas. Esse é um problema conhecido com o OSMF.
 - Reprodução de vídeo em etapas pode provocar problemas e nenhum vídeo em alguns computadores. Para solucionar esse problema, você pode desabilitar a aceleração de hardware ou o vídeo em etapas.
 
 ## Carregando o plug-in
@@ -64,7 +64,7 @@ Os plug-ins do OSMF podem ser carregados estaticamente (em tempo de compilação
 
 - Carregamento estático: para carregar estaticamente, é necessário um arquivo de biblioteca estática (SWC). Os plug-ins estáticos são adicionados como uma referência aos projetos e são mesclados no arquivo de saída final em tempo de compilação.
 
-- Carregamento dinâmico: para carregar dinamicamente, é necessário um arquivo pré-compilado (SWF). Os plug-ins dinâmicos são carregados em tempo de execução e não são incluídos na saída do projeto. (Saída compilada) Os plug-ins dinâmicos podem ser carregados usando os protocolos HTTP e FILE.
+- Carregamento dinâmico: para carregar dinamicamente, é necessário um arquivo (SWF) pré-compilado. Os plug-ins dinâmicos são carregados em tempo de execução e não são incluídos na saída do projeto. (Saída compilada) Os plug-ins dinâmicos podem ser carregados usando os protocolos HTTP e FILE.
 
 Para obter mais informações sobre carregamento estático e dinâmico, consulte a [página oficial do plug-in do OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre carregamento estático e dinâmico, consulte
 O trecho de código a seguir mostra como carregar o plug-in SS para OSMF estaticamente e executa um vídeo básico usando a classe MediaFactory do OSMF. Antes de incluir o SS para código de OSMF, verifique se a referência ao projeto inclui o plug-in estático "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
 
 <pre><code>
-package 
+pacote 
 {
 	
 	import com.microsoft.azure.media.AdaptiveStreamingPluginInfo;
@@ -106,25 +106,25 @@ package
 		private function initMediaPlayer():void
 		{
 		
-			// Create the container (sprite) for managing display and layout
+			// Criar o contêiner (sprite) para gerenciar a exibição e o layout
 			_mediaPlayerSprite = new MediaPlayerSprite();    
-			_mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
-			_mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
-			_mediaPlayerSprite.scaleMode = ScaleMode.NONE;
-			_mediaPlayerSprite.width = stage.stageWidth;
+			_mediaPlayerSprite.addEventListener (MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
+			_mediaPlayerSprite.addEventListener (MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
+			_mediaPlayerSprite.ScaleMode = ScaleMode.NONE;
+			_mediaPlayerSprite.Width = stage.stageWidth;
 			_mediaPlayerSprite.height = stage.stageHeight;
-			//Adds the container to the stage
+			//Adiciona o contêiner para o estágio
 			addChild(_mediaPlayerSprite);
 			
-			// Create a mediafactory instance
+			// Criar uma instância de mediafactory
 			_mediaFactory = new DefaultMediaFactory();
 			
-			// Add the listeners for PLUGIN_LOADING
+			// Adicione os ouvintes de PLUGIN_LOADING
 			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
-			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
+			_mediaFactory.addEventListener (MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed);
 			
-			// Load the plugin class 
-			loadAdaptiveStreamingPlugin( );  
+			// Carregar a classe de plug-in 
+			loadAdaptiveStreamingPlugin ();  
 			
 		}
 		
@@ -138,15 +138,15 @@ package
 		
 		private function onPluginLoaded( event:MediaFactoryEvent ):void
 		{
-			// The plugin is loaded successfully.
-			// Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
-		loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
+			// O plug-in é carregado com êxito.
+			// O servidor Web precisa hospedar um arquivo crossdomain.xml válido para permitir que o plug-in baixe os arquivos de Smooth Streaming.
+		loadMediaSource ("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 		
 		}
 		
 		private function onPluginLoadFailed( event:MediaFactoryEvent ):void
 		{
-			// The plugin is failed to load ...
+			// Ocorreu uma falha durante o carregamento do plug-in...
 		}
 		
 		
@@ -160,12 +160,12 @@ package
 			{
 				case MediaPlayerState.LOADING: 
 					
-					// A new source is started to load.
+					// Uma nova fonte é iniciada para carregar.
 					
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+					// Adicione o código para lidar com Player Ready quando é atingido o primeiro carregamento depois que uma fonte for carregada. 
 					
 					break;
 				
@@ -175,27 +175,27 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...          
+				// outros estados...          
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .           
+			// Falha do Media Player.           
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
 		{
-			// Take an URL of SmoothStreamingSource's manifest and add it to the page.
+			// Levar o manifesto de um URL de SmoothStreamingSource e adicioná-lo à página.
 			
 			var resource:URLResource= new URLResource( sourceURL );
 			
 			var element:MediaElement = _mediaFactory.createMediaElement( resource );
 			_mediaPlayerSprite.scaleMode = ScaleMode.LETTERBOX;
-			_mediaPlayerSprite.width = stage.stageWidth;
+			_mediaPlayerSprite.Width = stage.stageWidth;
 			_mediaPlayerSprite.height = stage.stageHeight;
 			
-			// Add the media element
+			// Adicione o elemento de mídia
 			_mediaPlayerSprite.media = element;
 		}     
 		
@@ -206,10 +206,10 @@ package
 
 ###Carregamento dinâmico de SS para OSMF
 
-O trecho de código a seguir mostra como carregar o plug-in SS para OSMF dinamicamente e reproduzir um vídeo básico usando a classe MediaFactory do OSMF. Antes de incluir o SS para código do OSMF, copie o plug-in dinâmico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" para a pasta do projeto se desejar carregar usando protocolo FILE ou copie para um servidor Web para carga HTTP. Não é necessário incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" nas referências ao projeto.
+O trecho de código a seguir mostra como carregar o plug-in SS para OSMF dinamicamente e reproduzir um vídeo básico usando a classe MediaFactory do OSMF. Antes de incluir o SS para código do OSMF, copie o plug-in dinâmico da "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" na pasta do projeto se desejar carregar usando protocolo FILE ou copiar em um servidor web para carga HTTP. Não é necessário incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" nas referências ao projeto.
 
 <pre><code>
-package 
+pacote 
 {
 	
 	import flash.display.*;
@@ -223,7 +223,7 @@ package
 	import flash.system.Capabilities;
 
 	
-	//Sets the size of the SWF
+	//Define o tamanho do SWF
 	
 	[SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
 	public class TestPlayer extends Sprite
@@ -242,23 +242,23 @@ package
 		private function initMediaPlayer():void
 		{
 			
-			// Create the container (sprite) for managing display and layout
+			// Criar o contêiner (sprite) para gerenciar a exibição e o layout
 			_mediaPlayerSprite = new MediaPlayerSprite();    
-			_mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
-			_mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
+			_mediaPlayerSprite.addEventListener (MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
+			_mediaPlayerSprite.addEventListener (MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 
-			//Adds the container to the stage
+			//Adiciona o contêiner para o estágio
 			addChild(_mediaPlayerSprite);
 			
-			// Create a mediafactory instance
+			// Criar uma instância de mediafactory
 			_mediaFactory = new DefaultMediaFactory();
 			
-			// Add the listeners for PLUGIN_LOADING
+			// Adicione os ouvintes de PLUGIN_LOADING
 			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
-			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
+			_mediaFactory.addEventListener (MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed);
 			
-			// Load the plugin class 
-			loadAdaptiveStreamingPlugin( );  
+			// Carregar a classe de plug-in 
+			loadAdaptiveStreamingPlugin ();  
 			
 		}
 		
@@ -267,7 +267,7 @@ package
 			var pluginResource:MediaResourceBase;
 			var adaptiveStreamingPluginUrl:String;
 
-			// Your dynamic plugin web server needs to host a valid crossdomain.xml file to allow loading plugins.
+			// O servidor Web dinâmico de plug-in deve hospedar um arquivo crossdomain.xml válido para permitir o carregamento de plug-ins.
 
 			adaptiveStreamingPluginUrl = "http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf";
 			pluginResource = new URLResource(adaptiveStreamingPluginUrl);
@@ -277,16 +277,16 @@ package
 		
 		private function onPluginLoaded( event:MediaFactoryEvent ):void
 		{
-			// The plugin is loaded successfully.
+			// O plug-in é carregado com êxito.
 
-			// Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+			// O servidor Web precisa hospedar um arquivo crossdomain.xml válido para permitir que o plug-in baixe os arquivos de Smooth Streaming.
 
-	loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
+	loadMediaSource ("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 		}
 		
 		private function onPluginLoadFailed( event:MediaFactoryEvent ):void
 		{
-			// The plugin is failed to load ...
+			// Ocorreu uma falha durante o carregamento do plug-in...
 		}
 		
 		
@@ -300,12 +300,12 @@ package
 			{
 				case MediaPlayerState.LOADING: 
 					
-					// A new source is started to load.
+					// Uma nova fonte é iniciada para carregar.
 					
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+					// Adicione o código para lidar com Player Ready quando é atingido o primeiro carregamento depois que uma fonte for carregada. 
 					
 					break;
 				
@@ -315,26 +315,26 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...          
+				// outros estados...          
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .           
+			// Falha do Media Player.           
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
 		{
-			// Take an URL of SmoothStreamingSource's manifest and add it to the page.
+			// Levar o manifesto de um URL de SmoothStreamingSource e adicioná-lo à página.
 			
 			var resource:URLResource= new URLResource( sourceURL );
 			
 			var element:MediaElement = _mediaFactory.createMediaElement( resource );
 			_mediaPlayerSprite.scaleMode = ScaleMode.LETTERBOX;
-			_mediaPlayerSprite.width = stage.stageWidth;
+			_mediaPlayerSprite.Width = stage.stageWidth;
 			_mediaPlayerSprite.height = stage.stageHeight;
-			// Add the media element
+			// Adicione o elemento de mídia
 			_mediaPlayerSprite.media = element;
 		}     
 		
@@ -343,13 +343,13 @@ package
 </code></pre>
 
 ##Strobe Media Playback com o plug-in dinâmico do ODMF do SS
-O plug-in dinâmico do Smooth Streaming para o OSMF é compatível com o [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Você pode usar o SS para o plug-in OSMF para adicionar reprodução de conteúdo de Smooth Streaming ao SMP. Para fazer isso, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" para um servidor Web para carga HTTP usando as seguintes etapas:
+O plug-in dinâmico do Smooth Streaming para o OSMF é compatível com o [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Você pode usar o SS para o plug-in OSMF para adicionar reprodução de conteúdo de Smooth Streaming ao SMP. Para fazer isso, copie o "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" em um servidor web para carga HTTP, usando as seguintes etapas:
 
 1.	Procure a [página de configuração do Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
-2.	Defina o src para uma fonte Smooth Streaming, (por exemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2.	Defina o src como uma fonte de Smooth Streaming (por exemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3.	Faça as alterações desejadas na configuração e clique em Visualizar e Atualizar.
  
-	**Observação** o servidor Web de conteúdo precisa de um crossdomain.xml válido. 
+	**Observação** o servidor web de conteúdo precisa de um crossdomain.xml válido. 
 4.	Copie e cole o código em uma página HTML simples usando seu editor de texto preferido, como no exemplo a seguir:
 
 
@@ -399,9 +399,9 @@ O plug-in dinâmico do Smooth Streaming para o OSMF é compatível com o [Strobe
 		</html>
 
 
-6. 	Salve a página HTML e publique em um servidor Web. Procure a página da Web publicada usando seu navegador de Internet habilitado para Flash&reg; Player favorito (Internet Explorer, Chrome, Firefox etc.).
-7. 	Reproduza conteúdo de Smooth Streaming no Adobe&reg; Flash&reg; Player.
+6. 	Salve a página HTML e publique em um servidor web. Vá para a página da Web publicada usando seu navegador de Internet habilitado para Flash&reg; Player favorito (Internet Explorer, Chrome, Firefox etc).
+7. 	Divirta-se com o conteúdo de Smooth Streaming no Adobe&reg; Flash&reg; Player.
 
-Para obter mais informações sobre o desenvolvimento de OSMF geral, consulte a [página oficial de desenvolvimento do OSMF](http://osmf.org/resources.html).
+Para obter mais informações sobre o desenvolvimento de OSMF geral, consulte a [página oficial de desenvolvimento do OSMF](http://osmf.org/resources.html)
 
-<!--HONumber=49-->
+<!--HONumber=54-->

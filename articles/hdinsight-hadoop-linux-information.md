@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux | Azure"
    description="Clusters do HDInsight baseados em Linux fornecem Hadoop em um ambiente Linux familiar, em execução na nuvem do Azure."
    services="hdinsight"
@@ -9,125 +9,135 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/17/2015"
    ms.author="larryfr"/>
 
-#Trabalhando com o HDInsight no Linux (Preview)
+# Trabalhando com o HDInsight no Linux (visualização)
 
-Clusters do HDInsight baseados em Linux fornecem Hadoop em um ambiente Linux familiar, em execução na nuvem do Azure. Para a maioria da coisas, ele deve funcionar exatamente como qualquer outro Hadoop na instalação do Linux. Este documento indica diferenças específicas que você deve estar atento.
+Os clusters Azure HDInsight baseados em Linux fornecem Hadoop em um ambiente Linux conhecido, executados na nuvem do Azure. Para a maioria da coisas, ele deve funcionar exatamente como qualquer outra instalação do Hadoop no Linux. Este documento indica diferenças específicas que você deve estar atento.
 
-##Nomes de domínio
+## Nomes de domínio
 
-O nome de domínio totalmente qualificado (FQDN) para usar ao se conectar ao cluster é **&lt;clustername>.azurehdinsight.net** ou (apenas para SSH) **&lt;clustername>.aurehdinsight.net**.
+O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluster é **&lt;clustername>.azurehdinsight.net** ou (somente para SSH) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-##Serviços acessíveis remotamente
+## Acesso remoto aos serviços
 
-* **Ambari (Web)** - https://&lt;clustername>.azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-	> [AZURE.NOTE] Autenticar usando o usuário do administrador de cluster e a senha e fazer o logon para Ambari. Isso também utiliza o usuário do administrador de cluster e a senha
-	> 
-	> A autenticação é texto sem formatação - sempre usar HTTPS para garantir que a conexão seja segura.
+	> [AZURE.NOTE]Autentique usando o usuário e a senha de administrador do cluster e faça logon no Ambari. Aqui também o usuário e a senha de administrador de cluster são usados.
+	>
+	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
-	Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como esse é um nome de domínio interno e não público, você receberá erros de servidor não encontrado ao tentar acessar alguns recursos pela Internet.
+	Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como é um nome de domínio interno, e não público, você receberá erros de "servidor não encontrado" ao tentar acessar alguns recursos pela Internet.
 
-	Para resolver esse problema, use um túnel SSH para tráfego do proxy da Web para o nó principal do cluster. Use os artigos a seguir para criar um túnel SSH de uma porta no computador local para o cluster.
+	Para resolver esse problema, use um túnel SSH para tráfego do proxy da Web para o nó principal do cluster. Use a seção **Túnel SSH** dos artigos a seguir para criar um túnel SSH de uma porta no computador local até o cluster:
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Linux, Unix ou OS X</a> - etapas para a criação de um túnel SSH usando o comando  `ssh`
+	* [Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md): etapas sobre como criar um túnel SSH usando o comando `ssh`.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows</a> - etapas do uso do Putty para criar um túnel SSH
+	* [Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows](hdinsight-hadoop-linux-use-ssh-windows): etapas sobre como usar PuTTY para criar um túnel SSH.
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
-	> [AZURE.NOTE] Autenticar usando o usuário do administrador de cluster e a senha.
-	> 
-	> A autenticação é texto sem formatação - sempre usar HTTPS para garantir que a conexão seja segura.
+	> [AZURE.NOTE]Autentique usando o usuário e a senha de administrador do cluster.
+	>
+	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
-	> [AZURE.NOTE] Autenticar usando o usuário do administrador de cluster e a senha.
-	> 
-	> A autenticação é texto sem formatação - sempre usar HTTPS para garantir que a conexão seja segura.
+	> [AZURE.NOTE]Autentique usando o usuário e a senha de administrador do cluster.
+	>
+	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22
 
-	> [AZURE.NOTE] Você só pode acessar o nó principal do cluster através do SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando o SSH do nó principal.
+	> [AZURE.NOTE]Você só pode acessar o nó de cabeçalho do cluster via SSH por um computador cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
 
-##Locais de arquivos
+## Locais de arquivos
 
-Arquivos relacionados ao Hadoop podem ser encontrados em nós de cluster em  `/usr/hdp/current`.
+Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp/current`.
 
-Dados de exemplo e jars podem ser encontradas no HDFS (WASB) em '/example' ou 'wasb:///example'.
+Dados de exemplo e arquivos JAR encontram-se no HDFS (Sistema de Arquivos Distribuído do Hadoop) ou no armazenamento de Blob do Azure em '/example' ou 'wasb:///example'.
 
-##Práticas recomendadas de HDFS, WASB e armazenamento
+## HDFS, armazenamento de Blob do Azure e práticas recomendadas de armazenamento
 
-Na maioria das distribuições de Hadoop, o Hadoop Distributed File System (HDFS) é apoiado pelo armazenamento local nos computadores do cluster. Embora isso seja eficiente, pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora por recursos de computação.
+Na maioria das distribuições do Hadoop, o HDFS é conta com o suporte do armazenamento local nos computadores do cluster. Embora isso seja eficiente, pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora por recursos de computação.
 
-O HDInsight usa o Armazenamento de Blob do Azure como o armazenamento padrão, que fornece os seguintes benefícios:
+O HDInsight usa o armazenamento de Blob do Azure como armazenamento padrão, o que proporciona os seguintes benefícios:
 
-* Armazenamento de longo prazo barato
+* Armazenamento de longo prazo econômico
 
-* Acessível por serviços externos, como sites, utilitários de upload/download de arquivo, SDKs de várias linguagens e navegadores da Web
+* Acessibilidade por meio de serviços externos, como sites, utilitários de upload/download de arquivos, SDKs para vários idiomas e navegadores da Web
 
-Como é o armazenamento padrão para o HDInsight, você normalmente não precisa fazer nada para usá-lo. Por exemplo, o comando a seguir lista arquivos na pasta **/example/data**, que é armazenada no Armazenamento de Blob do Azure.
+Como é o armazenamento padrão para o HDInsight, você normalmente não precisa fazer nada para usá-lo. Por exemplo, o comando a seguir listará arquivos na pasta **/example/data**, armazenada no armazenamento de Blob do Azure:
 
 	hadoop fs -ls /example/data
 
-Alguns comandos podem exigir que você especifique que está usando o Armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **WASB://**.
+Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **WASB://**.
 
-O HDInsight também permite que você associe várias contas de Armazenamento de Blob com um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;container-name> @&lt;account-name>.blob.core.windows.net/**. Por exemplo, o seguinte lista o conteúdo do diretório **/example/data** para a o contêiner e a conta de armazenamento especificada.
+O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
-###Qual armazenamento de blob o cluster está usando?
+### Que armazenamento de Blob o cluster está usando?
 
-Durante a criação do cluster, você pode selecionar para usar uma conta de armazenamento e contêiner existentes ou para criar um nova. Em seguida, você provavelmente esquece dela. Você pode encontrar a conta de armazenamento e o contêiner usando os seguintes métodos.
+Durante a criação do cluster, você optou por usar uma conta e um contêiner existentes do Armazenamento do Azure ou por criar uma nova conta. Em seguida, você provavelmente esquece dela. Você pode usar os métodos a seguir para localizar a conta e o contêiner do Armazenamento.
+
+**API do Ambari**
+
+1. Use o comando a seguir para recuperar informações de configuração do HDFS:
+
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+
+2. Localize a entrada `fs.defaultFS`. Ela conterá o contêiner e a conta de armazenamento padrão em um formato semelhante ao seguinte:
+
+        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+
+> [AZURE.TIP]Se você tiver instalado o [jq](http://stedolan.github.io/jq/), poderá usar o seguinte para retornar apenas a entrada `fs.defaultFS`:
+>
+> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
 
 **Portal do Azure**
 
-1. No <a href="https://manage.windowsazure.com/" target="_blank">Portal de Gerenciamento do Azure</a>, selecione seu cluster do HDInsight.
+1. No [portal do Azure](https://manage.windowsazure.com/), selecione o cluster HDInsight.
 
 2. Selecione **Painel** na parte superior da página.
 
-3. As contas de armazenamento e contêineres são listados a seção **recursos vinculados** da página.
+3. As contas do Armazenamento e os contêineres são listados na seção **recursos vinculados** da página.
 
-	![linked resources](./media/hdinsight-hadoop-linux-information/storageportal.png)
+	![recursos vinculados](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
-**Interface de Linha de Comando de Plataforma Cruzada do Azure**
-
-*Em breve!*
-
-###Como acessar o armazenamento de blob?
+### Como acessar o armazenamento de Blob?
 
 Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 
-* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Interface de linha de comando entre plataformas do Azure</a> - após a instalação, consulte `azure storage` para obter ajuda com o uso do armazenamento, ou `azure blob` para ver comandos específicos do blob.
+* [CLI do Azure para Mac, Linux e Windows](xplat-cli.md): comandos entre plataformas para trabalhar com o Azure. Depois de instalar, use o comando `azure storage` para obter ajuda sobre o uso do armazenamento ou `azure blob` para comandos específicos do blob.
+
+* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): um script Python para trabalhar com blobs no Armazenamento do Azure.
 
 * Uma variedade de SDKs:
 
-	* <a href="https://github.com/Azure/azure-sdk-for-java" target="_blank">Java</a>
+	* [Java](https://github.com/Azure/azure-sdk-for-java)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-node" target="_blank">Node.js</a>
+	* [Node.js](https://github.com/Azure/azure-sdk-for-node)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-php" target="_blank">PHP</a>
+	* [PHP](https://github.com/Azure/azure-sdk-for-php)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-python" target="_blank">Python</a>
+	* [Python](https://github.com/Azure/azure-sdk-for-python)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-ruby" target="_blank">Ruby</a>
+	* [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
+	* [.NET](https://github.com/Azure/azure-sdk-for-net)
 
-* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">API REST de armazenamento</a>
+* [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
+## Próximas etapas
 
-##Próximas etapas
-
-* [Use o hive com o HDInsight](hdinsight-use-hive.md)
+* [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
-* [Usar trabalhos MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
+* [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-
-<!--HONumber=47-->
+<!--HONumber=54-->

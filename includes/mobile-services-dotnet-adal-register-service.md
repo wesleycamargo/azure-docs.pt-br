@@ -1,4 +1,4 @@
-﻿## <a name="register-mobile-service-aad"></a>Registrar o seu serviço móvel com o Active Directory do Azure
+## <a name="register-mobile-service-aad"></a>Registrar o seu serviço móvel com o Active Directory do Azure
 
 
 Nesta seção, você registrará seu serviço móvel com o Active Directory do Azure e configurará permissões para permitir representação de logon único.
@@ -9,7 +9,7 @@ Nesta seção, você registrará seu serviço móvel com o Active Directory do A
 
 3. Clique na guia **Aplicativos** e em seu aplicativo.
 
-4. Clique em **Gerenciar manifesto**. Depois, clique em **Baixar Manifesto** e salve o manifesto do aplicativo em um diretório local.
+4. Clique em **Gerenciar Manifesto**. Depois, clique em **Baixar Manifesto** e salve o manifesto do aplicativo em um diretório local.
 
    ![](./media/mobile-services-dotnet-adal-register-service/mobile-services-aad-app-manage-manifest.png)
 
@@ -33,11 +33,9 @@ Nesta seção, você registrará seu serviço móvel com o Active Directory do A
             }
         ],
 
-6. No Portal de Gerenciamento do Azure, clique novamente em **Gerenciar Manifesto** para o aplicativo e clique em **Carregar Manifesto**.  Navegue até o local do manifesto do aplicativo acabou de ser atualizado e carregue o manifesto.
+6. No Portal de Gerenciamento do Azure, clique novamente em **Gerenciar Manifesto** para o aplicativo e clique em **Carregar Manifesto**. Navegue até o local do manifesto do aplicativo acabou de ser atualizado e carregue o manifesto.
 
 <!-- URLs. -->
-[Como se registrar com o Active Directory do Azure]: /pt-br/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Como registrar-se com o Active Directory do Azure]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

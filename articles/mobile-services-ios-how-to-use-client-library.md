@@ -1,532 +1,332 @@
-﻿<properties 
-	pageTitle="Como usar a biblioteca de cliente do iOS para Serviços Móveis - Serviços Móveis do Azure" 
-	description="Aprenda a usar a biblioteca de cliente iOS para serviços móveis do Azure." 
-	services="" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Aprenda a usar a Biblioteca de Cliente iOS para os Serviços Móveis do Azure."
+	description="Como usar a Biblioteca de Cliente iOS para os Serviços Móveis"
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="03/18/2015"
 	ms.author="krisragh"/>
 
 
 
 
-# Como usar a biblioteca de cliente do iOS para Serviços Móveis
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/pt-br/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/pt-br/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
-</div>
+# Aprenda a usar a Biblioteca de Cliente iOS para os Serviços Móveis do Azure.
 
-Este guia mostra como executar cenários comuns usando o cliente iOS para os Serviços Móveis do Azure. As amostras são escritas em objective-C e exigem o [SDK dos Serviços Móveis].  Este tutorial também exige o [SDK do iOS]. Os cenários abordados incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se for iniciante em Serviços Móveis, deve primeiro concluir o [Início rápido dos Serviços Móveis][Introdução aos Serviços Móveis]. O tutorial de início rápido ajuda a configurar sua conta e criar seu primeiro serviço móvel.
+[AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
 
-## Sumário
+Este guia ensina a executar cenários comuns usando os Serviços Móveis do Azure [SDK do iOS]. Se você for novo nos serviços móveis, primeiro conclua [Início Rápido dos Serviços Móveis] ou [Adicionar os Serviços Móveis a um aplicativo existente] para configurar a sua conta, criar uma tabela e um serviço móvel.
 
-- [O que são Serviços Móveis][]
-- [Conceitos][]
-- [Configuração e pré-requisitos][]
-- [Como: Criar o cliente de Serviços Móveis][]
-- [Como: Criar uma referência de tabela][]
-- [Como: Consultar dados por meio de um serviço móvel][]
-	- [Filtrar dados retornados]
-    - [Usando o objeto MSQuery][Como: Usar o MSQuery]
-	- [Selecionar colunas específicas]
-- [Como: Inserir dados em um serviço móvel]
-- [Como: Modificar dados em um serviço móvel]
-- [Como: Associar dados à interface com o usuário]
-- [Como: Autenticar usuários]
-- [Como: Tratar erros]
-
-<!--- [Como: Projetar testes da unidade]
-- [Como: Personalizar o cliente]
-	- [Personalizar cabeçalhos de solicitação]
-	- [Personalizar a serialização de tipo de dados]
-- [Próximas etapas][]-->
+> [AZURE.NOTE]Este guia usa a versão mais recente do [SDK de Serviços Móveis do iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se o seu projeto usa uma versão mais antiga do SDK, primeiro atualize a estrutura no Xcode.
 
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="Setup"></a>Configuração e pré-requisitos
 
-Este guia pressupõe que você tenha criado um serviço móvel com uma tabela.  Para obter mais informações, consulte [Criar uma tabela] ou reutilize a tabela `ToDoItem` criada no tutorial de [Introdução aos Serviços Móveis]. Os exemplos deste tópico usam uma tabela denominada `ToDoItem`, que tem as seguintes colunas:
+Este guia pressupõe que você tenha criado um serviço móvel com uma tabela. Para saber mais, confira [Criar uma tabela] ou reutilize a tabela `TodoItem` criada em [Início Rápido dos Serviços Móveis] ou em [Adicionar os Serviços Móveis a um aplicativo existente]. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que o Xcode referencia `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
-+ `id`
-+ `text`
-+ `complete`
-+ `duration`
+##<a name="create-client"></a>Como criar o cliente Serviços Móveis
 
+Para acessar um serviço móvel do Azure em seu projeto, crie um objeto de cliente `MSClient`. Substitua `AppUrl` e `AppKey` com a URL do serviço móvel e com os valores de painel da chave de aplicativo, respectivamente.
 
-Se você estiver criando seu aplicativo iOS pela primeira vez, certifique-se de adicionar o `WindowsAzureMobileServices.framework` na configuração [**Vincular binário com bibliotecas**](https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html) do seu aplicativo. Durante esta etapa, clique em "Incluir Outros...", navegue até o local do SDK dos Serviços Móveis do Microsoft Azure transferido por download e selecione esse local.
+```
+MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" applicationKey:@"AppKey"];
+```
 
-Além disso, você deve adicionar a referência a seguir aos arquivos apropriados ou ao arquivo .pch do seu aplicativo.
+##<a name="table-reference"></a>Como criar uma referência de tabela
 
-	#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+Para acessar ou atualizar dados no serviço móvel do Azure, crie uma referência à tabela. Substitua `TodoItem` pelo nome da sua tabela.
 
-<h2><a name="create-client"></a>Como: Criar o cliente de Serviços Móveis</h2>
+```
+	MSTable *table = [client tableWithName:@"TodoItem"];
+```
 
-O código a seguir cria o objeto de cliente de serviços móveis que é usado para acessar seu serviço móvel.
+##<a name="querying"></a>Como consultar dados
 
-	MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
+Para criar uma consulta de banco de dados, consulte o objeto `MSTable`. A consulta a seguir obtém todos os itens em `TodoItem` e registra o texto de cada item.
 
-No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL do serviço móvel e pela chave de aplicativo do seu serviço móvel. Para determinar essas configurações para o seu serviço móvel, no Portal de Gerenciamento do Azure, selecione seu serviço móvel e clique em **Painel**.
-
-Você também pode criar o cliente de um objeto **NSURL** que é a URL do serviço, da seguinte maneira:
-
-	MSClient *client = [MSClient clientWithApplicationURL:[NSURL URLWithString:@"MobileServiceUrl"] applicationKey:@"AppKey"];
-
-<h2><a name="table-reference"></a>Como: Criar uma referência de tabela</h2>
-
-Antes de acessar os dados do seu serviço móvel, você deve obter uma referência à tabela da qual deseja consultar, atualizar ou excluir itens. No exemplo a seguir, `ToDoItem` é o nome da tabela:
-
-	MSTable *table = [client tableWithName:@"ToDoItem"];
-
-
-<h2><a name="querying"></a>Como: Consultar dados por meio de um serviço móvel</h2>
-
-Depois que tiver um objeto MSTable, você poderá criar sua consulta.  A consulta simples a seguir obtém todos os itens da tabela ToDoItem.
-
-	[table readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
-		if(error) {
-			NSLog(@"ERROR %@", error);
+```
+[table readWithCompletion:^(MSQueryResult *result, NSError *error) {
+		if(error) { // error is nil if no error occured
+				NSLog(@"ERROR %@", error);
 		} else {
-			for(NSDictionary *item in items) {
-				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
-			}
+				for(NSDictionary *item in result.items) { // items is NSArray of records that match query
+						NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+				}
 		}
-	}];
+}];
+```
 
-Observe que, neste caso, simplesmente gravamos o texto da tarefa no log.
+##<a name="filtering"></a>Como filtrar dados retornados
 
-Os parâmetros a seguir são fornecidos no retorno de chamada:
+Para filtrar os resultados, há muitas opções disponíveis.
 
-+ _items_: Um **NSArray** dos registros que corresponderam à sua consulta.
-+ _totalCount_: A contagem total de itens em todas as páginas da consulta, não só aqueles retornados na página atual. Esse valor é definido como -1, a menos que você solicite explicitamente a contagem total na sua solicitação. Para obter mais informações, consulte [Retornar dados em páginas].
-+ _error_: Qualquer erro que ocorreu. Caso contrário, `nil`.
+Para filtrar usando um predicado, use `NSPredicate` e `readWithPredicate`. Os filtros a seguir retornaram dados para localizar apenas os itens pendentes não concluídos.
 
-### <a name="filtering"></a>Como: Filtrar dados retornados
-
-Quando você quiser filtrar os resultados, haverá várias opções disponíveis.
-
-O caso mais comum é o uso de um NSPredicate para filtrar os resultados.
-
-	[table readWithPredicate:(NSPredicate *)predicate completion:(MSReadQueryBlock)completion];
-
-O predicado a seguir retorna apenas os itens incompletos na nossa tabela ToDoItem:
-
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-	[table readWithPredicate:predicate completion:^(NSArray *items, NSInteger totalCount, NSError *error) {
+```
+// Create a predicate that finds items where complete is false
+NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+// Query the TodoItem table and update the items property with the results from the service
+[table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
 		if(error) {
-			NSLog(@"ERROR %@", error);
+				NSLog(@"ERROR %@", error);
 		} else {
-			for(NSDictionary *item in items) {
-				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
-			}
+				for(NSDictionary *item in result.items) {
+						NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+				}
 		}
-	}];
+}];
+```
 
-Um único registro pode ser recuperado usando sua ID.
+##<a name="query-object"></a>Como usar o MSQuery
 
-	[table readWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(NSDictionary *item, NSError *error) {
-		if(error) {
-			NSLog(@"ERROR %@", error);
-		} else {
-				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
-		}
-	}];
+Para executar uma consulta complexa (incluindo classificação e paginação), crie um objeto de `MSQuery` diretamente ou usando um predicado:
 
-Observe que, nesse caso, os parâmetros de retorno de chamada são ligeiramente diferentes.  Em vez de obter uma matriz de resultados e uma contagem opcional, você obtém apenas o único registro.
-
-### <a name="query-object"></a>Usando o objeto MSQuery
-
-Use o objeto **MSQuery** quando precisar de uma consulta mais complexa do que apenas a filtragem de linhas, como alterar a ordem de classificação nos seus resultados ou limitar o número de registros de dados retornados. Os dois exemplos a seguir mostram como criar uma instância do objeto MSQuery:
-
+```
     MSQuery *query = [table query];
-
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
+```
 
-O objeto MSQuery permite que você controle os comportamentos de consulta a seguir:
+O `MSQuery` permite que você controle vários comportamentos de consulta, incluindo o que está a seguir. Execute uma consulta `MSQuery` chamando `readWithCompletion` nela, conforme mostrado no exemplo seguinte. * Especificar ordem de resultados * Limitar quais campos retornar * Limitar quantos registros retornar * Especificar contagem total na resposta * Especificar parâmetros de cadeia de caracteres de consulta personalizados na solicitação * Aplicar funções adicionais
 
-* Especificar a ordem em que os resultados são retornados.
-* Limitar quais campos são retornados.
-* Limitar quantos registros são retornados.
-* Especificar a inclusão ou não da contagem total na resposta.
-* Especificar parâmetros de cadeia de consulta personalizada na solicitação.
 
-Para definir ainda mais uma consulta, aplique uma ou mais funções. Quando a consulta estiver definida, ela será executada, chamando a função **readWithCompletion**.
+## <a name="sorting"></a>Como classificar dados com MSQuery
 
-#### <a name="sorting"></a>Classificando os dados retornados
+Para classificar os resultados, vamos examinar um exemplo. Para primeiro classificar por ordem ascendente pelo campo `text` e descendente pelo campo `completion`, invoque `MSQuery` desta forma:
 
-As funções a seguir são usadas para especificar os campos usados para classificação:
+```
+[query orderByAscending:@"text"];
+[query orderByDescending:@"complete"];
+[query readWithCompletion:^(MSQueryResult *result, NSError *error) {
+		if(error) {
+				NSLog(@"ERROR %@", error);
+		} else {
+				for(NSDictionary *item in result.items) {
+						NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+				}
+		}
+}];
+```
 
-	-(void) orderByAscending:(NSString *)field
-	-(void) orderByDescending:(NSString *)field
+## <a name="paging"></a>Como retornar dados em páginas com MSQuery
 
-Esta consulta classifica primeiro os resultados pela duração e, em seguida, pela conclusão ou não da tarefa:
+Os Serviços Móveis limitam a quantidade de registros retornados em uma única resposta. Para controlar o número de registros exibidos aos usuários, você deve implementar um sistema de paginação. A paginação é executada usando as três propriedades a seguir do objeto **MSQuery**:
 
-	[query orderByAscending:@"duration"];
-	[query orderByAscending:@"complete"];
-	[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
-		//code to parse results here
-	}];
-
-#### <a name="paging"></a>Retornando dados nas páginas
-
-Os Serviços Móveis limitam a quantidade de registros retornados em uma única resposta. Para controlar o número de registros exibidos aos usuários, você deve implementar um sistema de paginação.  A paginação é executada usando as três propriedades a seguir do objeto **MSQuery**:
-
+```
 +	`BOOL includeTotalCount`
 +	`NSInteger fetchLimit`
 +	`NSInteger fetchOffset`
+```
+
+No exemplo abaixo, uma função simples solicita 5 registros do servidor e acrescenta-os à coleção local dos registros carregados anteriormente:
+
+```
+// Create and initialize these properties
+@property (nonatomic, strong)   NSMutableArray *loadedItems; // Init via [[NSMutableArray alloc] init]
+@property (nonatomic)   				BOOL moreResults;
+```
+
+```
+-(void)loadResults
+{
+    MSQuery *query = [self.table query];
+
+    query.includeTotalCount = YES;
+    query.fetchLimit = 5;
+    query.fetchOffset = self.loadedItems.count;
 
 
-No exemplo a seguir, uma função simples solicita 20 registros do servidor e, em seguida, acrescenta-os à coleção local dos registros carregados anteriormente:
+    [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
+        if(!error) {
+            // Add the items to our local copy
+            [self.loadedItems addObjectsFromArray:result.items];
 
-	- (bool) loadResults() {
-		MSQuery *query = [table query];
+            // Set a flag to keep track if there are any additional records we need to load
+            self.moreResults = (self.loadedItems.count <= result.totalCount);
+        }
+    }];
+}
 
-		query.includeTotalCount = YES;
-		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
+```
 
-		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
-			if(!error) {
-				// Add the items to our local copy
-				[self.loadedItems addObjectsFromArray:items];
+## <a name="selecting"></a><a name="parameters"></a>Como limitar campos e expandir os parâmetros de cadeia de caracteres de consulta com MSQuery
 
-				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
-			}
-		}];
-	}
+Para limitar os campos a serem retornados em uma consulta, especifique os nomes dos campos na propriedade **selectFields**. Isso retorna apenas o texto e os campos preenchidos:
 
-#### <a name="selecting"></a>Limitando os campos retornados
-
-Para limitar quais campos serão retornados da sua consulta, basta especificar os nomes dos campos desejados na propriedade **selectFields**. O exemplo a seguir retorna somente o texto e os campos preenchidos:
-
+```
 	query.selectFields = @[@"text", @"completed"];
+```
 
-#### <a name="parameters"></a>Especificando parâmetros querystring adicionais
+Para incluir parâmetros de cadeia de caracteres de consulta adicionais na solicitação do servidor (por exemplo, porque é usado por um script personalizado do lado do servidor), popule `query.parameters` desta forma:
 
-A biblioteca de cliente permite incluir parâmetros de cadeia de caracteres de consulta adicionais na solicitação ao servidor. Esses parâmetros podem ser exigidos pelo seus scripts do lado do servidor. O exemplo a seguir adiciona dois parâmetros de cadeia de caracteres de consulta à solicitação:
-
+```
 	query.parameters = @{
 		@"myKey1" : @"value1",
 		@"myKey2" : @"value2",
 	};
+```
 
-Esses parâmetros são acrescentados ao URI de consulta como `myKey1=value1&myKey2=value2`.
-Para obter mais informações, consulte [Como: acessar parâmetros personalizados].
+##<a name="inserting"></a>Como inserir dados
 
-<h2><a name="inserting"></a>Como: Inserir dados em um serviço móvel</h2>
+Para inserir uma nova linha na tabela, crie um novo `NSDictionary` e invoque `table insert`. Os serviços móveis geram automaticamente novas colunas com base em `NSDictionary` quando a opção [Esquema dinâmico] não está desabilitada.
 
-Para inserir uma nova linha na tabela, crie um novo [objeto NSDictionary] e passe-o para a função de inserção. O código a seguir insere um novo item todo na tabela:
+Se não for fornecida uma `id`, o back-end gera automaticamente uma ID exclusiva. Forneça sua própria `id` para usar endereços de email, nomes de usuários, ou seus próprios valores personalizados como ID. Fornecer sua própria identificação pode facilitar junções e lógicas de banco de dados comerciais.
 
-	NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
-	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+```
+	NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
+	[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 		// The result contains the new item that was inserted,
 		// depending on your server scripts it may have additional or modified
 		// data compared to what was passed to the server.
+		if(error) {
+				NSLog(@"ERROR %@", error);
+		} else {
+						NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+		}
 	}];
+```
 
-Os Serviços Móveis dão suporte a valores exclusivos e personalizados de cadeia de caracteres para a ID da tabela. Isso permite que os aplicativos usem valores personalizados, como endereços de email ou nomes de usuário, para a coluna de id de uma tabela dos Serviços Móveis. Por exemplo, se você quiser identificar cada registro por um endereço de email, poderá usar o seguinte objeto JSON.
+##<a name="modifying"></a>Como modificar dados
 
-	NSDictionary *newItem = @{@"id": @"myemail@emaildomain.com", @"text": @"my new item", @"complete" : @NO};
-	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
-		// The result contains the new item that was inserted,
-		// depending on your server scripts it may have additional or modified
-		// data compared to what was passed to the server.
+Para atualizar uma linha existente, modifique um item e chame `update`:
+
+```
+	NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
+	[newItem setValue:@"Updated text" forKey:@"text"];
+	[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
-Se um valor de id de cadeia de caracteres não for fornecido ao inserir novos registros em uma tabela, os Serviços Móveis gerarão um valor exclusivo para a id.
+Como alternativa, forneça a ID da linha e o campo atualizado:
 
-O suporte às ids de cadeia de caracteres oferece as seguintes vantagens aos desenvolvedores
-
-+ Os Ids podem ser gerados sem fazer uma varredura no banco de dados.
-+ Os registros são mais fáceis de mesclar em tabelas ou bancos de dados diferentes.
-+ Os valores de ids podem integrar-se melhor a uma lógica do aplicativo.
-
-Você também pode usar scripts de servidor para definir valores de ids. O exemplo de script a seguir gera um GUID personalizado e o atribui a um novo id de registro. Isso é semelhante ao valor de id que os Serviços Móveis gerariam se você não transmitisse um valor para um id de registro.
-
-	//Example of generating an id. This is not required since Mobile Services
-	//will generate an id if one is not passed in.
-	item.id = item.id || newGuid();
-	request.execute();
-
-	function newGuid() {
-		var pad4 = function(str) { return "0000".substring(str.length) + str; };
-		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
-		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
-	}
-
-
-Se um aplicativo fornecer um valor para uma id, os Serviços Móveis irão armazená-lo como está. Isso inclui espaços em branco à direita ou à esquerda. O espaço em branco não será cortado do valor.
-
-O valor da `id` deve ser exclusivo e não deve incluir caracteres dos seguintes conjuntos:
-
-+ Caracteres de controle: [0x0000-0x001F] e [0x007F-0x009F]. Para obter mais informações, consulte [Códigos de controle ASCII C0 e C1].
-+  Caracteres de impressão: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
-+  Os ids "." e ".."
-
-Como alternativa, você pode usar Ids de números inteiros para suas tabelas. Para usar uma Id de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis].
-
-Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base nos campos do objeto na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico].
-
-<h2><a name="modifying"></a>Como: Modificar dados em um serviço móvel</h2>
-
-Atualize um objeto existente, modificando um item retornado de uma consulta anterior e, em seguida, chamando a função **update**.
-
-	NSMutableDictionary *item = [self.results.item objectAtIndex:0];
-	[item setObject:@YES forKey:@"complete"];
-	[table update:item completion:^(NSDictionary *item, NSError *error) {
-		//handle errors or any additional logic as needed
+```
+	[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
-Quando fizer atualizações, você só precisará fornecer o campo que está sendo atualizado, junto com a ID de linha, como no exemplo a seguir:
+No mínimo, o atributo `id` deve ser definido quando você faz atualizações.
 
-	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @YES} completion:^(NSDictionary *item, NSError *error) {
-		//handle errors or any additional logic as needed
+##<a name="deleting"></a>Como excluir dados
+
+Para excluir um item, invoque `delete` com o item:
+
+```
+	[self.table delete:item completion:^(id itemId, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
+Como alternativa, exclua fornecendo uma ID de linha:
 
-Para excluir um item da tabela, simplesmente passe o item para o método de exclusão, da seguinte maneira:
-
-	[table delete:item completion:^(id itemId, NSError *error) {
-		//handle errors or any additional logic as needed
+```
+	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
-Também é possível apenas excluir um registro usando seu ID diretamente, como no exemplo a seguir:
+No mínimo, o atributo `id` deve ser definido quando você faz exclusões.
 
-	[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
-		//handle errors or any additional logic as needed
-	}];
 
-Observe que, no mínimo, o atributo `id` deverá ser definido quando você fizer atualizações e exclusões.
+##<a name="authentication"></a>Como autenticar usuários
 
-<h2><a name="authentication"></a>Como: Autenticar usuários</h2>
+Os Serviços Móveis do Azure dão suporte a vários provedores de identidade. Para um tutorial básico, confira [Autenticação].
 
-Os Serviços Móveis permitem que você use os provedores de identidade a seguir para autenticar os usuários:
+Os Serviços Móveis do Azure dão suporte a dois fluxos de trabalho de autenticação :
 
-- Facebook
-- Google
-- Conta da Microsoft
-- Twitter
-- Azure Active Directory
+- **Logon gerenciado por servidor**: os Serviços Móveis do Azure gerenciam o processo de logon em nome do seu aplicativo. Ele exibe uma página de logon específica do provedor e é autenticada com o provedor escolhido.
 
-Para obter mais informações sobre como configurar um provedor de identidade, consulte [Introdução à autenticação].
+- **Logon gerenciado por cliente**: o _aplicativo_ solicita um token do provedor de identidade e o apresenta aos Serviços Móveis do Azure para autenticação.
 
-Os Serviços Móveis oferecem suporte aos dois fluxos de trabalho de autenticação as seguir:
-
-- Em um logon gerenciado por servidor, os Serviços Móveis gerenciam o processo de logon em nome do seu aplicativo. Uma página de logon específica do provedor é exibida pela a biblioteca de cliente, e os Serviços Móveis fazem o trabalho de autenticação com o provedor escolhido.
-
-- Em um logon gerenciado por cliente, o aplicativo deve solicitar um token por meio do provedor de identidade e apresentá-lo aos Serviços Móveis para autenticação.
-
-Quando a autenticação for bem-sucedida, um objeto de usuário será retornado contendo o valor de ID de usuário atribuído e o token de autenticação. Você pode usar essa ID de usuário nos scripts de servidor para validar ou modificar solicitações. Para obter mais informações, consulte [Usar scripts para autorizar usuários]. O próprio token pode ser armazenado em cache com segurança para ser usado nos logons subsequentes.
-
-Você também pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Para obter mais informações, consulte [Permissões].
+Quando a autenticação é bem sucedida, você obtém um objeto de usuário com um valor de ID de usuário e o token de autenticação. Para usar essa ID de usuário e autorizar usuários, confira [Autorização do lado do serviço]. Para restringir o acesso à tabela somente a usuários autenticados, confira [Permissões].
 
 ### Logon gerenciado pelo servidor
 
-Este é um exemplo de como fazer logon usando uma Conta da Microsoft. Esse código pode ser chamado no ViewDidLoad do seu controlador ou disparado manualmente de um UIButton. Isso exibirá uma IU padrão para fazer logon no provedor de identidade.
+Abaixo mostramos como se pode adicionar logon gerenciado pelo servidor ao projeto [Início Rápido dos Serviços Móveis]; você pode usar um código semelhante para os outros projetos. Para saber mais e ver um exemplo de ponta a ponta em ação, confira [Autenticação].
 
-	[client loginWithProvider:@"MicrosoftAccount" controller:self animated:YES
-		completion:^(MSUser *user, NSError *error) {
-			NSString *msg;
-			if(error) {
-				msg = [@"An error occured: " stringByAppendingString:error.description];
-			} else {
-				msg = [@"You are logged in as " stringByAppendingString:user.userId];
-			}
-
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
-								  message:msg
-								  delegate:nil
-								  cancelButtonTitle:@"OK"
-								  otherButtonTitles: nil];
-			[alert show];
-	}];
-
-Observação: se você estiver usando um provedor de identidade diferente do da Conta da Microsoft, altere o valor passado para o método de logon acima para um destes: `facebook`, `twitter`, `google`, or `windowsazureactivedirectory`.
-
-Você também pode obter uma referência ao MSLoginController e exibi-la usando:
-
-	-(MSLoginController *)loginViewControllerWithProvider:(NSString *)provider completion:(MSClientLoginBlock)completion;
+[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
 ### Logon gerenciado pelo cliente (logon único)
 
-Há casos em que o processo de logon é feito fora do cliente dos Serviços Móveis. Você pode fazer isso para habilitar uma funcionalidade de logon único ou quando seu aplicativo precisar entrar em contato diretamente com o provedor de identidade para obter informações sobre o usuário. Nesses casos, você poderá fazer logon nos Serviços Móveis, fornecendo um token obtido independentemente de um provedor de identidade com suporte.
+Você pode fazer o processo de logon fora do cliente Serviços Móveis, tanto para habilitar logon único quanto para o aplicativo contatar o provedor de identidade diretamente. Nesses casos, você pode fazer logon nos Serviços Móveis fornecendo um token obtido independentemente de um provedor de identidade com suporte.
 
-O exemplo a seguir usa o [SDK do Live Connect] para habilitar o logon único para aplicativos iOS.
+O exemplo a seguir usa o [SDK do Live Connect] para habilitar o logon único para aplicativos iOS. Esse código pressupõe que você tenha uma instância **LiveConnectClient** denominada `liveClient` no controlador e que o usuário esteja conectado.
 
+```
 	[client loginWithProvider:@"microsoftaccount"
 		token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
 		completion:^(MSUser *user, NSError *error) {
-			self.loggedInUser = user;
-			NSString *msg = [@"You are logged in as " stringByAppendingString:user.userId];
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
-				message:msg
-				delegate:nil
-				cancelButtonTitle:@"OK"
-				otherButtonTitles: nil];
-			[alert show];
+				// Handle success and errors
 	}];
+```
 
-Esse código pressupõe que você tenha criado anteriormente uma instância **LiveConnectClient** denominada `liveClient` no controlador e o usuário esteja conectado.
+##<a name="caching-tokens"></a>Como armazenar tokens de autenticação em cache
 
-###<a name="caching-tokens"></a>Como: Armazenar tokens de autenticação em cache
+Vamos ver como você pode armazenar em cache tokens no projeto [Início Rápido dos Serviços Móveis]; você pode usar etapas semelhantes em qualquer projeto.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-Para impedir que os usuários tenham que se autenticar sempre que executarem seu aplicativo, você pode armazenar a identidade atual do usuário em cache depois que ele fizer logon. Depois disso, você poderá usar essas informações para criar o usuário diretamente e ignorar o processo de logon.  Para isso, armazene a ID do usuário e o token de autenticação localmente. No exemplo a seguir, o token é armazenado em cache com segurança no [KeyChain]:
+##<a name="errors"></a>Como tratar erros
 
-	- (NSMutableDictionary *) createKeyChainQueryWithClient:(MSClient *)client andIsSearch:(bool)isSearch
-	{
-		NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-		[query setObject:(__bridge id)kSecClassInternetPassword forKey:(__bridge id)(kSecClass)];
-		[query setObject:client.applicationURL.absoluteString forKey:(__bridge id)(kSecAttrServer)];
+Quando uma chamada é feita ao serviço móvel, o bloco de conclusão contém um parâmetro `NSError *error`. Quando ocorre um erro, esse parâmetro é não nulo. No seu código, você deve marcar esse parâmetro e tratar o erro conforme necessário.
 
-		if(isSearch) {
-			// Use the proper search constants, return only the attributes of the first match.
-			[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
-			[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
-			[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
-		}
-
-		return query;
-	}
-
-	- (IBAction)loginUser:(id)sender {
-		NSMutableDictionary *query = [self createKeyChainQueryWithClient:self.todoService.client andIsSearch:YES];
-		CFDictionaryRef cfresult;
-
-		OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&cfresult);
-		if (status == noErr) {
-			NSDictionary * result = (__bridge_transfer NSDictionary*) cfresult;
-
-			//create an MSUser object
-			MSUser *user = [[MSUser alloc] initWithUserId:[result objectForKey:(__bridge id)(kSecAttrAccount)]];
-			NSData *data = [result objectForKey:(__bridge id)(kSecValueData)];
-			user.mobileServiceAuthenticationToken = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-			[self.todoService.client setCurrentUser:user];
-
-		} else if (status == errSecItemNotFound) {
-			//we need to log the user in
-			[self.todoService.client loginWithProvider:@"MicrosoftAccount" controller:self animated:YES
-				completion:^(MSUser *user, NSError *error) {
-					NSString *msg = [@"You are logged in as " stringByAppendingString:user.userId];
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
-											message:msg delegate:nil
-											cancelButtonTitle:@"OK"
-											otherButtonTitles: nil];
-					[alert show];
-
-					//save the user id and token to the KeyChain
-					NSMutableDictionary *newItem = [self createKeyChainQueryWithClient:self.todoService.client
-															andIsSearch:NO];
-					[newItem setObject:user.userId forKey:(__bridge id)kSecAttrAccount];
-					[newItem setObject:[user.mobileServiceAuthenticationToken dataUsingEncoding:NSUTF8StringEncoding]
-                                                    forKey:(__bridge id)kSecValueData];
-
-					OSStatus status = SecItemAdd((__bridge CFDictionaryRef)newItem, NULL);
-					if(status != errSecSuccess) {
-						//handle error as needed
-						NSAssert(NO, @"Error caching password.");
-					}
-			}];
-		}
-
-> [AZURE.NOTE] Os tokens são dados confidenciais e devem ser armazenados criptografados caso o dispositivo seja perdido ou roubado.
-
-Ao usar um token armazenado em cache, um usuário não precisará fazer logon novamente até o token expirar. Quando um usuário tentar fazer logon com um token expirado, a resposta 401 não autorizado será retornada. Nesse ponto, o usuário deverá fazer logon novamente para obter um novo token, que poderá ser armazenado em cache outra vez. Você pode usar filtros para não precisar escrever um código que trate tokens expirados sempre que o seu aplicativo chamar o serviço móvel.  OS filtros permitem a interceptação das chamadas do seu serviço móvel e das respostas do seu serviço. O código no filtro testa a resposta para uma 401, dispara o processo de logon se o token tiver expirado e, em seguida, tenta novamente a solicitação que gerou a 401. Para obter detalhes, consulte [Tratando Tokens expirados].
-
-<h2><a name="errors"></a>Como: Tratar erros</h2>
-
-Quando uma chamada é feita ao serviço móvel, o bloco de conclusão contém um parâmetro `NSError *error`. Quando ocorre um erro, esse parâmetro será retornado como um valor não nulo. No seu código, você deve marcar esse parâmetro e tratar o erro conforme necessário.
-
-Quando ocorre um erro, é possível obter mais informações incluindo o arquivo MSError.h no código:
-
-    #import <WindowsAzureMobileServices/MSError.h>
-
-Esse arquivo define as constantes a seguir que você pode usar para acessar os dados adicionais de `[error userInfo]`:
-
-+ **MSErrorResponseKey**: os dados de resposta HTTP associados ao erro
-* **MSErrorRequestKey**: os dados de solicitação HTTP associados ao erro
-
-Além disso, uma constante é definida para cada código de erro. Uma explicação desses códigos pode ser encontrada no arquivo MSError.h.
-
-Para obter um exemplo de como executar a validação e tratar de qualquer validação, consulte [Validar e modificar dados nos Serviços Móveis usando scripts de servidor]. Neste tópico, a validação do lado do servidor é implementada por meio de scripts de servidor. Quando dados inválidos são enviados, uma resposta de erro é retornada e é tratada pelo cliente.
-
-<!--
-<h2><a name="#unit-testing"></a>Como: Projetar testes da unidade</h2>
-
-_(Opcional) Esta seção mostra como escrever um teste de unidade ao usar a biblioteca de cliente (informações de Yavor)._
-
-<h2><a name="#customizing"></a>Como: Personalizar o cliente</h2>
-
-_(Opcional) Esta seção mostra como enviar comportamentos do cliente personalizados._
-
-###<a name="custom-headers"></a>Como: Personalizar cabeçalhos de solicitação
-
-_(Opcional) Esta seção mostra como enviar cabeçalhos de solicitação personalizados._
-
-Para obter mais informações, consulte o novo tópico sobre processamento de cabeçalhos no lado do servidor.
-
-###<a name="custom-serialization"></a>Como: Serialização personalizada
-
-_(Opcional) Esta seção mostra como usar atributos para personalizar o modo como os tipos de dados são serializados._
-
-Para obter mais informações, consulte o novo tópico sobre processamento de cabeçalhos no lado do servidor.
-
-## <a name="next-steps"></a>Próximas etapas
--->
+O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) define as constantes `MSErrorResponseKey`, `MSErrorRequestKey` e `MSErrorServerItemKey` para obter mais dados relacionados ao erro. Além disso, o arquivo define constantes para cada código de erro. Para obter um exemplo sobre como usar essas constantes, confira [Manipulador de conflito] para o uso de `MSErrorServerItemKey` e `MSErrorPreconditionFailed`.
 
 <!-- Anchors. -->
 
-[O que são Serviços Móveis]: #what-is
-[Conceitos]: #concepts
-[Configuração e pré-requisitos]: #Setup
-[Como: Criar o cliente de Serviços Móveis]: #create-client
-[Como: Criar uma referência de tabela]: #table-reference
-[Como: Consultar dados por meio de um serviço móvel]: #querying
-[Filtrar dados retornados]: #filtering
-[Classificar dados retornados]: #sorting
-[Retornar dados em páginas]: #paging
-[Selecionar colunas específicas]: #selecting
-[Como: Associar dados à interface com o usuário]: #binding
-[Como: Inserir dados em um serviço móvel]: #inserting
-[Como: Modificar dados em um serviço móvel]: #modifying
-[Como: Autenticar usuários]: #authentication
-[Armazenar tokens de autenticação em cache]: #caching-tokens
-[Como: Carregar imagens e arquivos grandes]: #blobs
-[Como: Tratar erros]: #errors
-[Como: Projetar testes da unidade]: #unit-testing
-[Como: Personalizar o cliente]: #customizing
-[Personalizar cabeçalhos de solicitação]: #custom-headers
-[Personalizar a serialização de tipo de dados]: #custom-serialization
-[Próximas etapas]: #next-steps
-[Como: Usar o MSQuery]: #query-object
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
+[Next Steps]: #next-steps
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: /pt-br/develop/mobile/tutorials/get-started-ios
-[Validar e modificar dados nos Serviços Móveis usando scripts de servidor]: /pt-br/develop/mobile/tutorials/validate-modify-and-augment-data-ios
-[SDK dos Serviços Móveis]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Introdução à autenticação]: /pt-br/develop/mobile/tutorials/get-started-with-users-ios
+[Adicionar os Serviços Móveis a um aplicativo existente]: /develop/mobile/tutorials/get-started-data
+[Início Rápido dos Serviços Móveis]: /develop/mobile/tutorials/get-started-ios
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Autenticação]: /develop/mobile/tutorials/get-started-with-users-ios
 [SDK do iOS]: https://developer.apple.com/xcode
 
-[Tratando Tokens expirados]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [SDK do Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissões]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[Usar scripts para autorizar usuários]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Autorização do lado do serviço]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Esquema dinâmico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Como: acessar parâmetros personalizados]: /pt-br/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Criar uma tabela]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[Objeto NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI para gerenciar tabelas dos Serviços Móveis]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: virtual-machines-command-line-tools.md#Mobile_Tables
+[Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Acessar o SharePoint em nome do usuário | Centro de Desenvolvimento de Serviços Móveis" 
+<properties 
+	pageTitle="Acessar o SharePoint em nome do usuário | Mobile Dev Center" 
 	description="Saiba como fazer chamadas para o SharePoint em nome do usuário" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="mahender"/>
 
 # Acessar o SharePoint em nome do usuário
@@ -23,7 +23,7 @@
 <p>Este tópico mostra como acessar as APIs do SharePoint em nome do usuário registrado atualmente.</p>
 <p>Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapas deste tutorial. No vídeo, Mat Velloso explica como atualizar um aplicativo da Windows Store para interagir com o SharePoint Online.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Executar o vídeo</span></a> <span class="time">12:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a> <span class="time">12:51:00</span></div>
 </div>
 
 Neste tutorial, você atualizará o aplicativo por meio do tutorial Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory, para criar um documento do Word no SharePoint Online quando um novo TodoItem for adicionado.
@@ -39,7 +39,7 @@ Este tutorial explica estas etapas básicas para habilitar o acesso em nome de o
 Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1
-* Uma assinatura ativa do [SharePoint Online] 
+* Uma assinatura ativa do [SharePoint Online]
 * Conclusão do tutorial [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
 
 ## <a name="configure-permissions"></a>Configurar seu aplicativo para acesso delegado ao SharePoint
@@ -49,7 +49,7 @@ Por padrão, o token que você recebe do AAD tem permissões limitadas. Para ace
 
     ![][0]
 
-2. Na guia **Configurar** guia, role a página para baixo para obter as permissões para outra seção de aplicativos. Selecione **Office 365 SharePoint Online** e conceda a permissão delegada **Editar ou excluir arquivos de usuários**. Em seguida, clique em **Salvar**.
+2. Na guia **Configurar**, role a página para baixo para obter as permissões para outra seção de aplicativos. Selecione **Office 365 SharePoint Online** e conceda a permissão delegada para **Editar e excluir arquivos dos usuários**. Em seguida, clique em **Salvar**.
 
     ![][1]
 
@@ -215,8 +215,7 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/pt-br/sharepoint/
-[Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[SharePoint Online]: http://office.microsoft.com/sharepoint/
+[Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -3,7 +3,7 @@
 
         using Windows.UI.Popups;
 
-2. Adicione o seguinte trecho de código para a classe MainPage:
+2. Adicione o seguinte snippet de código para a classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -41,9 +41,9 @@
 
 	Isso evita que os dados sejam carregados antes que o usuário seja autenticado.
 
-	>[AZURE.NOTE]Para autenticar com sucesso por um aplicativo da Loja Windows Phone 8.1, você deve chamar o LoginAsync depois que o método **OnNavigated** tenha sido chamado e depois que o evento **Loaded** da página tenha sido levantado. Nesse tutorial, esse esclarecimento é feito pela adição de um botão **Entrar** ao aplicativo.
+	>[AZURE.NOTE]Para autenticar com êxito de um aplicativo da Loja do Windows Phone 8.1, você deverá chamar LoginAsync depois que o método **OnNavigated** tiver sido chamado e depois que o evento **Loaded** da página tiver sido gerado. Nesse tutorial, esse esclarecimento é feito pela adição de um botão **Entrar** ao aplicativo.
 
-4. Adicione o seguinte trecho de código para a classe MainPage:
+4. Adicione o seguinte snippet de código para a classe MainPage:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +52,7 @@
 
             // Hide the login button and load items from the mobile service.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            RefreshTodoItems();
+            await RefreshTodoItems();
         }
 		
 5. No projeto do aplicativo da Windows Store, abra o arquivo de projeto MainPage.xaml e adicione o seguinte elemento **Botão** um pouco antes do elemento que define o botão **Salvar**:
@@ -83,12 +83,11 @@
             base.OnActivated(args);
         }
 
-	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
+	Se o método **OnActivated** já existir, bastará adicionar o bloco de código `#if...#endif`.
 
-8. Pressione a tecla F5 para executar o aplicativo da Windows Store, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. 
+8. Pressione a tecla F5 para executar o aplicativo da Windows Store, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido.
 
-   Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-9. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.  
-
-<!--HONumber=49-->
+9. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
+<!--HONumber=54-->

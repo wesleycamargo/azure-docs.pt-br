@@ -1,12 +1,12 @@
-﻿##<a name="add-select-images"></a>Atualizar o aplicativo cliente quickstart para capturar e carregar imagens
+##<a name="add-select-images"></a>Atualizar o aplicativo cliente de início rápido para capturar e carregar imagens
 
-1. No Visual Studio 2012, abra o arquivo Package.appxmanifest e, na guia **Recursos**, habilite os recursos **Webcam** e **Microfone**.
+1. No Visual Studio, abra o arquivo Package.appxmanifest e, na guia **Recursos**, habilite os recursos **Webcam** e **Microfone**.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
    	Isso garantirá que seu aplicativo possa usar uma câmera conectada ao computador. Os usuários serão solicitados a permitir acesso à câmera na primeira vez que o aplicativo for executado.
 
-1. Abra o arquivo MainPage.xaml e substitua o elemento **StackPanel** diretamente após o primeiro elemento **Tarefa** com o código a seguir:
+1. Abra o arquivo MainPage.xaml e substitua o elemento **StackPanel** diretamente após o primeiro elemento **Task** com o código a seguir:
 
         <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
             <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
@@ -16,7 +16,7 @@
                     Click="ButtonSave_Click"/>
         </StackPanel>
 
-2. Substitua o elemento **StackPanel** no **DataTemplate** pelo seguinte código:
+2. Substitua o elemento **StackPanel** no **DataTemplate** pelo código a seguir:
 
         <StackPanel Orientation="Vertical">
             <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
@@ -28,7 +28,7 @@
 
    	Isso adicionará uma imagem ao **ItemTemplate** e definirá sua origem da associação como o URI da imagem carregada no serviço de Armazenamento de Blob.
 
-3. Abra o arquivo de projeto MainPage.xaml.cs e adicione o seguinte **usando** as instruções:
+3. Abra o arquivo de projeto MainPage.xaml.cs e adicione as seguintes instruções **using**:
 	
 		using Windows.Media.Capture;
 		using Windows.Storage;
@@ -67,7 +67,7 @@
 
   	Esse código exibe a interface do usuário da câmera para a captura de uma imagem e salva a imagem em um arquivo de armazenamento.
 
-6. Substitua o método  `InsertTodoItem` existente por este código:
+6. Substitua o método `InsertTodoItem` existente por este código:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -126,7 +126,7 @@ A etapa final consiste em testar o aplicativo e validar que os carregamentos sej
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-  	Isso exibirá a interface do usuário de captura da câmera. 
+  	Isso exibirá a interface do usuário de captura da câmera.
 
 3. Clique na imagem para tirar um retrato e, em seguida, clique em **OK**.
   
@@ -140,7 +140,7 @@ A etapa final consiste em testar o aplicativo e validar que os carregamentos sej
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   	>[AZURE.NOTE]A imagem é baixada automaticamente do serviço de Armazenamento de Blob quando a propriedade <code>imageUri</code> do novo item está vinculado ao controle <strong>Imagem</strong>.
+   	>[AZURE.NOTE]A imagem será baixada automaticamente do serviço de Armazenamento de Blob quando a propriedade <code>imageUri</code> do novo item estiver vinculada ao controle <strong>Image</strong>.
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a [todas as APIs][] (Web, SMTP, Evento, Análise, Subsistema de usuário). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
+Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 emails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a [todas as APIs][] (Web, SMTP, Evento, Análise e mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
 
 ### Para se inscrever em uma conta do SendGrid
 
@@ -24,7 +24,7 @@ Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.0
 
 8. Clique na seta à direita.
 
-9. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que clicar na marca de seleção, sua conta do SendGrid iniciará o [processo de provisionamento do SendGrid].
+9. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que clicar na marca de seleção, sua conta do SendGrid iniciará o [Processo de provisionamento do SendGrid].
 
 	![store-screen-3][store-screen-3]
 
@@ -32,9 +32,9 @@ Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.0
 
 	![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
-	Sua conta do SendGrid será provisionada imediatamente e você verá a mensagem **SendGrid de complemento adquirido com êxito**. Sua conta e as credenciais serão criadas agora. Você está pronto para enviar emails neste ponto. 
+	Sua conta do SendGrid será provisionada imediatamente e você verá a mensagem **SendGrid de complemento adquirido com êxito**. Sua conta e as credenciais serão criadas agora. Você está pronto para enviar emails neste ponto.
 
-	Para modificar o plano de assinatura ou consultar as configurações de contato do SendGrid, clique no nome do serviço do SendGrid para abrir o painel SendGrid Marketplace. 
+	Para modificar o plano de assinatura ou consultar as configurações de contato do SendGrid, clique no nome do serviço do SendGrid para abrir o painel SendGrid Marketplace.
 
 	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
@@ -46,11 +46,11 @@ Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.0
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2. Na caixa de diálogo *Connection info*, copie a **Senha** e o Nome de usuário para usar neste tutorial posteriormente.
+2. Na caixa de diálogo *Informações de conexão*, copie a **Senha** e o Nome de usuário para usar neste tutorial posteriormente.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Para definir suas configurações de entrega de email, clique no botão **Gerenciar**. Isso abrirá a interface da Web do Sendgrid.com, onde você poderá fazer logon e abrir o Painel de Controle do SendGrid. 
+	Para definir suas configurações de entrega de email, clique no botão **Gerenciar**. Isso abrirá a interface da Web do Sendgrid.com, onde você poderá fazer logon e abrir o Painel de Controle do SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -72,11 +72,9 @@ Os clientes do Azure podem desbloquear 25.000 emails livres por mês. Esses 25.0
 
 [Recursos do SendGrid]: http://sendgrid.com/features
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-[Guia de Introdução do SendGrid]: http://sendgrid.com/docs
 [Começar com o SendGrid]: http://sendgrid.com/docs
-[Processo de provisionamento de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
-[processo de provisionamento do SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[Processo de provisionamento do SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [todas as APIs]: https://sendgrid.com/docs/API_Reference/index.html
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

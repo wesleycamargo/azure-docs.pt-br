@@ -1,10 +1,10 @@
-﻿
 
-Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com um provedor de identidade.  Você deve registrar o segredo do cliente gerado pelo provedor com o Serviço de Aplicativo.
+
+Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com um provedor de identidade. Você deve registrar o segredo do cliente gerado pelo provedor com o Serviço de Aplicativo.
 
 1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Procurar**, **Grupo de recursos** e selecione o grupo de recursos do Aplicativo móvel.
 
-2. Selecione seu gateway e anote o valor do **URL** em **Propriedades**.  Talvez seja necessário fornecer este valor para o provedor de identidade ao registrar seu aplicativo.
+2. Selecione seu gateway e anote o valor do **URL** em **Propriedades**. Talvez seja necessário fornecer este valor para o provedor de identidade ao registrar seu aplicativo.
 
    	![](./media/app-service-mobile-register-authentication/gateway-uri.png)
 
@@ -18,7 +18,9 @@ Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com 
 
 	Agora, o seu aplicativo está configurado para trabalhar com o seu provedor de autenticação escolhido.
 
+4. (Opcional) Repita a etapa anterior para configurar qualquer outro provedor de identidade que deseje que tenha suporte no seu aplicativo. 
+
 <!-- URLs. -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

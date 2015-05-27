@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Registrar seu pacote do aplicativo da Windows Store para a autenticação da Microsoft" 
+<properties 
+	pageTitle="Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft" 
 	description="Saiba como registrar seu aplicativo da Windows Store para autenticação da Microsoft em seu aplicativo de serviços móveis do Azure" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -10,32 +10,32 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
-# Registrar seu pacote do aplicativo da Windows Store para a autenticação da Microsoft
+# Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft
 
-Os Serviços Móveis do Azure dão suporte aos métodos de autenticação controlada pelo cliente e controlada pelo servidor. A autenticação controlada pelo servidor usa provedores de identidade, incluindo a Conta da Microsoft. Quando você usa uma Conta da Microsoft com autenticação controlada pelo servidor sem registrar seu aplicativo nos Serviços Móveis, os usuários são solicitados a fornecer credenciais a cada solicitação de autenticação. Quando você registra seu aplicativo, as credenciais de logon da Conta da Microsoft são armazenadas em cache e podem ser usadas para autenticação sem que o usuário seja solicitado a fornecê-las novamente. Este tópico mostra como registrar seu pacote do aplicativo da Windows Store para obter uma experiência aprimorada de logon de Conta da Microsoft ao usar os Serviços Móveis do Azure para autenticação. 
+Os Serviços Móveis do Azure oferecem suporte aos métodos de autenticação controlada pelo cliente e controlada pelo servidor. A autenticação controlada pelo servidor usa provedores de identidade, incluindo a Conta da Microsoft. Quando você usa uma Conta da Microsoft com autenticação controlada pelo servidor sem registrar seu aplicativo nos Serviços Móveis, os usuários serão solicitados a fornecer credenciais a cada solicitação de autenticação. Quando você registra seu aplicativo, as credenciais de logon da Conta da Microsoft são armazenadas em cache e podem ser usadas para autenticação sem que o usuário seja solicitado a fornecê-las novamente. Este tópico mostra como registrar seu pacote de aplicativos da Windows Store para obter uma experiência aprimorada de logon de Conta da Microsoft ao usar os Serviços Móveis do Azure para autenticação.
 
->[AZURE.NOTE]O Visual Studio 2013 facilita o registro de seu pacote do aplicativo da Windows Store com os Serviços Móveis. Para obter mais informações, consulte <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">Início rápido: Adicionando notificações por push para um serviço móvel</a> na Central de Desenvolvimento do Windows.
+>[AZURE.NOTE]O Visual Studio 2013 facilita o registro de seu pacote do aplicativo da Windows Store com os Serviços Móveis. Para obter mais informações, consulte <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">Guia de início rápido: adicionando notificações por push a um serviço móvel</a> no Centro de Desenvolvimento do Windows.
 
-A autenticação gerenciada pelo cliente pode ser usada para fornecer uma experiência de logon único em um dispositivo Windows usando o Live Connect. Se você usar APIs do Live Connect, não será necessário concluir as etapas deste tópico. Para obter mais informações, consulte [Autenticar seu aplicativo da Windows Store com o logon único do Live Connect].   
+A autenticação gerenciada pelo cliente pode ser usada para fornecer uma experiência de logon único em um dispositivo Windows usando o Live Connect. Se você usar APIs do Live Connect, não será necessário concluir as etapas deste tópico. Para obter mais informações, consulte [Autenticar seu aplicativo da Windows Store com o logon único do Live Connect].
 
 [AZURE.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-Depois de registrar seu pacote do aplicativo, lembre-se de fornecer um valor <strong>verdadeiro</strong> para o campo <em>useSingleSignOn</em> ao chamar o método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> . Isso fornece aos usuários uma experiência de logon aprimorada ao usar uma Conta da Microsoft.
+Depois de registrar seu pacote de aplicativos, lembre-se de fornecer um valor <strong>true</strong> para o <em>useSingleSignOn</em> quando você chamar o método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a>. Isso fornece aos usuários uma experiência de logon aprimorada ao usar uma Conta da Microsoft.
 
 <!-- Anchors. -->
 <!-- Images. -->
 
 
 <!-- URLs. -->
-[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet/
 [Autenticar seu aplicativo da Windows Store com o logon único do Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introdução aos usuários de C#]: /develop/mobile/tutorials/get-started-with-users-dotnet/
-[Introdução aos usuários de JavaScript]: /develop/mobile/tutorials/get-started-with-users-js/
+[Get started with users C#]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with users JavaScript]: /develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=47-->
+<!--HONumber=54-->

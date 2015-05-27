@@ -24,10 +24,9 @@
 
     Isso cria uma variável de membro para armazenar o usuário atual e um método para manipular o processo de autenticação. O usuário é autenticado usando um logon do Facebook.
 
-    >[AZURE.NOTE]Se você estiver usando um provedor de identidade além do Facebook, altere o valor <strong>MobileServiceAuthenticationProvider</strong> acima para o valor de seu provedor.</p>
-    </div>
+    >[AZURE.NOTE]Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de <strong>MobileServiceAuthenticationProvider</strong> acima para o valor de seu provedor.</p> </div>
 
-2. Exclua o método **OnNavigatedTo** existente, ou remova seu comentário, e substitua-o pelo método a seguir que trata o evento **Loaded** para a página. 
+2. Exclua o método **OnNavigatedTo** existente, ou remova seu comentário, e substitua-o pelo método a seguir que trata o evento **Loaded** para a página.
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -35,7 +34,7 @@
             RefreshTodoItems();
         }
 
-   	Esse método chamará o novo método **Authenticate**. 
+   	Esse método chamará o novo método **Authenticate**.
 
 3. Substitua o construtor MainPage por este código:
 
@@ -48,8 +47,8 @@
 
    	Esse construtor também registrará o manipulador para o evento Loaded.
 		
-4. Pressione a tecla F5 para executar o aplicativo e entrar no aplicativo com seu provedor de identidade escolhido. 
+4. Pressione a tecla F5 para executar o aplicativo e entrar no aplicativo com seu provedor de identidade escolhido.
 
-   Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,18 +1,18 @@
-﻿
+
 1. No Gerenciador de Soluções no Visual Studio, expanda a pasta App_Start e abra o arquivo do projeto WebApiConfig.cs.
 
-2. Adicione a seguinte linha de código para o método Register após a definição **ConfigOptions**:
+2. Adicionar a seguinte linha de código para o método Register após a definição **ConfigOptions**:
 
         options.PushAuthorization = 
             Microsoft.WindowsAzure.Mobile.Service.Security.AuthorizationLevel.User;
  
-	Isso impõe a autenticação do usuário antes de se registrar para notificações por push. 
+	Isso impõe a autenticação do usuário antes de se registrar para notificações por push.
 
 2. Clique com o botão direito do mouse em projeto, clique em **Adicionar** e, em seguida, clique em **Classe...**.
 
-3. Nomeie a nova classe vazia  `PushRegistrationHandler` e, em seguida, clique em **Adicionar**.
+3. Nomeie a nova classe vazia `PushRegistrationHandler` e, em seguida, clique em **Adicionar**.
 
-4. Na parte superior da página de código, adicione as seguintes instruções **using**:
+4. Na parte superior da página do código, adicione as seguintes instruções **using**:
 
 		using System.Threading.Tasks; 
 		using System.Web.Http; 
@@ -77,9 +77,9 @@
 	        }
 	    }
 
-	O método **Register** é chamado durante o registro. Isso permite que você adicione uma marca ao registro que seja o ID do usuário conectado. As marcas fornecidas são validadas para impedir que um usuário se registre para outra ID de usuário. Quando uma notificação é enviada para esse usuário, ela é recebida por este e qualquer outro dispositivo registrado pelo usuário. 
+	O método **Register** é chamado durante o registro. Isso permite que você adicione uma marca ao registro que seja o ID do usuário conectado. As marcas fornecidas são validadas para impedir que um usuário se registre para outra ID de usuário. Quando uma notificação é enviada para esse usuário, ela é recebida por este e qualquer outro dispositivo registrado pelo usuário.
 
-6. Expanda a pasta Controladores, abra o arquivo de projeto TodoItemController.cs, localize o método **PostTodoItem** e substitua a linha de código que chama o **SendAsync** pelo seguinte código:
+6. Expanda a pasta Controladores, abra o arquivo do projeto TodoItemController.cs, localize o método **PostTodoItem** e substitua a linha do código que chama o **SendAsync** com o seguinte código:
 
         // Get the logged-in user.
 		var currentUser = this.User as ServiceUser;
@@ -91,4 +91,4 @@
 
 Agora, o serviço usa a marca de ID do usuário para enviar notificações por push (com o texto do item inserido) para todos os registros criados pelo usuário conectado.
  
-<!--HONumber=47-->
+<!--HONumber=54-->
