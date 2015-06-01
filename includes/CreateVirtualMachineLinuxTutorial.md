@@ -36,7 +36,7 @@ Seu aplicativo pode precisar armazenar dados. Para configurar isso, você pode a
 
 Cada máquina virtual criada também tem um *Disco de Recurso* local temporário anexado. Devido aos dados em um disco de recurso poderem não ser duráveis entre as reinicializações, geralmente ele é usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e temporário. Ele também é usado para armazenar páginas ou trocar de arquivos do sistema operacional.
 
-No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** \(ou **/mnt** nas imagens do Ubuntu\). Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc` e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/) para obter mais informações.
+No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc` e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/) para obter mais informações.
 
 
 
@@ -127,7 +127,7 @@ O disco de dados que acabou de anexar à máquina virtual estará offline e não
 
 11. Adicione a nova unidade ao /etc/fstab:
 
-	Para garantir que a unidade seja novamente montada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID \(Identificador Universal Exclusivo\) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo \(por exemplo, /dev/sdc1\). Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
+	Para garantir que a unidade seja novamente montada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo (por exemplo, /dev/sdc1). Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
 	
 		`sudo -i blkid`
 

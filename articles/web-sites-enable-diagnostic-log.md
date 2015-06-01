@@ -136,7 +136,7 @@ Ao desenvolver um aplicativo, é sempre útil visualizar informações de log em
 
 > [AZURE.NOTE]Alguns tipos de buffer de log gravam no arquivo de log, o que pode resultar em eventos com problemas na transmissão. Por exemplo, uma entrada para log de aplicativo, que ocorre quando um usuário visita uma página, pode ser exibida durante a transmissão antes da entrada de log HTTP correspondente para a solicitação da página.
 
-> [AZURE.NOTE]O streaming de log também transmitirá informações gravadas em qualquer arquivo de texto armazenado na pasta **D:\\home\\LogFiles\**.
+> [AZURE.NOTE]O streaming de log também transmitirá informações gravadas em qualquer arquivo de texto armazenado na pasta **D:\\home\\LogFiles**.
 
 ### O streaming realizado com o PowerShell do Azure
 

@@ -153,7 +153,7 @@ Esta política precisa ser aplicada somente quando é necessário um controle re
 
 | Atributo                                  | Descrição                                                                           |
 |-------------------------------------------|-------------------------------------------------------------------------------------|
-| ip-filter action="allow \| forbid"        | Especifica se chamadas para os endereços especificados devem ou não ser permitidas. |
+| ip-filter action="allow | forbid"        | Especifica se chamadas para os endereços especificados devem ou não ser permitidas. |
 | address="address"                         | Um ou mais endereços IP aos quais o acesso será permitido ou negado.                |
 | address-range from="address" to="address" | Um intervalo de endereços IP aos quais o acesso será permitido ou negado.           |
 
@@ -196,9 +196,9 @@ A maioria das solicitações HTTP e muitas respostas requerem que os cabeçalhos
 
 | Atributo                                   | Descrição                                                                                                                                                                                                                                                                                                                       |
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| reconcile-action="override\|skip\|append"  | Especifica a ação a ser adotada quando um cabeçalho já foi especificado. Observação: quando definido como “override”, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado. |
+| reconcile-action="override|skip|append"  | Especifica a ação a ser adotada quando um cabeçalho já foi especificado. Observação: quando definido como “override”, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado. |
 | header name="header name"                  | Especifica o nome do cabeçalho a ser definido. Obrigatório.                                                                                                                                                                                                                                                                     |
-| exists-action="override \| skip \| append" | Especifica a ação a ser adotada quando o cabeçalho já foi especificado.                                                                                                                                                                                                                                                         |
+| exists-action="override | skip | append" | Especifica a ação a ser adotada quando o cabeçalho já foi especificado.                                                                                                                                                                                                                                                         |
 | value="value"                              | Especifica o valor do cabeçalho a ser definido.                                                                                                                                                                                                                                                                                 |
 
 ### <a name="convert-xml-to-json"> </a> Converter XML para JSON
@@ -230,9 +230,9 @@ Para modernizar APIs baseadas em serviços Web de back-end somente XML.
 
 | Atributo                               | Descrição                                                                                                                                    |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| kind="javascript-friendly \| direct    | JSON convertido tem um formato amigável para desenvolvedores de JavaScript \| JSON convertido reflete a estrutura original de documentos XML |
-| apply= always \| content-type-xml      | Converter sempre \| Converter somente se o cabeçalho `Content-Type` indicar a presença de XML                                                |
-| consider-accept-header="true \| false" | Aplicar conversão com base no valor do cabeçalho `Accept` \| Sempre converter                                                                |
+| kind="javascript-friendly | direct    | JSON convertido tem um formato amigável para desenvolvedores de JavaScript | JSON convertido reflete a estrutura original de documentos XML |
+| apply= always | content-type-xml      | Converter sempre | Converter somente se o cabeçalho `Content-Type` indicar a presença de XML                                                |
+| consider-accept-header="true | false" | Aplicar conversão com base no valor do cabeçalho `Accept` | Sempre converter                                                                |
 
 ### <a name="replace-string-in-body"> </a> Substituir cadeia do corpo
 
@@ -295,7 +295,7 @@ Use para transmitir parâmetros de consulta esperados pelo serviço de back-end 
 | exists-action="override" | substitui o valor do parâmetro, se estiver presente na solicitação |
 | exists-action="skip"     | Não faz nada se o parâmetro estiver presente na solicitação        |
 | exists-action="append"   | anexa o valor ao parâmetro existente                               |
-| exists-action="delete"   | remove o parâmetro da solicitação\*                                |
+| exists-action="delete"   | remove o parâmetro da solicitação*                                |
 | value="value"            | define o valor do parâmetro no elemento de circunscrição           |
 
 ## <a name="caching-policies"> </a> Políticas de cache
@@ -342,7 +342,7 @@ O cache das respostas reduz os requisitos de largura de banda e processamento ex
 | Elemento/Atributo        | Descrição                                                                                                                                                                               |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | segundos                 | Vida útil das entradas armazenadas em cache (em segundos, padrão = 3.600)                                                                                                               |
-| cache-on \| do-not-cache | As respostas são armazenadas em cache \| As respostas não são armazenadas em cache e os cabeçalhos relacionados ao cache são definidos para proibir o armazenamento em cache downstream |
+| cache-on | do-not-cache | As respostas são armazenadas em cache | As respostas não são armazenadas em cache e os cabeçalhos relacionados ao cache são definidos para proibir o armazenamento em cache downstream |
 
 ### <a name="get-from-cache"> </a> Obter do cache
 
@@ -386,9 +386,9 @@ O cache das respostas reduz os requisitos de largura de banda e processamento ex
 
 | Elemento/Atributo                                 | Descrição                                                                                                                                                                                                                                               |
 |---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| vary-by-developer="true \| false"                  | Defina como \*true\* para iniciar o cache de respostas por chave de desenvolvedor; \*false\* é a definição padrão                                                                                                                                       |
-| vary-by-developer-groups="true \| false"           | Defina como \*true\* para iniciar o cache de respostas por função do usuário; \*false\* é a definição padrão                                                                                                                                            |
-| downstream-caching-type="none \| private \| public" | \*none\* - o cache downstream não é permitido; definição padrão \| \*private\* - o cache downstream privado é permitido \| \*public\* - o cache downstream privado e compartilhado é permitido.                                                           |
+| vary-by-developer="true | false"                  | Defina como *true* para iniciar o cache de respostas por chave de desenvolvedor; *false* é a definição padrão                                                                                                                                       |
+| vary-by-developer-groups="true | false"           | Defina como *true* para iniciar o cache de respostas por função do usuário; *false* é a definição padrão                                                                                                                                            |
+| downstream-caching-type="none | private | public" | *none* - o cache downstream não é permitido; definição padrão | *private* - o cache downstream privado é permitido | *public* - o cache downstream privado e compartilhado é permitido.                                                           |
 | vary-by-header: "Accept"                          | Inicie o cache de respostas de acordo com o valor do cabeçalho `Accept`                                                                                                                                                                                 |
 | vary-by-header: Accept-Charset"                   | Inicie o cache de respostas de acordo com o valor do cabeçalho `Accept-Charset`                                                                                                                                                                         |
 | vary-by-header: “nome do cabeçalho"               | Inicie o cache de respostas de acordo com o valor do cabeçalho especificado, como `Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match`                                                       |
@@ -533,7 +533,7 @@ Use na seção de entrada e somente nos escopos de *API* e *Operação*.
 
 | Atributo             | Descrição                                                                                                                                          |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| <origin>\*</origin>  | Permita qualquer um, OU uma lista com um ou mais URIs específicos                                                                                  |
+| <origin>*</origin>  | Permita qualquer um, OU uma lista com um ou mais URIs específicos                                                                                  |
 | <origin>URI</origin> | O URI deve incluir um esquema, um host e uma porta. Se a porta for omitida, a porta 80 será presumida para http e a 443 será presumida para https. |
 
   [Políticas de Gerenciamento de API]: ../api-management-howto-policies

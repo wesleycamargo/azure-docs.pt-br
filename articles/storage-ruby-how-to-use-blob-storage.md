@@ -54,7 +54,7 @@ Usando seu editor de texto favorito, adicione o seguinte na parte superior do ar
 
 ## Configurar uma conexão de armazenamento do Azure
 
-O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** 
+O módulo do Azure lerá as variáveis de ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** 
 para obter informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::BlobService** com o seguinte código:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -70,7 +70,7 @@ Para obter esses valores:
 
 ## Como: Criar um contêiner
 
-O objeto **Azure::BlobService** permite que você trabalhe com contêineres e blobs. Para criar um contêiner, use o método **create\_container()**.
+O objeto **Azure::BlobService** permite que você trabalhe com contêineres e blobs. Para criar um contêiner, use o método **create_container()**.
 
 O seguinte exemplo cria um contêiner ou imprime o erro, se houver algum.
 
@@ -83,19 +83,19 @@ O seguinte exemplo cria um contêiner ou imprime o erro, se houver algum.
 
 Se desejar tornar públicos os arquivos do contêiner, você pode definir as permissões do contêiner. 
 
-Você pode modificar apenas a chamada <strong>create\_container()</strong> para passar a opção **:public\_access\_level**:
+Você pode modificar apenas a chamada <strong>create_container()</strong> para passar a opção **:public_access_level**:
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
 
 
-Os valores válidos para a opção **:public\_access\_level** são:
+Os valores válidos para a opção **:public_access_level** são:
 
 * **blob:** especifica o acesso de leitura público completo para dados de contêiner e blob. Os clientes podem enumerar blobs dentro do contêiner por meio de uma solicitação anônima, mas não é possível enumerar contêineres dentro da conta de armazenamento.
 
 * **container:** especifica o acesso de leitura público para blobs. Dados de blob nesse contêiner podem ser lidos por solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar blobs dentro do contêiner por solicitação anônima.
 
-Como alternativa, você pode modificar o nível de acesso público de um contêiner usando o método **set\_container\_acl()** para especificar o nível de acesso público.
+Como alternativa, você pode modificar o nível de acesso público de um contêiner usando o método **set_container_acl()** para especificar o nível de acesso público.
  
 O exemplo a seguir altera o nível de acesso público para **contêiner**:
 
@@ -103,7 +103,7 @@ O exemplo a seguir altera o nível de acesso público para **contêiner**:
 
 ## Como: Carregar um blob em um contêiner
 
-Para carregar conteúdo em um blob, use o método **create\_block\_blob()** para criar o blob e use um arquivo ou uma cadeia de caracteres como o conteúdo do blob. 
+Para carregar conteúdo em um blob, use o método **create_block_blob()** para criar o blob e use um arquivo ou uma cadeia de caracteres como o conteúdo do blob. 
 
 O código a seguir carregará o arquivo **test.png** como um novo blob chamado "image-blob" no contêiner.
 
@@ -115,7 +115,7 @@ O código a seguir carregará o arquivo **test.png** como um novo blob chamado "
 ## Como: Listar os blobs em um contêiner
 
 Para listar os contêineres, use o método **list_containers()**. 
-Para listar os blobs em um contêiner, use o método **list\_blobs()**. 
+Para listar os blobs em um contêiner, use o método **list_blobs()**. 
 
 Ele envia as urls de todos os blobs em todos os contêineres à conta.
 
@@ -129,15 +129,15 @@ Ele envia as urls de todos os blobs em todos os contêineres à conta.
 
 ## Como: Baixar blobs
 
-Para baixar blobs, use o método **get\_blob()** para recuperar o conteúdo. 
+Para baixar blobs, use o método **get_blob()** para recuperar o conteúdo. 
 
-O exemplo a seguir demonstra o uso de **get\_blob()** para baixar o conteúdo de "image-blob" e gravá-lo em um arquivo local.
+O exemplo a seguir demonstra o uso de **get_blob()** para baixar o conteúdo de "image-blob" e gravá-lo em um arquivo local.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
 ## Como: Excluir um blob
-Finalmente, para excluir um blob, use o método **delete\_blob()**. O exemplo a seguir demonstra como excluir um blob.
+Finalmente, para excluir um blob, use o método **delete_blob()**. O exemplo a seguir demonstra como excluir um blob.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 

@@ -33,17 +33,17 @@ Siga estas etapas para [fazer algo] usando um modelo do Gerenciador de Recursos 
 
 ### Etapa 1: baixar o arquivo JSON
 
-Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a \(por exemplo, C:\\Azure\\Templates\[item\]\).
+Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\\Azure\\Templates[item]).
 
 Substitua o nome de pasta e copie e execute estes comandos.
 
-	$folderName="<folder name, such as C:\Azure\Templates\[thing]>"
+	$folderName="<folder name, such as C:\Azure\Templates[thing]>"
 	$webclient = New-Object System.Net.WebClient
 	$url = "[Writers: add the URL to the RAW version of the target template in GitHub]"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath) 
 
-### Etapa 2: \(opcional\) exibir os parâmetros
+### Etapa 2: (opcional) exibir os parâmetros
 
 Ao [fazer algo] com um modelo, você deve especificar um conjunto de parâmetros de configuração. Para ver os parâmetros que você precisa especificar para o modelo em um arquivo JSON local antes de executar o comando para criar a máquina virtual, abra o arquivo JSON em um editor de texto ou ferramenta de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual. Aqui está a seção **"parâmetros"** do modelo azuredeploy.json:
 
@@ -60,7 +60,7 @@ Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\[thing]>" 
+	$folderName="<folder name, such as C:\Azure\Templates[thing]>" 
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -72,7 +72,7 @@ Aqui está um exemplo do conjunto de comandos do PowerShell para o modelo.
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$folderName="C:\Azure\Templates\[thing]"
+	$folderName="C:\Azure\Templates[thing]"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -91,7 +91,7 @@ Você verá algo semelhante ao item a seguir.
 	vmSourceImageName: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd
 	...
 
-Para remover esse grupo de recursos e todos os seus recursos \(a conta de armazenamento, a máquina virtual e a rede virtual\), use este comando.
+Para remover esse grupo de recursos e todos os seus recursos (a conta de armazenamento, a máquina virtual e a rede virtual), use este comando.
 
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
@@ -102,13 +102,13 @@ Siga estas etapas para [fazer algo] usando um modelo do Gerenciador de Recursos 
 
 ### Etapa 1: baixar o arquivo JSON para o modelo.
 
-Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a \(por exemplo, C:\\Azure\\Templates\[item\]\).
+Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\\Azure\\Templates[item]).
 
 Preencha o nome da pasta e execute estes comandos.
 
 [comandos do xplat para baixar o arquivo de modelo]
 
-### Etapa 2: \(opcional\) exibir os parâmetros do modelo.
+### Etapa 2: (opcional) exibir os parâmetros do modelo.
 
 Ao [fazer algo] com um modelo, você deve especificar um conjunto de parâmetros de configuração. Para ver os parâmetros que você precisa especificar para o modelo em um arquivo JSON local antes de executar o comando para criar a máquina virtual, abra o arquivo JSON em um editor de texto ou ferramenta de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual. Aqui está a seção **"parâmetros"** do modelo azuredeploy.json:
 
@@ -120,7 +120,7 @@ Ao [fazer algo] com um modelo, você deve especificar um conjunto de parâmetros
 
 ### Etapa 4: [fazer algo] com o modelo.
 
-Preencha as \[informações necessárias} e, em seguida, execute estes comandos.
+Preencha as [informações necessárias} e, em seguida, execute estes comandos.
 
 [comandos do xplat para executar o arquivo de modelo]
 
@@ -136,7 +136,7 @@ Você verá algo semelhante ao item a seguir.
 [Observação para escritores: cole na exibição do xplat para os primeiros parâmetros solicitados]
 
 
-Para remover este grupo de recursos e todos os seus recursos \([itens no grupo de recursos]\), use este comando.
+Para remover este grupo de recursos e todos os seus recursos ([itens no grupo de recursos]), use este comando.
 
 [comando do xplat]
 

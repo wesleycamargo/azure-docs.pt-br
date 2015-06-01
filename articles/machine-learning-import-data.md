@@ -19,11 +19,11 @@
 
 #Importar seus dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure
 
-Ao desenvolver uma solução de análise preditiva no Estúdio de Aprendizado de Máquina do Azure, você treina seu modelo usando dados que representam seu espaço de problema. Há diversos conjuntos de dados de exemplo disponíveis no Estúdio AM que você pode usar para essa finalidade \(consulte [Usar conjuntos de dados de exemplo no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md)\). Mas você também pode importar seus próprios dados para o Estúdio AM para uso em seus experimentos.
+Ao desenvolver uma solução de análise preditiva no Estúdio de Aprendizado de Máquina do Azure, você treina seu modelo usando dados que representam seu espaço de problema. Há diversos conjuntos de dados de exemplo disponíveis no Estúdio AM que você pode usar para essa finalidade (consulte [Usar conjuntos de dados de exemplo no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md)). Mas você também pode importar seus próprios dados para o Estúdio AM para uso em seus experimentos.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-Para usar seus próprios dados no Estúdio AM, você pode antes carregar um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados no espaço de trabalho. Ou pode acessar dados de uma das várias fontes online enquanto seu experimento é executado usando o módulo [Leitor][reader]\:
+Para usar seus próprios dados no Estúdio AM, você pode antes carregar um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados no espaço de trabalho. Ou pode acessar dados de uma das várias fontes online enquanto seu experimento é executado usando o módulo [Leitor][reader]:
 
 - Armazenamento de BLOB, tabela ou Banco de Dados SQL do Azure
 - Hadoop usando HiveQL
@@ -41,16 +41,16 @@ A qualquer momento do experimento, você pode exibir ou baixar os dados que são
 
 Você pode importar vários tipos de dados para seu experimento, dependendo de qual mecanismo usar para importar os dados e de onde eles estão vindo:
 
-- Texto sem formatação \(.txt\)
-- Valores separados por vírgulas \(CSV\) com cabeçalho \(.csv\) ou sem \(.nh.csv\)
-- Valores separados por tabulação \(TSV\) com cabeçalho \(.tsv\) ou sem \(.nh.tsv\)
+- Texto sem formatação (.txt)
+- Valores separados por vírgulas (CSV) com cabeçalho (.csv) ou sem (.nh.csv)
+- Valores separados por tabulação (TSV) com cabeçalho (.tsv) ou sem (.nh.tsv)
 - Tabela do Hive
 - Tabela de Banco de Dados SQL
 - Valores de OData
-- Dados SVMLight \(.svmlight\) \(consulte a [definição de SVMLight](http://svmlight.joachims.org/) para obter informações sobre o formato\)
-- Attribute Relation File Format \(ARFF\) \(.arff\) \(consulte a [definição de ARFF](http://weka.wikispaces.com/ARFF) para obter informações sobre o formato\)
-- Arquivo zip \(.zip\)
-- Arquivo de espaço de trabalho ou objeto R \(.RData\)
+- Dados SVMLight (.svmlight) (consulte a [definição de SVMLight](http://svmlight.joachims.org/) para obter informações sobre o formato)
+- Attribute Relation File Format (ARFF) (.arff) (consulte a [definição de ARFF](http://weka.wikispaces.com/ARFF) para obter informações sobre o formato)
+- Arquivo zip (.zip)
+- Arquivo de espaço de trabalho ou objeto R (.RData)
 
 Se você importar dados em um formato como ARFF, que inclui metadados, o Estúdio AM usa esses metadados para definir o cabeçalho e o tipo de dados de cada coluna. Se você importar dados em um formato como TSV ou CSV, que não incluem esses metadados, o Estúdio AM infere o tipo de dados de cada coluna por amostragem dos dados. Se os dados também não tiverem os cabeçalhos das colunas, o Estúdio AM fornece nomes padrão. Você pode especificar explicitamente ou alterar os cabeçalhos e tipos de dados das colunas usando o [Editor de Metadados][metadata-editor].
  
@@ -83,9 +83,9 @@ Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dad
 
 ## Acessando dados online com o módulo Leitor
 
-Você pode acessar dados de diversas fontes online enquanto seu experimento é executado usando o módulo [Leitor][reader] no experimento. Como esses dados são acessados enquanto seu experimento está em execução, eles ficam disponíveis apenas em um experimento \(em vez de módulos de conjuntos de dados que ficam disponíveis para qualquer experimento de seu espaço de trabalho\).
+Você pode acessar dados de diversas fontes online enquanto seu experimento é executado usando o módulo [Leitor][reader] no experimento. Como esses dados são acessados enquanto seu experimento está em execução, eles ficam disponíveis apenas em um experimento (em vez de módulos de conjuntos de dados que ficam disponíveis para qualquer experimento de seu espaço de trabalho).
 
-Depois de adicionar o módulo [Leitor][reader] ao seu experimento, você seleciona a **Fonte de dados** e fornece informações de acesso usando os parâmetros do módulo. Por exemplo, se selecionar **URL da Web via HTTP**, você fornece a URL e o formato de dados de origem. Se estiver acessando seus dados no armazenamento do Azure ou HDInsight \(usando uma consulta de Hive\), você fornece as informações de conta apropriadas e o local dos dados.
+Depois de adicionar o módulo [Leitor][reader] ao seu experimento, você seleciona a **Fonte de dados** e fornece informações de acesso usando os parâmetros do módulo. Por exemplo, se selecionar **URL da Web via HTTP**, você fornece a URL e o formato de dados de origem. Se estiver acessando seus dados no armazenamento do Azure ou HDInsight (usando uma consulta de Hive), você fornece as informações de conta apropriadas e o local dos dados.
 
 > [AZURE.NOTE]Este artigo fornece informações gerais sobre o módulo [Leitor][reader]. Para saber mais sobre os tipos de dados que você pode acessar, formatos, parâmetros e respostas para perguntas comuns, consulte o tópico de referência do módulo [Leitor][reader].
 
@@ -98,19 +98,19 @@ Você pode importar dados de três fontes do Azure:
 - **Armazenamento de Tabela do Azure** - o módulo [Leitor][reader] faz uma varredura dos seus dados para identificar os tipos de dados de coluna. Se os dados forem relativamente homogêneos e previsíveis, você pode limitar o número de linhas que são analisadas.
 - **Banco de Dados SQL do Azure** - o módulo [Leitor][reader] utiliza a API de cliente SQL Azure Transact para importar dados usando uma consulta de banco de dados que você fornecer.
 
-Para o armazenamento em BLOB e tabela, você fornece um URI de SAS \(Assinatura de Acesso Compartilhado\) ou informações de conta de armazenamento do Azure para fornecer acesso aos dados. Para um Banco de Dados SQL do Azure, você fornece suas informações de banco de dados e conta, além de uma consulta do banco de dados que identifica os dados que você deseja importar.
+Para o armazenamento em BLOB e tabela, você fornece um URI de SAS (Assinatura de Acesso Compartilhado) ou informações de conta de armazenamento do Azure para fornecer acesso aos dados. Para um Banco de Dados SQL do Azure, você fornece suas informações de banco de dados e conta, além de uma consulta do banco de dados que identifica os dados que você deseja importar.
 
 ### Obtendo dados da Web
 
 Você pode usar o módulo [Leitor][reader] para ler dados de um site da Web ou de FTP. Você precisa fornecer:
 
 - O endereço de URL HTTP completo de um arquivo
-- O formato de dados do arquivo \(CSV, TSV, ARFF ou SvmLight\)
+- O formato de dados do arquivo (CSV, TSV, ARFF ou SvmLight)
 - Para arquivos CSV ou TSV, indique se a primeira linha do arquivo é um cabeçalho
 
 ### Obtendo dados do Hadoop
 
-Você pode usar o módulo [Leitor][reader] para ler dados de um armazenamento distribuído usando a linguagem de consulta HiveQL. Você precisará especificar a consulta do banco de dados Hive e fornecer informações de acesso do usuário no servidor HCatalog. Você também precisa especificar se os dados são armazenados em um HDFS \(sistema de arquivos distribuído Hadoop\) ou no Azure e, se estiverem no Azure, as informações de conta do Azure
+Você pode usar o módulo [Leitor][reader] para ler dados de um armazenamento distribuído usando a linguagem de consulta HiveQL. Você precisará especificar a consulta do banco de dados Hive e fornecer informações de acesso do usuário no servidor HCatalog. Você também precisa especificar se os dados são armazenados em um HDFS (sistema de arquivos distribuído Hadoop) ou no Azure e, se estiverem no Azure, as informações de conta do Azure
 
 ### Obtendo dados de um provedor de feed de dados
 

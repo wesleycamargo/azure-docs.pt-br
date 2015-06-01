@@ -22,7 +22,7 @@ A Galeria do Aprendizado de Máquina do Azure é um site voltado à comunidade, 
 
 A Galeria também permite que os usuários busquem e copiem experimentos fornecidos pela equipe do Aprendizado de Máquina do Microsoft Azure.
 
-**[LEVE-ME À GALERIA \>\>](http://gallery.azureml.net)**
+**[LEVE-ME À GALERIA >>](http://gallery.azureml.net)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ Você está pronto para começar a contribuir com experimentos pra a Galeria?
 
 Siga estas etapas:
 
-- Entre no estúdio usando sua conta da Microsoft \(verifique se sua imagem de perfil e nome, nas configurações de perfil da conta da Microsoft, estão configurados da forma que você deseja que apareçam\)
+- Entre no estúdio usando sua conta da Microsoft (verifique se sua imagem de perfil e nome, nas configurações de perfil da conta da Microsoft, estão configurados da forma que você deseja que apareçam)
 - Crie seu experimento e execute-o
 - Quando estiver pronto para publicar seu experimento na Galeria, clique em “Publicar na Galeria” na barra preta inferior do Estúdio. ![Publicar](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Aproveite!
 
@@ -78,7 +78,7 @@ Por enquanto, não há suporte para atualizações de fluxos de trabalho de expe
 - Marcas
 - Imagens
 
-Para editar esses campos, clique no experimento específico que você deseja editar \(verifique se você está conectado com sua conta da Microsoft\). Isso levará você à página de detalhes do experimento, onde você verá as opções de editar ou excluir. Clicar em “Editar” permite que você edite qualquer um dos campos acima.
+Para editar esses campos, clique no experimento específico que você deseja editar (verifique se você está conectado com sua conta da Microsoft). Isso levará você à página de detalhes do experimento, onde você verá as opções de editar ou excluir. Clicar em “Editar” permite que você edite qualquer um dos campos acima.
 
 **Eu acabei de publicar meu experimento na Galeria de Aprendizado de Máquina do Azure. Não estou vendo minha imagem de perfil com meu nome**
 
@@ -86,7 +86,7 @@ Para editar esses campos, clique no experimento específico que você deseja edi
 
 **Atualizei minha imagem de perfil nas configurações da minha conta da Microsoft. Por que meus experimentos já compartilhados não refletem essa nova imagem de perfil?**
 
-Se quiser refletir a alteração mais recente do perfil \(imagem de perfil, nome ou sobrenome\) em todos os seus experimentos, você deve enviar novamente à Galeria os experimentos anteriores. Ao fazer isso, você precisará excluir as cópias antigas que refletem as configurações de perfil antigas.
+Se quiser refletir a alteração mais recente do perfil (imagem de perfil, nome ou sobrenome) em todos os seus experimentos, você deve enviar novamente à Galeria os experimentos anteriores. Ao fazer isso, você precisará excluir as cópias antigas que refletem as configurações de perfil antigas.
 
 **Quais são os requisitos de imagem para enviar ou editar uma imagem para meu experimento?**
 
@@ -108,6 +108,6 @@ Você pode delimitar as marcas por tabulação.
 
 A renderização de descrição avançada não está disponível para todos os usuários da Galeria. Estamos trabalhando ativamente para disponibilizar essa funcionalidade por meio do suporte para renderização de redução.
 
-**[LEVE-ME À GALERIA \>\>](http://gallery.azureml.net)**
+**[LEVE-ME À GALERIA >>](http://gallery.azureml.net)**
 
 <!--HONumber=54-->

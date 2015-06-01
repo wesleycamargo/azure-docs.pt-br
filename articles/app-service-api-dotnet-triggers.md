@@ -47,7 +47,7 @@ Atualmente, há suporte para dois tipos de gatilhos:
 
 ### Gatilho de sondagem
 
-Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes \(por exemplo, um aplicativo lógico\) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado.
+Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado.
 
 As informações sobre os pacotes de solicitação e resposta a seguir ilustram alguns aspectos fundamentais do contrato de gatilho de sondagem.
 
@@ -95,7 +95,7 @@ O trecho de código a seguir é um exemplo de como implementar um gatilho de son
 
 Para testar esse gatilho de sondagem, siga estas etapas:
 
-1. Implante o Aplicativo de API com uma configuração de autenticação **Público \(anônimo\)**.
+1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
 2. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman. ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
 3. Chame o gatilho de sondagem com o parâmetro **triggerState** definido como um carimbo de data/hora antes da etapa 2. A imagem a seguir mostra o exemplo de solicitação via Postman. ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
@@ -108,7 +108,7 @@ As informações a seguir sobre os pacotes de solicitação e resposta ilustram 
 - Solicitação
     - Método HTTP: PUT
     - Parâmetros
-        - triggerId: requerida - cadeia de caracteres opaca \(como uma GUID\) que representa o registro de um gatilho de push.
+        - triggerId: requerida - cadeia de caracteres opaca (como uma GUID) que representa o registro de um gatilho de push.
         - callbackUrl: requerida - URL do retorno de chamada a ser invocado quando o evento for acionado. A chamada é uma chamada simples do HTTP POST.
         - Parâmetros específicos de API
 - Resposta
@@ -198,7 +198,7 @@ O trecho de código a seguir é um exemplo de como implementar um gatilho de pus
 
 Para testar esse gatilho de sondagem, siga estas etapas:
 
-1. Implante o Aplicativo de API com uma configuração de autenticação **Público \(anônimo\)**.
+1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
 2. Navegue até [http://requestb.in/](http://requestb.in/) para criar um RequestBin que servirá como sua URL de retorno de chamada.
 3. Chame o disparador de envio com uma GUID como **triggerId** e a URL RequestBin como **callbackUrl**. ![Gatilho de push de chamada via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
 4. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman. ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
@@ -227,7 +227,7 @@ Se você clicar no botão **Baixar Swagger** e abrir o arquivo JSON, você verá
       }
     }
 
-A propriedade de extensão **x-ms-schedular-trigger** é como os gatilhos são descritos na definição de API, e é adicionada automaticamente pelo gateway de aplicativo de API quando você solicita a definição de API por meio do gateway se a solicitação corresponde a um dos critérios a seguir. \(Você pode também adicionar essa propriedade manualmente.\)
+A propriedade de extensão **x-ms-schedular-trigger** é como os gatilhos são descritos na definição de API, e é adicionada automaticamente pelo gateway de aplicativo de API quando você solicita a definição de API por meio do gateway se a solicitação corresponde a um dos critérios a seguir. (Você pode também adicionar essa propriedade manualmente.)
 
 - Gatilho de sondagem
     - Se o método HTTP é **GET**.

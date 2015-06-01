@@ -20,10 +20,10 @@
 
 ## Visão geral
 
-Este tutorial mostra como usar o SDK do serviço de aplicativo para escrever um código que chama um [aplicativo de API](app-service-api-apps-why-best-platform.md) que foi configurado para nível de acesso **Público \(anônimo\)** ou **Público \(autenticado\)**. O artigo aborda os seguintes cenários de exemplo:
+Este tutorial mostra como usar o SDK do serviço de aplicativo para escrever um código que chama um [aplicativo de API](app-service-api-apps-why-best-platform.md) que foi configurado para nível de acesso **Público (anônimo)** ou **Público (autenticado)**. O artigo aborda os seguintes cenários de exemplo:
 
-- Chamar um aplicativo de API **Público \(anônimo\)** de um aplicativo de console
-- Chamar um aplicativo de API **Público \(autenticado\)** de um aplicativo de área de trabalho do Windows 
+- Chamar um aplicativo de API **Público (anônimo)** de um aplicativo de console
+- Chamar um aplicativo de API **Público (autenticado)** de um aplicativo de área de trabalho do Windows 
 
 Cada uma dessas seções do tutorial é independente - você pode seguir as instruções para o segundo cenário sem ter concluído as etapas para primeiro.
 
@@ -49,9 +49,9 @@ Nesta seção você cria um projeto de aplicativo de console e adiciona a ele um
 
 1. Se você ainda não o fez, siga a [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md) para implantar o projeto de exemplo ContactsList em um aplicativo de API na sua assinatura do Azure.
 
-	Esse tutorial direciona você para definir o nível de acesso na caixa de diálogo publicar do Visual Studio como **Disponível para qualquer pessoa**, que é o mesmo que **Público \(anônimo\)** no portal. No entanto, se você fez o tutorial [Proteger um aplicativo API](app-service-dotnet-add-authentication.md) depois disso, o nível de acesso foi definido como **Público \(autenticado\)** e, nesse caso, você precisa alterá-lo conforme indicado na etapa a seguir.
+	Esse tutorial direciona você para definir o nível de acesso na caixa de diálogo publicar do Visual Studio como **Disponível para qualquer pessoa**, que é o mesmo que **Público (anônimo)** no portal. No entanto, se você fez o tutorial [Proteger um aplicativo API](app-service-dotnet-add-authentication.md) depois disso, o nível de acesso foi definido como **Público (autenticado)** e, nesse caso, você precisa alterá-lo conforme indicado na etapa a seguir.
 
-2. No [Portal de Visualização do Azure](https://portal.azure.com/), na folha **Aplicativo de API** para o aplicativo de API que você deseja chamar, vá para **Configurações \> Configurações do aplicativo** e defina **Nível de acesso** como **Público \(anônimo\)**.
+2. No [Portal de Visualização do Azure](https://portal.azure.com/), na folha **Aplicativo de API** para o aplicativo de API que você deseja chamar, vá para **Configurações > Configurações do aplicativo** e defina **Nível de acesso** como **Público (anônimo)**.
 
 	![](./media/app-service-api-dotnet-consume/setpublicanon.png)
  
@@ -59,7 +59,7 @@ Nesta seção você cria um projeto de aplicativo de console e adiciona a ele um
  
 ### Adicionar código de cliente gerado pelo SDK do serviço de aplicativo
 
-3. Em **Gerenciador de soluções**, clique com o botão direito no projeto \(não na solução\) e selecione **Adicionar \> Cliente de aplicativo de API do Azure**. 
+3. Em **Gerenciador de soluções**, clique com o botão direito no projeto (não na solução) e selecione **Adicionar > Cliente de aplicativo de API do Azure**. 
 
 	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
 	
@@ -120,7 +120,7 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 
 ### Configurar o aplicativo de API e criar o projeto
 
-1. Execute o tutorial [Proteger um aplicativo API](app-service-dotnet-add-authentication.md) para configurar um aplicativo de API com nível de acesso **Público \(autenticado\)**.
+1. Execute o tutorial [Proteger um aplicativo API](app-service-dotnet-add-authentication.md) para configurar um aplicativo de API com nível de acesso **Público (autenticado)**.
 
 1. No Visual Studio, crie um projeto para desktop do Windows Forms.
 
@@ -138,7 +138,7 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 
 ### Adicionar código de cliente gerado pelo SDK do serviço de aplicativo
 
-3. Em **Gerenciador de soluções**, clique com o botão direito no projeto \(não na solução\) e selecione **Adicionar \> Cliente de aplicativo de API do Azure**. 
+3. Em **Gerenciador de soluções**, clique com o botão direito no projeto (não na solução) e selecione **Adicionar > Cliente de aplicativo de API do Azure**. 
 
 3. Na caixa de diálogo **Adicionar cliente de aplicativo de API do Azure**, clique em **Baixar a partir do aplicativo de API do Azure**.
 
@@ -150,7 +150,7 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. No código-fonte *Form1.CS*, adicione o seguinte código antes do construtor `Form1()`, substituindo o valor de GATEWAY\_URL pelo valor que você copiou na etapa anterior. Certifique-se de incluir a barra à direita \(/\).
+4. No código-fonte *Form1.CS*, adicione o seguinte código antes do construtor `Form1()`, substituindo o valor de GATEWAY_URL pelo valor que você copiou na etapa anterior. Certifique-se de incluir a barra à direita (/).
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -198,7 +198,7 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 
 ## Próximas etapas
 
-Este artigo mostra como utilizar um aplicativo de API de um cliente .NET, para aplicativos de API definidos com os níveis de acesso **Público \(autenticado\)** e **Público \(anônimo\)**.
+Este artigo mostra como utilizar um aplicativo de API de um cliente .NET, para aplicativos de API definidos com os níveis de acesso **Público (autenticado)** e **Público (anônimo)**.
 
 Para obter exemplos adicionais de um código que chame um aplicativo de API de clientes .NET, baixe o aplicativo de exemplo [Azure cartões](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
 

@@ -50,12 +50,12 @@ Para adicionar uma entidade, primeiro crie um dicionário que defina os nomes e 
 As entidades com o mesmo **PartitionKey** são armazenadas no mesmo nó. A
 **RowKey** é a ID exclusiva da entidade na partição à qual ela pertence.
 
-Para adicionar uma entidade à sua tabela, transmita um objeto de dicionário para o método **insert\_entity**.
+Para adicionar uma entidade à sua tabela, transmita um objeto de dicionário para o método **insert_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-Você também pode transmitir uma instância da classe **Entity** para o método **insert\_entity**.
+Você também pode transmitir uma instância da classe **Entity** para o método **insert_entity**.
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -71,7 +71,7 @@ Este código mostra como substituir a versão antiga de uma entidade existente p
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-Se a entidade que está sendo atualizada não existir, a operação de atualização falhará. Se quiser armazenar uma entidade, independentemente de ela já existir, use **insert\_or\_replace_entity**. 
+Se a entidade que está sendo atualizada não existir, a operação de atualização falhará. Se quiser armazenar uma entidade, independentemente de ela já existir, use **insert_or_replace_entity**. 
 No exemplo a seguir, a primeira chamada substituirá a entidade existente. A segunda chamada irá inserir uma nova entidade, contanto que não exista na tabela nenhuma entidade com o **PartitionKey** e o **RowKey** especificados.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -82,7 +82,7 @@ No exemplo a seguir, a primeira chamada substituirá a entidade existente. A seg
 
 ## Como alterar um grupo de entidades
 
-Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para isso, você deve usar o método **begin\_batch** em **TableService** e chamar a série de operações, como de costume. Quando você desejar enviar o lote, chame **commit\_batch**. Observe que todas as entidades devem estar na mesma partição para que sejam alteradas como um lote. O exemplo a seguir adiciona duas entidades juntas em um lote.
+Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para isso, você deve usar o método **begin_batch** em **TableService** e chamar a série de operações, como de costume. Quando você desejar enviar o lote, chame **commit_batch**. Observe que todas as entidades devem estar na mesma partição para que sejam alteradas como um lote. O exemplo a seguir adiciona duas entidades juntas em um lote.
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -93,7 +93,7 @@ No exemplo a seguir, a primeira chamada substituirá a entidade existente. A seg
 
 ## Como consultar uma entidade
 
-Para consultar uma entidade em uma tabela, use o método **get\_entity**, passando **PartitionKey** e **RowKey**.
+Para consultar uma entidade em uma tabela, use o método **get_entity**, passando **PartitionKey** e **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

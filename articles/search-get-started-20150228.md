@@ -20,7 +20,7 @@
 
 Este tutorial cria um aplicativo personalizado de pesquisa Web no Visual Studio 2013 ou posterior que use a Pesquisa do Azure para sua experiência de pesquisa. O tutorial usa o [SDK do .NET da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para criar classes para os objetos e operações usados no exemplo.
 
-Você pode baixar o exemplo do codeplex em [Demonstração da Pesquisa do Azure usando dados USGS](https://azsearchdemos.codeplex.com/SourceControl/latest) para seguir as etapas neste tutorial. O aplicativo de exemplo usa dados do [Serviço Geológico dos Estados Unidos \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Washington. Vamos usar esses dados para criar um aplicativo de pesquisa baseado em dados sobre prédios de referência como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
+Você pode baixar o exemplo do codeplex em [Demonstração da Pesquisa do Azure usando dados USGS](https://azsearchdemos.codeplex.com/SourceControl/latest) para seguir as etapas neste tutorial. O aplicativo de exemplo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Washington. Vamos usar esses dados para criar um aplicativo de pesquisa baseado em dados sobre prédios de referência como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
 
 Para executar esse exemplo, você deve ter um serviço de Pesquisa do Azure, no qual você pode se inscrever pelo [Portal do Azure](https://portal.azure.com).
 
@@ -30,7 +30,7 @@ Você pode começar com [Criar um serviço no portal](../search-create-service-p
 
 ##Compilar o índice##
 
-1. Copie nome do serviço e chave de admin do [Portal do Azure](https://portal.azure.com) e cole-a em **DataIndexer** \| **App.config**.
+1. Copie nome do serviço e chave de admin do [Portal do Azure](https://portal.azure.com) e cole-a em **DataIndexer** | **App.config**.
 1. Com o botão direito do mouse no projeto **DataIndexer** para defini-lo como o projeto de inicialização.
 1. Compile e execute o projeto.
 
@@ -45,7 +45,7 @@ No portal, você verá um novo índice de recursos com xx e xx. Pode demorar vá
 ##Compilar o aplicativo##
 
 
-1. Copie nome do serviço e a chave de admin do [Portal do Azure](https://portal.azure.com) e cole-a em **SimpleSearchMVCApp** \| **Web.config**.
+1. Copie nome do serviço e a chave de admin do [Portal do Azure](https://portal.azure.com) e cole-a em **SimpleSearchMVCApp** | **Web.config**.
 1. Clique com o botão direito do mouse no projeto **SimpleSearchMVCApp** para defini-lo como o projeto de inicialização.
 1. Compile e execute o projeto.
 
@@ -66,7 +66,7 @@ Você também pode tentar qualquer um destes termos:
 - Seattle
 - Rainier
 - Seattle e Rainier
-- Seattle + Rainier - Montagem \(obtém resultados de pontos de referência na Avenida Rainier ou clube Rainier, tudo dentro dos limites de cidade de Seattle\).
+- Seattle + Rainier - Montagem (obtém resultados de pontos de referência na Avenida Rainier ou clube Rainier, tudo dentro dos limites de cidade de Seattle).
 
 ##Explorar o código##
 
@@ -76,7 +76,7 @@ O restante desta seção aborda alguns pontos sobre cada projeto. Quando apropri
 
 **Projeto DataIndexer**
 
-Para manter as coisas simples, os dados são integrados à solução, em um arquivo de texto gerado por meio de dados no [site Web dos USGS \(Serviços Geológicos dos Estados Unidos\)](http://geonames.usgs.gov/domestic/download_data.htm).
+Para manter as coisas simples, os dados são integrados à solução, em um arquivo de texto gerado por meio de dados no [site Web dos USGS (Serviços Geológicos dos Estados Unidos)](http://geonames.usgs.gov/domestic/download_data.htm).
 
 Alternativas à inserção de dados incluem [indexadores para Banco de Dados de Documentos](documentdb-search-indexer.md) ou [indexadores para o Banco de Dados SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexadores extraem dados para o seu índice de Pesquisa do Azure, que pode simplificar de verdade o código que você precisa escrever e manter.
 
@@ -96,7 +96,7 @@ Como uma observação final, se você ainda não estiver convencido do valor e a
 
 Este é o primeiro tutorial da Pesquisa do Azure com base no conjunto de dados do USGS. Ao longo do tempo, ampliaremos este tutorial e criaremos novos outros para demonstrar os recursos de pesquisa que talvez você queira usar em suas soluções personalizadas.
 
-Se você já tiver alguma experiência com a Pesquisa do Azure, use este exemplo como um trampolim para tentar sugestores \(consultas de preenchimento automático\), filtros e navegação facetada. Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
+Se você já tiver alguma experiência com a Pesquisa do Azure, use este exemplo como um trampolim para tentar sugestores (consultas de preenchimento automático), filtros e navegação facetada. Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
 Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para desenvolver uma compreensão do que você pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode ver os links em nossa [Lista de vídeos e Tutoriais](https://msdn.microsoft.com/library/azure/dn798933.aspx) para acessar mais informações.
 

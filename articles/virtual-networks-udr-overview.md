@@ -47,10 +47,10 @@ Não é possível exibir as rotas padrão especificadas acima em seu ambiente do
 - 
 Nos cenários acima, você precisará criar uma tabela de rotas e adicionar rotas definidas pelo usuário a ela. Você pode ter várias tabelas de rotas, e a mesma tabela de rotas pode ser associada a uma ou mais sub-redes. Cada sub-rede só pode ser associada a uma única tabela de rotas. Todas as VMs e serviços em nuvem em uma sub-rede usam a tabela de rotas associada a essa sub-rede.
 
-As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando existe uma associação, o roteamento é feito com base em LPM \(Correspondência de Prefixo mais Longo\) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
+As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando existe uma associação, o roteamento é feito com base em LPM (Correspondência de Prefixo mais Longo) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
 
 1. Rota definida pelo usuário
-1. Rota BGP \(quando o ExpressRoute é usado\)
+1. Rota BGP (quando o ExpressRoute é usado)
 1. Rota padrão
 
 [AZURE.IMPORTANT]As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
@@ -64,7 +64,7 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 
 [Como criar rotas e habilitar o encaminhamento IP no Azure](../virtual-networks-udr-how-to)
 
-[ILIP \(IP público em nível de instância\)](../virtual-networks-instance-level-public-ip)
+[ILIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip)
 
 [Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 

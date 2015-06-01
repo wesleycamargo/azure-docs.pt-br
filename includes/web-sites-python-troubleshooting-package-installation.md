@@ -41,7 +41,7 @@ Se você quiser incluir todas as suas dependências na pasta \\wheelhouse e não
 
 ### Personalizar a instalação
 
-Você pode personalizar o script de implantação para instalar um pacote no ambiente virtual usando um instalador alternativo, como easy\\_install. Consulte deploy.cmd para obter um exemplo que é comentado. Certifique-se de que esses pacotes não são listados em requirements.txt, para impedir que o pip os instale.
+Você pode personalizar o script de implantação para instalar um pacote no ambiente virtual usando um instalador alternativo, como easy\_install. Consulte deploy.cmd para obter um exemplo que é comentado. Certifique-se de que esses pacotes não são listados em requirements.txt, para impedir que o pip os instale.
 
 Adicione isto ao script de implantação:
 

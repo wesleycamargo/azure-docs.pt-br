@@ -1,6 +1,6 @@
 ## Criar uma conta de Armazenamento do Azure
 
-Você precisa de uma conta de armazenamento para usar o armazenamento do Azure. Você pode criar uma conta de armazenamento seguindo essas etapas. \(Você também pode criar uma conta de armazenamento usando a biblioteca do cliente de gerenciamento de serviço do Azure ou o gerenciamento de serviço [API REST].\)
+Você precisa de uma conta de armazenamento para usar o armazenamento do Azure. Você pode criar uma conta de armazenamento seguindo essas etapas. (Você também pode criar uma conta de armazenamento usando a biblioteca do cliente de gerenciamento de serviço do Azure ou o gerenciamento de serviço [API REST].)
 
 1.  Faça logon no [Portal de Gerenciamento do Azure].
 

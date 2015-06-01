@@ -42,7 +42,7 @@ Você deve usar a autenticação baseada em certificado para executar os seguint
 	* **ServerName** onde o banco de dados está localizado.
 	* **DatabaseName** do banco de dados que você deseja restaurar.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" -DatabaseName "mydb"`
+	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" -DatabaseName "mydb"`
 
 2. Comece a restauração usando o cmdlet [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Especifique os seguintes parâmetros:	
 	* **SourceDatabase** que você deseja fazer a restauração.
@@ -51,14 +51,14 @@ Você deve usar a autenticação baseada em certificado para executar os seguint
 
 	Armazenar o que é retornado para uma variável denominada **$RestoreRequest**. Essa variável contém a ID da solicitação de restauração que é usada para monitorar o status de uma restauração. 
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database -TargetDatabaseName "myrestoredDB" -PointInTime "2015-01-01 06:00:00"`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database -TargetDatabaseName "myrestoredDB" -PointInTime "2015-01-01 06:00:00"`
 
 Uma restauração pode levar algum tempo para concluir. Para monitorar o status da restauração, use o cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) e especifique os seguintes parâmetros:
 
 * **ServerName** do banco de dados que você está restaurando.
 * **OperationGuid** que é a ID de solicitação de restauração que foi armazenada na variável **$RestoreRequest** na etapa 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
 
 Os campos **Estado** e **PercentComplete** mostram o status da restauração. 
 

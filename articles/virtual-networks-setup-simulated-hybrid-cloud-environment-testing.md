@@ -171,7 +171,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome:  **DC2\\**Nome da conta de administrador local
+- Nome:  **DC2**Nome da conta de administrador local
 - Senha:  [Senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem Conexão de Área de Trabalho Remota referente a certificados, clique em **Sim**.
 

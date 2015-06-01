@@ -16,7 +16,7 @@
 	ms.date="03/05/2015" 
 	ms.author="heidist"/>
 
-#Transição da versão da api de visualização=2014\* para a versão da api=2015\*#
+#Transição da versão da api de visualização=2014* para a versão da api=2015*#
 
 A orientação a seguir serve para clientes que criam aplicativos personalizados nas versões de visualização da Pesquisa do Azure pesquisa e agora estão migrando para a versão disponível publicamente, 2015-02-28.
 
@@ -37,13 +37,13 @@ Também estamos implantando a próxima versão de visualização, [2015-02-28-Pr
 - Distribua para produção
 - Avalie os novos recursos para adoção futura. Eleve novamente o 2015-02-28-Preview se você quiser testar os processadores de idioma natural da Microsoft ou o `morelikethis`.
 
-##Alterações significativas na versão da api= 2015\*##
+##Alterações significativas na versão da api= 2015*##
 
 A versão inicial da API incluía um recurso de sugestões de preenchimento automático ou preenchimento automático. Embora fosse útil, a correspondência apenas de prefixos era limitada, pesquisando os primeiros caracteres do termo de pesquisa, sem suporte para a correspondência em outro lugar no campo. A implementação foi uma propriedade Booliana chamada `suggestions` que você definiria como `true` se quisesse habilitar a correspondência de prefixo em um determinado campo.
 
 Essa implementação original foi substituída por um novo constructo `Suggesters` definida no recurso [índice](https://msdn.microsoft.com/pt-br/library/azure/dn798941.aspx) que fornece infixos e correspondência difusa. Como os nomes sugerem, infixos e correspondência difusa proporcionam capacidade de correspondência muito mais ampla. A correspondência de infixos abrange prefixos, pois ainda faz a correspondência de caracteres iniciais, mas amplia a correspondência para incluir o restante da cadeia de caracteres.
 
-Optamos por interromper a implementação anterior \(a propriedade booliana\), o que significa que ela estará totalmente indisponível em qualquer uma das versões 2015 sem compatibilidade com versões anteriores, a fim de evitar sua adoção acidental por clientes que estão criando soluções mais novas. Se você usar um `2015-02-28` ou `2015-02-28-Preview` será necessário usar o novo constructo `Suggesters` para habilitar consultas de preenchimento automático.
+Optamos por interromper a implementação anterior (a propriedade booliana), o que significa que ela estará totalmente indisponível em qualquer uma das versões 2015 sem compatibilidade com versões anteriores, a fim de evitar sua adoção acidental por clientes que estão criando soluções mais novas. Se você usar um `2015-02-28` ou `2015-02-28-Preview` será necessário usar o novo constructo `Suggesters` para habilitar consultas de preenchimento automático.
 
 ##Portabilidade do código existente##
 
@@ -54,15 +54,15 @@ Aplicativos personalizados que implementam sugestões devem fazer o seguinte:
 1. Atualizar todos os pacotes NuGet.
 1. Elevar a versão de api para `2015-02-28`. Se você estiver usando o exemplo de código a seguir, a versão de api estará na classe **AzureSearchHelper**.
 1. Exclua o atributo `Suggestions={true | false}` do esquema JSON que define o índice.
-1. Adicione um constructo na parte inferior do índice para `Suggesters` \(como mostra a seção [após](#after)\).
-1. Verifique se que você pode publicar seu serviço \(talvez seja necessário renomear o índice para evitar conflitos de nomenclatura\).
+1. Adicione um constructo na parte inferior do índice para `Suggesters` (como mostra a seção [após](#after)).
+1. Verifique se que você pode publicar seu serviço (talvez seja necessário renomear o índice para evitar conflitos de nomenclatura).
 1. Recompile a solução e implante em um ambiente de teste.
 1. Execute todos os casos de teste para garantir que a solução se comporta como o esperado.
 1. Distribua para produção
 
 O exemplo de código de [da Adventure Works no codeplex](https://azuresearchadventureworksdemo.codeplex.com/) tem a implementação de `Suggestions` original. Talvez você queira usar esse exemplo para praticar a migração de código no código de exemplo.
 
-Na seção a seguir, mostraremos uma implementação [antes](#before) e [depois](#after) das sugestões. Você pode substituir o método **CreateCatalogIndex\(\)** pela versão na seção [após](#after) e, em seguida, compilar e implantar a solução para testar a nova funcionalidade.
+Na seção a seguir, mostraremos uma implementação [antes](#before) e [depois](#after) das sugestões. Você pode substituir o método **CreateCatalogIndex()** pela versão na seção [após](#after) e, em seguida, compilar e implantar a solução para testar a nova funcionalidade.
 
 <a name="before"></a>
 ###Antes###
@@ -134,7 +134,7 @@ Uma definição de esquema migrado omite a propriedade `Suggestions` e adiciona 
 
 Após a portabilidade de sua solução e a confirmação da execução conforme o esperado, você pode usar estes links para ler sobre os novos recursos.
 
-- [Pesquisa do Azure disponível \(postagem de blog\)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
+- [Pesquisa do Azure disponível (postagem de blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
 - [Novidades na atualização mais recente para a Pesquisa do Azure](../search-latest-updates/)
 - [Visão geral da Pesquisa do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn798933.aspx)
 

@@ -36,6 +36,6 @@
 
 7. Quando a reinicialização do primeiro controlador for concluída, conecte-se ao outro controlador e execute as etapas 1 a 6.
 
-8. Depois que ambos os controladores estiverem atualizados, saia do modo de Manutenção. Consulte [Para sair do modo de manutenção]\] \(\#to-exit-maintenance-mode\) para obter instruções.
+8. Depois que ambos os controladores estiverem atualizados, saia do modo de Manutenção. Consulte [Para sair do modo de manutenção]] (#to-exit-maintenance-mode) para obter instruções.
 
 <!--HONumber=52-->

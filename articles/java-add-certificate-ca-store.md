@@ -28,7 +28,7 @@ Você pode usar o keytool para adicionar o certificado de autoridade de certific
 	`keytool -list -keystore cacerts`
 
 	Você será solicitado a digitar a senha de armazenamento. A senha padrão é **changeit**. (Se você quiser alterar a senha, consulte a documentação do keytool em <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) Este exemplo assume que o certificado com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 não está listado e que você deseja importar (esse certificado específico é necessário para o serviço Twilio API).
-2. Obtenha o certificado da lista de certificados em [Certificados de raiz de GeoTrust](http://www.geotrust.com/resources/root-certificates/). Clique com botão direito no link do certificado com o número de série 35:DE:F4:CF e salve na pasta **jdk\jre\lib\security**. Para fins deste exemplo, ele foi salvo em um arquivo chamado **Equifax\_Secure\_Certificate\_Authority.cer**.
+2. Obtenha o certificado da lista de certificados em [Certificados de raiz de GeoTrust](http://www.geotrust.com/resources/root-certificates/). Clique com botão direito no link do certificado com o número de série 35:DE:F4:CF e salve na pasta **jdk\jre\lib\security**. Para fins deste exemplo, ele foi salvo em um arquivo chamado **Equifax_Secure_Certificate_Authority.cer**.
 3. Importe o certificado por meio do seguinte comando:
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`

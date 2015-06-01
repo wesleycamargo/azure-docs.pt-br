@@ -3,27 +3,27 @@
 > [AZURE.IMPORTANTE] recursos de segurança do MongoDB, como autenticação e o endereço IP associação, não são habilitados por padrão. Os recursos de segurança devem ser habilitad antes de implantar o MongoDB em um ambiente de produção.  Consulte [Segurança e autenticação](http://www.mongodb.org/display/DOCS/Security+and+Authentication) para obter mais informações.
 
 1. Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, abra o Internet Explorer no menu **Iniciar**.
-2. Selecione o botão **Ferramentas** no canto superior direito.  Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione *http://\*.mongodb.org* à lista de sites confiáveis.
+2. Selecione o botão **Ferramentas** no canto superior direito.  Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione *http://*.mongodb.org* à lista de sites confiáveis.
 3. Acesse [Downloads- MongoDB] [MongoDownloads].
 4. Localize a versão mais recente na seção **Versão de produção (recomendada)** e clique no link ***2008+** na coluna Windows 64 bits.  Clique em **Salvar como** e salve o arquivo zip no desktop.
-5. Clique com botão direito no arquivo zip e selecione **Extrair tudo...**  Especifique "C:\" e clique em **Extrair**.  Depois que os arquivos forem extraídos, você poderá renomear a pasta de instalação para algo mais simples.  Como "MongoDB", por exemplo.
+5. Clique com botão direito no arquivo zip e selecione **Extrair tudo...**  Especifique "C:" e clique em **Extrair**.  Depois que os arquivos forem extraídos, você poderá renomear a pasta de instalação para algo mais simples.  Como "MongoDB", por exemplo.
 6. Crie dados MongoDB e diretórios de log no disco de dados (unidade **F:**, por exemplo), que você criou nas etapas acima. No menu **Iniciar**, selecione **Prompt de Comando** para abrir uma janela do prompt de comando.  Digite:
 
-		C:\> F:
-		F:\> mkdir \MongoData
-		F:\> mkdir \MongoLogs
+		C:> F:
+		F:> mkdir \MongoData
+		F:> mkdir \MongoLogs
 
 7. Para executar o banco de dados, execute: 
 
-		F:\> C:
-		C:\> cd \MongoDB\bin
+		F:> C:
+		C:> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	Todas as mensagens de log serão direcionadas para o arquivo *F:\MongoLogs\mongolog.log* quando o servidor mongod.exe for iniciado e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
 
 8. Para iniciar o shell administrativo MongoDB, abra outra janela de comando em **Iniciar** e digite o seguinte:
 
-		C:\> cd \my_mongo_dir\bin  
+		C:> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test  	  

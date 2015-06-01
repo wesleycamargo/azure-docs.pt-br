@@ -68,7 +68,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 
 | Nome do pacote | Descrição do pacote |
 | ------------ | ------------------- |
-| abc | Ferramentas para ABC \(Computação Bayesiana Aproximada\) |
+| abc | Ferramentas para ABC (Computação Bayesiana Aproximada) |
 | abind | Combinar matrizes multidimensionais |
 | actuar | Funções atuariais |
 | ade4 | Análise de dados ecológicos: métodos exploratórios e Euclidianos nas ciências ambientais |
@@ -83,13 +83,13 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | assertthat | Pré- e pós-asserções fáceis |
 | AtelieR | Uma GUI GTK para ensinar conceitos básicos de inferência estatística e fazer testes Bayesianos elementares |
 | BaBooN | Correspondência de média preditiva de Bootstrap Bayesiano - Imputação múltipla e única para dados discretos |
-| BACCO | Análise Bayesiana da Saída de Código de Computador \(BACCO\) |
+| BACCO | Análise Bayesiana da Saída de Código de Computador (BACCO) |
 | BaM | Funções e conjuntos de dados para livros de Jeff Gill |
 | bark | Kernels de regressão aditiva Bayesiana |
 | BAS | Média de modelo Bayesiano usando Amostragem Adaptável Bayesiana |
 | base | O Pacote Base de R |
 | BayesDA | Funções e conjuntos de dados para o livro Análise de Dados Bayesiana |
-| bayesGARCH | Estimativa Bayesiana do modelo GARCH \(1,1\) com inovações de Student-t |
+| bayesGARCH | Estimativa Bayesiana do modelo GARCH (1,1) com inovações de Student-t |
 | bayesm | Inferência Bayesiana para marketing/microeconomia |
 | bayesmix | Modelos de mistura Bayesiana com JAGS |
 | bayesQR | Regressão de quantil Bayesiana |
@@ -101,7 +101,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | BayHaz | Funções R para estimativa da taxa de risco Bayesiana |
 | bbemkr | Estimativa de largura de banda Bayesiana para regressão de kernel de múltiplas variáveis com erro Gaussiano |
 | BCBCSF | Classificação Bayesiana com correção de tendência e com recursos selecionados |
-| BCE | Avaliador de composição Bayesiana: estimativa de composição de amostra \(taxonômica\) por meio de dados de marcadores biológicos |
+| BCE | Avaliador de composição Bayesiana: estimativa de composição de amostra (taxonômica) por meio de dados de marcadores biológicos |
 | bclust | Cluster Bayesiano usando o modelo hierárquico de pico e sessão, adequado para a criação de clusters de dados altamente dimensionáveis |
 | bcp | Um pacote para executar uma análise Bayesiana dos problemas de ponto de alteração |
 | BenfordTests | Testes estatísticos para avaliar a conformidade com a Lei de Benford |
@@ -115,9 +115,9 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | Bmix | Amostragem Bayesiana para misturas do tipo “stick-breaking” |
 | BMS | Biblioteca de médias de modelo Bayesiano |
 | bnlearn | Aprendizado de estrutura, aprendizado de parâmetros e inferência de rede Bayesiana |
-| boa | Programa de análise de saída Bayesiana \(BOA\) para MCMC |
+| boa | Programa de análise de saída Bayesiana (BOA) para MCMC |
 | Bolstad | Funções de Bolstad |
-| boot | Funções de Bootstrap \(originalmente por Angelo Canty para S\) |
+| boot | Funções de Bootstrap (originalmente por Angelo Canty para S) |
 | bootstrap | Funções do livro An Introduction to the Bootstrap |
 | bqtl | Kit de ferramentas de mapeamento QTL Bayesiano |
 | BradleyTerry2 | Modelos de Bradley-Terry |
@@ -142,7 +142,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | colorspace | Manipulação de espaço de cor |
 | combinat | utilitários de matemática combinatória |
 | compiler | O pacote Compilador de R |
-| corpcor | Estimativa eficiente da covariância e correlação \(parcial\) |
+| corpcor | Estimativa eficiente da covariância e correlação (parcial) |
 | cslogistic | Regressão logística especificada condicionalmente |
 | ctv | Modos de exibição de tarefas CRAN |
 | cubature | Integração de variação múltipla adaptável em hipercubos |
@@ -153,9 +153,9 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | deal | Aprendendo redes Bayesianas com variáveis mistas |
 | Deducer | Deducer: um GUI de análise de dados para R |
 | DeducerExtras | Caixas de diálogo e funções adicionais para Deducer |
-| deldir | Triangulação de Delaunay e Mosaico de Dirichlet \(Voronoi\). |
+| deldir | Triangulação de Delaunay e Mosaico de Dirichlet (Voronoi). |
 | DEoptimR | Otimização de evolução diferencial em R puro |
-| deSolve | Solvers gerais para problemas de valor inicial de equações diferenciais comuns \(ODE\), equações diferenciais parciais \(PDE\), equações algébricas diferenciais \(DAE\) e equações diferenciais de atraso \(DDE\) |
+| deSolve | Solvers gerais para problemas de valor inicial de equações diferenciais comuns (ODE), equações diferenciais parciais (PDE), equações algébricas diferenciais (DAE) e equações diferenciais de atraso (DDE) |
 | devtools | Ferramentas para facilitar o desenvolvimento de código em R |
 | dichromat | Esquemas de cores para dicromatas |
 | digest | Crie resumos de hash criptográfico de objetos em R |
@@ -164,8 +164,8 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | doSNOW | Adaptador paralelo de foreach para o pacote snow |
 | dplyr | dplyr: uma gramática de manipulação de dados |
 | DPpackage | Modelagem não paramétrica Bayesiana em R |
-| dse | Estimativa de sistemas dinâmicos \(pacote de série de tempo\) |
-| e1071 | Funções diversas do Departamento de Estatística \(e1071\), TU Wien |
+| dse | Estimativa de sistemas dinâmicos (pacote de série de tempo) |
+| e1071 | Funções diversas do Departamento de Estatística (e1071), TU Wien |
 | EbayesThresh | Estabelecimento de limites Bayesiano empírico e métodos relacionados |
 | ebdbNet | Estimativa Bayesiana empírica de redes Bayesianas dinâmicas |
 | effects | Exibições de efeito para modelos lineares, lineares generalizados, logit multinomiais, logit de chance proporcional e modelos de efeitos misto |
@@ -194,7 +194,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | foreign | Ler dados armazenados por Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase... |
 | formatR | Formatar automaticamente código em R |
 | Formula | Fórmulas de modelo estendido |
-| fracdiff | Modelos ARIMA, também conhecidos como ARFIMA \(p,d,q\), diferenciados de modo fracionado |
+| fracdiff | Modelos ARIMA, também conhecidos como ARFIMA (p,d,q), diferenciados de modo fracionado |
 | gam | Modelos aditivos generalizados |
 | gamlr | Regressão Gamma Lasso |
 | gbm | Modelos de regressão aprimorados generalizados |
@@ -250,7 +250,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | JavaGD | Dispositivo gráfico de Java |
 | JGR | JGR - GUI Java para R |
 | kernlab | Laboratório de aprendizado de máquina baseado em kernel |
-| KernSmooth | Funções para suavização de kernel de Wand e Jones \(1995\) |
+| KernSmooth | Funções para suavização de kernel de Wand e Jones (1995) |
 | KFKSDS | Filtro, suavizador e suavizador de perturbação de Kalman |
 | kinship2 | Funções de pedigree |
 | kknn | Vizinhos ponderados mais próximos de k |
@@ -272,7 +272,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | lmPerm | Testes de permuta para modelos lineares |
 | lmtest | Teste de modelos de regressão linear |
 | locfit | Estimativa de densidade, regressão local e probabilidade |
-| lpSolve | Interface pata Lp\_solve v. 5.5 para resolver programas lineares/inteiros |
+| lpSolve | Interface pata Lp_solve v. 5.5 para resolver programas lineares/inteiros |
 
 
 ###Módulos R iniciados por M a R
@@ -296,7 +296,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | maxLik | Estimativa de probabilidade máxima |
 | mcmc | Cadeia de Markov Monte Carlo |
 | MCMCglmm | Modelos mistos lineares generalizados de MCMC |
-| MCMCpack | Pacote de Cadeia de Markov Monte Carlo \(MCMC\) |
+| MCMCpack | Pacote de Cadeia de Markov Monte Carlo (MCMC) |
 | memoise | Funções de Memoise |
 | methods | Classes e métodos formais |
 | mgcv | Veículo de computação GAM mista com previsão de suavização de AIC/GCV/REML |
@@ -317,7 +317,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | mombf | Fatores Bayesianos de momento e momento inverso |
 | monomvn | Estimativa para dados normais com variáveis múltiplas e de Student-t com ausência monótona |
 | monreg | Regressão monótona não paramétrica |
-| mosaic | Utilitários para ensino de estatística e matemática do projeto MOSAIC \(mosaic-web.org\) |
+| mosaic | Utilitários para ensino de estatística e matemática do projeto MOSAIC (mosaic-web.org) |
 | MSBVAR | Modelos de regressão automática de vetor, Bayesiano, de troca de Markov |
 | MSM | Modelos Markov ocultos e de vários estados no tempo contínuo |
 | multcomp | Inferência simultânea em modelos paramétricos gerais |
@@ -351,7 +351,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | PottsUtils | Funções de utilitário dos modelos de Potts |
 | predmixcor | Regra de classificação com base em modelos de mistura Bayesianos com tendência de seleção de recurso corrigida |
 | PresenceAbsence | Avaliação do modelo de presença-ausência |
-| prodlim | Estimativa de limite de produto. Método Kaplan-Meier e Aalen-Johansson para análise de evento histórico censurado \(sobrevivência\) |
+| prodlim | Estimativa de limite de produto. Método Kaplan-Meier e Aalen-Johansson para análise de evento histórico censurado (sobrevivência) |
 | profdpm | Misturas de processo de perfil de Dirichlet |
 | profileModel | Ferramentas para criação de perfil de funções de inferência para várias classes de modelo |
 | proto | Programação baseada em objeto de protótipo |
@@ -380,13 +380,13 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | rcppbugs | Associação de R para cppbugs |
 | RcppEigen | Integração de Rcpp para a biblioteca de álgebra de modelos lineares do Eigen |
 | RcppExamples | Exemplos de uso de Rcpp para interface de R e C++ |
-| RCurl | Interface de cliente de rede geral \(HTTP/FTP /...\) para R |
+| RCurl | Interface de cliente de rede geral (HTTP/FTP /...) para R |
 | relimp | Contribuição relativa dos efeitos em um modelo de regressão |
 | reshape | Remodelagem flexível de dados |
 | reshape2 | Remodelagem flexível de dados: uma reinicialização do pacote de remodelagem |
 | rgdal | Associações para a Biblioteca de abstração de dados geoespaciais |
-| rgeos | Interface para o mecanismo de geometria - software livre \(GEOS\) |
-| rgl | Sistema de dispositivo de visualização 3D \(OpenGL\) |
+| rgeos | Interface para o mecanismo de geometria - software livre (GEOS) |
+| rgl | Sistema de dispositivo de visualização 3D (OpenGL) |
 | RGraphics | Dados e funções do livro R Graphics, segunda edição |
 | RGtk2 | Vinculações de R para Gtk 2.8.0 e acima |
 | RJaCGH | MCMC com saltos reversíveis para análise de matrizes CGH |
@@ -401,9 +401,9 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | roxygen2 | Documentação de origem para R |
 | rpart | Particionamento recursivo e árvores de regressão |
 | rrcov | Estimadores robustos escalonáveis com alto ponto de interrupção |
-| rscproxy | statconn: fornece a interface C-style portátil para R \(StatConnector\) |
+| rscproxy | statconn: fornece a interface C-style portátil para R (StatConnector) |
 | RSGHB | Funções para estimativa Bayesiana hierárquica: uma abordagem flexível |
-| RSNNS | Redes neurais no R usando o Simulador de Rede Neural de Stuttgart \(SNNS\) |
+| RSNNS | Redes neurais no R usando o Simulador de Rede Neural de Stuttgart (SNNS) |
 | RTextTools | Classificação automática de texto por meio do aprendizado supervisionado |
 | RUnit | Estrutura de teste R Unit |
 | runjags | Utilitários de interface, métodos de computação paralela e distribuições adicionais para modelos MCMC em JAGS |
@@ -427,7 +427,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | segmented | Relações segmentadas em modelos de regressão com pontos de interrupção/alteração |
 | sem | Modelos de equação estrutural |
 | seriation | Infra-estrutura para serialização |
-| setRNG | Semente e gerador de número aleatório \(normal\) |
+| setRNG | Semente e gerador de número aleatório (normal) |
 | sgeostat | Uma estrutura voltada a objetos para modelagem geoestatística em S+ |
 | shapefiles | Leitura e gravação de arquivos de forma ESRI |
 | shiny | A estrutura de aplicativo Web ASP.NET. |
@@ -450,7 +450,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | spTimer | Modelagem Bayesiana espaço-temporal usando R |
 | stats | O pacote de estatísticas de R |
 | stats4 | Funções estatísticas usando Classes S4 |
-| stochvol | Inferência Bayesiana eficiente para modelos de volatilidade estocástica \(SV\) |
+| stochvol | Inferência Bayesiana eficiente para modelos de volatilidade estocástica (SV) |
 | stringr | Facilita trabalhar com cadeias de caracteres |
 | strucchange | Teste, monitoramento e atribuição de datas a alterações estruturais |
 | stsm | Modelos de série temporal estrutural |
@@ -478,7 +478,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | tseries | Análise de série temporal e finanças computacionais |
 | tsfa | Análise de fator de série temporal |
 | tsoutliers | Detecção automática de exceções de série temporal |
-| TSP | Problema do caixeiro-viajante \(TSP\) |
+| TSP | Problema do caixeiro-viajante (TSP) |
 | UsingR | Conjuntos de dados para o texto Usando R para Introdução à Estatística |
 | utils | O pacote de utilitários R |
 | varSelectIP | Seleção de modelos Bayesiana objetiva |
@@ -495,7 +495,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | yaml | Métodos para converter dados R para YAML e vice-versa |
 | zic | Inferência Bayesiana para modelos de contagem do tipo zero inflado |
 | zipfR | Modelos estatísticos para distribuições de frequência de palavras |
-| zoo | Infra-estrutura S3 para séries de tempo regular e irregular \(observações ordenadas de Z\) |
+| zoo | Infra-estrutura S3 para séries de tempo regular e irregular (observações ordenadas de Z) |
 
 
 <!-- Module References -->

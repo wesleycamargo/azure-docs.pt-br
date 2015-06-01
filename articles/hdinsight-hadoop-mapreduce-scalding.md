@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/> <tags
+ editor="cgronlun"/>
+<tags
  ms.service="hdinsight"
  ms.devlang="na"
  ms.topic="article"
@@ -138,15 +139,15 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
     * **repositories**: os repositórios que contêm os arquivos de dependência usados pelo projeto
 
-    * **scalding-core\_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
+    * **scalding-core_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
 
     * **maven-scala-plugin**: plug-in para compilar aplicativos Scala
 
-    * **maven-shade-plugin**: plug-in para criar jars sombreadas \(fat\). Este plug-in aplica filtros e transformações; especificamente:
+    * **maven-shade-plugin**: plug-in para criar jars sombreadas (fat). Este plug-in aplica filtros e transformações; especificamente:
 
-        * **filters**: The filters applied modify the meta information included with in the jar file. To prevent signing exceptions at runtime, this excludes various signature files that may be included with dependencies.
+        * **filtros**: Os filtros aplicados modificam as informações meta inclusas no arquivo jar. Para evitar exceções de assinatura no tempo de execução, isso exclui vários arquivos de assinatura que podem ser inclusos com dependências.
 
-        * **executions**: The package phase execution configuration specifies the **com.twitter.scalding.Tool** class as the main class for the package. Without this, you would need to specify com.twitter.scalding.Tool, as well as the class that contains the application logic, when running the job with the hadoop command.
+        * **execuções**: A configuração de execução da fase de pacote especifica a classe **com.twitter.scalding.Tool** como a classe principal para o pacote. Sem ela, você precisaria especificar com.twitter.scalding.Tool, além da classe que contém a lógica de aplicativo, ao executar o trabalho com o comando hadoop.
 
 3. Exclua o diretório **src/teste**, pois você não criará testes com este exemplo.
 

@@ -106,10 +106,10 @@ O objeto **BlobService** permite que você trabalhe com contêineres e blobs.  O
 
 Use os seguintes métodos para carregar dados para um blob:
  
-1. put\_block\_blob\_from\_path (carrega o conteúdo de um arquivo do caminho especificado)
-2. put\_block_blob\_from\_file (carrega o conteúdo de um arquivo/fluxo já aberto)
-3. put\_block\_blob\_from\_bytes (carrega uma matriz de bytes)
-4. put\_block\_blob\_from\_text (carrega o valor de texto especificado usando a codificação especificada)
+1. put_block_blob_from_path (carrega o conteúdo de um arquivo do caminho especificado)
+2. put_block_blob_from_file (carrega o conteúdo de um arquivo/fluxo já aberto)
+3. put_block_blob_from_bytes (carrega uma matriz de bytes)
+4. put_block_blob_from_text (carrega o valor de texto especificado usando a codificação especificada)
  
 O código de exemplo a seguir carrega um arquivo local para um contêiner:
 	
@@ -143,10 +143,10 @@ O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em 
 ###Baixar Dados de Blob
 
 Use os métodos a seguir para baixar dados de um blob:
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+1. get_blob_to_path
+2. get_blob_to_file
+3. get_blob_to_bytes
+4. get_blob_to_text 
 
 Esses métodos realizam a divisão necessária quando o tamanho dos dados excede 64 MB. 
 
@@ -154,7 +154,7 @@ O código de exemplo a seguir baixa o conteúdo de um blob em um contêiner para
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-O código de exemplo a seguir baixa todos os blobs de um contêiner.  Ele usa list\_blobs para obter a lista de blobs disponíveis no contêiner e baixá-los para um diretório local. 
+O código de exemplo a seguir baixa todos os blobs de um contêiner.  Ele usa list_blobs para obter a lista de blobs disponíveis no contêiner e baixá-los para um diretório local. 
 
 	from azure.storage import BlobService
 	from os.path import join

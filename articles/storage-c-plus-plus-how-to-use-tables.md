@@ -35,7 +35,7 @@ Neste guia, você usará os recursos de armazenamento que podem ser executados e
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
 -	**Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows:** no Visual Studio, clique em **Ferramentas \> Gerenciador de Pacotes do NuGet \> Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
+-	**Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
 
 		Install-Package wastorage -Pre  
 
@@ -61,18 +61,18 @@ Para iniciar o emulador de armazenamento do Azure, selecione o botão **Iniciar*
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
 
 ## Recuperar sua cadeia de conexão  
-Você pode usar a classe **cloud\_storage\_account** para representar as informações da Conta de Armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método de analisar.
+Você pode usar a classe **cloud_storage_account** para representar as informações da Conta de Armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método de analisar.
 
 	// Retrieve the storage account from the connection string. 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Em seguida, obtenha uma referência para uma classe **cloud\_table\_client** que permita recuperar os objetos de referência para as tabelas e as entidades armazenadas no Serviço de Armazenamento de Tabelas. O código a seguir cria um objeto **cloud\_table\_client** usando o objeto da conta de armazenamento que recuperamos acima:
+Em seguida, obtenha uma referência para uma classe **cloud_table_client** que permita recuperar os objetos de referência para as tabelas e as entidades armazenadas no Serviço de Armazenamento de Tabelas. O código a seguir cria um objeto **cloud_table_client** usando o objeto da conta de armazenamento que recuperamos acima:
 
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
 ## Como: criar uma tabela
-Um objeto **cloud\_table\_client** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **cloud\_table\_client** e utiliza-o para criar uma nova tabela.
+Um objeto **cloud_table_client** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **cloud_table_client** e utiliza-o para criar uma nova tabela.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
@@ -86,9 +86,9 @@ Um objeto **cloud\_table\_client** permite obter os objetos de referência para 
 	table.create_if_not_exists();  
 
 ## Como: adicionar uma entidade a uma tabela
-Para adicionar uma entidade a uma tabela, crie um novo objeto **table\_entity** e passe-o para **table\_operation::insert\_entity**. O código a seguir usa o primeiro nome do cliente como a chave de linha e o último nome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes, mas usar chaves de partição diferentes possibilita uma maior escalabilidade de operação paralela. Para obter mais informações, consulte [Lista de Verificação de Escalabilidade e Desempenho de Armazenamento do Microsoft Azure](./storage-performance-checklist.md/).
+Para adicionar uma entidade a uma tabela, crie um novo objeto **table_entity** e passe-o para **table_operation::insert_entity**. O código a seguir usa o primeiro nome do cliente como a chave de linha e o último nome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes, mas usar chaves de partição diferentes possibilita uma maior escalabilidade de operação paralela. Para obter mais informações, consulte [Lista de Verificação de Escalabilidade e Desempenho de Armazenamento do Microsoft Azure](./storage-performance-checklist.md/).
 
-O código a seguir cria uma nova instância de **table\_entity** com alguns dados do cliente que serão armazenados. O próximo código chama **table\_operation::insert\_entity** para criar um objeto **table\_operation** para inserir uma entidade em uma tabela e associa a nova entidade da tabela a ele. Por fim, o código chama o método execute no objeto **cloud\_table**. E o novo **table\_operation** envia uma solicitação ao serviço de armazenamento para inserir a nova entidade de cliente na tabela "pessoas".
+O código a seguir cria uma nova instância de **table_entity** com alguns dados do cliente que serão armazenados. O próximo código chama **table_operation::insert_entity** para criar um objeto **table_operation** para inserir uma entidade em uma tabela e associa a nova entidade da tabela a ele. Por fim, o código chama o método execute no objeto **cloud_table**. E o novo **table_operation** envia uma solicitação ao serviço de armazenamento para inserir a nova entidade de cliente na tabela "pessoas".
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -116,7 +116,7 @@ O código a seguir cria uma nova instância de **table\_entity** com alguns dado
 	azure::storage::table_result insert_result = table.execute(insert_operation);
 
 ## Como: inserir um lote de entidades
-Você pode inserir um lote de entidades ao serviço Tabela em uma operação de gravação. O código a seguir cria um objeto **table\_batch\_operation** e adiciona três operações de inserção a ele. Cada operação de inserção é adicionada criando um novo objeto de entidade, definindo seus valores, em seguida, chamando o método insert no objeto **table\_batch\_operation** para associar a entidade a uma nova operação de inserção. Em seguida, **cloud\_table.execute** é chamado para executar a operação.
+Você pode inserir um lote de entidades ao serviço Tabela em uma operação de gravação. O código a seguir cria um objeto **table_batch_operation** e adiciona três operações de inserção a ele. Cada operação de inserção é adicionada criando um novo objeto de entidade, definindo seus valores, em seguida, chamando o método insert no objeto **table_batch_operation** para associar a entidade a uma nova operação de inserção. Em seguida, **cloud_table.execute** é chamado para executar a operação.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -170,7 +170,7 @@ Algumas outras observações sobre as operações em lote:
 -	Uma operação em lote está limitada a uma carga de dados de 4 MB.  
 
 ## Como recuperar todas as entidades em uma partição
-Para consultar uma tabela de todas as entidades em uma partição, use um objeto **table\_query**. O exemplo de código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
+Para consultar uma tabela de todas as entidades em uma partição, use um objeto **table_query**. O exemplo de código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -191,14 +191,14 @@ Para consultar uma tabela de todas as entidades em uma partição, use um objeto
 	// Print the fields for each customer.
 	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
 	{
-  const azure::storage::table\_entity::properties\_type& properties = it-\>properties\(\);
+  const azure::storage::table_entity::properties_type& properties = it->properties();
 
-   std::wcout \<\< U\("ChavePartição: "\) \<< it->partition\_key\(\) \<\< U\(", ChaveLinha: "\) \<< it->row\_key\(\) \<\< U\(", Propriedade1: "\) \<\< utility::string\_t\(properties.at\(U\("Email"\)\).string\_value\(\)\) \<\< U\(", Propriedade2: "\) \<\< utility::string\_t\(properties.at\(U\("Telefone"\)\).string\_value\(\)\) \<\< std::endl; }
+   std::wcout << U("ChavePartição: ") << it->partition_key() << U(", ChaveLinha: ") << it->row_key() << U(", Propriedade1: ") << utility::string_t(properties.at(U("Email")).string_value()) << U(", Propriedade2: ") << utility::string_t(properties.at(U("Telefone")).string_value()) << std::endl; }
 
 A consulta neste exemplo traz todas as entidades que correspondem aos critérios do filtro. Se você tiver tabelas grandes e precisar baixar entidades de tabela com frequência, é recomendável que armazene seus dados nos Blobs de Armazenamento do Azure.
 
 ## Como: recuperar um intervalo de entidades em uma partição
-Se não desejar consultar todas as entidades em uma partição, você poderá especificar um intervalo combinando o filtro de chave de partição com um filtro de chave de linha. O exemplo de código a seguir usa dois filtros para obter todas as entidades na partição 'Smith' onde a chave de linha \(nome\) começa com uma letra anterior a 'E' do alfabeto e, em seguida, imprime os resultados da consulta.
+Se não desejar consultar todas as entidades em uma partição, você poderá especificar um intervalo combinando o filtro de chave de partição com um filtro de chave de linha. O exemplo de código a seguir usa dois filtros para obter todas as entidades na partição 'Smith' onde a chave de linha (nome) começa com uma letra anterior a 'E' do alfabeto e, em seguida, imprime os resultados da consulta.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,7 +232,7 @@ Se não desejar consultar todas as entidades em uma partição, você poderá es
 	}  
 
 ## Como: recuperar uma única entidade
-Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir usa uma **table\_operation::retrive\_entity** para especificar o cliente 'Jeff Smith'. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado está em **table\_result**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço Tabela.
+Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir usa uma **table_operation::retrive_entity** para especificar o cliente 'Jeff Smith'. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado está em **table_result**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço Tabela.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -254,7 +254,7 @@ Você pode escrever uma consulta para recuperar uma entidade única e específic
 	<< U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl;  
 
 ## Como: substituir uma entidade
-Para substituir uma entidade, recupere-a no serviço de tabela, modifique o objeto de entidade, em seguida, salve as alterações novamente no serviço de tabela. O código a seguir altera o número de telefone e o endereço de email de um cliente existente. Em vez de chamar **table\_operation:: insert\_entity**, esse código usa **table\_operation:: replace\_entity**. Isso faz com que a entidade seja totalmente substituída no servidor, a menos que a entidade no servidor tenha sido alterada desde que foi recuperada, caso em que haverá falha na operação. Essa falha é para impedir que seu aplicativo substitua inadvertidamente uma alteração feita entre a recuperação e a atualização por outro componente de seu aplicativo. O tratamento correto dessa falha é recuperar a entidade novamente, fazer as alterações \(se ainda válidas\) e executar outra operação **table\_operation::replace\_entity**. A próxima seção mostrará como substituir esse comportamento.
+Para substituir uma entidade, recupere-a no serviço de tabela, modifique o objeto de entidade, em seguida, salve as alterações novamente no serviço de tabela. O código a seguir altera o número de telefone e o endereço de email de um cliente existente. Em vez de chamar **table_operation:: insert_entity**, esse código usa **table_operation:: replace_entity**. Isso faz com que a entidade seja totalmente substituída no servidor, a menos que a entidade no servidor tenha sido alterada desde que foi recuperada, caso em que haverá falha na operação. Essa falha é para impedir que seu aplicativo substitua inadvertidamente uma alteração feita entre a recuperação e a atualização por outro componente de seu aplicativo. O tratamento correto dessa falha é recuperar a entidade novamente, fazer as alterações (se ainda válidas) e executar outra operação **table_operation::replace_entity**. A próxima seção mostrará como substituir esse comportamento.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -283,7 +283,7 @@ Para substituir uma entidade, recupere-a no serviço de tabela, modifique o obje
 	azure::storage::table_result replace_result = table.execute(replace_operation);
 
 ## Como: inserir ou substituir uma entidade
-As operações **table\_operation:: replace\_entity** falharão se a entidade tiver sido alterada desde que foi recuperada no servidor. Além disso, você deve primeiro recuperar a entidade no servidor para que **table\_operation::replace\_entity** seja bem-sucedido. No entanto, às vezes você não sabe se a entidade existe no servidor e se os valores atuais armazenados nela são irrelevantes sua atualização deve substituir todos eles. Para fazer isso, você usaria uma operação **table\_operation:: insert\_or\_replace\_entity**. Essa operação insere a entidade, se ela não existir, ou a substitui, se ela existir, independentemente de quando foi feita a última atualização. No exemplo de código a seguir, a entidade customer de Jeff Smith ainda é recuperada, mas é salva novamente no servidor usando **table\_operation::insert\_or\_replace\_entity**. Todas as atualizações feitas na entidade entre a operação de recuperação e de atualização serão substituídas.
+As operações **table_operation:: replace_entity** falharão se a entidade tiver sido alterada desde que foi recuperada no servidor. Além disso, você deve primeiro recuperar a entidade no servidor para que **table_operation::replace_entity** seja bem-sucedido. No entanto, às vezes você não sabe se a entidade existe no servidor e se os valores atuais armazenados nela são irrelevantes sua atualização deve substituir todos eles. Para fazer isso, você usaria uma operação **table_operation:: insert_or_replace_entity**. Essa operação insere a entidade, se ela não existir, ou a substitui, se ela existir, independentemente de quando foi feita a última atualização. No exemplo de código a seguir, a entidade customer de Jeff Smith ainda é recuperada, mas é salva novamente no servidor usando **table_operation::insert_or_replace_entity**. Todas as atualizações feitas na entidade entre a operação de recuperação e de atualização serão substituídas.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -313,7 +313,7 @@ As operações **table\_operation:: replace\_entity** falharão se a entidade ti
 	azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
  
 ## Como: consultar um subconjunto de propriedades de entidade  
-Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. A consulta no código a seguir usa o método **table\_query::set\_select\_columns** para retornar apenas os endereços de email das entidades na tabela.
+Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. A consulta no código a seguir usa o método **table_query::set_select_columns** para retornar apenas os endereços de email das entidades na tabela.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -338,12 +338,12 @@ Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma enti
     	const azure::storage::table_entity::properties_type& properties = it->properties();
     	std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
 			
-   para \(auto prop\_it = properties.begin\(\); prop\_it != properties.end\(\); ++prop\_it\) { std::wcout \<\< ", " \<< prop_it->first \<\< ": " \<< prop_it->second.str\(\); } std::wcout \<\< std::endl; }
+   para (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it) { std::wcout << ", " << prop_it->first << ": " << prop_it->second.str(); } std::wcout << std::endl; }
 
 **Observação:** consultar algumas propriedades em uma entidade é uma operação mais eficiente do que recuperar todas as propriedades.
 
 ## Como excluir uma entidade
-Você poderá excluir uma entidade facilmente depois que recuperá-la. Depois da entidade ser recuperada, chame **table\_operation::delete\_entity** com a entidade a excluir. Então, chame execute no método **cloud\_table.execute**. O código a seguir recupera e exclui uma entidade com chave de partição "Smith" e a chave de linha "Jeff".
+Você poderá excluir uma entidade facilmente depois que recuperá-la. Depois da entidade ser recuperada, chame **table_operation::delete_entity** com a entidade a excluir. Então, chame execute no método **cloud_table.execute**. O código a seguir recupera e exclui uma entidade com chave de partição "Smith" e a chave de linha "Jeff".
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);

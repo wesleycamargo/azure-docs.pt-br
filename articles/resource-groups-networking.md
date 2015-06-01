@@ -15,9 +15,9 @@
    ms.author="telmos" />
 
 # Provedor de recursos de rede
-Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM \(Gerenciador de Recursos do Azure\) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
+Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM (Gerenciador de Recursos do Azure) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
 
-O ARM \(Gerenciador de Recursos do Azure\) permite que você crie esses aplicativos e a coleção associada de recursos de rede como uma única coleção de recursos em um grupo de recursos. O aplicativo e os recursos de rede são executados como uma única unidade em um grupo de recursos do ARM.
+O ARM (Gerenciador de Recursos do Azure) permite que você crie esses aplicativos e a coleção associada de recursos de rede como uma única coleção de recursos em um grupo de recursos. O aplicativo e os recursos de rede são executados como uma única unidade em um grupo de recursos do ARM.
 
 Você pode gerenciar recursos de rede usando qualquer uma das seguintes interfaces de gerenciamento:
 
@@ -41,7 +41,7 @@ Com a introdução de provedores de recursos de rede, você pode aproveitar os s
 - **Personalização repetível** - você pode usar modelos de estilo declarativo para habilitar a personalização repetível e rápida de implantações.
 
 ## Recursos de rede 
-Agora você pode gerenciar recursos de rede de modo independente, em vez de ter todos eles gerenciados por meio de um recurso de computação único \(uma máquina virtual\). Isso garante um maior grau de flexibilidade e agilidade em redigir uma infraestrutura complexa e em grande escala em um grupo de recursos.
+Agora você pode gerenciar recursos de rede de modo independente, em vez de ter todos eles gerenciados por meio de um recurso de computação único (uma máquina virtual). Isso garante um maior grau de flexibilidade e agilidade em redigir uma infraestrutura complexa e em grande escala em um grupo de recursos.
  
 O diagrama a seguir ilustra uma visão geral do modelo de recursos de rede e suas associações. Recursos de nível superior são coloridos com um contorno azul. Além dos recursos de nível superior, você pode ver os recursos filho coloridos com um contorno cinza. Você pode gerenciar cada recurso individualmente.
 
@@ -73,7 +73,7 @@ Os métodos HTTP a seguir têm suporte ao fazer chamadas para a API REST:
 Ambas a solicitação e a resposta têm conformidade com um formato de carga JSON. Para obter mais detalhes, consulte [APIs de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
 ## Idioma do modelo ARM
-Além de gerenciar recursos de modo imperativo \(via APIs ou SDK\), você também pode usar um estilo de programação declarativo para criar e gerenciar recursos de rede usando o idioma do modelo de ARM.
+Além de gerenciar recursos de modo imperativo (via APIs ou SDK), você também pode usar um estilo de programação declarativo para criar e gerenciar recursos de rede usando o idioma do modelo de ARM.
 
 Uma representação de um modelo de exemplo é fornecida abaixo -
 
@@ -214,7 +214,7 @@ Para obter mais informações sobre a linguagem de modelo do ARM, consulte [Ling
 O modelo de exemplo acima usa a rede virtual e recursos de sub-rede. Há outros recursos de rede, que você pode usar, conforme listado abaixo:
 
 ## NIC
-Placa de Interface de rede ou NIC representa uma interface de rede que pode ser associada a uma VM \(máquina virtual\). Uma VM pode ter uma ou mais NICs.
+Placa de Interface de rede ou NIC representa uma interface de rede que pode ser associada a uma VM (máquina virtual). Uma VM pode ter uma ou mais NICs.
 
 ![NICs em uma única VM](./media/resource-groups-networking/Figure3.png)
 
@@ -224,11 +224,11 @@ As propriedades principais de um recurso NIC incluem:
 
 Uma NIC também pode ser associada aos seguintes recursos de rede:
 
-- NSG \(grupo de segurança de rede\) 
+- NSG (grupo de segurança de rede) 
 - Balanceador de carga
 
 ## Sub-rede e rede virtual
-VNETs \(Redes virtuais\) e sub-redes ajudam a definir um limite de segurança para cargas de trabalho em execução no Azure. Uma VNET é caracterizada por um espaço de endereço, também conhecido como bloco CIDR.
+VNETs (Redes virtuais) e sub-redes ajudam a definir um limite de segurança para cargas de trabalho em execução no Azure. Uma VNET é caracterizada por um espaço de endereço, também conhecido como bloco CIDR.
 
 Uma sub-rede é um recurso filho de uma VNET e ajuda a definir segmentos de espaços de endereço em um bloco CIDR, usando prefixos de endereço IP. VMs que executam diversas cargas de trabalho essencialmente operam em um limite de sub-rede.
 
@@ -236,7 +236,7 @@ Uma sub-rede é um recurso filho de uma VNET e ajuda a definir segmentos de espa
 
 As propriedades principais de um recurso VNET incluem:
 
-- Espaço de endereço IP \(bloco CIDR\) 
+- Espaço de endereço IP (bloco CIDR) 
 - Nome da VNET
 - sub-redes
 
@@ -260,7 +260,7 @@ Um balanceador de carga é usado quando você deseja dimensionar seus aplicativo
 
 Os balanceadores de carga contêm os seguintes recursos filho:
 
-- **Configuração de IP front-end** – um balanceador de carga pode incluir um ou mais endereços IP de front-end, também conhecidos como VIPs \(IPs virtuais\). Esses endereços IP servem como entrada para o tráfego. 
+- **Configuração de IP front-end** – um balanceador de carga pode incluir um ou mais endereços IP de front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços IP servem como entrada para o tráfego. 
 - **Pool de endereços back-end** – estes são os endereços IP associados a NICs de VM aos quais a carga será distribuída.
 - **Regras de balanceamento de carga** – uma propriedade de regra mapeia determinados IP de front-end e combinação de portas para um conjunto de endereços IP de back-end e combinação de portas. Com uma única definição de um recurso de balanceador de carga, você pode definir várias regras de balanceamento de carga, cada regra refletindo uma combinação de um IP de front-end e porta e outra combinação de IP de back-end e porta, ambas associadas a VMs. 
 - **Sondas** – sondas permitem que você controle a integridade das instâncias de VMs. Se um teste de integridade falhar, a instância VM será retirada automaticamente do rodízio.
@@ -273,8 +273,8 @@ As propriedades principais de um recurso de endereço IP público incluem:
 
 - **Método de alocação de IP** – reservado ou dinâmico. 
 
-## NSG \(grupo de segurança de rede\)
-Um recurso NSG habilita a criação de limite de segurança para cargas de trabalho, por meio de regras de permissão e recusa. Essas regras podem ser aplicadas no nível do NIC \(nível de instância VM\) ou no nível de sub-rede \(grupo de VMs\).
+## NSG (grupo de segurança de rede)
+Um recurso NSG habilita a criação de limite de segurança para cargas de trabalho, por meio de regras de permissão e recusa. Essas regras podem ser aplicadas no nível do NIC (nível de instância VM) ou no nível de sub-rede (grupo de VMs).
 
 As propriedades principais de um recurso NSG incluem:
 

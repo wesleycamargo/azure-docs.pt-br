@@ -91,7 +91,7 @@ Use seu editor de texto favorito e adicione o seguinte na parte superior do arqu
 
 ## Configurar uma conexão do Barramento de Serviço do Azure
 
-O módulo azure lerá as variáveis de ambiente **AZURE\_SERVICEBUS\_NAMESPACE** e **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
+O módulo azure lerá as variáveis de ambiente **AZURE_SERVICEBUS_NAMESPACE** e **AZURE_SERVICEBUS_ACCESS_KEY** 
 para obter informações necessárias para se conectar ao seu namespace de barramento de serviço do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações do namespace antes de usar **Azure::ServiceBusService** com o seguinte código:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
@@ -137,11 +137,11 @@ Você também pode configurar filtros que permitem atribuir um escopo a quais me
 
 O tipo o mais flexível de filtro compatível com assinaturas é o **Azure::ServiceBus::SqlFilter**, que implementa um subconjunto de SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
-Os filtros podem ser adicionados a uma assinatura usando o método**create\_rule()** do objeto **Azure::ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
+Os filtros podem ser adicionados a uma assinatura usando o método**create_rule()** do objeto **Azure::ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
 
-Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete\_rule()** do objeto **Azure::ServiceBusService**.
+Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete_rule()** do objeto **Azure::ServiceBusService**.
 
-Os exemplos a seguir criam uma assinatura chamada "high-messages" com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade **message\_number** personalizada maior que 3:
+Os exemplos a seguir criam uma assinatura chamada "high-messages" com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade **message_number** personalizada maior que 3:
 
 	subscription = azure_service_bus_service.create_subscription("test-topic", 
 	  "high-messages")
@@ -173,7 +173,7 @@ Quando uma mensagem é enviada para "test-topic", ela sempre será fornecida aos
 
 ## Como enviar mensagens a um tópico
 
-Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send\_topic\_message()** do objeto **Azure::ServiceBusService** . As mensagens enviadas aos tópicos do Barramento de Serviço são objetos **Azure::ServiceBus::BrokeredMessage**. **Objetos Azure::ServiceBus::BrokeredMessage** têm um conjunto de propriedades padrão (como**rótulo ** e **time\_to\_live**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados da cadeia. Um aplicativo pode definir o corpo da mensagem, passando um valor da cadeia de caracteres para um método **send\_topic\_message()** e qualquer propriedade padrão obrigatória será preenchida com valores padrão.
+Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send_topic_message()** do objeto **Azure::ServiceBusService** . As mensagens enviadas aos tópicos do Barramento de Serviço são objetos **Azure::ServiceBus::BrokeredMessage**. **Objetos Azure::ServiceBus::BrokeredMessage** têm um conjunto de propriedades padrão (como**rótulo ** e **time_to_live**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados da cadeia. Um aplicativo pode definir o corpo da mensagem, passando um valor da cadeia de caracteres para um método **send_topic_message()** e qualquer propriedade padrão obrigatória será preenchida com valores padrão.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para "test-topic". Observe que o valor da propriedade personalizado de **message_number** de cada mensagem varia de acordo com a iteração do loop (isso determinará qual assinatura a recebe):
 
@@ -187,13 +187,13 @@ Os tópicos de Barramento de Serviço oferecem suporte a um tamanho máximo de m
 
 ## Como receber mensagens de uma assinatura
 
-As mensagens são recebidas de uma assinatura com o método de **receive\_subscription\_message()** no objeto **Azure::ServiceBusService**. Por padrão, as mensagens são lidas (pico) e bloqueadas sem excluí-las da assinatura. Você pode ler e excluir a mensagem da assinatura, definindo a opção **peek\_lock** como **false**.
+As mensagens são recebidas de uma assinatura com o método de **receive_subscription_message()** no objeto **Azure::ServiceBusService**. Por padrão, as mensagens são lidas (pico) e bloqueadas sem excluí-las da assinatura. Você pode ler e excluir a mensagem da assinatura, definindo a opção **peek_lock** como **false**.
 
-O comportamento padrão faz com que a leitura e a exclusão se dividam em uma operação de dois estágios, o que torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método**delete\_subscription\_message()** e fornecendo a mensagem a ser excluída como um parâmetro. O método**delete\_subscription\_message()** marcará a mensagem como sendo consumida e a removerá da assinatura.
+O comportamento padrão faz com que a leitura e a exclusão se dividam em uma operação de dois estágios, o que torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método**delete_subscription_message()** e fornecendo a mensagem a ser excluída como um parâmetro. O método**delete_subscription_message()** marcará a mensagem como sendo consumida e a removerá da assinatura.
 
 Se o parâmetro **:peek_lock** estiver definido como **false**, a leitura e a exclusão da mensagem se tornam o modelo mais simples e funcionam melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando**receive\_subscription\_message()**. O exemplo primeiro recebe e exclui uma mensagem da assinatura "low-messages" usando **:peek\_lock** definido para **false**, em seguida, ele recebe outra mensagem de "high-messages" e exclui a mensagem usando **delete\_subscription\_message()**:
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando**receive_subscription_message()**. O exemplo primeiro recebe e exclui uma mensagem da assinatura "low-messages" usando **:peek_lock** definido para **false**, em seguida, ele recebe outra mensagem de "high-messages" e exclui a mensagem usando **delete_subscription_message()**:
 
     message = azure_service_bus_service.receive_subscription_message(
 	  "test-topic", "low-messages", { :peek_lock => false })
@@ -203,11 +203,11 @@ O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas
 
 ## Como tratar falhas do aplicativo e mensagens ilegíveis
 
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método**unlock\_subscription\_message()** no objeto **Azure::ServiceBusService**. Isso fará com que o Barramento de Serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
+O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método**unlock_subscription_message()** no objeto **Azure::ServiceBusService**. Isso fará com que o Barramento de Serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
 
 Também há um tempo limite associado a uma mensagem bloqueada na assinatura, e se o aplicativo falhar em processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Se houver uma falha no aplicativo após o processamento da mensagem, mas antes de o método **delete\_subscription\_message()** ser chamado, a mensagem será novamente entregue ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **message_id** da mensagem, que permanecerá constante nas tentativas da entrega.
+Se houver uma falha no aplicativo após o processamento da mensagem, mas antes de o método **delete_subscription_message()** ser chamado, a mensagem será novamente entregue ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **message_id** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## Como excluir tópicos e assinaturas
 

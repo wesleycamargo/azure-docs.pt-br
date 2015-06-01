@@ -20,14 +20,14 @@
 
 >[AZURE.NOTE]**A documentação dos Serviços Móveis está [aqui.](http://azure.microsoft.com/documentation/services/mobile-services/)**
 
-O Serviço de Aplicativo do Azure é uma oferta de plataforma totalmente gerenciada como serviço \(PaaS\) para desenvolvedores profissionais, que traz um conjunto rico de recursos para a Web, dispositivos móveis e cenários de integração. Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para aplicativos móveis.
+O Serviço de Aplicativo do Azure é uma oferta de plataforma totalmente gerenciada como serviço (PaaS) para desenvolvedores profissionais, que traz um conjunto rico de recursos para a Web, dispositivos móveis e cenários de integração. Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para aplicativos móveis.
 
 ![Aplicativos Móveis](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##Por que os aplicativos móveis?
 Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para aplicativos móveis. Com Aplicativos Móveis, você pode:
 
-- **Criar aplicativos nativos e multiplataforma** – quer você esteja criando aplicativos nativos iOS, Android e Windows ou aplicativos Xamarin ou Cordova \(Phonegap\) multiplataforma, você pode aproveitar o Serviço de Aplicativo usando SDKs nativos.  
+- **Criar aplicativos nativos e multiplataforma** – quer você esteja criando aplicativos nativos iOS, Android e Windows ou aplicativos Xamarin ou Cordova (Phonegap) multiplataforma, você pode aproveitar o Serviço de Aplicativo usando SDKs nativos.  
 - **Conectar-se a seus sistemas corporativos** - com Aplicativos Móveis, você pode adicionar logon corporativo em minutos e conectar-se aos recursos locais ou de nuvem de sua empresa.
 - **Conectar-se facilmente a APIs SaaS** - com mais de 40 conectores de API SaaS, você pode facilmente integrar seu aplicativo às APIs SaaS que sua empresa utiliza atualmente. Deseja atualizar o status da conta no CRM e também no sistema de cobrança? Os Aplicativos Móveis oferecem APIs SaaS corporativas ao seu alcance.
 - **Criar aplicativos prontos para uso offline com sincronização** - torne sua força de trabalho móvel produtiva por meio da criação de aplicativos que trabalham offline e use Aplicativos Móveis para sincronizar dados em segundo plano quando houver conectividade com qualquer uma das suas origens de dados corporativos ou APIs SaaS.

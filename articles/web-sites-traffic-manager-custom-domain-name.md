@@ -54,7 +54,7 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 4. Depois de localizar a página de gerenciamento para seu nome de domínio, procure um link que permita editar os registros DNS. Ele pode estar listado como um **Arquivo de zona**, **Registros DNS** ou como um link de configuração **Avançado**.
 
-	* A página deverá ter alguns poucos registros já criados, como uma associação de entrada '**@**' ou '\*' com uma página de 'domain parking'. Ela também pode conter registros para subdomínios comuns como **www**.
+	* A página deverá ter alguns poucos registros já criados, como uma associação de entrada '**@**' ou '*' com uma página de 'domain parking'. Ela também pode conter registros para subdomínios comuns como **www**.
 	*  A página mencionará **registros CNAME** ou fornecerá uma lista suspensa para a seleção de um tipo de registro. Ela também pode mencionar outros registros, como **registros A** e **registros MX**. Em alguns casos, registros CNAME serão chamados por outros nomes como um **Registro de Alias**.
 	* A página também terá campos que permitem **mapear** de um **Nome de host** ou **Nome de domínio** para outro nome de domínio.
 

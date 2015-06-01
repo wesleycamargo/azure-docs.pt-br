@@ -36,7 +36,7 @@ Depois que os bancos de dados tiverem sido armazenados em backup e restaurados, 
 Para habilitar o backup e a restauração, os arquivos de backup (.bak) devem poder ser acessados pela VM secundária do SQL Server. Use este procedimento:
 
 1.	Faça logon no Host do SQL Server primário como [domínio]**\\sp_farm_db**. 
-2.	Navegue até o disco F:\. 
+2.	Navegue até o disco F:. 
 3.	Com o botão direito na pasta **Backup** e clique em **Compartilhar com** e em **pessoas específicas**.
 4.	Na caixa de diálogo **Compartilhamento de arquivos**, digite **[domínio]\\sqlservice** e, em seguida, clique em **Adicionar**.
 5.	Clique na coluna **Nível de permissão** para o nome da conta **sqlservice** e, em seguida, clique em **Leitura/Gravação**. 
@@ -55,7 +55,7 @@ Use estas etapas para fazer backup de um banco de dados.
 3.	No painel esquerdo, expanda o nó **Banco de Dados**.
 4.	Clique com o botão direito no banco de dados que deseja armazenar em backup, aponte para **Tarefas**, e, em seguida, clique em **Fazer backup**.
 5.	Na seção **Destino**, clique em **Remover** para remover o caminho de arquivo padrão para o arquivo de backup.
-6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, onde nomeDaMáquina é o nome do computador do SQL Server primário e nomeDoBancoDeDados é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
+6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, onde nomeDaMáquina é o nome do computador do SQL Server primário e nomeDoBancoDeDados é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
 7.	No painel esquerdo, clique com botão direito em **[nomeDoBancoDeDados]**, aponte para **Tarefas**, e, em seguida, clique em **Fazer Backup**.
 8.	Em **Tipo de backup**, selecione **Log de Transações** e clique em **OK** duas vezes.
 9.	Mantenha essa sessão de área de trabalho remota aberta.
@@ -68,7 +68,7 @@ Use estas etapas para restaurar um banco de dados.
 4.	No painel esquerdo, clique com botão direito em **Bancos de Dados** e clique em **Restaurar Banco de Dados**.
 5.	Na seção **Fonte**, selecione **Dispositivo** e clique no botão de reticências (...)
 6.	Em **Selecionar dispositivos de backup**, clique em **Adicionar**.
-7.	Em **Local do arquivo de backup**, digite **\[nomeDaMáquina]\\backup**, pressione **Enter**, selecione **[nomeDoBancoDeDados].bak** e, em seguida, clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
+7.	Em **Local do arquivo de backup**, digite **[nomeDaMáquina]\\backup**, pressione **Enter**, selecione **[nomeDoBancoDeDados].bak** e, em seguida, clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
 8.	Em **Selecionar uma página**, clique em **Opções**. Na seção **Opções de restauração**, em **Estado de recuperação**, selecione **RESTAURAR COM NORECOVERY** e, em seguida, clique em **OK**. 
 9.	Quando solicitado, clique em **OK**.
 

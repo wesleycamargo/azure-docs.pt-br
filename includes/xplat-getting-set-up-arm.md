@@ -9,9 +9,9 @@
    ms.date="04/13/2015"
    ms.author="rasquill" />
 
-## Usando o xplat-cli com o Azure Resource Manager \(ARM\)
+## Usando o xplat-cli com o Azure Resource Manager (ARM)
 
-Antes de usar o xplat-cli com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessária uma conta com o Azure \(obviamente\). Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](http://azure.microsoft.com/pricing/free-trial/).
+Antes de usar o xplat-cli com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessária uma conta com o Azure (obviamente). Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](http://azure.microsoft.com/pricing/free-trial/).
 
 > [AZURE.NOTE]Se você ainda não tiver uma conta do Azure, mas tem uma assinatura para a assinatura do MSDN, você pode obter créditos gratuitos do Azure ativando os seus [benefícios de assinante do MSDN aqui](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – ou você pode usar a conta gratuita. Ambos funcionarão para o acesso ao Azure.
 
@@ -26,7 +26,7 @@ Se você precisar de atualizar a sua versão do xplat-cli, consulte [xplat-cli](
 
 ### Etapa 2: Verifique se você estiver usando uma identidade de trabalho ou de escola com o Azure
 
-Você só pode usar o modo de comando ARM, se você estiver usando um [locatário do Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) ou um [Nome Principal do Serviço](https://msdn.microsoft.com/library/azure/dn132633.aspx). \(Esses também são chamados de *IDs organizacionais*.\)
+Você só pode usar o modo de comando ARM, se você estiver usando um [locatário do Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) ou um [Nome Principal do Serviço](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Esses também são chamados de *IDs organizacionais*.)
 
 Para ver se você tiver um, faça logon digitando `azure login` e use o seu nome de usuário do trabalho ou de escola e a senha, quando solicitado. Se você tiver um, você verá algo semelhante ao seguinte:
 
@@ -41,7 +41,7 @@ Para ver se você tiver um, faça logon digitando `azure login` e use o seu nome
     +
     info:    login command OK
     
-Se você não vir isso, você deve criar um novo locatário \(ou entidade de serviço\) com sua identidade de conta da Microsoft. \(Isso é geralmente o caso com as assinaturas do MSDN pessoais ou assinaturas de avaliação gratuitas.\) Para criar uma ID de trabalho ou de escola a partir de sua conta do Azure criada com uma ID Microsoft, consulte [Associar um Diretório do AD do Azure com uma nova Assinatura do Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Se você achar que você já deve ter uma ID organizacional, você precisará falar com a pessoa que criou a conta para você.
+Se você não vir isso, você deve criar um novo locatário (ou entidade de serviço) com sua identidade de conta da Microsoft. (Isso é geralmente o caso com as assinaturas do MSDN pessoais ou assinaturas de avaliação gratuitas.) Para criar uma ID de trabalho ou de escola a partir de sua conta do Azure criada com uma ID Microsoft, consulte [Associar um Diretório do AD do Azure com uma nova Assinatura do Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Se você achar que você já deve ter uma ID organizacional, você precisará falar com a pessoa que criou a conta para você.
 
 ### Etapa 3: escolha a sua assinatura do Azure
 
@@ -57,7 +57,7 @@ Você verá algo semelhante ao que se segue:
     
 ### Etapa 4: colocar o xplat-cli no modo de ARM
 
-Para usar o modo de Gerenciamento de Recursos do Azure \(ARM\) com o xplat-cli, digite `azure config mode arm`. Você verá algo semelhante ao que se segue:
+Para usar o modo de Gerenciamento de Recursos do Azure (ARM) com o xplat-cli, digite `azure config mode arm`. Você verá algo semelhante ao que se segue:
 
     $ azure config mode arm
     info:    New mode is arm

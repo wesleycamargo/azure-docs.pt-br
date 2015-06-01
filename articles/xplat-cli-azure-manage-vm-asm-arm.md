@@ -18,7 +18,7 @@
 
 
 # Comandos equivalentes do Gerenciador de Recursos e de Gerenciamento de Serviços para operações de VM com a CLI do Azure para Mac, Linux e Windows
-Este artigo mostra os comandos equivalentes da CLI do Azure \(interface de linha de comando do Azure\) para criar e gerenciar VMs do Azure nos modos de Gerenciamento de Serviços \(asm\) e Gerenciador de Recursos \(arm\). Use-o como um guia útil para migrar scripts de um modo de comando para outro.
+Este artigo mostra os comandos equivalentes da CLI do Azure (interface de linha de comando do Azure) para criar e gerenciar VMs do Azure nos modos de Gerenciamento de Serviços (asm) e Gerenciador de Recursos (arm). Use-o como um guia útil para migrar scripts de um modo de comando para outro.
 
 * Se você ainda não tiver instalado a CLI do Azure e se conectado à sua assinatura, consulte [Instalar a CLI do Azure para Mac, Linux e Windows](xplat-cli-install.md) e [Conectar-se a uma assinatura da CLI do Azure do Azure para Mac, Linux e Windows](xplat-cli-connect.md). Conecte-se com o método de logon ao usar os comandos do modo arm.
 

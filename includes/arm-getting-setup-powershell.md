@@ -46,7 +46,7 @@ Você receberá o seguinte tipo de informações:
 	-------
 	0.9.0
 
-Se você não tiver a 0.9.0 ou posterior, deve remover o Azure PowerShell usando o Painel de Controle de Programas e Recursos e, em seguida, instalar a versão mais recente. Consulte [How to Install and Configure Azure PowerShell \(Como instalar e configurar o Azure PowerShell\)](powershell-install-configure.md) para obter mais informações.
+Se você não tiver a 0.9.0 ou posterior, deve remover o Azure PowerShell usando o Painel de Controle de Programas e Recursos e, em seguida, instalar a versão mais recente. Consulte [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](powershell-install-configure.md) para obter mais informações.
 
 ### Etapa 2: definir sua conta e assinatura do Azure
 
@@ -78,7 +78,7 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current	
 
-Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription \(Como: conectar-se à sua assinatura\)](powershell-install-configure.md#Connect).
+Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription (Como: conectar-se à sua assinatura)](powershell-install-configure.md#Connect).
 
 ### Etapa 3: alternar para o módulo Gerenciador de Recursos do Azure
 

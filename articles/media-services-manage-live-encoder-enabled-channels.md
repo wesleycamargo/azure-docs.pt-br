@@ -16,14 +16,14 @@
 	ms.date="04/29/2015" 
 	ms.author="juliako"/>
 
-#Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure \(Visualização\)
+#Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure (Visualização)
 
 ##Visão geral
 
 Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-- Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** \(MP4 fragmentado\) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-- Um fluxo de taxa de bits única \(em um dos seguintes formatos: **RTP** \(MPEG TS\)\), **RTMP** ou **Smooth Streaming** \(MP4 fragmentado\)\) é enviado para o **Canal** que está habilitado a realizar a codificação ao vivo com os Serviços de Mídia. O **Canal** então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo \(adaptável\) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes. 
+- Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+- Um fluxo de taxa de bits única (em um dos seguintes formatos: **RTP** (MPEG TS)), **RTMP** ou **Smooth Streaming** (MP4 fragmentado)) é enviado para o **Canal** que está habilitado a realizar a codificação ao vivo com os Serviços de Mídia. O **Canal** então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes. 
 
 	A codificação de um fluxo ao vivo com os Serviços de Mídia está atualmente no modo **Visualização**.
 
@@ -31,13 +31,13 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 
 - **Nenhum** – especifique esse valor, se você planeja usar um codificador ao vivo local, que emitirá um fluxo de múltiplas taxas de bits. Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Para obter mais informações sobre como trabalhar com canais desse tipo, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
-- **Padrão** \(Visualização\) – escolha esse valor se você planeja usar os Serviços de Mídia para codificar seu fluxo ao vivo de taxa de bits única para fluxo de múltiplas taxas de bits.
+- **Padrão** (Visualização) – escolha esse valor se você planeja usar os Serviços de Mídia para codificar seu fluxo ao vivo de taxa de bits única para fluxo de múltiplas taxas de bits.
 
 	A codificação de um fluxo ao vivo com os Serviços de Mídia está atualmente no modo Visualização.
 
->[AZURE.NOTE]Este tópico discute os atributos de canais que estão habilitados para executar codificação ao vivo \(tipo de codificação \*\*Padrão\*\*\). Para obter informações sobre como trabalhar com canais não habilitados a realizar codificação ao vivo, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
+>[AZURE.NOTE]Este tópico discute os atributos de canais que estão habilitados para executar codificação ao vivo (tipo de codificação **Padrão**). Para obter informações sobre como trabalhar com canais não habilitados a realizar codificação ao vivo, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
-O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP \(MPEG TS\); em seguida, ele codifica o fluxo em um fluxo de múltiplas taxas de bits.
+O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG TS); em seguida, ele codifica o fluxo em um fluxo de múltiplas taxas de bits.
 
 ![Fluxo de trabalho ao vivo][live-overview]
 
@@ -52,7 +52,7 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP \(MPEG-TS\). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Essa etapa também pode ser realizada após a criação do canal.
 
@@ -76,24 +76,24 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa \(e, opcionalmente, exclua o ativo\).   
+1. Exclua o programa (e, opcionalmente, exclua o ativo).   
 
 A seção [tarefas de streaming ao vivo](media-services-manage-channels-overview.md#tasks) conduz a tópicos que demonstram como realizar as tarefas descritas acima.
 
 
-##<a id="channel"></a>Configurações de entrada \(ingestão\) do canal
+##<a id="channel"></a>Configurações de entrada (ingestão) do canal
 
 ###<a id="Ingest_Protocols"></a>Protocolo de streaming de ingestão
 
 Se o **Tipo de codificador** está definido como **Padrão**, as opções válidas são:
 
-- **RTP** \(MPEG-TS\): fluxo de transporte de MPEG-2 por RTP.  
+- **RTP** (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.  
 - **RTMP** de taxa de bits única
-- **MP4 fragmentado** de taxa de bits única \(Smooth Streaming\)
+- **MP4 fragmentado** de taxa de bits única (Smooth Streaming)
 
 Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-####RTP \(MPEG TS\) - fluxo de transporte de MPEG-2 por RTP.  
+####RTP (MPEG TS) - fluxo de transporte de MPEG-2 por RTP.  
 
 Caso de uso típico:
 
@@ -101,7 +101,7 @@ Difusores profissionais geralmente trabalham com codificadores ao vivo locais de
 
 Considerações:
 
-- O uso de um fluxo de transporte de programa único \(SPTS\) de entrada é altamente recomendável. Há suporte, no entanto, para uso de faixas de áudio em múltiplos idiomas
+- O uso de um fluxo de transporte de programa único (SPTS) de entrada é altamente recomendável. Há suporte, no entanto, para uso de faixas de áudio em múltiplos idiomas
 - O fluxo de vídeo deve ter uma taxa de bits média abaixo de 15 Mbps
 - A taxa de bits média agregada dos fluxos de áudio deve estar abaixo de 1 Mbps
 - A seguir, a lista dos codecs com suporte:
@@ -174,7 +174,7 @@ Considerações:
 	- Flash Media Live Encoder
 	- Tricaster
 
-####MP4 fragmentado de taxa de bits única \(Smooth Streaming\)
+####MP4 fragmentado de taxa de bits única (Smooth Streaming)
 
 Caso de uso típico:
 
@@ -190,17 +190,17 @@ O mesmo que o mencionado para [RTMP com taxa de bits única](media-services-mana
 - A resolução máxima para o fluxo de entrada de vídeo é 1920x1080, e no máximo 60 campos/segundo se entrelaçado ou 30 quadros por segundo se progressivo.
 
 
-###URLs de ingestão \(pontos de extremidade\) 
+###URLs de ingestão (pontos de extremidade) 
 
-Um canal fornece um ponto de extremidade de entrada \(URL de ingestão\) que você especifica no codificador ao vivo, de modo que o codificador possa enviar fluxos por push para seus canais.
+Um canal fornece um ponto de extremidade de entrada (URL de ingestão) que você especifica no codificador ao vivo, de modo que o codificador possa enviar fluxos por push para seus canais.
 
 Você pode obter as URLs de ingestão depois de criar um canal. Para obter essas URLs, o canal não precisa estar no estado **Executando**. Quando estiver pronto para começar a enviar dados por push para o canal, ele deve estar no estado **Executando**. Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo por meio da URL de visualização.
 
-Você tem a opção de ingerir fluxo ao vivo \(Smooth Streaming\) de MP4 fragmentado por uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS.
+Você tem a opção de ingerir fluxo ao vivo (Smooth Streaming) de MP4 fragmentado por uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS.
 
 ###Endereços IP permitidos
 
-Você pode definir os endereços IP que têm permissão para publicar vídeo para esse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual \(por exemplo, '10.0.0.1'\), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR \(por exemplo, ‘10.0.0.1/22’\), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos \(por exemplo, ‘10.0.0.1\(255.255.252.0\)’\).
+Você pode definir os endereços IP que têm permissão para publicar vídeo para esse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ‘10.0.0.1(255.255.252.0)’).
 
 Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
 
@@ -209,17 +209,17 @@ Se nenhum endereço IP for especificado e não houver definição de regra, nenh
 
 ###URLs de visualização
 
-Os canais fornecem um ponto de extremidade de visualização \(URL de visualização\) que você usa para visualizar e validar seu fluxo antes do processamento e da entrega.
+Os canais fornecem um ponto de extremidade de visualização (URL de visualização) que você usa para visualizar e validar seu fluxo antes do processamento e da entrega.
 
 Você pode obter a URL de visualização quando você cria o canal. Para obter a URL, o canal não precisa estar no estado **Executando**.
 
 Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
 
-**Observação** atualmente o fluxo de visualização só pode ser entregue em formato MP4 fragmentado \(Smooth Streaming\), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal de Gerenciamento do Azure para exibir o fluxo.
+**Observação** atualmente o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal de Gerenciamento do Azure para exibir o fluxo.
 
 ###Endereços IP permitidos
 
-Você pode definir os endereços IP que têm permissão para conectar-se ao ponto de extremidade de visualização. Se nenhum endereço IP for especificado, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um endereço IP individual \(por exemplo, '10.0.0.1'\), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR \(por exemplo, ‘10.0.0.1/22’\), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos \(por exemplo, ‘10.0.0.1\(255.255.252.0\)’\).
+Você pode definir os endereços IP que têm permissão para conectar-se ao ponto de extremidade de visualização. Se nenhum endereço IP for especificado, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ‘10.0.0.1(255.255.252.0)’).
 
 ##Configurações de codificação ao vivo
 
@@ -229,39 +229,39 @@ Esta seção descreve como as configurações para o codificador ao vivo no cana
 
 Você pode especificar a origem para sinais de marcadores de anúncio. O valor padrão é **Api**, que indica que o codificador ao vivo no canal deve escutar buscando um **API do marcador de anúncio** assíncrono.
 
-A outra opção válida é **Scte35** \(permitida apenas se o protocolo de transmissão de ingestão está definido como RTP \(MPEG-TS\). Quando Scte35 for especificado, o codificador ao vivo analisará sinais SCTE-35 do fluxo de entrada RTP \(MPEG-TS\).
+A outra opção válida é **Scte35** (permitida apenas se o protocolo de transmissão de ingestão está definido como RTP (MPEG-TS). Quando Scte35 for especificado, o codificador ao vivo analisará sinais SCTE-35 do fluxo de entrada RTP (MPEG-TS).
 
 ###Legendas CEA 708
 
-Um sinalizador opcional que informa o codificador ao vivo para ignorar quaisquer dados de legendas CEA 708 incorporados no vídeo de entrada. Quando o sinalizador é definido como false \(padrão\), o codificador vai detectar e inserir novamente os dados CEA 708 nos fluxos de vídeo de saída.
+Um sinalizador opcional que informa o codificador ao vivo para ignorar quaisquer dados de legendas CEA 708 incorporados no vídeo de entrada. Quando o sinalizador é definido como false (padrão), o codificador vai detectar e inserir novamente os dados CEA 708 nos fluxos de vídeo de saída.
 
 ###Transmissão de vídeo
 
-Opcional. Descreve o fluxo de vídeo de entrada. Se esse campo não for especificado, o valor padrão é usado. Essa configuração só será permitida se o protocolo de transmissão de entrada for definida como RTP \(MPEG-TS\).
+Opcional. Descreve o fluxo de vídeo de entrada. Se esse campo não for especificado, o valor padrão é usado. Essa configuração só será permitida se o protocolo de transmissão de entrada for definida como RTP (MPEG-TS).
 
 ####Índice
 
-Um índice baseado em zero que especifica qual fluxo de vídeo de entrada deve ser processado pelo codificador ao vivo no canal. Essa configuração se aplica apenas se o protocolo de streaming de ingestão é RTP \(MPEG-TS\).
+Um índice baseado em zero que especifica qual fluxo de vídeo de entrada deve ser processado pelo codificador ao vivo no canal. Essa configuração se aplica apenas se o protocolo de streaming de ingestão é RTP (MPEG-TS).
 
-O valor padrão é zero. É recomendável para enviar um fluxo de transporte de programa único \(SPTS\). Se o fluxo de entrada contém vários programas, o codificador ao vivo analisa a PMT \(tabela de mapa de programa\) na entrada, identifica as entradas que têm um nome de tipo de fluxo de vídeo MPEG-2 ou H.264 e organiza-os na ordem especificada no PMT. O índice baseado em zero, em seguida, é usado para acompanhar a enésima entrada nesse arranjo.
+O valor padrão é zero. É recomendável para enviar um fluxo de transporte de programa único (SPTS). Se o fluxo de entrada contém vários programas, o codificador ao vivo analisa a PMT (tabela de mapa de programa) na entrada, identifica as entradas que têm um nome de tipo de fluxo de vídeo MPEG-2 ou H.264 e organiza-os na ordem especificada no PMT. O índice baseado em zero, em seguida, é usado para acompanhar a enésima entrada nesse arranjo.
 
 ###Fluxo de áudio
 
-Opcional. Descreve os fluxos de áudio de entrada. Se esse campo não for especificado, os valores padrão são usados. Essa configuração só será permitida se o protocolo de transmissão de entrada for definida como RTP \(MPEG-TS\).
+Opcional. Descreve os fluxos de áudio de entrada. Se esse campo não for especificado, os valores padrão são usados. Essa configuração só será permitida se o protocolo de transmissão de entrada for definida como RTP (MPEG-TS).
 
 ####Índice
 
-É recomendável para enviar um fluxo de transporte de programa único \(SPTS\). Se o fluxo de entrada contém vários programas, o codificador ao vivo no canal analisa a PMT \(tabela de mapa de programa\) na entrada, identifica as entradas que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou áudio MPEG-1 ou áudio MPEG-2, e organiza-os na ordem especificada na PMT. O índice baseado em zero, em seguida, é usado para acompanhar a enésima entrada nesse arranjo.
+É recomendável para enviar um fluxo de transporte de programa único (SPTS). Se o fluxo de entrada contém vários programas, o codificador ao vivo no canal analisa a PMT (tabela de mapa de programa) na entrada, identifica as entradas que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou áudio MPEG-1 ou áudio MPEG-2, e organiza-os na ordem especificada na PMT. O índice baseado em zero, em seguida, é usado para acompanhar a enésima entrada nesse arranjo.
 
 ####Linguagem
 
-O identificador de idioma do fluxo de áudio, em conformidade com ISO 639-2, como ENG. Se não estiver presente, o padrão é UND \(indefinido\).
+O identificador de idioma do fluxo de áudio, em conformidade com ISO 639-2, como ENG. Se não estiver presente, o padrão é UND (indefinido).
 
 Pode haver até 8 conjuntos de fluxo de áudio especificados se a entrada para o canal for MPEG-2 TS por RTP. No entanto, não pode haver nenhum par de entradas com o mesmo valor de Índice.
 
 ###<a id="preset"></a>Predefinição do sistema
 
-Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **Default720p** \(padrão\).
+Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **Default720p** (padrão).
 
 **Default720p** codificará o vídeo nas 7 camadas a seguir.
 
@@ -285,11 +285,11 @@ O áudio é codificado como estéreo AAC-LC a 64 kbps, com taxa de amostragem de
 
 ##Sinalização de anúncios
 
-Quando o canal está com codificação ao vivo habilitada, você tem um componente em seu pipeline de processamento de vídeo e pode manipulá-lo. Você pode sinalizar para o canal inserir slates e/ou anúncios no fluxo de saída de taxa de bits adaptável. Slates ainda são imagens que você pode usar para cobrir a transmissão de entrada ao vivo em certos casos \(por exemplo, durante um intervalo comercial\). Sinais de publicidade, são sinais sincronizados que você insere no fluxo de saída para informar o player de vídeo para realizar ações especiais – por exemplo, para alternar para um anúncio no momento apropriado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para uma visão geral do mecanismo de sinalização SCTE-35 usado para essa finalidade. Abaixo está um cenário típico que você poderia implementar em seu evento ao vivo.
+Quando o canal está com codificação ao vivo habilitada, você tem um componente em seu pipeline de processamento de vídeo e pode manipulá-lo. Você pode sinalizar para o canal inserir slates e/ou anúncios no fluxo de saída de taxa de bits adaptável. Slates ainda são imagens que você pode usar para cobrir a transmissão de entrada ao vivo em certos casos (por exemplo, durante um intervalo comercial). Sinais de publicidade, são sinais sincronizados que você insere no fluxo de saída para informar o player de vídeo para realizar ações especiais – por exemplo, para alternar para um anúncio no momento apropriado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para uma visão geral do mecanismo de sinalização SCTE-35 usado para essa finalidade. Abaixo está um cenário típico que você poderia implementar em seu evento ao vivo.
 
 1. Faça com que seus visualizadores obtenham uma imagem PRÉ-EVENTO antes do início do evento.
 1. Faça com que seus visualizadores obtenham uma imagem PÓS-EVENTO após o término do evento.
-1. Faça com que seus visualizadores obtenham uma imagem do EVENTO-DE-ERRO se houver um problema durante o evento \(por exemplo, falta de energia no Estádio\).
+1. Faça com que seus visualizadores obtenham uma imagem do EVENTO-DE-ERRO se houver um problema durante o evento (por exemplo, falta de energia no Estádio).
 1. Envie uma imagem de INTERVALO-COMERCIAL para ocultar a transmissão do evento ao vivo durante um intervalo comercial.
 
 A seguir estão as propriedades que você pode definir ao sinalizar anúncios.
@@ -326,7 +326,7 @@ Quando definida como true, essa configuração configura o codificador ao vivo p
 
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo.
 
-**Observação**: antes de criar o canal, a imagem slate, com resolução máxima de 1920 x 1080, em formato JPEG e com tamanho máximo de 3 megabytes, deve ser carregada como um ativo dedicado \(nenhum outro arquivo deve estar nesse ativo\). O nome do arquivo deve ter uma extensão *.jpg e esse AssetFile deve ser marcado como o arquivo principal para esse ativo. Esse ativo não pode ser armazenado criptografado.
+**Observação**: antes de criar o canal, a imagem slate, com resolução máxima de 1920 x 1080, em formato JPEG e com tamanho máximo de 3 megabytes, deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). O nome do arquivo deve ter uma extensão *.jpg e esse AssetFile deve ser marcado como o arquivo principal para esse ativo. Esse ativo não pode ser armazenado criptografado.
 
 Se a **ID padrão do ativo do slate** não for especificada, e **Inserir slate no marcador de anúncio** for definido como **true**, uma imagem padrão dos Serviços de Mídia do Azure será usada para ocultar o fluxo de entrada de vídeo. O áudio também é desligado durante o slate.
 
@@ -425,7 +425,7 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 ###Protegendo ativos
 
-Se você deseja criptografar um ativo associado um programa à criptografia AES \(de padrão avançado, usando chaves de criptografia de 128 bits\) ou DRM PlayReady, você precisa criar uma chave de conteúdo.
+Se você deseja criptografar um ativo associado um programa à criptografia AES (de padrão avançado, usando chaves de criptografia de 128 bits) ou DRM PlayReady, você precisa criar uma chave de conteúdo.
 
 Use **.NET** ou **API REST** para criar chaves.
 
@@ -446,7 +446,7 @@ Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publicar ativos \(pela criação de localizadores\) usando o **Portal de Gerenciamento do Azure** ou **.NET**.
+Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciamento do Azure** ou **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 

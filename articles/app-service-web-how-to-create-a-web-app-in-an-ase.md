@@ -18,11 +18,11 @@
 
 # Como criar um aplicativo Web em um Ambiente de Serviço de Aplicativo #
 
-O procedimento para criar aplicativos Web em um ASE \(ambiente de serviço de aplicativo\) é praticamente o mesmo que o usado normalmente. Se você não estiver familiarizado com a capacidade do Ambiente de Serviço de Aplicativo, leia o documento aqui [O que é um ambiente de serviço de aplicativo][WhatisASE].
+O procedimento para criar aplicativos Web em um ASE (ambiente de serviço de aplicativo) é praticamente o mesmo que o usado normalmente. Se você não estiver familiarizado com a capacidade do Ambiente de Serviço de Aplicativo, leia o documento aqui [O que é um ambiente de serviço de aplicativo][WhatisASE].
 
 Para criar um aplicativo Web em um ASE, você precisa primeiro ter um ASE. Para obter informações sobre como criar um ASE, leia aqui o documento [Como criar um ambiente de serviço de aplicativo][HowtoCreateASE].
 
-A primeira etapa para criar um aplicativo Web é criar ou selecionar um ASP \(Plano de serviço de aplicativo\). Criar um ASP em um ASE começa do mesmo modo que ao criá-lo normalmente, ou seja, seguindo o fluxo de criação de aplicativos Web, começando com Novo -\> Web + Móvel -\> Aplicativo Web.
+A primeira etapa para criar um aplicativo Web é criar ou selecionar um ASP (Plano de serviço de aplicativo). Criar um ASP em um ASE começa do mesmo modo que ao criá-lo normalmente, ou seja, seguindo o fluxo de criação de aplicativos Web, começando com Novo -> Web + Móvel -> Aplicativo Web.
 
 ![][1]
 

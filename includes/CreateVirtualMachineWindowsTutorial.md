@@ -91,7 +91,7 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 	![Expandir Arquivo e Serviços de Armazenamento no Gerenciador do Servidor](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)
 	
-10. Na seção **Discos**, há três discos na lista: disk 0, disk 1 e disk 2. O disco 0 é o disco do OS, o disco 1 é um disco de recurso temporário \(que não deve ser usado para o armazenamento de dados\) e o disco 2 é o disco de dados anexado à máquina virtual. Observe que o disco de dados tem uma capacidade de 5 GB, como especificado anteriormente. Clique com o botão direito do mouse no disco 2 e selecione **Inicializar**.
+10. Na seção **Discos**, há três discos na lista: disk 0, disk 1 e disk 2. O disco 0 é o disco do OS, o disco 1 é um disco de recurso temporário (que não deve ser usado para o armazenamento de dados) e o disco 2 é o disco de dados anexado à máquina virtual. Observe que o disco de dados tem uma capacidade de 5 GB, como especificado anteriormente. Clique com o botão direito do mouse no disco 2 e selecione **Inicializar**.
 
 	![Começar inicialização](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 

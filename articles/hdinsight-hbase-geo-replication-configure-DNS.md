@@ -29,11 +29,11 @@ Saiba como adicionar e configurar servidores DNS para redes virtuais do Azure pa
 Este tutorial é a segunda parte da [série][hdinsight-hbase-geo-replication] sobre a criação de replicação geográfica do HBase:
 
 - [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet]
-- Configurar o DNS para as redes virtuais \(esse tutorial\)
+- Configurar o DNS para as redes virtuais (esse tutorial)
 - [Configurar a replicação geográfica HBase][hdinsight-hbase-geo-replication]
 
 
-O diagrama a seguir ilustra as duas redes virtuais criadas no [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet]\:
+O diagrama a seguir ilustra as duas redes virtuais criadas no [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet]:
 
 ![Diagrama de rede virtual de replicação de HBase do HDInsight][img-vnet-diagram]
 
@@ -69,14 +69,14 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	- **NOVA SENHA**: 
 4.	Digite:
 	- **SERVIÇO DE NUVEM**: criar um novo serviço de nuvem
-	- **REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL**: \(selecione Contoso-VNet-EU\)
+	- **REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL**: (selecione Contoso-VNet-EU)
 	- **SUB-REDES DE REDE VIRTUAL**: Sub-rede-1
 	- **CONTA DE ARMAZENAMENTO**: usar uma conta de armazenamento gerada automaticamente
 	
-		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
+		O nome da do serviço de nuvem será o mesmo nome da máquina virtual. Neste caso, é Contoso-DNS-EU. Para máquinas virtuais subsequentes, posso escolher usar o mesmo serviço de nuvem.  Todas as máquinas virtuais no mesmo serviço de nuvem compartilham a mesma rede virtual e sufixo de domínio.
 
-		The storage account is used to store the virtual machine image file. 
-	- **PONTOS DE EXTREMIDADE**: \(Role para baixo e selecione **DNS**\) 
+		A conta de armazenamento é usada para armazenar o arquivo de imagem da máquina virtual. 
+	- **PONTOS DE EXTREMIDADE**: (Role para baixo e selecione **DNS**) 
 
 Depois que a máquina virtual é criada, descubra o IP interno e o IP externo.
 
@@ -94,7 +94,7 @@ Depois que a máquina virtual é criada, descubra o IP interno e o IP externo.
 	- REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL: selecione Contoso-VNET-US
 	- SUB-REDES DE REDE VIRTUAL: Sub-rede-1
 	- CONTA DE ARMAZENAMENTO: usar uma conta de armazenamento gerada automaticamente
-	- PONTOS DE EXTREMIDADE: \(selecione DNS\)
+	- PONTOS DE EXTREMIDADE: (selecione DNS)
 
 ##Conjunto de endereços IP estáticos para as duas máquinas virtuais
 
@@ -129,7 +129,7 @@ Servidores DNS requerem endereços IP estáticos. Essa etapa não pode ser feita
 4.	Clique em **Adicionar funções e recursos**.
 5.	Clique em **Próximo**.
 6.	Selecione **Instalação baseada em função ou recurso** e clique em **Avançar**.
-7.	Selecione sua máquina virtual DNS \(ela já deve estar realçada\) e, em seguida, clique em **Próximo**.
+7.	Selecione sua máquina virtual DNS (ela já deve estar realçada) e, em seguida, clique em **Próximo**.
 8.	Marque **Servidor DNS**.
 9.	Clique em **Adicionar recursos** e, em seguida, clique em **Continuar**.
 10.	Clique em **Próximo** três vezes e, em seguida, clique em **Instalar**. 
@@ -202,7 +202,7 @@ Para configurar o encaminhador condicional, você precisa saber os sufixos de do
 
 ##Testar a resolução de nomes entre as redes virtuais
 
-Agora você pode testar a resolução de nomes de host entre as redes virtuais. Ping é bloqueada pelo firewall por padrão. Você pode usar nslookup para resolver as máquinas virtuais do servidor DNS \(você deve usar FQDN\) nas redes ponto a ponto.
+Agora você pode testar a resolução de nomes de host entre as redes virtuais. Ping é bloqueada pelo firewall por padrão. Você pode usar nslookup para resolver as máquinas virtuais do servidor DNS (você deve usar FQDN) nas redes ponto a ponto.
 
 
 ##Próximas etapas

@@ -42,7 +42,7 @@ Para obter informações sobre onde baixar a versão mais recente da biblioteca 
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 
-*    geronimo-jms\_1.1\_spec-1.0.jar
+*    geronimo-jms_1.1_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -136,7 +136,7 @@ ou
 
 	topic.[jndi_name] = [physical_name]
 
-Onde[jndi\_name] e[physical\_name] têm os seguintes significados:
+Onde[jndi_name] e[physical_name] têm os seguintes significados:
 
 <table>
   <tr>

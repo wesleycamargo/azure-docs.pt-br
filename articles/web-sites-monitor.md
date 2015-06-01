@@ -137,7 +137,7 @@ Diagnóstico pode ser modificado ainda mais adicionando pares de chave/valor à 
 
 - O local no qual os logs do aplicativo serão salvos em relação à raiz da web.
 
-- Valor padrão: ..\..\\LogFiles\\Application
+- Valor padrão: ....\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 

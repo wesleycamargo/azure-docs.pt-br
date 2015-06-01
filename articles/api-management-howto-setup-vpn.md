@@ -42,7 +42,7 @@ Observe que o endereço VIP do proxy será alterado sempre que a VPN for habilit
 
 ## <a name="connect-vpn"> </a>Conectar a um serviço Web via VPN
 
-Depois que o serviço de Gerenciamento de API é conectado à VPN, acessar serviços Web na Rede Virtual é o mesmo que acessar serviços públicos. Basta digitar o endereço local ou o nome do host \(se um servidor DNS tiver sido configurado para a Rede Virtual do Azure\) do serviço Web no campo **URL do serviço Web** ao criar uma nova API ou editar uma já existente.
+Depois que o serviço de Gerenciamento de API é conectado à VPN, acessar serviços Web na Rede Virtual é o mesmo que acessar serviços públicos. Basta digitar o endereço local ou o nome do host (se um servidor DNS tiver sido configurado para a Rede Virtual do Azure) do serviço Web no campo **URL do serviço Web** ao criar uma nova API ou editar uma já existente.
 
 ![Adicionar a API da VPN][api-management-setup-vpn-add-api]
 

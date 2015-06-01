@@ -123,7 +123,7 @@ Servidores físicos protegidos ou máquinas virtuais VMware que executam o Windo
 
 - Um sistema de operacional de 64 bits com suporte: Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 com no mínimo SP1.
 - O nome do host, pontos de montagem, nomes de dispositivo e o caminho de sistema do Windows (por exemplo: C:\Windows) devem ser somente em inglês.
-- O sistema operacional deve ser instalado na unidade C:\.
+- O sistema operacional deve ser instalado na unidade C:.
 - Há suporte a opções de armazenamento regular para servidores do Windows.
 - As regras de firewall em computadores protegidos devem permitir que eles acessem os servidores de configuração e de destino mestres no Azure. 
 - Após o failover, se você quiser se conectar a máquinas virtuais do Windows no Azure com a Área de Trabalho Remota, verifique se ela está habilitada para o computador local. Se você não estiver se conectando por meio de uma VPN, as regras de firewall deverão permitir conexões da Área de Trabalho Remota pela Internet.

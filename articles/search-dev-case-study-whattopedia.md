@@ -36,23 +36,23 @@ Nossa tarefa será atrair os compradores com de uma experiência de pesquisa onl
 
  ![][7]
 
-Após a inscrição para uma assinatura, um varejista assume seu perfil existente \(criado inicialmente por nós de dados adquiridos\), atualizando-o com dados adicionais sobre promoções, marcas em destaque ou anúncios. Recursos internos, como os idiomas falados, moedas aceitas e compras sem cobrança de imposto podem ser automaticamente relatados para melhor atrair os compradores que estão procurando por essas características.
+Após a inscrição para uma assinatura, um varejista assume seu perfil existente (criado inicialmente por nós de dados adquiridos), atualizando-o com dados adicionais sobre promoções, marcas em destaque ou anúncios. Recursos internos, como os idiomas falados, moedas aceitas e compras sem cobrança de imposto podem ser automaticamente relatados para melhor atrair os compradores que estão procurando por essas características.
 
 ## Quem somos
 
-Meu nome é Thomas Segato \(Consultoria Microsoft\) e trabalhei com Jesper Boelling, desenvolvedor líder da WhatToPedia, para projetar a solução.
+Meu nome é Thomas Segato (Consultoria Microsoft) e trabalhei com Jesper Boelling, desenvolvedor líder da WhatToPedia, para projetar a solução.
 
-WhatToPedia é um projeto inicial, realizando testes de marketing dos negócios de seu portal na Suécia, onde mais de 60.000 varejistas são PMEs \(empresas de pequeno e médio porte\) do ramo de tijolos e cimento. Como sabemos que uma pessoa fazendo compras na Europa fala vários idiomas e utiliza várias moedas, podemos criar soluções que atendem um comprador poliglota. Precisávamos de um mecanismo de pesquisa que desse suporte a nossos requisitos multilíngues na Pesquisa do Azure, e encontramos.
+WhatToPedia é um projeto inicial, realizando testes de marketing dos negócios de seu portal na Suécia, onde mais de 60.000 varejistas são PMEs (empresas de pequeno e médio porte) do ramo de tijolos e cimento. Como sabemos que uma pessoa fazendo compras na Europa fala vários idiomas e utiliza várias moedas, podemos criar soluções que atendem um comprador poliglota. Precisávamos de um mecanismo de pesquisa que desse suporte a nossos requisitos multilíngues na Pesquisa do Azure, e encontramos.
 
 A Pesquisa do Azure foi um divisor de águas em nosso projeto. Antes da disponibilidade de Pesquisa do Azure, gastávamos energia considerável trabalhando nos problemas inerentes à criação de nosso próprio mecanismo de pesquisa. Ter a Pesquisa do Azure como um serviço online eliminou o maior obstáculo técnico e administrativo da nossa solução, o que significou para nós chegar ao mercado mais rapidamente e com uma experiência de pesquisa mais robusta.
 
 ## Como fizemos isso
 
-Nossa visão era criar uma infraestrutura completa com base somente em serviços de nuvem. A Microsoft foi escolhida como a plataforma estratégica porque foi o provedor que ofereceu os serviços necessários \(tanto para colaboração quanto para desenvolvimento\), dimensionamento sob demanda e preço acessível.
+Nossa visão era criar uma infraestrutura completa com base somente em serviços de nuvem. A Microsoft foi escolhida como a plataforma estratégica porque foi o provedor que ofereceu os serviços necessários (tanto para colaboração quanto para desenvolvimento), dimensionamento sob demanda e preço acessível.
  
 ### Componentes de alto nível
 
-Criamos uma empresa, não apenas um site. O suporte para o projeto todo exigiu uma gama completa de ferramentas e aplicativos. Adotamos o Visual Studio e o Visual Studio Online para desenvolvimento, o Team Foundation Service \(TFS\) Online para controle do código-fonte e gerenciamento de scrum, o Office 365 para comunicação e colaboração e é claro, o Microsoft Azure para todas as operações relacionadas ao site e a armazenamento. Com o Visual Studio, o IDE forneceu provisionamento direto ao Azure, com integração ao TFS Online que ofereceu um aumento de produtividade adicional.
+Criamos uma empresa, não apenas um site. O suporte para o projeto todo exigiu uma gama completa de ferramentas e aplicativos. Adotamos o Visual Studio e o Visual Studio Online para desenvolvimento, o Team Foundation Service (TFS) Online para controle do código-fonte e gerenciamento de scrum, o Office 365 para comunicação e colaboração e é claro, o Microsoft Azure para todas as operações relacionadas ao site e a armazenamento. Com o Visual Studio, o IDE forneceu provisionamento direto ao Azure, com integração ao TFS Online que ofereceu um aumento de produtividade adicional.
 
 O diagrama a seguir ilustra os componentes de alto nível usados na infraestrutura da WhatToPedia.
 
@@ -87,9 +87,9 @@ Com os varejistas, a história é outra. Aqui, armazenamos as informações de p
 
 Para garantir que os varejistas vejam apenas os dados que pertencem a eles, criamos uma ID de varejista para cada um deles, que é usada posteriormente em todas as operações leitura e gravação envolvendo dados específicos do varejista. Com essa abordagem, descobrimos que nós não precisávamos conceder permissões de banco de dados para varejistas individuais. Todos os revendedores interagem com o sistema em uma função de banco de dados único, com a ID do fornecedor como nossa técnica de isolamento de dados.
 
-Como nosso negócio trata-se totalmente de efeitos cascata \(gerando mais negócios para os varejistas, criando incentivo para que varejistas anunciem e inscrevam-se\), podemos abdicar de trabalhar com compras pela Web. Por isso, você não encontrará um carrinho de compras em nosso site, o que simplifica a nossos requisitos de segurança.
+Como nosso negócio trata-se totalmente de efeitos cascata (gerando mais negócios para os varejistas, criando incentivo para que varejistas anunciem e inscrevam-se), podemos abdicar de trabalhar com compras pela Web. Por isso, você não encontrará um carrinho de compras em nosso site, o que simplifica a nossos requisitos de segurança.
 
-Outra simplificação que empregamos foi terceirizar nossas operações de cobrança e de contas a pagar. Roteando informações de pagamento de clientes diretamente para um terceiro \([SveaWebPay](http://www.sveawebpay.se/)\), podemos reduzir os riscos associados a armazenar e proteger dados confidenciais em nossos armazenamentos de dados.
+Outra simplificação que empregamos foi terceirizar nossas operações de cobrança e de contas a pagar. Roteando informações de pagamento de clientes diretamente para um terceiro ([SveaWebPay](http://www.sveawebpay.se/)), podemos reduzir os riscos associados a armazenar e proteger dados confidenciais em nossos armazenamentos de dados.
 
 ### Mecanismo de Pesquisa
 
@@ -110,26 +110,26 @@ Depois de assistir ao vídeo, estávamos prontos para criar um protótipo com ba
 
 **Configurar o Serviço de Pesquisa do Azure**
 
-1. Faça logon no Portal do Azure e adicione o serviço de Pesquisa à nossa assinatura. Nós usamos a versão compartilhada \(gratuita com nossa assinatura\).
-2. Crie um índice. Para o protótipo, usamos o interface do usuário do portal para definir os campos de pesquisa e criar os perfis de pontuação. Nosso perfil de pontuação é baseado em dados de local: país \| cidade \|endereço \(consulte: Adicionar perfis de pontuação\).
+1. Faça logon no Portal do Azure e adicione o serviço de Pesquisa à nossa assinatura. Nós usamos a versão compartilhada (gratuita com nossa assinatura).
+2. Crie um índice. Para o protótipo, usamos o interface do usuário do portal para definir os campos de pesquisa e criar os perfis de pontuação. Nosso perfil de pontuação é baseado em dados de local: país | cidade |endereço (consulte: Adicionar perfis de pontuação).
 3. Copie a URL de serviço e a chave de Api de administrador para nossos arquivos de configuração. Essa chave está na página de serviço de Pesquisa no portal e é usada para autenticar o serviço.
 	
 **Desenvolver um trabalho do indexador de pesquisa – Console do Windows**
 
 1. Faça a leitura de todos os revendedores no banco de dados.
-2. Chame a API do Serviço de Pesquisa do Azure para carregar revendedores individualmente \(consulte: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Defina uma propriedade no banco de dados de que o revendedor está indexado para indexação incremental. Fizemos isso adicionando um campo “indexador”, que armazena o status do índice de cada perfil \(indexado ou não\). 
+2. Chame a API do Serviço de Pesquisa do Azure para carregar revendedores individualmente (consulte: http://msdn.microsoft.com/library/azure/dn798930.aspx).
+3. Defina uma propriedade no banco de dados de que o revendedor está indexado para indexação incremental. Fizemos isso adicionando um campo “indexador”, que armazena o status do índice de cada perfil (indexado ou não). 
 
 Consulte o apêndice do trecho de código que cria o trabalho do indexador.
 
 **Desenvolver um Portal de Pesquisa da Web – MVC**
 
-1. Chame o serviço de Pesquisa do Azure para obter todos os documentos de pesquisa \(consulte: http://msdn.microsoft.com/library/azure/dn798927.aspx\)
-2. Extraia os itens a seguir por meio da resposta do serviço de pesquisa \(usando o http://james.newtonking.com/json do json.net\)
+1. Chame o serviço de Pesquisa do Azure para obter todos os documentos de pesquisa (consulte: http://msdn.microsoft.com/library/azure/dn798927.aspx)
+2. Extraia os itens a seguir por meio da resposta do serviço de pesquisa (usando o http://james.newtonking.com/json do json.net)
    - Resultados
    - Facetas
    - Contagens de resultados
-   - Desenvolva uma interface do usuário para exibir resultados da pesquisa, facetas e contagens \(já tínhamos isso\).
+   - Desenvolva uma interface do usuário para exibir resultados da pesquisa, facetas e contagens (já tínhamos isso).
 
 Este é o código que usamos para obter os resultados da Pesquisa do Azure:
 
@@ -156,7 +156,7 @@ Cada um dos documentos tem uma propriedade oculta chamada "cidades" criada no ti
 
 ###Armazenamento de dados
 
-Todos os dados \(perfil, assinatura e contabilidade\) são armazenados no Banco de Dados SQL. Todos os arquivos de mídia são armazenados no armazenamento de BLOB do Azure, incluindo imagens e vídeos fornecidos pelo varejista. Usar armazenamento de BLOB separado isola os efeitos do carregamento de arquivos; arquivos nunca são mesclados ao site, portanto, não precisamos reconstruir o site toda vez que adicionamos arquivos.
+Todos os dados (perfil, assinatura e contabilidade) são armazenados no Banco de Dados SQL. Todos os arquivos de mídia são armazenados no armazenamento de BLOB do Azure, incluindo imagens e vídeos fornecidos pelo varejista. Usar armazenamento de BLOB separado isola os efeitos do carregamento de arquivos; arquivos nunca são mesclados ao site, portanto, não precisamos reconstruir o site toda vez que adicionamos arquivos.
 
 Um benefício importante de nosso modelo de armazenamento é que múltiplos desenvolvedores podem compartilhar um único armazenamento para desenvolvimento. Um dos requisitos para o projeto WhatToPedia era ser capaz de criar um ambiente de desenvolvimento em 15 minutos, incluindo vídeos, imagens e dados de revendedor. Ao obter os dados mais recentes do TFS Online, executar um script SQL e executar do trabalho de importação, um ambiente completo pode ser preparado muito rapidamente. Essa prática também aprimora o processo de preparo.
 
@@ -175,11 +175,11 @@ O trabalho é programado para ser executado a cada 5 minutos como uma tarefa age
 
 ###Estratégia de backup
 
-Criamos uma estratégia de backup em várias camadas para recuperação de uma variedade de cenários, desde falha catastrófica até recuperação de uma transação individual. Os ativos para proteger incluem três tipos de dados \(site da Web, dados de assinante e arquivos de mídia\).
+Criamos uma estratégia de backup em várias camadas para recuperação de uma variedade de cenários, desde falha catastrófica até recuperação de uma transação individual. Os ativos para proteger incluem três tipos de dados (site da Web, dados de assinante e arquivos de mídia).
 
 Primeiro, mantendo o código-fonte do site da Web no TFS Online, sabemos que, se o site ficar inativo, podemos recriá-lo republicando por meio do TFS.
 
-Os dados do assinante no Banco de Dados SQL do Azure são o ativo mais confidencial. Fazemos backup deles usando o recurso interno \(consulte [Backup e restauração de Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)\). A agenda de backup inclui um backup completo de banco de dados uma vez por semana, backups diferenciais de banco de dados uma vez por dia e backups de log de transações a cada 5 minutos. Dado o tamanho dos dados, essa solução é mais do que adequada para nosso volumes de dados projetado e imediato.
+Os dados do assinante no Banco de Dados SQL do Azure são o ativo mais confidencial. Fazemos backup deles usando o recurso interno (consulte [Backup e restauração de Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)). A agenda de backup inclui um backup completo de banco de dados uma vez por semana, backups diferenciais de banco de dados uma vez por dia e backups de log de transações a cada 5 minutos. Dado o tamanho dos dados, essa solução é mais do que adequada para nosso volumes de dados projetado e imediato.
 
 Em terceiro lugar, armazenamos arquivos de imagem e vídeo no armazenamento de BLOB do Azure. Estamos ainda avaliando o plano definitivo de backup para esses dados, considerando Cloudberry Explorer para Azure como uma solução em potencial. Por enquanto, usamos um trabalho da Web para copiar imagens e vídeos para outro local.
 
@@ -187,7 +187,7 @@ Em terceiro lugar, armazenamos arquivos de imagem e vídeo no armazenamento de B
 
 Porque já tínhamos dados, foi fácil estabelecer a prova de conceito. Em horas, tivemos um protótipo com facetas e contadores, paginação, perfis classificados e resultados da pesquisa. Os resultados da pesquisa foram tão precisos, que decidimos remover alguns filtros apresentados ao cliente final.
 
-A maior surpresa para nós foi a rapidez com que pudemos aprender a usar a pesquisa do Azure, e quanto obtivemos de volta. Literalmente, estabelecemos prova de conceito em algumas horas \(consulte a observação abaixo\), substituindo 500 linhas de código por 3 linhas de código no aplicativo front-end \(mais um novo trabalho da Web\) e obtendo resultados melhores.
+A maior surpresa para nós foi a rapidez com que pudemos aprender a usar a pesquisa do Azure, e quanto obtivemos de volta. Literalmente, estabelecemos prova de conceito em algumas horas (consulte a observação abaixo), substituindo 500 linhas de código por 3 linhas de código no aplicativo front-end (mais um novo trabalho da Web) e obtendo resultados melhores.
 
 Anteriormente, nosso código implementava paginação, contagens e outros comportamentos que são padrão para pesquisa. Usando a Pesquisa do Azure, os resultados que obtemos incluem as ocorrências de pesquisa, facetas, dados de paginação e contagens – tudo de que precisávamos e tínhamos que fornecer por conta própria. Ela também inclui dinamização e navegação facetada integrada, que não tínhamos em nossa solução original.
 
@@ -207,7 +207,7 @@ A Pesquisa do Azure não foi a única surpresa agradável para nós. Descobrimos
 
 ###Gerenciador de armazenamento de BLOB do Azure para atualizar as imagens
 
-Descobrimos que usar o [Gerenciador de armazenamento de BLOB do Azure](https://azurestorageexplorer.codeplex.com/) \(disponível no codeplex\) é muito útil no gerenciamento de atualizações de imagens e vídeo para o site. Nós o utilizamos como uma ferramenta de desenvolvimento para atualizar manualmente as imagens e vídeos que fazem parte do nosso site principal. Descobrimos que ele é mais flexível do que a implantação de alterações para o portal e elimina uma iteração de teste completa quando precisamos atualizar uma imagem.
+Descobrimos que usar o [Gerenciador de armazenamento de BLOB do Azure](https://azurestorageexplorer.codeplex.com/) (disponível no codeplex) é muito útil no gerenciamento de atualizações de imagens e vídeo para o site. Nós o utilizamos como uma ferramenta de desenvolvimento para atualizar manualmente as imagens e vídeos que fazem parte do nosso site principal. Descobrimos que ele é mais flexível do que a implantação de alterações para o portal e elimina uma iteração de teste completa quando precisamos atualizar uma imagem.
 
 ##Algumas palavras finais
 

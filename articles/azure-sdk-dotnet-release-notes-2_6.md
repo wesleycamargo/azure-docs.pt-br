@@ -21,7 +21,7 @@
 
 Este documento contém as notas de versão do SDK do Azure para .NET 2.6.
 
-Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem \(PaaS\) visando o .NET 4.5.2 ou .NET 4.6 desde que você instale manualmente o .NET Framework de destino na Função do Serviço de Nuvem. Consulte [Install .NET on a Cloud Service Role \(Instalar o .NET em uma Função do Serviço de Nuvem\)](http://go.microsoft.com/fwlink/?LinkID=309796).
+Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem (PaaS) visando o .NET 4.5.2 ou .NET 4.6 desde que você instale manualmente o .NET Framework de destino na Função do Serviço de Nuvem. Consulte [Install .NET on a Cloud Service Role (Instalar o .NET em uma Função do Serviço de Nuvem)](http://go.microsoft.com/fwlink/?LinkID=309796).
 
 
 ##Atualizações do Barramento de Serviço
@@ -36,7 +36,7 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 - **Aprimoramento do IntelliSense**: sugestão de metadados remotos
 
-	Agora as Ferramentas do HDInsight para Visual Studio dão suporte à obtenção de metadados remotos quando você estiver editando o script do Hive. Por exemplo, você pode digitar **SELECT \* FROM** e todos os nomes de tabela serão exibidos. Além disso, os nomes das colunas serão mostrados depois de especificar uma tabela.
+	Agora as Ferramentas do HDInsight para Visual Studio dão suporte à obtenção de metadados remotos quando você estiver editando o script do Hive. Por exemplo, você pode digitar **SELECT * FROM** e todos os nomes de tabela serão exibidos. Além disso, os nomes das colunas serão mostrados depois de especificar uma tabela.
 
 - **Suporte ao emulador do HDInsight**
 
@@ -44,7 +44,7 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 	Para obter mais informações, consulte [este manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
-- **Suporte das Ferramentas do HDInsight para Visual Studio a clusters de Hadoop genéricos** \(visualização\)
+- **Suporte das Ferramentas do HDInsight para Visual Studio a clusters de Hadoop genéricos** (visualização)
 
 	Agora as Ferramentas do HDInsight para Visual Studio dão suporte a clusters de Hadoop genéricos, então você pode usar as Ferramentas do HDInsight para Visual Studio para fazer o seguinte:
 
@@ -66,10 +66,10 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 Os seguintes itens foram atualizados na versão 2.6 do SDK do Azure.
 
-- Publicação do Azure aprimorada para incluir Aplicativos de API \(Interface de Programação de Aplicativo\) do Azure como um destino de implantação.
+- Publicação do Azure aprimorada para incluir Aplicativos de API (Interface de Programação de Aplicativo) do Azure como um destino de implantação.
 - Funcionalidade de provisionamento de Aplicativos de API para habilitar os usuários com a funcionalidade de criação e provisionamento de Aplicativo de API.
 - Gerenciador de Servidores alterado para refletir o novo nó de Serviço de Aplicativo, com aplicativos Web, móveis e API agrupados por grupo de recursos.
-- Gesto para adicionar o cliente de Aplicativo de API do Azure adicionado na maioria dos projetos C\#, o que permitirá a geração automática de Aplicativos de API habilitados para Swagger em execução em uma assinatura do Azure do usuário.
+- Gesto para adicionar o cliente de Aplicativo de API do Azure adicionado na maioria dos projetos C#, o que permitirá a geração automática de Aplicativos de API habilitados para Swagger em execução em uma assinatura do Azure do usuário.
 - As ferramentas de Aplicativos de API e os nós de Serviço de Aplicativo no Gerenciador de Servidores estão disponíveis apenas no Visual Studio 2013. 
 
 ##Atualizações das ferramentas do gerenciador de recursos do Azure
@@ -78,9 +78,9 @@ As ferramentas do gerenciador de recursos do Azure foram atualizadas para inclui
 
 ##Aprimoramentos de diagnóstico para Serviços de Nuvem
 
-O SDK do Azure 2.6 traz de volta o suporte para a coleta de logs de diagnóstico emulador de computação do Azure e a transferência deles para o armazenamento de desenvolvimento. Todos os logs de diagnóstico \(incluindo logs de rastreamento de aplicativo, logs de ETW \(Rastreamento de Eventos para Windows\), contadores de desempenho, logs de infraestrutura e logs de eventos do Windows\) gerados quando o aplicativo está em execução no emulador podem ser transferidos para o armazenamento de desenvolvimento para verificar se o log de diagnóstico está funcionando no computador local.
+O SDK do Azure 2.6 traz de volta o suporte para a coleta de logs de diagnóstico emulador de computação do Azure e a transferência deles para o armazenamento de desenvolvimento. Todos os logs de diagnóstico (incluindo logs de rastreamento de aplicativo, logs de ETW (Rastreamento de Eventos para Windows), contadores de desempenho, logs de infraestrutura e logs de eventos do Windows) gerados quando o aplicativo está em execução no emulador podem ser transferidos para o armazenamento de desenvolvimento para verificar se o log de diagnóstico está funcionando no computador local.
 
-A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo de configuração do serviço \(.cscfg\), tornando mais fácil o uso de contas de armazenamento de diagnóstico diferentes para ambientes diferentes. Há algumas diferenças notáveis entre como a cadeia de conexão funcionava no SDK do Azure 2.4 e no SDK do Azure 2.6. Para obter mais informações sobre como usar a cadeia de conexão do Armazenamento de diagnóstico e como isso afeta seus projetos, consulte [Configuring Diagnostics for Azure Cloud Services \(Configurando o diagnóstico para Serviços de Nuvem do Azure\)](http://go.microsoft.com/fwlink/?LinkID=532784).
+A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo de configuração do serviço (.cscfg), tornando mais fácil o uso de contas de armazenamento de diagnóstico diferentes para ambientes diferentes. Há algumas diferenças notáveis entre como a cadeia de conexão funcionava no SDK do Azure 2.4 e no SDK do Azure 2.6. Para obter mais informações sobre como usar a cadeia de conexão do Armazenamento de diagnóstico e como isso afeta seus projetos, consulte [Configuring Diagnostics for Azure Cloud Services (Configurando o diagnóstico para Serviços de Nuvem do Azure)](http://go.microsoft.com/fwlink/?LinkID=532784).
 
 ##Alterações de última hora
 

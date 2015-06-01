@@ -18,7 +18,7 @@
 
 ## Visão geral
 
-As notas de versão a seguir identificam as questões críticas em aberto para a versão de Fevereiro de 2015 do Microsoft Azure StorSimple. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a terceira versão após o lançamento da Disponibilidade Geral \(GA\) do Microsoft Azure StorSimple.
+As notas de versão a seguir identificam as questões críticas em aberto para a versão de Fevereiro de 2015 do Microsoft Azure StorSimple. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a terceira versão após o lançamento da Disponibilidade Geral (GA) do Microsoft Azure StorSimple.
   
 Esta atualização não altera a versão do software de dispositivo da atualização de Janeiro. Ela continua a ser a versão 6.3.9600.17312. Você pode confirmar que a atualização foi instalada, verificando a data da **Última Atualização**. Se a data for 10/2/2015 ou posterior, a atualização foi instalada com êxito.
 
@@ -37,7 +37,7 @@ Verifique se os seguintes pré-requisitos foram atendidos antes de atualizar seu
 - Verifique se ambos os controladores de dispositivo estão em execução antes de verificar se há atualizações. Se o controlador não estiver em execução, a verificação falhará. Para verificar se os controladores estão em um estado íntegro, navegue até **Status de Hardware** na página **Manutenção**. Se houver componentes que **Precisam de atenção**, contate o Suporte da Microsoft antes de avançar.
 - Verifique se os IPs fixos para o controlador 0 e o controlador 1 são roteáveis e podem conectar-se à Internet, pois são usados para atender às atualizações para o dispositivo. Você pode usar o [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para executar o ping de um endereço conhecido fora da rede, como outlook.com, para verificar se o controlador tem conectividade com a rede externa.
 - Certifique-se de que as portas 80 e 443 estão disponíveis em seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte [Requisitos de rede do dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
-- Se a versão de software do dispositivo for anterior a 6.3.9600.17312 \(atualização de outubro de 2014\), desabilite as portas de Data 2 e Data 3, se habilitadas, antes de iniciar a atualização. Deixar as portas de Data 2 ou Data 3 habilitadas ao aplicar a atualização pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e as E/Ss serão interrompidas durante a atualização.  
+- Se a versão de software do dispositivo for anterior a 6.3.9600.17312 (atualização de outubro de 2014), desabilite as portas de Data 2 e Data 3, se habilitadas, antes de iniciar a atualização. Deixar as portas de Data 2 ou Data 3 habilitadas ao aplicar a atualização pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e as E/Ss serão interrompidas durante a atualização.  
   
 ## O que há de novo na versão de Fevereiro
 
@@ -51,7 +51,7 @@ A tabela a seguir descreve o problema que foi corrigido nessa atualização.
  
 | Nº | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|---------------------------------|-------------------------------|
-| 1 | Redefinição de fábrica | Você tenta executar uma redefinição de fábrica em um dispositivo que originalmente tinha a versão de Distribuição Geral \(versão 6.3.9600.17215\) instalada, mas foi atualizado para a versão de outubro \(versão 6.3.9600.17312\). Falha na redefinição de fábrica e o dispositivo torna-se instável. | Sim | Não |
+| 1 | Redefinição de fábrica | Você tenta executar uma redefinição de fábrica em um dispositivo que originalmente tinha a versão de Distribuição Geral (versão 6.3.9600.17215) instalada, mas foi atualizado para a versão de outubro (versão 6.3.9600.17312). Falha na redefinição de fábrica e o dispositivo torna-se instável. | Sim | Não |
 
 
 ## Problemas conhecidos na versão de Fevereiro
@@ -60,7 +60,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
  
 | Nº | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|----------------------------|-----------------------------|--------------------------|
-| 1 | Redefinição de fábrica | Em alguns casos, quando você executa uma redefinição de fábrica, o dispositivo StorSimple pode estar travado e exibe esta mensagem: **A redefinição de fábrica está em andamento \(fase 8\)**. Isso acontece se você pressionar CTRL + C enquanto o cmdlet estiver em andamento. | Não pressione CTRL + C após iniciar uma redefinição de fábrica. Se você já estiver nesse estado, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
+| 1 | Redefinição de fábrica | Em alguns casos, quando você executa uma redefinição de fábrica, o dispositivo StorSimple pode estar travado e exibe esta mensagem: **A redefinição de fábrica está em andamento (fase 8)**. Isso acontece se você pressionar CTRL + C enquanto o cmdlet estiver em andamento. | Não pressione CTRL + C após iniciar uma redefinição de fábrica. Se você já estiver nesse estado, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 2 | Quorum de disco | Em casos raros, se a maioria dos discos no compartimento de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quorum de disco, em seguida, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. | Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 3 | Falhas de instantâneo de nuvem | Em casos raros, um instantâneo de nuvem pode falhar com o erro **Limite máximo de backup atingido**. Isso ocorre se você exceder 255 clones online no mesmo dispositivo, a partir do mesmo volume original que foi excluído. | | Sim | Sim |
 | 4 | ID de controlador incorreta | Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. | Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. | Sim | Não |
@@ -70,15 +70,15 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 8 | Instalação | Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | | Sim | Não |
 | 9 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações sobre como [Configurar proxy Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sim | Não |
 | 10 | Proxy Web | Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | | Sim | Não |
-| 11 | Latência de nuvem alta e alta carga de trabalho de E/S | Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas \(ordem de segundos\) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". | Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. | Sim | Não |
+| 11 | Latência de nuvem alta e alta carga de trabalho de E/S | Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". | Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. | Sim | Não |
 
 ## Atualizações de dispositivo físico na versão de Fevereiro
 
 Essa atualização corrige o problema de redefinição de fábrica que ocorreu em dispositivos que foram atualizados da versão de GA para a versão de Outubro de 2014. Ela não contém nenhuma outra atualização para o dispositivo StorSimple.
 
-## Controlador SCSI \(SAS\) anexado em série e atualizações de firmware na versão de Fevereiro
+## Controlador SCSI (SAS) anexado em série e atualizações de firmware na versão de Fevereiro
 
-Esta versão não contém nenhuma atualização para o controlador SCSI \(SAS\) anexado em série ou para o firmware. A atualização de driver foi em outubro, versão 2014.
+Esta versão não contém nenhuma atualização para o controlador SCSI (SAS) anexado em série ou para o firmware. A atualização de driver foi em outubro, versão 2014.
 
 ## Atualizações de dispositivo virtual na versão de Fevereiro
 

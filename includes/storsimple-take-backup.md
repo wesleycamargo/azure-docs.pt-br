@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

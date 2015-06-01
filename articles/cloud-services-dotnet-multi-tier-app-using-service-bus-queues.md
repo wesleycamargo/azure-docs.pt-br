@@ -47,7 +47,7 @@ A seguir está uma captura de tela do aplicativo concluído:
 
 Para enviar um pedido para processamento, o componente de UI de front-end, executando a função web, é necessário interagir com a lógica de camada intermediária em execução na função de trabalho. Este exemplo usa o sistema de mensagens agenciado Barramento de Serviço para a comunicação entre as camadas.
 
-Usar o sistema de mensagens agenciado entre as camadas intermediárias e a Web separa os dois componentes. Ao contrário das mensagens diretas \(isto é, TCP ou HTTP\), a camada da Web não se conecta com a camada intermediária diretamente; em vez disso, envia unidades de trabalho, como mensagens, para o Barramento de Serviço, que mantém confiável até a camada intermediária estar pronta para os consumir e processar.
+Usar o sistema de mensagens agenciado entre as camadas intermediárias e a Web separa os dois componentes. Ao contrário das mensagens diretas (isto é, TCP ou HTTP), a camada da Web não se conecta com a camada intermediária diretamente; em vez disso, envia unidades de trabalho, como mensagens, para o Barramento de Serviço, que mantém confiável até a camada intermediária estar pronta para os consumir e processar.
 
 O Barramento de Serviço fornece duas entidades para dar suporte ao sistema de mensagens agenciado: filas e tópicos. Com filas, cada mensagem enviada para a fila é consumida por um único destinatário. Tópicos dão suporte ao padrão de publicação/assinatura em que cada mensagem publicada é disponibilizada para uma assinatura registrada com o tópico. Cada assinatura mantém logicamente sua própria fila de mensagens. As assinaturas também podem ser configuradas com as regras de filtro que restringem o conjunto de mensagens passado para a fila de assinatura para aquelas que correspondem ao filtro. Este exemplo usa as filas do Barramento de Serviço.
 
@@ -57,7 +57,7 @@ Esse mecanismo de comunicação oferece diversas vantagens sobre mensagens diret
 
 -   **Desacoplamento temporal.** Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. O ServiceBus armazena de forma confiável as mensagens até que a parte de consumo esteja prontapara recebê-las. Isso permite que os componentes do aplicativodistribuído sejam desconectados voluntariamente, por exemplo, paramanutenção ou devido a uma falha de componente, sem afetar osistema como um todo. Além disso, o aplicativo de consumo só precisaser colocado online durante determinadas horas do dia.
 
--   **Nivelamento de carga**. Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo \(o função de trabalho\) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila crescerá e contrairá conforme a carga de entradavariar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
+-   **Nivelamento de carga**. Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo (o função de trabalho) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila crescerá e contrairá conforme a carga de entradavariar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
 
 -   **Balanceamento de carga.** Conforme a carga aumenta, mais processos de função de trabalho podem seradicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga com base em recepçãopermite uma utilização ideal das máquinas de trabalho mesmo se asmáquinas de trabalho diferem em termos de capacidade de processamento, pois elasirão receber mensagens em sua própria taxa máxima. Esse padrão geralmente échamado de padrão de consumidor concorrente.
 
@@ -89,7 +89,7 @@ Antes de iniciar o desenvolvimento de seu aplicativo do Azure, baixe as ferramen
 
 ## Configurar o namespace do Barramento de Serviço
 
-A próxima etapa é para criar um namespace de serviço e para obter uma chave de Assinatura de Acesso Compartilhado \(SAS\). Um namespace de serviço fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS será gerada pelo sistema quando um namespace de serviço for criado. A combinação do namespace de serviço e uma chave SAS oferece as credenciais para o Barramento de Serviço para autenticar o acesso a um aplicativo.
+A próxima etapa é para criar um namespace de serviço e para obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace de serviço fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS será gerada pelo sistema quando um namespace de serviço for criado. A combinação do namespace de serviço e uma chave SAS oferece as credenciais para o Barramento de Serviço para autenticar o acesso a um aplicativo.
 
 Você também pode gerenciar namespaces e entidades de mensagens do Barramento de Serviço usando o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces dentro do portal.
 
@@ -105,7 +105,7 @@ Você também pode gerenciar namespaces e entidades de mensagens do Barramento d
 
 4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![][7]
 
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado \(certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação\). Além disso, certifique-se de selecionar **Sistema de mensagens** no campo do namespace **Tipo** e **Padrão** no campo **Camada de mensagens**.
+5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação). Além disso, certifique-se de selecionar **Sistema de mensagens** no campo do namespace **Tipo** e **Padrão** no campo **Camada de mensagens**.
 
     IMPORTANTE: selecione a **mesma região** que você pretende escolher para implantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
@@ -153,14 +153,14 @@ Nesta seção, você compilará o front-end de seu aplicativo. Primeiro, você c
 
 ### Criar o projeto
 
-1.  Usando privilégios de administrador, inicie o Microsoft Visual Studio 2013 ou o Microsoft Visual Studio Express. Para iniciar o Visual Studio com privilégios de administrador, clique com o botão direito do mouse em **Microsoft Visual Studio 2013 \(ou Microsoft Visual Studio Express\)** e em **Executar como administrador**. O emulador de computação do Azure, abordado mais à frente neste guia, exige que o Visual Studio seja iniciado com privilégios de administrador.
+1.  Usando privilégios de administrador, inicie o Microsoft Visual Studio 2013 ou o Microsoft Visual Studio Express. Para iniciar o Visual Studio com privilégios de administrador, clique com o botão direito do mouse em **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e em **Executar como administrador**. O emulador de computação do Azure, abordado mais à frente neste guia, exige que o Visual Studio seja iniciado com privilégios de administrador.
 
     No Visual Studio, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**.
 
     ![][8]
 
 
-2.  Em **Modelos Instalados**, em **Visual C\#**, clique em **Nuvem** e em **Serviço de Nuvem do Azure**. Nomeie o projeto **MultiTierApp**. Em seguida, clique em **OK**.
+2.  Em **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e em **Serviço de Nuvem do Azure**. Nomeie o projeto **MultiTierApp**. Em seguida, clique em **OK**.
 
     ![][9]
 
@@ -168,7 +168,7 @@ Nesta seção, você compilará o front-end de seu aplicativo. Primeiro, você c
 
     ![][10]
 
-4.  Focalize **WebRole1** em **solução do Serviço de Nuvem do Azure**, clique no ícone de lápis e renomeie a função web para **FrontendWebRole**. Clique em **OK**. \(Certifique-se de inserir "Frontend" com "e" minúsculo, não "FrontEnd".\)
+4.  Focalize **WebRole1** em **solução do Serviço de Nuvem do Azure**, clique no ícone de lápis e renomeie a função web para **FrontendWebRole**. Clique em **OK**. (Certifique-se de inserir "Frontend" com "e" minúsculo, não "FrontEnd".)
 
     ![][11]
 
@@ -178,7 +178,7 @@ Nesta seção, você compilará o front-end de seu aplicativo. Primeiro, você c
 
 6.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências**, clique em **Gerenciar Pacotes NuGet...** ou **Adicionar Referência do Pacote de Biblioteca**.
 
-7.  Selecione **Online** no lado esquerdo da caixa de diálogo. Pesquise "\*\*Barramento de Serviço\*\*" e selecione o item **Barramento de Serviço do Microsoft Azure**. Em seguida, conclua a instalação e feche essa caixa de diálogo.
+7.  Selecione **Online** no lado esquerdo da caixa de diálogo. Pesquise "**Barramento de Serviço**" e selecione o item **Barramento de Serviço do Microsoft Azure**. Em seguida, conclua a instalação e feche essa caixa de diálogo.
 
     ![][13]
 
@@ -260,7 +260,7 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 4.  No menu **Compilar**, clique em **Solução de Compilação**.
 
-5.  Agora, você criará a exibição do método **Submit\(\)** criado acima. Clique com o botão direito do mouse no método Submit\(\) e selecione **Adicionar Exibição**
+5.  Agora, você criará a exibição do método **Submit()** criado acima. Clique com o botão direito do mouse no método Submit() e selecione **Adicionar Exibição**
 
     ![][14]
 
@@ -270,7 +270,7 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 7.  Clique em **Adicionar**.
 
-8.  Agora, você alterará o nome exibido de seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\\\Layout.cshtml** para abri-lo no editor do Visual Studio.
+8.  Agora, você alterará o nome exibido de seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\\\\Layout.cshtml** para abri-lo no editor do Visual Studio.
 
 9.  Altere todas as ocorrências de **Meu aplicativo ASP.NET** para **Produtos da LITWARE**.
 
@@ -278,7 +278,7 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 	![][28]
 
-11. Por fim, modifique a página de envio para incluir algumas informações sobre a fila. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Home\\Submit.cshtml** para abri-lo no editor do Visual Studio. Adicione a linha a seguir depois de **&lt;h2\>Enviar&lt;/h2\>**. Por enquanto, o **ViewBag.MessageCount** permanece vazio. Você irá preenchê-lo mais tarde.
+11. Por fim, modifique a página de envio para incluir algumas informações sobre a fila. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Home\\Submit.cshtml** para abri-lo no editor do Visual Studio. Adicione a linha a seguir depois de **&lt;h2>Enviar&lt;/h2>**. Por enquanto, o **ViewBag.MessageCount** permanece vazio. Você irá preenchê-lo mais tarde.
 
         <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
 
@@ -291,11 +291,11 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 Agora, você adicionará o código para enviar itens para uma fila. Primeiro, você criará uma classe que contém as informações de conexão de fila do Barramento de Serviço. Em seguida, você inicializará a conexão do **Global.aspx.cs**. Por fim, você atualizará o código de envio criado anteriormente em **HomeController.cs** para efetivamente enviar itens para uma fila do Barramento de Serviço.
 
-1.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **FrontendWebRole** \(clique com o botão direito no projeto, e não na função\). Clique em **Adicionar** e depois em **Classe**.
+1.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **FrontendWebRole** (clique com o botão direito no projeto, e não na função). Clique em **Adicionar** e depois em **Classe**.
 
 2.  Nomeie a classe **QueueConnector.cs**. Clique em **Adicionar** para criar a classe.
 
-3.  Agora, você adicionará o código que encapsula as informações da conexão e inicializará a conexão em uma fila do Barramento de Serviço. Em QueueConnector.cs, adicione o seguinte código e insira valores para **Namespace** \(seu namespace de serviço\) e **yourKey**, que é a chave de SAS obtida do [portal de gerenciamento do Azure][Azure Management Portal] anteriormente.
+3.  Agora, você adicionará o código que encapsula as informações da conexão e inicializará a conexão em uma fila do Barramento de Serviço. Em QueueConnector.cs, adicione o seguinte código e insira valores para **Namespace** (seu namespace de serviço) e **yourKey**, que é a chave de SAS obtida do [portal de gerenciamento do Azure][Azure Management Portal] anteriormente.
 
         using System;
         using System.Collections.Generic;
@@ -359,13 +359,13 @@ Agora, você adicionará o código para enviar itens para uma fila. Primeiro, vo
 
 4.  Agora, você garantirá que o método **Initialize** seja chamado. No **Gerenciador de Soluções**, clique duas vezes em **Global.asax\\Global.asax.cs**.
 
-5.  Adicione a linha a seguir na parte inferior do método **Application\_Start**:
+5.  Adicione a linha a seguir na parte inferior do método **Application_Start**:
 
         FrontendWebRole.QueueConnector.Initialize();
 
 6.  Por fim, você atualizará o código da Web criado anteriormente, para enviar itens para a fila. No **Gerenciador de Soluções**, clique duas vezes em **Controllers\\HomeController.cs** criado anteriormente.
 
-7.  Atualize o método **Submit\(\)** da seguinte maneira para obter a contagem de mensagens da fila:
+7.  Atualize o método **Submit()** da seguinte maneira para obter a contagem de mensagens da fila:
 
         public ActionResult Submit()
         {
@@ -380,7 +380,7 @@ Agora, você adicionará o código para enviar itens para uma fila. Primeiro, vo
             return View();
         }
 
-8.  Atualize o método **Submit\(OnlineOrder order\)** da seguinte maneira para enviar informações do pedido para a fila:
+8.  Atualize o método **Submit(OnlineOrder order)** da seguinte maneira para enviar informações do pedido para a fila:
 
         public ActionResult Submit(OnlineOrder order)
         {
@@ -407,11 +407,11 @@ Agora, você adicionará o código para enviar itens para uma fila. Primeiro, vo
 
 O método **GetSettings** na classe **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** permite que você leia as definições de configuração do armazenamento de configuração para sua plataforma. Por exemplo, se seu código está sendo executado em uma função da Web ou de trabalho, o método **GetSettings** lerá o arquivo ServiceConfiguration.cscfg e se seu código estiver em execução em um aplicativo de console padrão o método **GetSettings** lerá o arquivo app. config.
 
-Se você armazenar uma cadeia de conexão no seu namespace do Barramento de Serviço em um arquivo de configuração, você poderá usar o método **GetSettings** para ler uma cadeia de conexão que você pode usar para criar uma instância de um objeto **NamespaceMananger**. Você pode usar uma instância **NamespaceMananger** para configurar o Namespace do Barramento de Serviço por meio de programação. Você pode usar a mesma cadeia de conexão para criar uma instância de objetos do cliente \(como objeto **QueueClient**, **TopicClient** e **EventHubClient**\) que você pode usar para executar operações de tempo de execução como enviar e receber mensagens.
+Se você armazenar uma cadeia de conexão no seu namespace do Barramento de Serviço em um arquivo de configuração, você poderá usar o método **GetSettings** para ler uma cadeia de conexão que você pode usar para criar uma instância de um objeto **NamespaceMananger**. Você pode usar uma instância **NamespaceMananger** para configurar o Namespace do Barramento de Serviço por meio de programação. Você pode usar a mesma cadeia de conexão para criar uma instância de objetos do cliente (como objeto **QueueClient**, **TopicClient** e **EventHubClient**) que você pode usar para executar operações de tempo de execução como enviar e receber mensagens.
 
 ### Cadeia de conexão
 
-Para criar uma instância de um cliente \(por exemplo, um **QueueClient** do Barramento de Serviço\), você pode representar as informações de configuração como uma cadeia de conexão. No lado do cliente, há um `CreateFromConnectionString()` método que cria uma instância desse tipo de cliente usando essa cadeia de conexão. Por exemplo, dada a seção de configuração a seguir:
+Para criar uma instância de um cliente (por exemplo, um **QueueClient** do Barramento de Serviço), você pode representar as informações de configuração como uma cadeia de conexão. No lado do cliente, há um `CreateFromConnectionString()` método que cria uma instância desse tipo de cliente usando essa cadeia de conexão. Por exemplo, dada a seção de configuração a seguir:
 
 	<ConfigurationSettings>
     ...
@@ -460,13 +460,13 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 
 	![][24]
 
-7.  No Gerenciador de Soluções, clique com botão direito do mouse em **OrderProcessingRole** criado na etapa 5 \(não se esqueça de clicar com o botão direito do mouse em **OrderProcessingRole** em **Funções** e não na classe\). Clique em **Propriedades**.
+7.  No Gerenciador de Soluções, clique com botão direito do mouse em **OrderProcessingRole** criado na etapa 5 (não se esqueça de clicar com o botão direito do mouse em **OrderProcessingRole** em **Funções** e não na classe). Clique em **Propriedades**.
 
 8.  Na guia **Configurações** do diálogo **Propriedades**, clique dentro da caixa **Valor** para **Microsoft.ServiceBus.ConnectionString** e cole o valor do ponto de extremidade que você copiou na etapa 6.
 
 	![][25]
 
-9.  Crie uma classe **OnlineOrder** para representar os pedidos conforme você os processa na fila. Você pode reutilizar uma classe já criada. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **OrderProcessingRole** \(clique com o botão direito do mouse no projeto, e não na função\). Clique em **Adicionar** e clique em **Item Existente**.
+9.  Crie uma classe **OnlineOrder** para representar os pedidos conforme você os processa na fila. Você pode reutilizar uma classe já criada. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **OrderProcessingRole** (clique com o botão direito do mouse no projeto, e não na função). Clique em **Adicionar** e clique em **Item Existente**.
 
 10. Navegue até a subpasta de **FrontendWebRole\\Models** e clique duas vezes em **OnlineOrder.cs** para adicioná-la a esse projeto.
 

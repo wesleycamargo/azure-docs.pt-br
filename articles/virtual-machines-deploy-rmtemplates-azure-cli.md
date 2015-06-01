@@ -22,7 +22,7 @@ Este artigo fornece diretrizes sobre como automatizar tarefas comuns para implan
 
 ## Preparando-se
 
-Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma ID do trabalho ou da escola \(também chamada de ID organizacional\).
+Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma ID do trabalho ou da escola (também chamada de ID organizacional).
 
 ### Etapa 1: atualizar sua versão da CLI do Azure para 0.9.0
 
@@ -60,7 +60,7 @@ com a ID ou o nome da assinatura que tem os recursos que você deseja gerenciar.
 
 ### Etapa 3: alternar para o modo de grupo de recursos da CLI do Azure
 
-Por padrão, a CLI do Azure é iniciada no modo de gerenciamento de serviços \(modo \*\*asm\*\*\). Tipo
+Por padrão, a CLI do Azure é iniciada no modo de gerenciamento de serviços (modo **asm**). Tipo
 
 	azure config mode arm
 
@@ -70,14 +70,14 @@ para alternar para o modo de grupo de recursos.
 
 ## Noções básicas sobre grupos de recursos e modelos de recursos do Azure
 
-A maioria dos aplicativos é criada por meio de uma combinação de diferentes tipos de recursos \(como uma ou mais VMs e contas de Armazenamento, um banco de dados SQL, uma Rede Virtual ou uma rede de fornecimento de conteúdo, ou *CDN*\). A API de gerenciamento de serviços do Azure padrão e o portal clássico do Azure representavam esses itens usando uma abordagem de serviço a serviço, que exige que você implante e gerencie cada serviço individualmente \(ou localize outras ferramentas para fazê-lo\), não como uma única unidade lógica de implantação.
+A maioria dos aplicativos é criada por meio de uma combinação de diferentes tipos de recursos (como uma ou mais VMs e contas de Armazenamento, um banco de dados SQL, uma Rede Virtual ou uma rede de fornecimento de conteúdo, ou *CDN*). A API de gerenciamento de serviços do Azure padrão e o portal clássico do Azure representavam esses itens usando uma abordagem de serviço a serviço, que exige que você implante e gerencie cada serviço individualmente (ou localize outras ferramentas para fazê-lo), não como uma única unidade lógica de implantação.
 
-Com os *Modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses recursos diferentes como uma unidade lógica de implantação de forma declarativa. Em vez de informar imperativamente ao Azure o que implantar, em um comando após o outro, você descreve a implantação inteira em um arquivo JSON \(todos os recursos e configurações e parâmetros de implantação associados\) e instrui o Azure a implantar esses recursos como um grupo.
+Com os *Modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses recursos diferentes como uma unidade lógica de implantação de forma declarativa. Em vez de informar imperativamente ao Azure o que implantar, em um comando após o outro, você descreve a implantação inteira em um arquivo JSON (todos os recursos e configurações e parâmetros de implantação associados) e instrui o Azure a implantar esses recursos como um grupo.
 
 Em seguida, você pode gerenciar o ciclo de vida geral dos recursos do grupo usando os comandos de gerenciamento de recursos da CLI do Azure para:
 
 - Parar, iniciar ou excluir todos os recursos do grupo de uma só vez. 
-- Aplicar regras de RBAC \(Controle de Acesso Baseado em Função\) para bloquear permissões de segurança em relação a eles. 
+- Aplicar regras de RBAC (Controle de Acesso Baseado em Função) para bloquear permissões de segurança em relação a eles. 
 - Auditar operações. 
 - Marcar recursos com metadados adicionais para obter melhor acompanhamento. 
 
@@ -107,21 +107,21 @@ Em segundo lugar, você precisará de uma imagem. Para localizar uma imagem com 
 
 | Editor | ImageOffer | ImageSku | ComputeImageVersion |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7\.0.201503 |
-| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
-| CoreOS | CoreOS | Beta | 647\.0.0 |
-| CoreOS | CoreOS | Estável | 633\.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12\.0.2430 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
-| Canônico | UbuntuServer | 14\.04.1-LTS | 14\.04.201501230 |
-| Canônico | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5\.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
+| OpenLogic | CentOS | 7 | 7.0.201503 |
+| OpenLogic | CentOS | 7.1 | 7.1.201504 |
+| CoreOS | CoreOS | Beta | 647.0.0 |
+| CoreOS | CoreOS | Estável | 633.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
+| Canônico | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canônico | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
 
 Basta criar sua VM inserindo o `azure vm quick-create command` e se preparando-se para os prompts. O resultado deve ser semelhante a este.
 
@@ -216,9 +216,9 @@ Use as instruções nestas seções para implantar uma nova VM do Azure usando u
  
 ### Etapa 1: examinar o arquivo JSON para os parâmetros de modelo
 
-Aqui está o conteúdo do arquivo JSON para o modelo. \(O modelo também está localizado no GitHub [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json).\)
+Aqui está o conteúdo do arquivo JSON para o modelo. (O modelo também está localizado no GitHub [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json).)
 
-Os modelos são flexíveis, assim, o designer pode ter optado por lhe fornecer muitos parâmetros ou oferecer apenas alguns criando um modelo mais fixo. Para coletar as informações, você precisa passar o modelo como parâmetros, abrir o arquivo de modelo \(este tópico tem um modelo embutido, abaixo\) e examinar os valores de **parâmetros**.
+Os modelos são flexíveis, assim, o designer pode ter optado por lhe fornecer muitos parâmetros ou oferecer apenas alguns criando um modelo mais fixo. Para coletar as informações, você precisa passar o modelo como parâmetros, abrir o arquivo de modelo (este tópico tem um modelo embutido, abaixo) e examinar os valores de **parâmetros**.
 
 Nesse caso, o modelo abaixo pedirá:
 
@@ -432,8 +432,8 @@ Para criar o grupo de recursos, digite `azure group create <group name> <locatio
 
 Agora, para criar a implantação, chame `azure group deployment create` e passe:
 
-- o arquivo de modelo \(caso você tenha salvou o modelo JSON acima em um arquivo local\) 
-- um uri de modelo \(caso você deseje apontar para o arquivo no Github ou em algum outro endereço da Web\)
+- o arquivo de modelo (caso você tenha salvou o modelo JSON acima em um arquivo local) 
+- um uri de modelo (caso você deseje apontar para o arquivo no Github ou em algum outro endereço da Web)
 - o grupo de recursos no qual você deseja implantar
 - e um nome de implantação opcional. 
 
@@ -479,7 +479,7 @@ Você receberá o seguinte tipo de informações:
 
 ## Tarefa comum: criar uma imagem de VM personalizada
 
-Você já viu o uso básico dos modelos acima. Portanto, agora podemos usar instruções semelhantes para criar uma VM personalizada por meio de um arquivo .vhd específico no Azure com um modelo usando a CLI do Azure. A diferença aqui é que esse modelo cria uma única máquina virtual de um VHD \(disco rígido virtual\) especificado.
+Você já viu o uso básico dos modelos acima. Portanto, agora podemos usar instruções semelhantes para criar uma VM personalizada por meio de um arquivo .vhd específico no Azure com um modelo usando a CLI do Azure. A diferença aqui é que esse modelo cria uma única máquina virtual de um VHD (disco rígido virtual) especificado.
 
 ### Etapa 1: examinar o arquivo JSON do modelo
 
@@ -693,7 +693,7 @@ Agora, você está pronto para criar uma nova máquina virtual com base no .vhd.
     data:    
     info:    group create command OK
     
-Em seguida, crie a implantação usando a opção `--template-uri` para chamar o modelo diretamente \(ou você pode usar a opção `--template-file` para usar um arquivo que tenha salvo localmente\). Observe que, como o modelo tem padrões especificados, você só será solicitado a fornecer alguns itens. Se você implantar o modelo em locais diferentes, talvez ocorram alguns conflitos de nomenclatura com os valores padrão \(particularmente com o nome DNS que você criar\).
+Em seguida, crie a implantação usando a opção `--template-uri` para chamar o modelo diretamente (ou você pode usar a opção `--template-file` para usar um arquivo que tenha salvo localmente). Observe que, como o modelo tem padrões especificados, você só será solicitado a fornecer alguns itens. Se você implantar o modelo em locais diferentes, talvez ocorram alguns conflitos de nomenclatura com os valores padrão (particularmente com o nome DNS que você criar).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1166,17 +1166,17 @@ Lembre-se de que você pode reimplantar em um grupo de recursos, mas, se termina
     
 ## Mostrar o log para uma implantação de grupo de recursos
 
-Essa é uma tarefa bastante comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe muitas informações úteis para entender por que algo aconteceu ou não. \(Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, consulte [Solução de problemas de implantações de grupos de recursos no Azure](resource-group-deploy-debug.md).\)
+Essa é uma tarefa bastante comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe muitas informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, consulte [Solução de problemas de implantações de grupos de recursos no Azure](resource-group-deploy-debug.md).)
 
 Para lidar com falhas específicas, por exemplo, você pode usar ferramentas como **jq** para consultar itens de forma um pouco mais precisa, por exemplo, quais falhas individuais precisam ser corrigidas. O exemplo a seguir usa **jq** para analisar um log de implantação para **lbgroup**, procurando falhas
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties' 
 
-Você pode descobrir rapidamente qual foi o problema, corrigi-lo e tentar novamente. No caso a seguir, o modelo estava criando duas VMs ao mesmo tempo, o que criava um bloqueio no .vhd. \(Depois que o modelo foi modificado, a implantação teve êxito rapidamente.\)
+Você pode descobrir rapidamente qual foi o problema, corrigi-lo e tentar novamente. No caso a seguir, o modelo estava criando duas VMs ao mesmo tempo, o que criava um bloqueio no .vhd. (Depois que o modelo foi modificado, a implantação teve êxito rapidamente.)
 
     {
       "statusCode": "Conflict",
-      "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+      "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
     
 
@@ -1271,7 +1271,7 @@ Execute este comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP \(IP virtual\) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br> Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
+>[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br> Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
 
 ## Iniciar uma VM
 
@@ -1289,7 +1289,7 @@ Para anexar um disco de dados existente, execute este comando:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
     
-Em seguida, você precisará montar o disco, como faria normalmente no Linux \(ou no Windows\).
+Em seguida, você precisará montar o disco, como faria normalmente no Linux (ou no Windows).
 
 
 ## Próximas etapas

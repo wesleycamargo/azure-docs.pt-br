@@ -18,16 +18,16 @@
 
 
 # Como criar e gerenciar campanhas de notificação por push
-Você pode usar a seção Alcance da interface do usuário para criar uma nova campanha de envio com uma fórmula complexa, fornecendo todas as informações necessárias para enviar uma notificação por push. As opções de uma campanha de Envio por push variam um pouco dependendo dos quatro tipos de campanha: Anúncios, Pesquisas, Envio de Dados por Push e Blocos \(apenas Windows Phone\).
+Você pode usar a seção Alcance da interface do usuário para criar uma nova campanha de envio com uma fórmula complexa, fornecendo todas as informações necessárias para enviar uma notificação por push. As opções de uma campanha de Envio por push variam um pouco dependendo dos quatro tipos de campanha: Anúncios, Pesquisas, Envio de Dados por Push e Blocos (apenas Windows Phone).
 
 ### As Opções se Aplicam a:
-- Idiomas: todos \(Anúncios, Pesquisas, Envio de Dados por Push, Blocos\)
-- Campanha: todos \(Anúncios, Pesquisas, Envio de Dados por Push, Blocos\)
+- Idiomas: todos (Anúncios, Pesquisas, Envio de Dados por Push, Blocos)
+- Campanha: todos (Anúncios, Pesquisas, Envio de Dados por Push, Blocos)
 - Notificação: Anúncios, Pesquisas
 - Conteúdo: exclusivo para cada tipo de campanha
-- Público-alvo: todos \(Anúncios, Pesquisas, Envio de Dados por Push, Blocos\)
+- Público-alvo: todos (Anúncios, Pesquisas, Envio de Dados por Push, Blocos)
 - Período: Anúncios, Pesquisas, Blocos
-- Teste: todos \(Anúncios, Pesquisas, Envio de Dados por Push, Blocos\)
+- Teste: todos (Anúncios, Pesquisas, Envio de Dados por Push, Blocos)
  
 ![Reach-Campaign1][20]
 
@@ -46,47 +46,47 @@ Você pode usar o menu suspenso de idiomas para enviar uma versão diferente do 
 - Teste: pode ser enviado para cada idioma por vez
  
 ### Idiomas com suporte:
-- Árabe \(ar\) 
-- Búlgaro \(bg\) 
-- Catalão \(ca\) 
-- Chinês \(zh\) 
-- Croata \(h\) 
-- Tcheco \(cs\) 
-- Dinamarquês \(da\) 
-- Holandês \(nl\) 
-- Inglês \(en\) 
-- Finlandês \(fi\) 
-- Francês \(fr\) 
-- Alemão \(de\) 
-- Grego \(el\) 
-- Hebraico \(he\) 
-- Híndi \(Olá\) 
-- Húngaro \(hu\) 
-- Indonésio \(id\) 
-- Italiano \(it\) 
-- Japonês \(ja\) 
-- Coreano \(ko\) 
-- Letão \(lv\) 
-- Lituano \(lt\) 
-- Malaio \(macroidioma\) \(ms\) 
-- Norueguês Bokmål \(nb\) 
-- Polonês \(pl\) 
-- Português \(Portugal\) 
-- Romeno \(ro\) 
-- Russo \(ru\) 
-- Sérvio \(sr\) 
-- Eslovaco \(discos\) 
-- Esloveno \(sl\) 
-- Espanhol \(es\) 
-- Sueco \(sv\) 
-- Tagalo \(NFA\) 
-- Tailandês \(th\) 
-- Turco \(tr\) 
-- Ucraniano \(uk\) 
-- Vietnamita \(vi\) 
+- Árabe (ar) 
+- Búlgaro (bg) 
+- Catalão (ca) 
+- Chinês (zh) 
+- Croata (h) 
+- Tcheco (cs) 
+- Dinamarquês (da) 
+- Holandês (nl) 
+- Inglês (en) 
+- Finlandês (fi) 
+- Francês (fr) 
+- Alemão (de) 
+- Grego (el) 
+- Hebraico (he) 
+- Híndi (Olá) 
+- Húngaro (hu) 
+- Indonésio (id) 
+- Italiano (it) 
+- Japonês (ja) 
+- Coreano (ko) 
+- Letão (lv) 
+- Lituano (lt) 
+- Malaio (macroidioma) (ms) 
+- Norueguês Bokmål (nb) 
+- Polonês (pl) 
+- Português (Portugal) 
+- Romeno (ro) 
+- Russo (ru) 
+- Sérvio (sr) 
+- Eslovaco (discos) 
+- Esloveno (sl) 
+- Espanhol (es) 
+- Sueco (sv) 
+- Tagalo (NFA) 
+- Tailandês (th) 
+- Turco (tr) 
+- Ucraniano (uk) 
+- Vietnamita (vi) 
  
 ## Campanha
-Você pode usar a seção de campanha para definir o nome e a categoria da sua campanha, bem como se você planeja ignorar a seção público de uma campanha de envio e, em vez disso, enviar essa campanha por meio da API do Reach \(e alguns elementos com o API de envio de nível baixo\). As categorias podem ser usadas com um modelo de notificação personalizado para notificações do controle no aplicativo com base nas configurações predefinidas. Você pode obter uma lista existente de "categorias" por meio da API do Reach.
+Você pode usar a seção de campanha para definir o nome e a categoria da sua campanha, bem como se você planeja ignorar a seção público de uma campanha de envio e, em vez disso, enviar essa campanha por meio da API do Reach (e alguns elementos com o API de envio de nível baixo). As categorias podem ser usadas com um modelo de notificação personalizado para notificações do controle no aplicativo com base nas configurações predefinidas. Você pode obter uma lista existente de "categorias" por meio da API do Reach.
 
 > Aviso: se você usar a opção "Ignorar Público-alvo, o envio por push será feito aos usuários por meio da API" na seção "Campanha" de uma campanha de Alcance, a campanha NÃO será enviada automaticamente e você precisará enviá-la manualmente pela API de Alcance.
  
@@ -98,11 +98,11 @@ Você pode usar a seção de campanha para definir o nome e a categoria da sua c
 - Ignorar Público-alvo, o envio por push será feito aos usuários por meio da API: todos
  
 ## Notificação
-Você pode usar a seção Notificação para definir as configurações básicas para seu envio por push, incluindo: o título do Envio por push, a mensagem, uma imagem no aplicativo ou se elas são dispensáveis. Muitas configurações de notificação são específicas para a plataforma do dispositivo. Você pode selecionar se o envio por push será feito “no aplicativo” ou “fora do aplicativo” ou ambos. \(Lembre-se de que os usuários podem “aceitar" ou “recusar" envios por push de “fora do aplicativo" com o nível de Sistema Operacional em seus dispositivos e o Mobile Engagement do Azure não poderá substituir essa configuração. Lembre-se também de que a API de Alcance manipula o envio por push "no aplicativo" e "fora do aplicativo". A API de Push pode ser usada para lidar com envios por push de "fora do aplicativo" também.\) Os envios por push podem ser personalizados com imagens ou conteúdo HTML, incluindo links de vínculos profundos fora de seu aplicativo ou em outro local em seu aplicativo \(SDK do Android 2.1.0 ou categorias de finalidade posteriores necessárias\). Você pode alterar o ícone ou o emblema do iOS e enviar o conteúdo da web ou de texto \(um pop-up com conteúdo html, link de URL para outro local dentro ou fora do aplicativo\). Você também pode fazer com que os dispositivos Android toquem ou vibrem com o envio por Push. \(Lembre-se de que você precisará das permissões corretas do SDK no seu arquivo de manifesto do Android para que o dispositivo toque ou vibre\). Atualmente, não há nenhum padrão no setor para tamanhos de “Foto Grande" do Android, haja visto que os tamanhos das telas são diferentes em cada dispositivo, porém imagens de 400 x 100 funciona bem em quase todos os tamanhos de tela.
+Você pode usar a seção Notificação para definir as configurações básicas para seu envio por push, incluindo: o título do Envio por push, a mensagem, uma imagem no aplicativo ou se elas são dispensáveis. Muitas configurações de notificação são específicas para a plataforma do dispositivo. Você pode selecionar se o envio por push será feito “no aplicativo” ou “fora do aplicativo” ou ambos. (Lembre-se de que os usuários podem “aceitar" ou “recusar" envios por push de “fora do aplicativo" com o nível de Sistema Operacional em seus dispositivos e o Mobile Engagement do Azure não poderá substituir essa configuração. Lembre-se também de que a API de Alcance manipula o envio por push "no aplicativo" e "fora do aplicativo". A API de Push pode ser usada para lidar com envios por push de "fora do aplicativo" também.) Os envios por push podem ser personalizados com imagens ou conteúdo HTML, incluindo links de vínculos profundos fora de seu aplicativo ou em outro local em seu aplicativo (SDK do Android 2.1.0 ou categorias de finalidade posteriores necessárias). Você pode alterar o ícone ou o emblema do iOS e enviar o conteúdo da web ou de texto (um pop-up com conteúdo html, link de URL para outro local dentro ou fora do aplicativo). Você também pode fazer com que os dispositivos Android toquem ou vibrem com o envio por Push. (Lembre-se de que você precisará das permissões corretas do SDK no seu arquivo de manifesto do Android para que o dispositivo toque ou vibre). Atualmente, não há nenhum padrão no setor para tamanhos de “Foto Grande" do Android, haja visto que os tamanhos das telas são diferentes em cada dispositivo, porém imagens de 400 x 100 funciona bem em quase todos os tamanhos de tela.
 
 ### Tipos de entrega:
 -    Somente fora do aplicativo: a notificação será enviada quando o usuário não estiver usando o aplicativo.
-- A notificação do fora aplicativo requer apenas um certificado da Apple ou do Google \(certificado APNS ou GCM\).
+- A notificação do fora aplicativo requer apenas um certificado da Apple ou do Google (certificado APNS ou GCM).
 - Somente no aplicativo: a notificação aparecerá somente quando o aplicativo estiver sendo executado.
 - A notificação usa o sistema de entrega Capptain para alcançar o usuário. Você pode personalizar totalmente o visual do layout/exibição de seu envio por push.
 - A qualquer momento: essa opção garante que você envie uma notificação tanto quando o aplicativo estiver em execução ou não.
@@ -114,7 +114,7 @@ Você pode usar a seção Notificação para definir as configurações básicas
 - Notificação: Anúncios, Pesquisas
  
 ## Conteúdo
-Você pode usar a seção Conteúdo para modificar o conteúdo de Anúncios, Pesquisas, Envio de Dados por Push e Blocos \(somente no Windows Phone\). A configuração de conteúdo de campanhas de envio é específica para o tipo de campanha.
+Você pode usar a seção Conteúdo para modificar o conteúdo de Anúncios, Pesquisas, Envio de Dados por Push e Blocos (somente no Windows Phone). A configuração de conteúdo de campanhas de envio é específica para o tipo de campanha.
 
 ### Consulte também
 - [Documentação da Interface do Usuário - Alcance - Enviar conteúdo por push][Link 29]
@@ -122,13 +122,13 @@ Você pode usar a seção Conteúdo para modificar o conteúdo de Anúncios, Pes
 ![Reach-Campaign5][24]
 
 ## Público-alvo
-Você pode usar a seção Público-alvo para definir uma lista padrão de itens para limitar sua campanha ou limitar sua campanha com base em critérios personalizados. O conjunto de opções padrão para limitar seu público permite que você envie para usuários novos ou antigos ou somente a usuários de envio por push nativo. Você também pode definir uma cota para limitar o número de usuários que receberão o envio por push. Você pode Editar manualmente a expressão de como sua campanha é filtrada para incluir um ou mais critérios para os usuários de destino. Você pode digitar manualmente uma expressão de público-alvo. Essa expressão deve definir explicitamente a relação entre os critérios. Um critério é descrito por um identificador que deve começar com uma letra maiúscula e não pode conter espaços. A relação entre os critérios pode ser descrita utilizando os operadores ‘e’, ‘ou’, ‘não’, bem como '\(', '\)'. Exemplo: "Critérion1 ou \(Critérion1 e não Critérion2\)".
+Você pode usar a seção Público-alvo para definir uma lista padrão de itens para limitar sua campanha ou limitar sua campanha com base em critérios personalizados. O conjunto de opções padrão para limitar seu público permite que você envie para usuários novos ou antigos ou somente a usuários de envio por push nativo. Você também pode definir uma cota para limitar o número de usuários que receberão o envio por push. Você pode Editar manualmente a expressão de como sua campanha é filtrada para incluir um ou mais critérios para os usuários de destino. Você pode digitar manualmente uma expressão de público-alvo. Essa expressão deve definir explicitamente a relação entre os critérios. Um critério é descrito por um identificador que deve começar com uma letra maiúscula e não pode conter espaços. A relação entre os critérios pode ser descrita utilizando os operadores ‘e’, ‘ou’, ‘não’, bem como '(', ')'. Exemplo: "Critérion1 ou (Critérion1 e não Critérion2)".
 
 > Observação: com um grande público-alvo incluído em campanhas, a verificação de direcionamento do lado do servidor pode ser lenta, especialmente se você tentar iniciar várias campanhas ao mesmo tempo.
 
 - Se possível, só inicie uma campanha por vez.
 - No máximo, inicie apenas quatro campanhas por vez.
-- Envie por push apenas para seus usuários ativos \(caixa de seleção "Envolver apenas os usuários que podem ser contatados por meio de envio por push nativo" e "Envolver apenas os usuários ativos"\) para que somente os usuários que ainda tenham o aplicativo instalado e que o utilizem sejam verificados. Quando seu público-alvo for definido, você poderá usar o botão de simulação para descobrir quantos usuários receberão esse envio por push. Isso irá calcular o número de usuários conhecidos potencialmente direcionados para esse público-alvo \(essa é uma estimativa com base em uma amostra aleatória de usuários\). Lembre-se de que os usuários que desinstalaram o aplicativo também fazem parte desse público-alvo, mas não poderão ser alcançados.
+- Envie por push apenas para seus usuários ativos (caixa de seleção "Envolver apenas os usuários que podem ser contatados por meio de envio por push nativo" e "Envolver apenas os usuários ativos") para que somente os usuários que ainda tenham o aplicativo instalado e que o utilizem sejam verificados. Quando seu público-alvo for definido, você poderá usar o botão de simulação para descobrir quantos usuários receberão esse envio por push. Isso irá calcular o número de usuários conhecidos potencialmente direcionados para esse público-alvo (essa é uma estimativa com base em uma amostra aleatória de usuários). Lembre-se de que os usuários que desinstalaram o aplicativo também fazem parte desse público-alvo, mas não poderão ser alcançados.
 
 ### Consulte também
 - [Documentação da Interface do Usuário - Alcance - Novo Critério de Envio por Push][Link 28]
@@ -139,11 +139,11 @@ Você pode usar a seção Público-alvo para definir uma lista padrão de itens 
 ![Reach-Campaign7][26]
  
 ### A opção para limitar seu público-alvo se aplica a:
-- Envolver somente um subconjunto de usuários: todos \(Anúncios, Pesquisas, Envio de dados por push, Blocos\)
-- Envolver somente usuários antigos: todos \(Anúncios, Pesquisas, Envio de dados por push, Blocos\)
-- Envolver somente usuários novos: todos \(Anúncios, Pesquisas, Envio de dados por push, Blocos\)
+- Envolver somente um subconjunto de usuários: todos (Anúncios, Pesquisas, Envio de dados por push, Blocos)
+- Envolver somente usuários antigos: todos (Anúncios, Pesquisas, Envio de dados por push, Blocos)
+- Envolver somente usuários novos: todos (Anúncios, Pesquisas, Envio de dados por push, Blocos)
 - Envolver somente usuários ociosos: Anúncios, Pesquisas, Blocos
-- Envolver somente usuários ativos: Todos \(Anúncios, Pesquisas, Envio de dados por push, Blocos\)
+- Envolver somente usuários ativos: Todos (Anúncios, Pesquisas, Envio de dados por push, Blocos)
 - Envolva somente os usuários que podem ser alcançados usando Push Nativo: Anúncios, Pesquisas
  
 ## Período

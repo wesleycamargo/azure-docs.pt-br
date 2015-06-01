@@ -20,7 +20,7 @@
 # Passo a passo: copiar dados de eficácia da campanha para um banco de dados do SQL Server local 
 Neste passo a passo, você aprenderá a configurar o ambiente para habilitar o pipeline para trabalhar com dados locais.
  
-Na última etapa do cenário de processamento de log do primeiro passo a passo com Partição -\> Enriquecer -\> Analisar fluxo de trabalho, a saída de eficácia de campanha marketing foi copiada para um banco de dados SQL do Azure. Você também pode mover esses dados para o SQL Server local para análise dentro da sua organização.
+Na última etapa do cenário de processamento de log do primeiro passo a passo com Partição -> Enriquecer -> Analisar fluxo de trabalho, a saída de eficácia de campanha marketing foi copiada para um banco de dados SQL do Azure. Você também pode mover esses dados para o SQL Server local para análise dentro da sua organização.
  
 Para copiar dados de eficácia de campanha de marketing do Blob do Azure para o SQL Server local, você precisa criar Serviço Vinculado local, Tabela e Pipeline adicionais usando o mesmo conjunto de cmdlets introduzidos no primeiro passo a passo.
 
@@ -28,7 +28,7 @@ Para copiar dados de eficácia de campanha de marketing do Blob do Azure para o 
 
 Você **deve** executar o passo a passo no [Tutorial: Mover e processar arquivos de log usando Data Factory][datafactorytutorial] antes de executar o passo a passo deste artigo.
 
-**\(recomendado\)** Examine e pratique o passo a passo no artigo [Habilitar seus pipelines para trabalhar com dados locais][useonpremisesdatasources] para ver um passo a passo sobre como criar um pipeline para mover dados do SQL Server local para um armazenamento de blob do Azure.
+**(recomendado)** Examine e pratique o passo a passo no artigo [Habilitar seus pipelines para trabalhar com dados locais][useonpremisesdatasources] para ver um passo a passo sobre como criar um pipeline para mover dados do SQL Server local para um armazenamento de blob do Azure.
 
 
 Neste tutorial, você realizará as seguintes etapas:
@@ -52,17 +52,17 @@ Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem 
 Se você tiver um gateway de dados existente que você possa usar, ignore esta etapa.
 
 1.	Crie um gateway de dados lógicos. No **Portal de Visualização do Azure**, clique em **Serviços Vinculados** na folha **DATA FACTORY** para o seu Data Factory.
-2.	Clique em **Adicionar \(+\) Gateway de Dados** na barra de comandos.  
+2.	Clique em **Adicionar (+) Gateway de Dados** na barra de comandos.  
 3.	Na folha **Novo gateway de dados**, clique em **CRIAR**.
 4.	Na folha **Criar**, insira **MyGateway** para o **nome** do gateway de dados.
 5.	Clique em **ESCOLHER UMA REGIÃO** e altere-a se necessário. 
 6.	Clique em **OK** na folha **Criar**. 
 7.	Você deve ver a folha **Configurar**. 
-8.	Na folha **Configurar**, clique em **Instalar diretamente neste computador**. Isso vai baixar, instalar e configurar o gateway em seu computador e registrar o gateway com o serviço. Se você tiver um gateway existente instalado no computador que você deseja vincular a esse gateway lógico no portal, use a chave nessa folha para registrar novamente o gateway usando a ferramenta Gerenciador de Configuração de Gateway de gerenciamento de dados \(visualização\).
+8.	Na folha **Configurar**, clique em **Instalar diretamente neste computador**. Isso vai baixar, instalar e configurar o gateway em seu computador e registrar o gateway com o serviço. Se você tiver um gateway existente instalado no computador que você deseja vincular a esse gateway lógico no portal, use a chave nessa folha para registrar novamente o gateway usando a ferramenta Gerenciador de Configuração de Gateway de gerenciamento de dados (visualização).
 
 	![Gerenciador de Configuração de Gateway de Gerenciamento de Dados][image-data-factory-datamanagementgateway-configuration-manager]
 
-9. Clique em **OK** para fechar a folha **Configurar** e em **OK** para fechar a folha **Criar**. Aguarde até que o status de **MeuGateway** na folha **Serviços Vinculados** mude para **BOM**. Você também pode iniciar a ferramenta **Gerenciador de Configuração de Gateway de gerenciamento de dados \(visualização\)** para confirmar se o nome do gateway corresponde ao nome no portal e o **status** é **Registrado**. Você terá que fechar e reabrir a folha Serviços Vinculados para ver o status mais recente. Pode levar alguns minutos antes que a tela seja atualizada com o status mais recente.
+9. Clique em **OK** para fechar a folha **Configurar** e em **OK** para fechar a folha **Criar**. Aguarde até que o status de **MeuGateway** na folha **Serviços Vinculados** mude para **BOM**. Você também pode iniciar a ferramenta **Gerenciador de Configuração de Gateway de gerenciamento de dados (visualização)** para confirmar se o nome do gateway corresponde ao nome no portal e o **status** é **Registrado**. Você terá que fechar e reabrir a folha Serviços Vinculados para ver o status mais recente. Pode levar alguns minutos antes que a tela seja atualizada com o status mais recente.
 
 ## <a name="OnPremStep2"></a> Etapa 2: criar um serviço vinculado para o SQL Server local
 
@@ -72,15 +72,15 @@ Nesta etapa, você primeiro cria o banco de dados e a tabela necessários no com
 
 Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tipos definidos pelo usuário e procedimentos armazenados. Esses serão usados para mover os resultados **MarketingCampaignEffectiveness** do blob do Azure para o banco de dados SQL Server.
 
-1.	No **Windows Explorer**, navegue até a subpasta **OnPremises** na pasta **C:\\ADFWalkthrough** \(ou o local no qual você extraiu os exemplos\).
-2.	Abra **prepareOnPremDatabase&Table.ps1** em seu editor favorito, substitua a parte destacada pelas informações do SQL Server e salve o arquivo \(forneça os detalhes de **autenticação do SQL**\). Para o tutorial, habilite a autenticação do SQL para o banco de dados. 
+1.	No **Windows Explorer**, navegue até a subpasta **OnPremises** na pasta **C:\\ADFWalkthrough** (ou o local no qual você extraiu os exemplos).
+2.	Abra **prepareOnPremDatabase&Table.ps1** em seu editor favorito, substitua a parte destacada pelas informações do SQL Server e salve o arquivo (forneça os detalhes de **autenticação do SQL**). Para o tutorial, habilite a autenticação do SQL para o banco de dados. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
 3. No **Azure PowerShell**, navegue até a pasta **C:\\ADFWalkthrough\\OnPremises**.
-4.	Execute **prepareOnPremDatabase&Table.ps1** **\(entre aspas duplas ou conforme mostrado abaixo\)**.
+4.	Execute **prepareOnPremDatabase&Table.ps1** **(entre aspas duplas ou conforme mostrado abaixo)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
 
@@ -104,10 +104,10 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 	2.	Substitua **<databasename>** por **MarketingCampaigns**.
 	3.	Se você estiver usando **autenticação SQL**
 		1.	Especifique **<username>** e **<password>** na **connectionString**.
-		2.	Remova as duas últimas linhas \(as propriedades \*\*nome de usuário\*\* e **senha** do JSON são necessárias apenas se você estiver usando Autenticação do Windows\). 
-		3.	Remova **, \(vírgula\) **no final da linha **gatewayName**. 
-		**Se você está usando a Autenticação do Windows:** 1. Defina o valor de **Segurança Integrada** para **True** na **connectionString**. Remova "\*\*User ID=<username>;Password=<password>;\*\*" da connectionString. 2. Especifique o nome do usuário que tem acesso ao banco de dados para a propriedade **nome de usuário**. 3. Especifique **senha** para a conta de usuário.   
-	4. Especifique o nome do gateway \(\*\*MeuGateway\*\*\) para a propriedade gatewayName. 		  	 
+		2.	Remova as duas últimas linhas (as propriedades **nome de usuário** e **senha** do JSON são necessárias apenas se você estiver usando Autenticação do Windows). 
+		3.	Remova **, (vírgula) **no final da linha **gatewayName**. 
+		**Se você está usando a Autenticação do Windows:** 1. Defina o valor de **Segurança Integrada** para **True** na **connectionString**. Remova "**User ID=<username>;Password=<password>;**" da connectionString. 2. Especifique o nome do usuário que tem acesso ao banco de dados para a propriedade **nome de usuário**. 3. Especifique **senha** para a conta de usuário.   
+	4. Especifique o nome do gateway (**MeuGateway**) para a propriedade gatewayName. 		  	 
 3.	Clique em **Implantar** na barra de ferramentas para implantar o serviço vinculado. 
 
 ## <a name="OnPremStep3"></a> Etapa 3: criar tabela e pipeline
@@ -116,14 +116,14 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 1.	No **Editor do Data Factory**, clique em **Novo conjunto de dados** na barra de ferramentas e selecione **SQL local**. 
 2. Substitua JSON no painel direito pelo script JSON do arquivo **MarketingCampaignEffectivenessOnPremSQLTable.json** contido na pasta **C:\\ADFWalkthrough\\OnPremises**.
-3. Altere o nome de serviço vinculado \(propriedade \*\*linkedServiceName\*\*\) de **OnPremSqlServerLinkedService** para **SqlServerLinkedService**.
+3. Altere o nome de serviço vinculado (propriedade **linkedServiceName**) de **OnPremSqlServerLinkedService** para **SqlServerLinkedService**.
 4. Clique em **Implantar** na barra de ferramentas para implantar a tabela. 
 	 
 #### Criar o pipeline para copiar os dados do Blob do Azure para o SQL Server
 
-1.	1. No **Editor do Data Factory**, clique no botão **Novo pipeline** na barra de ferramentas. Clique em **... \(Elipse\)** na barra de ferramentas se você não enxergar o botão. Como alternativa, você pode clicar com o botão direito em **Pipelines** no modo de exibição de árvore e clicar em **Novo pipeline**.
+1.	1. No **Editor do Data Factory**, clique no botão **Novo pipeline** na barra de ferramentas. Clique em **... (Elipse)** na barra de ferramentas se você não enxergar o botão. Como alternativa, você pode clicar com o botão direito em **Pipelines** no modo de exibição de árvore e clicar em **Novo pipeline**.
 2. Substitua JSON no painel direito pelo script JSON do arquivo **EgressDataToOnPremPipeline.json** contido na pasta **C:\\ADFWalkthrough\\OnPremises**.
-3. Adicione uma **vírgula \(,\)** no final da **colchete de fechamento \(\]\)** em JSON e, em seguida, adicione as três linhas a seguir após o colchete de fechamento. 
+3. Adicione uma **vírgula (,)** no final da **colchete de fechamento (])** em JSON e, em seguida, adicione as três linhas a seguir após o colchete de fechamento. 
 
         "start": "2014-05-01T00:00:00Z",
         "end": "2014-05-05T00:00:00Z",

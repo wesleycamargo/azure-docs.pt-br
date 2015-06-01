@@ -26,7 +26,7 @@
 - [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-Este tutorial mostra como é fácil criar uma máquina virtual do Azure \(VM\). Este tutorial uma imagem do Windows Server, mas essa é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens de sistemas operacionais Windows, sistemas operacionais baseados em Linux e imagens com aplicativos instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
+Este tutorial mostra como é fácil criar uma máquina virtual do Azure (VM). Este tutorial uma imagem do Windows Server, mas essa é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens de sistemas operacionais Windows, sistemas operacionais baseados em Linux e imagens com aplicativos instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
 Você também pode criar VMs do Windows usando [suas próprias imagens](virtual-machines-create-upload-vhd-windows-server-classic-portal.md). Para saber mais sobre VMs do Azure, consulte [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 

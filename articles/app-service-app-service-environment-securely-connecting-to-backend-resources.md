@@ -25,7 +25,7 @@ Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas v
 
 Como outro exemplo, pontos de extremidade confidenciais podem ser executados localmente e conectados ao Azure via conexões [Site a Site][SiteToSite] ou [Rota Expressa do Azure][ExpressRoute]. Como resultado, apenas os recursos nas redes virtuais conectadas a túneis Site a Site ou de rota expressa poderão acessar pontos de extremidade locais.
 
-Para todos esses cenários, aplicativos em execução em um ambiente de serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos. Tráfego de saída de aplicativos que são executados em um ambiente de serviço de aplicativo para pontos de extremidade privados na mesma rede virtual \(ou conectados à mesma rede virtual\) passará apenas pela rede virtual. O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
+Para todos esses cenários, aplicativos em execução em um ambiente de serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos. Tráfego de saída de aplicativos que são executados em um ambiente de serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual. O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
 
 
 ## Conectando-se a um SQL Server
@@ -36,7 +36,7 @@ Uma configuração comum do SQL Server tem um ponto de extremidade escutando na 
 Há duas abordagens para restringir o tráfego para esse ponto de extremidade:
 
 
-- [Listas de controle de acesso a redes][NetworkAccessControlLists] \(ACLs de rede\)
+- [Listas de controle de acesso a redes][NetworkAccessControlLists] (ACLs de rede)
 
 - [Grupos de segurança de rede][NetworkSecurityGroups]
 

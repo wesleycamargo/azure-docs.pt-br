@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# Usar o Power BI \(visualização\) para visualizar dados de uma Topologia Storm
+# Usar o Power BI (visualização) para visualizar dados de uma Topologia Storm
 
 A visualização do Power BI permite exibir dados visualmente como relatórios ou painéis. Usando a API REST do Power BI, você pode facilmente usar dados de uma topologia em execução em um Apache Storm no cluster HDInsight para Power BI.
 
@@ -28,7 +28,7 @@ Neste documento, você aprenderá como usar o Power BI para criar um relatório 
 
 * Um usuário do Active Directory do Azure com acesso ao [Power BI](https://powerbi.com)
 
-* Visual Studio \(uma das seguintes versões a seguir\)
+* Visual Studio (uma das seguintes versões a seguir)
 
     * Visual Studio 2012 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -40,7 +40,7 @@ Neste documento, você aprenderá como usar o Power BI para criar um relatório 
 
 ## Como ele funciona
 
-Este exemplo contém uma topologia Storm C\# que gera uma frase aleatoriamente, divide a frase em palavras, conta as palavras e envia as palavras e a contagem para a API REST do Power BI. O pacote Nuget do [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) é usado para se comunicar com o Power BI.
+Este exemplo contém uma topologia Storm C# que gera uma frase aleatoriamente, divide a frase em palavras, conta as palavras e envia as palavras e a contagem para a API REST do Power BI. O pacote Nuget do [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) é usado para se comunicar com o Power BI.
 
 Os seguintes arquivos neste projeto implementam a funcionalidade específica do Power BI:
 
@@ -48,7 +48,7 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 * **Data.cs**: descreve a objeto/linha de dados que será enviado para o Power BI
 
-> [AZURE.WARNING]O Power BI parece permitir a criação de vários conjuntos de dados com o mesmo nome. Isso pode ocorrer se o conjunto de dados não existir e sua topologia criar várias instâncias de bolt do Power BI. Para evitar isso, defina a dica de paralelismo do bolt como 1 \(como neste exemplo\) ou crie o conjunto de dados antes de implantar a topologia.
+> [AZURE.WARNING]O Power BI parece permitir a criação de vários conjuntos de dados com o mesmo nome. Isso pode ocorrer se o conjunto de dados não existir e sua topologia criar várias instâncias de bolt do Power BI. Para evitar isso, defina a dica de paralelismo do bolt como 1 (como neste exemplo) ou crie o conjunto de dados antes de implantar a topologia.
 >
 > O aplicativo console **CreateDataset** incluído nesta solução é fornecido como um exemplo de como criar o conjunto de dados fora da topologia.
 
@@ -62,7 +62,7 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 ## Baixar o exemplo
 
-Baixe o [exemplo do HDInsight C\# Storm Power BI]\]\(https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para baixá-lo, use uma bifurcação/clone-o usando [git](http://git-scm.com/) ou use o link de **Download** link para baixar um .zip do arquivo.
+Baixe o [exemplo do HDInsight C# Storm Power BI]](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para baixá-lo, use uma bifurcação/clone-o usando [git](http://git-scm.com/) ou use o link de **Download** link para baixar um .zip do arquivo.
 
 ## Configurar o exemplo
 
@@ -74,7 +74,7 @@ Baixe o [exemplo do HDInsight C\# Storm Power BI]\]\(https://github.com/Blackmis
 
     * **Senha**: a senha da conta do Active Directory do Azure.
 
-2. \(Opcional\). O nome do conjunto de dados padrão usado por este projeto é **Palavras**. Para alterar isso, clique com botão direito no projeto **WordCount** no **Gerenciador de Soluções**, selecione **Propriedades** e selecione **Configurações**. Altere a entrada **DatasetName** para o valor desejado.
+2. (Opcional). O nome do conjunto de dados padrão usado por este projeto é **Palavras**. Para alterar isso, clique com botão direito no projeto **WordCount** no **Gerenciador de Soluções**, selecione **Propriedades** e selecione **Configurações**. Altere a entrada **DatasetName** para o valor desejado.
 
 2. Salve e feche os arquivos.
 

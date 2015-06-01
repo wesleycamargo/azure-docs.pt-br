@@ -17,16 +17,16 @@
 	ms.author="spelluru"/>
 
 # Criação de alertas em eventos do Azure
-Eventos do Azure fornecem percepções úteis sobre o que está acontecendo em seus recursos do Azure. O Azure registra eventos do usuário quando um recurso do Azure \(por exemplo, Data Factory\) é criado, atualizado ou excluído. Ao usar o Azure Data Factory, os eventos são gerados quando:
+Eventos do Azure fornecem percepções úteis sobre o que está acontecendo em seus recursos do Azure. O Azure registra eventos do usuário quando um recurso do Azure (por exemplo, Data Factory) é criado, atualizado ou excluído. Ao usar o Azure Data Factory, os eventos são gerados quando:
  
 1.	O Azure Data Factory é criado/atualizado/excluído.
-2.	O processamento de dados \(chamado de Execuções\) foi iniciado/concluído.
+2.	O processamento de dados (chamado de Execuções) foi iniciado/concluído.
 3.	Quando um cluster de HDInsight sob demanda é criado e removido.
 
 Você pode criar alertas para esses eventos de usuário e configurá-los para enviar notificações por email para o administrador e os coadministradores da assinatura. Além disso, você pode especificar endereços de email adicionais de usuários que precisem receber notificações por email quando as condições forem atendidas.
 
 ## Especificando uma definição de alerta
-Para especificar uma definição de alerta, você deve criar um arquivo JSON que descreva as operações sobre as quais você deseja ser alertado. No exemplo abaixo, o alerta enviará uma notificação por email para a operação **RunFinished**. Para ser específico, uma notificação por email será enviado quando uma execução no Data Factory for concluída e essa execução falhar \(Status = FailedExecution\).
+Para especificar uma definição de alerta, você deve criar um arquivo JSON que descreva as operações sobre as quais você deseja ser alertado. No exemplo abaixo, o alerta enviará uma notificação por email para a operação **RunFinished**. Para ser específico, uma notificação por email será enviado quando uma execução no Data Factory for concluída e essa execução falhar (Status = FailedExecution).
 
 	{
     	"contentVersion": "1.0.0.0",
@@ -67,7 +67,7 @@ Para especificar uma definição de alerta, você deve criar um arquivo JSON que
 
 Da definição do JSON acima, **subStatus** pode ser removido se você não desejar ser alertado sobre uma falha específica.
 
-Consulte [operações disponíveis e status](#AvailableOperationsStatuses) para a lista de operações e status \(e substatus\).
+Consulte [operações disponíveis e status](#AvailableOperationsStatuses) para a lista de operações e status (e substatus).
 
 ## Implantando o Alerta
 Para implantar o alerta, use o cmdlet do Azure PowerShell: **New-AzureResourceGroupDeployment**, conforme mostrado no exemplo a seguir:

@@ -47,15 +47,15 @@ O código a seguir cria um objeto **QueueService** usando o nome da conta de arm
 
 ## Como: Inserir uma mensagem em uma fila
 
-Para inserir uma mensagem em uma fila, use o método **put\_message** para criar uma nova mensagem e adicione-a à fila.
+Para inserir uma mensagem em uma fila, use o método **put_message** para criar uma nova mensagem e adicione-a à fila.
 
 	queue_service.put_message('taskqueue', 'Hello World')
 
 
 ## Como: Espiar a próxima mensagem
 
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages**. Por padrão,
-**peek\_messages** inspeciona uma única mensagem.
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek_messages**. Por padrão,
+**peek_messages** inspeciona uma única mensagem.
 
 	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
@@ -65,7 +65,7 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 ## Como: Remover a próxima mensagem da fila
 
 Seu código remove uma mensagem de uma fila em duas etapas. Quando você chamar
-**get\_messages**, receberá a próxima mensagem em uma fila por padrão. As mensagens retornadas de **get\_messages** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, chame também **delete\_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete\_message** logo depois que a mensagem é processada.
+**get_messages**, receberá a próxima mensagem em uma fila por padrão. As mensagens retornadas de **get_messages** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, chame também **delete_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete_message** logo depois que a mensagem é processada.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
@@ -75,7 +75,7 @@ Seu código remove uma mensagem de uma fila em duas etapas. Quando você chamar
 
 ## Como: Alterar o conteúdo de uma mensagem na fila
 
-Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir usa o método **update\_message** para atualizar uma mensagem.
+Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir usa o método **update_message** para atualizar uma mensagem.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
@@ -85,7 +85,7 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem re
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
 Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O seguinte exemplo de código usa o
-método **get\_messages** para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+método **get_messages** para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
 	for message in messages:
@@ -95,7 +95,7 @@ método **get\_messages** para obter 16 mensagens em uma chamada. Em seguida, el
 ## Como: Obter o tamanho da fila
 
 Você pode obter uma estimativa do número de mensagens em uma fila. O
-método **get\_queue\_metadata** solicita que o serviço Fila retorne metadados sobre a fila, e **x-ms-approximate-messages-count** deve ser usado como índice no dicionário retornado para localizar a contagem.
+método **get_queue_metadata** solicita que o serviço Fila retorne metadados sobre a fila, e **x-ms-approximate-messages-count** deve ser usado como índice no dicionário retornado para localizar a contagem.
 O resultado é aproximado apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço de fila responde à sua solicitação.
 
 	queue_metadata = queue_service.get_queue_metadata('taskqueue')
@@ -104,7 +104,7 @@ O resultado é aproximado apenas porque as mensagens podem ser adicionadas ou re
 ## Como: Excluir uma fila
 
 Para excluir uma fila e todas as mensagens contidas nela, chame o
-método **delete\_queue**.
+método **delete_queue**.
 
 	queue_service.delete_queue('taskqueue')
 

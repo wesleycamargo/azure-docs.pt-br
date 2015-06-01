@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-Este tópico mostra como usar os Hubs de Notificação do Azure para enviar notificações por push para um aplicativo iOS. Neste tutorial, você cria um aplicativo para iOS em branco que recebe notificações por push usando o serviço de Notificação por Push da Apple \(APNs\). Ao concluir, você poderá transmitir notificações por push a todos os dispositivos que executam seu aplicativo usando o hub de notificação.
+Este tópico mostra como usar os Hubs de Notificação do Azure para enviar notificações por push para um aplicativo iOS. Neste tutorial, você cria um aplicativo para iOS em branco que recebe notificações por push usando o serviço de Notificação por Push da Apple (APNs). Ao concluir, você poderá transmitir notificações por push a todos os dispositivos que executam seu aplicativo usando o hub de notificação.
 
 Este tutorial demonstra o cenário de transmissão simples usando hubs de notificação.
 
@@ -32,10 +32,10 @@ Este tutorial requer os seguintes pré-requisitos:
 
 + [SDK do iOS dos Serviços Móveis]
 + [XCode 4.5][Install Xcode]
-+ Um dispositivo compatível com o iOS 5.0 \(ou versão posterior\)
++ Um dispositivo compatível com o iOS 5.0 (ou versão posterior)
 + Associação no Programa de Desenvolvedores de iOS
 
-   \>[AZURE.NOTE]Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS \(iPhone ou iPad\) em vez de usar o emulador.
+   >[AZURE.NOTE]Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais sobre hubs de notificação para aplicativos para iOS.
 
@@ -63,7 +63,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
    ![][28]
 
-5. Clique no namespace que você acabou de criar \(geralmente o ***nome do hub de notificação*-ns**\), e clique na guia **Configurar** na parte superior.
+5. Clique no namespace que você acabou de criar (geralmente o ***nome do hub de notificação*-ns**), e clique na guia **Configurar** na parte superior.
 
    ![][29]
 
@@ -71,7 +71,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
    ![][210]
 
-7. Selecione a guia **Configurar** na parte superior e clique em **Carregar** para as configurações de notificação da Apple. Em seguida, selecione o certificado **.p12** que você exportou anteriormente e a senha para o certificado. Certifique-se de escolher se você deseja usar a **Produção** \(se desejar enviar notificações por push para os usuários que adquiriram seu aplicativo na loja\) ou o serviço de envio por push **Área Segura** \(durante o desenvolvimento\).
+7. Selecione a guia **Configurar** na parte superior e clique em **Carregar** para as configurações de notificação da Apple. Em seguida, selecione o certificado **.p12** que você exportou anteriormente e a senha para o certificado. Certifique-se de escolher se você deseja usar a **Produção** (se desejar enviar notificações por push para os usuários que adquiriram seu aplicativo na loja) ou o serviço de envio por push **Área Segura** (durante o desenvolvimento).
 
    ![][211]
 
@@ -105,7 +105,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 
 	Para iOS 8
    
-	 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound \| UIUserNotificationTypeAlert \| UIUserNotificationTypeBadge categories:nil];
+	 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
  
     	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     	[[UIApplication sharedApplication] registerForRemoteNotifications];
@@ -123,7 +123,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 	    	}];
 		}
 
-7. *\(opcional\)* Novamente, no mesmo arquivo, adicione o seguinte método para exibir um **UIAlert** caso a notificação seja recebida enquanto o aplicativo estiver ativo:
+7. *(opcional)* Novamente, no mesmo arquivo, adicione o seguinte método para exibir um **UIAlert** caso a notificação seja recebida enquanto o aplicativo estiver ativo:
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -138,9 +138,9 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 
 ##Enviar notificações de seu back-end
 
-Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) Neste tutorial você envia as notificações com um aplicativo de console do .NET. Para obter um exemplo de como enviar notificações a partir de um back-end de Serviços Móveis do Azure integrado com os Hubs de Notificação, consulte **Introdução às notificações por push nos Serviços Móveis** \([back-end do .NET](mobile-services-javascript-backend-ios-get-started-push.md) \| [back-end do JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)\). Para obter um exemplo de como enviar notificações usando as APIs FREST, consulte **Como usar os Hubs de Notificação a partir do Java/PHP** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\).
+Você pode enviar notificações usando Hubs de Notificação de qualquer back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) Neste tutorial você envia as notificações com um aplicativo de console do .NET. Para obter um exemplo de como enviar notificações a partir de um back-end de Serviços Móveis do Azure integrado com os Hubs de Notificação, consulte **Introdução às notificações por push nos Serviços Móveis** ([back-end do .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [back-end do JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)). Para obter um exemplo de como enviar notificações usando as APIs FREST, consulte **Como usar os Hubs de Notificação a partir do Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. No Visual Studio, no menu **Arquivo** selecionar **Novo** e, em seguida, **Projeto...**, em seguida, em **Visual C\#** clique no **Windows** e **Aplicativo de console** e clique em **OK**.  
+1. No Visual Studio, no menu **Arquivo** selecionar **Novo** e, em seguida, **Projeto...**, em seguida, em **Visual C#** clique no **Windows** e **Aplicativo de console** e clique em **OK**.  
 
    ![][20]
 
@@ -165,7 +165,7 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
+            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 

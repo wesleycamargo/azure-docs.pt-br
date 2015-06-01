@@ -22,10 +22,10 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 
 >[AZURE.NOTE]Para obter as informações de versão do Phoenix no HDInsight, consulte [O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?][hdinsight-versions].
 
-##Usar o SQLLine
+## Usar o SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar o SQL.
 
-###Pré-requisitos
+### Pré-requisitos
 Antes de poder usar o SQLLine, você deve ter o seguinte:
 
 - **Um cluster HBase no HDInsight**. Para obter informações sobre como provisionar o cluster HBase, consulte [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started].
@@ -69,13 +69,13 @@ Para obter mais informações, consulte o [Manual SQLLine](http://sqlline.source
 
 
 
-##Usar o SQuirrel
+## Usar o SQuirrel
 
 [SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) é um programa Java gráfico que permite exibir a estrutura de um banco de dados compatível com JDBC, procurar os dados nas tabelas, emitir comandos SQL, etc.
 
 Esta seção mostra como instalar e configurar um SQuirrel em sua estação de trabalho para se conectar a um cluster HBase no HDInsight via VPN.
 
-###Pré-requisitos
+### Pré-requisitos
 
 Antes de seguir os procedimentos, você deve ter o seguinte:
 
@@ -90,7 +90,7 @@ Antes de seguir os procedimentos, você deve ter o seguinte:
 - Baixe e instale o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) em sua estação de trabalho. O SQuirrel SQL client versão 3.0 e superior requer JRE versão 1.6 ou superior.  
 
 
-###Configurar uma conexão VPN site a ponto para a rede virtual do Azure
+### Configurar uma conexão VPN site a ponto para a rede virtual do Azure
 
 Há três etapas envolvidas na configuração de uma conexão VPN ponto a site:
 
@@ -102,13 +102,13 @@ Consulte [Configurar uma conexão VPN site a ponto para uma Rede Virtual do Azur
 
 #### Configurar uma rede virtual e um gateway de roteamento dinâmico
 
-Garanta que você possua um cluster HBase em uma rede virtual do Azure \(consulte os pré-requisitos para esta seção\). A próxima etapa é configurar uma conexão ponto a site.
+Garanta que você possua um cluster HBase em uma rede virtual do Azure (consulte os pré-requisitos para esta seção). A próxima etapa é configurar uma conexão ponto a site.
 
 **Para configurar a conectividade ponto a site**
 
 1. Entre no [Portal do Azure][azure-portal].
 2. À esquerda, clique em **REDES**.
-3. Clique na rede virtual que você criou \(consulte [Provisionar clusters HBase na Rede Virtual Azure][hdinsight-hbase-provision-vnet]\).
+3. Clique na rede virtual que você criou (consulte [Provisionar clusters HBase na Rede Virtual Azure][hdinsight-hbase-provision-vnet]).
 4. Clique em **CONFIGURAR** na parte superior.
 5. Na seção **Conectividade ponto a site**, selecione **Configurar conectividade ponto a site**. 
 6. Configurar **IP INICIAL** e **CIDR** para especificar o intervalo de endereços IP do qual os clientes VPN receberão um endereço IP quando conectados. O intervalo não coincide com nenhum dos intervalos localizados na sua rede local e na rede virtual do Azure, à qual você será conectado. Por exemplo, se você selecionou 10.0.0.0/20 para a rede virtual, é possível selecionar 10.1.0.0/24 para o espaço de endereço do cliente. Consulte a página [Conectividade ponto a site][vnet-point-to-site-connectivity] para obter mais informações.
@@ -130,7 +130,7 @@ Garanta que você possua um cluster HBase em uma rede virtual do Azure \(consult
 
 #### Criar seus certificados
 
-Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de certificado \(makecert.exe\) que acompanha o [Microsoft Visual Studio Express 2013 para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de certificado (makecert.exe) que acompanha o [Microsoft Visual Studio Express 2013 para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 
 **Para criar um certificado autoassinado**
@@ -149,17 +149,17 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 
 **Para criar um certificado de cliente**
 
-- No mesmo prompt de comando \(ele deve estar no mesmo computador em que você criou o certificado raiz. O certificado do cliente deve ser gerado a partir do certificado raiz\), execute o seguinte comando:
+- No mesmo prompt de comando (ele deve estar no mesmo computador em que você criou o certificado raiz. O certificado do cliente deve ser gerado a partir do certificado raiz), execute o seguinte comando:
 
-  makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
+  		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate is the root certificate name.  It has to match the root certificate name.  
+	HBaseVnetVPNRootCertificate é o nome do certificado raiz. Ele deve corresponder ao nome do certificado raiz.  
 
-	Both the root certificate and the client certificate are stored in your Personal certificate store on your computer. Use certmgr.msc to verify.
+	O certificado raiz e o certificado cliente são armazenados no seu repositório pessoal de certificados no seu computador. Use certmgr.msc para verificar.
 
 	![Azure virtual network point-to-site vpn certificate][img-certificate]
 
-	A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc. 
+	Um certificado cliente deve ser instalado em cada computador que você deseja conectar à rede virtual. Recomendamos que você crie certificados cliente exclusivos para cada computador que deseja conectar à rede virtual. Para exportar os certificados cliente, use certmgr.msc. 
 
 **Para carregar o certificado raiz no portal do Azure**
 
@@ -198,11 +198,11 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 		headnode1.myhbase.b7.internal.cloudapp.net
 		workernode0.myhbase.b7.internal.cloudapp.net
 
-###Instalar e configurar o SQuirrel em sua estação de trabalho
+### Instalar e configurar o SQuirrel em sua estação de trabalho
 
 **Para instalar o SQuirrel**
 
-1. Baixe o arquivo jar cliente do SQuirrel SQL em [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Baixe o arquivo jar cliente do SQuirrel SQL em [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Abra/execute o arquivo jar. Ele requer o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Clique em **Avançar** duas vezes.
 4. Especifique um caminho onde você tenha permissão de gravação e, em seguida, clique em **Avançar**.
@@ -219,7 +219,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 O arquivo jar do driver do Phoenix está localizado no cluster HBase. O caminho é semelhante ao seguinte com base nas versões:
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-Você precisa copiá-lo para a sua estação de trabalho no caminho [SQuirrel installation folder]/lib. A maneira mais fácil é usar o RDP no cluster e, em seguida, usar copiar/colar arquivo \(CTRL+C e CTRL+V\) para copiá-lo para a sua estação de trabalho.
+Você precisa copiá-lo para a sua estação de trabalho no caminho [SQuirrel installation folder]/lib. A maneira mais fácil é usar o RDP no cluster e, em seguida, usar copiar/colar arquivo (CTRL+C e CTRL+V) para copiá-lo para a sua estação de trabalho.
 
 **Para adicionar um driver do Phoenix ao SQuirrel**
 
@@ -267,13 +267,13 @@ Você precisa copiá-lo para a sua estação de trabalho no caminho [SQuirrel in
 4. Volte para a guia **Objetos**.
 5. Expanda o nome do alias e a **TABELA**. Você deverá ver a nova tabela listada abaixo.
  
-##Próximas etapas
+## Próximas etapas
 Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter mais informações, consulte:
 
-- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]\: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
-- [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]\: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
+- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
+- [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
 - [Configurar replicação HBase no HDInsight](hdinsight-hbase-geo-replication.md): saiba como configurar a replicação do HBase entre dois datacenters do Azure. 
-- [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]\: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de grandes volumes de dados usando o HBase em um cluster do Hadoop no HDInsight.
+- [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de grandes volumes de dados usando o HBase em um cluster do Hadoop no HDInsight.
 
 [azure-portal]: https://manage.windowsazure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT

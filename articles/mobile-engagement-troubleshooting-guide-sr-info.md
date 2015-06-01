@@ -35,9 +35,9 @@ Forneça as informações a seguir quando abrir qualquer solicitação de servi�
 
 
 ## Código: forneça as informações de codificação aplicáveis relacionadas ao seu problema
-- A versão do SDK e a plataforma do seu aplicativo \(SDK do Android 2.4.1, iOS 1.16.2 etc.\)
-- O local de download de seu aplicativo de produção \(ou arquivos APK/TGZ do seu aplicativo de desenvolvimento\)
-- O "AndroidManifest.xml" e/ou qualquer trecho de código de seu aplicativo relacionado ao Mobile Engagement do Azure \(para solução de problemas avançada\)
+- A versão do SDK e a plataforma do seu aplicativo (SDK do Android 2.4.1, iOS 1.16.2 etc.)
+- O local de download de seu aplicativo de produção (ou arquivos APK/TGZ do seu aplicativo de desenvolvimento)
+- O "AndroidManifest.xml" e/ou qualquer trecho de código de seu aplicativo relacionado ao Mobile Engagement do Azure (para solução de problemas avançada)
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

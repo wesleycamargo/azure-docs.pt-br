@@ -61,22 +61,22 @@ Leia também os tutoriais a seguir para se familiarizar com a instalação e par
 
 Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira coisa a fazer é alternar para o modo do Gerenciador de Recursos do Azure, digite:
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:> Switch-AzureMode -Name AzureResourceManager
 
 Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 Para se conectar as suas assinaturas do Azure, digite:
 
-    PS C:\> Add-AzureAccount
+    PS C:> Add-AzureAccount
 
 No controle do navegador pop-up, insira o nome de usuário e senha da conta do Azure. O PowerShell obterá todas as assinaturas que você tem com esta conta e considerará que o PowerShell usará a primeira como padrão. Observe que com o RBAC, você poderá obter estas assinaturas onde você tem algumas permissões sendo o coadministrador ou tendo alguma atribuição de função. 
 
 Se você tem várias assinaturas e deseja alternar para outra, digite:
 
     # Isso mostrará as assinaturas na conta.
-    PS C:\> Get-AzureSubscription
+    PS C:> Get-AzureSubscription
     # Use o nome da assinatura para selecionar aquela na qual você deseja trabalhar.
-    PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
+    PS C:> Select-AzureSubscription -SubscriptionName <subscription name>
 
 Para obter mais informações, consulte [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 
@@ -84,7 +84,7 @@ Para obter mais informações, consulte [Como instalar e configurar o PowerShell
 
 Agora vamos verificar quais atribuições de função já existem na assinatura. Tipo:
 
-    PS C:\> Get-AzureRoleAssignment
+    PS C:> Get-AzureRoleAssignment
 
 Isso retornará todas as atribuições de função na assinatura. Há duas coisas a serem observadas:
 
@@ -93,7 +93,7 @@ Isso retornará todas as atribuições de função na assinatura. Há duas coisa
 
 Você também pode verificar as atribuições de função existentes para uma definição de função em particular, em um determinado escopo para um usuário específico. Tipo:
 
-    PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
+    PS C:> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 Isso retornará todas as atribuições de função para um usuário em particular no seu locatário do AD, que tem uma atribuição de função de "Proprietário" para o grupo de recursos "group1". A atribuição de função pode vir de dois lugares:
 
@@ -108,42 +108,42 @@ Para criar uma atribuição de função, você precisa pensar sobre
 
 - Para quem você deseja atribuir a função: você pode usar os seguintes cmdlets do active directory do Azure para ver quais usuários, grupos e entidades de serviço tem no seu locatário do AD.
 
-    `PS C:\> Get-AzureADUser
-    PS C:\> Get-AzureADGroup
-    PS C:\> Get-AzureADGroupMember
-    PS C:\> Get-AzureADServicePrincipal` 
+    `PS C:> Get-AzureADUser
+    PS C:> Get-AzureADGroup
+    PS C:> Get-AzureADGroupMember
+    PS C:> Get-AzureADServicePrincipal` 
 
 - Qual função você deseja atribuir: você pode usar o seguinte cmdlet para ver as definições de função com suporte.
 
-    `PS C:\> Get-AzureRoleDefinition`
+    `PS C:> Get-AzureRoleDefinition`
 
 - Qual o escopo que você deseja atribuir: você tem três níveis de escopo
 
     - A assinatura atual
-    - Um grupo de recursos, para obter uma lista de grupos de recursos, digite "PS C:\> Get-AzureResourceGroup"
-    - Um recurso, para obter uma lista de recursos, digite "PS C:\> Get-AzureResource"
+    - Um grupo de recursos, para obter uma lista de grupos de recursos, digite "PS C:> Get-AzureResourceGroup"
+    - Um recurso, para obter uma lista de recursos, digite "PS C:> Get-AzureResource"
 
 Então use "New-AzureRoleAssignment" para criar uma atribuição de função. Por exemplo:
 
  - Isso criará uma atribuição de função em nível da assinatura atual para um usuário como um leitor.
 
-    `PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Reader`
+    `PS C:> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Reader`
 
 - Isso criará uma atribuição de função em nível de grupo de recursos
 
-    `PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Contributor -ResourceGroupName group1`
+    `PS C:> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Contributor -ResourceGroupName group1`
 
 - Isso criará uma atribuição de função em nível de recursos
 
-    `PS C:\> $resources = Get-AzureResource
-    PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId`
+    `PS C:> $resources = Get-AzureResource
+    PS C:> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId`
 
 ## <a id="verify"></a>Verifique as permissões ##
 
 Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando
 
-    PS C:\> Get-AzureResourceGroup
-    PS C:\> Get-AzureResource
+    PS C:> Get-AzureResourceGroup
+    PS C:> Get-AzureResource
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 

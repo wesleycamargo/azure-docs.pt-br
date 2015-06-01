@@ -124,11 +124,11 @@ Portal de Gerenciamento do Azure, do qual você pode baixar as informações de 
 
 4. Quando solicitado, baixe e salve o perfil de publicação e anote o caminho e o nome do arquivo .publishsettings. Essas informações são necessárias quando você executa o cmdlet **Import-AzurePublishSettingsFile** para importar as configurações. O formato de local e nome de arquivo padrão é:
 
-			C:\\Users\<UserProfile>\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. Digite um comando semelhante ao seguinte, substituindo os espaços reservados pelo nome da sua conta do Windows e o nome do arquivo para os espaços reservados:
 
-		Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings
+		Import-AzurePublishSettingsFile C:\Users<UserProfile>\Downloads<SubscriptionName>-credentials.publishsettings
 
 > [AZURE.NOTE] Se você for adicionado a outras assinaturas como coadministrador depois de importar suas configurações de publicação, precisará repetir esse processo para baixar um novo arquivo .publishsettings e, em seguida, importar essas configurações. Para obter informações sobre como adicionar coadministradores para ajudar a gerenciar os serviços de uma assinatura, consulte [Adicionar e remover coadministradores de suas assinaturas do Azure](http://msdn.microsoft.com/library/windowsazure/gg456328.aspx).
 

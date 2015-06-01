@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -16,7 +17,7 @@
 
 ### Para conectar-se por meio do console serial
 
-1. Conecte o cabo serial ao dispositivo \(diretamente ou por meio de um adaptador serial USB\).
+1. Conecte o cabo serial ao dispositivo (diretamente ou por meio de um adaptador serial USB).
 
 2. Abra o **Painel de Controle** e, em seguida, abra o **Gerenciador de Dispositivos**.
 

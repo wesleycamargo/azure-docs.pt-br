@@ -102,7 +102,7 @@ Certifique-se de ter as seguintes permissões em seu `AndroidManifest.xml` (ante
 
 ##Conceda as credenciais do Engagement OAuth
 
-Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) em $/\\#application/YOUR\\_APPID/native-push.
+Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) em $/#application/YOUR_APPID/native-push.
 
 Agora você pode selecionar "Qualquer hora" durante a criação de pesquisas e anúncios de alcance.
 

@@ -295,7 +295,7 @@ Para carregar blobs em um contêiner, você pode usar o cmdlet [Set-AzureStorage
 
 O exemplo a seguir executa o cmdlet [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) para obter todos os arquivos na pasta especificada e os passa para o próximo cmdlet usando o operador de pipeline. O cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) carrega os arquivos locais para o contêiner:
 
-    Get-ChildItem -Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
+    Get-ChildItem -Path C:\Images* | Set-AzureStorageBlobContent -Container "yourcontainername"
 
 ### <a name="downblob"></a>Como baixar blobs de um contêiner
 O exemplo a seguir demonstra como baixar blobs de um contêiner. O exemplo primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primário. Em seguida, o exemplo recupera uma referência de blob usando o cmdlet [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx). Em seguida, o exemplo usa o cmdlet [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) para baixar blobs para a pasta de destino local. 

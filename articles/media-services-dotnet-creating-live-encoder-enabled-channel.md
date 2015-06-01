@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Use o SDK do .NET para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits \(Visualização\)
+#Use o SDK do .NET para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits (Visualização)
 
 ##Visão geral
 
@@ -29,7 +29,7 @@ Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe
 
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP \(MPEG-TS\). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Essa etapa também pode ser realizada após a criação do canal.
 
@@ -47,7 +47,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 	
 	1. 	Crie uma chave de conteúdo. 
 	1. 	Configure a política de autorização da chave de conteúdo.
-1. Configure a política de entrega de ativos \(usada pelo empacotamento dinâmico e criptografia dinâmica\).
+1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
 3. Crie um programa e especifique o uso do ativo que você criou.
 1. Publique o ativo associado ao programa criando um localizador OnDemand.  
 
@@ -55,7 +55,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa \(e, opcionalmente, exclua o ativo\).   
+1. Exclua o programa (e, opcionalmente, exclua o ativo).   
 
 ##Neste tópico
 
@@ -64,7 +64,7 @@ Este tópico mostra como executar operações diferentes em canais e programas u
 O tópico mostra como fazer o seguinte:
 
 1. Crie e inicie um canal. São usadas APIs de execução longa.
-1. Obtenha o ponto de extremidade de ingestão \(entrada\) dos canais. Esse ponto de extremidade deve ser fornecido ao codificador que pode enviar um fluxo ao vivo de taxa de bits única.
+1. Obtenha o ponto de extremidade de ingestão (entrada) dos canais. Esse ponto de extremidade deve ser fornecido ao codificador que pode enviar um fluxo ao vivo de taxa de bits única.
 1. Obtenha o ponto de extremidade de visualização. Esse ponto de extremidade é usado para visualizar o fluxo. 
 1. Crie um ativo que será usado para armazenar seu conteúdo. As políticas de entrega de ativos devem ser configuradas, assim, como mostrado neste exemplo.
 1. Crie um programa e especifique o uso do ativo que você criou anteriormente. Inicie o programa. São usadas APIs de execução longa.

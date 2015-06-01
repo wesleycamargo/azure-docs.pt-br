@@ -17,7 +17,7 @@
 
 # Explore os logs de rastreamento de Java no Application Insights
 
-Se você estiver usando Logback ou Log4J \(v 1.2 ou 2.0\) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
+Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 Instale o [SDK do Application Insights para Java][java], se ainda não tiver feito isso.
 
@@ -89,7 +89,7 @@ Agente | Baixar | Biblioteca
 ----|----|----
 Logback|[SDK com appender de Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
 Log4J v2.0|[SDK com appender de Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK com appender de Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Log4j v1.2|[SDK com appender de Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -130,7 +130,7 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante ao arq
       <appender-ref ref="aiAppender" />
     </root>
 
-Os appenders Application Insights podem ser referenciados por qualquer agente configurado e não necessariamente pelo agente raiz \(conforme mostrado nos exemplos de código acima\).
+Os appenders Application Insights podem ser referenciados por qualquer agente configurado e não necessariamente pelo agente raiz (conforme mostrado nos exemplos de código acima).
 
 ## Explorar seus rastreamentos no portal do Application Insights
 

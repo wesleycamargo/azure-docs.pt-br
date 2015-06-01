@@ -44,7 +44,7 @@ Sim. Circuitos de Rota Expressa são configurados para dar suporte a casos em qu
 ### Posso usar a mesma conexão de rede privada com Rede Virtual e outros serviços do Azure simultaneamente?
 Sim. Um circuito de Rota Expressa, uma vez instalado, permitirá que você acesse os serviços em uma Rede Virtual e outros serviços do Azure simultaneamente. Você se conectará às redes virtuais pelo caminho privado de emparelhamento e a outros serviços pelo caminho público de emparelhamento.
 
-### A Rota Expressa oferece um SLA \(contrato de nível de serviço\)?
+### A Rota Expressa oferece um SLA (contrato de nível de serviço)?
 Consulte a [página SLA de Rota Expressa](http://azure.microsoft.com/support/legal/sla/) para obter mais informações.
 
 ## Serviços do Azure com suporte
@@ -105,7 +105,7 @@ Sim. Você pode ter circuitos de Rota Expressa de muitos provedores de serviços
 As etapas básicas são descritas a seguir.
 
 - Você deve estabelecer um circuito de Rota Expressa e fazer com que o provedor de serviços o habilite.
-- Você deve configurar o BGP para emparelhamento privado \(se você estiver usando um provedor do Exchange\).
+- Você deve configurar o BGP para emparelhamento privado (se você estiver usando um provedor do Exchange).
 - É necessário vincular uma Rede Virtual ao circuito de Rota Expressa.
 
 Os tutoriais a seguir lhe ajudarão a:
@@ -132,10 +132,10 @@ Não. Todas as redes virtuais vinculadas ao mesmo circuito de Rota Expressa faze
 Sim. Você pode vincular uma única rede virtual a até 4 circuitos de Rota Expressa. Todos os circuitos de Rota Expressa devem estar no mesmo continente. Eles podem ser solicitados por meio de provedores de serviços diferentes e em locais diferentes.
 
 ### Poderei acessar a Internet por meio de minhas redes virtuais conectadas a circuitos de Rota Expressa?
-Sim. Se você não anunciou rotas padrão \(0.0.0.0/0\) ou prefixos de rotas de Internet ao longo da sessão BGP, você será capaz de se conectar à Internet por meio de uma rede virtual vinculada a um circuito de Rota Expressa.
+Sim. Se você não anunciou rotas padrão (0.0.0.0/0) ou prefixos de rotas de Internet ao longo da sessão BGP, você será capaz de se conectar à Internet por meio de uma rede virtual vinculada a um circuito de Rota Expressa.
 
 ### Posso bloquear a conectividade à Internet em minhas redes virtuais conectadas a circuitos de Rota Expressa?
-Sim. Você pode anunciar rotas padrão \(0.0.0.0/0\) para bloquear toda a conectividade com a Internet para máquinas virtuais implantadas em uma rede virtual e rotear todo o tráfego de saída através do circuito de Rota Expressa. Observe que se você anunciar rotas padrão, forçaremos o tráfego para serviços oferecidos por emparelhamento público \(como o armazenamento do Azure e banco de dados SQL\) de volta para o seu local. Você precisará configurar seus roteadores para retornar o tráfego para o Azure através do caminho de emparelhamento público ou pela Internet.
+Sim. Você pode anunciar rotas padrão (0.0.0.0/0) para bloquear toda a conectividade com a Internet para máquinas virtuais implantadas em uma rede virtual e rotear todo o tráfego de saída através do circuito de Rota Expressa. Observe que se você anunciar rotas padrão, forçaremos o tráfego para serviços oferecidos por emparelhamento público (como o armazenamento do Azure e banco de dados SQL) de volta para o seu local. Você precisará configurar seus roteadores para retornar o tráfego para o Azure através do caminho de emparelhamento público ou pela Internet.
 
 ### As redes virtuais vinculadas ao mesmo circuito de Rota Expressa podem conversar entre si?
 Sim. Máquinas virtuais implantadas em redes virtuais conectadas ao mesmo circuito de Rota Expressa podem comunicar-se umas com as outras.
@@ -153,20 +153,20 @@ Você deve estabelecer um circuito de Rota Expressa e configurar rotas para empa
 Sim. Aceitamos até 4.000 prefixos de rota para emparelhamento privado e emparelhamento público. Você pode aumentar esse limite para 10.000 rotas se habilitar o recurso premium da Rota Expressa.
 
 ### Há restrições de intervalos de endereços IP que posso anunciar durante a sessão BGP?
-Prefixos anunciados via BGP devem ser /29 ou maiores \(/28 a /8\).
+Prefixos anunciados via BGP devem ser /29 ou maiores (/28 a /8).
 
-Filtraremos prefixos privados \(RFC1918\) na sessão BGP de emparelhamento público.
+Filtraremos prefixos privados (RFC1918) na sessão BGP de emparelhamento público.
 
 ### O que acontece se eu exceder os limites de BGP?
 As sessões BGP serão interrompidas. Elas serão redefinidas quando a contagem de prefixos voltar a ficar abaixo do limite.
 
-### Após anunciar a rota padrão \(0.0.0.0/0\) para minhas redes virtuais, eu não posso ativar o Windows sendo executado em minhas VMs do Azure. O que posso fazer?
+### Após anunciar a rota padrão (0.0.0.0/0) para minhas redes virtuais, eu não posso ativar o Windows sendo executado em minhas VMs do Azure. O que posso fazer?
 As etapas a seguir ajudarão o Azure a reconhecer a solicitação de ativação:
 
 1. Estabeleça o emparelhamento público para seu circuito de Rota Expressa.
 2. Execute uma pesquisa DNS e localize o endereço IP de **kms.core.windows.net**
 3. Então, execute um dos dois itens a seguir para que o Serviço de Gerenciamento de Chaves reconheça que a solicitação de ativação é proveniente do Azure e atenda a solicitação.
-	- Em sua rede local, faça o roteamento do tráfego destinado ao endereço IP \(obtido na etapa 2\) de volta para o Azure por meio de emparelhamento público.
+	- Em sua rede local, faça o roteamento do tráfego destinado ao endereço IP (obtido na etapa 2) de volta para o Azure por meio de emparelhamento público.
 	- Faça com que seu provedor NSP envie o tráfego por loop “hairpin” de volta ao Azure, via emparelhamento público. 
 
 ### Posso alterar a largura de banda de um circuito de Rota Expressa?
@@ -181,7 +181,7 @@ Você pode atualizar a largura de banda do circuito de Rota Expressa usando o cm
 Rota Expressa premium é uma coleção de recursos listados abaixo.
  
  - Limite maior na tabela de roteamento, de 4.000 rotas a 10.000 rotas para emparelhamento público e emparelhamento privado.
- - Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa \(o padrão é 10\). Consulte a tabela seguir para obter mais detalhes.
+ - Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
  - Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício. 
 
 ### Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?
@@ -196,7 +196,7 @@ A tabela a seguir informa os limites aumentados para o número de VNets que voc�
 | 100 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
 | 1 Gbps | 10 | 50                                                                                     
-\|
+|
 
 
 **Limites de circuitos criados por meio de EXPs**
@@ -269,7 +269,7 @@ Os tutoriais a seguir lhe ajudarão a:
 - Yammer
 - Downloads de cliente do Office 365 ProPlus
 - Autenticação de Provedor de Identidade Local 
-- Serviço Office 365 \(operado pela Vianet 21\) na China
+- Serviço Office 365 (operado pela Vianet 21) na China
 
 Você pode se conectar a esses serviços pela Internet.
 

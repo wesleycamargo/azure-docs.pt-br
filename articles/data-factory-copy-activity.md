@@ -16,15 +16,15 @@
 	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
-# Copiar dados com o Azure Data Factory \(atividade de cópia\)
+# Copiar dados com o Azure Data Factory (atividade de cópia)
 ## Visão geral
-Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor \(destino\) em um lote. A atividade de cópia pode ser utilizada nos seguintes cenários:
+Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. A atividade de cópia pode ser utilizada nos seguintes cenários:
 
-- **Ingresso para o Azure**. Nesse cenário, os dados são copiados de uma fonte de dados local \(ex: SQL Server\) para um armazenamento de dados do Azure \(ex: blob, tabela ou Banco de Dados SQL do Azure\) para os seguintes subcenários:
+- **Ingresso para o Azure**. Nesse cenário, os dados são copiados de uma fonte de dados local (ex: SQL Server) para um armazenamento de dados do Azure (ex: blob, tabela ou Banco de Dados SQL do Azure) para os seguintes subcenários:
 	- Coletar dados em um local centralizado no Azure para processamento adicional.
 	- Migrar dados de plataformas de nuvem não pertencentes ao Azure ou locais para o Azure.
 	- Arquivar ou fazer backup de dados do Azure para armazenamento econômico em camadas.
-- **Saída do Azure**. Nesse cenário, os dados são copiados do Azure \(ex: blob, tabela ou Banco de Dados SQL do Azure\) para armazéns de dados locais e data warehouse \(ex: SQL Server\) para os seguintes subcenários:
+- **Saída do Azure**. Nesse cenário, os dados são copiados do Azure (ex: blob, tabela ou Banco de Dados SQL do Azure) para armazéns de dados locais e data warehouse (ex: SQL Server) para os seguintes subcenários:
 	- Transferir dados para o local devido à falta de suporte para o data warehouse de nuvem.
 	- Transferir dados para o local para aproveitar a solução local existente ou a infraestrutura de relatório.
 	- Arquivar ou fazer backup de dados para os locais de armazenamento em camadas
@@ -125,8 +125,8 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 
 </table>
 
-### SQL na IaaS\(Infraestrutura como um serviço\)
-Para SQL na IaaS, há suporte para o Azure como provedor da IaaS. Há suporte para a seguinte rede e topologias VPN. Observe que o Gateway de Gerenciamento de Dados é necessário para o caso \#2 e 3 \#, quanto não for necessário para o caso \#1. Para obter detalhes sobre o gateway de gerenciamento de dados, consulte [Habilitar pipelines para acessar dados locais][use-onpremises-datasources].
+### SQL na IaaS(Infraestrutura como um serviço)
+Para SQL na IaaS, há suporte para o Azure como provedor da IaaS. Há suporte para a seguinte rede e topologias VPN. Observe que o Gateway de Gerenciamento de Dados é necessário para o caso #2 e 3 #, quanto não for necessário para o caso #1. Para obter detalhes sobre o gateway de gerenciamento de dados, consulte [Habilitar pipelines para acessar dados locais][use-onpremises-datasources].
 
 1.	Máquina virtual com o nome DNS público e porta estática pública: mapeamento de porta privada
 2.	Máquina virtual com o nome DNS público sem ponto de extremidade SQL exposto
@@ -251,9 +251,22 @@ O script JSON a seguir define uma tabela de entrada que se refere a uma tabela S
 	{
 		"name": "MyOnPremTable",
     	"properties":
-   { "location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		{
+			"location":
+    		{
+    			"type": "OnPremisesSqlServerTableLocation",
+    			"tableName": "MyTable",
+    			"linkedServiceName": "MyOnPremisesSQLDB"
+    		},
+    		"availability":
+   			{
+    			"frequency": "Hour",
+    			"interval": 1
+   			}
+ 		}
+	}
 
-O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela \(\*\*MyOnPremTable\*\*\) em uma data factory do Azure: **CopyFactory**.
+O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela (**MyOnPremTable**) em uma data factory do Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -263,20 +276,44 @@ Consulte [Referência do cmdlet][cmdlet-reference] para obter detalhes sobre os 
 O script JSON a seguir define uma tabela de saída: **MyDemoBlob**, que se refere a um blob do Azure: **MyBlob** na pasta blob: **MySubFolder** no contêiner de blob: **MyContainer**.
          
 	{
-   "name": "MyDemoBlob", "properties": { "location": { "type": "AzureBlobLocation", "folderPath": "MyContainer/MySubFolder", "fileName": "MyBlob", "linkedServiceName": "MyAzureStorage", "format": { "type": "TextFormat", "columnDelimiter": ",", "rowDelimiter": ";", "EscapeChar": "$", "NullValue": "NaN" } }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		"name": "MyDemoBlob",
+	    "properties":
+    	{
+    		"location":
+    		{
+        		"type": "AzureBlobLocation",
+        		"folderPath": "MyContainer/MySubFolder",
+        		"fileName": "MyBlob",
+        		"linkedServiceName": "MyAzureStorage",
+        		"format":
+        		{
+            		"type": "TextFormat",
+            		"columnDelimiter": ",",
+            		"rowDelimiter": ";",
+             		"EscapeChar": "$",
+             		"NullValue": "NaN"
+        		}
+    		},
+        	"availability":
+      		{
+       			"frequency": "Hour",
+       			"interval": 1
+      		}
+   		}
+	}
 
-O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela \(\*\*MyDemoBlob\*\*\) em uma data factory do Azure: **CopyFactory**.
+O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela (**MyDemoBlob**) em uma data factory do Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
 
-### Pipeline \(com a Atividade de cópia\) JSON
+### Pipeline (com a Atividade de cópia) JSON
 Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as seguintes propriedades:
 
 - A propriedade **tipo** é definida como **CopyActivity**.
-- **MyOnPremTable** é especificado como a entrada \(marca de \*\*entradas\*\*\).
-- **MyAzureBlob** é especificado como a saída \(marca de \*\*saídas\*\*\)
-- A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é configurado como **SqlSource** e o tipo de coletor como **BlobSink**. O **sqlReaderQuery** define a transformação \(projeção\) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON][json-script-reference].
+- **MyOnPremTable** é especificado como a entrada (marca de **entradas**).
+- **MyAzureBlob** é especificado como a saída (marca de **saídas**)
+- A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é configurado como **SqlSource** e o tipo de coletor como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON][json-script-reference].
 
          
 		{
@@ -286,10 +323,31 @@ Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as segui
 				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
         		"activities":
         		[
-      { "name": "CopyActivity", "description": "description", "type": "CopyActivity", "inputs": [ { "name": "MyOnPremTable" } ], "outputs": [ { "name": "MyAzureBlob" } ], "transformation": { "source": { "type": "SqlSource", "sqlReaderQuery": "select \* from MyTable" }, "sink": { "type": "BlobSink" } } } \] } }
+      				{
+						"name": "CopyActivity",
+						"description": "description", 
+						"type": "CopyActivity",
+						"inputs":  [ { "name": "MyOnPremTable"  } ],
+						"outputs":  [ { "name": "MyAzureBlob" } ],
+						"transformation":
+	    				{
+							"source":
+							{
+								"type": "SqlSource",
+                    			"sqlReaderQuery": "select * from MyTable"
+							},
+							"sink":
+							{
+                        		"type": "BlobSink"
+							}
+	    				}
+      				}
+        		]
+    		}
+		}
 
 
- O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryPipeline** que usa um arquivo JSON que contém o script acima para criar um pipeline \(\*\*CopyActivityPipeline\*\*\) em um data factory do Azure: **CopyFactory**.
+ O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryPipeline** que usa um arquivo JSON que contém o script acima para criar um pipeline (**CopyActivityPipeline**) em um data factory do Azure: **CopyFactory**.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -302,7 +360,7 @@ Para armazenamentos de dados oferecer conexão HTTPS, escolha a conexão HTTPS p
 
 Para o **Banco de Dados SQL do Azure**, solicite explicitamente uma conexão criptografada e não confie em certificados de servidor para evitar o ataque de "homem no meio". Para fazer isso, use **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para obter detalhes, consulte [Diretrizes e limitações do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Para os bancos de dados tradicionais como **SQL Server**, especialmente quando as instâncias estiverem em uma máquina virtual do Azure e habilite a opção de conexão criptografada ao configurar um certificado assinado, com **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para obter mais informações, consulte [Habilitar conexões criptografadas para o mecanismo de banco de dados]\(https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx\) e [Sintaxe de cadeia de conexão.](https://msdn.microsoft.com/library/ms254500.aspx).
+Para os bancos de dados tradicionais como **SQL Server**, especialmente quando as instâncias estiverem em uma máquina virtual do Azure e habilite a opção de conexão criptografada ao configurar um certificado assinado, com **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para obter mais informações, consulte [Habilitar conexões criptografadas para o mecanismo de banco de dados](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintaxe de cadeia de conexão.](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Cenários avançados
 - **Filtragem de coluna usando a definição de estrutura**. Dependendo do tipo de tabela, é possível especificar um subconjunto das colunas da fonte especificando menos colunas na definição de **estrutura** da definição de tabela que existe na fonte de dados subjacente.

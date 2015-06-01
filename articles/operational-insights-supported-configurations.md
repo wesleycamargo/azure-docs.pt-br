@@ -34,7 +34,7 @@ Usar o Insights Operacionais como um serviço anexado tem os seguintes pré-requ
 
 - System Center 2012 R2: Pacote Cumulativo de Atualizações 2 do Operations Manager, embora o Pacote Cumulativo de Atualizações 3 seja preferido. Esta atualização precisa ser aplicada ao servidor de gerenciamento, agentes e console de Operações do Insights Operacionais como um cenário de serviço anexado.
 
-- Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o Virtual Machine Manager \(VMM\). Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/pt-br/library/hh882396.aspx).
+- Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o Virtual Machine Manager (VMM). Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/pt-br/library/hh882396.aspx).
 
 Consulte [Exibir Alertas do Insights Operacionais](http://go.microsoft.com/fwlink/?LinkID=293793) para obter instruções sobre a instalação e configuração.
 
@@ -45,7 +45,7 @@ Se você quiser exibir alertas do Insights Operacionais sobre o SharePoint Serve
 
 - [Definir a Conta Executar Como para o Lync Server](operational-insights-run-as.md)
 
-- [Definir a Conta Executar Como para o Virtual Machine Manager \(VMM\)](operational-insights-run-as.md)
+- [Definir a Conta Executar Como para o Virtual Machine Manager (VMM)](operational-insights-run-as.md)
 
 ### Sistemas operacionais do Operations Manager
 

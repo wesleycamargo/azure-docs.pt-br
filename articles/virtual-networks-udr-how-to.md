@@ -95,6 +95,6 @@ Para exibir o status do encaminhamento IP em uma VM denominada *FirewallApplianc
 
 [Visão geral sobre encaminhamento IP e rotas definidas pelo usuário](../virtual-networks-udr-overview)
 
-[ILIP \(IP público em nível de instância\)](../virtual-networks-instance-level-public-ip)
+[ILIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip)
 
 [Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx) <!--HONumber=52-->

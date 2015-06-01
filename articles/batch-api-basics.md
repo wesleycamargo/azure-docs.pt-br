@@ -229,15 +229,15 @@ Você precisa de uma conta de Batch para usar esse serviço, e você usa vários
 
 Cada tarefa tem um diretório de trabalho sob o qual ela cria zero ou mais diretórios e arquivos para armazenar o programa que é executado por uma tarefa, os dados processados por uma tarefa e a saída do processamento realizado por uma tarefa. Esses diretórios e arquivos ficam disponíveis para uso por outras tarefas durante a execução de um trabalho. Todas as tarefas, arquivos e diretórios em um TVM pertencem a uma conta de usuário único.
 
-O serviço Batch expõe uma parte do sistema de arquivos em um TVM, como o diretório raiz. O diretório raiz do TVM está disponível para uma tarefa por meio da variável de ambiente WATASK\_TVM\_ROOT\_DIR. Para obter mais informações sobre como usar variáveis de ambiente, consulte Configurações de ambiente para tarefas.
+O serviço Batch expõe uma parte do sistema de arquivos em um TVM, como o diretório raiz. O diretório raiz do TVM está disponível para uma tarefa por meio da variável de ambiente WATASK_TVM_ROOT_DIR. Para obter mais informações sobre como usar variáveis de ambiente, consulte Configurações de ambiente para tarefas.
 
 O diretório raiz contém os seguintes subdiretórios:
 
-- **Tarefas** - esse local é onde são armazenados todos os arquivos que pertencem a tarefas executadas na TVM. Para cada tarefa, o serviço Batch cria um diretório de trabalho com caminho exclusivo no formato %WATASK\_TVM\_ROOT\_DIR%/tasks/Nome_do_item_de_trabalho/nome_do_trabalho/nome_da_tarefa/. Esse diretório fornece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos nesse diretório, e esse diretório é mantido com base na restrição RetentionTime especificada para a tarefa.
+- **Tarefas** - esse local é onde são armazenados todos os arquivos que pertencem a tarefas executadas na TVM. Para cada tarefa, o serviço Batch cria um diretório de trabalho com caminho exclusivo no formato %WATASK_TVM_ROOT_DIR%/tasks/Nome_do_item_de_trabalho/nome_do_trabalho/nome_da_tarefa/. Esse diretório fornece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos nesse diretório, e esse diretório é mantido com base na restrição RetentionTime especificada para a tarefa.
 
-- **Compartilhado** - esse local é um diretório compartilhado para todas as tarefas contidas na conta. Na TVM, o diretório compartilhado fica em %WATASK\_TVM\_ROOT\_DIR%/shared. Esse diretório fornece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório.
+- **Compartilhado** - esse local é um diretório compartilhado para todas as tarefas contidas na conta. Na TVM, o diretório compartilhado fica em %WATASK_TVM_ROOT_DIR%/shared. Esse diretório fornece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório.
 
-- **Start** - esse local é usado por uma tarefa de inicialização como seu diretório de trabalho. Todos os arquivos que são baixados pelo serviço Batch para executar a tarefa de inicialização também são armazenados nesse diretório. Na TVM, o diretório de inicialização é %WATASK\_TVM\_ROOT\_DIR%/start. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório, que pode ser usado pelas tarefas de inicialização para configurar o sistema operacional.
+- **Start** - esse local é usado por uma tarefa de inicialização como seu diretório de trabalho. Todos os arquivos que são baixados pelo serviço Batch para executar a tarefa de inicialização também são armazenados nesse diretório. Na TVM, o diretório de inicialização é %WATASK_TVM_ROOT_DIR%/start. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório, que pode ser usado pelas tarefas de inicialização para configurar o sistema operacional.
 
 Quando uma TVM é removida do pool, todos os arquivos armazenados na TVM também são removidos.
 

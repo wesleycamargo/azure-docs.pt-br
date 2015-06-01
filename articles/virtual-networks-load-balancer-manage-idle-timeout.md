@@ -58,7 +58,7 @@ IdleTimeoutInMinutes é opcional. Se não for definido, o tempo limite padrão �
 
 ### Recupere a configuração de tempo limite de ociosidade
 
-    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet

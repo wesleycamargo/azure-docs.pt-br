@@ -35,7 +35,7 @@ Escolha os tipos de eventos que você deseja exportar:
 ![Clique em Escolher tipos de evento](./media/app-insights-export-telemetry/03-types.png)
 
 
-Depois de criar sua exportação, ela começa a ser realizada. \(Você só obtém os dados que chegam após a criação da exportação.\)
+Depois de criar sua exportação, ela começa a ser realizada. (Você só obtém os dados que chegam após a criação da exportação.)
 
 
 Se você quiser alterar os tipos de evento mais tarde, basta editar a exportação:
@@ -70,7 +70,7 @@ Para baixar dados programaticamente, use a [API REST do repositório de blob](st
 
 Ou considere a possibilidade de usar o [DataFactory](http://azure.microsoft.com/services/data-factory/), no qual você pode configurar pipelines para gerenciar dados em grande escala.
 
-Vamos começar escrevendo um novo blob por hora \(se eventos forem recebidos\). Portanto, você deve sempre processar até a hora anterior, mas aguardar até que a hora atual termine.
+Vamos começar escrevendo um novo blob por hora (se eventos forem recebidos). Portanto, você deve sempre processar até a hora anterior, mas aguardar até que a hora atual termine.
 
 [Exemplo de código][exportcode]
 

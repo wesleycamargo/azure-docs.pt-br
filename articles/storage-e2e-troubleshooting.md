@@ -46,13 +46,13 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 ## Sobre o cenário de exemplo
 
-Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de porcentagem baixa \(mostrada como **PercentSuccess** no portal do Azure e nas tabelas de métricas\) controla as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de porcentagem baixa (mostrada como **PercentSuccess** no portal do Azure e nas tabelas de métricas) controla as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Operações de armazenamento do Azure podem retornar códigos de status HTTP maior 299 como parte de sua funcionalidade normal. Porém esses erros em alguns casos indicam que você poderá otimizar o aplicativo cliente para melhorar o desempenho.
 
 Nesse cenário, vejamos uma taxa de sucesso de porcentagem baixa que seja algo abaixo de 100%. Você pode escolher um nível diferente de métrica, no entanto, de acordo com suas necessidades. É recomendável que, durante o teste do seu aplicativo, você estabeleça uma tolerância de linha de base para suas principais métricas de desempenho. Por exemplo, você pode determinar, com base nos testes, que seu aplicativo deve ter uma taxa de porcentagem de êxitos consistente de 90% ou 85%. Se seus dados de métricas mostram que o aplicativo desviam-se desse número, você pode investigar o que está causando o aumento.
 
-Em nosso cenário de exemplo, depois que estabelecemos que a métrica de taxa de porcentagem de êxitos está abaixo de 100%, vamos examinar os logs para localizar os erros que correlacionam as métricas e usá-las para descobrir o que está causando a taxa inferior de sucesso de porcentagem. Vamos examinar especificamente erros no intervalo de 400. Em seguida, examinaremos com mais detalhes os erros 404 \(não encontrado\).
+Em nosso cenário de exemplo, depois que estabelecemos que a métrica de taxa de porcentagem de êxitos está abaixo de 100%, vamos examinar os logs para localizar os erros que correlacionam as métricas e usá-las para descobrir o que está causando a taxa inferior de sucesso de porcentagem. Vamos examinar especificamente erros no intervalo de 400. Em seguida, examinaremos com mais detalhes os erros 404 (não encontrado).
 
 ### Algumas causas de erros no intervalo 400
 
@@ -60,20 +60,20 @@ Os exemplos a seguir mostram uma amostra de alguns erros de intervalo 400 para s
 
 Observe que as listas abaixo estão longe de serem completas. Consulte [Status e Códigos de Erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no MSDN para obter detalhes sobre os erros gerais de Armazenamento do Azure e sobre os erros específicos de cada um dos serviços de armazenamento.
 
-**Exemplos do Código de Status 404 \(Não Encontrado\)**
+**Exemplos do Código de Status 404 (Não Encontrado)**
 
 Ocorre quando uma operação de leitura em um contêiner ou blob falha porque o contêiner ou blob não foi encontrado.
 
 - Ocorre se um contêiner ou blob tiver sido excluído por outro cliente antes desta solicitação. 
 - Ocorre se você estiver usando uma chamada à API que cria o contêiner ou blob depois de verificar se ele existe. As APIs CreateIfNotExists realizam uma chamada HEAD para verificar a existência do contêiner ou blob. Se ele não existir, será retornado um erro 404 e, em seguida, uma segunda chamada PUT é feita para gravar o contêiner ou blob.
 
-**Exemplos do Código de Status 409 \(Conflito\)**
+**Exemplos do Código de Status 409 (Conflito)**
 
 - Ocorre se você usar uma API para criar um novo contêiner ou blob sem verificar primeiro a existência e se um contêiner ou blob com esse nome já existe. 
 - Ocorre se um contêiner está sendo excluído e você tentar criar um novo contêiner com o mesmo nome antes da operação de exclusão ser concluída.
 - Ocorre se você especificar uma concessão em um contêiner ou blob e já houver uma concessão presente.
  
-**Exemplos do Código de Status 412 \(Falha na Pré-condição\)**
+**Exemplos do Código de Status 412 (Falha na Pré-condição)**
 
 - Ocorre quando a condição especificada por um cabeçalho condicional não foi atendida.
 - Ocorre quando a ID de concessão especificada não coincide com a ID de concessão no contêiner ou blob.
@@ -130,13 +130,13 @@ Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o 
 
 ### Configurar o log de cliente .NET
 
-Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo \(Web.config ou App.config\). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
+Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
 
 O log do lado do cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
 
 O log do cliente está configurado no arquivo App.config ou Web.config no seu aplicativo. Para obter detalhes, consulte o [Log do cliente usando a Biblioteca do Cliente de Armazenamento](http://msdn.microsoft.com/library/azure/dn782839.aspx) no MSDN.
 
-A biblioteca de cliente de armazenamento armazena dados de log do cliente no local especificado no arquivo de configuração do aplicativo \(Web.config ou App.config\).
+A biblioteca de cliente de armazenamento armazena dados de log do cliente no local especificado no arquivo de configuração do aplicativo (Web.config ou App.config).
 
 ### Coletar um rastreamento de rede
 
@@ -144,14 +144,14 @@ Você pode usar o Analisador de Mensagem para coletar um rastreamento de rede HT
 
 1. Instale o [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie o Fiddler.
-2. Selecione **Ferramentas \| Opções do Fiddler**.
+2. Selecione **Ferramentas | Opções do Fiddler**.
 3. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS ** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
 
 ![Configurar Opções do Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Analisador de Mensagem e crie uma sessão de análise para analisar os logs e o rastreamento. Para coletar um rastreamento de rede no Analisador de Mensagem:
 
-1. No Analisador de Mensagem, selecione **Arquivo \| Rastreamento Rápido \| HTTPS Sem Criptografia**.
+1. No Analisador de Mensagem, selecione **Arquivo | Rastreamento Rápido | HTTPS Sem Criptografia**.
 2. O rastreamento será iniciado imediatamente. Selecione **Parar** para parar o rastreamento para que possamos configurá-lo para rastrear apenas o tráfego de armazenamento.
 3. Selecione **Editar** para editar a sessão de rastreamento.
 4. Selecione o link **Configurar** à direita do provedor ETW **Microsoft-Pef-WebProxy**.
@@ -178,7 +178,7 @@ Quando seu aplicativo já estiver sendo executado por algum tempo, você pode re
 
 ![Escolher Métricas](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
 
-No portal, você verá agora a **Porcentagem de Êxitos** no gráfico de monitoramento, junto com quaisquer outras métricas adicionadas \(até seis podem ser exibidas no gráfico de uma vez\). Na imagem abaixo, você pode ver que a taxa de sucesso em porcentagem é um pouco abaixo de 100%, que é o cenário que examinaremos em seguida, analisando os logs no Analisador de Mensagem:
+No portal, você verá agora a **Porcentagem de Êxitos** no gráfico de monitoramento, junto com quaisquer outras métricas adicionadas (até seis podem ser exibidas no gráfico de uma vez). Na imagem abaixo, você pode ver que a taxa de sucesso em porcentagem é um pouco abaixo de 100%, que é o cenário que examinaremos em seguida, analisando os logs no Analisador de Mensagem:
 
 ![Gráfico de métricas no portal](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
 
@@ -223,7 +223,7 @@ O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam 
 
 ### Importar os arquivos de log para o Analisador de Mensagem
 
-Você pode importar todos os arquivos de log salvos \(do servidor, cliente e rede\) para uma única sessão do Analisador de Mensagem da Microsoft para análise.
+Você pode importar todos os arquivos de log salvos (do servidor, cliente e rede) para uma única sessão do Analisador de Mensagem da Microsoft para análise.
 
 1. No menu **Arquivo** no Analisador de Mensagem da Microsoft, clique em **Nova Sessão**, em seguida, clique em **Sessão em Branco**. Na caixa de diálogo **Nova Sessão**, digite um nome para a sessão de análise. No painel **Detalhes da Sessão**, clique no botão **Arquivos**. 
 1. Para carregar os dados de rastreamento de rede gerados pelo Analisador de Mensagem, clique em **Adicionar Arquivos**, navegue até o local onde você salvou o arquivo .matp da sua sessão de rastreamento da Web, selecione o arquivo .matp e clique em **Abrir**. 
@@ -257,7 +257,7 @@ A figura abaixo mostra o menu **Layout de Exibição**, disponível selecionando
 
 ![Menu Layout de Exibição](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-Para começar, selecione **Agrupados por Módulo e ClientRequestID**. Esse layout de exibição agrupa os dados de log de todos os três logs, primeiro pela ID de solicitação do cliente, depois pelo arquivo de log de origem \(ou **Módulo** no Analisador de Mensagem\). Nesta exibição, você pode fazer uma busca detalhada em uma ID de solicitação de cliente específico e ver os dados de todos os três arquivos de log para essa ID de solicitação de cliente.
+Para começar, selecione **Agrupados por Módulo e ClientRequestID**. Esse layout de exibição agrupa os dados de log de todos os três logs, primeiro pela ID de solicitação do cliente, depois pelo arquivo de log de origem (ou **Módulo** no Analisador de Mensagem). Nesta exibição, você pode fazer uma busca detalhada em uma ID de solicitação de cliente específico e ver os dados de todos os três arquivos de log para essa ID de solicitação de cliente.
 
 A figura abaixo mostra esse modo de exibição de layout aplicado a dados de log de exemplo, com um subconjunto de colunas exibidas. Você pode ver que, para uma ID de solicitação de cliente específico, a grade de análise exibe os dados do log do cliente, o log do servidor e o rastreamento de rede.
 
@@ -271,7 +271,7 @@ Além de usar os layouts do modo de Armazenamento do Azure, você também pode d
 
 Os ativos de armazenamento também incluem regras de cores, que oferecem uma maneira visual de identificar os diferentes tipos de erros na grade de análise. As regras de cores predefinidas aplicam-se aos erros HTTP, por isso elas aparecem somente para o rastreamento de rede e de log do servidor.
 
-Para aplicar as regras da cor, selecione **Regras da Cor** na faixa de opções da barra de ferramentas. Você verá as regras de cores do Armazenamento do Azure no menu. Para o tutorial, selecione **Erros do Cliente \(StatusCode entre 400 e 499\)**, conforme mostrado na figura abaixo.
+Para aplicar as regras da cor, selecione **Regras da Cor** na faixa de opções da barra de ferramentas. Você verá as regras de cores do Armazenamento do Azure no menu. Para o tutorial, selecione **Erros do Cliente (StatusCode entre 400 e 499)**, conforme mostrado na figura abaixo.
 
 ![Layout de Exibição do Armazenamento do Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -292,11 +292,11 @@ A figura a seguir mostra os resultados desse agrupamento e filtro. Expandir o ca
 
 ![Layout de Exibição do Armazenamento do Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Depois de aplicar esse filtro, você verá que são excluídas linhas do log do cliente, pois o log do cliente não inclui uma coluna \*\*StatusCode\*\*. Para começar, vamos examinar o servidor e os logs de rastreamento de rede para localizar os erros 404 e vamos voltar para o log de cliente para examinar as operações de cliente que levou a eles.
+Depois de aplicar esse filtro, você verá que são excluídas linhas do log do cliente, pois o log do cliente não inclui uma coluna **StatusCode**. Para começar, vamos examinar o servidor e os logs de rastreamento de rede para localizar os erros 404 e vamos voltar para o log de cliente para examinar as operações de cliente que levou a eles.
 
 >[AZURE.NOTE]Você poderá filtrar na coluna **StatusCode** e ainda exibir os dados de todos os três logs, incluindo o log do cliente, se adicionar uma expressão ao filtro que inclui entradas de log nas quais o código de status é nulo. Para criar esta expressão de filtro, use:
 >
-> <code>&\#42;StatusCode \>= 400 ou !&\#42;StatusCode</code>
+> <code>&#42;StatusCode >= 400 ou !&#42;StatusCode</code>
 >
 > Esse filtro retorna todas as linhas de log do cliente e apenas as linhas de log do servidor e log HTTP em que o código de status é maior que 400. Se você aplicá-lo ao layout do modo de exibição agrupado por ID de solicitação do cliente e do módulo, poderá pesquisar ou percorrer as entradas de log para encontrar aqueles em que todos os três logs são representados.
 
@@ -305,7 +305,7 @@ Depois de aplicar esse filtro, você verá que são excluídas linhas do log do 
 Os ativos de armazenamento incluem filtros predefinidos que você pode usar para restringir os dados de log para localizar os erros ou tendências que você está procurando. Em seguida, vamos aplicar dois filtros predefinidos: um que filtra o servidor e os logs de rastreamento de rede para erros 404 e outro que filtra os dados em um intervalo de tempo especificado.
 
 1. Exiba a janela de ferramentas Filtro de exibição se ela já não estiver exibida. Na faixa de opções da barra de ferramentas, selecione **Janelas de Ferramenta** e **Filtro de Exibição**.
-2. Na janela Filtro de Exibição, selecione **Biblioteca** e pesquise `Azure Storage` para encontrar os filtros do Armazenamento do Azure. Selecione o filtro para as mensagens **404 \(Não Encontrado\) em todos os logs**.
+2. Na janela Filtro de Exibição, selecione **Biblioteca** e pesquise `Azure Storage` para encontrar os filtros do Armazenamento do Azure. Selecione o filtro para as mensagens **404 (Não Encontrado) em todos os logs**.
 3. Exiba o menu **Biblioteca** novamente, localize e selecione o **Filtro de Hora Global**.
 4. Edite os carimbos de hora mostrados no filtro para o intervalo que você deseja exibir. Isso ajudará a limitar o intervalo de dados a serem analisados.
 5. Seu filtro deve ser semelhante ao exemplo a seguir. Clique em **Aplicar** para aplicar o filtro à Grade de Análise.
@@ -344,12 +344,12 @@ Se você souber o endereço do blob que gerou o erro 404, poderá investigar ain
 
 Agora que você está familiarizado com o uso do Analisador de Mensagem para analisar os dados de log, poderá analisar outros tipos de erros usando a exibição de layouts, regras de cores e pesquisa/filtragem. As tabelas a seguir listam alguns problemas possíveis e os critérios de filtro que você pode usar para localizá-los. Para obter mais informações sobre como construir filtros e a linguagem de filtragem do Analisador de Mensagem, consulte [Filtrando Dados de Mensagem](http://technet.microsoft.com/library/jj819365.aspx).
 
-| Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log \(Cliente, Servidor, Rede, Todos\) |
+| Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log (Cliente, Servidor, Rede, Todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
-| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &\#124;&\#124; HTTP.Response.StatusCode == 503 | Rede |
+| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
-| Aumento em PercentTimeoutError \(todos\) | *StatusCode == 500 \|Todos \| \| Aumentar PercentNetworkError \| AzureStorageClientDotNetV4.EventLogEntry.Level \< 2 \| Cliente \| \| Mensagens HTTP 403 \(Proibido\) \| HTTP.Response.StatusCode == 403 \| Rede \| \| Mensagens HTTP 404 \(Não encontrado\) \| HTTP.Response.StatusCode == 404 \| Rede \| \| 404 \(todos\) \| *StatusCode == 404 \| Todos \| \| Problema de autorização da Assinatura de Acesso Compartilhado \(SAS\) \| AzureStorageLog.RequestStatus == "SASAuthorizationError" \| Rede \| \| Mensagens HTTP 409 \(Conflito\) \| HTTP.Response.StatusCode == 409 \|Rede \| \| 409 \(todos\) \| *StatusCode == 409 \| Todos \| \|O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors \| AzureStorageLog.RequestStatus == "ClientOtherError" \| Servidor \| \| Aviso Nagle \| \(\(AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS\) \> \(AzureStorageLog.ServerLatencyMS \* 1.5\)\) e \(AzureStorageLog.RequestPacketSize \<1460\) e \(AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS \>= 200\) \| Servidor \| \| Intervalo de tempo nos logs de Servidor e Rede \| \#Timestamp \>= 2014-10-20T16:36:38 e \#Timestamp \<= 2014-10-20T16:36:39 \| Servidor, Rede \| \| Intervalo de tempo nos logs de Servidor \| AzureStorageLog.Timestamp \>= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp \<= 2014-10-20T16:36:39 \| Servidor \|
+| Aumento em PercentTimeoutError (todos) | *StatusCode == 500 |Todos | | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede | | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede | | 409 (todos) | *StatusCode == 409 | Todos | |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede | | Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Próximas etapas

@@ -24,7 +24,7 @@
 O módulo AzureResourceManager inclui cmdlets que, ao trabalhar com seus recursos do Azure na linha de comando, permitem a você a coletar ferramentas que ajudam você a fazer seu trabalho. Modelos de grupo de recursos do Azure são documentos JSON, e a API de gerenciamento de recursos do Azure aceita e retorna JSON, portanto, ferramentas de análise de JSON são algumas das primeiras coisas que você usará para ajudá-lo a navegar pelas informações sobre seus recursos, bem como o criar ou interagir com modelos e arquivos de parâmetro de modelo.
 
 ### Ferramentas do Windows, Linux e Mac
-Se você usa a Interface de linha de comando do Azure para Mac, Linux e Windows, provavelmente está familiarizado com ferramentas padrão para download como **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)** ou **[Resty](https://github.com/beders/Resty)**, e os utilitários JSON como **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** e as bibliotecas de linguagem que lidam bem com o JSON. \(Muitas dessas ferramentas também têm portas para o Windows, como o [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); na verdade, existem várias maneiras de obter o Linux e outras ferramentas de software de código-fonte aberto em execução também no Windows.\)
+Se você usa a Interface de linha de comando do Azure para Mac, Linux e Windows, provavelmente está familiarizado com ferramentas padrão para download como **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)** ou **[Resty](https://github.com/beders/Resty)**, e os utilitários JSON como **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** e as bibliotecas de linguagem que lidam bem com o JSON. (Muitas dessas ferramentas também têm portas para o Windows, como o [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); na verdade, existem várias maneiras de obter o Linux e outras ferramentas de software de código-fonte aberto em execução também no Windows.)
 
 Este tópico inclui alguns comandos da CLI do Azure que você pode usar com **jq** para obter exatamente as informações que deseja, com mais eficiência. Você deve escolher o conjunto de ferramentas com as quais você já está confortável para ajudá-lo a entender o uso de recursos do Azure.
 
@@ -33,7 +33,7 @@ Este tópico inclui alguns comandos da CLI do Azure que você pode usar com **jq
 O Windows PowerShell ten vários comandos básicos para executar os mesmos procedimentos.
 
 - Use o cmdlet **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** para baixar arquivos como modelos de grupo de recursos ou parâmetros JSON.
-- Use o cmdlet **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** para converter uma cadeia de caracteres JSON em um objeto personalizado \([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)\), que tem uma propriedade para cada campo na cadeia de caracteres JSON.
+- Use o cmdlet **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** para converter uma cadeia de caracteres JSON em um objeto personalizado ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)), que tem uma propriedade para cada campo na cadeia de caracteres JSON.
 
 ## Evitando erros na CLI do Azure para Mac, Linux e Windows
 
@@ -41,7 +41,7 @@ A CLI do Azure tem vários comandos para ajudar a evitar erros e detectar o que 
 
 - **azure location list**. Esse comando obtém os locais que dão suporte a cada tipo de recurso, como o provedor para máquinas virtuais. Antes de inserir um local para um recurso, use esse cmdlet para verificar se o local dá suporte ao tipo de recurso.
 
-    Como a lista de locais pode ser longa e existem muitos provedores, você pode usar ferramentas para examinar os provedores e locais antes de usar um local que ainda não está disponível. O script a seguir usa **jq** para descobrir os locais onde está disponível o provedor de recursos para máquinas virtuais do Azure. \(\)
+    Como a lista de locais pode ser longa e existem muitos provedores, você pode usar ferramentas para examinar os provedores e locais antes de usar um local que ainda não está disponível. O script a seguir usa **jq** para descobrir os locais onde está disponível o provedor de recursos para máquinas virtuais do Azure. ()
 
         azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
         {
@@ -209,7 +209,7 @@ O módulo AzureResourceManager inclui cmdlets que ajudam você a evitar erros.
 
 Pode haver um ou mais dos diversos problemas impedindo a implantação bem-sucedida envolvendo o Active Directory do Azure, a autenticação e autorização. Independentemente de como você gerencia os grupos de recursos do Azure, a identidade que você usa para fazer logon em sua conta deve ser objetos do Active Directory do Azure ou entidades de serviço, o que também é chamado de contas de trabalho ou escola, ou IDs organizacionais.
 
-Mas o Active Directory do Azure permite que você ou seu administrador controlem quais identidades podem acessar os recursos com um alto grau de precisão. Se suas implantações estão falhando, examine as próprias solicitações em busca de sinais de autenticação ou problemas de autorização, examinando também os logs de implantação de seu grupo de recursos. Você pode achar que embora você tenha permissões para alguns recursos, não tem permissões para outros. Usando a CLI do Azure, você pode examinar locatários e usuários do Active Directory do Azure que usam os comandos `azure ad`. \(Para uma lista completa de comandos da CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](azure-cli-arm-commands.md).\)
+Mas o Active Directory do Azure permite que você ou seu administrador controlem quais identidades podem acessar os recursos com um alto grau de precisão. Se suas implantações estão falhando, examine as próprias solicitações em busca de sinais de autenticação ou problemas de autorização, examinando também os logs de implantação de seu grupo de recursos. Você pode achar que embora você tenha permissões para alguns recursos, não tem permissões para outros. Usando a CLI do Azure, você pode examinar locatários e usuários do Active Directory do Azure que usam os comandos `azure ad`. (Para uma lista completa de comandos da CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](azure-cli-arm-commands.md).)
 
 Você também pode ter problemas quando uma implantação atinge uma cota padrão, que pode ser por grupo de recursos, assinaturas, contas, bem como outros escopos. Confirme que você tenha os recursos disponíveis para implantar corretamente, conforme considerar adequado. Para obter informações completas sobre as cotas, consulte [Assinatura do Azure e limites de serviço, cotas e restrições](azure-subscription-service-limits.md).
 
@@ -222,7 +222,7 @@ Você pode ter a experiência de que recursos do Azure implantados usando a API 
 
 Os recursos são gerenciados por provedores de recursos, e uma conta ou assinatura pode ser habilitada para usar um provedor específico. Se você estiver habilitado para usar um provedor, ele também deve ser registrado para uso. A maioria dos provedores são automaticamente registrados pelo Portal do Azure ou a interface de linha de comando que você está usando, mas não todos.
 
-Para ver se o provedor está registrado para uso com a CLI do Azure, use o comando `azure provider list` \(a seguir, um exemplo truncado da saída\).
+Para ver se o provedor está registrado para uso com a CLI do Azure, use o comando `azure provider list` (a seguir, um exemplo truncado da saída).
 
         azure provider list
         info:    Executing command provider list

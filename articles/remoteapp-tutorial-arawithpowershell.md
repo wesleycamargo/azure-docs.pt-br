@@ -34,7 +34,7 @@ Criar uma coleção na nuvem
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-O comando acima publica automaticamente os aplicativos do Microsoft Office 365 \(Excel, OneNote, Outlook, PowerPoint, Visio e Word\).
+O comando acima publica automaticamente os aplicativos do Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio e Word).
 
 A criação de uma coleção pode levar 30 minutos ou mais para ser concluída. Portanto, este comando retorna uma ID de acompanhamento que pode ser usada da seguinte maneira:
 

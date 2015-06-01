@@ -50,9 +50,9 @@ Além disso, ao planejar alterações em um site da Web ativo, você pode facilm
 
 Use o domínio dos Aplicativos Web do Serviço de Aplicativo gratuitamente ou mapeie para seu nome de domínio registrado e proteja sua marca com seu certificado SSL assinado por uma autoridade de certificação.
 
-O domínio **\*.azurewebsites.net** é gratuito quando você executa seu site nos Aplicativos Web. Ou então, você pode mapear seu site para um [domínio personalizado] (por exemplo, contoso.com), que você obteve em qualquer registro de DNS, como GoDaddy.
+O domínio ***.azurewebsites.net** é gratuito quando você executa seu site nos Aplicativos Web. Ou então, você pode mapear seu site para um [domínio personalizado] (por exemplo, contoso.com), que você obteve em qualquer registro de DNS, como GoDaddy.
 
-Se coleta informações do usuário, realiza comércio eletrônico ou gerencia outros dados confidenciais, você pode proteger a reputação de sua marca e seus clientes com o [HTTPS]. O nome de domínio **\*.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, consulte [Detalhes de preços do Serviço de Aplicativos].
+Se coleta informações do usuário, realiza comércio eletrônico ou gerencia outros dados confidenciais, você pode proteger a reputação de sua marca e seus clientes com o [HTTPS]. O nome de domínio ***.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, consulte [Detalhes de preços do Serviço de Aplicativos].
 
 ## Ter alcance global
 

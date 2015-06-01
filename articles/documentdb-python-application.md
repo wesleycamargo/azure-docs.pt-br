@@ -272,12 +272,12 @@ Na pasta de modelos, adicione os seguintes arquivos html: create.html, results.h
     	{% endblock %}
 
 
-### Adicione um arquivo de configuração e altere \_\_init\_\_.py
+### Adicione um arquivo de configuração e altere __init__.py
 
 1. Clique com o botão direito no tutorial com o nome do projeto e adicione um arquivo, **config.py**.
 Essa configuração é exigida por formulários no flask. Você também pode usá-lo para fornecer uma chave secreta. Isso não é necessário para este tutorial. 
 
-2. Adicione o código a seguir a config.py. Altere os valores de **DOCUMENTDB\_HOST** e **DOCUMENTDB\_KEY**.
+2. Adicione o código a seguir a config.py. Altere os valores de **DOCUMENTDB_HOST** e **DOCUMENTDB_KEY**.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ Essa configuração é exigida por formulários no flask. Você também pode us�
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. Da mesma forma, substitua o conteúdo de **\_\_init\_\_.py** pelo seguinte.
+3. Da mesma forma, substitua o conteúdo de **__init__.py** pelo seguinte.
 
     	from flask import Flask
     	app = Flask(__name__)

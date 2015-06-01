@@ -30,7 +30,7 @@ O ambiente de teste de Configuração de Base consiste na sub-rede Corpnet em um
 
 Ele contém:
 
-- Uma máquina virtual do Azure que executa o Windows Server 2012 R2, denominada DC1, que é configurada como um controlador de domínio de intranet e um servidor DNS \(Sistema de Nomes de Domínio\).
+- Uma máquina virtual do Azure que executa o Windows Server 2012 R2, denominada DC1, que é configurada como um controlador de domínio de intranet e um servidor DNS (Sistema de Nomes de Domínio).
 - Uma máquina virtual do Azure que executa o Windows Server 2012 R2, denominada APP1, que é configurada como um servidor Web e de aplicativos geral.
 - Uma máquina virtual do Azure que executa o Windows Server 2012 R2, denominada CLIENT1, que atuará como um cliente de intranet.
 
@@ -54,13 +54,13 @@ Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter um
 
 Primeiro, crie a Rede Virtual TestLab do Azure que hospedará a sub-rede Corpnet da configuração de base.
 
-1.	Na barra de tarefas do Portal de Gerenciamento do Azure, clique em **Novo \> Serviços de Rede \> Rede Virtual \> Criação Personalizada**.
+1.	Na barra de tarefas do Portal de Gerenciamento do Azure, clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
 2.	Na página Detalhes da Rede Virtual, digite **TestLab** em **Nome**.
 3.	Em **Local**, selecione a região apropriada.
 4.	Clique na seta Avançar.
 5.	Na página Servidores DNS e Conectividade de VPN, em **Servidores DNS**, digite **DC1** em **Selecionar ou digitar o nome**, digite **10.0.0.4** em **Endereço IP** e, em seguida, clique na seta Avançar.
 6.	Na página Espaços de Endereço de Rede Virtual, em **Sub-redes**, clique em **Subnet-1** e substitua o nome por **Corpnet**. 
-7.	Na coluna **CIDR \(Contagem de Endereços\)** da sub-rede Corpnet, clique em **/24 \(256\)**.
+7.	Na coluna **CIDR (Contagem de Endereços)** da sub-rede Corpnet, clique em **/24 (256)**.
 8.	Clique no ícone Concluído. Aguarde a rede virtual ser criada antes de continuar.
 
 Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Abra um prompt de comando do PowerShell do Azure.
@@ -76,7 +76,7 @@ Em seguida, crie um serviço de nuvem do Azure. O serviço de nuvem age como um 
 
 Você deve escolher um nome exclusivo para seu serviço de nuvem. *O nome do serviço de nuvem pode conter apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.*
 
-Por exemplo, você poderia nomear seu serviço de nuvem como TestLab-\*UniqueSequence\*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestLab-Tailspin.
+Por exemplo, você poderia nomear seu serviço de nuvem como TestLab-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestLab-Tailspin.
 
 Você pode testar a exclusividade do nome com este comando do PowerShell do Azure.
 
@@ -105,7 +105,7 @@ Esta é a configuração atual.
 
 ## Fase 2: configurar o DC1
 
-DC1 é um controlador de domínio para o domínio corp.contoso.com do AD DS \(Serviços de Domínio do Active Directory\) e um servidor DNS para as máquinas virtuais da rede virtual TestLab.
+DC1 é um controlador de domínio para o domínio corp.contoso.com do AD DS (Serviços de Domínio do Active Directory) e um servidor DNS para as máquinas virtuais da rede virtual TestLab.
 
 Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no prompt de comando do PowerShell do Azure em seu computador local para criar uma Máquina Virtual do Azure para DC1.
 
@@ -126,14 +126,14 @@ Em seguida, conecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\\**[nome da conta de administrador local]
+- Nome: **DC1**[nome da conta de administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
 Em seguida, adicione um disco de dados extra como um novo volume com a letra da unidade F:.
 
 1.	No painel esquerdo do Gerenciador do Servidor, clique em **Serviços de Arquivo e Armazenamento** e, em seguida, clique em **Discos**.
-2.	No painel de conteúdo, no grupo **Discos**, clique em **disco 2** \(com a **Partição** definida como **Desconhecida**\).
+2.	No painel de conteúdo, no grupo **Discos**, clique em **disco 2** (com a **Partição** definida como **Desconhecida**).
 3.	Clique em **Tarefas**, e, em seguida, em **Novo Volume**.
 4.	Na página Antes de começar do Assistente de Novo Volume, clique em **Avançar**.
 5.	Na página Selecione o servidor e o disco, clique em **Disco 2** e, em seguida, em **Avançar**. Quando solicitado, clique em **OK**.
@@ -155,7 +155,7 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\\**[nome da conta de administrador local]
+- Nome: **CORP**[nome da conta de administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -266,7 +266,7 @@ Para desligar as máquinas virtuais com o PowerShell do Azure, preencha o nome d
 	Stop-AzureVM -ServiceName $serviceName -Name "DC1" -Force -StayProvisioned
 
 
-Para garantir que suas máquinas virtuais funcionem corretamente ao iniciar todas elas no estado Parado \(Desalocado\), você deve iniciá-las na seguinte ordem:
+Para garantir que suas máquinas virtuais funcionem corretamente ao iniciar todas elas no estado Parado (Desalocado), você deve iniciá-las na seguinte ordem:
 
 1.	DC1
 2.	APP1

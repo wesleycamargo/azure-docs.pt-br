@@ -35,7 +35,7 @@ Depois que você definir um Parâmetro de Serviço Web, ele estará disponível 
 
 Você pode optar por fornecer um valor padrão para o Parâmetro de Serviço Web. Nesse caso, o parâmetro será opcional para o usuário do serviço da Web. Se você não fornecer um valor padrão, o usuário deverá inserir um valor quando o serviço Web for acessado.
 
-A documentação para o serviço Web \(fornecido por meio do link **página da Ajuda da API** no serviço Web **PAINEL** no Estúdio de Aprendizado de Máquina\) incluirá informações para o usuário do serviço Web sobre como especificar o Parâmetro de Serviço Web programaticamente ao acessar o serviço Web.
+A documentação para o serviço Web (fornecido por meio do link **página da Ajuda da API** no serviço Web **PAINEL** no Estúdio de Aprendizado de Máquina) incluirá informações para o usuário do serviço Web sobre como especificar o Parâmetro de Serviço Web programaticamente ao acessar o serviço Web.
 
 
 ##Exemplo
@@ -60,7 +60,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Gravador][writ
 
 4.	Para renomear o Parâmetro do Serviço Web, clique no nome, insira "Caminho do blob" e pressione a tecla **Enter**.
  
-5.	Para fornecer um valor padrão para o Parâmetro do Serviço Web, clique no ícone à direita do nome, selecione "Fornecer o valor padrão", insira um valor \(por exemplo, "contêiner1/saída1.csv"\) e pressione a tecla **Enter**.
+5.	Para fornecer um valor padrão para o Parâmetro do Serviço Web, clique no ícone à direita do nome, selecione "Fornecer o valor padrão", insira um valor (por exemplo, "contêiner1/saída1.csv") e pressione a tecla **Enter**.
 
 	![Parâmetro de Serviço Web][parameter]
 

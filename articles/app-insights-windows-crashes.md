@@ -21,7 +21,7 @@
 
 Se os usuários experienciam falhas em seu aplicativo, você gostaria de saber a respeito rapidamente e obter detalhes sobre o que aconteceu. Com o Application Insights, você pode monitorar a frequência com que os falhas ocorrem, obter alertas quando elas ocorrem e investigar os relatórios de incidentes individuais.
 
-"Falha" significa que o aplicativo é encerrado devido a uma exceção não detectada. Se seu aplicativo captura uma exceção, você pode relatá-la com a API TrackException\(\) mas continuar em execução. Nesse caso, ele não será registrado como uma falha.
+"Falha" significa que o aplicativo é encerrado devido a uma exceção não detectada. Se seu aplicativo captura uma exceção, você pode relatá-la com a API TrackException() mas continuar em execução. Nesse caso, ele não será registrado como uma falha.
 
 
 ## Monitorar frequência de falha

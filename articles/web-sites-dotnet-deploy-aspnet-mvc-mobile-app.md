@@ -114,7 +114,7 @@ O modo de exibição de marca do ASP.NET é ajustado à tela, o que é feito aut
 
 Uma novidade do modelo MVC 5 é o suporte interno ao Bootstrap. Você já viu como ele aprimora imediatamente os diferentes modos de exibição em seu aplicativo. Por exemplo, a barra de navegação na parte superior é recolhida automaticamente quando a largura do navegador é menor. No navegador da área de trabalho, tente redimensionar a janela e veja como a barra de navegação muda de aparência e estilo. O responsável é o design Web dinâmico interno do Bootstrap.
 
-Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App\\_Start\\\\BundleConfig.cs* e transforme em comentário as linhas que contêm *bootstrap.js* e *bootstrap.css*. O código a seguir mostra as duas últimas instruções do método `RegisterBundles` após a alteração:
+Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App_Start\\\\BundleConfig.cs* e transforme em comentário as linhas que contêm *bootstrap.js* e *bootstrap.css*. O código a seguir mostra as duas últimas instruções do método `RegisterBundles` após a alteração:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -144,7 +144,7 @@ Você pode substituir qualquer modo de exibição (inclusive layouts e modos de 
 
 Nesta seção, você criará um arquivo de layout específico para dispositivos móveis.
 
-Para começar, copie *Views\\Shared\\_Layout.cshtml* para *Views\\Shared\\_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
+Para começar, copie *Views\\Shared\_Layout.cshtml* para *Views\\Shared\_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
 
 Em cada chamada `Html.ActionLink` à barra de navegação, remova "Procurar por" em cada link *ActionLink*. O código a seguir mostra a marca `<ul class="nav navbar-nav">` completa do arquivo de layout para dispositivos móveis.
 
@@ -159,7 +159,7 @@ Copie o arquivo *Views\\Home\\AllTags.cshtml* para *Views\\Home\\AllTags.Mobile.
 
     <h2>Tags (M)</h2>
 
-Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *\\_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
+Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
@@ -191,7 +191,7 @@ Como alternativa, basta adicionar manualmente a seguinte linha na seção `using
 
     using System.Web.WebPages;
 
-Salve as alterações. Copie o arquivo *Views\\Shared\\_Layout.Mobile.cshtml* para *Views\\Shared\\_Layout.iPhone.cshtml*. Abra o novo arquivo e altere o título de `MVC5 Application (Mobile)` para `MVC5 Application (iPhone)`.
+Salve as alterações. Copie o arquivo *Views\\Shared\_Layout.Mobile.cshtml* para *Views\\Shared\_Layout.iPhone.cshtml*. Abra o novo arquivo e altere o título de `MVC5 Application (Mobile)` para `MVC5 Application (iPhone)`.
 
 Copie o arquivo *Views\\Home\\AllTags.Mobile.cshtml* para *Views\\Home\\AllTags.iPhone.cshtml*. Abra o novo arquivo, altere o elemento `<h2>` de "Tags (M)" para "Tags (iPhone)".
 
@@ -209,7 +209,7 @@ No navegador móvel, selecione o link **Alto-falantes**. Porque não há um modo
 
 ![][AllSpeakers_LayoutMobile]
 
-Você pode desativar globalmente a renderização do modo de exibição padrão (não móvel) dentro de um layout móvel ao configurar `RequireConsistentDisplayMode` como `true` no arquivo *Views\\_ViewStart.cshtml*, desta forma:
+Você pode desativar globalmente a renderização do modo de exibição padrão (não móvel) dentro de um layout móvel ao configurar `RequireConsistentDisplayMode` como `true` no arquivo *Views_ViewStart.cshtml*, desta forma:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";

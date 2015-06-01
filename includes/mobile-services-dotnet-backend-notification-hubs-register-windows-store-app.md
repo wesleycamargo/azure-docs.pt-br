@@ -26,7 +26,7 @@
 
    Isso adiciona as informações de registro necessárias da Windows Store para o manifesto do aplicativo.
 
-7. \(Opcional\) Repetir as etapas 4-6 para registrar também o projeto do Windows Phone de um aplicativo universal do Windows.
+7. (Opcional) Repetir as etapas 4-6 para registrar também o projeto do Windows Phone de um aplicativo universal do Windows.
 
 8. De volta à página do Centro de Desenvolvimento do Windows do seu novo aplicativo, clique em **Serviços**.
 
@@ -36,7 +36,7 @@
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Clique em **Autenticação do seu serviço** e anote os valores de **Segredo do cliente** e **Identificador de segurança do pacote \(SID\)**.
+10. Clique em **Autenticação do seu serviço** e anote os valores de **Segredo do cliente** e **Identificador de segurança do pacote (SID)**.
 
    ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 

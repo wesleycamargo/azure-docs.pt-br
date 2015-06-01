@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -42,13 +43,13 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 
   1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo.
 
-        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+        >  [AZURE.NOTE] Certifique-se de que a capacidade exigida para o clone é inferior a capacidade disponível no dispositivo de destino.
   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
   3. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png)para prosseguir para a próxima página.
 
 5. Em **Especificar os hosts que podem usar este volume**:
 
-  1. Especificar um registro de controle de acesso \(ACR\) para o clone. Você pode adicionar um novo ACR ou escolher na lista existente.
+  1. Especificar um registro de controle de acesso (ACR) para o clone. Você pode adicionar um novo ACR ou escolher na lista existente.
   2. Clique no ícone de verificação ![ícone-de-verificação](./media/storsimple-clone-volume/HCS_CheckIcon.png)para concluir a operação.
 
 6. Um trabalho de clone será iniciado e você será notificado quando o clone for criado com êxito. Clique em **Exibir Trabalho** para monitorar o trabalho de clone na página **Trabalhos**.

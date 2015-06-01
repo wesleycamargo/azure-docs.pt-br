@@ -18,7 +18,7 @@
 # Introdução ao Cofre da Chave do Azure #
 
 ## Introdução  
-Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure — atualmente na versão de visualização — para criar um contêiner de proteção avançado \(um cofre\) no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure. Ele percorre o processo de uso do Windows PowerShell para criar um cofre que contém uma chave ou senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
+Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure — atualmente na versão de visualização — para criar um contêiner de proteção avançado (um cofre) no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure. Ele percorre o processo de uso do Windows PowerShell para criar um cofre que contém uma chave ou senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
 
 **Tempo estimado para conclusão:** 20 minutos
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará do seguinte:
 - Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/pt-br/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
 
-Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure \(a página pode estar em inglês\)](https://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](https://technet.microsoft.com/library/hh857337.aspx).
 
 Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help.
 
@@ -154,7 +154,7 @@ Esta etapa geralmente seria feita por um desenvolvedor, em um computador separad
 Aplicativos que usam um cofre de chave devem ser autenticados usando um token do Active Directory do Azure. Para fazer isso, o proprietário do aplicativo deve primeiro registrar o aplicativo no seu Active Directory do Azure. No final do registro, o proprietário do aplicativo obtém os seguintes valores:
 
 
-- Uma **ID do Aplicativo** \(também conhecida como ID do Cliente\) e uma **chave de autenticação** \(também conhecida como o segredo compartilhado\). O aplicativo deve apresentar esses dois valores ao Active Directory do Azure para obter um token. Como o aplicativo é configurado para fazer isso depende do aplicativo. Para o aplicativo de exemplo do Cofre da Chave, o proprietário do aplicativo define esses valores no arquivo app.config.
+- Uma **ID do Aplicativo** (também conhecida como ID do Cliente) e uma **chave de autenticação** (também conhecida como o segredo compartilhado). O aplicativo deve apresentar esses dois valores ao Active Directory do Azure para obter um token. Como o aplicativo é configurado para fazer isso depende do aplicativo. Para o aplicativo de exemplo do Cofre da Chave, o proprietário do aplicativo define esses valores no arquivo app.config.
 
 
 
@@ -165,11 +165,11 @@ Para registrar seu aplicativo com o Active Directory do Azure:
 
 3. Clique em **APLICATIVOS**. Se nenhum aplicativo tiver sido adicionado ao seu diretório, essa página mostrará somente o link **Adicionar um Aplicativo**. Clique no link ou em **ADICIONAR** na barra de comandos.
 4.	No assistente **ADICIONAR APLICATIVO**, na página **O que você deseja fazer?**, clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
-5.	Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **APLICATIVO WEB E/OU API WEB** \(o padrão\). Clique no ícone Avançar.
-6.	Na página **Propriedades do aplicativo**, especifique o **URL DE LOGON** e o **URI DE ID DO APLICATIVO** para seu aplicativo Web. Se seu aplicativo não tiver esses valores, você pode inventá-los para esta etapa \(por exemplo, você poderia especificar http://test1.contoso.com para as duas caixas\). Não importa se os sites existem, o importante é que o URI de ID de cada aplicativo é diferente para todos os aplicativos no diretório. O diretório usa essa cadeia de caracteres para identificar seu aplicativo.
+5.	Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **APLICATIVO WEB E/OU API WEB** (o padrão). Clique no ícone Avançar.
+6.	Na página **Propriedades do aplicativo**, especifique o **URL DE LOGON** e o **URI DE ID DO APLICATIVO** para seu aplicativo Web. Se seu aplicativo não tiver esses valores, você pode inventá-los para esta etapa (por exemplo, você poderia especificar http://test1.contoso.com para as duas caixas). Não importa se os sites existem, o importante é que o URI de ID de cada aplicativo é diferente para todos os aplicativos no diretório. O diretório usa essa cadeia de caracteres para identificar seu aplicativo.
 7.	Clique no ícone Concluído para salvar suas alterações no assistente.
 8.	Na página de Início Rápido, clique em **CONFIGURAR**. 
-9.	Role até a seção **chaves**, selecione a duração e clique em **SALVAR**. A página é atualizada e passa a mostrar um valor de chave. Você deve configurar seu aplicativo com esse valor de chave e o valor da **ID DO CLIENTE**. \(As instruções para esta configuração são específicas do aplicativo\).
+9.	Role até a seção **chaves**, selecione a duração e clique em **SALVAR**. A página é atualizada e passa a mostrar um valor de chave. Você deve configurar seu aplicativo com esse valor de chave e o valor da **ID DO CLIENTE**. (As instruções para esta configuração são específicas do aplicativo).
 10.	Copie o valor da ID do cliente desta página, que você usará na próxima etapa para definir as permissões no cofre.
 
 
@@ -186,9 +186,9 @@ Por exemplo, se o nome do cofre for ContosoKeyVault e o aplicativo que você que
 
 
 
-## <a id="HSM"></a>Se quiser usar um HSM \(módulo de segurança de hardware\) ##
+## <a id="HSM"></a>Se quiser usar um HSM (módulo de segurança de hardware) ##
 
-Para garantia extra, você pode importar ou gerar chaves em HSMs \(módulos de segurança de hardware\) que nunca deixam os limites do HSM. Os HSMs são certificados para o FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
+Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs são certificados para o FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
 
 Para criar essas chaves protegidas por HSM, você deve ter uma [assinatura de cofre que dê suporte a chaves protegidas por HSM](../../../pricing/free-trial).
 
@@ -197,7 +197,7 @@ Quando criar o cofre, adicione o parâmetro “SKU”:
 
 	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
-Você pode adicionar chaves protegidas por software \(conforme mostrado anteriormente\) e por HSM a este cofre. Para criar uma chave protegida por HSM, defina o parâmetro de Destino como “HSM”:
+Você pode adicionar chaves protegidas por software (conforme mostrado anteriormente) e por HSM a este cofre. Para criar uma chave protegida por HSM, defina o parâmetro de Destino como “HSM”:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -205,7 +205,7 @@ Você pode usar o comando a seguir para importar uma chave de um arquivo .PFX pa
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
-O próximo comando importa um pacote de BYOK \("traga sua própria chave"\). Isso permite gerar sua chave no HSM local e transferi-la para os HSMs no serviço de Cofre da Chave, sem que a chave deixe os limites do HSM:
+O próximo comando importa um pacote de BYOK ("traga sua própria chave"). Isso permite gerar sua chave no HSM local e transferi-la para os HSMs no serviço de Cofre da Chave, sem que a chave deixe os limites do HSM:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -241,7 +241,7 @@ Outros comandos que podem ser úteis para gerenciar o Cofre da Chave do Azure:
 
 Para obter uma lista dos cmdlets do Windows PowerShell para o Cofre da Chave do Azure, consulte [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Para referências de programação, consulte [Referência da API REST do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Referência da API Cliente C\# do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para referências de programação, consulte [Referência da API REST do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Referência da API Cliente C# do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
 

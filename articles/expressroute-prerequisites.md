@@ -22,7 +22,7 @@ Para se conectar aos serviços em nuvem da Microsoft usando Rota Expressa, você
 ## Pré-requisitos para conectividade
 
 - Uma conta válida e ativa do Microsoft Azure
-- Uma relação com um NSP \(provedor de serviços de rede\) ou um EXP \(provedor do Exchange\) da [lista de provedores com suporte](expressroute-locations.md) através do qual a conectividade precisa ser facilitada. Você deve ter uma relação comercial existente com o provedor de serviços de rede ou o provedor do Exchange. Você precisará certificar-se de que o serviço que você usa é compatível com a Rota Expressa. 
+- Uma relação com um NSP (provedor de serviços de rede) ou um EXP (provedor do Exchange) da [lista de provedores com suporte](expressroute-locations.md) através do qual a conectividade precisa ser facilitada. Você deve ter uma relação comercial existente com o provedor de serviços de rede ou o provedor do Exchange. Você precisará certificar-se de que o serviço que você usa é compatível com a Rota Expressa. 
 - Se você deseja usar um provedor de serviços de rede e seu provedor de serviços de rede não está na lista acima, você ainda pode criar uma conexão com o Azure. 
 	- Verifique com seu provedor de rede para ver se eles estão presentes em qualquer um dos locais do Exchange listados acima.
 	- Faça com que seu provedor de rede estenda sua rede para o local do Exchange de sua escolha.
@@ -32,7 +32,7 @@ Para se conectar aos serviços em nuvem da Microsoft usando Rota Expressa, você
 	- Sua infraestrutura está colocalizada no datacenter do provedor do Exchange.
 	- Você tem conectividade Ethernet com a infraestrutura Exchange Ethernet do provedor do Exchange.	
 - Endereços IP e números AS para configuração de roteamento. 
-	- Você pode usar números AS privados para se conectar ao domínio de roteamento de emparelhamento privado do Azure. Se você optar por fazer isso, ele deve ser \> 65.000. Para obter mais informações sobre números AS, consulte [Números AS \(Sistema Autônomo\)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml).
+	- Você pode usar números AS privados para se conectar ao domínio de roteamento de emparelhamento privado do Azure. Se você optar por fazer isso, ele deve ser > 65.000. Para obter mais informações sobre números AS, consulte [Números AS (Sistema Autônomo)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml).
 	- Endereços IP para configurar rotas. Uma sub-rede /28 é necessária. Ela não pode se sobrepor a quaisquer intervalos de endereços IP usados em suas instalações locais ou no Azure.
 	- Você deve usar seus próprios números AS públicos para configuração de sessões BGP com serviços públicos do Azure.
 

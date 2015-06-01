@@ -97,7 +97,7 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoD
 
 1.  No [Portal de Gerenciamento do Azure][], clique em **COMPLEMENTOS** e, em seguida, clique no serviço MongoLab que você criou anteriormente.
 
-1.  Clique em **INFORMAÇÕES DE CONEXÃO**.  É possível usar o botão de cópia para colocar o valor de **MONGOLAB\_URI** na área de transferência.
+1.  Clique em **INFORMAÇÕES DE CONEXÃO**.  É possível usar o botão de cópia para colocar o valor de **MONGOLAB_URI** na área de transferência.
 
   	![Caixa de diálogo Informações de Conexão](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -127,17 +127,17 @@ Nesta seção, configuraremos nosso aplicativo para usar o banco de dados MongoD
 
 É possível usar um aplicativo como [RoboMongo][] para consultar e fazer edições em um banco de dados MongoDB.  Nesta seção, usaremos o RoboMongo para visualizar o conteúdo do banco de dados de aplicativo de pesquisas.
 
-1.  Crie uma nova conexão.  Será necessário o **MONGOLAB\_URI** recuperado na seção anterior.
+1.  Crie uma nova conexão.  Será necessário o **MONGOLAB_URI** recuperado na seção anterior.
 
     Observe o formato da URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     O nome corresponde ao nome inserido quando você criou o serviço com o Azure.  É usado para ambos os nomes do banco de dados e de usuário.
 
-1.  Na página de conexão, defina o **Nome** como qualquer nome que deseja usar para a conexão.  Também defina os campos **Endereço** e **Porta** como o *address* e a *port* de **MONGOLAB\_URI**.
+1.  Na página de conexão, defina o **Nome** como qualquer nome que deseja usar para a conexão.  Também defina os campos **Endereço** e **Porta** como o *address* e a *port* de **MONGOLAB_URI**.
 
   	![Caixa de diálogo Configurações de Conexão](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  Na página de autenticação, defina o **Banco de dados** e o **Nome de usuário** como o *name* de **MONGOLAB\_URI**.  Defina também a **Senha** como a *password* de **MONGOLAB\_URI**.
+1.  Na página de autenticação, defina o **Banco de dados** e o **Nome de usuário** como o *name* de **MONGOLAB_URI**.  Defina também a **Senha** como a *password* de **MONGOLAB_URI**.
 
   	![Caixa de diálogo Configurações de Conexão](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -177,7 +177,7 @@ Nesta seção, configuraremos variáveis do ambiente para o site.
 
   	![Menu superior](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteTopMenu.png)
 
-1.  Role para baixo até a seção **configurações do aplicativo** e defina os valores para **REPOSITORY\_NAME**, **MONGODB\_HOST** e **MONGODB\_DATABASE** conforme descrito na seção acima.
+1.  Role para baixo até a seção **configurações do aplicativo** e defina os valores para **REPOSITORY_NAME**, **MONGODB_HOST** e **MONGODB_DATABASE** conforme descrito na seção acima.
 
   	![Configurações do aplicativo](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 

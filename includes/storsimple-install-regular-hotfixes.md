@@ -23,7 +23,7 @@
 
      **Start-HcsHotfix**
 
-   \>[AZURE.IMPORTANT]\>\>-Este comando se aplica somente para hotfixes normais. Executar esse comando em apenas um controlador, mas ambos os controladores serão atualizados. \>-Você pode perceber um failover do controlador durante o processo de atualização; no entanto, o failover não afetará a disponibilidade ou operação do sistema.
+   >[AZURE.IMPORTANT]>>-Este comando se aplica somente para hotfixes normais. Executar esse comando em apenas um controlador, mas ambos os controladores serão atualizados. >-Você pode perceber um failover do controlador durante o processo de atualização; no entanto, o failover não afetará a disponibilidade ou operação do sistema.
 
 4. Quando solicitado, forneça o caminho para a pasta compartilhada que contém os arquivos de hotfix.
 

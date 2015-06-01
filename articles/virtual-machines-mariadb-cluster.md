@@ -208,7 +208,7 @@ isso criará uma saída semelhante a `5112500ae3b842c8b9c604889f8753c3__OpenLogi
 		
 	- Edite a seção **[mariadb]** e acrescente o seguinte
 	
-	> [AZURE.NOTE] É recomendável que o **innodb\_buffer\_pool_size** seja 70% da memória da VM. Ele foi definido como 2,45 GB aqui para a VM do Azure Médio com 3,5 GB de RAM.
+	> [AZURE.NOTE] É recomendável que o **innodb_buffer_pool_size** seja 70% da memória da VM. Ele foi definido como 2,45 GB aqui para a VM do Azure Médio com 3,5 GB de RAM.
 	
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash

@@ -109,7 +109,7 @@ Aqui está um exemplo:
 
 ### Microsoft.Network/virtualNetworks
 
-Essa seção cria uma rede virtual somente em nuvem com quatro sub-redes \(um para cada camada da implantação\), em que as máquinas virtuais são colocadas. Aqui está o código JSON:
+Essa seção cria uma rede virtual somente em nuvem com quatro sub-redes (um para cada camada da implantação), em que as máquinas virtuais são colocadas. Aqui está o código JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -130,7 +130,7 @@ Essa seção cria uma rede virtual somente em nuvem com quatro sub-redes \(um pa
 
 ### Microsoft.Network/loadBalancers
 
-Essas seções criam instâncias do balanceador de carga para cada máquina virtual para fornecer filtragem de tráfego e NAT para o tráfego de entrada da Internet. Para cada balanceador de carga, as configurações definem regras de NAT de entrada, back-end e front-end. Por exemplo, há regras de tráfego de Área de Trabalho Remota para cada máquina virtual e uma regra para permitir o tráfego da Web de entrada \(porta TCP 80\) da Internet para os servidores da camada de Web. Aqui está um exemplo para o servidor da camada da Web:
+Essas seções criam instâncias do balanceador de carga para cada máquina virtual para fornecer filtragem de tráfego e NAT para o tráfego de entrada da Internet. Para cada balanceador de carga, as configurações definem regras de NAT de entrada, back-end e front-end. Por exemplo, há regras de tráfego de Área de Trabalho Remota para cada máquina virtual e uma regra para permitir o tráfego da Web de entrada (porta TCP 80) da Internet para os servidores da camada de Web. Aqui está um exemplo para o servidor da camada da Web:
 
         {
             "apiVersion": "2014-12-01-preview",
@@ -341,15 +341,15 @@ Seções adicionais **"Microsoft.Compute/virtualMachines/extensions"** chamam sc
 
 Observe a organização geral das subseções da seção **"recursos"** do arquivo JSON:
 
-1.	Crie os elementos da infraestrutura do Azure que são necessários para dar suporte a várias máquinas virtuais \(uma conta de armazenamento, endereços IP públicos, conjuntos de disponibilidade, uma rede virtual, interfaces de rede, instâncias de balanceador de carga\).
+1.	Crie os elementos da infraestrutura do Azure que são necessários para dar suporte a várias máquinas virtuais (uma conta de armazenamento, endereços IP públicos, conjuntos de disponibilidade, uma rede virtual, interfaces de rede, instâncias de balanceador de carga).
 2.	Crie as máquinas virtuais do controlador de domínio, que usam com os elementos comuns e específicos criados anteriormente de infraestrutura do Azure, adicione discos de dados e execute scripts do PowerShell. Além disso, atualize a rede virtual para usar os endereços IP estáticos dos controladores de domínio.
 3.	Crie as máquinas virtuais do cluster do SQL Server, que usam com os elementos comuns e específicos criados anteriormente da infraestrutura do Azure criados para os controladores de domínio, adicione discos de dados e execute scripts do PowerShell para configurar o cluster e os Grupos de Disponibilidade do AlwaysOn do SQL Server.
 4.	Crie as máquinas virtuais de servidor do SharePoint que usam os elementos comuns e específicos criados anteriormente da infraestrutura do Azure, adicione discos de dados e execute scripts do PowerShell para configurar o farm do SharePoint.
 
 Seu próprio modelo JSON para criar uma infraestrutura de várias camadas no Azure deve seguir as mesmas etapas:
 
-1.	Crie os elementos comuns \(conta de armazenamento, rede virtual\), específicos da camada \(conjuntos de disponibilidade\) e específicos da máquina virtual \(endereços IP públicos, conjuntos de disponibilidade, interfaces de rede e instâncias do balanceador de carga\) da infraestrutura do Azure que são necessários para sua implantação.
-2.	Para cada camada em seu aplicativo \(por exemplo, autenticação, banco de dados, Web\), crie e configure os servidores nessa camada usando os elementos comuns \(conta de armazenamento, rede virtual\), específicos da camada \(conjunto de disponibilidade\) e específicos da máquina virtual \(endereços IP públicos, interfaces de rede, instâncias do balanceador de carga\).
+1.	Crie os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjuntos de disponibilidade) e específicos da máquina virtual (endereços IP públicos, conjuntos de disponibilidade, interfaces de rede e instâncias do balanceador de carga) da infraestrutura do Azure que são necessários para sua implantação.
+2.	Para cada camada em seu aplicativo (por exemplo, autenticação, banco de dados, Web), crie e configure os servidores nessa camada usando os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjunto de disponibilidade) e específicos da máquina virtual (endereços IP públicos, interfaces de rede, instâncias do balanceador de carga).
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 

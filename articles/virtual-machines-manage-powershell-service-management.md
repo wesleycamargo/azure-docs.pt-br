@@ -49,7 +49,7 @@ Execute estes comandos:
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## Parar uma VM
@@ -58,7 +58,7 @@ Execute este comando:
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT]Use o parâmetro **StayProvisioned** para manter o VIP \(IP virtual\) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. Se usar esse parâmetro, você ainda será cobrado pela VM.
+>[AZURE.IMPORTANT]Use o parâmetro **StayProvisioned** para manter o VIP (IP virtual) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. Se usar esse parâmetro, você ainda será cobrado pela VM.
 
 ## Iniciar uma VM
 
@@ -67,7 +67,7 @@ Execute este comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Anexar um Disco de Dados
-Essa tarefa requer algumas etapas. Primeiro, use o cmdlet \*\*\*\*Add-AzureDataDisk\*\*\*\* para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet Update-AzureVM para atualizar a configuração da VM.
+Essa tarefa requer algumas etapas. Primeiro, use o cmdlet ****Add-AzureDataDisk**** para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet Update-AzureVM para atualizar a configuração da VM.
 
 Você também precisará decidir se deseja anexar um novo disco ou um que contenha dados. Para um novo disco, o comando cria o arquivo .vhd e anexa-o no mesmo comando.
 

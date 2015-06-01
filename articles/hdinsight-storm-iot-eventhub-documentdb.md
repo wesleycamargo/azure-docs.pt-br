@@ -18,19 +18,19 @@ ms.author="larryfr"/>
 
 #Processar dados de sensor a partir dos Hubs de Evento do Azure usando o Apache Storm no HDInsight
 
-Saiba como processar dados dos sensores do veículo a partir dos Hubs de Evento do Azure usando o Apache Storm no HDInsight. Este exemplo lê os dados do sensor de Hubs de Evento do Azure, enriquece dados consultando os dados armazenados no Banco de Dados de Documentos do Azure e, finalmente, armazena os dados no Armazenamento do Microsoft Azure usando o sistema de arquivos Hadoop \(HDFS\).
+Saiba como processar dados dos sensores do veículo a partir dos Hubs de Evento do Azure usando o Apache Storm no HDInsight. Este exemplo lê os dados do sensor de Hubs de Evento do Azure, enriquece dados consultando os dados armazenados no Banco de Dados de Documentos do Azure e, finalmente, armazena os dados no Armazenamento do Microsoft Azure usando o sistema de arquivos Hadoop (HDFS).
 
 ![diagrama da arquitetura](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##Visão geral
 
-Adicionar sensores em veículos permite prever problemas de equipamentos com base nas tendências de dados históricos, bem como fazer melhorias em versões futuras com base na análise de padrão de uso. Enquanto o processamento de lote tradicional do MapReduce pode ser usado para esta análise, você deve carregar de forma rápida e eficiente os dados de todos os veículos no Hadoop antes que ocorra o processamento de MapReduce. Além disso, você pode querer fazer uma análise dos caminhos de falha críticos \(temperatura do mecanismo, freios, etc.\) em tempo real.
+Adicionar sensores em veículos permite prever problemas de equipamentos com base nas tendências de dados históricos, bem como fazer melhorias em versões futuras com base na análise de padrão de uso. Enquanto o processamento de lote tradicional do MapReduce pode ser usado para esta análise, você deve carregar de forma rápida e eficiente os dados de todos os veículos no Hadoop antes que ocorra o processamento de MapReduce. Além disso, você pode querer fazer uma análise dos caminhos de falha críticos (temperatura do mecanismo, freios, etc.) em tempo real.
 
-Os Hubs de Evento do Azure são criados para lidar com o grande volume de dados gerados por sensores e o Apache Storm no HDInsight pode ser usado para carregar e processar os dados antes de armazená-los no HDFS \(apoiado pelo Armazenamento do Microsoft Azure\) para processamento adicional de MapReduce.
+Os Hubs de Evento do Azure são criados para lidar com o grande volume de dados gerados por sensores e o Apache Storm no HDInsight pode ser usado para carregar e processar os dados antes de armazená-los no HDFS (apoiado pelo Armazenamento do Microsoft Azure) para processamento adicional de MapReduce.
 
 ##Solução
 
-Os dados de telemetria de temperatura do mecanismo, temperatura ambiente e velocidade do veículo são registrados pelos sensores e depois enviados para Hubs de Evento juntamente com o Número de Identificação do Veículo \(VIN\) do carro e um carimbo de data/hora. A partir daí, uma Storm Topology em execução em um cluster do Apache Storm no HDInsight lê os dados, processa-os e armazena-os no HDFS.
+Os dados de telemetria de temperatura do mecanismo, temperatura ambiente e velocidade do veículo são registrados pelos sensores e depois enviados para Hubs de Evento juntamente com o Número de Identificação do Veículo (VIN) do carro e um carimbo de data/hora. A partir daí, uma Storm Topology em execução em um cluster do Apache Storm no HDInsight lê os dados, processa-os e armazena-os no HDFS.
 
 Durante o processamento, o VIN é usado para recuperar informações sobre o modelo do Banco de Dados de Documentos do Azure. Essas informações são adicionadas ao fluxo de dados antes de ele ser armazenado.
 
@@ -42,7 +42,7 @@ Os componentes usados na Storm Topology são:
 
 * **DataReferencBolt** - pesquisa o modelo do veículo a partir do Banco de Dados de Documentos usando o VIN
 
-* **WasbStoreBolt** - armazena os dados para o HDFS \(Armazenamento do Azure\)
+* **WasbStoreBolt** - armazena os dados para o HDFS (Armazenamento do Azure)
 
 Segue um diagrama dessa solução:
 

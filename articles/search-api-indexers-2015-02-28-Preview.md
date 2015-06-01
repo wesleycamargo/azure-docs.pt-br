@@ -15,7 +15,7 @@ ms.tgt_pltfrm="na"
 ms.date="04/23/2015" 
 ms.author="heidist" />
 
-#Operações de indexador \(API REST do serviço Azure Search: 2015-02-28-Preview\)
+#Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)
 
 > [AZURE.NOTE]Este artigo descreve os indexadores na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). Atualmente, a única diferença entre a versão `2015-02-28` documentada no [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e a versão `2015-02-28-Preview` descrita aqui é que a visualização fornece *fieldMappings*, conforme descrito em [Criar indexador](#CreateIndexer).
 
@@ -31,7 +31,7 @@ Um **indexador** é um recurso que conecta fontes de dados a índices de pesquis
 
 Um **indexador** é útil quando você deseja atualizações regulares em um índice. Você pode configurar uma agenda interna como parte de uma definição de indexador ou executá-lo em demanda usando [Executar indexador](#RunIndexer).
 
-Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenciais para acessar os dados e políticas para habilitar o Azure Search a identificar com eficiência as alterações nos dados \(como linhas modificadas ou excluídas em uma tabela de banco de dados\). Ela é definida como um recurso independente para que possa ser usada por vários indexadores.
+Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenciais para acessar os dados e políticas para habilitar o Azure Search a identificar com eficiência as alterações nos dados (como linhas modificadas ou excluídas em uma tabela de banco de dados). Ela é definida como um recurso independente para que possa ser usada por vários indexadores.
 
 Atualmente, há suporte às seguintes fontes de dados:
 
@@ -44,7 +44,7 @@ Consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798
 
 ## Fluxo de uso típico
 
-Você pode criar e gerenciar índices e fontes de dados por meio de solicitações HTTP simples \(POST, GET, PUT, DELETE\) em relação a um recurso `data source` ou `indexer` específico.
+Você pode criar e gerenciar índices e fontes de dados por meio de solicitações HTTP simples (POST, GET, PUT, DELETE) em relação a um recurso `data source` ou `indexer` específico.
 
 A configuração indexação automática normalmente é um processo em quatro etapas:
 
@@ -58,7 +58,7 @@ A configuração indexação automática normalmente é um processo em quatro et
 
 Você deve planejar a criação de um indexador para cada combinação de índice de destino e fonte de dados. Você pode ter vários indexadores gravando no mesmo índice e pode reutilizar a mesma fonte de dados para vários indexadores. No entanto, um indexador só pode consumir uma fonte de dados por vez e pode gravar apenas em um único índice.
 
-Depois de criar um indexador, você pode recuperar seu status de execução usando a operação [Obter Status do Indexador](#GetIndexerStatus). Você também pode executar um indexador a qualquer momento \(em vez de ou além de executá-lo periodicamente de acordo com uma agenda\) usando a operação [Executar Indexador](#RunIndexer).
+Depois de criar um indexador, você pode recuperar seu status de execução usando a operação [Obter Status do Indexador](#GetIndexerStatus). Você também pode executar um indexador a qualquer momento (em vez de ou além de executá-lo periodicamente de acordo com uma agenda) usando a operação [Executar Indexador](#RunIndexer).
 
 <!-- MSDN has 2 art files plus a API topic link list -->
 
@@ -90,7 +90,7 @@ A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de v
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
 - `Content-Type`: obrigatório. Defina-o como `application/json`
-- `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração \(em vez de uma chave de consulta\). 
+- `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no [Portal de gerenciamento do Azure](https://portal.azure.com/). Consulte [Criar um serviço de pesquisa no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
@@ -124,7 +124,7 @@ A contém as seguintes propriedades:
 		- Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-los no [portal de gerenciamento do Azure](https://portal.azure.com/).   
 		
 - `container`:
-	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição \(para a fonte de dados do Azure SQL\) ou uma coleção \(para uma fonte de dados DocumentDB\) que será indexado. 
+	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição (para a fonte de dados do Azure SQL) ou uma coleção (para uma fonte de dados DocumentDB) que será indexado. 
 	- As fontes de dados DocumentDB também dão suporte a uma propriedade opcional `query` que permite que você especifique uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que o Azure Search pode indexar.   
 - A `dataChangeDetectionPolicy` e a `dataDeletionDetectionPolicy` opcionais são descritas abaixo.
 
@@ -221,7 +221,7 @@ Você pode atualizar uma fonte de dados usando uma solicitação HTTP PUT. Espec
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Solicitação** a sintaxe do corpo da solicitação é a mesmo usada para [solicitações Criar Fonte de Dados](#CreateDataSourceRequestSyntax).
 
@@ -239,7 +239,7 @@ A operação **Listar Fontes de Dados** retorna uma lista das fontes de dados ex
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -278,7 +278,7 @@ A operação **Obter Fonte de Dados** obtém a definição da fonte de dados do 
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -315,7 +315,7 @@ A operação **Excluir Fonte de Dados** remove uma fonte de dados de seu serviç
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -338,7 +338,7 @@ Como alternativa, você pode usar PUT e especificar o nome da fonte de dados  no
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 
 <a name="CreateIndexerRequestSyntax"></a> **Sintaxe do Corpo da Solicitação**
@@ -362,7 +362,7 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" \(um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obrigatório. Uma data/hora, no horário UTC, quando o indexador deve começar a ser executado.
 
@@ -395,13 +395,13 @@ Nomes de campos de origem e destino diferenciam maiúsculas de minúsculas.
 
 Mapeamentos de campo também podem ser usados para transformar os valores de campo de origem usando *funções de mapeamento*.
 
-Apenas uma dessas funções tem suporte: `jsonArrayToStringCollection`. Analisa um campo que contém uma cadeia de caracteres formatada como uma matriz JSON em um campo Collection\(Edm.String\) no índice de destino. Ele se destina ao uso com o indexador do Azure SQL em particular, pois o SQL não tem um tipo de dados nativo de coleção. Ele pode ser usado da seguinte maneira:
+Apenas uma dessas funções tem suporte: `jsonArrayToStringCollection`. Analisa um campo que contém uma cadeia de caracteres formatada como uma matriz JSON em um campo Collection(Edm.String) no índice de destino. Ele se destina ao uso com o indexador do Azure SQL em particular, pois o SQL não tem um tipo de dados nativo de coleção. Ele pode ser usado da seguinte maneira:
 
 	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
 
 Por exemplo, se o campo de origem contiver a cadeia de caracteres `["red", "white", "blue"]`, o campo de destino do tipo `Collection(Edm.String)` será preenchido com os três valores `"red"`, `"white"` e `"blue"`.
 
-Observação: a propriedade `targetFieldName` é opcional; se omitida, o valor `sourceFieldName` é usado\).
+Observação: a propriedade `targetFieldName` é opcional; se omitida, o valor `sourceFieldName` é usado).
 
 <a name="CreateIndexerRequestExamples"></a> **Exemplos de corpo de solicitação**
 
@@ -432,7 +432,7 @@ Você pode atualizar um indexador usando uma solicitação HTTP PUT. Especifique
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Solicitação**
 
@@ -454,7 +454,7 @@ A operação **Listar Indexadores** retorna a lista de indexadores em seu servi�
 
 A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Preview`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -496,7 +496,7 @@ A operação **Obter Indexador** obtém a definição de indexador do Azure Sear
 
 A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Preview`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -526,7 +526,7 @@ Quando um indexador é excluído, as execuções do indexador em andamento no mo
  
 A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Preview`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -542,7 +542,7 @@ Além de ser executado periodicamente segundo uma agenda, o indexador também po
 
 A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Preview`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
@@ -559,13 +559,13 @@ A operação **Obter Status do Indexador** recupera o status atual e o históric
 
 A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Preview`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 
 Código de status: 200 OK para uma resposta bem-sucedida.
 
-O corpo da resposta contém informações sobre o status geral de integridade, a última invocação e o histórico de invocações recentes do indexador \(se houver\).
+O corpo da resposta contém informações sobre o status geral de integridade, a última invocação e o histórico de invocações recentes do indexador (se houver).
 
 Um exemplo de corpo de resposta tem esta aparência:
 
@@ -619,13 +619,13 @@ O resultado da execução do indexador contém as seguintes propriedades:
 
 - `errors`: uma lista de erros de nível de item, se houver.
 
-- `itemsProcessed`: o número de itens da fonte de dados \(por exemplo, linhas de tabela\) que o indexador tentou indexar durante esta execução.
+- `itemsProcessed`: o número de itens da fonte de dados (por exemplo, linhas de tabela) que o indexador tentou indexar durante esta execução.
 
 - `itemsFailed`: o número de itens que falharam durante esta execução.
  
-- `initialTrackingState`: sempre `null` para a primeira execução do indexador ou se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Se essa política estiver habilitada, em execuções subsequentes, esse valor indicará o primeiro valor de controle de alterações \(menor\) processado por essa execução.
+- `initialTrackingState`: sempre `null` para a primeira execução do indexador ou se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Se essa política estiver habilitada, em execuções subsequentes, esse valor indicará o primeiro valor de controle de alterações (menor) processado por essa execução.
 
-- `finalTrackingState`: sempre `null` se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Caso contrário, indica o último valor de controle de alterações \(mais alto\) processado com êxito por essa execução.
+- `finalTrackingState`: sempre `null` se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Caso contrário, indica o último valor de controle de alterações (mais alto) processado com êxito por essa execução.
 
 <a name="IndexerExecutionStatus"></a> **Status de Execução do Indexador**
 
@@ -640,19 +640,19 @@ O status de execução do indexador captura o status de uma única execução do
 
 - `persistentFailure` indica que o indexador falhou em uma forma que requer intervenção humana. As execuções agendadas do indexador param. Depois de abordar o problema, use Redefinir a API do indexador para reiniciar as execuções agendadas.
 
-- `reset` indica que o indexador foi redefinido por uma chamada para Redefinir a API do Indexador \(veja a seguir\).
+- `reset` indica que o indexador foi redefinido por uma chamada para Redefinir a API do Indexador (veja a seguir).
 
 <a name="ResetIndexer"></a>
 ## Redefinir Indexador
 
-A operação **Redefinir Indexador** redefine o estado de controle de alterações associado ao indexador. Isso permite disparar a reindexação do zero \(por exemplo, se o esquema de fonte de dados for alterado\) ou alterar a política de detecção de alteração de dados para uma fonte de dados associada ao indexador.
+A operação **Redefinir Indexador** redefine o estado de controle de alterações associado ao indexador. Isso permite disparar a reindexação do zero (por exemplo, se o esquema de fonte de dados for alterado) ou alterar a política de detecção de alteração de dados para uma fonte de dados associada ao indexador.
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
 A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Preview`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
-`api-key` deve ser uma chave de administração \(em vez de uma chave de consulta\). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
+`api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
 **Resposta**
 

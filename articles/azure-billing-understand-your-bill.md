@@ -76,7 +76,7 @@ Para exibir ou baixar uma fatura:
 
  **NOME DA OFERTA** | **TIPO DA OFERTA** | **INCLUI SERVIÇOS GRATUITOS** | **DOWNLOAD** |
  :--------- |:-------- | :----------------: | :-------|
-Azure MSDN-Visual Studio Ultimate| Programa de benefícios | Sim\* | [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
+Azure MSDN-Visual Studio Ultimate| Programa de benefícios | Sim* | [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
 Pré-paga | Consumo | Não| [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
 Uso detalhado - csv | N/D | N/D | [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
 
@@ -95,7 +95,7 @@ O intervalo de tempo em que uso ocorreu.
 A data em que a fatura foi gerada.
 
 ### Forma de Pagamento
-Tipo de pagamento usado na conta \(isto é, Fatura ou Cartão de Crédito\).
+Tipo de pagamento usado na conta (isto é, Fatura ou Cartão de Crédito).
 
 ### Enviar cobrança para
 Endereço de pagamentos do Microsoft Azure.
@@ -118,8 +118,8 @@ Saldo anterior é o valor total devido em sua última fatura.
 ### Pagamentos
 Pagamentos são os pagamentos totais aplicados à sua última fatura.
 
-### Saldo pendente \(do ciclo de cobrança anterior\)
-Qualquer ajuste de fatura \(créditos ou saldos\) aplicado à sua conta desde sua última fatura.
+### Saldo pendente (do ciclo de cobrança anterior)
+Qualquer ajuste de fatura (créditos ou saldos) aplicado à sua conta desde sua última fatura.
 
 
 ## Entender os Encargos Atuais
@@ -168,7 +168,7 @@ O serviço do Azure pode ser ainda mais definido pelo tipo nesta coluna, que pod
 Identifica a unidade de medida para o recurso sendo consumido.
 
 ### Região
-Regiões em que o uso se aplica e está relacionado principalmente aos serviços de nuvem e máquinas virtuais e transferências de dados \(excluindo CDN\), pois essas tarifas podem variar por região. Região do mapa de CDN para o local de data center em que o tráfego foi atendido.
+Regiões em que o uso se aplica e está relacionado principalmente aos serviços de nuvem e máquinas virtuais e transferências de dados (excluindo CDN), pois essas tarifas podem variar por região. Região do mapa de CDN para o local de data center em que o tráfego foi atendido.
 
 ### Consumido
 Contém a quantidade do recurso que foi consumida durante o período de cobrança.
@@ -186,10 +186,10 @@ Tarifa exibe a tarifa com a qual você é cobrado por unidade faturável.
 Exibe o resultado da multiplicação da coluna Faturável pela coluna Tarifa. Se a quantidade consumida não exceder a quantidade incluída, não haverá cobrança nessa coluna.
 
 ## Analisar os dados de uso diário
-Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você deseja analisar esses dados, clique em Baixar Uso para exportar os dados de uso diário do período de cobrança atual para um arquivo CSV \(variáveis separadas por vírgula\), que pode ser exibido no Microsoft Office Excel e outros programas. Para referência, você pode baixar um arquivo CSV de amostra.
+Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você deseja analisar esses dados, clique em Baixar Uso para exportar os dados de uso diário do período de cobrança atual para um arquivo CSV (variáveis separadas por vírgula), que pode ser exibido no Microsoft Office Excel e outros programas. Para referência, você pode baixar um arquivo CSV de amostra.
 
 
-![Resumo de PAYG \(Pré-pago\)](./media/azure-billing-understand-your-bill/AnalyzeDailyUsageData1.png)
+![Resumo de PAYG (Pré-pago)](./media/azure-billing-understand-your-bill/AnalyzeDailyUsageData1.png)
 
 No arquivo CSV, os itens são divididos para exibir uma lista de quanto de cada recurso foi consumido dentro do período de cobrança atual.
 
@@ -203,7 +203,7 @@ Período de Cobrança | O período de cobrança quando o recurso foi consumido.
 Nome | Identifica o nome do serviço que foi usado.
 Tipo | Em alguns casos, um serviço do Azure pode ser ainda mais definido pelo tipo nesta coluna, que pode afetar a tarifa.
 Recurso | Identifica o tipo de recurso que foi consumido. Por exemplo, transferência de dados, horas de computação e transações de armazenamento são tipos de recurso.
-Região | Identifica o local do datacenter para determinados serviços que têm o preço definido com base na localização do datacenter \(por exemplo, transferências de dados\).
+Região | Identifica o local do datacenter para determinados serviços que têm o preço definido com base na localização do datacenter (por exemplo, transferências de dados).
 SKU | Identifica o identificador de sistema exclusivo para cada recurso do Azure.
 Unidade | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10.000
 Consumido | Contém a quantidade do recurso que foi consumida naquele dia.
@@ -225,7 +225,7 @@ A data em que o uso foi emitido
 O GUID de medidor cobrado
 
 ### Sub-região
-Identifica o local específico do serviço sendo omitido \(isto é, local do data center\).
+Identifica o local específico do serviço sendo omitido (isto é, local do data center).
 
 ### O Barramento de
 Esta coluna é utilizada para controlar o serviço da plataforma do Azure individual que não pode ser especificamente identificado na coluna Nome. Essa coluna Serviço indicará a qual serviço específico o uso pertence.
@@ -242,12 +242,12 @@ Esta coluna captura informações específicas de terceiros.
 ### Informações Adicionais
 Esta coluna mostra dados adicionais para alguns dos serviços.
 
-Consulte estas fontes adicionais do arquivo de informações para obter mais detalhes. Esses arquivos são atualizados mensalmente, publicados no dia 25 do próximo mês e estão disponíveis de maio de 2015 em diante. A seguir está a URL \(Uniform Resource Locator\) do arquivo de base para os campos de download de serviço:
+Consulte estas fontes adicionais do arquivo de informações para obter mais detalhes. Esses arquivos são atualizados mensalmente, publicados no dia 25 do próximo mês e estão disponíveis de maio de 2015 em diante. A seguir está a URL (Uniform Resource Locator) do arquivo de base para os campos de download de serviço:
 
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
 
 
-Para encontrar a versão mais atual, digite no ano e mês \(ao procurar pelo arquivo de maio de 2015, digite **052015** na seção _**“MMYYYY”**_ na URL acima\). Esta planilha fornece uma listagem de todas as combinações possíveis dos campos relacionados ao serviço no **Relatório de download de uso**.
+Para encontrar a versão mais atual, digite no ano e mês (ao procurar pelo arquivo de maio de 2015, digite **052015** na seção _**“MMYYYY”**_ na URL acima). Esta planilha fornece uma listagem de todas as combinações possíveis dos campos relacionados ao serviço no **Relatório de download de uso**.
 
 
 <!--Image references-->

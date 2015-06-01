@@ -50,7 +50,7 @@ Execute este comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP \(IP virtual\) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br> Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
+>[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br> Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
 
 ## Iniciar uma VM
 

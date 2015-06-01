@@ -43,7 +43,7 @@ Antes de seguir as instruções deste artigo, verifique se você possui o seguin
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](../../pricing/free-trial/).
 - [Node.js][] versão v0.10.29 ou superior.
-- [Gerador Expresso](http://www.expressjs.com/starter/generator.html) \(você pode instalá-lo por meio de `npm install express-generator -g`\)
+- [Gerador Expresso](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo por meio de `npm install express-generator -g`)
 - [Git][].
 
 ## <a name="_Toc395637761"></a>Etapa 1: Criar uma conta de banco de dados do Banco de Dados de Documentos
@@ -93,7 +93,7 @@ O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse a
 
 	![Captura de tela da guia package.json](./media/documentdb-nodejs-application/image17.png)
 
-Isso informa ao Nó \(e ao Azure mais tarde\) que seu aplicativo depende desses módulos adicionais.
+Isso informa ao Nó (e ao Azure mais tarde) que seu aplicativo depende desses módulos adicionais.
 
 ## <a name="_Toc395783180"></a>Etapa 4: Usando o serviço do Banco de Dados de Documento em um aplicativo de nó
 
@@ -389,7 +389,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		
 		module.exports = config;
 
-3. No arquivo **config.js**, atualize os valores de HOST e AUTH\_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal do Microsoft Azure](http://portal.azure.com):
+3. No arquivo **config.js**, atualize os valores de HOST e AUTH_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal do Microsoft Azure](http://portal.azure.com):
 
 4. Salve e feche o arquivo **config.js**.
  
@@ -423,7 +423,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Essas linhas definem uma nova instância do nosso objeto **TaskDao**, com uma nova conexão ao Banco de Dados de Documentos \(usando os valores lidos a partir de **config.js**\), inicialize o objeto de tarefa e, em seguida, associe ações do formulário aos métodos no nosso controlador **TaskList**. 
+6. Essas linhas definem uma nova instância do nosso objeto **TaskDao**, com uma nova conexão ao Banco de Dados de Documentos (usando os valores lidos a partir de **config.js**), inicialize o objeto de tarefa e, em seguida, associe ações do formulário aos métodos no nosso controlador **TaskList**. 
 
 7. Por fim, salve e feche o arquivo **app.js**; está praticamente pronto.
  
@@ -450,8 +450,8 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 
 
-	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
-	Save and close this **layout.jade** file.
+	Isso informa efetivamente ao mecanismo Jade para renderizar algum HTML para nosso aplicativo e criar um “bloco” chamado “conteúdo”, onde podemos fornecer o layout para nossas páginas de conteúdo.
+	Salve e feche o arquivo **layout.jade**. 
 
 4. Agora, abra o arquivo **index.jade**, o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte:
 

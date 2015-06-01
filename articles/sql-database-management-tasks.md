@@ -57,7 +57,7 @@ Antes de você se conectar, às vezes, é necessário criar uma exceção de fir
 
 ## Conectar-se a um servidor local
 
-1. No Management Studio, em Conectar-se ao Servidor, certifique-se de que o Mecanismo de Banco de Dados esteja selecionado e, em seguida, insira o nome de uma instância local neste formato: *servername*\\*instancename*. Se o servidor for local e uma instância padrão, digite *localhost*.
+1. No Management Studio, em Conectar-se ao Servidor, certifique-se de que o Mecanismo de Banco de Dados esteja selecionado e, em seguida, insira o nome de uma instância local neste formato: *servername**instancename*. Se o servidor for local e uma instância padrão, digite *localhost*.
 
 2. Na Autenticação, escolha **Autenticação do Windows** e insira uma conta do Windows que seja membro da função sysadmin.
 

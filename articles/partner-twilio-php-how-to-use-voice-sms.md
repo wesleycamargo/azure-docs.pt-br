@@ -194,13 +194,13 @@ A página PHP seguinte resulta em uma resposta de TwiML que diz **Hello World** 
 
     <?php    
 		header("content-type: text/xml");    
-		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		echo "<?xml version="1.0" encoding="UTF-8"?>\n";
 	?>
 	<Response>    
 		<Say>Hello world.</Say>
 	</Response>
 
-Como você pode ver no exemplo acima, a resposta de TwiML é simplesmente um documento XML. A biblioteca do Twilio para PHP contém classes que geram TwiML para você. O exemplo a seguir produz a resposta equivalente conforme mostrado acima, mas usa a classe **Services\_Twilio\_Twiml** na biblioteca do Twilio para PHP:
+Como você pode ver no exemplo acima, a resposta de TwiML é simplesmente um documento XML. A biblioteca do Twilio para PHP contém classes que geram TwiML para você. O exemplo a seguir produz a resposta equivalente conforme mostrado acima, mas usa a classe **Services_Twilio_Twiml** na biblioteca do Twilio para PHP:
 
 	require_once('Services/Twilio.php');
 	

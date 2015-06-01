@@ -31,7 +31,7 @@ Para usar esses exemplos, primeiro configure um cluster CoreOS de três nós com
 
 Veja um aplicativo "Hello World" simples que é executado em um único contêiner do Docker. Ele usa a [imagem do Docker Hub do busybox].
 
-No computador cliente do Linux, use seu editor de texto favorito para criar o seguinte arquivo de unidade **systemd** e chame-o de `helloworld.service`. \(Para mais detalhes sobre a sintaxe, confira [Arquivos de unidade]\).
+No computador cliente do Linux, use seu editor de texto favorito para criar o seguinte arquivo de unidade **systemd** e chame-o de `helloworld.service`. (Para mais detalhes sobre a sintaxe, confira [Arquivos de unidade]).
 
 ```
 [Unit]
@@ -60,7 +60,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 start helloworld.service
 Unit helloworld.service launched on 62f0f66e.../100.79.86.62
 ```
 
->[AZURE.NOTE]Para executar seus comandos remotos **fleetctl** sem o parâmetro **--tunnel**, defina opcionalmente a variável de ambiente FLEETCTL\_TUNNEL para encapsular as solicitações. Por exemplo: `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
+>[AZURE.NOTE]Para executar seus comandos remotos **fleetctl** sem o parâmetro **--tunnel**, defina opcionalmente a variável de ambiente FLEETCTL_TUNNEL para encapsular as solicitações. Por exemplo: `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
 
 
 Você pode se conectar ao contêiner para ver o resultado do serviço:
@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 Uma vantagem de usar CoreOS, Docker e **fleet** é a facilidade para executar os serviços de maneira altamente disponível. Neste exemplo, você implantará um serviço composto por três contêineres idênticos executando o servidor Web Apache. Os contêineres serão executados nas três VMs no cluster. Este exemplo é semelhante àquele em [Iniciando contêineres com fleet] e usa a [imagem do Docker Hub do CoreOS Apache].
 
->[AZURE.NOTE]Para executar o servidor Apache altamente disponível, você precisará configurar um ponto de extremidade HTTP com balanceamento de carga nas máquinas virtuais \(porta pública 80, porta privada 80\). Você pode fazer isso depois de criar o cluster CoreOS, usando o Portal de Gerenciamento do Azure ou o comando **azure vm endpoint**. Confira [Configurar um conjunto com balanceamento de carga] para saber mais.
+>[AZURE.NOTE]Para executar o servidor Apache altamente disponível, você precisará configurar um ponto de extremidade HTTP com balanceamento de carga nas máquinas virtuais (porta pública 80, porta privada 80). Você pode fazer isso depois de criar o cluster CoreOS, usando o Portal de Gerenciamento do Azure ou o comando **azure vm endpoint**. Confira [Configurar um conjunto com balanceamento de carga] para saber mais.
 
 No computador cliente, use seu editor de texto favorito para criar um modelo de arquivo de unidade **systemd** chamado apache@.service. Você usará esse modelo para iniciar três instâncias separadas, chamadas apache@1.service, apache@2.service e apache@3.service:
 
@@ -133,10 +133,10 @@ Para acessar o servidor Apache em execução em uma das unidades, envie uma soli
 Você verá um texto padrão do servidor Apache semelhante a:
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
-\<p\>This is the default web page for this server.\</p\>
-\<p\>The web server software is running but no content has been added, yet.\</p\>
-\</body\>\</html\>
+<htm\l><body><h1>It works!</h1>
+<p>This is the default web page for this server.</p>
+<p>The web server software is running but no content has been added, yet.</p>
+</body></html>
 ```
 
 Você pode tentar desligar uma ou mais máquinas virtuais no cluster para verificar se o serviço do Apache continuará a ser executado.

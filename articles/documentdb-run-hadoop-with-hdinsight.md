@@ -207,7 +207,7 @@ Este tutorial usa a ação de script do Portal de Gerenciamento do Azure para pe
     <p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Banco de Dados de Documentos. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código #1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid. </p>
 
     > [AZURE.NOTE] **A nomeação de DocumentDB.inputCollections não foi um erro.** Sim, permitimos a adição de várias coleções como entrada: </br>
-    '*DocumentDB.inputCollections*' = '*\<Nome da coleção de entrada do Banco de Dados de Documentos 1\>*,*\<Nome da coleção de entrada do Banco de Dados de Documentos 2\>*' </br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula.
+    '*DocumentDB.inputCollections*' = '*<Nome da coleção de entrada do Banco de Dados de Documentos 1>*,*<Nome da coleção de entrada do Banco de Dados de Documentos 2>*' </br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula.
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -223,7 +223,7 @@ Este tutorial usa a ação de script do Portal de Gerenciamento do Azure para pe
 3.  Em seguida, vamos criar uma tabela Hive para a coleção de saída. As propriedades do documento de saída serão o mês, dia, hora, minuto e o número total de ocorrências.
 
 	> [AZURE.NOTE] **Novamente, a nomeação de DocumentDB.outputCollections de nomenclatura não foi um erro.** Sim, permitimos a adição de várias coleções como saída: </br>
-    '*DocumentDB.outputCollections*' = '*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*' </br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula. </br></br>
+    '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula. </br></br>
     OS documentos são distribuídos em round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -303,7 +303,7 @@ Este tutorial usa a ação de script do Portal de Gerenciamento do Azure para pe
     <p>Primeiro, carregue documentos do Banco de Dados de Documentos no HDInsight. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código #1. Adicione uma consulta do Banco de Dados de Documentos ao parâmetro de consulta opcional do Banco de Dados de Documentos para limitar os documentos a somente _ts e _rid.</p>
 
     > [AZURE.NOTE] Sim, nós podemos adicionar várias coleções como entrada: </br>
-    '*\<Nome da coleção de entrada do Banco de Dados de Documentos 1\>*,*\<Nome da coleção de entrada do Banco de Dados de Documentos 2\>'</br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula. </b>
+    '*<Nome da coleção de entrada do Banco de Dados de Documentos 1>*,*<Nome da coleção de entrada do Banco de Dados de Documentos 2>'</br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula. </b>
 
 	OS documentos são distribuídos em round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
@@ -324,7 +324,7 @@ Este tutorial usa a ação de script do Portal de Gerenciamento do Azure para pe
 4. Por fim, vamos armazenar os resultados em nossa nova coleção de saída.
 
     > [AZURE.NOTE] Sim, nós podemos adicionar várias coleções como saída: </br>
-    '\<Nome da coleção de saída do Banco de Dados de Documentos 1\>,\<Nome da coleção de saída do Banco de Dados de Documentos 2\>'</br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula.</br>
+    '<Nome da coleção de saída do Banco de Dados de Documentos 1>,<Nome da coleção de saída do Banco de Dados de Documentos 2>'</br> Os nomes das coleções são separados sem espaços, usando apenas uma vírgula.</br>
     Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Store output data to DocumentDB.

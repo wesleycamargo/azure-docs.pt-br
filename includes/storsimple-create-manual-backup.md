@@ -1,4 +1,12 @@
-\< propriedades pageTitle = "Criar um backup manual" description = "Explica como iniciar um manual, trabalho de backup sob demanda." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito\*\*r="tysonn" / \> <tags 
+<properties 
+   pageTitle="Criar um backup manual"
+   description="Explica como iniciar um manual, trabalho de backup sob demanda."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   edito**r="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -19,7 +27,7 @@
  
     Isso iniciará um trabalho para criar um instantâneo. Depois que o trabalho foi criado com êxito, você verá uma notificação na parte inferior da página.
 
-4. Para monitorar o trabalho, clique em **Exibir trabalho** na área de notificação \(na parte inferior da página\).
+4. Para monitorar o trabalho, clique em **Exibir trabalho** na área de notificação (na parte inferior da página).
 
     ![Criar o backup manual2](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 

@@ -22,7 +22,7 @@ Os recursos de atualização do StorSimple permitem que você mantenha seu dispo
 
 Você pode aplicar dois tipos de atualização de dispositivo:
 
-- Atualizações regulares \(ou modo Normal\)
+- Atualizações regulares (ou modo Normal)
 - Atualizações no modo de Manutenção
 
 Você pode instalar atualizações regulares por meio do Portal de Gerenciamento ou do Windows PowerShell; no entanto, você deve usar o Windows PowerShell para instalar atualizações do modo de Manutenção.
@@ -55,13 +55,13 @@ Você pode usar o Portal de Gerenciamento para aplicar atualizações ao disposi
 
 ## Instalar atualizações regulares por meio do Windows PowerShell para StorSimple
 
-Como alternativa, você pode usar o Windows PowerShell para StorSimple para aplicar atualizações regulares \(modo Normal\).
+Como alternativa, você pode usar o Windows PowerShell para StorSimple para aplicar atualizações regulares (modo Normal).
 
 [AZURE.INCLUDE [storsimple-instalar-atualizações-regulares-powershell](../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## Instalar atualizações do modo de Manutenção por meio do Windows PowerShell para StorSimple
 
-Você pode usar o Windows PowerShell para StorSimple para aplicar atualizações do modo de Manutenção ao dispositivo StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM \(memória de acesso aleatório não volátil\) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair desse modo, todos os serviços serão retomados e deverão estar íntegros. \(Isso pode levar alguns minutos\).
+Você pode usar o Windows PowerShell para StorSimple para aplicar atualizações do modo de Manutenção ao dispositivo StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM (memória de acesso aleatório não volátil) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair desse modo, todos os serviços serão retomados e deverão estar íntegros. (Isso pode levar alguns minutos).
 
 Se você precisar aplicar atualizações do modo de Manutenção, receberá um alerta por meio do Portal de Gerenciamento indicando que há atualizações que devem ser instaladas. Esse alerta incluirá instruções para o uso do Windows PowerShell para StorSimple para instalar as atualizações. Depois de atualizar o dispositivo, use o mesmo procedimento para alterar o dispositivo para o modo Normal. Para obter instruções passo a passo, consulte [Para sair do modo de Manutenção](#to-exit-maintenance-mode).
 

@@ -25,7 +25,7 @@ O Application Insights pode fornecer uma visão clara do uso do seu aplicativo, 
  
 Adicione o [Application Insights][start] ao seu projeto e, sem nenhum esforço adicional, são fornecidos gráficos mostrando quantos usuários você tem e outras informações.
 
-![No Azure, selecionar Navegar \> Application Insights \> o nome do seu projeto e rolar para baixo](./media/app-insights-overview-usage/01-overview.png)
+![No Azure, selecionar Navegar > Application Insights > o nome do seu projeto e rolar para baixo](./media/app-insights-overview-usage/01-overview.png)
  
 Passe o mouse na parte em branco acima de um gráfico para ver as contagens em um ponto específico. Caso contrário, os números mostram o valor acumulado ao longo do período, como uma média, um total ou uma contagem de usuários distintos.
 
@@ -37,7 +37,7 @@ Clique em qualquer gráfico para ver mais detalhes. Por exemplo:
 
 ![Na folha visão geral, clicar no gráfico Sessões](./media/app-insights-overview-usage/02-sessions.png)
  
-\(Este exemplo é de um site, mas os gráficos parecem semelhantes para aplicativos executados em dispositivos.\)
+(Este exemplo é de um site, mas os gráficos parecem semelhantes para aplicativos executados em dispositivos.)
 
 Compare com a semana anterior para ver se as coisas estão mudando:
 
@@ -47,7 +47,7 @@ Compare duas métricas, por exemplo, usuários e novos usuários:
 
 ![Selecione um gráfico, procure por métricas e marque-as ou desmarque-as.](./media/app-insights-overview-usage/031-dual.png)
 
-Dados de grupo \(segmento\) segundo uma propriedade, como Navegador, Sistema Operacional ou Cidade:
+Dados de grupo (segmento) segundo uma propriedade, como Navegador, Sistema Operacional ou Cidade:
 
 ![Selecionar um gráfico que exibe uma única métrica, ativar Agrupamento e escolher uma propriedade](./media/app-insights-overview-usage/03-browsers.png)
 
@@ -77,16 +77,16 @@ Mas você ainda gostaria que o Application Insights registrasse o número de vez
 
 Você pode usar a telemetria de várias maneiras para entender como o seu aplicativo está sendo usado. Mas você não deseja sempre misturar as mensagens com modos de exibição de página. Em vez disso, use eventos personalizados. Você pode enviá-los por meio de aplicativos de dispositivos, páginas da Web ou um servidor Web:
 
-\(JavaScript\)
+(JavaScript)
 
     telemetryClient.trackEvent("GameEnd");
 
-\(C\#\)
+(C#)
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-\(VB\)
+(VB)
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -130,7 +130,7 @@ Não havia nenhuma exceção, portanto, o usuário não foi impedido de jogar de
 
 ![](./media/app-insights-overview-usage/10-filter.png)
  
-E agora podemos ver que este usuário fez logon simplesmente para verificar os resultados mais recentes. Talvez devamos pensar em desenvolver uma história de usuário que torne isso mais fácil de fazer. \(E devemos implementar um evento personalizado ao relatório quando essa história específica ocorrer.\)
+E agora podemos ver que este usuário fez logon simplesmente para verificar os resultados mais recentes. Talvez devamos pensar em desenvolver uma história de usuário que torne isso mais fácil de fazer. (E devemos implementar um evento personalizado ao relatório quando essa história específica ocorrer.)
 
 ## Filtre, pesquise e segmente seus dados com propriedades
 Você pode anexar marcas arbitrárias e valores numéricos aos eventos.
@@ -145,7 +145,7 @@ JavaScript no cliente
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
 
-C\# no servidor
+C# no servidor
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -189,15 +189,15 @@ Use o campo Pesquisa para ver as ocorrências de eventos com um valor da proprie
 ![Digitar um valor no campo Pesquisa](./media/app-insights-overview-usage/12-searchEvents.png)
 
 
-## Testando A \| B
+## Testando A | B
 
 Se você não souber qual variante de um recurso terá mais êxito, libere ambas, tornando cada uma acessível para diferentes usuários. Avalie o sucesso de cada uma e então parta para uma versão unificada.
 
 Para essa técnica, você pode anexar marcas distintas a todas as telemetrias enviadas por cada versão do seu aplicativo. Você pode fazer isso definindo propriedades no TelemetryContext ativo. Essas propriedades padrão são adicionadas a todas as mensagens de telemetria que o aplicativo envia - não apenas a suas mensagens personalizadas, mas também à telemetria padrão.
 
-No portal do Application Insights, você então poderá filtrar e agrupar \(segmentar\) seus dados nas marcas, para comparar as diferentes versões.
+No portal do Application Insights, você então poderá filtrar e agrupar (segmentar) seus dados nas marcas, para comparar as diferentes versões.
 
-C\# no servidor
+C# no servidor
 
     using Microsoft.ApplicationInsights.DataContracts;
 

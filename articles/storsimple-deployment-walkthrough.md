@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -39,9 +40,9 @@ A lista de verificação de pré-instalação a seguir descreve as informações
 | 3 | Acesso serial | Configuração inicial do dispositivo | Sim/Não |
 | 4 | Endereços IP do servidor DNS | Necessário para conectar-se ao Microsoft Azure: total de 2 necessários para alta disponibilidade | |
 | 5 | Endereços IP do servidor NTP | Necessário para sincronizar a hora com o Azure: 1 obrigatório, 1 opcional | |
-| 6 | Servidor proxy \(opcional\) | Endereço IP/nome de domínio totalmente qualificado do servidor proxy, porta a ser usada | |
+| 6 | Servidor proxy (opcional) | Endereço IP/nome de domínio totalmente qualificado do servidor proxy, porta a ser usada | |
 | 7 | Conta de Armazenamento do Azure | Acessar credenciais como nome da conta e chave de acesso, por conta de armazenamento | |
-| 8 | Chave de criptografia de armazenamento em nuvem \(recomendado\) | Por contêiner de volume | |
+| 8 | Chave de criptografia de armazenamento em nuvem (recomendado) | Por contêiner de volume | |
 | 9 | IQN do host | Por host | |
 
 ## Pré-requisitos de implantação
@@ -182,7 +183,7 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 ## Obter o IQN de um host do Windows Server
 
-Execute as seguintes etapas para obter o iSCSI IQN \(Nome Qualificado\) de um host do Windows que está executando o Windows Server ® 2012.
+Execute as seguintes etapas para obter o iSCSI IQN (Nome Qualificado) de um host do Windows que está executando o Windows Server ® 2012.
 
 [AZURE.INCLUDE [Criar um backup manual](../includes/storsimple-get-iqn.md)]
 
@@ -194,7 +195,7 @@ Execute as seguintes etapas no Portal de Gerenciamento para criar um backup manu
 
 ## Configurar o MPIO
 
-Multipath I/O \(MPIO\) é um recurso opcional e não é instalado no Windows Server por padrão. Ele deve ser instalado como um recurso por meio do Gerenciador de Servidor.
+Multipath I/O (MPIO) é um recurso opcional e não é instalado no Windows Server por padrão. Ele deve ser instalado como um recurso por meio do Gerenciador de Servidor.
 
 > [AZURE.NOTE]Não há suporte para MPIO em um dispositivo virtual StorSimple.
 

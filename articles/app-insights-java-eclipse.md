@@ -22,16 +22,16 @@ O SDK do Application Insights envia telemetria por meio do seu aplicativo Web Ja
 
 ## Pré-requisitos
 
-Atualmente, o plug-in funciona para projetos dinâmicos da Web no Eclipse. \([Adicione o Application Insights para outros tipos de projeto Java][java].\)
+Atualmente, o plug-in funciona para projetos dinâmicos da Web no Eclipse. ([Adicione o Application Insights para outros tipos de projeto Java][java].)
 
 Você precisará de:
 
 * Oracle JRE 1.6 ou posterior
-* Uma assinatura do [Microsoft Azure](http://azure.microsoft.com/). \(Você pode começar com a [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).\)
+* Uma assinatura do [Microsoft Azure](http://azure.microsoft.com/). (Você pode começar com a [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).)
 * [Um IDE do Eclipse para desenvolvedores do Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
 
-## Instalar o SDK no Eclipse \(uma vez\)
+## Instalar o SDK no Eclipse (uma vez)
 
 Você só precisa fazer isso uma vez por computador. Esta etapa instala um kit de ferramentas que pode então adicionar o SDK para cada projeto Web dinâmico.
 
@@ -50,7 +50,7 @@ Siga as etapas restantes para cada projeto Java.
 
 A análise de uso e o desempenho serão exibidos em um recurso do Azure no portal da Web do Azure. Nesta etapa, você configura um recurso do Azure para seu aplicativo.
 
-1. Faça logon no [Portal do Microsoft Azure](https://portal.azure.com). \(Você precisará de uma [assinatura do Azure](http://azure.microsoft.com/).\)
+1. Faça logon no [Portal do Microsoft Azure](https://portal.azure.com). (Você precisará de uma [assinatura do Azure](http://azure.microsoft.com/).)
 2. Criar um novo recurso do Application Insights
 
     ![Clique em + e escolha Application Insights](./media/app-insights-java-get-started/01-create.png)
@@ -79,7 +79,7 @@ Execute seu aplicativo.
 
 Retorne para seu recurso Application Insights no Microsoft Azure.
 
-Dados de solicitações HTTP aparecerão na folha de visão geral. \(Se não estiverem lá, aguarde alguns segundos e, em seguida, clique em Atualizar.\)
+Dados de solicitações HTTP aparecerão na folha de visão geral. (Se não estiverem lá, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
 ![Falhas, contagens de solicitação e resposta do servidor](./media/app-insights-java-track-http-requests/5-results.png)
  
@@ -120,7 +120,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 
 ## Logs de diagnóstico
 
-Se você estiver usando Logback ou Log4J \(v 1.2 ou 2.0\) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
+Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 [Saiba mais sobre logs de diagnóstico][javalogs]
 

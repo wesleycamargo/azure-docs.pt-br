@@ -146,11 +146,11 @@ O Windows reconectará ao compartilhamento de arquivo quando a máquina virtual 
 
 Após ter uma conexão remota com a máquina virtual, você poderá executar o comando  `net use` para montar o compartilhamento de arquivos usando a sintaxe a seguir. Substitua `<storage-account>` pelo nome da sua conta de armazenamento e `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos.
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+	net use z: <storage-account>.file.core.windows.net<share-name>
 
 > [AZURE.NOTE] Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando  `net use`. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando  `net use`. Substitua `<storage-account>` pelo nome da conta de armazenamento, `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos e `<account-key>` pela chave da conta de armazenamento:
 	   
-	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+	net use z: <storage-account>.file.core.windows.net<share-name> /u:<storage-account> <account-key>
 
 Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [namespaces do System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) no .NET Framework. 
 

@@ -48,7 +48,7 @@ Sendgrid.
 
 ### API do SMTP
 
-Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma biblioteca baseada em componente para envio de emails de aplicativos PHP. Você pode baixar a biblioteca do *Swift Mailer* em [http://swiftmailer.org/download][] v5.3.0 (use o [Compositor] para instalar o Swift Mailer). O envio de email pela biblioteca envolve a criação de instâncias das classes <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span>e <span class="auto-style2">Swift\_Message</span> , definindo as propriedades adequadas e chamar o método <span class="auto-style2">Swift\_Mailer::send</span> .
+Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma biblioteca baseada em componente para envio de emails de aplicativos PHP. Você pode baixar a biblioteca do *Swift Mailer* em [http://swiftmailer.org/download][] v5.3.0 (use o [Compositor] para instalar o Swift Mailer). O envio de email pela biblioteca envolve a criação de instâncias das classes <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span>e <span class="auto-style2">Swift_Message</span> , definindo as propriedades adequadas e chamar o método <span class="auto-style2">Swift_Mailer::send</span> .
 
     <?php
      include_once "vendor/autoload.php";
@@ -227,7 +227,7 @@ A linha de código adicional é a seguinte:
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-A linha do código chama o método adicionar no objeto <span class="auto-style2">Swift\_Message</span> e usa o método estático <span class="auto-style2">fromPath</span> na classe <span class="auto-style2">Swift\_Attachment</span> para obter e anexar um arquivo a uma mensagem.
+A linha do código chama o método adicionar no objeto <span class="auto-style2">Swift_Message</span> e usa o método estático <span class="auto-style2">fromPath</span> na classe <span class="auto-style2">Swift_Attachment</span> para obter e anexar um arquivo a uma mensagem.
 
 ### API Web
 

@@ -76,11 +76,11 @@ Métricas diferentes são agregadas de maneiras diferentes:
 
  * Para uma métrica como tempo de resposta, os valores são **média** durante o período do gráfico.
  * Para contagens de eventos, como solicitações com falha, o acumulado é a **soma** das contagens durante o período.
- * Para contagens de usuários, o acumulado é o número de usuários **exclusivos** durante o período. \(Se um usuário for acompanhado mais de uma vez durante o período, ele será contado apenas uma vez.\)
+ * Para contagens de usuários, o acumulado é o número de usuários **exclusivos** durante o período. (Se um usuário for acompanhado mais de uma vez durante o período, ele será contado apenas uma vez.)
 
 Para saber se o valor é uma soma, média ou exclusivo, clique no gráfico e role para baixo até o valor selecionado. Você também pode obter uma breve descrição da métrica.
 
-![Passar o ponteiro do mouse sobre \(i\)](./media/app-insights-metrics-explorer/06-total.png)
+![Passar o ponteiro do mouse sobre (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -96,7 +96,7 @@ Selecione um gráfico novo ou existente para editar o que ele mostra:
 
 Você pode exibir mais de uma métrica em um gráfico, porém há restrições sobre as combinações que podem ser exibidas em conjunto. Assim que você escolher uma métrica, algumas das outras serão desabilitadas.
 
-Se você codificou [métricas personalizadas][track] em seu aplicativo \(chamadas para TrackMetric e TrackEvent\), elas serão listados aqui.
+Se você codificou [métricas personalizadas][track] em seu aplicativo (chamadas para TrackMetric e TrackEvent), elas serão listados aqui.
 
 ## Segmentar os dados
 

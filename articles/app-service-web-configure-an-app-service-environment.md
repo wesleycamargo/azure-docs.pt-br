@@ -20,7 +20,7 @@
 
 ## Visão geral ##
 
-Ambiente de Serviço de Aplicativo é um novo recurso de nível Premium que está sendo oferecido no modo de Visualização. Ele oferece novos recursos de acesso a rede e de dimensionamento. Esse novo recurso de escala permite que você coloque uma instância do serviço de aplicativo do Azure em sua VNET. Se você não estiver familiarizado com a capacidade do ASE \(Ambiente de Serviço de Aplicativo\), leia o documento aqui [O que é um ambiente de serviço de aplicativo][WhatisASE]. Para obter informações sobre como criar um ASE, leia o documento aqui [Como criar um ambiente de serviço de aplicativo][HowtoCreateASE].
+Ambiente de Serviço de Aplicativo é um novo recurso de nível Premium que está sendo oferecido no modo de Visualização. Ele oferece novos recursos de acesso a rede e de dimensionamento. Esse novo recurso de escala permite que você coloque uma instância do serviço de aplicativo do Azure em sua VNET. Se você não estiver familiarizado com a capacidade do ASE (Ambiente de Serviço de Aplicativo), leia o documento aqui [O que é um ambiente de serviço de aplicativo][WhatisASE]. Para obter informações sobre como criar um ASE, leia o documento aqui [Como criar um ambiente de serviço de aplicativo][HowtoCreateASE].
 
 Em um nível elevado, um ambiente de serviço de aplicativo consiste em vários componentes principais:
 
@@ -30,7 +30,7 @@ Em um nível elevado, um ambiente de serviço de aplicativo consiste em vários 
 - Rede virtual com pelo menos uma sub-rede
 - Sub-rede na qual está em execução o serviço hospedado do ambiente de aplicativo do Azure
 
-Para ajudar a gerenciar e monitorar seus ambientes de serviço de aplicativo, você pode acessar a interface do usuário para essa finalidade em Procurar -\> Ambientes de Serviço de Aplicativo, no portal do Azure. A versão inicial tem o que você precisa para gerenciar o sistema e continuará a melhorar com recursos adicionais nas próximas semanas.
+Para ajudar a gerenciar e monitorar seus ambientes de serviço de aplicativo, você pode acessar a interface do usuário para essa finalidade em Procurar -> Ambientes de Serviço de Aplicativo, no portal do Azure. A versão inicial tem o que você precisa para gerenciar o sistema e continuará a melhorar com recursos adicionais nas próximas semanas.
 
 ![][1]
 

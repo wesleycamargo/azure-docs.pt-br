@@ -55,9 +55,9 @@ Os valores para o nome chave e valor da SAS podem ser encontrados na informaçã
 
 ## Como enviar mensagens para uma fila
 
-Para enviar uma mensagem para uma fila de Barramento de Serviço, seu aplicativo chamará o método **send\_queue\_message** no objeto **ServiceBusService**.
+Para enviar uma mensagem para uma fila de Barramento de Serviço, seu aplicativo chamará o método **send_queue_message** no objeto **ServiceBusService**.
 
-O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada *taskqueue using***send\_queue\_message**:
+O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada *taskqueue using***send_queue_message**:
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -66,17 +66,17 @@ As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem
 
 ## Como receber mensagens de uma fila
 
-As mensagens são recebidas de uma fila usando o método de **receive\_queue\_message** no objeto **ServiceBusService**:
+As mensagens são recebidas de uma fila usando o método de **receive_queue_message** no objeto **ServiceBusService**:
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-As mensagens são excluídas da fila conforme elas são lidas quando o parâmetro**peek\_lock** é definido como **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek\_lock**para **True**.
+As mensagens são excluídas da fila conforme elas são lidas quando o parâmetro**peek_lock** é definido como **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek_lock**para **True**.
 
 O comportamento da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
 
-Se o parâmetro **peek\_lock** estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo.
+Se o parâmetro **peek_lock** estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo.
 Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando o método **Delete** no objeto da **Message**. O método **delete** marcará a mensagem como tendo sido consumida e a removerá da fila.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)

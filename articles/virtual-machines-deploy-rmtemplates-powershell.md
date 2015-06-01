@@ -26,14 +26,14 @@ Antes de começar, verifique se que você tem o PowerShell do Azure pronto para 
 
 ## Noções básicas sobre grupos de recursos e modelos de recursos do Azure
 
-A maioria dos aplicativos implantados e executados no Microsoft Azure é criada com base em uma combinação de diferentes tipos de recursos de nuvem \(como uma ou mais VMs e contas do armazenamento, um banco de dados SQL, uma Rede Virtual ou uma CDN\). Com os *Modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros de configuração e implantação associados.
+A maioria dos aplicativos implantados e executados no Microsoft Azure é criada com base em uma combinação de diferentes tipos de recursos de nuvem (como uma ou mais VMs e contas do armazenamento, um banco de dados SQL, uma Rede Virtual ou uma CDN). Com os *Modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros de configuração e implantação associados.
 
 Depois de definir um modelo de recurso com base em JSON, você poderá executá-lo e fazer com que os recursos definidos nele sejam implantados no Azure usando um comando do PowerShell. Você pode executar esses comandos de forma autônoma no shell de comando do PowerShell ou integrá-los a um script que contenha lógica de automação adicional.
 
 Os recursos que você criar usando Modelos de Gerenciador de Recursos do Azure serão implantados em um Grupo de Recursos novo ou existente do Azure. Um *Grupo de Recursos do Azure* permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso permite que você gerencie o ciclo de vida total do grupo/aplicativo e fornece APIs de gerenciamento que lhe permitem:
 
 - Parar, iniciar ou excluir todos os recursos do grupo de uma só vez. 
-- Aplicar regras de RBAC \(Controle de Acesso Baseado em Função\) para bloquear permissões de segurança em relação a eles. 
+- Aplicar regras de RBAC (Controle de Acesso Baseado em Função) para bloquear permissões de segurança em relação a eles. 
 - Auditar operações. 
 - Marcar recursos com metadados adicionais para obter melhor acompanhamento. 
 
@@ -292,7 +292,7 @@ Agora você tem uma nova máquina virtual do Windows chamada MyWindowsVM em seu 
 
 ## Tarefa comum: criar uma imagem de VM personalizada
 
-Use as instruções nessas seções para criar uma imagem de VM personalizada no Azure com um modelo do Gerenciador de Recursos usando o PowerShell do Azure. Esse modelo cria uma única máquina virtual de um VHD \(disco rígido virtual\) especificado.
+Use as instruções nessas seções para criar uma imagem de VM personalizada no Azure com um modelo do Gerenciador de Recursos usando o PowerShell do Azure. Esse modelo cria uma única máquina virtual de um VHD (disco rígido virtual) especificado.
 
 ### Etapa 1: examine o arquivo JSON do modelo.
 
@@ -383,7 +383,7 @@ Para uma máquina virtual baseada no Linux, consulte [Criar e carregar um VHD do
 
 ### Etapa 3: criar a máquina virtual com o modelo.
 
-Para criar uma nova máquina virtual com base no VHD, substitua os elementos dentro de "\< \>" por informações específicas e execute estes comandos:
+Para criar uma nova máquina virtual com base no VHD, substitua os elementos dentro de "< >" por informações específicas e execute estes comandos:
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"

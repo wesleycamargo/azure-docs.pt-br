@@ -70,7 +70,7 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 
 ![Primeira página do Active Directory do Azure](./media/remoteapp-clients/Android3.png)
 
-4. Siga as instruções na tela para entrar com sua conta da Microsoft \(LiveID\) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e toque em **Concluído**.
+4. Siga as instruções na tela para entrar com sua conta da Microsoft (LiveID) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e toque em **Concluído**.
 
 ![Página de convites](./media/remoteapp-clients/Android4.png)
 
@@ -98,7 +98,7 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 
 ![Prompt de logon](./media/remoteapp-clients/IOS2.png)
 
-3. Siga as instruções na tela para entrar com sua conta da Microsoft \(LiveID\) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e toque em **Concluído**.
+3. Siga as instruções na tela para entrar com sua conta da Microsoft (LiveID) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e toque em **Concluído**.
 
 ![Página de convites](./media/remoteapp-clients/IOS3.png)
 
@@ -130,7 +130,7 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 
 ![Primeira página do Active Directory do Azure](./media/remoteapp-clients/Mac3.png)
 
-4. Siga as instruções na tela para entrar com sua conta da Microsoft \(LiveID\) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e feche a caixa de diálogo.
+4. Siga as instruções na tela para entrar com sua conta da Microsoft (LiveID) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e feche a caixa de diálogo.
 
 ![Página de convites](./media/remoteapp-clients/Mac4.png)
 
@@ -146,7 +146,7 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 
 ![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/Mac7.png)
 
-## Windows \(Todas as versões com suporte exceto o Windows Phone\)
+## Windows (Todas as versões com suporte exceto o Windows Phone)
 
 O cliente será iniciado automaticamente depois de concluir a instalação. No entanto, quando você precisar acessá-lo novamente mais tarde, ele pode ser encontrado na lista de aplicativos sob o nome **Azure RemoteApp**.
 
@@ -158,7 +158,7 @@ O cliente será iniciado automaticamente depois de concluir a instalação. No e
 
 ![Primeiro prompt do Active Directory do Azure](./media/remoteapp-clients/Windows2.png)
 
-3. Siga as instruções na tela para entrar com sua conta da Microsoft \(LiveID\) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e clique em **Concluído**.
+3. Siga as instruções na tela para entrar com sua conta da Microsoft (LiveID) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e clique em **Concluído**.
 
 ![Página de convites do cliente Azure RemoteApp](./media/remoteapp-clients/Windows3.png)
 
@@ -190,7 +190,7 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 
 ![Primeira página do Active Directory do Azure](./media/remoteapp-clients/WinPhone4.png)
 
-5. Siga as instruções na tela para entrar com sua conta da Microsoft \(LiveID\) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e toque em **salvar**.
+5. Siga as instruções na tela para entrar com sua conta da Microsoft (LiveID) ou a ID da Organização. Depois de conectado, pode ser apresentada uma página listando todos os convites que você recebeu. Se estiver, selecione os convites que você confia e toque em **salvar**.
 
 ![Página de convites](./media/remoteapp-clients/WinPhone5.png)
 

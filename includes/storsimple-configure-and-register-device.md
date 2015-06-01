@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -44,7 +45,7 @@
    
     > [AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você vir a mensagem de erro “O dispositivo não está pronto”, verifique a conexão física da rede na interface de rede DADOS 0 de seu controlador ativo.
 
-8. \(Opcional\) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
 9. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão e você precisará alterá-la nas sessões subsequentes. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter uma combinação de caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
 
@@ -73,7 +74,7 @@
    
     ![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-  \>[AZURE.NOTE]Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
+  >[AZURE.NOTE]Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
 
 
 <!--HONumber=52-->

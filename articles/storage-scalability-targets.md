@@ -24,7 +24,7 @@ Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenament
 
 >[AZURE.IMPORTANT]As metas de escalabilidade e desempenho listadas aqui são metas avançadas, mas podem ser alcançadas. Em todos os casos, a taxa de solicitação e a largura de banda obtidas por sua conta armazenamento dependem do tamanho dos objetos armazenados, dos padrões de acesso utilizados e do tipo de carga de trabalho executado por seu aplicativo. Teste o serviço para determinar se o desempenho atende às suas necessidades. Se possível, evite picos repentinos na taxa de tráfego e certifique-se de que o tráfego esteja bem distribuído entre as partições.
 
->Quando seu aplicativo atingir o limite de uma partição, o Armazenamento do Azure passará a retornar respostas com o código de erro 503 \(servidor ocupado\) ou o código de erro 500 \(tempo limite da operação\). Quando isso ocorre, o aplicativo deve usar uma política de retirada exponencial para repetições. A retirada exponencial permite que a carga na partição diminua e afasta os picos de tráfego nessa partição.
+>Quando seu aplicativo atingir o limite de uma partição, o Armazenamento do Azure passará a retornar respostas com o código de erro 503 (servidor ocupado) ou o código de erro 500 (tempo limite da operação). Quando isso ocorre, o aplicativo deve usar uma política de retirada exponencial para repetições. A retirada exponencial permite que a carga na partição diminua e afasta os picos de tráfego nessa partição.
 
 Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Uma única assinatura do Azure pode ter 100 contas de armazenamento. Consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
 
@@ -58,9 +58,9 @@ A tabela a seguir descreve as metas de escalabilidade para contas de armazenamen
 </tr>
 </table>
 
-*Entrada refere-se a todos os dados \(solicitações\) que estão sendo enviados para uma conta de armazenamento. 
+*Entrada refere-se a todos os dados (solicitações) que estão sendo enviados para uma conta de armazenamento. 
 
-*Saída refere-se a todos os dados \(respostas\) que estão sendo recebidos de uma conta de armazenamento. 
+*Saída refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento. 
 
 ### Metas de escalabilidade para contas de armazenamento padrão nas regiões da Europa e da Ásia
 
@@ -86,9 +86,9 @@ A tabela a seguir descreve as metas de escalabilidade para contas de armazenamen
 </tr>
 </table>
 
-*Entrada refere-se a todos os dados \(solicitações\) que estão sendo enviados para uma conta de armazenamento. 
+*Entrada refere-se a todos os dados (solicitações) que estão sendo enviados para uma conta de armazenamento. 
 
-*Saída refere-se a todos os dados \(respostas\) que estão sendo recebidos de uma conta de armazenamento. 
+*Saída refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento. 
 
 ### Metas de escalabilidade para Contas de armazenamento Premium
 
@@ -106,9 +106,9 @@ A tabela a seguir descreve as metas de escalabilidade para Contas de armazenamen
 <td>Até 50 gigabits para Entrada + Saída</td>
 </table>
 
-*Entrada refere-se a todos os dados \(solicitações\) que estão sendo enviados para uma conta de armazenamento. 
+*Entrada refere-se a todos os dados (solicitações) que estão sendo enviados para uma conta de armazenamento. 
 
-*Saída refere-se a todos os dados \(respostas\) que estão sendo recebidos de uma conta de armazenamento.
+*Saída refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
 
 Para saber mais sobre o discos de Armazenamento Premium, confira [Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage-preview-portal.md).
 
@@ -128,7 +128,7 @@ A tabela a seguir descreve as metas de desempenho para uma única partição de 
 <td>Até 60 MB por segundo</td>
 </table>
 
-Cada objeto com dados armazenado no Armazenamento do Azure \(blobs, mensagens, entidades e arquivos\) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva dentro da conta de armazenamento e é usada para localizar um blob, mensagem ou entidade.
+Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva dentro da conta de armazenamento e é usada para localizar um blob, mensagem ou entidade.
 
 Para tabelas, todas as entidades com o mesmo valor de chave de partição são agrupadas na mesma partição e são armazenadas no mesmo servidor de partição. É importante entender isso ao projetar seu aplicativo. Seu aplicativo deve equilibrar os benefícios de escalabilidade da propagação de entidades por várias partições com as vantagens de acesso de dados do agrupamento de entidades em uma única partição. Uma vantagem importante do agrupamento de entidades em partições é a possibilidade de executar operações atômicas nas entidades da mesma partição, já que uma partição existe em um único servidor.
 

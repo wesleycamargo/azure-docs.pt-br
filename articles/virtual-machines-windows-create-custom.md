@@ -18,7 +18,7 @@
 	ms.date="04/27/2015" 
 	ms.author="kathydav"/>
 
-#Como criar uma máquina virtual personalizada executando o Windows
+# Como criar uma máquina virtual personalizada executando o Windows
 
 Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que você cria usando a opção **Da Galeria** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
 

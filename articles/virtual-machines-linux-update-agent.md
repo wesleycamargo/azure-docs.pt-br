@@ -43,12 +43,12 @@ Normalmente, isso é tudo de que você precisa. Porém, se por algum motivo for 
 
 Faça logon em sua VM usando o SSH.
 
-Instale o wget \(existem algumas distribuições que não o instalam por padrão, como Redhat, CentOS e Oracle Linux versões 6.4 e 6.5\) digitando `#sudo yum install wget` na linha de comando.
+Instale o wget (existem algumas distribuições que não o instalam por padrão, como Redhat, CentOS e Oracle Linux versões 6.4 e 6.5) digitando `#sudo yum install wget` na linha de comando.
 
 
 ## Baixe a última versão
 
-Abra [a versão do Agente Linux do Azure no Github](https://github.com/Azure/WALinuxAgent/releases) em uma página da Web e localize o número da última versão, como: 2.0.12. \(Você pode localizar sua versão atual digitando `#waagent --version`.\)
+Abra [a versão do Agente Linux do Azure no Github](https://github.com/Azure/WALinuxAgent/releases) em uma página da Web e localize o número da última versão, como: 2.0.12. (Você pode localizar sua versão atual digitando `#waagent --version`.)
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 

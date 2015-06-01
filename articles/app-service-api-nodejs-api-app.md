@@ -32,7 +32,7 @@ Eis aqui uma captura de tela do aplicativo concluído:
 
 2. Clique em **NOVO** na parte inferior esquerda do portal.
 
-3. Clique em **Web + Móvel \> Aplicativo de API**.
+3. Clique em **Web + Móvel > Aplicativo de API**.
 
 	![][portal-quick-create]
 
@@ -48,9 +48,9 @@ Eis aqui uma captura de tela do aplicativo concluído:
 
 	Se você deixou a caixa de seleção **Adicionar ao quadro inicial** marcada, o portal abre automaticamente a folha de seu aplicativo de API após sua criação. Se você desmarcou a caixa de seleção, clique em **Notificações** na home page do portal para ver o status de criação do aplicativo de API e clique na notificação para ir até a folha do novo aplicativo de API.
 
-7. Clique em **Configurações \> Configurações do aplicativo**.
+7. Clique em **Configurações > Configurações do aplicativo**.
 
-9. Defina o nível de acesso como **Público \(anônimo\)**.
+9. Defina o nível de acesso como **Público (anônimo)**.
 
 11. Clique em **Salvar**.
 
@@ -70,7 +70,7 @@ No portal, você gerencia os recursos específicos dos aplicativos de API na fol
 
 	![][deployment-part]
 
-3. Clique em **Escolher fonte \> Repositório Git local**.
+3. Clique em **Escolher fonte > Repositório Git local**.
 
 5. Clique em **OK**.
 
@@ -86,7 +86,7 @@ No portal, você gerencia os recursos específicos dos aplicativos de API na fol
 
 	![][deployment-credentials]
 
-1. Na folha **Host de aplicativo de API**, clique em **Configurações \> Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em "URL GIT".
+1. Na folha **Host de aplicativo de API**, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em "URL GIT".
 
 2. Copie a URL para uso posterior no tutorial.
 
@@ -113,7 +113,7 @@ Nesta seção, você vai baixar e examinar o código fornecido como parte do exe
 
 	Observe a propriedade **apiDefinition**. O caminho para essa URL é relativo à URL da sua API e aponta para o ponto de extremidade Swagger 2.0. O Serviço de Aplicativo do Azure usa essa propriedade para descobrir a definição de sua API e habilitar muitos dos recursos de aplicativos de API do serviço de aplicativo.
 
-	> [AZURE.NOTE]O ponto de extremidade deve ter especificação Swagger 2.0, já que as versões anteriores \(por exemplo, 1.2\) sem suporte pela plataforma. O aplicativo de exemplo está usando swaggerize-express para criar um ponto de extremidade de especificação Swagger 2.0.
+	> [AZURE.NOTE]O ponto de extremidade deve ter especificação Swagger 2.0, já que as versões anteriores (por exemplo, 1.2) sem suporte pela plataforma. O aplicativo de exemplo está usando swaggerize-express para criar um ponto de extremidade de especificação Swagger 2.0.
 
 4. Abra o arquivo **server.js** e inspecione o código.
 
@@ -127,7 +127,7 @@ Nesta seção, você vai baixar e examinar o código fornecido como parte do exe
 		    handlers: './handlers/'
 		}));
 
-	A propriedade `api` aponta para o arquivo de api.json, que contém a definição da especificação Swagger 2.0 de sua API. Você pode criar manualmente o arquivo em um editor de texto ou usar o [editor do Swagger](http://editor.swagger.io) online e baixar o arquivo JSON a partir de lá. \(O arquivo *api.json* especifica uma propriedade `host`, mas o valor dessa propriedade é determinado e substituído dinamicamente em tempo de execução.\)
+	A propriedade `api` aponta para o arquivo de api.json, que contém a definição da especificação Swagger 2.0 de sua API. Você pode criar manualmente o arquivo em um editor de texto ou usar o [editor do Swagger](http://editor.swagger.io) online e baixar o arquivo JSON a partir de lá. (O arquivo *api.json* especifica uma propriedade `host`, mas o valor dessa propriedade é determinado e substituído dinamicamente em tempo de execução.)
 
 	A propriedade `docspath` aponta para o ponto de extremidade Swagger 2.0. Essa URL é relativa ao caminho base de sua API. O caminho base é declarado no arquivo api.json. Em nosso exemplo é o caminho base é *api/data*, portanto, o caminho relativo para o ponto de extremidade swagger é */api/data/swagger*.
 
@@ -175,7 +175,7 @@ Nesta seção você criará um repositório Git local e enviará por push a part
 		git add .
 		git commit -m "Initial commit of the API App"
 
-3. Crie uma referência remota para enviar atualizações por push para o aplicativo Web \(host de aplicativo de API\) criado anteriormente, usando a URL de Git que você copiou anteriormente:
+3. Crie uma referência remota para enviar atualizações por push para o aplicativo Web (host de aplicativo de API) criado anteriormente, usando a URL de Git que você copiou anteriormente:
 
 		git remote add azure [URL for remote repository]
 
@@ -189,7 +189,7 @@ Nesta seção você criará um repositório Git local e enviará por push a part
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	\* [nova ramificação] mestre -\> mestre
+	* [nova ramificação] mestre -> mestre
 
 ## Exibir a definição de API no portal de visualização do Azure
 

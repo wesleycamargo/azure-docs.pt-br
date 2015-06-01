@@ -145,7 +145,7 @@ No produto de **Avaliação Gratuita**, a cota é de 200 chamadas por semana. Es
     <quota calls="200" bandwidth="kilobytes" renewal-period="604800">
     </quota>
 
-> Os intervalos de política são especificados em segundos. Para calcular o intervalo para uma semana, você pode multiplicar o número de dias (7) pelo número de horas em um dia (24), pelo número de minutos em uma hora (60), pelo número de segundos em um minuto (60). 7 \* 24 \* 60 \* 60 = 604800.
+> Os intervalos de política são especificados em segundos. Para calcular o intervalo para uma semana, você pode multiplicar o número de dias (7) pelo número de horas em um dia (24), pelo número de minutos em uma hora (60), pelo número de segundos em um minuto (60). 7 * 24 * 60 * 60 = 604800.
 
 Ao finalizar a configuração da política, ela deve corresponder ao exemplo a seguir.
 

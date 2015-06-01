@@ -2,7 +2,7 @@
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
 
-#Operações de indexador \(API REST do serviço Azure Search: 2014-10-20-Preview\)
+#Operações de indexador (API REST do serviço Azure Search: 2014-10-20-Preview)
 
 > [AZURE.NOTE]Este artigo descreve um protótipo da nova funcionalidade que não está na versão lançada da API. Leia mais sobre versões e a capacidade de suporte em [Controle de versão do serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) no MSDN. Para obter mais informações sobre outros recursos nesta API de visualização, consulte [Versão da API REST do serviço Azure Search: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
@@ -10,7 +10,7 @@
 
 O Azure Search pode se integrar diretamente a algumas fontes de dados comuns, eliminando a necessidade de escrever código para indexar seus dados. Para configurar isso, você pode chamar a API do Azure Search para criar e gerenciar **indexadores** e **fontes de dados**.
 
-Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenciais para acessar os dados e dicas para habilitar o Azure Search a identificar com eficiência as alterações nos dados \(como linhas modificadas ou excluídas em uma tabela de banco de dados\).
+Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenciais para acessar os dados e dicas para habilitar o Azure Search a identificar com eficiência as alterações nos dados (como linhas modificadas ou excluídas em uma tabela de banco de dados).
 
 Um **indexador** descreve como os dados vão da fonte de dados para um índice de pesquisa. Um indexador pode:
 
@@ -49,7 +49,7 @@ As etapas comuns para configurar a indexação automática são as seguintes:
 Consulte a [página Limites e restrições](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obter detalhes.
 
 ## Operações de fonte de dados
-Você pode criar e gerenciar fonte de dados no serviço Azure Search por meio de solicitações HTTP simples \(POST, GET, PUT, DELETE\) em relação a um recurso de fonte de dados específico.
+Você pode criar e gerenciar fonte de dados no serviço Azure Search por meio de solicitações HTTP simples (POST, GET, PUT, DELETE) em relação a um recurso de fonte de dados específico.
 
 ### Criar fonte de dados
 
@@ -78,7 +78,7 @@ A `api-version` é obrigatória. Os valores válidos incluem `2014-10-20-Preview
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
 - `Content-Type`: obrigatório. Defina-o como `application/json`
-- `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração \(em vez de uma chave de consulta\). 
+- `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
 
@@ -105,7 +105,7 @@ A solicitação pode conter as seguintes propriedades:
 - `description`: uma descrição opcional. 
 - `type`: obrigatório. Use `azuresql` para uma fonte de dados do Azure SQL e `docdb` para uma fonte de dados DocumentDB.
 - `container`: 
-	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição \(para a fonte de dados do Azure SQL\) ou uma coleção \(para uma fonte de dados DocumentDB\) que será indexado. 
+	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição (para a fonte de dados do Azure SQL) ou uma coleção (para uma fonte de dados DocumentDB) que será indexado. 
 	- As fontes de dados DocumentDB também dão suporte a uma propriedade opcional `query` que permite que você especifique uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que o Azure Search pode indexar.   
 - A `dataChangeDetectionPolicy` e a `dataDeletionDetectionPolicy` opcionais são descritas abaixo.
 
@@ -282,9 +282,9 @@ Código de status: 204 sem Conteúdo é retornado para uma resposta bem-sucedida
 
 Um indexador é o recurso que conecta fontes de dados a índices de pesquisa de destino. Você deve planejar a criação de um indexador para cada combinação de índice de destino e fonte de dados. Você pode ter vários indexadores gravando no mesmo índice. No entanto, um indexador pode gravar apenas em um único índice.
 
-Você pode criar e gerenciar índices por meio de solicitações HTTP simples \(POST, GET, PUT, DELETE\) em relação a um recurso de indexador específico.
+Você pode criar e gerenciar índices por meio de solicitações HTTP simples (POST, GET, PUT, DELETE) em relação a um recurso de indexador específico.
 
-Depois de criar um indexador, você pode recuperar seu status de execução usando a operação [Obter Status do Indexador](#GetIndexerStatus). Você também pode executar um indexador a qualquer momento \(em vez de ou além de executá-lo periodicamente de acordo com uma agenda\) usando a operação [Executar Indexador](#RunIndexer).
+Depois de criar um indexador, você pode recuperar seu status de execução usando a operação [Obter Status do Indexador](#GetIndexerStatus). Você também pode executar um indexador a qualquer momento (em vez de ou além de executá-lo periodicamente de acordo com uma agenda) usando a operação [Executar Indexador](#RunIndexer).
 
 ### Criar Indexador
 
@@ -320,7 +320,7 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" \(um sobconjunto restrito de um valor de [duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada duas horas. 
+- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um sobconjunto restrito de um valor de [duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada duas horas. 
 
 - `startTime`: obrigatório. Uma data/hora, no horário UTC, quando o indexador deve começar a ser executado.
 
@@ -462,7 +462,7 @@ A operação **Obter Status do Indexador** recupera o status atual e o históric
 
 Código de status: 200 OK para uma resposta bem-sucedida.
 
-O corpo da resposta contém informações sobre o status geral de integridade, a última invocação e o histórico de invocações recentes do indexador \(se houver\).
+O corpo da resposta contém informações sobre o status geral de integridade, a última invocação e o histórico de invocações recentes do indexador (se houver).
 
 Um exemplo de corpo de resposta tem esta aparência:
 
@@ -516,13 +516,13 @@ O resultado da execução do indexador contém as seguintes propriedades:
 
 - `errors`: uma lista de erros de nível de item, se houver.
 
-- `itemsProcessed`: o número de itens da fonte de dados \(por exemplo, linhas de tabela\) que o indexador tentou indexar durante esta execução.
+- `itemsProcessed`: o número de itens da fonte de dados (por exemplo, linhas de tabela) que o indexador tentou indexar durante esta execução.
 
 - `itemsFailed`: o número de itens que falharam durante esta execução.
  
-- `initialTrackingState`: sempre `null` para a primeira execução do indexador ou se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Se essa política estiver habilitada, em execuções subsequentes, esse valor indicará o primeiro valor de controle de alterações \(menor\) processado por essa execução.
+- `initialTrackingState`: sempre `null` para a primeira execução do indexador ou se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Se essa política estiver habilitada, em execuções subsequentes, esse valor indicará o primeiro valor de controle de alterações (menor) processado por essa execução.
 
-- `finalTrackingState`: sempre `null` se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Caso contrário, indica o último valor de controle de alterações \(mais alto\) processado com êxito por essa execução.
+- `finalTrackingState`: sempre `null` se a política de controle de alteração de dados não estiver habilitada na fonte de dados usada. Caso contrário, indica o último valor de controle de alterações (mais alto) processado com êxito por essa execução.
 
 <a name="IndexerExecutionStatus"></a> **Status de Execução do Indexador**
 
@@ -534,14 +534,14 @@ O status de execução do indexador captura o status de uma única execução do
 
 - `transientFailure` indica que a invocação do indexador falhou, mas a falha pode ser temporária. As invocações do indexador continuarão de acordo com a agenda, se houver.
 
-- `persistentFailure` indica que o indexador falhou de uma forma que, provavelmente, requer intervenção humana \(por exemplo, devido a uma incompatibilidade de esquema entre a fonte de dados e o índice de destino\). As execuções do indexador agendadas param; a ação do usuário é necessária para resolver o problema \(descrito na propriedade `errorMessage`\) e reiniciar a execução do indexador.
+- `persistentFailure` indica que o indexador falhou de uma forma que, provavelmente, requer intervenção humana (por exemplo, devido a uma incompatibilidade de esquema entre a fonte de dados e o índice de destino). As execuções do indexador agendadas param; a ação do usuário é necessária para resolver o problema (descrito na propriedade `errorMessage`) e reiniciar a execução do indexador.
 
-- `reset` indica que o indexador foi redefinido por uma chamada para Redefinir a API do Indexador \(veja a seguir\).
+- `reset` indica que o indexador foi redefinido por uma chamada para Redefinir a API do Indexador (veja a seguir).
 
 <a name="ResetIndexer"></a>
 ### Redefinir Indexador
 
-A operação **Redefinir Indexador** redefine o estado de controle de alterações associado ao indexador. Isso permite disparar a reindexação do zero \(por exemplo, se o esquema de fonte de dados for alterado\) ou alterar a política de detecção de alteração de dados para uma fonte de dados associada ao indexador.
+A operação **Redefinir Indexador** redefine o estado de controle de alterações associado ao indexador. Isso permite disparar a reindexação do zero (por exemplo, se o esquema de fonte de dados for alterado) ou alterar a política de detecção de alteração de dados para uma fonte de dados associada ao indexador.
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]

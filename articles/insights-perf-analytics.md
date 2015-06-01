@@ -18,7 +18,7 @@
 
 No [Portal do Azure](http://portal.azure.com) você pode configurar o monitoramento para coletar as estatísticas e detalhes sobre as dependências de aplicativo em seus aplicativos Web ou máquinas virtuais.
 
-O Azure dá suporte ao APM (monitoramento do desempenho de aplicativos\) tirando vantagem das *extensões*. Essas extensões são instaladas em seu aplicativo, coletam os dados e reportam-se de volta aos serviços de monitoramento. 
+O Azure dá suporte ao APM (monitoramento do desempenho de aplicativos) tirando vantagem das *extensões*. Essas extensões são instaladas em seu aplicativo, coletam os dados e reportam-se de volta aos serviços de monitoramento. 
 
 ## Habilitar uma extensão 
 

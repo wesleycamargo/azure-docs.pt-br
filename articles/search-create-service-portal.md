@@ -27,7 +27,7 @@ Como administrador, você pode adicionar a Pesquisa a uma assinatura existente s
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Na barra de navegação rápida, clique em **Novo** \| **Dados + armazenamento** \| **Pesquisa**.
+2. Na barra de navegação rápida, clique em **Novo** | **Dados + armazenamento** | **Pesquisa**.
  
      ![][1]
 

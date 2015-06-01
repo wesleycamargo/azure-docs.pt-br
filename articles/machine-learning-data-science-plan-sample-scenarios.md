@@ -57,7 +57,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 ![Arquivos locais pequenos a médios com processamento][2]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure \(servidor IPython Notebook\)
+#### Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook)
 
 1.  Crie uma Máquina Virtual do Azure que executa o IPython Notebook.
 
@@ -79,7 +79,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 ![Arquivos locais grandes][3]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure \(servidor IPython Notebook\)
+#### Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook)
 
 1.  Crie uma Máquina Virtual do Azure que executa o IPython Notebook.
 
@@ -106,7 +106,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 ![Arquivos locais pequenos a médios para o Banco de Dados SQL no Azure][4]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure \(SQL Server/ servidor IPython Notebook\)
+#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 
 1.  Crie uma Máquina Virtual do Azure que executa SQL Server + IPython Notebook.
 
@@ -116,22 +116,22 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 4.  Transforme os dados para o formato limpo e em tabela, se necessário.
 
-5.  Salve dados em arquivos locais da VM \(o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM\).
+5.  Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 
 6.  Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
 
     a. Opção 1: usar o SQL Server Management Studio.
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+		i.  Faça logon na VM do SQL Server.
+        ii. Execute o SQL Server Management Studio.
+        iii. Crie o banco de dados e as tabelas de destino.
+        iv. Use um dos métodos de importação em massa para carregar os dados dos arquivos locais da VM.
 
     b. Opção 2: usar o IPython Notebook – não é aconselhável para conjuntos de dados médios e maiores
 
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+        i.  Use uma cadeia de conexão ODBC para acessar o SQL Server na VM.
+        ii. Crie o banco de dados e as tabelas de destino.
+        iii. Use um dos métodos de importação em massa para carregar os dados dos arquivos locais da VM.
 
 7.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -147,19 +147,19 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 ![Arquivos locais grandes para o Banco de Dados SQL no Azure][5]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure \(SQL Server/ servidor IPython Notebook\)
+#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 
 1.  Crie uma Máquina Virtual do Azure que executa SQL Server e o servidor IPython Notebook.
 
 2.  Carregue dados para um contêiner de armazenamento do Azure.
 
-3.  \(Opcional\) Pré-processe e limpe os dados.
+3.  (Opcional) Pré-processe e limpe os dados.
 
     a. Pré-processe e limpe dados no IPython Notebook, acessando dados nos blobs do Azure.
 
     b. Transforme os dados para o formato limpo e em tabela, se necessário.
 
-    c. Salve dados em arquivos locais da VM \(o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM\).
+    c. Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 
 4.  Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
 
@@ -175,7 +175,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
     f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
- \>[AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -191,13 +191,13 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 ![Banco de Dados SQL local grande para o Banco de Dados SQL no Azure][6]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure \(SQL Server/ servidor IPython Notebook\)
+#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 
 1.  Crie uma Máquina Virtual do Azure que executa SQL Server e o servidor IPython Notebook.
 
 2.  Use um dos métodos de exportação de dados para exportar os dados do SQL Server para arquivos de despejo.
 
-    a. Observação: se você decidir mover todos os dados do banco de dados local, há um método alternativo \(mais rápido\) para mover o banco de dados completo para a instância do SQL Server no Azure. Ignore as etapas para exportar dados, criar o banco de dados e carregar/importar dados para o banco de dados de destino e execute o método alternativo.
+    a. Observação: se você decidir mover todos os dados do banco de dados local, há um método alternativo (mais rápido) para mover o banco de dados completo para a instância do SQL Server no Azure. Ignore as etapas para exportar dados, criar o banco de dados e carregar/importar dados para o banco de dados de destino e execute o método alternativo.
 
 3.  Carregue os arquivos de despejo no contêiner de armazenamento do Azure.
 
@@ -231,7 +231,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 ![Desanexar o banco de dados local e anexar ao Banco de Dados SQL no Azure][7]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure \(SQL Server/ servidor IPython Notebook\)
+#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 
 Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você deve copiar um banco de dados de um local/servidor para outro, supondo que o banco de dados possa ficar offline temporariamente. Você pode fazer isso no GUI do Pesquisador de Objetos do SQL Server Management Studio ou usando os comandos Transact-SQL equivalentes.
 
@@ -239,25 +239,25 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 2. Na janela de prompt de comando do Windows Explorer ou Windows, copie os arquivos do banco de dados e os arquivos de log desanexados para o local de destino na VM do SQL Server no Azure.
 3. Anexe os arquivos copiados à instância de destino do SQL Server. Para saber mais, consulte [Anexar um banco de dados](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx). 
 
-[Mover um Banco de Dados utilizando Desanexar e Anexar \(Transact-SQL\)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx\)
+[Mover um Banco de Dados utilizando Desanexar e Anexar (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
 ## <a name="largedbtohive"></a>Cenário 7: Big Data em arquivos locais, com um banco de dados Hive em clusters Hadoop do Azure HDInsight como destino
 
 ![Big Data no Hive local de destino][9]
 
-#### Recursos adicionais do Azure: cluster Hadoop do Azure HDInsight e Máquina Virtual do Azure \(servidor IPython Notebook\)
+#### Recursos adicionais do Azure: cluster Hadoop do Azure HDInsight e Máquina Virtual do Azure (servidor IPython Notebook)
 
 1.  Crie uma Máquina Virtual do Azure que executa o servidor IPython Notebook.
 
 2.  Personalize um cluster Hadoop do Azure HDInsight.
 
-3.  \(Opcional\) Pré-processe e limpe os dados.
+3.  (Opcional) Pré-processe e limpe os dados.
 
     a. Pré-processe e limpe dados no IPython Notebook, acessando dados nos blobs do Azure.
 
     b. Transforme os dados para o formato limpo e em tabela, se necessário.
 
-    c. Salve dados em arquivos locais da VM \(o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM\).
+    c. Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 
 4.  Carregue dados no contêiner padrão do cluster Hadoop selecionado na etapa 2.
 

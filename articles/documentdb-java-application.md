@@ -33,9 +33,9 @@ Este tutorial mostra como criar um aplicativo de gerenciamento de tarefas basead
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](../../pricing/free-trial/).
-- [Java Development Kit \(JDK\) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+- [Java Development Kit (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE para desenvolvedores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Um site do Azure com um Java runtime environment \(por exemplo, Tomcat ou Jetty\) habilitado.](web-sites-java-get-started.md)
+- [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](web-sites-java-get-started.md)
 
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
@@ -52,17 +52,17 @@ Para provisionar uma conta de banco de dados do Banco de Dados de Documentos no 
 
 Para criar o aplicativo JSP:
 
-1. Primeiro, começaremos criando um projeto Java. Inicie o Eclipse, clique em **Arquivo**, **Novo** e, em seguida, clique em **Projeto Web dinâmico**. Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível, faça o seguinte: clique em **Arquivo** \> **Novo** \> **Projeto**..., expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**. 
+1. Primeiro, começaremos criando um projeto Java. Inicie o Eclipse, clique em **Arquivo**, **Novo** e, em seguida, clique em **Projeto Web dinâmico**. Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível, faça o seguinte: clique em **Arquivo** > **Novo** > **Projeto**..., expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**. 
 
 	![](./media/documentdb-java-application/image10.png)
 
-2. Digite um nome de projeto na caixa **Nome do projeto** e no menu suspenso **Tempo de execução de destino**, selecione, opcionalmente, um valor \(por exemplo, Apache Tomcat v 7.0\) e, em seguida, clique em **Concluir**. Selecione um tempo de execução de destino que permite que você execute seu projeto localmente por meio do Eclipse.
+2. Digite um nome de projeto na caixa **Nome do projeto** e no menu suspenso **Tempo de execução de destino**, selecione, opcionalmente, um valor (por exemplo, Apache Tomcat v 7.0) e, em seguida, clique em **Concluir**. Selecione um tempo de execução de destino que permite que você execute seu projeto localmente por meio do Eclipse.
 3. No Eclipse, na exibição do Explorador de Projeto, expanda o seu projeto. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 4. Na caixa de diálogo **Novo arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **WebContent**, conforme mostrado na ilustração a seguir e clique em **Próximo**.
 
 	![](./media/documentdb-java-application/image11.png)
 
-5. Na caixa de diálogo **Selecionar modelo JSP**, selecione esse tutorial **Novo arquivo JSP \(html\)** e, em seguida, clique em **Concluir**.
+5. Na caixa de diálogo **Selecionar modelo JSP**, selecione esse tutorial **Novo arquivo JSP (html)** e, em seguida, clique em **Concluir**.
 
 6. Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir **Hello World!** como elemento <body> existente. A atualização <body> do conteúdo deve se parecer com o código a seguir:
     
@@ -118,7 +118,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 
 	Neste projeto, estamos usando [Project Lombok](http://projectlombok.org/) para gerar o construtor, os getters, os setters e um builder. Como alternativa, você pode escrever esse código manualmente ou o IDE pode gerá-lo.
 
-2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [YOUR\_ENDPOINT\_HERE] pela sua URI e substitua [YOUR\_KEY\_HERE] pela sua CHAVE PRIMÁRIA.
+2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [YOUR_ENDPOINT_HERE] pela sua URI e substitua [YOUR_KEY_HERE] pela sua CHAVE PRIMÁRIA.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -134,9 +134,9 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 	        return documentClient;
 	    }
 
-3. Agora, vamos criar um objeto de acesso de dados \(DAO\) para abstrair mantendo os itens ToDo no Banco de Dados de Documentos.
+3. Agora, vamos criar um objeto de acesso de dados (DAO) para abstrair mantendo os itens ToDo no Banco de Dados de Documentos.
 
-	Para salvar os itens das tarefas em uma coleção, o cliente precisa saber qual banco de dados e coleção manter \(como referenciado por self-links\). Em geral, é melhor armazenar o banco de dados e a coleção em cache sempre que possível para evitar viagens adicionais ao banco de dados.
+	Para salvar os itens das tarefas em uma coleção, o cliente precisa saber qual banco de dados e coleção manter (como referenciado por self-links). Em geral, é melhor armazenar o banco de dados e a coleção em cache sempre que possível para evitar viagens adicionais ao banco de dados.
 
 	O código a seguir ilustra como recuperar nosso Banco de dados e Coleção, se existir, ou criar um novo se ela não existir:
 
@@ -230,7 +230,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 		    }
 		}
 
-4. A próxima etapa é escrever algum código para manter as TodoItems na coleção. Neste exemplo, usaremos [Gson](https://code.google.com/p/google-gson/) para serializar e desserializar TodoItem Plain Old Java Objects \(POJOs\) para documentos JSON. [Jackson](http://jackson.codehaus.org/) ou seu próprio serializador personalizado são também excelentes alternativas para serializar POJOs.
+4. A próxima etapa é escrever algum código para manter as TodoItems na coleção. Neste exemplo, usaremos [Gson](https://code.google.com/p/google-gson/) para serializar e desserializar TodoItem Plain Old Java Objects (POJOs) para documentos JSON. [Jackson](http://jackson.codehaus.org/) ou seu próprio serializador personalizado são também excelentes alternativas para serializar POJOs.
 
 	    // We'll use Gson for POJO <=> JSON serialization for this example.
 	    private static Gson gson = new Gson();
@@ -259,7 +259,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 
 
 
-5. Como os bancos de dados e coleções do Bancos de Dados de Documentos, também são referenciados por self-links. A função de auxiliar a seguir nos permite recuperar documentos por outro atributo \(por exemplo, "id"\) em vez de self-links:
+5. Como os bancos de dados e coleções do Bancos de Dados de Documentos, também são referenciados por self-links. A função de auxiliar a seguir nos permite recuperar documentos por outro atributo (por exemplo, "id") em vez de self-links:
 
 	    private Document getDocumentById(String id) {
 	        // Retrieve the document using the DocumentClient.
@@ -736,7 +736,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
 
 ##<a id="Deploy"></a>Etapa 6: Implantar seu aplicativo em sites do Azure ##
 
-Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a exportação de seu aplicativo como um arquivo WAR e por carregamento ou por meio do controle de origem \(por exemplo, GIT\) ou FTP.
+Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a exportação de seu aplicativo como um arquivo WAR e por carregamento ou por meio do controle de origem (por exemplo, GIT) ou FTP.
 
 1. Para exportar seu aplicativo como um WAR, clique com o botão direito em seu projeto no **Explorador de projeto**, clique em **Exportar** e, em seguida, clique em **Arquivo WAR**. 
 2. Na janela **Exportar WAR**, faça o seguinte:
@@ -747,7 +747,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
 3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, consulte [Adicionar um aplicativo ao seu site Java no Azure](web-sites-java-add-app.md).
 
 	Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
-4. Para exibir seu produto acabado, navegue até http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ e comece a adicionar suas tarefas!
+4. Para exibir seu produto acabado, navegue até http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ e comece a adicionar suas tarefas!
 
 ##<a id="GetProject"></a>Obtenha o projeto do GitHub##
 
@@ -763,7 +763,7 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 8. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e, em seguida, clique em **Próximo**.
 9. Na tela **Selecionar um assistente a ser usado para importar projetos**, verifique se **Importar projetos existentes** está selecionado e, em seguida, clique em **Próximo**.
 10. Na tela **Importar projetos**, desmarque o projeto **Banco de Dados de Documentos** e, em seguida, clique em **Concluir**. O projeto Banco de Dados de Documentos contém o SDK Java do Banco de Dados de Documentos, que adicionaremos como uma dependência em seu lugar.
-11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e substitua os valores HOST e MASTER\_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
+11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e substitua os valores HOST e MASTER_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do mouse em **azure-documentdb-java-sample**, clique em **Caminho de compilação** e, em seguida, clique em **Configurar caminho de compilação**.
 13. Na tela **Caminho de compilação Java**, no painel direito, selecione a guia **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**. Navegue até o local do arquivo lombok.jar e clique em **Abrir** e, em seguida, clique em **OK**.
 14. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Tempos de Execução Direcionados**.

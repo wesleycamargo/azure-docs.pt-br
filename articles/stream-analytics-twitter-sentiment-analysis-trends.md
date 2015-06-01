@@ -31,11 +31,11 @@ Um site de mídia de notícias está interessado em obter uma vantagem sobre seu
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
-O aplicativo de exemplo gerará eventos e os enviará a uma instância de Hubs de Eventos \(um Hub de Eventos, de forma abreviada\). Os Hubs de Eventos do Barramento de Serviço são o método preferencial de ingestão de eventos para Stream Analytics. Consulte a documentação sobre Hubs de Eventos na [documentação do Barramento de Serviço](/documentation/services/service-bus/)
+O aplicativo de exemplo gerará eventos e os enviará a uma instância de Hubs de Eventos (um Hub de Eventos, de forma abreviada). Os Hubs de Eventos do Barramento de Serviço são o método preferencial de ingestão de eventos para Stream Analytics. Consulte a documentação sobre Hubs de Eventos na [documentação do Barramento de Serviço](/documentation/services/service-bus/)
 
 Siga as etapas abaixo para criar um Hub de Eventos.
 
-1.	No portal do Azure, clique em **NOVO** \> **SERVIÇOS DE APLICATIVOS** \> **BARRAMENTO DE SERVIÇO** \> **HUB DE EVENTOS** \> **CRIAÇÃO RÁPIDA** e forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de Eventos.  
+1.	No portal do Azure, clique em **NOVO** > **SERVIÇOS DE APLICATIVOS** > **BARRAMENTO DE SERVIÇO** > **HUB DE EVENTOS** > **CRIAÇÃO RÁPIDA** e forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de Eventos.  
 2.	Como prática recomendada, cada trabalho de Stream Analytics deve ser lido de um único Grupo de Consumidores de Hubs de Eventos. Vamos orientá-lo ao longo do processo de criação de um Grupo de Consumidores abaixo, e você poderá saber mais sobre eles aqui. Para criar um Grupo de Consumidores, navegue até o Hub de Eventos recém-criado e clique na guia **GRUPOS DE CONSUMIDORES**. Em seguida, clique em **CRIAR** na parte inferior da página e forneça um nome para o Grupo de Consumidores.
 3.	Para conceder acesso ao Hub de Eventos, precisamos criar uma política de acesso compartilhado. Clique na guia **CONFIGURAR** de seu Hub de Eventos.
 4.	Em **POLÍTICAS DE ACESSO COMPARTILHADO**, crie uma nova política com permissões para **GERENCIAR**.
@@ -45,22 +45,22 @@ Siga as etapas abaixo para criar um Hub de Eventos.
   ![Políticas de Acesso Compartilhado em que você pode criar uma política com permissões para Gerenciar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Na parte inferior da página, clique em **SALVAR**.
-6.	Navegue até o **PAINEL**, clique em **INFORMAÇÕES DE CONEXÃO** na parte inferior da página e copie e salve as informações de conexão. \(Use o ícone de cópia que aparece sob o ícone de pesquisa\).
+6.	Navegue até o **PAINEL**, clique em **INFORMAÇÕES DE CONEXÃO** na parte inferior da página e copie e salve as informações de conexão. (Use o ícone de cópia que aparece sob o ícone de pesquisa).
 
 ## Configurar e iniciar o aplicativo gerador de evento
 
-Fornecemos um aplicativo cliente que acessará os dados do Twitter por meio das [APIs REST do Twitter](https://dev.twitter.com/rest/public) para coletar eventos de Tweets sobre um conjunto parametrizado de tópicos. A ferramenta de software livre de terceiros [Sentiment140](http://help.sentiment140.com/) é usada para atribuir um valor de sentimento a cada tweet \(0: negativo, 2: neutro, 4: positivo\) e, em seguida, os eventos de Tweets são enviados ao Hub de Eventos.
+Fornecemos um aplicativo cliente que acessará os dados do Twitter por meio das [APIs REST do Twitter](https://dev.twitter.com/rest/public) para coletar eventos de Tweets sobre um conjunto parametrizado de tópicos. A ferramenta de software livre de terceiros [Sentiment140](http://help.sentiment140.com/) é usada para atribuir um valor de sentimento a cada tweet (0: negativo, 2: neutro, 4: positivo) e, em seguida, os eventos de Tweets são enviados ao Hub de Eventos.
 
 Siga estas etapas para configurar o aplicativo:
 
 1.	[Baixar a solução TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Abra App.config e substitua oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token e oauth\_token\_secret por tokens do Twitter com seus valores.  
+2.	Abra App.config e substitua oauth_consumer_key, oauth_consumer_secret, oauth_token e oauth_token_secret por tokens do Twitter com seus valores.  
 
 	[Etapas para gerar um token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Observe que você precisa criar um aplicativo vazio para gerar um token.
 3.	Substitua os valores EventHubConnectionString e EventHubName em App.config pela cadeia de conexão e o nome do Hub de Eventos.
-4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter\_keywords em App.config, se desejar.
+4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter_keywords em App.config, se desejar.
 5.	Compilar a solução
 6.	Inicie o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
 
@@ -72,7 +72,7 @@ Agora que temos um fluxo de eventos de Tweets, podemos configurar um trabalho de
 
 ### Provisionar um trabalho de análise de fluxo
 
-1.	No [portal do Azure](https://manage.windowsazure.com/), clique em **NOVO** \> **SERVIÇOS DE DADOS** \> **STREAM ANALYTICS** \> **CRIAÇÃO RÁPIDA**.
+1.	No [portal do Azure](https://manage.windowsazure.com/), clique em **NOVO** > **SERVIÇOS DE DADOS** > **STREAM ANALYTICS** > **CRIAÇÃO RÁPIDA**.
 2.	Especifique os seguintes valores e, em seguida, clique em **CRIAR TRABALHO DE STREAM ANALYTICS**:
 
 	* **NOME DO TRABALHO**: insira um nome de trabalho.
@@ -185,7 +185,7 @@ Agora que definimos um fluxo de eventos, uma entrada de Hub de Eventos para a in
 
 Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se ainda não tiver um:
 
-1.	Use uma conta de Armazenamento existente ou crie uma nova conta de Armazenamento clicando em **NOVO** \> **SERVIÇOS DE DADOS** \> **ARMAZENAMENTO** \> **CRIAÇÃO RÁPIDA** \> e seguindo as instruções na tela.
+1.	Use uma conta de Armazenamento existente ou crie uma nova conta de Armazenamento clicando em **NOVO** > **SERVIÇOS DE DADOS** > **ARMAZENAMENTO** > **CRIAÇÃO RÁPIDA** > e seguindo as instruções na tela.
 2.	Selecione a conta de Armazenamento, clique em **CONTÊINERES** na parte superior da página e clique em **ADICIONAR**.
 3.	Especifique um **NOME** para seu contêiner e defina seu **ACESSO** como Blob Público.
 

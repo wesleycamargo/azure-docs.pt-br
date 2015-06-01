@@ -37,7 +37,7 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 - 80: Porta padrão para tráfego HTTP de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
 - 443: Porta padrão para tráfego SSL de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
 - 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.
-- 10001-10020: canais de dados para FTP. Assim como ocorre com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não está sendo usado \(\*\*Observação:\*\* os canais de dados de FTP podem ser alterados durante a visualização.\)
+- 10001-10020: canais de dados para FTP. Assim como ocorre com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não está sendo usado (**Observação:** os canais de dados de FTP podem ser alterados durante a visualização.)
 - 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
@@ -59,7 +59,7 @@ O exemplo a seguir mostra uma regra que concede explicitamente o acesso às port
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
 
-Ao bloquear o acesso às portas 80 e 443 para “ocultar” um ambiente de serviço de aplicativo por trás de serviços ou dispositivos upstream, você precisará saber o endereço IP upstream. Por exemplo, se você estiver usando um firewall de aplicativo Web \(WAF\), o WAF terá seu próprio endereço \(ou endereços\) IP, que ele utilizará ao usar proxy de tráfego para um ambiente de serviço de aplicativo downstream. Você precisará usar esse endereço IP no parâmetro *SourceAddressPrefix* de uma regra de segurança de rede.
+Ao bloquear o acesso às portas 80 e 443 para “ocultar” um ambiente de serviço de aplicativo por trás de serviços ou dispositivos upstream, você precisará saber o endereço IP upstream. Por exemplo, se você estiver usando um firewall de aplicativo Web (WAF), o WAF terá seu próprio endereço (ou endereços) IP, que ele utilizará ao usar proxy de tráfego para um ambiente de serviço de aplicativo downstream. Você precisará usar esse endereço IP no parâmetro *SourceAddressPrefix* de uma regra de segurança de rede.
 
 No exemplo abaixo, o tráfego de entrada de um determinado endereço IP upstream é explicitamente permitido. O endereço *1.2.3.4* é usado como um espaço reservado para o endereço IP de um WAF upstream. Altere o valor para coincidir com o endereço usado pelo serviço ou dispositivo upstream.
 
@@ -71,7 +71,7 @@ Se desejar suporte a FTP, as regras a seguir podem usadas como um modelo para co
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-\(\*\*Observação:\*\* o intervalo de portas de canal de dados pode ser alterado durante o período de visualização.\)
+(**Observação:** o intervalo de portas de canal de dados pode ser alterado durante o período de visualização.)
 
 Se a depuração remota com o Visual Studio é usada, as regras a seguir demonstram como conceder acesso. Há uma regra separada para cada versão do Visual Studio para a qual há suporte, já que cada versão usa uma porta diferente para a depuração remota. Assim como acontece com acesso ao FTP, o tráfego de depuração remota pode não fluir corretamente por meio de um dispositivo de proxy ou WAF tradicional. O *SourceAddressPrefix* pode ser definido, em vez disso, como o intervalo de endereços IP dos computadores de desenvolvedor executando o Visual Studio.
 
@@ -89,7 +89,7 @@ O exemplo a seguir mostra um grupo de segurança de rede que está sendo atribu�
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-Depois que a atribuição de grupo de segurança de rede for bem-sucedida \(a atribuição é uma operação demorada e pode levar alguns minutos para ser concluída\), somente tráfego de entrada correspondendo às regras *Permitir* alcançará com êxito os aplicativos no ambiente de serviço de aplicativo.
+Depois que a atribuição de grupo de segurança de rede for bem-sucedida (a atribuição é uma operação demorada e pode levar alguns minutos para ser concluída), somente tráfego de entrada correspondendo às regras *Permitir* alcançará com êxito os aplicativos no ambiente de serviço de aplicativo.
 
 Para fins de exatidão, o exemplo a seguir mostra como remover e, portanto, dissociar o grupo de segurança de rede da sub-rede:
 

@@ -47,7 +47,7 @@ Para esclarecer a utilidade do Blitline, geralmente é mais fácil identificar o
 
 - O Blitline NÃO aceita carregamentos de imagens, e não é possível enviar suas imagens por push para o Blitline diretamente. Você deve enviá-las ao Armazenamento do Azure ou a outros locais com suporte do Blitline e, em seguida, informar ao Blitline onde obtê-las.
 
-- O Blitline é massivamente paralelo e NÃO faz nenhum processamento síncrono. Ou seja, você deve nos fornecer um postback\_url para que possamos informar a conclusão do processamento.
+- O Blitline é massivamente paralelo e NÃO faz nenhum processamento síncrono. Ou seja, você deve nos fornecer um postback_url para que possamos informar a conclusão do processamento.
 
 ## <a id="createaccount"></a>Criar uma conta do Blitline
 
@@ -73,7 +73,7 @@ Aqui temos um JSON que pegará uma imagem "src" "...boys.jpeg" e, em seguida, a 
 
 A ID do aplicativo você pode encontrar na guia **INFORMAÇÕES DE CONEXÃO** ou **GERENCIAR** no Azure. É o seu identificador secreto que permite que você execute trabalhos no Blitline.
 
-O parâmetro "save" identifica informações sobre onde você deseja colocar a imagem depois do processamento. Neste caso trivial, não definimos um local. Se nenhum local for definido, o Blitline irá armazená-la localmente \(e temporariamente\) em um local exclusivo na nuvem. Você poderá obter esse local no JSON retornado pelo Blitline quando fizer o Blitline. O identificador "image" é necessário e é retornado ao identificar essa imagem salva em particular.
+O parâmetro "save" identifica informações sobre onde você deseja colocar a imagem depois do processamento. Neste caso trivial, não definimos um local. Se nenhum local for definido, o Blitline irá armazená-la localmente (e temporariamente) em um local exclusivo na nuvem. Você poderá obter esse local no JSON retornado pelo Blitline quando fizer o Blitline. O identificador "image" é necessário e é retornado ao identificar essa imagem salva em particular.
 
 Você pode encontrar mais informações sobre as *funções* com suporte aqui:<http://www.blitline.com/docs/functions>
 
@@ -95,11 +95,11 @@ O JSON de volta será semelhante a isto:
     }
 
 
-Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Como salvar uma imagem em sua conta de Armazenamento do Azure
 
-Se tiver uma conta de armazenamento do Azure, o Blitline poderá enviar por push as imagens processadas para seu contêiner do Azure com facilidade. Ao adicionar um "azure\_destination", você define o local e as permissões para o Blitline enviar por push.
+Se tiver uma conta de armazenamento do Azure, o Blitline poderá enviar por push as imagens processadas para seu contêiner do Azure com facilidade. Ao adicionar um "azure_destination", você define o local e as permissões para o Blitline enviar por push.
 
 Aqui está um exemplo:
 
@@ -130,12 +130,12 @@ Exemplo:
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-Você também pode ler a última edição de documentos do armazenamento do Azure do Blitline [aqui \(a página pode estar em inglês\)](http://www.blitline.com/docs/azure_storage).
+Você também pode ler a última edição de documentos do armazenamento do Azure do Blitline [aqui (a página pode estar em inglês)](http://www.blitline.com/docs/azure_storage).
 
 
 ## <a id="nextsteps"></a>Próximas Etapas
 
-Acesse blitline.com para ler sobre todos os nossos outros recursos \(as páginas podem estar em inglês\):
+Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas podem estar em inglês):
 
 * Documentos de ponto de extremidade da API do Blitline <http://www.blitline.com/docs/api>
 * Funções da API do Blitline <http://www.blitline.com/docs/functions>

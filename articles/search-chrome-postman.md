@@ -69,7 +69,7 @@ A seguir falaremos mais do que concluímos na última etapa, emitindo uma chamad
 ![][4]
  
 ## Publicação de documentos para um índice de Pesquisa do Azure com o Postman ##
-Agora que o índice é criado, podemos carregar documentos nele. Para fazer isso, publicaremos um grupo de documentos em um lote, usando dados para cinco trilhas do conjunto de dados do USGS \(United States Geological Survey - pesquisa geológica dos Estados Unidos\):
+Agora que o índice é criado, podemos carregar documentos nele. Para fazer isso, publicaremos um grupo de documentos em um lote, usando dados para cinco trilhas do conjunto de dados do USGS (United States Geological Survey - pesquisa geológica dos Estados Unidos):
 
 1. Altere a URL para: `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28`, usando seu nome de Serviço de Pesquisa. Observe que a URL inclui um caminho para o índice que você acabou de criar.
 2. Altere o tipo HTTP para `POST`.
@@ -104,7 +104,7 @@ Em Resposta, você deve ver os resultados da pesquisa JSON que retornam da Pesqu
 Agora que já descrevemos os fundamentos básicos do uso da Pesquisa do Azure com o Postman, existem algumas coisas que podem ajudá-lo com as próximas etapas:
 
 1. O Postman dá suporte a `Collections`, que são uma maneira conveniente de salvar solicitações comumente emitidas. Você pode compartilhar coleções com outras pessoas, a serem emitidas em sua própria cópia do Postman.
-2. Na documentação da Pesquisa do Azure, certifique-se de anotar o tipo de solicitação HTTP \(`GET`, `PUT`, e assim por diante\) associada a cada chamada e alterar conforme apropriado no Postman.
+2. Na documentação da Pesquisa do Azure, certifique-se de anotar o tipo de solicitação HTTP (`GET`, `PUT`, e assim por diante) associada a cada chamada e alterar conforme apropriado no Postman.
 
 Documentação da API REST pode ser encontrada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 

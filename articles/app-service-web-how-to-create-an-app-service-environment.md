@@ -18,14 +18,14 @@
 
 # Como Criar um Ambiente de Serviço de Aplicativo #
 
-ASE \(Ambientes de Serviço de Aplicativo\) são uma opção de serviço Premium do serviço de aplicativo do Azure que está atualmente em modo de Visualização. Ele fornece um recurso de configuração avançada que não está disponível nos carimbos multilocatário. Para obter uma maior compreensão dos recursos oferecidos pelos ambientes de serviço de aplicativo, leia a documentação [O que é um ambiente de serviço de aplicativo][WhatisASE].
+ASE (Ambientes de Serviço de Aplicativo) são uma opção de serviço Premium do serviço de aplicativo do Azure que está atualmente em modo de Visualização. Ele fornece um recurso de configuração avançada que não está disponível nos carimbos multilocatário. Para obter uma maior compreensão dos recursos oferecidos pelos ambientes de serviço de aplicativo, leia a documentação [O que é um ambiente de serviço de aplicativo][WhatisASE].
 
 ### Visão geral ###
 
 O recurso ASE essencialmente implanta o serviço de aplicativo do Azure na VNET de um cliente. Para fazer isso, o cliente precisa de:
 
-- É necessária uma VNET Regional com 512 \(/23\) ou mais endereços
-- É necessária, nessa VNET, uma sub-rede com 256 \(/24\) ou mais endereços
+- É necessária uma VNET Regional com 512 (/23) ou mais endereços
+- É necessária, nessa VNET, uma sub-rede com 256 (/24) ou mais endereços
 
 Se você ainda não tiver uma VNET que deseja usar para hospedar seu ambiente de serviço de aplicativo, você pode criar uma durante a criação do ambiente de serviço de aplicativo.
 
@@ -33,12 +33,12 @@ Cada implantação de ASE é um serviço hospedado que o Azure gerencia e manté
 
 ## Criação de um Ambiente de Serviço de Aplicativo ##
 
-Há duas maneiras de acessar a interface do usuário de criação do ASE. Ela pode ser encontrada pesquisando no Azure Marketplace por ***ambiente de serviço de aplicativo*** ou acessando as opções de menu Novo -\> Web + Móvel.
+Há duas maneiras de acessar a interface do usuário de criação do ASE. Ela pode ser encontrada pesquisando no Azure Marketplace por ***ambiente de serviço de aplicativo*** ou acessando as opções de menu Novo -> Web + Móvel.
 
 ### Criação Rápida ###
 Depois de inserir a interface do usuário de criação, você pode criar rapidamente um ASE simplesmente digitando um nome para a implantação. Isso criará, por sua vez, uma VNET com 512 endereços, uma sub-rede com 256 endereços nessa VNET e um ambiente ASE com 2 Front-Ends e 2 processadores no pool de trabalho 1. Certifique-se de selecionar o local onde você deseja que o sistema esteja localizado e a assinatura em que você quer que ele esteja. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
 
-O nome especificado para o ASE será usado para aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome de domínio será .\*appsvcenvdemo.p.azurewebsites.net\*. Se você criou, portanto, um aplicativo Web chamado mytestapp, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome.
+O nome especificado para o ASE será usado para aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome de domínio será .*appsvcenvdemo.p.azurewebsites.net*. Se você criou, portanto, um aplicativo Web chamado mytestapp, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome.
 
 
 ![][1]
@@ -102,10 +102,10 @@ Por padrão, um ASE vem com 1 endereço IP que está disponível para o SSL de I
 
 Após a criação do ASE é possível ajustar:
 
-- Quantidade de Front-Ends \(mínimo: 2\)
-- Quantidade de processadores \(mínimo: 2\)
+- Quantidade de Front-Ends (mínimo: 2)
+- Quantidade de processadores (mínimo: 2)
 - Quantidade de endereços IP
-- Tamanho de recursos de computação usados pelos Front-Ends ou Processadores \(o tamanho mínimo de Front-End é P2\)
+- Tamanho de recursos de computação usados pelos Front-Ends ou Processadores (o tamanho mínimo de Front-End é P2)
 
 Você não pode alterar:
 

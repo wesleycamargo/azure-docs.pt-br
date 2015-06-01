@@ -105,7 +105,7 @@ Vamos examinar isso passo a passo. Primeiro, é necessário criar um novo `Searc
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
-> [AZURE.NOTE]Se você fornecer uma chave incorreta \(por exemplo, uma chave de consulta quando era necessário fornecer uma chave de administrador\), o `SearchServiceClient` lançará uma `CloudException` com a mensagem de erro "Forbidden" na primeira vez que você chamar um método de operação, como `Indexes.Create`. Se isso ocorrer, verifique novamente a chave da API.
+> [AZURE.NOTE]Se você fornecer uma chave incorreta (por exemplo, uma chave de consulta quando era necessário fornecer uma chave de administrador), o `SearchServiceClient` lançará uma `CloudException` com a mensagem de erro "Forbidden" na primeira vez que você chamar um método de operação, como `Indexes.Create`. Se isso ocorrer, verifique novamente a chave da API.
 
 As próximas linhas chamam métodos para criação de um índice chamado "hotéis," excluindo-o primeiro caso ele já exista. Abordaremos esses métodos um pouco mais tarde.
 
@@ -200,7 +200,7 @@ Em seguida, `Main` cria um novo índice "hotéis" chamando este método:
         serviceClient.Indexes.Create(definition);
     }
 
-Esse método cria um novo objeto `Index` com uma lista de objetos `Field` que definem o esquema do novo índice. Cada campo tem um nome, tipo de dados e vários atributos que definem seu comportamento de pesquisa. Além dos campos, você também pode adicionar perfis de pontuação, sugestões ou opções de CORS para o índice \(eles foram omitidos do exemplo por questão de brevidade\). Você pode saber mais sobre o objeto Index e suas partes na referência do SDK no [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), bem como na [Referência da API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Esse método cria um novo objeto `Index` com uma lista de objetos `Field` que definem o esquema do novo índice. Cada campo tem um nome, tipo de dados e vários atributos que definem seu comportamento de pesquisa. Além dos campos, você também pode adicionar perfis de pontuação, sugestões ou opções de CORS para o índice (eles foram omitidos do exemplo por questão de brevidade). Você pode saber mais sobre o objeto Index e suas partes na referência do SDK no [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), bem como na [Referência da API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ### Preenchendo o índice ###
 
@@ -333,7 +333,7 @@ Você pode estar se perguntando como o SDK do .NET da Pesquisa do Azure é capaz
         }
     }
 
-A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença fundamental: o nome de cada campo começa com uma letra minúscula \("minúsculas concatenadas"\), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula \("maiúsculas concatenadas"\). Esse é um cenário comum em aplicativos .NET que executam associação de dados quando o esquema de destino está fora do controle do desenvolvedor do aplicativo. Em vez de violar as diretrizes de nomenclatura do .NET, usando minúscula para os nomes de propriedade, você pode informar ao SDK para mapear automaticamente os nomes de propriedade como minúscula com o atributo `[SerializePropertyNamesAsCamelCase]`.
+A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença fundamental: o nome de cada campo começa com uma letra minúscula ("minúsculas concatenadas"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("maiúsculas concatenadas"). Esse é um cenário comum em aplicativos .NET que executam associação de dados quando o esquema de destino está fora do controle do desenvolvedor do aplicativo. Em vez de violar as diretrizes de nomenclatura do .NET, usando minúscula para os nomes de propriedade, você pode informar ao SDK para mapear automaticamente os nomes de propriedade como minúscula com o atributo `[SerializePropertyNamesAsCamelCase]`.
 
 Um segundo fator importante sobre a classe `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades são mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` no [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Observe que os tipos de valor, por exemplo, `bool` e `int`, são anuláveis na classe `Hotel`, pois todos os tipos de campo primitivos na Pesquisa do Azure são anuláveis.
 
@@ -374,7 +374,7 @@ Vamos examinar com mais detalhes como esse método é chamado:
 
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-Na primeira chamada, procuramos todos os documentos com os termos de consulta "fancy" ou "wifi". Na segunda chamada, o texto da pesquisa é definido como "\*", que significa "encontrar tudo". Você pode saber mais sobre a sintaxe de expressão da consulta de pesquisa [aqui](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+Na primeira chamada, procuramos todos os documentos com os termos de consulta "fancy" ou "wifi". Na segunda chamada, o texto da pesquisa é definido como "*", que significa "encontrar tudo". Você pode saber mais sobre a sintaxe de expressão da consulta de pesquisa [aqui](https://msdn.microsoft.com/library/azure/dn798920.aspx).
 
 A segunda chamada usa uma expressão OData `$filter`, `category eq 'Luxury'`. Isso restringe a pesquisa para retornar apenas os documentos nos quais o campo `category` corresponde exatamente à cadeia de caracteres "Luxury". Você pode saber mais sobre a sintaxe do OData com suporte da Pesquisa do Azure [aqui](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 

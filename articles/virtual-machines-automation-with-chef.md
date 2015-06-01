@@ -76,7 +76,7 @@ Este arquivo zip do kit inicial contém arquivos de configuração de organizaç
 
 Extraia o conteúdo do chefe-starter.zip para **C:\chef**
 
-Copie todos os arquivos em **chef-starter\chef-repo\.chef** para **c:\chef**
+Copie todos os arquivos em **chef-starter\chef-repo.chef** para **c:\chef**
 
 O diretório agora deve ser semelhante ao seguinte:
 
@@ -110,7 +110,7 @@ Em seguida Baixe e instale o ChefDK (Chef Development Kit) para configurar seu C
 
 Isso é muito simples. Permita a instalação no local padrão do c:\opscode. Esta instalação levará cerca de 10 minutos.
 
-Confirme que sua variável de CAMINHO contém entradas para C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin
+Confirme que sua variável de CAMINHO contém entradas para C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin
 
 Se eles não estão lá, certifique-se que adicionar esses caminhos!
 

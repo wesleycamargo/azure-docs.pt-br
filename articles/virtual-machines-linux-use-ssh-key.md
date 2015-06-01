@@ -122,7 +122,7 @@ O arquivo **myCert.pem** é a chave pública que pode ser usada para provisionar
 
 4. Clique no menu: Arquivo > Carregar uma Chave Privada
 
-5. Encontre a chave privada, que chamamos de `myPrivateKey_rsa` acima. Você precisará alterar o filtro de arquivo para mostrar **Todos os arquivos (\*.\*)**
+5. Encontre a chave privada, que chamamos de `myPrivateKey_rsa` acima. Você precisará alterar o filtro de arquivo para mostrar **Todos os arquivos (*.*)**
 
 6. Clique em **Abrir**. Você receberá um prompt que deverá ter esta aparência:
 

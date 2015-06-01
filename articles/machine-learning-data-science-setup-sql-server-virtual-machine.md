@@ -140,7 +140,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
     Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários.  Isso pode demorar alguns instantes.
 
-2.  Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**.  Na caixa **Nome do servidor**, digite o nome da máquina virtual para se conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos.  (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**.  Selecione a **Autenticação do Windows**e deixe *** *your\_VM\_name*\\your\_local\_administrator** na caixa **Nome de usuário**.  Clique em **Conectar**.
+2.  Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**.  Na caixa **Nome do servidor**, digite o nome da máquina virtual para se conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos.  (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**.  Selecione a **Autenticação do Windows**e deixe *** *your_VM_name*\\your_local_administrator** na caixa **Nome de usuário**.  Clique em **Conectar**.
 
     ![Connect to Server][6]
 
@@ -177,7 +177,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
 Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.  
 
-> [AZURE.TIP] Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Server Management Studio.  Para criar um novo usuário sysadmin com autenticação do SQL de forma programática, inicie uma **Nova consulta** e execute o script a seguir.  Substitua <novo nome de usuário\> e <nova senha\> pelo nome de usuário e senha de sua escolha.  Ajuste a política de senha conforme necessário (o código de amostra desativa a expiração de senha e a verificação de política).  Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).  
+> [AZURE.TIP] Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Server Management Studio.  Para criar um novo usuário sysadmin com autenticação do SQL de forma programática, inicie uma **Nova consulta** e execute o script a seguir.  Substitua <novo nome de usuário> e <nova senha> pelo nome de usuário e senha de sua escolha.  Ajuste a política de senha conforme necessário (o código de amostra desativa a expiração de senha e a verificação de política).  Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).  
 	
     USE master
     go

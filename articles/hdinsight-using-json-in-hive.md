@@ -60,7 +60,7 @@ Vejamos um exemplo. Suponhamos que temos o documento JSON mostrado abaixo. Nosso
         ] 
       }
 
-##Nivelar um documento JSON \(etapa necessária somente em caso de JSON formatado\)
+##Nivelar um documento JSON (etapa necessária somente em caso de JSON formatado)
 
 Para podermos usar um operador de Hive para executar a análise, será necessário pré-processar o documento JSON para deixá-lo pronto para ser usado pelo Hive.
 
@@ -73,7 +73,7 @@ Vamos supor que seu documento JSON não nivelado de várias linhas está present
     drop table jsonexample;
     CREATE EXTERNAL TABLE jsonexample (textcol string) stored as textfile location '/json/input/';
 
-Em seguida, vamos criar uma nova tabela chamada one\_line\_json que apontará para o documento JSON nivelado e será armazenada no seu armazenamento de Blobs do Azure na pasta */json/temp/* no contêiner padrão.
+Em seguida, vamos criar uma nova tabela chamada one_line_json que apontará para o documento JSON nivelado e será armazenada no seu armazenamento de Blobs do Azure na pasta */json/temp/* no contêiner padrão.
 
     drop table if exists one_line_json;
     create external table one_line_json
@@ -89,7 +89,7 @@ Por fim, popularemos esta tabela com os dados JSON nivelados.
       from (select INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE,textcol from jsonexample distribute by INPUT__FILE__NAME sort by BLOCK__OFFSET__INSIDE__FILE ) 
       x group by INPUT__FILE__NAME;
 
-Neste momento, se você examinar a tabela recém-criada one\_line\_json, verá que ela contém o documento JSON em uma única linha
+Neste momento, se você examinar a tabela recém-criada one_line_json, verá que ela contém o documento JSON em uma única linha
 
     select * from one_line_json;
 
@@ -101,14 +101,14 @@ Aqui está a saída dessa consulta:
 
 Agora que temos o documento JSON em uma tabela com uma única coluna, estamos prontos para usar o Hive para executar consultas nesses dados. O Hive fornece três mecanismos diferentes para executar consultas em documentos JSON:
 
-1.	Usando a UDF \(Função Definida pelo Usuário\): get\_json\_object
-2.	Usando a UDF: json\_tuple
+1.	Usando a UDF (Função Definida pelo Usuário): get_json_object
+2.	Usando a UDF: json_tuple
 3.	Usando SerDe personalizado
 
 Vamos discutir cada uma delas em detalhes.
 
-##UDF get\_json\_object
-O Hive fornece uma UDF interna chamada [get\_json\_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que pode executar consultas JSON durante o tempo de execução. Esse método requer dois argumentos: o nome da tabela e o nome do método que tem o documento JSON nivelado, e o campo JSON que precisa ser analisado. Vejamos um exemplo para ver como essa UDF funciona.
+##UDF get_json_object
+O Hive fornece uma UDF interna chamada [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que pode executar consultas JSON durante o tempo de execução. Esse método requer dois argumentos: o nome da tabela e o nome do método que tem o documento JSON nivelado, e o campo JSON que precisa ser analisado. Vejamos um exemplo para ver como essa UDF funciona.
 
 Obter o nome e o sobrenome de cada aluno
 
@@ -116,21 +116,21 @@ Obter o nome e o sobrenome de cada aluno
 
 Aqui está a saída obtida ao executar essa consulta na janela do console.
 
-![UDF get\_json\_object][image-hdi-hivejson-getjsonobject]
+![UDF get_json_object][image-hdi-hivejson-getjsonobject]
 
 Essa UDF possui algumas limitações.
 
 
 - Uma das principais é que essa UDF não apresenta alto desempenho, visto que cada campo na consulta exigirá reanálise da consulta, afetando o desempenho.
-- Em segundo lugar, get\_json\_object\(\) retorna a representação de cadeia de caracteres de uma matriz. Portanto, para converter isso em uma matriz do Hive, você precisará usar expressões regulares para substituir os colchetes “[” e “]” e então realizar a divisão para obter a matriz.
+- Em segundo lugar, get_json_object() retorna a representação de cadeia de caracteres de uma matriz. Portanto, para converter isso em uma matriz do Hive, você precisará usar expressões regulares para substituir os colchetes “[” e “]” e então realizar a divisão para obter a matriz.
 
 
-É por isso wiki do Hive recomenda o uso de json\_tuple, que discutiremos a seguir.
+É por isso wiki do Hive recomenda o uso de json_tuple, que discutiremos a seguir.
 
 
-##UDF json\_tuple
+##UDF json_tuple
 
-A outra UDF fornecida pelo Hive é chamada [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais eficaz do que a [get\_json\_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. Vejamos um exemplo para ver como essa UDF funciona.
+A outra UDF fornecida pelo Hive é chamada [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais eficaz do que a [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. Vejamos um exemplo para ver como essa UDF funciona.
 
 Vamos obter a id e nota do aluno do documento JSON
 
@@ -139,11 +139,11 @@ Vamos obter a id e nota do aluno do documento JSON
       LATERAL VIEW json_tuple(jt.json_body, 'StudentId', 'Grade') q1
         as StudentId, Grade;
 
-Usamos a sintaxe [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive que permite que json\_tuple crie uma tabela virtual aplicando a função UDT para cada linha da tabela original.
+Usamos a sintaxe [exibição lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive que permite que json_tuple crie uma tabela virtual aplicando a função UDT para cada linha da tabela original.
 
 Vejamos a saída deste script no console do Hive:
 
-![UDF json\_tuple][image-hdi-hivejson-jsontuple]
+![UDF json_tuple][image-hdi-hivejson-jsontuple]
 
 Uma das principais desvantagens desta UDF é que JSONs complexos se tornam muito complicados devido ao uso repetido de EXIBIÇÃO LATERAL. Inclusive, essa UDF não trabalha com JSONs aninhados.
 
@@ -153,15 +153,15 @@ Para analisar documentos JSON aninhados, o SerDe é a **melhor opção**, pois v
 
 Abordaremos como usar um dos SerDe mais populares desenvolvido pela [rcongiu](https://github.com/rcongiu).
 
-Etapa 1: verifique se você tem o [Java SE Development Kit 7u55 JDK 1.7.0\_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR) instalado \(Observação: se você tiver o JDK 1.8 instalado, ele não funcionará com esse SerDe\).
+Etapa 1: verifique se você tem o [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR) instalado (Observação: se você tiver o JDK 1.8 instalado, ele não funcionará com esse SerDe).
 
 
 - Se você pretende usar a implantação do Windows do HDInsight, escolha a versão do Windows x64 do JDK.
-- Após a conclusão da instalação, vá para o Painel de Controle--\> Adicionar variáveis do ambiente adicione uma nova variável de ambiente JAVA\_HOME apontando para C:\\Arquivos de Programas\\Java\\jdk1.7.0\_55 ou onde quer que o JDK esteja instalado. As capturas de tela a seguir mostram como você pode definir a variável de ambiente.
+- Após a conclusão da instalação, vá para o Painel de Controle--> Adicionar variáveis do ambiente adicione uma nova variável de ambiente JAVA_HOME apontando para C:\\Arquivos de Programas\\Java\\jdk1.7.0_55 ou onde quer que o JDK esteja instalado. As capturas de tela a seguir mostram como você pode definir a variável de ambiente.
 
 ![Definir valores de configuração correto para o JDK][image-hdi-hivejson-jdk]
 
-Etapa 2: acesse [este](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) link e baixe o Maven 3.3.1. Descompacte o arquivo onde você deseja armazenar os binários. No meu caso, ele será descompactado em C:\\Arquivos de Programas\\Maven. Adicione a pasta do recipiente ao seu caminho acessando o Painel de Controle--\> Editar as variáveis de sistema para as variáveis da sua conta Variáveis de ambiente. A captura de tela abaixo mostra como fazer isso.
+Etapa 2: acesse [este](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) link e baixe o Maven 3.3.1. Descompacte o arquivo onde você deseja armazenar os binários. No meu caso, ele será descompactado em C:\\Arquivos de Programas\\Maven. Adicione a pasta do recipiente ao seu caminho acessando o Painel de Controle--> Editar as variáveis de sistema para as variáveis da sua conta Variáveis de ambiente. A captura de tela abaixo mostra como fazer isso.
 
 ![Configurando o Maven][image-hdi-hivejson-maven]
 
@@ -181,7 +181,7 @@ Etapa 6: no prompt do hive, digite "add jar /path/to/json-serde-1.1.9.9-Hive13-j
 
 Agora, estamos prontos para usar o SerDe para executar consultas no documento JSON.
 
-Primeiro, vamos criar a tabela com o esquema do documento JSON. Observe que podemos trabalhar com tipos muito mais avançados, incluindo mapas, matrizes e structs. Digite o código a seguir no console Hive para que ele crie uma tabela denominada json\_table que pode ler o documento JSON com base no esquema abaixo.
+Primeiro, vamos criar a tabela com o esquema do documento JSON. Observe que podemos trabalhar com tipos muito mais avançados, incluindo mapas, matrizes e structs. Digite o código a seguir no console Hive para que ele crie uma tabela denominada json_table que pode ler o documento JSON com base no esquema abaixo.
 
     drop table json_table;
     create external table json_table (
@@ -206,7 +206,7 @@ Primeiro, vamos criar a tabela com o esquema do documento JSON. Observe que pode
 
 Agora que definimos o esquema, vamos executar alguns exemplos para ver como podemos consultar o documento JSON usando o Hive:
 
-a\) Listar o nome e sobrenome do aluno
+a) Listar o nome e sobrenome do aluno
 
     select StudentDetails.FirstName, StudentDetails.LastName from json_table;
 
@@ -214,7 +214,7 @@ Este é o resultado no console do Hive.
 
 ![Consulta SerDe 1][image-hdi-hivejson-serde_query1]
 
-b\) Esta consulta calcula a soma das pontuações do documento JSON
+b) Esta consulta calcula a soma das pontuações do documento JSON
 
     select sum(scores)
     from json_table jt
@@ -226,9 +226,9 @@ Esta é a saída do console do Hive.
 
 ![Consulta SerDe 2][image-hdi-hivejson-serde_query2]
 
-c\) Localizar em quais matérias um aluno específico obteve mais de 80 pontos selecionando a coleção jt.StudentClassCollection.ClassId from json\_table jt lateral view explode\(jt.StudentClassCollection.Score\) como pontuação, sendo esta \> 80;
+c) Localizar em quais matérias um aluno específico obteve mais de 80 pontos selecionando a coleção jt.StudentClassCollection.ClassId from json_table jt lateral view explode(jt.StudentClassCollection.Score) como pontuação, sendo esta > 80;
       
-A consulta acima retorna uma matriz de Hive diferente de get\_json\_object, que retorna uma cadeia de caracteres.
+A consulta acima retorna uma matriz de Hive diferente de get_json_object, que retorna uma cadeia de caracteres.
 
 ![Consulta SerDe 3][image-hdi-hivejson-serde_query3]
 
@@ -241,7 +241,7 @@ Se você quiser realizar skil em JSON malformado, conforme explicado no [página
 Além das opções listadas abaixo, você também podem escrever seu próprio código personalizado usando Python ou outras linguagens específicas ao seu cenário. Depois que seu script de python estiver pronto, consulte [este artigo][hdinsight-python] sobre como executar seu próprio código Python com o Hive.
 
 ##Resumo
-Concluindo, o tipo de operador JSON no Hive que você escolher dependerá de seu cenário. Se você tiver um documento JSON simples e apenas um campo para pesquisar, poderá usar o UDF get\_json\_object do Hive. Se tiver mais de uma chave para pesquisar, poderá usar json\_tuple. Se tiver um documento aninhado, deverá usar o SerDe JSON.
+Concluindo, o tipo de operador JSON no Hive que você escolher dependerá de seu cenário. Se você tiver um documento JSON simples e apenas um campo para pesquisar, poderá usar o UDF get_json_object do Hive. Se tiver mais de uma chave para pesquisar, poderá usar json_tuple. Se tiver um documento aninhado, deverá usar o SerDe JSON.
 
 Nós do HDInsight estamos trabalhando para facilitar ainda mais o uso de mais formatos nativamente no Hive sem exigir grande esforço da sua parte. Atualizaremos este tutorial com mais detalhes quando tivermos mais novidades para compartilhar.
 

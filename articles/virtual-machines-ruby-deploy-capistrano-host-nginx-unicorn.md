@@ -421,7 +421,7 @@ O aplicativo deve, agora, estar pronto para a implantação.
 
 	O Capistrano vai conectar-se à VM usando o SSH e, em seguida, criará o diretório (~/apps) no qual o aplicativo será implantado. Se esta for a primeira implantação, a gema capistrano-postgresql também criará uma função e um banco de dados no PostgreSQL no servidor. Também criará um arquivo de configuração database.yml, que o Rails usará para conectar-se ao banco de dados.
 
-	> [AZURE.NOTE] Se você receber um erro **Erro ao ler o tamanho da resposta do soquete de autenticação** durante a implantação, poder ser necessário iniciar o agente SSH em seu ambiente de implantação usando o comando `ssh-agent`.  Por exemplo, adicionando`eval $(ssh-agent)` para seu arquivo ~/.bash\_profile.
+	> [AZURE.NOTE] Se você receber um erro **Erro ao ler o tamanho da resposta do soquete de autenticação** durante a implantação, poder ser necessário iniciar o agente SSH em seu ambiente de implantação usando o comando `ssh-agent`.  Por exemplo, adicionando`eval $(ssh-agent)` para seu arquivo ~/.bash_profile.
 	> 
 	> Também pode ser necessário adicionar a chave SSH ao cache do agente, usando o comando `ssh-add`.
 

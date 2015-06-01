@@ -60,9 +60,9 @@ Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento sec
 		
 		    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
 		    {
-		        streamWriter.Write("\"");
+		        streamWriter.Write(""");
 		        streamWriter.Write(storageAccountKey);
-		        streamWriter.Write("\"");
+		        streamWriter.Write(""");
 		        streamWriter.Flush();
 		    }
 		

@@ -45,8 +45,8 @@ A Microsoft tem um compromisso de longo prazo com a privacidade, que é parte in
 
 ###Próximas etapas:
 
-[Guia de Introdução \(Comerciantes\)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Guia de Introdução (Comerciantes)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
-[Guia de Introdução \(Desenvolvedores\)](/documentation/services/mobile-engagement/)
+[Guia de Introdução (Desenvolvedores)](/documentation/services/mobile-engagement/)
 
 <!--HONumber=54-->

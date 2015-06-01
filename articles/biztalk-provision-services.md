@@ -38,23 +38,23 @@ Depende da Edição que você escolher, é possível que não todas as configura
 2.  Na parte inferior do painel de navegação, selecione **NOVO**:
     ![Selecione o botão Novo][Selecione o botão Novo]
 
-3.  Selecione **SERVIÇOS DO APLICATIVO** \> **SERVIÇO DO BIZTALK** \> **CRIAÇÃO PERSONALIZADA**:
+3.  Selecione **SERVIÇOS DO APLICATIVO** > **SERVIÇO DO BIZTALK** > **CRIAÇÃO PERSONALIZADA**:
     ![Selecione o Serviço do BizTalk e selecione Criação Personalizada][Selecione o Serviço do BizTalk e selecione Criação Personalizada]
 
 4.  Insira as configurações do Serviço do BizTalk.
 
     |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nome do Serviço BizTalk** | Você pode inserir qualquer nome, mas seja específico. Alguns exemplos incluem:                                                                                                                                                                                                
-                                    *minha\_empresa*. biztalk.windows.net                                                                                                                                                                                                                                         
-                                    *Meu\_Aplicativo\_da\_Minha\_Empresa*.biztalk.windows.net                                                                                                                                                                                                                     
-                                    *meu\_aplicativo*.biztalk.windows.net                                                                                                                                                                                                                                         
+                                    *minha_empresa*. biztalk.windows.net                                                                                                                                                                                                                                         
+                                    *Meu_Aplicativo_da_Minha_Empresa*.biztalk.windows.net                                                                                                                                                                                                                     
+                                    *meu_aplicativo*.biztalk.windows.net                                                                                                                                                                                                                                         
                                     ".biztalk.windows.net" é adicionado automaticamente ao nome que você inserir. Isso cria uma URL que é usada para acessar seu Serviço do BizTalk, como **https://*myapplication*.biztalk.windows.net**.                                                                        |
     | **Edição**                  | Se você estiver em fase de teste/desenvolvimento, escolha **Developer**. Se você estiver na fase de produção, use os [Serviços do BizTalk: Gráfico de edições][Serviços do BizTalk: Gráfico de edições] para determinar se **Premium**, **Standard**, ou **Basic** for a escolha certa para seu cenário de negócios. |
     | **Região**                  | Selecione a região geográfica para hospedar seu Serviço BizTalk.                                                                                                                                                                                                              |
     | **URL do domínio**          | **Opcional**. Por padrão, a URL do domínio é *YourBizTalkServiceName*.biztalk.windows.net. Um domínio personalizado também pode ser inserido. Por exemplo, se seu domínio for *contoso*, você pode inserir:                                                                   
-                                    *Minha\_Empresa*.contoso.com                                                                                                                                                                                                                                                  
-                                    *Meu\_Aplicativo\_da\_Minha\_Empresa*.contoso.com                                                                                                                                                                                                                             
-                                    *Meu\_Aplicativo*.contoso.com                                                                                                                                                                                                                                                 
+                                    *Minha_Empresa*.contoso.com                                                                                                                                                                                                                                                  
+                                    *Meu_Aplicativo_da_Minha_Empresa*.contoso.com                                                                                                                                                                                                                             
+                                    *Meu_Aplicativo*.contoso.com                                                                                                                                                                                                                                                 
                                     *YourBizTalkServiceName*.contoso.com                                                                                                                                                                                                                                          |
 
     Selecione a seta de AVANÇO.
@@ -124,7 +124,7 @@ Como parte do provisionamento do Serviço do BizTalk, um certificado autoassinad
 O certificado autoassinado que é criado automaticamente enquanto os Serviços do BizTalk são provisionados é destinado apenas para o uso em ambientes de desenvolvimento. Para cenários de produção, você deve substituí-lo com um certificado pronto para produção.
 
 1.  Na guia **Painel**, clique em **Atualizar o certificado SSL**.
-2.  Procure seu certificado SSL privado (*Nome\_do\_certificado*.pfx) que inclui o nome do seu Serviço BizTalk, insira a senha e selecione a caixa de seleção.
+2.  Procure seu certificado SSL privado (*Nome_do_certificado*.pfx) que inclui o nome do seu Serviço BizTalk, insira a senha e selecione a caixa de seleção.
 
 #### <a name="ACS"></a>Obter o namespace do Controle de Acesso
 

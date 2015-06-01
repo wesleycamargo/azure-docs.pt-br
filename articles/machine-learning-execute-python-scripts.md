@@ -39,11 +39,11 @@ A principal interface para Python no Estúdio de Aprendizado de Máquina do Azur
 
 Figura 1. O módulo **Executar Script Python**.
 
-O módulo [Executar Script Python][execute-python-script] aceita até três entradas e produz até duas saídas \(discutidas abaixo\), assim como seu módulo análogo para R, o [Executar Script R][execute-r-script]. O código Python a ser executado é inserido na caixa de parâmetro como uma função de ponto de entrada denominada especialmente chamada `azureml_main`. Estes são os principais princípios de design usados para implementar este módulo:
+O módulo [Executar Script Python][execute-python-script] aceita até três entradas e produz até duas saídas (discutidas abaixo), assim como seu módulo análogo para R, o [Executar Script R][execute-r-script]. O código Python a ser executado é inserido na caixa de parâmetro como uma função de ponto de entrada denominada especialmente chamada `azureml_main`. Estes são os principais princípios de design usados para implementar este módulo:
 
 1.	*Devem ser expressões idiomáticas para usuários de Python.* A maioria dos usuários de Python fatora seu código como funções dentro de módulos, de modo que colocar muitas instruções executáveis em um módulo de nível superior é relativamente raro. Como resultado, a caixa de script também recebe uma função de Python especialmente nomeada em vez de apenas uma sequência de instruções. Os objetos expostos na função são tipos de biblioteca do Python padrão, como estruturas de dados [Panda](http://pandas.pydata.org/) e matrizes [NumPy](http://www.numpy.org/).
 2.	*Deve ter alta fidelidade entre execuções locais e na nuvem.* O back-end usado para executar o código Python se baseia no [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, uma distribuição científica multiplataforma do Python amplamente utilizada. Ele vem com quase 200 dos pacotes de Python mais comuns. Portanto, um cientista de dados pode depurar e qualificar seu código em seu ambiente Anaconda local compatível com o Aprendizado de Máquina do Azure usando ambientes de desenvolvimento existentes como [IPython](http://ipython.org/) notebook ou [Python Tools para Visual Studio](http://pytools.codeplex.com/) e executá-lo como parte de um experimento do Aprendizado de Máquina do Azure com confiança elevada. Além disso, o ponto de entrada `azureml_main` é uma função vanilla Python e pode ser criado sem um código específico ou o SDK do Aprendizado de Máquina do Azure instalado.
-3.	*Deve ser combinável de maneira integrada com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Aprendizado de Máquina do Azure. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python \(dando suporte a recursos como valores ausentes\). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
+3.	*Deve ser combinável de maneira integrada com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Aprendizado de Máquina do Azure. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python (dando suporte a recursos como valores ausentes). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
   * usam Python e Pandas para pré-processando e limpeza de dados, 
   * alimentam os dados para uma transformação de SQL, unindo vários conjuntos de dados para formar recursos, 
   * treinar modelos usando o amplo conjunto de algoritmos do Aprendizado de Máquina do Azure e 
@@ -51,7 +51,7 @@ O módulo [Executar Script Python][execute-python-script] aceita até três entr
 
 
 ## Uso básico
-Nesta seção, avaliamos alguns dos usos básicos do módulo [Executar Script Python][execute-python-script]. Como mencionado anteriormente, quaisquer entradas do módulo Python são expostas como estruturas de dados Pandas. Mais informações sobre o Pandas e como ele pode ser usado para manipular dados com eficiência e eficácia podem ser encontradas em *Python for Data Analysis* \(Sebastopol, CA.: O'Reilly, 2012\), de W. McKinney. A função deve retornar uma única estrutura de dados Pandas empacotada dentro de uma [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma tupla, lista ou matriz NumPy. O primeiro elemento dessa sequência é retornado na primeira porta de saída do módulo. O esquema é mostrado na Figura 2.
+Nesta seção, avaliamos alguns dos usos básicos do módulo [Executar Script Python][execute-python-script]. Como mencionado anteriormente, quaisquer entradas do módulo Python são expostas como estruturas de dados Pandas. Mais informações sobre o Pandas e como ele pode ser usado para manipular dados com eficiência e eficácia podem ser encontradas em *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012), de W. McKinney. A função deve retornar uma única estrutura de dados Pandas empacotada dentro de uma [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma tupla, lista ou matriz NumPy. O primeiro elemento dessa sequência é retornado na primeira porta de saída do módulo. O esquema é mostrado na Figura 2.
 
 ![image3](./media/machine-learning-execute-python-scripts/figure2.png) Figura 2. Mapeamento de portas de entrada para parâmetros e valor retornado à porta de saída.
 
@@ -61,14 +61,14 @@ Uma semântica mais detalhada de como as portas de entrada são mapeadas para pa
 
 Tabela 1. Mapeamento de portas de entrada para parâmetros de função.
 
-Observe que o mapeamento entre as portas de entrada e os parâmetros da função é posicional, ou seja, a primeira porta de entrada conectada é mapeada para o primeiro parâmetro da função e a segunda entrada \(se conectada\) é mapeada para o segundo parâmetro da função.
+Observe que o mapeamento entre as portas de entrada e os parâmetros da função é posicional, ou seja, a primeira porta de entrada conectada é mapeada para o primeiro parâmetro da função e a segunda entrada (se conectada) é mapeada para o segundo parâmetro da função.
 
 ## Conversão de tipos de entrada e saída
 Conforme explicado anteriormente, conjuntos de dados de entrada no Aprendizado de Máquina do Azure são convertidos em estruturas de dados Pandas, e as estruturas de dados de saída são convertidas novamente para conjuntos de dados do Aprendizado de Máquina do Azure. As seguintes conversões são realizadas:
 
-1.	Colunas numéricas e de cadeias de caracteres são convertidas da forma como estão e os valores ausentes em um conjunto de dados são convertidos para valores “NA” no Pandas. A mesma conversão ocorre na direção contrária \(valores NA no Pandas são convertidos em valores ausentes no Aprendizado de Máquina do Azure\).
+1.	Colunas numéricas e de cadeias de caracteres são convertidas da forma como estão e os valores ausentes em um conjunto de dados são convertidos para valores “NA” no Pandas. A mesma conversão ocorre na direção contrária (valores NA no Pandas são convertidos em valores ausentes no Aprendizado de Máquina do Azure).
 2.	Vetores de índice no Pandas não têm suporte no Aprendizado de Máquina do Azure e todas as estruturas de dados de entrada na função Python sempre terão um índice numérico de 64 bits de 0 até o número de linhas menos 1. 
-3.	Conjuntos de dados do Aprendizado de Máquina do Azure não podem ter nomes de coluna duplicados e nomes de coluna que não são cadeias de caracteres. Se uma estrutura de dados de saída contiver colunas não numéricas, a estrutura chama `str` nos nomes de coluna. Da mesma forma, quaisquer nomes de coluna duplicados são danificados automaticamente para assegurar que os nomes sejam exclusivos. O sufixo \(2\) é adicionado à primeira duplicata, \(3\) à segunda duplicata, etc.
+3.	Conjuntos de dados do Aprendizado de Máquina do Azure não podem ter nomes de coluna duplicados e nomes de coluna que não são cadeias de caracteres. Se uma estrutura de dados de saída contiver colunas não numéricas, a estrutura chama `str` nos nomes de coluna. Da mesma forma, quaisquer nomes de coluna duplicados são danificados automaticamente para assegurar que os nomes sejam exclusivos. O sufixo (2) é adicionado à primeira duplicata, (3) à segunda duplicata, etc.
 
 ## Operacionalizando scripts Python
 Quaisquer módulos [Executar Script Python][execute-python-script] em um experimento de pontuação são chamados quando publicados como um serviço Web. Por exemplo, a Figura 3 mostra um experimento de pontuação que contém o código para avaliar uma única expressão de Python.
@@ -79,7 +79,7 @@ Quaisquer módulos [Executar Script Python][execute-python-script] em um experim
 
 Figura 3. Serviço Web para avaliar uma expressão de Python.
 
-Um serviço Web criado por meio deste experimento utiliza como entrada uma expressão de Python \(como uma cadeia de caracteres\), a envia para o intérprete de Python e retorna uma tabela que contém a expressão e o resultado avaliado.
+Um serviço Web criado por meio deste experimento utiliza como entrada uma expressão de Python (como uma cadeia de caracteres), a envia para o intérprete de Python e retorna uma tabela que contém a expressão e o resultado avaliado.
 
 ## Importando módulos de Python existentes
 Um caso de uso comum para muitos cientistas de dados é incorporar scripts Python existentes a experimentos do Aprendizado de Máquina do Azure. Em vez de concatenar e colar todo o código em uma única caixa de script, o módulo [Executar Script Python][execute-python-script] aceita uma terceira porta de entrada à qual um arquivo zip que contém os módulos de Python pode ser conectado. O arquivo é então descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do interpretador de Python. A função do ponto de entrada `azureml_main` pode, então, importar esses módulos diretamente.
@@ -118,7 +118,7 @@ Para gerar imagens do MatplotLib, você precisa realizar o procedimento a seguir
 * obter o eixo e gerar todos os gráficos nele 
 * salvar a figura em um arquivo PNG 
 
-Esse processo é ilustrado na Figura 8 abaixo, que cria uma matriz de plotagem de dispersão usando a função scatter\_matrix do Pandas.
+Esse processo é ilustrado na Figura 8 abaixo, que cria uma matriz de plotagem de dispersão usando a função scatter_matrix do Pandas.
  
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -156,7 +156,7 @@ O módulo [Executar Script Python][execute-python-script] atualmente tem as segu
 1.	*Execução em modo seguro.* O tempo de execução do Python atualmente é feito no modo seguro e, consequentemente, não permite o acesso à rede ou ao sistema de arquivos local de maneira persistente. Todos os arquivos salvos localmente são isolados e excluídos após a conclusão do módulo. O código Python não pode acessar a maioria das pastas do computador em que é executado, com exceção do diretório atual e seus subdiretórios.
 2.	*Falta de suporte para desenvolvimento e depuração sofisticados.* O módulo Python atualmente não dá suporte a recursos de IDE, como IntelliSense e depuração. Além disso, se o módulo falhar no tempo de execução, o rastreamento de pilha do Python completo está disponível, mas deve ser visualizado no log de saída do módulo. Atualmente, recomendamos que os usuários desenvolvem e depurem seus scripts Python em um ambiente como IPython e depois importem o código para o módulo.
 3.	*Saída de estruturas de dados únicas.* O ponto de entrada do Python para retornar somente uma estrutura de dados como saída. Atualmente, não é possível retornar objetos arbitrários do Python como modelos treinados diretamente para o tempo de execução do Aprendizado de Máquina do Azure. No entanto, assim como o módulo [Executar Script R][execute-r-script], que tem a mesma limitação, é possível em muitos casos serializar objetos em uma matriz de bytes e retorná-la dentro de uma estrutura de dados.
-4.	*Incapacidade de personalizar a instalação do Python*. Atualmente, a única maneira de adicionar módulos personalizados do Python é por meio do mecanismo de compactação de arquivo zip descrito anteriormente. Embora isso seja viável para pequenos módulos, é complicado para módulos grandes \(especialmente aqueles com DLLs nativos\) ou um grande número de módulos. 
+4.	*Incapacidade de personalizar a instalação do Python*. Atualmente, a única maneira de adicionar módulos personalizados do Python é por meio do mecanismo de compactação de arquivo zip descrito anteriormente. Embora isso seja viável para pequenos módulos, é complicado para módulos grandes (especialmente aqueles com DLLs nativos) ou um grande número de módulos. 
 
 
 ##Conclusões

@@ -135,7 +135,7 @@ O objeto **BlobRestProxy** permite que você crie um contêiner de blob com o m�
 		echo $code.": ".$error_message."<br />";
 	}
 
-A chamada a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** faz com que os dados do contêiner e do blob fiquem acessíveis por meio de solicitações anônimas. A chamada a **setPublicAccess(PublicAccessType::BLOBS_ONLY)** faz com que apenas os dados do blob fiquem acessíveis por meio de solicitações anônimas. Para obter mais informações sobre ACLs de contêiner, consulte [Configurar ACL do Contêiner (REST API)][container-acl].
+A chamada a **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** faz com que os dados do contêiner e do blob fiquem acessíveis por meio de solicitações anônimas. A chamada a **setPublicAccess(PublicAccessType::BLOBS_ONLY)** faz com que apenas os dados do blob fiquem acessíveis por meio de solicitações anônimas. Para obter mais informações sobre ACLs de contêiner, consulte [Configurar ACL do Contêiner (REST API)][container-acl].
 
 Para obter mais informações sobre códigos de erro de serviço Blob, consulte [Códigos de erro de serviço Blob][error-codes].
 
@@ -168,7 +168,7 @@ Para carregar um arquivo como um blob, use o método **BlobRestProxy->createBloc
 		echo $code.": ".$error_message."<br />";
 	}
 
-Observe que o exemplo acima carrega um blob como um fluxo. No entanto, um blob também pode ser carregado como uma cadeia usando, por exemplo, a função [file\_get\_contents][file_get_contents]. Para fazer isso, altere `$content = fopen("c:\myfile.txt", "r");` no exemplo acima para `$content = file_get_contents("c:\myfile.txt");`.
+Observe que o exemplo acima carrega um blob como um fluxo. No entanto, um blob também pode ser carregado como uma cadeia usando, por exemplo, a função [file_get_contents][file_get_contents]. Para fazer isso, altere `$content = fopen("c:\myfile.txt", "r");` no exemplo acima para `$content = file_get_contents("c:\myfile.txt");`.
 
 ## Como: Listar os blobs em um contêiner
 
@@ -230,7 +230,7 @@ Para baixar um blob, chame o método **BlobRestProxy->getBlob** e, em seguida, c
 		echo $code.": ".$error_message."<br />";
 	}
 
-Observe que o exemplo acima obtém um blob como um recurso de fluxo (o comportamento padrão). No entanto, você pode usar a função [stream\_get\_contents][stream-get-contents] para converter o fluxo de retorno em uma cadeia.
+Observe que o exemplo acima obtém um blob como um recurso de fluxo (o comportamento padrão). No entanto, você pode usar a função [stream_get_contents][stream-get-contents] para converter o fluxo de retorno em uma cadeia.
 
 ## Como: Excluir um blob
 

@@ -22,7 +22,7 @@ Um registro CNAME mapeia um domínio *specific*, como **contoso.com** ou **www.c
 
 ### Registro A
 
-Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *or a wildcard domain* como **\*.contoso.com**, para um endereço IP. No caso de um serviço de nuvem do Azure, o IP virtual do serviço. Portanto, a principal vantagem de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um caractere curinga, como ***.contoso.com**, que pode identificar solicitações de vários subdomínios como **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *or a wildcard domain* como ***.contoso.com**, para um endereço IP. No caso de um serviço de nuvem do Azure, o IP virtual do serviço. Portanto, a principal vantagem de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um caractere curinga, como ***.contoso.com**, que pode identificar solicitações de vários subdomínios como **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]
 > Uma vez que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações ao endereço IP do seu serviço de nuvem. O endereço IP usado pelo seu serviço de nuvem é alocado na primeira vez que você implantar em um slot vazio (produção ou preparo.) Se você excluir a implantação para o slot, o endereço IP será liberado pelo Azure e quaisquer implantações futuras no slot poderão receber um novo endereço IP.

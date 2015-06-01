@@ -96,7 +96,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Em seguida, tente acessar o arquivo **\~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, vá para **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+1. Em seguida, tente acessar o arquivo **~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, vá para **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -318,7 +318,7 @@ No projeto ASP.NET que você criou em [Integrar um ponto de extremidade da CDN d
 		...
     }
 
-A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
+A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared\_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -459,7 +459,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 4. Em *App_Start\\StyleFundleExtensions.cs*, renomeie o namespace como o namespace de seu aplicativo ASP.NET (por exemplo, **cdnwebapp**).
 
-3. Vole para `App_Start\BundleConfig.cs` e modifique a última instrução `bundles.Add` com o seguinte código destacado: <pre class="prettyprint"> bundles.Add(new StyleBundle("\~/Content/css", string.Format(cdnUrl, "Content/css")) <mark>.IncludeFallback("\~/Content/css", "sr-only", "width", "1px")</mark> .Include( "\~/Content/bootstrap.css", "\~/Content/site.css")); </pre>
+3. Vole para `App_Start\BundleConfig.cs` e modifique a última instrução `bundles.Add` com o seguinte código destacado: <pre class="prettyprint"> bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")) <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark> .Include( "~/Content/bootstrap.css", "~/Content/site.css")); </pre>
 
 	Este novo método de extensão usa a mesma ideia para injetar script no HTML para verificar o DOM para um nome de classe, nome de regra e valor de regra correspondente no grupo CSS, e retorna ao servidor Web original se não encontrar um resultado correspondente.
 
@@ -467,18 +467,18 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte: <pre class="prettyprint">...
 	
 		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
-	<mark>&lt;script&gt;(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i &lt; len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) { var meta = document.createElement(&#39;meta&#39;); meta.className = &#39;sr-only&#39;; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;); document.head.removeChild(meta); if (value !== &#39;1px&#39;) { document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;); } } } return true; }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i &lt; len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) { var meta = document.createElement(&#39;meta&#39;); meta.className = &#39;sr-only&#39;; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;); document.head.removeChild(meta); if (value !== &#39;1px&#39;) { document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;); } } } return true; }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	...
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	... </pre>
 

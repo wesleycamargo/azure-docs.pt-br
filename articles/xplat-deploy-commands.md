@@ -21,7 +21,7 @@
 ## Instalar curl, wget ou outra ferramenta de download
 Este tópico usa **curl**. Use o gerenciador de pacotes do sistema operacional ou baixe-o [daqui](http://curl.haxx.se/download.html).
 
-## Baixe o arquivo de parâmetros de modelo \(ou o modelo, se necessário\)
+## Baixe o arquivo de parâmetros de modelo (ou o modelo, se necessário)
 
 As etapas a seguir o habilitarão a implantar um modelo do Azure, mesmo que ele seja complexo. Este tópico usa o modelo que cria um servidor básico do Ubuntu com a extensão de VM customscript instalada como exemplo. Os arquivos também são incluídos no fim do tópico de referência.
 
@@ -33,7 +33,7 @@ Baixe o arquivo azuredeploy-parameters.json se ele existir para o modelo que voc
     
 ## Inserir suas informações de implantação de grupo de recursos
     
-Abra esse arquivo com seu editor favorito. Você verá que precisa especificar um valor para várias das chaves, particularmente **adminUsername**, **adminPassword** \(lembre-se das regras de complexidade!\) e o nome da conta de armazenamento e os nomes DNS desejados.
+Abra esse arquivo com seu editor favorito. Você verá que precisa especificar um valor para várias das chaves, particularmente **adminUsername**, **adminPassword** (lembre-se das regras de complexidade!) e o nome da conta de armazenamento e os nomes DNS desejados.
     
     {
       "newStorageAccountName": {
@@ -71,7 +71,7 @@ Abra esse arquivo com seu editor favorito. Você verá que precisa especificar u
       }
     }
     
-Adicione novos valores \(oAzure criará novo recursos de armazenamento e DNS para você, se possível\) ou use recursos que você já criou. O seguinte arquivo azuredeploy-parameters.json mostra um exemplo:
+Adicione novos valores (oAzure criará novo recursos de armazenamento e DNS para você, se possível) ou use recursos que você já criou. O seguinte arquivo azuredeploy-parameters.json mostra um exemplo:
 
 
 
@@ -89,7 +89,7 @@ parâmetros para definir ou pode já ser uma parte do próprio modelo, dependend
 Se o modelo contiver seus parâmetros diretamente ou se você desejar extrair os dados de parâmetros por conta própria. Para obter mais informações sobre a estrutura de modelos, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json \(ou apenas o arquivo azuredeploy-parameters.json\). Você pode extrair a seção de parâmetros do modelo. Nesse caso, você precisará salvá-la novamente no modelo em si OU como um arquivo azuredeploy-parameters.json separado. Você precisará obter os valores para colocá-los nos parâmetros.
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (ou apenas o arquivo azuredeploy-parameters.json). Você pode extrair a seção de parâmetros do modelo. Nesse caso, você precisará salvá-la novamente no modelo em si OU como um arquivo azuredeploy-parameters.json separado. Você precisará obter os valores para colocá-los nos parâmetros.
 
 ## Modifique o arquivo azuredeploy-templates.json
 

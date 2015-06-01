@@ -23,7 +23,7 @@
 
 # Como usar o Cache na Função para Cache do Azure
 
-Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C\# e utilizam a API .NET. Os cenários abordados incluem **configurando um cluster de cache**, **configurando clientes de cache**, **adicionando e removendo objetos do cache, armazenando o estado de sessão ASP.NET no cache** e **habilitando o cache de saída de página ASP.NET usando o cache**. Para obter mais informações sobre como usar o Cache na Função, consulte a seção [Próximas Etapas][].
+Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem **configurando um cluster de cache**, **configurando clientes de cache**, **adicionando e removendo objetos do cache, armazenando o estado de sessão ASP.NET no cache** e **habilitando o cache de saída de página ASP.NET usando o cache**. Para obter mais informações sobre como usar o Cache na Função, consulte a seção [Próximas Etapas][].
 
 >Para obter orientação sobre como escolher a oferta certa do Cache do Azure para seu aplicativo, consulte [Qual oferta do Cache do Azure é a correta para mim?][].
 
@@ -197,7 +197,7 @@ Se sua função for uma função web ASP.NET, a referência ao assembly a seguir
 
 -	Microsoft.Web.DistributedCache.dll.
 
->Esses assemblies estão localizados na pasta C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\.
+>Esses assemblies estão localizados na pasta C:\\Program Files\\Microsoft SDKs\\Windows Azure\.NET SDK\\2012-10\\ref\\Caching\.
 
 Depois que o projeto de cliente estiver configurado para cache, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
 

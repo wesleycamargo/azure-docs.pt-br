@@ -42,11 +42,11 @@ Selecione qualquer item de telemetria para ver os campos-chave e itens relaciona
 
 ![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/10-detail.png)
 
-Para localizar o conjunto completo de campos, use cadeias de caracteres simples \(sem curingas\). Os campos disponíveis dependem do tipo de telemetria.
+Para localizar o conjunto completo de campos, use cadeias de caracteres simples (sem curingas). Os campos disponíveis dependem do tipo de telemetria.
 
 ## Filtrar tipos de evento
 
-Abrir a folha de filtro e escolha os tipos de eventos que você deseja ver. \(Se posteriormente, você desejar restaurar os filtros com os quais você abriu a folha, clique em Redefinir.\)
+Abrir a folha de filtro e escolha os tipos de eventos que você deseja ver. (Se posteriormente, você desejar restaurar os filtros com os quais você abriu a folha, clique em Redefinir.)
 
 
 ![Escolha o filtro e selecione os tipos de telemetria](./media/app-insights-diagnostic-search/02-filter-req.png)
@@ -57,8 +57,8 @@ Os tipos de evento são:
 * **Rastreamento** - logs de diagnóstico, incluindo as chamadas TrackTrace, log4Net, NLog e System.Diagnostic.Trace.
 * **Solicitação** -solicitações HTTP recebidas pelo seu aplicativo para servidores, incluindo páginas, scripts, imagens, arquivos de estilo e dados. Esses eventos são usados para criar os gráficos de visão geral de solicitação e de resposta.
 * **Exibição da página** - telemetria enviada pelo cliente da Web, usada para criar relatórios de exibição de página. 
-* **Evento personalizado** - se você tiver inserido chamadas TrackEvent\(\) e TrackMetric\(\) para [monitorar o uso][track], você pode pesquisar por elas aqui.
-* **Exceção** - exceções não percebidas no servidor e aquelas que você registra usando TrackException\(\).
+* **Evento personalizado** - se você tiver inserido chamadas TrackEvent() e TrackMetric() para [monitorar o uso][track], você pode pesquisar por elas aqui.
+* **Exceção** - exceções não percebidas no servidor e aquelas que você registra usando TrackException().
 
 ## Filtrar pelos valores de propriedade
 
@@ -101,7 +101,7 @@ Localize todos os itens com o mesmo valor da propriedade:
 
 ## Pesquisar por valor de métrica
 
-Obtenha todas o solicitações com tempo de resposta \> 5 s. Tempos são representados em tiques: 10.000 tiques = 1 ms.
+Obtenha todas o solicitações com tempo de resposta > 5 s. Tempos são representados em tiques: 10.000 tiques = 1 ms.
 
 !["Tempo de resposta":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
@@ -115,13 +115,13 @@ Você talvez queira definir um tempo de intervalo, já que pesquisas em um inter
 
 ![Abra a pesquisa de diagnóstico](./media/appinsights/appinsights-311search.png)
 
-Observe que você pesquisa por termos e não subcadeias. Os termos são cadeias alfanuméricas que incluem alguns sinais de pontuação como “.” e “\_”. Por exemplo:
+Observe que você pesquisa por termos e não subcadeias. Os termos são cadeias alfanuméricas que incluem alguns sinais de pontuação como “.” e “_”. Por exemplo:
 
 Termo|*não* corresponde a|mas corresponde a
 ---|---|---
-ControladorInicial.Sobre|sobre<br/>inicial|i\*sobre<br/>inicial\*
-ÉLocal|local<br/>é<br/>\*local|él\*<br/>élocal<br/>é\*l
-Novo Atraso|o a|novo<br/>atraso<br/>n\* AND d\*
+ControladorInicial.Sobre|sobre<br/>inicial|i*sobre<br/>inicial*
+ÉLocal|local<br/>é<br/>*local|él*<br/>élocal<br/>é*l
+Novo Atraso|o a|novo<br/>atraso<br/>n* AND d*
 
 
 Estas são algumas expressões de pesquisa que você pode usar:
@@ -130,12 +130,12 @@ Exemplo de consulta | Efeito
 ---|---
 lento|Encontra todos os eventos no intervalo de tempo cujos campos incluem o termo "lento"
 banco de dados??|As correspondências banco de dados01, banco de dadosAB, ...<br/>? não são permitidas no início de um termo de pesquisa.
-banco de dados\*|As correspondências banco de dados, banco de dados01, banco de dadosNNNN<br/>\* não são permitidas no início de um termo de pesquisa
+banco de dados*|As correspondências banco de dados, banco de dados01, banco de dadosNNNN<br/>* não são permitidas no início de um termo de pesquisa
 maçã AND banana|Encontra eventos que contêm os dois termos. Use "AND” em letras maiúsculas, e não "and".
 maçã OR banana<br/>maçã|Encontra eventos que contêm um dos dois termos. Use "OR" não "or".</br/>Forma abreviada.
 maçã NOT banana<br/>maçã -banana|Encontre eventos que contêm um dos termos, mas não o outro.<br/>Forma abreviada.
-maç\* AND banana -\(uva pera\)|Operadores lógicos e uso de colchetes.
-"Métrica": 0 TO 500<br/>"Métrica": 500 TO \* | Encontre eventos que contêm a medição especificada dentro do intervalo de valores.
+maç* AND banana -(uva pera)|Operadores lógicos e uso de colchetes.
+"Métrica": 0 TO 500<br/>"Métrica": 500 TO * | Encontre eventos que contêm a medição especificada dentro do intervalo de valores.
 
 
 ## Salvar sua pesquisa

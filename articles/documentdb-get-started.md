@@ -20,7 +20,7 @@
 
 Este tutorial mostra como começar a usar o [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) e o [SDK do .NET do Banco de Dados de Documentos](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). Você criará um aplicativo de console que cria e consulta recursos no Banco de Dados de Documentos, e grava a saída na janela do console.
 
-O Banco de Dados de Documentos é um serviço de banco de dados de documentos NoSQL, que tem uma [série de APIs e SDKs disponíveis](https://msdn.microsoft.com/library/dn781482.aspx). O código neste artigo é escrito em C\# e utiliza o SDK do .NET do Banco de Dados de Documentos, que é empacotado e distribuído como um pacote do NuGet.
+O Banco de Dados de Documentos é um serviço de banco de dados de documentos NoSQL, que tem uma [série de APIs e SDKs disponíveis](https://msdn.microsoft.com/library/dn781482.aspx). O código neste artigo é escrito em C# e utiliza o SDK do .NET do Banco de Dados de Documentos, que é empacotado e distribuído como um pacote do NuGet.
 
 Os cenários a seguir são abordados neste artigo:
 
@@ -51,7 +51,7 @@ Vamos iniciar pela criação de uma conta de Banco de Dados de Documentos. Se vo
 
 1. Abra o **Visual Studio** em seu computador.
 2. Selecione **Novo** no menu **Arquivo** e escolha **Projeto**.
-3. Na caixa de diálogo **Novo projeto**, selecione **Modelos** / **Visual C\#** / **Aplicativo de Console**, nomeie o projeto e, em seguida, clique em **Adicionar**.
+3. Na caixa de diálogo **Novo projeto**, selecione **Modelos** / **Visual C#** / **Aplicativo de Console**, nomeie o projeto e, em seguida, clique em **Adicionar**.
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo aplicativo de console, que está em sua solução do Visual Studio.
 5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...**
 6. No canto esquerdo do painel, na janela **Gerenciar Pacotes NuGet**, clique em **Online** / **nuget.org**.
@@ -62,7 +62,7 @@ Vamos iniciar pela criação de uma conta de Banco de Dados de Documentos. Se vo
 
 ##<a id="Connect"></a> Etapa 3: Conectar-se a uma conta do Banco de Dados de Documentos
 
-Começaremos criando uma nova instância da classe [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) para estabelecer uma conexão com a nossa conta do Banco de Dados de Documentos. Precisaremos das seguintes referências no início do nosso aplicativo C\#:
+Começaremos criando uma nova instância da classe [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) para estabelecer uma conexão com a nossa conta do Banco de Dados de Documentos. Precisaremos das seguintes referências no início do nosso aplicativo C#:
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -123,10 +123,15 @@ Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando o 
 
 É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). O banco de dados criado na etapa anterior possui uma série de propriedades, entre elas, a propriedade [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx). Com essas informações, podemos criar uma coleção após a nossa criação de banco de dados.
 
-  // Criar um conjunto de documentos. DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync\(database.CollectionsLink, new DocumentCollection { Id = "FamilyCollection" }\);
+  	// Criar um conjunto de documentos.
+  	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
+  		new DocumentCollection
+  		    {
+  			    Id = "FamilyCollection"
+  		    });
     
 ##<a id="CreateDoc"></a>Etapa 6: Criar documentos
-Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON \(arbitrário\) definido pelo usuário. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Com essas informações, agora podemos inserir um ou mais documentos.
+Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Com essas informações, agora podemos inserir um ou mais documentos.
 
 Primeiro, precisamos criar uma classe **Pai**, **Filho**, **Pet**, **Endereço** e **Família**. Crie essas classes, adicionando as seguintes subclasses internas.
 
@@ -239,7 +244,7 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -300,7 +305,7 @@ A palavra-chave [FROM](documentdb-sql-query.md/#from-clause) é opcional na cons
 
 ##<a id="DeleteDatabase"></a>Etapa 8: Excluir o banco de dados
 
-Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos \(coleções, documentos, etc.\). Você pode excluir o banco de dados e o cliente do documento, adicionando o seguinte trecho de código ao final do seu método assíncrono **GetStartedDemo**.
+Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.). Você pode excluir o banco de dados e o cliente do documento, adicionando o seguinte trecho de código ao final do seu método assíncrono **GetStartedDemo**.
 
     // Clean up/delete the database
     await client.DeleteDatabaseAsync(database.SelfLink);
@@ -351,7 +356,7 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -389,7 +394,7 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -427,12 +432,24 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 	{
 	  "id": "AndersenFamily",
- "child": "Henriette Thaulow" } { "id": "WakefieldFamily", "child": "Jesse" } { "id": "WakefieldFamily", "child": "Lisa" } { family = AndersenFamily, child = Henriette Thaulow } { family = WakefieldFamily, child = Jesse } { family = WakefieldFamily, child = Lisa }
+ 	  "child": "Henriette Thaulow"
+	}
+	{
+	  "id": "WakefieldFamily",
+	  "child": "Jesse"
+	}
+	{
+	  "id": "WakefieldFamily",
+	  "child": "Lisa"
+	}
+	{ family = AndersenFamily, child = Henriette Thaulow }
+	{ family = WakefieldFamily, child = Jesse }
+	{ family = WakefieldFamily, child = Lisa }
 
 
 > [AZURE.NOTE]Se executar o aplicativo várias vezes sem remover o banco de dados, você poderá executar o problema da criação de um novo banco de dados com uma ID que já está em uso. Para evitar isso, é possível verificar se já existe um banco de dados, a coleção ou o documento com a mesma ID. Para obter uma referência sobre como isso pode ser obtido, visite a nossa [página GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).

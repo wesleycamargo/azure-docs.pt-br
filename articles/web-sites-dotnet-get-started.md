@@ -38,9 +38,9 @@ A ilustração a seguir mostra o aplicativo concluído:
 
 ![Home page de aplicativos Web](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-##<a name="video"></a>Inscrever-se no Microsoft Azure \(vídeo\)
+##<a name="video"></a>Inscrever-se no Microsoft Azure (vídeo)
 
-Neste vídeo, Scott Hanselman mostra como é fácil inscrever-se para uma avaliação gratuita do Microsoft Azure. \(Duração: 1:58\)
+Neste vídeo, Scott Hanselman mostra como é fácil inscrever-se para uma avaliação gratuita do Microsoft Azure. (Duração: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -54,7 +54,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 
-3. Na caixa de diálogo **Novo Projeto**, clique em **C\#** \> **Web** \> **Aplicativo Web ASP.NET**. Se preferir, você pode escolher **Visual Basic**.
+3. Na caixa de diálogo **Novo Projeto**, clique em **C#** > **Web** > **Aplicativo Web ASP.NET**. Se preferir, você pode escolher **Visual Basic**.
 
 3. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
 
@@ -94,7 +94,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
  
 	Você poderá inserir um **nome de Aplicativo Web** diferente, se preferir, mas o nome deverá ser exclusivo no domínio *azurewebsites.net*. O nome padrão que o Visual Studio fornece é exclusivo.
 
-	O Azure usará esse nome como o prefixo para a URL do aplicativo. A URL completa consistirá nesse nome, mais *.azurewebsites.net* \(conforme mostrado ao lado da caixa de texto **Nome do Aplicativo Web**\). Por exemplo, se o nome for `MyExample6442`, a URL será `MyExample6442.azurewebsites.net`. A URL precisa ser exclusiva. Se outra pessoa já tiver usado o que você digitou, você verá um ponto de exclamação vermelho à direita em vez de uma marca de verificação verde e precisará inserir outro nome de site.
+	O Azure usará esse nome como o prefixo para a URL do aplicativo. A URL completa consistirá nesse nome, mais *.azurewebsites.net* (conforme mostrado ao lado da caixa de texto **Nome do Aplicativo Web**). Por exemplo, se o nome for `MyExample6442`, a URL será `MyExample6442.azurewebsites.net`. A URL precisa ser exclusiva. Se outra pessoa já tiver usado o que você digitou, você verá um ponto de exclamação vermelho à direita em vez de uma marca de verificação verde e precisará inserir outro nome de site.
 
 4. No menu suspenso **Plano de Serviço do Aplicativo**, selecione **Criar novo plano de Serviço de Aplicativo**.
 
@@ -172,7 +172,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 	 
 		Can reduce first-request warm up times for large applications.
 
-	* Exclua os arquivos da pasta App\_Data. 
+	* Exclua os arquivos da pasta App_Data. 
 	 
 		For testing you sometimes have a SQL Server database file in App_Data which you don't want to deploy to production.
 	
@@ -230,7 +230,7 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 
 	![Aplicativo web alterado implantado](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-**Dica:** você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para implantação mais rápida. Clique em **Visualizar** \> **Barras de ferramentas** e, em seguida, selecione **Publicação Web Com Um Clique**. A barra de ferramentas permite a você selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**.
+**Dica:** você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para implantação mais rápida. Clique em **Visualizar** > **Barras de ferramentas** e, em seguida, selecione **Publicação Web Com Um Clique**. A barra de ferramentas permite a você selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**.
 
 ![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
@@ -240,11 +240,11 @@ O [Portal de Gerenciamento do Azure](/services/management-portal/) é uma interf
   
 1. Em seu navegador, vá até [http://portal.azure.com]() e entre com suas credenciais do Azure.
 
-2. Clique em **Procurar \> aplicativos Web** e, em seguida, clique no nome de seu aplicativo Web.
+2. Clique em **Procurar > aplicativos Web** e, em seguida, clique no nome de seu aplicativo Web.
 
 	A folha **Aplicativo Web** para seu aplicativo Web exibe uma visão geral de estatísticas de uso e links para funções de gerenciamento de aplicativos Web usadas com frequência.
   
-	![Folha de aplicativos Web](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)--\>
+	![Folha de aplicativos Web](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
 
 	Nesse ponto, seu aplicativo Web ainda não teve muito tráfego e pode não mostrar nada no gráfico. Se navegar até o aplicativo, atualizar a página algumas vezes e, em seguida, atualizar a página de portal, você verá que algumas estatísticas serão mostradas.
 
@@ -252,7 +252,7 @@ O [Portal de Gerenciamento do Azure](/services/management-portal/) é uma interf
 
 	Você verá uma lista dos tipos de configurações.
   
-	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)--\>
+	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)-->
 
 4. Clique em **Configurações do aplicativo** para ver um exemplo dos tipos de configurações que você pode definir no portal.
 
@@ -272,7 +272,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	Neste tutorial, você viu a maneira mais rápida de criar um aplicativo Web e implantá-lo em uma única operação. Para obter uma visão geral de outras maneiras de implantar, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
 
-	O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo \(Compilando aplicativos de nuvem do mundo real com o Azure\) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
 * Como gerenciar um aplicativo Web no Visual Studio
 
@@ -288,7 +288,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como adicionar um nome de domínio personalizado e SSL
 
-	Para obter informações sobre como utilizar SSL e seu próprio domínio \(por exemplo www.contoso.com, em vez de contoso.azurewebsites.net\), consulte os recursos a seguir:
+	Para obter informações sobre como utilizar SSL e seu próprio domínio (por exemplo www.contoso.com, em vez de contoso.azurewebsites.net), consulte os recursos a seguir:
 
 	* [Configurando um nome de domínio personalizado para um Site do Azure](web-sites-custom-domain-name.md). 
 	* [Habilitar HTTPS para um site do Azure](web-sites-configure-ssl-certificate.md)
@@ -299,7 +299,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como adicionar recursos em tempo real como chat
 
-	Se o aplicativo Web incluirá recursos em tempo real \(como um serviço de chat, um jogo, um indicador de ações, entre outros\), você pode obter o melhor desempenho utilizando o [ASP.NET SignalR](http://www.asp.net/signalr) com o método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obter mais informações, consulte [Usando SignalR com aplicativos Web do Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
+	Se o aplicativo Web incluirá recursos em tempo real (como um serviço de chat, um jogo, um indicador de ações, entre outros), você pode obter o melhor desempenho utilizando o [ASP.NET SignalR](http://www.asp.net/signalr) com o método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obter mais informações, consulte [Usando SignalR com aplicativos Web do Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
 
 * Como escolher entre o Serviço de Aplicativo, os Serviços de Nuvem e VMs para aplicativos Web
 

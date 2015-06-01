@@ -17,10 +17,10 @@
 # Locais de Emparelhamento e Parceiros da Rota Expressa
 Esta tabela fornece detalhes sobre
 
-1. Provedores de conectividade de Rota Expressa \(EXPs e NSPs\)
+1. Provedores de conectividade de Rota Expressa (EXPs e NSPs)
 2. Cobertura geográfica da Rota Expressa
 3. Serviços em nuvem da Microsoft com suporte na Rota Expressa
-4. SIs \(Integradores de sistema\) de Rota Expressa
+4. SIs (Integradores de sistema) de Rota Expressa
 
 ## Provedores de conectividade de Rota Expressa
 Há suporte para Rota Expressa em todos os locais e regiões do Azure. O mapa a seguir fornece uma lista de locais de Rota Expressa e regiões do Azure. Os locais de Rota Expressa são aqueles onde a Microsoft emparelha-se a vários provedores de serviços.
@@ -41,11 +41,11 @@ Você terá acesso aos serviços do Azure em todas as regiões dentro de uma reg
 Não há suporte para a conectividade entre regiões geopolíticas. Você pode trabalhar com seu provedor de conectividade para estender a conectividade entre regiões geopolíticas usando a rede desse provedor.
 
 
-### Locais de EXP \(provedor do Exchange\)
+### Locais de EXP (provedor do Exchange)
 - Consulte esta [tabela](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP) para obter uma lista de provedores do Exchange e locais onde eles têm suporte.
 -  Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para conhecer as etapas a seguir para configurar sua conexão.
 
-### Locais do NSP \(provedor de serviços de rede\)
+### Locais do NSP (provedor de serviços de rede)
 - Consulte esta [tabela](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP) para obter uma lista de provedores de serviços de rede e locais onde eles têm suporte.
 - Consulte [Configurar sua conexão NSP](expressroute-configuring-nsps.md) para conhecer as etapas a seguir para configurar sua conexão.
 
@@ -58,7 +58,7 @@ Se seu provedor de conectividade não estiver nas seções listadas acima, você
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Faça com que seu provedor de conectividade estenda sua rede para o local do Exchange de sua escolha.
 	- Certifique-se de que seu provedor de conectividade estenda sua conectividade de maneira altamente disponível para que não exista nenhum ponto de falha.
-	- Provedores de conectividade \(especificamente provedores Ethernet\) podem exigir a aquisição de um par de circuitos para Ethernet Exchanges, para garantir alta disponibilidade 
+	- Provedores de conectividade (especificamente provedores Ethernet) podem exigir a aquisição de um par de circuitos para Ethernet Exchanges, para garantir alta disponibilidade 
 - Solicite um circuito de Rota Expressa por meio do provedor do Exchange para se conectar ao Azure
 	- Siga as etapas em [Configurar sua conexão EXP](expressroute-configuring-exps.md) para configurar a conectividade.
 
@@ -70,7 +70,7 @@ Se seu provedor de conectividade não estiver nas seções listadas acima, você
 ## Serviços em nuvem da Microsoft e Rota Expressa
 As tabelas abaixo fornecem detalhes sobre os provedores de conectividade e a lista de serviços em nuvem da Microsoft aos quais esses provedores dão suporte. Entre em contato com seu provedor de serviços
 
-**EXPs \(Provedores do Exchange\)**
+**EXPs (Provedores do Exchange)**
 
 |**Provedor de Serviços**|**Serviços do Microsoft Azure**|**Serviços do Office 365**|
 |---|---|---|
@@ -82,7 +82,7 @@ As tabelas abaixo fornecem detalhes sobre os provedores de conectividade e a lis
 |**Grupo TeleCity**|Suportado||
 |**Grupo Zayo**|Suportado||
 
-**NSPs \(Provedores de Serviços de Rede\)**
+**NSPs (Provedores de Serviços de Rede)**
 
 |**Provedor de Serviços**|**Serviços do Microsoft Azure**|**Serviços do Office 365**|
 |---|---|---|

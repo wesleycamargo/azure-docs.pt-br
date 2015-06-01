@@ -104,7 +104,7 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.  
  
 ###Endereçamento de um recurso
-Todos os recursos são endereçáveis pelo URI. O valor da propriedade **_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste dos segmentos do caminho /\<feed\>/{_rid}:  
+Todos os recursos são endereçáveis pelo URI. O valor da propriedade **_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste dos segmentos do caminho /<feed>/{_rid}:  
 
 |Valor de _self	|Descrição
 |-------------------|-----------

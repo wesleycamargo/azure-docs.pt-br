@@ -30,7 +30,7 @@ Você pode examinar as execuções anteriores dos seus testes a qualquer momento
 
 Quando tiver um teste aberto que você tenha executado pelo menos uma vez, você pode exibir a execução anterior do teste clicando em **Execução anterior** no painel Propriedades.
 
-Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 11h42 e 11h55. Se você abrir a última execução do teste \(11h55\) e clicar em **Execução anterior**, a versão que você executou às 11h42 será aberta.
+Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 11h42 e 11h55. Se você abrir a última execução do teste (11h55) e clicar em **Execução anterior**, a versão que você executou às 11h42 será aberta.
 
 ##Exibindo o Histórico de execução
 
@@ -53,7 +53,7 @@ Clique em qualquer uma dessas execuções para exibir um instantâneo do teste n
 
 > [AZURE.TIP]Para documentar suas iterações do teste, você pode modificar o título cada vez que executá-lo, pode atualizar o **Resumo** do teste no painel de propriedades e pode adicionar ou atualizar os comentários em módulos individuais para registrar as alterações. Os comentários do título, do resumo e do módulo são salvos com cada execução do teste.
 
-A lista de testes na guia **TESTES** no Estúdio AM sempre exibe a versão mais recente de um teste. Se abrir uma execução anterior do teste \(usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**\), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO** **Editável**.
+A lista de testes na guia **TESTES** no Estúdio AM sempre exibe a versão mais recente de um teste. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO** **Editável**.
 
 ##Iterando sobre uma Execução anterior
 
@@ -64,7 +64,7 @@ Se quiser iniciar uma iteração de seu teste começando com o modo como você o
 Por exemplo, suponha que você tenha o teste executando o histórico mostrado na seção anterior. Você deseja observar o que acontece quando define o parâmetro **Taxa de aprendizagem** para 0,4 e testa valores diferentes para o parâmetro **Número de épocas de treinamento**.
 
 
-1. Clique em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abra a iteração do teste que você executou às 16h28min36s \(no qual você definiu o valor do parâmetro para 0,4\). 
+1. Clique em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abra a iteração do teste que você executou às 16h28min36s (no qual você definiu o valor do parâmetro para 0,4). 
 
 2. Clique em **SALVAR COMO**.
 

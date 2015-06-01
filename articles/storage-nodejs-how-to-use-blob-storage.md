@@ -59,7 +59,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  Você pode executar manualmente o comando **ls** para verificar se uma pasta
-    **node\_modules** foi criada. Dentro dessa pasta, localize o pacote
+    **node_modules** foi criada. Dentro dessa pasta, localize o pacote
     **azure-storage** que contém as bibliotecas necessárias para acessar
     o armazenamento.
 

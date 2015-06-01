@@ -103,7 +103,7 @@ O exemplo de código a seguir cria um contêiner e um blob, e escreve os valores
 
 Você pode especificar os metadados como um ou mais pares de nome-valor em um recurso de contêiner ou blob. Para definir os metadados, adicione pares de nome-valor à coleção **Metadados** no recurso, em seguida, chame o método **SetMetadata** para salvar os valores no serviço.
 
-> [AZURE.NOTE]\: O nome dos metadados deve obedecer às convenções de nomenclatura para os identificadores de C\#.
+> [AZURE.NOTE]: O nome dos metadados deve obedecer às convenções de nomenclatura para os identificadores de C#.
  
 Para recuperar os metadados, chame o método **FetchAttributes** no blob ou no contêiner para preencher a coleção **Metadados**, em seguida, leia os valores.
 

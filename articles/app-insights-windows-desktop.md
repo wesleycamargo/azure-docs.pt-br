@@ -35,7 +35,7 @@ O Application Insights permite que você monitore seu aplicativo implantado quan
 
     ![Clique em Novo, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
-    \(Sua escolha do tipo de aplicativo define o conteúdo da folha Visão Geral e as propriedades disponíveis no [Metrics Explorer][metrics].\)
+    (Sua escolha do tipo de aplicativo define o conteúdo da folha Visão Geral e as propriedades disponíveis no [Metrics Explorer][metrics].)
 
 2.  Faça uma cópia da chave de instrumentação.
 
@@ -50,11 +50,11 @@ O Application Insights permite que você monitore seu aplicativo implantado quan
 
     ![Selecione **Online**, **Incluir pré-lançamento**, e procure "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-    \(Como alternativa, você poderia escolher o SDK do Application Insights para aplicativos Web. Isso oferece alguma telemetria interna de contadores de desempenho.\)
+    (Como alternativa, você poderia escolher o SDK do Application Insights para aplicativos Web. Isso oferece alguma telemetria interna de contadores de desempenho.)
 
-3. Edite o ApplicationInsights.config \(que foi adicionado pela instalação do NuGet\). Insira isto logo antes da marca de fechamento:
+3. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
 
-    &lt;InstrumentationKey&gt;\*a chave que você copiou\*&lt;/InstrumentationKey&gt;
+    &lt;InstrumentationKey&gt;*a chave que você copiou*&lt;/InstrumentationKey&gt;
 
     Como alternativa, você pode alcançar o mesmo efeito com esse código:
     
@@ -66,7 +66,7 @@ O Application Insights permite que você monitore seu aplicativo implantado quan
 
 Crie uma instância `TelemetryClient` e, em seguida, [use-a para enviar telemetria][track].
 
-Use `TelemetryClient.Flush` para enviar mensagens antes de fechar o aplicativo. \(Isso não é recomendado para outros tipos de aplicativo\).
+Use `TelemetryClient.Flush` para enviar mensagens antes de fechar o aplicativo. (Isso não é recomendado para outros tipos de aplicativo).
 
 Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
 
@@ -96,11 +96,11 @@ Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
 
 Use qualquer uma das [APIs do Application Insights][track] para enviar telemetria. Em aplicativos de área de trabalho do Windows, nenhuma telemetria é enviada automaticamente. Normalmente você utilizaria:
 
-* TrackPageView\(pageName\) para alternar entre formulários, páginas ou guias
-* TrackEvent\(eventName\) para outras ações de usuário
-* TrackTrace\(logEvent\) para [registro de diagnóstico][diagnostic]
-* TrackException\(exception\) para cláusulas catch
-* TrackMetric \(nome, valor\) em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos.
+* TrackPageView(pageName) para alternar entre formulários, páginas ou guias
+* TrackEvent(eventName) para outras ações de usuário
+* TrackTrace(logEvent) para [registro de diagnóstico][diagnostic]
+* TrackException(exception) para cláusulas catch
+* TrackMetric (nome, valor) em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos.
 
 Para ver as contagens de usuários e sessões, defina um inicializador de contexto:
 

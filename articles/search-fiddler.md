@@ -73,7 +73,7 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
 
 Em alguns segundos, você deverá ver uma resposta HTTP 201 na lista de sessões, indicando que o índice foi criado com êxito.
 
-Se obtiver o HTTP 504, veja se a URL especifica HTTPS. Caso veja HTTP 400 ou 404, confira o corpo da solicitação para verificar se não houve erros ao copiar e colar. Um HTTP 403 normalmente indica um problema com a chave de API \(uma chave inválida ou um problema de sintaxe com o modo que a chave de API está especificada\).
+Se obtiver o HTTP 504, veja se a URL especifica HTTPS. Caso veja HTTP 400 ou 404, confira o corpo da solicitação para verificar se não houve erros ao copiar e colar. Um HTTP 403 normalmente indica um problema com a chave de API (uma chave inválida ou um problema de sintaxe com o modo que a chave de API está especificada).
 
 ## Carregue os documentos
 
@@ -83,7 +83,7 @@ Na guia Composer, sua solicitação para publicar documentos terá a seguinte ap
 
 1. Selecione **POST**.
 
-2.	Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida de "/indexes/\<'nomedoíndice'\>/docs/index?api-version=2015-02-28". A URL completa deve se parecer com o exemplo a seguir:
+2.	Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida de "/indexes/<'nomedoíndice'>/docs/index?api-version=2015-02-28". A URL completa deve se parecer com o exemplo a seguir:
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -169,7 +169,7 @@ Agora que o índice e os documentos foram carregados, você pode consultá-los. 
 
 1.	Selecione **GET**.
 
-2.	Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida por "/indexes/\<'indexname'\>/docs?", seguido de parâmetros de consulta. Para um exemplo, use a URL a seguir, substituindo o nome de host de amostra por um que seja válido para seu serviço.
+2.	Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida por "/indexes/<'indexname'>/docs?", seguido de parâmetros de consulta. Para um exemplo, use a URL a seguir, substituindo o nome de host de amostra por um que seja válido para seu serviço.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
@@ -186,7 +186,7 @@ O código de resposta deve ser 200, e a saída de resposta deve ser semelhante �
  
    ![][4]
 
-O exemplo de consulta a seguir é da [operação Pesquisar Índice \(API da Pesquisa do Azure\)](http://msdn.microsoft.com/library/dn798927.aspx) no MSDN. Muitos dos exemplos de consulta deste tópico incluem espaços, que não são permitidos no Fiddler. Substitua cada espaço por um caractere + antes de colar na cadeia de consulta e tentar realizar a consulta no Fiddler:
+O exemplo de consulta a seguir é da [operação Pesquisar Índice (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/dn798927.aspx) no MSDN. Muitos dos exemplos de consulta deste tópico incluem espaços, que não são permitidos no Fiddler. Substitua cada espaço por um caractere + antes de colar na cadeia de consulta e tentar realizar a consulta no Fiddler:
 
 **Antes da substituição dos espaços:**
 
@@ -219,7 +219,7 @@ Você também pode consultar o sistema para obter informações de contagens de 
 
 5.	Clique em **Executar**. Você deverá ver um código de status HTTP 200 na lista de sessões. Selecione a entrada publicada para seu comando.
 
-6.	Clique na guia **Inspetores** \| **Cabeçalhos** e selecione o formato JSON. Você deverá ver a contagem de documentos e o tamanho do armazenamento \(em KB\).
+6.	Clique na guia **Inspetores** | **Cabeçalhos** e selecione o formato JSON. Você deverá ver a contagem de documentos e o tamanho do armazenamento (em KB).
 
 ## Próximas etapas
 

@@ -56,7 +56,7 @@ se comunicam com os serviços REST.
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  Você pode executar o comando **ls** ou **dir** manualmente para verificar se uma pasta **node\_modules** foi criada.  Dentro dessa pasta, você encontrará o pacote **Azure**, que contém as bibliotecas necessárias para acessar o Hub de notificação.
+3.  Você pode executar o comando **ls** ou **dir** manualmente para verificar se uma pasta **node_modules** foi criada.  Dentro dessa pasta, você encontrará o pacote **Azure**, que contém as bibliotecas necessárias para acessar o Hub de notificação.
 
 ### Importar o módulo
 

@@ -79,7 +79,7 @@ Para o servidor OAuth 2.0 do Active Directory do Azure, a **URL do ponto de extr
 
 A configuração padrão para os **métodos de autenticação do cliente** é **Básico** e o **método de envio do token de acesso** é **cabeçalho de autorização**. Esses valores são configurados nesta seção da forma, junto com o **Escopo padrão**.
 
-A seção **credenciais do cliente** contém a **ID do cliente** e a **senha do cliente**, que são obtidas durante o processo de criação e de configuração do seu servidor OAuth 2.0. Uma vez que a **ID do cliente** e a **senha do cliente** são especificadas, o **redirect\_uri** para o **código de autorização** é gerado. Essa URI é usada para configurar a URL de resposta em sua configuração do servidor OAuth 2.0.
+A seção **credenciais do cliente** contém a **ID do cliente** e a **senha do cliente**, que são obtidas durante o processo de criação e de configuração do seu servidor OAuth 2.0. Uma vez que a **ID do cliente** e a **senha do cliente** são especificadas, o **redirect_uri** para o **código de autorização** é gerado. Essa URI é usada para configurar a URL de resposta em sua configuração do servidor OAuth 2.0.
 
 ![Novo servidor][api-management-oauth2-server-4]
 

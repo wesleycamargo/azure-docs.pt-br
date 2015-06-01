@@ -23,7 +23,7 @@ Este documento fornece informações sobre o recurso de log de Serviços Web AM 
 -	Como habilitar o log em Serviços Web:   
 	-	Para habilitar o log, você precisa acessar o Painel do Serviço Web do Portal do Azure, clicar para ativá-la clicando no botão Sim e então clicar em Salvar.  
 -	Qual é o efeito de habilitar o registro em log:  
-	-	Quando o Registro em Log estiver habilitado, todos os diagnósticos/erros do ponto de extremidade padrão serão registrados na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Você pode ver essa conta de armazenamento no modo de exibição Painel do portal do Azure \(parte inferior da seção Visão Rápida\) do seu espaço de trabalho.  
+	-	Quando o Registro em Log estiver habilitado, todos os diagnósticos/erros do ponto de extremidade padrão serão registrados na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Você pode ver essa conta de armazenamento no modo de exibição Painel do portal do Azure (parte inferior da seção Visão Rápida) do seu espaço de trabalho.  
 -	Onde está disponível:  
 	-	Atualmente, habilitamos o Registro em Log para o ponto de extremidade padrão do Serviço Web. Em breve, ofereceremos esse recurso para os pontos de extremidade adicionais que o usuário pode criar no portal do Azure.  
 -	Como exibir os logs:  

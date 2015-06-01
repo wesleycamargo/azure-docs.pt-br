@@ -32,7 +32,7 @@ Na linha do tempo Visão Geral, clique nos gráficos Usuários e Sessões para v
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 * Os **Usuários** são rastreados anonimamente, portanto, o mesmo usuário em dispositivos diferentes seria contabilizado duas vezes.
-* Uma **sessão** é contabilizada quando o aplicativo está suspenso \(por mais de um breve intervalo, para evitar a contabilização de suspensões acidentais\).
+* Uma **sessão** é contabilizada quando o aplicativo está suspenso (por mais de um breve intervalo, para evitar a contabilização de suspensões acidentais).
 
 #### Segmentação
 

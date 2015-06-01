@@ -53,8 +53,8 @@ Declare uma classe chamada **StorageSample** e inclua o colchete de abertura,
 
     public class StorageSample {
 
-Na classe **StorageSample**, declare uma variável de cadeia de caracteres queconterá o protocolo de ponto de extremidade padrão, o nome de sua conta de armazenamento ea chave de acesso de seu armazenamento, conforme especificado em sua conta de armazenamentodo Azure. Substitua os valores do espaço reservado **your\_account\_name** e
-**your\_account\_key** pelo nome de sua conta e por sua chave de conta, respectivamente.
+Na classe **StorageSample**, declare uma variável de cadeia de caracteres queconterá o protocolo de ponto de extremidade padrão, o nome de sua conta de armazenamento ea chave de acesso de seu armazenamento, conforme especificado em sua conta de armazenamentodo Azure. Substitua os valores do espaço reservado **your_account_name** e
+**your_account_key** pelo nome de sua conta e por sua chave de conta, respectivamente.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -211,8 +211,8 @@ Feche **MakeHTMLPage** inserindo um colchete de fechamento: **}**
 
 Feche **StorageSample** inserindo um colchete de fechamento: **}**
 
-A seguir está o código completo deste exemplo. Lembre-se de modificar os valores de espaço reservado **your\_account\_name** e
-**your\_account\_key** para usar o nome da conta e chave de conta, respectivamente.
+A seguir está o código completo deste exemplo. Lembre-se de modificar os valores de espaço reservado **your_account_name** e
+**your_account_key** para usar o nome da conta e chave de conta, respectivamente.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;

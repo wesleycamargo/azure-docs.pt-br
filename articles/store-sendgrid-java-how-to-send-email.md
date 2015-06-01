@@ -124,7 +124,7 @@ O código a seguir mostra como adicionar um anexo.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -142,11 +142,11 @@ O SendGrid fornece a funcionalidade adicional de email por meio do uso de *filtr
     um texto HTML que aparece na parte inferior do email sendo enviado.
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+			"{"filters": 
+			{"footer": 
+			{"settings": 
+        	{"enable":1,"text/html": 
+			"<html><b>Thank you</b> for your business.</html>"}}}}");
 
 -   Outro exemplo de um filtro é o rastreamento de cliques. Digamos que o texto do     email contém um hiperlink, como o seguinte, e você deseja     acompanhar a taxa de cliques:
 
@@ -160,10 +160,10 @@ O SendGrid fornece a funcionalidade adicional de email por meio do uso de *filtr
 -   To enable the click tracking, use the following code:
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+			"{"filters": 
+			{"clicktrack": 
+			{"settings": 
+        	{"enable":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>Como: Atualizar as propriedades do email
 

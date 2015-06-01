@@ -85,7 +85,7 @@ Em seguida, conecte-se à nova máquina virtual SQL1 *using the local administra
 3.	Quando solicitado a abrir SQL1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-	- Nome: **SLQ1\\**[Nome da conta de administrador local]
+	- Nome: **SLQ1**[Nome da conta de administrador local]
 	- Senha: [Senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem Conexão de Área de Trabalho Remota referente a certificados, clique em **Sim**.
 

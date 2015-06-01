@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+<tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
@@ -18,12 +19,12 @@
 
 ## Visão geral
 
-Este tutorial descreve as etapas necessárias para failover de um dispositivo StorSimple no caso de desastre. Um failover permitirá que você migre os dados de um dispositivo de origem no datacenter para outro dispositivo físico ou até mesmo virtual localizado no mesmo ou em um local geográfico diferente. O failover de dispositivo é orquestrado por meio do recurso de recuperação de desastres \(DR\) e é iniciado na página Dispositivos. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionamento e máxima, tipo e modelo são exibidos.
+Este tutorial descreve as etapas necessárias para failover de um dispositivo StorSimple no caso de desastre. Um failover permitirá que você migre os dados de um dispositivo de origem no datacenter para outro dispositivo físico ou até mesmo virtual localizado no mesmo ou em um local geográfico diferente. O failover de dispositivo é orquestrado por meio do recurso de recuperação de desastres (DR) e é iniciado na página Dispositivos. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionamento e máxima, tipo e modelo são exibidos.
 
 ![Página Dispositivos](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
-## Recuperação de desastres \(DR\) e failover de dispositivo
-Em um cenário de recuperação de desastre \(DR\), o dispositivo principal para de funcionar. Nessa situação, você pode mover os dados de nuvem associados ao dispositivo com falha para outro dispositivo por meio do dispositivo principal como a *origem* e especificando outro dispositivo como o *destino*. Você pode selecionar um ou mais contêineres de volume para migrar para o dispositivo de destino. Esse processo é conhecido como *failover*. Durante o failover, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino.
+## Recuperação de desastres (DR) e failover de dispositivo
+Em um cenário de recuperação de desastre (DR), o dispositivo principal para de funcionar. Nessa situação, você pode mover os dados de nuvem associados ao dispositivo com falha para outro dispositivo por meio do dispositivo principal como a *origem* e especificando outro dispositivo como o *destino*. Você pode selecionar um ou mais contêineres de volume para migrar para o dispositivo de destino. Esse processo é conhecido como *failover*. Durante o failover, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino.
 
 ## Considerações para failover de dispositivo
 Em caso de desastre, você pode optar por fazer o failover do seu dispositivo StorSimple:
@@ -56,7 +57,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
 	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
 
@@ -84,7 +85,7 @@ Se você só tiver um único dispositivo e precisa executar um failover, execute
 												
 	>[AZURE.IMPORTANT]**Se a configuração mínima não for concluída primeiro, a recuperação de desastres falhará devido a um bug na implementação atual. Esse problema será corrigido em uma versão posterior.**
 
-1. Selecione o dispositivo antigo \(status offline\) e clique em **Failover**. No assistente que é apresentado, faça o failover desse dispositivo e especificar o dispositivo de destino como o dispositivo registrado recentemente. Para obter instruções detalhadas, consulte [Failover para outro dispositivo físico](#fail-over-to-another-physical-device).
+1. Selecione o dispositivo antigo (status offline) e clique em **Failover**. No assistente que é apresentado, faça o failover desse dispositivo e especificar o dispositivo de destino como o dispositivo registrado recentemente. Para obter instruções detalhadas, consulte [Failover para outro dispositivo físico](#fail-over-to-another-physical-device).
 
 1. Será criado um trabalho de restauração de dispositivo para que você possa monitorar a partir da página **Trabalhos**.
 
@@ -112,7 +113,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 													
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
 1. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.
 

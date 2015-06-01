@@ -46,7 +46,7 @@ Os valores para o nome chave e valor da SAS podem ser encontrados na informaçã
 
 	bus_service.create_topic('mytopic')
 
-**create\_topic** também oferece suporte para opções adicionais, que permitem a substituição de configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. O exemplo a seguir mostra a definição do tamanho máximo do tópico para 5 GB e da vida útil para 1 minuto:
+**create_topic** também oferece suporte para opções adicionais, que permitem a substituição de configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. O exemplo a seguir mostra a definição do tamanho máximo do tópico para 5 GB e da vida útil para 1 minuto:
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -73,10 +73,10 @@ Você também pode configurar filtros que permitem atribuir um escopo a quais me
 O tipo mais flexível de filtro suportado por assinaturas é o
 **SqlFilter**, que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression][].
 
-Os filtros podem ser adicionados a uma assinatura usando o método **create\_rule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
+Os filtros podem ser adicionados a uma assinatura usando o método **create_rule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
 
 **Observação**: Como o filtro padrão é aplicado automaticamente a todas as novas assinaturas, você deve primeiro remover o filtro padrão ou o
-**MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete\_rule()**
+**MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete_rule()**
 objeto **ServiceBusService**.
 
 O exemplo a seguir cria uma assinatura denominada  'HighMessages' com um
@@ -108,7 +108,7 @@ Quando uma mensagem é agora enviada para 'mytopic', ela sempre será entregue a
 
 ## Como enviar mensagens a um tópico
 
-Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send\_topic\_message** do objeto **ServiceBusService**.
+Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send_topic_message** do objeto **ServiceBusService**.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para'mytopic'. Observe que o valor da propriedade **messagenumber** de cada mensagem varia de acordo com a iteração do loop (isso determinará qual assinatura o receberá):
 
@@ -121,19 +121,19 @@ Os tópicos de Barramento de Serviço oferecem suporte a um tamanho máximo de m
 ## Como receber mensagens de uma assinatura
 
 As mensagens são recebidas de uma assinatura, usando o
-método **receive\_subscription\_message** do objeto **ServiceBusService**:
+método **receive_subscription_message** do objeto **ServiceBusService**:
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
 As mensagens são excluídas da assinatura conforme elas são lidas quando o parâmetro
-**peek\_lock** é definido para **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro
-**peek\_lock** para **True**.
+**peek_lock** é definido para **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro
+**peek_lock** para **True**.
 
 O comportamento da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
 
-Se o parâmetro **peek\_lock** estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo.
+Se o parâmetro **peek_lock** estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo.
 Depois que o aplicativo conclui o processamento da mensagem (ou a armazenada de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando o **Delete** no objeto **Message**.
 O método **delete** marcará a mensagem como tendo sido consumida e a removerá da assinatura.
 

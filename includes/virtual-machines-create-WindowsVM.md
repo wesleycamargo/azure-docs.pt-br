@@ -6,7 +6,7 @@
 
 	![Navegar até Da Galeria na barra de comandos](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 	
-4. A primeira tela permite **Escolher uma Imagem** para a máquina virtual em uma das listas na Galeria de Imagens. \(As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando\). Clique na seta para continuar.
+4. A primeira tela permite **Escolher uma Imagem** para a máquina virtual em uma das listas na Galeria de Imagens. (As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando). Clique na seta para continuar.
 
 	![Escolher uma imagem](./media/virtual-machines-create-WindowsVM/chooseimage.png)
 

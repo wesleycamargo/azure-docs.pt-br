@@ -16,16 +16,16 @@
 	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 	
-#Azure Stream Analytics e Power BI: Painel Dinâmico em Análise em Tempo real de Fados de Streaming
+# Azure Stream Analytics e Power BI: Painel Dinâmico em Análise em Tempo real de Fados de Streaming
 
-Um dos casos de uso comuns do Azure Stream Analytics é analisar os dados de streaming de alto volume em tempo real e colocar as informações em um painel dinâmico \(um painel atualizado em tempo real sem que o usuário precise atualizar o navegador\). O [Microsoft Power BI](https://powerbi.com/) é perfeito para criar o painel dinâmico em pouco tempo. [Veja um vídeo de exemplo para ilustrar o cenário](https://www.youtube.com/watch?v=SGUpT-a99MA). Neste artigo, saiba como usar o Power BI como uma saída para o trabalho do Azure Stream Analytics. Observação: o Azure Stream Analytics está disponível em geral, mas neste ponto, a saída do Power BI é um recurso de visualização do Azure Stream Analytics.
+Um dos casos de uso comuns do Azure Stream Analytics é analisar os dados de streaming de alto volume em tempo real e colocar as informações em um painel dinâmico (um painel atualizado em tempo real sem que o usuário precise atualizar o navegador). O [Microsoft Power BI](https://powerbi.com/) é perfeito para criar o painel dinâmico em pouco tempo. [Veja um vídeo de exemplo para ilustrar o cenário](https://www.youtube.com/watch?v=SGUpT-a99MA). Neste artigo, saiba como usar o Power BI como uma saída para o trabalho do Azure Stream Analytics. Observação: o Azure Stream Analytics está disponível em geral, mas neste ponto, a saída do Power BI é um recurso de visualização do Azure Stream Analytics.
 
-##Pré-requisitos
+## Pré-requisitos
 
-* Conta do Microsoft Azure usando a Id da Org \(o Power BI só funciona com a ID da Org. A ID da Org é o seu endereço de email de trabalho ou comercial, por exemplo, xyz@mycompany.com. Emails pessoais, como xyz@hotmail.com não são ids da org. [Você pode aprender mais sobre id da org aqui](https://www.arin.net/resources/request/org.html)\).
-* Um fluxo de entrada para o trabalho do ASA \(Azure Stream Analytics\) de onde serão consumidos dados de streaming. Neste ponto, o ASA aceita entrada de um Hub de Eventos do Azure ou um Armazenamento de Blob do Azure.  
+* Conta do Microsoft Azure usando a Id da Org (o Power BI só funciona com a ID da Org. A ID da Org é o seu endereço de email de trabalho ou comercial, por exemplo, xyz@mycompany.com. Emails pessoais, como xyz@hotmail.com não são ids da org. [Você pode aprender mais sobre id da org aqui](https://www.arin.net/resources/request/org.html)).
+* Um fluxo de entrada para o trabalho do ASA (Azure Stream Analytics) de onde serão consumidos dados de streaming. Neste ponto, o ASA aceita entrada de um Hub de Eventos do Azure ou um Armazenamento de Blob do Azure.  
 
-##Criar Trabalho do Azure Stream Analytics
+## Criar Trabalho do Azure Stream Analytics
 
 No [Portal do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
 
@@ -41,7 +41,7 @@ Clique em **Stream Analytics** no painel esquerdo para listar os trabalhos do St
 
 > [AZURE.TIP]O novo trabalho será listado com um status **Não Iniciado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Esse é o comportamento esperado, já que você deve configurar a entrada do trabalho, a saída, a consulta e assim por diante antes de poder iniciar o trabalho.
 
-##Especificar entrada de trabalho
+## Especificar entrada de trabalho
 
 Para este tutorial, estamos supondo que você está usando o Hub de Eventos como uma entrada com serialização JSON e codificação utf-8.
 
@@ -66,13 +66,13 @@ Para este tutorial, estamos supondo que você está usando o Hub de Eventos como
   *	**Codificação** - UTF8
 *	Clique no botão de verificação para adicionar essa fonte e para verificar se o Stream Analytics pode se conectar com êxito ao hub de eventos.
 
-##Adicionar saída do Power BI
+## Adicionar saída do Power BI
 
 1.  Clique em **Saída** na parte superior da página e então clique em **Adicionar Saída**. Você verá o Power BI listado como uma opção de saída.
 
 ![elementográfico2][graphic2]
 
-> [AZURE.NOTE]Observação - A saída do Power BI só estará disponível para contas do Azure usando Ids de Org. Se você não estiver usando uma Id da Org para sua conta do Azure \(por exemplo, seu live id/conta pessoal da Microsoft\), não verá uma opção de saída do Power BI.
+> [AZURE.NOTE]Observação - A saída do Power BI só estará disponível para contas do Azure usando Ids de Org. Se você não estiver usando uma Id da Org para sua conta do Azure (por exemplo, seu live id/conta pessoal da Microsoft), não verá uma opção de saída do Power BI.
 
 2.  Selecione **Power BI** e então clique no botão direito.
 3.  Você verá uma tela como esta:
@@ -90,14 +90,14 @@ Forneça valores como a seguir:
 * **Nome do Conjunto de Dados** -Forneça um nome de conjunto de dados que você deseja que a saída do Power BI tenha. Por exemplo, usaremos “pbidemo”.
 *	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do ASA só podem ter uma tabela em um conjunto de dados.
 
->	[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] Nota - Você não deve criar explicitamente esse conjunto de dados e tabela na sua conta do Power BI. Eles serão criados automaticamente quando você iniciar seu trabalho ASA e o trabalho começar a enviar saída no Power BI. Se sua consulta de trabalho ASA não retornar resultados, o conjunto de dados e a tabela não serão criados.
 
 *	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
+>	[AZURE.WARNING] Lembre-se também que se o Power BI já tiver um conjunto de dados e tabela com o mesmo nome que o fornecido nesse trabalho ASA, os dados existentes serão substituídos.
 
 
-##Gravar Consultas
+## Gravar Consultas
 
 Vá para a guia **Consulta** do seu trabalho. Escreva sua consulta, a saída da qual você deseja em seu Power BI. Por exemplo, ela poderia ser algo como a seguinte consulta SQL:
 
@@ -118,7 +118,7 @@ Vá para a guia **Consulta** do seu trabalho. Escreva sua consulta, a saída da 
     
 Inicie o trabalho. Valide se o seu hub de eventos está recebendo eventos e se sua consulta gera os resultados esperados. Se a sua consulta tiver como saída 0 linhas, o conjunto de dados e as tabelas do Power BI não serão criados automaticamente.
 
-##Criar o Painel no Power BI
+## Criar o Painel no Power BI
 
 Acesse [Powerbi.com](https://powerbi.com) e faça logon com a sua Id da Org. Se a consulta do trabalho do ASA tiver como saída resultados, você verá seu conjunto de dados já criado:
 
@@ -130,7 +130,7 @@ Para a criação do painel, vá para a opção de Painéis e crie um novo Painel
 
 Neste exemplo, vamos rotulá-lo como “Painel de Demonstração”.
 
-Agora, clique no conjunto de dados criado por seu trabalho do ASA \(pbidemo, em nosso exemplo atual\). Você será levado a uma página para criar um gráfico na parte superior desse conjunto de dados. A seguir, um exemplo dos relatórios que você pode criar:
+Agora, clique no conjunto de dados criado por seu trabalho do ASA (pbidemo, em nosso exemplo atual). Você será levado a uma página para criar um gráfico na parte superior desse conjunto de dados. A seguir, um exemplo dos relatórios que você pode criar:
 
 Selecione os campos Σ temporário e hora. Eles irão automaticamente para Valor e Eixo no gráfico:
 

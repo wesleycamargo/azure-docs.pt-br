@@ -22,7 +22,7 @@ Este tópico descreve todas as funções que você pode usar em um modelo do Ger
 
 ## base64
 
-**base64 \(inputString\)**
+**base64 (inputString)**
 
 Retorna a representação base64 da cadeia de caracteres de entrada.
 
@@ -39,7 +39,7 @@ O exemplo a seguir mostra como usar a função base64.
 
 ## concat
 
-**concat \(arg1, arg2, arg3, ...\)**
+**concat (arg1, arg2, arg3, ...)**
 
 Combina vários valores de cadeia de caracteres e retorna o valor de cadeia de caracteres resultante. Essa função pode conter qualquer número de argumentos.
 
@@ -54,7 +54,7 @@ O exemplo a seguir mostra como combinar diversos valores para retornar um valor.
 
 ## listKeys
 
-**listKeys \(resourceName or resourceIdentifier, [apiVersion]\)**
+**listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
 Retorna as chaves para uma conta de armazenamento. A identificação de recurso pode ser especificada usando a [função resourceId](./#resourceid) ou usando o formato **providerNamespace/resourceType/resourceName**. Você pode usar a função para obter a primaryKey e secondaryKey.
   
@@ -74,7 +74,7 @@ O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento 
 
 ## parâmetros
 
-**parâmetros \(parameterName\)**
+**parâmetros (parameterName)**
 
 Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
 
@@ -100,7 +100,7 @@ O exemplo a seguir mostra um uso simplificado da função parâmetros.
 
 ## provider
 
-**provider \(providerNamespace, [resourceType]\)**
+**provider (providerNamespace, [resourceType])**
 
 Retorna informações sobre um provedor de recursos e seus tipos de recursos com suporte. Se nenhum tipo for fornecido, todos os tipos com suport são retornados.
 
@@ -128,7 +128,7 @@ O exemplo a seguir mostra como usar a função provider:
 
 ## reference
 
-**reference \(resourceName ou resourceIdentifier, [apiVersion]\)**
+**reference (resourceName ou resourceIdentifier, [apiVersion])**
 
 Habilita uma expressão a derivar seu valor do estado de tempo de execução do outro recurso.
 
@@ -150,7 +150,7 @@ Usando a expressão de referência, você declara que um recurso depende de outr
 
 ## resourceGroup
 
-**resourceGroup\(\)**
+**resourceGroup()**
 
 Retorna um objeto estruturado que representa o grupo de recursos atual. O objeto estará no seguinte formato:
 
@@ -174,7 +174,7 @@ O exemplo a seguir usa o local do grupo de recursos para atribuir o local de um 
 
 ## resourceId
 
-**resourceId \([resourceGroupName], resourceType, resourceName1, [resourceName2]...\)**
+**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo. O identificador é retornado no seguinte formato:
 
@@ -238,7 +238,7 @@ Frequentemente, você precisa usar essa função ao usar uma conta de armazename
 
 ## assinatura
 
-**subscription\(\)**
+**subscription()**
 
 Retorna detalhes sobre a assinatura no formato a seguir.
 
@@ -258,7 +258,7 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 
 ## variáveis
 
-**variables \(NomedaVariável\)**
+**variables (NomedaVariável)**
 
 Retorna o valor da variável. O nome do parâmetro especificado deve ser definido na seção variáveis do modelo.
 

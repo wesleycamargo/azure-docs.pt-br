@@ -27,7 +27,7 @@ Este artigo mostra como criar o pacote de aplicativos de API para que você poss
 
 ## Estrutura de pastas
 
-Um pacote do Nuget \(arquivo \*.nupkg\) para um aplicativo de API tem os seguintes arquivos e pastas sob a pasta *Conteúdo*:
+Um pacote do Nuget (arquivo *.nupkg) para um aplicativo de API tem os seguintes arquivos e pastas sob a pasta *Conteúdo*:
 
     apiapp.json
     Metadata
@@ -51,19 +51,19 @@ As seções a seguir documentam cada arquivo e pasta na estrutura de pastas do a
 
 Este é o arquivo de manifesto para seu aplicativo de API.
 
-|Nome \(em negrito = requerido\)|Tipo|Formatar|Descrição|
+|Nome (em negrito = requerido)|Tipo|Formatar|Descrição|
 |:---------------------|:-----|:-------|:------------|
-|**ID**|string|[a-zA-Z0-9 \_.]|A ID desse pacote. Deve ser exclusiva dentro de um namespace e pode conter apenas caracteres alfanuméricos, "\_" e ".". Deve começar com um caractere alfanumérico.|
+|**ID**|string|[a-zA-Z0-9 _.]|A ID desse pacote. Deve ser exclusiva dentro de um namespace e pode conter apenas caracteres alfanuméricos, "_" e ".". Deve começar com um caractere alfanumérico.|
 |**namespace**|string|nome de domínio|O namespace que, junto com a propriedade **id**, identifica exclusivamente o aplicativo de API. Deve ser um dos nomes de domínio de locatário do AAD do editor.|
 |**versão**|string|[semver](http://docs.nuget.org/Create/Versioning)|A versão deste pacote. Quando a atualização automática está habilitada por usuários para este pacote, ela será aplicada apenas a novas versões dentro da mesma versão principal.|
 |**gateway**|string|2015-01-14|A versão de API do gateway que este pacote está usando. Um gateway é um aplicativo Web especial por meio do qual todas as solicitações para aplicativos de API em um grupo de recursos são roteados. Uma das suas principais funções é tratar a autenticação. No momento única versão de gateway é 2015-01-14. No futuro, quando novas versões de gateway forem lançadas, essa propriedade lhe dará a oportunidade de evitar alterações significativas e de continuar a usar o API de gateway anterior.| 
 |**título**|string||O nome exibido do aplicativo de API.|
 |**resumo**|string|máximo de 100 caracteres|Um breve resumo do aplicativo de API.
-|description|string|máximo de 1500 caracteres|A descrição completa do aplicativo de API. Pode conter HTML. Os elementos e atributos permitidos são "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target\|href]", "br", "strong", "em", "b" e "i".|
-|**autor**|string|máximo de 256 caracteres|Autor\(es\) do aplicativo de API.|
+|description|string|máximo de 1500 caracteres|A descrição completa do aplicativo de API. Pode conter HTML. Os elementos e atributos permitidos são "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target|href]", "br", "strong", "em", "b" e "i".|
+|**autor**|string|máximo de 256 caracteres|Autor(es) do aplicativo de API.|
 |home page|string|URL|Home page do aplicativo API.|
 |pontos de extremidade|objeto||Uma lista de pontos de extremidade que a plataforma de aplicativo de API pode consultar para obter informações sobre os métodos e o status do aplicativo de API.|
-|endpoints.apiDefinition|string|Caminho da URL|URL relativa de uma API exposta pelo aplicativo de API que retorna uma definição de API Swagger 2.0 em uma solicitação GET \(por exemplo, "/ documentos/swagger/v1"\). Se for definido, ele será usado em vez do arquivo estático apiDefinition.swagger.json no pacote, se houver algum.|
+|endpoints.apiDefinition|string|Caminho da URL|URL relativa de uma API exposta pelo aplicativo de API que retorna uma definição de API Swagger 2.0 em uma solicitação GET (por exemplo, "/ documentos/swagger/v1"). Se for definido, ele será usado em vez do arquivo estático apiDefinition.swagger.json no pacote, se houver algum.|
 |endpoints.status|string|Caminho da URL|URL relativa de uma API exposta pelo aplicativo de API que retorna informações de status de tempo de execução sobre o aplicativo de API em uma solicitação GET.|
 |categorias|cadeia de caracteres[]|comunidade, social, enterprise, integração, protocolo, aplicativo datasvc, outros|A categoria do Azure Marketplace na qual esse pacote de aplicativos de API aparecerá. Por padrão, o aplicativo de API sempre aparecerá na categoria de comunidade. Depois que o aplicativo de API for aprovado, ele aparecerá na categoria especificada.|
 |licença|objeto||A licença do aplicativo de API.|
@@ -83,9 +83,9 @@ Este é o arquivo de manifesto para seu aplicativo de API.
 
 Opcionalmente, você pode fornecer um arquivo estático Swagger 2.0 JSON aqui para expor a definição de API do seu aplicativo de API. A plataforma verificará primeiro se a propriedade **endpoints.apiDefinition** está configurada em **apiapp.json**. Em caso positivo, ele receberá a definição de API da URL especificada na propriedade. Caso contrário, ele vai tentar localizar esse arquivo.
 
-- Para obter informações sobre o padrão de Swagger 2.0, consulte [http://swagger.io/](http://swagger.io/). \<!--todo provide URLs
+- Para obter informações sobre o padrão de Swagger 2.0, consulte [http://swagger.io/](http://swagger.io/). <!--todo provide URLs
 - Para obter informações sobre como personalizar a definição de API para otimizá-lo para aplicativos lógicos, consulte o [título do documento]().
-- Para obter informações sobre como exibir uma definição de API dinâmica, consulte [título do documento](). --\>
+- Para obter informações sobre como exibir uma definição de API dinâmica, consulte [título do documento](). -->
 
 ## metadados/ícones
 
@@ -107,13 +107,13 @@ Opcionalmente, você pode fornecer 5 capturas de tela para seu pacote de aplicat
 
 |Arquivo|Largura|Altura|Descrição|
 |:--------------------|:----|:-----|:----------|
-|metadata/screenshots/\*.png|533px|324px|Capturas de tela do seu pacote de aplicativos de API.|
+|metadata/screenshots/*.png|533px|324px|Capturas de tela do seu pacote de aplicativos de API.|
 
 ## metadata/deploymentTemplates
 
 Às vezes, um pacote de aplicativos de API exige alguma configuração personalizada durante a implantação. Por exemplo, o [Conector de Blob de armazenamento do Azure](http://azure.microsoft.com/marketplace/partners/microsoft_com/azurestorageblobconnector/) requer o URI do contêiner do blob de armazenamento do Azure. Opcionalmente, você também pode configurar uma chave de acesso.
 
-Para oferecer suporte a esse cenário, você pode adicionar uma lista de arquivos JSON de modelo do ARM \(Azure Resource Manager\) nessa pasta para personalizar a implantação do aplicativo de API. A plataforma do aplicativo de API mesclará seus modelos personalizados de ARM com nosso modelo de sistema para produzir um modelo final para implantação. Todos os parâmetros definidos em seus modelos de ARM personalizados \(esperado para **$system**\) também serão solicitados automaticamente na folha **criar** do portal de visualização do Azure, para que os usuários de seu aplicativo de API possam inserir os valores.
+Para oferecer suporte a esse cenário, você pode adicionar uma lista de arquivos JSON de modelo do ARM (Azure Resource Manager) nessa pasta para personalizar a implantação do aplicativo de API. A plataforma do aplicativo de API mesclará seus modelos personalizados de ARM com nosso modelo de sistema para produzir um modelo final para implantação. Todos os parâmetros definidos em seus modelos de ARM personalizados (esperado para **$system**) também serão solicitados automaticamente na folha **criar** do portal de visualização do Azure, para que os usuários de seu aplicativo de API possam inserir os valores.
 
 Abaixo, uma amostra de modelo ARM demonstrando como solicitar o URI do contêiner de blob e chave de acesso durante a implantação de aplicativos de API.
 
@@ -155,11 +155,11 @@ Abaixo, uma amostra de modelo ARM demonstrando como solicitar o URI do contêine
       ]
     }
 
-A folha Criar do portal de visualização do Azure correspondente é mostrada na captura de tela abaixo. \(A captura de tela mostra um pacote de aplicativos de API usando UIDefinition.json para aprimorar a folha criar. Para obter detalhes, consulte [metadata/UIDefinition.json](#metadata-uidefinition-json).
+A folha Criar do portal de visualização do Azure correspondente é mostrada na captura de tela abaixo. (A captura de tela mostra um pacote de aplicativos de API usando UIDefinition.json para aprimorar a folha criar. Para obter detalhes, consulte [metadata/UIDefinition.json](#metadata-uidefinition-json).
 
 ![Exemplo de folha Criar de modelo ARM personalizado](./media/app-service-api-create-package/custom-arm-template-create-blade-example.png)
 
-Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure \(a página pode estar em inglês\)](https://msdn.microsoft.com/library/dn835138).
+Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/dn835138).
 
 ## metadata/UIDefinition.json
 
@@ -258,7 +258,7 @@ Para criar um pacote de aplicativos de API
 Isso validará o conteúdo do pacote para certificar-se
 
 - Ele segue o formato descrito acima
-- Metadata\\apiDefinition.swagger.json \(se fornecido\) contém a definição válida de API do Swagger 2.0
+- Metadata\\apiDefinition.swagger.json (se fornecido) contém a definição válida de API do Swagger 2.0
 
 Se houver qualquer problema, ele exibirá os detalhes para que você possa corrigir o problema e criar um pacote de aplicativos de API válido.
 

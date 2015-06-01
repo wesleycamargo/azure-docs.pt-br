@@ -58,7 +58,7 @@ Depois de alguns minutos, o pacote de aplicativos de API será sincronizado com 
 
 ## Implantar o pacote de aplicativos de API no portal de visualização do Azure
 
-Você também pode entrar em [Portal de visualização do Azure](https://portal.azure.com) usando sua conta do Azure \(pode ser uma conta diferente daquela que você usa para publicar o pacote de aplicativos de API\). Aqui você pode verificar a experiência de criação de seu pacote de aplicativos de API oferecida pelo Portal de Visualização do Azure. Se houver qualquer coisa que você precise alterar, basta alterar tal propriedade em seu pacote de aplicativos de API e publicar novamente.
+Você também pode entrar em [Portal de visualização do Azure](https://portal.azure.com) usando sua conta do Azure (pode ser uma conta diferente daquela que você usa para publicar o pacote de aplicativos de API). Aqui você pode verificar a experiência de criação de seu pacote de aplicativos de API oferecida pelo Portal de Visualização do Azure. Se houver qualquer coisa que você precise alterar, basta alterar tal propriedade em seu pacote de aplicativos de API e publicar novamente.
 
 Para obter detalhes sobre como implantar um pacote de aplicativos da API no portal do Azure, consulte um exemplo de como implantar o DropboxConnector [aqui](app-service-api-connnect-your-app-to-saas-connector.md).
 

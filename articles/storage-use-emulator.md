@@ -101,7 +101,7 @@ A partir da versão 3.1, a conta do emulador de armazenamento oferece suporte a 
 ## Inicialize o emulador de armazenamento usando a ferramenta de linha de comando
 Você pode usar a ferramenta de linha de comando do emulador de armazenamento para inicializar o emulador de armazenamento para apontar para uma instância do banco de dados diferente do padrão. Se você quiser usar a instância do banco de dados LocalDB padrão, não é necessário executar uma etapa de inicialização separada.
 
-Essa ferramenta é instalada por padrão no diretório C:\Program Files(x86)\Microsoft SDKs\Azure\Storage Emulator\. A inicialização é executada automaticamente na primeira vez que você iniciar o emulador.
+Essa ferramenta é instalada por padrão no diretório C:\Program Files(x86)\Microsoft SDKs\Azure\Storage Emulator. A inicialização é executada automaticamente na primeira vez que você iniciar o emulador.
 
 > [AZURE.NOTE] Você deve ter privilégios administrativos para executar o comando `init` descrito abaixo.
 

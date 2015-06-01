@@ -128,7 +128,7 @@ Quando seu projeto de serviço de nuvem for implantado no Azure, conecte suas in
     #Initialize domain variables
 
     $domain = '<your-domain-name>';
-    $dmuser = '$domain\<your-username>';
+    $dmuser = '$domain<your-username>';
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);

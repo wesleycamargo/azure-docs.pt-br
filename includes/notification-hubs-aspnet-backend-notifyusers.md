@@ -257,12 +257,12 @@ Siga as etapas abaixo para criar um novo back-end de WebAPI do ASP.NET para aute
 
 
             // apns
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
+            var alert = "{"aps":{"alert":"Hello"}}";
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
 
 
             // gcm
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
+            var notif = "{ "data" : {"msg":"Hello"}}";
             await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
 
 

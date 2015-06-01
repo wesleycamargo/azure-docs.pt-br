@@ -36,9 +36,9 @@ Esta é a terceira parte da série:
 
 - [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-replication-vnet]
 - [Configurar o DNS para as redes virtuais][hdinsight-hbase-replication-dns]
-- Configure a replicação geográfica de HBase \(este tutorial\)
+- Configure a replicação geográfica de HBase (este tutorial)
 
-O diagrama a seguir ilustra as duas redes virtuais e a conectividade de rede que você criou em [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet] e [Configurar DNS para as redes virtuais][hdinsight-hbase-replication-dns]\:
+O diagrama a seguir ilustra as duas redes virtuais e a conectividade de rede que você criou em [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet] e [Configurar DNS para as redes virtuais][hdinsight-hbase-replication-dns]:
 
 ![Diagrama de rede virtual de replicação de HBase do HDInsight][img-vnet-diagram]
 
@@ -52,11 +52,11 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Duas redes virtuais do Azure com conectividade VPN com o DNS configurada**. Para obter instruções, consulte [Configurar uma conexão VPN entre duas redes virtuais do Azure][hdinsight-hbase-replication-vnet] e [Configurar DNS entre duas redes virtuais do Azure][hdinsight-hbase-replication-dns].
 
 
-	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
+	Antes de executar scripts do PowerShell, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
 
 		Add-AzureAccount
 
-	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+	Se você tiver várias assinaturas do Azure, use o seguinte cmdlet para definir a assinatura atual:
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
@@ -223,8 +223,8 @@ Crie tabelas de HBase com os mesmos nomes e famílias de coluna nos clusters de 
 
 **Para adicionar o Contoso-HBase-US como um parceiro de replicação**
 
-1. Alterne para a janela RDP do **Contso HBase\_EU**.
-2. Na janela do shell do HBase, adicione o cluster de destino \(Contoso-HBase-US\) como um par, por exemplo:
+1. Alterne para a janela RDP do **Contso HBase_EU**.
+2. Na janela do shell do HBase, adicione o cluster de destino (Contoso-HBase-US) como um par, por exemplo:
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
 
@@ -290,7 +290,7 @@ Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois d
 - [Visão geral de HBase no HDInsight][hdinsight-hbase-overview]
 - [Provisionar os clusters do HBase na rede Virtual do Azure][hdinsight-hbase-provision-vnet]
 - [Analisar o sentimento do Twitter em tempo real com o HBase][hdinsight-hbase-twitter-sentiment]
-- [Analisando dados de sensor com o Storm e o HBase em HDInsight \(Hadoop\)][hdinsight-sensor-data]
+- [Analisando dados de sensor com o Storm e o HBase em HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
 [hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-VNet.md

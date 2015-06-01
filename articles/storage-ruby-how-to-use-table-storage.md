@@ -53,7 +53,7 @@ Use seu editor de texto favorito e adicione o seguinte na parte superior do arqu
 
 ## Configurar uma conexão de armazenamento do Azure
 
-O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta antes de usar **Azure::TableService** com o seguinte código:
+O módulo do Azure lerá as variáveis de ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta antes de usar **Azure::TableService** com o seguinte código:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -70,7 +70,7 @@ Para obter esses valores:
 
 ## Como criar uma tabela
 
-O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create\_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver algum.
+O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver algum.
 
 	azure_table_service = Azure::TableService.new
 	begin
@@ -91,22 +91,22 @@ Para adicionar uma entidade, primeiro crie um objeto hash que defina as propried
 
 Há vários métodos disponíveis para atualizar uma entidade existente:
 
-* **update\_entity():** atualizar uma entidade existente substituindo-a.
-* **merge\_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente.
-* **insert\_or\_merge\_entity():** atualiza uma entidade existente substituindo-a. Se nenhuma entidade existir, uma nova será inserida:
-* **insert\_or\_replace\_entity():** atualiza uma entidade existente mesclando novos valores de propriedade na entidade existente. Se nenhuma entidade existir, uma nova será inserida.
+* **update_entity():** atualizar uma entidade existente substituindo-a.
+* **merge_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente.
+* **insert_or_merge_entity():** atualiza uma entidade existente substituindo-a. Se nenhuma entidade existir, uma nova será inserida:
+* **insert_or_replace_entity():** atualiza uma entidade existente mesclando novos valores de propriedade na entidade existente. Se nenhuma entidade existir, uma nova será inserida.
 
-O exemplo a seguir demonstra a atualização de uma entidade com o uso de **update\_entity()**:
+O exemplo a seguir demonstra a atualização de uma entidade com o uso de **update_entity()**:
 
 	entity = { "content" => "test entity with updated content", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.update_entity("testtable", entity)
 
-Com **update\_entity()** e **merge\_entity()**, se a entidade que está sendo atualizada não existir, a operação de atualização falhará. Por isso, se desejar armazenar uma entidade independentemente de ela já existir, você deverá usar **insert\_or\_replace\_entity()** ou **insert\_or\_merge\_entity()**.
+Com **update_entity()** e **merge_entity()**, se a entidade que está sendo atualizada não existir, a operação de atualização falhará. Por isso, se desejar armazenar uma entidade independentemente de ela já existir, você deverá usar **insert_or_replace_entity()** ou **insert_or_merge_entity()**.
 
 ## Como: Trabalhar com grupos de entidades
 
-Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para fazer isso, você deve primeiro criar um objeto **Batch** e, em seguida, usar o método **execute\_batch()** em **TableService**. O seguinte exemplo demonstra o envio de duas entidades com RowKey 2 e 3 em um lote. Observe que isso funciona apenas em entidades com o mesmo PartitionKey.
+Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para fazer isso, você deve primeiro criar um objeto **Batch** e, em seguida, usar o método **execute_batch()** em **TableService**. O seguinte exemplo demonstra o envio de duas entidades com RowKey 2 e 3 em um lote. Observe que isso funciona apenas em entidades com o mesmo PartitionKey.
 
 	azure_table_service = Azure::TableService.new
 	batch = Azure::Storage::Table::Batch.new("testtable", 
@@ -118,14 +118,14 @@ Com **update\_entity()** e **merge\_entity()**, se a entidade que está sendo at
 
 ## Como: Consultar uma entidade
 
-Para consultar uma entidade em uma tabela, use o método **get\_entity()**, transmitindo o nome da tabela, **PartitionKey** e **RowKey**.
+Para consultar uma entidade em uma tabela, use o método **get_entity()**, transmitindo o nome da tabela, **PartitionKey** e **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key", 
 	  "1")
 
 ## Como: Consultar um conjunto de entidades
 
-Para consultar um conjunto de entidades em uma tabela, crie um objeto hash de consulta e use o método **query\_entities()**. O exemplo a seguir demonstra como obter todas as entidades com o mesmo **PartitionKey**:
+Para consultar um conjunto de entidades em uma tabela, crie um objeto hash de consulta e use o método **query_entities()**. O exemplo a seguir demonstra como obter todas as entidades com o mesmo **PartitionKey**:
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
@@ -142,13 +142,13 @@ Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma enti
 
 ## Como: Excluir uma entidade
 
-Para excluir uma entidade, use o método **delete\_entity()**. Você deve transmitir o nome da tabela que contém a entidade, o PartitionKey e o RowKey da entidade.
+Para excluir uma entidade, use o método **delete_entity()**. Você deve transmitir o nome da tabela que contém a entidade, o PartitionKey e o RowKey da entidade.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
 ## Como: Excluir uma tabela
 
-Para excluir uma tabela, use o método **delete\_table()** e transmita o nome da tabela que deseja excluir.
+Para excluir uma tabela, use o método **delete_table()** e transmita o nome da tabela que deseja excluir.
 
 		azure_table_service.delete_table("testtable")
 

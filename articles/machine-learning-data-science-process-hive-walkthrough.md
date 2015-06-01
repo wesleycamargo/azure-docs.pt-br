@@ -46,17 +46,17 @@ Os dados de Viagens de Táxi em NYC são cerca de 20 GB de arquivos compactados 
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-A chave exclusiva para ingressar trip\_data e trip\_fare é composta pelos campos: medallion, hack\_licence e pickup\_datetime.
+A chave exclusiva para ingressar trip_data e trip_fare é composta pelos campos: medallion, hack_licence e pickup_datetime.
 
 Há 12 arquivos  'trip_data'viagem e 'trip_fare', respectivamente.  Nos nomes de arquivo, números de 1 a 12 representam os meses quando as viagens foram feitas. 
 
 ## <a name="mltasks"></a>Exemplos de tarefas de previsão
 Ao abordar a dados, determinar o tipo de previsões que deseja fazer com base na sua análise ajuda a esclarecer as tarefas que você precisará incluir em seu processo.
-Aqui estão três exemplos de problemas de previsão que serão abordados neste passo a passo cuja formulação se baseia no *tip\_amount*:
+Aqui estão três exemplos de problemas de previsão que serão abordados neste passo a passo cuja formulação se baseia no *tip_amount*:
 
-1. **Classificação binária**:  Prever ou não se uma gorjeta foi paga por uma viagem, ou seja um *tip\_amount* maior que U$ 0 é um exemplo de positivo, enquanto um *tip\_amount* de U$ 0 é um exemplo de negativo.
+1. **Classificação binária**:  Prever ou não se uma gorjeta foi paga por uma viagem, ou seja um *tip_amount* maior que U$ 0 é um exemplo de positivo, enquanto um *tip_amount* de U$ 0 é um exemplo de negativo.
 
-2. **Classificação multiclasse**:  Para prever o intervalo de valores de gorjeta paga pela viagem.  Dividimos o *tip\_amount* em cinco compartimentos ou classes:
+2. **Classificação multiclasse**:  Para prever o intervalo de valores de gorjeta paga pela viagem.  Dividimos o *tip_amount* em cinco compartimentos ou classes:
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -75,7 +75,7 @@ Como indicado no guia [Planejar seu ambiente](machine-learning-data-science-plan
 - Carregar os dados para um banco de dados do SQL Server e depois modelá-los no Aprendizado de Máquina do Azure
 - Carregar os dados nas tabelas Hive do HDInsight e modelá-las no Aprendizado de Máquina do Azure
 
-Dependendo do tamanho do conjunto de dados, local da fonte de dados e o ambiente de destino do Azure selecionados, esse cenário é semelhante ao [Cenário \#7:  Grande conjunto de dados em arquivos locais, destino de Hive em clusters de Hadoop do Azure HDInsight](machine-learning-data-science-plan-sample-scenarios.md#largedbtohive).
+Dependendo do tamanho do conjunto de dados, local da fonte de dados e o ambiente de destino do Azure selecionados, esse cenário é semelhante ao [Cenário #7:  Grande conjunto de dados em arquivos locais, destino de Hive em clusters de Hadoop do Azure HDInsight](machine-learning-data-science-plan-sample-scenarios.md#largedbtohive).
 
 Para configurar seu ambiente de Ciência de Dados do Azure para essa abordagem que usa clusters do Hadoop do Azure HDInsight e, mais especificamente, tabelas e consultas Hive para armazenar e processar os dados, conclua as etapas a seguir.
 
@@ -85,7 +85,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure para essa abordagem q
 
 3. [Provisionar uma Ciência de Dados **Windows** Máquina Virtual](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] Os scripts de exemplo serão baixados para a máquina virtual de Ciência de Dados durante o processo de configuração de máquina virtual.  Quando o script pós-instalação da VM for concluído, os exemplos estarão na biblioteca de documentos da VM em *C:\Users\<user_name>\Documents\Data Science Scripts*  Pastas neste exemplo são conhecidas como **Scripts de Exemplo** abaixo.  As consultas de Hive de exemplo estão contidas em arquivos com a extensão .hql na pasta **Scripts de Exemplo**.  Observe que o *<nome_de_usuário>* referido no caminho para essa pasta é o nome de logon do Windows da VM, não seu nome de usuário do Azure.
+	> [AZURE.NOTE] Os scripts de exemplo serão baixados para a máquina virtual de Ciência de Dados durante o processo de configuração de máquina virtual.  Quando o script pós-instalação da VM for concluído, os exemplos estarão na biblioteca de documentos da VM em *C:\Users<user_name>\Documents\Data Science Scripts*  Pastas neste exemplo são conhecidas como **Scripts de Exemplo** abaixo.  As consultas de Hive de exemplo estão contidas em arquivos com a extensão .hql na pasta **Scripts de Exemplo**.  Observe que o *<nome_de_usuário>* referido no caminho para essa pasta é o nome de logon do Windows da VM, não seu nome de usuário do Azure.
 
 4. [Personalizar os Clusters de Hadoop do Azure HDInsight para Ciência de Dados](machine-learning-data-science-customize-hadoop-cluster.md).  Esta etapa criará um cluster do Hadoop do Azure HDInsight com Anaconda Python 2.7 de 64 bits instalado em todos os nós.  Depois que o cluster do Hadoop personalizado é criado, habilite o acesso remoto ao nó principal do cluster do Hadoop no Portal do Azure usando o procedimento descrito neste tópico de personalização.
 
@@ -211,7 +211,7 @@ As tarefas de exploração de dados e engenharia de recursos para os dados carre
 - Exibir os 10 primeiros registros em ambas as tabelas.
 - Explorar as distribuições de dados de alguns campos em períodos diferentes.
 - Investigar a qualidade dos dados dos campos de longitude e latitude.
-- Gerar rótulos de classificação binária e multiclasse com base no **tip\_amount**.
+- Gerar rótulos de classificação binária e multiclasse com base no **tip_amount**.
 - Gerar recursos computando as distâncias diretas de viagem.
 - Unir as duas tabelas e extrair uma amostra aleatória que será usada para compilar modelos.
 
@@ -363,7 +363,7 @@ Depois que a consulta é concluída, você pode usar o SDK do Azure para ler a s
 	
 ### Preparar dados para criação de modelo
 
-A consulta fornecida na seção une as tabelas **nyctaxidb.trip** e **nyctaxidb.fare**, gera um rótulo de classificação binária **tipped** e um rótulo de classificação de multiclasse **tip\_class**.  Essa consulta pode ser copiada e colada diretamente no módulo Leitor do [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para ingestão de dados direta de **Consulta de Hive** no Azure.  Esta consulta também exclui os registros com as coordenadas de latitude e/ou longitude incorretas.
+A consulta fornecida na seção une as tabelas **nyctaxidb.trip** e **nyctaxidb.fare**, gera um rótulo de classificação binária **tipped** e um rótulo de classificação de multiclasse **tip_class**.  Essa consulta pode ser copiada e colada diretamente no módulo Leitor do [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para ingestão de dados direta de **Consulta de Hive** no Azure.  Esta consulta também exclui os registros com as coordenadas de latitude e/ou longitude incorretas.
 
 Essa consulta aplica UDFs com incorporação de Hive para gerar vários recursos na seção de registros, incluindo a hora, a semana do ano e dia da semana (1 significa segunda-feira e 7 representa domingo) do campo _pickup_datetime_.  Os usuários podem consultar [UDF LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) para ver uma lista completa das UDFs Hive incorporadas.
 
@@ -496,7 +496,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 
 ![Create workspace][12]
 
-> [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**.  É uma etapa importante (obrigatória) em cada um dos exercícios modelagem **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamentos de destino**.  Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**.  Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
+> [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**.  É uma etapa importante (obrigatória) em cada um dos exercícios modelagem **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamentos de destino**.  Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip_class**, **tip_amount** e **total_amount**.  Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 
 > Nesse experimento, o primeiro módulo de **Editor de Metadados** adiciona nomes de coluna aos dados de saída do módulo Leitor.  Esse módulo é necessário porque o módulo de Leitor que lê dados Consulta de Hive não cria nomes de coluna para os dados de saída. 
 

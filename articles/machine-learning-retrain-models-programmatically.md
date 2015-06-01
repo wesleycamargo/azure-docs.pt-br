@@ -40,7 +40,8 @@ Para começar, o processo envolve os seguintes componentes: um Experimento de Tr
  
 Diagrama 1: visão geral do processo readaptação
 
-1. *Criar um Experimento de Treinamento* Usaremos o experimento "Exemplo 5 \(Treinamento, Teste, Avaliação de Classificação Binária: Conjunto de Dados Adulto\)" dos experimentos de exemplo do Azure ML para este exemplo. Como você verá abaixo, eu simplifiquei o exemplo removendo alguns módulos. O experimento também foi nomeado como "Modelo de Censo".
+1. *Criar um Experimento de Treinamento*  
+	Usaremos o experimento "Exemplo 5 (Treinamento, Teste, Avaliação de Classificação Binária: Conjunto de Dados Adulto)" dos experimentos de exemplo do Azure ML para este exemplo. Como você verá abaixo, eu simplifiquei o exemplo removendo alguns módulos. O experimento também foi nomeado como "Modelo de Censo".
 
  	![][2]
 
@@ -52,7 +53,8 @@ Diagrama 1: visão geral do processo readaptação
 	Após a conclusão da execução do experimento, clicamos em Criar Experimento de Pontuação. Isso cria um Experimento de Pontuação, salva o modelo como um Modelo Treinado e adiciona os módulos de Entrada e Saída do serviço Web, conforme mostrado abaixo. Em seguida, clicamos em Executar.
 
 	Após concluir a execução do experimento,  clicar em "Publicar Serviço Web" publicará o Experimento de Pontuação como um Serviço Web e criará um ponto de extremidade padrão. O modelo treinado neste serviço Web é atualizável, conforme mostrado abaixo. Os detalhes desse ponto de extremidade serão exibidos na tela.  
-3. *Publicar o Experimento de Treinamento como um Serviço Web* Para reagrupar o modelo treinado, é necessário publicar o Experimento de Treinamento que criamos na etapa 1 acima como um serviço Web. Este serviço Web precisará de um módulo de Saída do Serviço Web conectado ao [Modelo de Treino][train-model] para poder produzir novos modelos treinados. Clique no ícone de Experimentos no painel esquerdo, em seguida, clique no experimento chamado Modelo de Censo para voltar para o experimento de treinamento.  
+3. *Publicar o Experimento de Treinamento como um Serviço Web*  
+	Para reagrupar o modelo treinado, é necessário publicar o Experimento de Treinamento que criamos na etapa 1 acima como um serviço Web. Este serviço Web precisará de um módulo de Saída do Serviço Web conectado ao [Modelo de Treino][train-model] para poder produzir novos modelos treinados. Clique no ícone de Experimentos no painel esquerdo, em seguida, clique no experimento chamado Modelo de Censo para voltar para o experimento de treinamento.  
 
 	Em seguida, adicionamos uma Entrada de Serviço Web e dois módulos de Saída do Serviço Web para o fluxo de trabalho. A saída do Serviço Web para o Modelo de Treinamento nos dará o novo modelo treinado. A saída anexada ao Modelo de Avaliação retornará a saída do Modelo de Avaliação do módulo.
 
@@ -61,14 +63,16 @@ Diagrama 1: visão geral do processo readaptação
 	![][4]
 
 	Em seguida, clicamos no botão Publicar Serviço Web e depois clicamos em Sim. Essa ação publicará o Experimento de Treinamento como um Serviço Web que produz modelos treinados e resultados de avaliação do modelo. O Painel do Serviço Web será exibido com a Chave de API e a página de ajuda da API para a Execução em Lotes. Observe que apenas o método de Execução em Lotes pode ser usado para criar Modelos Treinados.  
-4. *Adicionar um novo Ponto de Extremidade* O Serviço Web de Pontuação que publicamos na Etapa 2 acima foi criado com um ponto de extremidade padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e um modelo treinado do ponto de extremidade padrão não pode ser substituído. Para criar um ponto de extremidade atualizável, visite o Portal do Azure e clique em Adicionar Ponto de Extremidade \(mais detalhes [aqui](machine-learning-create-endpoint.md)\).	
-5. *Readaptar o modelo com novos dados e BES* Para chamar as APIs de Recuperação, criamos um novo Aplicativo de Console C\# no Visual Studio \(Novo -\> Projeto -\> Windows Desktop -\> Aplicativo de Console\).  
+4. *Adicionar um novo Ponto de Extremidade*  
+	O Serviço Web de Pontuação que publicamos na Etapa 2 acima foi criado com um ponto de extremidade padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e um modelo treinado do ponto de extremidade padrão não pode ser substituído. Para criar um ponto de extremidade atualizável, visite o Portal do Azure e clique em Adicionar Ponto de Extremidade (mais detalhes [aqui](machine-learning-create-endpoint.md)).	
+5. *Readaptar o modelo com novos dados e BES*  
+	Para chamar as APIs de Recuperação, criamos um novo Aplicativo de Console C# no Visual Studio (Novo -> Projeto -> Windows Desktop -> Aplicativo de Console).  
 
-	Em seguida, copiamos o código C\# de exemplo da página de ajuda da API do Serviço Web de  Treinamento para a execução em lotes \(criada na Etapa 3 acima\) e o colamos no arquivo Program.cs, certificando de que o namespace permanece intacto.
+	Em seguida, copiamos o código C# de exemplo da página de ajuda da API do Serviço Web de  Treinamento para a execução em lotes (criada na Etapa 3 acima) e o colamos no arquivo Program.cs, certificando de que o namespace permanece intacto.
 
 	Observe que o código de exemplo tem comentários que indicam as partes do código que precisam de atualizações.
 
-	1. Fornecer informações de Armazenamento do Azure. O código de exemplo para BES carregará um arquivo de uma unidade local \(por exemplo, "C:\\temp\\CensusIpnput.csv"\) para o Armazenamento do Azure, irá processá-lo e gravar os resultados no Armazenamento do Azure.  
+	1. Fornecer informações de Armazenamento do Azure. O código de exemplo para BES carregará um arquivo de uma unidade local (por exemplo, "C:\\temp\\CensusIpnput.csv") para o Armazenamento do Azure, irá processá-lo e gravar os resultados no Armazenamento do Azure.  
 
 		Para fazer isso, você precisa recuperar as informações de nome da conta de Armazenamento, a chave e o contêiner do Portal de Gerenciamento do Azure para sua conta de Armazenamento e, em seguida, atualizar o código aqui. Você também precisa garantir que o arquivo de entrada está disponível no local especificado no código.
 
@@ -76,13 +80,15 @@ Diagrama 1: visão geral do processo readaptação
 
 		![][6]
  
-6. *Avaliar os Resultados da Recuperação* Usando a combinação de BaseLocation, RelativeLocaiton e SasBlobToken dos resultados de saída acima para "output2" podemos ver os resultados de desempenho do modelo recuperado colando a URL completa na barra de endereço do navegador.
+6. *Avaliar os Resultados da Recuperação*  
+	Usando a combinação de BaseLocation, RelativeLocaiton e SasBlobToken dos resultados de saída acima para "output2" podemos ver os resultados de desempenho do modelo recuperado colando a URL completa na barra de endereço do navegador.
 
 	Isso nos informará se o modelo treinado recentemente executa bem o suficiente para substituir o existente.
 
-7. *Atualizar o Modelo Treinado do Ponto de Extremidade agregado* Para concluir o processo, precisamos atualizar o modelo treinado do ponto de extremidade de pontuação que criamos na Etapa 4 acima.
+7. *Atualizar o Modelo Treinado do Ponto de Extremidade agregado*  
+	Para concluir o processo, precisamos atualizar o modelo treinado do ponto de extremidade de pontuação que criamos na Etapa 4 acima.
 
-	A saída de BES acima mostra as informações para o resultado de recuperação para "output1", que contém as informações de local do modelo recuperado. Agora precisamos pegar esse modelo treinado e atualizar o ponto de extremidade de pontuação. \(criado na etapa 4 acima\)
+	A saída de BES acima mostra as informações para o resultado de recuperação para "output1", que contém as informações de local do modelo recuperado. Agora precisamos pegar esse modelo treinado e atualizar o ponto de extremidade de pontuação. (criado na etapa 4 acima)
 
 	![][7]
   

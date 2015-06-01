@@ -183,11 +183,11 @@ em todo o servidor. Para obter mais informações, consulte [Gerenciando bancos 
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use o procedimento armazenado **sp\_addrolemember** para fornecer à conta do usuário
+-   Use o procedimento armazenado **sp_addrolemember** para fornecer à conta do usuário
     o nível apropriado de permissões no banco de dados. Por
     obter mais informações, consulte [sp_addrolemember (Transact-SQL)][]. A instrução a seguir fornece ao **login1User**
     permissões somente leitura no banco de dados adicionando **login1User** à
-    função **db\_datareader**.
+    função **db_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -213,7 +213,7 @@ em todo o servidor. Para obter mais informações, consulte [Gerenciando bancos 
 
         DROP LOGIN login1;
 
--   O banco de dados mestre tem o modo de exibição **sys.sql\_logins** que você pode usar
+-   O banco de dados mestre tem o modo de exibição **sys.sql_logins** que você pode usar
     para exibir logons. Para exibir todos os logons existentes, execute
     a instrução a seguir:
 
@@ -234,8 +234,8 @@ obter detalhes completos e mais exemplos de uso, consulte [Monitoramento de banc
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calcule o tamanho do banco de dados usando o modo de exibição **sys.dm\_db\_partition\_stats**
-    padrão. A exibição **sys.dm\_db\_partition\_stats** retorna a página e
+-   Calcule o tamanho do banco de dados usando o modo de exibição **sys.dm_db_partition_stats**
+    padrão. A exibição **sys.dm_db_partition_stats** retorna a página e
     informações de contagem de linhas para cada partição no banco de dados, que você
     pode usar para calcular o tamanho do banco de dados. A seguinte consulta retorna
     o tamanho do banco de dados em megabytes:
@@ -243,7 +243,7 @@ obter detalhes completos e mais exemplos de uso, consulte [Monitoramento de banc
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Use os modos de exibição **sys.dm\_exec\_connections** e **sys.dm\_exec\_sessions**
+-   Use os modos de exibição **sys.dm_exec_connections** e **sys.dm_exec_sessions**
     para recuperar informações sobre conexões de usuário atuais e
     tarefas internas associadas ao banco de dados. A consulta a seguir
     retorna informações sobre a conexão atual:
@@ -259,7 +259,7 @@ obter detalhes completos e mais exemplos de uso, consulte [Monitoramento de banc
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Use o modo de exibição **sys.dm\_exec\_query\_stats** para recuperar as estatísticas de desempenho de agregação
+-   Use o modo de exibição **sys.dm_exec_query_stats** para recuperar as estatísticas de desempenho de agregação
     para planos de consulta em cache. A consulta a seguir
     retorna informações sobre as cinco principais consultas classificadas por tempo médio de
     CPU.

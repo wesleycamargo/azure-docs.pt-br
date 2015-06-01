@@ -59,9 +59,9 @@ Após essa alteração, qualquer pessoa na Internet pode ver blobs em um contêi
 
 ## Como: Carregar um blob em um contêiner
 
-Para carregar dados em um blob, use os métodos **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** ou **put\_block\_blob\_from\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
+Para carregar dados em um blob, use os métodos **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** ou **put_block_blob_from_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-**put\_block\_blob\_from\_path** carrega o conteúdo de um arquivo do caminho especificado e **put\_block\_blob\_from\_file** carrega o conteúdo de um arquivo/fluxo já aberto. **put\_block\_blob\_from\_bytes** carrega uma matriz de bytes e **put\_block\_blob\_from\_text** carrega o valor de texto especificado usando a codificação especificada (usa UTF-8 como padrão).
+**put_block_blob_from_path** carrega o conteúdo de um arquivo do caminho especificado e **put_block_blob_from_file** carrega o conteúdo de um arquivo/fluxo já aberto. **put_block_blob_from_bytes** carrega uma matriz de bytes e **put_block_blob_from_text** carrega o valor de texto especificado usando a codificação especificada (usa UTF-8 como padrão).
 
 O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** no blob **myblob**.
 
@@ -74,7 +74,7 @@ O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** no blob **myblo
 
 ## Como: Listar os blobs em um contêiner
 
-Para listar os blobs em um contêiner, use o método **list\_blobs** com um loop
+Para listar os blobs em um contêiner, use o método **list_blobs** com um loop
 **for** para exibir o nome de cada blob no contêiner. O código a seguir exibe o **nome** e a **url** de cada blob em um contêiner para o console.
 
 	blobs = blob_service.list_blobs('mycontainer')
@@ -84,9 +84,9 @@ Para listar os blobs em um contêiner, use o método **list\_blobs** com um loop
 
 ## Como: Baixar blobs
 
-Para baixar dados de um blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
+Para baixar dados de um blob, use **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** ou **get_blob_to_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-O exemplo a seguir demonstra o uso de **get\_blob\_to\_path** para baixar o conteúdo do blob **myblob** e armazená-lo no arquivo **out-sunset.png**:
+O exemplo a seguir demonstra o uso de **get_blob_to_path** para baixar o conteúdo do blob **myblob** e armazená-lo no arquivo **out-sunset.png**:
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 

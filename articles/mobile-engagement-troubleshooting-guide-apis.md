@@ -23,15 +23,15 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 ## Problemas de sintaxe
 
 ### Problema
-- Erros de sintaxe na utilização da API \(ou comportamento inesperado\).
+- Erros de sintaxe na utilização da API (ou comportamento inesperado).
 
 ### Causas
 
 - Problemas de sintaxe:
     - Verifique a sintaxe da API específica que você está usando para confirmar se a opção está disponível.
-    - Um problema comum com o uso da API é confundir a API de Alcance e a API de Envio por Push \(a maioria das tarefas deve ser executada com a API de Alcance em vez da API de Envio por Push\). 
+    - Um problema comum com o uso da API é confundir a API de Alcance e a API de Envio por Push (a maioria das tarefas deve ser executada com a API de Alcance em vez da API de Envio por Push). 
     - Outro problema comum com a integração do SDK e o uso da API é confundir a Chave do SDK e a Chave de API.
-    - Os scripts que se conectam às APIs precisam enviar dados pelo menos a cada 10 minutos ou a conexão atingirá o tempo limite \(comum especialmente em scripts de API do Monitor aguardando dados\). Para evitar atingir o tempo limite, faça seu script enviar um ping XMPP a cada 10 minutos para manter ativa a sessão com o servidor.
+    - Os scripts que se conectam às APIs precisam enviar dados pelo menos a cada 10 minutos ou a conexão atingirá o tempo limite (comum especialmente em scripts de API do Monitor aguardando dados). Para evitar atingir o tempo limite, faça seu script enviar um ping XMPP a cada 10 minutos para manter ativa a sessão com o servidor.
 
 ### Consulte também
  

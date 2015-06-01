@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -19,7 +20,7 @@
 
 1. Use as suas credenciais da conta da Microsoft para fazer logon no Portal de Gerenciamento do Azure da Microsoft aqui: [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
 
-2. No Portal de Gerenciamento, clique em **Novo** \> **Serviços de Dados** \> **StorSimple Manager** \> **Criação Rápida**.
+2. No Portal de Gerenciamento, clique em **Novo** > **Serviços de Dados** > **StorSimple Manager** > **Criação Rápida**.
 
 3. No formulário exibido, faça o seguinte:
   1. Fornecer um **Nome** exclusivo para o serviço. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 2 e 50 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.

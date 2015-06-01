@@ -28,7 +28,7 @@ O serviço StorSimple Manager é uma extensão do Portal de gerenciamento do Azu
 
 ## A página Volumes
 
-A página **Volumes** página permite que você gerencie os volumes de armazenamento provisionados no dispositivo Microsoft Azure StorSimple para os iniciadores \(servidores\). Ela exibe a lista de volumes no seu dispositivo StorSimple.
+A página **Volumes** página permite que você gerencie os volumes de armazenamento provisionados no dispositivo Microsoft Azure StorSimple para os iniciadores (servidores). Ela exibe a lista de volumes no seu dispositivo StorSimple.
 
  ![página volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
@@ -36,11 +36,11 @@ Um volume consiste em uma série de atributos:
 
 - **Nome** – Um nome descritivo que deve ser exclusivo e ajuda a identificar o volume. Esse nome também é usado em relatórios de monitoramento ao filtrar um volume específico.
 
-- **Status** – Pode ser online ou offline. Se um volume estiver offline, não é visível para os iniciadores \(servidores\) que têm permissão de acesso para usar o volume.
+- **Status** – Pode ser online ou offline. Se um volume estiver offline, não é visível para os iniciadores (servidores) que têm permissão de acesso para usar o volume.
 
-- **Capacidade** – Especifica quão grande é o volume, como visto pelo iniciador \(servidor\). Capacidade especifica a quantidade total de dados que podem ser armazenados pelo iniciador \(servidor\). Os volumes são provisionados de forma dinâmica e ocorre a eliminação de duplicação de dados. Isso implica que o seu dispositivo não aloca previamente capacidade de armazenamento físico internamente ou em nuvem de acordo com a capacidade de volume configurada. A capacidade de volume é alocada e consumida por demanda.
+- **Capacidade** – Especifica quão grande é o volume, como visto pelo iniciador (servidor). Capacidade especifica a quantidade total de dados que podem ser armazenados pelo iniciador (servidor). Os volumes são provisionados de forma dinâmica e ocorre a eliminação de duplicação de dados. Isso implica que o seu dispositivo não aloca previamente capacidade de armazenamento físico internamente ou em nuvem de acordo com a capacidade de volume configurada. A capacidade de volume é alocada e consumida por demanda.
 
-- **Acesso** – Especifica os iniciadores \(servidores\) que podem acessar este volume. Os iniciadores que não são membros do registro de controle de acesso \(ACR\) que está associado com o volume não verão o volume.
+- **Acesso** – Especifica os iniciadores (servidores) que podem acessar este volume. Os iniciadores que não são membros do registro de controle de acesso (ACR) que está associado com o volume não verão o volume.
 
 - **Monitoramento** – Especifica se um volume está sendo monitorado. Um volume terá o monitoramento ativado por padrão quando ele é criado. O monitoramento será, no entanto, desabilitado para um clone de volume. Para habilitar o monitoramento para um volume, siga as instruções no Monitor de um volume.
 
@@ -75,9 +75,9 @@ Você [criou um volume](storsimple-deployment-walkthrough.md#step-6:-create-a-vo
 
      ![adicionar volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
-5. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso \(ACR\):
+5. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
   
-  1. Selecione um registro de controle de acesso \(ACR\) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
+  1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
   2. Em **Backup padrão para este volume**, recomendamos que você habilite um backup padrão marcando a caixa de seleção **Habilitar**.
    3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
 

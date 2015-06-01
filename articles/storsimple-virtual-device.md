@@ -74,7 +74,7 @@ Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes 
 
 >[AZURE.IMPORTANT]**Verifique se a rede virtual está na mesma região das contas de armazenamento de nuvem que você pretende usar com o dispositivo virtual.**
 
-- Crie [Máquinas Virtuais do Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) \(servidores de host\) na rede virtual. Esses servidores devem atender aos seguintes requisitos: 							
+- Crie [Máquinas Virtuais do Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores de host) na rede virtual. Esses servidores devem atender aos seguintes requisitos: 							
 	- Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado
 	- Estar em execução na mesma rede virtual que o dispositivo virtual
 	- Ser capaz de se conectar ao destino iSCSI do dispositivo virtual por meio do endereço IP interno do dispositivo virtual
@@ -155,7 +155,7 @@ A seção a seguir descreve as configurações do dispositivo que você precisa 
 
 #### Configurar o iniciador CHAP
 
-Este parâmetro contém as credenciais que o dispositivo virtual \(destino\) espera dos iniciadores \(servidores\) que estão tentando acessar os volumes. Os iniciadores fornecerão um nome de usuário CHAP e uma senha CHAP para identificá-los para o dispositivo durante essa autenticação.
+Este parâmetro contém as credenciais que o dispositivo virtual (destino) espera dos iniciadores (servidores) que estão tentando acessar os volumes. Os iniciadores fornecerão um nome de usuário CHAP e uma senha CHAP para identificá-los para o dispositivo durante essa autenticação.
 
 #### Configurar o destino CHAP
 
@@ -171,7 +171,7 @@ Ao configurar um dispositivo no Gerenciador de Instantâneos StorSimple, você d
 
 Execute as etapas a seguir para configurar o Gerenciador de Instantâneos StorSimple ao usá-lo com seu dispositivo virtual StorSimple.
 
-1. Em seu dispositivo virtual, vá para **Dispositivos \> Configurar**.
+1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
 
 - Role para baixo até a seção **Gerenciador de Instantâneos**. Insira uma senha que tenha 14 ou 15 caracteres. Verifique se a senha contém uma combinação de caracteres maiúsculos, minúsculos, numéricos e especiais.
 
@@ -187,7 +187,7 @@ Quando você usar a interface do Windows PowerShell para acessar o dispositivo v
 
 Execute as etapas a seguir para configurar a senha de administrador do serviço para o dispositivo virtual StorSimple
 
-1. Em seu dispositivo virtual, vá para **Dispositivos \> Configurar**.
+1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
  
 1. Role para baixo até a seção **Senha do Administrador do Dispositivo**. Forneça uma senha do administrador que contenha de 8 a 15 caracteres. A senha deve ser uma combinação de caracteres maiúsculos, minúsculos, numéricos e especiais.
 
@@ -206,7 +206,7 @@ Você pode optar por conectar-se via HTTP ou HTTPS. Por motivos de segurança, r
 Execute as etapas a seguir para configurar o gerenciamento remoto para seu dispositivo virtual StorSimple.
 
 
-1. Em seu dispositivo virtual, vá para **Dispositivos \> Configurar**.
+1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
 
 2. Role para baixo até a seção **Gerenciamento Remoto**.
 
@@ -236,7 +236,7 @@ As seções a seguir discutem as diferenças que você encontrará ao trabalhar 
 
 Como é um dispositivo somente de software, a manutenção para o dispositivo virtual é mínima quando comparada à manutenção do dispositivo físico. Você tem as seguintes opções:
 
-- **Atualizações automáticas** – você pode desativar ou ativar as atualizações automáticas. Quando as atualizações automáticas estiverem ativadas, o dispositivo virtual será automaticamente desligado e reiniciará \(se necessário\) para aplicar todas as atualizações que tiverem sido lançadas. Como há apenas uma única interface do dispositivo virtual, isso significa que haverá uma ligeira interrupção do serviço quando as atualizações forem aplicadas.
+- **Atualizações automáticas** – você pode desativar ou ativar as atualizações automáticas. Quando as atualizações automáticas estiverem ativadas, o dispositivo virtual será automaticamente desligado e reiniciará (se necessário) para aplicar todas as atualizações que tiverem sido lançadas. Como há apenas uma única interface do dispositivo virtual, isso significa que haverá uma ligeira interrupção do serviço quando as atualizações forem aplicadas.
 - **Atualizações de software** – você pode exibir a data em que o software foi atualizado pela última vez, junto com quaisquer mensagens de status de atualização. Você pode usar o botão Varrer atualizações na parte inferior da página para executar uma varredura manual se quiser verificar novas atualizações.
 - **Pacote de suporte** – você pode criar e carregar um pacote de suporte para ajudar o Suporte da Microsoft a solucionar problemas com seu dispositivo virtual.
 
@@ -278,7 +278,7 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 - Clique em **Pontos de Extremidade**. A página de pontos de extremidade lista todos os pontos de extremidade para a máquina virtual.
 
-- Clique em \*\*Adicionar\*\*. A caixa de diálogo Adicionar coadministrador é exibida. Clique na seta para continuar.
+- Clique em **Adicionar**. A caixa de diálogo Adicionar coadministrador é exibida. Clique na seta para continuar.
 
 - Para o **nome**, digite o seguinte nome para o ponto de extremidade: **WinRMHttps**.
 
@@ -290,7 +290,7 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 - Clique na marca de seleção para salvar o ponto de extremidade.
 
-Após a criação do ponto de extremidade, você poderá exibir seus detalhes para determinar o endereço IP Virtual Público \(VIP\). Registre esse endereço.
+Após a criação do ponto de extremidade, você poderá exibir seus detalhes para determinar o endereço IP Virtual Público (VIP). Registre esse endereço.
 
 É recomendável que você se conecte de outra máquina virtual dentro da mesma rede virtual porque essa prática minimiza o número de pontos de extremidade públicos em sua rede virtual. Quando você usar esse método, simplesmente se conectará à máquina virtual por meio de uma sessão de Área de Trabalho Remota e configurará essa máquina virtual para uso como o faria com qualquer outro cliente do Windows em uma rede local. Você não precisa anexar o número da porta pública porque a porta já será conhecida.
 
@@ -320,7 +320,7 @@ Se você decidir que deseja apenas recriar seu dispositivo virtual, simplesmente
 
 ## Failover para o dispositivo virtual
 
-A recuperação de desastres \(RD\) é um dos principais cenários para os quais o dispositivo virtual StorSimple foi projetado. Nesse cenário, o dispositivo físico StorSimple ou o datacenter inteiro podem não estar disponível. Felizmente, você pode usar um dispositivo virtual para restaurar operações em um local alternativo. Durante a RD, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino. Os pré-requisitos para a RD são que o dispositivo virtual tenha sido criado e configurado, todos os volumes no contêiner de volume tenham sido colocados offline e o contêiner de volume tenha um de instantâneo de nuvem associado.
+A recuperação de desastres (RD) é um dos principais cenários para os quais o dispositivo virtual StorSimple foi projetado. Nesse cenário, o dispositivo físico StorSimple ou o datacenter inteiro podem não estar disponível. Felizmente, você pode usar um dispositivo virtual para restaurar operações em um local alternativo. Durante a RD, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino. Os pré-requisitos para a RD são que o dispositivo virtual tenha sido criado e configurado, todos os volumes no contêiner de volume tenham sido colocados offline e o contêiner de volume tenha um de instantâneo de nuvem associado.
 
 ### Para restaurar seu dispositivo físico para o dispositivo virtual StorSimple
 

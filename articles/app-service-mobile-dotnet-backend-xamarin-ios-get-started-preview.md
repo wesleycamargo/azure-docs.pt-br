@@ -78,13 +78,13 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 2. Pressione o botão **Executar** para compilar o projeto cliente e iniciar o aplicativo no emulador do iPhone.
 
-3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição \(\*\*+\*\*\).
+3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição (**+**).
 
 	![][10]
 
 	Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo back-end de aplicativo móvel, e os dados são exibidos na lista.
 
->[AZURE.NOTE]Você pode examinar o código que acessa seu back-end de aplicativo móvel para consultar e inserir dados no arquivo C\# QSTodoService.cs.
+>[AZURE.NOTE]Você pode examinar o código que acessa seu back-end de aplicativo móvel para consultar e inserir dados no arquivo C# QSTodoService.cs.
 
 
 <!-- Anchors. -->

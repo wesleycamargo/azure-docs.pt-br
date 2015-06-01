@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -17,7 +18,7 @@
 
 ### Para obter a chave de registro do serviço StorSimple
 
-1. Na página **Serviço StorSimple Manager**, clique no serviço que você criou. Isso o levará para a página de **Início Rápido**. \(Você pode clicar no ícone de início rápido ![Ícone de Início Rápido do StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) para acessar a página **Início Rápido** a qualquer momento.\)
+1. Na página **Serviço StorSimple Manager**, clique no serviço que você criou. Isso o levará para a página de **Início Rápido**. (Você pode clicar no ícone de início rápido ![Ícone de Início Rápido do StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) para acessar a página **Início Rápido** a qualquer momento.)
 
      ![Página de Início Rápido do StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
 

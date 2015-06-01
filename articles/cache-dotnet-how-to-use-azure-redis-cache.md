@@ -18,7 +18,7 @@
 
 # Como utilizar o cache Redis do Azure
 
-Esse guia mostra como iniciar o uso do **Cache Redis do Azure**. Os exemplos são escritos em código C\# e utilizam a API .NET. Os cenários abordados incluem **criação e configuração de um cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache** e **armazenamento de estado da sessão ASP.NET no cache**. Para obter mais informações sobre o uso do cache Redis do Azure, consulte a seção [Próximas etapas][].
+Esse guia mostra como iniciar o uso do **Cache Redis do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem **criação e configuração de um cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache** e **armazenamento de estado da sessão ASP.NET no cache**. Para obter mais informações sobre o uso do cache Redis do Azure, consulte a seção [Próximas etapas][].
 
 <a name="video"></a>
 ## Introdução ao Cache Redis do Azure (vídeo)

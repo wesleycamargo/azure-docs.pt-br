@@ -34,7 +34,7 @@ Este passo a passo mostra como criar um SDK do Azure para um aplicativo Java que
 
 ### Instalações de software
 
-O código do aplicativo AzureWebDemo neste artigo foi escrito usando o Java SDK do Azure 0.7.0, que pode ser instalado usando o [WebPI \(Web Platform Installer\)](http://go.microsoft.com/fwlink/?LinkID=252838). Além disso, certifique-se de usar a versão mais recente do [Kit de Ferramentas do Azure para Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Depois de instalar o SDK, atualize as dependências em seu projeto do Eclipse executando **Atualizar Índice** em **Repositórios Maven**, então adicione novamente a versão mais recente de cada pacote na janela **Dependências**. Você pode verificar a versão do software instalado no Eclipse, clicando em **Ajuda \> Detalhes da instalação**; você deve ter pelo menos as seguintes versões:
+O código do aplicativo AzureWebDemo neste artigo foi escrito usando o Java SDK do Azure 0.7.0, que pode ser instalado usando o [WebPI (Web Platform Installer)](http://go.microsoft.com/fwlink/?LinkID=252838). Além disso, certifique-se de usar a versão mais recente do [Kit de Ferramentas do Azure para Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Depois de instalar o SDK, atualize as dependências em seu projeto do Eclipse executando **Atualizar Índice** em **Repositórios Maven**, então adicione novamente a versão mais recente de cada pacote na janela **Dependências**. Você pode verificar a versão do software instalado no Eclipse, clicando em **Ajuda > Detalhes da instalação**; você deve ter pelo menos as seguintes versões:
 
 - Pacote para Bibliotecas do Microsoft Azure para Java 0.7.0.20150309
 - Eclipse IDE para desenvolvedores de Java EE 4.4.2.20150219
@@ -42,14 +42,14 @@ O código do aplicativo AzureWebDemo neste artigo foi escrito usando o Java SDK 
 
 ### Criar e configurar recursos de nuvem no Azure
 
-Antes de iniciar este procedimento, você precisa ter uma assinatura ativa do Azure e configurar um AD \(Active Directory\) padrão no Azure.
+Antes de iniciar este procedimento, você precisa ter uma assinatura ativa do Azure e configurar um AD (Active Directory) padrão no Azure.
 
 
-### Criar um AD \(Active Directory\) no Azure
+### Criar um AD (Active Directory) no Azure
 
-Se você ainda não tem um AD \(Active Directory\) na sua assinatura do Azure, faça logon no [portal clássico do Azure](https://manage.windowsazure.com) com sua conta da Microsoft. Se você tiver várias assinaturas, clique em **Assinaturas** e selecione o diretório padrão para a assinatura que deseja usar para este projeto. Em seguida, clique em **Aplicar** para alternar para esse modo de exibição de assinatura.
+Se você ainda não tem um AD (Active Directory) na sua assinatura do Azure, faça logon no [portal clássico do Azure](https://manage.windowsazure.com) com sua conta da Microsoft. Se você tiver várias assinaturas, clique em **Assinaturas** e selecione o diretório padrão para a assinatura que deseja usar para este projeto. Em seguida, clique em **Aplicar** para alternar para esse modo de exibição de assinatura.
 
-1. Selecione **Active Directory** no menu à esquerda. **Clique em Novo \> Diretório \> Criação Personalizada**.
+1. Selecione **Active Directory** no menu à esquerda. **Clique em Novo > Diretório > Criação Personalizada**.
 
 2. Em **Adicionar Diretório**, selecione **Criar Novo Diretório**.
 
@@ -69,7 +69,7 @@ O SDK do Azure para Java usa certificados de gerenciamento para autenticar com a
 O código neste procedimento usa um certificado autoassinado para autenticar com o Azure. Para este procedimento, você precisa criar um certificado e carregá-lo no [portal clássico do Azure](https://manage.windowsazure.com) com antecedência. Isso envolve as seguintes etapas:
 
 - Gere um arquivo PFX que represente seu certificado de cliente e salve-o localmente.
-- Gere um certificado de gerenciamento \(arquivo CER\) por meio do arquivo PFX.
+- Gere um certificado de gerenciamento (arquivo CER) por meio do arquivo PFX.
 - Carregue o arquivo CER em sua assinatura do Azure.
 - Converta o arquivo PFX em JKS, já que o Java usa esse formato para autenticar usando certificados.
 - Escreva um código de autenticação para o aplicativo, que se refira ao arquivo JKS local.
@@ -81,7 +81,7 @@ Quando você concluir este procedimento, o certificado CER residirá na sua assi
 
 Para criar seu próprio certificado autoassinado, abra um console de comando em seu sistema operacional e execute os comandos a seguir.
 
-> **Observação:** o computador em que você executar esse comando deve ter o JDK instalado. Além disso, o caminho para o keytool depende do local em que você instala o JDK. Para obter mais informações, consulte [Chave e Ferramenta de Gerenciamento de Certificado \(keytool\)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) nos documentos online do Java.
+> **Observação:** o computador em que você executar esse comando deve ter o JDK instalado. Além disso, o caminho para o keytool depende do local em que você instala o JDK. Para obter mais informações, consulte [Chave e Ferramenta de Gerenciamento de Certificado (keytool)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) nos documentos online do Java.
 
 Para criar o arquivo .pfx:
 
@@ -99,9 +99,9 @@ Para criar o arquivo .cer:
 onde:
 
 - `<java-install-dir>` é o caminho para o diretório no qual você instalou o Java.
-- `<keystore-id>` é o identificador de entrada de armazenamento de chaves \(por exemplo, `AzureRemoteAccess`\).
-- `<cert-store-dir>` é o caminho para o diretório no qual você deseja armazenar certificados \(por exemplo, `C:/Certificates`\).
-- `<cert-file-name>` é o nome do arquivo do certificado \(por exemplo, `AzureWebDemoCert`\).
+- `<keystore-id>` é o identificador de entrada de armazenamento de chaves (por exemplo, `AzureRemoteAccess`).
+- `<cert-store-dir>` é o caminho para o diretório no qual você deseja armazenar certificados (por exemplo, `C:/Certificates`).
+- `<cert-file-name>` é o nome do arquivo do certificado (por exemplo, `AzureWebDemoCert`).
 - `<password>` é a senha que você escolher por proteger o certificado; ela deve ter pelo menos 6 caracteres. Embora isso não seja recomendado, você optar por não inserir nenhuma senha.
 - `<dname>` é o Nome Diferenciado X.500 a ser associado com o alias, e é usado como os campos “emissor” e “assunto” no certificado autoassinado.
 
@@ -115,7 +115,7 @@ Para carregar um certificado autoassinado para o Azure, vá para a página **Con
 
 #### Converter o arquivo PFX em JKS
 
-No Prompt de comando do Windows \(executando como administrador\), vá até o diretório que contém os certificados e execute o comando a seguir, em que `<java-install-dir>` é o diretório em que você instalou o Java em seu computador:
+No Prompt de comando do Windows (executando como administrador), vá até o diretório que contém os certificados e execute o comando a seguir, em que `<java-install-dir>` é o diretório em que você instalou o Java em seu computador:
 
     <java-install-dir>/bin/keytool.exe -importkeystore
      -srckeystore <cert-store-dir>/<cert-file-name>.pfx
@@ -135,7 +135,7 @@ As duas senhas não precisam ser iguais. Embora isso não seja recomendado, voc�
 
 Nesta seção, você cria um espaço de trabalho e um projeto Maven para o aplicativo de criação de aplicativos Web, chamado AzureWebDemo.
 
-1. Crie um novo projeto Maven. Clique em **Arquivo \> Novo \> Projeto Maven**. Em **Novo Projeto Maven**, selecione **Criar um Projeto Simples** e **Usar local padrão de espaço de trabalho**.
+1. Crie um novo projeto Maven. Clique em **Arquivo > Novo > Projeto Maven**. Em **Novo Projeto Maven**, selecione **Criar um Projeto Simples** e **Usar local padrão de espaço de trabalho**.
 
 2. Na segunda página do **Novo Projeto Maven**, especifique o seguinte:
 
@@ -149,7 +149,7 @@ Nesta seção, você cria um espaço de trabalho e um projeto Maven para o aplic
 
 3. Abra o arquivo pom.xml do novo projeto no Gerenciador de Projetos. Selecione a guia **Dependências**. Já que esse é um novo projeto, nenhum pacote está listado ainda.
 
-4. Abra a exibição Repositórios Maven. **Clique em Janela \> Mostrar Exibição \> Outros \> Maven \> Repositórios Maven** e clique em **OK**. A exibição **Repositórios Maven** aparecerá na parte inferior do IDE.
+4. Abra a exibição Repositórios Maven. **Clique em Janela > Mostrar Exibição > Outros > Maven > Repositórios Maven** e clique em **OK**. A exibição **Repositórios Maven** aparecerá na parte inferior do IDE.
 
 5. Abra **repositórios globais**, clique com o botão direito do mouse no repositório **central** e selecione **Recompilar Índice**.
 
@@ -171,7 +171,7 @@ Clique em **OK**. Os pacotes do Azure aparecem na lista de **Dependências**.
 
 Em seguida, escreva o código que chama as APIs no SDK do Azure para Java para criar o aplicativo Web do Serviço de Aplicativo.
 
-1. Crie uma classe Java para conter o código de ponto de entrada principal. No Gerenciador de Projetos, clique com botão direito do mouse no nó do projeto e selecione **Novo \> Classe**.
+1. Crie uma classe Java para conter o código de ponto de entrada principal. No Gerenciador de Projetos, clique com botão direito do mouse no nó do projeto e selecione **Novo > Classe**.
 
 2. Em **Nova Classe Java**, nomeie a classe `WebCreator` e verifique a caixa de seleção **public static void main**. As seleções devem aparecer da seguinte maneira:
 
@@ -240,12 +240,12 @@ onde:
 - `webSpaceName` deve ser um dos valores definidos na classe [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html).
 - `appServicePlanName` deve ser especificado conforme mostrado acima.
 
-> **Observação:** cada vez que você executa esse aplicativo, precisa alterar o valor de `webAppName` e `appServicePlanName` \(ou excluir o aplicativo Web no Portal do Azure\) antes de executar o aplicativo novamente. Caso contrário, a execução falhará porque o mesmo recurso já existe no Azure.
+> **Observação:** cada vez que você executa esse aplicativo, precisa alterar o valor de `webAppName` e `appServicePlanName` (ou excluir o aplicativo Web no Portal do Azure) antes de executar o aplicativo novamente. Caso contrário, a execução falhará porque o mesmo recurso já existe no Azure.
 
 
 #### Definir o método de criação na Web
 
-Em seguida, defina um método para criar o aplicativo Web. Esse método, `createWebApp`, especifica os parâmetros do aplicativo Web e espaço Web. Ele também cria e configura o cliente de gerenciamento de Aplicativos Web do Serviço de Aplicativo, que é definido pelo objeto [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html). O cliente de gerenciamento é essencial para a criação de aplicativos Web. Ele fornece serviços Web RESTful, que permitem que aplicativos gerenciem aplicativos Web \(executando operações como criação, atualização e exclusão\) chamando a API de gerenciamento de serviço.
+Em seguida, defina um método para criar o aplicativo Web. Esse método, `createWebApp`, especifica os parâmetros do aplicativo Web e espaço Web. Ele também cria e configura o cliente de gerenciamento de Aplicativos Web do Serviço de Aplicativo, que é definido pelo objeto [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html). O cliente de gerenciamento é essencial para a criação de aplicativos Web. Ele fornece serviços Web RESTful, que permitem que aplicativos gerenciem aplicativos Web (executando operações como criação, atualização e exclusão) chamando a API de gerenciamento de serviço.
 
     private static void createWebApp() throws Exception {
 
@@ -309,9 +309,9 @@ Em seguida, defina um método para criar o aplicativo Web. Esse método, `create
 O código produzirá como saída o status HTTP da resposta, indicando êxito ou falha e, se for bem-sucedido, retornará o nome do aplicativo Web criado.
 
 
-#### Definir o método main\(\)
+#### Definir o método main()
 
-Forneça o código do método Main \(\) que chama createWebApp\(\) para criar o aplicativo Web.
+Forneça o código do método Main () que chama createWebApp() para criar o aplicativo Web.
 
 Finalmente, chame `createWebApp` em `main`:
 
@@ -329,7 +329,7 @@ Finalmente, chame `createWebApp` em `main`:
 
 #### Executar o aplicativo e verifique a criação de aplicativos Web
 
-Para verificar se seu aplicativo é executado, clique em **Executar \> Executar**. Quando a execução do aplicativo for concluída, você verá a seguinte saída no console do Eclipse:
+Para verificar se seu aplicativo é executado, clique em **Executar > Executar**. Quando a execução do aplicativo for concluída, você verá a seguinte saída no console do Eclipse:
 
     ----------
     Web app created - HTTP response 200
@@ -345,7 +345,7 @@ Faça logon no portal clássico do Azure e clique em **Aplicativos Web**. O novo
 
 ## Implantando um aplicativo para o Aplicativo Web
 
-Depois que você executou AzureWebDemo e criou um novo aplicativo Web, faça logon no portal clássico, clique em **Aplicativos Web** e selecione **WebDemoWebApp** na lista **Aplicativos Web**. Na página do painel do aplicativo Web, clique em **Procurar** \(ou clique na URL `webdemowebapp.azurewebsites.net`\) para navegar até ele. Você verá uma página de alocador de espaço em branco, pois nenhum conteúdo foi publicado ainda para o aplicativo Web.
+Depois que você executou AzureWebDemo e criou um novo aplicativo Web, faça logon no portal clássico, clique em **Aplicativos Web** e selecione **WebDemoWebApp** na lista **Aplicativos Web**. Na página do painel do aplicativo Web, clique em **Procurar** (ou clique na URL `webdemowebapp.azurewebsites.net`) para navegar até ele. Você verá uma página de alocador de espaço em branco, pois nenhum conteúdo foi publicado ainda para o aplicativo Web.
 
 Em seguida, você criará um aplicativo "Olá Mundo" e implantá-lo para o aplicativo Web.
 
@@ -356,13 +356,13 @@ Em seguida, você criará um aplicativo "Olá Mundo" e implantá-lo para o aplic
 
 Para demonstrar como implantar um aplicativo para a Web, o procedimento a seguir mostra como criar um aplicativo Java "Olá Mundo" simples e carregá-lo para o aplicativo Web do Serviço de Aplicativo que o seu aplicativo criou.
 
-1. Clique em **Arquivo \> Novo \> Projeto Web Dinâmico**. Nomeie-o `JSPHello`. Você não precisa alterar nenhuma outra configuração nesta caixa de diálogo. Clique em **Concluir**.
+1. Clique em **Arquivo > Novo > Projeto Web Dinâmico**. Nomeie-o `JSPHello`. Você não precisa alterar nenhuma outra configuração nesta caixa de diálogo. Clique em **Concluir**.
 
     ![][3]
 
-2. No Gerenciador de Projetos, expanda o projeto **JSPHello**, clique com botão direito do mouse em **WebContent** e, em seguida, clique em **Novo \> Arquivo JSP**. Na caixa de diálogo Novo Arquivo JSP, nomeie o arquivo `index.jsp`. Clique em **Próximo**.
+2. No Gerenciador de Projetos, expanda o projeto **JSPHello**, clique com botão direito do mouse em **WebContent** e, em seguida, clique em **Novo > Arquivo JSP**. Na caixa de diálogo Novo Arquivo JSP, nomeie o arquivo `index.jsp`. Clique em **Próximo**.
 
-3. Na caixa de diálogo **Selecionar Modelo JSP**, selecione **Novo Arquivo JSP \(html\)** e clique em **Concluir**.
+3. Na caixa de diálogo **Selecionar Modelo JSP**, selecione **Novo Arquivo JSP (html)** e clique em **Concluir**.
 
 4. No index.jsp, adicione o seguinte código nas seções de marca `<head>` e `<body>`:
 
@@ -404,14 +404,14 @@ Antes de executar este aplicativo, você precisa configurar algumas propriedades
 
     Clique em **Concluir**.
 
-7. Quando o aplicativo é executado, você deve ver a página **JSPHello** em uma janela de localhost no Eclipse \(`http://localhost:8080/JSPHello/`\), exibindo a seguinte mensagem:
+7. Quando o aplicativo é executado, você deve ver a página **JSPHello** em uma janela de localhost no Eclipse (`http://localhost:8080/JSPHello/`), exibindo a seguinte mensagem:
 
     `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
 
 
-#### Exportar seu aplicativo como um WAR \(arquivo da Web\)
+#### Exportar seu aplicativo como um WAR (arquivo da Web)
 
-Exporte os arquivos de projeto Web como um WAR \(arquivo Web\) para implantá-lo para o aplicativo Web. Os seguintes arquivos de projeto Web residem na pasta WebContent:
+Exporte os arquivos de projeto Web como um WAR (arquivo Web) para implantá-lo para o aplicativo Web. Os seguintes arquivos de projeto Web residem na pasta WebContent:
 
     META-INF
     WEB-INF
@@ -419,7 +419,7 @@ Exporte os arquivos de projeto Web como um WAR \(arquivo Web\) para implantá-lo
 
 1. Clique na pasta WebContent e selecione **Exportar**.
 
-2. Na caixa de diálogo **Selecionar Exportação**, clique no arquivo **Web \> WAR** e clique em **Avançar**.
+2. Na caixa de diálogo **Selecionar Exportação**, clique no arquivo **Web > WAR** e clique em **Avançar**.
 
 3. Na caixa de diálogo **Exportar WAR**, selecione o diretório de origem no projeto atual e inclua o nome do arquivo WAR no final. Por exemplo:
 
@@ -434,7 +434,7 @@ Selecione um cliente FTP de terceiros para publicar o aplicativo. Este procedime
 
 > **Observação:** o plug-in do Azure para Eclipse com Java 2.4 dá suporte à implantação de contas de armazenamento e serviços de nuvem, mas não dá suporte à implantação de aplicativos Web. Você pode implantar contas de armazenamento e serviços de nuvem usando um projeto de implantação do Azure conforme descrito em [Criando um Aplicativo Olá Mundo do Azure no Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), mas não para aplicativos Web. Use outros métodos como FTP ou GitHub para transferir arquivos para seu aplicativo Web.
 
-> **Observação:** não é recomendável usar FTP no prompt de comando do Windows \(o utilitário de linha de comando FTP.EXE que acompanha o Windows\). Os clientes FTP que usam FTP ativo, como FTP.EXE, muitas vezes não funcionam através de firewalls. O FTP ativo especifica um endereço interno baseado em LAN, ao qual a conexão por meio de um servidor FTP provavelmente falhará.
+> **Observação:** não é recomendável usar FTP no prompt de comando do Windows (o utilitário de linha de comando FTP.EXE que acompanha o Windows). Os clientes FTP que usam FTP ativo, como FTP.EXE, muitas vezes não funcionam através de firewalls. O FTP ativo especifica um endereço interno baseado em LAN, ao qual a conexão por meio de um servidor FTP provavelmente falhará.
 
 Para obter mais informações sobre a implantação de um aplicativo Web de Serviço de Aplicativo usando o FTP, consulte os tópicos a seguir:
 
@@ -448,7 +448,7 @@ Verifique se você executou o aplicativo **AzureWebDemo** para criar um aplicati
 
 1. Faça logon no portal clássico e clique em **Aplicativos Web**. Certifique-se de **WebDemoWebApp** aparece na lista de aplicativos Web e certifique-se de que ele esteja em execução. Clique em **WebDemoWebApp** para abrir sua página **Painel**.
 
-2. Na página **Painel**, em **Visualização rápida**, clique em **Configurar suas credenciais de implantação** \(se você já tem credenciais de implantação, isso aparece como **Redefinir suas credenciais de implantação**\).
+2. Na página **Painel**, em **Visualização rápida**, clique em **Configurar suas credenciais de implantação** (se você já tem credenciais de implantação, isso aparece como **Redefinir suas credenciais de implantação**).
 
     As credenciais de implantação estão associadas com uma conta da Microsoft. Você precisa especificar um nome de usuário e senha que você possa usar para implantar usando Git e FTP. Você pode usar essas credenciais para implantar em qualquer aplicativo Web, em todas as assinaturas do Azure associadas à sua conta da Microsoft. Forneça as credenciais de implantação de FTP e Git na caixa de diálogo, e registre o nome de usuário e senha para uso futuro.
 
@@ -493,9 +493,9 @@ Antes de publicar o aplicativo, você precisa alterar algumas configurações pa
 
 1. No portal clássico, vá para a página **Painel** do aplicativo Web e clique em **Configurar**. Na página **Configurar**, especifique as configurações a seguir.
 
-2. Em **Versão do Java**, o padrão é **Desativado**; selecione a versão de Java que seu aplicativo busca; por exemplo, 1.7.0\_51. Depois de fazer isso, verifique também que **Contêiner da Web** esteja definido para uma versão do Servidor Tomcat.
+2. Em **Versão do Java**, o padrão é **Desativado**; selecione a versão de Java que seu aplicativo busca; por exemplo, 1.7.0_51. Depois de fazer isso, verifique também que **Contêiner da Web** esteja definido para uma versão do Servidor Tomcat.
 
-3. Em **Documentos Padrão**, adicione index.jsp e mova-o para a parte superior da lista. \(O arquivo padrão para aplicativos Web é hostingstart.html.\)
+3. Em **Documentos Padrão**, adicione index.jsp e mova-o para a parte superior da lista. (O arquivo padrão para aplicativos Web é hostingstart.html.)
 
 4. Clique em **Salvar**.
 
@@ -510,9 +510,9 @@ Uma maneira de publicar o aplicativo é usar o console de depuração Kudu integ
 
     `https://webdemowebapp.scm.azurewebsites.net/DebugConsole`
 
-2. No menu superior, selecione **Console de Depuração \> CMD**.
+2. No menu superior, selecione **Console de Depuração > CMD**.
 
-3. Na linha de comando do console, navegue até `/site/wwwroot` \(ou clique em `site`, depois em `wwwroot` na exibição do diretório, na parte superior da página\):
+3. Na linha de comando do console, navegue até `/site/wwwroot` (ou clique em `site`, depois em `wwwroot` na exibição do diretório, na parte superior da página):
 
     `cd /site/wwwroot`
 
@@ -530,19 +530,19 @@ Primeiro, o JSPHello.war aparece na área da pasta sozinho:
 
   ![][9]
 
-Em um curto período de tempo \(provavelmente menos de 5 minutos\), o servidor Tomcat descompactará o arquivo WAR em um diretório JSPHello. Clique no diretório raiz para ver se index.jsp foi descompactado e copiado para esse local. Se isso ocorreu, navegue até a pasta webapps para ver se a pasta JSPHello descompactada foi criado ou não. Se você não ver esses itens, aguarde e repita.
+Em um curto período de tempo (provavelmente menos de 5 minutos), o servidor Tomcat descompactará o arquivo WAR em um diretório JSPHello. Clique no diretório raiz para ver se index.jsp foi descompactado e copiado para esse local. Se isso ocorreu, navegue até a pasta webapps para ver se a pasta JSPHello descompactada foi criado ou não. Se você não ver esses itens, aguarde e repita.
 
   ![][10]
 
 
-#### Publicar seu aplicativo usando o FileZilla \(opcional\)
+#### Publicar seu aplicativo usando o FileZilla (opcional)
 
 Outra ferramenta que você pode usar para publicar o aplicativo é o FileZilla, um cliente FTP de terceiros popular, com uma interface do usuário gráfica e prática. Você pode baixar e instalar o FileZilla de [http://filezilla-project.org/](http://filezilla-project.org/) se você ainda não o tiver. Para obter mais informações sobre como usar o cliente, consulte a [Documentação do FileZilla](https://wiki.filezilla-project.org/Documentation) e esta entrada de blog em [Clientes FTP - parte 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx).
 
-1. No FileZilla, clique em **Arquivo \> Gerenciador de Site**.
+1. No FileZilla, clique em **Arquivo > Gerenciador de Site**.
 2. Na caixa de diálogo **Gerenciador de Sites**, clique em **Novo Site**. Um novo site FTP em branco aparecerá em **Selecionar Entrada**, solicitando que você forneça um nome. Para este procedimento, nomeie-o como `AzureWebDemo-FTP`.
 
-    Na guia **Geral**, especifique as seguintes configurações: - **Host:** insira o **nome do Host FTP** que você copiou do painel. - **Porta:** \(deixe isso em branco, já que se trata de uma transferência passiva e o servidor determinará a porta a ser usada.\) - **Protocolo:** protocolo de transferência de arquivos FTP - **Criptografia:** usar FTP simples - **Tipo de Logon:** normal - **Usuário:** insira o usuário de implantação/FTP que você copiou do painel. Isso é o nome de usuário FTP completo, que tem o formato *nomedoaplicativoWeb\\nomedeusuário*. - **Senha:** digite a senha que você especificou quando definiu as credenciais de implantação.
+    Na guia **Geral**, especifique as seguintes configurações: - **Host:** insira o **nome do Host FTP** que você copiou do painel. - **Porta:** (deixe isso em branco, já que se trata de uma transferência passiva e o servidor determinará a porta a ser usada.) - **Protocolo:** protocolo de transferência de arquivos FTP - **Criptografia:** usar FTP simples - **Tipo de Logon:** normal - **Usuário:** insira o usuário de implantação/FTP que você copiou do painel. Isso é o nome de usuário FTP completo, que tem o formato *nomedoaplicativoWeb\\nomedeusuário*. - **Senha:** digite a senha que você especificou quando definiu as credenciais de implantação.
 
     Na guia **Configurações de Transferência**, selecione **Passiva**.
 
@@ -556,7 +556,7 @@ Outra ferramenta que você pode usar para publicar o aplicativo é o FileZilla, 
 
 6. Transfira JSPHello.war para `/site/wwwroot/webapps`. Selecione JSPHello.war na lista de arquivos **Local**, clique com botão direito do mouse nele e selecione **Carregar**. Você deverá vê-lo aparecer em `/site/wwwroot/webapps`.
 
-7. Depois de copiar JSPHello.war para a pasta webapps, o Servidor Tomcat descompactará automaticamente os arquivos contidos no arquivo WAR. Embora o servidor Tomcat comece a desempacotar quase imediatamente, pode levar um longo tempo \(possivelmente horas\) para que os arquivos sejam exibidos no cliente FTP.
+7. Depois de copiar JSPHello.war para a pasta webapps, o Servidor Tomcat descompactará automaticamente os arquivos contidos no arquivo WAR. Embora o servidor Tomcat comece a desempacotar quase imediatamente, pode levar um longo tempo (possivelmente horas) para que os arquivos sejam exibidos no cliente FTP.
 
 
 #### Executar o aplicativo Olá Mundo no aplicativo Web

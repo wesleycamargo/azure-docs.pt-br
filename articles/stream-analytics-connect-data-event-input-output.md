@@ -97,11 +97,11 @@ Você pode usar a tabela do Azure para dados estruturados com menos restrições
  
 Para começar a usar um Armazenamento de Tabela do Azure, você deverá ter as seguintes informações sobre sua Tabela:
 
-1. Nome de conta de armazenamento \(se esse armazenamento estiver em uma assinatura diferente do seu trabalho de streaming\).
-2. Chave de conta de armazenamento \(se esse armazenamento estiver em uma assinatura diferente do seu trabalho de streaming\).
-3. Nome da tabela de saída \(será criado se não existir\).
-4. Chave de Partição \(obrigatório\).
-5.   Chave de linha \(no momento é necessário; de acordo com os comentários dos clientes, estamos planejando torná-la opcional\)
+1. Nome de conta de armazenamento (se esse armazenamento estiver em uma assinatura diferente do seu trabalho de streaming).
+2. Chave de conta de armazenamento (se esse armazenamento estiver em uma assinatura diferente do seu trabalho de streaming).
+3. Nome da tabela de saída (será criado se não existir).
+4. Chave de Partição (obrigatório).
+5.   Chave de linha (no momento é necessário; de acordo com os comentários dos clientes, estamos planejando torná-la opcional)
 
 Para obter um design melhor da Chave de partição e da Chave de linha, consulte o artigo abaixo [Criando uma estratégia de particionamento escalonável para o armazenamento de Tabela do Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

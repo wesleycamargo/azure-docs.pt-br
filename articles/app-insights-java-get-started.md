@@ -31,10 +31,10 @@ Além disso, você pode configurar [testes da Web][availability] para monitorar 
 Você precisará de:
 
 * Oracle JRE 1.6 ou posterior, ou então JRE Zulu 1.6 ou posterior
-* Uma assinatura do [Microsoft Azure](http://azure.microsoft.com/). \(Você pode começar com a [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).\)
+* Uma assinatura do [Microsoft Azure](http://azure.microsoft.com/). (Você pode começar com a [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).)
 
 
-## 1\. Obter uma chave de instrumentação do Application Insights
+## 1. Obter uma chave de instrumentação do Application Insights
 
 1. Fazer logon no [Portal do Microsoft Azure](https://portal.azure.com)
 2. Criar um novo recurso do Application Insights
@@ -47,7 +47,7 @@ Você precisará de:
 
     ![Na visão geral do novo recurso, clique em Propriedades e copie a chave de instrumentação](./media/app-insights-java-get-started/03-key.png)
 
-## 2\. Adicionar o SDK do Application Insights para Java a seu projeto
+## 2. Adicionar o SDK do Application Insights para Java a seu projeto
 
 *Escolha o modo apropriado para seu projeto.*
 
@@ -121,7 +121,7 @@ Adicione manualmente o SDK:
 `applicationinsights-core` fornece a você a API vazia, sem nenhuma telemetria automática. `applicationinsights-web` fornece métricas acompanhando tempos de resposta e contagens de solicitações HTTP.
 
 
-## 3\. Adicione um arquivo xml do Application Insights
+## 3. Adicione um arquivo xml do Application Insights
 
 Adicione ApplicationInsights.xml à pasta de recursos em seu projeto. Copie o XML a seguir para dentro dela.
 
@@ -162,9 +162,9 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 * O componente de solicitação HTTP é opcional. Ele envia automaticamente a telemetria sobre solicitações e tempos de resposta para o portal.
 * A correlação de eventos é uma adição ao componente de solicitação HTTP. Ele atribui um identificador a cada solicitação recebida pelo servidor e adiciona isso como uma propriedade para cada item de telemetria, como a propriedade “Operation.Id”. Ele permite que você correlacione a telemetria associada com cada solicitação, definindo um filtro na [pesquisa de diagnóstico][diagnostic].
 
-## 4\. Adicionar um filtro HTTP
+## 4. Adicionar um filtro HTTP
 
-A última etapa de configuração permite que o componente de solicitação HTTP registre cada solicitação da Web. \(Não obrigatório se você quiser apenas a API vazia.\)
+A última etapa de configuração permite que o componente de solicitação HTTP registre cada solicitação da Web. (Não obrigatório se você quiser apenas a API vazia.)
 
 Localize e abra o arquivo web.xml em seu projeto, então mescle o trecho de código a seguir sob o nó do aplicativo Web, no qual seus filtros de aplicativo estão configurados.
 
@@ -196,22 +196,22 @@ Edite esses elementos para incluir o pacote do Application Insights:
 
 #### Se você estiver usando o Struts 2
 
-Adicione este item ao arquivo de configuração do Struts \(geralmente chamado de struts.xml ou struts-default.xml\):
+Adicione este item ao arquivo de configuração do Struts (geralmente chamado de struts.xml ou struts-default.xml):
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 
-\(Se você tiver interceptores definidos em uma pilha padrão, o interceptador pode simplesmente ser adicionado àquela pilha.\)
+(Se você tiver interceptores definidos em uma pilha padrão, o interceptador pode simplesmente ser adicionado àquela pilha.)
 
-## 5\. Exibir sua telemetria no Application Insights
+## 5. Exibir sua telemetria no Application Insights
 
 Execute seu aplicativo.
 
 Retorne para seu recurso Application Insights no Microsoft Azure.
 
-Dados de solicitações HTTP aparecerão na folha de visão geral. \(Se não estiverem lá, aguarde alguns segundos e, em seguida, clique em Atualizar.\)
+Dados de solicitações HTTP aparecerão na folha de visão geral. (Se não estiverem lá, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
 ![dados de exemplo](./media/app-insights-java-track-http-requests/5-results.png)
  
@@ -239,7 +239,7 @@ Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Hom
 
 Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução para solicitações.
 
-## 5\. Contadores de desempenho
+## 5. Contadores de desempenho
 
 Clique no bloco Servidores e você verá uma variedade de contadores de desempenho.
 
@@ -258,7 +258,7 @@ Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adici
 
 Você pode especificar contadores de desempenho adicionais a serem coletados.
 
-#### Contadores JMX \(expostos pela Máquina Virtual Java\)
+#### Contadores JMX (expostos pela Máquina Virtual Java)
 
     <PerformanceCounters>
       <Jmx>
@@ -270,16 +270,16 @@ Você pode especificar contadores de desempenho adicionais a serem coletados.
 *	`displayName` – o nome exibido no portal do Application Insights.
 *	`objectName` – o nome do objeto JMX.
 *	`attribute` – o atributo do nome do objeto JMX a buscar
-*	`type` \(opcional\) - o tipo do atributo do objeto JMX:
+*	`type` (opcional) - o tipo do atributo do objeto JMX:
  *	Padrão: um tipo simples como “int” ou “long”.
  *	`composite`: os dados do contador de desempenho estão no formato “Attribute.Data”
  *	`tabular`: os dados do contador de desempenho estão no formato de uma linha de tabela
 
 
 
-#### Contadores de desempenho do Windows \(64 bits\) 
+#### Contadores de desempenho do Windows (64 bits) 
 
-Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria \(do mesmo modo que um campo é um membro de uma classe\). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
+Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria (do mesmo modo que um campo é um membro de uma classe). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
 
     <PerformanceCounters>
       <Windows>
@@ -289,20 +289,20 @@ Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/wind
     </PerformanceCounters>
 
 *	displayName – o nome exibido no portal do Application Insights.
-*	categoryName – a categoria de contador de desempenho \(objeto de desempenho\) com o qual este contador de desempenho está associado
+*	categoryName – a categoria de contador de desempenho (objeto de desempenho) com o qual este contador de desempenho está associado
 *	counterName – o nome do contador de desempenho
-*	instanceName – o nome da instância da categoria do contador de desempenho ou uma cadeia de caracteres vazia \(""\), se a categoria contém uma única instância. Se categoryName é o processo, e o contador de desempenho que você gostaria de coletar faz parte do processo atual da JVM em que seu aplicativo está sendo executado, especifique `"__SELF__"`.
+*	instanceName – o nome da instância da categoria do contador de desempenho ou uma cadeia de caracteres vazia (""), se a categoria contém uma única instância. Se categoryName é o processo, e o contador de desempenho que você gostaria de coletar faz parte do processo atual da JVM em que seu aplicativo está sendo executado, especifique `"__SELF__"`.
 
 Seus contadores de desempenho são visíveis como métricas personalizadas em [Metrics Explorer][metrics].
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6\. Capturar rastreamentos de log
+## 6. Capturar rastreamentos de log
 
 Você pode usar o Application Insights para fracionar e dividir logs de Log4J, Logback ou outras estruturas de registros. Você pode correlacionar os logs de solicitações HTTP e outras telemetrias. [Saiba como][javalogs].
 
-## 7\. Enviar sua próprias telemetrias
+## 7. Enviar sua próprias telemetrias
 
 Agora que você instalou o SDK, você pode usar a API para enviar sua próprias telemetrias.
 

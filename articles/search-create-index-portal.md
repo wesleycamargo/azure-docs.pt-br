@@ -27,7 +27,7 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
 2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. Aqui estão algumas maneiras para localizar o painel.
 	- Na barra de navegação rápida, clique em **Home**. A home page conta com blocos para cada serviço em sua assinatura. Clique no bloco para abrir o painel de serviços.
-	- Na barra de navegação rápida, clique em **Procurar** \| **Filtrar por** \| **Serviços de pesquisa** para localizar o serviço de pesquisa na lista. 
+	- Na barra de navegação rápida, clique em **Procurar** | **Filtrar por** | **Serviços de pesquisa** para localizar o serviço de pesquisa na lista. 
 
 3. No painel do serviços, você verá uma barra de comandos na parte superior, inclusive um para **Adicionar índice**.
 	
@@ -45,7 +45,7 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
 6. Clique em *hotéis* para abrir a folha de definição de índice.
 
-	Quando você cria um índice no portal, um campo obrigatório \(id\) é criado para você. Este é o campo de chave, usado para identificar exclusivamente cada documento. Há apenas um campo por chave \(sem chaves compostas\) e é sempre uma cadeia de caracteres.
+	Quando você cria um índice no portal, um campo obrigatório (id) é criado para você. Este é o campo de chave, usado para identificar exclusivamente cada documento. Há apenas um campo por chave (sem chaves compostas) e é sempre uma cadeia de caracteres.
 
 	Se você deseja renomear o campo de chave, é importante fazer isso agora, durante a criação do índice. Você não poderá renomear o campo depois que o índice for criado.
 
@@ -55,11 +55,11 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
 8. Substitua *id* por *hotelId*.
 
-9. Clique em **OK** em cada folha \(campos e índice\) para criar o índice.
+9. Clique em **OK** em cada folha (campos e índice) para criar o índice.
 
 ##Adicionar campos
 
-Na Pesquisa do Azure, atributos de índice como pesquisável, facetável e filtrável são habilitados por padrão. Você define esses atributos geralmente para desativar os comportamentos de pesquisa que não fazem sentido \(por exemplo, classificação ou facetagem em uma descrição\).
+Na Pesquisa do Azure, atributos de índice como pesquisável, facetável e filtrável são habilitados por padrão. Você define esses atributos geralmente para desativar os comportamentos de pesquisa que não fazem sentido (por exemplo, classificação ou facetagem em uma descrição).
 
 O portal é diferente. No portal, comportamentos de pesquisa são desativados por padrão para que você possa selecionar todos os comportamentos que se aplicam, campo por campo.
 

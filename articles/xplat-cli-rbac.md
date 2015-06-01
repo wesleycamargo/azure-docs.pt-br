@@ -118,7 +118,7 @@ Use 'criar atribuições de funções do Azure' para criar uma atribuição de f
 
 - Isso criará uma atribuição de função em nível de grupo de recursos
 
-    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - Isso criará uma atribuição de função em nível de recursos
 
@@ -128,8 +128,8 @@ Use 'criar atribuições de funções do Azure' para criar uma atribuição de f
 
 Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos aos quais você tem permissão de leitura. E também mostrará as permissões que você tem.
 

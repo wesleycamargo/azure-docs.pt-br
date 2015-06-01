@@ -34,16 +34,16 @@ Existem quatro botões na barra de ferramentas que você pode usar para criar en
 - **Novo armazenamento de dados** para criar um serviço de armazenamento de dados vinculado. Quando clicar nesse botão, você verá um menu com as seguintes opções: Armazenamento do Azure, Banco de dados SQL do Azure, Banco de dados SQL Server local.
 - **Nova computação** para criar um serviço de computação vinculado. Quando você clica nesse botão, você verá um menu com as seguintes opções: cluster HDInsight sob demanda, cluster HDInsight, Serviço do AzureML vinculado.      
 - **Novo conjunto de dados** para criar um conjunto de dados. Quando clicar nesse botão, você verá as seguintes opções: Tabela do Blob, Tabela do SQL do Azure, Tabela local.  
-- **Novo pipeline** para criar um pipeline. Clique em **... \(reticências\)** na barra de ferramentas se você não enxergar este botão nessa barra.
+- **Novo pipeline** para criar um pipeline. Clique em **... (reticências)** na barra de ferramentas se você não enxergar este botão nessa barra.
  
 ### Como criar um serviço de armazenamento vinculado
 1. Clique em **Novo armazenamento de dados**, e clique em uma das opções no menu.
  
 	![Menu Novo armazenamento de dados][new-data-store-menu] 
 2. Você verá o modelo JSON para criar um serviço de armazenamento vinculado na **Tela do editor** à direita. Você verá também que um nó de rascunho é exibido em **Rascunhos**. Faça o seguinte:
-	1. Para **Armazenamento do Azure**: substitua **\<nome da conta\>** e **\<chave da conta\>** pelo nome e a chave da sua conta de armazenamento do Azure.
-	2. Para **Banco de dados SQL do Azure**: substitua **\<nome do servidor\>** pelo nome do seu servidor SQL do Azure, **\<nome do banco de dados\>** pelo nome do banco de dados, **\<nome de usuário\>@\<nome do servidor\>** pelo nome do usuário e **\<senha\>** pela senha da conta de usuário. 
-	3. Para **Banco de dados SQL Server local**: substitua **\<nome do servidor\>** pelo nome do seu SQL Server local, **\<nome do banco de dados\>** pelo nome do banco de dados, **\<nome de usuário\>** pelo nome do usuário e **\<senha\>** pela senha da conta de usuário.
+	1. Para **Armazenamento do Azure**: substitua **<nome da conta>** e **<chave da conta>** pelo nome e a chave da sua conta de armazenamento do Azure.
+	2. Para **Banco de dados SQL do Azure**: substitua **<nome do servidor>** pelo nome do seu servidor SQL do Azure, **<nome do banco de dados>** pelo nome do banco de dados, **<nome de usuário>@<nome do servidor>** pelo nome do usuário e **<senha>** pela senha da conta de usuário. 
+	3. Para **Banco de dados SQL Server local**: substitua **<nome do servidor>** pelo nome do seu SQL Server local, **<nome do banco de dados>** pelo nome do banco de dados, **<nome de usuário>** pelo nome do usuário e **<senha>** pela senha da conta de usuário.
 4. Clique em **Implantar** na barra de ferramentas para implantar o serviço vinculado. Você pode clicar em **Descartar** para descartar o rascunho JSON criado.
  
 	![Botão Implantar][deploy-button]
@@ -64,9 +64,9 @@ Existem quatro botões na barra de ferramentas que você pode usar para criar en
 		1. Para a propriedade **clusterSize**, especifique o tamanho do cluster do HDInsight que você deseja que o serviço Data Factory crie em tempo de execução. 
 		2. Para a propriedade **jobsContainer**, especifique o nome do contêiner de blob padrão onde você deseja que os logs de cluster sejam armazenados.
 		3. Para a propriedade **timeToLive**, especifique o tempo ocioso permitido antes de o cluster HDInsight ser excluído. Por exemplo: 00:05:00 indica que o cluster deve ser excluído após 5 minutos de tempo ocioso.
-		4. Para a propriedade **versão**, especifique a versão do HDInsight para o cluster \(padrão: versão 3.1\).
+		4. Para a propriedade **versão**, especifique a versão do HDInsight para o cluster (padrão: versão 3.1).
 		5. Para a propriedade **linkedServiceName**, especifique o serviço de armazenamento do Azure vinculado a ser associado com o cluster HDInsight. 
-	6. Para **Cluster HDInsight** \(traga o seu próprio\), especifique valores para as seguintes propriedades:
+	6. Para **Cluster HDInsight** (traga o seu próprio), especifique valores para as seguintes propriedades:
 		1. Para a propriedade **clusterUri**, especifique a URL para seu cluster HDInsight. 
 		2. Para a propriedade **userName**, especifique a conta de usuário que o serviço Data Factory deve usar para se conectar ao cluster HDInsight. 
 		3. Para a propriedade **password**, especifique a senha para a conta de usuário. 
@@ -101,7 +101,7 @@ Existem quatro botões na barra de ferramentas que você pode usar para criar en
 > [AZURE.NOTE]Consulte o tópico [Tabelas][msdn-tables-reference] na biblioteca MSDN para obter descrições dos elementos JSON que são usados para definir uma tabela do Azure Data Factory.
  		           
 ### Para criar e ativar um pipeline 
-1. Clique em **Novo pipeline** na barra de ferramentas. Se você não puder ver o botão **Novo pipeline**, clique em **... \(reticências\)** Para vê-lo.   
+1. Clique em **Novo pipeline** na barra de ferramentas. Se você não puder ver o botão **Novo pipeline**, clique em **... (reticências)** Para vê-lo.   
 2. Você verá o modelo JSON para criação de um pipeline na Tela do editor, à direita. Faça o seguinte: 
 	1. Para a propriedade **descrição**, especifique a descrição para o pipeline.
 	2. Para a seção **atividades**, adicione atividades ao pipeline. Exemplo:
@@ -190,14 +190,14 @@ A função Rascunhos permite que você salve seu trabalho temporariamente quando
 Você pode descartar a definição de JSON de uma entidade do Azure Data Factory clicando no botão **Descartar** na barra de ferramentas.
 
 ## Para clonar uma entidade Data Factory
-Você pode clonar uma entidade do Azure Data Factory existente \(serviço vinculado, tabela ou pipeline\) selecionando a entidade no modo de exibição de árvore e clicando em **Clonar** na barra de ferramentas.
+Você pode clonar uma entidade do Azure Data Factory existente (serviço vinculado, tabela ou pipeline) selecionando a entidade no modo de exibição de árvore e clicando em **Clonar** na barra de ferramentas.
 
 ![Clonar uma entidade Data Factory][clone-datafactory-entity]
 
 Você verá um novo rascunho criado sob o nó **Rascunhos** no modo de exibição de árvore.
 
 ## Para excluir uma entidade Data Factory
-Você pode excluir uma entidade do Azure Data Factory \(serviço vinculado, tabela ou pipeline\) selecionando a entidade no modo de exibição de árvore e clicando em **Excluir** na barra de ferramentas, ou clicando com o botão direito na entidade e depois clicando em **Excluir**.
+Você pode excluir uma entidade do Azure Data Factory (serviço vinculado, tabela ou pipeline) selecionando a entidade no modo de exibição de árvore e clicando em **Excluir** na barra de ferramentas, ou clicando com o botão direito na entidade e depois clicando em **Excluir**.
 
 ![Excluir uma entidade Data Factory][delete-datafactory-entity]
 

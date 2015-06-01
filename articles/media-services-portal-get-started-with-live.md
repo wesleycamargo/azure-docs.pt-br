@@ -28,8 +28,8 @@ Neste tutorial, o Portal de Gerenciamento é usado para realizar as seguintes ta
 
 2.  Configurar os pontos de extremidade de streaming
 3.  Criar um canal
-1.  Configurar um codificador ao vivo e receber transmissão ao vivo para o canal \(Wirecast é usado nesta etapa\)
-1.  Criar um programa \(e um ativo\)
+1.  Configurar um codificador ao vivo e receber transmissão ao vivo para o canal (Wirecast é usado nesta etapa)
+1.  Criar um programa (e um ativo)
 1.  Publicar o ativo e obter URLs de streaming  
 1.  Reproduzir o conteúdo 
 2.  Limpando
@@ -44,9 +44,9 @@ Os itens a seguir são necessários para concluir o tutorial.
 	 
 ##Configurar ponto de extremidade de streaming usando o Portal
 
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming \(HLS\), Smooth Streaming, MPEG DASH e HDS \(apenas para licenciados Adobe PrimeTime/Access\).
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
 
-Ao trabalhar com a transmissão ao vivo, um codificador ao vivo local \(no nosso caso Wirecast\) recebe uma transmissão ao vivo com múltiplas taxas de bits em seu canal. Quando o fluxo é solicitado por um usuário, o Serviços de Mídia usa empacotamento dinâmico para empacotar novamente o fluxo de origem no fluxo de taxa de bits adaptável solicitado \(HLS, DASH ou Smooth\).
+Ao trabalhar com a transmissão ao vivo, um codificador ao vivo local (no nosso caso Wirecast) recebe uma transmissão ao vivo com múltiplas taxas de bits em seu canal. Quando o fluxo é solicitado por um usuário, o Serviços de Mídia usa empacotamento dinâmico para empacotar novamente o fluxo de origem no fluxo de taxa de bits adaptável solicitado (HLS, DASH ou Smooth).
 
 Para tirar proveito do empacotamento dinâmico, você precisa obter pelo menos uma unidade de streaming para o **ponto de extremidade** de streaming por meio do qual você planeja fornecer seu conteúdo.
 
@@ -161,7 +161,7 @@ Se você alternar para a página **CONTEÚDO**, você verá os ativos que foram 
 
 ##Reprodução de conteúdo
 
-Para fornecer a seu usuário uma URL que possa ser usada para transmitir seu conteúdo, você precisa primeiro "publicar" seu ativo \(conforme descrito na seção anterior\), criando um localizador \(quando você publica um ativo usando o Portal, os localizadores são criados para você\). Os localizadores fornecem acesso aos arquivos contidos no ativo.
+Para fornecer a seu usuário uma URL que possa ser usada para transmitir seu conteúdo, você precisa primeiro "publicar" seu ativo (conforme descrito na seção anterior), criando um localizador (quando você publica um ativo usando o Portal, os localizadores são criados para você). Os localizadores fornecem acesso aos arquivos contidos no ativo.
 
 Dependendo de qual protocolo de transmissão você deseja usar para reproduzir o conteúdo, talvez seja necessário modificar a URL obtida pelo link **PUBLICAR URL** do canal\\programa.
 
@@ -171,11 +171,11 @@ Por padrão, uma URL de transmissão tem o formato a seguir, e você pode usá-l
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Para criar uma URL de streaming HLS, anexe \(format=m3u8-aapl\) à URL.
+Para criar uma URL de streaming HLS, anexe (format=m3u8-aapl) à URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Para criar uma URL de streaming MPEG DASH, anexe \(format=mpd-time-csf\) à URL.
+Para criar uma URL de streaming MPEG DASH, anexe (format=mpd-time-csf) à URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

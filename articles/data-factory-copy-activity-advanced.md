@@ -18,7 +18,7 @@
 
 # Cenários avançados para usar a atividade de cópia no Azure Data Factory 
 ## Visão geral
-Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor \(destino\) em um lote. Este tópico descreve os cenários avançados com suporte pela atividade de cópia. Para obter uma visão geral detalhada da atividade de cópia e cenários principais aos quais ele dá suporte, consulte [Copiar dados com o Azure Data Factory][adf-copyactivity].
+Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. Este tópico descreve os cenários avançados com suporte pela atividade de cópia. Para obter uma visão geral detalhada da atividade de cópia e cenários principais aos quais ele dá suporte, consulte [Copiar dados com o Azure Data Factory][adf-copyactivity].
 
 
 ## Filtragem de coluna utilizando a definição de estrutura
@@ -136,9 +136,9 @@ Neste exemplo, a **tabela de saída** é definida do modo a seguir. A tabela de 
 		}
 	}	
 
-Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt \(por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt\).
+Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
-Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade **partitionedBy**. No exemplo a seguir, **folderPath** usa o ano, mês e dia de SliceStart \(hora de início da fatia que está sendo processada\) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2014-10-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName é definido como 08.csv.
+Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade **partitionedBy**. No exemplo a seguir, **folderPath** usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2014-10-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName é definido como 08.csv.
 
   	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
@@ -151,7 +151,7 @@ Para definir **folderPath** e **fileName** dinamicamente com base no horário **
     ],
 
 #### Exemplo – definir o mapeamento de coluna
-Neste exemplo, uma atividade em uma pipeline é definida da seguinte maneira. As colunas da fonte são mapeadas para colunas no coletor \(\*\*columnMappings\*\*\) utilizando a propriedade **Translator**.
+Neste exemplo, uma atividade em uma pipeline é definida da seguinte maneira. As colunas da fonte são mapeadas para colunas no coletor (**columnMappings**) utilizando a propriedade **Translator**.
 
 	{
 		"name": "CopyActivity",
@@ -180,7 +180,7 @@ Neste exemplo, uma atividade em uma pipeline é definida da seguinte maneira. As
 ![Mapeamento de coluna][image-data-factory-column-mapping-1]
 
 ### Exemplo 2- mapeamento de coluna com a consulta SQL do SQL Server para blobs do Azure
-Neste exemplo, uma consulta SQL \(em vez de tabela no exemplo anterior\) é utilizada para extrair dados de um SQL Server local e colunas de resultados de consulta são mapeadas para o artefato de fonte e, em seguida, para o artefato de destino. Para fins desse exemplo, a consulta retorna 5 colunas.
+Neste exemplo, uma consulta SQL (em vez de tabela no exemplo anterior) é utilizada para extrair dados de um SQL Server local e colunas de resultados de consulta são mapeadas para o artefato de fonte e, em seguida, para o artefato de destino. Para fins desse exemplo, a consulta retorna 5 colunas.
 
 	{
 		"name": "CopyActivity",
@@ -263,7 +263,7 @@ Os tipos de dados especificados na seção Estrutura da definição de tabela se
 ## Invocar o procedimento armazenado para o coletor SQL
 Ao copiar dados no SQL Server ou no Banco de Dados SQL do Azure, um procedimento armazenado do usuário especificado poderá ser configurado e invocado com parâmetros adicionais.
 ### Exemplo
-1. Defina o JSON de saída de tabela da seguinte maneira \(considere a tabela de banco de dados SQL como um exemplo\):
+1. Defina o JSON de saída de tabela da seguinte maneira (considere a tabela de banco de dados SQL como um exemplo):
 
     	{
     		"name": "MyAzureSQLTable",
@@ -320,7 +320,7 @@ Ao copiar dados no SQL Server ou no Banco de Dados SQL do Azure, um procedimento
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela][table-valued-parameters].
 
 ## Especificar codificação para arquivos de texto
-Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de horário no Blob do Azure utilizam outras codificações por razões históricas. A propriedade **encodingName** permite que você especifique a codificação por nome de página de código para tabelas do tipo TextFormat. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. Consulte [Classe de codificação](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx\) para nomes de codificação válidos.
+Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de horário no Blob do Azure utilizam outras codificações por razões históricas. A propriedade **encodingName** permite que você especifique a codificação por nome de página de código para tabelas do tipo TextFormat. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. Por exemplo: windows-1250 ou shift_jis. O valor padrão é UTF-8. Consulte [Classe de codificação](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) para nomes de codificação válidos.
 
 ## Consulte também
 

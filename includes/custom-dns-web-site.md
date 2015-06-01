@@ -1,6 +1,6 @@
 #Configurando um nome de domínio personalizado para um Site do Azure.
 
-Ao criar um site, o Azure oferece um subdomínio amigável no domínio azurewebsites.net para que seus usuários possam acessar seu site usando uma URL como http://&lt;mysite\>.azurewebsites.net. No entanto, se você configurar seus sites para o modo Padrão ou Compartilhado, você pode mapear o seu site para o seu próprio nome de domínio.
+Ao criar um site, o Azure oferece um subdomínio amigável no domínio azurewebsites.net para que seus usuários possam acessar seu site usando uma URL como http://&lt;mysite>.azurewebsites.net. No entanto, se você configurar seus sites para o modo Padrão ou Compartilhado, você pode mapear o seu site para o seu próprio nome de domínio.
 
 Opcionalmente, você pode usar o Gerenciador de Tráfego do Azure para balancear a carga do tráfego de entrada para seu site. Para obter mais informações sobre como o Gerenciador de Tráfego funciona com Sites da Web, consulte [Controlar o tráfego de Sites da Web do Azure com o Gerenciador de Tráfego do Azure][trafficmanager].
 
@@ -18,17 +18,17 @@ Neste artigo:
 
 <h2><a name="understanding-records"></a>Entender os registros CNAME e A</h2>
 
-Os registros CNAME \(ou registros de alias\) e A permitem que você associe um nome de domínio a um site, de qualquer forma, cada um deles funciona de modo diferente.
+Os registros CNAME (ou registros de alias) e A permitem que você associe um nome de domínio a um site, de qualquer forma, cada um deles funciona de modo diferente.
 
 ###Registro CNAME ou de alias
 
-Um registro CNAME mapeia um domínio *específico*, como **contoso.com** ou **www.contoso.com**, para um nome de domínio canônico. Nesse caso, o nome de domínio canônico é o nome de domínio **&lt;myapp\>.azurewebsites.net** de seu site do Azure ou o nome de domínio **&lt;myapp\>.trafficmgr.com** de seu perfil do Gerenciador de Tráfego. Uma vez criado, o CNAME cria um alias para o nome de domínio **&lt;myapp\>.azurewebsites.net** ou **&lt;myapp\>.trafficmgr.com**. A entrada CNAME resolverá o endereço IP de seu nome de domínio **&lt;myapp\>.azurewebsites.net** ou **&lt;myapp\>.trafficmgr.com** automaticamente, por isso, se o endereço IP do site for alterado, você não precisará realizar qualquer ação.
+Um registro CNAME mapeia um domínio *específico*, como **contoso.com** ou **www.contoso.com**, para um nome de domínio canônico. Nesse caso, o nome de domínio canônico é o nome de domínio **&lt;myapp>.azurewebsites.net** de seu site do Azure ou o nome de domínio **&lt;myapp>.trafficmgr.com** de seu perfil do Gerenciador de Tráfego. Uma vez criado, o CNAME cria um alias para o nome de domínio **&lt;myapp>.azurewebsites.net** ou **&lt;myapp>.trafficmgr.com**. A entrada CNAME resolverá o endereço IP de seu nome de domínio **&lt;myapp>.azurewebsites.net** ou **&lt;myapp>.trafficmgr.com** automaticamente, por isso, se o endereço IP do site for alterado, você não precisará realizar qualquer ação.
 
 > [AZURE.NOTE]Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como www.contoso.com, e não nomes de raiz, como contoso.com. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida por seu registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia sobre o registro CNAME</a> ou o documento <a href="http://tools.ietf.org/html/rfc1035">Nomes de Domínio IETF - Implementação e Especificação</a>.
 
 ###Registro A
 
-Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga*, como **\*.contoso.com**, para um endereço IP. No caso de um site do Azure, o IP virtual do serviço ou um endereço IP específico comprado para seu site. Portanto, o principal benefício de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um curinga, como ***.contoso.com**, que lidaria com as solicitações com vários subdomínios, como **mail.contoso.com**, **login.contoso.com** ou **www.contoso.com**.
+Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga*, como ***.contoso.com**, para um endereço IP. No caso de um site do Azure, o IP virtual do serviço ou um endereço IP específico comprado para seu site. Portanto, o principal benefício de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um curinga, como ***.contoso.com**, que lidaria com as solicitações com vários subdomínios, como **mail.contoso.com**, **login.contoso.com** ou **www.contoso.com**.
 
 > [AZURE.NOTE]Como um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações feitas no endereço IP de seu site. Um endereço IP é fornecido para uso com registros A quando você define configurações de nome de domínio personalizado para seu site; no entanto, esse valor poderá ser alterado se você excluir e recriar seu site ou alterar o modo desse site novamente para gratuito.
 
@@ -55,13 +55,13 @@ A configuração de um nome de domínio personalizado em um site está disponív
 	> [AZURE.NOTE]Se você for usar o Gerenciador de Tráfego com este site, é preciso selecionar o modo Padrão em vez de o Compartilhado.
 
 5. Clique em **Salvar**.
-6. Quando solicitado sobre o aumento nos custos de modo compartilhado \(ou para o modo padrão se você optar por padrão\), clique em **Sim** se você concordar.
+6. Quando solicitado sobre o aumento nos custos de modo compartilhado (ou para o modo padrão se você optar por padrão), clique em **Sim** se você concordar.
 
 	<!--![][standardmode4]-->
 
 	**Observação**<br /> Se você receber um erro “Falha na configuração de escala para o site 'nome do site'", você poderá usar o botão de detalhes para obter mais informações.
 
-<a name="trafficmanager"></a><h2>\(Opcional\) Adicionar seus sites ao Gerenciador de Tráfego</h2>
+<a name="trafficmanager"></a><h2>(Opcional) Adicionar seus sites ao Gerenciador de Tráfego</h2>
 
 Se você deseja usar seu site com Gerenciador de Tráfego, execute as seguintes etapas.
 
@@ -92,9 +92,9 @@ Por exemplo, o seguinte registro CNAME encaminha todo o tráfego de **www.contos
 </tr>
 </table>
 
-Um visitante de **www.contoso.com** nunca visualizará o host verdadeiro \(contoso.azurewebsite.net\), para que o processo de encaminhamento seja invisível para o usuário final.
+Um visitante de **www.contoso.com** nunca visualizará o host verdadeiro (contoso.azurewebsite.net), para que o processo de encaminhamento seja invisível para o usuário final.
 
-> [AZURE.NOTE]Se você estiver usando o Gerenciador de Tráfego com um site, você não precisará seguir as seguintes etapas nas seções '\*\*Adicionar um CNAME em seu domínio personalizado\*\*' e 'Adicionar um registro A em seu domínio personalizado\*\*'. O registro CNAME criado nas etapas anteriores roteará o tráfego de entrada para o Gerenciador de Tráfego, que encaminha o tráfego para o\(s\) ponto\(s\) de extremidade do site da web.
+> [AZURE.NOTE]Se você estiver usando o Gerenciador de Tráfego com um site, você não precisará seguir as seguintes etapas nas seções '**Adicionar um CNAME em seu domínio personalizado**' e 'Adicionar um registro A em seu domínio personalizado**'. O registro CNAME criado nas etapas anteriores roteará o tráfego de entrada para o Gerenciador de Tráfego, que encaminha o tráfego para o(s) ponto(s) de extremidade do site da web.
 
 <a name="bkmk_configurecname"></a><h2>Adicionar um CNAME para seu domínio personalizado</h2>
 
@@ -118,7 +118,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
 
 4. Agora, encontre onde você pode selecionar ou inserir registros CNAME. Você pode ter que selecionar o tipo de registro de uma lista suspensa ou acessar uma página de configurações avançadas. Você deve procurar as palavras **CNAME**, **Alias**, ou **Subdomínios**.
 
-5. Você também deve fornecer o alias de domínio ou subdomínio para o CNAME. Por exemplo, **www** se você deseja criar um alias para **www.customdomain.com**. Se você deseja criar um alias para o domínio raiz, ele pode estar listado como o símbolo '\*\*@\*\*' nas ferramentas de DNS do registrador.
+5. Você também deve fornecer o alias de domínio ou subdomínio para o CNAME. Por exemplo, **www** se você deseja criar um alias para **www.customdomain.com**. Se você deseja criar um alias para o domínio raiz, ele pode estar listado como o símbolo '**@**' nas ferramentas de DNS do registrador.
 
 5. Você também deve fornecer um nome do host que seja o nome do domínio canônico para este alias CNAME. Este é o nome **.azurewebsite.net** para seu site.
 
@@ -135,7 +135,7 @@ Por exemplo, o seguinte registro CNAME encaminha todo o tráfego de **www.contos
 </tr>
 </table>
 
-Um visitante de **www.contoso.com** nunca visualizará o host verdadeiro \(contoso.azurewebsite.net\), para que o processo de encaminhamento seja invisível para o usuário final.
+Um visitante de **www.contoso.com** nunca visualizará o host verdadeiro (contoso.azurewebsite.net), para que o processo de encaminhamento seja invisível para o usuário final.
 
 > [AZURE.NOTE]O exemplo acima aplica-se somente ao tráfego no subdomínio __www__. Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se quiser direcionar o tráfego de subdomínios, como *.contoso.com, para o endereço azurewebsite.net, você poderá configurar uma entrada __Redirecionamento de URL__ ou __Encaminhamento de URL__ em suas configurações DNS ou criar um registro A.
 
@@ -197,7 +197,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu site
 
 7. Execute as seguintes etapas para criar o registro A:
 
-	1. Selecione ou digite o domínio ou subdomínio que usará o registro A. Por exemplo, selecione **www** se você deseja criar um alias para **www.customdomain.com**. Se você desejar criar uma entrada curinga para todos os subdomínios, digite '\_\_\*\_\_'. Ele abrange todos os subdomínios como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+	1. Selecione ou digite o domínio ou subdomínio que usará o registro A. Por exemplo, selecione **www** se você deseja criar um alias para **www.customdomain.com**. Se você desejar criar uma entrada curinga para todos os subdomínios, digite '__*__'. Ele abrange todos os subdomínios como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
 		If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
 

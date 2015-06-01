@@ -184,7 +184,7 @@ Você também pode configurar o host usando o arquivo App.config. O código de h
     Console.ReadLine();
     sh.Close();
 
-As definições de ponto de extremidade são movidas para o arquivo App.config. Observe que o pacote do **NuGet** já adicionou uma série de definições ao arquivo App.config que são as extensões de configuração necessárias para o Barramento de serviço. O seguinte trecho de código que é o equivalente exato do código listado acima, deve aparecer diretamente sob o elemento **system.serviceModel**. Esse trecho pressupõe que o namespace do projeto C\# é denominado "Serviço".
+As definições de ponto de extremidade são movidas para o arquivo App.config. Observe que o pacote do **NuGet** já adicionou uma série de definições ao arquivo App.config que são as extensões de configuração necessárias para o Barramento de serviço. O seguinte trecho de código que é o equivalente exato do código listado acima, deve aparecer diretamente sob o elemento **system.serviceModel**. Esse trecho pressupõe que o namespace do projeto C# é denominado "Serviço".
 Substitua os espaços reservados com seu namespace do Barramento de Serviço e a chave SAS.
 
     <services>

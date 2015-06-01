@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -26,12 +27,12 @@
 
      ![Adicionar volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
-3. Na caixa de diálogo **Configurações Adicionais**, adicione um novo registro de controle de acesso \(ACR\):
+3. Na caixa de diálogo **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
    1. Dê um **Nome** para o seu ACR.
-   2. Em **Nome do Iniciador iSCSI**, forneça o iSCSI IQN \(nome qualificado\) do host Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
-   3. Em **Backup padrão para este volume?**, selecione a caixa de seleção **Habilitar**. O backup padrão criará uma política que é executa às 22:30 todos os dias \(hora do dispositivo\) e cria um instantâneo de nuvem desse volume.
+   2. Em **Nome do Iniciador iSCSI**, forneça o iSCSI IQN (nome qualificado) do host Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
+   3. Em **Backup padrão para este volume?**, selecione a caixa de seleção **Habilitar**. O backup padrão criará uma política que é executa às 22:30 todos os dias (hora do dispositivo) e cria um instantâneo de nuvem desse volume.
 
-     \>[AZURE.NOTE]Depois que o backup está habilitado aqui, ele não pode ser revertido. Você precisará editar o volume para modificar essa configuração.
+     >[AZURE.NOTE]Depois que o backup está habilitado aqui, ele não pode ser revertido. Você precisará editar o volume para modificar essa configuração.
 
      ![Adicionar volume](./media/storsimple-create-volume/HCs_AddVolume2M-include.png)
 

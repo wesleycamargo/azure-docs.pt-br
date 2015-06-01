@@ -36,7 +36,7 @@ Cada regra representa uma propriedade de estilo do elemento selecionado. Por exe
 
 > Se estiver familiarizado com [bootstrap][<http://getbootstrap.com/>], essas regras são, na verdade, [variáveis LESS][<http://getbootstrap.com/css/>] no tema do bootstrap usadas pelo portal do desenvolvedor.
 
-Vamos alterar a cor do texto do cabeçalho. Selecione a entrada em **@headings-color** e digite \#000000. Este é o código hexadecimal da cor preta. À medida que fizer isso verá um indicador de cor quadrado exibido no final da caixa de texto. Se você clicar nesse indicador, um seletor de cor permitirá que você escolha uma cor.
+Vamos alterar a cor do texto do cabeçalho. Selecione a entrada em **@headings-color** e digite #000000. Este é o código hexadecimal da cor preta. À medida que fizer isso verá um indicador de cor quadrado exibido no final da caixa de texto. Se você clicar nesse indicador, um seletor de cor permitirá que você escolha uma cor.
 
 ![Seletor de cor][Seletor de cor]
 

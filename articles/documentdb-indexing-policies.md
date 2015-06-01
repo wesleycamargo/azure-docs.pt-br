@@ -74,7 +74,7 @@ O exemplo a seguir mostra como definir uma política de indexação personalizad
 	           }                                                  
 	        ],                                                               
 	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
+	           "/"nonIndexedContent"/*"                                 
 	        ]                                                               
 	     }                                                                 
 	 }                                                                                                                                                
@@ -86,7 +86,7 @@ O exemplo a seguir mostra como definir uma política de indexação personalizad
 
 **Observação:** a política de indexação de uma coleção deve ser especificada no momento da sua criação. Não é permitido modificar a política de indexação após a criação do conjunto, porém, isso terá suporte em uma versão futura do Banco de Dados de Documentos.
 
-**Observação:** por padrão, O Banco de Dados de Documentos indexa todos os caminhos nos documentos consistentemente com um índice de hash. O caminho interno do carimbo de data/hora (\_ts) é armazenado com um índice de intervalo.
+**Observação:** por padrão, O Banco de Dados de Documentos indexa todos os caminhos nos documentos consistentemente com um índice de hash. O caminho interno do carimbo de data/hora (_ts) é armazenado com um índice de intervalo.
 
 ### Indexação automática
 
@@ -285,7 +285,7 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
 										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
+										Path = "/"CreatedTimestamp"/?",   
 										NumericPrecision = 7   
 							 			}
 									);   
@@ -307,7 +307,7 @@ O exemplo a seguir exclui uma subárvore de caminhos de indexação usando o
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
+	excluded.IndexingPolicy.ExcludedPaths.Add("/" nonIndexedContent"/*");    
 	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
 
 
@@ -316,7 +316,7 @@ Ajuste de desempenho
 
 Durante a avaliação de diferentes configurações de política de indexação, você deve medir as implicações de armazenamento e de taxa de transferência da política por meio das APIs do Banco de Dados de Documentos.
 
-Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma solicitação HEAD ou GET em relação ao recurso de coleção e inspecione os cabeçalhos x-ms-request-quota e x-ms-request-usage. No SDK do .NET, as propriedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse <T\>](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
+Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma solicitação HEAD ou GET em relação ao recurso de coleção e inspecione os cabeçalhos x-ms-request-quota e x-ms-request-usage. No SDK do .NET, as propriedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse <T>](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
 
 
  	// Measure the document size usage (which includes the index size) against   
@@ -325,7 +325,7 @@ Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma 
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Para medir a sobrecarga de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho x-ms-request-charge (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse <T\>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
+Para medir a sobrecarga de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho x-ms-request-charge (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse <T>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
 
 
  	// Measure the performance (request units) of writes.     

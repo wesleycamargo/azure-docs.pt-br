@@ -17,11 +17,11 @@
 	ms.author="larryfr"/>
 
 
-#Use o C\# com o Hive e o Pig no HDInsight
+#Use o C# com o Hive e o Pig no HDInsight
 
-Hive e Pig são ótimos para trabalhar com dados no Azure HDInsight, mas algumas vezes você precisa de uma linguagem de propósito mais geral. Hive e Pig permitem que você chame código externo por meio de UDFs \(funções definidas pelo usuário\) ou streaming.
+Hive e Pig são ótimos para trabalhar com dados no Azure HDInsight, mas algumas vezes você precisa de uma linguagem de propósito mais geral. Hive e Pig permitem que você chame código externo por meio de UDFs (funções definidas pelo usuário) ou streaming.
 
-Neste documento, Aprenda a usar C\# com Hive e Pig.
+Neste documento, Aprenda a usar C# com Hive e Pig.
 
 ##Pré-requisitos
 
@@ -41,19 +41,19 @@ Neste documento, Aprenda a usar C\# com Hive e Pig.
 
 ##.NET no HDInsight
 
-O CLR \(common language runtime\) e estruturas do .NET são instalados por padrão em clusters HDInsight baseados no Windows. Isso permite que você use aplicativos C\# com streaming Hive e Pig \(os dados são passados entre Hive/Pig e o aplicativo C\# via stdout/stdin\).
+O CLR (common language runtime) e estruturas do .NET são instalados por padrão em clusters HDInsight baseados no Windows. Isso permite que você use aplicativos C# com streaming Hive e Pig (os dados são passados entre Hive/Pig e o aplicativo C# via stdout/stdin).
 
 Atualmente não há suporte para executar aplicativos do .NET Framework em clusters HDInsight baseados em Linux.
 
 ##.NET e streaming
 
-Streaming envolve a passagem de dados do Hive e do Pig para um aplicativo externo por stdout e o recebimento dos resultados por stdin. Para aplicativos em C\#, isso é feito com mais facilidade via `Console.ReadLine()` e `Console.WriteLine()`.
+Streaming envolve a passagem de dados do Hive e do Pig para um aplicativo externo por stdout e o recebimento dos resultados por stdin. Para aplicativos em C#, isso é feito com mais facilidade via `Console.ReadLine()` e `Console.WriteLine()`.
 
-Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo **Aplicativo de Console** deve ser usado para seus projetos em C\#.
+Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo **Aplicativo de Console** deve ser usado para seus projetos em C#.
 
-##Hive e C&\#35;
+##Hive e C&#35;
 
-###Criar o projeto em C\#
+###Criar o projeto em C#
 
 1. Abra o Visual Studio e crie uma nova solução. Para o tipo de projeto, selecione **Aplicativo de Console** e nomeie o novo projeto como **HiveCSharp**.
 
@@ -146,15 +146,15 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    Isso seleciona os campos `clientid`, `devicemake` e `devicemodel` de `hivesampletable`, e passa os campos para o aplicativo HiveCSharp.exe. A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera encontrar HiveCSharp.exe na raiz do contêiner de armazenamento padrão \(`add file wasb:///HiveCSharp.exe`\).
+    Isso seleciona os campos `clientid`, `devicemake` e `devicemodel` de `hivesampletable`, e passa os campos para o aplicativo HiveCSharp.exe. A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera encontrar HiveCSharp.exe na raiz do contêiner de armazenamento padrão (`add file wasb:///HiveCSharp.exe`).
 
 5. Clique em **Enviar** para enviar o trabalho para o cluster HDInsight. A janela **Resumo do trabalho Hive** será aberta.
 
 6. Clique em **Atualizar** para atualizar o resumo até que **Status do trabalho** mude para **Concluído**. Para exibir a saída do trabalho, clique em **Saída do trabalho**.
 
-###Pig e C&\#35;
+###Pig e C&#35;
 
-###Criar o projeto em C\#
+###Criar o projeto em C#
 
 1. Abra o Visual Studio e crie uma nova solução. Para o tipo de projeto, selecione **Aplicativo de Console** e nomeie o novo projeto como **PigUDF**.
 
@@ -195,7 +195,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 1. O streaming do Pig espera que o aplicativo seja local no sistema de arquivos de cluster. Habilite a área de trabalho remota para o cluster HDInsight, então conecte-o seguindo as instruções em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
 
-2. Uma vez conectado, copie **PigUDF.exe** do diretório **bin/debug** para o projeto PigUDF em seu computador local e cole-o no diretório **%PIG\_HOME%** no cluster.
+2. Uma vez conectado, copie **PigUDF.exe** do diretório **bin/debug** para o projeto PigUDF em seu computador local e cole-o no diretório **%PIG_HOME%** no cluster.
 
 ###Usar o aplicativo por meio de Pig Latin
 
@@ -218,7 +218,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 	A instrução `DEFINE` cria um alias de `streamer` para os aplicativos pigudf.exe, enquanto `SHIP` distribui esse alias por todos os nós no cluster. Posteriormente, `streamer` é usado com o operador `STREAM` para processar as linhas individuais contidas no LOG e retornar os dados como uma série de colunas.
 
-> [AZURE.NOTE]O nome do aplicativo que é usado para streaming deve estar entre o caractere \` \(acento grave\) quando se tratar de um alias, e ' \(aspa simples\) quando usado com `SHIP`.
+> [AZURE.NOTE]O nome do aplicativo que é usado para streaming deve estar entre o caractere ` (acento grave) quando se tratar de um alias, e ' (aspa simples) quando usado com `SHIP`.
 
 3. Depois de inserir a última linha, o trabalho deve ser iniciado. Eventualmente, ele retornará uma saída semelhante à seguinte:
 

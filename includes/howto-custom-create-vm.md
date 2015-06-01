@@ -4,7 +4,7 @@
 
 Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você criou usando o método **de Galeria**, porque isso lhe dá mais opções de configuração do que o método **Criação Rápida**. Estas opções incluem:
 
-- Mais escolhas para a imagem usar para criar a máquina virtual \(VM\)
+- Mais escolhas para a imagem usar para criar a máquina virtual (VM)
 - Conectar a VM a uma rede virtual 
 - Adicionar a VM a um serviço de nuvem existente 
 - Adicionar a VM a um grupo de disponibilidade
@@ -38,7 +38,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 
 	**Observação**: para obter mais informações sobre como conectar máquinas virtuais na mesma nuvem, consulte [Como conectar máquinas virtuais em um serviço de nuvem](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual \(a página pode estar em inglês\)](http://msdn.microsoft.com/library/azure/jj156085.aspx).
+12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual (a página pode estar em inglês)](http://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 13. Na **conta de armazenamento**, selecione uma conta de armazenamento existente para o arquivo VHD ou usar uma conta de armazenamento gerado automaticamente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nessa conta de armazenamento. Você está limitado a 20 contas de armazenamento.
 
@@ -46,7 +46,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 
 	**Observação**: máquinas virtuais que são membros de um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Saiba como usar várias máquinas virtuais no Windows Azure para que seus aplicativos permaneçam disponíveis durante falhas de rede locais, falhas de hardware de disco local e tempo de inatividade planejado.
 
-15.  Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell \(SSH\). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
+15.  Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
 
 16.  Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

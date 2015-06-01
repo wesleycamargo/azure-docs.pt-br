@@ -5,11 +5,11 @@
 
 Você pode proteger a comunicação entre o aplicativo Web e o navegador com HTTPS, que usa a criptografia SSL (Secure Socket Layer). Esse é o método de proteção de dados enviados pela Internet usado com maior frequência e que garante aos visitantes que as transações com o seu aplicativo são seguras. Este artigo descreve como configurar o HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure. 
 
-##<a name="bkmk_azurewebsites"></a>HTTPS para o domínio \*.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS para o domínio *.azurewebsites.net
 
-Se você não estiver planejando usar um nome de domínio personalizado, e sim o domínio \*.azurewebsites.net atribuído ao seu aplicativo Web pelo Azure (por exemplo, contoso.azurewebsites.net), então seu HTTPS já estará habilitado em seu com um certificado da Microsoft. Você pode usar **https://mywebsite.azurewebsites.net** para acessar seu aplicativo. No entanto, \*.azurewebsites.net é um domínio curinga. Como [todos os domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. 
+Se você não estiver planejando usar um nome de domínio personalizado, e sim o domínio *.azurewebsites.net atribuído ao seu aplicativo Web pelo Azure (por exemplo, contoso.azurewebsites.net), então seu HTTPS já estará habilitado em seu com um certificado da Microsoft. Você pode usar **https://mywebsite.azurewebsites.net** para acessar seu aplicativo. No entanto, *.azurewebsites.net é um domínio curinga. Como [todos os domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. 
 
-O restante deste documento fornece detalhes sobre como habilitar HTTPS para domínios personalizados, como **contoso.com**, **www.contoso.com** ou **\*.contoso.com**
+O restante deste documento fornece detalhes sobre como habilitar HTTPS para domínios personalizados, como **contoso.com**, **www.contoso.com** ou ***.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Habilitar SSL para seu domínio personalizado
 
@@ -39,7 +39,7 @@ Para obter um certificado SSL para uso com o Serviço de Aplicativo do Azure, en
 - [Obter um certificado SubjectAltName usando OpenSSL](#bkmk_subjectaltname)
 - [Gerar um certificado auto-assinado (somente para teste)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE] Ao seguir as etapas, será solicitado que você insira um **Nome Comum**, como`www.contoso.com`. Para certificados curinga, esse valor deve ser \*.domainname (por exemplo, \*.contoso.com). Se você precisar oferecer suporte para um nome curinga como \*.contoso.com e um nome de domínio raiz como contoso.com, é necessário usar um certificado curinga subjectAltName.
+> [AZURE.NOTE] Ao seguir as etapas, será solicitado que você insira um **Nome Comum**, como`www.contoso.com`. Para certificados curinga, esse valor deve ser *.domainname (por exemplo, *.contoso.com). Se você precisar oferecer suporte para um nome curinga como *.contoso.com e um nome de domínio raiz como contoso.com, é necessário usar um certificado curinga subjectAltName.
 >
 > Há suporte aos Certificados ECC (Criptografia de Curva Elíptica) com o Serviço de Aplicativo do Azure; no entanto, eles são relativamente novos, e é necessário planejar as etapas exatas para a criação da CSR junto à sua AC.
 

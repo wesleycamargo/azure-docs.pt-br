@@ -262,7 +262,7 @@ Quando a tabela Hive tem um campo de texto que contém uma cadeia de caracteres 
 
 A consulta fornecida nesta seção pode ser aplicada diretamente aos Dados de Viagens de Táxi em NYC.  A finalidade dessa consulta é mostrar como aplicar funções matemáticas incorporadas no Hive para gerar recursos. 
 
-Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas pickup\_longitude, pickup\_latitude, dropoff\_longitude e dropoff\_latitude.  As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
+Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas pickup_longitude, pickup_latitude, dropoff_longitude e dropoff_latitude.  As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
 
 		set R=3959;
 		set pi=radians(180);

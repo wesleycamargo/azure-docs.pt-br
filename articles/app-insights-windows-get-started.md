@@ -35,7 +35,7 @@ Você precisará de:
 * Uma assinatura do [Microsoft Azure][azure].
 * Visual Studio 2013 ou posterior.
 
-## 1\. Criar um recurso do Application Insights 
+## 1. Criar um recurso do Application Insights 
 
 No [Portal do Azure][portal], crie um novo recurso do Application Insights.
 
@@ -50,7 +50,7 @@ A chave identifica o recurso. Você precisará dela em breve, para configurar o 
 ![Abrir a gaveta de lista suspensa do Essentials e selecione a chave de instrumentação](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Adicionar o SDK do Application Insights aos seus aplicativos
+## 2. Adicionar o SDK do Application Insights aos seus aplicativos
 
 No Visual Studio, adicione o SDK adequado ao seu projeto.
 
@@ -68,9 +68,9 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
    * Application Insights para aplicativos Windows - *para aplicativos da Windows Store*
    * Application Insights para aplicativos do Windows Phone
    * Application Insights para aplicativos da Web - *usá-lo para um aplicativo da área de trabalho* 
-4. Edite o ApplicationInsights.config \(que foi adicionado pela instalação do NuGet\). Insira isto logo antes da marca de fechamento:
+4. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
 
-    `<InstrumentationKey>`\*a chave que você copiou\*`</InstrumentationKey>`
+    `<InstrumentationKey>`*a chave que você copiou*`</InstrumentationKey>`
 
 **Aplicativos Windows Universais**: repita os passos tanto para o projeto do Windows Phone quanto para o da Windows Store.
 
@@ -116,7 +116,7 @@ Se você preferir usar o Visual Studio para executar as etapas de configuração
 
 Na caixa de diálogo Novo Projeto, selecione Application Insights.
 
-Se for solicitado que você faça logon, use as credenciais da conta do Azure \(que é separada da sua conta do Visual Studio Online\).
+Se for solicitado que você faça logon, use as credenciais da conta do Azure (que é separada da sua conta do Visual Studio Online).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 

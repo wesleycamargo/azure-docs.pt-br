@@ -32,11 +32,11 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 
 - Você pode usar a API da Análise, API do Monitor e API dos Segmentos para verificar se todos os dados que faltam na interface do usuário são visíveis através das APIs.
 - Se o SDK do Mobile Engagement do Azure não estiver integrado corretamente em seu aplicativo, você não conseguirá ver informações na Análise, Segmentação, Monitoramento ou Painéis.
-- Os segmentos não podem ser alterados depois de criados; os segmentos só podem ser "clonados" \(copiados\) ou "destruídos" \(excluídos\). Os segmentos podem conter apenas 10 critérios.
-- A melhor maneira de testar as informações que faltam no monitoramento \(Configurar um dispositivo de teste, desinstalar e/ou reinstalar o aplicativo no dispositivo de teste\).
+- Os segmentos não podem ser alterados depois de criados; os segmentos só podem ser "clonados" (copiados) ou "destruídos" (excluídos). Os segmentos podem conter apenas 10 critérios.
+- A melhor maneira de testar as informações que faltam no monitoramento (Configurar um dispositivo de teste, desinstalar e/ou reinstalar o aplicativo no dispositivo de teste).
 - As informações são atualizadas a cada 24 horas para a Análise, Segmentação ou Painéis.
-- As informações nos novos segmentos não podem ser exibidas até 24 horas após serem criadas \(mesmo que o segmento seja baseado nas informações anteriores\).
-- Filtrar seus dados de análise na interface do usuário mostrará todos os exemplos desse tipo, independentemente da versão de seu aplicativo \(por exemplo, as "Falhas" filtradas pelo nome aparecerão a partir das versões 1 e 2 de seu aplicativo\).
+- As informações nos novos segmentos não podem ser exibidas até 24 horas após serem criadas (mesmo que o segmento seja baseado nas informações anteriores).
+- Filtrar seus dados de análise na interface do usuário mostrará todos os exemplos desse tipo, independentemente da versão de seu aplicativo (por exemplo, as "Falhas" filtradas pelo nome aparecerão a partir das versões 1 e 2 de seu aplicativo).
 - O período de tempo para a Análise baseia-se na data das configurações do dispositivo dos usuários, portanto, um usuário cujo telefone tem a data definida incorretamente pode aparecer no período de tempo incorreto.
 - Não há dados no lado do servidor registrados quando você usa o botão para "testar" os pushes; os dados são registrados apenas para as campanhas por push reais.
 

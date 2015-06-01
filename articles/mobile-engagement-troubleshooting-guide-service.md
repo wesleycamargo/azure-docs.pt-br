@@ -29,10 +29,10 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
 ### Causas
 - Os problemas que parecem ser provocados por interrupções de serviços do Mobile Engagement do Azure podem ser causados por vários problemas diferentes:
     - Problemas isolados que originalmente parecem sistêmicos para o Mobile Engagement do Azure
-    - Problemas conhecidos causados por interrupções de servidor \(nem sempre são mostrados no status do servidor\):
+    - Problemas conhecidos causados por interrupções de servidor (nem sempre são mostrados no status do servidor):
 	- Atrasos de agendamento, erros de direcionamento, problemas de atualização de notificação, interrupção da coleta de estatísticas, envio por push para de funcionar, interrupção do funcionamento das APIs, não é possível criar novos aplicativos ou usuários, erros de DNS e erros de tempo limite na interface do usuário, na API ou em aplicativos em um dispositivo.
-    - Interrupções de dependência da nuvem [Status do serviço do Azure](http://status.azure.com/), [Status do Amazon Web Services \(AWS\)](http://status.aws.amazon.com/) 
-    - Interrupções de dependências dos Serviços de Notificação por Push \(PNS\) [Google - serviço](http://www.google.com/appsstatus#hl=en&v=status), [Apple - serviço](http://www.apple.com/support/systemstatus/), [Android - GCM do Google](http://developer.android.com/google/gcm/index.html), [Android - ADM da Amazon](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
+    - Interrupções de dependência da nuvem [Status do serviço do Azure](http://status.azure.com/), [Status do Amazon Web Services (AWS)](http://status.aws.amazon.com/) 
+    - Interrupções de dependências dos Serviços de Notificação por Push (PNS) [Google - serviço](http://www.google.com/appsstatus#hl=en&v=status), [Apple - serviço](http://www.apple.com/support/systemstatus/), [Android - GCM do Google](http://developer.android.com/google/gcm/index.html), [Android - ADM da Amazon](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
     - Interrupções de loja de aplicativos [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone Store](http://www.windowsphone.com/), [Windows Store](http://windows.microsoft.com/)
 
 *Para testar para ver se o problema é sistêmico, você pode testar a mesma função de um serviço diferente:*
@@ -91,8 +91,8 @@ Para testar se o problema é com as atualizações do sistema operacional para d
     - Confirme se o problema não está restrito a um computador ou à sua rede local.
     - Confirme se o serviço do Mobile Engagement do Azure não tem nenhuma interrupção relatada.
     - Confirme se os arquivos de marca de informações do aplicativo seguem todas estas regras:
-        - Usam somente o conjunto de caracteres UTF8 \(não há suporte para o conjunto de caracteres ANSI\).
-        - Usam uma vírgula "," como o caractere separador \(você pode abrir uma solicitação de serviço para pedir a alteração do caractere separador do .csv de uma vírgula "," para um outro caractere, como um ponto e vírgula ";"\).
+        - Usam somente o conjunto de caracteres UTF8 (não há suporte para o conjunto de caracteres ANSI).
+        - Usam uma vírgula "," como o caractere separador (você pode abrir uma solicitação de serviço para pedir a alteração do caractere separador do .csv de uma vírgula "," para um outro caractere, como um ponto e vírgula ";").
         - Usam letras maiúsculas para valores boolianos “verdadeiro” e “falso”.
         - Usam um arquivo menor do que o tamanho máximo de 35 MB.
 

@@ -326,7 +326,7 @@ abra o arquivo * Controllers\\HomeController.cs* no **Gerenciador de soluções*
 	}
 
 ## Configurar os estilos ##
-Para alterar o título na parte superior da página, abra o arquivo *Views\\Shared\\_Layout.cshtml* no **Gerenciador de soluções** e substitua "Nome do aplicativo" no cabeçalho da barra de navegação por "Aplicativo Minha Lista de Tarefas" de forma que ele seja semelhante a:
+Para alterar o título na parte superior da página, abra o arquivo *Views\\Shared\_Layout.cshtml* no **Gerenciador de soluções** e substitua "Nome do aplicativo" no cabeçalho da barra de navegação por "Aplicativo Minha Lista de Tarefas" de forma que ele seja semelhante a:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -367,7 +367,7 @@ Para configurar o menu Lista de Tarefas, abra o arquivo *\\Views\\Home\\Index.cs
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Para adicionar a capacidade de criar uma nova tarefa, clique com botão direito do mouse na pasta *Views\\Home\* e clique em **Adicionar** uma **Exibição**. Dê o nome *Criar* à exibição. Substitua o código pelo seguinte código:
+Para adicionar a capacidade de criar uma nova tarefa, clique com botão direito do mouse na pasta *Views\\Home* e clique em **Adicionar** uma **Exibição**. Dê o nome *Criar* à exibição. Substitua o código pelo seguinte código:
 
 	@model MyTaskListApp.Models.MyTask
 	

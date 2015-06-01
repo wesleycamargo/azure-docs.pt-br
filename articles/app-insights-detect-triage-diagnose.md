@@ -48,9 +48,9 @@ O Application Insights funciona para aplicativos de dispositivos e aplicativos W
 ## Detectar baixa disponibilidade 
 
 
-Marcela Markova é especialista em testes da equipe de OBS e assume a liderança no monitoramento de desempenho online. Ela define vários [testes da Web][availability]\:
+Marcela Markova é especialista em testes da equipe de OBS e assume a liderança no monitoramento de desempenho online. Ela define vários [testes da Web][availability]:
 
-* Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. \(Ou alguém alterou a mensagem “bem-vindo!” na página sem informá-la.\) 
+* Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. (Ou alguém alterou a mensagem “bem-vindo!” na página sem informá-la.) 
 
 
 * Um teste de várias etapas mais aprofundado, que faz logon e obtém uma listagem atual das contas, verificando alguns detalhes principais em cada página. Esse teste verifica se o link para o banco de dados de contas está funcionando. Ela usa uma ID do cliente fictícia: algumas delas são mantidas para fins de teste.
@@ -85,7 +85,7 @@ Marcela gosta de examinar esses gráficos de tempos em tempos. A tela de fundo c
 
 #### Alertas
 
-Portanto, ela define dois [alertas][metrics]\: um para tempos de resposta maiores que um limite típico e outro para uma taxa de solicitações com falha maior do que aquela na tela de fundo atual.
+Portanto, ela define dois [alertas][metrics]: um para tempos de resposta maiores que um limite típico e outro para uma taxa de solicitações com falha maior do que aquela na tela de fundo atual.
 
 
 Junto com o alerta de disponibilidade, eles dão a certeza de que, assim que qualquer coisa incomum acontecer, ela saberá a respeito.
@@ -103,7 +103,7 @@ Também é possível definir alertas em uma grande variedade de outras métricas
 ## Detectando exceções
 
 
-Exceções são relatadas ao Application Insights chamando [TrackException\(\)][api]\:
+Exceções são relatadas ao Application Insights chamando [TrackException()][api]:
 
     var telemetry = new TelemetryClient();
     ...
@@ -126,7 +126,7 @@ Exceções são relatadas ao Application Insights chamando [TrackException\(\)][
 
 A equipe do Fabrikam Bank evoluiu na prática de sempre enviar telemetria em uma exceção, a menos que haja uma óbvia recuperação.
 
-Na verdade, a estratégia deles é ainda mais ampla do que isso: enviam telemetria em todos os casos nos quais o cliente está frustrado em relação ao que queria fazer, independentemente de isto corresponder a uma exceção no código ou não. Por exemplo, se o sistema de transferência externa interbancária retorna uma mensagem "não é possível concluir esta transação" por algum motivo operacional \(sem culpa do cliente\), eles acompanham esse evento.
+Na verdade, a estratégia deles é ainda mais ampla do que isso: enviam telemetria em todos os casos nos quais o cliente está frustrado em relação ao que queria fazer, independentemente de isto corresponder a uma exceção no código ou não. Por exemplo, se o sistema de transferência externa interbancária retorna uma mensagem "não é possível concluir esta transação" por algum motivo operacional (sem culpa do cliente), eles acompanham esse evento.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -153,7 +153,7 @@ A equipe de desenvolvimento da Fabrikam deseja controlar coisas boas, tanto quan
 Por exemplo, muitas viagens de usuário tem um bastante claro “funil”: muitos clientes examinam as taxas de diferentes tipos de empréstimo; alguns deles preenchem o formulário de cotação, e daqueles que recebem uma cotação, alguns vão em frente e tiram o empréstimo.
 
 
-A equipe de desenvolvimento insere chamadas TrackMetric\(\) em cada estágio no funil. No Metrics Explorer, Brian, o arquiteto, pode comparar os valores de cada métrica para estimar com que sucesso o sistema está vendendo empréstimos.
+A equipe de desenvolvimento insere chamadas TrackMetric() em cada estágio no funil. No Metrics Explorer, Brian, o arquiteto, pode comparar os valores de cada métrica para estimar com que sucesso o sistema está vendendo empréstimos.
 
 
 A especialista em experiência do usuário Úrsula também fica de olho nas métricas positivas. Se o gráfico mostra uma queda repentina em qualquer estágio no funil, isso indica que há algum problema lá. Talvez esteja difícil encontrar o botão certo, ou talvez o texto não seja muito estimulante. Ou talvez haja um bug: os usuários clicam no botão, mas nada acontece.
@@ -217,10 +217,10 @@ Alguns problemas de dependência de lentidão são problemas de localização ge
 **O que fizemos?** Se o problema não parece estar em uma dependência e se não esteve sempre lá, provavelmente é causado por uma alteração recente. A perspectiva histórica fornecida pelos gráficos de métrica e evento facilita correlacionar alterações repentinas com implantações. Isso reduz o escopo da busca pelo problema.
 
 
-**O que está acontecendo?** Alguns problemas ocorrem apenas raramente e podem ser difíceis de rastrear por testes offline. Tudo o que podemos fazer é tentar capturar o bug quando ele ocorre, em tempo real. Você pode inspecionar os despejos de pilha em relatórios de exceção. Além disso, você pode escrever chamadas de rastreamento, com sua estrutura de registros favorita, ou então com TrackTrace\(\) ou TrackEvent\(\).
+**O que está acontecendo?** Alguns problemas ocorrem apenas raramente e podem ser difíceis de rastrear por testes offline. Tudo o que podemos fazer é tentar capturar o bug quando ele ocorre, em tempo real. Você pode inspecionar os despejos de pilha em relatórios de exceção. Além disso, você pode escrever chamadas de rastreamento, com sua estrutura de registros favorita, ou então com TrackTrace() ou TrackEvent().
 
 
-A Fabrikam tinha um problema intermitente com transferências entre contas, mas apenas com determinados tipos de conta. Para entender melhor o que estava acontecendo, eles inseriram chamadas TrackTrace\(\) em pontos-chave do código, anexando o tipo de conta como uma propriedade para cada chamada. Isso facilitou filtrar apenas esses rastreamentos na pesquisa de diagnóstico. Eles também anexaram valores de parâmetro, como propriedades e medidas, às chamadas de rastreamento.
+A Fabrikam tinha um problema intermitente com transferências entre contas, mas apenas com determinados tipos de conta. Para entender melhor o que estava acontecendo, eles inseriram chamadas TrackTrace() em pontos-chave do código, anexando o tipo de conta como uma propriedade para cada chamada. Isso facilitou filtrar apenas esses rastreamentos na pesquisa de diagnóstico. Eles também anexaram valores de parâmetro, como propriedades e medidas, às chamadas de rastreamento.
 
 
 ## Lidando com o problema 

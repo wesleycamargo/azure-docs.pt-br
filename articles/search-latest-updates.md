@@ -18,7 +18,7 @@
 
 #Novidades na atualização mais recente para a Pesquisa do Azure#
 
-Agora a Pesquisa do Azure está disponível, oferecendo um contrato de nível de serviço \(SLA\) com 99,9% de disponibilidade para as configurações com suporte da [versão 2015-02-28 da API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Agora a Pesquisa do Azure está disponível, oferecendo um contrato de nível de serviço (SLA) com 99,9% de disponibilidade para as configurações com suporte da [versão 2015-02-28 da API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Como é feito o controle de versão e lançamento dos recursos
 
@@ -44,9 +44,9 @@ Esta é a primeira versão pública do SDK do .NET para a Pesquisa do Azure. Ela
 
 Exclui:
 
-- [Indexadores](http://go.microsoft.com/fwlink/p/?LinkId=528173) \(esse recurso não é excluído na versão de visualização 0.10.0\)
+- [Indexadores](http://go.microsoft.com/fwlink/p/?LinkId=528173) (esse recurso não é excluído na versão de visualização 0.10.0)
 - [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- Recursos da versão de [Visualização de 28-02-2015](search-api-2015-02-28-Preview.md) \(atualmente, os recursos apenas para visualização são processadores de idioma natural da Microsoft e `moreLikeThis`\).
+- Recursos da versão de [Visualização de 28-02-2015](search-api-2015-02-28-Preview.md) (atualmente, os recursos apenas para visualização são processadores de idioma natural da Microsoft e `moreLikeThis`).
 
 Visite [como usar a Pesquisa do Azure no .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) para obter orientação sobre a instalação e o uso do SDK.
 
@@ -68,9 +68,9 @@ Visite [como usar a Pesquisa do Azure no .NET](http://go.microsoft.com/fwlink/p/
 
 - [Indexadores](http://go.microsoft.com/fwlink/p/?LinkID=528210) é um novo recurso que simplifica muito a indexação de fontes de dados no Banco de Dados SQL do Azure, Banco de Dados de Documentos do Azure e SQL Server em VMs do Azure.
 
-- [Sugestões](https://msdn.microsoft.com/library/azure/dn798936.aspx) substitui o suporte a consultas mais limitado e com preenchimento automático da implementação anterior \(havia correspondência apenas de prefixos\), adicionando suporte a correspondência infixas. Essa implementação pode localizar correspondências em qualquer lugar de um termo e também dá suporte à correspondência difusa.
+- [Sugestões](https://msdn.microsoft.com/library/azure/dn798936.aspx) substitui o suporte a consultas mais limitado e com preenchimento automático da implementação anterior (havia correspondência apenas de prefixos), adicionando suporte a correspondência infixas. Essa implementação pode localizar correspondências em qualquer lugar de um termo e também dá suporte à correspondência difusa.
 
-- [Aumento da marca](http://go.microsoft.com/fwlink/p/?LinkId=528212) permite um novo cenário para os perfis de pontuação. Particularmente, ele aproveita os dados persistentes \(como preferências de compras\) para poder aumentar os resultados da pesquisa de usuários individuais, com base nas informações personalizadas.
+- [Aumento da marca](http://go.microsoft.com/fwlink/p/?LinkId=528212) permite um novo cenário para os perfis de pontuação. Particularmente, ele aproveita os dados persistentes (como preferências de compras) para poder aumentar os resultados da pesquisa de usuários individuais, com base nas informações personalizadas.
 
 Visite [Agora a Pesquisa do Azure está disponível](http://go.microsoft.com/fwlink/p/?LinkId=528211) para ver o comunicado de serviço no blog do Azure que aborda todos esses recursos.
 

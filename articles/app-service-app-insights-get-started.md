@@ -51,7 +51,7 @@ Nesse caso, ele não adiciona o [SDK do JavaScript][client] a suas páginas da W
 
 #### Opções de configuração
 
-Se esta é sua primeira vez, você será solicitado a fazer logon ou se inscrever na visualização do Microsoft Azure. \(ela é separada de sua conta do Visual Studio Online.\)
+Se esta é sua primeira vez, você será solicitado a fazer logon ou se inscrever na visualização do Microsoft Azure. (ela é separada de sua conta do Visual Studio Online.)
 
 Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **Definir configurações** e colocá-lo no mesmo grupo de recursos que os outros componentes.
 
@@ -83,7 +83,7 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 Agora implante seu aplicativo e assista a acumulação dos dados.
 
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc\~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
 
 
 #### Não há dados?

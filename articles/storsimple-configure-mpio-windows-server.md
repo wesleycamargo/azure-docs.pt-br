@@ -16,7 +16,7 @@
 
 # Configurar o MPIO para seu dispositivo StorSimple
 
-A Microsoft criou o suporte para o recurso Multipath I/O \(MPIO\) no Windows Server para ajudar a criar configurações SAN altamente disponíveis e tolerante a falhas. O MPIO usa componentes redundantes do caminho físico — adaptadores, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, fazendo com que um caminho lógico falha, a lógica de vários caminhos usará um caminho alternativo de E/S para que os aplicativos ainda possam acessar seus dados. Além disso, dependendo da configuração, o MPIO também pode melhorar o desempenho balanceando novamente a carga em todos esses caminhos. Para obter mais informações, consulte [Visão geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "Recursos e visão geral do MPIO").
+A Microsoft criou o suporte para o recurso Multipath I/O (MPIO) no Windows Server para ajudar a criar configurações SAN altamente disponíveis e tolerante a falhas. O MPIO usa componentes redundantes do caminho físico — adaptadores, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, fazendo com que um caminho lógico falha, a lógica de vários caminhos usará um caminho alternativo de E/S para que os aplicativos ainda possam acessar seus dados. Além disso, dependendo da configuração, o MPIO também pode melhorar o desempenho balanceando novamente a carga em todos esses caminhos. Para obter mais informações, consulte [Visão geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "Recursos e visão geral do MPIO").
 
 Para a alta disponibilidade da sua solução StorSimple, o MPIO deve ser configurado em seu dispositivo StorSimple. Quando o MPIO estiver instalado em seus servidores de host executando o Windows Server 2012 R2, os servidores poderão tolerar uma falha de link, rede ou interface.
 
@@ -41,8 +41,8 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
 
 ### Para instalar o MPIO no host
 
-1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador de Servidores ainda não estiver aberto, clique em **Iniciar \> Gerenciador de Servidores**. ![Gerenciador de Servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
-2. Clique em **Gerenciador de Servidores \> Painel de Controle \> Adicionar funções e recursos**. Isso inicia o assistente **Adicionar Funções e Recursos**. ![Adicionar Assistente de Funções e Recursos 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
+1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador de Servidores ainda não estiver aberto, clique em **Iniciar > Gerenciador de Servidores**. ![Gerenciador de Servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+2. Clique em **Gerenciador de Servidores > Painel de Controle > Adicionar funções e recursos**. Isso inicia o assistente **Adicionar Funções e Recursos**. ![Adicionar Assistente de Funções e Recursos 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. No assistente **Adicionar Funções e Recursos**, faça o seguinte:
 
 	- Na página **Antes de começar** clique em **Próximo**.
@@ -59,7 +59,7 @@ O MPIO precisa ser configurado para identificar os volumes StorSimple. Para conf
 
 ### Para configurar o MPIO para os volumes StorSimple
 
-1. Abra a **Configuração do MPIO**. Clique em **Gerenciador de Servidores \> Painel de Controle \> Ferramentas \> MPIO**.
+1. Abra a **Configuração do MPIO**. Clique em **Gerenciador de Servidores > Painel de Controle > Ferramentas > MPIO**.
 
 2. Na caixa de diálogo **Propriedades do MPIO**, selecione a guia **Descobrir Vários Caminhos**.
 
@@ -67,24 +67,24 @@ O MPIO precisa ser configurado para identificar os volumes StorSimple. Para conf
 
 4. Reinicialize o servidor quando solicitado.
 5. Na caixa de diálogo **Propriedades do MPIO**, clique na guia **Dispositivos do MPIO**. Clique em **Adicionar**. </br>![Propriedades do MPIO para Dispositivos do MPIO ](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. Na caixa de diálogo **Adicionar suporte do MPIO**, em **ID de Hardware do Dispositivo**, insira o número de série do dispositivo. Você pode obter o número de série do dispositivo acessando o serviço Gerenciador StorSimple e navegando para **Dispositivos \> Painel**. O número de série do dispositivo é exibido no painel **Visão Rápida** à direita do painel do dispositivo. </br>![Adicionar Suporte do MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+6. Na caixa de diálogo **Adicionar suporte do MPIO**, em **ID de Hardware do Dispositivo**, insira o número de série do dispositivo. Você pode obter o número de série do dispositivo acessando o serviço Gerenciador StorSimple e navegando para **Dispositivos > Painel**. O número de série do dispositivo é exibido no painel **Visão Rápida** à direita do painel do dispositivo. </br>![Adicionar Suporte do MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reinicialize o servidor quando solicitado.
 
 ## Etapa 3: montar os volumes StorSimple no host
 
-Depois do MPIO ser configurado no Windows Server, o\(s\) volume\(s\) criado\(s\) no dispositivo StorSimple poderá\(ão\) ser montado\(s\), em seguida, poderá\(ão\) aproveitar o MPIO para a redundância. Execute as seguintes etapas para montar um volume.
+Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no dispositivo StorSimple poderá(ão) ser montado(s), em seguida, poderá(ão) aproveitar o MPIO para a redundância. Execute as seguintes etapas para montar um volume.
 
 ### Para montar volumes no host
 
-1. Abra a janela **Propriedades do Iniciador iSCSI** no host do Windows Server. Clique em **Gerenciador de Servidores \> Painel de Controle \> Ferramentas \> Iniciador iSCSI**.
+1. Abra a janela **Propriedades do Iniciador iSCSI** no host do Windows Server. Clique em **Gerenciador de Servidores > Painel de Controle > Ferramentas > Iniciador iSCSI**.
 2. Na caixa de diálogo **Propriedades do iniciador iSCSI**, clique na guia Descoberta, em seguida, clique em **Descobrir Portal de Destino**.
 3. Na caixa de diálogo **Descobrir Portal de Destino**, faça o seguinte:
 	
-	- Digite o endereço IP da porta DADOS do seu dispositivo StorSimple \(por exemplo, digite DADOS 0\).
+	- Digite o endereço IP da porta DADOS do seu dispositivo StorSimple (por exemplo, digite DADOS 0).
 	- Clique em **OK** para voltar para a caixa de diálogo **Propriedades do Iniciador iSCSI**.
 	>[AZURE.IMPORTANT]**Se você estiver usando uma rede privada para as conexões iSCSI, digite o endereço IP da porta DADOS que está conectada à rede privada.**
 
-4. Repita as etapas de 2 a 3 para uma segunda interface de rede \(por exemplo, DADOS 1\) em seu dispositivo. Lembre-se que essas interfaces devem ser habilitadas para o iSCSI. Para saber mais sobre isso, vá para [Configurar interfaces de rede](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
+4. Repita as etapas de 2 a 3 para uma segunda interface de rede (por exemplo, DADOS 1) em seu dispositivo. Lembre-se que essas interfaces devem ser habilitadas para o iSCSI. Para saber mais sobre isso, vá para [Configurar interfaces de rede](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
 5. Selecione a guia **Destinos** na caixa de diálogo **Propriedades do Iniciador iSCSI**. Você deverá ver o destino do dispositivo StorSimple IQN em **Destinos Descobertos**. ![Guia Destinos para Propriedades do Iniciador iSCSI](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Clique em **Conectar** para estabelecer uma sessão iSCSI com o dispositivo StorSimple. Uma caixa de diálogo **Conectar ao Destino** será exibida.
 
@@ -104,11 +104,11 @@ Depois do MPIO ser configurado no Windows Server, o\(s\) volume\(s\) criado\(s\)
 	-  Na lista suspensa **IP do Portal de Destino**, selecione o endereço IP para a segunda interface de dados habilitada no dispositivo.
 	-  Clique em **OK** para voltar para a caixa de diálogo Propriedades do Iniciador iSCSI. Você adicionou uma segunda sessão ao destino.
 
-12. Abra **Gerenciamento do Computador** navegando para **Gerenciador de Servidores \> Painel \> Gerenciamento do Computador**. No painel esquerdo, clique em **Armazenamento \> Gerenciamento de Disco**. O\(s\) volume\(s\) criado\(s\) no dispositivo StorSimple visível\(is\) para este host aparecerá\(ão\) sob **Gerenciamento de Disco** como novo\(s\) disco\(s\).
+12. Abra **Gerenciamento do Computador** navegando para **Gerenciador de Servidores > Painel > Gerenciamento do Computador**. No painel esquerdo, clique em **Armazenamento > Gerenciamento de Disco**. O(s) volume(s) criado(s) no dispositivo StorSimple visível(is) para este host aparecerá(ão) sob **Gerenciamento de Disco** como novo(s) disco(s).
 
 13. Inicialize o disco e crie um novo volume. Durante o processo de formato, selecione um tamanho de bloco de 64 KB. ![Gerenciamento de disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Em **Gerenciamento de Disco**, clique com o botão direito em **Disco** e selecione **Propriedades**.
-15. No Modelo StorSimple \#\#\#\#, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na **guia MPIO**. ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na **guia MPIO**. ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
 16. Na seção **Nome DSM**, clique em **Detalhes** e verifique se os parâmetros são definidos para os parâmetros padrão. Os parâmetros padrão são:
 
@@ -123,7 +123,7 @@ Depois do MPIO ser configurado no Windows Server, o\(s\) volume\(s\) criado\(s\)
 
 ## Etapa 4: configurar o MPIO para ter alta disponibilidade e balanceamento de carga
 
-Para a alta disponibilidade e o balanceamento de carga baseados em vários caminhos, várias sessões devem ser adicionadas manualmente para declarar os diversos caminhos disponíveis. Por exemplo, se o host tiver duas interfaces conectadas à SAN e o dispositivo tiver duas interfaces conectadas à SAN, você precisará de quatro sessões configuradas com permutações de caminho apropriadas \(somente duas sessões serão necessárias se cada interface de DADOS e a interface de host estiverem em uma sub-rede de IP diferente e não forem roteáveis\).
+Para a alta disponibilidade e o balanceamento de carga baseados em vários caminhos, várias sessões devem ser adicionadas manualmente para declarar os diversos caminhos disponíveis. Por exemplo, se o host tiver duas interfaces conectadas à SAN e o dispositivo tiver duas interfaces conectadas à SAN, você precisará de quatro sessões configuradas com permutações de caminho apropriadas (somente duas sessões serão necessárias se cada interface de DADOS e a interface de host estiverem em uma sub-rede de IP diferente e não forem roteáveis).
 
 >[AZURE.IMPORTANT]**É recomendável que você não misture as interfaces de rede com 1 GbE e 10 GbE. Se você usar duas interfaces de rede, ambas as interfaces deverão ser do tipo idêntico.**
 
@@ -159,9 +159,9 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 	3. Na lista suspensa **IP do Portal de Destino**, selecione o endereço IP para a segunda interface de dados habilitada no dispositivo.
 	4. Clique em **OK** para voltar para a caixa de diálogo **Propriedades do Iniciador iSCSI**. Agora, você adicionou uma segunda sessão ao destino.
 
-10. Repita as Etapas de 8 a 10 para adicionar outras sessões \(caminhos\) ao destino. Com duas interfaces no host e duas no dispositivo, você pode adicionar um total de quatro sessões.
+10. Repita as Etapas de 8 a 10 para adicionar outras sessões (caminhos) ao destino. Com duas interfaces no host e duas no dispositivo, você pode adicionar um total de quatro sessões.
 
-11. Depois de adicionar as sessões desejadas \(caminhos\), na caixa de diálogo **Propriedades do Iniciador iSCSI**, selecione o destino e clique em **Propriedades**. Na guia Sessões da caixa de diálogo **Propriedades**, observe os quatro identificadores da sessão que correspondem às permutações possíveis de caminho. Para cancelar uma sessão, marque a caixa de seleção ao lado de um identificador de sessão e clique em **Desconectar**.
+11. Depois de adicionar as sessões desejadas (caminhos), na caixa de diálogo **Propriedades do Iniciador iSCSI**, selecione o destino e clique em **Propriedades**. Na guia Sessões da caixa de diálogo **Propriedades**, observe os quatro identificadores da sessão que correspondem às permutações possíveis de caminho. Para cancelar uma sessão, marque a caixa de seleção ao lado de um identificador de sessão e clique em **Desconectar**.
 
 12. Para exibir os dispositivos apresentados nas sessões, selecione a guia **Dispositivos**. Para configurar a política MPIO para um dispositivo selecionado, clique em **MPIO**. A caixa de diálogo **Detalhes do Dispositivo** será exibida. Na guia **MPIO**, você pode selecionar as devidas configurações da **Política de Balanceamento de Carga**. Você também pode exibir o tipo de caminho **Ativo** ou **Em Espera**.
 

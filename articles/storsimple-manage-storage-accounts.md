@@ -53,7 +53,7 @@ Há três tipos de contas de armazenamento que podem ser usadas com o dispositiv
 
 ## Adicionar uma conta de armazenamento
 
-Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento \(com o provedor de serviços de nuvem especificado\). Você também tem a opção de habilitar o modo secure sockets layer \(SSL\) para criar um canal seguro para comunicação de rede entre o dispositivo e a nuvem.
+Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento (com o provedor de serviços de nuvem especificado). Você também tem a opção de habilitar o modo secure sockets layer (SSL) para criar um canal seguro para comunicação de rede entre o dispositivo e a nuvem.
 
 Você pode criar várias contas para um provedor de serviços de nuvem específico. Lembre-se, no entanto, que após a criação de uma conta de armazenamento, você não pode alterar o provedor de serviços de nuvem.
 
@@ -104,7 +104,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 2. Na lista de contas de armazenamento em formato de tabela, passe o mouse sobre a conta que você deseja excluir.
 
-3. Um ícone de exclusão \(\* \* x \* \*\) será exibido na coluna mais à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
+3. Um ícone de exclusão (* * x * *) será exibido na coluna mais à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
 
 4. Quando solicitado a confirmar, clique em **Sim** para continuar com a exclusão. A listagem de tabela será atualizada para refletir as alterações.
 
@@ -124,9 +124,9 @@ As chaves da conta de armazenamento são sempre armazenadas no serviço de forma
 
 ## Fluxo de trabalho de rotação
 
-Um administrador do Microsoft Azure pode gerar novamente ou alterar a chave primária ou secundária, acessando diretamente a conta de armazenamento \(por meio do serviço Microsoft Azure Storage\). O serviço StorSimple Manager não verá essa alteração automaticamente.
+Um administrador do Microsoft Azure pode gerar novamente ou alterar a chave primária ou secundária, acessando diretamente a conta de armazenamento (por meio do serviço Microsoft Azure Storage). O serviço StorSimple Manager não verá essa alteração automaticamente.
 
-Para informar o serviço StorSimple Manager da alteração, será necessário acessar o serviço StorSimple Manager, acessar a conta de armazenamento e, em seguida, sincronizar a chave primária ou secundária \(dependendo de qual chave foi alterada\). Em seguida, o serviço obtém a chave mais recente, criptografa as chaves e envia a chave criptografada para o dispositivo.
+Para informar o serviço StorSimple Manager da alteração, será necessário acessar o serviço StorSimple Manager, acessar a conta de armazenamento e, em seguida, sincronizar a chave primária ou secundária (dependendo de qual chave foi alterada). Em seguida, o serviço obtém a chave mais recente, criptografa as chaves e envia a chave criptografada para o dispositivo.
 
 ### Para sincronizar as chaves para contas de armazenamento na mesma assinatura que o serviço
 
@@ -137,7 +137,7 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 3. Na caixa de diálogo, faça o seguinte:
 
   1. Selecione a conta de armazenamento com a chave que você deseja sincronizar. As chaves são criptografadas quando são exibidas.
-  2. No serviço StorSimple Manager, você precisa atualizar a chave que foi alterada anteriormente no serviço Microsoft Azure Storage. Se a chave de acesso primária tiver sido alterada \(gerada novamente\), clique em **sincronizar chave primária**. Se a chave secundária tiver sido alterada, clique em **sincronizar chave secundária**.
+  2. No serviço StorSimple Manager, você precisa atualizar a chave que foi alterada anteriormente no serviço Microsoft Azure Storage. Se a chave de acesso primária tiver sido alterada (gerada novamente), clique em **sincronizar chave primária**. Se a chave secundária tiver sido alterada, clique em **sincronizar chave secundária**.
 
     ![sincronizar chaves](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 

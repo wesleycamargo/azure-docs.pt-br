@@ -70,7 +70,7 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 10. Clique no comando Gerenciar: ![elementográfico22][graphic22]
 11. digite seu Nome de Usuário, sua Senha e clique em Fazer logon: ![elementográfico23][graphic23]
 12. Clique em Nova Consulta: ![elementográfico24][graphic24]
-13. Digite a consulta a seguir, substituindo <user_name> por um nome pelo qual você deseja identificar esse logon no contexto desse banco de dados \(é possível fornecer o mesmo valor atribuído para <login_name>, por exemplo\) e substituindo <login_name> por seu novo nome de usuário: `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Digite a consulta a seguir, substituindo <user_name> por um nome pelo qual você deseja identificar esse logon no contexto desse banco de dados (é possível fornecer o mesmo valor atribuído para <login_name>, por exemplo) e substituindo <login_name> por seu novo nome de usuário: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Clique em Executar: ![elementográfico25][graphic25]
 15. Agora, você deve fornecer o novo usuário com as mesmas funções e privilégios do usuário original.
 16. Prossiga para a Parte 2.
@@ -119,7 +119,7 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 4.	Prossiga para a Parte 5.  
 
 ##Parte 5: Removendo o conjunto de credenciais antigo
-Esta parte é aplicável para as seguintes entradas/saídas: \* Armazenamento de Blob \* Hubs de Eventos \* Banco de Dados SQL \* Armazenamento de Tabela
+Esta parte é aplicável para as seguintes entradas/saídas: * Armazenamento de Blob * Hubs de Eventos * Banco de Dados SQL * Armazenamento de Tabela
 
 ###Armazenamento de blob/Armazenamento de tabela
 Repita a Parte 1 da Chave de Acesso usada anteriormente por seu trabalho para renovar a Chave de Acesso agora não utilizada.

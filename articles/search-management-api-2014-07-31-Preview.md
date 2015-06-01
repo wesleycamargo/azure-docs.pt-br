@@ -24,7 +24,7 @@ A API REST de Gerenciamento do Serviço de Pesquisa do Azure fornece acesso prog
 - Criar, alterar ou recuperar `api-keys` para automatizar alterações regulares nas chaves administrativas usadas para autenticar operações de dados de pesquisa. 
 - Ajustar a escala de um serviço de Pesquisa do Azure em resposta a alterações nos requisitos de volume de consulta ou de armazenamento.
 
-Para administrar o serviço de forma totalmente programática, você precisará de duas APIs: a API REST de Gerenciamento da Pesquisa do Azure e a [API REST comum do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). A API do Gerenciador de Recursos é usada para operações de uso geral que não são específicas de serviços, como consultar dados de assinatura, listar localizações geográficas e assim por diante. Para criar e gerenciar os serviços da Pesquisa do Azure em sua assinatura, verifique se a solicitação HTTP inclui o ponto de extremidade do Gerenciador de Recursos, a ID da assinatura, o provedor \(nesse caso, a Pesquisa do Azure\) e a operação específica do serviço de pesquisa.
+Para administrar o serviço de forma totalmente programática, você precisará de duas APIs: a API REST de Gerenciamento da Pesquisa do Azure e a [API REST comum do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). A API do Gerenciador de Recursos é usada para operações de uso geral que não são específicas de serviços, como consultar dados de assinatura, listar localizações geográficas e assim por diante. Para criar e gerenciar os serviços da Pesquisa do Azure em sua assinatura, verifique se a solicitação HTTP inclui o ponto de extremidade do Gerenciador de Recursos, a ID da assinatura, o provedor (nesse caso, a Pesquisa do Azure) e a operação específica do serviço de pesquisa.
 
 [Introdução à API REST do Gerenciamento da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) é uma explicação passo a passo de um código de exemplo que demonstra operações de configuração de aplicativos e o gerenciamento de serviços. O aplicativo de exemplo emite solicitações para a API do Gerenciador de Recursos do Azure, bem como a API de gerenciamento de serviço para a Pesquisa do Azure, dando a você uma noção de como criar um aplicativo coeso que tire proveito de ambas as APIs.
 
@@ -99,7 +99,7 @@ As operações incluem as APIs a seguir.
 <a name="ServiceOps"></a>
 ## Operações de serviço ##
 
-Você pode provisionar ou desprovisionar serviços de Pesquisa do Azure emitindo solicitações HTTP em relação à sua assinatura do Azure. Os cenários habilitados por meio dessas operações incluem a criação de ferramentas de administração personalizadas ou a preparação de um ambiente de produção ou desenvolvimento de ponta a ponta \(desde criar o serviço até preencher um índice\). Da mesma forma, os fornecedores de soluções que criam e vendem soluções de nuvem podem querer uma abordagem automatizada e reprodutível para provisionar serviços para cada novo cliente.
+Você pode provisionar ou desprovisionar serviços de Pesquisa do Azure emitindo solicitações HTTP em relação à sua assinatura do Azure. Os cenários habilitados por meio dessas operações incluem a criação de ferramentas de administração personalizadas ou a preparação de um ambiente de produção ou desenvolvimento de ponta a ponta (desde criar o serviço até preencher um índice). Da mesma forma, os fornecedores de soluções que criam e vendem soluções de nuvem podem querer uma abordagem automatizada e reprodutível para provisionar serviços para cada novo cliente.
 
 **Operações em um serviço**
 
@@ -139,11 +139,11 @@ A operação **Criar Serviço de Pesquisa** provisiona um novo serviço de pesqu
 
 ### Corpo da solicitação ###
 
-{ "location": "location of search service", "tags": { "key": "value", ... }, "properties": { "sku": { "name": "free \| standard \| standard2" }, "replicaCount": 1 \| 2 \| 3 \| 4 \| 5 \| 6, "partitionCount": 1 \| 2 \| 3 \| 4 \| 6 \| 12 } }
+{ "location": "location of search service", "tags": { "key": "value", ... }, "properties": { "sku": { "name": "free | standard | standard2" }, "replicaCount": 1 | 2 | 3 | 4 | 5 | 6, "partitionCount": 1 | 2 | 3 | 4 | 6 | 12 } }
 
 ### Parâmetros do corpo da solicitação ###
 
-`location`: obrigatório. Uma das regiões geográficas do Azure registradas e com suporte \(por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante\). Observe que o local de um recurso não pode ser alterado depois de ser criado.
+`location`: obrigatório. Uma das regiões geográficas do Azure registradas e com suporte (por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante). Observe que o local de um recurso não pode ser alterado depois de ser criado.
 
 `tags`: opcional. Uma lista de pares de chave e valor que descrevem o recurso. Essas marcas podem ser usadas para exibir e agrupar um recurso entre grupos de recursos. Podem ser fornecidas no máximo 10 marcas para um recurso. Cada marca deve ter uma chave com no máximo 128 caracteres e um valor com no máximo 256 caracteres.
 
@@ -156,7 +156,7 @@ A operação **Criar Serviço de Pesquisa** provisiona um novo serviço de pesqu
 
 ### Resposta ###
 
-HTTP 200 \(OK\) é retornado quando uma definição de serviço é atualizada. HTTP 201 \(criado\) é retornado quando um novo serviço é criado.
+HTTP 200 (OK) é retornado quando uma definição de serviço é atualizada. HTTP 201 (criado) é retornado quando um novo serviço é criado.
 
 
 ### Cabeçalhos de resposta ###
@@ -195,11 +195,11 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
 
 ### Elementos do corpo da resposta ###
 
-`id`: a ID é a URL \(exceto o nome do host/esquema\) para esse serviço de Pesquisa.
+`id`: a ID é a URL (exceto o nome do host/esquema) para esse serviço de Pesquisa.
 
 `name`: o nome do serviço de pesquisa.
 
-`location`: uma das regiões geográficas do Azure registradas e com suporte \(por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante\).
+`location`: uma das regiões geográficas do Azure registradas e com suporte (por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante).
 
 `tags`: uma lista de pares de valores de chave que descrevem o recurso, usada para exibir e agrupar recursos entre grupos de recursos.
 
@@ -232,7 +232,7 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
 - `provisioning`: o serviço está sendo provisionado.
 - `failed`: o serviço não foi provisionado. 
 
-O provisionamento é um estado intermediário que ocorre enquanto a capacidade de serviço está sendo estabelecida. Depois que a capacidade é configurada, o `provisioningState` é alterado para "êxito" ou "falha". Aplicativos cliente podem pesquisar o status de provisionamento \(o intervalo de pesquisa recomendado é de 30 segundos a um minuto\) usando a operação **Obter Serviço de Pesquisa** para ver quando uma operação é concluída. Se você estiver usando o serviço gratuito, esse valor tenderá a ser retornado como "êxito" diretamente na chamada para criar o serviço. Isso ocorre porque o serviço gratuito usa a capacidade que já está configurada.
+O provisionamento é um estado intermediário que ocorre enquanto a capacidade de serviço está sendo estabelecida. Depois que a capacidade é configurada, o `provisioningState` é alterado para "êxito" ou "falha". Aplicativos cliente podem pesquisar o status de provisionamento (o intervalo de pesquisa recomendado é de 30 segundos a um minuto) usando a operação **Obter Serviço de Pesquisa** para ver quando uma operação é concluída. Se você estiver usando o serviço gratuito, esse valor tenderá a ser retornado como "êxito" diretamente na chamada para criar o serviço. Isso ocorre porque o serviço gratuito usa a capacidade que já está configurada.
 
 <a name="GetService"></a>
 ## Obter Serviço de Pesquisa  ##
@@ -247,7 +247,7 @@ A operação **Obter Serviço de Pesquisa** retorna as propriedades para o servi
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de Pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de Pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
@@ -263,7 +263,7 @@ Nenhum.
 
 ### Código de status de resposta ###
 
-HTTP 200 \(OK\), caso bem-sucedido.
+HTTP 200 (OK), caso bem-sucedido.
 
 
 ### Cabeçalhos de resposta ###
@@ -298,11 +298,11 @@ HTTP 200 \(OK\), caso bem-sucedido.
 
 ### Elementos do corpo da resposta ###
 
-`id`: a ID é a URL \(exceto o nome do host/esquema\) para esse serviço de Pesquisa.
+`id`: a ID é a URL (exceto o nome do host/esquema) para esse serviço de Pesquisa.
 
 `name`: o nome do serviço de Pesquisa.
 
-`location`: o local do recurso. Essa será uma das regiões geográficas do Azure registradas e com suporte \(por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante\).
+`location`: o local do recurso. Essa será uma das regiões geográficas do Azure registradas e com suporte (por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante).
 
 `tags`: as marcas são uma lista de pares de valores de chave que descrevem o recurso. Essas marcas podem ser usadas para exibir e agrupar um recurso entre grupos de recursos.
 
@@ -361,7 +361,7 @@ Nenhum.
 
 ###Resposta###
 
-O código de status é HTTP 200 \(OK\), caso bem-sucedido.
+O código de status é HTTP 200 (OK), caso bem-sucedido.
 
 ### Cabeçalhos de resposta ###
 
@@ -438,7 +438,7 @@ A operação **Excluir serviço** exclui os dados de pesquisa e do serviço de p
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
@@ -452,7 +452,7 @@ Nenhum.
 
 ###Resposta###
 
-Para HTTP 200, o corpo da resposta estará vazio. HTTP 200 \(OK\) será a resposta correta se o recurso não existir.
+Para HTTP 200, o corpo da resposta estará vazio. HTTP 200 (OK) será a resposta correta se o recurso não existir.
 
 Você pode usar **Obter API do Serviço de Pesquisa** para sondar o status do serviço de exclusão. Recomendamos intervalos de sondagem de 30 segundos a um minuto.
 
@@ -483,7 +483,7 @@ Como alternativa, você pode usar PUT.
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
@@ -508,7 +508,7 @@ Como alternativa, você pode usar PUT.
 
 ###Parâmetros do corpo da solicitação###
 
-`tags`: opcional. Uma lista de pares de chave e valor que descrevem o recurso. Essas marcas podem ser usadas para exibir e agrupar esse recurso \(entre grupos de recursos\). Podem ser fornecidas no máximo 10 marcas para um recurso. Cada marca deve ter uma chave com no máximo 128 caracteres e um valor com no máximo 256 caracteres.
+`tags`: opcional. Uma lista de pares de chave e valor que descrevem o recurso. Essas marcas podem ser usadas para exibir e agrupar esse recurso (entre grupos de recursos). Podem ser fornecidas no máximo 10 marcas para um recurso. Cada marca deve ter uma chave com no máximo 128 caracteres e um valor com no máximo 256 caracteres.
 
 `replicaCount`: opcional. O padrão é UTF-1. Os valores válidos estão incluídos entre 1 e 6. Válido somente quando `sku` é `standard`.
 
@@ -516,7 +516,7 @@ Como alternativa, você pode usar PUT.
 
 ###Resposta###
 
-HTTP 200 \(OK\) será retornado se a operação for bem-sucedida. Você pode usar **Obter API do serviço de pesquisa** para sondar o status do serviço de atualização. Recomendamos intervalos de sondagem de 30 segundos a um minuto.
+HTTP 200 (OK) será retornado se a operação for bem-sucedida. Você pode usar **Obter API do serviço de pesquisa** para sondar o status do serviço de atualização. Recomendamos intervalos de sondagem de 30 segundos a um minuto.
 
 
 ### Cabeçalhos de resposta ###
@@ -535,14 +535,14 @@ O corpo da resposta contém a definição de serviço atualizada. Para obter um 
 
 A autenticação para um serviço de Pesquisa do Azure exige duas informações: uma URL de serviço de pesquisa e uma chave de api. As chaves de api são geradas quando o serviço é criado e podem ser regeneradas sob demanda depois que o serviço é provisionado. Há dois tipos de chave de api.
 
-- chave de administração: concede acesso para todas as operações \(máximo de duas por serviço\)
-- chave de consulta: autentica apenas solicitações de consulta \(máximo de 50 por serviço\)
+- chave de administração: concede acesso para todas as operações (máximo de duas por serviço)
+- chave de consulta: autentica apenas solicitações de consulta (máximo de 50 por serviço)
 
 A capacidade de gerenciar de forma programática as chaves de administração e consulta de seu serviço de Pesquisa do Azure lhe oferece os meios para criar ferramentas personalizadas, substituir chaves periodicamente como uma prática recomendada de segurança de rotina, substituir chaves quando um funcionário deixa a empresa ou gerar e adquirir chaves durante o provisionamento de serviço quando uma abordagem programática ou com script é usada para implantar a solução.
 
 As chaves de consulta podem ser adquiridas, criadas e excluídas. As operações de chave de administração são restritas à aquisição e à regeneração dos valores de chaves existentes. A exclusão de uma chave de administração pode travá-lo permanentemente do serviço, assim, a operação não está disponível.
 
-As chaves são cadeias de caracteres composta de uma combinação aleatória de números e letras maiúsculas. Uma chave de api só pode ser usada com o serviço para o qual ela foi criada e pode ser alterada regularmente \(se você adotar uma estratégia de substituição de chave como uma prática recomendada de segurança\).
+As chaves são cadeias de caracteres composta de uma combinação aleatória de números e letras maiúsculas. Uma chave de api só pode ser usada com o serviço para o qual ela foi criada e pode ser alterada regularmente (se você adotar uma estratégia de substituição de chave como uma prática recomendada de segurança).
 
 Trate as chaves de api, principalmente as chaves de administração, como dados confidenciais. Qualquer pessoa que adquirir sua chave de administração terá a capacidade de excluir ou ler dados de seus índices.
 
@@ -572,7 +572,7 @@ Chaves de administração são criadas com o serviço. Há sempre duas chaves, a
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
@@ -588,7 +588,7 @@ Nenhum.
 
 ###Resposta###
 
-HTTP 200 \(OK\) será retornado se a operação for bem-sucedida.
+HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
 ### Cabeçalhos de resposta ###
 
@@ -617,7 +617,7 @@ A operação **Regenerar Chaves de Administração** exclui e regenera a chave p
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 	
@@ -640,7 +640,7 @@ Nenhum.
 
 ###Resposta###
 
-HTTP 200 \(OK\) será retornado se a operação for bem-sucedida.
+HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
 ### Cabeçalhos de resposta ###
 
@@ -676,7 +676,7 @@ A operação **Criar Chave de Consulta** gera uma nova chave de consulta para o 
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de Pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de Pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
@@ -694,7 +694,7 @@ Nenhum.
 
 ###Resposta###
 
-O código de status de resposta será HTTP 200 \(OK\) se a operação for bem-sucedida.
+O código de status de resposta será HTTP 200 (OK) se a operação for bem-sucedida.
 
 ### Cabeçalhos de resposta ###
 
@@ -720,7 +720,7 @@ O código de status de resposta será HTTP 200 \(OK\) se a operação for bem-su
 ## Listar Chaves de Consulta ##
 
 
-A operação **Listar Chaves de Consulta** retorna as chaves de consulta para o serviço de pesquisa especificado. As chaves de consulta são usadas para enviar chamadas à API de consulta \(somente leitura\) para um serviço de pesquisa. Pode haver até 50 chaves de consulta por serviço.
+A operação **Listar Chaves de Consulta** retorna as chaves de consulta para o serviço de pesquisa especificado. As chaves de consulta são usadas para enviar chamadas à API de consulta (somente leitura) para um serviço de pesquisa. Pode haver até 50 chaves de consulta por serviço.
 
     GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2014-07-31-Preview
 
@@ -730,7 +730,7 @@ A operação **Listar Chaves de Consulta** retorna as chaves de consulta para o 
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 	
@@ -746,7 +746,7 @@ Nenhum.
 
 ###Resposta###
 
-O código de status de resposta será HTTP 200 \(OK\) será retornado se a operação for bem-sucedida.
+O código de status de resposta será HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
 ### Cabeçalhos de resposta ###
 
@@ -792,7 +792,7 @@ Diferentemente das chaves de administração, as chaves de consulta não são re
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de Pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa \(API da Pesquisa do Azure\).
+`serviceName`: obrigatório. O nome do serviço de Pesquisa dentro do grupo de recursos especificado. Se não souber o nome do serviço, você poderá obter uma lista usando Listar Serviços de Pesquisa (API da Pesquisa do Azure).
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
@@ -810,7 +810,7 @@ Nenhum.
 
 ###Resposta###
 
-O código de status de resposta será HTTP 200 \(OK\) se tiver êxito.
+O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 ### Cabeçalhos de resposta ###
 

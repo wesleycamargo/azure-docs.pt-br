@@ -26,7 +26,7 @@ Direcionar seu público-alvo por critérios específicos com o botão "Novos Cri
 - [Documentação da interface do usuário - Alcance - Nova Campanha por Push][Link 27]
 
 ## Os critérios de público-alvo podem incluir:
-- **Aspectos técnicos: \*\* Você pode direcionar com base nas mesmas informações técnicas que pode ver nas seções Análise e Monitoramento. **Consulte também:** [Documentação da interface do usuário - Análise][Link 15], [Documentação de interface do usuário - Monitoramento][Link 16] - **Local:** os aplicativos que usam "Relatórios de localização em tempo real” com isolamento geográfico podem usar a localização geográfica como um critério para direcionar para um público-alvo a partir da localização do GPS. A chamada de "Relatórios de Localização de Área Lenta" também pode ser usada para direcionar para um público-alvo da localização do celular \(“Relatórios de localização em tempo real” e “Relatórios de Localização de Área Lenta” devem ser ativados no SDK\). **Consulte também:** [Documentação do SDK - iOS -Integração][Link 5], [Documentação do SDK - Android - Integração][Link 5]
+- **Aspectos técnicos: ** Você pode direcionar com base nas mesmas informações técnicas que pode ver nas seções Análise e Monitoramento. **Consulte também:** [Documentação da interface do usuário - Análise][Link 15], [Documentação de interface do usuário - Monitoramento][Link 16] - **Local:** os aplicativos que usam "Relatórios de localização em tempo real” com isolamento geográfico podem usar a localização geográfica como um critério para direcionar para um público-alvo a partir da localização do GPS. A chamada de "Relatórios de Localização de Área Lenta" também pode ser usada para direcionar para um público-alvo da localização do celular (“Relatórios de localização em tempo real” e “Relatórios de Localização de Área Lenta” devem ser ativados no SDK). **Consulte também:** [Documentação do SDK - iOS -Integração][Link 5], [Documentação do SDK - Android - Integração][Link 5]
 - **Comentários do Alcance:** você pode direcionar para o público-alvo com base nos comentários sobre notificações anteriores de alcance e nos comentários de Anúncios, Pesquisas e Envio de Dados por Push. Isso permite direcionar melhor para seu público-alvo depois de duas ou três campanhas de alcance em relação ao que poderia ser feito da primeira vez. Também pode ser usado para filtrar os usuários que já receberam uma notificação com conteúdo semelhante, definindo uma campanha para NÃO ser enviada aos usuários que já receberam uma campanha anterior específica. Você pode até mesmo excluir os usuários incluídos em uma campanha específica que ainda esteja ativa do recebimento de novos envios por Push. **Consulte também:** [Documentação da interface do usuário - Alcance - Enviar Conteúdo por Push][Link 29]
 - **Instalar Rastreamento:** você pode rastrear informações com base no local onde seus usuários instalaram o seu Aplicativo. **Consulte também:** [Documentação da interface do usuário - Configurações][Link 20]
 - **Perfil do Usuário:** você pode direcionar com base nas informações de usuário padrão e pode direcionar com base em informações do aplicativo personalizado que você criou. Isso inclui usuários que estão conectados no momento e os usuários que responderam perguntas específicas que você fez a eles para definir o próprio aplicativo, em vez de apenas a forma como eles responderam a campanhas anteriores. Todas as Informações do Aplicativo definidas para seu aplicativo são mostradas nesta lista.
@@ -38,11 +38,11 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 
 1. Vá para a página de configurações do aplicativo, selecione o menu “Informações do Aplicativo" e selecione “Nova informação do aplicativo"
 2. Registre uma nova informação de aplicativo booliano chamada "inAppPurchase"
-3. Defina as informações de aplicativo como "verdadeiro" quando o usuário executar com êxito uma compra no aplicativo \(usando a função sendAppInfo\("inAppPurchase",...\)\)
-4. Se você não quiser fazer isso no seu aplicativo, poderá fazer no seu back-end usando a API do dispositivo\)
-5. Em seguida, bastará criar o seu anúncio, com um critério limitando seu público-alvo aos usuários que tenham "inAppPurchase" definido como "verdadeiro"\)
+3. Defina as informações de aplicativo como "verdadeiro" quando o usuário executar com êxito uma compra no aplicativo (usando a função sendAppInfo("inAppPurchase",...))
+4. Se você não quiser fazer isso no seu aplicativo, poderá fazer no seu back-end usando a API do dispositivo)
+5. Em seguida, bastará criar o seu anúncio, com um critério limitando seu público-alvo aos usuários que tenham "inAppPurchase" definido como "verdadeiro")
  
-> Observação: o direcionamento com base em critérios diferentes das marcas de informações de aplicativo requer que o Mobile Engagement do Azure colete informações dos dispositivos de seus usuários antes de efetuar o envio e, portanto, pode causar um atraso. As opções de configuração de envio por push complexas \(como atualização de notificações\) também podem atrasar o envio por push. Usar uma campanha "monoestável" da API de envio por Push é o método de envio mais rápido no Mobile Engagement do Azure. Usar as marcas de informações de aplicativo apenas como critérios de envio por push para uma campanha de Alcance \(a partir da API de Alcance ou da interface do usuário\) é o próximo método mais rápido, já que as marcas de informações do aplicativo estão armazenadas no lado do servidor. Usar outros critérios de direcionamento para uma campanha de envio é o método mais flexível, porém o método mais lento do envio por push, já que o Mobile Engagement do Azure tem que consultar os dispositivos para enviar a campanha.
+> Observação: o direcionamento com base em critérios diferentes das marcas de informações de aplicativo requer que o Mobile Engagement do Azure colete informações dos dispositivos de seus usuários antes de efetuar o envio e, portanto, pode causar um atraso. As opções de configuração de envio por push complexas (como atualização de notificações) também podem atrasar o envio por push. Usar uma campanha "monoestável" da API de envio por Push é o método de envio mais rápido no Mobile Engagement do Azure. Usar as marcas de informações de aplicativo apenas como critérios de envio por push para uma campanha de Alcance (a partir da API de Alcance ou da interface do usuário) é o próximo método mais rápido, já que as marcas de informações do aplicativo estão armazenadas no lado do servidor. Usar outros critérios de direcionamento para uma campanha de envio é o método mais flexível, porém o método mais lento do envio por push, já que o Mobile Engagement do Azure tem que consultar os dispositivos para enviar a campanha.
  
 ![Reach-Criterion1][29]
 
@@ -60,7 +60,7 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 - Tamanho da tela: tamanho da tela
 - **Localidade**      
 - Última área conhecida: país, região, localidade
-- Isolamento geográfico em tempo real: lista de POIs \(Nome, Ações\), POI circular \(Nome, Latitude, Longitude, Raio em metros\)
+- Isolamento geográfico em tempo real: lista de POIs (Nome, Ações), POI circular (Nome, Latitude, Longitude, Raio em metros)
 - **Comentários de alcance**     
 - Comentários de anúncio: anúncio, comentários
 - Comentários de pesquisa: pesquisa, comentários
@@ -79,7 +79,7 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 - Inteiro: operador, número, indefinido
 - Booliano: verdadeiro ou falso, indefinido
 - **Segmento**    
-- Nome dos segmentos \(da lista suspensa\), Exclusão \(usuários de destino que não fazem parte deste segmento\).
+- Nome dos segmentos (da lista suspensa), Exclusão (usuários de destino que não fazem parte deste segmento).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
