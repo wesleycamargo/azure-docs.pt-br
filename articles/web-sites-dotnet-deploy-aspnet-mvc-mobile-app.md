@@ -144,7 +144,7 @@ Você pode substituir qualquer modo de exibição (inclusive layouts e modos de 
 
 Nesta seção, você criará um arquivo de layout específico para dispositivos móveis.
 
-Para começar, copie *Views\\Shared\_Layout.cshtml* para *Views\\Shared\_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
+Para começar, copie *Views\\Shared\_Layout.cshtml* para *Views\\Shared\_Layout.Mobile.cshtml*. Abra *\_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
 
 Em cada chamada `Html.ActionLink` à barra de navegação, remova "Procurar por" em cada link *ActionLink*. O código a seguir mostra a marca `<ul class="nav navbar-nav">` completa do arquivo de layout para dispositivos móveis.
 
@@ -159,7 +159,7 @@ Copie o arquivo *Views\\Home\\AllTags.cshtml* para *Views\\Home\\AllTags.Mobile.
 
     <h2>Tags (M)</h2>
 
-Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
+Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *\_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
@@ -205,7 +205,7 @@ A captura de tela a seguir mostra o modo de exibição *AllTags* renderizado no 
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-No navegador móvel, selecione o link **Alto-falantes**. Porque não há um modo de exibição móvel (*AllSpeakers.Mobile.cshtml*), a exibição padrão de alto-falantes (*AllSpeakers.cshtml*) é renderizada utilizando o modo de exibição de layout para dispositivos móveis (*_Layout.Mobile.cshtml*). Como mostrado abaixo, o título **MVC5 Application (Móvel)** é definido em *_Layout.Mobile.cshtml*.
+No navegador móvel, selecione o link **Alto-falantes**. Porque não há um modo de exibição móvel (*AllSpeakers.Mobile.cshtml*), a exibição padrão de alto-falantes (*AllSpeakers.cshtml*) é renderizada utilizando o modo de exibição de layout para dispositivos móveis (*\_Layout.Mobile.cshtml*). Como mostrado abaixo, o título **MVC5 Application (Móvel)** é definido em *\_Layout.Mobile.cshtml*.
 
 ![][AllSpeakers_LayoutMobile]
 
@@ -216,7 +216,7 @@ Você pode desativar globalmente a renderização do modo de exibição padrão 
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Quando o `RequireConsistentDisplayMode` estiver definido como `true`, o layout móvel (*_Layout.Mobile.cshtml*) será usado apenas para modos de exibição móveis (ou seja, quando o arquivo de exibição tiver o formato ***ViewName**.Mobile.cshtml*). Talvez você queira definir `RequireConsistentDisplayMode` como `true` se o layout voltado para dispositivos móveis não funcionar bem com seus modos de exibição não voltados para dispositivos móveis. A captura de tela abaixo mostra como a página *Alto-falantes* é renderizada quando `RequireConsistentDisplayMode` é definido como `true` (sem a cadeia de caracteres "(Móvel)" na barra de navegação na parte superior).
+Quando o `RequireConsistentDisplayMode` estiver definido como `true`, o layout móvel (*\_Layout.Mobile.cshtml*) será usado apenas para modos de exibição móveis (ou seja, quando o arquivo de exibição tiver o formato ***ViewName**.Mobile.cshtml*). Talvez você queira definir `RequireConsistentDisplayMode` como `true` se o layout voltado para dispositivos móveis não funcionar bem com seus modos de exibição não voltados para dispositivos móveis. A captura de tela abaixo mostra como a página *Alto-falantes* é renderizada quando `RequireConsistentDisplayMode` é definido como `true` (sem a cadeia de caracteres "(Móvel)" na barra de navegação na parte superior).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -262,7 +262,7 @@ O estilo do [grupo de listas vinculadas][] do Bootstrap torna clicável a caixa 
 
 ![][AllSpeakersFixedDesktop]
 
-Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\\Home\\AllSpeakers.cshtml*, adicione uma marca <form> logo após a marca <h2>, como mostrado abaixo:
+Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\\Home\\AllSpeakers.cshtml*, adicione uma marca \<form\> logo após a marca \<h2\>, como mostrado abaixo:
 
     @model IEnumerable<string>
 
