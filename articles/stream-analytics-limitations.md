@@ -18,7 +18,8 @@
 
 # Limitações e problemas conhecidos da Versão de Teste da Análise de fluxo do Azure
 
-Este documento descreve as limitações e problemas conhecidos da [Stream Analytics do Azure][stream.analytics.documentation] durante a versão de teste. Na maioria dos casos, esses limites existem com uma tentativa de receber seus comentários iniciais ou com base nas restrições de capacidade atual. <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+Este documento descreve as limitações e problemas conhecidos da [Stream Analytics do Azure][stream.analytics.documentation] durante a versão de teste. Na maioria dos casos, esses limites existem com uma tentativa de receber seus comentários iniciais ou com base nas restrições de capacidade atual. 
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## Limitações
