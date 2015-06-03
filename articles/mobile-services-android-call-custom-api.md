@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	writer="ricksal" 
 	pageTitle="Chamar uma API personalizada de um cliente Android | Centro de Desenvolvimento dos Serviços Móveis" 
 	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo Android que usa os serviços móveis do Azure." 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.date="06/01/2015" 
+	ms.author="ricksal"/>
 
 # Chamar uma API personalizada do cliente
 
