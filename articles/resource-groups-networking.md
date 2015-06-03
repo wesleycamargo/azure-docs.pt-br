@@ -346,4 +346,6 @@ As propriedades principais de um ponto de extremidade incluem:
 
 [Usando marcas no Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
+
+<!---HONumber=52-->
