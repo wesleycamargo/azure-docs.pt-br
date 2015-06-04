@@ -47,14 +47,19 @@ Antes de continuar, certifique-se de que você tem o seguinte instalado:
 ## Início rápido
 Se você tiver alguma familiaridade com o Azure Store, use esta seção para fazer um início rápido. Caso contrário, vá para [Provisionar o banco de dados][provision] abaixo.
  
-1. Abra o Azure Marketplace clicando em **Novo** > **Marketplace**. <!-- ![Store][button-store] -->
-2. Clique no complemento **MongoLab**. ![MongoLab][entry-mongolab]
-3. Clique no complemento **MongoLab** na lista Complementos e, em seguida, clique em **Informações de Conexão**. ![ConnectionInfoButton][button-connectioninfo]  
-4. Copie o **MONGOLAB_URI** para a sua área de transferência. ![ConnectionInfoScreen][screen-connectioninfo]
+1. Abra o Azure Marketplace clicando em **Novo** > **Marketplace**.  
+<!-- ![Store][button-store] -->
+2. Clique no complemento **MongoLab**.  
+![MongoLab][entry-mongolab]
+3. Clique no complemento **MongoLab** na lista Complementos e, em seguida, clique em **Informações de Conexão**.  
+![ConnectionInfoButton][button-connectioninfo]  
+4. Copie o **MONGOLAB_URI** para a sua área de transferência.  
+![ConnectionInfoScreen][screen-connectioninfo]
   
 	>[AZURE.NOTE]Esse URI contém seu nome de usuário do banco de dados e senha. Tratá-lo como informações confidenciais e não a compartilhe.
 
-5. Adicione o valor à lista **Cadeias de conexão** no menu **Configuração** do seu aplicativo Web no Serviço de Aplicativo do Azure: ![WebAppConnectionStrings][focus-website-connectinfo]
+5. Adicione o valor à lista **Cadeias de conexão** no menu **Configuração** do seu aplicativo Web no Serviço de Aplicativo do Azure:  
+![WebAppConnectionStrings][focus-website-connectinfo]
 6. Para **Nome**, digite **MONGOLAB_URI**.
 7. Para **valor**, cole a cadeia de conexão que obtivemos na seção anterior.
 8. Selecione **Personalizado** na caixa suspensa Tipo (em vez do padrão **SQLAzure**).
@@ -569,4 +574,4 @@ Parabéns! Você acabou de lançar um aplicativo Node. js apoiado por um banco d
 
 
 
-<!--HONumber=54-->
+<!---HONumber=54-->
