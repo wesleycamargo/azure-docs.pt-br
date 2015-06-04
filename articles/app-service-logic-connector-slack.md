@@ -46,7 +46,10 @@ Após seu aplicativo de API ser criado, você pode usar o conector de margem de 
 	![][2]
 4.	Você pode colocar o aplicativo de API do conector de margem de atraso no editor clicando em "Conector de margem de atraso". Clique no botão Autorizar. Forneça suas credenciais da Microsoft (se não tiver entrado automaticamente). Entre na sua conta de margem de atraso, seguindo as etapas. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Clique em "Authorizify"
  
-	![][3] ![][4] ![][5] ![][6]
+	![][3]
+	![][4]
+	![][5]
+	![][6]
 	
 5.	Agora você pode usar o conector de margem de atraso no fluxo. Atualmente, os gatilhos não estão disponíveis no conector de margem de atraso. As ações disponíveis são - Postagem
  
