@@ -37,15 +37,21 @@ A qualquer momento durante este tutorial, fique à vontade para mandar um e-mail
 ## Início rápido
 Se você já tiver um aplicativo Web no Serviço de Aplicativo do Azure com o qual deseja trabalhar ou se tiver alguma familiaridade com o Azure Marketplace, use esta seção para obter um início rápido. Caso contrário, vá para [Provisionar o banco de dados][provision] abaixo.
  
-1. Abra o Azure Marketplace clicando em **Novo** > **Marketplace**. <!-- ![Store][button-store] -->
+1. Abra o Azure Marketplace clicando em **Novo** > **Marketplace**. 
+	<!-- ![Store][button-store] -->
 
-1. Adquira o complemento MongoLab. ![MongoLab][entry-mongolab]
+1. Adquira o complemento MongoLab. 
+	![MongoLab][entry-mongolab]
 
-1. Clique no complemento MongoLab na lista Complementos e, em seguida, clique em **Informações de Conexão**. ![ConnectionInfoButton][button-connectioninfo]
+1. Clique no complemento MongoLab na lista Complementos e, em seguida, clique em **Informações de Conexão**. 
+	![ConnectionInfoButton][button-connectioninfo]
 
-1. Copie o MONGOLAB_URI para a sua área de transferência. ![ConnectionInfoScreen][screen-connectioninfo] **Esse URI contém seu nome de usuário do banco de dados e senha. Tratá-lo como informações confidenciais e não a compartilhe.**
+1. Copie o MONGOLAB_URI para a sua área de transferência. 
+	![ConnectionInfoScreen][screen-connectioninfo] 
+	**Esse URI contém seu nome de usuário do banco de dados e senha. Tratá-lo como informações confidenciais e não a compartilhe.**
 
-1. Adicione o valor à lista Cadeias de Conexão no menu Configuração do seu aplicativo Web do Azure: ![WebSiteConnectionStrings][focus-website-connectinfo]
+1. Adicione o valor à lista Cadeias de Conexão no menu Configuração do seu aplicativo Web do Azure: 
+	![WebSiteConnectionStrings][focus-website-connectinfo]
 
 1. Para **nome**, digite MONGOLAB_URI.
 
