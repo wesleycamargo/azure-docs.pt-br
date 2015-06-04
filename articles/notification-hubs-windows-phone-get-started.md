@@ -77,7 +77,7 @@ Agora, você tem as cadeias de conexão necessárias para registrar seu aplicati
 
 	No Visual Studio 2013 Atualização 2 ou posterior, você cria um aplicativo do Windows Phone Silverlight.
 	
-	![][11]	
+	![][11]
 
 2. No Visual Studio, clique com o botão direito do mouse, em seguida, clique em **Gerenciar Pacotes NuGet**. 
 
