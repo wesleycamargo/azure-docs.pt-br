@@ -55,7 +55,7 @@ Se você tiver alguma familiaridade com o Azure Store, use esta seção para faz
 ![ConnectionInfoButton][button-connectioninfo]  
 4. Copie o **MONGOLAB_URI** para a sua área de transferência.  
 ![ConnectionInfoScreen][screen-connectioninfo]
-  
+
 	>[AZURE.NOTE]Esse URI contém seu nome de usuário do banco de dados e senha. Tratá-lo como informações confidenciais e não a compartilhe.
 
 5. Adicione o valor à lista **Cadeias de conexão** no menu **Configuração** do seu aplicativo Web no Serviço de Aplicativo do Azure:  
@@ -574,4 +574,4 @@ Parabéns! Você acabou de lançar um aplicativo Node. js apoiado por um banco d
 
 
 
-<!---HONumber=54-->
+<!----HONumber=54-->

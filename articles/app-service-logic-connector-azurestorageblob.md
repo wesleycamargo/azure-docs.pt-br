@@ -24,9 +24,19 @@ O conector do Blob de Armazenamento do Azure permite carregar, baixar e excluir 
 ##Criar um novo conector do Blob de Armazenamento do Azure
 Para criar um novo conector de Armazenamento do Azure, siga as etapas abaixo. <ul> <li>Inicie o portal do Azure <li>Abra o Azure Marketplace usando +Novo (na parte inferior da página) -> Web+Móvel --> Azure Marketplace </ul>
 
-![Iniciar o Azure Marketplace][1]<br> <ul> <li>Clique em aplicativos de API <li>Procure por <i>Blob</i> e selecione o Conector do Blob de Armazenamento do Azure </ul>
+![Iniciar o Azure Marketplace][1]
+<br>
+<ul>
+<li>Clique em aplicativos de API
+<li>Procure por <i>Blob</i> e selecione o Conector do Blob de Armazenamento do Azure
+</ul>
 
-![Selecionar o conector de Blob de Armazenamento do Azure][2] <br> <ul> <li>Clique em Criar <li>Na folha do conector do Blob de Armazenamento do Azure que aparece e forneça os dados a seguir. </ul>
+![Selecionar o conector de Blob de Armazenamento do Azure][2]
+<br>
+<ul> 
+<li>Clique em Criar
+<li>Na folha do conector do Blob de Armazenamento do Azure que aparece e forneça os dados a seguir.
+</ul>
 
 ![Criar o conector de Blob de Armazenamento do Azure][3]
 
@@ -107,4 +117,4 @@ Você pode defini-lo como qualquer valor desejado. Este é apenas um exemplo. A 
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
 
-<!--HONumber=54-->
+<!---HONumber=54-->
