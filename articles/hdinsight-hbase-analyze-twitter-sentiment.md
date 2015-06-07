@@ -98,11 +98,13 @@ As API de streaming do Twitter usam [OAuth](http://oauth.net/) para autorizar so
 3. Insira um **Nome**, **Descrição** e **Site**. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida. A tabela a seguir mostra alguns valores de exemplo para usar:
 
 	<table border="1">
-<tr><th>Campo</th><th>Valor</th></tr>
-<tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Descrição</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Site</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]O nome do aplicativo Twitter deve ser um nome exclusivo.
+	<tr><th>Campo</th><th>Valor</th></tr>
+	<tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Descrição</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Site</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]O nome do aplicativo Twitter deve ser um nome exclusivo.
 
 4. Marque **Sim, eu concordo** e, em seguida, clique em **Criar seu aplicativo do Twitter**.
 5. Clique na guia **Permissões**. A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial. 
@@ -176,7 +178,7 @@ Você precisa criar um aplicativo de console para obter tweets, calcular pontua�
 		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
 	
-3. Em ** Gerenciador de Soluções**, clique com o botão direito do mouse em ** Referências** e, em seguida, clique em ** Adicionar Referência**.
+3. Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e, em seguida, clique em **Adicionar Referência**.
 4. No painel esquerdo, expanda **Assemblies** e, em seguida, clique em **Framework**.
 5. No painel direito, marque a caixa de seleção na parte frontal do **System.Configuration** e, em seguida, clique em **OK**.
 
@@ -1175,7 +1177,8 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o layout.cshtml**
 
-1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.2. Substitua o conteúdo com o seguinte:
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
+2. Substitua o conteúdo com o seguinte:
 
 		<!DOCTYPE html>
 		<html>

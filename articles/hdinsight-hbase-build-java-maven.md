@@ -16,13 +16,13 @@
 	ms.date="03/31/2014"
 	ms.author="larryfr"/>
 
-#Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
+# Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
 
 Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.org/) em Java usando o Apache Maven. Então, use o aplicativo com o HDInsight do Azure (Hadoop).
 
 O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
 
-##Requisitos
+## Requisitos
 
 * [Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou superior
 
@@ -30,7 +30,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 * [Um cluster Azure HDInsight com HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
-##Criar o projeto
+## Criar o projeto
 
 1. Por meio da linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local em que você deseja criar o projeto, por exemplo, `cd code\hdinsight`.
 
@@ -46,7 +46,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 3. Exclua o arquivo __src\\test\\java\\com\\microsoft\\examples\\apptest.java__, já que ele não será utilizado neste exemplo.
 
-##Atualize o modelo do objeto do projeto
+## Atualize o modelo do objeto do projeto
 
 1. Edite o arquivo __pom.xml__ e adicione o código a seguir na seção `<dependencies>`:
 
@@ -159,7 +159,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 3. Salve o arquivo __hbase-site.xml__.
 
-##Criar o aplicativo
+## Criar o aplicativo
 
 1. Vá ao diretório __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ e renomeie o arquivo app.java como __CreateTable.java__.
 
@@ -334,7 +334,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 7. Salve o arquivo __DeleteTable.java__.
 
-##Compilar e criar o pacote do aplicativo
+## Compilar e criar o pacote do aplicativo
 
 1. Abra um prompt de comando e mude os diretórios para o diretório __hbaseapp__.
 
@@ -348,7 +348,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 	> [AZURE.NOTE]O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
 
-##Carregar o arquivo JAR e iniciar um trabalho
+## Carregar o arquivo JAR e iniciar um trabalho
 
 > [AZURE.NOTE]Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o [PowerShell do Azure](install-configure-powershell.md).
 
@@ -577,7 +577,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 	Usar __fabrikam.com__ para o valor `-emailRegex` retornará como resultado os usuários que têm __fabrikam.com__ no campo de email. Já que essa pesquisa é implementada usando um filtro baseado em expressões comuns, você também pode inserir expressões comuns como __^r__, que retornarão como resultado entradas nas quais o email começa pela letra “r”.
 
-##Excluir a tabela
+## Excluir a tabela
 
 Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerShell para excluir a tabela __pessoas__ utilizada neste exemplo:
 
@@ -585,9 +585,9 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 Substitua __hdinsightclustername__ pelo nome do seu cluster HDInsight.
 
-##Solucionar problemas
+## Solucionar problemas
 
-###Nenhum resultado ou resultados inesperados ao usar o Start-HBaseExample
+### Nenhum resultado ou resultados inesperados ao usar o Start-HBaseExample
 
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.
 

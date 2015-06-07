@@ -111,19 +111,19 @@ Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicaç�
 
 Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagens de chat entre diferentes clientes usando o Socket.IO.
 
-##Expansão
+## Expansão
 
 Os aplicativos Socket.IO podem ser expandidos usando um __adaptador__ para distribuir as mensagens e eventos entre várias instâncias do aplicativo. Embora haja vários adaptadores disponíveis, o adaptador [socket.io-redis](https://github.com/automattic/socket.io-redis) pode ser facilmente usado com o recurso Cache Redis do Azure.
 
 > [AZURE.NOTE]Um requisito adicional para expandir uma solução Socket.IO é dar suporte a sessões complexas. As sessões complexas são habilitadas por padrão para Aplicativos Web do Azure por meio do Request Routing do Azure. Para obter mais informações, consulte [Afinidade da instância nos Sites do Azure](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/).
 
-###Criar um cache Redis
+### Criar um cache Redis
 
 Executar as etapas no [Criar um cache no Cache Redis do Azure](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) para criar um novo cache.
 
 > [AZURE.NOTE]Salvar __Nome do Host__ e __Chave primária__ para seu cache, já que estes serão necessários nas próximas etapas.
 
-###Adicionar os módulos redis e socket.io-redis
+### Adicionar os módulos redis e socket.io-redis
 
 1. Na linha de comando, altere para o diretório __\\node\\chat__ e use o seguinte comando:
 
@@ -149,7 +149,7 @@ Executar as etapas no [Criar um cache no Cache Redis do Azure](http://go.microso
 
 3. Salvar o __app.js__ modificado
 
-###Confirme as alterações e implantar novamente
+### Confirme as alterações e implantar novamente
 
 Da linha de comando no diretório __\\node\\chat__, use os seguintes comandos para confirmar as alterações e implantar novamente o aplicativo.
 
@@ -167,11 +167,11 @@ Você pode conectar seu aplicativo Web por meio de vários navegadores ou comput
 
 ## Solucionar problemas
 
-###Limites de conexão
+### Limites de conexão
 
 Os aplicativos Web do Azure estão disponíveis em vários SKUs, que determinam os recursos disponíveis no seu site. Isso inclui o número de conexões permitidas do WebSocket. Para obter mais informações, consulte a [Página de preços de aplicativos Web][pricing].
 
-###As mensagens não estão sendo enviadas usando o WebSockets
+### As mensagens não estão sendo enviadas usando o WebSockets
 
 Se os navegadores do cliente continuam para sondagens compridas em vez de usar o WebSockets, pode ser devido ao seguinte:
 
@@ -264,7 +264,7 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-##Próximas etapas
+## Próximas etapas
 
 Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um aplicativo Web do Azure. Você também pode hospedar o aplicativo como um serviço de nuvem do Azure. Para obter etapas sobre como fazer isso, consulte [criar um aplicativo de bate-papo do Node. js com Socket.IO em um serviço de nuvem do Azure][cloudservice]
 

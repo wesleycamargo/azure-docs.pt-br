@@ -219,9 +219,27 @@ Você começa criando um modelo de dados simples por meio de código. Esse model
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta *Models*, clique em **Adicionar** -> **Classe**. ![Selecionar Classe](./media/web-sites-dotnet-web-forms-secure/SecureWebForms12.png) A caixa de diálogo **Adicionar novo item** é exibida.  
 
 2. Nomeie essa nova classe *Contacts.cs*. ![Caixa de diálogo Adicionar Novo Item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13.png)
-3. Substitua o código padrão pelo código a seguir: <pre class="prettyprint"> using System.ComponentModel.DataAnnotations; using System.Globalization;
+3. Substitua o código padrão pelo código a seguir: 
 	
-	namespace ContactManager.Models { public class Contacts { [ScaffoldColumn(false)][Key] public int ContactId { get; set; } public string Name { get; set; } public string Address { get; set; } public string City { get; set; } public string State { get; set; } public string Zip { get; set; } [DataType(DataType.EmailAddress)] public string Email { get; set; } } } </pre>
+	<pre class="prettyprint"> using System.ComponentModel.DataAnnotations; using System.Globalization;
+	
+	namespace ContactManager.Models 
+	{
+	 	public class Contacts 
+		{ 
+			[ScaffoldColumn(false)]
+			[Key] 
+			public int ContactId { get; set; } 
+			public string Name { get; set; } 
+			public string Address { get; set; } 
+			public string City { get; set; } 
+			public string State { get; set; } 
+			public string Zip { get; set; } 
+			[DataType(DataType.EmailAddress)] 
+			public string Email { get; set; }
+		} 
+	} 	
+	</pre>
 
 A classe **Contatos** define os dados que você armazenará para cada contato, além de uma chave primária (`ContactID`) que é necessária para o banco de dados. A classe **Contatos** representa os dados de contato que serão exibidos. Cada instância de um objeto Contatos corresponderá a uma linha dentro de uma tabela de banco de dados relacional, sendo que cada propriedade da classe Contatos será mapeada para uma coluna na tabela de banco de dados relacional. Posteriormente neste tutorial, você revisará os dados de contato contidos no banco de dados.
 

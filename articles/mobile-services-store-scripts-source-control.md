@@ -19,7 +19,7 @@
 # Armazenar o código do projeto no controle de origem
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end do .NET">Back-end do .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end do JavaScript" class="current">Back-end do JavaScript￼</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end do .NET">Back-end do .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end do JavaScript" class="current">Back-end do JavaScript</a>
 </div>
 
 Este tópico mostra como usar o controle do código-fonte dos Serviços Móveis do Azure para armazenar scripts do servidor. Scripts e outros arquivos de código de back-end de JavaScript podem ser promovidos do repositório de Git local para o serviço móvel de produção. Ele também mostra como definir o código compartilhado que pode ser exigido por vários scripts e como usar o arquivo package.json para adicionar módulos Node.js ao serviço móvel.

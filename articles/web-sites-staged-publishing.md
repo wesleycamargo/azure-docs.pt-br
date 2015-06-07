@@ -203,13 +203,13 @@ A Interface de linha de comando entre plataformas do Azure (xplat-cli) fornece c
 
 -  Para listar os comandos disponíveis para o Serviço de Aplicativo do Azure na xplat-cli, chame `azure site -h`.
 
-\----------
+----------
 ### azure site list
 Para obter informações sobre aplicativos Web na assinatura atual, chame **azure site list**, como no exemplo a seguir.
 
 `azure site list webappslotstest`
 
-\----------
+----------
 ### azure site create
 Para criar um slot de implantação, chame **azure site create** e especifique o nome de um aplicativo Web existente e o nome do slot para criar, como no exemplo a seguir.
 
@@ -219,13 +219,13 @@ Para habilitar o controle do código-fonte para o novo slot, use a opção **--g
 
 `azure site create --git webappslotstest --slot staging`
 
-\----------
+----------
 ### azure site swap
 Para fazer com que o slot de implantação atualizado se torne o aplicativo de produção, use o comando **azure site swap** para executar uma operação de permuta, como no exemplo a seguir. O aplicativo de produção não passará por nenhuma experiência de tempo de inatividade, nem passará por uma inicialização a frio.
 
 `azure site swap webappslotstest`
 
-\----------
+----------
 ### excluir site do azure
 Para excluir um slot de implantação que não seja mais necessário, use o comando **excluir de site azure**, como no exemplo a seguir.
 

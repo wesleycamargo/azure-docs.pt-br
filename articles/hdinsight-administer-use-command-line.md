@@ -59,7 +59,8 @@ A interface de linha de comando pode ser instalada usando o *NPM (Gerenciador de
 
 **Para instalar a interface de linha de comando usando o Windows Installer**
 
-1.	Navegue até **http://azure.microsoft.com/downloads/**. 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando entre Plataformas** e siga o assistente do Web Platform Installer.
+1.	Navegue até **http://azure.microsoft.com/downloads/**.
+2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando entre Plataformas** e siga o assistente do Web Platform Installer.
 
 ##Baixar e importar o arquivo publishsettings da conta do Azure
 

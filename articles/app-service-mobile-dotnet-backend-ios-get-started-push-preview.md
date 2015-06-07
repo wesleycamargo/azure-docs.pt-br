@@ -52,7 +52,7 @@ Este tutorial baseia-se no início rápido do aplicativo móvel do Serviço de A
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>Atualizar o servidor para enviar notificações por push
+## <a id="update-server"></a>Atualizar o servidor para enviar notificações por push
 
 1. No Visual Studio, clique com o botão direito do mouse na solução e, em seguida, clique em **Gerenciar Pacotes NuGet**.
 

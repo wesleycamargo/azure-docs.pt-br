@@ -113,12 +113,14 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 	![Fornecer detalhes do cluster HDInsight do Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>Nome</th><th>Valor</th></tr>
-<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
-<tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou anteriormente. Clusters HDInsight exigem que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</p></td></tr>
-<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
-<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
-</table>>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+	<tr><th>Nome</th><th>Valor</th></tr>
+	<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
+	<tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou anteriormente. Clusters HDInsight exigem que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</p></td></tr>
+	<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
+	<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 
 5. Na página **Configurar Usuário de Cluster**, forneça os seguintes valores:
@@ -142,7 +144,9 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 	<tr><td>Inserir como metastore do Hive/Oozie</td>
 		<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído.</td></tr>
 	</td></tr>
-	</table>> [AZURE.NOTE]Recomendamos usar autenticação por chave pública SSH ao utilizar SSH, pois ela é mais segura do que a autenticação por senha.
+	</table>
+
+	> [AZURE.NOTE]Recomendamos usar autenticação por chave pública SSH ao utilizar SSH, pois ela é mais segura do que a autenticação por senha.
 
 	Clique na seta à direita.
 
@@ -297,7 +301,8 @@ A interface de linha de comando pode ser instalada usando o NPM ou o Windows Ins
 
 **Para instalar a interface de linha de comando usando o Windows Installer**
 
-1.	Navegue até **http://azure.microsoft.com/downloads/**. 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando entre Plataformas** e siga o assistente do Web Platform Installer.
+1.	Navegue até **http://azure.microsoft.com/downloads/**.
+2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando entre Plataformas** e siga o assistente do Web Platform Installer.
 
 **Para baixar e importar as configurações de publicação**
 

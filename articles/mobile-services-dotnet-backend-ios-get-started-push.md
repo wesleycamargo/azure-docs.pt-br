@@ -55,7 +55,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 [AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 
-##<a id="update-server"></a>Atualizar o servidor para enviar notificações por push
+## <a id="update-server"></a>Atualizar o servidor para enviar notificações por push
 
 1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controladores** no projeto do serviço móvel. Abra o TodoItemController.cs. Na parte superior do arquivo, adicione as seguintes instruções `using`:
 
@@ -86,7 +86,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
     Esse código irá enviar uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada no log de erros que pode ser visualizada na guia **Logs** do serviço móvel no Portal de Gerenciamento.
 
 
-##<a name="publish-the-service"></a>Publicar o serviço móvel no Azure
+## <a name="publish-the-service"></a>Publicar o serviço móvel no Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -147,7 +147,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
-##<a id="local-testing"></a>Habilitar notificações por push para teste local
+## <a id="local-testing"></a>Habilitar notificações por push para teste local
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
