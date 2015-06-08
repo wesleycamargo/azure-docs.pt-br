@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Copiar dados com o Azure Data Factory (atividade de cópia)
@@ -126,11 +126,15 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 </table>
 
 ### SQL na IaaS(Infraestrutura como um serviço)
-Para SQL na IaaS, há suporte para o Azure como provedor da IaaS. Há suporte para a seguinte rede e topologias VPN. Observe que o Gateway de Gerenciamento de Dados é necessário para o caso #2 e 3 #, quanto não for necessário para o caso #1. Para obter detalhes sobre o gateway de gerenciamento de dados, consulte [Habilitar pipelines para acessar dados locais][use-onpremises-datasources].
+Também há suporte para SQL Server no IaaS como fonte e coletor. Gateway de gerenciamento de dados é necessário ao criar um serviço vinculado ao SQL Server no IaaS. Considere a possibilidade de instalar o Gateway de gerenciamento de dados em uma máquina virtual que não seja uma hospedagem SQL Server para evitar a degradação de desempenho devido ao SQL Server e o gateway competindo pelos recursos. Para obter detalhes sobre o gateway de gerenciamento de dados, consulte [Habilitar pipelines para acessar dados locais][use-onpremises-datasources].
 
 1.	Máquina virtual com o nome DNS público e porta estática pública: mapeamento de porta privada
 2.	Máquina virtual com o nome DNS público sem ponto de extremidade SQL exposto
-3.	Rede virtual <ol type='a'> <li>VPN de nuvem do Azure com a seguinte topologia no final da lista. </li> <li>VM com VPN de site a site local para nuvem usando a rede virtual do Azure.</li> </ol> ![Data Factory com a atividade de cópia][image-data-factory-copy-actvity]
+3.	Rede virtual
+	<ol type='a'>
+<li>VPN de nuvem do Azure com topologia a seguir no final da lista. </li>	
+<li>Máquina virtual com VPN de site a site local para nuvem utilizando a Rede virtual do Azure.</li>	
+</ol>![Data Factory com a atividade de cópia][image-data-factory-copy-actvity]
 
 ## Atividade de cópia - componentes
 A atividade de cópia contém os seguintes componentes:
@@ -402,4 +406,4 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-da
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=52-->
+<!---HONumber=GIT-SubDir-->

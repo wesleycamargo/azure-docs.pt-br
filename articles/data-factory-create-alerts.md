@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/15/2015" 
 	ms.author="spelluru"/>
 
 # Criação de alertas em eventos do Azure
@@ -147,24 +147,6 @@ Para recuperar a lista de implantações do grupo de recursos do Azure já impla
 </tr>
 
 <tr>
-<td>CreateTablePublication</td>
-<td>Bem-sucedido</td>
-<td></td>
-</tr>
-
-<tr>
-<td>UpdateTablePublication</td>
-<td>Bem-sucedido</td>
-<td></td>
-</tr>
-
-<tr>
-<td>RemoveTablePublication</td>
-<td>Bem-sucedido</td>
-<td></td>
-</tr>
-
-<tr>
 <td>OnDemandClusterCreateStarted</td>
 <td>Iniciado</td>
 <td></td>
@@ -189,4 +171,4 @@ Execute o comando a seguir para ver os eventos gerados:
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

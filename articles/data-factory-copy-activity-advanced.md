@@ -193,7 +193,7 @@ Neste exemplo, uma consulta SQL (em vez de tabela no exemplo anterior) é utiliz
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -288,7 +288,7 @@ Ao copiar dados no SQL Server ou no Banco de Dados SQL do Azure, um procedimento
 		"sink":
 	    {
 			"type": "SqlSink",
-	        "SqlWriterTableType": "MarketingType",
+	        "SqlWriterTableType": "MarketingType",
 		    "SqlWriterStoredProcedureName": "spOverwriteMarketing",	
 			"storedProcedureParameters":
 					{
@@ -313,8 +313,8 @@ Ao copiar dados no SQL Server ou no Banco de Dados SQL do Azure, um procedimento
 4. No banco de dados, defina o tipo de tabela com o mesmo nome que **SqlWriterTableType**. Observe que o esquema do tipo de tabela deve ser a mesmo que o esquema retornado por seus dados de entrada.
 
 		CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    	    [ProfileID] [varchar](256) NOT NULL,
-    	    [State] [varchar](256) NOT NULL,
+    	    [ProfileID] [varchar](256) NOT NULL,
+    	    [State] [varchar](256) NOT NULL,
     	)
 
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela][table-valued-parameters].
@@ -341,10 +341,10 @@ Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/pt-br/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

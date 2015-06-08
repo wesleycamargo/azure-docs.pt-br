@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# Passo a passo: copiar dados de eficácia da campanha para um banco de dados do SQL Server local 
+# Passo a passo: copiar dados de eficácia da campanha para um banco de dados do SQL Server local
 Neste passo a passo, você aprenderá a configurar o ambiente para habilitar o pipeline para trabalhar com dados locais.
  
 Na última etapa do cenário de processamento de log do primeiro passo a passo com Partição -> Enriquecer -> Analisar fluxo de trabalho, a saída de eficácia de campanha marketing foi copiada para um banco de dados SQL do Azure. Você também pode mover esses dados para o SQL Server local para análise dentro da sua organização.
@@ -51,7 +51,7 @@ Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem 
 
 Se você tiver um gateway de dados existente que você possa usar, ignore esta etapa.
 
-1.	Crie um gateway de dados lógicos. No **Portal de Visualização do Azure**, clique em **Serviços Vinculados** na folha **DATA FACTORY** para o seu Data Factory.
+1.	Crie um gateway de dados lógicos. No **Azure Preview Portal**, clique em **Serviços vinculados** no **DATA FACTORY** lâmina.
 2.	Clique em **Adicionar (+) Gateway de Dados** na barra de comandos.  
 3.	Na folha **Novo gateway de dados**, clique em **CRIAR**.
 4.	Na folha **Criar**, insira **MyGateway** para o **nome** do gateway de dados.
@@ -97,45 +97,46 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 ### Criar o serviço vinculado
 
-1.	No **Portal de Visualização do Azure**, clique no bloco **Criar e Implantar** na folha **DATA FACTORY** de **LogProcessingFactory**.
-2.	No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de ferramentas e selecione **Banco de dados SQL Server local**.
-3.	No script JSON, faça o seguinte: 
-	1.	Substitua **<servername>** pelo nome do servidor que hospeda seu banco de dados SQL Server.
-	2.	Substitua **<databasename>** por **MarketingCampaigns**.
-	3.	Se você estiver usando **autenticação SQL**
-		1.	Especifique **<username>** e **<password>** na **connectionString**.
-		2.	Remova as duas últimas linhas (as propriedades **nome de usuário** e **senha** do JSON são necessárias apenas se você estiver usando Autenticação do Windows). 
-		3.	Remova **, (vírgula) **no final da linha **gatewayName**. 
-		**Se você está usando a Autenticação do Windows:** 1. Defina o valor de **Segurança Integrada** para **True** na **connectionString**. Remova "**User ID=<username>;Password=<password>;**" da connectionString. 2. Especifique o nome do usuário que tem acesso ao banco de dados para a propriedade **nome de usuário**. 3. Especifique **senha** para a conta de usuário.   
-	4. Especifique o nome do gateway (**MeuGateway**) para a propriedade gatewayName. 		  	 
-3.	Clique em **Implantar** na barra de ferramentas para implantar o serviço vinculado. 
+1.	No **Azure Preview Portal**, clique em **Serviços vinculados** bloco a **DATA FACTORY** lâmina para **LogProcessingFactory**.
+2.	No **Serviços vinculados** lâmina, clique em **Adicionar (+) de armazenamento de dados**.
+3.	No **novo armazenamento de dados** lâmina, digite **OnPremSqlLinkedService** para o **nome**. 
+4.	Clique em **(configurações necessárias) do tipo** e selecione **SQL Server**. Você deve ver o **GATEWAY dados**, **Server**, **banco de dados**, e **CREDENCIAIS** configurações no **novo armazenamento de dados** lâmina agora. 
+5.	Clique em **dados GATEWAY (Configurar configurações necessárias)** e selecione **MyGateway** criado anteriormente. 
+6.	Digite **nome** do servidor de banco de dados que hospeda o **MarketingCampaigns** banco de dados. 
+7.	Digite **MarketingCampaigns** do banco de dados. 
+8.	Clique em **CREDENCIAIS**. 
+9.	No **credenciais** lâmina, clique em **clique aqui para definir as credenciais de segurança**.
+10.	Ele instala um aplicativo em um único clique pela primeira vez e inicia o **Definindo credenciais **caixa de diálogo. 11.	No **Definindo credenciais** caixa de diálogo, digite **nome de usuário** e **senha**, e clique em **OK**. Aguarde até que a caixa de diálogo seja fechada. 
+12.	Clique em **OK** no **novo armazenamento de dados** lâmina. 
+13.	No **Serviços vinculados** lâmina, confirme se **OnPremSqlLinkedService** aparece na lista e o **status** do serviço vinculado é **BOM**.
 
 ## <a name="OnPremStep3"></a> Etapa 3: criar tabela e pipeline
 
 ### Criar a tabela lógica local
 
-1.	No **Editor do Data Factory**, clique em **Novo conjunto de dados** na barra de ferramentas e selecione **SQL local**. 
-2. Substitua JSON no painel direito pelo script JSON do arquivo **MarketingCampaignEffectivenessOnPremSQLTable.json** contido na pasta **C:\ADFWalkthrough\OnPremises**.
-3. Altere o nome de serviço vinculado (propriedade **linkedServiceName**) de **OnPremSqlServerLinkedService** para **SqlServerLinkedService**.
-4. Clique em **Implantar** na barra de ferramentas para implantar a tabela. 
+1.	Em **PowerShell do Azure**, alterne para o **C:\ADFWalkthrough\OnPremises** pasta. 
+2.	Use o cmdlet **novo AzureDataFactoryTable** para criar as tabelas da seguinte maneira para **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Criar o pipeline para copiar os dados do Blob do Azure para o SQL Server
 
-1.	1. No **Editor do Data Factory**, clique no botão **Novo pipeline** na barra de ferramentas. Clique em **... (Elipse)** na barra de ferramentas se você não enxergar o botão. Como alternativa, você pode clicar com o botão direito em **Pipelines** no modo de exibição de árvore e clicar em **Novo pipeline**.
-2. Substitua JSON no painel direito pelo script JSON do arquivo **EgressDataToOnPremPipeline.json** contido na pasta **C:\ADFWalkthrough\OnPremises**.
-3. Adicione uma **vírgula (,)** no final da **colchete de fechamento (])** em JSON e, em seguida, adicione as três linhas a seguir após o colchete de fechamento. 
+1.	Use o cmdlet **AzureDataFactoryPipeline novo** criar o Pipeline da seguinte maneira para **EgressDataToOnPremPipeline.json**.
 
-        "start": "2014-05-01T00:00:00Z",
-        "end": "2014-05-05T00:00:00Z",
-        "isPaused": false
+			
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+	 
+2. Use o cmdlet **conjunto AzureDataFactoryPipelineActivePeriod** para especificar o período ativo do **EgressDataToOnPremPipeline**.
 
-	[AZURE.NOTE]Observe que os momentos de início e término são definidos como 01/05/2014 e 05/05/2014, porque os dados de exemplo neste passo a passo são de 01/05/2014 a 05/05/2014.
- 
-3. Clique em **Implantar** na barra de ferramentas para implantar o pipeline. Confirme que você vê a mensagem **PIPELINE CRIADO COM ÊXITO** na barra de título do Editor.
+			
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+
+	Pressione **'Y'** para continuar.
 	
 ## <a name="OnPremStep4"></a> Etapa 4: monitorar o pipeline e exibir o resultado
 
-Agora você pode usar as mesmas etapas introduzidas na seção **Monitorar pipelines e fatias de dados** do [Tutorial principal][datafactorytutorial] para monitorar o novo pipeline e as frações de dados para a nova tabela ADF local.
+Agora você pode usar as mesmas etapas introduzidas no [etapa 6: monitoramento tabelas e pipelines](#MainStep6) para monitorar o novo pipeline e as frações de dados para a nova tabela ADF local.
  
 Quando você ver o status de uma fatia da tabela **MarketingCampaignEffectivenessOnPremSQLTable** mudar para Pronto, isso significa que o pipeline concluiu a execução da fatia. Para exibir os resultados, consulte a tabela **MarketingCampaignEffectiveness** no banco de dados **MarketingCampaigns** no seu SQL Server.
  
@@ -147,7 +148,7 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
+[datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
@@ -165,6 +166,6 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
 <!---HONumber=GIT-SubDir-->
