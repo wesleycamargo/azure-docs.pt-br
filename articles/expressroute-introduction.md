@@ -92,7 +92,7 @@ Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter mai
 
 A tabela abaixo compara os três domínios de roteamento.
 
-||**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**| 
+||**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**|
 |---|---|---|---| 
 |**N°. máx. de prefixos com suporte por emparelhamento**|4.000 por padrão, 10.000 com Rota Expressa Premium|4.000 por padrão, 10.000 com Rota Expressa Premium|200| 
 |**Intervalos de endereços IP com suporte**|Qualquer endereço IPv4 válido contido em sua WAN|Endereços IPv4 públicos pertencentes a você ou seu provedor de conectividade|Endereços IPv4 públicos pertencentes a você ou seu provedor de conectividade| 
@@ -113,4 +113,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 - [Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede](expressroute-configuring-nsps.md)
 - [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md)
 
-<!--HONumber=54-->
+<!---HONumber=54-->
