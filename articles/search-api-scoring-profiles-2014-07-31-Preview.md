@@ -145,7 +145,35 @@ Forneça um nome. Os perfis de pontuação são opcionais, mas se você adiciona
 
 O corpo do perfil de pontuação é criado com campos ponderados e funções.
 
-<font> <table style="font-size:12"> <thead> <tr><td>Elemento</td><td>Descrição</td></tr></thead> < tbody <tr> <td><b>Pesos</b></td> <td> Especificar pares de nome-valor que atribuem um peso relativo a um campo. No exemplo [#bkmk_ex], os campos Título do álbum, gênero e Nome do artista são aumentados em 1, 5 e nulo, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for realizada com dados que são um pouco homogêneos (como é o caso de 'gênero' em `musicstoreindex`), talvez seja necessária uma variação maior nos pesos relativos. Por exemplo, em `musicstoreindex`, 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto. </td> </tr> <tr> <td><b>Funções</b></td><td>Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos incluem `freshness`, `magnitude` ou `distance`. Cada função tem parâmetros exclusivos para ela. <br> - `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função só pode ser usada com campos datetime (Edm.DataTimeOffset). Observe o atributo `boostingDuration` é usado apenas com a função de atualização. <br> - `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro. <br> - `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `geo.distance`. <br> <b>Regras para usar funções</b> <br> O tipo de função (atualização, magnitude, distância) deve estar em minúsculas. <br> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo. <br> As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice (API do Azure Search)](search-api-2014-10-20-preview.md#createindex) para obter mais informações sobre campos filtráveis. <br> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice. <td> </tr> </tbody> </table> </font>
+<font>
+<table style="font-size:12">
+<thead>
+<tr><td>Elemento</td><td>Descrição</td></tr></thead>
+<tbody>
+<tr>
+<td><b>Pesos</b></td>
+<td>
+Especificar pares de nome-valor que atribuem um peso relativo a um campo. No exemplo [#bkmk_ex], os campos Título do álbum, gênero e Nome do artista são aumentados em 1, 5 e nulo, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for realizada com dados que são um pouco homogêneos (como é o caso de 'gênero' em `musicstoreindex`), talvez seja necessária uma variação maior nos pesos relativos. Por exemplo, em `musicstoreindex`, 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto.
+</td>
+</tr>
+<tr>
+<td><b>Funções</b></td><td>Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos incluem `freshness`, `magnitude` ou `distance`. Cada função tem parâmetros exclusivos para ela.
+<br> - `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função só pode ser usada com campos datetime (Edm.DataTimeOffset). Observe o atributo `boostingDuration` é usado apenas com a função de atualização.
+<br> - `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.
+<br> - `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `geo.distance`.
+<br>
+<b>Regras para usar funções</b>
+<br>
+O tipo de função (atualização, magnitude, distância) deve estar em minúsculas. <br> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.
+<br>
+As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice (API do Azure Search)](search-api-2014-10-20-preview.md#createindex) para obter mais informações sobre campos filtráveis.
+<br>
+As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.
+<td>
+</tr>
+</tbody>
+</table>
+</font>
 
 Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice (API do Azure Search)](search-api-2014-10-20-preview.md#createindex) e [Adicionar ou atualizar documentos (API do Azure Search)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
 
@@ -254,7 +282,8 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 </tr><tr>
 <td>functionAggregation</td>	<td>Opcional. Aplicável apenas quando funções são especificadas. Os valores válidos incluem: soma (padrão), média, mínimo, máximo e firstMatching. Uma pontuação de pesquisa é um valor único calculado por meio de diversas variáveis, incluindo várias funções. Esses atributos indicam como os aumentos de todas as funções são combinados em um único aumento agregado que, em seguida, é aplicado à pontuação de documento de base. A pontuação de base é fundamentada no valor tf-idf calculado por meio do documento e da consulta de pesquisa.</td>
 </tr><tr>
-<td>defaultScoringProfile</td>	<td>Ao se executar uma solicitação de pesquisa, se nenhum perfil de pontuação for especificado, a pontuação padrão será usada (somente tf-idf). Um nome de perfil de pontuação padrão pode ser definido aqui, fazendo com que o Azure Search use esse perfil quando nenhum perfil específico for fornecido na solicitação de pesquisa. </td>
+<td>defaultScoringProfile</td>	<td>Ao se executar uma solicitação de pesquisa, se nenhum perfil de pontuação for especificado, a pontuação padrão será usada (somente tf-idf). Um nome de perfil de pontuação padrão pode ser definido aqui, fazendo com que o Azure Search use esse perfil quando nenhum perfil específico for fornecido na solicitação de pesquisa.
+</td>
 </tr>
 </tbody>
 </table>
@@ -272,7 +301,8 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 
 - `Logarithmic` Em comparação com uma interpolação Linear que tem um aumento que diminui constantemente, a opção Logarítmica diminuirá inicialmente em um ritmo maior e, em seguida, ao se aproximar do intervalo de término, será reduzida em um intervalo muito menor.
  
-<a name="Figure1"></a> ![][1]
+<a name="Figure1"></a>
+![][1]
 
 <a name="bkmk_boostdur"></a>
 ##Definir boostingDuration##
@@ -310,4 +340,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 [1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
 
 
-<!--HONumber=54-->
+<!---HONumber=54-->
