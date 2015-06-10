@@ -26,6 +26,8 @@ Para fornecer um ponto de extremidade de URL para uma definição de API [Swagge
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
+> **Observação:** se você estiver usando o Swashbuckle para gerar uma definição de API do Swagger, sobrecargas do método HTTP em seus controladores de API da Web resultarão em ids de operação duplicadas. Para obter mais informações, consulte [Personalizar identificadores de operação gerados pelo Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+  
 ### Definição de API Swagger estática
 
 Para fornecer um arquivo de definição de API [Swagger](http://swagger.io/) 2.0 estático, armazene o arquivo na pasta *Metadata* e nomeie o arquivo como *apiDefinition.swagger.json*
@@ -34,9 +36,5 @@ Para fornecer um arquivo de definição de API [Swagger](http://swagger.io/) 2.0
 
 Deixe `endpoints.apiDefinition` fora do arquivo *apiapp.json* ou definir seu valor como nulo. Se você incluir uma URL `endpoints.apiDefinition` e um arquivo *apiDefinition.swagger.json*, a URL terá precedência e o arquivo será ignorado.
  
-### Outros metadados do aplicativo de API
 
-Para obter mais informações sobre o arquivo *apiapp.json* e a pasta *Metadata*, consulte [Criar um pacote de aplicativos de API](app-service-api-create-package.md).
-
-
-<!--HONumber=54-->
+<!---HONumber=58-->

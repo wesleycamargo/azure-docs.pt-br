@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Balanceamento de carga para Serviços de infraestrutura do Azure" 
-	description="Descreve os dois diferentes tipos de balanceamento de carga aceitos pelo Azure: Balanceador de carga para serviços de nuvem e Gerenciador de Tráfego do Azure para tráfego do cliente." 
+	description="Descreve os dois tipos diferentes de balanceamento de carga com suporte do Azure: Balanceador de carga para serviços em nuvem e o Azure Traffic Manager para o tráfego do cliente." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="cherylmc" 
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="cherylmc"/>
 
 
-#Balanceamento de carga para Serviços de infraestrutura do Azure#
+# Balanceamento de carga para Serviços de infraestrutura do Azure#
 
 Existem dois níveis de balanceamento de carga para serviços de infraestrutura do Azure:
 
-- **Nível DNS**:  O balanceamento de carga para tráfego de diferentes serviços de nuvem localizados em centros de dados diferentes, para sites do Azure diferentes localizados em centros de dados diferentes, ou para pontos de extremidade externos. Isso é feito com o Gerenciador de Tráfego e o método de balanceamento de carga Round Robin.
-- **Nível de rede**:  O balanceamento de carga de tráfego de internet de entrada para máquinas virtuais diferentes de um serviço de nuvem, ou balanceamento de carga de tráfego entre máquinas virtuais em um serviço de nuvem ou rede virtual. Isso é feito com balanceador de carga do Azure.
+- **Nível DNS**: balanceamento de carga para tráfego para diferentes serviços de nuvem localizado em diferentes data center para diferentes sites do Azure localizados em diferentes data centers ou para pontos de extremidade externos. Isso é feito com o Gerenciador de Tráfego e o método de balanceamento de carga Round Robin.
+- **Nível de rede**: balanceamento de carga de tráfego da Internet para diferentes máquinas virtuais de um serviço de nuvem ou balanceamento de carga de tráfego entre máquinas virtuais em um serviço de nuvem ou rede virtual. Isso é feito com balanceador de carga do Azure.
 
-##Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites##
+## Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites##
 
-O Gerenciador de Tráfego do Azure permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que inclui serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domínio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em datacenters diferentes por todo o mundo. 
+O Gerenciador de Tráfego do Azure permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que inclui serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domínio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em datacenters diferentes em todo o mundo.
 
-Você deve usar tanto o REST como o Windows PowerShell para configurar os pontos de extremidade externos ou os perfis do Gerenciador de Tráfego como pontos de extremidade. 
+Você deve usar tanto o REST como o Windows PowerShell para configurar os pontos de extremidade externos ou os perfis do Gerenciador de Tráfego como pontos de extremidade.
 
 O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga para distribuir o tráfego:
 
-- **Failover**:  Use este método quando desejar usar um ponto de extremidade primário para todos os seus tráfegos, mas forneça backups no caso de um primário se tornar indisponível.
-- **Desempenho**:  Use este método quando tiver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade "mais próximo" em termos de menor latência.
-- **Round Robin** use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
+- **Failover**: use este método quando quiser usar um ponto de extremidade primário para todo o tráfego, mas forneça backups caso o primário se torne indisponível.
+- **Desempenho**: use este método quando tiver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade “mais próximo” em termos de menor latência.
+- **Round Robin:** use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
 
 Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
@@ -44,7 +44,7 @@ A seguinte imagem mostra um exemplo de método de balanceamento de carga Round R
 
 O processo básico é o seguinte:
 
-1.	Um cliente da Internet consulta um nome de domínio correspondente ao serviço Web.
+1.	Um cliente da Internet consulta um nome de domínio correspondente ao serviço web.
 2.	O DNS encaminha a solicitação de consulta do nome para o Gerenciador de Tráfego.
 3.	O Gerenciador de Tráfego escolhe o próximo serviço de nuvem na lista do Round Robin e envia de volta o nome DNS. O servidor DNS do cliente da Internet soluciona o nome para um endereço IP e o envia para o cliente da Internet.
 4.	O cliente da Internet se conecta ao serviço de nuvem escolhido pelo Gerenciador de Tráfego.
@@ -61,7 +61,7 @@ A figura a seguir mostra um ponto de extremidade do balanceamento de carga para 
 
 ![loadbalancing](./media/load-balancing-vms/LoadBalancing.png)
 
-Para obter mais informações, consulte [Balanceador de carga do Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conhecer as etapas para criar um conjunto com balanceamento de carga, consulte [Configurar um conjunto com balanceamento de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Para obter mais informações, consulte [Balanceador de carga do Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceador de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx).
 
 O Azure também pode balancear a carga dentro de um serviço de nuvem ou rede virtual. Isso é conhecido como balanceamento de carga interno e pode ser usado das seguintes maneiras:
 
@@ -69,15 +69,18 @@ O Azure também pode balancear a carga dentro de um serviço de nuvem ou rede vi
 - Balanceamento de carga para aplicativos de linha de negócios (LOB) hospedados no Azure sem exigir hardware ou software do balanceador de carga adicional. 
 - Incluindo servidores locais no conjunto de computadores, cujo tráfego é de carga balanceada.
 
-Semelhante ao balanceamento de carga do Azure, o balanceamento de carga interno é facilitado pela configuração de um conjunto de carga balanceada interno. 
+Semelhante ao balanceamento de carga do Azure, o balanceamento de carga interno é facilitado pela configuração de um conjunto de carga balanceada interno.
 
-A seguinte imagem mostra um exemplo de um ponto de extremidade de carga balanceada interna para um aplicativo de linha de negócios (LOB), que é compartilhado entre três máquinas virtuais em uma rede virtual entre instalações. 
+A seguinte imagem mostra um exemplo de um ponto de extremidade de carga balanceada interna para um aplicativo de linha de negócios (LOB), que é compartilhado entre três máquinas virtuais em uma rede virtual entre instalações.
 
 ![loadbalancing](./media/load-balancing-vms/LOBServers.png)
 
-Para obter mais informações, consulte [Balanceamento de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx). Para obter as etapas criar um conjunto com balanceamento de carga, consulte [configurar um conjunto com balanceamento de carga interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+## Próximas etapas
+
+Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceado de carga interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+
+Para obter mais informações sobre o balanceador de carga, confira [Balanceamento de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx).
 
 <!-- LINKS -->
 
-
-<!--HONumber=49-->
+<!---HONumber=58-->

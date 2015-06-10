@@ -13,59 +13,62 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/04/2015" 
 	ms.author="kathydav"/>
 
 # Criar um conjunto de disponibilidade usando modelos do Gerenciador de Recursos do Azure
 
-Você pode criar facilmente um conjunto de disponibilidade para uma máquina virtual usando o PowerShell do Azure ou o xplat-cli e um modelo do Gerenciador de Recursos. Este modelo cria um conjunto de disponibilidade.
+Você pode criar facilmente um conjunto de disponibilidade para uma máquina virtual usando o PowerShell do Azure ou a CLI (Linha de Comando do Azure) e um modelo do Gerenciador de Recursos. Este modelo cria um conjunto de disponibilidade.
  
-Antes de começar, verifique se você tem o PowerShell do Azure e o xplat-cli configurados e prontos.
+Antes de mergulhar de cabeça, verifique se você tem o PowerShell e a CLI do Azure configurados e prontos.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up](../includes/xplat-getting-set-up.md)]
 
 
-## [fazer algo] com um modelo do Gerenciador de Recursos usando o PowerShell do Azure
+## Criar um conjunto de disponibilidade usando um modelo do Gerenciador de Recursos
 
-Siga estas etapas para [fazer algo] usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com o PowerShell do Azure.
+Siga estas etapas para criar um conjunto de disponibilidade para uma máquina virtual usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com o PowerShell do Azure.
 
 ### Etapa 1: baixar o arquivo JSON
 
-Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\\Azure\\Templates[item]).
+Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\Azure\Templates\availability).
 
 Substitua o nome de pasta e copie e execute estes comandos.
 
-	$folderName="<folder name, such as C:\Azure\Templates[thing]>"
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "[Writers: add the URL to the RAW version of the target template in GitHub]"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath) 
 
-### Etapa 2: (opcional) exibir os parâmetros
+### Etapa 2: reunir os detalhes dos parâmetros necessários
 
-Ao [fazer algo] com um modelo, você deve especificar um conjunto de parâmetros de configuração. Para ver os parâmetros que você precisa especificar para o modelo em um arquivo JSON local antes de executar o comando para criar a máquina virtual, abra o arquivo JSON em um editor de texto ou ferramenta de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual. Aqui está a seção **"parâmetros"** do modelo azuredeploy.json:
+Quando usar um modelo, você terá que fornecer detalhes como local, nome do conjunto e assim por diante. Para descobrir quais parâmetros são necessários para um modelo, siga um destes procedimentos:
 
-[Observação para escritores: cole na seção "parâmetros" do arquivo azuredeploy.json e formate como código.]
+- Examine a lista de parâmetros [aqui](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
+- Abra o arquivo JSON em uma ferramenta ou editor de texto de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual. 
 
-### Etapa 3: obter [informações necessárias para concluir o modelo].
+Reúna as informações necessárias para tê-las à disposição para inserção. Quando você executar o comando para implantar o modelo, receberá uma solicitação para fornecer informações.
 
-[Observação para escritores: seção opcional para obter valores de parâmetros, se necessário.]
+### Etapa 3: criar o conjunto de disponibilidade.
 
-### Etapa 4: [fazer algo] com o modelo.
+As seções a seguir mostram como usar o PowerShell do Azure ou a CLI do Azure para fazer isso.
+
+### Usar PowerShell do Azure
 
 Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local do Azure e a pasta para o arquivo JSON salvo e, em seguida, execute estes comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates[thing]>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você será solicitado a fornecer os valores para os parâmetros na seção **"parâmetros"** do arquivo JSON. Depois que você fizer isso, o comando criará o grupo de recursos e o conjunto de disponibilidade.
+Ao executar o comando **New-AzureResourceGroupDeployment**, você será solicitado a fornecer os valores para os parâmetros na seção **"parameters"** do arquivo JSON. Depois que você fizer isso, o comando criará o grupo de recursos e o conjunto de disponibilidade.
 
 Aqui está um exemplo do conjunto de comandos do PowerShell para o modelo.
 
@@ -78,8 +81,6 @@ Aqui está um exemplo do conjunto de comandos do PowerShell para o modelo.
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
 
 Você verá algo semelhante ao item a seguir.
-
-[Observação para escritores: cole na exibição do PowerShell para os primeiros parâmetros solicitados, substituindo isto:]
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -96,51 +97,10 @@ Para remover esse grupo de recursos e todos os seus recursos (a conta de armazen
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
 
-## [fazer algo] com um modelo do Gerenciador de Recursos usando o xplat-cli
+## Usar a CLI do Azure
 
-Siga estas etapas para [fazer algo] usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com comandos do xplat-cli.
+Siga estas etapas para criar o conjunto de disponibilidade usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com um comando da CLI do Azure.
 
-### Etapa 1: baixar o arquivo JSON para o modelo.
+	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\\Azure\\Templates[item]).
-
-Preencha o nome da pasta e execute estes comandos.
-
-[comandos do xplat para baixar o arquivo de modelo]
-
-### Etapa 2: (opcional) exibir os parâmetros do modelo.
-
-Ao [fazer algo] com um modelo, você deve especificar um conjunto de parâmetros de configuração. Para ver os parâmetros que você precisa especificar para o modelo em um arquivo JSON local antes de executar o comando para criar a máquina virtual, abra o arquivo JSON em um editor de texto ou ferramenta de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual. Aqui está a seção **"parâmetros"** do modelo azuredeploy.json:
-
-[Observação para escritores: cole na seção "parâmetros" do arquivo azuredeploy.json e formate como código.]
-
-### Etapa 3: obter [informações necessárias para concluir o modelo].
-
-[Observação para escritores: seção opcional para obter valores de parâmetros, se necessário.]
-
-### Etapa 4: [fazer algo] com o modelo.
-
-Preencha as [informações necessárias} e, em seguida, execute estes comandos.
-
-[comandos do xplat para executar o arquivo de modelo]
-
-[explicação de como o xplat executa o modelo]
-
-
-Aqui está um exemplo de um comando do xplat-cli definido para o modelo.
-
-[exemplo de comando do xplat]
-
-Você verá algo semelhante ao item a seguir.
-
-[Observação para escritores: cole na exibição do xplat para os primeiros parâmetros solicitados]
-
-
-Para remover este grupo de recursos e todos os seus recursos ([itens no grupo de recursos]), use este comando.
-
-[comando do xplat]
-
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58-->

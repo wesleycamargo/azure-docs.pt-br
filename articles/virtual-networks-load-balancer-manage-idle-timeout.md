@@ -1,42 +1,42 @@
-﻿<properties 
+<properties 
    authors="danielceckert" 
    documentationCenter="dev-center-name" 
    editor=""
    manager="jefco" 
-   pageTitle="Gerenciamento: Tempo limite de ociosidade do balanceador de carga" 
+   pageTitle="Gerenciar: tempo limite de ociosidade do balanceador de carga" 
    description="Recursos de gerenciamento para o tempo limite de ociosidade do balanceador de carga do Azure" 
    services="virtual-network" 
    />
 
 <tags
    ms.author="danecke"
-   ms.date="02/20/2015"
+   ms.date="05/27/2015"
    ms.devlang="na"
    ms.service="virtual-network"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   /> 
+   />
    
-# Gerenciar a rede virtual: Tempo limite de ociosidade do TCP do balanceador de carga
+# Gerenciar a rede virtual: tempo limite de ociosidade do TCP do balanceador de carga
 
-**Tempo limite de ociosidade do TCP** permite que um desenvolvedor especifique um limite garantido por inatividade durante as sessões de cliente e servidor que envolvem o balanceador de carga do Azure.  Um valor de tempo limite de ociosidade de TCP de 4 minutos (o padrão para o balanceador de carga do Azure) significa que, se houver um período de inatividade que dura mais do que 4 minutos durante uma sessão de servidor e cliente envolvendo o balanceador de carga do Azure, a conexão será fechada.
+**Tempo limite de ociosidade do TCP** permite que um desenvolvedor especifique um limite garantido por inatividade durante as sessões cliente-servidor que envolvem o balanceador de carga do Azure. Um valor de tempo limite de ociosidade de TCP de 4 minutos (o padrão para o balanceador de carga do Azure) significa que, se houver um período de inatividade que dura mais do que 4 minutos durante uma sessão de servidor e cliente envolvendo o balanceador de carga do Azure, a conexão será fechada.
 
-Quando uma conexão de cliente e servidor é fechada, o aplicativo cliente receberá uma mensagem de erro semelhante a "A conexão subjacente estava fechada: Uma conexão que deveria ser mantida ativa foi fechada pelo servidor".
+Quando uma conexão cliente-servidor é fechada, o aplicativo cliente receberá uma mensagem de erro semelhante a “A conexão subjacente foi fechada: uma conexão que deveria ser mantida ativa foi fechada pelo servidor”.
 
-[TCP Keep-Alive](http://tools.ietf.org/html/rfc1122#page-101) é uma prática comum para manter as conexões durante um longo período de tempo inativo [(exemplo da MSDN)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Quando TCP Keep-Alive é usado, pacotes simples são enviados periodicamente por um cliente (normalmente com uma frequência menor do que o limite de tempo de ociosidade do servidor).  O servidor considera essas transmissões como evidência de atividades de conexão mesmo quando nenhuma outra atividade ocorre - assim, o valor de tempo limite de ociosidade nunca é atendido e a conexão pode ser mantida por um longo período de tempo.
+[TCP Keep-Alive](http://tools.ietf.org/html/rfc1122#page-101) é uma prática comum para manter as conexões durante um longo período de tempo inativo [(exemplo da MSDN)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Quando TCP Keep-Alive é usado, pacotes simples são enviados periodicamente por um cliente (normalmente com uma frequência menor do que o limite de tempo de ociosidade do servidor). O servidor considera essas transmissões como evidência de atividades de conexão mesmo quando nenhuma outra atividade ocorre – assim, o valor de tempo limite de ociosidade nunca é atendido e a conexão pode ser mantida por um longo período de tempo.
 
 Enquanto o TCP Keep-Alive funcionar bem, geralmente não é uma opção para aplicativos móveis pois consome recursos de energia limitados em dispositivos móveis. Um aplicativo móvel que usa TCP Keep-Alive esgotará a bateria do dispositivo mais rapidamente uma vez que ele está continuamente consumindo energia pelo uso da rede.
 
-Para dar suporte a cenários de dispositivo móvel, o balanceador de carga do Azure suporta um tempo limite de ociosidade do TCP configurável. Os desenvolvedores podem definir o tempo limite de ociosidade de TCP para qualquer duração entre 4 minutos e 30 minutos para conexões de entrada (o tempo limite de ociosidade do TCP configurável não se aplica a conexões de saída). Isso permite que os clientes mantenham uma sessão muito mais longa com um servidor com longos períodos de inatividade.  Um aplicativo em um dispositivo móvel ainda pode optar por utilizar a técnica TCP Keep-Alive do TCP para preservar conexões que esperam períodos de mais de 30 minutos de inatividade, mas esse tempo lmiite de ociosidade do TCP permite que os aplicativos emitam solicitações TCP Keep-Alive com muito menos frequência do que antes, reduzindo significativamente a sobrecarga sobre os recursos de energia de dispositivos móveis.
+Para dar suporte a cenários de dispositivo móvel, o balanceador de carga do Azure suporta um tempo limite de ociosidade do TCP configurável. Os desenvolvedores podem definir o tempo limite de ociosidade de TCP para qualquer duração entre 4 minutos e 30 minutos para conexões de entrada (o tempo limite de ociosidade do TCP configurável não se aplica a conexões de saída). Isso permite que os clientes mantenham uma sessão muito mais longa com um servidor com longos períodos de inatividade. Um aplicativo em um dispositivo móvel ainda pode optar por utilizar a técnica TCP Keep-Alive do TCP para preservar conexões que esperam períodos de mais de 30 minutos de inatividade, mas esse tempo lmiite de ociosidade do TCP permite que os aplicativos emitam solicitações TCP Keep-Alive com muito menos frequência do que antes, reduzindo significativamente a sobrecarga sobre os recursos de energia de dispositivos móveis.
 
 ## Implementação
 
-O tempo limite de ociosidade do TCP pode ser configurado para: 
+O tempo limite de ociosidade do TCP pode ser configurado para:
 
-* [IPs públicos de nível de instância](http://msdn.microsoft.com/library/azure/dn690118.aspx)
+* [IPs públicos em nível de instância](http://msdn.microsoft.com/library/azure/dn690118.aspx)
 * [Conjuntos de pontos de extremidade com balanceamento de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx)
-* [Pontos de extremidade de máquina virtual](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)
+* [Pontos de extremidade de máquina virtual](virtual-machines-set-up-endpoints.md)
 * [Funções da Web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Funções de trabalho](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -48,7 +48,7 @@ Baixe [a versão mais recente do Azure PowerShell](https://github.com/Azure/azur
 
 ### Configure o tempo limite d TCP para o IP público em nível de instância para 15 minutos
 
-    Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
+    Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
 IdleTimeoutInMinutes é opcional. Se não for definido, o tempo limite padrão é 4 minutos. Agora seu valor pode ser definido entre 4 e 30 minutos.
 
@@ -58,7 +58,7 @@ IdleTimeoutInMinutes é opcional. Se não for definido, o tempo limite padrão �
 
 ### Recupere a configuração de tempo limite de ociosidade
 
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -110,7 +110,7 @@ As alterações do .csdef para as configurações do ponto de extremidade são:
     
 ## Exemplos de API
 
-Os desenvolvedores podem configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviço.  Certifique-se de adicionar o cabeçalho x-ms-version definido para a versão 2014-06-01 ou superior.
+Os desenvolvedores podem configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviço. Certifique-se de adicionar o cabeçalho x-ms-version definido para a versão 2014-06-01 ou superior.
 
 ### Atualize a configuração dos pontos de extremidade de entrada com balanceamento de carga especificada em todas as máquinas virtuais em uma implantação
 
@@ -151,4 +151,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-<!--HONumber=47-->
+<!---HONumber=58-->

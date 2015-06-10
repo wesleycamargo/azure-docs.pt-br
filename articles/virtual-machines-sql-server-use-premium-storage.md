@@ -3,7 +3,7 @@
 	description="Este artigo fornece diretrizes sobre como começar a usar o Armazenamento Premium do Azure com o SQL Server em execução nas máquinas virtuais do Azure. Isso inclui exemplos de novas implantações e migrações de implantações existentes do SQL Server no IaaS." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@ O [Armazenamento Premium do Azure](storage-premium-storage-preview-portal.md) é
 - Exemplo de ponta a ponta completo mostrando as etapas do Azure, do Windows e do SQL Server para a migração de uma implementação AlwaysOn existente.
 
 Para obter informações gerais sobre o SQL Server em máquinas virtuais do Azure, confira [SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
+
+**Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
 
 ## Pré-requisitos para o Armazenamento Premium
 
@@ -1139,4 +1141,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!--HONumber=54-->
+<!---HONumber=58-->

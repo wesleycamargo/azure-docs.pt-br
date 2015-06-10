@@ -1,13 +1,13 @@
-﻿<table cellspacing="0" border="1">
+<table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Gratuito</th>
+   <th align="left" valign="middle">Grátis</th>
    <th align="left" valign="middle">Compartilhado (Visualização)</th>
    <th align="left" valign="middle">Basic</th>
    <th align="left" valign="middle">Standard</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/web-sites/">Sites</a><sup>1</sup> por <a href="http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/">plano de hospedagem na Web</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/web-sites/">Sites da Web</a><sup>1</sup> por <a href="http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/">Plano de hospedagem na Web</a></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
@@ -51,7 +51,7 @@
 <tr>
    <td valign="middle"><p>Memória (1 hora)<sup>7</sup></p></td>
    <td valign="middle"><p>1024 MB<sup>7</sup></p></td>
-   <td valign="middle"><p>1024 MB</p></td>
+   <td valign="middle"><p>1.024 MB</p></td>
    <td valign="middle"><p>N/D</p></td>
    <td valign="middle"><p>N/D</p></td>
 </tr>
@@ -105,7 +105,7 @@
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure/">Sempre Ativado</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure/">Sempre ativo</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
@@ -144,7 +144,7 @@
    <td valign="middle"><p>X</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/">Slots de preparo (Visualização)</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/">Slots de preparo (visualização)</a></p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>1</p></td>
@@ -166,28 +166,28 @@
 </tr>
 </table>
 
-<sup>1</sup>As cotas de sites da Web e Armazenamento são consideradas por plano de hospedagem na Web, a menos que haja indicação contrária.
+<sup>1</sup>As cotas de sites da Web e de Armazenamento são consideradas por plano de hospedagem na Web, salvo indicação em contrário.
 
-<sup>2</sup>Sites Basic e Standard são executados em máquinas dedicadas. O número real de sites que podem ser hospedados nessas máquinas depende da atividade dos sites, do tamanho das instâncias da máquina e da utilização do recursos correspondente.
+<sup>2</sup>Sites Básicos e Padrões são executados em máquinas dedicadas. O número real de sites que podem ser hospedados nessas máquinas depende da atividade dos sites, do tamanho das instâncias da máquina e da utilização do recursos correspondente.
 
 <sup>3</sup>Com exceção da camada Gratuita, os limites dos Planos de hospedagem na Web são indicados por grupo de recursos. Para obter mais informações sobre como criar e gerenciar grupos de recursos, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][useresourcegroups].
 
 <sup>4</sup>Instâncias dedicadas podem ser Pequenas, Médias ou Grandes. Para obter mais informações, consulte a [Página de preço de sites do Azure][websitespricing]. Instâncias adicionais estão disponíveis por meio da abertura de uma solicitação de suporte.
 
-<sup>5</sup>Todos os Sites compartilham os mesmos recursos de armazenamento de conteúdo. Por isso, o limite de armazenamento refere-se ao tamanho total de todos os sites, não a cada site individualmente. Para aumentar os limites de armazenamento, abra uma solicitação de suporte.
+<sup>5</sup>Todos os Sites da Web compartilham os mesmos recursos de armazenamento para o conteúdo do site. Por isso, o limite de armazenamento refere-se ao tamanho total de todos os sites, não a cada site individualmente. Para aumentar os limites de armazenamento, abra uma solicitação de suporte.
 
-<sup>6</sup>Embora as camadas Basic e Standard não tenham uma cota de CPU ou memória, esses recursos são limitados pelos recursos físicos nas instâncias dedicadas (o tamanho da instância e o número de instâncias).
+<sup>6</sup>Embora as camadas Básica e Padrão não tenham uma cota de CPU ou memória, esses recursos são limitados pelos recursos físicos nas instâncias dedicadas (o tamanho da instância e o número de instâncias).
 
-<sup>7</sup>O limite de memória da camada Gratuita é compartilhado por todos os sites do plano de hospedagem na Web. O limite de memória da camada Compartilhada refere-se ao site individual.
+<sup>7</sup>O limite de memória da camada Gratuita é compartilhado por todos os sites gratuitos do plano de hospedagem na Web. O limite de memória da camada Compartilhada refere-se ao site individual.
 
-<sup>8</sup>Esse valor representa as conexões simultâneas do web socket por instância do site da Web. Por exemplo, se você tiver dimensionado um site da Web Basic para duas instâncias, você teria efetivamente 700 conexões simultâneas (350 x 2).
+<sup>8</sup>Esse valor representa as conexões simultâneas do soquete web por instância do site da Web. Por exemplo, se você tiver dimensionado um site da Web Basic para duas instâncias, você teria efetivamente 700 conexões simultâneas (350 x 2).
 
-<sup>9</sup>Para a camada Basic, é aplicado o [preço padrão para SSL][sslpricing].
+<sup>9</sup>Para a camada Básica, é aplicado o [preço padrão para SSL][sslpricing].
 
-<sup>10</sup>Opere executáveis e/ou scripts personalizados sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano dentro da instância dos seus sites da Web. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard.
+<sup>10</sup>Execute executáveis e/ou scripts personalizados sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano dentro da instância dos seus sites da Web. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard.
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websites-pricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
+[useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
+[websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
+[sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
 
-<!--HONumber=47-->
+<!---HONumber=58-->

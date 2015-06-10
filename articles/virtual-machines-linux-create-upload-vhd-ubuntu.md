@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Criar e carregar um VHD do Ubuntu Linux no Azure" 
 	description="Saiba como criar e carregar um disco rígido virtual (VHD) do Azure que contém o sistema operacional Ubuntu Linux." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
@@ -21,20 +21,20 @@
 
 ##Pré-requisitos##
 
-Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalação do Ubuntu**
 
 - Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
 
-- Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso evitará conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas.  Se você preferir, é possível usar LVM ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
+- Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
 
-- Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários.  Verifique as etapas a seguir para obter mais informações a esse respeito.
+- Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações a esse respeito.
 
-- Todos os VHDs devem ter tamanhos que são múltiplos de 1 MB.
+- Todos os VHDs devem ter tamanhos que sejam múltiplos de 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
+## <a id="ubuntu"> </a>Ubuntu 12.04 e versões posteriores ##
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 
@@ -46,7 +46,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-	Ubuntu 12.04:
+	Ubuntu 12,04:
 
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
@@ -63,9 +63,9 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos: 
+4. Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
 
-	Ubuntu 12.04:
+	Ubuntu 12,04:
 
 		# sudo apt-get update
 		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
@@ -93,7 +93,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 	a) Abra o arquivo /etc/grub.d/00_header.
 
-	b) Na função **make_timeout()**, pesquise **if ["\${recordfail}" = 1 ]; then**
+	b) Na função **make_timeout()**, procure **if ["\${recordfail}" = 1 ]; então**
 
 	c) Altere a instrução abaixo desta linha para **set timeout=5**.
 
@@ -101,11 +101,11 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 6. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
 
-		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	Salve e feche o arquivo e execute '`sudo update-grub`'. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte técnico do Azure com problemas de depuração. 
+	Salve e feche o arquivo e execute '`sudo update-grub`'. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte técnico do Azure com problemas de depuração.
 
-8.	Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Geralmente, esse é o padrão.
+8.	Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Geralmente, esse é o padrão.
 
 9.	Instale o Agente Linux do Azure:
 
@@ -122,6 +122,4 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

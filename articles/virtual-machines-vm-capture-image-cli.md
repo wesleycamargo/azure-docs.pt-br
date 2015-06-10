@@ -19,7 +19,7 @@
 
 
 
-# Como capturar uma máquina virtual do Linux para usar como um modelo com a CLI##
+# Como capturar uma máquina virtual Linux para usar como um modelo com a CLI##
 
 
 
@@ -27,11 +27,11 @@ Esse artigo mostra como capturar a máquina virtual do Azure executando Linux pa
 
 
 
-O Azure trata este modelo como uma imagem e o armazena em sua lista de imagens. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para mais informações sobre imagens, consulte [Sobre imagens da máquina virtual no Azure] [].
+O Azure trata este modelo como uma imagem e o armazena em sua lista de imagens. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para saber mais sobre imagens, confira [Sobre imagens da máquina virtual no Azure][].
 
 
 
-## Antes de começar##
+##Antes de começar##
 
 
 
@@ -45,11 +45,11 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
 
 
-## Capturar a máquina virtual##
+##Capturar a máquina virtual##
 
 
 
-1. Conectar-se à máquina virtual. Para mais detalhes, consulte [Como fazer logon em uma máquina virtual executando o Linux].
+1. Conectar-se à máquina virtual. Para mais detalhes, consulte [ Como fazer logon em uma máquina virtual executando o Linux][].
 
 
 
@@ -61,7 +61,7 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
 
 
-    Observe que uma das opções para  `vm shutdown` é `-p`, que manterá o recurso de computação após a exibição. **Não** habilite isso, pois a máquina virtual deve ser desprovisionada para capturá-la.
+    Observe que uma das opções para `vm shutdown` é `-p`, que manterá o recurso de computação após a exibição. **Não** habilite isso, pois a VM deve ser desprovisionada para ser capturada.
 
 
 
@@ -73,7 +73,7 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
 
 
-    A máquina virtual deve ser excluída para capturar a imagem. Você pode usar `--excluído` ou `-t` para fazer isso.
+    A máquina virtual deve ser excluída para capturar a imagem. Você pode usar `--deleted` ou `-t` para fazer isso.
 
 
 
@@ -148,17 +148,17 @@ Aqui está um exemplo passo a passo de como capturar uma máquina virtual inclui
 
 
 
-Visite a [página de documentação do CLI do Azure] para obter mais detalhes e comandos adicionais.
+Visite a [página de documentação da CLI do Azure][] para obter mais detalhes e comandos adicionais.
 
 
-[página de documentação do CLI do Azure]: ../virtual-machines-command-line-tools/
+[página de documentação da CLI do Azure]: virtual-machines-command-line-tools.md
 
-[Como fazer logon em uma máquina virtual executando o Linux]: ../virtual-machines-linux-how-to-log-on/
+[ Como fazer logon em uma máquina virtual executando o Linux]: virtual-machines-linux-how-to-log-on.md
 
 [Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 
-[Como criar uma máquina virtual personalizada]: ../virtual-machines-create-custom/
+[Como criar uma máquina virtual personalizada]: virtual-machines-create-custom.md
 
-[Como anexar um disco de dados à máquina virtual]: ../storage-windows-attach-disk/
+[Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
 
-<!--HONumber=47-->
+<!---HONumber=58-->

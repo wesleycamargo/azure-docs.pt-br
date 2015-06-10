@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Farm do SharePoint Server" 
 	description="Descreve o novo recurso Farm do SharePoint Server disponível no Portal de Visualização do Azure" 
 	services="virtual-machines" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="josephd"/>
 
-#Farm do SharePoint Server
+# Farm do SharePoint Server
 
 Com o Farm do SharePoint Server, o Portal de visualização do Microsoft Azure cria um farm pré-configurado do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
@@ -34,22 +34,24 @@ O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais
  
 Para os detalhes de configuração de ambos os farms, consulte [Detalhes de configuração de farm no SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
-##Percorrendo a configuração##
-
+## Percorrendo a configuração
+ 
 Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server, faça o seguinte:
 
-1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Farm do SharePoint Server**.
+1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Computação** > **Farm do SharePoint Server**. Se **Farm do SharePoint Server** não aparecer, clique em **Novo** > **Computação** > **Azure Marketplace**, digite **SharePoint** em **Pesquisar Tudo** e, em seguida, clique em **Farm do SharePoint Server**. 
 2. No painel **Criar um farm do SharePoint**, digite o nome de um grupo de recursos.
 3. Digite um nome de usuário e uma senha para uma conta de administrador local em cada máquina virtual em seu farm. Escolha um nome e uma senha difícil de adivinhar, grave-a e armazene-a em um local seguro.
 4. Se desejar um farm de alta disponibilidade, clique em **Habilitar alta disponibilidade**.
 5. Para configurar os seus controladores de domínio, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o nome do domínio raiz de floresta (o padrão é contoso.com) e o tamanho dos seus controladores de domínio (o padrão é A1).
 6. Para configurar os seus servidores SQL, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o tamanho dos seus servidores SQL (o padrão é A5), um nome e uma senha da conta de acesso do banco de dados (o padrão é usar a conta do administrador) e um nome da conta de serviço do SQL Server (o padrão é sqlservice) e a senha (o padrão é usar a mesma senha da conta do administrador).
 7. Para configurar os seus servidores SharePoint, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o tamanho dos seus servidores SharePoint (o padrão é A2), uma conta do usuário do SharePoint (o padrão é sp_setup) e a senha, um nome da conta farm do SharePoint (o padrão é sp_farm) e a senha e um passphase de farm do SharePoint. O padrão é usar a senha do administrador para a conta do usuário do SharePoint, a conta do farm e o passphrase.
-8. Para configurar uma configuração opcional (a rede virtual, conta de armazenamento, diagnóstico), clique na seta.
+8. Para configurar os parâmetros de configuração opcionais de rede virtual, conta de armazenamento ou diagnóstico, clique na seta correspondente.
 9. Para especificar a assinatura, clique na seta.
 10. Quando tiver concluído, clique em **Criar**.
 
-##Acessando e gerenciando os farms do SharePoint##
+> [AZURE.NOTE]O controlador de domínio não tem as ferramentas de Gerenciamento do Active Directory instaladas por padrão. Para instalá-los, execute o comando **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** em um prompt de comando do Windows PowerShell com nível de administrador na máquina virtual do controlador de domínio.
+
+## Acessando e gerenciando os farms do SharePoint
 
 Os farms do SharePoint tem um ponto de extremidade pré-configurado para permitir o tráfego da Web não autenticado (porta TCP 80) para o servidor Web do SharePoint para um computador cliente conectado à Internet. Este ponto de extremidade é um site de equipe pré-configurado. Para acessa este site de equipe:
 
@@ -75,20 +77,22 @@ No site Administração central do SharePoint, é possível configurar o My site
 Observações:
 
 - O Portal de visualização do Azure cria estas máquinas virtuais em sua assinatura.
-- O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Esta não é uma conexão VPN de site para site em sua rede de organização. 
-- É possível administrar estes servidores através de conexões de área de trabalho remota.
+- O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização. 
+- É possível administrar esses servidores por meio de conexões de área de trabalho remota. Para saber mais, confira [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md).
 
 
-##Gerenciador de Recursos do Azure##
+## Gerenciador de Recursos do Azure
 
-O Farm do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
+O Farmo do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
 
-##Recursos adicionais
-
-[SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+## Recursos adicionais
 
 [Detalhes da configuração do Farm do SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=47-->
+[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+
+[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
+
+<!---HONumber=58-->

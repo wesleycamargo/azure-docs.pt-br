@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como alterar a letra da unidade do disco temporário do Windows" 
 	description="Descreve como remapear o disco temporário em uma VM Windows no Azure" 
 	services="virtual-machines" 
@@ -20,11 +20,11 @@
 
 Se você precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma unidade diferente para o disco temporário. Nunca use a unidade temporária para armazenar os dados que você precisa manter.
 
-Antes de começar, você precisará de um disco de dados anexado à máquina virtual, permitindo que você armazene o arquivo de paginação (pagefile. sys) do Windows durante esse procedimento. Consulte [Como anexar um disco de dados para uma máquina virtual Windows] se você não tiver um. Para instruções sobre como descobrir quais discos estão conectados, consulte "Gerenciar seus discos" [Sobre discos da máquina virtual no Azure].
+Antes de começar, você precisará de um disco de dados anexado à máquina virtual, permitindo que você armazene o arquivo de paginação (pagefile. sys) do Windows durante esse procedimento. Confira [Como anexar um disco de dados a uma máquina virtual do Windows] se você não tiver um. Para instruções sobre como descobrir quais discos estão conectados, confira "Gerenciar seus discos" em [Sobre discos da máquina virtual no Azure].
 
 Se você quiser usar um disco de dados existente na unidade D, verifique se que você carregou também o VHD para a conta de armazenamento. Para obter instruções, consulte as etapas 3 e 4 em [Criar e carregar um VHD do Windows Server no Azure].
 
-> [AZURE.WARNING] Se você redimensionar uma máquina virtual e isso mover a máquina virtual para um host diferente, a unidade temporária voltará para a unidade D.
+> [AZURE.WARNING]Se você redimensionar uma máquina virtual e ao fazer isso a máquina virtual move para um host diferente, a unidade temporária altera de volta para a unidade D.
 
 ##Alterar a letra da unidade
 
@@ -36,7 +36,7 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 4. 	Faça logon novamente e altere a letra da unidade de D para E.
 
-5.	No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), anexe um disco de dados existente ou vazio.
+5.	No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), anexe um disco de dados existente ou esvazie o disco de dados.
 
 6.	Faça logon na máquina virtual novamente, inicialize o disco e atribua D como a letra da unidade do disco que você acabou de anexar.
 
@@ -49,16 +49,14 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 [Como desanexar um disco de dados de uma máquina virtual]
 
-[Sobre contas de armazenamento do Azure]
+[Sobre as contas de armazenamento do Azure]
 
 <!--Link references-->
-[Como anexar um disco de dados a uma máquina virtual Windows]: ../storage-windows-attach-disk
-[Sobre discos de máquina virtual no Azure]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
-[Criar e carregar um VHD do Windows Server no Azure]: ../virtual-machines-create-upload-vhd-windows-server/
-[Como fazer logon em uma máquina virtual executando o Windows Server]: ../virtual-machines-log-on-windows-server/
-[Como desanexar um disco de dados de uma máquina virtual]: ../storage-windows-detach-disk/
-[Sobre contas de armazenamento do Azure]: ../storage-whatis-account/
+[Como anexar um disco de dados a uma máquina virtual do Windows]: storage-windows-attach-disk.md
+[Sobre discos da máquina virtual no Azure]: http.md://msdn.microsoft.com/library/azure/dn790303.aspx
+[Criar e carregar um VHD do Windows Server no Azure]: virtual-machines-create-upload-vhd-windows-server.md
+[Como fazer logon em uma máquina virtual executando o Windows Server]: virtual-machines-log-on-windows-server.md
+[Como desanexar um disco de dados de uma máquina virtual]: storage-windows-detach-disk.md
+[Sobre as contas de armazenamento do Azure]: storage-whatis-account.md
 
-
-
-<!--HONumber=47-->
+<!---HONumber=58-->

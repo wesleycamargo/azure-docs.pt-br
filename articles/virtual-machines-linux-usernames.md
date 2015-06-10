@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Selecionando nomes de usuário para Linux no Azure" 
 	description="Saiba como selecionar nomes de usuário para uma máquina virtual Linux no Azure." 
 	services="virtual-machines" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/16/2015" 
 	ms.author="szark"/>
 
 
 
 #Selecionando nomes de usuário para Linux no Azure#
 
-Ao criar uma máquina virtual Linux, você pode escolher um nome para o nome de usuário ou aceitar o padrão, *azureuser*. Na maioria dos casos, esse novo usuário não existe na imagem de base e é criado durando o processo de provisionamento. Se o usuário já existir na imagem de base da máquina virtual, o agente do Linux do Azure simplesmente configura a senha (e/ou chave SSH) para o usuário com base na informação especificada ao criar a máquina virtual.
+Ao criar uma máquina virtual do Linux, é possível escolher um nome para o nome de usuário ou aceitar o padrão, *azureuser*. Na maioria dos casos, esse novo usuário não existe na imagem de base e é criado durando o processo de provisionamento. Se o usuário já existir na imagem de base da máquina virtual, o agente do Linux do Azure simplesmente configura a senha (e/ou chave SSH) para o usuário com base na informação especificada ao criar a máquina virtual.
 
-**Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado. O processo de provisionamento vai **falhar** se você tentar provisionar uma máquina virtual Linux usando um usuário existente que esteja definido como um usuário com UID 0-99. Um exemplo típico é o usuário `root`, que tem o UID 0.
+**Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado ao criar novos usuários. O processo de provisionamento irá **falhar** se você tentar provisionar uma máquina virtual Linux usando um usuário existente que esteja definido como um usuário com UID 0-99. Um exemplo típico é o usuário `root`, que tem o UID 0.
 
- - Consulte também: [Base Padrão Linux - Intervalos de ID de Usuário](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+ - Consulte também: [Base padrão do Linux - Intervalos de ID de usuário](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-A seguir estão nomes de usuário que devem ser evitados ao fazer o provisionamento de uma máquina virtual do Linux. Recomendamos **não usar esses nomes de usuário** porque o processo de provisionamento pode falhar.
+A seguir estão nomes de usuário que devem ser evitados ao fazer o provisionamento de uma máquina virtual do Linux. Recomendamos que você **não use esses nomes de usuário** porque o processo de provisionamento pode falhar.
 
 
 ## openSUSE
@@ -244,5 +244,4 @@ A seguir estão nomes de usuário que devem ser evitados ao fazer o provisioname
 - whoopsie
 - www-data
 
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

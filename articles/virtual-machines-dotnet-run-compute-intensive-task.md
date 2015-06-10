@@ -1,32 +1,32 @@
-﻿<properties 
-	pageTitle="Tarefa .NET que requer muitos recursos computacionais em uma máquina virtual - Azure" 
-	description="Saiba como implantar e executar aplicativos .NET que requerem muitos recursos computacionais em uma máquina virtual Azure e como usar filas de Barramento de Serviço para monitorar o progresso remotamente." 
-	services="virtual-machines" 
-	documentationCenter=".net" 
-	authors="" 
-	manager="wpickett" 
+<properties
+	pageTitle="Tarefa .NET que requer muitos recursos computacionais em uma máquina virtual — Azure"
+	description="Saiba como implantar e executar aplicativos .NET que requerem muitos recursos computacionais em uma máquina virtual Azure e como usar filas de Barramento de Serviço para monitorar o progresso remotamente."
+	services="virtual-machines"
+	documentationCenter=".net"
+	authors="wadepickett"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/24/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="03/18/2015"
 	ms.author="wpickett"/>
 
 # Como executar uma tarefa que exija muita computação no .NET em uma máquina virtual Azure
 
 Com o Azure, é possível usar uma máquina virtual para lidar com tarefas que exijam muita computação; por exemplo, uma máquina virtual pode lidar com tarefas e apresentar resultados para computadores cliente ou aplicativos móveis. Na conclusão deste guia, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo .NET que exija muita computação que pode ser monitorado por outro aplicativo .NET.
 
-Este tutorial pressupõe que você saiba como criar aplicativos de console do .NET. Nenhum conhecimento do Azure é assumido. 
+Este tutorial pressupõe que você saiba como criar aplicativos de console do .NET. Nenhum conhecimento do Azure é assumido.
 
-Você aprenderá:
+Você aprenderá a:
 
 * Como criar uma máquina virtual.
-* Como fazer logon remotamente na máquina virtual.
-* Como criar um namespace de barramento de serviço.
+* Fazer logon remotamente na máquina virtual.
+* Como criar um espaço de nomes de barramento de serviço.
 * Como criar um aplicativo do .NET que execute uma tarefa que exija muita computação.
 * Como criar um aplicativo do .NET que monitore o progresso da tarefa que exige muita computação.
 * Como executar os aplicativos do .NET.
@@ -34,85 +34,77 @@ Você aprenderá:
 
 Este tutorial usará o problema do Caixeiro Viajante para a tarefa de computação intensiva. Este é um exemplo do aplicativo do .NET que executa a tarefa que exige muita computação:
 
-![Traveling Salesman Problem solver][solver_output]
+![Solucionador de problemas do Caixeiro Viajante][solver_output]
 
 Este é um exemplo do aplicativo do .NET que monitora a tarefa que exige muita computação:
 
-![Traveling Salesman Problem client][client_output]
+![Cliente de problemas do Caixeiro Viajante][client_output]
 
 [AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
-<h2>Para criar uma máquina virtual</h2>
+## Para criar uma máquina virtual
 
 1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2. Clique em **Novo**.
 3. Clique em **Máquina virtual**.
 4. Clique em **Criação rápida**.
 5. Na tela **Criar uma máquina virtual**, insira um valor para **Nome DNS**.
-6. Na lista suspensa **Imagem**, selecione uma imagem, como **Windows Server 2012**.
-7. Digite um nome para o administrador no campo **Nome de Usuário**. Lembre-se do nome e da senha que você digitará a seguir, você vai usá-los ao fazer logon remotamente na máquina virtual.
+6. Na lista suspensa **Imagem**, selecione uma imagem, como **Windows Server 2012 R2**.
+7. Digite um nome para o administrador no campo **Nome do Usuário**. Lembre-se do nome e da senha que você digitará a seguir, você irá usá-los ao fazer logon remotamente na máquina virtual.
 8. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**.
 9. Na lista suspensa **Local**, selecione o local do data center da máquina virtual.
 10. Clique em **Criar máquina virtual**. A máquina virtual começará a ser criada. Você pode monitorar o status na seção **Máquinas virtuais** do portal de gerenciamento. Quando o status for exibido como **Ativo**, você poderá fazer logon na máquina virtual.
 
-<h2>Para fazer logon remotamente na máquina virtual</h2>
+## Para fazer logon remotamente em sua máquina virtual
 
-1. Faça logon no [Portal de Gerenciamento](https://manage.windowsazure.com).
+1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da máquina virtual na qual você deseja fazer logon.
 4. Clique em **Conectar**.
 5. Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
 
-<h2>Como criar um namespace do barramento de serviço</h2>
+## Como criar um namespace do barramento de serviço
 
-Para começar a usar as filas do barramento de serviço no Azure, você deve primeiro
-criar um namespace de serviço. Um namespace de serviço fornece um contêiner
-para controle de escopo, que permite endereçar recursos do barramento de serviço dentro de seu aplicativo.
+Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo.
 
 Para criar um namespace de serviço:
 
 1.  Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
-2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em **Barramento de Serviço**.
+2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em**Service Bus**.
 3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**.
 
-    ![Create new service bus][create_service_bus]
+    ![Criar novo barramento de serviço][create_service_bus]
 4.  Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema verifica imediatamente se o nome está disponível, porque ele precisa ser um nome exclusivo.
 
-    ![Create a namespace dialog][create_namespace_dialog]
+    ![Criar uma caixa de diálogo de namespace][create_namespace_dialog]
 5.  Depois de verificar se o nome do namespace está disponível, escolha a região em que o namespace deve ser hospedado (não se esqueça de usar a mesma região em que a máquina virtual está hospedada).
 
-    > [AZURE.IMPORTANT] Escolha a **mesma região** que você usa ou pretende usar na máquina virtual. Isso lhe dará o melhor desempenho.
+    > [AZURE.IMPORTANT]Escolha a **mesma região** que você usa ou pretende usar na máquina virtual. Isso lhe dará o melhor desempenho.
 
 6. Se você tiver mais de uma assinatura do Azure para a conta com a qual você fez logon, selecione a assinatura a ser usada no namespace. (Se tiver somente uma assinatura para a conta com a qual fez logon, você não verá uma lista suspensa contendo suas assinaturas.)
-7. Clique na marca de seleção. Agora, o sistema cria o seu namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+7. Clique na marca de seleção. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
-	![Click create screenshot][click_create]
+	![Clique em criar captura de tela][click_create]
 
 O namespace que você criou aparece no Portal de Gerenciamento e demora algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
-<h2>Obter as credenciais de gerenciamento padrão do namespace</h2>
+## Obter as credenciais de gerenciamento padrão do namespace
 
-Para realizar operações de gerenciamento como a criação de uma fila, no
-novo namespace, você deve obter as credenciais de gerenciamento para o
-namespace.
+A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.
 
-1.  No painel de navegação esquerdo, clique no nó do **Barramento de Serviço** para
-    exibir a lista de namespaces disponíveis:   
-    ![Available namespaces screenshot][available_namespaces]
-2.  Selecione o namespace que você acabou de criar na lista abaixo:   
-    ![Namespace list screenshot][namespace_list]
-3. Clique em **Chave de Acesso**.   
-    ![Access key button][access_key_button]
-4.  Na caixa de diálogo, localize as entradas **Emissor Padrão** e **Chave Padrão**. Tome nota desses valores, pois você usará essas informações abaixo para executar operações com o namespace. 
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![Captura de tela de namespaces disponíveis][available_namespaces]
+2.  Selecione o namespace que você acabou de criar na lista abaixo: ![Captura de tela da lista de namespaces][namespace_list]
+3. Clique em **Informações de Conexão**. ![Botão da chave de acesso][access_key_button]
+4.  Na caixa de diálogo, localize a entrada **Cadeia de Conexão**. Tome nota desse valor, pois você usará essas informações abaixo para executar operações com o namespace.
 
-<h2>Como criar um aplicativo do .NET que execute uma tarefa que exija muita computação</h2>
+## Como criar um aplicativo do .NET que execute uma tarefa que exija muita computação
 
-1. No computador de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET](http://www.windowsazure.com/develop/net/).
-2. Crie um aplicativo de console do .NET com o projeto chamado **TSPSolver**. Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
-3. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
+1. Na máquina de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET](http://azure.microsoft.com/develop/net/).
+2. Crie um aplicativo de console do .NET com o projeto chamado **TSPSolver**. Verifique se a estrutura de destino está definida para .**NET Framework 4** ou posterior (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: no menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
+3. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Arquivos de Programas\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
 4. Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPSolver**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
 5. Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
-6. Modifique os espaços reservados **your_service_bus_namespace, ****your_service_bus_owner** e **your_service_bus_key** para usar o **namespace do barramento de serviço e os valores ****Emissor Padrão** e **Chave Padrão**, respectivamente.
+6. Modifique o espaço reservado **sua_cadeia_de_conexão** para usar o barramento de serviço **cadeia de conexão**.
 7. Compile o aplicativo. Isso criará **TSPSolver.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você copiará esse executável e Microsoft.ServiceBus.dll para a máquina virtual depois.
 
 <p/>
@@ -122,10 +114,10 @@ namespace.
 	using System.Linq;
 	using System.Text;
 	using System.IO;
-	
+
 	using Microsoft.ServiceBus;
 	using Microsoft.ServiceBus.Messaging;
-	
+
 	namespace TSPSolver
 	{
 	    class Program
@@ -133,26 +125,26 @@ namespace.
 	        // Value specifying how often to provide an update to the console.
 	        private static long loopCheck = 100000000;
 	        private static long nTimes = 0, nLoops = 0;
-	
+
 	        private static double[,] distances;
 	        private static String[] cityNames;
 	        private static int[] bestOrder;
 	        private static double minDistance;
-	
+
 	        private static NamespaceManager namespaceManager;
 	        private static QueueClient queueClient;
 	        private static String queueName = "TSPQueue";
-	
+
 	        private static void BuildDistances(String fileLocation, int numCities)
 	        {
-	
+
 	            try
 	            {
 	                StreamReader sr = new StreamReader(fileLocation);
 	                String[] sep1 = { ", " };
-	
+
 	                double[,] cityLocs = new double[numCities, 2];
-	
+
 	                for (int i = 0; i < numCities; i++)
 	                {
 	                    String[] line = sr.ReadLine().Split(sep1, StringSplitOptions.None);
@@ -161,7 +153,7 @@ namespace.
 	                    cityLocs[i, 1] = Convert.ToDouble(line[2]);
 	                }
 	                sr.Close();
-	
+
 	                for (int i = 0; i < numCities; i++)
 	                {
 	                    for (int j = i; j < numCities; j++)
@@ -176,17 +168,17 @@ namespace.
 	                throw e;
 	            }
 	        }
-	
+
 	        private static double hypot(double x, double y)
 	        {
 	            return Math.Sqrt(x * x + y * y);
 	        }
-	
+
 	        private static void permutation(List<int> startCities, double distSoFar, List<int> restCities)
 	        {
 	            try
 	            {
-	
+
 	                nTimes++;
 	                if (nTimes == loopCheck)
 	                {
@@ -196,7 +188,7 @@ namespace.
 	                    Console.Write("Current time is {0}.", dateTime);
 	                    Console.WriteLine(" Completed {0} iterations of size of {1}.", nLoops, loopCheck);
 	                }
-	
+
 	                if ((restCities.Count == 1) && ((minDistance == -1) || (distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 1]] < minDistance)))
 	                {
 	                    startCities.Add(restCities[0]);
@@ -220,14 +212,14 @@ namespace.
 	                throw e;
 	            }
 	        }
-	
+
 	        private static void newBestDistance(List<int> cities, double distance)
 	        {
 	            try
 	            {
 	                minDistance = distance;
 	                String cityList = "Shortest distance is " + minDistance + ", with route: ";
-	
+
 	                for (int i = 0; i < bestOrder.Length; i++)
 	                {
 	                    bestOrder[i] = cities[i];
@@ -243,26 +235,19 @@ namespace.
 	                throw e;
 	            }
 	        }
-	
+
 	        static void Main(string[] args)
 	        {
 	            try
 	            {
-	
-	                String serviceBusNamespace = "your_service_bus_namespace";
-	                String issuer = "your_service_bus_owner";
-	                String key = "your_service_bus_key";
-	
-	                String connectionString = @"Endpoint=sb://" +
-	                       serviceBusNamespace +
-	                       @".servicebus.windows.net/;SharedSecretIssuer=" +
-	                       issuer + @";SharedSecretValue=" + key;
-	
+
+                  String connectionString = @"your_connection_string";
+
 	                int numCities = 10; // Use as the default, if no value is specified
 	                // at the command line.
 	                if (args.Count() != 0)
 	                {
-	
+
 	                    if (args[0].ToLower().CompareTo("createqueue") == 0)
 	                    {
 	                        // No processing to occur other than creating the queue.
@@ -271,7 +256,7 @@ namespace.
 	                        Console.WriteLine("Queue named {0} was created.", queueName);
 	                        Environment.Exit(0);
 	                    }
-	
+
 	                    if (args[0].ToLower().CompareTo("deletequeue") == 0)
 	                    {
 	                        // No processing to occur other than deleting the queue.
@@ -280,19 +265,19 @@ namespace.
 	                        Console.WriteLine("Queue named {0} was deleted.", queueName);
 	                        Environment.Exit(0);
 	                    }
-	
+
 	                    // Neither creating or deleting a queue.
 	                    // Assume the value passed in is the number of cities to solve.
 	                    numCities = Convert.ToInt32(args[0]);
 	                }
-	
+
 	                Console.WriteLine("Running for {0} cities.", numCities);
-	
+
 	                queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-	
+
 	                List<int> startCities = new List<int>();
 	                List<int> restCities = new List<int>();
-	
+
 	                startCities.Add(0);
 	                for (int i = 1; i < numCities; i++)
 	                {
@@ -306,7 +291,7 @@ namespace.
 	                permutation(startCities, 0, restCities);
 	                Console.WriteLine("Final solution found!");
 	                queueClient.Send(new BrokeredMessage("Complete"));
-	
+
 	                queueClient.Close();
 	                Environment.Exit(0);
 
@@ -338,14 +323,14 @@ namespace.
 
 
 
-<h2>Como criar um aplicativo do .NET que monitore o progresso da tarefa que exige muita computação</h2>
+## Como criar um aplicativo do .NET que monitore o progresso da tarefa que exige muita computação
 
-1. No computador de desenvolvimento, crie um aplicativo de console do .NET usando **TSPClient** como o nome do projeto. Verifique se a estrutura de destino está definida para .**NET Framework 4** (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: No menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
-2. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
+1. Na máquina de desenvolvimento, crie um aplicativo de console do .NET usando **TSPClient** como o nome do projeto. Verifique se a estrutura de destino está definida para .**NET Framework 4** ou posterior (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: no menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
+2. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPClient**, clique em **Adicionar Referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
 3. Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPClient**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
 4. Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
-5. Modifique os espaços reservados **your_service_bus_namespace, ****your_service_bus_owner** e **your_service_bus_key** para usar o **namespace do barramento de serviço e os valores ****Emissor Padrão** e **Chave Padrão**, respectivamente.
-5. Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você pode executar esse código no computador de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para um computador que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
+5. Modifique o espaço reservado **sua_cadeia_de_conexão** para usar o barramento de serviço **cadeia de conexão**.
+6. Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você pode executar esse código na máquina de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para uma máquina que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
 
 <p/>
 
@@ -354,62 +339,55 @@ namespace.
 	using System.Linq;
 	using System.Text;
 	using System.IO;
-	
+
 	using Microsoft.ServiceBus;
 	using Microsoft.ServiceBus.Messaging;
 	using System.Threading; // For Thread.Sleep
-	
+
 	namespace TSPClient
 	{
 	    class Program
 	    {
-	
+
 	        static void Main(string[] args)
 	        {
-	
+
 	            try
 	            {
-	
+
 	                Console.WriteLine("Starting at {0}", DateTime.Now);
-	
-	                String serviceBusNamespace = "your_service_bus_namespace";
-	                String issuer = "your_service_bus_owner";
-	                String key = "your_service_bus_key";
-	
-	                String connectionString = @"Endpoint=sb://" +
-	                       serviceBusNamespace +
-	                       @".servicebus.windows.net/;SharedSecretIssuer=" +
-	                       issuer + @";SharedSecretValue=" + key;
-	
+
+									String connectionString = @"your_connection_string";
+
 	                QueueClient queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-	
+
 	                BrokeredMessage message;
-	
+
 	                int waitMinutes = 3;  // Use as the default, if no value
 	                // is specified at command line.
-	
+
 	                if (0 != args.Length)
 	                {
 	                    waitMinutes = Convert.ToInt16(args[0]);
 	                }
-	
+
 	                String waitString;
 	                waitString = (waitMinutes == 1) ? "minute" : waitMinutes.ToString() + " minutes";
-	
+
 	                while (true)
 	                {
 	                    message = queueClient.Receive();
-	
+
 	                    if (message != null)
 	                    {
 	                        try
 	                        {
 	                            string str = message.GetBody<string>();
 	                            Console.WriteLine(str);
-	
+
 	                            // Remove message from queue
 	                            message.Complete();
-	
+
 	                            if ("Complete" == str)
 	                            {
 	                                Console.WriteLine("Finished at {0}.", DateTime.Now);
@@ -458,10 +436,11 @@ namespace.
 	    }
 	}
 
-<h2>Como executar os aplicativos do .NET</h2>
+## Como executar os aplicativos do .NET.
+
 Execute o aplicativo que exija muita computação, primeiro para criar a fila, depois para solucionar o Problema do Caixeiro Viajante, que adicionará a melhor rota atual para a fila do barramento de serviço. Enquanto o aplicativo que exige muita computação está em execução (ou depois), execute o cliente para exibir os resultados da fila do barramento de serviço.
 
-<h3>Como executar o aplicativo que exige muita computação</h3>
+### Como executar o aplicativo que exige muita computação
 
 1. Faça logon na máquina virtual.
 2. Crie uma pasta chamada **c:\TSP**. É onde você executará o aplicativo.
@@ -518,13 +497,13 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 		City_48, 363.68, 768.21
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
-	
+
 5. Em um prompt de comando, altere os diretórios para c:\TSP.
 6. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço:
 
         TSPSolver createqueue
 
-7. Agora que a fila está criada, você pode executar as permutas de solver TSP. Por exemplo, execute o seguinte comando para executar o solver para 8 cidades. 
+7. Agora que a fila está criada, você pode executar as permutas de solver TSP. Por exemplo, execute o seguinte comando para executar o solver para 8 cidades.
 
         TSPSolver 8
 
@@ -532,11 +511,10 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 
 O solver será executado até terminar de examinar todas as rotas.
 
-> [AZURE.NOTE]
-> Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
- 
-<h3>Como executar o aplicativo cliente de monitoramento</h3>
-1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa ser o mesmo computador executando o aplicativo **TSPSolver**, embora possa ser.
+> [AZURE.NOTE]Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
+
+### Como executar o aplicativo cliente de monitoramento
+1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
 3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPClient, para a pasta c:\TSP.
 4. Em um prompt de comando, altere os diretórios para c:\TSP.
@@ -552,12 +530,12 @@ O solver será executado até terminar de examinar todas as rotas.
 
         TSPSolver deletequeue
 
-<h2>Como parar os aplicativos do .NET</h2>
+## Como parar os aplicativos do .NET
 
 Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para sair se você quiser encerrar antes da conclusão normal.
 
-<h2>Alternativa à criação e à exclusão da fila com TSPSolver</h2>
-Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou excluir a fila usando o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Visite a seção de barramento de serviço do Portal de Gerenciamento a fim de acessar as interfaces de usuário para criar ou excluir uma fila, bem como para recuperar a cadeia de conexão, o emissor e a chave de acesso. Também é possível exibir um painel de seus filas do barramento de serviço, permitindo exibir métricas para as mensagens de entrada e de saída. 
+## Alternativa à criação e à exclusão da fila com TSPSolver 
+Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou excluir a fila usando o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) Visite a seção de barramento de serviço do Portal de Gerenciamento a fim de acessar as interfaces de usuário para criar ou excluir uma fila, bem como para recuperar a cadeia de conexão, o emissor e a chave de acesso. Também é possível exibir um painel de seus filas do barramento de serviço, permitindo exibir métricas para as mensagens de entrada e de saída.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
@@ -568,4 +546,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou exclu
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=47-->
+<!---HONumber=58-->

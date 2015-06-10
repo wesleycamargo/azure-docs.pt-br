@@ -1,39 +1,37 @@
 <properties 
-	authors="danielceckert" 
-	documentationCenter="dev-center-name" 
-	editor=""
-	manager="jefco" 
-	pageTitle="Gerenciamento: Modo de Distribuição do Balanceador de Carga (afinidade IP de origem)" 
-	description="Recursos de gerenciamento para o modo de distribuição do balanceador de carga do Azure" 
-	services="virtual-network"/>
+   pageTitle="Gerenciar: modo de distribuição do balanceador de carga (afinidade de IP de origem)"
+   description="Recursos de gerenciamento para o modo de distribuição do balanceador de carga do Azure" 
+   services="virtual-network" 
+   documentationCenter="" 
+   authors="telmosampaio" 
+   manager="carolz" 
+   editor=""
+   />
 
 <tags
-	ms.author="danecke"
-	ms.date="02/20/2015"
-	ms.devlang="na"
-	ms.service="virtual-network"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"/>
-
-<!-- HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md -->
-
-# Gerenciar a rede virtual: Modo de distribuição do Balanceador de Carga (afinidade IP de origem)
-
-
-**Afinidade de IP de origem** (também conhecido como **afinidade de sessão** ou **afinidade IP do cliente**), um modo de distribuição do balanceador de carga do Azure, une conexões de um único cliente com um único servidor hospedado do Azure, em vez de distribuir cada conexão do cliente dinamicamente para diferentes servidores hospedados do Azure (o comportamento padrão do balanceador de carga).
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/27/2015"
+   ms.author="telmos"
+   />
+   
+# Gerenciar a rede virtual: modo de distribuição do balanceador de carga (afinidade de IP de origem)
+**Afinidade de IP de origem** (também conhecida como **afinidade de sessão** ou **afinidade IP do cliente**), um modo de distribuição do balanceador de carga do Azure, une conexões de um único cliente a um único servidor hospedado do Azure, em vez de distribuir cada conexão do cliente dinamicamente para diferentes servidores hospedados do Azure (o comportamento padrão do balanceador de carga).
 
 Usando a afinidade de IP de origem, o balanceador de carga do Azure pode ser configurado para usar uma combinação de 2 tuplas (IP de origem, IP de destino) ou uma combinação de 3 tuplas (IP de origem, IP de destino, protocolo) para mapear o tráfego para o pool de servidores disponíveis hospedados do Azure. Ao usar a afinidade de IP de origem, as conexões iniciadas do mesmo computador cliente são tratadas por um único ponto de extremidade do DIP (um único servidor hospedado do Azure).
 
 ## Origem de serviço
 
-Afinidade do IP de origem resolve uma [incompatibilidade anterior entre o balanceador de carga do Azure e o Gateway de Área de Trabalho Remota (DOC)](http://go.microsoft.com/fwlink/p/?LinkId=517389).
+A afinidade do IP de origem resolve uma [incompatibilidade anterior entre o balanceador de carga do Azure e o Gateway de Área de Trabalho Remota (DOC)](http://go.microsoft.com/fwlink/p/?LinkId=517389).
 
 ## Implementação
 
-A afinidade de IP de origem podem ser configurada para: 
+A afinidade de IP de origem podem ser configurada para:
 
-* [Pontos de extremidade de máquina virtual](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)
+* [Pontos de extremidade de máquina virtual](virtual-machines-set-up-endpoints.md)
 * [Conjuntos de pontos de extremidade com balanceamento de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx)
 * [Funções da Web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Funções de trabalho](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -52,32 +50,19 @@ A afinidade de IP de origem podem ser configurada para:
 * Usar a afinidade de IP de origem pode resultar em uma distribuição desigual do tráfego entre servidores hospedados do Azure
 * Os clientes que encaminham o tráfego através de um proxy podem ser vistos como um único cliente pelo balanceador de carga do Azure
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-=======
-## Próximas etapas
-* TBD
-   
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 ## Exemplos do PowerShell
 Baixe [a versão mais recente do Azure PowerShell](https://github.com/Azure/azure-sdk-tools/releases) para obter melhores resultados.
 
 ### Adicione um ponto de extremidade do Azure a uma máquina virtual e defina o modo de distribuição do balanceador de carga
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution "sourceIP"| Update-AzureVM  
-=======
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€"LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
 
-LoadBalancerDistribution pode ser definido como sourceIP para balanceamento de carga de 2 tuplas (IP de origem, IP de destino), sourceIPProtocol para balanceamento de carga de 3 tuplas (IP de destino, IP de origem, protocolo) ou nenhum se você quiser o comportamento padrão (balanceamento de carga de 5 tuplas).  
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+
+LoadBalancerDistribution pode ser definido como sourceIP para balanceamento de carga de 2 tuplas (IP de origem, IP de destino), sourceIPProtocol para balanceamento de carga de 3 tuplas (IP de destino, IP de origem, protocolo) ou nenhum se você quiser o comportamento padrão (balanceamento de carga de 5 tuplas).
 
 ### Recupee uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade
-
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
-=======
-    PS C:> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    PS C:> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -101,11 +86,9 @@ Se o elemento LoadBalancerDistribution não estiver presente, o balanceador de c
 
 ### Defina o modo de distribuição em um conjunto de pontos de extremidade com balanceamento de carga
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution "sourceIP"
-=======
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€"LoadBalancerDistribution "sourceIP"
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
     
 Se os pontos de extremidade são parte de um conjunto de ponto de extremidade com balanceamento de carga, o modo de distribuição deve ser definido no conjunto de pontos de extremidade com balanceamento de carga.
 
@@ -135,7 +118,7 @@ Aqui está um exemplo de alterações .csdef para configurações do ponto de ex
     
 ## Exemplos de API
 
-Os desenvolvedores podem configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviço.  Certifique-se de adicionar o cabeçalho x-ms-version definido para a versão 2014-09-01 ou superior.
+Os desenvolvedores podem configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviço. Certifique-se de adicionar o cabeçalho x-ms-version definido para a versão 2014-09-01 ou superior.
 
 ### Atualize a configuração do conjunto de balanceamento de carga especificado em uma implantação
 
@@ -177,4 +160,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!--HONumber=47-->
+<!---HONumber=58-->

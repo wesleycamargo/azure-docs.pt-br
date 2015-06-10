@@ -1,19 +1,20 @@
-﻿<properties 
-	pageTitle="Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure" 
-	description="Aprenda a instalar MySQL em uma máquina virtual no Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure"
+	description="Aprenda a instalar MySQL em uma máquina virtual no Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="mysql"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/12/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/22/2015"
 	ms.author="kathydav"/>
 
 # Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure
@@ -35,10 +36,10 @@ O [MySQL][MySQL] é um popular banco de dados SQL de software livre. Este tutori
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ##Resumo
-Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux e a se conectar remotamente usando SSH ou PuTTY.  Você também aprendeu como instalar e configurar o MySQL na máquina virtual Linux.  Para obter mais informações sobre o MySQL, consulte a [Documentação do MySQL][MySQLDocs].
+Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux e a se conectar remotamente usando SSH ou PuTTY. Você também aprendeu como instalar e configurar o MySQL na máquina virtual Linux. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

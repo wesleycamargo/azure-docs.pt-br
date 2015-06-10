@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Logon Único com o Active Directory do Azure (PHP)" 
 	description="Saiba como criar um aplicativo Web PHP que usa logon único com o Active Directory do Azure." 
 	services="active-directory" 
@@ -22,8 +22,8 @@
 
 Este tutorial mostra aos desenvolvedores de PHP como utilizar o Active Directory do Azure para habilitar o logon único para usuários de clientes do Office 365. Você saberá como:
 
-* Provisionar o aplicativo Web em um locatário do cliente
-* Proteger o aplicativo usando Web Services Federation
+* Provisionar o aplicativo web em um locatário do cliente
+* Proteger o aplicativo usando o WS-Federation
 
 ###Pré-requisitos
 Os seguintes pré-requisitos de ambiente de desenvolvimento são necessários para esta explicação passo a passo:
@@ -40,8 +40,8 @@ Esta etapa descreve como criar um aplicativo PHP simples que representará um re
 
 1. Abra uma nova instância do Eclipse.
 2. No menu **Arquivo**, clique em **Novo** e, em seguida, clique em **Novo Projeto PHP...**. 
-3. Na caixa de diálogo **Novo Projeto PHP**, nomeie o projeto  *phpSample* e, em seguida, clique em **Concluir**.
-4. No menu **Gerenciador de PHP** à esquerda, clique com o botão direito do mouse em  *phpProject*, clique em **Novo** e, em seguida, clique em **Arquivo PHP**.
+3. Na caixa de diálogo **Novo Projeto PHP**, nomeie o projeto *phpSample* e, em seguida, clique em **Concluir**.
+4. No menu **Gerenciador de PHP** à esquerda, clique com o botão direito em *phpProject*, clique em **Novo** e, em seguida, clique em **Arquivo PHP**.
 5. Na caixa de diálogo **Novo Arquivo PHP**, nomeie o arquivo **index.php** e, em seguida, clique em **Concluir**.
 6. Substitua a marcação gerada pela seguinte e salve o **index.php**:
 
@@ -56,29 +56,29 @@ Esta etapa descreve como criar um aplicativo PHP simples que representará um re
 		</body>
 		</html> 
 
-7. Abra o **Gerenciador dos Serviços de Informações da Internet (IIS)** digitando  *inetmgr* no prompt Executar e pressione Enter.
+7. Abra o **Gerenciador dos Serviços de Informações da Internet (IIS)** digitando *inetmgr* no prompt Executar e pressione Enter.
 
 8. No Gerenciador do IIS, expanda a pasta **Sites** no menu à esquerda, clique com o botão direito em **Site Padrão** e clique em **Adicionar Aplicativo...**.
 
-9. Na caixa de diálogo **Adicionar Aplicativo**, defina o valor **Alias** como  *phpSample* e o **Caminho físico** para o caminho do arquivo onde você criou o projeto PHP.
+9. Na caixa de diálogo **Adicionar Aplicativo**, defina o valor **Alias** como *phpSample* e o **Caminho físico** para o caminho do arquivo onde você criou o projeto PHP.
 
 10. No Eclipse, no menu **Executar**, clique em **Executar**.
 
 11. No menu **Executar Aplicativo Web PHP**, clique em **OK**.
 
-12. A página **index.php** será aberta em uma nova guia no Eclipse. A página deve simplesmente exibir o texto:  *Página de Índice*. 
+12. A página **index.php** será aberta em uma nova guia. A página deve simplesmente exibir o texto: *Página de Índice*.
 
-## Etapa 2: Provisionar o aplicativo em um locatário do diretório da empresa
-Esta etapa descreve como um administrador de um cliente do Azure Active Directory provisiona o aplicativo PHP em seu locatário e configura o logon único. Após essa etapa ser realizada, os funcionários da empresa podem autenticar-se no aplicativo Web usando suas contas do Office 365.
+## Etapa 2: Provisionar o aplicativo em um inquilino do diretório da empresa
+Esta etapa descreve como um administrador de um cliente do Azure Active Directory provisiona o aplicativo PHP em seu locatário e configura o logon único. Após essa etapa ser realizada, os funcionários da empresa podem autenticar-se no aplicativo web usando suas contas do Office 365.
 
 O processo de provisionamento começa com a criação de uma nova Entidade de Serviço para o aplicativo. As Entidades de Serviço são usadas pelo Active Directory do Azure para registrar e autenticar aplicativos no diretório.
 
 1. Se ainda não tiver feito isso, baixe e instale os Commandlets do Office 365 PowerShell.
 2. No menu **Iniciar**, execute o console **Módulo do Active Directory do Azure para Windows PowerShell**. Esse console fornece um ambiente de linha de comando para configurar atributos sobre locatários do Office 365, como criar e modificar Entidades de Serviço.
-3. Para importar o módulo **MSOnlineExtended** necessário, digite o seguinte comando e pressione Enter:
+3. Para importar o módulo **MSOnlineExtended** requerido, digite o seguinte comando e pressione Enter:
 
 		Import-Module MSOnlineExtended -Force
-4. Para conectar-se a seu diretório do Office 365, você precisará fornecer as credenciais de administrador da empresa. Digite o seguinte comando e pressione Enter e, em seguida, digite suas credenciais no prompt:
+4. Para conectar-se a seu diretório do Office 365, você precisa fornecer as credenciais de administrador da empresa. Digite o seguinte comando e pressione Enter e, em seguida, digite suas credenciais no prompt:
 
 		Connect-MsolService
 5. Agora você criará uma nova Entidade de Serviço para o aplicativo. Digite o comando a seguir e pressione Enter:
@@ -98,23 +98,22 @@ Essa etapa retornará informações semelhantes às seguintes:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE] 
-> Você deve salvar essa saída, principalmente a chave simétrica gerada. Essa chave só é revelada a você durante a criação da Entidade de Serviço, e você não poderá recuperá-la no futuro. Os outros valores são necessários para usar a Graph API para ler e gravar informações no diretório.
+> [AZURE.NOTE]Você deve salvar essa saída, principalmente a chave simétrica gerada. Essa chave só é revelada a você durante a criação da Entidade de Serviço, e você não pode recuperá-la no futuro. Os outros valores são necessários para usar a Graph API para ler e gravar informações no diretório.
 
-6. A etapa final define a URL de resposta para o seu aplicativo. A URL de resposta é aonde as respostas são enviadas após tentativas de autenticação. Digite os comandos a seguir e pressione Enter:
+6. A etapa final define a URL de resposta para o seu aplicativo. A URL de resposta é onde as respostas são enviadas após tentativas de autenticação. Digite os comandos a seguir e pressione enter:
 
-		$replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost/phpSample" 
+		$replyUrl = New-MsolServicePrincipalAddresses –Address "https://localhost/phpSample" 
 
-		Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
+		Set-MsolServicePrincipal –AppPrincipalId "7829c758-2bef-43df-a685-717089474505" –Addresses $replyUrl 
 	
 O aplicativo Web agora foi provisionado no diretório e pode ser usado para o logon único da Web pelos funcionários da empresa.
 
-## Etapa 3: Proteger o aplicativo usando o WS-Federation para entrada de funcionários
+## Etapa 3: Proteger o aplicativo usando o Web Services Federation para entrada de funcionários
 Esta etapa mostra como adicionar suporte para logon federado usando o Windows Identity Foundation (WIF) e as bibliotecas simpleSAML.php baixadas com o código de exemplo nos pré-requisitos. Você também adicionará uma página de logon e configurará a relação de confiança entre o aplicativo e o locatário do diretório.
 
 1. No Eclipse, clique com o botão direito no projeto **phpSample**, clique em **Novo** e, em seguida, clique em **Arquivo**. 
 
-2. Na caixa de diálogo **Novo Arquivo**, nomeie o arquivo **federation.ini** e, em seguida, clique em **Concluir**.
+2. Na caixa de diálogo **Novo Arquivo PHP**, nomeie o arquivo **federation.ini** e, em seguida, clique em **Concluir**.
 
 3. No novo arquivo **federation.ini**, insira as informações a seguir fornecendo os valores com as informações que você salvou na Etapa 2 ao criar sua Entidade de Serviço:
 
@@ -126,9 +125,9 @@ Esta etapa mostra como adicionar suporte para logon federado usando o Windows Id
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE] Os valores **audienceuris** e **realm** devem ser precedidos por "spn:".
+	> [AZURE.NOTE]Os valores **audienceuris** e **realm** devem ser precedidos por "spn:".
 
-4. No Eclipse, clique com o botão direito no projeto **phpSample**, clique em **Novo** e, em seguida, clique em **Arquivo PHP**. 
+4. No Eclipse, clique com o botão direito no projeto **phpSample**, clique em **Novo** e, em seguida, clique em **Arquivo PHP**.
 
 5. Na caixa de diálogo **Novo Arquivo PHP**, nomeie o arquivo **secureResource.php** e, em seguida, clique em **Concluir**.
 
@@ -187,20 +186,20 @@ Esta etapa mostra como adicionar suporte para logon federado usando o Windows Id
 ## Resumo
 Este tutorial mostrou como criar e configurar um aplicativo PHP de locatário único que usa os recursos de logon único do Azure Active Directory.
 
-Um exemplo que mostra como usar o Active Directory do Azure e o logon único para PHP está disponível em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>
+Um exemplo que mostra como usar o Active Directory do Azure e o logon único para PHP está disponível em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
 
-[Etapa 1: Criar um aplicativo PHP]: #createapp
-[Etapa 2: Provisionar o aplicativo em um locatário do diretório da empresa]: #provisionapp
-[Etapa 3: Proteger o aplicativo usando o WS-Federation para entrada de funcionários]: #protectapp
-[Resumo]: #summary
-[Introdução]: #introduction
-[Desenvolvendo aplicativos multilocatários em nuvem com o Active Directory do Azure]: http://g.microsoftonline.com/0AX00en/121
-[SDK do Windows Identity Foundation 3.5]: http://www.microsoft.com/download/details.aspx?id=4451
-[Tempo de execução do Windows Identity Foundation 1.0]: http://www.microsoft.com/download/details.aspx?id=17331
+[Step 1: Create a PHP Application]: #createapp
+[Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
+[Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
+[Summary]: #summary
+[Introduction]: #introduction
+[Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
+[Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/download/details.aspx?id=4451
+[Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/download/details.aspx?id=17331
 [Cmdlets do PowerShell do Office 365]: http://msdn.microsoft.com/library/azure/jj151815.aspx
 [ASP.NET MVC 3]: http://www.microsoft.com/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
-[Código de exemplo de PHP para o Active Directory do Azure]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP 
+[Código de exemplo de PHP para o Active Directory do Azure]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
 
-<!--HONumber=47-->
+<!---HONumber=58-->

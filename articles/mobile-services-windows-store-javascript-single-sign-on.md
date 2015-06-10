@@ -33,7 +33,7 @@ Este tutorial exige o seguinte:
 
 ##Registrar seu aplicativo para usar a conta da Microsoft para autenticação
 
-Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deverá conectar esse registro ao seu serviço móvel. Conclua as etapas no tópico a seguir para criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel.
+Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas no tópico a seguir para criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel.
 
 + [Registrar seus aplicativos para usar um logon de conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md)
 
@@ -49,7 +49,7 @@ Por fim, você adiciona o Live SDK e o utiliza para autenticar usuários em seu 
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na solução e então clique em **Gerenciar pacotes NuGet**.
 
-2. No painel esquerdo, selecione a categoria **Online**, procure **LiveSDK**, clique em **Instalar** no pacote do **Live SDK** e aceite os contratos de licença.
+2. No painel esquerdo, selecione a categoria **Online**, procure **LiveSDK**, clique em **Instalar** no pacote **Live SDK**, selecione todos os projetos e aceite os contratos de licença.
 
   	Isso adiciona o Live SDK à solução.
 
@@ -144,4 +144,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=54-->
+<!---HONumber=58-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="O modelo do Gerenciador de Recursos de farm do SharePoint de alta disponibilidade" 
-	description="Percorra a estrutura do modelo do Gerenciador de Recursos do Azure para o farm do SharePoint de alta disponibilidade." 
+	pageTitle="O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores" 
+	description="Percorra a estrutura do modelo do Gerenciador de Recursos do Azure para o farm do SharePoint de três servidores." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -16,9 +16,19 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# O modelo do Gerenciador de Recursos de farm do SharePoint de alta disponibilidade
+# O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores
 
-Este tópico o orienta quanto à estrutura do arquivo de modelo azuredeploy.json para o farm do SharePoint de alta disponibilidade.
+Este tópico orienta você quanto à estrutura do arquivo de modelo azuredeploy.json para o farm do SharePoint de três servidores. Você pode ver o conteúdo do modelo em seu navegador clicando [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
+
+Se preferir, para examinar uma cópia local do arquivo azuredeploy.json, designe uma pasta local para criar o arquivo (por exemplo, C:\Azure\Templates\SharePointFarm). Preencha o nome da pasta e execute esses comandos no prompt de comando do PowerShell do Azure.
+
+	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
+	$webclient = New-Object System.Net.WebClient
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$filePath = $folderName + "\azuredeploy.json"
+	$webclient.DownloadFile($url,$filePath)
+
+Abra o modelo azuredeploy.json em um editor de texto ou na ferramenta de sua escolha. O exemplo a seguir descreve a estrutura do arquivo de modelo e a finalidade de cada seção.
 
 ## Seção "parâmetros"
 
@@ -43,14 +53,16 @@ A seção "parâmetros" especifica os parâmetros que são usados para inserir d
 
 A seção "variáveis" especifica variáveis que podem ser usadas em todo esse modelo. Podem ser definidas no máximo 100 variáveis. Estes são alguns exemplos:
 
-	"RDPNAT":"RDP", 
-	"spWebLB":"spWeb", 
-	"SQLAOListener":"SQLAlwaysOnEndPointListener", 
-	"SQLAOProbe":"SQLAlwaysOnEndPointProbe", 
-	"staticSubnetName": "staticSubnet", 
-	"sqlSubnetName": "sqlSubnet", 
-	"spwebSubnetName": "spwebSubnet", 
-	"spappSubnetName": "spappSubnet", 
+	"LBFE": "LBFE",
+	"LBBE": "LBBE",
+	"RDPNAT": "RDP",
+	"spWebNAT": "spWeb",
+	"adSubnetName": "adSubnet",
+	"sqlSubnetName": "sqlSubnet",
+	"spSubnetName": "spSubnet",
+	"adNicName": "adNic",
+	"sqlNicName": "sqlNic",
+	"spNicName": "spNic",
 
 ## Seção "recursos"
 
@@ -65,7 +77,7 @@ Essa seção cria uma nova conta de armazenamento para todos os recursos de disc
 	{
 	  "type": "Microsoft.Storage/storageAccounts",
 	  "name": "[parameters('newStorageAccountName')]",
-	  "apiVersion": "2014-12-01-preview",
+	  "apiVersion": "2015-05-01-preview",
 	  "location": "[parameters('deploymentLocation')]",
 	  "properties": {
 		"accountType": "[parameters('storageAccountType')]"
@@ -77,7 +89,7 @@ Essa seção cria uma nova conta de armazenamento para todos os recursos de disc
 Essas seções criam um conjunto de endereços IP públicos por meio dos quais cada máquina virtual pode ser conectada através da Internet. Aqui está um exemplo:
 
 	{
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"type": "Microsoft.Network/publicIPAddresses",
 		"name": "[variables('adpublicIPAddressName')]",
 		"location": "[parameters('deploymentLocation')]",
@@ -91,35 +103,34 @@ Essas seções criam um conjunto de endereços IP públicos por meio dos quais c
 
 ### Microsoft.Compute/availabilitySets
 
-Essas seções criam quatro conjuntos de disponibilidade, um para cada camada da implantação:
+Essas seções criam três conjuntos de disponibilidade, um para cada camada da implantação:
 
 - Controladores de domínio do Active Directory
 - Cluster do SQL Server
-- Servidores da camada de aplicativo
-- Servidores da camada da Web
+- Servidores SharePoint
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 	{
 		"type": "Microsoft.Compute/availabilitySets",
 		"name": "[variables('spAvailabilitySetName')]",
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"location": "[parameters('deploymentLocation')]"
 	},
 
 ### Microsoft.Network/virtualNetworks
 
-Essa seção cria uma rede virtual somente em nuvem com quatro sub-redes (um para cada camada da implantação), em que as máquinas virtuais são colocadas. Aqui está o código JSON:
+Essa seção cria uma rede virtual somente em nuvem com três sub-redes (um para cada camada da implantação), em que as máquinas virtuais são colocadas. Aqui está o código JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
 		"type": "Microsoft.Network/virtualNetworks",
 		"location": "[parameters('deploymentLocation')]",
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"properties": {
 			"addressSpace": {
 			"addressPrefixes": [
-				"[parameters('virtualNetworkPrefix')]"
+				"[parameters('virtualNetworkAddressRange')]"
 			]
 			},
 			"subnets": "[variables('subnets')]"
@@ -127,93 +138,90 @@ Essa seção cria uma rede virtual somente em nuvem com quatro sub-redes (um par
 	},
 
 
-
 ### Microsoft.Network/loadBalancers
 
-Essas seções criam instâncias do balanceador de carga para cada máquina virtual para fornecer filtragem de tráfego e NAT para o tráfego de entrada da Internet. Para cada balanceador de carga, as configurações definem regras de NAT de entrada, back-end e front-end. Por exemplo, há regras de tráfego de Área de Trabalho Remota para cada máquina virtual e uma regra para permitir o tráfego da Web de entrada (porta TCP 80) da Internet para os servidores da camada de Web. Aqui está um exemplo para o servidor da camada da Web:
+Essas seções criam instâncias do balanceador de carga para cada máquina virtual para fornecer filtragem de tráfego e NAT para o tráfego de entrada da Internet. Para cada balanceador de carga, as configurações definem regras de NAT de entrada, back-end e front-end. Por exemplo, há regras de tráfego de Área de Trabalho Remota para cada máquina virtual e, para o servidor do SharePoint, uma regra para permitir o tráfego da Web de entrada (porta TCP 80) da Internet. Aqui está o exemplo do servidor do SharePoint:
 
-        {
-            "apiVersion": "2014-12-01-preview",
-            "name": "[variables('splbName')]",
-            "type": "Microsoft.Network/loadBalancers",
-            "location": "[parameters('deploymentLocation')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses',variables('spIPAddressName'))]"
-            ],
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "[variables('spLBFE')]",
-                        "properties": {
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('spIPAddressName'))]"
-                            },
-                        }
-                    }
-                ],
-                "backendAddressPools": [
-                    {
-                        "name": "[variables('spWebLBBE')]"
-                    }
-                ],
-                "loadBalancingRules": [
-                    {
-                        "name": "[variables('spWebLB')]",
-                        "properties": {
-                        "frontendIPConfiguration": {
-                            "id": "[variables('splbFEConfigID')]"
-                        },
-                        "probe": {
-                            "id": "[variables('spwebProbeID')]"
-                        },
-                        "protocol": "tcp",
-                        "frontendPort": 80,
-                        "backendPort": 80,
-                        "enableFloatingIP": false
-                        }
-                    }
-                ],
-                "probes": [
-                    {
-                        "name": "[variables('spWebProbe')]",
-                        "properties": {
-                            "protocol": "http",
-                            "port": "[variables('spWebProbePort')]",
-                            "intervalInSeconds": "15",
-                            "numberOfProbes": "5",
-                            "requestPath":"/"
-                        }
-                    }
-                ]
-            }
-        },
+
+	{
+		"apiVersion": "2015-05-01-preview",
+		"name": "[variables('spLBName')]",
+		"type": "Microsoft.Network/loadBalancers",
+		"location": "[parameters('deploymentLocation')]",
+		"dependsOn": [
+			"[resourceId('Microsoft.Network/publicIPAddresses',variables('sppublicIPAddressName'))]"
+		],
+		"properties": {
+			"frontendIPConfigurations": [
+				{
+					"name": "[variables('LBFE')]",
+					"properties": {
+						"publicIPAddress": {
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('sppublicIPAddressName'))]"
+						}
+					}
+				}
+			],
+			"backendAddressPools": [
+				{
+					"name": "[variables('LBBE')]"
+				}
+			],
+			"inboundNatRules": [
+				{
+					"name": "[variables('RDPNAT')]",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('splbFEConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPort": "[parameters('RDPPort')]",
+						"backendPort": 3389,
+						"enableFloatingIP": false
+					}
+				},
+				{
+					"name": "[variables('spWebNAT')]",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('splbFEConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPort": 80,
+						"backendPort": 80,
+						"enableFloatingIP": false
+					}
+				}
+			]
+		}
+	},
 
 ### Microsoft.Network/networkInterfaces
 
-Essas seções criam uma interface de rede para cada máquina virtual e configuram endereços IP estáticos para os controladores de domínio. Aqui está o exemplo da interface de rede para o controlador de domínio primário:
+Essas seções criam uma interface de rede para cada máquina virtual e configuram um endereço IP estático para o controlador de domínio. Aqui está o exemplo da interface de rede do controlador de domínio:
 
 	{
-		"name": "[variables('adPDCNicName')]",
+		"name": "[variables('adNicName')]",
 		"type": "Microsoft.Network/networkInterfaces",
 		"location": "[parameters('deploymentLocation')]",
 		"dependsOn": [
 			"[parameters('virtualNetworkName')]",
-			"[concat('Microsoft.Network/loadBalancers/',variables('rdpLBName'))]"
+			"[concat('Microsoft.Network/loadBalancers/',variables('adlbName'))]"
 		],
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"properties": {
 			"ipConfigurations": [
 				{
 					"name": "ipconfig1",
 					"properties": {
 						"privateIPAllocationMethod": "Static",
-						"privateIPAddress" :"[parameters('adPDCNicIPAddress')]",
+						"privateIPAddress": "[parameters('adNicIPAddress')]",
 						"subnet": {
-							"id": "[variables('staticSubnetRef')]"
+							"id": "[variables('adSubnetRef')]"
 						},
 						"loadBalancerBackendAddressPools": [
 							{
-								"id":"[variables('adBEAddressPoolID')]"
+								"id": "[variables('adBEAddressPoolID')]"
 							}
 						],
 						"loadBalancerInboundNatRules": [
@@ -230,121 +238,126 @@ Essas seções criam uma interface de rede para cada máquina virtual e configur
 
 ### Microsoft.Compute/virtualMachines
 
-Essas seções criam e configuram as nove máquinas virtuais na implantação.
+Essas seções criam e configuram as três máquinas virtuais na implantação.
 
-As duas primeiras seções principais criam e configuram os controladores de domínio na implantação. Cada seção:
+A primeira seção cria e configura o controlador de domínio que:
 
-- Especifica a conta de armazenamento, o conjunto de disponibilidade, a interface de rede e a instância do balanceador de carga para cada máquina virtual do controlador de domínio
-- Adiciona um disco extra a cada máquina virtual do controlador de domínio
-- Executa o script do PowerShell para configurar as máquinas virtuais como controladores de domínio
+- Especifica a conta de armazenamento, o conjunto de disponibilidade, a interface de rede e a instância do balanceador de carga
+- Adiciona mais um disco
+- Executa um script do PowerShell para configurar o controlador de domínio
 
-Aqui está o exemplo para o controlador de domínio primário:
+Aqui está o código JSON:
 
-        {
-            "apiVersion": "2014-12-01-preview",
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[variables('adPDCVMName')]",
-            "location": "[parameters('deploymentLocation')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts',parameters('newStorageAccountName'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces',variables('adPDCNicName'))]",
-                "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers',variables('rdpLBName'))]"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "[parameters('adVMSize')]"
-                },
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]"
-                },
-                "osProfile": {
-                    "computername": "[variables('adPDCVMName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]",
-                    "windowsProfile": {
-                        "provisionVMAgent": "true"
-                    }
-                },
-                "storageProfile": {
-                    "sourceImage": {
-                        "id": "[variables('adSourceImageName')]"
-                    },
-                    "destinationVhdsContainer": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/')]",
-                    "dataDisks": [
-                        {
-                            "vhd": {
-                                "uri":"[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/', variables('adPDCVMName'),'data-1.vhd')]"
-                                },
-                            "name":"[concat(variables('adPDCVMName'),'-data-disk1')]",
-                            "caching" : "None",
-                            "diskSizeGB": "[variables('adDataDiskSize')]",
-                            "lun": 0
-                        }
-                    ]
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('adPDCNicName'))]"
-                        }
-                    ]
-                }
-            },
-            "resources" :[
-                {
-                    "type": "Microsoft.Compute/virtualMachines/extensions",
-                    "name": "[concat(variables('adPDCVMName'),'/InstallDomainController')]",
-                    "apiVersion": "2014-12-01-preview",
-                    "location": "[parameters('deploymentLocation')]",
-                    "dependsOn":[
-                        "[resourceId('Microsoft.Compute/virtualMachines', variables('adPDCVMName'))]"
-                    ],
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "1.7",
-                        "settings": {
-                            "ModulesUrl": "[variables('adPDCModulesURL')]",
-                            "ConfigurationFunction": "[variables('adPDCConfigurationFunction')]",
-                            "Properties": {
-                                "DomainName": "[parameters('domainName')]",
-                                "AdminCreds":{
-                                    "UserName": "[parameters('adminUserName')]",
-                                    "Password": "PrivateSettingsRef:AdminPassword"
-                                }
-                            }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                "AdminPassword": "[parameters('adminPassword')]"
-                            }
-                        }
-                    }
-                }
-            ]
-        },
+		{
+			"apiVersion": "2015-05-01-preview",
+			"type": "Microsoft.Compute/virtualMachines",
+			"name": "[parameters('adVMName')]",
+			"location": "[parameters('deploymentLocation')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Storage/storageAccounts',parameters('newStorageAccountName'))]",
+				"[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]",
+				"[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]",
+				"[resourceId('Microsoft.Network/loadBalancers',variables('adlbName'))]"
+			],
+			"properties": {
+				"hardwareProfile": {
+					"vmSize": "[parameters('adVMSize')]"
+				},
+				"availabilitySet": {
+					"id": "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]"
+				},
+				"osProfile": {
+					"computername": "[parameters('adVMName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"storageProfile": {
+					"imageReference": {
+						"publisher": "[parameters('adImagePublisher')]",
+						"offer": "[parameters('adImageOffer')]",
+						"sku": "[parameters('adImageSKU')]",
+						"version": "latest"
+					},
+					"osDisk": {
+						"name": "osdisk",
+						"vhd": {
+							"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/',parameters('adVMName'),'-osdisk.vhd')]"
+						},
+						"caching": "ReadWrite",
+						"createOption": "FromImage"
+					},
+					"dataDisks": [
+						{
+							"vhd": {
+								"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/', variables('adDataDisk'),'-1.vhd')]"
+							},
+							"name": "[concat(parameters('adVMName'),'-data-disk1')]",
+							"caching": "None",
+							"createOption": "empty",
+							"diskSizeGB": "[variables('adDataDiskSize')]",
+							"lun": 0
+						}
+					]
+				},
+				"networkProfile": {
+					"networkInterfaces": [
+						{
+							"id": "[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]"
+						}
+					]
+				}
+			},
+			"resources": [
+				{
+					"type": "Microsoft.Compute/virtualMachines/extensions",
+					"name": "[concat(parameters('adVMName'),'/InstallDomainController')]",
+					"apiVersion": "2015-05-01-preview",
+					"location": "[parameters('deploymentLocation')]",
+					"dependsOn": [
+						"[resourceId('Microsoft.Compute/virtualMachines', parameters('adVMName'))]"
+					],
+					"properties": {
+						"publisher": "Microsoft.Powershell",
+						"type": "DSC",
+						"typeHandlerVersion": "1.7",
+						"settings": {
+							"ModulesUrl": "[variables('adModulesURL')]",
+							"ConfigurationFunction": "[variables('adConfigurationFunction')]",
+							"Properties": {
+								"DomainName": "[parameters('domainName')]",
+								"AdminCreds": {
+									"UserName": "[parameters('adminUserName')]",
+									"Password": "PrivateSettingsRef:AdminPassword"
+								}
+							}
+						},
+						"protectedSettings": {
+							"Items": {
+								"AdminPassword": "[parameters('adminPassword')]"
+							}
+						}
+					}
+				}
+			]
+		},
 
+Uma seção adicional para o controlador de domínio iniciando com **"nome": "UpdateVNetDNS"** configura o servidor DNS da rede virtual para usar o endereço IP do controlador de domínio.
 
-Uma seção adicional após cada controlador de domínio começando com **"nome": "UpdateVNetDNS"** configura os servidores DNS da rede virtual para usar os endereços IP estáticos dos dois controladores de domínio.
+A próxima seção **"tipo": "Microsoft.Compute/virtualMachines"** cria máquinas virtuais do SQL Server na implantação e:
 
-As próximas três seções **"tipo": "Microsoft.Compute/virtualMachines"** criam as máquinas virtuais do cluster do SQL Server na implantação. Cada seção:
+- Especifica a conta de armazenamento, o conjunto de disponibilidade, o balanceador de carga, a rede virtual e a interface de rede
+- Adiciona mais um disco
 
-- Especifica a conta de armazenamento, o conjunto de disponibilidade, o balanceador de carga, a rede virtual e a interface de rede para cada máquina virtual
-- Adiciona dois discos extras para cada SQL Server
+Seções adicionais **"Microsoft.Compute/virtualMachines/extensions"** chamam o script do PowerShell para configurar o SQL Server.
 
-Seções adicionais **"Microsoft.Compute/virtualMachines/extensions"** chamam o script do PowerShell para configurar as máquinas virtuais do cluster do SQL Server e o cluster do SQL Server e habilitar Grupos de Disponibilidade do AlwaysOn.
-
-As próximas quatro seções **"tipo": "Microsoft.Compute/virtualMachines"** criam as máquinas virtuais do farm do SharePoint na implantação. Cada seção especifica a conta de armazenamento, o conjunto de disponibilidade, o balanceador de carga, a rede virtual e a interface de rede para cada máquina virtual.
-
-Seções adicionais **"Microsoft.Compute/virtualMachines/extensions"** chamam scripts do PowerShell para configurar os servidores do SharePoint como um farm do SharePoint.
+A próxima seção **"tipo": "Microsoft.Compute/virtualMachines"** cria a máquina virtual do SharePoint na implantação, especificando a conta de armazenamento, o conjunto de disponibilidade, o balanceador de carga, a rede virtual e a interface de rede. Uma outra seção **"Microsoft.Compute/virtualMachines/extensions"** chama um script do PowerShell para configurar o farm do SharePoint.
 
 Observe a organização geral das subseções da seção **"recursos"** do arquivo JSON:
 
 1.	Crie os elementos da infraestrutura do Azure que são necessários para dar suporte a várias máquinas virtuais (uma conta de armazenamento, endereços IP públicos, conjuntos de disponibilidade, uma rede virtual, interfaces de rede, instâncias de balanceador de carga).
-2.	Crie as máquinas virtuais do controlador de domínio, que usam com os elementos comuns e específicos criados anteriormente de infraestrutura do Azure, adicione discos de dados e execute scripts do PowerShell. Além disso, atualize a rede virtual para usar os endereços IP estáticos dos controladores de domínio.
-3.	Crie as máquinas virtuais do cluster do SQL Server, que usam com os elementos comuns e específicos criados anteriormente da infraestrutura do Azure criados para os controladores de domínio, adicione discos de dados e execute scripts do PowerShell para configurar o cluster e os Grupos de Disponibilidade do AlwaysOn do SQL Server.
-4.	Crie as máquinas virtuais de servidor do SharePoint que usam os elementos comuns e específicos criados anteriormente da infraestrutura do Azure, adicione discos de dados e execute scripts do PowerShell para configurar o farm do SharePoint.
+2.	Crie a máquina virtual do controlador de domínio, que usa elementos comuns e específicos criados anteriormente de infraestrutura do Azure, adiciona um disco de dados e executa um script do PowerShell. Além disso, atualize a rede virtual para usar o endereço IP estático do controlador de domínio.
+3.	Crie a máquina virtual do SQL Server, que usa elementos comuns criados anteriormente e elementos específicos da infraestrutura do Azure criados para o controlador de domínio, adiciona discos de dados e executa um script do PowerShell para configurar o SQL Server.
+4.	Crie a máquina virtual de servidor SharePoint, que usa elementos comuns criados anteriormente e elementos específicos da infraestrutura do Azure e executa um script do PowerShell para configurar o farm do SharePoint.
 
 Seu próprio modelo JSON para criar uma infraestrutura de várias camadas no Azure deve seguir as mesmas etapas:
 
@@ -352,7 +365,6 @@ Seu próprio modelo JSON para criar uma infraestrutura de várias camadas no Azu
 2.	Para cada camada em seu aplicativo (por exemplo, autenticação, banco de dados, Web), crie e configure os servidores nessa camada usando os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjunto de disponibilidade) e específicos da máquina virtual (endereços IP públicos, interfaces de rede, instâncias do balanceador de carga).
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
-
 
 ## Recursos adicionais
 
@@ -364,5 +376,4 @@ Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de R
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->

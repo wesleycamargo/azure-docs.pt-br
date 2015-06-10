@@ -1,19 +1,8 @@
-<properties services="virtual-machines" title="Setting up PowerShell for Resource Manager templates" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="infrastructure"
-   ms.date="04/27/2015"
-   ms.author="josephd" />
-
 ## Configurando o PowerShell para modelos do Gerenciador de recursos
-
+ 
 Antes de poder usar o Azure PowerShell com o Gerenciador de Recursos, você precisará ter as versões corretas do Windows PowerShell e do Azure PowerShell.
 
-### Etapa 1: verificar as versões do PowerShell
+### Verificar as versões do PowerShell
 
 Verifique se você tem o Windows PowerShell versão 3.0 ou 4.0. Para localizar a versão do Windows PowerShell, digite este comando no prompt de comando do Windows PowerShell.
 
@@ -48,7 +37,7 @@ Você receberá o seguinte tipo de informações:
 
 Se você não tiver a 0.9.0 ou posterior, deve remover o Azure PowerShell usando o Painel de Controle de Programas e Recursos e, em seguida, instalar a versão mais recente. Consulte [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](powershell-install-configure.md) para obter mais informações.
 
-### Etapa 2: definir sua conta e assinatura do Azure
+### Definir sua conta e assinatura do Azure
 
 Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -76,11 +65,11 @@ Você receberá o seguinte tipo de informações:
 Você pode definir a assinatura do Azure atual ao executar estes comandos no prompt de comando do Azure PowerShell. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelo nome correto.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current	
+	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription (Como: conectar-se à sua assinatura)](powershell-install-configure.md#Connect).
 
-### Etapa 3: alternar para o módulo Gerenciador de Recursos do Azure
+### Alternar para o módulo Gerenciador de Recursos do Azure
 
 Para usar o módulo Gerenciador de Recursos do Azure, você precisa alternar do conjunto de comandos padrão do Azure para o conjunto de comandos do Gerenciador de Recursos do Azure. Execute este comando.
 
@@ -88,5 +77,4 @@ Para usar o módulo Gerenciador de Recursos do Azure, você precisa alternar do 
 
 > [AZURE.NOTE]Você pode alternar de volta para o conjunto de comandos padrão com o comando **Switch-AzureMode AzureServiceManagement**.
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->

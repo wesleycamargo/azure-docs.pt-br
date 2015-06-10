@@ -9,10 +9,10 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição (**+**).
 
-   ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   Isso envia uma solicitação de POST para o novo aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo aplicativo móvel e os dados são exibidos na lista.
+   	Isso envia uma solicitação de POST para o novo aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo aplicativo móvel e os dados são exibidos na lista.
 
  	</div>
 
-<!--HONumber=49-->
+<!---HONumber=58-->

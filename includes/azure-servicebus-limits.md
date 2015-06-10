@@ -1,7 +1,7 @@
-﻿Para obter os limites do Barramento de Serviço, consulte o seguinte tópico:
+Para obter os limites do Barramento de Serviço, consulte o seguinte tópico:
 
- - [Cotas do Barramento de Serviço][servicebusquotas]
+ - [Cotas do barramento de serviço][servicebusquotas]
 
-  [servicebusquotas]: http://msdn.microsoft.com/library/azure/ee732538.aspx
+[servicebusquotas]: http://msdn.microsoft.com/library/azure/ee732538.aspx
 
-<!--HONumber=47-->
+<!---HONumber=58-->
