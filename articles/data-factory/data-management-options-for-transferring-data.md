@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Opções para transferir dados armazenados para a nuvem | Azure" 
 	description="Diretrizes para escolher a melhor opção para transferir dados de locais que não fontes de nuvem para o Microsoft Azure para análise avançada." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
-	ms.date="1/7/2014" 
+	ms.date="01/07/2014" 
 	ms.author="cgronlun"/>
 
 # Opções para transferir dados armazenados na nuvem do Azure
