@@ -25,7 +25,7 @@
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
-> [AZURE.NOTE]Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para Sites, consulte [Configurando um certificado SSL para um site do Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para Sites, consulte [Configurando um certificado SSL para um site do Azure](app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
 

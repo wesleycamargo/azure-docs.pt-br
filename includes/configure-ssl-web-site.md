@@ -444,7 +444,7 @@ Nesse momento, você poderá visitar o seu site usando `HTTPS://` em vez de `HTT
 
 O Serviço de Aplicativo do Azure *not* impõe HTTPS. Os visitantes ainda podem acessar seu aplicativo Web usando HTTP, o que pode comprometer a segurança desse aplicativo. Se você deseja impor HTTPS para seu aplicativo Web, você pode usar o módulo **Reescrita de URL**. O Módulo de Reescrita de URL está incluído no Serviço de Aplicativo do Azure e permite definir regras aplicadas a solicitações recebidas antes das solicitações serem repassadas ao aplicativo. **Ele pode ser usado em aplicativos escritos em qualquer linguagem de programação compatível com o Azure.** 
 
-> [AZURE.NOTE] Os aplicativos MVC do .NET devem usar o filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) em vez da Reescrita de URL. Para obter mais informações sobre como usar RequireHttps, consulte [Implantar um aplicativo MVC 5 do ASP.NET em um aplicativo Web](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+> [AZURE.NOTE] Os aplicativos MVC do .NET devem usar o filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) em vez da Reescrita de URL. Para obter mais informações sobre como usar RequireHttps, consulte [Implantar um aplicativo MVC 5 do ASP.NET em um aplicativo Web](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > Para obter informações sobre o redirecionamento programático de solicitações usando outras linguagens de programação, consulte a documentação dessas tecnologias.
 
@@ -512,8 +512,8 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 ## Mais recursos ##
 - [Central de confiabilidade do Microsoft Azure](/support/trust-center/security/)
 - [Opções de configuração desbloqueadas nos Sites do Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Habilitar registro em log de diagnóstico](../articles/web-sites-enable-diagnostic-log.md)
-- [Configurando Sites](../articles/web-sites-configure.md)
+- [Habilitar registro em log de diagnóstico](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Configurando Sites](../article/app-service-web/web-sites-configure.md)
 - [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
@@ -522,7 +522,7 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 * Para obter um guia para a mudança de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia para a mudança do portal antigo para o novo portal, consulte: [Referência para navegação no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

@@ -430,9 +430,9 @@ para saber como fazer tarefas mais complexas de armazenamento.
   [Serviço de Nuvem do Node.js]: cloud-services-nodejs-develop-deploy-app.md
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Visite o Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Site com WebMatrix]: web-sites-nodejs-use-webmatrix.md
+  [Site com WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
   [Serviço de Nuvem do Node.js com Armazenamento]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicativo Web Node.js com Armazenamento]: storage-nodejs-use-table-storage-web-site.md
-  [Criar e implantar um aplicativo do Node.js em um Site do Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Aplicativo Web Node.js com Armazenamento]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+  [Criar e implantar um aplicativo do Node.js em um Site do Azure]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
 
 <!--HONumber=49-->

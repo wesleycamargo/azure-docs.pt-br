@@ -73,8 +73,8 @@ Quando for solicitado que você faça logon, use as credenciais de sua conta do 
 
 * [Receber notificações de alerta](insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas cruzarem um limite. 
 
-* Usar [Application Insights para páginas da Web e aplicativos JavaScript](app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da web. 
+* Usar [Application Insights para páginas da Web e aplicativos JavaScript](application-insights/app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da web. 
 
-* [Monitorar a disponibilidade e capacidade de resposta de qualquer página da Web](app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
+* [Monitorar a disponibilidade e capacidade de resposta de qualquer página da Web](application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 
 <!--HONumber=54-->

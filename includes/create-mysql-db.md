@@ -77,6 +77,6 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 [waws]: /documentation/services/web-sites/
 [Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../articles/web-sites-configure.md
+[configure]: ../article/app-service-web/web-sites-configure.md
 
 <!--HONumber=52-->

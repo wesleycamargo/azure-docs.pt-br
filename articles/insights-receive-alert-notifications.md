@@ -57,7 +57,7 @@ Depois de criar uma regra de alerta, você pode exibir uma visualização de seu
 
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Ative o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
-* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 * [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.

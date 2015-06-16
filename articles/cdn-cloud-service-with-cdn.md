@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integrar um serviço de nuvem à CDN do Azure" 
 	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado" 
 	services="cdn, cloud-services" 
@@ -625,7 +625,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 # Mais informações #
 - [Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Fornecer conteúdo da CDN do Azure em seu aplicativo Web](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrar um site do Azure à CDN do Azure](cdn-websites-with-cdn.md)
+- [Integrar um site do Azure à CDN do Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Usando a CDN para Azure](cdn-how-to-use.md)
 

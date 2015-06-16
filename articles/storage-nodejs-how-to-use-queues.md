@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure" 
 	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js." 
 	services="storage" 
@@ -335,9 +335,9 @@ para obter informações sobre tarefas de armazenamento mais complexas.
   [SDK de Armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node
   [usando a API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-  [Criar e implantar um aplicativo do Node.js em um Site do Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Criar e implantar um aplicativo do Node.js em um Site do Azure]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Serviço de Nuvem do Node.js com Armazenamento]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicativo Web Node.js com Armazenamento]: storage-nodejs-use-table-storage-web-site.md
+  [Aplicativo Web Node.js com Armazenamento]: app-service-web/storage-nodejs-use-table-storage-web-site.md
 
   
   [Fila1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -349,6 +349,6 @@ para obter informações sobre tarefas de armazenamento mais complexas.
   [Serviço de Nuvem do Node.js]: cloud-services-nodejs-develop-deploy-app.md
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Site com WebMatrix]: web-sites-nodejs-use-webmatrix.md
+ [Site com WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 
 <!--HONumber=49-->
