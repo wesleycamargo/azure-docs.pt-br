@@ -254,7 +254,7 @@ No seu ambiente de desenvolvimento, use as etapas a seguir para executar a topol
 
 ### Publique o painel do site.
 
-1. Para implantá-lo em um site do Azure, siga as etapas em [Criar e implantar um site do Node.js no Azure](web-sites-nodejs-develop-deploy-mac.md). Anote a URL do site, que será semelhante a **mywebsite.azurewebsites.net**.
+1. Para implantá-lo em um site do Azure, siga as etapas em [Criar e implantar um site do Node.js no Azure](app-service-web/web-sites-nodejs-develop-deploy-mac.md). Anote a URL do site, que será semelhante a **mywebsite.azurewebsites.net**.
 
 2. Quando o site for criado, vá para o site no Portal do Azure e selecione a guia **Configurar**. Habilite o **Web Sockets** e clique em **Salvar** na parte inferior da página.
 

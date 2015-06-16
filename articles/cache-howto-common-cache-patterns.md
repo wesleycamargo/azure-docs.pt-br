@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Padrões de cache comuns com o Cache Redis do Azure" 
    description="Saiba onde e por que usar o Cache Redis do Azure" 
    services="redis-cache" 
@@ -35,7 +35,7 @@ Para saber mais sobre como usar o Cache Redis do Azure:
  
 - [Documentos do Cache Redis do Azure ](http://azure.microsoft.com/documentation/services/cache/): Essa página fornece vários links práticos para usar o cache Redis do Azure.
 - [Aplicativo de filme MVC com o Cache Redis do Azure em 15 minutos](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): A postagem do blog fornece um início rápido para usar o cache Redis do Azure em um aplicativo ASP.NET MVC.
-- [Como usar o Estado de Sessão ASP.NET com Sites do Azure](web-sites-dotnet-session-state-caching.md): Este tópico explica como usar o Serviço de Cache Redis do Azure para o estado de sessão.
+- [Como usar o Estado de Sessão ASP.NET com Sites do Azure](app-service-web/web-sites-dotnet-session-state-caching.md): Este tópico explica como usar o Serviço de Cache Redis do Azure para o estado de sessão.
 
 
 

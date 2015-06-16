@@ -64,7 +64,7 @@ Observando as caixas verdes no diagrama anterior, você verá que a solução Wh
 
 - [Pesquisa do Azure](http://azure.microsoft.com/services/search/)
 - [Sites do Azure usando MVC 4](http://azure.microsoft.com/services/websites/)
-- [Trabalhos Web do Azure para tarefas agendadas](websites-webjobs-resources.md)
+- [Trabalhos Web do Azure para tarefas agendadas](app-service-web/websites-webjobs-resources.md)
 - [Banco de Dados SQL do Azure](http://azure.microsoft.com/services/sql-database/)
 - [Armazenamento de BLOB do Azure](http://azure.microsoft.com/services/storage/)
 - [Entrega de email SendGrid](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->

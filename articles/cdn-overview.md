@@ -51,7 +51,7 @@ Quando você habilita o acesso à CDN para uma conta de armazenamento, o Portal 
 
 ##Armazenando em cache o conteúdo dos sites do Azure
 
-Você pode habilitar a CDN de seus sites para armazenar em cache o conteúdo da Web, como imagens, scripts e folhas de estilo. Consulte [Integrar um site do Azure à CDN do Azure](cdn-websites-with-cdn.md).
+Você pode habilitar a CDN de seus sites para armazenar em cache o conteúdo da Web, como imagens, scripts e folhas de estilo. Consulte [Integrar um site do Azure à CDN do Azure](app-service-web/cdn-websites-with-cdn.md).
 
 Quando você habilita o acesso à CDN para um site, o Portal de Gerenciamento fornece um nome de domínio da CDN no seguinte formato: http://<identificador>.vo.msecnd.net/. Esse nome de domínio pode ser usado para recuperar objetos de um site. Por exemplo, com um contêiner público chamado cdn e um arquivo de imagem chamado music.png, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
 

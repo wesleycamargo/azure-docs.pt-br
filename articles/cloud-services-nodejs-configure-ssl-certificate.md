@@ -23,7 +23,7 @@
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para um aplicativo Node.js como um Serviço de Nuvem do Azure em uma função web e como carregar um certificado SSL para proteger seu aplicativo.
 
-> [AZURE.NOTE]As etapas deste artigo se aplicam somente aos aplicativos de nó hospedados como um Serviço de Nuvem do Azure em uma função web. Para Sites da Web, consulte [Configurando um certificado SSL para um site do Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]As etapas deste artigo se aplicam somente aos aplicativos de nó hospedados como um Serviço de Nuvem do Azure em uma função web. Para Sites da Web, consulte [Configurando um certificado SSL para um site do Azure](app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarefa inclui as seguintes etapas:
 

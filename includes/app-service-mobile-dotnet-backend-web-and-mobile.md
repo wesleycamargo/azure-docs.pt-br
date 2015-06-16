@@ -77,6 +77,6 @@ Neste exemplo, mostramos como usar o mesmo banco de dados subjacente para um apl
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[Criar um aplicativo móvel]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Criar um aplicativo móvel]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 <!--HONumber=49-->

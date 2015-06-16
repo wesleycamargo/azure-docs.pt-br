@@ -49,7 +49,7 @@ Você também precisará de um computador local que conectará ao Azure usando C
 
 Para usar um banco de dados local SQL Server ou SQL Server Express com uma conexão híbrida, o TCP/IP precisa ser habilitado em uma porta estática. As instâncias padrão no SQL Server usam a porta estática 1433, ao passo que instâncias nomeadas não.
 
-Para obter instruções detalhadas sobre como configurar o SQL Server para que atenda às condições descritas acima, consulte [Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local](web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). Se você já tiver o SQL Server instalado em uma configuração e em um ambiente que atenda às condições descritas acima, é possível avançar e iniciar com [Criar um banco de dados SQL Server local](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB).
+Para obter instruções detalhadas sobre como configurar o SQL Server para que atenda às condições descritas acima, consulte [Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). Se você já tiver o SQL Server instalado em uma configuração e em um ambiente que atenda às condições descritas acima, é possível avançar e iniciar com [Criar um banco de dados SQL Server local](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB).
 
 Para os fins deste tutorial, presumiremos que o nome do banco de dados seja **OnPremisesDB**, ele está em execução na porta **1433** e que o nome do host do computador seja **onPremisesServer**.
 

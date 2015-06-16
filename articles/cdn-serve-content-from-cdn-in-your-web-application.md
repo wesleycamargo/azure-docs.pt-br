@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usar conteúdo da CDN do Azure em seu aplicativo Web" 
 	description="Um tutorial que ensina a usar o conteúdo de uma CDN para melhorar o desempenho do seu aplicativo Web." 
 	services="cdn" 
@@ -255,12 +255,12 @@ Com [sites do Azure](/services/websites/) e [serviços de nuvem do Azure](/servi
 
 A integração de serviços de nuvem ou sites do Azure com a CDN do Azure oferece as seguintes vantagens:
 
-- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua](web-sites-publish-source-control.md) do seu site do Azure
+- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua](app-service-web/web-sites-publish-source-control.md) do seu site do Azure
 - Atualizar facilmente seus pacotes NuGet servidas pela CDN, como jQuery ou versões de Bootstrap 
 - Gerenciar seu aplicativo Web e o conteúdo fornecido por CDN por meio da mesma interface do Visual Studio
 
 Para tutoriais relacionados, consulte:
-- [Integrar um site do Azure à CDN do Azure](cdn-websites-with-cdn.md)
+- [Integrar um site do Azure à CDN do Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Integrar um serviço de nuvem à CDN do Azure](cdn-cloud-service-with-cdn.md)
 
 Sem integração aos sites ou serviços de nuvem do Azure, é possível usar a CDN do Azure para seus grupos de scripts, com os seguintes empecilhos:
@@ -272,7 +272,7 @@ Sem integração aos sites ou serviços de nuvem do Azure, é possível usar a C
 
 # Mais informações #
 - [Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Integrar um site do Azure à CDN do Azure](cdn-websites-with-cdn.md)
+- [Integrar um site do Azure à CDN do Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Integrar um serviço de nuvem à CDN do Azure](cdn-cloud-service-with-cdn.md)
 - [Como mapear o conteúdo da CDN (rede de distribuição de conteúdo) para um domínio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Usando a CDN do Azure](cdn-how-to-use.md)

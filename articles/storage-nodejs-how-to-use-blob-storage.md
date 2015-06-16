@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar o Armazenamento de Blob do Node.js | Microsoft Azure" 
 	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Amostras escritas em Node.js." 
 	services="storage" 
@@ -372,8 +372,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 [SDK de Armazenamento do Azure para o nó]: https://github.com/Azure/azure-storage-node
 [Criar e implantar um aplicativo do Node.js em um Site do Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Serviço de Nuvem do Node.js com Armazenamento]: storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicativo Web Node.js com Armazenamento]: storage-nodejs-use-table-storage-web-site.md
-[Site com WebMatrix]: web-sites-nodejs-use-webmatrix.md
+[Aplicativo Web Node.js com Armazenamento]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Site com WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 [usando a API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 [Serviço de Nuvem do Node.js]: cloud-services-nodejs-develop-deploy-app.md

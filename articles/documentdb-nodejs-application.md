@@ -538,7 +538,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 ## <a name="_Toc395783182"></a>Etapa 7: Implantar seu aplicativo em sites do Azure
 
-1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Você poderá encontrar instruções sobre como fazer isso [aqui](web-sites-publish-source-control-git.md#step4).
+1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Você poderá encontrar instruções sobre como fazer isso [aqui](app-service-web/web-sites-publish-source-control-git.md#step4).
 
 2. Adicione seu site do Azure como um git remoto.
 
