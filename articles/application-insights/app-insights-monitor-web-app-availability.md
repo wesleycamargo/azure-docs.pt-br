@@ -2,6 +2,7 @@
 	pageTitle="Monitorar a disponibilidade e a capacidade de resposta de qualquer site" 
 	description="Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-27" 
+	ms.date="01/27/2015" 
 	ms.author="awills"/>
  
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
