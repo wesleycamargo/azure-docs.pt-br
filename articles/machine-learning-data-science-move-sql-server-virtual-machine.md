@@ -80,7 +80,7 @@ Se os dados estiverem em um arquivo simples (organizado em um formato de linha/c
 O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma das maneiras mais rápidas para mover os dados.  Ele funciona em todas as três variantes do SQL Server (SQL Server local, SQL Azure e VM do SQL Server no Azure). 
 
 > [AZURE.NOTE] **Onde os dados devem estar para o BCP?**  
-> Embora não seja necessário, ter arquivos que contêm dados de origem localizados no mesmo computador que o SQL Server de destino possibilita transferências mais rápidas (velocidade rede em comparação com velocidade de E/S do disco local).  Você pode mover os arquivos simples que contém dados para o computador em que o SQL Server está instalado usando várias ferramentas de cópia de arquivo como [AZCopy](storage-use-azcopy.md), [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou copiar e colar do Windows por meio de RDP (protocolo RDP).
+> Embora não seja necessário, ter arquivos que contêm dados de origem localizados no mesmo computador que o SQL Server de destino possibilita transferências mais rápidas (velocidade rede em comparação com velocidade de E/S do disco local).  Você pode mover os arquivos simples que contém dados para o computador em que o SQL Server está instalado usando várias ferramentas de cópia de arquivo como [AZCopy](storage/storage-use-azcopy.md), [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou copiar e colar do Windows por meio de RDP (protocolo RDP).
 
 1. Certifique-se de que o banco de dados e as tabelas foram criados no banco de dados do SQL Server de destino.  Veja aqui um exemplo de como fazer isso usando os comandos `Create Database` e `Create Table`:
 

@@ -76,7 +76,7 @@ Neste tutorial, demonstraremos a importação em massa paralela dos dados para u
 
 Para configurar seu ambiente de Ciência de Dados do Azure:
 
-1. [Criar uma conta de armazenamento](storage-create-storage-account.md)
+1. [Criar uma conta de armazenamento](storage/storage-create-storage-account.md)
 
 2. [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md)
 

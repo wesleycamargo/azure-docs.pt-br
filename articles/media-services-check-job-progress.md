@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como verificar o andamento do trabalho usando o .NET" 
 	description="Saiba como usar o código do manipulador de eventos para acompanhar o andamento do trabalho e enviar atualizações de status. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	services="media-services" 
@@ -105,7 +105,7 @@ O exemplo de código a seguir define o manipulador de eventos StateChanged. Esse
 
 ##<a id="check_progress_with_queues"></a>Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia
 
-Os Serviços de Mídia do Microsoft Azure têm a capacidade de entregar mensagens de notificação ao [Armazenamento de Fila do Azure](storage-dotnet-how-to-use-queues.md#what-is) ao processar trabalhos de mídia. Este tópico mostra como obter essas mensagens de notificação do Armazenamento de Fila.
+Os Serviços de Mídia do Microsoft Azure têm a capacidade de entregar mensagens de notificação ao [Armazenamento de Fila do Azure](storage/storage-dotnet-how-to-use-queues.md#what-is) ao processar trabalhos de mídia. Este tópico mostra como obter essas mensagens de notificação do Armazenamento de Fila.
 
 As mensagens entregues ao Armazenamento de Fila podem ser acessadas de qualquer lugar no mundo. A arquitetura de mensagens da Fila do Azure é confiável e altamente escalonável. A sondagem do armazenamento de fila é recomendável, em vez do uso de outros métodos. 
 

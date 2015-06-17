@@ -167,7 +167,7 @@ O armazenamento é uma parte integrante de todas as soluções do Azure, uma vez
  
 Há dois tipos de armazenamento disponíveis no Azure: O armazenamento padrão dá acesso a armazenamento de Blob, Tabela, Fila e Arquivo. O armazenamento Premium é projetado para aplicativos de alto desempenho, como SQL Servers em um cluster AlwaysOn, e atualmente oferece suporte somente para discos de Máquina Virtual do Azure.
 
-As contas de armazenamento são vinculadas às metas de escalabilidade. Confira [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Veja também [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md).
+As contas de armazenamento são vinculadas às metas de escalabilidade. Confira [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Veja também [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage/storage-scalability-targets.md).
 
 O Azure cria máquinas virtuais com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs do Azure, enquanto o disco temporário é apoiado pelo serviço de armazenamento local referente ao nó onde o computador reside. Isso torna o disco temporário impróprio para dados que devam persistir durante uma reciclagem de sistema, uma vez que a máquina pode migrar silenciosamente de um nó para outro, perdendo os dados desse disco. Não armazene nada na unidade temporária.
 
@@ -550,6 +550,6 @@ Esses comandos do PowerShell do Azure criam as máquinas virtuais nesta configur
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)
+[Metas de desempenho e escalabilidade do Armazenamento do Azure](storage/storage-scalability-targets.md)
 
 <!--HONumber=54-->

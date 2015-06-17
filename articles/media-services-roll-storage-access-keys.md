@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento" 
 	description="Este artigo fornece diretrizes sobre como atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento." 
 	services="media-services" 
@@ -33,7 +33,7 @@ Este tópico descreve as etapas que necessárias para implantar chaves de armaze
 
 ## Etapa 1: Regenerar a chave de acesso de armazenamento secundária
 
-Comece com a regeneração da chave de armazenamento secundária. Por padrão, a chave secundária não é usada pelos Serviços de Mídia.  Para obter informações sobre como implantar chaves de armazenamento, consulte [Como: exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Comece com a regeneração da chave de armazenamento secundária. Por padrão, a chave secundária não é usada pelos Serviços de Mídia.  Para obter informações sobre como implantar chaves de armazenamento, consulte [Como: exibir, copiar e regenerar chaves de acesso de armazenamento](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ##<a id="step2"></a>Etapa 2:  Atualizar os Serviços de Mídia para usar a nova chave de armazenamento secundária
 
@@ -91,7 +91,7 @@ Para atualizar a data de validade em um localizador, use as APIs [REST](http://m
 
 ##Etapa 5: Regenerar a chave de acesso de armazenamento primária
 
-Regenere a chave de acesso de armazenamento primária. Para obter informações sobre como implantar chaves de armazenamento, consulte [Como: exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Regenere a chave de acesso de armazenamento primária. Para obter informações sobre como implantar chaves de armazenamento, consulte [Como: exibir, copiar e regenerar chaves de acesso de armazenamento](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ##Etapa 6: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento primária
 	

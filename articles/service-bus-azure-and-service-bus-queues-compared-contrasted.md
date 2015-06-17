@@ -308,7 +308,7 @@ Como as filas do Barramento de Serviço fornecem vários recursos avançados, co
 Os artigos a seguir fornecem mais orientação e informações sobre como usar as Filas do Azure ou as filas do Barramento de Serviço.
 
 - [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
-- [Como usar o serviço Armazenamento de Fila](storage-dotnet-how-to-use-queues.md)
+- [Como usar o serviço Armazenamento de Fila](storage/storage-dotnet-how-to-use-queues.md)
 - [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](https://msdn.microsoft.com/library/hh528527.aspx)
 - [Introdução a filas e tópicos no Barramento de Serviço do Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [O Guia do Desenvolvedor do Barramento de Serviço](http://www.cloudcasts.net/devguide/)

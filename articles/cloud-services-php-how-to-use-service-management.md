@@ -527,7 +527,7 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [win-azure-account]: /pricing/free-trial/
-[storage-account]: storage-create-storage-account.md
+[storage-account]: storage/storage-create-storage-account.md
 
 [download-SDK-PHP]: php-download-sdk.md
 [command-line-tools]: virtual-machines-command-line-tools.md
@@ -546,9 +546,9 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 
 [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
 [serviço de armazenamento]: storage-whatis-account.md
-[azure-blobs]: storage-php-how-to-use-blobs.md
-[azure-tables]: storage-php-how-to-use-table-storage.md
-[azure-queues]: storage-php-how-to-use-queues.md
+[azure-blobs]: storage/storage-php-how-to-use-blobs.md
+[azure-tables]: storage/storage-php-how-to-use-table-storage.md
+[azure-queues]: storage/storage-php-how-to-use-queues.md
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 

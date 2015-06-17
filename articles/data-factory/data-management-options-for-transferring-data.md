@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Opções para transferir dados armazenados para a nuvem | Azure" 
 	description="Diretrizes para escolher a melhor opção para transferir dados de locais que não fontes de nuvem para o Microsoft Azure para análise avançada." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 

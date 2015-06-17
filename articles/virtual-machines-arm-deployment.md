@@ -25,7 +25,7 @@ Este tutorial mostra como usar alguns dos clientes disponíveis nas bibliotecas 
 Para concluir este tutorial, você também precisará do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Conta de armazenamento do Azure](storage-create-storage-account.md)
+- [Conta de armazenamento do Azure](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
 - [PowerShell do Azure](install-configure-powershell.md)
 

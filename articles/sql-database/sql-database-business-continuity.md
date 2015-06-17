@@ -1,0 +1,87 @@
+<properties 
+   pageTitle="Visão geral da continuidade dos negócios no Banco de dados SQL do Azure"
+   description="Conheça os recursos internos e as opções disponíveis do Banco de Dados SQL Azures que ajudam a manter seus aplicativos de nuvem críticos em execução e o ajudam na recuperação de interrupções e erros."
+   services="sql-database"
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="04/13/2015"
+   ms.author="elfish"/>
+
+# Visão geral da continuidade dos negócios
+
+A continuidade dos negócios é sobre como criar, implantar e executar seu aplicativo de forma que ele seja resistente a eventos com interrupção que resultem em perda permanente ou temporária da capacidade dos aplicativos de realizar sua função de negócios. Os eventos não planejados variam de erros humanos devido a interrupções permanentes ou temporárias até desastres regionais que podem causar perdas da instalação em larga escala em uma região do Azure específica. Os eventos planejados incluem a reimplantação de aplicativos em uma região diferente, atualizações de aplicativos, etc. O objetivo de continuidade de negócios é que seu aplicativo continue a funcionar durante esses eventos com um impacto mínimo sobre a função de negócios.
+
+Para discutir as soluções de continuidade nos negócios, existem vários conceitos com os quais você precisa estar familiarizado.
+
+**Recuperação de desastres (DR):** um processo de restauração a função normal de negócios do aplicativo
+
+**Tempo de recuperação estimado (ERT):** a duração estimada para que o banco de dados esteja totalmente disponível depois de uma solicitação de restauração ou failover.
+
+**Objetivo de tempo de recuperação (RTO)** – tempo máximo aceitável antes que o aplicativo se recupere totalmente após um evento de interrupção. RTO mede a perda máxima de disponibilidade durante as falhas.
+
+**Objetivo de ponto de recuperação (RPO)** – a quantidade máxima de últimas atualizações (intervalo de tempo) que o aplicativo pode perder no momento em que ele se recupera totalmente após o evento de interrupção. RPO mede a perda máxima de dados durante as falhas.
+
+
+## Cenários de continuidade dos negócios
+
+A continuidade dos negócios aborda os seguintes cenários principais.
+
+###Projeto para continuidade dos negócios
+
+O aplicativo que estou criando é essencial para a minha empresa. Quero criá-lo e configurá-lo para ser capaz de sobreviver a um desastre regional de uma falha catastrófica do serviço. Conheço os requisitos de RPO e RTO para meu aplicativo e escolherei a configuração que atenda a esses requisitos.
+
+###Recuperação de erro humano
+
+Eu tenho direitos administrativos para acessar a versão de produção do aplicativo. Como parte do processo de manutenção regular eu cometi um erro e exclui alguns dados essenciais em produção. Desejo restaurar rapidamente os dados para minimizar o impacto do erro.
+
+###Recuperação de uma interrupção
+
+Eu estou executando o meu aplicativo em produção e recebo um alerta sugerindo que há uma grande interrupção na região em que está implantado. Eu quero iniciar o processo de recuperação para colocá-lo em uma região diferente para minimizar o impacto nos negócios.
+
+###Executar análise de recuperação de desastres
+
+Como a recuperação de uma interrupção realocará a camada de dados para uma região diferente, eu quero testar periodicamente o processo de recuperação e avaliar seu impacto sobre o aplicativo para estar preparado.
+
+###Atualização de aplicativo sem tempo de inatividade
+
+Eu estou liberando uma atualização importante do meu aplicativo. Ela envolve as alterações de esquema do banco de dados, implantação de procedimentos armazenados adicionais etc. Este processo implicará impedir que o usuário acesse o banco de dados Ao mesmo tempo, quero me certificar que a atualização não cause uma interrupção significativa das operações de negócios.
+
+##Recursos da continuidade dos negócios
+
+A tabela a seguir mostra as diferenças dos recursos de continuidade dos negócios em todos os níveis de serviço:
+
+| Recurso | Camada básica | Camada padrão |Camada premium 
+| --- |--- | --- | ---
+| Ponto de restauração pontual | Qualquer ponto de restauração dentro de 7 dias | Qualquer ponto de restauração dentro de 14 dias | Qualquer ponto de restauração dentro de 35 dias
+| Restauração geográfica | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
+| Replicação geográfica padrão | não incluso | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
+| Replicação geográfica ativa | não incluso | não incluso | ERT < 30s, RPO < 5s
+
+Esses recursos são fornecidos para tratar dos cenários listados anteriormente. Consulte a seção [Projeto para continuidade dos negócios](sql-database-business-continuity-design.md) para obter orientação sobre como selecionar o recurso específico.
+
+###Ponto de restauração pontual
+
+Ponto de restauração pontual é projetado para retornar seu banco de dados para um ponto anterior no tempo. Ele usa os backups de banco de dados, backups incrementais e backups de log de transações que o serviço mantém automaticamente para cada banco de dados do usuário. Esse recurso está disponível para todas as camadas de serviço. Você pode voltar 7 dias com a básica, 14 dias com a padrão e 35 dias com a premium. Consulte [Recuperação de erro humano](sql-database-user-error-recovery.md) para obter detalhes sobre como usar o ponto de restauração pontual.
+
+###Restauração geográfica
+
+A restauração geográfica também está disponível com bancos de dados Basic, Standard e Premium. Ele fornece a opção de recuperação padrão quando o banco de dados também estiver indisponível devido a um incidente na região onde seu banco de dados está hospedado. Semelhante ao ponto de restauração pontual, a restauração geográfica depende de backups de banco de dados no armazenamento do Azure com redundância geográfica. Ele restaura a partir da cópia de backup replicado geograficamente e, portanto, é resistente a falhas de armazenamento na região primária. Consulte [Recuperação de uma falha](sql-database-disaster-recovery.md) para obter detalhes sobre como usar a restauração geográfica.
+
+###Replicação geográfica padrão
+
+A replicação geográfica padrão está disponível para bancos de dados Standard e Premium. Destina-se a aplicativos que podem usar o recurso de camada de serviço padrão, mas têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer. Quando o banco de dados primário falhar, você pode iniciar o failover para um banco de dados secundário não legível armazenado na região pareada de DR. Consulte [Projeto para continuidade de negócios](sql-database-business-continuity-design.md) para obter detalhes sobre como configurar a replicação geográfica e [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para obter detalhes sobre como fazer failover para o banco de dados secundário.
+
+###Replicação geográfica ativa
+
+A replicação geográfica ativa está disponível para bancos de dados Premium. Destina-se a aplicativos com uso intensivo de gravação com os requisitos de recuperação mais agressivos. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. É possível iniciar o failover para qualquer um dos secundários da mesma maneira como para a replicação geográfica padrão. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Consulte [Projeto para continuidade de negócios](sql-database-business-continuity-design.md) para obter detalhes sobre como configurar a replicação geográfica e [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para obter detalhes sobre como fazer failover para o banco de dados secundário. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes sobre como implementar a atualização de aplicativo sem tempo de inatividade.
+
+<!---HONumber=58--> 

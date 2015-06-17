@@ -31,7 +31,7 @@ As máquinas virtuais estão disponíveis em duas camadas: básica e padrão. Os
 
 *   As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
 
-*   As VMs da Série DS podem usar o armazenamento Premium, que fornece armazenamento de alto desempenho e baixa latência para cargas de trabalho com uso intenso de E/S. Usam unidades de estado sólido (SSDs) para hospedar os discos da máquina virtual e oferecem um cache de disco SSD local. O armazenamento Premium fica na Visualização e está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](storage-premium-storage-preview-portal.md).
+*   As VMs da Série DS podem usar o armazenamento Premium, que fornece armazenamento de alto desempenho e baixa latência para cargas de trabalho com uso intenso de E/S. Usam unidades de estado sólido (SSDs) para hospedar os discos da máquina virtual e oferecem um cache de disco SSD local. O armazenamento Premium fica na Visualização e está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](storage/storage-premium-storage-preview-portal.md).
 
 *   As VMs da série G oferecem o melhor desempenho e maior tamanho e são executadas em hosts com processadores da família Intel Xeon E5 V3.
 
@@ -103,7 +103,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 |Standard_DS13(idem)|8|56|<p>SO = 1023 GB</p><p>Disco SSD local = 112 GB</p>|16|288|<p>25.600</p><p>256 MB por segundo</p>|
 |Standard_DS14(idem)|16|112|<p>SO = 1023 GB</p><p>Disco SSD local = 224 GB</p>|32|576|<p>50.000</p><p>512 MB por segundo</p>|
 
-*O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: Armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](storage-premium-storage-preview-portal.md).
+*O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: Armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](storage/storage-premium-storage-preview-portal.md).
 
 ### Camada padrão – série G
 
