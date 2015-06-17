@@ -1,4 +1,4 @@
-﻿#####Criar um contêiner
+#####Criar um contêiner
 Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. É possível usar um objeto **CloudBlobClient** para referência de um contêiner existente ou chamar o método CreateCloudBlobClient() para criar um novo contêiner.
 
 O código a seguir mostra como criar um novo contêiner de armazenamento de blob. Primeiro o código cria um objeto **BlobClient**, assim você pode acessar as funções do objeto, como criar um contêiner de armazenamento. Em seguida, o código tenta fazer referência a um contêiner de armazenamento denominado "mycontainer". Se um contêiner com este nome não puder ser encontrado, ele será criado.

@@ -32,7 +32,7 @@ Também há outras ferramentas disponíveis para administrar o HDInsight além d
 Antes de começar este artigo, você deve ter o seguinte:
 
 - **Assinatura do azure** - Azure é uma plataforma baseada em assinatura. Para obter informações sobre como adquirir uma assinatura, consulte [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md).
+- **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](storage/storage-create-storage-account.md).
 
 ##Provisione clusters HDInsight
 

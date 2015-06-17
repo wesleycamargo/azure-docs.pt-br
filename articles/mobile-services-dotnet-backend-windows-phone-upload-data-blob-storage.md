@@ -78,7 +78,7 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
 [Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: storage-create-storage-account.md
+[How To Create a Storage Account]: storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK do Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471

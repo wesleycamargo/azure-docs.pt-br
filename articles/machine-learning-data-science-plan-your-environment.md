@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Planejar seu ambiente de ciência de dados de nuvem | Azure" 
 	description="Planejar seu ambiente de ciência de dados de nuvem" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@ Antes de começar a criar seu ambiente de Ciência de Dados de Nuvem, considere 
 
 Dependendo do cenário, talvez você também precise do seguinte:
 
-1.  Ferramentas do Azure:  [SDK do Azure PowerShell](install-configure-powershell.md), [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md) e outros
+1.  Ferramentas do Azure:  [SDK do Azure PowerShell](install-configure-powershell.md), [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md) e outros
 2.  Máquinas Virtuais do Azure executando o SQL Server
 3.  Azure HDInsight (Hadoop)
 4.  Redes Virtuais do Azure do local para o compartilhamento de arquivos do Azure

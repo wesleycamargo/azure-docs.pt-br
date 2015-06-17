@@ -87,7 +87,7 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 
 ##<a id="portal"></a> Usando o portal do Azure
 
-Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Uma conta de Armazenamento do Azure localizada no mesmo data center é necessária para poder criar um cluster HDInsight. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md).
+Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Uma conta de Armazenamento do Azure localizada no mesmo data center é necessária para poder criar um cluster HDInsight. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](storage/storage-create-storage-account.md).
 
 
 > [AZURE.NOTE]Atualmente, apenas as regiões **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Oeste da Europa**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA** e **Centro-Sul dos EUA** podem hospedar clusters HDInsight.
@@ -494,7 +494,7 @@ O HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema d
 
 	Quando um local for solicitado, selecione o local onde um cluster HDInsight pode ser provisionado. O armazenamento deve estar no mesmo local que o cluster HDInsight. Atualmente, apenas as regiões **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Oeste da Europa**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA** e **Centro-Sul dos EUA** podem hospedar clusters HDInsight.
 
-Para obter informações sobre como criar uma conta do Armazenamento do Azure usando o portal do Azure, consulte [Criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
+Para obter informações sobre como criar uma conta do Armazenamento do Azure usando o portal do Azure, consulte [Criar, gerenciar ou excluir uma conta de armazenamento](storage/storage-create-storage-account.md).
 
 Se você já tem uma conta do Armazenamento, mas não se lembra do nome da conta e da chave de conta, você pode usar os seguintes comandos para recuperar as informações:
 
@@ -507,7 +507,7 @@ Se você já tem uma conta do Armazenamento, mas não se lembra do nome da conta
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Para obter detalhes sobre como obter as informações usando o portal do Azure, consulte a seção *Exibir, copiar e regenerar chaves de acesso de armazenamento* de [Criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
+Para obter detalhes sobre como obter as informações usando o portal do Azure, consulte a seção *Exibir, copiar e regenerar chaves de acesso de armazenamento* de [Criar, gerenciar ou excluir uma conta de armazenamento](storage/storage-create-storage-account.md).
 
 Um cluster HDInsight também requer um contêiner em uma conta do Armazenamento. Se a conta de armazenamento fornecida ainda não tiver um contêiner, o comando *azure hdinsight cluster create* solicitará um nome de contêiner e também o criará. No entanto, se você desejar criar o contêiner com antecedência, poderá usar o seguinte comando:
 
@@ -721,7 +721,7 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 
 [azure-command-line-tools]: xplat-cli.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

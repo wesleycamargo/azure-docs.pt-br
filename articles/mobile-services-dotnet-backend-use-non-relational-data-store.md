@@ -118,7 +118,7 @@ O tutorial exige a conclusão do tutorial [Introdução aos Serviços Móveis] o
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Introdução aos Dados]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [Página de Suplemento do MongoLab]: /gallery/store/mongolab/mongolab
 
 <!--HONumber=54-->

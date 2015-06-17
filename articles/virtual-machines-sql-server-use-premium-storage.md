@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-O [Armazenamento Premium do Azure](storage-premium-storage-preview-portal.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](http://azure.microsoft.com/services/virtual-machines/) do SQL Server no IaaS. Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa de como mover VMs maiores para aproveitar o armazenamento SSD local aprimorado com o PowerShell.
+O [Armazenamento Premium do Azure](storage/storage-premium-storage-preview-portal.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](http://azure.microsoft.com/services/virtual-machines/) do SQL Server no IaaS. Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa de como mover VMs maiores para aproveitar o armazenamento SSD local aprimorado com o PowerShell.
 
 É importante compreender o processo de ponta a ponta utilizando o Armazenamento Premium do Azure com o SQL Server em VMs IAAS. Isso inclui:
 
@@ -142,7 +142,7 @@ Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, voc�
 
 O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números de largura de banda específicos, consulte [Máquina virtual e tamanhos de serviço de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
+Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
 
 Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
@@ -1110,7 +1110,7 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 	![Appendix15][25]
 
 ## Recursos adicionais
-- [Armazenamento Premium do Azure](storage-premium-storage-preview-portal.md)
+- [Armazenamento Premium do Azure](storage/storage-premium-storage-preview-portal.md)
 - [Máquinas virtuais](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md)
 
