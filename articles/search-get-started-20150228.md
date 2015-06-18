@@ -78,7 +78,7 @@ O restante desta seção aborda alguns pontos sobre cada projeto. Quando apropri
 
 Para manter as coisas simples, os dados são integrados à solução, em um arquivo de texto gerado por meio de dados no [site Web dos USGS (Serviços Geológicos dos Estados Unidos)](http://geonames.usgs.gov/domestic/download_data.htm).
 
-Alternativas à inserção de dados incluem [indexadores para Banco de Dados de Documentos](documentdb-search-indexer.md) ou [indexadores para o Banco de Dados SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexadores extraem dados para o seu índice de Pesquisa do Azure, que pode simplificar de verdade o código que você precisa escrever e manter.
+Alternativas à inserção de dados incluem [indexadores para Banco de Dados de Documentos](documentdb/documentdb-search-indexer.md) ou [indexadores para o Banco de Dados SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexadores extraem dados para o seu índice de Pesquisa do Azure, que pode simplificar de verdade o código que você precisa escrever e manter.
 
 Você também pode carregar dados por meio de um banco de dados SQL Server local. [Este tutorial](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) mostra como fazer isso.
 

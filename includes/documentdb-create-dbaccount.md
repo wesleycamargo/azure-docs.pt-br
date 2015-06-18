@@ -51,6 +51,6 @@
 
 [Como: Criar uma conta do Banco de Dados de Documentos]: #Howto
 [Próximas etapas]: #NextSteps
-[documentdb-manage]:../articles/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!--HONumber=49-->

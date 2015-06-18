@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Assinatura do Microsoft Azure e limites de serviços, cotas e restrições" 
 	description="Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos."
 	services="" 

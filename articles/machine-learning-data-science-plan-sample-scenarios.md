@@ -29,7 +29,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
    [Criar uma conta de armazenamento](storage-whatis-account.md)
 
-  [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md)
+  [Criar um espaço de trabalho de AM do Azure](machine-learning/machine-learning-create-workspace.md)
 
 **As seções a seguir apresentam alguns cenários de exemplo. Para cada cenário, são listados um fluxo de Ciência de Dados possível e os recursos de suporte do Azure.**
 
@@ -175,7 +175,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
     f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
- > [AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -215,7 +215,7 @@ Este artigo percorre o mapa do Processo de Ciência de Dados na Nuvem e alguns c
 
 	f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
-> [AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -300,7 +300,7 @@ O diagrama a seguir resume os cenários descritos acima e as opções de Process
 
 ### Exemplo da Ciência de Dados do Azure em Ação
 
-Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de Dados do Azure usando um conjunto de dados público, consulte [Processo de Ciência de Dados do Azure em Ação](machine-learning-data-science-process-sql-walkthrough.md).
+Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de Dados do Azure usando um conjunto de dados público, consulte [Processo de Ciência de Dados do Azure em Ação](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png
