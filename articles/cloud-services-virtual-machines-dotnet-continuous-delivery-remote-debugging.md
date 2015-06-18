@@ -39,7 +39,7 @@ Neste tópico:
 
 <h2> <a name="virtualmachine"></a>Habilitando a depuração remota para máquinas virtuais</h2>
 
-1. Crie uma máquina virtual do Azure. Consulte [Criar uma máquina virtual executando o Windows Server](virtual-machines-windows-tutorial.md) ou [Criando máquinas virtuais do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
+1. Crie uma máquina virtual do Azure. Consulte [Criar uma máquina virtual executando o Windows Server](virtual-machines/virtual-machines-windows-tutorial.md) ou [Criando máquinas virtuais do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. Na [página do Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), consulte o painel da máquina virtual para ver a “Impressão digital do certificado RDP” da máquina virtual. Ele é usado como o valor de ServerThumbprint na configuração da extensão.
 3. Crie um certificado cliente conforme descrito em [Criar um certificado de serviço para o Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (mantenha o .pfx e a impressão digital do certificado RDP).
 4. Instale o [PowerShell do Azure](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (versão 0.7.4 ou posterior) a partir do Centro de Download da Microsoft.

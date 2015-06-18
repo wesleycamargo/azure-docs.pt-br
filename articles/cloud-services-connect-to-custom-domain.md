@@ -1,4 +1,4 @@
-﻿<properties
+<properties
   pageTitle="Conectando funções dos Serviços de Nuvem do Azure a um controlador de domínio do AD personalizado hospedado no Azure"
   description="Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o Powershell e a extensão de domínio do AD"
   services="cloud-services"
@@ -30,7 +30,7 @@ Siga este guia passo a passo e, se tiver algum problema, deixe um comentário ab
 
 ## Criar uma rede virtual
 
-Você pode criar uma Rede Virtual do Azure usando o Portal do Azure ou o Powershell. Para este tutorial, usaremos o Powershell. Para criar uma rede virtual usando o Portal do Azure, consulte [Criar uma rede virtual](create-virtual-network.md).
+Você pode criar uma Rede Virtual do Azure usando o Portal do Azure ou o Powershell. Para este tutorial, usaremos o Powershell. Para criar uma rede virtual usando o Portal do Azure, consulte [Criar uma rede virtual](virtual-machines/create-virtual-network.md).
 
     #Create Virtual Network
 

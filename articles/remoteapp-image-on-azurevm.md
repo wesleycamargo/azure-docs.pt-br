@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
     pageTitle="Criar uma imagem do RemoteApp com base em uma VM do Azure"
     description="Saiba como criar uma imagem para o RemoteApp começando com uma máquina virtual do Azure." 
     services="remoteapp" 
@@ -37,7 +37,7 @@ Use estas etapas para criar uma imagem com base em uma VM do Azure.
 
 3. Se você estiver usando a imagem do Host da Sessão da Área de Trabalho Remota do Windows Server, há um script de validação incluído que garantirá a que sua VM cumpra os pré-requisitos do RemoteApp. Para executar o script, clique duas vezes em **ValidateRemoteAppImage** na área de trabalho. Certifique-se de que todos os erros relatados pelo script sejam corrigidos antes de prosseguir para a próxima etapa.
 
-4. O SYSPREP generaliza e captura a imagem. Consulte [Como capturar uma máquina virtual do Windows para usar como modelo](virtual-machines-capture-image-windows-server.md) para obter instruções.
+4. O SYSPREP generaliza e captura a imagem. Consulte [Como capturar uma máquina virtual do Windows para usar como modelo](virtual-machines/virtual-machines-capture-image-windows-server.md) para obter instruções.
 
  
 
