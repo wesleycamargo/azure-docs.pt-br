@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usando a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" 
 	description="Use a interface de linha de comando entre plataformas do Microsoft Azure com o Gerenciador de Recursos" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

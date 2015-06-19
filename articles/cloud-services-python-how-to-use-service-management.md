@@ -398,9 +398,9 @@ Para criar finalmente a máquina virtual usando a imagem capturada, use o métod
 		role_size='Small',
 		vm_image_name = image_name)
 
-Para saber mais sobre como capturar uma máquina Virtual Linux, consulte [Como capturar uma máquina Virtual Linux.](virtual-machines-linux-capture-image.md)
+Para saber mais sobre como capturar uma máquina Virtual Linux, consulte [Como capturar uma máquina Virtual Linux.](virtual-machines/virtual-machines-linux-capture-image.md)
 
-Para saber mais sobre como capturar uma máquina Virtual Windows, consulte [Como capturar uma máquina Virtual Windows.](virtual-machines-capture-image-windows-server.md)
+Para saber mais sobre como capturar uma máquina Virtual Windows, consulte [Como capturar uma máquina Virtual Windows.](virtual-machines/virtual-machines-capture-image-windows-server.md)
 
 ## <a name="What's Next"> </a>Próximas etapas
 

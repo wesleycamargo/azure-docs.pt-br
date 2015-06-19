@@ -1,7 +1,7 @@
-﻿## Enviar mensagens ao Hub de Eventos
+## Enviar mensagens ao Hub de Eventos
 Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid project](http://qpid.apache.org/). Isso é análogo a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos supor que seja um ambiente Linux, por exemplo, um [VM Linux do Azure](../articles/virtual-machines-linux-tutorial.md) com 14.04 do Ubuntu.
+1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos supor que seja um ambiente Linux, por exemplo, um [VM Linux do Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) com 14.04 do Ubuntu.
 
 2. Para compilar a biblioteca Proton, instale os pacotes a seguir:
 

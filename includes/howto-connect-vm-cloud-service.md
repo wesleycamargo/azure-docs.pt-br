@@ -1,4 +1,4 @@
-﻿<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
+<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
 
 #Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem

@@ -46,7 +46,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 
 	**Observação**: máquinas virtuais que são membros de um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Saiba como usar várias máquinas virtuais no Windows Azure para que seus aplicativos permaneçam disponíveis durante falhas de rede locais, falhas de hardware de disco local e tempo de inatividade planejado.
 
-15.  Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
+15.  Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 
 16.  Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
@@ -58,8 +58,8 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 ##Próximas etapas##
 Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando o portal mostra o status como Executando, você poderá fazer logon na máquina virtual. Para obter instruções, consulte um dos seguintes artigos:
 
-- [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines-linux-how-to-log-on.md)
-- [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines-log-on-windows-server.md)
+- [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
+- [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
 
 

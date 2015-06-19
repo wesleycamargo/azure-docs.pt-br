@@ -205,7 +205,7 @@ Essa seção abrange algumas das tarefas de diagnóstico mais avançadas, as qua
 ### Pré-requisitos
 Para executar algumas das tarefas de diagnóstico nesta seção, você precisa acessar uma ferramenta de gerenciamento de bancos de dados SQL como o **SQL Server Management Studio** ou a funcionalidade interna de gerenciamento do **Portal de Gerenciamento do Azure**.
 
-O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](virtual-machines-windows-tutorial.md) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a MV com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente.
+O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](virtual-machines/virtual-machines-windows-tutorial.md) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a MV com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente.
 
 O Portal de Gerenciamento do Azure oferece uma experiência de gerenciamento interna que é mais limitada, mas está disponível sem a necessidade de uma instalação local.
 

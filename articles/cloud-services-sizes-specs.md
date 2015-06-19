@@ -78,6 +78,6 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
  [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](http://go.microsoft.com/fwlink/p/?linkid=328042)
 
- [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md)
+ [Tamanhos das máquinas virtuais](virtual-machines/virtual-machines-size-specs.md)
 
 <!---HONumber=58-->

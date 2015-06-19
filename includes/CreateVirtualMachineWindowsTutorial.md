@@ -53,7 +53,7 @@ Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciament
 
 ## <a id="attachdisk"> </a>Como anexar um disco de dados à nova máquina virtual ##
 
-Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [Tutorial Anexar um disco de dados](../articles/storage-windows-attach-disk.md) para obter mais informações sobre anexação de discos vazios, assim como em como anexar os discos existentes.
+Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Consulte o [Tutorial Anexar um disco de dados](../articles/virtual-machines/storage-windows-attach-disk.md) para obter mais informações sobre anexação de discos vazios, assim como em como anexar os discos existentes.
 
 1. Entre no [Portal de Gerenciamento](http://manage.windowsazure.com) do Azure.
 
@@ -113,11 +113,11 @@ Esta seção mostra como anexar um disco de dados vazio à máquina virtual. Con
 
 Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure, consulte os seguintes artigos:
 
-[Como se conectar às máquinas virtuais em um serviço de nuvem](../articles/cloud-services-connect-virtual-machine.md)
+[Como se conectar às máquinas virtuais em um serviço de nuvem](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[Como criar e carregar seu próprio disco rígido virtual que contém o sistema operacional Windows Server](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[Como criar e carregar seu próprio disco rígido virtual que contém o sistema operacional Windows Server](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[Anexar discos de dados à uma máquina virtual](../articles/storage-windows-attach-disk.md)
+[Anexar discos de dados à uma máquina virtual](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [Gerenciar a disponibilidade das máquinas virtuais](../articles/manage-availability-virtual-machines.md)
 

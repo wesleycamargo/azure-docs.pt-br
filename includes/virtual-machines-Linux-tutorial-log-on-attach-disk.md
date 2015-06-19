@@ -30,7 +30,7 @@ Este tutorial mostra como usar o programa PuTTY para acessar a máquina virtual.
 
 Seu aplicativo pode precisar armazenar dados. Para configurar isso, você pode anexar um disco de dados à máquina virtual criada anteriormente. A maneira mais fácil de fazer isso é anexar um disco de dados vazio à máquina.
 
-No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc` e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure](virtual-machines-linux-agent-user-guide.md) para obter mais informações.
+No Linux, o Disco de Recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc` e os usuários precisarão particionar, formatar e montar esse recurso. Consulte o [Guia de usuário agente do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) para obter mais informações.
 
 >[AZURE.NOTE]Não armazene dados no disco de recursos. Este disco oferece armazenamento temporário para aplicativos e processos e é usado para armazenar dados que não são mais necessários, como arquivos de permuta. Os discos de dados ficam localizados no Armazenamento do Azure, como arquivos .vhd em blobs de páginas, e oferecem redundância de armazenamento para proteger seus dados. Para obter detalhes, consulte [Sobre discos e imagens no Azure](http://msdn.microsoft.com/library/jj672979.aspx).
 
