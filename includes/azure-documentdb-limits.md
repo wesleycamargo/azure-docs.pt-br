@@ -106,6 +106,6 @@
 </tr>
 </table>
 
-Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](../articles/documentdb-increase-limits.md).
+Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](../articles/documentdb/documentdb-increase-limits.md).
 
 <!---HONumber=58-->
