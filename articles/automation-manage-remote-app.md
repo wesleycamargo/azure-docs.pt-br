@@ -40,7 +40,7 @@ O RemoteApp pode ser gerenciado na Automação do Azure usando os cmdlets do Pow
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Azure RemoteApp, siga estes links para obter mais informações sobre a Automação do Azure.
 
-* Consulte o [Tutorial de Introdução](automation-create-runbook-from-samples.md) da Automação do Azure
+* Consulte o [Tutorial de Introdução](automation/automation-create-runbook-from-samples.md) da Automação do Azure
 
 
 <!--HONumber=52-->

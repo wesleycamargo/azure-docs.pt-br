@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Gerenciar o controle de acesso com base em função com o Windows PowerShell" 
 	description="Gerenciar o controle de acesso com base em função com o Windows PowerShell" 
 	services="" 
@@ -165,3 +165,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 <!--HONumber=35.2-->
 
 <!--HONumber=46--> 
+ 

@@ -22,7 +22,7 @@ Este tópico mostra como permitir que uma entidade de serviço (como um processo
 
 
 ## Conceitos
-1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso para a nuvem. Para obter mais informações, consulte [O que é o Active Directory do Azure](./active-directory-whatis.md)
+1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso para a nuvem. Para obter mais informações, consulte [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
 2. Entidade de serviço - uma instância de um aplicativo em um diretório.
 3. Aplicativo do AD - registro de diretório que identifica um aplicativo ao AAD. Para obter mais informações, consulte [Noções básicas de autenticação no AD do Azure](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
@@ -74,7 +74,7 @@ Você começará criando uma entidade de serviço. Para fazer isso, devemos usar
 
    Você criou uma entidade de serviço no diretório, mas o serviço não tem quaisquer permissões ou escopo atribuídos. Você precisará conceder explicitamente à entidade de serviço permissões para executar operações em algum escopo.
 
-4. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo você concederá à entidade de serviço a permissão para ler todos os recursos na assinatura. Para o parâmetro **ServicePrincipalName**, forneça um dos parâmetros **ApplicationId** ou **IdentifierUris** que você usou ao criar o aplicativo. Para obter mais informações sobre controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](./resource-group-rbac.md)
+4. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo você concederá à entidade de serviço a permissão para ler todos os recursos na assinatura. Para o parâmetro **ServicePrincipalName**, forneça um dos parâmetros **ApplicationId** ou **IdentifierUris** que você usou ao criar o aplicativo. Para obter mais informações sobre controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](azure-portal/resource-group-rbac.md)
 
         PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -107,7 +107,7 @@ Se você não tiver CLI do Azure para Mac, Linux e Windows instalada, consulte [
 
 Você já deve ter um aplicativo do AD e uma entidade de serviço para executar essas etapas. Para obter informações sobre como configurar um aplicativo do AD e uma entidade de serviço no portal clássico do Azure, consulte [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md).
 
-1. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo você concederá à entidade de serviço a permissão para ler todos os recursos na assinatura. Para o parâmetro **ServicePrincipalName**, forneça um dos parâmetros **ApplicationId** ou **IdentifierUris** que você usou ao criar o aplicativo. Para obter mais informações sobre controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](./resource-group-rbac.md)
+1. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo você concederá à entidade de serviço a permissão para ler todos os recursos na assinatura. Para o parâmetro **ServicePrincipalName**, forneça um dos parâmetros **ApplicationId** ou **IdentifierUris** que você usou ao criar o aplicativo. Para obter mais informações sobre controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](azure-portal/resource-group-rbac.md)
 
         azure role assignment create --objectId {service-principal-object-id} -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -127,12 +127,12 @@ Introdução
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)  
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md)
 - [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Usando o Portal do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
+- [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md)  
   
 Criação e implantação de aplicativos
   
 - [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)  
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md)  
+- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)  
 - [Solucionando problemas de implantações de grupos de recursos no Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)  
 - [Operações avançadas de modelo](./resource-group-advanced-template.md)  
@@ -144,7 +144,7 @@ Organização de recursos
   
 Gerenciar e auditar o acesso
   
-- [Gerenciar e auditar o acesso a recursos](./resource-group-rbac.md)  
+- [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md)  
 - [Criar uma nova entidade de serviço do Azure usando o portal do Azure](./resource-group-create-service-principal-portal.md)  
   
 

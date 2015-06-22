@@ -254,7 +254,7 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 
 ## Próximas etapas
 - [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md)
+- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 - [Operações avançadas de modelo](./resource-group-advanced-template.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 
