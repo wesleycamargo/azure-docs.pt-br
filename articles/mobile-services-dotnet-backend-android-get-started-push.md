@@ -120,9 +120,9 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar notificações em push para usuários autenticados]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 [Enviar notificações por push para usuários autenticados]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[O que são Hubs de Notificação?]: notification-hubs-overview.md
-[Enviar notificações de transmissão para assinantes]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Enviar notificações com base no modelo para assinantes]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[O que são Hubs de Notificação?]: notification-hubs/notification-hubs-overview.md
+[Enviar notificações de transmissão para assinantes]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Enviar notificações com base no modelo para assinantes]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

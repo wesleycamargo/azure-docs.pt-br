@@ -1,5 +1,5 @@
 ## Enviar mensagens ao Hub de Eventos
-Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos para o seu hub de eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é análogo a usar tópicos e filas do barramento de serviço com AMQP por meio de Java, como mostrado [aqui](../articles/service-bus-java-how-to-use-jms-api-amqp.md). Para obter mais informações, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e [serviço de mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
+Nesta seção, iremos escrever um aplicativo de console Java para enviar eventos para o seu hub de eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é análogo a usar tópicos e filas do barramento de serviço com AMQP por meio de Java, como mostrado [aqui](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para obter mais informações, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e [serviço de mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. No Eclipse, crie um novo projeto Java chamado **Remetente**.
 

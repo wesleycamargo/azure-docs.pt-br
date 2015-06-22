@@ -208,7 +208,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
-[O que são Hubs de Notificação?]: notification-hubs-overview.md
+[O que são Hubs de Notificação?]: notification-hubs/notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-android-send-localized-breaking-news.md
 

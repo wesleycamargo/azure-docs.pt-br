@@ -262,8 +262,8 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Enviar notificações por push para usuários autenticados]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[O que são Hubs de Notificação?]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
+[O que são Hubs de Notificação?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 <!--HONumber=54-->

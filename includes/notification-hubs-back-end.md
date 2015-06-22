@@ -1,6 +1,6 @@
 
 Esta seção mostra como enviar notificações por meio de um aplicativo de console .NET e de qualquer outro.
-Se você estiver usando os Serviços Móveis, consulte os tutoriais [Introdução ao Push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) .  Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação por meio de Java/PHP](notification-hubs-java-backend-how-to.md).  Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
+Se você estiver usando os Serviços Móveis, consulte os tutoriais [Introdução ao Push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) .  Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação por meio de Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md).  Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de notificação].
 
 O código a seguir envia notificações à Windows Store, Windows Phone, iOS e dispositivos Android. 
 
@@ -92,8 +92,8 @@ Ignore as etapas 1 a 3, se você tiver criado um aplicativo de console quando co
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[introdução]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
-[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[introdução]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [Usar os Hubs de notificação para enviar notificações aos usuários]: ../articles/tutorial-notify-users-mobileservices.md
 [Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started/#create-new-service
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
