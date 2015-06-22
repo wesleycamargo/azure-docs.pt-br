@@ -40,7 +40,7 @@ O Barramento de Serviço pode ser gerenciado na Automação do Azure usando a [A
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode ser usado para gerenciar os Barramentos de Serviço do Azure, siga estes links para saber mais sobre a Automação do Azure.
 
-* Confira o [Guia de introdução](automation-create-runbook-from-samples.md) da Automação do Azure.
+* Confira o [Guia de introdução](automation/automation-create-runbook-from-samples.md) da Automação do Azure.
 * Confira o artigo sobre [Gerenciar Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
 
 <!---HONumber=58-->

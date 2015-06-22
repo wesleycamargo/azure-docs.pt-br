@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Como usar Hubs de notificação com Node. js" 
 	description="Saiba como usar os Hubs de notificação para enviar notificações por push de um aplicativo do Node. js." 
 	services="notification-hubs" 
@@ -210,7 +210,7 @@ Agora que você já sabe as noções básicas do uso de hubs de notificação, s
   [Hubs de Notificação de Barramento de Serviço do Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Site com WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Serviço de Nuvem do Node.js]: cloud-services-nodejs-develop-deploy-app.md
+  [Serviço de Nuvem do Node.js]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Portal de Gerenciamento anterior]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Serviço de Nuvem do Node.js com Armazenamento]: /develop/nodejs/tutorials/web-app-with-storage/

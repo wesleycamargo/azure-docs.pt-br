@@ -99,12 +99,12 @@ Introdução
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)  
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md)
 - [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Usando o Portal do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
+- [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md)  
   
 Criação e implantação de aplicativos
   
 - [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)  
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md)  
+- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)  
 - [Solucionando problemas de implantações de grupos de recursos no Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)  
 - [Operações avançadas de modelo](./resource-group-advanced-template.md)  
@@ -116,7 +116,7 @@ Organização de recursos
   
 Gerenciar e auditar o acesso
   
-- [Gerenciar e auditar o acesso a recursos](./resource-group-rbac.md)  
+- [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md)  
 - [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md)  
 
 <!-- Images. -->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Gerenciando o controle de acesso baseado em função com a interface de linha de comando entre plataformas do Azure" 
 	description="Gerenciando o controle de acesso baseado em função com a interface de linha de comando entre plataformas" 
 	services="" 
@@ -148,3 +148,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Solucionar problemas de controle de acesso com base em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=46--> 
+ 

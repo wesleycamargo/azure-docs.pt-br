@@ -302,6 +302,6 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Criar um Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Início rápido - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Usando Dropbox para compartilhar repositórios Git]: https://gist.github.com/trey/2722927
-[Entrega contínua para o Azure usando o Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Entrega contínua para o Azure usando o Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 <!--HONumber=49-->
