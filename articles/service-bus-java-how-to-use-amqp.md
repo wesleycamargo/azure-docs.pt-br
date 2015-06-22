@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	urldisplayname="Service Bus AMQP" 
 	headerexpose="" 
 	pageTitle="Como usar o AMQP 1.0 com a API de barramento de serviço do Java - Azure" 
@@ -370,3 +370,4 @@ Você também pode usar o AMQP 1.0 do Barramento de Serviço de outras linguagen
 * [Como usar filas do Barramento de Serviço](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 <!--HONumber=47-->
+ 

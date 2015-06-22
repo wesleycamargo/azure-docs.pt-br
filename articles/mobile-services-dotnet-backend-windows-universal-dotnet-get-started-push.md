@@ -110,7 +110,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Enviar notificações por push para usuários autenticados]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[O que são Hubs de Notificação?]: notification-hubs-overview.md
+[O que são Hubs de Notificação?]: notification-hubs/notification-hubs-overview.md
 
 [Como usar um cliente .NET para os Serviços Móveis do Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

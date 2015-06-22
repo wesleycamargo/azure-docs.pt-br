@@ -66,15 +66,15 @@ Este tutorial demonstrou as noções básicas sobre a ativação do aplicativo d
 
 + [Enviar notificações em push para usuários autenticados](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Saiba como usar marcas para enviar notificações por push a partir de um Serviço Móvel apenas para um usuário autenticado.
 
-+ [Enviar notificações de transmissão para assinantes](notification-hubs-windows-store-dotnet-send-breaking-news.md)
++ [Enviar notificações de transmissão para assinantes](notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md)
 <br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 
-+ [Enviar notificações independentes de plataformas para assinantes](notification-hubs-aspnet-cross-platform-notify-users.md)
++ [Enviar notificações independentes de plataformas para assinantes](notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md)
 <br/>Saiba usar modelos para enviar notificações por push do seu serviço móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 
-* [Hubs de Notificação do Azure - Diretrizes de diagnóstico](notification-hubs-diagnosing.md) <br/>Aprenda a solucionar seus problemas com notificações por push.
+* [Hubs de Notificação do Azure - Diretrizes de diagnóstico](notification-hubs/notification-hubs-diagnosing.md) <br/>Aprenda a solucionar seus problemas com notificações por push.
 
 * [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
@@ -96,7 +96,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[O que são Hubs de Notificação?]: notification-hubs-overview.md
+[O que são Hubs de Notificação?]: notification-hubs/notification-hubs-overview.md
 
 [Como usar um cliente .NET para os Serviços Móveis do Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

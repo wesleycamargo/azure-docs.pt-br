@@ -237,9 +237,9 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo i
 
 [Enviar notificações em push para usuários autenticados]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[O que são Hubs de Notificação?]: notification-hubs-overview.md
-[Enviar notificações de transmissão para assinantes]: notification-hubs-ios-send-breaking-news.md
-[Enviar notificações com base no modelo para assinantes]: notification-hubs-ios-send-localized-breaking-news.md
+[O que são Hubs de Notificação?]: notification-hubs/notification-hubs-overview.md
+[Enviar notificações de transmissão para assinantes]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Enviar notificações com base no modelo para assinantes]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [Referência conceitual de como do Objective-C de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
