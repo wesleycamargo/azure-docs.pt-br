@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.date="2/23/2015" 
+	ms.date="02/23/2015" 
 	ms.author="jhubbard; v-stste@microsoft.com" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # Atualizar bancos de dados SQL de negócios ou da Web para novas camadas de serviço
@@ -171,11 +171,11 @@ Aqui está uma consulta no banco de dados mestre que executa o cálculo do banco
 
 **Resultado de exemplo:**
 
-![Sample Result](media/sql-database-upgrade-new-service-tiers/CTnjv26.png)
+![Sample Result](media/sql-database-upgrade-new-service-tiers/sample_result.png)
 
 No gráfico, você pode ver a tendência de consumo do percentual médio de DTU ao longo do tempo. Aqui está um exemplo de gráfico para um banco de dados de um nível S2 na maioria do tempo, com alguma atividade de pico atingindo um nível de banco de dados P1.  O consumo de DTU ao longo do tempo varia dos limites do 'Basic' até os limites do 'P1'. Para ajustar completamente esse banco de dados na nova camada, será necessário um banco de dados com camada de serviço Premium com nível de desempenho 'P1'. Por outro lado, um banco de dados de nível S2 pode funcionar se esses picos ocasionais para o nível P1 são raros.
 
-![DTU Usage](media/sql-database-upgrade-new-service-tiers/e4N4ay5.png)
+![DTU Usage](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
 **Impacto no desempenho de memória:** embora a memória é uma das dimensões de recurso que contribui para a taxa de DTU, o banco de dados SQL foi projetado para usar toda a memória disponível para operações de banco de dados. Por esse motivo o consumo de memória não está incluído no consumo de DTU médio na consulta acima. Por outro lado, se você reduzir para um nível de desempenho inferior, então a memória disponível para o banco de dados será reduzida. Isso pode resultar em maior consumo de e/s que afetam o DTU consumido. Portanto, ao reduzir para um nível de desempenho inferior, certifique-se de que você tem espaço suficiente na porcentagem de e/s. Use a DMV [sys.dm_db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mencionada acima para monitorá-lo.
 

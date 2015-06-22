@@ -9,13 +9,12 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/19/2015"
    ms.author="kundanap"/>
-
 # Extensão de script personalizado para o Windows
 
 Este artigo fornece uma visão geral do uso de extensão do script personalizado no Windows usando cmdlets do Powershell do Azure.
