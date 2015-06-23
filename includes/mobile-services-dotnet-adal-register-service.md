@@ -36,6 +36,6 @@ Nesta seção, você registrará seu serviço móvel com o Active Directory do A
 6. No Portal de Gerenciamento do Azure, clique novamente em **Gerenciar Manifesto** para o aplicativo e clique em **Carregar Manifesto**. Navegue até o local do manifesto do aplicativo acabou de ser atualizado e carregue o manifesto.
 
 <!-- URLs. -->
-[Como registrar-se com o Active Directory do Azure]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
+[Como registrar-se com o Active Directory do Azure]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 <!--HONumber=54-->

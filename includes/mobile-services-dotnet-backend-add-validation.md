@@ -1,4 +1,4 @@
-﻿
+
 É sempre uma boa prática validar o tamanho dos dados enviados pelos usuários. Nesta seção, você adicionará um código ao serviço móvel que valida o tamanho dos dados da cadeia de caracteres enviados para o serviço móvel e rejeita as cadeias de caracteres que são muito longas, neste caso mais de 10 caracteres.
 
 1. Inicie o Visual Studio com a opção **Executar como administrador** e abra a solução contendo o projeto de serviço móvel com que você trabalhou no tutorial [Introdução] ou [Introdução aos dados](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md).

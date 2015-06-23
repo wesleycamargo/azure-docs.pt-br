@@ -1436,7 +1436,7 @@ Esse comando remove todas as linhas de dados da tabela.
 
 ###<a name="Mobile_Scripts"></a>Comandos para gerenciar scripts
 
-Os comandos desta seção são utilizados para gerenciar os scripts de servidor que pertencem a um serviço móvel. Para obter mais informações, consulte [Trabalhar com scripts de servidor em Serviços Móveis](mobile-services-how-to-use-server-scripts.md).
+Os comandos desta seção são utilizados para gerenciar os scripts de servidor que pertencem a um serviço móvel. Para obter mais informações, consulte [Trabalhar com scripts de servidor em Serviços Móveis](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [opções][servicename]**
 

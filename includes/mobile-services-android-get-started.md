@@ -17,7 +17,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 	- 	Encontre o método **OnCreate** em **TodoActivity.java** e localize o código que instancia o cliente de serviços móveis. O código está visível na imagem anterior.
 	- 	Substitua "MobileServiceUrl" pela verdadeira Url do serviço móvel.
 	- 	Substitua "AppKey" pela chave do serviço móvel.
-	- 	Para obter mais detalhes, consulte o tutorial [Adicionar Serviços Móveis a um aplicativo existente](../articles/mobile-services-android-get-started-data.md). 
+	- 	Para obter mais detalhes, consulte o tutorial [Adicionar Serviços Móveis a um aplicativo existente](../articles/mobile-services/mobile-services-android-get-started-data.md). 
 
 6. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador Android.
 
@@ -52,9 +52,9 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
