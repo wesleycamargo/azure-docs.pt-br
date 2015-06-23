@@ -1,5 +1,5 @@
-﻿> [AZURE.SELECTOR]
-- [SDK .NET](../articles/media-services-encode-with-premium-workflow.md)
+> [AZURE.SELECTOR]
+- [SDK .NET](../articles/media-services/media-services-encode-with-premium-workflow.md)
 
 
 

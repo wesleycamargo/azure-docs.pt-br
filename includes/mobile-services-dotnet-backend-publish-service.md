@@ -2,7 +2,7 @@
 
 Depois de testar o aplicativo cliente no serviço móvel local, o estágio final deste tutorial é publicar o serviço móvel no Azure e executar o aplicativo no serviço dinâmico.
 
->[AZURE.NOTE]Este procedimento mostra como publicar seu serviço móvel usando ferramentas do Visual Studio. Também é possível publicar seu serviço móvel de back-end .NET usando o controle do código-fonte. Para saber mais, consulte [Armazenar código de projeto no controle do código-fonte](../articles/mobile-services-dotnet-backend-store-code-source-control.md).
+>[AZURE.NOTE]Este procedimento mostra como publicar seu serviço móvel usando ferramentas do Visual Studio. Também é possível publicar seu serviço móvel de back-end .NET usando o controle do código-fonte. Para saber mais, consulte [Armazenar código de projeto no controle do código-fonte](../articles/mobile-services/mobile-services-dotnet-backend-store-code-source-control.md).
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto do serviço móvel, clique em **Publicar**, na caixa de diálogo **Publicar Web**, e em **Serviços Móveis do Azure**.
 
